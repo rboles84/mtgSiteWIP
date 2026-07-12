@@ -16,9 +16,9 @@ Recover Prismari end to end under CRIT-001: audit the existing packet, bound rea
 ## Gates
 
 - [x] Gate 1 — Packet audit and bounded disposition.
-- [ ] Gate 2 — Sufficient evidence completion.
-- [ ] Gate 3 — Canonical remediation.
-- [ ] Gate 4 — Generation and validation.
+- [x] Gate 2 — Sufficient evidence completion.
+- [x] Gate 3 — Canonical remediation.
+- [x] Gate 4 — Generation and validation.
 - [ ] Gate 5 — Independent certification.
 
 ## Scope Rules
@@ -36,14 +36,36 @@ Recover Prismari end to end under CRIT-001: audit the existing packet, bound rea
 - Audit/recovery report: `docs/incidents/recoveries/VM-502-prismari-semantic-recovery.md`
 - Rejected candidate SHA: `85d3c79daa5081b6af4376506f51d33fe51e1225`
 - Independent review result: `changes_requested`
-- Replacement candidate SHA: pending
+- Replacement candidate SHA: pending immutable commit
 - Certification commit: pending
 
 ## Gate 1 Disposition
 
 - Primary disposition: `claim_extraction_and_traceability_repair`
 - Required neighbors: `UR`, `BR`, `QUANDRIX`, `SILVERQUILL`
-- Active gate: fresh replacement remediation under accepted Contract v1.1 prerequisite
+- Active gate: candidate commit pending
+
+## Replacement Candidate Scope
+
+- Shared contract/schema/tooling changes: none.
+- Runtime scoring, confidence, inhibition, tie-ordering, scheduling, Hall, and Crucible changes: none.
+- Prismari `lateral_inhibition`: unchanged from the accepted program base; all Prismari collision entries remain `false`.
+- Generated semantic outputs: Prismari-only changes across `data/factions.json`, `data/placement-model.json`, Supabase faction context, and semantic provenance.
+- Known unrelated existing prompt: the old Quandrix-origin Prismari/Quandrix shared Crucible wording remains outside this identity recovery and was not edited.
+
+## Replacement Validation
+
+- PASS — `node research/validate-semantic-readiness.mjs --targets=PRISMARI`
+- PASS — `npm.cmd run build:factions`
+- PASS with known warnings — `npm.cmd run validate:source-generated -- --targets=UR,PRISMARI`
+- PASS — `npm.cmd run test:semantic-readiness`
+- PASS — `npm.cmd run test:placement`
+- PASS — `npm.cmd run test:faction-context-isolation`
+- PASS — `node research/archscry-dossier-followup-tests.js`
+- PASS with known warnings — `npm.cmd run dossier:audit`
+- PASS — `npm.cmd test`
+- PASS — `npm.cmd run test:parser`
+- PASS — `git diff --check`
 
 ## Rejected Candidate
 

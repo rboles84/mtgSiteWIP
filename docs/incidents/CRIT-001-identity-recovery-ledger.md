@@ -9,7 +9,7 @@ Generated from `CRIT-001-identity-recovery-ledger.json`. The JSON file is author
 
 | Card | Identity | Cohort | Gate | Status | Structural fingerprint | Contract | Recovery | Certification |
 |---|---|---|---|---|---|---|---|---|
-| VM-502 | PRISMARI — Prismari | college | replacement_remediation | active | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern, template-cohort-pattern | v1.1 | — | — |
+| VM-502 | PRISMARI — Prismari | college | candidate_pending | active | mixed-role-pattern, support-heavy-pattern | v1.1 | — | — |
 | VM-503 | QUANDRIX — Quandrix | college | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | — | — | — |
 | VM-504 | SILVERQUILL — Silverquill | college | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | — | — | — |
 | VM-505 | WITHERBLOOM — Witherbloom | college | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern, template-cohort-pattern | — | — | — |

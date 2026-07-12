@@ -9093,17 +9093,17 @@
       "core_tension": "Does mastery of the medium precede authentic expression, or does authentic expression make technique meaningful? Both traditions are right. The tension between them is where the actual art lives.",
       "affinity": {
         "drawn_to": [
-          "Making something that did not exist before - the specific pleasure of that",
-          "The physical and emotional experience of creating, not just the result",
-          "Scale - bigger, louder, more saturated, more present",
-          "How something is expressed as important as what it expresses",
+          "Making an idea or emotion felt through a chosen artistic or elemental form",
+          "The physical and emotional experience of creating, not only the finished result",
+          "Practice, apprenticeship, and revision that give expression a stronger shape",
+          "Art that can be visual, physical, musical, immersive, collaborative, or public",
           "Living in the tension between discipline and spontaneity"
         ],
         "repelled_by": [
-          "Functional over beautiful when both are possible",
-          "Being told to tone it down",
-          "Art that plays it safe to be broadly acceptable",
-          "Technique without feeling, or feeling without craft"
+          "Mechanism, proof, rhetoric, or transgression replacing expressive purpose",
+          "Being told expression is unserious unless it is purely useful",
+          "Spectacle that ignores craft, revision, or consequence",
+          "Technique without feeling, or feeling without form"
         ],
         "core_question": "Describe something you made - anything - that you felt genuinely proud of. What did it cost you to make it?",
         "interview_tells": [
@@ -9113,13 +9113,13 @@
           "Mentions a creative project in progress or painfully abandoned",
           "Strong opinions about how things should be expressed, not just what"
         ],
-        "not_to_be_confused_with": "Rakdos - both value spectacle but Prismari refines, crafts, and masters; Rakdos transgresses and burns. Izzet - both experimental but Prismari's experiments are aesthetic and emotional; Izzet's are scientific and structural. Silverquill - both performative but Prismari uses elemental force and scale; Silverquill uses precision and wit."
+        "not_to_be_confused_with": "Rakdos - both can perform, but Prismari centers artistic or elemental expression while Rakdos centers transgression and destructive entertainment. Izzet - both can create novel things, but Prismari asks whether the novelty becomes artistic experience while Izzet asks what the experiment, invention, or technical system accomplishes. Silverquill - both can move a room, but Prismari uses artistic and elemental media while Silverquill uses word magic, leadership, competition, and rhetoric."
       },
       "decree_voice": {
         "tone": "Expansive. Vivid. Like the decree itself is a performance.",
         "speaks_like": "An artist who has decided you're worth a full commitment.",
         "example_opening": "What you made already told us everything.",
-        "example_decree": "What you made already told us everything. Not the result - the cost. The willingness to spend something real on something that might not work, that might not land, that might be misunderstood. Prismari does not want craftspeople. It wants artists - people for whom the act of making is indistinguishable from the act of living. You are that. You have always been that. Now you have a stage large enough to match your vision. Use it."
+        "example_decree": "What you made already told us something important: not only the result, but the form you chose, the practice behind it, and the feeling you were trying to make real. Prismari does not ask craft and expression to be enemies. It asks whether technique can carry intensity without flattening it, and whether intensity can accept enough form to become art. You have work to revise, risks to contain, and a medium large enough for what you are trying to say. Use it with care. Use it fully."
       },
       "archetypes": [
         {
@@ -9272,7 +9272,8 @@
                 "prismari_claim_0017"
               ],
               "support_only": true,
-              "boundary": "Official product/card-data support only."
+              "boundary": "Official product/card-data support only.",
+              "evidence_use": "auxiliary_support"
             },
             "confidence": "High for product/card identity; support-only for recommendation texture.",
             "caution_notes": [
@@ -9315,7 +9316,8 @@
                 "prismari_claim_0017"
               ],
               "support_only": true,
-              "boundary": "Official product/card-data support only."
+              "boundary": "Official product/card-data support only.",
+              "evidence_use": "auxiliary_support"
             },
             "confidence": "High for product/card identity; support-only for recommendation texture.",
             "caution_notes": [
@@ -9380,31 +9382,21 @@
             "character_id": "char_brodd_scaldbreath",
             "name": "Brodd Scaldbreath",
             "role": "Prismari professor emeritus quoted in the official Strixhaven guide.",
-            "relationship_to_faction": "Official guide speaker for Prismari texture; not a comprehensive leadership proof.",
+            "relationship_to_faction": "Character-specific official guide speaker; not a comprehensive leadership proof or independent faction-wide identity source.",
             "claim_ids": [
-              "prismari_claim_001",
-              "prismari_claim_002",
-              "prismari_claim_003",
-              "prismari_claim_004"
+              "prismari_claim_0033"
             ],
             "source_ids": [
               "src_wotc_planeswalkers_guide_strixhaven_2021"
             ],
-            "confidence": "High",
-            "notes": "VM-378 promotes only the official guide speaker role. Leadership details remain deferred."
+            "confidence": "High for the bounded character/source role.",
+            "notes": "Brodd evidence is character-specific; identity-wide Prismari meaning is supported by separate college claims."
           },
           {
             "character_id": "card_rootha_mastering_the_moment",
             "name": "Rootha, Mastering the Moment",
             "role": "Face commander for Prismari Artistry in the official Secrets of Strixhaven Commander decklist.",
             "relationship_to_faction": "Support-only product/navigation anchor; not a lore biography or popularity claim.",
-            "claim_ids": [
-              "prismari_claim_0017"
-            ],
-            "source_ids": [
-              "src_wotc_secrets_strixhaven_commander_decklists_20260401",
-              "src_scryfall_oracle_cards_local_strixhaven_20260613"
-            ],
             "confidence": "High for product/card fact; support-only for lore and recommendations.",
             "notes": "Product row can support deck availability, commander name, and navigation only."
           },
@@ -9413,13 +9405,6 @@
             "name": "Muddle, the Ever-Changing",
             "role": "Featured commander for Prismari Artistry in the official Secrets of Strixhaven Commander decklist.",
             "relationship_to_faction": "Support-only product/navigation anchor; not a lore biography or popularity claim.",
-            "claim_ids": [
-              "prismari_claim_0017"
-            ],
-            "source_ids": [
-              "src_wotc_secrets_strixhaven_commander_decklists_20260401",
-              "src_scryfall_oracle_cards_local_strixhaven_20260613"
-            ],
             "confidence": "High for product/card fact; support-only for lore and recommendations.",
             "notes": "Product row can support deck availability, commander name, and navigation only."
           }
@@ -9438,7 +9423,8 @@
             "source_ids": [
               "src_scryfall_oracle_cards_local_strixhaven_20260613"
             ],
-            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+            "evidence_use": "auxiliary_support"
           },
           {
             "card_name": "Prismari Apprentice",
@@ -9453,7 +9439,8 @@
             "source_ids": [
               "src_scryfall_oracle_cards_local_strixhaven_20260613"
             ],
-            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+            "evidence_use": "auxiliary_support"
           },
           {
             "card_name": "Prismari Pledgemage",
@@ -9468,7 +9455,8 @@
             "source_ids": [
               "src_scryfall_oracle_cards_local_strixhaven_20260613"
             ],
-            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+            "evidence_use": "auxiliary_support"
           }
         ],
         "views_on_other_factions": [],

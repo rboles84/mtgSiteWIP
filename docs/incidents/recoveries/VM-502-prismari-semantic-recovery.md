@@ -65,3 +65,51 @@ Prismari is under-extracted and under-modeled rather than source-empty. The smal
 ## Required replacement sequence
 
 The shared VM-501 prerequisite has been accepted into the CRIT-001 program base. Fresh VM-502 replacement work starts from that accepted base. Rejected candidate `85d3c79daa5081b6af4376506f51d33fe51e1225` may be used only as a reference; it must not be cherry-picked intact.
+
+## Gate 2 - Evidence Completion
+
+Selected evidence remained bounded to existing official Prismari sources plus official Izzet/Rakdos comparison sources needed for required-neighbor boundaries:
+
+- `src_wotc_planeswalkers_guide_strixhaven_2021`
+- `src_wotc_planeswalkers_guide_secrets_strixhaven_2026`
+- `src_izzet_league_0002`
+- `src_wotc_flavorful_guide_ravnica_allegiance_2019`
+
+Evidence gathering stopped after the readiness blockers had sufficient support. No broad story sweep, Hall/Crucible work, scoring work, or live recruiter testing was added.
+
+## Gate 3 - Canonical Remediation
+
+- Classified 21 records as `substantive_claim`, 10 as `discovery_record`, and 2 as `support_record`.
+- Preserved the original six valid core claims while adding semantic roles and bounded evidence locations.
+- Preserved the ten discovery records and two support records in their correct non-semantic roles.
+- Added bounded claims for practice, collaboration, revision, expression modes, subgroup/location risk, mature expression, unhealthy expression, failure/pressure behavior, Brodd-specific character evidence, uncertainty, and required-neighbor boundaries.
+- Repaired stale public display-source language that produced "bigger, louder," "Functional over beautiful," and "Prismari does not want craftspeople."
+- Added one direct Prismari/Izzet discriminator without enabling lateral inhibition.
+- Rewrote Izzet, Quandrix, and Silverquill boundaries with neutral, source-backed purpose distinctions and mixed-purpose ambiguity.
+- Removed unsupported attention, criticism-escalation, abandonment, sterile-technique, status, reputation, leverage, choice-control, reusable-infrastructure, bystander-protection, and feedback-versus-taste details from the replacement candidate.
+
+## Gate 4 - Generation and Validation
+
+Generated artifacts were rebuilt from canonical data with `npm.cmd run build:factions`. The generated semantic changes are Prismari-scoped across `data/factions.json`, `data/placement-model.json`, Supabase faction context, and semantic provenance. `data/factions.json` is also the builder-declared display-surface source for the repaired public recruiter/display phrasing.
+
+Prismari collision entries all keep `lateral_inhibition: false`. No scoring, confidence, tie-ordering, scheduling, Hall, Crucible, or global recruiter behavior was changed.
+
+Known scope note: the old "correct but lifeless" wording still exists only in the pre-existing Quandrix-origin collision/shared Crucible path and was not edited because Hall/Crucible and non-Prismari semantics are outside VM-502.
+
+Validation results:
+
+- PASS - `node research/validate-semantic-readiness.mjs --targets=PRISMARI`
+- PASS - `npm.cmd run build:factions`
+- PASS with known model-owned inhibitor warnings - `npm.cmd run validate:source-generated -- --targets=UR,PRISMARI`
+- PASS - `npm.cmd run test:semantic-readiness`
+- PASS - `npm.cmd run test:placement`
+- PASS - `npm.cmd run test:faction-context-isolation`
+- PASS - `node research/archscry-dossier-followup-tests.js`
+- PASS with known warnings - `npm.cmd run dossier:audit` (0 failures; 113 warnings)
+- PASS - `npm.cmd test`
+- PASS - `npm.cmd run test:parser`
+- PASS - `git diff --check`
+
+## Gate 5 - Candidate Status
+
+Replacement candidate commit is pending. No certification exists.

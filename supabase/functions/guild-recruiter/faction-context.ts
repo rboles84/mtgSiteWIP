@@ -7201,17 +7201,17 @@ export const FACTION_CONTEXT = {
     "core_tension": "Does mastery of the medium precede authentic expression, or does authentic expression make technique meaningful? Both traditions are right. The tension between them is where the actual art lives.",
     "affinity": {
       "drawn_to": [
-        "Making something that did not exist before - the specific pleasure of that",
-        "The physical and emotional experience of creating, not just the result",
-        "Scale - bigger, louder, more saturated, more present",
-        "How something is expressed as important as what it expresses",
+        "Making an idea or emotion felt through a chosen artistic or elemental form",
+        "The physical and emotional experience of creating, not only the finished result",
+        "Practice, apprenticeship, and revision that give expression a stronger shape",
+        "Art that can be visual, physical, musical, immersive, collaborative, or public",
         "Living in the tension between discipline and spontaneity"
       ],
       "repelled_by": [
-        "Functional over beautiful when both are possible",
-        "Being told to tone it down",
-        "Art that plays it safe to be broadly acceptable",
-        "Technique without feeling, or feeling without craft"
+        "Mechanism, proof, rhetoric, or transgression replacing expressive purpose",
+        "Being told expression is unserious unless it is purely useful",
+        "Spectacle that ignores craft, revision, or consequence",
+        "Technique without feeling, or feeling without form"
       ],
       "core_question": "Describe something you made - anything - that you felt genuinely proud of. What did it cost you to make it?",
       "interview_tells": [
@@ -7221,13 +7221,13 @@ export const FACTION_CONTEXT = {
         "Mentions a creative project in progress or painfully abandoned",
         "Strong opinions about how things should be expressed, not just what"
       ],
-      "not_to_be_confused_with": "Rakdos - both value spectacle but Prismari refines, crafts, and masters; Rakdos transgresses and burns. Izzet - both experimental but Prismari's experiments are aesthetic and emotional; Izzet's are scientific and structural. Silverquill - both performative but Prismari uses elemental force and scale; Silverquill uses precision and wit."
+      "not_to_be_confused_with": "Rakdos - both can perform, but Prismari centers artistic or elemental expression while Rakdos centers transgression and destructive entertainment. Izzet - both can create novel things, but Prismari asks whether the novelty becomes artistic experience while Izzet asks what the experiment, invention, or technical system accomplishes. Silverquill - both can move a room, but Prismari uses artistic and elemental media while Silverquill uses word magic, leadership, competition, and rhetoric."
     },
     "decree_voice": {
       "tone": "Expansive. Vivid. Like the decree itself is a performance.",
       "speaks_like": "An artist who has decided you're worth a full commitment.",
       "example_opening": "What you made already told us everything.",
-      "example_decree": "What you made already told us everything. Not the result - the cost. The willingness to spend something real on something that might not work, that might not land, that might be misunderstood. Prismari does not want craftspeople. It wants artists - people for whom the act of making is indistinguishable from the act of living. You are that. You have always been that. Now you have a stage large enough to match your vision. Use it."
+      "example_decree": "What you made already told us something important: not only the result, but the form you chose, the practice behind it, and the feeling you were trying to make real. Prismari does not ask craft and expression to be enemies. It asks whether technique can carry intensity without flattening it, and whether intensity can accept enough form to become art. You have work to revise, risks to contain, and a medium large enough for what you are trying to say. Use it with care. Use it fully."
     },
     "biological_expression": {
       "archetype": "The Elemental Expressionist",
@@ -7267,20 +7267,29 @@ export const FACTION_CONTEXT = {
       "broad_match_penalty": 0.1
     },
     "good_fit_indicators": [
-      "thinks through art or performance",
-      "values emotional truth and craft",
-      "wants work to be felt, not merely understood"
+      "thinks through art or elemental form, not merely abstract correctness",
+      "uses disciplined technique to carry emotional or conceptual expression",
+      "revises work through practice, collaboration, criticism, or audience response",
+      "can express Prismari through visual, physical, musical, immersive, collaborative, or public work",
+      "accepts responsibility for the consequences of powerful expression"
     ],
     "poor_fit_indicators": [
-      "prefers invisible optimization",
-      "rejects spectacle as unserious",
-      "values only proof and never expression"
+      "centers mechanisms, prototypes, infrastructure, or technical outcomes instead of artistic experience",
+      "centers transgression, cruelty, chaos, or authority-parody instead of expression",
+      "centers mathematical proof or hidden structure as the final aim",
+      "centers rhetoric, word-magic leadership, competition, or piercing argument as the final aim",
+      "treats damage or unmanaged dangerous residue as acceptable expression"
     ],
     "inhibitor_traps": [
       "Emotional sterility; values correct technique, safety, or utility while dismissing felt expression as unnecessary noise.",
-      "prefers invisible optimization",
-      "rejects spectacle as unserious",
-      "values only proof and never expression"
+      "centers mechanism, prototype, infrastructure, or technical outcome rather than artistic experience",
+      "centers transgression, cruelty, chaos, or authority-parody rather than expression",
+      "uses mathematical proof or rhetorical word magic as the primary end rather than artistic elemental form",
+      "centers mechanisms, prototypes, infrastructure, or technical outcomes instead of artistic experience",
+      "centers transgression, cruelty, chaos, or authority-parody instead of expression",
+      "centers mathematical proof or hidden structure as the final aim",
+      "centers rhetoric, word-magic leadership, competition, or piercing argument as the final aim",
+      "treats damage or unmanaged dangerous residue as acceptable expression"
     ],
     "lateral_inhibition_targets": [
       "UR",
@@ -7291,91 +7300,114 @@ export const FACTION_CONTEXT = {
       {
         "id": "prismari_q1",
         "prompt": "When has making something beautiful mattered more than making it efficient?",
-        "purpose": "Tests Prismari value logic.",
-        "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-        "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
+        "purpose": "Tests whether artistic form has independent value beyond efficiency.",
+        "supports": "The answer centers artistic or elemental form as the reason the work matters.",
+        "weakens": "The answer treats beauty or expression as irrelevant beside utility.",
         "collision_targets": [],
         "evidence_claim_ids": [
-          "prismari_claim_001",
           "prismari_claim_002",
-          "prismari_claim_003"
+          "prismari_claim_003",
+          "prismari_claim_0022",
+          "prismari_claim_0025"
         ],
         "confidence": "Medium"
       },
       {
         "id": "prismari_q2",
         "prompt": "Do you perfect the technique first, or throw the feeling into the room and refine later?",
-        "purpose": "Separates blue and red Prismari poles.",
-        "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-        "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
+        "purpose": "Tests integration of practiced technique, expressive force, revision, and responsibility.",
+        "supports": "The answer integrates technique and expression instead of treating either as sufficient alone.",
+        "weakens": "The answer rejects either craft or responsibility as irrelevant.",
         "collision_targets": [],
         "evidence_claim_ids": [
-          "prismari_claim_001",
-          "prismari_claim_002",
-          "prismari_claim_003"
+          "prismari_claim_004",
+          "prismari_claim_0019",
+          "prismari_claim_0025",
+          "prismari_claim_0026",
+          "prismari_claim_0027"
         ],
         "confidence": "Medium"
       },
       {
         "id": "prismari_q3",
-        "prompt": "When a pattern is correct but lifeless, do you prove it more carefully or make it land as an experience?",
-        "purpose": "Separates Prismari expressive performance from Quandrix proof and abstract model logic.",
-        "supports": "The answer centers art, performance, elemental spectacle, felt expression, or technique in service of emotion.",
-        "weakens": "The answer centers proof, mathematical model, hidden structure, or abstraction before experience.",
+        "prompt": "When a pattern is beautiful and correct, are you trying to prove the structure or make it felt as an experience?",
+        "purpose": "Separates Prismari artistic experience from Quandrix proof and model logic without denying Quandrix beauty.",
+        "supports": "The answer centers artistic or elemental experience as the purpose.",
+        "weakens": "The answer centers proof, mathematical model, hidden structure, or abstraction as the final aim.",
         "collision_targets": [],
         "evidence_claim_ids": [
           "prismari_claim_002",
           "prismari_claim_003",
           "prismari_claim_004",
-          "prismari_claim_006"
+          "prismari_claim_0030",
+          "prismari_claim_0032"
         ],
         "confidence": "Medium"
       },
       {
         "id": "prismari_q4",
-        "prompt": "When language can move a room, should it become a precise argument, a public performance, or an elemental spectacle?",
-        "purpose": "Separates Prismari art and elemental performance from Silverquill rhetorical influence.",
+        "prompt": "When language can move a room, should it become a precise argument, a public performance, or an elemental artwork?",
+        "purpose": "Separates Prismari artistic/elemental expression from Silverquill word magic and rhetoric.",
         "supports": "The answer centers art, performance, elemental spectacle, movement, emotion, or expressive force.",
-        "weakens": "The answer centers precise rhetoric, status, reputation, leadership, or word-magic influence.",
+        "weakens": "The answer centers precise rhetoric, word magic, leadership, competition, or piercing argument.",
         "collision_targets": [],
         "evidence_claim_ids": [
           "prismari_claim_002",
           "prismari_claim_003",
-          "prismari_claim_004",
-          "prismari_claim_006"
+          "prismari_claim_0022",
+          "prismari_claim_0031",
+          "prismari_claim_0032"
         ],
         "confidence": "Medium"
+      },
+      {
+        "id": "prismari_q5",
+        "prompt": "When you create something new, is the breakthrough mainly an expressive experience, a working invention, or both?",
+        "purpose": "Directly separates Prismari expressive purpose from Izzet technical purpose while preserving mixed-purpose ambiguity.",
+        "supports": "The answer centers practiced artistic or elemental form, expression, revision, and felt experience.",
+        "weakens": "The answer centers mechanism, prototype function, technical novelty, infrastructure, or experiment outcomes as the final purpose.",
+        "collision_targets": [
+          "UR"
+        ],
+        "evidence_claim_ids": [
+          "prismari_claim_004",
+          "prismari_claim_0019",
+          "prismari_claim_0025",
+          "prismari_claim_0028",
+          "prismari_claim_0032"
+        ],
+        "confidence": "High"
       }
     ],
     "chatbot_guidance": {
       "how_to_recognize_match": [
-        "thinks through art or performance",
-        "values emotional truth and craft",
-        "wants work to be felt, not merely understood"
+        "uses disciplined technique to make expression or experience felt through art or elemental media",
+        "revises craft through practice, collaboration, criticism, or audience response",
+        "expresses Prismari through visual, physical, musical, immersive, collaborative, or public work rather than spectacle alone"
       ],
       "how_to_recognize_mismatch": [
-        "prefers invisible optimization",
-        "rejects spectacle as unserious",
-        "values only proof and never expression"
+        "centers mechanism, prototype, infrastructure, or technical outcome rather than artistic experience",
+        "centers transgression, cruelty, chaos, or authority-parody rather than expression",
+        "uses mathematical proof or rhetorical word magic as the primary end rather than artistic elemental form"
       ],
       "questions_to_ask_when_uncertain": [
-        "When has making something beautiful mattered more than making it efficient?",
-        "Do you perfect the technique first, or throw the feeling into the room and refine later?",
-        "When a pattern is correct but lifeless, do you prove it more carefully or make it land as an experience?",
-        "When language can move a room, should it become a precise argument, a public performance, or an elemental spectacle?"
+        "What is the work trying to make happen: artistic experience, mechanism, proof, rhetoric, or transgression?",
+        "When response or critique arrives, does it become material for revision?",
+        "Does technique serve expression, or replace it?",
+        "If a creative act is both expressive and technical, which purpose would still matter if the other disappeared?"
       ],
       "do_not_overweight": [
-        "Do not overfit a single color preference.",
-        "Do not treat one favorite card or mechanic as enough evidence by itself.",
-        "Do not score a faction highly from color identity alone when another faction shares the same colors or surface traits."
+        "Do not overfit a shared blue-red color preference.",
+        "Do not treat spectacle, creativity, emotion, or spellslinger mechanics as sufficient by themselves.",
+        "Do not use question count or source volume as a readiness signal."
       ],
       "never_claim_as_canon": [
         "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
         "Do not state that a user's personality is objectively determined by a faction.",
         "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
       ],
-      "calibration_note": "Prismari College should require its specific positive evidence cluster: expression, performance, art, emotion, elemental. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
-      "scoring_guardrail": "Do not award for generic spectacle if the answer is provocation, engineering, or rhetoric."
+      "calibration_note": "Require evidence that practiced artistic or elemental form is used to make expression or experience felt. Keep Prismari uncertain when the answer's purpose could instead be mechanism, proof, rhetoric, or transgression.",
+      "scoring_guardrail": "Do not award for generic spectacle, creativity, or blue-red identity without artistic or elemental expression and an identifiable purpose."
     },
     "canon_guardrails": {
       "never_claim_as_canon": [

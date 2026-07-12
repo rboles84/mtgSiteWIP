@@ -1,0 +1,130 @@
+{
+  "identity_key": "PRISMARI",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "prismari_core_inclusion",
+      "fixture_type": "core_inclusion",
+      "scenario": "A creator studies technique and elemental craft so an expressive idea can take a vivid artistic form, then revises the work without treating technique as the final purpose.",
+      "intended_interpretation": "Strong Prismari inclusion: trained technique serves expressive creation.",
+      "evidence_claim_ids": [
+        "prismari_claim_002",
+        "prismari_claim_003",
+        "prismari_claim_0019",
+        "prismari_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ]
+    },
+    {
+      "fixture_id": "prismari_mature_pressure",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "After audience response, the creator studies what the response reveals and revises the form while staying responsible for the work's effects.",
+      "intended_interpretation": "Mature Prismari accepts response, refines expression, and keeps responsibility in view.",
+      "evidence_claim_ids": [
+        "prismari_claim_0021",
+        "prismari_claim_0025",
+        "prismari_claim_0027"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ]
+    },
+    {
+      "fixture_id": "prismari_exclusion_izzet",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UR",
+      "scenario": "The creator values a prototype mainly because it proves a mechanism and can become useful infrastructure; expressive impact is incidental.",
+      "intended_interpretation": "Prefer Izzet over Prismari because mechanism and invention are the end rather than tools of expression.",
+      "evidence_claim_ids": [
+        "prismari_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_izzet_league_0002"
+      ]
+    },
+    {
+      "fixture_id": "prismari_exclusion_rakdos",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BR",
+      "scenario": "The performer uses spectacle chiefly to violate taboos, provoke the audience, and make transgression itself the point.",
+      "intended_interpretation": "Prefer Rakdos over Prismari because provocation and transgression are the purpose of performance.",
+      "evidence_claim_ids": [
+        "prismari_claim_0029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ]
+    },
+    {
+      "fixture_id": "prismari_exclusion_quandrix",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "QUANDRIX",
+      "scenario": "The researcher pursues mathematical structure and natural law for proof and explanation, even when the result is beautiful.",
+      "intended_interpretation": "Prefer Quandrix over Prismari because proof and structure are the ends.",
+      "evidence_claim_ids": [
+        "prismari_claim_0030"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ]
+    },
+    {
+      "fixture_id": "prismari_exclusion_silverquill",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SILVERQUILL",
+      "scenario": "The speaker treats spoken or written magic as piercing rhetoric, leadership, and competition rather than elemental art.",
+      "intended_interpretation": "Prefer Silverquill over Prismari because word magic and rhetoric are the purpose of expression.",
+      "evidence_claim_ids": [
+        "prismari_claim_0031"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ]
+    },
+    {
+      "fixture_id": "prismari_ambiguous_izzet",
+      "fixture_type": "nearest_collision_ambiguity",
+      "neighbor": "UR",
+      "scenario": "A creator builds a technically novel device for a performance and speaks equally about what the mechanism accomplishes and what the experience communicates.",
+      "intended_interpretation": "Remain uncertain between Prismari and Izzet until the final purpose is clear.",
+      "evidence_claim_ids": [
+        "prismari_claim_0028",
+        "prismari_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_izzet_league_0002",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ]
+    },
+    {
+      "fixture_id": "prismari_provenance_chain",
+      "fixture_type": "provenance",
+      "canonical_file": "data/raw-factions/prismari/prismari.placement.json",
+      "canonical_pointer": "/discriminator_questions/4",
+      "intended_interpretation": "The direct Prismari/Izzet discriminator is supported by approved pair-boundary evidence and must retain that chain in generated provenance.",
+      "evidence_claim_ids": [
+        "prismari_claim_004",
+        "prismari_claim_0019",
+        "prismari_claim_0025",
+        "prismari_claim_0028",
+        "prismari_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_izzet_league_0002",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ]
+    }
+  ]
+}

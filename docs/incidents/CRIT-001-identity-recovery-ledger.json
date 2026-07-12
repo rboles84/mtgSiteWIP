@@ -33,208 +33,51 @@
       },
       "computed": {
         "structural_fingerprint": [
-          "low-volume-pattern",
           "mixed-role-pattern",
-          "discovery-heavy-pattern",
-          "support-heavy-pattern",
-          "template-cohort-pattern"
+          "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 21,
           "discovery_record": 10,
           "support_record": 2,
-          "unclassified": 6
+          "unclassified": 0
         },
-        "source_count": 15,
+        "source_count": 17,
         "source_role_counts": {
-          "claim-bearing": 3,
+          "claim-bearing": 5,
           "discovery-only": 10,
           "support-only": 2
         },
-        "claim_bearing_source_count": 3,
-        "claim_bearing_source_rate": 0.2,
-        "reference_site_count": 44,
+        "claim_bearing_source_count": 5,
+        "claim_bearing_source_rate": 0.2941,
+        "reference_site_count": 63,
         "missing_references": [],
-        "potential_role_invalid_support_links": [
-          {
-            "pointer": "data/raw-factions/prismari/prismari.profile.json#/core_identity",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.profile.json#/site_surface",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.profile.json#/structure",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.profile.json#/great_tension",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.profile.json#/key_figures/1",
-            "roles": [
-              "support_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.profile.json#/key_figures/2",
-            "roles": [
-              "support_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.profile.json#/canonical_flavor_text/0",
-            "roles": [
-              "support_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.profile.json#/canonical_flavor_text/1",
-            "roles": [
-              "support_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.profile.json#/canonical_flavor_text/2",
-            "roles": [
-              "support_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.profile.json#/mechanics",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.profile.json#/data_quality/corpus_upgrade",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.profile.json#/commander_compass/native_fit_commanders/0/source_basis",
-            "roles": [
-              "support_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.profile.json#/commander_compass/native_fit_commanders/1/source_basis",
-            "roles": [
-              "support_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.placement.json#/placement_summary",
-            "roles": [
-              "discovery_record",
-              "unclassified"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.placement.json#/placement_axes/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.placement.json#/moral_and_psychological_profile",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.placement.json#/core_values/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.placement.json#/core_values/1",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.placement.json#/core_values/2",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.placement.json#/core_values/3",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.placement.json#/core_values/4",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.placement.json#/core_values/5",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.placement.json#/core_values/6",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.placement.json#/core_values/7",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.placement.json#/core_values/8",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.placement.json#/behavioral_signals/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/prismari/prismari.placement.json#/inhibitor_traits/0",
-            "roles": [
-              "discovery_record"
-            ]
-          }
-        ],
-        "raw_question_count": 4,
+        "potential_role_invalid_support_links": [],
+        "raw_question_count": 5,
         "unique_question_claim_ids": [
-          "prismari_claim_001",
           "prismari_claim_002",
           "prismari_claim_003",
+          "prismari_claim_0022",
+          "prismari_claim_0025",
           "prismari_claim_004",
-          "prismari_claim_006"
+          "prismari_claim_0019",
+          "prismari_claim_0026",
+          "prismari_claim_0027",
+          "prismari_claim_0030",
+          "prismari_claim_0032",
+          "prismari_claim_0031",
+          "prismari_claim_0028"
         ],
         "neighbor_references": [
+          "Izzet League",
           "Quandrix College",
           "Silverquill College",
+          "cult_of_rakdos",
+          "izzet_league",
           "quandrix",
           "silverquill"
         ],
-        "recruiter_context_size": 8614,
+        "recruiter_context_size": 11400,
         "creation_commit": "f6a1dd4644849ffb3bad6f1bba82f7cd55fa549a",
         "readiness_mentions": [
           "docs/reference/strixhaven-college-source-readiness-matrix.md:29",
@@ -242,18 +85,15 @@
           "docs/reference/strixhaven-college-source-readiness-matrix.md:31"
         ],
         "provisional_risk_indicators": {
-          "coverage": [
-            "low-record-volume",
-            "discovery-record-majority",
-            "no-explicit-substantive-role"
-          ],
+          "coverage": [],
           "neighbors": []
         },
-        "template_cohort_pattern": true,
-        "inventory_updated_at": "2026-07-11T18:42:33.624Z"
+        "template_cohort_pattern": false,
+        "template_cohort_change_explanation": "Recomputed from the all-37 structural template-signature cohort: true -> false.",
+        "inventory_updated_at": "2026-07-12T05:06:53.533Z"
       },
       "workflow": {
-        "current_gate": "replacement_remediation",
+        "current_gate": "candidate_pending",
         "status": "active",
         "started_at": "2026-07-11T18:40:52.4047758Z",
         "gate_entered_at": "2026-07-11T18:40:52.4047758Z",

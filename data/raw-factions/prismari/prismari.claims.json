@@ -16,7 +16,26 @@
         "src_wotc_strixhaven_product_page_2021"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Prismari College",
+          "bounded_paraphrase": "The guide identifies Prismari as the blue-red College of Elemental Arts.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_wotc_strixhaven_product_page_2021",
+          "locator_type": "product-page-section",
+          "locator": "Prismari college overview",
+          "bounded_paraphrase": "The product page identifies Prismari as a blue-red Strixhaven college.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "prismari_claim_002",
@@ -28,7 +47,18 @@
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Prismari College",
+          "bounded_paraphrase": "The guide states that Prismari mages see magic and art as inseparable.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "prismari_claim_003",
@@ -40,7 +70,18 @@
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Prismari College",
+          "bounded_paraphrase": "The guide describes Prismari spells as raw creative spectacles using multiple elemental forces.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "prismari_claim_004",
@@ -52,7 +93,18 @@
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "The Dichotomy of Prismari - Blue and Red",
+          "bounded_paraphrase": "The guide contrasts blue training, study, visualization, technique, and theory with red passion and expression.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "prismari_claim_005",
@@ -64,7 +116,18 @@
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Prismari - The College of Elemental Arts",
+          "bounded_paraphrase": "The guide lists Prismari study areas including art history, performance arts, philosophy, elemental theory, physical education, and psychology.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "prismari_claim_006",
@@ -77,7 +140,26 @@
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
       ],
       "confidence": "High",
-      "notes": "Placement inference derived from official faction identity and mechanics; not an official Wizards psychological taxonomy."
+      "notes": "Placement inference derived from official faction identity and mechanics; not an official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Prismari College and Dichotomy of Prismari",
+          "bounded_paraphrase": "Official identity evidence joins art, elemental expression, technique, and passion.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Prismari - The College of Elemental Arts",
+          "bounded_paraphrase": "Official study-area evidence grounds art, performance, elemental theory, and psychology as placement-relevant dimensions.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "prismari_claim_0007",
@@ -90,7 +172,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "prismari_claim_0008",
@@ -103,7 +186,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "prismari_claim_0009",
@@ -116,7 +200,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "prismari_claim_0010",
@@ -129,7 +214,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "prismari_claim_0011",
@@ -142,7 +228,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "prismari_claim_0012",
@@ -155,7 +242,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "prismari_claim_0013",
@@ -168,7 +256,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "prismari_claim_0014",
@@ -181,7 +270,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "prismari_claim_0015",
@@ -194,7 +284,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "prismari_claim_0016",
@@ -207,7 +298,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "prismari_claim_0017",
@@ -219,7 +311,8 @@
         "src_wotc_secrets_strixhaven_commander_decklists_20260401"
       ],
       "confidence": "High",
-      "notes": "Decklist support is product/navigation only. It is not lore proof, popularity proof, metagame proof, legality proof, or canon identity proof."
+      "notes": "Decklist support is product/navigation only. It is not lore proof, popularity proof, metagame proof, legality proof, or canon identity proof.",
+      "semantic_role": "support_record"
     },
     {
       "claim_id": "prismari_claim_0018",
@@ -231,7 +324,433 @@
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
       "confidence": "High for card-data attribution",
-      "notes": "Use only short summaries in generated/public surfaces; do not copy long flavor blocks."
+      "notes": "Use only short summaries in generated/public surfaces; do not copy long flavor blocks.",
+      "semantic_role": "support_record"
+    },
+    {
+      "claim_id": "prismari_claim_0019",
+      "faction_id": "prismari",
+      "claim_type": "practice_and_refinement",
+      "semantic_role": "substantive_claim",
+      "statement": "Prismari field studies include arts residencies and apprenticeships where students refine artistic theory, technique, and craft under working masters.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "High",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Prismari - Field Studies",
+          "bounded_paraphrase": "Students refine theory and technique through residencies and apprenticeships with experienced artists.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ],
+      "notes": "Direct institutional evidence for practice, mastery, and mentorship."
+    },
+    {
+      "claim_id": "prismari_claim_0020",
+      "faction_id": "prismari",
+      "claim_type": "collaboration",
+      "semantic_role": "substantive_claim",
+      "statement": "Prismari students may join artist cooperatives and communes to create collaboratively, and the college teaches that art does not exist in isolation.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "High",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Prismari - Field Studies",
+          "bounded_paraphrase": "The guide describes cooperative creation and frames Prismari art as non-isolated practice.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ],
+      "notes": "Direct institutional evidence for collaboration."
+    },
+    {
+      "claim_id": "prismari_claim_0021",
+      "faction_id": "prismari",
+      "claim_type": "criticism_and_revision",
+      "semantic_role": "substantive_claim",
+      "statement": "Prismari students submit work to galleries, observe viewers' reactions, and use that response to refine their art.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "High",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Prismari - Field Studies",
+          "bounded_paraphrase": "Gallery-bound students study audience reactions and refine their work in response.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ],
+      "notes": "Direct evidence for audience response and revision."
+    },
+    {
+      "claim_id": "prismari_claim_0022",
+      "faction_id": "prismari",
+      "claim_type": "expression_modes",
+      "semantic_role": "substantive_claim",
+      "statement": "Prismari expression ranges across sculpture, painting, dance, song, immersive events, and spontaneous performance; public stage spectacle is one mode rather than the whole identity.",
+      "canon_status": "Canon-supported with bounded interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "High",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Prismari - The College of Elemental Arts and Field Studies",
+          "bounded_paraphrase": "The guide names multiple visual, physical, musical, immersive, and spontaneous forms of Prismari art.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "bounded-inference"
+        }
+      ],
+      "notes": "The forms are direct; the anti-stereotype conclusion is bounded synthesis."
+    },
+    {
+      "claim_id": "prismari_claim_0023",
+      "faction_id": "prismari",
+      "claim_type": "subgroup_spectacle_evidence",
+      "semantic_role": "substantive_claim",
+      "statement": "Some red-aligned Prismari spectacle mages use stormy displays to amuse or distract rather than to cause harm.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "confidence": "High",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "The Dichotomy of Prismari - Red",
+          "bounded_paraphrase": "The guide distinguishes wondrous displays used for amusement or distraction from harmful intent.",
+          "evidence_scope": "subgroup-evidence",
+          "interpretation_level": "direct-fact"
+        }
+      ],
+      "notes": "Subgroup evidence only; it shows that spectacle need not imply cruelty, not that every Prismari expression has this purpose."
+    },
+    {
+      "claim_id": "prismari_claim_0024",
+      "faction_id": "prismari",
+      "claim_type": "risk_and_unhealthy_expression",
+      "semantic_role": "substantive_claim",
+      "statement": "Official Prismari evidence includes bounded risk examples: some red-aligned artists break customs or property, and abandoned creations at Furygale have become dangerous rogue elemental energies.",
+      "canon_status": "Canon-supported with bounded interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "confidence": "High",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "The Dichotomy of Prismari - Red",
+          "bounded_paraphrase": "Ruleburners and blast innovators are presented as red-aligned Prismari examples that may break customs and property.",
+          "evidence_scope": "subgroup-evidence",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Locations - Furygale",
+          "bounded_paraphrase": "Abandoned student creations accumulated into dangerous, warded, rogue elemental energies.",
+          "evidence_scope": "location-evidence",
+          "interpretation_level": "direct-fact"
+        }
+      ],
+      "notes": "Subgroup and location evidence bound the unhealthy-risk model; they are not promoted to identity-wide universal fact."
+    },
+    {
+      "claim_id": "prismari_claim_0025",
+      "faction_id": "prismari",
+      "claim_type": "mature_expression",
+      "semantic_role": "substantive_claim",
+      "statement": "Vox Mana models mature Prismari as practiced technique carrying expressive purpose into a chosen artistic or elemental form, with revision and awareness of collaborators or audience.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "High",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Prismari College and The Dichotomy of Prismari",
+          "bounded_paraphrase": "The guide joins long practice, precise technique, passion, and elemental expression.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Prismari - Field Studies",
+          "bounded_paraphrase": "Residencies, cooperation, apprenticeship, galleries, and audience response ground revision and relational practice.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "project-synthesis"
+        }
+      ],
+      "notes": "Vox Mana synthesis, not official psychological taxonomy."
+    },
+    {
+      "claim_id": "prismari_claim_0026",
+      "faction_id": "prismari",
+      "claim_type": "unhealthy_expression",
+      "semantic_role": "substantive_claim",
+      "statement": "Vox Mana models unhealthy Prismari as expressive force outrunning technique or responsibility, where creative intensity becomes property damage, unmanaged residue, or dangerous consequences.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "confidence": "Medium-High",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "The Dichotomy of Prismari - Red and Locations - Furygale",
+          "bounded_paraphrase": "Property-breaking subgroup examples and dangerous abandoned creations bound the consequence-ignoring interpretation.",
+          "evidence_scope": "subgroup-and-location-evidence",
+          "interpretation_level": "project-synthesis"
+        }
+      ],
+      "notes": "Does not claim that all Prismari failure follows this pattern."
+    },
+    {
+      "claim_id": "prismari_claim_0027",
+      "faction_id": "prismari",
+      "claim_type": "failure_behavior",
+      "semantic_role": "substantive_claim",
+      "statement": "Vox Mana treats Prismari pressure cases through response and responsibility: official evidence supports revision from audience response, while separate Furygale evidence shows that unmanaged creations can leave dangerous consequences.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "Medium-High",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Prismari - Field Studies",
+          "bounded_paraphrase": "Audience response is used to refine art.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Locations - Furygale",
+          "bounded_paraphrase": "Dangerous abandoned creations support the consequence-management boundary.",
+          "evidence_scope": "location-evidence",
+          "interpretation_level": "project-synthesis"
+        }
+      ],
+      "notes": "Does not claim criticism causes escalation or abandonment; it bounds the placement question around response and responsibility."
+    },
+    {
+      "claim_id": "prismari_claim_0028",
+      "faction_id": "prismari",
+      "claim_type": "neighbor_distinction",
+      "semantic_role": "substantive_claim",
+      "statement": "Vox Mana separates Prismari from Izzet by the purpose of novelty: Prismari evidence centers artistic or elemental expression shaped by technique, while Izzet evidence centers experimental engineering, invention, civic infrastructure, and technical outcomes; mixed-purpose cases remain ambiguous.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_izzet_league_0002"
+      ],
+      "confidence": "High",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Prismari College and The Dichotomy of Prismari",
+          "bounded_paraphrase": "Prismari is grounded in art, emotional expression, elemental media, and technique.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Prismari - Field Studies",
+          "bounded_paraphrase": "Prismari field studies ground refinement, apprenticeship, and art as practiced craft.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "section",
+          "locator": "The Izzet",
+          "bounded_paraphrase": "The guide characterizes Izzet through experiment, technical invention, and public works.",
+          "evidence_scope": "neighbor-identity",
+          "interpretation_level": "project-synthesis"
+        }
+      ],
+      "notes": "Neutral pair-specific separator; it does not reduce either identity to only one dimension."
+    },
+    {
+      "claim_id": "prismari_claim_0029",
+      "faction_id": "prismari",
+      "claim_type": "neighbor_distinction",
+      "semantic_role": "substantive_claim",
+      "statement": "Vox Mana separates Prismari from Rakdos by purpose of performance: Prismari centers artistic and elemental expression, while Rakdos evidence centers transgression, hedonism, parody of authority, chaos, and destructive entertainment.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "confidence": "High",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Prismari College and The Dichotomy of Prismari",
+          "bounded_paraphrase": "Prismari performance is grounded in art, passion, and elemental media.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "section",
+          "locator": "The Cult of Rakdos",
+          "bounded_paraphrase": "The guide grounds Rakdos performance in hedonism, destruction, parody of authority, chaos, and cruelty.",
+          "evidence_scope": "neighbor-identity",
+          "interpretation_level": "project-synthesis"
+        }
+      ],
+      "notes": "Pair-specific separator; not official cross-setting taxonomy."
+    },
+    {
+      "claim_id": "prismari_claim_0030",
+      "faction_id": "prismari",
+      "claim_type": "neighbor_distinction",
+      "semantic_role": "substantive_claim",
+      "statement": "Vox Mana separates Prismari from Quandrix by purpose and method: Prismari turns elemental magic into art and experience, while Quandrix studies mathematical patterns, theory, proof, and fundamental forces; beauty or visual pattern alone does not settle the boundary.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "confidence": "High",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Prismari College and Quandrix College",
+          "bounded_paraphrase": "The guide contrasts Prismari elemental art with Quandrix numeromancy, patterns, theory, and proof.",
+          "evidence_scope": "cross-college",
+          "interpretation_level": "project-synthesis"
+        }
+      ],
+      "notes": "Recognizes that Quandrix can involve beauty, pattern, and optical effects; the boundary is purpose/method."
+    },
+    {
+      "claim_id": "prismari_claim_0031",
+      "faction_id": "prismari",
+      "claim_type": "neighbor_distinction",
+      "semantic_role": "substantive_claim",
+      "statement": "Vox Mana separates Prismari from Silverquill by medium and purpose: Prismari centers artistic and elemental expression, while Silverquill centers spoken and written word magic, leadership, competition, and piercing rhetoric.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "confidence": "High",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Prismari College and Silverquill College",
+          "bounded_paraphrase": "The guide contrasts Prismari elemental art with Silverquill word magic, leadership, competition, and wit.",
+          "evidence_scope": "cross-college",
+          "interpretation_level": "project-synthesis"
+        }
+      ],
+      "notes": "Avoids unsupported social-power claims."
+    },
+    {
+      "claim_id": "prismari_claim_0032",
+      "faction_id": "prismari",
+      "claim_type": "uncertainty",
+      "semantic_role": "substantive_claim",
+      "statement": "When an answer values both technique and expression but does not reveal whether the aim is artistic experience, mechanical invention, mathematical proof, rhetorical influence, or transgressive release, Prismari should remain uncertain.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_izzet_league_0002",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "confidence": "High",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Prismari, Quandrix, and Silverquill sections",
+          "bounded_paraphrase": "The descriptions establish artistic, mathematical, and rhetorical centers.",
+          "evidence_scope": "cross-identity",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Prismari - Field Studies",
+          "bounded_paraphrase": "Prismari evidence adds refinement, collaboration, and response as artistic-purpose signals.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "section",
+          "locator": "The Izzet",
+          "bounded_paraphrase": "The guide establishes experiment and technical innovation as Izzet center.",
+          "evidence_scope": "neighbor-identity",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "section",
+          "locator": "The Cult of Rakdos",
+          "bounded_paraphrase": "The guide establishes transgressive performance as Rakdos center.",
+          "evidence_scope": "neighbor-identity",
+          "interpretation_level": "project-synthesis"
+        }
+      ],
+      "notes": "Uncertainty depends on purpose, not shared surface language."
+    },
+    {
+      "claim_id": "prismari_claim_0033",
+      "faction_id": "prismari",
+      "claim_type": "character_evidence",
+      "semantic_role": "substantive_claim",
+      "statement": "Brodd Scaldbreath is used here only as a Prismari professor emeritus and quoted guide speaker for Prismari texture, not as broad proof of Prismari leadership or identity by himself.",
+      "canon_status": "Canon-supported with bounded interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "confidence": "High",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Prismari College / Brodd Scaldbreath sidebar attribution",
+          "bounded_paraphrase": "The official guide attributes Prismari college commentary to Brodd Scaldbreath as professor emeritus.",
+          "evidence_scope": "character-evidence",
+          "interpretation_level": "bounded-inference"
+        }
+      ],
+      "notes": "Character-specific evidence; faction-wide claims require separate Prismari guide evidence."
     }
   ]
 }
