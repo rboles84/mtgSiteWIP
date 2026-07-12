@@ -1,6 +1,6 @@
 # CRIT-001 Contract v1.1 Amendment
 
-Status: Replacement candidate `6e53acd5691c85caf3328d3bd301ac18d07879e1` pending independent review
+Status: Replacement candidate `6e53acd5691c85caf3328d3bd301ac18d07879e1` independently approved
 Owner: VM-501
 Base: `5165434`
 
@@ -44,3 +44,9 @@ Contract v1.1 also requires:
 ## Non-goals
 
 No faction packet, public behavior, global recruiter behavior, Hall/Crucible content, scoring, inhibition, confidence, tie ordering, or scheduling changes belong to this amendment.
+
+## Review status
+
+Non-authoring reviewer `/root/vm501_prerequisite_review` approved exact candidate `6e53acd5691c85caf3328d3bd301ac18d07879e1`.
+
+This approval does not certify VM-502, accept rejected Prismari candidate `85d3c79daa5081b6af4376506f51d33fe51e1225`, or authorize any identity candidate to modify shared contract/schema/tooling files.

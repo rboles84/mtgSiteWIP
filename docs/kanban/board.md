@@ -9,7 +9,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 **CRIT-001 is open.** Faction-foundation authoring, readiness approvals, canonical semantic guidance outside an active recovery card, Hall/Crucible authoring, and placement calibration are frozen. VM-501 owns shared recovery infrastructure; VM-502 through VM-538 recover the 37 identities one at a time. See the [incident](../incidents/CRIT-001-faction-semantic-readiness-integrity.md) and [authoritative recovery ledger](../incidents/CRIT-001-identity-recovery-ledger.json).
 
-**VM-501 prerequisite correction is active.** Contract v1.1 and the candidate-scope/provenance guards require separate independent approval before VM-502 replacement work resumes. Prismari remains the active identity; Lorehold has not started.
+**VM-501 prerequisite correction is independently approved.** Contract v1.1 and the candidate-scope/provenance guards may be accepted into the program base before VM-502 replacement work resumes. Prismari remains the active identity; Lorehold has not started.
 
 ## Backlog
 
@@ -50,7 +50,7 @@ Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is
 
 VM-429 Section 14 ID reconciliation, 2026-06-30: the early readiness plan expected route metadata as `VM-448` and public demo / strategic case study as `VM-449`, but final ID assignment shifted after intervening queue work. In the final handoff trail, `VM-448` is Critical Browser E2E Smoke and `VM-449` is Maze Return Loop Microcopy Tightening; both are complete. The originally expected route metadata and public demo / strategic case-study scopes were completed as `VM-451` and `VM-452`. VM-458 later moved VM-422/VM-446 to backlog; live private deck-link behavior remains not production-proven.
 
-- [VM-501 - Faction Semantic Readiness Recovery Infrastructure](done/VM-501-faction-semantic-readiness-recovery.md) - established Contract v1, all-37 structural inventory, provenance, validator, fixtures, ledger, and recovery governance without changing placement or recruiter semantics.
+- [VM-501 - Faction Semantic Readiness Recovery Infrastructure](done/VM-501-faction-semantic-readiness-recovery.md) - established Contract v1, all-37 structural inventory, provenance, validator, fixtures, ledger, and recovery governance without changing placement or recruiter semantics; Contract v1.1 prerequisite candidate `6e53acd` is independently approved for program-base acceptance.
 
 - [VM-499 - Deterministic Radar Capture And Legibility Repair](done/VM-499-deterministic-radar-capture-legibility-repair.md) - captured the production Home/Archscry radars, added deterministic structural/pixel checks, and refreshed owner-approved local baselines.
 - [VM-498 - Colorless Lifecycle Authority Reconciliation](done/VM-498-colorless-lifecycle-authority-reconciliation.md) - reconciled current Colorless Home preview evidence with VM-389, added structured registry parity, and preserved every non-preview restriction.

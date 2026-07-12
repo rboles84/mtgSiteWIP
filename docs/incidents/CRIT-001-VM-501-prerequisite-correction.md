@@ -1,6 +1,6 @@
 # CRIT-001 VM-501 Prerequisite Correction
 
-Status: Corrected replacement candidate pending independent review
+Status: Corrected replacement candidate independently approved
 Accepted program base: `5165434`
 Rejected identity candidate used for audit reference only: `85d3c79daa5081b6af4376506f51d33fe51e1225`
 
@@ -80,5 +80,22 @@ The corrected replacement is one commit directly on accepted base `5165434`; rej
 
 - Replacement candidate parent: `5165434`
 - Replacement candidate SHA: `6e53acd5691c85caf3328d3bd301ac18d07879e1`
-- Replacement review result: `pending`
+- Replacement review result: `approved`
+- Replacement reviewer: `/root/vm501_prerequisite_review`
+- Replacement review scope: exact candidate `6e53acd5691c85caf3328d3bd301ac18d07879e1` against parent `5165434`
 - Certification/acceptance: none.
+
+## Independent review result for `6e53acd`
+
+The non-authoring VM-501 prerequisite review approved exact candidate `6e53acd5691c85caf3328d3bd301ac18d07879e1`.
+
+Approved findings:
+
+- Contract v1.1 allowlists non-semantic `evidence_use` only in explicitly non-authoritative containers.
+- Identity candidate scope guards freeze shared contract/schema/tooling, builder/runtime, forbidden runtime-calibration fields, and unrelated generated semantic outputs.
+- Native canonical IDs are retained across claims, sources, profile, placement, and generated provenance.
+- Provenance fixtures validate the complete declared evidence claim/source chain.
+- Ledger regeneration is stable after the v1.1 normalization pass.
+- No Prismari certification, identity remediation acceptance, public behavior change, recruiter behavior change, Hall/Crucible change, scoring change, inhibition change, confidence change, tie-ordering change, or scheduling change is included.
+
+Candidate `6e53acd5691c85caf3328d3bd301ac18d07879e1` may be accepted into the CRIT-001 program base as VM-501 prerequisite infrastructure. Fresh VM-502 Prismari replacement work may begin only from the accepted program base.

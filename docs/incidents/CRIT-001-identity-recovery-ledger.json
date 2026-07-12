@@ -8,10 +8,13 @@
     "active_identity": "PRISMARI",
     "next_identity": "LOREHOLD",
     "wip_limit": 1,
-    "active_prerequisite": "VM-501 semantic-readiness correction",
+    "active_prerequisite": null,
     "prerequisite_candidate_sha": "6e53acd5691c85caf3328d3bd301ac18d07879e1",
-    "prerequisite_review_result": "pending",
-    "prerequisite_review_cycles": 1,
+    "prerequisite_review_result": "approved",
+    "prerequisite_review_cycles": 2,
+    "prerequisite_reviewer": "/root/vm501_prerequisite_review",
+    "prerequisite_approved_at": "2026-07-11",
+    "prerequisite_acceptance_commit": null,
     "rejected_prerequisite_candidates": [
       {
         "sha": "b5d1c8db4758cab740392a6417c16019d778cc4c",

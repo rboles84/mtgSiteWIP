@@ -52,10 +52,10 @@ Contract v1 is frozen after the bounded Prismari/Lorehold/Izzet pilot. The all-3
 
 ## Prerequisite Correction Cycle
 
-Status: Reopened prerequisite candidate pending independent review.
+Status: Reopened prerequisite candidate independently approved.
 
 The first VM-502 review exposed shared enforcement gaps. VM-501 now owns Contract v1.1, complete generated-consumer provenance, complete fixture evidence-chain validation, identity-candidate scope and forbidden-field guards, native-ID retention, and deterministic ledger regeneration. No identity remediation may resume until the exact VM-501 correction candidate is independently approved and accepted into the program base.
 
 Candidate `b5d1c8db4758cab740392a6417c16019d778cc4c` received `changes_requested` and remains immutable rejected history. Its four blockers are evidence-use path bypass, incomplete global/identity scope isolation, incomplete native-ID coverage, and incomplete evidence-location/source-chain validation. A corrected prerequisite candidate is required before identity work resumes.
 
-Corrected replacement `6e53acd5691c85caf3328d3bd301ac18d07879e1` resolves all four findings, passes the full validation matrix, and is one clean commit directly on accepted base `5165434`. It awaits a second non-authoring review.
+Corrected replacement `6e53acd5691c85caf3328d3bd301ac18d07879e1` resolves all four findings, passes the full validation matrix, and is one clean commit directly on accepted base `5165434`. Non-authoring reviewer `/root/vm501_prerequisite_review` approved that exact candidate. VM-502 may resume only after this prerequisite is accepted into the program base; the rejected Prismari candidate remains uncertified immutable audit history.
