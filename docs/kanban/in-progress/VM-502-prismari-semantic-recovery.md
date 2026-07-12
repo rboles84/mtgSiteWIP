@@ -36,10 +36,11 @@ Recover Prismari end to end under CRIT-001: audit the existing packet, bound rea
 - Audit/recovery report: `docs/incidents/recoveries/VM-502-prismari-semantic-recovery.md`
 - Rejected candidate SHA: `85d3c79daa5081b6af4376506f51d33fe51e1225`
 - Independent review result: `changes_requested`
-- Replacement candidate SHA: `a7d81e5dee726b34d7d17ea933116111b47c9d4c`
-- Replacement candidate parent SHA: `6c0e8700fcb27859afd224cabe395af62416a921`
-- Replacement candidate branch base: `e9e98852c7c65db846384eeda3369f4fcfd55fe6`
-- Replacement candidate review result: pending independent review
+- Prior replacement candidate SHA: `a7d81e5dee726b34d7d17ea933116111b47c9d4c`
+- Prior replacement review result: `changes_requested` for unsupported Prismari `q1` beauty/efficiency binary
+- Final bounded replacement candidate SHA: `19800da6322100b28fa6325fef91321e147b6f69`
+- Final bounded replacement candidate parent SHA: `ba7aba2a3c7a41a6c29266038c7f940d35e41be4`
+- Final bounded replacement candidate review result: pending independent review
 - Certification commit: pending
 
 ## Gate 1 Disposition
@@ -70,7 +71,14 @@ Recover Prismari end to end under CRIT-001: audit the existing packet, bound rea
 - PASS — `npm.cmd run test:parser`
 - PASS — `git diff --check`
 
-Replacement validation was re-run after the final scope-guard correction commit. The reviewable candidate is `a7d81e5dee726b34d7d17ea933116111b47c9d4c`, not the earlier guard-failing intermediate commit `6c0e8700fcb27859afd224cabe395af62416a921`.
+Replacement validation was re-run after the final bounded Prismari `q1` correction. The reviewable candidate is `19800da6322100b28fa6325fef91321e147b6f69`. Candidate `a7d81e5dee726b34d7d17ea933116111b47c9d4c` remains rejected review history and must not be certified.
+
+Additional final bounded correction validation:
+
+- PASS — `node research/validate-semantic-candidate-scope.mjs --base=ba7aba2a3c7a41a6c29266038c7f940d35e41be4 --target=HEAD --identity=PRISMARI`
+- PASS — old Prismari `q1` beauty/efficiency wording absent from canonical and generated Prismari consumers.
+- PASS — new Prismari `q1` wording synchronized across canonical placement, `data/placement-model.json`, Supabase recruiter context, and semantic provenance.
+- PASS — Prismari `q1` provenance carries claims `prismari_claim_002`, `prismari_claim_003`, `prismari_claim_0022`, and `prismari_claim_0025`.
 
 ## Rejected Candidate
 

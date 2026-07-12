@@ -2,7 +2,7 @@
 
 Identity: `PRISMARI`
 Contract: v1.1
-Status: Replacement candidate pending independent review after rejected candidate
+Status: Final bounded replacement candidate pending independent review after rejected candidates
 Required neighbors: `UR`, `BR`, `QUANDRIX`, `SILVERQUILL`
 
 ## Stage A - Rejected candidate record
@@ -112,22 +112,24 @@ Validation results:
 
 ## Gate 5 - Candidate Status
 
-Replacement candidate commit: `a7d81e5dee726b34d7d17ea933116111b47c9d4c`
+Final bounded replacement candidate commit: `19800da6322100b28fa6325fef91321e147b6f69`
 
-Candidate parent SHA: `6c0e8700fcb27859afd224cabe395af62416a921`
+Candidate parent SHA: `ba7aba2a3c7a41a6c29266038c7f940d35e41be4`
 
 Fresh branch base / accepted VM-501 prerequisite base: `e9e98852c7c65db846384eeda3369f4fcfd55fe6`
 
 Rejected candidate reference only: `85d3c79daa5081b6af4376506f51d33fe51e1225`
 
-The first replacement candidate commit `6c0e8700fcb27859afd224cabe395af62416a921` is preserved as history but is not the reviewable candidate because the identity-scope guard identified frozen-field drift. The scope-guard correction commit `a7d81e5dee726b34d7d17ea933116111b47c9d4c` is the new immutable Prismari candidate for independent review.
+Rejected replacement candidate reference only: `a7d81e5dee726b34d7d17ea933116111b47c9d4c`
+
+The first replacement candidate commit `6c0e8700fcb27859afd224cabe395af62416a921` is preserved as history but is not reviewable because the identity-scope guard identified frozen-field drift. The scope-guard correction commit `a7d81e5dee726b34d7d17ea933116111b47c9d4c` is also preserved as rejected review history after independent review found one remaining high-severity Prismari `q1` defect. The final bounded correction commit `19800da6322100b28fa6325fef91321e147b6f69` replaces only Prismari `q1` and its generated consumers/provenance.
 
 No certification exists.
 
 ### Candidate diff record
 
-- Complete canonical/generated diff for review: `git diff e9e98852c7c65db846384eeda3369f4fcfd55fe6..a7d81e5dee726b34d7d17ea933116111b47c9d4c`
-- Scope-guard diff check: `node research/validate-semantic-candidate-scope.mjs --base=e9e98852c7c65db846384eeda3369f4fcfd55fe6 --target=HEAD --identity=PRISMARI`
+- Complete bounded-correction diff for review: `git diff ba7aba2a3c7a41a6c29266038c7f940d35e41be4..19800da6322100b28fa6325fef91321e147b6f69`
+- Scope-guard diff check: `node research/validate-semantic-candidate-scope.mjs --base=ba7aba2a3c7a41a6c29266038c7f940d35e41be4 --target=HEAD --identity=PRISMARI`
 - The candidate contains no shared contract/schema/tooling changes.
 - Prismari `lateral_inhibition` is unchanged from the accepted program base.
 - Only Prismari semantic outputs changed.
@@ -135,6 +137,21 @@ No certification exists.
 - Known model-owned inhibitor warnings remain unchanged.
 - Known dossier warnings remain unchanged at 113 warnings and 0 failures.
 - No test was weakened to accept the candidate.
+
+### Final bounded Prismari q1 correction
+
+The unsupported Prismari `q1` beauty-versus-efficiency and expression-versus-utility binary was replaced with:
+
+`What medium—movement, sound, image, or elemental form—best carries what you are trying to express, and why?`
+
+The new purpose and answer patterns stay within the existing approved evidence chain:
+
+- `prismari_claim_002`
+- `prismari_claim_003`
+- `prismari_claim_0022`
+- `prismari_claim_0025`
+
+The old wording is absent from Prismari canonical and generated consumers. The new wording appears consistently in canonical Prismari placement data, `data/placement-model.json`, generated recruiter context, and `data/semantic-readiness-provenance.json`. The q1 provenance content hash is `sha256:46b1f70c62870d3b70d0a5a78e8e5168f84949d8d5e24dc2c5940ae099da3ef1`.
 
 ### Residual non-blocking findings
 
