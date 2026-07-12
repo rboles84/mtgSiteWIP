@@ -31,6 +31,14 @@ Rejected or `not_used_or_rejected_sources` entries are not included in the sourc
 | Silverquill College | SILVERQUILL | `data/raw-factions/silverquill/` | 15 | `claim-bearing`: 3; `support-only`: 2; `discovery-only`: 10 | 0 | Official 2021 guide, product page, and 2026 guide cover eloquence, word magic, speech/writing/signing, reputation, leadership, study areas, and placement signals. Story-corpus rows remain discovery-only. VM-378 adds support-only official decklist and local Scryfall flavor-anchor rows. | Ready after VM-346. Existing Orzhov/Dimir collisions remain. Added paired collision guidance for Prismari-vs-Silverquill and enabled `crucible_PRISMARI_SILVERQUILL`. | VM-378 approves support-only Compass, `deck_links`, and `research_links` from the official Secrets of Strixhaven Commander decklist and local Scryfall card anchors. Killian/Scriv are product/navigation anchors only. | Silverquill deans, Shadrix founder status, story-corpus school-politics claims, and long flavor text remain source-intake-needed. |
 | Witherbloom College | WITHERBLOOM | `data/raw-factions/witherbloom/` | 15 | `claim-bearing`: 3; `support-only`: 2; `discovery-only`: 10 | 0 | Official 2021 guide, product page, and 2026 guide cover essence studies, life/death exchange, practical components, fieldwork, remedies/poisons, study areas, and placement signals. Story-corpus rows remain discovery-only. VM-378 adds support-only official decklist and local Scryfall flavor-anchor rows. | Ready after VM-346. Existing Selesnya/Simic collisions remain. Added paired collision guidance for Quandrix-vs-Witherbloom and enabled `crucible_QUANDRIX_WITHERBLOOM`. | VM-378 approves support-only Compass, `deck_links`, and `research_links` from the official Secrets of Strixhaven Commander decklist and local Scryfall card anchors. Dina/Gorma are product/navigation anchors only. | Beledros founder status, unsupported dean/founder expansion, story-corpus fieldwork claims, and long flavor text remain source-intake-needed. |
 
+## CRIT-001 Semantic Certification Overlay
+
+This overlay records semantic-readiness certification under the CRIT-001 contract and supersedes legacy `ready` language only for the listed identity.
+
+| College | Contract | State | Recovery commit | Certification commit | Notes |
+|---|---|---|---|---|---|
+| Prismari College | v1.1 | `semantically_ready` | `19800da6322100b28fa6325fef91321e147b6f69` | pending program acceptance pointer | VM-502 independently approved exact recovery SHA on 2026-07-12. Known dossier warnings and builder-owned inhibitor warnings remain unchanged. |
+
 ## Cohort Totals
 
 - Total active source rows: 80.

@@ -2,7 +2,7 @@
 
 Identity: `PRISMARI`
 Contract: v1.1
-Status: Final bounded replacement candidate pending independent review after rejected candidates
+Status: Certified semantically ready under CRIT-001 Contract v1.1
 Required neighbors: `UR`, `BR`, `QUANDRIX`, `SILVERQUILL`
 
 ## Stage A - Rejected candidate record
@@ -124,7 +124,7 @@ Rejected replacement candidate reference only: `a7d81e5dee726b34d7d17ea933116111
 
 The first replacement candidate commit `6c0e8700fcb27859afd224cabe395af62416a921` is preserved as history but is not reviewable because the identity-scope guard identified frozen-field drift. The scope-guard correction commit `a7d81e5dee726b34d7d17ea933116111b47c9d4c` is also preserved as rejected review history after independent review found one remaining high-severity Prismari `q1` defect. The final bounded correction commit `19800da6322100b28fa6325fef91321e147b6f69` replaces only Prismari `q1` and its generated consumers/provenance.
 
-No certification exists.
+Certification approved exact recovery SHA `19800da6322100b28fa6325fef91321e147b6f69`.
 
 ### Candidate diff record
 
@@ -157,3 +157,16 @@ The old wording is absent from Prismari canonical and generated consumers. The n
 
 - The pre-existing Quandrix-origin "correct but lifeless" wording remains in the frozen non-Prismari/shared Crucible path and is outside VM-502.
 - Runtime Hall, Crucible, scoring, inhibition, scheduling, confidence, and live recruiter calibration remain post-CRIT investigations unless generation corrupts approved canonical meaning.
+
+## Gate 5 - Certification
+
+- Identity: Prismari
+- Contract version: v1.1
+- Approved recovery SHA: `19800da6322100b28fa6325fef91321e147b6f69`
+- Independent review result: `APPROVE EXACT SHA`
+- Reviewer: Robert / user-supplied independent Gate 5 review in this Codex thread
+- Approval date: 2026-07-12
+- Final certification state: `semantically_ready`
+- Known unchanged warnings: 113 dossier warnings with zero failures; existing builder-owned inhibitor warnings remain unchanged.
+- Residual non-blocking findings: pre-existing Quandrix-origin "correct but lifeless" wording remains in frozen non-Prismari/shared Crucible scope; Hall, Crucible, scoring, inhibition, scheduling, confidence, and live recruiter calibration remain separate post-CRIT investigations.
+- Certification commit: pending program acceptance pointer.

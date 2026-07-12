@@ -1,7 +1,7 @@
 # VM-502 — Prismari Semantic Recovery
 
 ID: VM-502
-Status: In Progress
+Status: Done
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: PRISMARI
@@ -19,7 +19,7 @@ Recover Prismari end to end under CRIT-001: audit the existing packet, bound rea
 - [x] Gate 2 — Sufficient evidence completion.
 - [x] Gate 3 — Canonical remediation.
 - [x] Gate 4 — Generation and validation.
-- [ ] Gate 5 — Independent certification.
+- [x] Gate 5 — Independent certification.
 
 ## Scope Rules
 
@@ -40,14 +40,18 @@ Recover Prismari end to end under CRIT-001: audit the existing packet, bound rea
 - Prior replacement review result: `changes_requested` for unsupported Prismari `q1` beauty/efficiency binary
 - Final bounded replacement candidate SHA: `19800da6322100b28fa6325fef91321e147b6f69`
 - Final bounded replacement candidate parent SHA: `ba7aba2a3c7a41a6c29266038c7f940d35e41be4`
-- Final bounded replacement candidate review result: pending independent review
-- Certification commit: pending
+- Final bounded replacement candidate review result: `approved_exact_sha`
+- Independent reviewer: Robert / user-supplied independent Gate 5 review in this Codex thread
+- Approval date: 2026-07-12
+- Certification state: `semantically_ready`
+- Recovery commit: `19800da6322100b28fa6325fef91321e147b6f69`
+- Certification commit: pending program acceptance pointer
 
 ## Gate 1 Disposition
 
 - Primary disposition: `claim_extraction_and_traceability_repair`
 - Required neighbors: `UR`, `BR`, `QUANDRIX`, `SILVERQUILL`
-- Active gate: candidate review pending
+- Active gate: certified
 
 ## Replacement Candidate Scope
 
@@ -79,6 +83,17 @@ Additional final bounded correction validation:
 - PASS — old Prismari `q1` beauty/efficiency wording absent from canonical and generated Prismari consumers.
 - PASS — new Prismari `q1` wording synchronized across canonical placement, `data/placement-model.json`, Supabase recruiter context, and semantic provenance.
 - PASS — Prismari `q1` provenance carries claims `prismari_claim_002`, `prismari_claim_003`, `prismari_claim_0022`, and `prismari_claim_0025`.
+
+## Certification
+
+- Contract version: v1.1
+- Approved recovery SHA: `19800da6322100b28fa6325fef91321e147b6f69`
+- Independent review result: `APPROVE EXACT SHA`
+- Reviewer: Robert / user-supplied independent Gate 5 review in this Codex thread
+- Approval date: 2026-07-12
+- Final state: `semantically_ready`
+- Known unchanged warnings: dossier audit remains 113 warnings and 0 failures; existing builder-owned inhibitor warnings remain unchanged.
+- Residual non-blocking finding: the pre-existing Quandrix-origin "correct but lifeless" wording remains in the frozen non-Prismari/shared Crucible path and is outside VM-502.
 
 ## Rejected Candidate
 
