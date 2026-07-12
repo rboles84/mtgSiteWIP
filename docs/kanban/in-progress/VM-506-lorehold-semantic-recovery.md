@@ -1,17 +1,19 @@
 # VM-506 — Lorehold Semantic Recovery
 
 ID: VM-506
-Status: Backlog
+Status: In Progress
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: LOREHOLD
 Raw packet: `data/raw-factions/lorehold/`
 Cohort: college
-Contract: pending Contract v1
+Contract: v1.1
 
 ## Objective
 
 Recover Lorehold end to end under CRIT-001: audit the existing packet, bound readiness blockers, gather only sufficient evidence, repair canonical data, rebuild generated artifacts, validate semantic fixtures and regressions, obtain independent review of an immutable candidate SHA, and certify that exact recovery.
+
+Current state: active next identity after Prismari certification acceptance. Branch creation is authorized from the accepted CRIT-001 program base, but Gate 1 audit and Lorehold remediation have not started.
 
 ## Gates
 

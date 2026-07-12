@@ -37,7 +37,7 @@ This overlay records semantic-readiness certification under the CRIT-001 contrac
 
 | College | Contract | State | Recovery commit | Certification commit | Notes |
 |---|---|---|---|---|---|
-| Prismari College | v1.1 | `semantically_ready` | `19800da6322100b28fa6325fef91321e147b6f69` | pending program acceptance pointer | VM-502 independently approved exact recovery SHA on 2026-07-12. Known dossier warnings and builder-owned inhibitor warnings remain unchanged. |
+| Prismari College | v1.1 | `semantically_ready` | `19800da6322100b28fa6325fef91321e147b6f69` | `492598f13df24d0f74f5869e249d860ff661a3aa` | VM-502 independently approved exact recovery SHA on 2026-07-12. Known dossier warnings and builder-owned inhibitor warnings remain unchanged. |
 
 ## Cohort Totals
 

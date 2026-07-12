@@ -45,7 +45,7 @@ Recover Prismari end to end under CRIT-001: audit the existing packet, bound rea
 - Approval date: 2026-07-12
 - Certification state: `semantically_ready`
 - Recovery commit: `19800da6322100b28fa6325fef91321e147b6f69`
-- Certification commit: pending program acceptance pointer
+- Certification commit: `492598f13df24d0f74f5869e249d860ff661a3aa`
 
 ## Gate 1 Disposition
 

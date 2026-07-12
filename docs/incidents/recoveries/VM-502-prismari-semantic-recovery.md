@@ -169,4 +169,4 @@ The old wording is absent from Prismari canonical and generated consumers. The n
 - Final certification state: `semantically_ready`
 - Known unchanged warnings: 113 dossier warnings with zero failures; existing builder-owned inhibitor warnings remain unchanged.
 - Residual non-blocking findings: pre-existing Quandrix-origin "correct but lifeless" wording remains in frozen non-Prismari/shared Crucible scope; Hall, Crucible, scoring, inhibition, scheduling, confidence, and live recruiter calibration remain separate post-CRIT investigations.
-- Certification commit: pending program acceptance pointer.
+- Certification commit: `492598f13df24d0f74f5869e249d860ff661a3aa`
