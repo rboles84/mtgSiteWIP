@@ -18,7 +18,7 @@
         "prismari_claim_0022",
         "prismari_claim_0025"
       ],
-      "confidence": "High"
+      "confidence": "Medium"
     },
     {
       "indicator": "uses disciplined technique to carry emotional or conceptual expression",
@@ -28,7 +28,7 @@
         "prismari_claim_0019",
         "prismari_claim_0025"
       ],
-      "confidence": "High"
+      "confidence": "Medium"
     },
     {
       "indicator": "revises work through practice, collaboration, criticism, or audience response",
@@ -39,7 +39,7 @@
         "prismari_claim_0021",
         "prismari_claim_0025"
       ],
-      "confidence": "High"
+      "confidence": "Medium"
     },
     {
       "indicator": "can express Prismari through visual, physical, musical, immersive, collaborative, or public work",
@@ -47,8 +47,7 @@
       "claim_ids": [
         "prismari_claim_0020",
         "prismari_claim_0022"
-      ],
-      "confidence": "High"
+      ]
     },
     {
       "indicator": "accepts responsibility for the consequences of powerful expression",
@@ -58,8 +57,7 @@
         "prismari_claim_0025",
         "prismari_claim_0026",
         "prismari_claim_0027"
-      ],
-      "confidence": "High"
+      ]
     }
   ],
   "poor_fit_indicators": [
@@ -69,7 +67,7 @@
       "claim_ids": [
         "prismari_claim_0028"
       ],
-      "confidence": "High"
+      "confidence": "Medium"
     },
     {
       "indicator": "centers transgression, cruelty, chaos, or authority-parody instead of expression",
@@ -77,7 +75,7 @@
       "claim_ids": [
         "prismari_claim_0029"
       ],
-      "confidence": "High"
+      "confidence": "Medium"
     },
     {
       "indicator": "centers mathematical proof or hidden structure as the final aim",
@@ -85,15 +83,14 @@
       "claim_ids": [
         "prismari_claim_0030"
       ],
-      "confidence": "High"
+      "confidence": "Medium"
     },
     {
       "indicator": "centers rhetoric, word-magic leadership, competition, or piercing argument as the final aim",
       "rationale": "Contract v1.1 neighbor boundary.",
       "claim_ids": [
         "prismari_claim_0031"
-      ],
-      "confidence": "High"
+      ]
     },
     {
       "indicator": "treats damage or unmanaged dangerous residue as acceptable expression",
@@ -102,8 +99,7 @@
         "prismari_claim_0024",
         "prismari_claim_0026",
         "prismari_claim_0027"
-      ],
-      "confidence": "High"
+      ]
     }
   ],
   "discriminator_questions": [
@@ -194,7 +190,6 @@
         "prismari_claim_0028",
         "prismari_claim_0032"
       ],
-      "confidence": "High",
       "notes": "Contract v1.1 pair discriminator derived from bounded official Prismari and Izzet evidence; not runtime authoring or score calibration."
     }
   ],
@@ -225,8 +220,8 @@
       "Do not state that a user's personality is objectively determined by a faction.",
       "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
     ],
-    "calibration_note": "Require evidence that practiced artistic or elemental form is used to make expression or experience felt. Keep Prismari uncertain when the answer's purpose could instead be mechanism, proof, rhetoric, or transgression.",
-    "scoring_guardrail": "Do not award for generic spectacle, creativity, or blue-red identity without artistic or elemental expression and an identifiable purpose."
+    "calibration_note": "Prismari College should require its specific positive evidence cluster: expression, performance, art, emotion, elemental. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
+    "scoring_guardrail": "Do not award for generic spectacle if the answer is provocation, engineering, or rhetoric."
   },
   "placement_quality": {
     "overall_confidence": "Medium",
@@ -273,8 +268,8 @@
       "prismari_claim_0031",
       "prismari_claim_0032"
     ],
-    "calibrated_primary_read": "Requires practiced artistic or elemental form used to make a truth, idea, or emotion felt.",
-    "calibrated_false_positive_guardrail": "Do not award for generic creativity or spectacle when the center is mechanism, proof, rhetoric, transgression, or attention.",
+    "calibrated_primary_read": "Requires expressive art, emotional force, elemental performance, or creative spectacle.",
+    "calibrated_false_positive_guardrail": "Do not award for generic spectacle if the answer is provocation, engineering, or rhetoric.",
     "evidence_claim_ids": [
       "prismari_claim_001",
       "prismari_claim_002",
@@ -300,7 +295,7 @@
   },
   "placement_axes": [
     {
-      "axis_id": "axis_expression_vs_technical_outcome",
+      "axis_id": "axis_expression_vs_optimization",
       "label": "Expression vs Technical Outcome",
       "description": "Measures whether creation is pursued as artistic or elemental experience rather than mechanism, proof, rhetoric, or transgression.",
       "low_end_label": "technical or external purpose",
@@ -315,7 +310,7 @@
         "prismari_claim_0028",
         "prismari_claim_0032"
       ],
-      "confidence": "High",
+      "confidence": "Medium",
       "notes": "Semantic-readiness axis, not scoring calibration."
     }
   ],
@@ -338,7 +333,8 @@
       "claim_ids": [
         "prismari_claim_002",
         "prismari_claim_003"
-      ]
+      ],
+      "confidence": "Medium"
     },
     {
       "value": "technique serving expression",
@@ -347,7 +343,8 @@
         "prismari_claim_004",
         "prismari_claim_0019",
         "prismari_claim_0025"
-      ]
+      ],
+      "confidence": "Medium"
     },
     {
       "value": "revision through response",
@@ -355,7 +352,8 @@
       "claim_ids": [
         "prismari_claim_0021",
         "prismari_claim_0027"
-      ]
+      ],
+      "confidence": "Medium"
     },
     {
       "value": "collaboration without loss of voice",
@@ -363,14 +361,16 @@
       "claim_ids": [
         "prismari_claim_0020",
         "prismari_claim_0025"
-      ]
+      ],
+      "confidence": "Medium"
     },
     {
       "value": "many valid modes of expression",
       "placement_relevance": "Prismari need not be a stereotypical stage performer.",
       "claim_ids": [
         "prismari_claim_0022"
-      ]
+      ],
+      "confidence": "Medium"
     },
     {
       "value": "responsible intensity",
@@ -380,7 +380,35 @@
         "prismari_claim_0025",
         "prismari_claim_0026",
         "prismari_claim_0027"
-      ]
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "required-neighbor purpose boundaries",
+      "placement_relevance": "Purpose separates Prismari from Izzet, Rakdos, Quandrix, and Silverquill.",
+      "claim_ids": [
+        "prismari_claim_0028",
+        "prismari_claim_0029",
+        "prismari_claim_0030",
+        "prismari_claim_0031"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "uncertainty when purpose is unclear",
+      "placement_relevance": "Shared technique, novelty, expression, proof, rhetoric, or performance should remain ambiguous until the final purpose is clear.",
+      "claim_ids": [
+        "prismari_claim_0032"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "bounded character evidence",
+      "placement_relevance": "Named figure evidence remains character-specific unless corroborated by college-wide sources.",
+      "claim_ids": [
+        "prismari_claim_0033"
+      ],
+      "confidence": "Medium"
     }
   ],
   "behavioral_signals": [
@@ -395,7 +423,7 @@
         "prismari_claim_0022",
         "prismari_claim_0025"
       ],
-      "confidence": "High"
+      "confidence": "Medium"
     },
     {
       "signal": "Responds to practice, critique, collaboration, or audience reaction by refining the work.",
@@ -407,8 +435,7 @@
         "prismari_claim_0020",
         "prismari_claim_0021",
         "prismari_claim_0027"
-      ],
-      "confidence": "High"
+      ]
     }
   ],
   "inhibitor_traits": [
@@ -419,7 +446,7 @@
       "claim_ids": [
         "prismari_claim_0028"
       ],
-      "confidence": "High"
+      "confidence": "Medium"
     },
     {
       "trait": "centers transgression, cruelty, chaos, or authority-parody instead of expression",
@@ -427,8 +454,7 @@
       "status": "Supported Interpretation",
       "claim_ids": [
         "prismari_claim_0029"
-      ],
-      "confidence": "High"
+      ]
     },
     {
       "trait": "centers mathematical proof or hidden structure as the final aim",
@@ -436,8 +462,7 @@
       "status": "Supported Interpretation",
       "claim_ids": [
         "prismari_claim_0030"
-      ],
-      "confidence": "High"
+      ]
     },
     {
       "trait": "centers rhetoric, word-magic leadership, competition, or piercing argument as the final aim",
@@ -445,8 +470,7 @@
       "status": "Supported Interpretation",
       "claim_ids": [
         "prismari_claim_0031"
-      ],
-      "confidence": "High"
+      ]
     },
     {
       "trait": "treats damage or unmanaged dangerous residue as acceptable expression",
@@ -456,8 +480,7 @@
         "prismari_claim_0024",
         "prismari_claim_0026",
         "prismari_claim_0027"
-      ],
-      "confidence": "High"
+      ]
     }
   ],
   "good_fit_indicators": [
@@ -470,7 +493,7 @@
         "prismari_claim_0022",
         "prismari_claim_0025"
       ],
-      "confidence": "High"
+      "confidence": "Medium"
     },
     {
       "indicator": "uses disciplined technique to carry emotional or conceptual expression",
@@ -480,7 +503,7 @@
         "prismari_claim_0019",
         "prismari_claim_0025"
       ],
-      "confidence": "High"
+      "confidence": "Medium"
     },
     {
       "indicator": "revises work through practice, collaboration, criticism, or audience response",
@@ -491,7 +514,7 @@
         "prismari_claim_0021",
         "prismari_claim_0025"
       ],
-      "confidence": "High"
+      "confidence": "Medium"
     },
     {
       "indicator": "can express Prismari through visual, physical, musical, immersive, collaborative, or public work",
@@ -499,8 +522,7 @@
       "claim_ids": [
         "prismari_claim_0020",
         "prismari_claim_0022"
-      ],
-      "confidence": "High"
+      ]
     },
     {
       "indicator": "accepts responsibility for the consequences of powerful expression",
@@ -510,8 +532,7 @@
         "prismari_claim_0025",
         "prismari_claim_0026",
         "prismari_claim_0027"
-      ],
-      "confidence": "High"
+      ]
     }
   ],
   "calibration_tuning": {
@@ -547,37 +568,7 @@
   },
   "collision_guidance": [
     {
-      "collision_id": "collision_prismari_vs_izzet_contract_v1_1",
-      "against": "izzet_league",
-      "lateral_inhibition": false,
-      "separator": "Prismari and Izzet can both create novel things; Prismari centers artistic or elemental experience, while Izzet centers experimental engineering, invention, civic infrastructure, or technical outcomes. Mixed-purpose cases remain ambiguous.",
-      "ask": "When you create something new, is the breakthrough mainly an expressive experience, a working invention, or both?",
-      "suppress_if": "the answer centers prototype function, infrastructure, mechanism, or experimental outcome as the final purpose",
-      "evidence_claim_ids": [
-        "prismari_claim_004",
-        "prismari_claim_0019",
-        "prismari_claim_0025",
-        "prismari_claim_0028",
-        "prismari_claim_0032"
-      ]
-    },
-    {
-      "collision_id": "collision_prismari_vs_rakdos_contract_v1_1",
-      "against": "cult_of_rakdos",
-      "lateral_inhibition": false,
-      "separator": "Prismari performs to express through artistic or elemental form; Rakdos performs to transgress, parody authority, intensify sensation, or embrace destructive chaos.",
-      "ask": "If the performance unsettles the room, is that collateral to expression or the point of the act?",
-      "suppress_if": "provocation, cruelty, chaos, or authority-parody is the primary aim",
-      "evidence_claim_ids": [
-        "prismari_claim_0023",
-        "prismari_claim_0025",
-        "prismari_claim_0026",
-        "prismari_claim_0029",
-        "prismari_claim_0032"
-      ]
-    },
-    {
-      "collision_id": "collision_prismari_vs_quandrix_contract_v1_1",
+      "collision_id": "collision_prismari_vs_quandrix_placement_ready",
       "against": "quandrix",
       "lateral_inhibition": false,
       "separator": "Prismari uses pattern or element as art and experience; Quandrix pursues mathematical model, proof, and fundamental structure, including beauty and optical effect when they serve that study.",
@@ -592,7 +583,7 @@
       ]
     },
     {
-      "collision_id": "collision_prismari_vs_silverquill_contract_v1_1",
+      "collision_id": "collision_prismari_vs_silverquill_placement_ready",
       "against": "silverquill",
       "lateral_inhibition": false,
       "separator": "Prismari uses artistic and elemental media; Silverquill uses spoken or written word magic, leadership, competition, and piercing rhetoric.",
@@ -603,6 +594,34 @@
         "prismari_claim_003",
         "prismari_claim_0022",
         "prismari_claim_0031",
+        "prismari_claim_0032"
+      ]
+    },
+    {
+      "collision_id": "collision_prismari_vs_izzet_contract_v1_1",
+      "against": "izzet_league",
+      "separator": "Prismari and Izzet can both create novel things; Prismari centers artistic or elemental experience, while Izzet centers experimental engineering, invention, civic infrastructure, or technical outcomes. Mixed-purpose cases remain ambiguous.",
+      "ask": "When you create something new, is the breakthrough mainly an expressive experience, a working invention, or both?",
+      "suppress_if": "the answer centers prototype function, infrastructure, mechanism, or experimental outcome as the final purpose",
+      "evidence_claim_ids": [
+        "prismari_claim_004",
+        "prismari_claim_0019",
+        "prismari_claim_0025",
+        "prismari_claim_0028",
+        "prismari_claim_0032"
+      ]
+    },
+    {
+      "collision_id": "collision_prismari_vs_rakdos_contract_v1_1",
+      "against": "cult_of_rakdos",
+      "separator": "Prismari performs to express through artistic or elemental form; Rakdos performs to transgress, parody authority, intensify sensation, or embrace destructive chaos.",
+      "ask": "If the performance unsettles the room, is that collateral to expression or the point of the act?",
+      "suppress_if": "provocation, cruelty, chaos, or authority-parody is the primary aim",
+      "evidence_claim_ids": [
+        "prismari_claim_0023",
+        "prismari_claim_0025",
+        "prismari_claim_0026",
+        "prismari_claim_0029",
         "prismari_claim_0032"
       ]
     }

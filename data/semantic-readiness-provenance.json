@@ -12564,60 +12564,8 @@
       "identity_key": "PRISMARI",
       "canonical_file": "data/raw-factions/prismari/prismari.placement.json",
       "canonical_pointer": "/collision_guidance/0",
-      "canonical_id": "collision_prismari_vs_izzet_contract_v1_1",
-      "canonical_content_hash": "sha256:f0c1bf7a5b90e73c6edc5655aa4262a214a09e8e987f14269a49b98fdc7cda4d",
-      "evidence_claim_ids": [
-        "prismari_claim_004",
-        "prismari_claim_0019",
-        "prismari_claim_0025",
-        "prismari_claim_0028",
-        "prismari_claim_0032"
-      ],
-      "evidence_source_ids": [
-        "src_izzet_league_0002",
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
-        "src_wotc_planeswalkers_guide_strixhaven_2021"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/PRISMARI",
-        "data/placement-model.json#/factions/PRISMARI",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/PRISMARI"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "PRISMARI",
-      "canonical_file": "data/raw-factions/prismari/prismari.placement.json",
-      "canonical_pointer": "/collision_guidance/1",
-      "canonical_id": "collision_prismari_vs_rakdos_contract_v1_1",
-      "canonical_content_hash": "sha256:b407c5b2f188e89d4d92a054ba38cd05b940c2f9720749de38487d1c4726b026",
-      "evidence_claim_ids": [
-        "prismari_claim_0023",
-        "prismari_claim_0025",
-        "prismari_claim_0026",
-        "prismari_claim_0029",
-        "prismari_claim_0032"
-      ],
-      "evidence_source_ids": [
-        "src_izzet_league_0002",
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
-        "src_wotc_planeswalkers_guide_strixhaven_2021"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/PRISMARI",
-        "data/placement-model.json#/factions/PRISMARI",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/PRISMARI"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "PRISMARI",
-      "canonical_file": "data/raw-factions/prismari/prismari.placement.json",
-      "canonical_pointer": "/collision_guidance/2",
-      "canonical_id": "collision_prismari_vs_quandrix_contract_v1_1",
-      "canonical_content_hash": "sha256:564e769f8b8d8c3de01846f266f345cc37cde1ca89ec664bb2d365fe24c49752",
+      "canonical_id": "collision_prismari_vs_quandrix_placement_ready",
+      "canonical_content_hash": "sha256:222c17a4d6f25fbbe1afafea5ce155967016b5603c9779a02e48a64607f76e16",
       "evidence_claim_ids": [
         "prismari_claim_002",
         "prismari_claim_003",
@@ -12641,14 +12589,66 @@
     {
       "identity_key": "PRISMARI",
       "canonical_file": "data/raw-factions/prismari/prismari.placement.json",
-      "canonical_pointer": "/collision_guidance/3",
-      "canonical_id": "collision_prismari_vs_silverquill_contract_v1_1",
-      "canonical_content_hash": "sha256:199069a1f60797412c77f07973cc3b4c062975c94448cdc6ff7567c454439169",
+      "canonical_pointer": "/collision_guidance/1",
+      "canonical_id": "collision_prismari_vs_silverquill_placement_ready",
+      "canonical_content_hash": "sha256:b20dfd497cb8866a43c8172fa0fa0b10e757e213996b1667ef9446d5e0d74302",
       "evidence_claim_ids": [
         "prismari_claim_002",
         "prismari_claim_003",
         "prismari_claim_0022",
         "prismari_claim_0031",
+        "prismari_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/PRISMARI",
+        "data/placement-model.json#/factions/PRISMARI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/PRISMARI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "PRISMARI",
+      "canonical_file": "data/raw-factions/prismari/prismari.placement.json",
+      "canonical_pointer": "/collision_guidance/2",
+      "canonical_id": "collision_prismari_vs_izzet_contract_v1_1",
+      "canonical_content_hash": "sha256:4e2f2ef55968bc47e871c8d217f1483a3d403d4c6cfdcc15f1a0c244bf037d4e",
+      "evidence_claim_ids": [
+        "prismari_claim_004",
+        "prismari_claim_0019",
+        "prismari_claim_0025",
+        "prismari_claim_0028",
+        "prismari_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/PRISMARI",
+        "data/placement-model.json#/factions/PRISMARI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/PRISMARI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "PRISMARI",
+      "canonical_file": "data/raw-factions/prismari/prismari.placement.json",
+      "canonical_pointer": "/collision_guidance/3",
+      "canonical_id": "collision_prismari_vs_rakdos_contract_v1_1",
+      "canonical_content_hash": "sha256:0fea1a14e08fefb80bc65482c6bbbb29100ac85e7e85c1a9bcfe23e750bb79d0",
+      "evidence_claim_ids": [
+        "prismari_claim_0023",
+        "prismari_claim_0025",
+        "prismari_claim_0026",
+        "prismari_claim_0029",
         "prismari_claim_0032"
       ],
       "evidence_source_ids": [
@@ -12781,6 +12781,72 @@
       ],
       "evidence_source_ids": [
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/PRISMARI",
+        "data/placement-model.json#/factions/PRISMARI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/PRISMARI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "PRISMARI",
+      "canonical_file": "data/raw-factions/prismari/prismari.placement.json",
+      "canonical_pointer": "/core_values/6",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:a00a62eb7be2a99ffc9b172a2065086cfc6535bb802bef4ae183278efab78a81",
+      "evidence_claim_ids": [
+        "prismari_claim_0028",
+        "prismari_claim_0029",
+        "prismari_claim_0030",
+        "prismari_claim_0031"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/PRISMARI",
+        "data/placement-model.json#/factions/PRISMARI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/PRISMARI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "PRISMARI",
+      "canonical_file": "data/raw-factions/prismari/prismari.placement.json",
+      "canonical_pointer": "/core_values/7",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:a5aa3f2341d76cb6d67f6a00c41346f298e6bba33d45f4a35418a2d7ce8435cf",
+      "evidence_claim_ids": [
+        "prismari_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/PRISMARI",
+        "data/placement-model.json#/factions/PRISMARI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/PRISMARI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "PRISMARI",
+      "canonical_file": "data/raw-factions/prismari/prismari.placement.json",
+      "canonical_pointer": "/core_values/8",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:3cc15877ec2449e71cb826f41e4c8ab134524d4994c0e4db6386058b83122cb4",
+      "evidence_claim_ids": [
+        "prismari_claim_0033"
+      ],
+      "evidence_source_ids": [
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
@@ -13270,8 +13336,8 @@
       "identity_key": "PRISMARI",
       "canonical_file": "data/raw-factions/prismari/prismari.placement.json",
       "canonical_pointer": "/placement_axes/0",
-      "canonical_id": "axis_expression_vs_technical_outcome",
-      "canonical_content_hash": "sha256:c742bf1f83f3d9cbf1c6f6a42fd8c8acd47fbdc753a6454c41e16bfc901daaf1",
+      "canonical_id": "axis_expression_vs_optimization",
+      "canonical_content_hash": "sha256:a6df43f16db6b2fe14d0db796764e790565e45e2558c78b7dd5cde508737aea5",
       "evidence_claim_ids": [
         "prismari_claim_002",
         "prismari_claim_003",
@@ -13298,7 +13364,7 @@
       "canonical_file": "data/raw-factions/prismari/prismari.placement.json",
       "canonical_pointer": "/placement_summary",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:463596daa054d7be7de65314e3bb9a6e85bd33449bb75131637170ee5f7e8c0a",
+      "canonical_content_hash": "sha256:1c658b556ba1c289d3c3ae38277809927cf4a78a88d8bce2be5c39ec52afa4cc",
       "evidence_claim_ids": [
         "prismari_claim_001",
         "prismari_claim_002",

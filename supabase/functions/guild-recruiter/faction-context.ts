@@ -7376,7 +7376,7 @@ export const FACTION_CONTEXT = {
           "prismari_claim_0028",
           "prismari_claim_0032"
         ],
-        "confidence": "High"
+        "confidence": "Medium"
       }
     ],
     "chatbot_guidance": {
@@ -7406,8 +7406,8 @@ export const FACTION_CONTEXT = {
         "Do not state that a user's personality is objectively determined by a faction.",
         "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
       ],
-      "calibration_note": "Require evidence that practiced artistic or elemental form is used to make expression or experience felt. Keep Prismari uncertain when the answer's purpose could instead be mechanism, proof, rhetoric, or transgression.",
-      "scoring_guardrail": "Do not award for generic spectacle, creativity, or blue-red identity without artistic or elemental expression and an identifiable purpose."
+      "calibration_note": "Prismari College should require its specific positive evidence cluster: expression, performance, art, emotion, elemental. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
+      "scoring_guardrail": "Do not award for generic spectacle if the answer is provocation, engineering, or rhetoric."
     },
     "canon_guardrails": {
       "never_claim_as_canon": [

@@ -8286,7 +8286,7 @@
             "prismari_claim_0028",
             "prismari_claim_0032"
           ],
-          "confidence": "High"
+          "confidence": "Medium"
         }
       ],
       "lateral_inhibition_targets": [
@@ -8296,37 +8296,7 @@
       ],
       "collision_guidance": [
         {
-          "collision_id": "collision_prismari_vs_izzet_contract_v1_1",
-          "against": "UR",
-          "lateral_inhibition": false,
-          "separator": "Prismari and Izzet can both create novel things; Prismari centers artistic or elemental experience, while Izzet centers experimental engineering, invention, civic infrastructure, or technical outcomes. Mixed-purpose cases remain ambiguous.",
-          "ask": "When you create something new, is the breakthrough mainly an expressive experience, a working invention, or both?",
-          "suppress_if": "the answer centers prototype function, infrastructure, mechanism, or experimental outcome as the final purpose",
-          "evidence_claim_ids": [
-            "prismari_claim_004",
-            "prismari_claim_0019",
-            "prismari_claim_0025",
-            "prismari_claim_0028",
-            "prismari_claim_0032"
-          ]
-        },
-        {
-          "collision_id": "collision_prismari_vs_rakdos_contract_v1_1",
-          "against": "BR",
-          "lateral_inhibition": false,
-          "separator": "Prismari performs to express through artistic or elemental form; Rakdos performs to transgress, parody authority, intensify sensation, or embrace destructive chaos.",
-          "ask": "If the performance unsettles the room, is that collateral to expression or the point of the act?",
-          "suppress_if": "provocation, cruelty, chaos, or authority-parody is the primary aim",
-          "evidence_claim_ids": [
-            "prismari_claim_0023",
-            "prismari_claim_0025",
-            "prismari_claim_0026",
-            "prismari_claim_0029",
-            "prismari_claim_0032"
-          ]
-        },
-        {
-          "collision_id": "collision_prismari_vs_quandrix_contract_v1_1",
+          "collision_id": "collision_prismari_vs_quandrix_placement_ready",
           "against": "QUANDRIX",
           "lateral_inhibition": false,
           "separator": "Prismari uses pattern or element as art and experience; Quandrix pursues mathematical model, proof, and fundamental structure, including beauty and optical effect when they serve that study.",
@@ -8341,7 +8311,7 @@
           ]
         },
         {
-          "collision_id": "collision_prismari_vs_silverquill_contract_v1_1",
+          "collision_id": "collision_prismari_vs_silverquill_placement_ready",
           "against": "SILVERQUILL",
           "lateral_inhibition": false,
           "separator": "Prismari uses artistic and elemental media; Silverquill uses spoken or written word magic, leadership, competition, and piercing rhetoric.",
@@ -8352,6 +8322,34 @@
             "prismari_claim_003",
             "prismari_claim_0022",
             "prismari_claim_0031",
+            "prismari_claim_0032"
+          ]
+        },
+        {
+          "collision_id": "collision_prismari_vs_izzet_contract_v1_1",
+          "against": "UR",
+          "separator": "Prismari and Izzet can both create novel things; Prismari centers artistic or elemental experience, while Izzet centers experimental engineering, invention, civic infrastructure, or technical outcomes. Mixed-purpose cases remain ambiguous.",
+          "ask": "When you create something new, is the breakthrough mainly an expressive experience, a working invention, or both?",
+          "suppress_if": "the answer centers prototype function, infrastructure, mechanism, or experimental outcome as the final purpose",
+          "evidence_claim_ids": [
+            "prismari_claim_004",
+            "prismari_claim_0019",
+            "prismari_claim_0025",
+            "prismari_claim_0028",
+            "prismari_claim_0032"
+          ]
+        },
+        {
+          "collision_id": "collision_prismari_vs_rakdos_contract_v1_1",
+          "against": "BR",
+          "separator": "Prismari performs to express through artistic or elemental form; Rakdos performs to transgress, parody authority, intensify sensation, or embrace destructive chaos.",
+          "ask": "If the performance unsettles the room, is that collateral to expression or the point of the act?",
+          "suppress_if": "provocation, cruelty, chaos, or authority-parody is the primary aim",
+          "evidence_claim_ids": [
+            "prismari_claim_0023",
+            "prismari_claim_0025",
+            "prismari_claim_0026",
+            "prismari_claim_0029",
             "prismari_claim_0032"
           ]
         }
@@ -8383,8 +8381,8 @@
           "Do not state that a user's personality is objectively determined by a faction.",
           "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
         ],
-        "calibration_note": "Require evidence that practiced artistic or elemental form is used to make expression or experience felt. Keep Prismari uncertain when the answer's purpose could instead be mechanism, proof, rhetoric, or transgression.",
-        "scoring_guardrail": "Do not award for generic spectacle, creativity, or blue-red identity without artistic or elemental expression and an identifiable purpose."
+        "calibration_note": "Prismari College should require its specific positive evidence cluster: expression, performance, art, emotion, elemental. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
+        "scoring_guardrail": "Do not award for generic spectacle if the answer is provocation, engineering, or rhetoric."
       },
       "canon_guardrails": {
         "never_claim_as_canon": [
