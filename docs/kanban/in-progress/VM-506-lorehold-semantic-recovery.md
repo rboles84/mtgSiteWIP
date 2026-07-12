@@ -13,7 +13,7 @@ Contract: v1.1
 
 Recover Lorehold end to end under CRIT-001: audit the existing packet, bound readiness blockers, gather only sufficient evidence, repair canonical data, rebuild generated artifacts, validate semantic fixtures and regressions, obtain independent review of an immutable candidate SHA, and certify that exact recovery.
 
-Current state: active identity after Prismari certification acceptance. Gate 1 audit, Gate 2 bounded evidence confirmation, Gate 3 canonical remediation, and Gate 4 generation/validation are complete in `docs/incidents/recoveries/VM-506-lorehold-semantic-recovery.md`. Immutable candidate recovery commit `c43127858e1a8609e1aed8481c2726ab03026a61` exists and is awaiting independent review. Lorehold remains uncertified; certification has not started.
+Current state: active identity after Prismari certification acceptance. Gate 1 audit, Gate 2 bounded evidence confirmation, Gate 3 canonical remediation, and Gate 4 generation/validation are complete in `docs/incidents/recoveries/VM-506-lorehold-semantic-recovery.md`. Initial candidate `c43127858e1a8609e1aed8481c2726ab03026a61` returned REQUEST CHANGES and is preserved as audit history. Replacement candidate recovery commit `6d8d46d8df0429a105c08e656a8303474c435abd` exists and is awaiting independent review. Lorehold remains uncertified; certification has not started.
 
 ## Gates
 
@@ -36,7 +36,7 @@ Current state: active identity after Prismari certification acceptance. Gate 1 a
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-506-lorehold-semantic-recovery.md`
-- Candidate recovery SHA: `c43127858e1a8609e1aed8481c2726ab03026a61`
+- Candidate recovery SHA: `6d8d46d8df0429a105c08e656a8303474c435abd`
 - Independent reviewer: pending
 - Certification commit: pending
 
@@ -80,7 +80,23 @@ Current state: active identity after Prismari certification acceptance. Gate 1 a
 - Candidate parent SHA: `51667c7d91e8530a4cd508c891179893a44a14a2`.
 - Candidate recovery SHA: `c43127858e1a8609e1aed8481c2726ab03026a61`.
 - Candidate commit message: `VM-506 create Lorehold semantic recovery candidate`.
-- Workflow-record status: candidate recorded; independent review pending.
+- Review result: REQUEST CHANGES.
+- Workflow-record status: rejected candidate preserved as audit history.
 - Certification status: none; Lorehold remains uncertified.
 - Known warnings unchanged: one builder-owned Lorehold inhibitor warning; dossier audit reports 113 warnings and 0 failures.
 - No other identity started.
+
+## Gate 5 Bounded Correction Candidate
+
+- Rejected candidate SHA: `c43127858e1a8609e1aed8481c2726ab03026a61`.
+- Replacement candidate parent SHA: `55ba75ef281a1e4a848e637047585bd0aa21b6b9`.
+- Replacement candidate recovery SHA: `6d8d46d8df0429a105c08e656a8303474c435abd`.
+- Candidate commit message: `VM-506 correct Lorehold recovery candidate`.
+- Corrections:
+  - Restored forbidden placement confidence-field deltas to accepted program-base values.
+  - Removed support-only mechanics records from authoritative `mechanics.supporting_claim_ids` while retaining them in auxiliary `support_claim_ids`.
+  - Removed discovery records from Commander Compass `identity_basis.supporting_claim_ids` and isolated them as discovery metadata.
+- Validation passed: semantic-readiness validation, source/generated validation, semantic-readiness tests, placement golden paths, faction-context isolation, dossier audit, candidate-scope guard, JSON parse checks, and `git diff --check`.
+- Known warnings unchanged: one builder-owned Lorehold inhibitor warning; dossier audit reports 113 warnings and 0 failures.
+- Workflow-record status: replacement candidate recorded; independent review pending.
+- Certification status: none; Lorehold remains uncertified.

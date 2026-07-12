@@ -13,7 +13,7 @@ Generated from `CRIT-001-identity-recovery-ledger.json`. The JSON file is author
 | VM-503 | QUANDRIX — Quandrix | college | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | — | — | — |
 | VM-504 | SILVERQUILL — Silverquill | college | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | — | — | — |
 | VM-505 | WITHERBLOOM — Witherbloom | college | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern, template-cohort-pattern | — | — | — |
-| VM-506 | LOREHOLD — Lorehold | college | candidate_review_pending | active | high-volume-pattern, mixed-role-pattern | v1.1 | c43127858e1a8609e1aed8481c2726ab03026a61 | — |
+| VM-506 | LOREHOLD — Lorehold | college | candidate_review_pending | active | high-volume-pattern, mixed-role-pattern | v1.1 | 6d8d46d8df0429a105c08e656a8303474c435abd | — |
 | VM-507 | UR — Izzet | guild | not_started | backlog | high-volume-pattern, support-heavy-pattern | — | — | — |
 | VM-508 | WU — Azorius | guild | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | — | — | — |
 | VM-509 | WR — Boros | guild | not_started | backlog | mixed-role-pattern, discovery-heavy-pattern | — | — | — |

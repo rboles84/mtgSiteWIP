@@ -854,6 +854,61 @@ Deferred until independent review / certification authorization:
 - `npm.cmd run test:parser`, if required by candidate-stage convention.
 - Certification commit.
 
+## Gate 5 Bounded Candidate Correction
+
+Independent review of candidate `c43127858e1a8609e1aed8481c2726ab03026a61` returned REQUEST CHANGES. The rejected candidate remains immutable audit history. This bounded correction addressed exactly three findings and does not certify Lorehold.
+
+| Field | Value |
+|---|---|
+| Rejected candidate SHA | `c43127858e1a8609e1aed8481c2726ab03026a61` |
+| Replacement candidate parent SHA | `55ba75ef281a1e4a848e637047585bd0aa21b6b9` |
+| Replacement candidate recovery SHA | `6d8d46d8df0429a105c08e656a8303474c435abd` |
+| Replacement candidate commit message | `VM-506 correct Lorehold recovery candidate` |
+| Workflow-record status | Replacement candidate recorded; independent review pending |
+| Certification status | None; Lorehold remains uncertified |
+
+Bounded corrections:
+
+- Restored forbidden placement confidence-field deltas to accepted program-base values at:
+  - `/core_values/8/confidence`
+  - `/core_values/9/confidence`
+  - `/core_values/10/confidence`
+  - `/core_values/12/confidence`
+  - `/core_values/14/confidence`
+  - `/core_values/16/confidence`
+  - `/core_values/17/confidence`
+  - `/behavioral_signals/9/confidence`
+- Removed `claim_lorehold_mechanic_0013` and `claim_lorehold_mechanic_0014` from authoritative `mechanics.supporting_claim_ids`; retained them only in auxiliary `support_claim_ids`.
+- Removed `lorehold_claim_0022` through `lorehold_claim_0027` from Commander Compass `identity_basis.supporting_claim_ids`; replaced that authoritative chain with substantive Lorehold claims and retained the discovery records only as discovery metadata.
+
+Replacement candidate changed files:
+
+- `data/factions.json`
+- `data/raw-factions/lorehold/lorehold.changelog.json`
+- `data/raw-factions/lorehold/lorehold.placement.json`
+- `data/raw-factions/lorehold/lorehold.profile.json`
+- `data/semantic-readiness-provenance.json`
+
+Validation summary:
+
+- `npm.cmd run build:factions`: passed after sandbox escalation for generated-file writes.
+- `node research/validate-semantic-readiness.mjs --targets=LOREHOLD`: passed.
+- `npm.cmd run validate:source-generated -- --targets=LOREHOLD`: passed with 1 known builder-owned inhibitor warning and 0 failures.
+- `npm.cmd run test:semantic-readiness`: passed.
+- `npm.cmd run test:placement`: passed, 37 factions / 37 golden paths.
+- `npm.cmd run test:faction-context-isolation`: passed.
+- `npm.cmd run dossier:audit`: passed after sandbox escalation for ignored artifact write; 113 warnings and 0 failures.
+- JSON parse checks: passed.
+- Forbidden confidence-field delta check: passed.
+- Authoritative support/discovery chain check: passed.
+- `npm.cmd run validate:semantic-candidate-scope -- --base=51667c7d91e8530a4cd508c891179893a44a14a2 --target=6d8d46d --identity=LOREHOLD`: passed.
+- `git diff --check`: passed.
+
+Known warnings unchanged:
+
+- Builder-owned Lorehold inhibitor warning remains.
+- Dossier audit remains 113 warnings / 0 failures.
+
 ## Validation Commands Run
 
 ```powershell
@@ -880,8 +935,8 @@ Deferred:
 
 ## Final Status
 
-Lorehold is active under VM-506 and remains uncertified. Candidate recovery commit `c43127858e1a8609e1aed8481c2726ab03026a61` is ready for independent review.
+Lorehold is active under VM-506 and remains uncertified. Replacement candidate recovery commit `6d8d46d8df0429a105c08e656a8303474c435abd` is ready for independent review. Rejected candidate `c43127858e1a8609e1aed8481c2726ab03026a61` is preserved as audit history.
 
-Recommended next owner decision: send candidate `c43127858e1a8609e1aed8481c2726ab03026a61` to independent Gate 5 review.
+Recommended next owner decision: send candidate `6d8d46d8df0429a105c08e656a8303474c435abd` to independent Gate 5 review.
 
 Prismari remains certified under CRIT-001 Contract v1.1. No other identity was started.
