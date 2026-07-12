@@ -9190,17 +9190,66 @@
       "canonical_file": "data/raw-factions/lorehold/lorehold.placement.json",
       "canonical_pointer": "/core_values/14",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:3a32119bb7e1f38db3549192726b8943b90ff2e4b78dd87c01f03920e740f9a6",
+      "canonical_content_hash": "sha256:8d2dde5c5f98324751d1d781e16abfcce8875b90d11c8cbc4db54f85b2e7f2ab",
+      "evidence_claim_ids": [
+        "claim_lorehold_figure_0003",
+        "claim_lorehold_placement_0001",
+        "claim_lorehold_placement_0006"
+      ],
+      "evidence_source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0008",
+        "src_lorehold_0009",
+        "src_lorehold_0010"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/LOREHOLD",
+        "data/placement-model.json#/factions/LOREHOLD",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/LOREHOLD"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "LOREHOLD",
+      "canonical_file": "data/raw-factions/lorehold/lorehold.placement.json",
+      "canonical_pointer": "/core_values/15",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:c25a0611aa5f4e9a54f95c2fc94ad1ca0ca416194febddc803ca6224d44d231d",
       "evidence_claim_ids": [
         "claim_lorehold_core_0006",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0009",
+        "claim_lorehold_placement_0009"
+      ],
+      "evidence_source_ids": [
+        "src_lorehold_0001",
+        "src_lorehold_0002",
+        "src_lorehold_0006",
+        "src_lorehold_0008",
+        "src_lorehold_0010",
+        "src_lorehold_0013",
+        "src_lorehold_0014"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/LOREHOLD",
+        "data/placement-model.json#/factions/LOREHOLD",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/LOREHOLD"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "LOREHOLD",
+      "canonical_file": "data/raw-factions/lorehold/lorehold.placement.json",
+      "canonical_pointer": "/core_values/16",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:c73f1f3ac6d8df7d54ebe1ea12ab6b0bca1997dd7a31f6a4d2413c95f0136efa",
+      "evidence_claim_ids": [
         "claim_lorehold_core_0011",
         "claim_lorehold_location_0009",
         "claim_lorehold_placement_0009",
         "claim_lorehold_figure_0018"
       ],
       "evidence_source_ids": [
-        "src_lorehold_0001",
-        "src_lorehold_0002",
         "src_lorehold_0006",
         "src_lorehold_0008",
         "src_lorehold_0009",
@@ -9218,19 +9267,22 @@
     {
       "identity_key": "LOREHOLD",
       "canonical_file": "data/raw-factions/lorehold/lorehold.placement.json",
-      "canonical_pointer": "/core_values/15",
+      "canonical_pointer": "/core_values/17",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:8d2dde5c5f98324751d1d781e16abfcce8875b90d11c8cbc4db54f85b2e7f2ab",
+      "canonical_content_hash": "sha256:53930840f9ba2798bba9effdbe505b92c37fdf4f9238c236cb1e593c5946c84f",
       "evidence_claim_ids": [
-        "claim_lorehold_figure_0003",
-        "claim_lorehold_placement_0001",
-        "claim_lorehold_placement_0006"
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_placement_0009",
+        "claim_lorehold_figure_0018"
       ],
       "evidence_source_ids": [
+        "src_lorehold_0001",
         "src_lorehold_0002",
         "src_lorehold_0008",
         "src_lorehold_0009",
-        "src_lorehold_0010"
+        "src_lorehold_0010",
+        "src_lorehold_0014"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/LOREHOLD",

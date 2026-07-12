@@ -364,6 +364,17 @@
         "claim_lorehold_mechanic_0014"
       ],
       "generated_rebuild": "deferred_to_gate4"
+    },
+    "crit001_candidate_correction": {
+      "contract_version": "v1.1",
+      "rejected_candidate_sha": "c43127858e1a8609e1aed8481c2726ab03026a61",
+      "status": "bounded_candidate_correction_pending_rebuild",
+      "audit_report": "docs/incidents/recoveries/VM-506-lorehold-semantic-recovery.md",
+      "corrections": [
+        "Restored reviewed placement confidence fields to accepted program-base values while preserving substantive semantic replacements.",
+        "Removed support-only mechanics records from authoritative mechanics.supporting_claim_ids and retained them only as auxiliary support_claim_ids.",
+        "Moved Commander Compass story-corpus discovery records out of identity_basis.supporting_claim_ids and replaced them with substantive identity/mechanics claims."
+      ]
     }
   }
 }

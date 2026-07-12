@@ -336,7 +336,7 @@
         "claim_lorehold_core_0001",
         "claim_lorehold_core_0004"
       ],
-      "confidence": "High"
+      "confidence": "Medium"
     },
     {
       "value": "historical spirits as primary sources",
@@ -347,7 +347,7 @@
         "claim_lorehold_mechanic_0002",
         "claim_lorehold_mechanic_0016"
       ],
-      "confidence": "High"
+      "confidence": "Medium"
     },
     {
       "value": "archaeological fieldwork",
@@ -358,7 +358,7 @@
         "claim_lorehold_structure_0006",
         "claim_lorehold_core_0011"
       ],
-      "confidence": "High"
+      "confidence": "Medium"
     },
     {
       "value": "active historical inquiry",
@@ -380,7 +380,7 @@
         "claim_lorehold_location_0006",
         "claim_lorehold_location_0010"
       ],
-      "confidence": "High"
+      "confidence": "Medium"
     },
     {
       "value": "records, scrolls, and ancient tomes",
@@ -392,24 +392,45 @@
       "confidence": "Medium"
     },
     {
-      "value": "relic and artifact stewardship",
-      "placement_relevance": "Artifacts strengthen Lorehold when treated as historical evidence or shared inheritance rather than loot.",
-      "claim_ids": [
-        "claim_lorehold_core_0006",
-        "claim_lorehold_core_0011",
-        "claim_lorehold_location_0009",
-        "claim_lorehold_placement_0009",
-        "claim_lorehold_figure_0018"
-      ],
-      "confidence": "High"
-    },
-    {
       "value": "learning from the past",
       "placement_relevance": "Lorehold match is strengthened when the past informs present responsibility and future action.",
       "claim_ids": [
         "claim_lorehold_figure_0003",
         "claim_lorehold_placement_0001",
         "claim_lorehold_placement_0006"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "provenance and preservation context",
+      "placement_relevance": "Lorehold strengthens when artifacts, relics, or sites are handled with context, preservation, and evidence integrity rather than decontextualized removal.",
+      "claim_ids": [
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0009",
+        "claim_lorehold_placement_0009"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "relic stewardship as evidence",
+      "placement_relevance": "Relics strengthen Lorehold when treated as historical evidence or shared inheritance rather than loot.",
+      "claim_ids": [
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0009",
+        "claim_lorehold_placement_0009",
+        "claim_lorehold_figure_0018"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value": "archaeological artifacts as history",
+      "placement_relevance": "Artifacts strengthen Lorehold when they function as archaeological evidence, historical context, or preserved inheritance.",
+      "claim_ids": [
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_placement_0009",
+        "claim_lorehold_figure_0018"
       ],
       "confidence": "Medium"
     }
@@ -550,7 +571,7 @@
         "claim_lorehold_placement_0002",
         "claim_lorehold_placement_0009"
       ],
-      "confidence": "High"
+      "confidence": "Medium"
     },
     "asks what the past proves",
     "uses memory as guidance",
