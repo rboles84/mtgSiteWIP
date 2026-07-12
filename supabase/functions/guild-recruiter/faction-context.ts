@@ -7299,10 +7299,10 @@ export const FACTION_CONTEXT = {
     "discriminator_questions": [
       {
         "id": "prismari_q1",
-        "prompt": "When has making something beautiful mattered more than making it efficient?",
-        "purpose": "Tests whether artistic form has independent value beyond efficiency.",
-        "supports": "The answer centers artistic or elemental form as the reason the work matters.",
-        "weakens": "The answer treats beauty or expression as irrelevant beside utility.",
+        "prompt": "What medium—movement, sound, image, or elemental form—best carries what you are trying to express, and why?",
+        "purpose": "Tests whether chosen artistic or elemental form is integral to the intended expression or experience.",
+        "supports": "The answer explains how practiced technique and a chosen artistic or elemental medium shape what the creator wants others to experience.",
+        "weakens": "The answer treats artistic or elemental form as incidental rather than part of what is being expressed.",
         "collision_targets": [],
         "evidence_claim_ids": [
           "prismari_claim_002",
