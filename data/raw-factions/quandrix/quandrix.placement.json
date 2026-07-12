@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "quandrix",
   "faction_name": "Quandrix College",
-  "last_updated": "2026-05-10T02:56:03.254Z",
+  "last_updated": "2026-07-12",
   "placement_model_version": "vox-mana-lore-json-v1",
   "color_identity": [
     "green",
@@ -10,52 +10,67 @@
   ],
   "ideal_fit_indicators": [
     {
-      "indicator": "notices hidden structures and repeatable patterns",
-      "rationale": "Matches the official Quandrix College identity summarized in the profile.",
+      "indicator": "notices hidden structures and repeatable mathematical patterns",
+      "rationale": "Matches Quandrix numeromancy, fractal, pattern, and fundamental-force evidence from official guide sources.",
       "claim_ids": [
-        "quandrix_claim_001"
+        "quandrix_claim_002",
+        "quandrix_claim_0019",
+        "quandrix_claim_0027"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "likes proof, abstraction, and technical precision",
-      "rationale": "Matches the official Quandrix College identity summarized in the profile.",
+      "indicator": "likes proof, abstraction, models, and technical precision",
+      "rationale": "Matches Quandrix theory/substance and blue-side abstract-model evidence.",
       "claim_ids": [
-        "quandrix_claim_002"
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "finds beauty in systems that explain the world",
-      "rationale": "Matches the official Quandrix College identity summarized in the profile.",
+      "indicator": "finds elegance in systems that explain or reshape the natural world",
+      "rationale": "Matches official evidence for mathematical structure joined to natural form and theory rendered physical.",
       "claim_ids": [
-        "quandrix_claim_003"
+        "quandrix_claim_0020",
+        "quandrix_claim_0021",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025"
       ],
       "confidence": "Medium"
     }
   ],
   "poor_fit_indicators": [
     {
-      "indicator": "rejects abstraction as useless by default",
-      "rationale": "Counters a core Quandrix College placement signal.",
+      "indicator": "rejects abstraction, models, or proof as useless by default",
+      "rationale": "Counters Quandrix evidence for abstract theory, mathematical structure, and proof-oriented placement.",
       "claim_ids": [
-        "quandrix_claim_001"
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "chooses intuition while dismissing evidence",
-      "rationale": "Counters a core Quandrix College placement signal.",
+      "indicator": "chooses intuition while dismissing observation, evidence, or pattern",
+      "rationale": "Counters Quandrix evidence for pattern recognition, field observation, and grounded mathematical inquiry.",
       "claim_ids": [
-        "quandrix_claim_002"
+        "quandrix_claim_002",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "needs immediate practical payoff before a question feels worthwhile",
-      "rationale": "Counters a core Quandrix College placement signal.",
+      "indicator": "rejects theoretical inquiry unless it has immediate practical payoff",
+      "rationale": "Counters Quandrix evidence that includes abstract theory, conjecture, and heads-down research as valid work.",
       "claim_ids": [
-        "quandrix_claim_003"
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024"
       ],
       "confidence": "Medium"
     }
@@ -64,14 +79,15 @@
     {
       "question_id": "quandrix_q1",
       "question": "What pattern have you noticed that other people tend to miss?",
-      "purpose": "Tests natural pattern recognition.",
-      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
+      "purpose": "Tests whether the user notices mathematical pattern, fractal structure, or repeated form as meaningful evidence.",
+      "answer_pattern_that_supports_this_faction": "The answer explains a hidden or repeatable pattern as evidence for how a system works.",
+      "answer_pattern_that_weakens_this_faction": "The answer treats pattern language as incidental or rejects abstraction and proof as irrelevant.",
       "related_factions_to_compare": [],
       "claim_ids": [
-        "quandrix_claim_001",
         "quandrix_claim_002",
-        "quandrix_claim_003"
+        "quandrix_claim_0019",
+        "quandrix_claim_0024",
+        "quandrix_claim_0027"
       ],
       "confidence": "Medium",
       "notes": "Question is placement-engine guidance, not canon text."
@@ -79,14 +95,15 @@
     {
       "question_id": "quandrix_q2",
       "question": "Do you trust a model because it predicts the world, or because it reveals what the world really is?",
-      "purpose": "Tests the core Quandrix theory/substance tension.",
-      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
+      "purpose": "Tests the Quandrix tension between natural mathematical discovery and abstract model-building.",
+      "answer_pattern_that_supports_this_faction": "The answer weighs predictive power, proof, model-building, and what the structure reveals about reality.",
+      "answer_pattern_that_weakens_this_faction": "The answer dismisses models, proof, or the theory/substance tension as beside the point.",
       "related_factions_to_compare": [],
       "claim_ids": [
-        "quandrix_claim_001",
-        "quandrix_claim_002",
-        "quandrix_claim_003"
+        "quandrix_claim_003",
+        "quandrix_claim_0021",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024"
       ],
       "confidence": "Medium",
       "notes": "Question is placement-engine guidance, not canon text."
@@ -97,12 +114,14 @@
         "simic_combine"
       ],
       "prompt": "When reality resists you, do you refine the proof or adapt the organism?",
-      "target_signal": "Quandrix seeks the abstract model; Simic changes the living specimen.",
-      "suppresses_this_faction_if": "the answer centers biological improvement or mutation",
+      "target_signal": "Quandrix models and proves the pattern; Simic is the same-color neighbor most likely to foreground adaptive biological change.",
+      "suppresses_this_faction_if": "the answer centers biological improvement, mutation, or adaptive life design instead of model, proof, or mathematical structure",
       "evidence_claim_ids": [
-        "quandrix_claim_001",
         "quandrix_claim_002",
-        "quandrix_claim_003"
+        "quandrix_claim_0021",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ]
     },
     {
@@ -110,26 +129,28 @@
       "collision_targets": [
         "izzet_league"
       ],
-      "prompt": "Do you trust the elegant model first, or the prototype that might fail loudly?",
-      "target_signal": "Quandrix proves the pattern; Izzet builds the experiment and learns from the explosion.",
-      "suppresses_this_faction_if": "the answer centers chaotic experimentation or invention",
+      "prompt": "Do you trust the elegant model first, or the working prototype first?",
+      "target_signal": "Quandrix proves the pattern or model; Izzet is the nearby blue-red neighbor most likely to learn through a working invention or experiment.",
+      "suppresses_this_faction_if": "the answer centers invention, prototype iteration, or experimental construction instead of model, proof, or mathematical structure",
       "evidence_claim_ids": [
-        "quandrix_claim_001",
         "quandrix_claim_002",
-        "quandrix_claim_003"
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ]
     }
   ],
   "chatbot_guidance": {
     "how_to_recognize_match": [
-      "notices hidden structures and repeatable patterns",
-      "likes proof, abstraction, and technical precision",
-      "finds beauty in systems that explain the world"
+      "notices hidden structures and repeatable mathematical patterns",
+      "likes proof, abstraction, models, and technical precision",
+      "finds elegance in systems that explain or reshape the natural world"
     ],
     "how_to_recognize_mismatch": [
-      "rejects abstraction as useless by default",
-      "chooses intuition while dismissing evidence",
-      "needs immediate practical payoff before a question feels worthwhile"
+      "rejects abstraction, models, or proof as useless by default",
+      "chooses intuition while dismissing observation, evidence, or pattern",
+      "rejects theoretical inquiry unless it has immediate practical payoff"
     ],
     "questions_to_ask_when_uncertain": [
       "What pattern have you noticed that other people tend to miss?",
@@ -152,34 +173,34 @@
     "overall_confidence": "Medium",
     "strongest_evidence_areas": [
       "official faction overview",
-      "official mechanics identity",
-      "MTG-Stories corpus search evidence"
+      "official numeromancy and fractal identity",
+      "bounded 2026 guide evidence for study, field work, and applied theory"
     ],
     "weakest_evidence_areas": [
-      "deep story episode coverage",
-      "cross-faction comparison calibration"
+      "direct story episode extraction remains discovery-only",
+      "cross-faction comparison calibration awaits Gate 4 generated validation and later neighboring identity certifications"
     ],
     "manual_review_recommended": true,
-    "notes": "Good for initial placement testing; should be expanded with story-specific claims in a later pass. Corpus-enriched data should be reviewed with calibration and collision reports before being treated as tuned scoring fuel.",
+    "notes": "Gate 3 replaces discovery/search-term semantic support with bounded official-source claims. Generated artifacts remain stale until Gate 4.",
     "calibration_tuning_status": "explicit",
-    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+    "last_placement_ready_pass": "2026-07-12"
   },
   "placement_profile_version": "vox-mana-lore-json-v1",
   "based_on_profile_version": "1.0.0",
   "placement_summary": {
-    "short_description": "Quandrix College placement is informed by official overview sources and MTG-Stories corpus evidence.",
-    "best_fit_summary": "notices hidden structures and repeatable patterns likes proof, abstraction, and technical precision finds beauty in systems that explain the world",
-    "poor_fit_summary": "rejects abstraction as useless by default chooses intuition while dismissing evidence needs immediate practical payoff before a question feels worthwhile",
+    "short_description": "Quandrix College placement is informed by official guide and product overview sources; story-corpus records remain discovery leads only.",
+    "best_fit_summary": "notices hidden structures and repeatable mathematical patterns likes proof, abstraction, models, and technical precision finds elegance in systems that explain or reshape the natural world",
+    "poor_fit_summary": "rejects abstraction, models, or proof as useless by default chooses intuition while dismissing observation, evidence, or pattern rejects theoretical inquiry unless it has immediate practical payoff",
     "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
     "claim_ids": [
-      "quandrix_claim_0007",
-      "quandrix_claim_0008",
-      "quandrix_claim_0009",
-      "quandrix_claim_0010",
-      "quandrix_claim_0011",
-      "quandrix_claim_0012",
-      "quandrix_claim_0013",
-      "quandrix_claim_0014"
+      "quandrix_claim_001",
+      "quandrix_claim_002",
+      "quandrix_claim_003",
+      "quandrix_claim_006",
+      "quandrix_claim_0019",
+      "quandrix_claim_0024",
+      "quandrix_claim_0025",
+      "quandrix_claim_0028"
     ],
     "calibrated_primary_read": "Requires abstract pattern logic, proof, mathematical structure, models, or precision.",
     "calibrated_false_positive_guardrail": "Do not award for generic intelligence or systems thinking without proof/pattern language.",
@@ -189,204 +210,266 @@
       "quandrix_claim_003",
       "quandrix_claim_004",
       "quandrix_claim_005",
-      "quandrix_claim_006"
+      "quandrix_claim_006",
+      "quandrix_claim_0019",
+      "quandrix_claim_0024",
+      "quandrix_claim_0025",
+      "quandrix_claim_0028"
     ]
   },
   "placement_axes": [
     {
       "axis_id": "axis_pattern_proof_vs_intuition",
       "label": "Pattern Proof vs Intuition",
-      "description": "Measures whether user answers align with Quandrix College's specific evidence instead of only its color pair.",
+      "description": "Measures whether user answers align with Quandrix College's math-structured evidence instead of only its color pair.",
       "low_end_label": "unexamined intuition",
       "high_end_label": "rigorous pattern logic",
       "faction_position": 90,
-      "rationale": "Corpus evidence adds story-context support for Quandrix, Quandrix College, Kianne, Imbraham, Zimone, Nev, fractal, patterns.",
+      "rationale": "Official guide evidence supports Quandrix as numeromancy, mathematical pattern, abstract theory, fractals, and theory made physical.",
       "claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009",
-        "quandrix_claim_0010",
-        "quandrix_claim_0011",
-        "quandrix_claim_0012",
-        "quandrix_claim_0013",
-        "quandrix_claim_0014"
+        "quandrix_claim_002",
+        "quandrix_claim_003",
+        "quandrix_claim_006",
+        "quandrix_claim_0019",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ],
       "confidence": "Medium",
-      "notes": "Added during MTG-Stories corpus upgrade."
+      "notes": "Gate 3 replaces discovery-corpus support with bounded official-source support."
     }
   ],
   "moral_and_psychological_profile": {
-    "summary": "Quandrix College should be scored through faction-specific behavioral evidence, not only broad color identity.",
+    "summary": "Quandrix College should be scored through faction-specific behavioral evidence: mathematical pattern, proof, abstraction, theory made physical, and grounded inquiry.",
     "claim_ids": [
-      "quandrix_claim_0007",
-      "quandrix_claim_0008",
-      "quandrix_claim_0009",
-      "quandrix_claim_0010",
-      "quandrix_claim_0011"
+      "quandrix_claim_006",
+      "quandrix_claim_0024",
+      "quandrix_claim_0025",
+      "quandrix_claim_0026",
+      "quandrix_claim_0028"
     ]
   },
   "core_values": [
     {
-      "value": "Quandrix",
-      "placement_relevance": "Corpus search evidence for Quandrix College.",
+      "value": "Numeromancy",
+      "placement_relevance": "Quandrix identity centers mathematics as magical method rather than generic intelligence.",
       "claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_001",
+        "quandrix_claim_0019",
+        "quandrix_claim_0027"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Quandrix College",
-      "placement_relevance": "Corpus search evidence for Quandrix College.",
+      "value": "Patterns and fractals",
+      "placement_relevance": "Quandrix repeatedly uses fractal, pattern, symmetry, and formulaic growth as identity evidence.",
       "claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_002",
+        "quandrix_claim_004",
+        "quandrix_claim_0019",
+        "quandrix_claim_0023"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Kianne",
-      "placement_relevance": "Corpus search evidence for Quandrix College.",
+      "value": "Proof and abstract models",
+      "placement_relevance": "Quandrix should recognize answers that value models, conjecture, proof, and hidden structure.",
       "claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0028"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Imbraham",
-      "placement_relevance": "Corpus search evidence for Quandrix College.",
+      "value": "Theory made physical",
+      "placement_relevance": "Quandrix does not stop at abstract math; official evidence supports rendering theory physical and applying it to the world.",
       "claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_0019",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Zimone",
-      "placement_relevance": "Corpus search evidence for Quandrix College.",
+      "value": "Scale and multiplication",
+      "placement_relevance": "Quandrix growth should be read through mathematical scaling rather than generic green-blue growth.",
       "claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_0019",
+        "quandrix_claim_0021",
+        "quandrix_claim_0028"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Nev",
-      "placement_relevance": "Corpus search evidence for Quandrix College.",
+      "value": "Grounded inquiry",
+      "placement_relevance": "Mature Quandrix expression tests theory through observation, field work, research sites, and practical experimentation.",
       "claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_0024",
+        "quandrix_claim_0025"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "fractal",
-      "placement_relevance": "Corpus search evidence for Quandrix College.",
+      "value": "Responsible uncertainty around natural rules",
+      "placement_relevance": "Pressure and unhealthy-expression evidence is bounded to living experiments and miscalculation risk, not a global recklessness claim.",
       "claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_0025",
+        "quandrix_claim_0026"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "patterns",
-      "placement_relevance": "Corpus search evidence for Quandrix College.",
+      "value": "Mathematical possibility in nature",
+      "placement_relevance": "Quandrix can read natural growth and possibility through mathematical relationships without collapsing into generic biology.",
       "claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_0021",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "theory",
-      "placement_relevance": "Corpus search evidence for Quandrix College.",
+      "value": "Formulaic growth and symmetry",
+      "placement_relevance": "Quandrix scaling, fractals, and growth are supported as mathematical forms rather than broad green-blue adaptation alone.",
       "claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_002",
+        "quandrix_claim_0019",
+        "quandrix_claim_0023"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "learn",
-      "placement_relevance": "Corpus search evidence for Quandrix College.",
+      "value": "Conjecture tested against reality",
+      "placement_relevance": "Quandrix mature expression can hold abstract theory and observation together instead of treating proof as detached from the world.",
       "claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_003",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025"
       ],
       "confidence": "Medium"
     }
   ],
   "behavioral_signals": [
     {
-      "signal": "References Blue-Green Ribbons, Episode 4: Put to the Test, The Math of More as story-context evidence rather than relying only on color identity.",
-      "placement_relevance": "Strengthens Quandrix College with corpus-backed specificity.",
-      "supports_match_when": "The user's answers echo Quandrix, Quandrix College, Kianne, Imbraham, Zimone, Nev in a faction-specific way.",
-      "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
+      "signal": "asks for the underlying model",
+      "placement_relevance": "Supports Quandrix when the user looks for proof, structure, or model beneath events.",
+      "supports_match_when": "The answer explains how a system works through a model or proof.",
+      "weakens_match_when": "The answer dismisses model-building as beside the point.",
       "claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009",
-        "quandrix_claim_0010",
-        "quandrix_claim_0011",
-        "quandrix_claim_0012"
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024"
       ],
       "confidence": "Medium"
     },
-    "asks for the underlying model",
-    "enjoys precision",
-    "treats reality as patterned and provable"
+    {
+      "signal": "treats pattern and measurement as evidence",
+      "placement_relevance": "Supports Quandrix when pattern recognition is evidentiary rather than merely decorative.",
+      "supports_match_when": "The answer treats repeatable pattern as a way to understand or reshape a system.",
+      "weakens_match_when": "The answer uses pattern only as vibe or style.",
+      "claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_0019",
+        "quandrix_claim_0028"
+      ]
+    },
+    {
+      "signal": "grounds theory in observation or practical experimentation",
+      "placement_relevance": "Supports mature Quandrix when theory is tested against reality.",
+      "supports_match_when": "The answer connects model-building to field work, observation, or practical application.",
+      "weakens_match_when": "The answer treats theory and reality as disconnected.",
+      "claim_ids": [
+        "quandrix_claim_0024",
+        "quandrix_claim_0025"
+      ]
+    },
+    {
+      "signal": "recognizes risk when theory becomes a living experiment",
+      "placement_relevance": "Supports bounded pressure behavior without promoting all Quandrix work as reckless.",
+      "supports_match_when": "The answer notices cause, effect, miscalculation, or responsibility in living systems.",
+      "weakens_match_when": "The answer treats optimized natural systems as risk-free toys.",
+      "claim_ids": [
+        "quandrix_claim_0025",
+        "quandrix_claim_0026"
+      ]
+    }
   ],
   "inhibitor_traits": [
     {
       "trait": "Generic color-pair overfit",
-      "why_it_conflicts": "The corpus upgrade is intended to prevent Quandrix College from winning on broad color identity alone.",
+      "why_it_conflicts": "Quandrix should not win on broad green-blue systems language unless math, proof, model, fractal, or theory-made-physical evidence appears.",
       "status": "Supported Interpretation",
       "claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009",
-        "quandrix_claim_0010"
+        "quandrix_claim_006",
+        "quandrix_claim_0028"
       ],
       "confidence": "Medium",
       "notes": "Use collision questions when another faction shares the same or adjacent colors."
     },
-    "builds first to see what happens",
-    "focuses on living adaptation",
-    "chooses law or history over abstraction"
+    {
+      "trait": "builds first to see what happens",
+      "why_it_conflicts": "Quandrix is better supported by model, proof, and mathematical structure than by invention-first prototype behavior.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "quandrix_claim_003",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
+      ]
+    },
+    {
+      "trait": "focuses on living adaptation over abstract proof",
+      "why_it_conflicts": "Quandrix may study life and natural systems, but the distinguishing signal is mathematical modeling and theory-made-physical.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "quandrix_claim_0021",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
+      ]
+    },
+    {
+      "trait": "chooses law or history over abstraction",
+      "why_it_conflicts": "Quandrix is not primarily procedural law or material historical evidence; it prioritizes mathematical structure and model-building.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
+      ]
+    }
   ],
   "good_fit_indicators": [
     {
-      "indicator": "notices hidden structures and repeatable patterns",
-      "rationale": "Matches the official Quandrix College identity summarized in the profile.",
+      "indicator": "notices hidden structures and repeatable mathematical patterns",
+      "rationale": "Matches Quandrix numeromancy, fractal, pattern, and fundamental-force evidence from official guide sources.",
       "claim_ids": [
-        "quandrix_claim_001"
+        "quandrix_claim_002",
+        "quandrix_claim_0019",
+        "quandrix_claim_0027"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "likes proof, abstraction, and technical precision",
-      "rationale": "Matches the official Quandrix College identity summarized in the profile.",
+      "indicator": "likes proof, abstraction, models, and technical precision",
+      "rationale": "Matches Quandrix theory/substance and blue-side abstract-model evidence.",
       "claim_ids": [
-        "quandrix_claim_002"
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "finds beauty in systems that explain the world",
-      "rationale": "Matches the official Quandrix College identity summarized in the profile.",
+      "indicator": "finds elegance in systems that explain or reshape the natural world",
+      "rationale": "Matches official evidence for mathematical structure joined to natural form and theory rendered physical.",
       "claim_ids": [
-        "quandrix_claim_003"
+        "quandrix_claim_0020",
+        "quandrix_claim_0021",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025"
       ],
       "confidence": "Medium"
     }
@@ -426,39 +509,44 @@
     {
       "collision_id": "collision_quandrix_vs_simic_combine_placement_ready",
       "against": "simic_combine",
-      "separator": "Quandrix seeks the abstract model; Simic changes the living specimen.",
+      "separator": "Quandrix models and proves the pattern; Simic is the same-color neighbor most likely to foreground adaptive biological change.",
       "ask": "When reality resists you, do you refine the proof or adapt the organism?",
-      "suppress_if": "the answer centers biological improvement or mutation",
+      "suppress_if": "the answer centers biological improvement, mutation, or adaptive life design instead of model, proof, or mathematical structure",
       "evidence_claim_ids": [
-        "quandrix_claim_001",
         "quandrix_claim_002",
-        "quandrix_claim_003"
+        "quandrix_claim_0021",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ]
     },
     {
       "collision_id": "collision_quandrix_vs_izzet_league_placement_ready",
       "against": "izzet_league",
-      "separator": "Quandrix proves the pattern; Izzet builds the experiment and learns from the explosion.",
-      "ask": "Do you trust the elegant model first, or the prototype that might fail loudly?",
-      "suppress_if": "the answer centers chaotic experimentation or invention",
+      "separator": "Quandrix proves the pattern or model; Izzet is the nearby blue-red neighbor most likely to learn through a working invention or experiment.",
+      "ask": "Do you trust the elegant model first, or the working prototype first?",
+      "suppress_if": "the answer centers invention, prototype iteration, or experimental construction instead of model, proof, or mathematical structure",
       "evidence_claim_ids": [
-        "quandrix_claim_001",
         "quandrix_claim_002",
-        "quandrix_claim_003"
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ]
     },
     {
       "collision_id": "collision_quandrix_vs_prismari_placement_ready",
       "against": "prismari",
       "lateral_inhibition": false,
-      "separator": "Quandrix proves the hidden model; Prismari makes the pattern land as expressive art.",
-      "ask": "When a pattern is correct but lifeless, do you prove it more carefully or make it land as an experience?",
-      "suppress_if": "the answer centers performance, elemental spectacle, emotion, or art before proof",
+      "separator": "Quandrix tries to prove or model the pattern; Prismari tries to make form, medium, or elemental expression carry an experience.",
+      "ask": "When a pattern is both beautiful and correct, are you trying to prove the structure or make it felt as an experience?",
+      "suppress_if": "the answer centers artistic or elemental expression as the final purpose before proof or mathematical structure",
       "evidence_claim_ids": [
         "quandrix_claim_002",
         "quandrix_claim_003",
-        "quandrix_claim_005",
-        "quandrix_claim_006"
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ]
     },
     {
@@ -471,23 +559,180 @@
       "evidence_claim_ids": [
         "quandrix_claim_002",
         "quandrix_claim_003",
-        "quandrix_claim_005",
-        "quandrix_claim_006"
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
       ]
     },
     {
       "collision_id": "collision_quandrix_vs_witherbloom_placement_ready",
       "against": "witherbloom",
       "lateral_inhibition": false,
-      "separator": "Quandrix abstracts living systems into patterns and proofs; Witherbloom studies embodied life/death exchange through practical essence craft.",
+      "separator": "Quandrix abstracts living systems into patterns and proofs; Witherbloom is the nearby black-green college most likely to foreground embodied life/death exchange and practical essence craft.",
       "ask": "A living system behaves strangely. Do you trust the equation beneath it or the messy exchange of life and death?",
       "suppress_if": "the answer centers bodies, remedies, poisons, fieldwork, or life/death essence before abstract proof",
       "evidence_claim_ids": [
         "quandrix_claim_002",
         "quandrix_claim_003",
-        "quandrix_claim_005",
-        "quandrix_claim_006"
+        "quandrix_claim_0021",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
       ]
     }
-  ]
+  ],
+  "semantic_guidance_evidence": [
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_0019",
+        "quandrix_claim_0027"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "evidence_claim_ids": [
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "evidence_claim_ids": [
+        "quandrix_claim_0020",
+        "quandrix_claim_0021",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "evidence_claim_ids": [
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "evidence_claim_ids": [
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_0019",
+        "quandrix_claim_0024",
+        "quandrix_claim_0027"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "evidence_claim_ids": [
+        "quandrix_claim_003",
+        "quandrix_claim_0021",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024"
+      ]
+    }
+  ],
+  "required_neighbor_evidence": [
+    {
+      "neighbor": "UG",
+      "label": "Simic Combine",
+      "reason": "Same-color alternative and existing Quandrix/Simic collision guidance.",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_0021",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
+      ],
+      "ambiguity": "Both can involve green-blue systems and living nature; Quandrix needs math/model/proof evidence to win."
+    },
+    {
+      "neighbor": "UR",
+      "label": "Izzet League",
+      "reason": "Adjacent blue-red experimental neighbor in current collision guidance.",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
+      ],
+      "ambiguity": "Both can value experiment and novelty; Quandrix should foreground model/proof rather than invention-first iteration."
+    },
+    {
+      "neighbor": "PRISMARI",
+      "label": "Prismari College",
+      "reason": "Strixhaven neighbor with pattern, beauty, and expression overlap.",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
+      ],
+      "ambiguity": "Both can value beauty and form; Quandrix uses form as proof/model while Prismari makes medium and expression central."
+    },
+    {
+      "neighbor": "LOREHOLD",
+      "label": "Lorehold College",
+      "reason": "Certified Strixhaven neighbor with evidence/history versus model/proof ambiguity.",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
+      ],
+      "ambiguity": "Both can investigate mysteries; Quandrix leads with mathematical model while Lorehold leads with material record and historical evidence."
+    },
+    {
+      "neighbor": "WITHERBLOOM",
+      "label": "Witherbloom College",
+      "reason": "Strixhaven natural-system neighbor with life/nature overlap.",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_003",
+        "quandrix_claim_0021",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
+      ],
+      "ambiguity": "Both can study natural systems; Quandrix abstracts/model-proves while Witherbloom centers embodied life/death exchange."
+    }
+  ],
+  "semantic_readiness": {
+    "contract_version": "v1.1",
+    "certification_status": "gate3_canonical_remediation",
+    "required_neighbors": [
+      "UG",
+      "UR",
+      "PRISMARI",
+      "LOREHOLD",
+      "WITHERBLOOM"
+    ],
+    "audit_report": "docs/incidents/recoveries/VM-503-quandrix-semantic-recovery.md",
+    "generated_artifacts_status": "stale_until_gate4"
+  }
 }

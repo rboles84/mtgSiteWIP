@@ -8,13 +8,13 @@
     "green",
     "blue"
   ],
-  "last_updated": "2026-06-13",
+  "last_updated": "2026-07-12",
   "profile": {
     "overview": "Quandrix College is a green-blue college associated with Arcavios / Strixhaven.",
     "philosophy": "Reality has deep mathematical structure, and understanding that structure lets a mage reveal, model, and reshape what exists.",
     "core_tension": "Quandrix balances green's discovery of natural patterns with blue's construction of abstract models, raising the question of whether math is found in reality or made by minds.",
     "social_or_institutional_role": "The official guides frame Quandrix as the College of Numeromancy, whose students study patterns, fractals, symmetries, statistics, and the mathematics of nature and magic.",
-    "mechanics_and_play_pattern": "Quandrix's gameplay identity clusters around mana, counters, fractal tokens, scaling, doubling, and pattern-based growth.",
+    "mechanics_and_play_pattern": "Quandrix's gameplay identity clusters around numeromancy, fractals, scaling, multiplication, theory made physical, and pattern-based growth.",
     "placement_use": "Use this profile to support thematic placement, quiz design, lore browsing, and future faction comparison. Do not present placement inferences as canon.",
     "strongest_source_ids": [
       "src_wotc_planeswalkers_guide_strixhaven_2021",
@@ -27,32 +27,34 @@
       "quandrix_claim_003",
       "quandrix_claim_004",
       "quandrix_claim_005",
-      "quandrix_claim_006"
+      "quandrix_claim_006",
+      "quandrix_claim_0019",
+      "quandrix_claim_0020",
+      "quandrix_claim_0024",
+      "quandrix_claim_0028"
     ]
   },
   "evidence_summary": {
     "overall_confidence": "High",
     "limitations": [
-      "This is a compact first-pass JSON package generated from official overview and mechanics sources.",
+      "This packet has CRIT-001 role classification and bounded evidence for its substantive canonical claims, but generated artifacts remain stale until Gate 4.",
       "Novel-level or story-episode-specific details should be added in a later deep-dive pass with direct story citations."
     ]
   },
   "profile_version": "1.0.0",
   "source_review_date": "2026-06-13",
-  "last_incremental_review": "2026-06-13",
+  "last_incremental_review": "2026-07-12",
   "core_identity": {
     "summary": "Quandrix College is a green-blue college associated with Arcavios / Strixhaven.",
     "philosophy": "Reality has deep mathematical structure, and understanding that structure lets a mage reveal, model, and reshape what exists.",
     "central_tension": "Quandrix balances green's discovery of natural patterns with blue's construction of abstract models, raising the question of whether math is found in reality or made by minds.",
     "claim_ids": [
-      "quandrix_claim_0007",
-      "quandrix_claim_0008",
-      "quandrix_claim_0009",
-      "quandrix_claim_0010",
-      "quandrix_claim_0011",
-      "quandrix_claim_0012",
-      "quandrix_claim_0013",
-      "quandrix_claim_0014"
+      "quandrix_claim_001",
+      "quandrix_claim_002",
+      "quandrix_claim_003",
+      "quandrix_claim_0019",
+      "quandrix_claim_0020",
+      "quandrix_claim_0024"
     ]
   },
   "site_surface": {
@@ -60,30 +62,34 @@
     "short_label": "Quandrix College",
     "tagline": "Reality has deep mathematical structure, and understanding that structure lets a mage reveal, model, and reshape what exists.",
     "claim_ids": [
-      "quandrix_claim_0007",
-      "quandrix_claim_0008",
-      "quandrix_claim_0009",
-      "quandrix_claim_0010"
+      "quandrix_claim_001",
+      "quandrix_claim_002",
+      "quandrix_claim_003",
+      "quandrix_claim_0019",
+      "quandrix_claim_0024"
     ]
   },
   "structure": {
     "summary": "The official guides frame Quandrix as the College of Numeromancy, whose students study patterns, fractals, symmetries, statistics, and the mathematics of nature and magic.",
     "claim_ids": [
-      "quandrix_claim_0007",
-      "quandrix_claim_0008",
-      "quandrix_claim_0009",
-      "quandrix_claim_0010"
+      "quandrix_claim_001",
+      "quandrix_claim_002",
+      "quandrix_claim_005",
+      "quandrix_claim_0019",
+      "quandrix_claim_0024",
+      "quandrix_claim_0025"
     ]
   },
   "great_tension": {
     "summary": "Quandrix balances green's discovery of natural patterns with blue's construction of abstract models, raising the question of whether math is found in reality or made by minds.",
     "placement_relevance": "Used to distinguish surface color overlap from faction-specific behavior.",
     "claim_ids": [
-      "quandrix_claim_0007",
-      "quandrix_claim_0008",
-      "quandrix_claim_0009",
-      "quandrix_claim_0010",
-      "quandrix_claim_0011"
+      "quandrix_claim_003",
+      "quandrix_claim_0020",
+      "quandrix_claim_0021",
+      "quandrix_claim_0022",
+      "quandrix_claim_0024",
+      "quandrix_claim_0025"
     ]
   },
   "historical_timeline": [],
@@ -110,9 +116,6 @@
       "name": "Zimone, Infinite Analyst",
       "role": "Face commander for Quandrix Unlimited in the official Secrets of Strixhaven Commander decklist.",
       "relationship_to_faction": "Support-only product/navigation anchor; not a lore biography or popularity claim.",
-      "claim_ids": [
-        "quandrix_claim_0017"
-      ],
       "source_ids": [
         "src_wotc_secrets_strixhaven_commander_decklists_20260401",
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
@@ -125,9 +128,6 @@
       "name": "Primo, the Unbounded",
       "role": "Featured commander for Quandrix Unlimited in the official Secrets of Strixhaven Commander decklist.",
       "relationship_to_faction": "Support-only product/navigation anchor; not a lore biography or popularity claim.",
-      "claim_ids": [
-        "quandrix_claim_0017"
-      ],
       "source_ids": [
         "src_wotc_secrets_strixhaven_commander_decklists_20260401",
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
@@ -150,7 +150,8 @@
       "source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+      "evidence_use": "auxiliary_support"
     },
     {
       "card_name": "Quandrix Cultivator",
@@ -165,7 +166,8 @@
       "source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+      "evidence_use": "auxiliary_support"
     },
     {
       "card_name": "Zimone, Quandrix Prodigy",
@@ -180,21 +182,23 @@
       "source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+      "evidence_use": "auxiliary_support"
     }
   ],
   "views_on_other_factions": [],
   "mechanics": {
-    "summary": "Quandrix's gameplay identity clusters around mana, counters, fractal tokens, scaling, doubling, and pattern-based growth.",
+    "summary": "Quandrix's gameplay identity clusters around numeromancy, fractals, scaling, multiplication, theory made physical, and pattern-based growth.",
     "claim_ids": [
-      "quandrix_claim_0007",
-      "quandrix_claim_0008",
-      "quandrix_claim_0009",
-      "quandrix_claim_0010"
+      "quandrix_claim_002",
+      "quandrix_claim_004",
+      "quandrix_claim_0019",
+      "quandrix_claim_0023",
+      "quandrix_claim_0028"
     ]
   },
   "search_and_filter_metadata": {
-      "search_keywords": [
+    "search_keywords": [
       "Quandrix",
       "Quandrix College",
       "Imbraham",
@@ -247,7 +251,8 @@
         "quandrix_claim_0014",
         "quandrix_claim_0015",
         "quandrix_claim_0016"
-      ]
+      ],
+      "evidence_use": "discovery_metadata"
     },
     "raw_enrichment": {
       "review_date": "2026-06-13",
@@ -268,9 +273,9 @@
     }
   },
   "research_limitations": [
-    "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available.",
-    "VM-378 promotes only official guide speakers, official product deck rows, and local Scryfall card/flavor anchors for public richness.",
-    "Discovery-only story-corpus figures, dean/founder statuses, and long flavor text remain source-intake-needed."
+    "MTG-Stories repository entries are retained as discovery-only records; they cannot support identity, placement, guidance, or generated semantic proof chains until directly extracted.",
+    "VM-378 official product and local Scryfall records remain auxiliary support for Commander/product navigation only.",
+    "Generated Esix/archetype wording must be verified in Gate 4; this canonical Gate 3 remediation does not add unsupported Esix identity claims."
   ],
   "commander_compass": {
     "schema_version": "1.0.0",
@@ -304,11 +309,20 @@
         "quandrix_claim_003",
         "quandrix_claim_004",
         "quandrix_claim_006",
-        "quandrix_claim_0017",
-        "quandrix_claim_0018"
+        "quandrix_claim_0019",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ],
       "supporting_source_ids": [
         "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "auxiliary_support_claim_ids": [
+        "quandrix_claim_0017",
+        "quandrix_claim_0018"
+      ],
+      "auxiliary_support_source_ids": [
         "src_wotc_secrets_strixhaven_commander_decklists_20260401",
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ]
@@ -349,7 +363,8 @@
             "quandrix_claim_0017"
           ],
           "support_only": true,
-          "boundary": "Official product/card-data support only."
+          "boundary": "Official product/card-data support only.",
+          "evidence_use": "auxiliary_support"
         },
         "confidence": "High for product/card identity; support-only for recommendation texture.",
         "caution_notes": [
@@ -392,7 +407,8 @@
             "quandrix_claim_0017"
           ],
           "support_only": true,
-          "boundary": "Official product/card-data support only."
+          "boundary": "Official product/card-data support only.",
+          "evidence_use": "auxiliary_support"
         },
         "confidence": "High for product/card identity; support-only for recommendation texture.",
         "caution_notes": [

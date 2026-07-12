@@ -13,15 +13,15 @@ Contract: v1.1
 
 Recover Quandrix end to end under CRIT-001: audit the existing packet, bound readiness blockers, gather only sufficient evidence, repair canonical data, rebuild generated artifacts, validate semantic fixtures and regressions, obtain independent review of an immutable candidate SHA, and certify that exact recovery.
 
-Current state: active next identity after VM-506 Lorehold certification acceptance. Branch creation and workflow activation only; Gate 1 audit has not started and no Quandrix remediation has been performed.
+Current state: Gate 4 generation/provenance/fixture validation is complete after bounded resolution of the unsupported Esix/generated-display blocker. Quandrix remains uncertified. No recovery candidate, certification commit, or other identity work has started.
 
 ## Gates
 
-- [ ] Gate 1 — Packet audit and bounded disposition.
-- [ ] Gate 2 — Sufficient evidence completion.
-- [ ] Gate 3 — Canonical remediation.
-- [ ] Gate 4 — Generation and validation.
-- [ ] Gate 5 — Independent certification.
+- [x] Gate 1 — Packet audit and bounded disposition.
+- [x] Gate 2 — Sufficient evidence completion.
+- [x] Gate 3 � Canonical remediation.
+- [x] Gate 4 ? Generation and validation. Complete after bounded unsupported Esix/generated-display blocker resolution.
+- [ ] Gate 5 ? Candidate creation and independent certification. Candidate creation pending.
 
 ## Scope Rules
 
@@ -35,7 +35,7 @@ Current state: active next identity after VM-506 Lorehold certification acceptan
 - Canonical ledger: `docs/incidents/CRIT-001-identity-recovery-ledger.json`
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
-- Audit/recovery report: pending
+- Audit/recovery report: `docs/incidents/recoveries/VM-503-quandrix-semantic-recovery.md`
 - Candidate recovery SHA: pending
 - Independent reviewer: pending
 - Certification commit: pending

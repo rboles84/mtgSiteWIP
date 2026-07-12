@@ -15018,22 +15018,275 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/behavioral_signals/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:c7908b960be2ab5af759c1d318a3ac9b321cc2b31978532f4b31c5e373acba60",
+      "canonical_content_hash": "sha256:cb4a036a79a30fb66d1a1660d4af1b85e91ee1a33ae6f930d7e544eb92af9b9d",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009",
-        "quandrix_claim_0010",
-        "quandrix_claim_0011",
-        "quandrix_claim_0012"
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_episode_4_something_to_offer_8ebeacb3",
-        "src_mtg_stories_off_the_record_2ea68353",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/behavioral_signals/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:77aa13ca144d9f2d0b009bfa15441e29f8e2424353666c72b3226711d51f56ae",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_0019",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/behavioral_signals/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:86c9263f533767827ad0b67109b331f76d39446e836cc710048ba8b0543a0aa2",
+      "evidence_claim_ids": [
+        "quandrix_claim_0024",
+        "quandrix_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/behavioral_signals/3",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:45f6611279b6577bbbeb897b794aaef6c92280b180538b97bf78d5887d48a753",
+      "evidence_claim_ids": [
+        "quandrix_claim_0025",
+        "quandrix_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:7fd78598661cb1ab3c52fdf434041b9aa0ea84267ceee44091f9b55d4a3dc4df",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_0019",
+        "quandrix_claim_0027"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:529f05ccdea7312355e45faa6f148b3a978c3e7986d41ab816a87b31697bb2ab",
+      "evidence_claim_ids": [
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:9b059a28a836093983afb0f32a9a8d7220686a173869fcd2913865d457db0dbb",
+      "evidence_claim_ids": [
+        "quandrix_claim_0020",
+        "quandrix_claim_0021",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:8a2e9a80ed429874c13cacdf7e3961d14d049237af8c5b7b41abc5a81a3b5847",
+      "evidence_claim_ids": [
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:28ae1e1f6a21874419fe450d62f5f18a891fdace02d31569bec559bf65bc3ac3",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:9fbf77b2d95b7564530f0be608b1a172a0994d868a32a6a3293bf407ed3782d3",
+      "evidence_claim_ids": [
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:9705bf2e93818d42c613381940fceb7e86ab33bbde12e4385d4549690d49f992",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_0019",
+        "quandrix_claim_0024",
+        "quandrix_claim_0027"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:324e83ea0f7162c49e517f6b9c8b93d829bd83e6b832aa134e339d333742298d",
+      "evidence_claim_ids": [
+        "quandrix_claim_003",
+        "quandrix_claim_0021",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15047,15 +15300,17 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/collision_guidance/0",
       "canonical_id": "collision_quandrix_vs_simic_combine_placement_ready",
-      "canonical_content_hash": "sha256:b1b3306496953e3a94f4c5f8862ab910d7c45f508178d46bb49b96e4a25b503c",
+      "canonical_content_hash": "sha256:a16d1f3ea80b15c3ee7f58921b50908551195501f8e19bbd247fcf2560ffc616",
       "evidence_claim_ids": [
-        "quandrix_claim_001",
         "quandrix_claim_002",
-        "quandrix_claim_003"
+        "quandrix_claim_0021",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ],
       "evidence_source_ids": [
-        "src_wotc_planeswalkers_guide_strixhaven_2021",
-        "src_wotc_strixhaven_product_page_2021"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15069,15 +15324,17 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/collision_guidance/1",
       "canonical_id": "collision_quandrix_vs_izzet_league_placement_ready",
-      "canonical_content_hash": "sha256:0c8af04bd1182b72f4b08177e56b89da896b226447b2df8332c1922a106d6303",
+      "canonical_content_hash": "sha256:78d81894c778c2a8c80958d4d5d3d62d5625fdf12046b903e548594037a93d60",
       "evidence_claim_ids": [
-        "quandrix_claim_001",
         "quandrix_claim_002",
-        "quandrix_claim_003"
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ],
       "evidence_source_ids": [
-        "src_wotc_planeswalkers_guide_strixhaven_2021",
-        "src_wotc_strixhaven_product_page_2021"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15091,12 +15348,13 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/collision_guidance/2",
       "canonical_id": "collision_quandrix_vs_prismari_placement_ready",
-      "canonical_content_hash": "sha256:6c802fd97914fcabeff5762d22ad93da9ed24ee5effcf9493bea14b3177730b7",
+      "canonical_content_hash": "sha256:d63f5fc4b05913033a6e7019e9e6db7c4e2e217be43c852bd5412787a85e53b4",
       "evidence_claim_ids": [
         "quandrix_claim_002",
         "quandrix_claim_003",
-        "quandrix_claim_005",
-        "quandrix_claim_006"
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ],
       "evidence_source_ids": [
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
@@ -15118,8 +15376,10 @@
       "evidence_claim_ids": [
         "quandrix_claim_002",
         "quandrix_claim_003",
-        "quandrix_claim_005",
-        "quandrix_claim_006"
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
       ],
       "evidence_source_ids": [
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
@@ -15137,12 +15397,14 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/collision_guidance/4",
       "canonical_id": "collision_quandrix_vs_witherbloom_placement_ready",
-      "canonical_content_hash": "sha256:f74fc1879f0c7a30002666f9104956267359b44305721ff56beaf69e7ef8eb80",
+      "canonical_content_hash": "sha256:14a90e229c92962782264edb04884bcb2e3e1696723e929f7e9807d716ed9150",
       "evidence_claim_ids": [
         "quandrix_claim_002",
         "quandrix_claim_003",
-        "quandrix_claim_005",
-        "quandrix_claim_006"
+        "quandrix_claim_0021",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
       ],
       "evidence_source_ids": [
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
@@ -15160,16 +15422,15 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/core_values/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:335a86091401dfd22e3ee2350bfc50362618207d6f70597e2965ea15d30e11fd",
+      "canonical_content_hash": "sha256:deee16750ca8efffc20c40d614b38e0a03ae2e4b00784635bb725a3972237796",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_001",
+        "quandrix_claim_0019",
+        "quandrix_claim_0027"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15183,16 +15444,15 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/core_values/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:8a3bb0c14323be7d9defc716deb067eb53292ca08aca49b585f69107322772fa",
+      "canonical_content_hash": "sha256:852fe0303823af79d0ad0a48dc6b9d22b509ed41fd70c13f67c8d690a084e8f0",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_002",
+        "quandrix_claim_004",
+        "quandrix_claim_0019",
+        "quandrix_claim_0023"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15206,16 +15466,15 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/core_values/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:5b65270e15bfee6a2cee9a4e0cc3dde80138015b8496aaac308f5fbf0d8c35f3",
+      "canonical_content_hash": "sha256:937c163490fe1a450c59c260e25b8050fe5426e545cb4829f21e46b3cff13846",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0028"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15229,16 +15488,15 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/core_values/3",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:6d33fc2fdd610bf6ee3c15f6aa0b94c8befd3613fce98216b518310e03b29171",
+      "canonical_content_hash": "sha256:d4668e668b93e4ff9dec006778f7df063bf5f97ef3aac6e9dcacae92edafdfc2",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_0019",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15252,16 +15510,15 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/core_values/4",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:39f5ce3bb31586c2384af2361f46eee38e3b34e8005621eda325f7b1dbc8e688",
+      "canonical_content_hash": "sha256:827dce54a4e8fbba3d970409449312172790ff0a715059e0f843dec3ba585110",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_0019",
+        "quandrix_claim_0021",
+        "quandrix_claim_0028"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15275,16 +15532,13 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/core_values/5",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:26f8f7e3b5f209ebc8e15ff05e462390e1cb9fe7c1715697b381deae601058ba",
+      "canonical_content_hash": "sha256:3a5dd2aab37fb65dffc738a2edccfc461525aa857d33eaae0fb10f6ba43d3a58",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_0024",
+        "quandrix_claim_0025"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15298,16 +15552,13 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/core_values/6",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:ee9625a30b174a8f97856934a0eba5d0f9007ed1fdd63d8e106db727bb66d98d",
+      "canonical_content_hash": "sha256:3870fb9ee640f25eeaa45f093d8fcd359ebe70839b116b7534fae1335271c3aa",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_0025",
+        "quandrix_claim_0026"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15321,16 +15572,15 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/core_values/7",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:a8ccd5fd4b3b01ece7d61e5307ca632122baf8d48f9c0fae670aacc4a95cd7a1",
+      "canonical_content_hash": "sha256:f1c32eaecde2828c30fe018d7cb9ffb57f762dbb8d2d2f9f6a9602db24f2a1fe",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_0021",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15344,16 +15594,14 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/core_values/8",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:27268f8b7727c4e25e05a1f46cfa3bd0ca82efbc38d02fb72f96cc6fcde9cecb",
+      "canonical_content_hash": "sha256:b3fb282947aa34ed73374e2a21e8b0e0e08d160b3c38a64052c7a412058536af",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_002",
+        "quandrix_claim_0019",
+        "quandrix_claim_0023"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15367,16 +15615,15 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/core_values/9",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:ec6a71a806f41ddef24b6c99109f0e23dfeb01c1b8259c6df9d425ed4b6bd675",
+      "canonical_content_hash": "sha256:3ec7f070bbc7907fc6d8b96f021298ab6033ae655c993f7f58ffe589b7dbb2c1",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009"
+        "quandrix_claim_003",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15390,13 +15637,15 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/discriminator_questions/0",
       "canonical_id": "quandrix_q1",
-      "canonical_content_hash": "sha256:13421ba63b030bf0d9d21f5b4e0f72a68b16c6566c849960ca75507ccf7c2a37",
+      "canonical_content_hash": "sha256:8adf8619b5eb6486d38ff667c34858cfcc5ac672f549f6bccedcc54d7551d01f",
       "evidence_claim_ids": [
-        "quandrix_claim_001",
         "quandrix_claim_002",
-        "quandrix_claim_003"
+        "quandrix_claim_0019",
+        "quandrix_claim_0024",
+        "quandrix_claim_0027"
       ],
       "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021",
         "src_wotc_strixhaven_product_page_2021"
       ],
@@ -15412,15 +15661,16 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/discriminator_questions/1",
       "canonical_id": "quandrix_q2",
-      "canonical_content_hash": "sha256:954a8282760bc171486ad0edc669f5b0e5192948acd9e0ce8f174c3f33368b71",
+      "canonical_content_hash": "sha256:54f87e76f61a1ab256f7aa9feda971b99f69b2bbbe50f4fba0c071024f6dacb0",
       "evidence_claim_ids": [
-        "quandrix_claim_001",
-        "quandrix_claim_002",
-        "quandrix_claim_003"
+        "quandrix_claim_003",
+        "quandrix_claim_0021",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024"
       ],
       "evidence_source_ids": [
-        "src_wotc_planeswalkers_guide_strixhaven_2021",
-        "src_wotc_strixhaven_product_page_2021"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15434,15 +15684,17 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/discriminator_questions/2",
       "canonical_id": "q_quandrix_9801",
-      "canonical_content_hash": "sha256:d39a9914922dd682edb2dbc95115b357166c2dd2cbf2475bfd154b07d2c7e03f",
+      "canonical_content_hash": "sha256:df46950cb5385cb87dc30f857107c691137efcc6b26793df9a9165356381eda2",
       "evidence_claim_ids": [
-        "quandrix_claim_001",
         "quandrix_claim_002",
-        "quandrix_claim_003"
+        "quandrix_claim_0021",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ],
       "evidence_source_ids": [
-        "src_wotc_planeswalkers_guide_strixhaven_2021",
-        "src_wotc_strixhaven_product_page_2021"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15456,15 +15708,17 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/discriminator_questions/3",
       "canonical_id": "q_quandrix_9802",
-      "canonical_content_hash": "sha256:d72c8c9065868090f2890393ca4d91921edf322e92fcc3ab1608b66f934334eb",
+      "canonical_content_hash": "sha256:29770447918b71de294465597092ada0e3111eac6eea5c86cce983e16b2aa478",
       "evidence_claim_ids": [
-        "quandrix_claim_001",
         "quandrix_claim_002",
-        "quandrix_claim_003"
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ],
       "evidence_source_ids": [
-        "src_wotc_planeswalkers_guide_strixhaven_2021",
-        "src_wotc_strixhaven_product_page_2021"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15478,9 +15732,11 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/good_fit_indicators/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:ffccfbe83095a2278356dde733242476c47000c7c4fc969ed3ac54559f2b5a7c",
+      "canonical_content_hash": "sha256:209e3a096412af31fd9764f5ca6bd48312d73a83d9773fc58cb83967b5cef2ae",
       "evidence_claim_ids": [
-        "quandrix_claim_001"
+        "quandrix_claim_002",
+        "quandrix_claim_0019",
+        "quandrix_claim_0027"
       ],
       "evidence_source_ids": [
         "src_wotc_planeswalkers_guide_strixhaven_2021",
@@ -15498,11 +15754,15 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/good_fit_indicators/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:0f15e88a6e76a17d1653d33ce5356976d0bf62b846a2917055900cee0fd8cf96",
+      "canonical_content_hash": "sha256:440046ab8057d06eac80fd45832ed917775aef0c0e6acafbdaf75e3ab327f584",
       "evidence_claim_ids": [
-        "quandrix_claim_002"
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ],
       "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
@@ -15517,11 +15777,15 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/good_fit_indicators/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:28fcbded029c5d77987f3e4d66c4a7567fe0ff9514db389f57f55f8a0140eb28",
+      "canonical_content_hash": "sha256:7f09932d3368d28568582de3df0385ec0a3b934752bd8144ad81d6971e695428",
       "evidence_claim_ids": [
-        "quandrix_claim_003"
+        "quandrix_claim_0020",
+        "quandrix_claim_0021",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025"
       ],
       "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
@@ -15536,9 +15800,11 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:ffccfbe83095a2278356dde733242476c47000c7c4fc969ed3ac54559f2b5a7c",
+      "canonical_content_hash": "sha256:209e3a096412af31fd9764f5ca6bd48312d73a83d9773fc58cb83967b5cef2ae",
       "evidence_claim_ids": [
-        "quandrix_claim_001"
+        "quandrix_claim_002",
+        "quandrix_claim_0019",
+        "quandrix_claim_0027"
       ],
       "evidence_source_ids": [
         "src_wotc_planeswalkers_guide_strixhaven_2021",
@@ -15556,11 +15822,15 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:0f15e88a6e76a17d1653d33ce5356976d0bf62b846a2917055900cee0fd8cf96",
+      "canonical_content_hash": "sha256:440046ab8057d06eac80fd45832ed917775aef0c0e6acafbdaf75e3ab327f584",
       "evidence_claim_ids": [
-        "quandrix_claim_002"
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ],
       "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
@@ -15575,11 +15845,15 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:28fcbded029c5d77987f3e4d66c4a7567fe0ff9514db389f57f55f8a0140eb28",
+      "canonical_content_hash": "sha256:7f09932d3368d28568582de3df0385ec0a3b934752bd8144ad81d6971e695428",
       "evidence_claim_ids": [
-        "quandrix_claim_003"
+        "quandrix_claim_0020",
+        "quandrix_claim_0021",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025"
       ],
       "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
@@ -15594,18 +15868,82 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/inhibitor_traits/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:e86dbb241512d4bce505ecab2bf5245402491150265de80445dcc2995b3ef786",
+      "canonical_content_hash": "sha256:eb52decb2a12d556e010429e90e781dc715f7032c3c2fd41ccd958c0b7b30323",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009",
-        "quandrix_claim_0010"
+        "quandrix_claim_006",
+        "quandrix_claim_0028"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/inhibitor_traits/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:2d196c62b4272c57424e968bac1a73d1aa7465d192f787b648d0ad33e751bdee",
+      "evidence_claim_ids": [
+        "quandrix_claim_003",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/inhibitor_traits/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:4b432949d2a77f7591564d605a8cfa5b3c8c25708fda93dcd5af8c6bd74dc97a",
+      "evidence_claim_ids": [
+        "quandrix_claim_0021",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/inhibitor_traits/3",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:42e1023cf79e57aea3e494e6400d757442d905806fed3c3e46851fcfb3bd6f37",
+      "evidence_claim_ids": [
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15619,20 +15957,17 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/moral_and_psychological_profile",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:14b1ce93fe6b9b36a71eb72fea518bc2f0f566a99f742928020b091cf744380c",
+      "canonical_content_hash": "sha256:bc0010c80f567b48c16e10f22617e5ea4143c11ac21dd815ec8d24a2c23b7f80",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009",
-        "quandrix_claim_0010",
-        "quandrix_claim_0011"
+        "quandrix_claim_006",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025",
+        "quandrix_claim_0026",
+        "quandrix_claim_0028"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_episode_4_something_to_offer_8ebeacb3",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15646,26 +15981,19 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/placement_axes/0",
       "canonical_id": "axis_pattern_proof_vs_intuition",
-      "canonical_content_hash": "sha256:3c0a2ffb2a61d1c49cf43f0f097ebbb0e0e36ea1dec1bc1a78210c2c8d28b2eb",
+      "canonical_content_hash": "sha256:805dd0c6f2ef1c5719a38137c80c8279776a85c1ee4b304be4a5fce733a6c9fc",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009",
-        "quandrix_claim_0010",
-        "quandrix_claim_0011",
-        "quandrix_claim_0012",
-        "quandrix_claim_0013",
-        "quandrix_claim_0014"
+        "quandrix_claim_002",
+        "quandrix_claim_003",
+        "quandrix_claim_006",
+        "quandrix_claim_0019",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_1_dont_go_past_the_old_dark_house_f3b78342",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_episode_4_something_to_offer_8ebeacb3",
-        "src_mtg_stories_off_the_record_2ea68353",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15679,32 +16007,20 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/placement_summary",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:77dcec78cfa81c13bbf7aca099000bb6f7e2ef2392d261e6618effac34f627bf",
+      "canonical_content_hash": "sha256:c8014c15202f06cd25715b7be7a7897c751f97011fd29d2fce5eb2c20ffe1be3",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009",
-        "quandrix_claim_0010",
-        "quandrix_claim_0011",
-        "quandrix_claim_0012",
-        "quandrix_claim_0013",
-        "quandrix_claim_0014",
         "quandrix_claim_001",
         "quandrix_claim_002",
         "quandrix_claim_003",
+        "quandrix_claim_006",
+        "quandrix_claim_0019",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028",
         "quandrix_claim_004",
-        "quandrix_claim_005",
-        "quandrix_claim_006"
+        "quandrix_claim_005"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_1_dont_go_past_the_old_dark_house_f3b78342",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_episode_4_something_to_offer_8ebeacb3",
-        "src_mtg_stories_off_the_record_2ea68353",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_the_math_of_more_cf5ab994",
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021",
         "src_wotc_strixhaven_product_page_2021"
@@ -15721,9 +16037,200 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
       "canonical_pointer": "/poor_fit_indicators/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:9d636f01d61fe1b50b3cc1f461b065b38ff7b5f4571f3045fbca3f6f77c7a844",
+      "canonical_content_hash": "sha256:a62e3026b4609b9155d28c044ac3a4712a7d88b9779f44ba62b52748f65aa71d",
       "evidence_claim_ids": [
-        "quandrix_claim_001"
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/poor_fit_indicators/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:54321f94fb1427a92a7bfa6ca3d6733c7e92dfffa2596c9985b48a64ac2e28d5",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/poor_fit_indicators/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:f78f9e28def86f246b822d2ea23f9fd78b662c1443b9f65d9a8f003fd0dd7bdc",
+      "evidence_claim_ids": [
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:5f94f9b19276095555a9a6a6dfea06be6efccba0a3cd7174ca980c12f9261a29",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_0021",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:8bd040706ddc74b2c6a1ddf9abcb531df44cf753fa512c4c1c3df782c2a16e8c",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:9c25ac47900623f5f5188da9abe483d2a425711b366ea1d1e7cc101368d33900",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/3",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:d7306aed8ccdda3e5fa3cad022c8a5f28ba3bcf3ca58edae3794305484e083a4",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/4",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:dfe200442d8b80f438233a2a8aad0a33909e5c881f49c269d163ab57aae30b15",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_003",
+        "quandrix_claim_0021",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:58eef7e95f4bbaae81160e0d20c299befccfe8648e203c85efcdbd858302547a",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_0019",
+        "quandrix_claim_0027"
       ],
       "evidence_source_ids": [
         "src_wotc_planeswalkers_guide_strixhaven_2021",
@@ -15739,13 +16246,17 @@
     {
       "identity_key": "QUANDRIX",
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
-      "canonical_pointer": "/poor_fit_indicators/1",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:aa7e6801e3322102458ba1bd7922ebe5bdad1570358eba593168ceb5447aaa85",
+      "canonical_content_hash": "sha256:a482a8d543afcbf77a7752d7b90c51dae164ba75b3475cbed008890be12f2751",
       "evidence_claim_ids": [
-        "quandrix_claim_002"
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ],
       "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
@@ -15758,13 +16269,131 @@
     {
       "identity_key": "QUANDRIX",
       "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
-      "canonical_pointer": "/poor_fit_indicators/2",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:9d308c29e9acdec227af1547ad2646fffdfb373a7d915d8fdb162160be543af6",
+      "canonical_content_hash": "sha256:d789f6180ff94dc064b9cd84c53aef01380496ba2eb7ec2d88cd50c28375e5e4",
       "evidence_claim_ids": [
-        "quandrix_claim_003"
+        "quandrix_claim_0020",
+        "quandrix_claim_0021",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025"
       ],
       "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:9f20f01ec45b38d3bb024439b9ef8d4a69b8cd3f254082f4db6aa681a5bdc49f",
+      "evidence_claim_ids": [
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:f592b4feeaac069c2f9b459ba6bc155cc05f810f3bce3d8fe90de097de190f61",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:1cc8563c2a93c41de3e623b3f4c9b40b5b58b9e289d78cd931e460311cdf3a66",
+      "evidence_claim_ids": [
+        "quandrix_claim_003",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:4835d25064ffc9cc0ef08ed6ec52d2ad92c19be20f389159e6e93ad2ba4fab04",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_0019",
+        "quandrix_claim_0024",
+        "quandrix_claim_0027"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/QUANDRIX",
+        "data/placement-model.json#/factions/QUANDRIX",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/7",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:5256880b775dc5eff59704107e14b72f02b2f141907acc76e432d23f89956f91",
+      "evidence_claim_ids": [
+        "quandrix_claim_003",
+        "quandrix_claim_0021",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
@@ -15779,10 +16408,11 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.profile.json",
       "canonical_pointer": "/canonical_flavor_text/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:f73c735b21a6630a99ce15e29e48795597f9f374ad66a324aae4f34296cf5867",
+      "canonical_content_hash": "sha256:4fa5b2891f525b9a9c6e9d5b3d45b5bcd84eedd4007e1653f535a94b79dc8d82",
       "evidence_claim_ids": [
         "quandrix_claim_0018"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
@@ -15798,10 +16428,11 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.profile.json",
       "canonical_pointer": "/canonical_flavor_text/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:338294c5b1d77c763ac96e99e27d62781a002e2cf2f8bc22c689182e33517db5",
+      "canonical_content_hash": "sha256:6184d0e95b1827a36868a31318daf0fbec8c2347e46be59d08717a57b0cb5edf",
       "evidence_claim_ids": [
         "quandrix_claim_0018"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
@@ -15817,10 +16448,11 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.profile.json",
       "canonical_pointer": "/canonical_flavor_text/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:d970ce01eddd43a2f2ef37fefeac2ae0b65d5bfff9b547a63f2cbba3ab75f287",
+      "canonical_content_hash": "sha256:5502e78d67ddc3517da4c1a81e894fcc31cb199f9859f6191c961ad0ecb13d2e",
       "evidence_claim_ids": [
         "quandrix_claim_0018"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
@@ -15836,10 +16468,11 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.profile.json",
       "canonical_pointer": "/commander_compass/native_fit_commanders/0/source_basis",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:1a6ffc552919e9172941b07d2d46cf0b6a26298ac0ce8857c3a3f7956b39046d",
+      "canonical_content_hash": "sha256:1683be8ef4b73fa5cf6c2de278e9d5b4af73a1b80888fd9992ac19757fbf8ca5",
       "evidence_claim_ids": [
         "quandrix_claim_0017"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_wotc_secrets_strixhaven_commander_decklists_20260401"
       ],
@@ -15855,10 +16488,11 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.profile.json",
       "canonical_pointer": "/commander_compass/native_fit_commanders/1/source_basis",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:1a6ffc552919e9172941b07d2d46cf0b6a26298ac0ce8857c3a3f7956b39046d",
+      "canonical_content_hash": "sha256:1683be8ef4b73fa5cf6c2de278e9d5b4af73a1b80888fd9992ac19757fbf8ca5",
       "evidence_claim_ids": [
         "quandrix_claim_0017"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_wotc_secrets_strixhaven_commander_decklists_20260401"
       ],
@@ -15876,24 +16510,17 @@
       "canonical_id": null,
       "canonical_content_hash": "sha256:5ece8ca6bb621d32487566b22f2e24ea208cb1022efa8c5ff8efde9feb02cded",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009",
-        "quandrix_claim_0010",
-        "quandrix_claim_0011",
-        "quandrix_claim_0012",
-        "quandrix_claim_0013",
-        "quandrix_claim_0014"
+        "quandrix_claim_001",
+        "quandrix_claim_002",
+        "quandrix_claim_003",
+        "quandrix_claim_0019",
+        "quandrix_claim_0020",
+        "quandrix_claim_0024"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_1_dont_go_past_the_old_dark_house_f3b78342",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_episode_4_something_to_offer_8ebeacb3",
-        "src_mtg_stories_off_the_record_2ea68353",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15907,7 +16534,7 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.profile.json",
       "canonical_pointer": "/data_quality/corpus_upgrade",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:2c839bde9a3bccd5efa7915ae6b16499513bbda1d5dfd0ce20d9b1505a8ab9cd",
+      "canonical_content_hash": "sha256:8e4d03d9d5c032809982c313ff3adb85b5f9eaa10be20362111a1d5666813be6",
       "evidence_claim_ids": [
         "quandrix_claim_0007",
         "quandrix_claim_0008",
@@ -15920,6 +16547,7 @@
         "quandrix_claim_0015",
         "quandrix_claim_0016"
       ],
+      "evidence_use": "discovery_metadata",
       "evidence_source_ids": [
         "src_mtg_stories_blue_green_ribbons_2e2606a8",
         "src_mtg_stories_episode_1_dont_go_past_the_old_dark_house_f3b78342",
@@ -15946,18 +16574,16 @@
       "canonical_id": null,
       "canonical_content_hash": "sha256:ddcb8fc32e6bbd7e903b10b34380112b5ae7f25f3617ed9854bb06dffdc5a5d2",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009",
-        "quandrix_claim_0010",
-        "quandrix_claim_0011"
+        "quandrix_claim_003",
+        "quandrix_claim_0020",
+        "quandrix_claim_0021",
+        "quandrix_claim_0022",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_episode_4_something_to_offer_8ebeacb3",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -15992,58 +16618,19 @@
     {
       "identity_key": "QUANDRIX",
       "canonical_file": "data/raw-factions/quandrix/quandrix.profile.json",
-      "canonical_pointer": "/key_figures/1",
-      "canonical_id": "card_zimone_infinite_analyst",
-      "canonical_content_hash": "sha256:358037deb6da6c9afa2fb165c5ff2377aff8a0cd15fd1edc87684830c10a0298",
-      "evidence_claim_ids": [
-        "quandrix_claim_0017"
-      ],
-      "evidence_source_ids": [
-        "src_wotc_secrets_strixhaven_commander_decklists_20260401"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/QUANDRIX",
-        "data/placement-model.json#/factions/QUANDRIX",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "QUANDRIX",
-      "canonical_file": "data/raw-factions/quandrix/quandrix.profile.json",
-      "canonical_pointer": "/key_figures/2",
-      "canonical_id": "card_primo_the_unbounded",
-      "canonical_content_hash": "sha256:0c1e89ae4823a7408adcf4db0b359853a4a42269b6ea31380472677208121904",
-      "evidence_claim_ids": [
-        "quandrix_claim_0017"
-      ],
-      "evidence_source_ids": [
-        "src_wotc_secrets_strixhaven_commander_decklists_20260401"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/QUANDRIX",
-        "data/placement-model.json#/factions/QUANDRIX",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/QUANDRIX"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "QUANDRIX",
-      "canonical_file": "data/raw-factions/quandrix/quandrix.profile.json",
       "canonical_pointer": "/mechanics",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:8e76d2a59017162fbaeec65fbef9c90452f35d5264c4ffa5ae617cf949945ba6",
+      "canonical_content_hash": "sha256:2418af8265359275799fe143ee9ff9d6004d343b9610aa2b9d2d30d9e10cb0eb",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009",
-        "quandrix_claim_0010"
+        "quandrix_claim_002",
+        "quandrix_claim_004",
+        "quandrix_claim_0019",
+        "quandrix_claim_0023",
+        "quandrix_claim_0028"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -16057,14 +16644,18 @@
       "canonical_file": "data/raw-factions/quandrix/quandrix.profile.json",
       "canonical_pointer": "/profile",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:015f7797b3aceb3903ae1b0bc50f2a072998afebc7506bb8541b1b71354e6944",
+      "canonical_content_hash": "sha256:1961af9f5e13d20e0f2674c334a2b9b7c1a86850b2f308f55ce3dac5ccda721f",
       "evidence_claim_ids": [
         "quandrix_claim_001",
         "quandrix_claim_002",
         "quandrix_claim_003",
         "quandrix_claim_004",
         "quandrix_claim_005",
-        "quandrix_claim_006"
+        "quandrix_claim_006",
+        "quandrix_claim_0019",
+        "quandrix_claim_0020",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
       ],
       "evidence_source_ids": [
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
@@ -16085,16 +16676,16 @@
       "canonical_id": null,
       "canonical_content_hash": "sha256:79cbea0a716e6f228a48428056bae086d0943a5466433ccd9eebae5a85d9a7a5",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009",
-        "quandrix_claim_0010"
+        "quandrix_claim_001",
+        "quandrix_claim_002",
+        "quandrix_claim_003",
+        "quandrix_claim_0019",
+        "quandrix_claim_0024"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",
@@ -16110,16 +16701,17 @@
       "canonical_id": null,
       "canonical_content_hash": "sha256:a4a30e4a1cc0f90300003d325096178127e97e4be9e1d2fe0143a93929167abf",
       "evidence_claim_ids": [
-        "quandrix_claim_0007",
-        "quandrix_claim_0008",
-        "quandrix_claim_0009",
-        "quandrix_claim_0010"
+        "quandrix_claim_001",
+        "quandrix_claim_002",
+        "quandrix_claim_005",
+        "quandrix_claim_0019",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_math_of_more_cf5ab994"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/QUANDRIX",

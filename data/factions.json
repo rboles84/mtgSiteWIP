@@ -10011,9 +10011,9 @@
       "accent": "#2a9a7a",
       "banner": "linear-gradient(160deg,rgba(20,120,80,0.3) 0%,rgba(12,11,10,0) 60%)",
       "tagline": "Math is magic.",
-      "philosophy": "The College of Numeromancy holds that mathematics and magic are the same thing - that the patterns underlying nature are not descriptions of reality but reality itself. Anyone who understands them deeply enough can reshape what exists. Esix, a mathematical accident that now exists independently, is their most honest mascot.",
-      "lore_summary": "Does math exist in the world, or in the mind? Are equations forces of nature waiting to be discovered, or frameworks constructed by minds? The College's most honest answer is that Esix exists and they're not entirely sure why.",
-      "core_tension": "Does math exist in the world, or in the mind? Are equations forces of nature waiting to be discovered, or frameworks constructed by minds? The College's most honest answer is that Esix exists and they're not entirely sure why.",
+      "philosophy": "Quandrix treats mathematics as magical structure: patterns, fractals, symmetries, and abstract models reveal how nature works and how theory can become physical form.",
+      "lore_summary": "Quandrix asks whether mathematics is discovered in nature or constructed by minds, holding green's natural pattern-finding and blue's abstract model-building in productive tension.",
+      "core_tension": "Quandrix asks whether mathematics is discovered in nature or constructed by minds, holding green's natural pattern-finding and blue's abstract model-building in productive tension.",
       "affinity": {
         "drawn_to": [
           "Patterns that only reveal themselves after sustained, patient attention",
@@ -10042,7 +10042,7 @@
         "tone": "Precise. Delighted in a specific, non-performative way. Slightly distracted by an implication you triggered.",
         "speaks_like": "A professor who just realized your answer opened a question they hadn't considered.",
         "example_opening": "That answer contains a pattern you may not have noticed yet.",
-        "example_decree": "That answer contains a pattern you may not have noticed yet - which is appropriate, because Quandrix exists to notice what others don't. You think in structures. You hold uncertainty without resolving it prematurely. You find the edge cases more interesting than the general rule. These are not academic virtues. They are how reality actually works, and very few people are constitutionally suited to operating at that level. You are. Welcome to the college that is still trying to explain Esix. You can help."
+        "example_decree": "That answer contains a pattern you may not have noticed yet - which is appropriate, because Quandrix exists to notice what others miss. You think in structures, hold uncertainty long enough to test it, and turn difficult models into something reality can answer. Welcome to the College of Numeromancy."
       },
       "archetypes": [
         {
@@ -10070,7 +10070,6 @@
           "Aether Gust"
         ],
         "permanents": [
-          "Esix Fractal Bloom",
           "Doubling Season"
         ]
       },
@@ -10150,11 +10149,20 @@
             "quandrix_claim_003",
             "quandrix_claim_004",
             "quandrix_claim_006",
-            "quandrix_claim_0017",
-            "quandrix_claim_0018"
+            "quandrix_claim_0019",
+            "quandrix_claim_0024",
+            "quandrix_claim_0028"
           ],
           "supporting_source_ids": [
             "src_wotc_planeswalkers_guide_strixhaven_2021",
+            "src_wotc_strixhaven_product_page_2021",
+            "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+          ],
+          "auxiliary_support_claim_ids": [
+            "quandrix_claim_0017",
+            "quandrix_claim_0018"
+          ],
+          "auxiliary_support_source_ids": [
             "src_wotc_secrets_strixhaven_commander_decklists_20260401",
             "src_scryfall_oracle_cards_local_strixhaven_20260613"
           ]
@@ -10194,7 +10202,8 @@
                 "quandrix_claim_0017"
               ],
               "support_only": true,
-              "boundary": "Official product/card-data support only."
+              "boundary": "Official product/card-data support only.",
+              "evidence_use": "auxiliary_support"
             },
             "confidence": "High for product/card identity; support-only for recommendation texture.",
             "caution_notes": [
@@ -10237,7 +10246,8 @@
                 "quandrix_claim_0017"
               ],
               "support_only": true,
-              "boundary": "Official product/card-data support only."
+              "boundary": "Official product/card-data support only.",
+              "evidence_use": "auxiliary_support"
             },
             "confidence": "High for product/card identity; support-only for recommendation texture.",
             "caution_notes": [
@@ -10320,9 +10330,6 @@
             "name": "Zimone, Infinite Analyst",
             "role": "Face commander for Quandrix Unlimited in the official Secrets of Strixhaven Commander decklist.",
             "relationship_to_faction": "Support-only product/navigation anchor; not a lore biography or popularity claim.",
-            "claim_ids": [
-              "quandrix_claim_0017"
-            ],
             "source_ids": [
               "src_wotc_secrets_strixhaven_commander_decklists_20260401",
               "src_scryfall_oracle_cards_local_strixhaven_20260613"
@@ -10335,9 +10342,6 @@
             "name": "Primo, the Unbounded",
             "role": "Featured commander for Quandrix Unlimited in the official Secrets of Strixhaven Commander decklist.",
             "relationship_to_faction": "Support-only product/navigation anchor; not a lore biography or popularity claim.",
-            "claim_ids": [
-              "quandrix_claim_0017"
-            ],
             "source_ids": [
               "src_wotc_secrets_strixhaven_commander_decklists_20260401",
               "src_scryfall_oracle_cards_local_strixhaven_20260613"
@@ -10360,7 +10364,8 @@
             "source_ids": [
               "src_scryfall_oracle_cards_local_strixhaven_20260613"
             ],
-            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+            "evidence_use": "auxiliary_support"
           },
           {
             "card_name": "Quandrix Cultivator",
@@ -10375,7 +10380,8 @@
             "source_ids": [
               "src_scryfall_oracle_cards_local_strixhaven_20260613"
             ],
-            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+            "evidence_use": "auxiliary_support"
           },
           {
             "card_name": "Zimone, Quandrix Prodigy",
@@ -10390,7 +10396,8 @@
             "source_ids": [
               "src_scryfall_oracle_cards_local_strixhaven_20260613"
             ],
-            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+            "evidence_use": "auxiliary_support"
           }
         ],
         "views_on_other_factions": [],
@@ -24467,7 +24474,7 @@
           "mtgdecks_slug": "simic",
           "label": "Simic"
         },
-        "core_tension": "Does math exist in the world, or in the mind? Are equations forces of nature waiting to be discovered, or frameworks constructed by minds? The College's most honest answer is that Esix exists and they're not entirely sure why.",
+        "core_tension": "Quandrix asks whether mathematics is discovered in nature or constructed by minds, holding green's natural pattern-finding and blue's abstract model-building in productive tension.",
         "identity_blend": "Blue abstraction rooted in Green growth and scale.",
         "display_code": "GU",
         "aliases": [

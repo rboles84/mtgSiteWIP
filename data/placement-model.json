@@ -8413,7 +8413,7 @@
         "philosophy": "Reality has deep mathematical structure, and understanding that structure lets a mage reveal, model, and reshape what exists.",
         "central_tension": "Quandrix balances green's discovery of natural patterns with blue's construction of abstract models, raising the question of whether math is found in reality or made by minds.",
         "display_tagline": "Reality has deep mathematical structure, and understanding that structure lets a mage reveal, model, and reshape what exists.",
-        "mechanics": "Quandrix's gameplay identity clusters around mana, counters, fractal tokens, scaling, doubling, and pattern-based growth."
+        "mechanics": "Quandrix's gameplay identity clusters around numeromancy, fractals, scaling, multiplication, theory made physical, and pattern-based growth."
       },
       "layered_identity": {
         "core_color": "U",
@@ -8469,47 +8469,49 @@
         "broad_match_penalty": 0.1
       },
       "good_fit_indicators": [
-        "notices hidden structures and repeatable patterns",
-        "likes proof, abstraction, and technical precision",
-        "finds beauty in systems that explain the world"
+        "notices hidden structures and repeatable mathematical patterns",
+        "likes proof, abstraction, models, and technical precision",
+        "finds elegance in systems that explain or reshape the natural world"
       ],
       "poor_fit_indicators": [
-        "rejects abstraction as useless by default",
-        "chooses intuition while dismissing evidence",
-        "needs immediate practical payoff before a question feels worthwhile"
+        "rejects abstraction, models, or proof as useless by default",
+        "chooses intuition while dismissing observation, evidence, or pattern",
+        "rejects theoretical inquiry unless it has immediate practical payoff"
       ],
       "inhibitor_traps": [
         "Anti-abstraction; rejects numbers, models, logic, and theory as disconnected from real life.",
-        "rejects abstraction as useless by default",
-        "chooses intuition while dismissing evidence",
-        "needs immediate practical payoff before a question feels worthwhile"
+        "rejects abstraction, models, or proof as useless by default",
+        "chooses intuition while dismissing observation, evidence, or pattern",
+        "rejects theoretical inquiry unless it has immediate practical payoff"
       ],
       "discriminator_questions": [
         {
           "id": "quandrix_q1",
           "prompt": "What pattern have you noticed that other people tend to miss?",
-          "purpose": "Tests natural pattern recognition.",
-          "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-          "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
+          "purpose": "Tests whether the user notices mathematical pattern, fractal structure, or repeated form as meaningful evidence.",
+          "supports": "The answer explains a hidden or repeatable pattern as evidence for how a system works.",
+          "weakens": "The answer treats pattern language as incidental or rejects abstraction and proof as irrelevant.",
           "collision_targets": [],
           "evidence_claim_ids": [
-            "quandrix_claim_001",
             "quandrix_claim_002",
-            "quandrix_claim_003"
+            "quandrix_claim_0019",
+            "quandrix_claim_0024",
+            "quandrix_claim_0027"
           ],
           "confidence": "Medium"
         },
         {
           "id": "quandrix_q2",
           "prompt": "Do you trust a model because it predicts the world, or because it reveals what the world really is?",
-          "purpose": "Tests the core Quandrix theory/substance tension.",
-          "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-          "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
+          "purpose": "Tests the Quandrix tension between natural mathematical discovery and abstract model-building.",
+          "supports": "The answer weighs predictive power, proof, model-building, and what the structure reveals about reality.",
+          "weakens": "The answer dismisses models, proof, or the theory/substance tension as beside the point.",
           "collision_targets": [],
           "evidence_claim_ids": [
-            "quandrix_claim_001",
-            "quandrix_claim_002",
-            "quandrix_claim_003"
+            "quandrix_claim_003",
+            "quandrix_claim_0021",
+            "quandrix_claim_0022",
+            "quandrix_claim_0024"
           ],
           "confidence": "Medium"
         },
@@ -8518,30 +8520,34 @@
           "prompt": "When reality resists you, do you refine the proof or adapt the organism?",
           "purpose": "",
           "supports": "",
-          "weakens": "the answer centers biological improvement or mutation",
+          "weakens": "the answer centers biological improvement, mutation, or adaptive life design instead of model, proof, or mathematical structure",
           "collision_targets": [
             "UG"
           ],
           "evidence_claim_ids": [
-            "quandrix_claim_001",
             "quandrix_claim_002",
-            "quandrix_claim_003"
+            "quandrix_claim_0021",
+            "quandrix_claim_0022",
+            "quandrix_claim_0024",
+            "quandrix_claim_0028"
           ],
           "confidence": "Medium"
         },
         {
           "id": "q_quandrix_9802",
-          "prompt": "Do you trust the elegant model first, or the prototype that might fail loudly?",
+          "prompt": "Do you trust the elegant model first, or the working prototype first?",
           "purpose": "",
           "supports": "",
-          "weakens": "the answer centers chaotic experimentation or invention",
+          "weakens": "the answer centers invention, prototype iteration, or experimental construction instead of model, proof, or mathematical structure",
           "collision_targets": [
             "UR"
           ],
           "evidence_claim_ids": [
-            "quandrix_claim_001",
             "quandrix_claim_002",
-            "quandrix_claim_003"
+            "quandrix_claim_003",
+            "quandrix_claim_0022",
+            "quandrix_claim_0024",
+            "quandrix_claim_0028"
           ],
           "confidence": "Medium"
         }
@@ -8555,39 +8561,44 @@
         {
           "collision_id": "collision_quandrix_vs_simic_combine_placement_ready",
           "against": "UG",
-          "separator": "Quandrix seeks the abstract model; Simic changes the living specimen.",
+          "separator": "Quandrix models and proves the pattern; Simic is the same-color neighbor most likely to foreground adaptive biological change.",
           "ask": "When reality resists you, do you refine the proof or adapt the organism?",
-          "suppress_if": "the answer centers biological improvement or mutation",
+          "suppress_if": "the answer centers biological improvement, mutation, or adaptive life design instead of model, proof, or mathematical structure",
           "evidence_claim_ids": [
-            "quandrix_claim_001",
             "quandrix_claim_002",
-            "quandrix_claim_003"
+            "quandrix_claim_0021",
+            "quandrix_claim_0022",
+            "quandrix_claim_0024",
+            "quandrix_claim_0028"
           ]
         },
         {
           "collision_id": "collision_quandrix_vs_izzet_league_placement_ready",
           "against": "UR",
-          "separator": "Quandrix proves the pattern; Izzet builds the experiment and learns from the explosion.",
-          "ask": "Do you trust the elegant model first, or the prototype that might fail loudly?",
-          "suppress_if": "the answer centers chaotic experimentation or invention",
+          "separator": "Quandrix proves the pattern or model; Izzet is the nearby blue-red neighbor most likely to learn through a working invention or experiment.",
+          "ask": "Do you trust the elegant model first, or the working prototype first?",
+          "suppress_if": "the answer centers invention, prototype iteration, or experimental construction instead of model, proof, or mathematical structure",
           "evidence_claim_ids": [
-            "quandrix_claim_001",
             "quandrix_claim_002",
-            "quandrix_claim_003"
+            "quandrix_claim_003",
+            "quandrix_claim_0022",
+            "quandrix_claim_0024",
+            "quandrix_claim_0028"
           ]
         },
         {
           "collision_id": "collision_quandrix_vs_prismari_placement_ready",
           "against": "PRISMARI",
           "lateral_inhibition": false,
-          "separator": "Quandrix proves the hidden model; Prismari makes the pattern land as expressive art.",
-          "ask": "When a pattern is correct but lifeless, do you prove it more carefully or make it land as an experience?",
-          "suppress_if": "the answer centers performance, elemental spectacle, emotion, or art before proof",
+          "separator": "Quandrix tries to prove or model the pattern; Prismari tries to make form, medium, or elemental expression carry an experience.",
+          "ask": "When a pattern is both beautiful and correct, are you trying to prove the structure or make it felt as an experience?",
+          "suppress_if": "the answer centers artistic or elemental expression as the final purpose before proof or mathematical structure",
           "evidence_claim_ids": [
             "quandrix_claim_002",
             "quandrix_claim_003",
-            "quandrix_claim_005",
-            "quandrix_claim_006"
+            "quandrix_claim_0022",
+            "quandrix_claim_0024",
+            "quandrix_claim_0028"
           ]
         },
         {
@@ -8600,35 +8611,39 @@
           "evidence_claim_ids": [
             "quandrix_claim_002",
             "quandrix_claim_003",
-            "quandrix_claim_005",
-            "quandrix_claim_006"
+            "quandrix_claim_0022",
+            "quandrix_claim_0024",
+            "quandrix_claim_0025",
+            "quandrix_claim_0028"
           ]
         },
         {
           "collision_id": "collision_quandrix_vs_witherbloom_placement_ready",
           "against": "WITHERBLOOM",
           "lateral_inhibition": false,
-          "separator": "Quandrix abstracts living systems into patterns and proofs; Witherbloom studies embodied life/death exchange through practical essence craft.",
+          "separator": "Quandrix abstracts living systems into patterns and proofs; Witherbloom is the nearby black-green college most likely to foreground embodied life/death exchange and practical essence craft.",
           "ask": "A living system behaves strangely. Do you trust the equation beneath it or the messy exchange of life and death?",
           "suppress_if": "the answer centers bodies, remedies, poisons, fieldwork, or life/death essence before abstract proof",
           "evidence_claim_ids": [
             "quandrix_claim_002",
             "quandrix_claim_003",
-            "quandrix_claim_005",
-            "quandrix_claim_006"
+            "quandrix_claim_0021",
+            "quandrix_claim_0024",
+            "quandrix_claim_0025",
+            "quandrix_claim_0028"
           ]
         }
       ],
       "chatbot_guidance": {
         "how_to_recognize_match": [
-          "notices hidden structures and repeatable patterns",
-          "likes proof, abstraction, and technical precision",
-          "finds beauty in systems that explain the world"
+          "notices hidden structures and repeatable mathematical patterns",
+          "likes proof, abstraction, models, and technical precision",
+          "finds elegance in systems that explain or reshape the natural world"
         ],
         "how_to_recognize_mismatch": [
-          "rejects abstraction as useless by default",
-          "chooses intuition while dismissing evidence",
-          "needs immediate practical payoff before a question feels worthwhile"
+          "rejects abstraction, models, or proof as useless by default",
+          "chooses intuition while dismissing observation, evidence, or pattern",
+          "rejects theoretical inquiry unless it has immediate practical payoff"
         ],
         "questions_to_ask_when_uncertain": [
           "What pattern have you noticed that other people tend to miss?",
@@ -8658,7 +8673,7 @@
         "profile_version": "1.0.0",
         "placement_model_version": "vox-mana-lore-json-v1",
         "source_review_date": "2026-06-13",
-        "claim_count": 6
+        "claim_count": 10
       }
     },
     "WG": {

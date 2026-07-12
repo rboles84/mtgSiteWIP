@@ -7442,8 +7442,8 @@ export const FACTION_CONTEXT = {
       }
     },
     "tagline": "Math is magic.",
-    "philosophy": "The College of Numeromancy holds that mathematics and magic are the same thing - that the patterns underlying nature are not descriptions of reality but reality itself. Anyone who understands them deeply enough can reshape what exists. Esix, a mathematical accident that now exists independently, is their most honest mascot.",
-    "core_tension": "Does math exist in the world, or in the mind? Are equations forces of nature waiting to be discovered, or frameworks constructed by minds? The College's most honest answer is that Esix exists and they're not entirely sure why.",
+    "philosophy": "Quandrix treats mathematics as magical structure: patterns, fractals, symmetries, and abstract models reveal how nature works and how theory can become physical form.",
+    "core_tension": "Quandrix asks whether mathematics is discovered in nature or constructed by minds, holding green's natural pattern-finding and blue's abstract model-building in productive tension.",
     "affinity": {
       "drawn_to": [
         "Patterns that only reveal themselves after sustained, patient attention",
@@ -7472,7 +7472,7 @@ export const FACTION_CONTEXT = {
       "tone": "Precise. Delighted in a specific, non-performative way. Slightly distracted by an implication you triggered.",
       "speaks_like": "A professor who just realized your answer opened a question they hadn't considered.",
       "example_opening": "That answer contains a pattern you may not have noticed yet.",
-      "example_decree": "That answer contains a pattern you may not have noticed yet - which is appropriate, because Quandrix exists to notice what others don't. You think in structures. You hold uncertainty without resolving it prematurely. You find the edge cases more interesting than the general rule. These are not academic virtues. They are how reality actually works, and very few people are constitutionally suited to operating at that level. You are. Welcome to the college that is still trying to explain Esix. You can help."
+      "example_decree": "That answer contains a pattern you may not have noticed yet - which is appropriate, because Quandrix exists to notice what others miss. You think in structures, hold uncertainty long enough to test it, and turn difficult models into something reality can answer. Welcome to the College of Numeromancy."
     },
     "biological_expression": {
       "archetype": "The Pattern Theorist",
@@ -7512,20 +7512,20 @@ export const FACTION_CONTEXT = {
       "broad_match_penalty": 0.1
     },
     "good_fit_indicators": [
-      "notices hidden structures and repeatable patterns",
-      "likes proof, abstraction, and technical precision",
-      "finds beauty in systems that explain the world"
+      "notices hidden structures and repeatable mathematical patterns",
+      "likes proof, abstraction, models, and technical precision",
+      "finds elegance in systems that explain or reshape the natural world"
     ],
     "poor_fit_indicators": [
-      "rejects abstraction as useless by default",
-      "chooses intuition while dismissing evidence",
-      "needs immediate practical payoff before a question feels worthwhile"
+      "rejects abstraction, models, or proof as useless by default",
+      "chooses intuition while dismissing observation, evidence, or pattern",
+      "rejects theoretical inquiry unless it has immediate practical payoff"
     ],
     "inhibitor_traps": [
       "Anti-abstraction; rejects numbers, models, logic, and theory as disconnected from real life.",
-      "rejects abstraction as useless by default",
-      "chooses intuition while dismissing evidence",
-      "needs immediate practical payoff before a question feels worthwhile"
+      "rejects abstraction, models, or proof as useless by default",
+      "chooses intuition while dismissing observation, evidence, or pattern",
+      "rejects theoretical inquiry unless it has immediate practical payoff"
     ],
     "lateral_inhibition_targets": [
       "UG",
@@ -7536,28 +7536,30 @@ export const FACTION_CONTEXT = {
       {
         "id": "quandrix_q1",
         "prompt": "What pattern have you noticed that other people tend to miss?",
-        "purpose": "Tests natural pattern recognition.",
-        "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-        "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
+        "purpose": "Tests whether the user notices mathematical pattern, fractal structure, or repeated form as meaningful evidence.",
+        "supports": "The answer explains a hidden or repeatable pattern as evidence for how a system works.",
+        "weakens": "The answer treats pattern language as incidental or rejects abstraction and proof as irrelevant.",
         "collision_targets": [],
         "evidence_claim_ids": [
-          "quandrix_claim_001",
           "quandrix_claim_002",
-          "quandrix_claim_003"
+          "quandrix_claim_0019",
+          "quandrix_claim_0024",
+          "quandrix_claim_0027"
         ],
         "confidence": "Medium"
       },
       {
         "id": "quandrix_q2",
         "prompt": "Do you trust a model because it predicts the world, or because it reveals what the world really is?",
-        "purpose": "Tests the core Quandrix theory/substance tension.",
-        "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-        "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
+        "purpose": "Tests the Quandrix tension between natural mathematical discovery and abstract model-building.",
+        "supports": "The answer weighs predictive power, proof, model-building, and what the structure reveals about reality.",
+        "weakens": "The answer dismisses models, proof, or the theory/substance tension as beside the point.",
         "collision_targets": [],
         "evidence_claim_ids": [
-          "quandrix_claim_001",
-          "quandrix_claim_002",
-          "quandrix_claim_003"
+          "quandrix_claim_003",
+          "quandrix_claim_0021",
+          "quandrix_claim_0022",
+          "quandrix_claim_0024"
         ],
         "confidence": "Medium"
       },
@@ -7566,44 +7568,48 @@ export const FACTION_CONTEXT = {
         "prompt": "When reality resists you, do you refine the proof or adapt the organism?",
         "purpose": "",
         "supports": "",
-        "weakens": "the answer centers biological improvement or mutation",
+        "weakens": "the answer centers biological improvement, mutation, or adaptive life design instead of model, proof, or mathematical structure",
         "collision_targets": [
           "UG"
         ],
         "evidence_claim_ids": [
-          "quandrix_claim_001",
           "quandrix_claim_002",
-          "quandrix_claim_003"
+          "quandrix_claim_0021",
+          "quandrix_claim_0022",
+          "quandrix_claim_0024",
+          "quandrix_claim_0028"
         ],
         "confidence": "Medium"
       },
       {
         "id": "q_quandrix_9802",
-        "prompt": "Do you trust the elegant model first, or the prototype that might fail loudly?",
+        "prompt": "Do you trust the elegant model first, or the working prototype first?",
         "purpose": "",
         "supports": "",
-        "weakens": "the answer centers chaotic experimentation or invention",
+        "weakens": "the answer centers invention, prototype iteration, or experimental construction instead of model, proof, or mathematical structure",
         "collision_targets": [
           "UR"
         ],
         "evidence_claim_ids": [
-          "quandrix_claim_001",
           "quandrix_claim_002",
-          "quandrix_claim_003"
+          "quandrix_claim_003",
+          "quandrix_claim_0022",
+          "quandrix_claim_0024",
+          "quandrix_claim_0028"
         ],
         "confidence": "Medium"
       }
     ],
     "chatbot_guidance": {
       "how_to_recognize_match": [
-        "notices hidden structures and repeatable patterns",
-        "likes proof, abstraction, and technical precision",
-        "finds beauty in systems that explain the world"
+        "notices hidden structures and repeatable mathematical patterns",
+        "likes proof, abstraction, models, and technical precision",
+        "finds elegance in systems that explain or reshape the natural world"
       ],
       "how_to_recognize_mismatch": [
-        "rejects abstraction as useless by default",
-        "chooses intuition while dismissing evidence",
-        "needs immediate practical payoff before a question feels worthwhile"
+        "rejects abstraction, models, or proof as useless by default",
+        "chooses intuition while dismissing observation, evidence, or pattern",
+        "rejects theoretical inquiry unless it has immediate practical payoff"
       ],
       "questions_to_ask_when_uncertain": [
         "What pattern have you noticed that other people tend to miss?",

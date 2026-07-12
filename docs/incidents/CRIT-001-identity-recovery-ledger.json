@@ -149,16 +149,14 @@
       },
       "computed": {
         "structural_fingerprint": [
-          "low-volume-pattern",
           "mixed-role-pattern",
-          "discovery-heavy-pattern",
           "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 16,
           "discovery_record": 10,
           "support_record": 2,
-          "unclassified": 6
+          "unclassified": 0
         },
         "source_count": 15,
         "source_role_counts": {
@@ -170,177 +168,7 @@
         "claim_bearing_source_rate": 0.2,
         "reference_site_count": 48,
         "missing_references": [],
-        "potential_role_invalid_support_links": [
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.profile.json#/core_identity",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.profile.json#/site_surface",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.profile.json#/structure",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.profile.json#/great_tension",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.profile.json#/key_figures/1",
-            "roles": [
-              "support_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.profile.json#/key_figures/2",
-            "roles": [
-              "support_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.profile.json#/canonical_flavor_text/0",
-            "roles": [
-              "support_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.profile.json#/canonical_flavor_text/1",
-            "roles": [
-              "support_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.profile.json#/canonical_flavor_text/2",
-            "roles": [
-              "support_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.profile.json#/mechanics",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.profile.json#/data_quality/corpus_upgrade",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.profile.json#/commander_compass/native_fit_commanders/0/source_basis",
-            "roles": [
-              "support_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.profile.json#/commander_compass/native_fit_commanders/1/source_basis",
-            "roles": [
-              "support_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.placement.json#/placement_summary",
-            "roles": [
-              "discovery_record",
-              "unclassified"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.placement.json#/placement_axes/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.placement.json#/moral_and_psychological_profile",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.placement.json#/core_values/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.placement.json#/core_values/1",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.placement.json#/core_values/2",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.placement.json#/core_values/3",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.placement.json#/core_values/4",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.placement.json#/core_values/5",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.placement.json#/core_values/6",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.placement.json#/core_values/7",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.placement.json#/core_values/8",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.placement.json#/core_values/9",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.placement.json#/behavioral_signals/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/quandrix/quandrix.placement.json#/inhibitor_traits/0",
-            "roles": [
-              "discovery_record"
-            ]
-          }
-        ],
+        "potential_role_invalid_support_links": [],
         "raw_question_count": 4,
         "unique_question_claim_ids": [
           "quandrix_claim_001",
@@ -363,33 +191,40 @@
           "docs/reference/strixhaven-college-source-readiness-matrix.md:32"
         ],
         "provisional_risk_indicators": {
-          "coverage": [
-            "low-record-volume",
-            "discovery-record-majority",
-            "no-explicit-substantive-role"
-          ],
+          "coverage": [],
           "neighbors": []
         },
         "template_cohort_pattern": false,
-        "inventory_updated_at": "2026-07-11T18:42:33.624Z"
+        "inventory_updated_at": "2026-07-12T21:16:45.495Z",
+        "template_cohort_change_explanation": "Gate 3 canonical remediation changed Quandrix from thin discovery-heavy triage pattern to mixed-role/support-heavy structural pattern; semantic readiness still awaits Gate 4 validation and certification."
       },
       "workflow": {
-      "current_gate": "audit_pending",
-      "status": "active",
-      "started_at": "2026-07-12T19:07:19.2965496Z",
-      "gate_entered_at": "2026-07-12T19:07:19.2965496Z",
+        "current_gate": "gate4_complete",
+        "status": "active",
+        "started_at": "2026-07-12T19:07:19.2965496Z",
+        "gate_entered_at": "2026-07-12T21:47:19.458Z",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "SILVERQUILL",
-        "primary_disposition": null
+        "primary_disposition": "claim_extraction_pass_required"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "UG",
+          "UR",
+          "PRISMARI",
+          "LOREHOLD",
+          "WITHERBLOOM"
+        ],
+        "audit_report": "docs/incidents/recoveries/VM-503-quandrix-semantic-recovery.md",
+        "residual_findings": [
+          "Gate 4 Esix/generated-display blocker resolved by Quandrix-scoped identity-layers and display-source repair; generated/public consumers no longer contain unsupported Esix copy.",
+          "Known builder-owned Quandrix inhibitor warning remains unchanged.",
+          "Runtime Hall, Crucible, scoring, inhibition, scheduling, confidence, and live recruiter calibration remain post-CRIT investigations."
+        ]
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": null,
         "recovery_commit": null,
@@ -997,10 +832,10 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-      "current_gate": "certified",
-      "status": "semantically_ready",
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": "2026-07-12T17:02:57.3594517Z",
-      "gate_entered_at": "2026-07-12T19:04:54.8710158Z",
+        "gate_entered_at": "2026-07-12T19:04:54.8710158Z",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "QUANDRIX",
@@ -1029,16 +864,16 @@
         "candidate_recovery_sha": "6d8d46d8df0429a105c08e656a8303474c435abd",
         "recovery_commit": "6d8d46d8df0429a105c08e656a8303474c435abd",
         "certification_commit": "fa435b17ab36633b200a8405065732568f0ef78c",
-      "reviewer": "Robert / user-supplied independent Gate 5 review in this Codex thread",
-      "review_result": "approved_exact_sha",
-      "review_cycles": 2,
+        "reviewer": "Robert / user-supplied independent Gate 5 review in this Codex thread",
+        "review_result": "approved_exact_sha",
+        "review_cycles": 2,
         "rejected_candidate_sha": "c43127858e1a8609e1aed8481c2726ab03026a61",
         "rejected_candidate_shas": [
           "c43127858e1a8609e1aed8481c2726ab03026a61"
         ],
-      "approval_date": "2026-07-12",
-      "certified_at": "2026-07-12T19:04:54.8710158Z",
-      "final_state": "semantically_ready",
+        "approval_date": "2026-07-12",
+        "certified_at": "2026-07-12T19:04:54.8710158Z",
+        "final_state": "semantically_ready",
         "known_unchanged_warnings": [
           "dossier_audit: 113 warnings, 0 failures",
           "existing builder-owned Lorehold inhibitor warning unchanged"

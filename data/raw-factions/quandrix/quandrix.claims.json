@@ -2,18 +2,37 @@
   "schema_version": "1.0.0",
   "faction_id": "quandrix",
   "faction_name": "Quandrix College",
-  "last_updated": "2026-06-13",
-  "claim_count": 18,
+  "last_updated": "2026-07-12",
+  "claim_count": 28,
   "claims": [
     {
       "claim_id": "quandrix_claim_001",
       "faction_id": "quandrix",
       "claim_type": "identity",
+      "semantic_role": "substantive_claim",
       "statement": "Quandrix is Strixhaven's green-blue College of Numeromancy.",
       "canon_status": "Canon-supported",
       "source_ids": [
         "src_wotc_planeswalkers_guide_strixhaven_2021",
         "src_wotc_strixhaven_product_page_2021"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section_heading",
+          "locator": "Quandrix College",
+          "bounded_paraphrase": "The official Strixhaven guide identifies Quandrix as the green-blue college associated with numeromancy.",
+          "evidence_scope": "identity-wide college identity",
+          "interpretation_level": "direct_source_fact"
+        },
+        {
+          "source_id": "src_wotc_strixhaven_product_page_2021",
+          "locator_type": "section_heading",
+          "locator": "The Colleges of Strixhaven / Quandrix",
+          "bounded_paraphrase": "The official product overview presents Quandrix as the College of Numeromancy.",
+          "evidence_scope": "identity-wide college identity",
+          "interpretation_level": "direct_source_fact"
+        }
       ],
       "confidence": "High",
       "notes": ""
@@ -22,10 +41,21 @@
       "claim_id": "quandrix_claim_002",
       "faction_id": "quandrix",
       "claim_type": "magic",
+      "semantic_role": "substantive_claim",
       "statement": "The 2021 Strixhaven guide describes Quandrix mages as mathematician-mages who study patterns, fractals, and symmetries to command power over fundamental forces.",
       "canon_status": "Canon-supported",
       "source_ids": [
         "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section_heading",
+          "locator": "Quandrix College / The College of Numeromancy",
+          "bounded_paraphrase": "The official guide frames Quandrix magic through patterns, fractals, symmetries, and fundamental forces.",
+          "evidence_scope": "identity-wide magical method",
+          "interpretation_level": "direct_source_fact"
+        }
       ],
       "confidence": "High",
       "notes": ""
@@ -34,10 +64,21 @@
       "claim_id": "quandrix_claim_003",
       "faction_id": "quandrix",
       "claim_type": "philosophy",
+      "semantic_role": "substantive_claim",
       "statement": "The 2021 guide frames Quandrix through a tension between mathematics as a force of nature to discover and mathematics as a mind-made tool to map reality.",
       "canon_status": "Canon-supported",
       "source_ids": [
         "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section_heading",
+          "locator": "Quandrix College / The Dichotomy of Quandrix",
+          "bounded_paraphrase": "The official guide separates Quandrix's green side, which treats math as natural discovery, from its blue side, which treats math as a mental tool for mapping reality.",
+          "evidence_scope": "identity-wide internal tension",
+          "interpretation_level": "direct_source_fact"
+        }
       ],
       "confidence": "High",
       "notes": ""
@@ -46,10 +87,21 @@
       "claim_id": "quandrix_claim_004",
       "faction_id": "quandrix",
       "claim_type": "mascot",
+      "semantic_role": "substantive_claim",
       "statement": "The 2021 guide identifies fractals as Quandrix's mascots.",
       "canon_status": "Canon-supported",
       "source_ids": [
         "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section_heading",
+          "locator": "Quandrix College / College Mascot: Fractals",
+          "bounded_paraphrase": "The official guide identifies fractals as Quandrix mascots and describes them as artificial life with formula-like growth.",
+          "evidence_scope": "identity-wide mascot and mechanics signal",
+          "interpretation_level": "direct_source_fact"
+        }
       ],
       "confidence": "High",
       "notes": ""
@@ -58,10 +110,21 @@
       "claim_id": "quandrix_claim_005",
       "faction_id": "quandrix",
       "claim_type": "academics",
+      "semantic_role": "substantive_claim",
       "statement": "The 2026 guide lists Quandrix study areas including geometry, statistics, biology, physics, architecture, logic, and theoretical metaphysics.",
       "canon_status": "Canon-supported",
       "source_ids": [
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section_heading",
+          "locator": "Quandrix / Areas of Study",
+          "bounded_paraphrase": "The 2026 official guide lists Quandrix academic domains spanning mathematics, natural sciences, architecture, logic, and metaphysics.",
+          "evidence_scope": "institutional study domains",
+          "interpretation_level": "direct_source_fact"
+        }
       ],
       "confidence": "High",
       "notes": ""
@@ -70,11 +133,30 @@
       "claim_id": "quandrix_claim_006",
       "faction_id": "quandrix",
       "claim_type": "placement",
+      "semantic_role": "substantive_claim",
       "statement": "Quandrix placement signals should weight pattern recognition, abstraction, proof, precision, systemic curiosity, and delight in difficult problems.",
       "canon_status": "Supported Interpretation",
       "source_ids": [
         "src_wotc_planeswalkers_guide_strixhaven_2021",
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section_heading",
+          "locator": "Quandrix College / The College of Numeromancy",
+          "bounded_paraphrase": "The official guide grounds Quandrix identity in mathematical pattern, fractal structure, symmetry, and theory made magical.",
+          "evidence_scope": "placement synthesis",
+          "interpretation_level": "project_synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section_heading",
+          "locator": "Quandrix",
+          "bounded_paraphrase": "The 2026 official guide emphasizes research, mathematical possibility, practical and theoretical study, and careful work with natural systems.",
+          "evidence_scope": "placement synthesis",
+          "interpretation_level": "project_synthesis"
+        }
       ],
       "confidence": "High",
       "notes": "Placement inference derived from official faction identity and mechanics; not an official Wizards psychological taxonomy."
@@ -90,7 +172,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "Discovery-only story-corpus relevance record. It may guide future extraction but cannot independently support identity, placement, guidance, or generated semantic claims.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "quandrix_claim_0008",
@@ -103,7 +186,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "Discovery-only story-corpus relevance record. It may guide future extraction but cannot independently support identity, placement, guidance, or generated semantic claims.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "quandrix_claim_0009",
@@ -116,7 +200,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "Discovery-only story-corpus relevance record. It may guide future extraction but cannot independently support identity, placement, guidance, or generated semantic claims.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "quandrix_claim_0010",
@@ -129,7 +214,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "Discovery-only story-corpus relevance record. It may guide future extraction but cannot independently support identity, placement, guidance, or generated semantic claims.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "quandrix_claim_0011",
@@ -142,7 +228,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "Discovery-only story-corpus relevance record. It may guide future extraction but cannot independently support identity, placement, guidance, or generated semantic claims.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "quandrix_claim_0012",
@@ -155,7 +242,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "Discovery-only story-corpus relevance record. It may guide future extraction but cannot independently support identity, placement, guidance, or generated semantic claims.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "quandrix_claim_0013",
@@ -168,7 +256,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "Discovery-only story-corpus relevance record. It may guide future extraction but cannot independently support identity, placement, guidance, or generated semantic claims.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "quandrix_claim_0014",
@@ -181,7 +270,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "Discovery-only story-corpus relevance record. It may guide future extraction but cannot independently support identity, placement, guidance, or generated semantic claims.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "quandrix_claim_0015",
@@ -194,7 +284,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "Discovery-only story-corpus relevance record. It may guide future extraction but cannot independently support identity, placement, guidance, or generated semantic claims.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "quandrix_claim_0016",
@@ -207,7 +298,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "Discovery-only story-corpus relevance record. It may guide future extraction but cannot independently support identity, placement, guidance, or generated semantic claims.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "quandrix_claim_0017",
@@ -219,7 +311,8 @@
         "src_wotc_secrets_strixhaven_commander_decklists_20260401"
       ],
       "confidence": "High",
-      "notes": "Decklist support is product/navigation only. It is not lore proof, popularity proof, metagame proof, legality proof, or canon identity proof."
+      "notes": "Decklist support is product/navigation only. It is not lore proof, popularity proof, metagame proof, legality proof, or canon identity proof.",
+      "semantic_role": "support_record"
     },
     {
       "claim_id": "quandrix_claim_0018",
@@ -231,7 +324,247 @@
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
       "confidence": "High for card-data attribution",
-      "notes": "Use only short summaries in generated/public surfaces; do not copy long flavor blocks."
+      "notes": "Use only short summaries in generated/public surfaces; do not copy long flavor blocks.",
+      "semantic_role": "support_record"
+    },
+    {
+      "claim_id": "quandrix_claim_0019",
+      "faction_id": "quandrix",
+      "claim_type": "identity_method",
+      "semantic_role": "substantive_claim",
+      "statement": "Quandrix turns mathematical structure into magical action: its mages study patterns, summon fractal creatures, and make abstract theories visible through spiraling or expanding forms.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section_heading",
+          "locator": "Quandrix College / The College of Numeromancy",
+          "bounded_paraphrase": "The official guide describes Quandrix mages studying mathematical patterns, summoning fractals, and turning abstract theories into magical forms.",
+          "evidence_scope": "identity-wide method",
+          "interpretation_level": "bounded_inference"
+        }
+      ],
+      "confidence": "High",
+      "notes": "Extracted during CRIT-001 VM-503 Gate 3 from already-listed official source material."
+    },
+    {
+      "claim_id": "quandrix_claim_0020",
+      "faction_id": "quandrix",
+      "claim_type": "internal_tension",
+      "semantic_role": "substantive_claim",
+      "statement": "Quandrix's visual and magical identity repeatedly joins theoretical mathematics to natural form through symmetry, repetition, geometry, and fractal growth.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section_heading",
+          "locator": "Quandrix College / Look and Feel",
+          "bounded_paraphrase": "The official guide uses repeated elements, symmetries, geometry, and natural motifs to express the overlap between theoretical and natural Quandrix themes.",
+          "evidence_scope": "identity-wide internal tension and aesthetics",
+          "interpretation_level": "bounded_inference"
+        }
+      ],
+      "confidence": "High",
+      "notes": "Extracted during CRIT-001 VM-503 Gate 3 from already-listed official source material."
+    },
+    {
+      "claim_id": "quandrix_claim_0021",
+      "faction_id": "quandrix",
+      "claim_type": "subgroup_green",
+      "semantic_role": "substantive_claim",
+      "statement": "Quandrix's green-aligned side emphasizes mathematics as a natural force that can bring numerical possibilities to life and investigate mana, leylines, and spellcasting.",
+      "canon_status": "Canon-supported subgroup evidence",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section_heading",
+          "locator": "Quandrix College / The Dichotomy of Quandrix / Green",
+          "bounded_paraphrase": "The official guide describes the green side as treating mathematics as natural discovery, bringing numerical possibilities to life, and studying mana-related natural phenomena.",
+          "evidence_scope": "green-aligned Quandrix subgroup evidence",
+          "interpretation_level": "direct_source_fact"
+        }
+      ],
+      "confidence": "High",
+      "notes": "Subgroup evidence; do not promote to the whole college without complementary blue-side or college-wide support."
+    },
+    {
+      "claim_id": "quandrix_claim_0022",
+      "faction_id": "quandrix",
+      "claim_type": "subgroup_blue",
+      "semantic_role": "substantive_claim",
+      "statement": "Quandrix's blue-aligned side emphasizes abstract theory, conjecture, possibility, patterns, illusions, and the search for the structure beneath reality.",
+      "canon_status": "Canon-supported subgroup evidence",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section_heading",
+          "locator": "Quandrix College / The Dichotomy of Quandrix / Blue",
+          "bounded_paraphrase": "The official guide describes the blue side as focused on abstract theory, conjecture, patterns, illusions, and the reality below what is perceived.",
+          "evidence_scope": "blue-aligned Quandrix subgroup evidence",
+          "interpretation_level": "direct_source_fact"
+        }
+      ],
+      "confidence": "High",
+      "notes": "Subgroup evidence; do not promote to the whole college without complementary green-side or college-wide support."
+    },
+    {
+      "claim_id": "quandrix_claim_0023",
+      "faction_id": "quandrix",
+      "claim_type": "locations_and_mascot",
+      "semantic_role": "substantive_claim",
+      "statement": "Quandrix locations and mascots embody mathematical space and growth, including suspended rules, fractal entities, formulaic artificial life, and cultivated spaces for mathematical inquiry.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section_heading",
+          "locator": "Quandrix College / Locations and College Mascot: Fractals",
+          "bounded_paraphrase": "The official guide describes Quandrix spaces such as Torus Hall and the Arithmodrome and describes fractals as artificial life that grow according to formulas.",
+          "evidence_scope": "locations, mascot, and mechanics-adjacent identity evidence",
+          "interpretation_level": "bounded_inference"
+        }
+      ],
+      "confidence": "High",
+      "notes": "Location and mascot evidence can support identity texture when tied to Quandrix's mathematical method."
+    },
+    {
+      "claim_id": "quandrix_claim_0024",
+      "faction_id": "quandrix",
+      "claim_type": "identity_method",
+      "semantic_role": "substantive_claim",
+      "statement": "The 2026 guide describes Quandrix as innovative nature mathematicians who render theory physical, bend numbers, and pursue both practical and theoretical work such as architecture, engineering, field research, and heads-down study.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section_heading",
+          "locator": "Quandrix",
+          "bounded_paraphrase": "The 2026 official guide frames Quandrix as nature mathematicians whose work spans theory, numbers made physical, practical roles such as architecture and engineering, and focused research.",
+          "evidence_scope": "identity-wide method and motivation",
+          "interpretation_level": "direct_source_fact"
+        }
+      ],
+      "confidence": "High",
+      "notes": "Extracted during CRIT-001 VM-503 Gate 3 from already-listed official source material."
+    },
+    {
+      "claim_id": "quandrix_claim_0025",
+      "faction_id": "quandrix",
+      "claim_type": "mature_expression",
+      "semantic_role": "substantive_claim",
+      "statement": "Quandrix field studies ground theory in reality through observation, practical experimentation, research sites, city planning, natural restoration, and quiet experiments in nature.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section_heading",
+          "locator": "Quandrix / Field Studies",
+          "bounded_paraphrase": "The 2026 official guide describes Quandrix field work as applying theory through observation, experiments, research sites, city planning, natural restoration, and quiet study in nature.",
+          "evidence_scope": "mature expression and applied method",
+          "interpretation_level": "bounded_inference"
+        }
+      ],
+      "confidence": "High",
+      "notes": "Supports mature-expression and pressure-behavior remediation without requiring new source discovery."
+    },
+    {
+      "claim_id": "quandrix_claim_0026",
+      "faction_id": "quandrix",
+      "claim_type": "risk_and_pressure",
+      "semantic_role": "substantive_claim",
+      "statement": "The 2026 guide's Paradox Gardens material supports a bounded risk pattern: Quandrix experimentation with optimized natural systems can create living experiments where cause, effect, and miscalculation matter.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section_heading",
+          "locator": "Quandrix / Paradox Gardens",
+          "bounded_paraphrase": "The 2026 official guide describes Paradox Gardens as an optimized natural environment with living experiments, cause-and-effect testing, hazards, and miscalculations.",
+          "evidence_scope": "bounded pressure and unhealthy-expression evidence",
+          "interpretation_level": "bounded_inference"
+        }
+      ],
+      "confidence": "Medium",
+      "notes": "Location-specific evidence. Use as bounded risk evidence, not proof that all Quandrix behavior is reckless."
+    },
+    {
+      "claim_id": "quandrix_claim_0027",
+      "faction_id": "quandrix",
+      "claim_type": "identity_corroboration",
+      "semantic_role": "substantive_claim",
+      "statement": "The official Strixhaven product page corroborates Quandrix as math magic concerned with patterns, fractals, symmetries, and fundamental forces.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_wotc_strixhaven_product_page_2021"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_strixhaven_product_page_2021",
+          "locator_type": "section_heading",
+          "locator": "The Colleges of Strixhaven / Quandrix",
+          "bounded_paraphrase": "The official product page describes Quandrix as math magic built around patterns, fractals, symmetries, and fundamental forces.",
+          "evidence_scope": "identity corroboration",
+          "interpretation_level": "direct_source_fact"
+        }
+      ],
+      "confidence": "High",
+      "notes": "Corroborating official overview; avoid treating the short product summary as exhaustive conceptual coverage."
+    },
+    {
+      "claim_id": "quandrix_claim_0028",
+      "faction_id": "quandrix",
+      "claim_type": "placement_synthesis",
+      "semantic_role": "substantive_claim",
+      "statement": "Quandrix placement should distinguish math-structured scaling, proof, fractals, and theory-made-physical from generic green-blue growth, generic invention, or generic aesthetics.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section_heading",
+          "locator": "Quandrix College / The College of Numeromancy and The Dichotomy of Quandrix",
+          "bounded_paraphrase": "The 2021 official guide grounds Quandrix in numeromancy, mathematical patterns, abstract theory, natural mathematical force, and fractal expression.",
+          "evidence_scope": "placement and neighbor-boundary synthesis",
+          "interpretation_level": "project_synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section_heading",
+          "locator": "Quandrix",
+          "bounded_paraphrase": "The 2026 official guide reinforces Quandrix as nature mathematics that can become physical, practical, theoretical, experimental, and research-oriented.",
+          "evidence_scope": "placement and neighbor-boundary synthesis",
+          "interpretation_level": "project_synthesis"
+        }
+      ],
+      "confidence": "High",
+      "notes": "CRIT-001 placement synthesis; not a Wizards-authored psychological taxonomy."
     }
   ]
 }

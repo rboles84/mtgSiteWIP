@@ -1,0 +1,152 @@
+{
+  "identity_key": "QUANDRIX",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "quandrix_core_inclusion",
+      "fixture_type": "core_inclusion",
+      "scenario": "A researcher notices a repeating natural pattern, builds a mathematical model for it, and uses that model to make an abstract theory visible as a fractal or scaling magical form.",
+      "intended_interpretation": "Strong Quandrix inclusion: mathematical structure, proof, fractal expression, and theory made physical are the core attraction.",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_0019",
+        "quandrix_claim_0024",
+        "quandrix_claim_0027"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ]
+    },
+    {
+      "fixture_id": "quandrix_mature_pressure",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "When a theory about a living system produces surprising side effects, the response is to return to observation, field evidence, and cause-and-effect testing rather than assuming the model is risk-free.",
+      "intended_interpretation": "Mature or pressure-state Quandrix grounds theory in reality and treats living mathematical experiments as bounded, responsible evidence work.",
+      "evidence_claim_ids": [
+        "quandrix_claim_0024",
+        "quandrix_claim_0025",
+        "quandrix_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ]
+    },
+    {
+      "fixture_id": "quandrix_exclusion_ug",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UG",
+      "scenario": "The answer focuses on improving an organism through adaptive biological change, with math language only as background description.",
+      "intended_interpretation": "Prefer the same-color Simic-style neighbor over Quandrix when adaptive biological design outranks mathematical proof or model-building.",
+      "evidence_claim_ids": [
+        "quandrix_claim_0021",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ]
+    },
+    {
+      "fixture_id": "quandrix_exclusion_ur",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UR",
+      "scenario": "The answer values a working prototype because building and iterating the invention is the point; proof and mathematical model are secondary.",
+      "intended_interpretation": "Prefer Izzet over Quandrix when invention-first experimentation outranks proof, model, or mathematical structure.",
+      "evidence_claim_ids": [
+        "quandrix_claim_003",
+        "quandrix_claim_0024",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ]
+    },
+    {
+      "fixture_id": "quandrix_exclusion_prismari",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "PRISMARI",
+      "scenario": "A beautiful pattern matters because the chosen medium, movement, sound, or elemental form carries an experience; proof of the structure is not the final aim.",
+      "intended_interpretation": "Prefer Prismari over Quandrix when form and elemental expression carry the purpose rather than mathematical proof.",
+      "evidence_claim_ids": [
+        "quandrix_claim_0020",
+        "quandrix_claim_0022",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ]
+    },
+    {
+      "fixture_id": "quandrix_exclusion_lorehold",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "LOREHOLD",
+      "scenario": "A mystery has an elegant theory and an old artifact record, but the answer lets the artifact, provenance, and material history lead the next move.",
+      "intended_interpretation": "Prefer Lorehold over Quandrix when material historical evidence outranks abstract model or proof.",
+      "evidence_claim_ids": [
+        "quandrix_claim_003",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ]
+    },
+    {
+      "fixture_id": "quandrix_exclusion_witherbloom",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WITHERBLOOM",
+      "scenario": "The answer works with living material as practical life-and-death craft: bodies, remedies, poisons, and essence exchange matter more than the equation beneath the system.",
+      "intended_interpretation": "Prefer Witherbloom over Quandrix when embodied life/death practice outranks mathematical abstraction and proof.",
+      "evidence_claim_ids": [
+        "quandrix_claim_0021",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ]
+    },
+    {
+      "fixture_id": "quandrix_ambiguous_prismari",
+      "fixture_type": "nearest_collision_ambiguity",
+      "neighbor": "PRISMARI",
+      "scenario": "A creator speaks equally about proving a beautiful pattern and making the pattern felt through form, so it is not yet clear whether proof or expressive experience is primary.",
+      "intended_interpretation": "Remain uncertain between Quandrix and Prismari until the user clarifies whether mathematical proof or expressive medium leads.",
+      "evidence_claim_ids": [
+        "quandrix_claim_0020",
+        "quandrix_claim_0022",
+        "quandrix_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ]
+    },
+    {
+      "fixture_id": "quandrix_provenance_chain",
+      "fixture_type": "provenance",
+      "canonical_file": "data/raw-factions/quandrix/quandrix.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "intended_interpretation": "Generated provenance must preserve the evidence chain for recognizing Quandrix through hidden structures and repeatable mathematical patterns.",
+      "evidence_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_0019",
+        "quandrix_claim_0027"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "quandrix",
   "faction_name": "Quandrix College",
-  "last_updated": "2026-06-13",
+  "last_updated": "2026-07-12",
   "changes": [
     {
       "change_id": "change_quandrix_placement_ready_20260510025603",
@@ -132,6 +132,79 @@
         "Keep discovery-only story figures, deans/founders, and long flavor text deferred until direct source rows are promoted."
       ],
       "notes": "No public API, schema, route, Home preview, alias, hero, unrelated placement expansion, staging, or commit changes."
+    },
+    {
+      "change_id": "quandrix_change_crit001_gate3_semantic_remediation_20260712",
+      "change_type": "CRIT-001 Gate 3 Canonical Remediation",
+      "change_date": "2026-07-12",
+      "summary": "Classified Quandrix claims by semantic role, added bounded evidence to substantive claims, added official-source substantive claims from already-listed sources, removed discovery/support records from authoritative semantic proof chains, mapped recruiter guidance evidence, and recorded bounded required-neighbor evidence. Generated artifacts remain stale until Gate 4.",
+      "sources_added": [],
+      "sources_updated": [],
+      "claims_added": [
+        "quandrix_claim_0019",
+        "quandrix_claim_0020",
+        "quandrix_claim_0021",
+        "quandrix_claim_0022",
+        "quandrix_claim_0023",
+        "quandrix_claim_0024",
+        "quandrix_claim_0025",
+        "quandrix_claim_0026",
+        "quandrix_claim_0027",
+        "quandrix_claim_0028"
+      ],
+      "claims_updated": [
+        "quandrix_claim_001",
+        "quandrix_claim_002",
+        "quandrix_claim_003",
+        "quandrix_claim_004",
+        "quandrix_claim_005",
+        "quandrix_claim_006",
+        "quandrix_claim_0007",
+        "quandrix_claim_0008",
+        "quandrix_claim_0009",
+        "quandrix_claim_0010",
+        "quandrix_claim_0011",
+        "quandrix_claim_0012",
+        "quandrix_claim_0013",
+        "quandrix_claim_0014",
+        "quandrix_claim_0015",
+        "quandrix_claim_0016",
+        "quandrix_claim_0017",
+        "quandrix_claim_0018"
+      ],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "profile.claim_ids",
+        "core_identity",
+        "site_surface",
+        "structure",
+        "great_tension",
+        "mechanics",
+        "commander_compass.identity_basis",
+        "data_quality.corpus_upgrade",
+        "research_limitations"
+      ],
+      "placement_fields_updated": [
+        "ideal_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "semantic_guidance_evidence",
+        "placement_summary",
+        "placement_axes",
+        "moral_and_psychological_profile",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "collision_guidance",
+        "required_neighbor_evidence",
+        "semantic_readiness"
+      ],
+      "manual_review_required": [
+        "Gate 4 must rebuild generated artifacts, regenerate provenance, add semantic fixtures, and verify generated public Quandrix content including Esix/archetype language."
+      ],
+      "notes": "No online lookup, generated rebuild, runtime tuning, Hall/Crucible, scoring, inhibition, confidence, scheduling, or global recruiter changes were performed in Gate 3."
     }
   ],
   "audit_summary": {
@@ -141,7 +214,7 @@
     "number_of_official_sources_used": 3,
     "number_of_repository_archive_sources_used": 10,
     "number_of_secondary_discovery_sources_used": 0,
-    "number_of_claims_verified": 18,
+    "number_of_claims_verified": 28,
     "number_of_claims_marked_uncertain": 0,
     "sections_with_limited_evidence": [
       "deep story episode coverage",
@@ -149,7 +222,7 @@
     ],
     "conflicting_sources_found": [],
     "assumptions_removed_during_validation": [],
-    "overall_confidence_rating": "Medium-High for bounded public richness; support-only for Commander/deck surfaces.",
+    "overall_confidence_rating": "Medium-High after Gate 3 canonical semantic remediation; generated artifacts remain stale until Gate 4.",
     "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
   }
 }
