@@ -253,28 +253,36 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "audit",
+        "current_gate": "replacement_remediation",
         "status": "active",
         "started_at": "2026-07-11T18:40:52.4047758Z",
         "gate_entered_at": "2026-07-11T18:40:52.4047758Z",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "LOREHOLD",
-        "primary_disposition": null
+        "primary_disposition": "claim_extraction_and_traceability_repair"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
+        "required_neighbors": [
+          "UR",
+          "BR",
+          "QUANDRIX",
+          "SILVERQUILL"
+        ],
+        "audit_report": "docs/incidents/recoveries/VM-502-prismari-semantic-recovery.md",
         "residual_findings": []
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": null,
         "recovery_commit": null,
         "certification_commit": null,
         "reviewer": null,
-        "review_cycles": 0,
+        "review_result": "changes_requested",
+        "review_cycles": 1,
+        "rejected_candidate_sha": "85d3c79daa5081b6af4376506f51d33fe51e1225",
+        "candidate_record_commit": "725bf44",
         "approval_date": null,
         "certified_at": null
       }

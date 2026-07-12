@@ -7,7 +7,7 @@ Priority: CRIT-001
 Identity key: PRISMARI
 Raw packet: `data/raw-factions/prismari/`
 Cohort: college
-Contract: v1
+Contract: v1.1
 
 ## Objective
 
@@ -15,7 +15,7 @@ Recover Prismari end to end under CRIT-001: audit the existing packet, bound rea
 
 ## Gates
 
-- [ ] Gate 1 — Packet audit and bounded disposition.
+- [x] Gate 1 — Packet audit and bounded disposition.
 - [ ] Gate 2 — Sufficient evidence completion.
 - [ ] Gate 3 — Canonical remediation.
 - [ ] Gate 4 — Generation and validation.
@@ -33,7 +33,23 @@ Recover Prismari end to end under CRIT-001: audit the existing packet, bound rea
 - Canonical ledger: `docs/incidents/CRIT-001-identity-recovery-ledger.json`
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
-- Audit/recovery report: pending
-- Candidate recovery SHA: pending
-- Independent reviewer: pending
+- Audit/recovery report: `docs/incidents/recoveries/VM-502-prismari-semantic-recovery.md`
+- Rejected candidate SHA: `85d3c79daa5081b6af4376506f51d33fe51e1225`
+- Independent review result: `changes_requested`
+- Replacement candidate SHA: pending
 - Certification commit: pending
+
+## Gate 1 Disposition
+
+- Primary disposition: `claim_extraction_and_traceability_repair`
+- Required neighbors: `UR`, `BR`, `QUANDRIX`, `SILVERQUILL`
+- Active gate: fresh replacement remediation under accepted Contract v1.1 prerequisite
+
+## Rejected Candidate
+
+- Candidate `85d3c79daa5081b6af4376506f51d33fe51e1225` received `changes_requested`.
+- The rejected candidate remains immutable audit history and must not be certified, modified, pushed, or merged.
+- Candidate-record commit `725bf44` remains historical workflow evidence.
+- No certification exists.
+- Prismari remains active; Lorehold has not started.
+- Full independent findings and the required replacement sequence are recorded in the audit/recovery report.
