@@ -38,7 +38,7 @@ The independent Gate 5 review returned APPROVE EXACT SHA for `af3c2439f9c96fb4b1
 ## Decisions made
 
 - Recovery commit recorded as `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe`.
-- Certification commit placeholder `PENDING_VM503_CERTIFICATION_COMMIT_SHA` will be resolved by the follow-up certification-SHA record because a commit cannot contain its own final SHA.
+- Certification commit placeholder `cb495e11ba875f1801cbd8f8cb8e7204c27f5840` will be resolved by the follow-up certification-SHA record because a commit cannot contain its own final SHA.
 - Silverquill was prepared as next identity only; no Gate 1 audit or remediation started.
 
 ## Risks / uncertainties

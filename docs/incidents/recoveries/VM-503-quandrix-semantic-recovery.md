@@ -910,7 +910,7 @@ Quandrix was certified under CRIT-001 Contract v1.1 on 2026-07-12 after independ
 - Approval date: 2026-07-12.
 - Final certification state: `semantically_ready`.
 - Recovery commit: `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe`.
-- Certification commit: `PENDING_VM503_CERTIFICATION_COMMIT_SHA`.
+- Certification commit: `cb495e11ba875f1801cbd8f8cb8e7204c27f5840`.
 
 ### Residual non-blocking findings
 

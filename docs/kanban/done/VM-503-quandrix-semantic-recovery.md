@@ -13,7 +13,7 @@ Contract: v1.1
 
 Recover Quandrix end to end under CRIT-001: audit the existing packet, bound readiness blockers, gather only sufficient evidence, repair canonical data, rebuild generated artifacts, validate semantic fixtures and regressions, obtain independent review of an immutable candidate SHA, and certify that exact recovery.
 
-Current state: certified semantically ready under CRIT-001 Contract v1.1. Approved recovery SHA `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe` was approved by independent Gate 5 review on 2026-07-12. Certification commit is `PENDING_VM503_CERTIFICATION_COMMIT_SHA`.
+Current state: certified semantically ready under CRIT-001 Contract v1.1. Approved recovery SHA `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe` was approved by independent Gate 5 review on 2026-07-12. Certification commit is `cb495e11ba875f1801cbd8f8cb8e7204c27f5840`.
 
 ## Gates
 
@@ -38,7 +38,7 @@ Current state: certified semantically ready under CRIT-001 Contract v1.1. Approv
 - Audit/recovery report: `docs/incidents/recoveries/VM-503-quandrix-semantic-recovery.md`
 - Candidate recovery SHA: `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe`
 - Independent reviewer: Robert / user-supplied independent Gate 5 review in this Codex thread
-- Certification commit: `PENDING_VM503_CERTIFICATION_COMMIT_SHA`
+- Certification commit: `cb495e11ba875f1801cbd8f8cb8e7204c27f5840`
 
 
 ## Certification
@@ -53,7 +53,7 @@ Current state: certified semantically ready under CRIT-001 Contract v1.1. Approv
 - Approval date: 2026-07-12.
 - Final certification state: `semantically_ready`.
 - Recovery commit: `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe`.
-- Certification commit: `PENDING_VM503_CERTIFICATION_COMMIT_SHA`.
+- Certification commit: `cb495e11ba875f1801cbd8f8cb8e7204c27f5840`.
 - Residual non-blocking findings:
   - Runtime Hall, Crucible, scoring, inhibition, scheduling, confidence, and live recruiter calibration remain post-CRIT investigations.
   - Unchanged global Prismari/Quandrix Crucible wording remains outside CRIT-001 identity certification scope.

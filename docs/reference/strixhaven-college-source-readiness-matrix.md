@@ -39,7 +39,7 @@ This overlay records semantic-readiness certification under the CRIT-001 contrac
 |---|---|---|---|---|---|
 | Prismari College | v1.1 | `semantically_ready` | `19800da6322100b28fa6325fef91321e147b6f69` | `492598f13df24d0f74f5869e249d860ff661a3aa` | VM-502 independently approved exact recovery SHA on 2026-07-12. Known dossier warnings and builder-owned inhibitor warnings remain unchanged. |
 | Lorehold College | v1.1 | `semantically_ready` | `6d8d46d8df0429a105c08e656a8303474c435abd` | `fa435b17ab36633b200a8405065732568f0ef78c` | VM-506 independently approved exact recovery SHA on 2026-07-12. Dossier audit remains 113 warnings / 0 failures; existing builder-owned Lorehold inhibitor warning remains unchanged. |
-| Quandrix College | v1.1 | `semantically_ready` | `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe` | `PENDING_VM503_CERTIFICATION_COMMIT_SHA` | VM-503 independently approved exact recovery SHA on 2026-07-12. Dossier audit remains 113 warnings / 0 failures; existing builder-owned Quandrix inhibitor warning remains unchanged; unchanged global Prismari/Quandrix Crucible wording remains out of CRIT-001 scope. |
+| Quandrix College | v1.1 | `semantically_ready` | `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe` | `cb495e11ba875f1801cbd8f8cb8e7204c27f5840` | VM-503 independently approved exact recovery SHA on 2026-07-12. Dossier audit remains 113 warnings / 0 failures; existing builder-owned Quandrix inhibitor warning remains unchanged; unchanged global Prismari/Quandrix Crucible wording remains out of CRIT-001 scope. |
 
 ## Cohort Totals
 
