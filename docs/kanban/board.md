@@ -9,7 +9,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 **CRIT-001 is open.** Faction-foundation authoring, readiness approvals, canonical semantic guidance outside an active recovery card, Hall/Crucible authoring, and placement calibration are frozen. VM-501 owns shared recovery infrastructure; VM-502 through VM-538 recover the 37 identities one at a time. See the [incident](../incidents/CRIT-001-faction-semantic-readiness-integrity.md) and [authoritative recovery ledger](../incidents/CRIT-001-identity-recovery-ledger.json).
 
-**VM-502 Prismari is certified semantically ready under CRIT-001 Contract v1.1.** Approved recovery SHA `19800da6322100b28fa6325fef91321e147b6f69` is accepted by independent Gate 5 review and recorded in certification commit `492598f13df24d0f74f5869e249d860ff661a3aa`. Lorehold is the active next identity; its branch may be created from the accepted program base, but Lorehold remediation has not started.
+**VM-502 Prismari is certified semantically ready under CRIT-001 Contract v1.1.** Approved recovery SHA `19800da6322100b28fa6325fef91321e147b6f69` is accepted by independent Gate 5 review and recorded in certification commit `492598f13df24d0f74f5869e249d860ff661a3aa`. Lorehold is the active identity; Gate 1 audit, Gate 2 bounded evidence confirmation, Gate 3 canonical remediation, and Gate 4 generation/validation are complete. Gate 5 candidate recovery and certification have not started.
 
 ## Backlog
 
@@ -38,7 +38,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-506 - Lorehold Semantic Recovery](in-progress/VM-506-lorehold-semantic-recovery.md) - active next identity after VM-502 acceptance; branch creation only, audit/remediation not started.
+- [VM-506 - Lorehold Semantic Recovery](in-progress/VM-506-lorehold-semantic-recovery.md) - active identity after VM-502 acceptance; Gate 4 generation/validation complete; Gate 5 candidate recovery and certification not started.
 
 ## Blocked
 

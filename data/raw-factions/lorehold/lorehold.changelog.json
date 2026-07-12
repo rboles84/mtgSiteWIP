@@ -2,8 +2,30 @@
   "schema_version": "1.0.0",
   "faction_id": "lorehold",
   "faction_name": "Lorehold",
-  "last_updated": "2026-06-09T00:00:00.000Z",
+  "last_updated": "2026-07-12T00:00:00.000Z",
   "changes": [
+    {
+      "change_id": "change_lorehold_crit001_gate3_canonical_remediation_20260712",
+      "date": "2026-07-12",
+      "change_type": "crit001_gate3_canonical_semantic_remediation",
+      "summary": "Applied CRIT-001 Contract v1.1 Gate 3 canonical remediation: claim semantic roles, bounded evidence locations, discovery/support separation, profile and placement proof-chain cleanup, recruiter guidance evidence mapping, and bounded required-neighbor evidence for Lorehold. Generated artifacts were intentionally not rebuilt in Gate 3.",
+      "affected_files": [
+        "lorehold.claims.json",
+        "lorehold.profile.json",
+        "lorehold.placement.json",
+        "lorehold.changelog.json"
+      ],
+      "not_touched": [
+        "generated artifacts",
+        "Hall/Crucible content",
+        "scoring",
+        "inhibition",
+        "confidence",
+        "scheduling",
+        "global recruiter behavior",
+        "other identities"
+      ]
+    },
     {
       "change_id": "change_lorehold_vm307_mechanics_signal_balance_20260609",
       "date": "2026-06-09",
@@ -322,6 +344,26 @@
       "Did not generalize The Mentor spirit-statue rule into a universal rule for all Lorehold mentorship."
     ],
     "overall_confidence_rating": "High",
-    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z",
+    "crit001_gate3": {
+      "contract_version": "v1.1",
+      "gate": "Gate 3 canonical remediation",
+      "status": "canonical_remediation_complete_generated_pending",
+      "audit_report": "docs/incidents/recoveries/VM-506-lorehold-semantic-recovery.md",
+      "discovery_records_retained": [
+        "claim_lorehold_unknown_0001",
+        "lorehold_claim_0022",
+        "lorehold_claim_0023",
+        "lorehold_claim_0024",
+        "lorehold_claim_0025",
+        "lorehold_claim_0026",
+        "lorehold_claim_0027"
+      ],
+      "support_records_retained": [
+        "claim_lorehold_mechanic_0013",
+        "claim_lorehold_mechanic_0014"
+      ],
+      "generated_rebuild": "deferred_to_gate4"
+    }
   }
 }

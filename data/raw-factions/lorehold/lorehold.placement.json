@@ -4,7 +4,7 @@
   "faction_id": "lorehold",
   "faction_name": "Lorehold",
   "based_on_profile_version": "1.1.0",
-  "last_updated": "2026-06-09T00:00:00.000Z",
+  "last_updated": "2026-07-12T00:00:00.000Z",
   "placement_summary": {
     "short_description": "Lorehold fits people who treat history as a living toolkit: records to verify, relics to protect, ruins to enter carefully, spirits to listen to, and old assumptions to test against evidence.",
     "best_fit_summary": "Strong Lorehold signals include curiosity about ruins, artifacts, spirits, scrolls, and primary sources; a willingness to do fieldwork; respect for preservation; and a rules-with-justice mindset that treats the past as evidence rather than loot or nostalgia.",
@@ -25,22 +25,30 @@
       "claim_lorehold_mechanic_0016",
       "claim_lorehold_placement_0008",
       "claim_lorehold_placement_0009",
-      "lorehold_claim_0022",
-      "lorehold_claim_0023",
-      "lorehold_claim_0024",
-      "lorehold_claim_0025",
-      "lorehold_claim_0026",
-      "lorehold_claim_0027"
+      "claim_lorehold_core_0001",
+      "claim_lorehold_core_0002",
+      "claim_lorehold_core_0003"
     ],
     "calibrated_primary_read": "Requires historical evidence, field research, relics, archives, or learning from the past.",
     "calibrated_false_positive_guardrail": "Do not award for generic duty, courage, or white-red identity without history/evidence language.",
     "evidence_claim_ids": [
-      "claim_lorehold_core_0001",
-      "claim_lorehold_core_0002",
-      "claim_lorehold_core_0003",
       "claim_lorehold_core_0004",
       "claim_lorehold_core_0005",
-      "claim_lorehold_core_0006"
+      "claim_lorehold_core_0006",
+      "claim_lorehold_core_0007",
+      "claim_lorehold_core_0009",
+      "claim_lorehold_dichotomy_0001",
+      "claim_lorehold_placement_0001",
+      "claim_lorehold_placement_0002",
+      "claim_lorehold_placement_0003",
+      "claim_lorehold_placement_0004",
+      "claim_lorehold_core_0011",
+      "claim_lorehold_mechanic_0016",
+      "claim_lorehold_placement_0008",
+      "claim_lorehold_placement_0009",
+      "claim_lorehold_core_0001",
+      "claim_lorehold_core_0002",
+      "claim_lorehold_core_0003"
     ]
   },
   "moral_and_psychological_profile": {
@@ -322,102 +330,86 @@
       "confidence": "Medium"
     },
     {
-      "value": "Lorehold",
-      "placement_relevance": "Corpus search evidence for Lorehold.",
+      "value": "archaeomancy and Lorehold identity",
+      "placement_relevance": "Lorehold should be recognized through archaeomancy and college identity, not a raw search-term match.",
       "claim_ids": [
-        "lorehold_claim_0022",
-        "lorehold_claim_0023",
-        "lorehold_claim_0024"
+        "claim_lorehold_core_0001",
+        "claim_lorehold_core_0004"
+      ],
+      "confidence": "High"
+    },
+    {
+      "value": "historical spirits as primary sources",
+      "placement_relevance": "Spirit evidence is strongest when tied to historical witness, memory, or primary-source testimony.",
+      "claim_ids": [
+        "claim_lorehold_core_0007",
+        "claim_lorehold_mechanic_0001",
+        "claim_lorehold_mechanic_0002",
+        "claim_lorehold_mechanic_0016"
+      ],
+      "confidence": "High"
+    },
+    {
+      "value": "archaeological fieldwork",
+      "placement_relevance": "Lorehold favors archaeological artifacts, field methods, and material traces of the past.",
+      "claim_ids": [
+        "claim_lorehold_core_0004",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_structure_0006",
+        "claim_lorehold_core_0011"
+      ],
+      "confidence": "High"
+    },
+    {
+      "value": "active historical inquiry",
+      "placement_relevance": "History is treated as evidence for present learning and responsibility rather than passive nostalgia.",
+      "claim_ids": [
+        "claim_lorehold_core_0005",
+        "claim_lorehold_core_0009",
+        "claim_lorehold_placement_0001",
+        "claim_lorehold_figure_0003"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "spirit",
-      "placement_relevance": "Corpus search evidence for Lorehold.",
+      "value": "dangerous ruins and field sites",
+      "placement_relevance": "Ruins and remote sites matter when approached as historical field evidence requiring care.",
       "claim_ids": [
-        "lorehold_claim_0022",
-        "lorehold_claim_0023",
-        "lorehold_claim_0024"
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0001",
+        "claim_lorehold_location_0006",
+        "claim_lorehold_location_0010"
+      ],
+      "confidence": "High"
+    },
+    {
+      "value": "records, scrolls, and ancient tomes",
+      "placement_relevance": "Written records and tomes matter as evidence within Lorehold historical practice.",
+      "claim_ids": [
+        "claim_lorehold_core_0008",
+        "claim_lorehold_location_0008"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "archaeology",
-      "placement_relevance": "Corpus search evidence for Lorehold.",
+      "value": "relic and artifact stewardship",
+      "placement_relevance": "Artifacts strengthen Lorehold when treated as historical evidence or shared inheritance rather than loot.",
       "claim_ids": [
-        "lorehold_claim_0022",
-        "lorehold_claim_0023",
-        "lorehold_claim_0024"
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0009",
+        "claim_lorehold_placement_0009",
+        "claim_lorehold_figure_0018"
       ],
-      "confidence": "Medium"
+      "confidence": "High"
     },
     {
-      "value": "history",
-      "placement_relevance": "Corpus search evidence for Lorehold.",
+      "value": "learning from the past",
+      "placement_relevance": "Lorehold match is strengthened when the past informs present responsibility and future action.",
       "claim_ids": [
-        "lorehold_claim_0022",
-        "lorehold_claim_0023",
-        "lorehold_claim_0024"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "ruins",
-      "placement_relevance": "Corpus search evidence for Lorehold.",
-      "claim_ids": [
-        "lorehold_claim_0022",
-        "lorehold_claim_0023",
-        "lorehold_claim_0024"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "scroll",
-      "placement_relevance": "Corpus search evidence for Lorehold.",
-      "claim_ids": [
-        "lorehold_claim_0022",
-        "lorehold_claim_0023",
-        "lorehold_claim_0024"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "learn",
-      "placement_relevance": "Corpus search evidence for Lorehold.",
-      "claim_ids": [
-        "lorehold_claim_0022",
-        "lorehold_claim_0023",
-        "lorehold_claim_0024"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "Quintorius",
-      "placement_relevance": "Corpus search evidence for Lorehold.",
-      "claim_ids": [
-        "lorehold_claim_0022",
-        "lorehold_claim_0023",
-        "lorehold_claim_0024"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "relic",
-      "placement_relevance": "Corpus search evidence for Lorehold.",
-      "claim_ids": [
-        "lorehold_claim_0022",
-        "lorehold_claim_0023",
-        "lorehold_claim_0024"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "artifact",
-      "placement_relevance": "Corpus search evidence for Lorehold.",
-      "claim_ids": [
-        "lorehold_claim_0022",
-        "lorehold_claim_0023",
-        "lorehold_claim_0024"
+        "claim_lorehold_figure_0003",
+        "claim_lorehold_placement_0001",
+        "claim_lorehold_placement_0006"
       ],
       "confidence": "Medium"
     }
@@ -542,19 +534,23 @@
       "confidence": "High"
     },
     {
-      "signal": "References Episode 1: Penmanship Practice, A Silent Voice Calls, Arcavios: A Radiant Heart as story-context evidence rather than relying only on color identity.",
-      "placement_relevance": "Strengthens Lorehold with corpus-backed specificity.",
-      "supports_match_when": "The user's answers echo Lorehold, spirit, archaeology, history, ruins, scroll in a faction-specific way.",
-      "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
+      "signal": "Uses Lorehold-specific history, evidence, fieldwork, relic, spirit, or archive language rather than broad red-white identity.",
+      "placement_relevance": "Strengthens Lorehold when specificity comes from substantive historical evidence rather than corpus search matches.",
+      "supports_match_when": "The user frames old objects, ruins, spirits, records, or field sites as evidence to preserve, test, or learn from.",
+      "weakens_match_when": "The user only matches the shared color pair or uses history as decoration, loot, status, or spectacle.",
       "claim_ids": [
-        "lorehold_claim_0022",
-        "lorehold_claim_0023",
-        "lorehold_claim_0024",
-        "lorehold_claim_0025",
-        "lorehold_claim_0026",
-        "lorehold_claim_0027"
+        "claim_lorehold_core_0005",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0009",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0009",
+        "claim_lorehold_location_0010",
+        "claim_lorehold_mechanic_0016",
+        "claim_lorehold_placement_0001",
+        "claim_lorehold_placement_0002",
+        "claim_lorehold_placement_0009"
       ],
-      "confidence": "Medium"
+      "confidence": "High"
     },
     "asks what the past proves",
     "uses memory as guidance",
@@ -977,6 +973,355 @@
         "claim_lorehold_core_0008",
         "claim_lorehold_core_0011",
         "claim_lorehold_placement_0009"
+      ]
+    }
+  ],
+  "semantic_guidance_evidence": [
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_content_hash": "sha256:1c90ad3ff0efa312c705d510cf32e9a272da2e77a070899755c88c5531ac5097",
+      "evidence_claim_ids": [
+        "claim_lorehold_core_0004",
+        "claim_lorehold_core_0005",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0007",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0001",
+        "claim_lorehold_location_0003",
+        "claim_lorehold_location_0006",
+        "claim_lorehold_mechanic_0016"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_content_hash": "sha256:116d8a1c489134465b23c33b078ef0820c9e34d5cadb23fdcf1a2c0c9705b9eb",
+      "evidence_claim_ids": [
+        "claim_lorehold_placement_0002",
+        "claim_lorehold_dichotomy_0002",
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0009"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_content_hash": "sha256:f182cccc2b3d82f13d67ae4baca8d94b1bc35278b4c1dbdfa1584ce85c0c083d",
+      "evidence_claim_ids": [
+        "claim_lorehold_placement_0008",
+        "claim_lorehold_structure_0005",
+        "claim_lorehold_dichotomy_0002",
+        "claim_lorehold_dichotomy_0004"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/3",
+      "canonical_content_hash": "sha256:83bd0516335be232132f5a5fe3cebc648ea0433f970ef64bf10efcc7413bb2e5",
+      "evidence_claim_ids": [
+        "claim_lorehold_placement_0001",
+        "claim_lorehold_figure_0003",
+        "claim_lorehold_placement_0007"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/4",
+      "canonical_content_hash": "sha256:e6e6c0e02e01b35a17150556f1137ef942c86fe2f9013afee95fcff0781ef90d",
+      "evidence_claim_ids": [
+        "claim_lorehold_timeline_0005",
+        "claim_lorehold_figure_0009",
+        "claim_lorehold_placement_0006"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/5",
+      "canonical_content_hash": "sha256:4cdba48aa819eff8d8fe3f5310fe1188fe6582692a3155e8268334c9798f42f3",
+      "evidence_claim_ids": [
+        "claim_lorehold_placement_0009",
+        "claim_lorehold_location_0009",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_figure_0018"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/6",
+      "canonical_content_hash": "sha256:4d2416bb40219c82243fbdf346e732d20158c7705114078fa7c5dadb6014dce9",
+      "evidence_claim_ids": [
+        "claim_lorehold_location_0008",
+        "claim_lorehold_location_0006",
+        "claim_lorehold_mechanic_0016",
+        "claim_lorehold_figure_0020",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0010"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/7",
+      "canonical_content_hash": "sha256:8b76b6e8252b9e03a4439509b1507ab7580630f423acf6542061ebfb11af734d",
+      "evidence_claim_ids": [
+        "claim_lorehold_placement_0008",
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_dichotomy_0005",
+        "claim_lorehold_structure_0005"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_content_hash": "sha256:8aa1dd7eb61f2ba528556027f19ee709b3fb1ff89ff56b3d2123ca181a6d5cb0",
+      "evidence_claim_ids": [
+        "claim_lorehold_core_0005",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_placement_0003"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_content_hash": "sha256:8dc0d692f061125a4ce603de50dbb43e2ee2f681ac7835bebff6ab450aa13b22",
+      "evidence_claim_ids": [
+        "claim_lorehold_placement_0004",
+        "claim_lorehold_placement_0007",
+        "claim_lorehold_dichotomy_0004"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_content_hash": "sha256:46d3d4042e40286808aa735b1face622697805e364cd65f89c0cf20b115ac573",
+      "evidence_claim_ids": [
+        "claim_lorehold_placement_0001",
+        "claim_lorehold_placement_0002",
+        "claim_lorehold_dichotomy_0001",
+        "claim_lorehold_core_0009"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_content_hash": "sha256:cc40d3aeab42f4b4a50065e9656ad8c23173ff21b59da8e299b57eb343e6eebd",
+      "evidence_claim_ids": [
+        "claim_lorehold_placement_0009",
+        "claim_lorehold_placement_0003",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0009",
+        "claim_lorehold_mechanic_0017"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_content_hash": "sha256:e700e8b38798bb076679b50c10138e0f0ac21291f282b4194dac9f3c5f806a4a",
+      "evidence_claim_ids": [
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0008",
+        "claim_lorehold_placement_0009",
+        "claim_lorehold_placement_0004"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_content_hash": "sha256:9e216f4d355dc4767931834300a399e2ef284100a10d466fb39718c002adbd86",
+      "evidence_claim_ids": [
+        "claim_lorehold_placement_0004",
+        "claim_lorehold_dichotomy_0004"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/2",
+      "canonical_content_hash": "sha256:923f7dae5857a217600040e275316cb50f548f1818105e87931954864d1ca722",
+      "evidence_claim_ids": [
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_placement_0001",
+        "claim_lorehold_figure_0003"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/3",
+      "canonical_content_hash": "sha256:69648c43112f2d7d56ac4aa3602af2fa8370931cbd4a080f91e2be5cc9add070",
+      "evidence_claim_ids": [
+        "claim_lorehold_placement_0008",
+        "claim_lorehold_dichotomy_0002",
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_structure_0005"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/4",
+      "canonical_content_hash": "sha256:9fc4add5f7b60ea146834246947f437889e9a1ff3e632d0ee7d76f7b4635411a",
+      "evidence_claim_ids": [
+        "claim_lorehold_placement_0009",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_figure_0018"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/5",
+      "canonical_content_hash": "sha256:478860a37c332dc7838f7c120be4f3d0742e96466407ec6cc5870cb22732d5af",
+      "evidence_claim_ids": [
+        "claim_lorehold_placement_0008",
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0009"
+      ]
+    }
+  ],
+  "semantic_readiness": {
+    "contract_version": "v1.1",
+    "certification_status": "gate3_canonical_remediation",
+    "required_neighbors": [
+      "WR",
+      "QUANDRIX",
+      "PRISMARI",
+      "SILVERQUILL",
+      "WB",
+      "WU",
+      "RG",
+      "WITHERBLOOM"
+    ],
+    "audit_report": "docs/incidents/recoveries/VM-506-lorehold-semantic-recovery.md"
+  },
+  "required_neighbor_guidance": [
+    {
+      "neighbor": "WR",
+      "label": "Boros / red-white action",
+      "reason": "Same color pair; generic duty, courage, and action can false-positive as Lorehold.",
+      "positive_lorehold_evidence_claim_ids": [
+        "claim_lorehold_core_0005",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_placement_0002"
+      ],
+      "negative_or_exclusion_claim_ids": [
+        "claim_lorehold_placement_0003"
+      ],
+      "ambiguity_claim_ids": [
+        "claim_lorehold_placement_0008",
+        "claim_lorehold_dichotomy_0002",
+        "claim_lorehold_dichotomy_0004"
+      ]
+    },
+    {
+      "neighbor": "QUANDRIX",
+      "label": "Quandrix",
+      "reason": "Existing collision guidance; material record/history versus abstract proof or model.",
+      "positive_lorehold_evidence_claim_ids": [
+        "claim_lorehold_core_0004",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0008",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_placement_0009"
+      ],
+      "negative_or_exclusion_claim_ids": [
+        "claim_lorehold_placement_0004"
+      ],
+      "ambiguity_claim_ids": [
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0008",
+        "claim_lorehold_placement_0009"
+      ]
+    },
+    {
+      "neighbor": "PRISMARI",
+      "label": "Prismari",
+      "reason": "Same Strixhaven setting and red creative/spectacle overlap.",
+      "positive_lorehold_evidence_claim_ids": [
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_placement_0009"
+      ],
+      "negative_or_exclusion_claim_ids": [
+        "claim_lorehold_placement_0003"
+      ],
+      "ambiguity_claim_ids": [
+        "claim_lorehold_core_0008",
+        "claim_lorehold_placement_0004"
+      ]
+    },
+    {
+      "neighbor": "SILVERQUILL",
+      "label": "Silverquill",
+      "reason": "Same Strixhaven setting; rhetoric, status, and speech can overlap with records, precedent, and social proof.",
+      "positive_lorehold_evidence_claim_ids": [
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_placement_0004",
+        "claim_lorehold_location_0008"
+      ],
+      "negative_or_exclusion_claim_ids": [
+        "claim_lorehold_placement_0004"
+      ],
+      "ambiguity_claim_ids": [
+        "claim_lorehold_core_0008",
+        "claim_lorehold_placement_0004"
+      ]
+    },
+    {
+      "neighbor": "WB",
+      "label": "Orzhov / white-black institution and spirits",
+      "reason": "Institution, spirits, inheritance, artifacts, and private leverage/acquisition overlap.",
+      "positive_lorehold_evidence_claim_ids": [
+        "claim_lorehold_placement_0009",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0009"
+      ],
+      "negative_or_exclusion_claim_ids": [
+        "claim_lorehold_placement_0003",
+        "claim_lorehold_placement_0007",
+        "claim_lorehold_placement_0009"
+      ],
+      "ambiguity_claim_ids": [
+        "claim_lorehold_core_0011",
+        "claim_lorehold_placement_0009"
+      ]
+    },
+    {
+      "neighbor": "WU",
+      "label": "Azorius / white-blue rules and precedent",
+      "reason": "Rules, precedent, institutional order, and authority overlap.",
+      "positive_lorehold_evidence_claim_ids": [
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_dichotomy_0005",
+        "claim_lorehold_placement_0008"
+      ],
+      "negative_or_exclusion_claim_ids": [
+        "claim_lorehold_dichotomy_0002",
+        "claim_lorehold_structure_0005"
+      ],
+      "ambiguity_claim_ids": [
+        "claim_lorehold_placement_0008",
+        "claim_lorehold_dichotomy_0004"
+      ]
+    },
+    {
+      "neighbor": "RG",
+      "label": "Gruul / red-green ruins and field danger",
+      "reason": "Ruins, field danger, old places, and action outside institutions can overlap.",
+      "positive_lorehold_evidence_claim_ids": [
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0001",
+        "claim_lorehold_location_0006",
+        "claim_lorehold_location_0009"
+      ],
+      "negative_or_exclusion_claim_ids": [
+        "claim_lorehold_placement_0009"
+      ],
+      "ambiguity_claim_ids": [
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0009"
+      ]
+    },
+    {
+      "neighbor": "WITHERBLOOM",
+      "label": "Witherbloom",
+      "reason": "Same Strixhaven setting; fieldwork, death, living/natural material, and witness evidence can overlap.",
+      "positive_lorehold_evidence_claim_ids": [
+        "claim_lorehold_mechanic_0016",
+        "claim_lorehold_location_0010",
+        "claim_lorehold_core_0011"
+      ],
+      "negative_or_exclusion_claim_ids": [
+        "claim_lorehold_placement_0001"
+      ],
+      "ambiguity_claim_ids": [
+        "claim_lorehold_mechanic_0016",
+        "claim_lorehold_location_0010"
       ]
     }
   ]

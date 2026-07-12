@@ -13,7 +13,7 @@
   "source_review_date": "2026-05-09",
   "last_full_review": "2026-05-09",
   "last_incremental_review": "2026-05-09",
-  "last_updated": "2026-06-09T00:00:00.000Z",
+  "last_updated": "2026-07-12T00:00:00.000Z",
   "site_surface": {
     "display_name": "Lorehold",
     "short_summary": "Lorehold is Strixhaven's red-white College of Archaeomancy: a history-and-fieldwork college built around ruins, relics, spirits, scrolls, artifacts, living history, and the order-versus-chaos tension of preserving the past while chasing discovery.",
@@ -137,12 +137,24 @@
       "A complete, current faculty roster was not confirmed from the reviewed official sources."
     ],
     "claim_ids": [
-      "lorehold_claim_0022",
-      "lorehold_claim_0023",
-      "lorehold_claim_0024",
-      "lorehold_claim_0025",
-      "lorehold_claim_0026",
-      "lorehold_claim_0027"
+      "claim_lorehold_core_0001",
+      "claim_lorehold_core_0002",
+      "claim_lorehold_core_0003",
+      "claim_lorehold_core_0004",
+      "claim_lorehold_core_0005",
+      "claim_lorehold_core_0006",
+      "claim_lorehold_core_0007",
+      "claim_lorehold_core_0008",
+      "claim_lorehold_core_0009",
+      "claim_lorehold_dichotomy_0001",
+      "claim_lorehold_dichotomy_0006",
+      "claim_lorehold_core_0011",
+      "claim_lorehold_location_0010",
+      "claim_lorehold_mechanic_0016",
+      "claim_lorehold_placement_0001",
+      "claim_lorehold_placement_0002",
+      "claim_lorehold_placement_0008",
+      "claim_lorehold_placement_0009"
     ]
   },
   "structure": {
@@ -789,122 +801,128 @@
       "Boros mentor keyword"
     ],
     "entries": [
-    {
-      "mechanic_id": "mech_archaeomancy",
-      "mechanic_name": "Archaeomancy",
-      "associated_set": "Strixhaven / Secrets of Strixhaven lore framing",
-      "rules_summary": "Archaeomancy is a lore identity and magical study area in reviewed sources, not a standalone official keyword mechanic in the reviewed rules sources.",
-      "design_or_flavor_connection": "Connects Lorehold to historical study through artifacts, ancient tomes, spirits, and field research.",
-      "claim_ids": [
-        "claim_lorehold_core_0004",
-        "claim_lorehold_core_0005",
-        "claim_lorehold_core_0006",
-        "claim_lorehold_core_0007",
-        "claim_lorehold_core_0008",
-        "claim_lorehold_structure_0006"
-      ],
-      "confidence": "High",
-      "notes": ""
-    },
-    {
-      "mechanic_id": "mech_spirit_statues",
-      "mechanic_name": "Spirit statues and The Rousing",
-      "associated_set": "Strixhaven story lore",
-      "rules_summary": "Story magic rather than a formal keyword mechanic.",
-      "design_or_flavor_connection": "Lorehold mages call the spirits of the ancient dead, can house or engage spirits through statues, can use spirit mentors, and can sometimes rouse spirits without a statue focus.",
-      "claim_ids": [
-        "claim_lorehold_mechanic_0001",
-        "claim_lorehold_mechanic_0002",
-        "claim_lorehold_mechanic_0003",
-        "claim_lorehold_mechanic_0004",
-        "claim_lorehold_structure_0007",
-        "claim_lorehold_structure_0009",
-        "claim_lorehold_mechanic_0015"
-      ],
-      "confidence": "High",
-      "notes": ""
-    },
-    {
-      "mechanic_id": "mech_magecraft",
-      "mechanic_name": "Magecraft",
-      "associated_set": "Strixhaven: School of Mages",
-      "rules_summary": "Magecraft is an ability word that triggers when a player casts or copies an instant or sorcery spell.",
-      "design_or_flavor_connection": "Magecraft is a broad Strixhaven mechanic, not exclusive to Lorehold, but Lorehold cards can use it.",
-      "claim_ids": [
-        "claim_lorehold_mechanic_0005",
-        "claim_lorehold_mechanic_0010"
-      ],
-      "confidence": "High",
-      "notes": ""
-    },
-    {
-      "mechanic_id": "mech_learn_lesson",
-      "mechanic_name": "Learn and Lessons",
-      "associated_set": "Strixhaven: School of Mages",
-      "rules_summary": "Learn allows a player to reveal a Lesson from outside the game and put it into their hand, or discard a card to draw a card; Lesson is a spell subtype with no special rules by itself.",
-      "design_or_flavor_connection": "Learn/Lesson supports the school setting broadly, not Lorehold alone.",
-      "claim_ids": [
-        "claim_lorehold_mechanic_0006",
-        "claim_lorehold_mechanic_0007"
-      ],
-      "confidence": "High",
-      "notes": ""
-    },
-    {
-      "mechanic_id": "mech_lorehold_command",
-      "mechanic_name": "Lorehold Command",
-      "associated_set": "Strixhaven: School of Mages",
-      "rules_summary": "A modal instant with several red-white tactical effects.",
-      "design_or_flavor_connection": "Card-supported expression of Lorehold's battlefield, token, sacrifice, and card-selection texture.",
-      "claim_ids": [
-        "claim_lorehold_mechanic_0008"
-      ],
-      "confidence": "High",
-      "notes": ""
-    },
-    {
-      "mechanic_id": "mech_lorehold_spirits",
-      "mechanic_name": "Lorehold Spirits",
-      "associated_set": "Strixhaven: School of Mages / Secrets of Strixhaven Commander",
-      "rules_summary": "Card-supported Spirit synergies include Spirit tokens and Spirit-focused abilities on Lorehold-associated cards and deck material.",
-      "design_or_flavor_connection": "Connects Lorehold's lore of summoning ancient spirits to Spirit tokens and Spirit-focused gameplay materials.",
-      "claim_ids": [
-        "claim_lorehold_mechanic_0009",
-        "claim_lorehold_mechanic_0010",
-        "claim_lorehold_mechanic_0013",
-        "claim_lorehold_mechanic_0014"
-      ],
-      "confidence": "High",
-      "notes": ""
-    },
-    {
-      "mechanic_id": "mech_fields_of_strife_primary_sources",
-      "mechanic_name": "Fields of Strife primary-source spirits",
-      "associated_set": "Secrets of Strixhaven lore framing",
-      "rules_summary": "Story and worldbuilding concept rather than a formal card keyword mechanic.",
-      "design_or_flavor_connection": "The Fields of Strife turn Lorehold's history focus into direct contact with dangerous restless spirits treated as living primary sources.",
-      "claim_ids": [
-        "claim_lorehold_location_0010",
-        "claim_lorehold_mechanic_0016",
-        "claim_lorehold_mechanic_0017"
-      ],
-      "confidence": "High",
-      "notes": "Useful for placement and lore browsing; not a formal gameplay mechanic."
-    },
-    {
-      "mechanic_id": "mech_artifact_restoration",
-      "mechanic_name": "Historical artifact restoration",
-      "associated_set": "Secrets of Strixhaven lore framing",
-      "rules_summary": "Lore/worldbuilding practice rather than a formal keyword mechanic.",
-      "design_or_flavor_connection": "Soovril's chronomancy restores historical artifacts, reinforcing Lorehold's preservation and material-history identity.",
-      "claim_ids": [
-        "claim_lorehold_figure_0018",
-        "claim_lorehold_placement_0009"
-      ],
-      "confidence": "High",
-      "notes": "Do not generalize to every Lorehold student; use as a supported example of preservation-oriented practice."
-    }
-  ]
+      {
+        "mechanic_id": "mech_archaeomancy",
+        "mechanic_name": "Archaeomancy",
+        "associated_set": "Strixhaven / Secrets of Strixhaven lore framing",
+        "rules_summary": "Archaeomancy is a lore identity and magical study area in reviewed sources, not a standalone official keyword mechanic in the reviewed rules sources.",
+        "design_or_flavor_connection": "Connects Lorehold to historical study through artifacts, ancient tomes, spirits, and field research.",
+        "claim_ids": [
+          "claim_lorehold_core_0004",
+          "claim_lorehold_core_0005",
+          "claim_lorehold_core_0006",
+          "claim_lorehold_core_0007",
+          "claim_lorehold_core_0008",
+          "claim_lorehold_structure_0006"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
+      {
+        "mechanic_id": "mech_spirit_statues",
+        "mechanic_name": "Spirit statues and The Rousing",
+        "associated_set": "Strixhaven story lore",
+        "rules_summary": "Story magic rather than a formal keyword mechanic.",
+        "design_or_flavor_connection": "Lorehold mages call the spirits of the ancient dead, can house or engage spirits through statues, can use spirit mentors, and can sometimes rouse spirits without a statue focus.",
+        "claim_ids": [
+          "claim_lorehold_mechanic_0001",
+          "claim_lorehold_mechanic_0002",
+          "claim_lorehold_mechanic_0003",
+          "claim_lorehold_mechanic_0004",
+          "claim_lorehold_structure_0007",
+          "claim_lorehold_structure_0009",
+          "claim_lorehold_mechanic_0015"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
+      {
+        "mechanic_id": "mech_magecraft",
+        "mechanic_name": "Magecraft",
+        "associated_set": "Strixhaven: School of Mages",
+        "rules_summary": "Magecraft is an ability word that triggers when a player casts or copies an instant or sorcery spell.",
+        "design_or_flavor_connection": "Magecraft is a broad Strixhaven mechanic, not exclusive to Lorehold, but Lorehold cards can use it.",
+        "claim_ids": [
+          "claim_lorehold_mechanic_0005",
+          "claim_lorehold_mechanic_0010"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
+      {
+        "mechanic_id": "mech_learn_lesson",
+        "mechanic_name": "Learn and Lessons",
+        "associated_set": "Strixhaven: School of Mages",
+        "rules_summary": "Learn allows a player to reveal a Lesson from outside the game and put it into their hand, or discard a card to draw a card; Lesson is a spell subtype with no special rules by itself.",
+        "design_or_flavor_connection": "Learn/Lesson supports the school setting broadly, not Lorehold alone.",
+        "claim_ids": [
+          "claim_lorehold_mechanic_0006",
+          "claim_lorehold_mechanic_0007"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
+      {
+        "mechanic_id": "mech_lorehold_command",
+        "mechanic_name": "Lorehold Command",
+        "associated_set": "Strixhaven: School of Mages",
+        "rules_summary": "A modal instant with several red-white tactical effects.",
+        "design_or_flavor_connection": "Card-supported expression of Lorehold's battlefield, token, sacrifice, and card-selection texture.",
+        "claim_ids": [
+          "claim_lorehold_mechanic_0008"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
+      {
+        "mechanic_id": "mech_lorehold_spirits",
+        "mechanic_name": "Lorehold Spirits",
+        "associated_set": "Strixhaven: School of Mages / Secrets of Strixhaven Commander",
+        "rules_summary": "Lorehold-associated cards support Spirit synergies through Spirit tokens and Spirit-focused abilities.",
+        "design_or_flavor_connection": "Connects Lorehold's lore of summoning ancient spirits to Spirit token and Spirit-focused gameplay patterns.",
+        "claim_ids": [
+          "claim_lorehold_core_0007",
+          "claim_lorehold_mechanic_0001",
+          "claim_lorehold_mechanic_0002",
+          "claim_lorehold_mechanic_0009",
+          "claim_lorehold_mechanic_0010"
+        ],
+        "confidence": "High",
+        "notes": "",
+        "support_claim_ids": [
+          "claim_lorehold_mechanic_0013",
+          "claim_lorehold_mechanic_0014"
+        ],
+        "support_note": "Support records identify official product/deck material only; substantive Spirit identity is supported by the main claim_ids."
+      },
+      {
+        "mechanic_id": "mech_fields_of_strife_primary_sources",
+        "mechanic_name": "Fields of Strife primary-source spirits",
+        "associated_set": "Secrets of Strixhaven lore framing",
+        "rules_summary": "Story and worldbuilding concept rather than a formal card keyword mechanic.",
+        "design_or_flavor_connection": "The Fields of Strife turn Lorehold's history focus into direct contact with dangerous restless spirits treated as living primary sources.",
+        "claim_ids": [
+          "claim_lorehold_location_0010",
+          "claim_lorehold_mechanic_0016",
+          "claim_lorehold_mechanic_0017"
+        ],
+        "confidence": "High",
+        "notes": "Useful for placement and lore browsing; not a formal gameplay mechanic."
+      },
+      {
+        "mechanic_id": "mech_artifact_restoration",
+        "mechanic_name": "Historical artifact restoration",
+        "associated_set": "Secrets of Strixhaven lore framing",
+        "rules_summary": "Lore/worldbuilding practice rather than a formal keyword mechanic.",
+        "design_or_flavor_connection": "Soovril's chronomancy restores historical artifacts, reinforcing Lorehold's preservation and material-history identity.",
+        "claim_ids": [
+          "claim_lorehold_figure_0018",
+          "claim_lorehold_placement_0009"
+        ],
+        "confidence": "High",
+        "notes": "Do not generalize to every Lorehold student; use as a supported example of preservation-oriented practice."
+      }
+    ]
   },
   "search_and_filter_metadata": {
     "aliases": [
@@ -1091,14 +1109,15 @@
     "corpus_upgrade": {
       "review_date": "2026-05-09",
       "status": "MTG-Stories corpus evidence added",
-      "claim_ids": [
+      "discovery_claim_ids": [
         "lorehold_claim_0022",
         "lorehold_claim_0023",
         "lorehold_claim_0024",
         "lorehold_claim_0025",
         "lorehold_claim_0026",
         "lorehold_claim_0027"
-      ]
+      ],
+      "semantic_readiness_note": "Discovery records are retained as corpus metadata only and must not be counted as semantic proof."
     },
     "raw_enrichment": {
       "review_date": "2026-05-13T21:14:06.308Z",

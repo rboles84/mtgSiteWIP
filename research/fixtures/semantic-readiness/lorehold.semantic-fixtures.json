@@ -1,0 +1,250 @@
+{
+  "identity_key": "LOREHOLD",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "lorehold_core_inclusion",
+      "fixture_type": "core_inclusion",
+      "scenario": "A field scholar is drawn to old ruins, artifacts, spirits, and records because the past can be investigated as evidence for present responsibility.",
+      "intended_interpretation": "Strong Lorehold inclusion: archaeomancy, material history, fieldwork, and active learning from the past are the core attraction.",
+      "evidence_claim_ids": [
+        "claim_lorehold_core_0004",
+        "claim_lorehold_core_0005",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_placement_0001",
+        "claim_lorehold_placement_0002"
+      ],
+      "evidence_source_ids": [
+        "src_lorehold_0001",
+        "src_lorehold_0002",
+        "src_lorehold_0008",
+        "src_lorehold_0009"
+      ]
+    },
+    {
+      "fixture_id": "lorehold_mature_pressure",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "When a rule or preferred story conflicts with difficult evidence from a site, the response is to protect the record, document the context, and seek a responsible exception rather than burying the truth.",
+      "intended_interpretation": "Mature Lorehold protects evidence and uses rules as guardrails that can yield to justice and truth.",
+      "evidence_claim_ids": [
+        "claim_lorehold_placement_0004",
+        "claim_lorehold_placement_0008",
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_location_0009"
+      ],
+      "evidence_source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0006",
+        "src_lorehold_0008",
+        "src_lorehold_0010",
+        "src_lorehold_0013"
+      ]
+    },
+    {
+      "fixture_id": "lorehold_exclusion_wr",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WR",
+      "scenario": "The answer praises courage, duty, and action but shows no interest in history, records, artifacts, ruins, spirits, field investigation, or learning from the past.",
+      "intended_interpretation": "Do not prefer Lorehold from generic red-white action; Lorehold requires historical and evidentiary texture.",
+      "evidence_claim_ids": [
+        "claim_lorehold_core_0005",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_placement_0003"
+      ],
+      "evidence_source_ids": [
+        "src_lorehold_0001",
+        "src_lorehold_0002",
+        "src_lorehold_0008",
+        "src_lorehold_0009"
+      ]
+    },
+    {
+      "fixture_id": "lorehold_exclusion_quandrix",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "QUANDRIX",
+      "scenario": "A mystery contains a beautiful old artifact and an elegant mathematical model, but the answer treats proof and abstract structure as the final aim.",
+      "intended_interpretation": "Prefer Quandrix over Lorehold when proof and model outrank material history and artifact records.",
+      "evidence_claim_ids": [
+        "claim_lorehold_core_0004",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0008",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_placement_0009"
+      ],
+      "evidence_source_ids": [
+        "src_lorehold_0001",
+        "src_lorehold_0002",
+        "src_lorehold_0008",
+        "src_lorehold_0010",
+        "src_lorehold_0014"
+      ]
+    },
+    {
+      "fixture_id": "lorehold_exclusion_prismari",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "PRISMARI",
+      "scenario": "The user wants the ancient relic mainly as part of an expressive spectacle; preservation, provenance, and historical evidence are incidental.",
+      "intended_interpretation": "Do not prefer Lorehold when the old object is primarily a performance medium rather than historical evidence.",
+      "evidence_claim_ids": [
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_placement_0009",
+        "claim_lorehold_placement_0003"
+      ],
+      "evidence_source_ids": [
+        "src_lorehold_0001",
+        "src_lorehold_0002",
+        "src_lorehold_0008",
+        "src_lorehold_0009",
+        "src_lorehold_0010",
+        "src_lorehold_0014"
+      ]
+    },
+    {
+      "fixture_id": "lorehold_exclusion_silverquill",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SILVERQUILL",
+      "scenario": "The response treats old records as material for a powerful speech and social leverage, not as evidence that must constrain the story.",
+      "intended_interpretation": "Do not prefer Lorehold when rhetoric and influence outrank record protection and evidence integrity.",
+      "evidence_claim_ids": [
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_placement_0004",
+        "claim_lorehold_location_0008"
+      ],
+      "evidence_source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0006",
+        "src_lorehold_0008",
+        "src_lorehold_0010",
+        "src_lorehold_0013"
+      ]
+    },
+    {
+      "fixture_id": "lorehold_exclusion_wb",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WB",
+      "scenario": "The answer approaches relics and spirits as private assets, leverage, or owned inheritance rather than shared historical evidence that needs context.",
+      "intended_interpretation": "Do not prefer Lorehold when acquisition and leverage outrank stewardship of history.",
+      "evidence_claim_ids": [
+        "claim_lorehold_placement_0009",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0009",
+        "claim_lorehold_placement_0003"
+      ],
+      "evidence_source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0006",
+        "src_lorehold_0008",
+        "src_lorehold_0009",
+        "src_lorehold_0010",
+        "src_lorehold_0013",
+        "src_lorehold_0014"
+      ]
+    },
+    {
+      "fixture_id": "lorehold_exclusion_wu",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WU",
+      "scenario": "The answer obeys institutional procedure for its own sake and avoids field discovery even when evidence and justice suggest a responsible exception.",
+      "intended_interpretation": "Do not prefer Lorehold when order and procedure replace the Lorehold balance of preservation, discovery, and evidence.",
+      "evidence_claim_ids": [
+        "claim_lorehold_dichotomy_0004",
+        "claim_lorehold_dichotomy_0005",
+        "claim_lorehold_placement_0008",
+        "claim_lorehold_dichotomy_0002"
+      ],
+      "evidence_source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0006",
+        "src_lorehold_0013"
+      ]
+    },
+    {
+      "fixture_id": "lorehold_exclusion_rg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "RG",
+      "scenario": "The answer wants to enter old ruins for raw freedom, danger, and action, while documentation, repositories, provenance, and artifact stewardship are afterthoughts.",
+      "intended_interpretation": "Do not prefer Lorehold when ruin interaction lacks historical care and evidentiary stewardship.",
+      "evidence_claim_ids": [
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0001",
+        "claim_lorehold_location_0006",
+        "claim_lorehold_location_0009",
+        "claim_lorehold_placement_0009"
+      ],
+      "evidence_source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0006",
+        "src_lorehold_0008",
+        "src_lorehold_0010",
+        "src_lorehold_0013",
+        "src_lorehold_0014"
+      ]
+    },
+    {
+      "fixture_id": "lorehold_exclusion_witherbloom",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WITHERBLOOM",
+      "scenario": "The answer focuses on life, death, and natural material as biological practice rather than spirits, relics, and field sites as historical evidence.",
+      "intended_interpretation": "Do not prefer Lorehold when the fieldwork center is life/death craft rather than history and primary-source evidence.",
+      "evidence_claim_ids": [
+        "claim_lorehold_mechanic_0016",
+        "claim_lorehold_location_0010",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_placement_0001"
+      ],
+      "evidence_source_ids": [
+        "src_lorehold_0002",
+        "src_lorehold_0008",
+        "src_lorehold_0009"
+      ]
+    },
+    {
+      "fixture_id": "lorehold_ambiguous_quandrix",
+      "fixture_type": "nearest_collision_ambiguity",
+      "neighbor": "QUANDRIX",
+      "scenario": "The answer values both the old artifact record and the elegant theory behind it, and does not yet make clear whether material evidence or abstract proof leads the next move.",
+      "intended_interpretation": "Remain uncertain between Lorehold and Quandrix until the user clarifies whether the artifact record or the proof/model is primary.",
+      "evidence_claim_ids": [
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0008",
+        "claim_lorehold_placement_0009",
+        "claim_lorehold_placement_0004"
+      ],
+      "evidence_source_ids": [
+        "src_lorehold_0001",
+        "src_lorehold_0002",
+        "src_lorehold_0008",
+        "src_lorehold_0010",
+        "src_lorehold_0014"
+      ]
+    },
+    {
+      "fixture_id": "lorehold_provenance_chain",
+      "fixture_type": "provenance",
+      "canonical_file": "data/raw-factions/lorehold/lorehold.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "intended_interpretation": "The generated provenance must preserve the evidence chain for recognizing Lorehold through history, archaeology, ruins, artifacts, spirits, monuments, and direct evidence.",
+      "evidence_claim_ids": [
+        "claim_lorehold_core_0004",
+        "claim_lorehold_core_0005",
+        "claim_lorehold_core_0006",
+        "claim_lorehold_core_0007",
+        "claim_lorehold_core_0011",
+        "claim_lorehold_location_0001",
+        "claim_lorehold_location_0003",
+        "claim_lorehold_location_0006",
+        "claim_lorehold_mechanic_0016"
+      ],
+      "evidence_source_ids": [
+        "src_lorehold_0001",
+        "src_lorehold_0002",
+        "src_lorehold_0006",
+        "src_lorehold_0008"
+      ]
+    }
+  ]
+}

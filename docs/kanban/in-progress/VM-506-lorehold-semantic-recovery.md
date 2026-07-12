@@ -13,14 +13,14 @@ Contract: v1.1
 
 Recover Lorehold end to end under CRIT-001: audit the existing packet, bound readiness blockers, gather only sufficient evidence, repair canonical data, rebuild generated artifacts, validate semantic fixtures and regressions, obtain independent review of an immutable candidate SHA, and certify that exact recovery.
 
-Current state: active next identity after Prismari certification acceptance. Branch creation is authorized from the accepted CRIT-001 program base, but Gate 1 audit and Lorehold remediation have not started.
+Current state: active identity after Prismari certification acceptance. Gate 1 audit, Gate 2 bounded evidence confirmation, Gate 3 canonical remediation, and Gate 4 generation/validation are complete in `docs/incidents/recoveries/VM-506-lorehold-semantic-recovery.md`. Lorehold remains uncertified; candidate recovery and certification have not started.
 
 ## Gates
 
-- [ ] Gate 1 — Packet audit and bounded disposition.
-- [ ] Gate 2 — Sufficient evidence completion.
-- [ ] Gate 3 — Canonical remediation.
-- [ ] Gate 4 — Generation and validation.
+- [x] Gate 1 — Packet audit and bounded disposition.
+- [x] Gate 2 — Sufficient evidence completion.
+- [x] Gate 3 — Canonical remediation.
+- [x] Gate 4 — Generation and validation.
 - [ ] Gate 5 — Independent certification.
 
 ## Scope Rules
@@ -35,7 +35,42 @@ Current state: active next identity after Prismari certification acceptance. Bra
 - Canonical ledger: `docs/incidents/CRIT-001-identity-recovery-ledger.json`
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
-- Audit/recovery report: pending
+- Audit/recovery report: `docs/incidents/recoveries/VM-506-lorehold-semantic-recovery.md`
 - Candidate recovery SHA: pending
 - Independent reviewer: pending
 - Certification commit: pending
+
+## Gate 1 Result
+
+- Primary disposition: Claim-role classification required.
+- Gate 2 recommendation: broad evidence completion is not required before bounded remediation; reserve Gate 2 for specific unsupported statements if found.
+- Blockers: unclassified claims, discovery records in authoritative proof chains, support/product records in mechanics proof chain, missing recruiter-guidance evidence mapping, and generated provenance carrying discovery-backed chains.
+- Scope status: no canonical Lorehold data, generated artifacts, runtime behavior, or other identities changed.
+
+## Gate 2 Result
+
+- Evidence confirmation scope: limited to the exact Gate 1 blockers.
+- Targeted source discovery required: no, not at this stage.
+- Gate 3 input: audit-only role map for all 97 claims, discovery replacement plan, core-values repair plan, recruiter guidance evidence mapping plan, provenance repair plan, mechanics support-record plan, and bounded required-neighbor plan are recorded in the audit/recovery report.
+- Scope status: no canonical Lorehold data, generated artifacts, runtime behavior, or other identities changed.
+
+## Gate 3 Result
+
+- Canonical remediation complete for the Gate 1/Gate 2 blockers.
+- Claims by semantic role: 88 `substantive_claim`, 7 `discovery_record`, 2 `support_record`, 0 `unclassified`.
+- Discovery records retained as metadata only: `claim_lorehold_unknown_0001`, `lorehold_claim_0022` through `lorehold_claim_0027`.
+- Support records retained as auxiliary product/deck records: `claim_lorehold_mechanic_0013`, `claim_lorehold_mechanic_0014`.
+- Required neighbors recorded: `WR`, `QUANDRIX`, `PRISMARI`, `SILVERQUILL`, `WB`, `WU`, `RG`, `WITHERBLOOM`.
+- Gate 4 completed: generated rebuild, provenance regeneration, source/generated validation, semantic fixtures, and generated-diff isolation.
+- Scope status: no generated artifacts, runtime behavior, Prismari records, or other identities changed.
+
+## Gate 4 Result
+
+- Generated artifacts rebuilt from the remediated Lorehold canonical packet.
+- Semantic-readiness provenance regenerated.
+- Lorehold semantic fixture file added for core inclusion, mature/pressure behavior, required-neighbor exclusion, nearest-collision ambiguity, and provenance-chain validation.
+- Validation passed: semantic-readiness validation, source/generated validation, semantic-readiness tests, placement golden paths, faction-context isolation, and dossier audit.
+- Known warnings unchanged: one builder-owned Lorehold inhibitor warning in source/generated validation; dossier audit reports 113 warnings and 0 failures.
+- Generated-diff isolation found no non-Lorehold semantic changes in generated JSON/provenance when Lorehold is omitted.
+- Gate 5 pending: candidate recovery commit, exact-SHA candidate-scope validation, independent review, and certification.
+- Scope status: no canonical Lorehold raw files changed during Gate 4, no runtime behavior changed, Prismari remains certified, and no other identity started.

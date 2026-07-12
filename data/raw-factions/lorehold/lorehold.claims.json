@@ -31,7 +31,26 @@
         "placement_summary"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0001",
+          "locator_type": "source-section",
+          "locator": "Strixhaven Available Now",
+          "bounded_paraphrase": "Lorehold is one of the five colleges of Strixhaven University.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Lorehold is one of the five colleges of Strixhaven University.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_core_0002",
@@ -56,7 +75,18 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Strixhaven University is on the plane of Arcavios.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_core_0003",
@@ -84,7 +114,18 @@
         "placement_axes"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Lorehold is aligned with red and white mana.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_core_0004",
@@ -113,7 +154,34 @@
         "placement_summary"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0001",
+          "locator_type": "source-section",
+          "locator": "Strixhaven Available Now",
+          "bounded_paraphrase": "Lorehold is the College of Archaeomancy.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Lorehold is the College of Archaeomancy.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "Lorehold is the College of Archaeomancy.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_core_0005",
@@ -142,7 +210,26 @@
         "good_fit_indicators"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Lorehold mages are passionate scholars captivated by history.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "Lorehold mages are passionate scholars captivated by history.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_core_0006",
@@ -170,7 +257,26 @@
         "good_fit_indicators"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0001",
+          "locator_type": "source-section",
+          "locator": "Strixhaven Available Now",
+          "bounded_paraphrase": "Lorehold mages explore the past by studying archaeological artifacts.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Lorehold mages explore the past by studying archaeological artifacts.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_core_0007",
@@ -198,7 +304,26 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Lorehold mages summon spirits of long-dead historical figures.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "Lorehold mages summon spirits of long-dead historical figures.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_core_0008",
@@ -226,7 +351,26 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Lorehold mages call forth magic from ancient tomes.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "Lorehold mages call forth magic from ancient tomes.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_core_0009",
@@ -253,7 +397,26 @@
         "good_fit_indicators"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0001",
+          "locator_type": "source-section",
+          "locator": "Strixhaven Available Now",
+          "bounded_paraphrase": "Lorehold students are described as diligent researchers, daring adventurers, and scholars passionate about history.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0003",
+          "locator_type": "source-section",
+          "locator": "The First Lesson: Introduction to Strixhaven",
+          "bounded_paraphrase": "Lorehold students are described as diligent researchers, daring adventurers, and scholars passionate about history.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_core_0010",
@@ -279,7 +442,18 @@
         "core_values"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0003",
+          "locator_type": "source-section",
+          "locator": "The First Lesson: Introduction to Strixhaven",
+          "bounded_paraphrase": "Lorehold's motto in the original Strixhaven introduction is 'Leave no stone unturned.'",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_structure_0001",
@@ -303,7 +477,18 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Strixhaven is divided into five colleges, each with its own campus, faculty, and magical specialties.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_structure_0002",
@@ -330,7 +515,26 @@
         "placement_axes"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Each Strixhaven college has two deans, one aligned with each of the two mana colors of the college.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0004",
+          "locator_type": "source-section",
+          "locator": "Strixhaven: School of Mages Mechanics",
+          "bounded_paraphrase": "Each Strixhaven college has two deans, one aligned with each of the two mana colors of the college.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_structure_0003",
@@ -358,7 +562,26 @@
         "placement_axes"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0004",
+          "locator_type": "rules-or-card-reference",
+          "locator": "Strixhaven: School of Mages Mechanics",
+          "bounded_paraphrase": "Plargg, Dean of Chaos and Augusta, Dean of Order are the two faces of Lorehold's modal double-faced dean card.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0005",
+          "locator_type": "rules-or-card-reference",
+          "locator": "Strixhaven: School of Mages and Commander (2021 Edition) Release Notes",
+          "bounded_paraphrase": "Plargg, Dean of Chaos and Augusta, Dean of Order are the two faces of Lorehold's modal double-faced dean card.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_structure_0004",
@@ -387,7 +610,26 @@
         "inhibitor_traits"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0010",
+          "locator_type": "source-section",
+          "locator": "Secrets of Strixhaven | Field Studies in a Future Tense",
+          "bounded_paraphrase": "In 2026 story context, Augusta Tullus is described as Lorehold's dean of order in life and continues teaching after death.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "In 2026 story context, Augusta Tullus is described as Lorehold's dean of order in life and continues teaching after death.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_structure_0005",
@@ -414,7 +656,18 @@
         "placement_axes"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0010",
+          "locator_type": "source-section",
+          "locator": "Secrets of Strixhaven | Field Studies in a Future Tense",
+          "bounded_paraphrase": "Dean Plargg is described in 2026 story context as Augusta Tullus's counterpart who is more likely to bend rules when it amuses him.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_structure_0006",
@@ -442,7 +695,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "Lorehold's major areas of study include history, archeology, anthropology, architecture, mythology, theology, and fieldwork methodologies.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_dichotomy_0001",
@@ -471,7 +735,26 @@
         "placement_axes"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "Lorehold magic is driven by the duality of order and chaos.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Lorehold magic is driven by the duality of order and chaos.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_dichotomy_0002",
@@ -499,7 +782,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "The red side of Lorehold gravitates toward reckless discovery and adventure in historical research.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_dichotomy_0003",
@@ -525,7 +819,18 @@
         "placement_axes"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "The red side of Lorehold prioritizes the essence and emotion of history over precision or procedure.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_dichotomy_0004",
@@ -553,7 +858,18 @@
         "core_values"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "The white side of Lorehold focuses on uncovering, recording, preserving, and caring for the past.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_dichotomy_0005",
@@ -580,7 +896,18 @@
         "placement_axes"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Some Lorehold roles use historical precedent to enforce magical laws.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_dichotomy_0006",
@@ -608,7 +935,18 @@
         "poor_fit_indicators"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "Lorehold mages are generally cooperative and enthusiastic, though their passion can be overwhelming.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_location_0001",
@@ -633,7 +971,18 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Pillardrop is a series of historical buildings excavated out of cliffs and used for research, classwork, and housing.",
+          "evidence_scope": "location-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_location_0002",
@@ -660,7 +1009,26 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Effigy Row is the main campus area of Lorehold.",
+          "evidence_scope": "location-specific",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0006",
+          "locator_type": "source-section",
+          "locator": "The Mentor",
+          "bounded_paraphrase": "Effigy Row is the main campus area of Lorehold.",
+          "evidence_scope": "location-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_location_0003",
@@ -687,7 +1055,26 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Effigy Row's pathways are lined with monuments of famous historical figures, past professors, prominent mage-students, war heroes, and heads of state from ages past.",
+          "evidence_scope": "location-specific",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0006",
+          "locator_type": "source-section",
+          "locator": "The Mentor",
+          "bounded_paraphrase": "Effigy Row's pathways are lined with monuments of famous historical figures, past professors, prominent mage-students, war heroes, and heads of state from ages past.",
+          "evidence_scope": "location-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_location_0004",
@@ -711,7 +1098,18 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Kollema Hall is a grand, multi-tiered gallery where Lorehold mages gather for large lectures and demonstrations.",
+          "evidence_scope": "location-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_location_0005",
@@ -735,7 +1133,18 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "The center of Kollema Hall contains a restored statue of Kollema, described as a wise monk and one of the first Lorehold professors.",
+          "evidence_scope": "location-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_location_0006",
@@ -763,7 +1172,26 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "Zantafar is a lost, ruined city rediscovered by Quintorius Kand and later became a historical site of great interest to Lorehold mages and anthropologists.",
+          "evidence_scope": "location-specific",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0006",
+          "locator_type": "source-section",
+          "locator": "The Mentor",
+          "bounded_paraphrase": "Zantafar is a lost, ruined city rediscovered by Quintorius Kand and later became a historical site of great interest to Lorehold mages and anthropologists.",
+          "evidence_scope": "location-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_location_0007",
@@ -791,7 +1219,26 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0010",
+          "locator_type": "source-section",
+          "locator": "Secrets of Strixhaven | Field Studies in a Future Tense",
+          "bounded_paraphrase": "The Fields of Strife are connected to Lorehold field study in 2026 story context and contain restless dead continuing Blood Age conflict.",
+          "evidence_scope": "location-specific",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "The Fields of Strife are connected to Lorehold field study in 2026 story context and contain restless dead continuing Blood Age conflict.",
+          "evidence_scope": "location-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_mechanic_0001",
@@ -817,7 +1264,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Lorehold mages supplement their study of history by calling on the spirits of the ancient dead.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_mechanic_0002",
@@ -843,7 +1301,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Some Lorehold mages house spirits in statues depicting the spirits' living selves.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_mechanic_0003",
@@ -869,7 +1338,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0006",
+          "locator_type": "source-section",
+          "locator": "The Mentor",
+          "bounded_paraphrase": "The Rousing is described as Lorehold's most important spell and a lynchpin for constructive understanding of archaeomancy.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_mechanic_0004",
@@ -895,7 +1375,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Medium: narrative description of a spell should not be converted into formal gameplay rules."
+      "risk_of_hallucination_or_overreach": "Medium: narrative description of a spell should not be converted into formal gameplay rules.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0006",
+          "locator_type": "source-section",
+          "locator": "The Mentor",
+          "bounded_paraphrase": "The Rousing allows an archaeomancer to project their will backward along currents of time around Arcavios and pull a name, face, or event into the present.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_mechanic_0005",
@@ -920,7 +1411,26 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0004",
+          "locator_type": "rules-or-card-reference",
+          "locator": "Strixhaven: School of Mages Mechanics",
+          "bounded_paraphrase": "Magecraft is an ability word for abilities that reward a player when they cast or copy an instant or sorcery spell.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0005",
+          "locator_type": "rules-or-card-reference",
+          "locator": "Strixhaven: School of Mages and Commander (2021 Edition) Release Notes",
+          "bounded_paraphrase": "Magecraft is an ability word for abilities that reward a player when they cast or copy an instant or sorcery spell.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_mechanic_0006",
@@ -945,7 +1455,26 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0004",
+          "locator_type": "rules-or-card-reference",
+          "locator": "Strixhaven: School of Mages Mechanics",
+          "bounded_paraphrase": "Learn lets a player either reveal a Lesson card from outside the game and put it into their hand, discard a card to draw a card, or do nothing.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0005",
+          "locator_type": "rules-or-card-reference",
+          "locator": "Strixhaven: School of Mages and Commander (2021 Edition) Release Notes",
+          "bounded_paraphrase": "Learn lets a player either reveal a Lesson card from outside the game and put it into their hand, discard a card to draw a card, or do nothing.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_mechanic_0007",
@@ -969,7 +1498,18 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0005",
+          "locator_type": "rules-or-card-reference",
+          "locator": "Strixhaven: School of Mages and Commander (2021 Edition) Release Notes",
+          "bounded_paraphrase": "Strixhaven's Lesson subtype has no special rules associated with it.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_mechanic_0008",
@@ -996,7 +1536,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0005",
+          "locator_type": "rules-or-card-reference",
+          "locator": "Strixhaven: School of Mages and Commander (2021 Edition) Release Notes",
+          "bounded_paraphrase": "Lorehold Command can create a red-white Spirit token, empower creatures with haste and indestructible, deal damage and grant life, or sacrifice a permanent to draw cards.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_mechanic_0009",
@@ -1023,7 +1574,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0005",
+          "locator_type": "rules-or-card-reference",
+          "locator": "Strixhaven: School of Mages and Commander (2021 Edition) Release Notes",
+          "bounded_paraphrase": "Quintorius, Field Historian gives Spirits +1/+0 and creates a red-white Spirit token when cards leave its controller's graveyard.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_mechanic_0010",
@@ -1049,7 +1611,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0005",
+          "locator_type": "rules-or-card-reference",
+          "locator": "Strixhaven: School of Mages and Commander (2021 Edition) Release Notes",
+          "bounded_paraphrase": "Lorehold Apprentice has a magecraft ability that grants Spirit creatures a temporary activated ability to deal damage to each opponent.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_mechanic_0011",
@@ -1076,7 +1649,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0005",
+          "locator_type": "rules-or-card-reference",
+          "locator": "Strixhaven: School of Mages and Commander (2021 Edition) Release Notes",
+          "bounded_paraphrase": "Velomachus Lorehold is a red-white legendary Elder Dragon card with flying, vigilance, and haste.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_mechanic_0012",
@@ -1103,7 +1687,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0005",
+          "locator_type": "rules-or-card-reference",
+          "locator": "Strixhaven: School of Mages and Commander (2021 Edition) Release Notes",
+          "bounded_paraphrase": "Velomachus Lorehold's attack trigger can cast an instant or sorcery from the top seven cards of its controller's library if the spell's mana value is less than or equal to Velomachus's power.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_mechanic_0013",
@@ -1123,14 +1718,23 @@
       "replaced_by_claim_ids": [],
       "contradicted_by_claim_ids": [],
       "used_by_profile_fields": [
-        "mechanics",
+        "mechanics.auxiliary_product_support",
         "search_and_filter_metadata"
       ],
-      "used_by_placement_fields": [
-        "behavioral_signals"
-      ],
+      "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "support_record",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0011",
+          "locator_type": "product-or-card-reference",
+          "locator": "Secrets of Strixhaven Commander Decklists",
+          "bounded_paraphrase": "Secrets of Strixhaven's Lorehold Spirit Commander deck is an official 2026 product/decklist.",
+          "evidence_scope": "product-support",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_mechanic_0014",
@@ -1150,13 +1754,22 @@
       "replaced_by_claim_ids": [],
       "contradicted_by_claim_ids": [],
       "used_by_profile_fields": [
-        "mechanics"
+        "mechanics.auxiliary_product_support"
       ],
-      "used_by_placement_fields": [
-        "behavioral_signals"
-      ],
+      "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "support_record",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0011",
+          "locator_type": "product-or-card-reference",
+          "locator": "Secrets of Strixhaven Commander Decklists",
+          "bounded_paraphrase": "The Lorehold Spirit Commander deck uses Spirit tokens among its token support.",
+          "evidence_scope": "product-support",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0001",
@@ -1184,7 +1797,26 @@
         "moral_and_psychological_profile"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Velomachus Lorehold is one of the five elder dragon founders of Strixhaven University.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Velomachus Lorehold is one of the five elder dragon founders of Strixhaven University.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0002",
@@ -1212,7 +1844,18 @@
         "inhibitor_traits"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Velomachus Lorehold is observant and standoffish, and considers it her responsibility to watch and document history without interference unless necessary.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0003",
@@ -1240,7 +1883,18 @@
         "core_values"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Velomachus Lorehold expects people to learn from the past and work toward a better future.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0004",
@@ -1266,7 +1920,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Velomachus Lorehold has a fondness for collecting artifacts and trinkets.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0005",
@@ -1293,7 +1958,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Quintorius Kand is a Lorehold student who became a recently sparked Planeswalker by the 2026 Secrets of Strixhaven legend guide.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0006",
@@ -1319,7 +1995,18 @@
         "good_fit_indicators"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Quintorius Kand is described as a prolific reader and gregarious adventurer with deep appreciation for cultures, histories, and myths.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0007",
@@ -1347,7 +2034,26 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Quintorius Kand has investigated remnants of the Fomori and mysterious multiversal colonizers lost to time.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0010",
+          "locator_type": "source-section",
+          "locator": "Secrets of Strixhaven | Field Studies in a Future Tense",
+          "bounded_paraphrase": "Quintorius Kand has investigated remnants of the Fomori and mysterious multiversal colonizers lost to time.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0008",
@@ -1374,7 +2080,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Kirol is an athletic and inquisitive Lorehold student who does not hesitate to jump into trouble.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0009",
@@ -1401,7 +2118,18 @@
         "core_values"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Kirol became more committed to exploring and preserving history after the losses of the Phyrexian Invasion.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0010",
@@ -1427,7 +2155,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Mica, Reader of Ruins is a Lorehold-associated historian focused on deep history through fossils, minerals, and sediment.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0011",
@@ -1453,7 +2192,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Aziza, Mage Tower Captain is captain of the Lorehold Mage Tower team and the intramural Strixhaven team.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0012",
@@ -1479,7 +2229,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Excava, the Risen Past is the animated statue of a Blood Age war horse spirit who has been sought by Lorehold students.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_timeline_0001",
@@ -1503,7 +2264,18 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Strixhaven University was founded approximately 700 years before the 2021 Planeswalker's Guide timeframe by five spellcasting dragons.",
+          "evidence_scope": "setting-history",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_timeline_0002",
@@ -1529,7 +2301,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "The Blood Age lasted from approximately 7,000 to 700 years ago in the 2026 guide's timeline.",
+          "evidence_scope": "setting-history",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_timeline_0003",
@@ -1555,7 +2338,18 @@
         "moral_and_psychological_profile"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "The Blood Age ended when five elder dragons founded Strixhaven University, beginning the Mystic Age.",
+          "evidence_scope": "setting-history",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_timeline_0004",
@@ -1581,7 +2375,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "Artifacts and spirits from the Blood Age still surface from time to time in the current Mystic Age.",
+          "evidence_scope": "setting-history",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_timeline_0005",
@@ -1605,7 +2410,18 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0007",
+          "locator_type": "source-section",
+          "locator": "March of the Machine | Arcavios: A Radiant Heart",
+          "bounded_paraphrase": "During the New Phyrexian invasion of Arcavios, Strixhaven's defenses were breached and professors were captured and compleated.",
+          "evidence_scope": "setting-history",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_timeline_0006",
@@ -1632,7 +2448,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0007",
+          "locator_type": "source-section",
+          "locator": "March of the Machine | Arcavios: A Radiant Heart",
+          "bounded_paraphrase": "Quintorius used spirit/statue magic during the New Phyrexian invasion of Arcavios to seek guidance from Strixhaven's earliest professors.",
+          "evidence_scope": "setting-history",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_placement_0001",
@@ -1661,7 +2488,34 @@
         "good_fit_indicators"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Medium: placement heuristic synthesized from canon identity, not stated as official psychology."
+      "risk_of_hallucination_or_overreach": "Medium: placement heuristic synthesized from canon identity, not stated as official psychology.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "project-synthesis",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Lorehold is a strong placement match for people who treat the past as an active tool for discovery, ethical learning, and present-day action.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "project-synthesis",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "Lorehold is a strong placement match for people who treat the past as an active tool for discovery, ethical learning, and present-day action.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "project-synthesis",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Lorehold is a strong placement match for people who treat the past as an active tool for discovery, ethical learning, and present-day action.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_placement_0002",
@@ -1688,7 +2542,26 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Medium: interpretive placement framing."
+      "risk_of_hallucination_or_overreach": "Medium: interpretive placement framing.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "project-synthesis",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Lorehold placement should balance archival/preservation instincts with action-oriented fieldwork rather than scoring only bookishness.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "project-synthesis",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "Lorehold placement should balance archival/preservation instincts with action-oriented fieldwork rather than scoring only bookishness.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_placement_0003",
@@ -1715,7 +2588,34 @@
         "poor_fit_indicators"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Medium: negative match heuristic, not canon."
+      "risk_of_hallucination_or_overreach": "Medium: negative match heuristic, not canon.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "project-synthesis",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "A useful Lorehold inhibitor trait is incuriosity about history unless it provides immediate status, power, or spectacle.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "project-synthesis",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "A useful Lorehold inhibitor trait is incuriosity about history unless it provides immediate status, power, or spectacle.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "project-synthesis",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "A useful Lorehold inhibitor trait is incuriosity about history unless it provides immediate status, power, or spectacle.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_placement_0004",
@@ -1742,7 +2642,34 @@
         "poor_fit_indicators"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Medium: extrapolated from Lorehold's evidence/history emphasis and order side."
+      "risk_of_hallucination_or_overreach": "Medium: extrapolated from Lorehold's evidence/history emphasis and order side.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "project-synthesis",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "A useful Lorehold inhibitor trait is rejecting evidence, records, or precedent whenever they complicate a preferred story.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "project-synthesis",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "A useful Lorehold inhibitor trait is rejecting evidence, records, or precedent whenever they complicate a preferred story.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_lorehold_0010",
+          "locator_type": "project-synthesis",
+          "locator": "Secrets of Strixhaven | Field Studies in a Future Tense",
+          "bounded_paraphrase": "A useful Lorehold inhibitor trait is rejecting evidence, records, or precedent whenever they complicate a preferred story.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_placement_0005",
@@ -1767,7 +2694,26 @@
         "moral_and_psychological_profile"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "High: Moral Foundations Theory is external to Magic canon and must not be presented as official Wizards intent."
+      "risk_of_hallucination_or_overreach": "High: Moral Foundations Theory is external to Magic canon and must not be presented as official Wizards intent.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "project-synthesis",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Lorehold's strongest moral-foundation analogs are Authority, because it values precedent and institutional memory, and Liberty, because its red side prizes field discovery and action.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "project-synthesis",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "Lorehold's strongest moral-foundation analogs are Authority, because it values precedent and institutional memory, and Liberty, because its red side prizes field discovery and action.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_placement_0006",
@@ -1794,7 +2740,34 @@
         "core_values"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "High: moral-foundation mapping is interpretive."
+      "risk_of_hallucination_or_overreach": "High: moral-foundation mapping is interpretive.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "project-synthesis",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "Lorehold has a secondary Care signal when history is framed as preservation, protection of students, learning from loss, and working toward a better future.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "project-synthesis",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Lorehold has a secondary Care signal when history is framed as preservation, protection of students, learning from loss, and working toward a better future.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_lorehold_0010",
+          "locator_type": "project-synthesis",
+          "locator": "Secrets of Strixhaven | Field Studies in a Future Tense",
+          "bounded_paraphrase": "Lorehold has a secondary Care signal when history is framed as preservation, protection of students, learning from loss, and working toward a better future.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_placement_0007",
@@ -1821,7 +2794,34 @@
         "poor_fit_indicators"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "High: shadow expression is a placement/UX heuristic, not canon."
+      "risk_of_hallucination_or_overreach": "High: shadow expression is a placement/UX heuristic, not canon.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0002",
+          "locator_type": "project-synthesis",
+          "locator": "Planeswalker's Guide to Strixhaven",
+          "bounded_paraphrase": "Lorehold's shadow expression is using history as rigid justification, romanticized nostalgia, or reckless tomb-raiding without humility toward evidence.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "project-synthesis",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "Lorehold's shadow expression is using history as rigid justification, romanticized nostalgia, or reckless tomb-raiding without humility toward evidence.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_lorehold_0010",
+          "locator_type": "project-synthesis",
+          "locator": "Secrets of Strixhaven | Field Studies in a Future Tense",
+          "bounded_paraphrase": "Lorehold's shadow expression is using history as rigid justification, romanticized nostalgia, or reckless tomb-raiding without humility toward evidence.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_unknown_0001",
@@ -1843,7 +2843,8 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low: explicitly marked unknown."
+      "risk_of_hallucination_or_overreach": "Low: explicitly marked unknown.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "claim_lorehold_core_0011",
@@ -1874,7 +2875,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "Lorehold field studies seek relics, battle sites, monuments, lost magics, and other antiquities in remote and dangerous parts of Arcavios.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_structure_0007",
@@ -1904,7 +2916,26 @@
         "discriminator_questions"
       ],
       "notes": "Supported by The Mentor; specific to the spirit-mentor system shown there.",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0006",
+          "locator_type": "story-archive-record",
+          "locator": "The Mentor",
+          "bounded_paraphrase": "Lorehold students can be paired with spirit mentors associated with statues in Effigy Row.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "bounded-source-fact"
+        },
+        {
+          "source_id": "src_lorehold_0013",
+          "locator_type": "story-archive-record",
+          "locator": "The Mentor (MTG-Stories repository archive)",
+          "bounded_paraphrase": "Lorehold students can be paired with spirit mentors associated with statues in Effigy Row.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "bounded-source-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_structure_0008",
@@ -1932,7 +2963,26 @@
         "placement_axes"
       ],
       "notes": "Story-specific example of Plargg encouraging students toward the vanguard of history.",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0006",
+          "locator_type": "story-archive-record",
+          "locator": "The Mentor",
+          "bounded_paraphrase": "Dean Plargg paired Lorehold students with recently excavated statues for mentor assignments in The Mentor.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "bounded-source-fact"
+        },
+        {
+          "source_id": "src_lorehold_0013",
+          "locator_type": "story-archive-record",
+          "locator": "The Mentor (MTG-Stories repository archive)",
+          "bounded_paraphrase": "Dean Plargg paired Lorehold students with recently excavated statues for mentor assignments in The Mentor.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "bounded-source-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_structure_0009",
@@ -1961,7 +3011,26 @@
         "discriminator_questions"
       ],
       "notes": "This is a story-context rule; it should not be broadened beyond spirit-statue handling without more support.",
-      "risk_of_hallucination_or_overreach": "Medium"
+      "risk_of_hallucination_or_overreach": "Medium",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0006",
+          "locator_type": "story-archive-record",
+          "locator": "The Mentor",
+          "bounded_paraphrase": "In The Mentor, Quintorius states that spirit statues are not permitted to leave Effigy Row without permission from a Lorehold dean.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "bounded-source-fact"
+        },
+        {
+          "source_id": "src_lorehold_0013",
+          "locator_type": "story-archive-record",
+          "locator": "The Mentor (MTG-Stories repository archive)",
+          "bounded_paraphrase": "In The Mentor, Quintorius states that spirit statues are not permitted to leave Effigy Row without permission from a Lorehold dean.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "bounded-source-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_location_0008",
@@ -1989,7 +3058,26 @@
         "behavioral_signals"
       ],
       "notes": "Adds an archival-record facet to Kollema Hall from The Mentor.",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0006",
+          "locator_type": "story-archive-record",
+          "locator": "The Mentor",
+          "bounded_paraphrase": "The Registry of Accounts in Kollema Hall contains school records and scrolls that Quintorius consults for information about Asterion and his family.",
+          "evidence_scope": "location-specific",
+          "interpretation_level": "bounded-source-fact"
+        },
+        {
+          "source_id": "src_lorehold_0013",
+          "locator_type": "story-archive-record",
+          "locator": "The Mentor (MTG-Stories repository archive)",
+          "bounded_paraphrase": "The Registry of Accounts in Kollema Hall contains school records and scrolls that Quintorius consults for information about Asterion and his family.",
+          "evidence_scope": "location-specific",
+          "interpretation_level": "bounded-source-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_location_0009",
@@ -2017,7 +3105,26 @@
         "behavioral_signals"
       ],
       "notes": "The Mentor frames artifact cleaning, identification, and documentation as part of Lorehold excavation work.",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0006",
+          "locator_type": "story-archive-record",
+          "locator": "The Mentor",
+          "bounded_paraphrase": "Lorehold excavation teams document significant findings for Lorehold repositories.",
+          "evidence_scope": "location-specific",
+          "interpretation_level": "bounded-source-fact"
+        },
+        {
+          "source_id": "src_lorehold_0013",
+          "locator_type": "story-archive-record",
+          "locator": "The Mentor (MTG-Stories repository archive)",
+          "bounded_paraphrase": "Lorehold excavation teams document significant findings for Lorehold repositories.",
+          "evidence_scope": "location-specific",
+          "interpretation_level": "bounded-source-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_location_0010",
@@ -2046,7 +3153,18 @@
         "discriminator_questions"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "Lorehold maintains semi-permanent camps on the outskirts of the Fields of Strife to support students and professors researching there.",
+          "evidence_scope": "location-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_location_0011",
@@ -2073,7 +3191,18 @@
         "discriminator_questions"
       ],
       "notes": "These are sublocations of the Fields of Strife from the official 2026 guide.",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "Camp Herrian, Armory Arch, Pranticle Peak, and the Lost Barracks are named locations within or around the Fields of Strife.",
+          "evidence_scope": "location-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_mechanic_0015",
@@ -2101,7 +3230,26 @@
         "behavioral_signals"
       ],
       "notes": "Specific capability described in The Mentor; not a formal rules mechanic.",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0006",
+          "locator_type": "story-archive-record",
+          "locator": "The Mentor",
+          "bounded_paraphrase": "Hofri Ghostforge is known for rousing spirits of the dead even without a material focus like a statue.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "bounded-source-fact"
+        },
+        {
+          "source_id": "src_lorehold_0013",
+          "locator_type": "story-archive-record",
+          "locator": "The Mentor (MTG-Stories repository archive)",
+          "bounded_paraphrase": "Hofri Ghostforge is known for rousing spirits of the dead even without a material focus like a statue.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "bounded-source-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_mechanic_0016",
@@ -2132,7 +3280,18 @@
         "discriminator_questions"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "The restless spirits of the Fields of Strife are considered excellent primary sources because they are living their history rather than simply recounting it.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_mechanic_0017",
@@ -2160,7 +3319,18 @@
         "chatbot_guidance"
       ],
       "notes": "Useful as a caution that Lorehold field research is dangerous, not just aesthetic.",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0008",
+          "locator_type": "source-section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven",
+          "bounded_paraphrase": "People who linger carelessly in the Fields of Strife can be drawn into the battle, lose sight of the world, and eventually become restless spirits.",
+          "evidence_scope": "mechanic-or-lore",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0013",
@@ -2188,7 +3358,26 @@
         "chatbot_guidance"
       ],
       "notes": "The story identifies him as Professor Ghostforge and the project lead.",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0006",
+          "locator_type": "story-archive-record",
+          "locator": "The Mentor",
+          "bounded_paraphrase": "Hofri Ghostforge is a Lorehold professor and project lead at a Pillardrop excavation in The Mentor.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "bounded-source-fact"
+        },
+        {
+          "source_id": "src_lorehold_0013",
+          "locator_type": "story-archive-record",
+          "locator": "The Mentor (MTG-Stories repository archive)",
+          "bounded_paraphrase": "Hofri Ghostforge is a Lorehold professor and project lead at a Pillardrop excavation in The Mentor.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "bounded-source-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0014",
@@ -2216,7 +3405,26 @@
         "discriminator_questions"
       ],
       "notes": "Asterion is story-specific but strongly illuminates Lorehold spirit mentor practice.",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0006",
+          "locator_type": "story-archive-record",
+          "locator": "The Mentor",
+          "bounded_paraphrase": "Asterion is Quintorius Kand's assigned spirit mentor in The Mentor.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "bounded-source-fact"
+        },
+        {
+          "source_id": "src_lorehold_0013",
+          "locator_type": "story-archive-record",
+          "locator": "The Mentor (MTG-Stories repository archive)",
+          "bounded_paraphrase": "Asterion is Quintorius Kand's assigned spirit mentor in The Mentor.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "bounded-source-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0015",
@@ -2245,7 +3453,26 @@
         "behavioral_signals"
       ],
       "notes": "Condenses a story sequence; should not be treated as a full Zantafar summary.",
-      "risk_of_hallucination_or_overreach": "Medium"
+      "risk_of_hallucination_or_overreach": "Medium",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0006",
+          "locator_type": "story-archive-record",
+          "locator": "The Mentor",
+          "bounded_paraphrase": "Asterion helps redirect Quintorius from a mistaken Pillardrop excavation theory toward Zantafar.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "bounded-source-fact"
+        },
+        {
+          "source_id": "src_lorehold_0013",
+          "locator_type": "story-archive-record",
+          "locator": "The Mentor (MTG-Stories repository archive)",
+          "bounded_paraphrase": "Asterion helps redirect Quintorius from a mistaken Pillardrop excavation theory toward Zantafar.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "bounded-source-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0016",
@@ -2274,7 +3501,18 @@
         "chatbot_guidance"
       ],
       "notes": "Updates Augusta from general post-death teaching to explicit interim dean of order status from official 2026 legend material.",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Augusta Tullus prepared a ritual so she could be summoned shortly after death, and her spirit serves as interim dean of order after the Phyrexian Invasion.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0017",
@@ -2302,7 +3540,18 @@
         "moral_and_psychological_profile"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Augusta, as a Lorehold-summoned spirit, is focused on finding and training an appropriate successor to the dean of order position.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0018",
@@ -2330,7 +3579,18 @@
         "discriminator_questions"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Soovril is a Lorehold student of chronomancy who has developed techniques to restore historical artifacts to their original pristine conditions.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0019",
@@ -2357,7 +3617,18 @@
         "behavioral_signals"
       ],
       "notes": "Adds fieldwork-methodology specificity to the existing Aziza claim.",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Aziza has dedicated herself to studying fieldwork methodologies as captain of the Lorehold Mage Tower team and the intramural Strixhaven team.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0020",
@@ -2385,7 +3656,26 @@
         "discriminator_questions"
       ],
       "notes": "Supports splitting Lorehold spirit practice from earth/mineral/history practice.",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0010",
+          "locator_type": "story-archive-record",
+          "locator": "Secrets of Strixhaven | Field Studies in a Future Tense",
+          "bounded_paraphrase": "Mica has no real gift for the spiritual side of Lorehold magic, but his geomancy is described as unparalleled in Field Studies in a Future Tense.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "bounded-source-fact"
+        },
+        {
+          "source_id": "src_lorehold_0014",
+          "locator_type": "story-archive-record",
+          "locator": "Field Studies in a Future Tense (MTG-Stories repository archive)",
+          "bounded_paraphrase": "Mica has no real gift for the spiritual side of Lorehold magic, but his geomancy is described as unparalleled in Field Studies in a Future Tense.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "bounded-source-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_figure_0021",
@@ -2414,7 +3704,26 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator_type": "source-section",
+          "locator": "The Legends of Secrets of Strixhaven",
+          "bounded_paraphrase": "Quintorius guides younger Lorehold students at the Fields of Strife while investigating the remnants of the Fomori and a mysterious multiversal empire.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        },
+        {
+          "source_id": "src_lorehold_0010",
+          "locator_type": "source-section",
+          "locator": "Secrets of Strixhaven | Field Studies in a Future Tense",
+          "bounded_paraphrase": "Quintorius guides younger Lorehold students at the Fields of Strife while investigating the remnants of the Fomori and a mysterious multiversal empire.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-fact"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_placement_0008",
@@ -2445,7 +3754,26 @@
         "chatbot_guidance"
       ],
       "notes": "Synthesized from Quintorius respecting Lorehold rules and Asterion warning that unjust rules can make people tyrants.",
-      "risk_of_hallucination_or_overreach": "Medium"
+      "risk_of_hallucination_or_overreach": "Medium",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0006",
+          "locator_type": "project-synthesis",
+          "locator": "The Mentor",
+          "bounded_paraphrase": "A useful Lorehold discriminator is whether a person treats rules as protective guardrails that must still yield to justice and evidence when rules become unjust.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_lorehold_0013",
+          "locator_type": "project-synthesis",
+          "locator": "The Mentor (MTG-Stories repository archive)",
+          "bounded_paraphrase": "A useful Lorehold discriminator is whether a person treats rules as protective guardrails that must still yield to justice and evidence when rules become unjust.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "claim_lorehold_placement_0009",
@@ -2475,7 +3803,26 @@
         "chatbot_guidance"
       ],
       "notes": "Synthesized from Field Studies in a Future Tense, where Quintorius opposes removing Arcavios artifacts for sale.",
-      "risk_of_hallucination_or_overreach": "Medium"
+      "risk_of_hallucination_or_overreach": "Medium",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_lorehold_0010",
+          "locator_type": "project-synthesis",
+          "locator": "Secrets of Strixhaven | Field Studies in a Future Tense",
+          "bounded_paraphrase": "Lorehold placement is strengthened by answers that protect artifacts as belonging to history rather than treating them as unowned loot.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        },
+        {
+          "source_id": "src_lorehold_0014",
+          "locator_type": "project-synthesis",
+          "locator": "Field Studies in a Future Tense (MTG-Stories repository archive)",
+          "bounded_paraphrase": "Lorehold placement is strengthened by answers that protect artifacts as belonging to history rather than treating them as unowned loot.",
+          "evidence_scope": "placement-interpretation",
+          "interpretation_level": "project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "lorehold_claim_0022",
@@ -2488,7 +3835,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "lorehold_claim_0023",
@@ -2501,7 +3849,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "lorehold_claim_0024",
@@ -2514,7 +3863,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "lorehold_claim_0025",
@@ -2527,7 +3877,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "lorehold_claim_0026",
@@ -2540,7 +3891,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "lorehold_claim_0027",
@@ -2553,7 +3905,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     }
   ],
   "claim_quality_summary": {
