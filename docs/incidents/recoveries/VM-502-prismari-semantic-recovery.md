@@ -2,7 +2,7 @@
 
 Identity: `PRISMARI`
 Contract: v1.1
-Status: Replacement remediation active after rejected candidate
+Status: Replacement candidate pending independent review after rejected candidate
 Required neighbors: `UR`, `BR`, `QUANDRIX`, `SILVERQUILL`
 
 ## Stage A - Rejected candidate record
@@ -112,4 +112,31 @@ Validation results:
 
 ## Gate 5 - Candidate Status
 
-Replacement candidate commit is pending. No certification exists.
+Replacement candidate commit: `a7d81e5dee726b34d7d17ea933116111b47c9d4c`
+
+Candidate parent SHA: `6c0e8700fcb27859afd224cabe395af62416a921`
+
+Fresh branch base / accepted VM-501 prerequisite base: `e9e98852c7c65db846384eeda3369f4fcfd55fe6`
+
+Rejected candidate reference only: `85d3c79daa5081b6af4376506f51d33fe51e1225`
+
+The first replacement candidate commit `6c0e8700fcb27859afd224cabe395af62416a921` is preserved as history but is not the reviewable candidate because the identity-scope guard identified frozen-field drift. The scope-guard correction commit `a7d81e5dee726b34d7d17ea933116111b47c9d4c` is the new immutable Prismari candidate for independent review.
+
+No certification exists.
+
+### Candidate diff record
+
+- Complete canonical/generated diff for review: `git diff e9e98852c7c65db846384eeda3369f4fcfd55fe6..a7d81e5dee726b34d7d17ea933116111b47c9d4c`
+- Scope-guard diff check: `node research/validate-semantic-candidate-scope.mjs --base=e9e98852c7c65db846384eeda3369f4fcfd55fe6 --target=HEAD --identity=PRISMARI`
+- The candidate contains no shared contract/schema/tooling changes.
+- Prismari `lateral_inhibition` is unchanged from the accepted program base.
+- Only Prismari semantic outputs changed.
+- `data/factions.json` meaning and provenance are synchronized through generated semantic provenance.
+- Known model-owned inhibitor warnings remain unchanged.
+- Known dossier warnings remain unchanged at 113 warnings and 0 failures.
+- No test was weakened to accept the candidate.
+
+### Residual non-blocking findings
+
+- The pre-existing Quandrix-origin "correct but lifeless" wording remains in the frozen non-Prismari/shared Crucible path and is outside VM-502.
+- Runtime Hall, Crucible, scoring, inhibition, scheduling, confidence, and live recruiter calibration remain post-CRIT investigations unless generation corrupts approved canonical meaning.

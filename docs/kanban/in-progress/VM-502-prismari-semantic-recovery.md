@@ -36,14 +36,17 @@ Recover Prismari end to end under CRIT-001: audit the existing packet, bound rea
 - Audit/recovery report: `docs/incidents/recoveries/VM-502-prismari-semantic-recovery.md`
 - Rejected candidate SHA: `85d3c79daa5081b6af4376506f51d33fe51e1225`
 - Independent review result: `changes_requested`
-- Replacement candidate SHA: pending immutable commit
+- Replacement candidate SHA: `a7d81e5dee726b34d7d17ea933116111b47c9d4c`
+- Replacement candidate parent SHA: `6c0e8700fcb27859afd224cabe395af62416a921`
+- Replacement candidate branch base: `e9e98852c7c65db846384eeda3369f4fcfd55fe6`
+- Replacement candidate review result: pending independent review
 - Certification commit: pending
 
 ## Gate 1 Disposition
 
 - Primary disposition: `claim_extraction_and_traceability_repair`
 - Required neighbors: `UR`, `BR`, `QUANDRIX`, `SILVERQUILL`
-- Active gate: candidate commit pending
+- Active gate: candidate review pending
 
 ## Replacement Candidate Scope
 
@@ -66,6 +69,8 @@ Recover Prismari end to end under CRIT-001: audit the existing packet, bound rea
 - PASS — `npm.cmd test`
 - PASS — `npm.cmd run test:parser`
 - PASS — `git diff --check`
+
+Replacement validation was re-run after the final scope-guard correction commit. The reviewable candidate is `a7d81e5dee726b34d7d17ea933116111b47c9d4c`, not the earlier guard-failing intermediate commit `6c0e8700fcb27859afd224cabe395af62416a921`.
 
 ## Rejected Candidate
 

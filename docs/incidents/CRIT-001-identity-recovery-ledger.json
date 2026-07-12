@@ -93,10 +93,10 @@
         "inventory_updated_at": "2026-07-12T05:06:53.533Z"
       },
       "workflow": {
-        "current_gate": "candidate_pending",
+        "current_gate": "candidate_review",
         "status": "active",
         "started_at": "2026-07-11T18:40:52.4047758Z",
-        "gate_entered_at": "2026-07-11T18:40:52.4047758Z",
+        "gate_entered_at": "2026-07-12T05:41:19.0255576Z",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "LOREHOLD",
@@ -115,11 +115,11 @@
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
+        "candidate_recovery_sha": "a7d81e5dee726b34d7d17ea933116111b47c9d4c",
         "recovery_commit": null,
         "certification_commit": null,
         "reviewer": null,
-        "review_result": "changes_requested",
+        "review_result": "pending_replacement_review",
         "review_cycles": 1,
         "rejected_candidate_sha": "85d3c79daa5081b6af4376506f51d33fe51e1225",
         "candidate_record_commit": "725bf44",
