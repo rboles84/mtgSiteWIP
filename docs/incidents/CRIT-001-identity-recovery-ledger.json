@@ -5,8 +5,8 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "LOREHOLD",
-    "next_identity": "UR",
+    "active_identity": "QUANDRIX",
+    "next_identity": "SILVERQUILL",
     "wip_limit": 1,
     "active_prerequisite": null,
     "prerequisite_candidate_sha": "6e53acd5691c85caf3328d3bd301ac18d07879e1",
@@ -374,10 +374,10 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+      "current_gate": "audit_pending",
+      "status": "active",
+      "started_at": "2026-07-12T19:07:19.2965496Z",
+      "gate_entered_at": "2026-07-12T19:07:19.2965496Z",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "SILVERQUILL",
@@ -1003,7 +1003,7 @@
       "gate_entered_at": "2026-07-12T19:04:54.8710158Z",
         "blocked_at": null,
         "blocked_reason": null,
-        "next_identity": "UR",
+        "next_identity": "QUANDRIX",
         "primary_disposition": "claim_role_classification_required"
       },
       "semantic_review": {
@@ -1028,7 +1028,7 @@
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "6d8d46d8df0429a105c08e656a8303474c435abd",
         "recovery_commit": "6d8d46d8df0429a105c08e656a8303474c435abd",
-        "certification_commit": null,
+        "certification_commit": "fa435b17ab36633b200a8405065732568f0ef78c",
       "reviewer": "Robert / user-supplied independent Gate 5 review in this Codex thread",
       "review_result": "approved_exact_sha",
       "review_cycles": 2,

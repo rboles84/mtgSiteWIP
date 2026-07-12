@@ -38,7 +38,7 @@ Current state: certified semantically ready under CRIT-001 Contract v1.1. Gate 1
 - Audit/recovery report: `docs/incidents/recoveries/VM-506-lorehold-semantic-recovery.md`
 - Candidate recovery SHA: `6d8d46d8df0429a105c08e656a8303474c435abd`
 - Independent reviewer: Robert / user-supplied independent Gate 5 review in this Codex thread
-- Certification commit: pending program acceptance record
+- Certification commit: `fa435b17ab36633b200a8405065732568f0ef78c`
 
 ## Gate 1 Result
 
@@ -99,7 +99,7 @@ Current state: certified semantically ready under CRIT-001 Contract v1.1. Gate 1
 - Validation passed: semantic-readiness validation, source/generated validation, semantic-readiness tests, placement golden paths, faction-context isolation, dossier audit, candidate-scope guard, JSON parse checks, and `git diff --check`.
 - Known warnings unchanged: one builder-owned Lorehold inhibitor warning; dossier audit reports 113 warnings and 0 failures.
 - Workflow-record status: replacement candidate approved by independent Gate 5 review.
-- Certification status: certified semantically ready under CRIT-001 Contract v1.1; exact certification SHA pending program acceptance record.
+- Certification status: certified semantically ready under CRIT-001 Contract v1.1; certification commit `fa435b17ab36633b200a8405065732568f0ef78c`.
 
 ## Certification
 

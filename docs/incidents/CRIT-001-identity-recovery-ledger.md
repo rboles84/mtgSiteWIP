@@ -3,17 +3,17 @@
 Generated from `CRIT-001-identity-recovery-ledger.json`. The JSON file is authoritative.
 
 - Contract: `v1.1`
-- Active identity: `LOREHOLD`
-- Next identity: `UR`
+- Active identity: `QUANDRIX`
+- Next identity: `SILVERQUILL`
 - WIP limit: 1
 
 | Card | Identity | Cohort | Gate | Status | Structural fingerprint | Contract | Recovery | Certification |
 |---|---|---|---|---|---|---|---|---|
 | VM-502 | PRISMARI — Prismari | college | certified | semantically_ready | mixed-role-pattern, support-heavy-pattern | v1.1 | 19800da6322100b28fa6325fef91321e147b6f69 | 492598f13df24d0f74f5869e249d860ff661a3aa |
-| VM-503 | QUANDRIX — Quandrix | college | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | — | — | — |
+| VM-503 | QUANDRIX — Quandrix | college | audit_pending | active | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | — | — | — |
 | VM-504 | SILVERQUILL — Silverquill | college | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | — | — | — |
 | VM-505 | WITHERBLOOM — Witherbloom | college | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern, template-cohort-pattern | — | — | — |
-| VM-506 | LOREHOLD — Lorehold | college | certified | semantically_ready | high-volume-pattern, mixed-role-pattern | v1.1 | 6d8d46d8df0429a105c08e656a8303474c435abd | pending program acceptance record |
+| VM-506 | LOREHOLD — Lorehold | college | certified | semantically_ready | high-volume-pattern, mixed-role-pattern | v1.1 | 6d8d46d8df0429a105c08e656a8303474c435abd | fa435b17ab36633b200a8405065732568f0ef78c |
 | VM-507 | UR — Izzet | guild | not_started | backlog | high-volume-pattern, support-heavy-pattern | — | — | — |
 | VM-508 | WU — Azorius | guild | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | — | — | — |
 | VM-509 | WR — Boros | guild | not_started | backlog | mixed-role-pattern, discovery-heavy-pattern | — | — | — |

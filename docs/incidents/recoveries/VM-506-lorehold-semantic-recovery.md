@@ -923,7 +923,7 @@ Independent Gate 5 review returned APPROVE EXACT SHA for replacement recovery ca
 | Reviewer | Robert / user-supplied independent Gate 5 review in this Codex thread |
 | Approval date | 2026-07-12 |
 | Final certification state | `semantically_ready` |
-| Certification commit | Pending program acceptance record |
+| Certification commit | `fa435b17ab36633b200a8405065732568f0ef78c` |
 
 Residual non-blocking findings:
 
@@ -961,8 +961,8 @@ Deferred:
 
 ## Final Status
 
-Lorehold is active under VM-506 and remains uncertified. Replacement candidate recovery commit `6d8d46d8df0429a105c08e656a8303474c435abd` is ready for independent review. Rejected candidate `c43127858e1a8609e1aed8481c2726ab03026a61` is preserved as audit history.
+Lorehold is certified semantically ready under CRIT-001 Contract v1.1. Replacement recovery commit `6d8d46d8df0429a105c08e656a8303474c435abd` was independently approved and recorded in certification commit `fa435b17ab36633b200a8405065732568f0ef78c`. Rejected candidate `c43127858e1a8609e1aed8481c2726ab03026a61` is preserved as audit history.
 
-Recommended next owner decision: send candidate `6d8d46d8df0429a105c08e656a8303474c435abd` to independent Gate 5 review.
+Recommended next owner decision: begin VM-503 Quandrix Gate 1 audit only from the accepted CRIT-001 program base.
 
 Prismari remains certified under CRIT-001 Contract v1.1. No other identity was started.

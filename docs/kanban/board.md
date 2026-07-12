@@ -9,7 +9,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 **CRIT-001 is open.** Faction-foundation authoring, readiness approvals, canonical semantic guidance outside an active recovery card, Hall/Crucible authoring, and placement calibration are frozen. VM-501 owns shared recovery infrastructure; VM-502 through VM-538 recover the 37 identities one at a time. See the [incident](../incidents/CRIT-001-faction-semantic-readiness-integrity.md) and [authoritative recovery ledger](../incidents/CRIT-001-identity-recovery-ledger.json).
 
-**VM-502 Prismari is certified semantically ready under CRIT-001 Contract v1.1.** Approved recovery SHA `19800da6322100b28fa6325fef91321e147b6f69` is accepted by independent Gate 5 review and recorded in certification commit `492598f13df24d0f74f5869e249d860ff661a3aa`. **VM-506 Lorehold is certified semantically ready under CRIT-001 Contract v1.1.** Approved recovery SHA `6d8d46d8df0429a105c08e656a8303474c435abd` was approved by independent Gate 5 review on 2026-07-12; the exact certification SHA will be recorded during program acceptance.
+**VM-502 Prismari is certified semantically ready under CRIT-001 Contract v1.1.** Approved recovery SHA `19800da6322100b28fa6325fef91321e147b6f69` is accepted by independent Gate 5 review and recorded in certification commit `492598f13df24d0f74f5869e249d860ff661a3aa`. **VM-506 Lorehold is certified semantically ready under CRIT-001 Contract v1.1.** Approved recovery SHA `6d8d46d8df0429a105c08e656a8303474c435abd` is accepted by independent Gate 5 review and recorded in certification commit `fa435b17ab36633b200a8405065732568f0ef78c`. VM-503 Quandrix is the active next identity; no Quandrix remediation has started.
 
 ## Backlog
 
@@ -38,7 +38,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- No cards currently in progress.
+- [VM-503 - Quandrix Semantic Recovery](in-progress/VM-503-quandrix-semantic-recovery.md) - active next identity after VM-506 acceptance; branch created for Gate 1 audit only, remediation not started.
 
 ## Blocked
 
@@ -54,7 +54,7 @@ VM-429 Section 14 ID reconciliation, 2026-06-30: the early readiness plan expect
 
 - [VM-502 - Prismari Semantic Recovery](done/VM-502-prismari-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1; approved recovery SHA `19800da6322100b28fa6325fef91321e147b6f69`; certification commit `492598f13df24d0f74f5869e249d860ff661a3aa`.
 
-- [VM-506 - Lorehold Semantic Recovery](done/VM-506-lorehold-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1; approved recovery SHA `6d8d46d8df0429a105c08e656a8303474c435abd`; certification commit pending program acceptance record.
+- [VM-506 - Lorehold Semantic Recovery](done/VM-506-lorehold-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1; approved recovery SHA `6d8d46d8df0429a105c08e656a8303474c435abd`; certification commit `fa435b17ab36633b200a8405065732568f0ef78c`.
 
 - [VM-499 - Deterministic Radar Capture And Legibility Repair](done/VM-499-deterministic-radar-capture-legibility-repair.md) - captured the production Home/Archscry radars, added deterministic structural/pixel checks, and refreshed owner-approved local baselines.
 - [VM-498 - Colorless Lifecycle Authority Reconciliation](done/VM-498-colorless-lifecycle-authority-reconciliation.md) - reconciled current Colorless Home preview evidence with VM-389, added structured registry parity, and preserved every non-preview restriction.
