@@ -1,7 +1,7 @@
 # VM-506 — Lorehold Semantic Recovery
 
 ID: VM-506
-Status: In Progress
+Status: Done
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: LOREHOLD
@@ -13,7 +13,7 @@ Contract: v1.1
 
 Recover Lorehold end to end under CRIT-001: audit the existing packet, bound readiness blockers, gather only sufficient evidence, repair canonical data, rebuild generated artifacts, validate semantic fixtures and regressions, obtain independent review of an immutable candidate SHA, and certify that exact recovery.
 
-Current state: active identity after Prismari certification acceptance. Gate 1 audit, Gate 2 bounded evidence confirmation, Gate 3 canonical remediation, and Gate 4 generation/validation are complete in `docs/incidents/recoveries/VM-506-lorehold-semantic-recovery.md`. Initial candidate `c43127858e1a8609e1aed8481c2726ab03026a61` returned REQUEST CHANGES and is preserved as audit history. Replacement candidate recovery commit `6d8d46d8df0429a105c08e656a8303474c435abd` exists and is awaiting independent review. Lorehold remains uncertified; certification has not started.
+Current state: certified semantically ready under CRIT-001 Contract v1.1. Gate 1 audit, Gate 2 bounded evidence confirmation, Gate 3 canonical remediation, Gate 4 generation/validation, bounded candidate correction, and independent Gate 5 exact-SHA review are complete in `docs/incidents/recoveries/VM-506-lorehold-semantic-recovery.md`. Initial candidate `c43127858e1a8609e1aed8481c2726ab03026a61` returned REQUEST CHANGES and is preserved as audit history. Replacement candidate recovery commit `6d8d46d8df0429a105c08e656a8303474c435abd` was approved by independent review on 2026-07-12.
 
 ## Gates
 
@@ -21,7 +21,7 @@ Current state: active identity after Prismari certification acceptance. Gate 1 a
 - [x] Gate 2 — Sufficient evidence completion.
 - [x] Gate 3 — Canonical remediation.
 - [x] Gate 4 — Generation and validation.
-- [ ] Gate 5 — Independent certification.
+- [x] Gate 5 — Independent certification.
 
 ## Scope Rules
 
@@ -37,8 +37,8 @@ Current state: active identity after Prismari certification acceptance. Gate 1 a
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-506-lorehold-semantic-recovery.md`
 - Candidate recovery SHA: `6d8d46d8df0429a105c08e656a8303474c435abd`
-- Independent reviewer: pending
-- Certification commit: pending
+- Independent reviewer: Robert / user-supplied independent Gate 5 review in this Codex thread
+- Certification commit: pending program acceptance record
 
 ## Gate 1 Result
 
@@ -98,5 +98,20 @@ Current state: active identity after Prismari certification acceptance. Gate 1 a
   - Removed discovery records from Commander Compass `identity_basis.supporting_claim_ids` and isolated them as discovery metadata.
 - Validation passed: semantic-readiness validation, source/generated validation, semantic-readiness tests, placement golden paths, faction-context isolation, dossier audit, candidate-scope guard, JSON parse checks, and `git diff --check`.
 - Known warnings unchanged: one builder-owned Lorehold inhibitor warning; dossier audit reports 113 warnings and 0 failures.
-- Workflow-record status: replacement candidate recorded; independent review pending.
-- Certification status: none; Lorehold remains uncertified.
+- Workflow-record status: replacement candidate approved by independent Gate 5 review.
+- Certification status: certified semantically ready under CRIT-001 Contract v1.1; exact certification SHA pending program acceptance record.
+
+## Certification
+
+- Approved recovery SHA: `6d8d46d8df0429a105c08e656a8303474c435abd`.
+- Review result: APPROVE EXACT SHA.
+- Reviewer: Robert / user-supplied independent Gate 5 review in this Codex thread.
+- Approval date: 2026-07-12.
+- Final certification state: `semantically_ready`.
+- Contract version: v1.1.
+- Residual non-blocking findings:
+  - Runtime Hall, Crucible, scoring, inhibition, scheduling, confidence, and live recruiter calibration remain post-CRIT investigations.
+  - Adjacent identities except Prismari are not yet certified, so Lorehold neighbor guidance remains Lorehold-side and neutral until those packets receive CRIT-001 recovery.
+- Known warnings unchanged:
+  - Dossier audit remains 113 warnings / 0 failures.
+  - Existing builder-owned Lorehold inhibitor warning remains unchanged.

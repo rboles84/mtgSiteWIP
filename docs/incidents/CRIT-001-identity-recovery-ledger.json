@@ -997,10 +997,10 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "candidate_review_pending",
-        "status": "active",
+      "current_gate": "certified",
+      "status": "semantically_ready",
         "started_at": "2026-07-12T17:02:57.3594517Z",
-        "gate_entered_at": "2026-07-12T18:39:40Z",
+      "gate_entered_at": "2026-07-12T19:04:54.8710158Z",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "UR",
@@ -1029,16 +1029,16 @@
         "candidate_recovery_sha": "6d8d46d8df0429a105c08e656a8303474c435abd",
         "recovery_commit": "6d8d46d8df0429a105c08e656a8303474c435abd",
         "certification_commit": null,
-        "reviewer": null,
-        "review_result": "pending_independent_review",
-        "review_cycles": 1,
+      "reviewer": "Robert / user-supplied independent Gate 5 review in this Codex thread",
+      "review_result": "approved_exact_sha",
+      "review_cycles": 2,
         "rejected_candidate_sha": "c43127858e1a8609e1aed8481c2726ab03026a61",
         "rejected_candidate_shas": [
           "c43127858e1a8609e1aed8481c2726ab03026a61"
         ],
-        "approval_date": null,
-        "certified_at": null,
-        "final_state": "uncertified",
+      "approval_date": "2026-07-12",
+      "certified_at": "2026-07-12T19:04:54.8710158Z",
+      "final_state": "semantically_ready",
         "known_unchanged_warnings": [
           "dossier_audit: 113 warnings, 0 failures",
           "existing builder-owned Lorehold inhibitor warning unchanged"

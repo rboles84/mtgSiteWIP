@@ -38,6 +38,7 @@ This overlay records semantic-readiness certification under the CRIT-001 contrac
 | College | Contract | State | Recovery commit | Certification commit | Notes |
 |---|---|---|---|---|---|
 | Prismari College | v1.1 | `semantically_ready` | `19800da6322100b28fa6325fef91321e147b6f69` | `492598f13df24d0f74f5869e249d860ff661a3aa` | VM-502 independently approved exact recovery SHA on 2026-07-12. Known dossier warnings and builder-owned inhibitor warnings remain unchanged. |
+| Lorehold College | v1.1 | `semantically_ready` | `6d8d46d8df0429a105c08e656a8303474c435abd` | Pending program acceptance record | VM-506 independently approved exact recovery SHA on 2026-07-12. Dossier audit remains 113 warnings / 0 failures; existing builder-owned Lorehold inhibitor warning remains unchanged. |
 
 ## Cohort Totals
 

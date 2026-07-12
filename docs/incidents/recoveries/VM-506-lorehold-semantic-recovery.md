@@ -4,16 +4,16 @@ Identity: LOREHOLD
 Contract: CRIT-001 Semantic Readiness Contract v1.1
 Branch audited: `codex/vm-506-lorehold-semantic-recovery`
 Starting SHA audited: `51667c7d91e8530a4cd508c891179893a44a14a2`
-Gate: Gate 1 audit only
-Certification state: not certified
+Gate: Gate 5 certified
+Certification state: semantically_ready under CRIT-001 Contract v1.1
 
 ## Executive Summary
 
-Lorehold's mature-packet reputation mostly survives as a conceptual/content judgment, but it does not survive Contract v1.1 as a certifiable packet yet.
+Lorehold is certified semantically ready under CRIT-001 Contract v1.1 after bounded canonical remediation, generated rebuild/provenance validation, one rejected candidate correction cycle, and independent approval of exact recovery SHA `6d8d46d8df0429a105c08e656a8303474c435abd`.
 
 The packet is structurally and conceptually much richer than Prismari's pre-recovery packet: 97 claim records, 20 sources, 13 claim-bearing sources, 7 discriminator questions, and extensive profile/placement coverage. The audit did not find evidence that Lorehold requires complete reconstruction or broad lore enrichment.
 
-However, Lorehold is still blocked from semantic certification for Contract v1.1 reasons:
+Gate 1 found Contract v1.1 blockers that were later remediated during Gate 3/Gate 4 and approved at Gate 5:
 
 - All 97 claims remain legacy `unclassified`; certified packets cannot use unclassified claims to satisfy readiness.
 - Six discovery/search-corpus records are cited by authoritative profile, placement, core-value, behavioral-signal, and provenance chains.
@@ -908,6 +908,32 @@ Known warnings unchanged:
 
 - Builder-owned Lorehold inhibitor warning remains.
 - Dossier audit remains 113 warnings / 0 failures.
+
+## Gate 5 Certification
+
+Independent Gate 5 review returned APPROVE EXACT SHA for replacement recovery candidate `6d8d46d8df0429a105c08e656a8303474c435abd`.
+
+| Field | Value |
+|---|---|
+| Identity | Lorehold |
+| VM | VM-506 |
+| Contract version | v1.1 |
+| Approved recovery SHA | `6d8d46d8df0429a105c08e656a8303474c435abd` |
+| Independent review result | APPROVE EXACT SHA |
+| Reviewer | Robert / user-supplied independent Gate 5 review in this Codex thread |
+| Approval date | 2026-07-12 |
+| Final certification state | `semantically_ready` |
+| Certification commit | Pending program acceptance record |
+
+Residual non-blocking findings:
+
+- Runtime Hall, Crucible, scoring, inhibition, scheduling, confidence, and live recruiter calibration remain post-CRIT investigations.
+- Adjacent identities except Prismari are not yet certified, so Lorehold neighbor guidance remains Lorehold-side and neutral until those packets receive CRIT-001 recovery.
+
+Known warnings unchanged:
+
+- Dossier audit remains 113 warnings / 0 failures.
+- Existing builder-owned Lorehold inhibitor warning remains unchanged.
 
 ## Validation Commands Run
 
