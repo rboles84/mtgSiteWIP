@@ -8302,38 +8302,38 @@ export const FACTION_CONTEXT = {
         "label": "Golgari"
       }
     },
-    "tagline": "Get your hands dirty.",
-    "philosophy": "The College of Essence Studies asks where life ends and death begins - and keeps not finding a clean answer. Witherbloom scholars study biology at the level where the two become indistinguishable. Their question is not whether life and death are good or bad but what they fundamentally are.",
-    "core_tension": "Is life sacred because it creates and nourishes, or productive precisely because it ends? Both Lisette and Valentin are right about different aspects of the same process. Witherbloom students learn to hold both simultaneously.",
+    "tagline": "Study life and death as living essences.",
+    "philosophy": "Life and death are living essences to study and use through brewing, healing, harm, death-facing magic, and practical craft.",
+    "core_tension": "Witherbloom holds cultivation and extraction in tension: life energy can heal, grow, harm, or be over-extracted.",
     "affinity": {
       "drawn_to": [
-        "Biological reality of life and death without sentimentality",
-        "Beauty or utility in things others find repellent",
-        "Dark humor that comes from honesty about mortality",
-        "Ecosystems and interdependence - nothing isolated, everything connected",
-        "Hands-on empirical learning - get dirty, find out"
+        "Life/death exchange as practical study",
+        "Remedies, poisons, medicine, toxicology, and mortuary practice",
+        "Embodied learning through living systems",
+        "Cost-aware craft rather than sanitized abstraction",
+        "Field and body knowledge instead of detached theory alone"
       ],
       "repelled_by": [
-        "Sanitizing death as if it isn't part of life",
-        "Pure abstraction disconnected from biological reality",
-        "The idea that nature is only beautiful when it's pleasant",
-        "Squeamishness about the actual mechanics of living systems"
+        "Generic nature, decay, or morbidity without essence craft",
+        "Pure abstraction without embodied evidence",
+        "Graveyard value without Witherbloom study, remedies, poisons, or living essence",
+        "Optimization or proof that ignores life/death cost"
       ],
-      "core_question": "What's something that most people find morbid or uncomfortable that you find genuinely fascinating - not in spite of its darkness but because of what it reveals?",
+      "core_question": "When does using life energy become healing, and when does it become extraction?",
       "interview_tells": [
-        "Comfortable discussing death and decay without performing discomfort",
-        "Interested in biology, ecology, or living systems at a systems level",
-        "Dry or dark humor about serious subjects that doesn't feel defensive",
-        "Describes getting hands dirty - literally or figuratively - as preferable",
-        "Drawn to liminal things - things that are both/and rather than either/or"
+        "Speaks about life and death as connected forces",
+        "Centers remedies, poisons, bodies, ecology, or field learning",
+        "Names costs and tradeoffs instead of treating healing or decay as a mood",
+        "Prefers embodied evidence over detached abstraction",
+        "Treats pests, life gain, life loss, sacrifice, or death triggers as exchange only when tied to living essence"
       ],
-      "not_to_be_confused_with": "Golgari - both deal with the life-death cycle but Witherbloom studies it academically and finds it beautiful; Golgari built a civilization from it. Selesnya - both connected to nature but Selesnya tends and nurtures; Witherbloom dissects and studies. Simic - both biological but Witherbloom studies essence and cycles; Simic improves and adapts."
+      "not_to_be_confused_with": "Golgari turns decay, burial, graveyard value, and undercity survival into civic ecology; Witherbloom studies living essence through school-based life/death craft. Selesnya centers harmony and belonging. Simic centers adaptation and optimization. Quandrix centers proof and abstract models."
     },
     "decree_voice": {
-      "tone": "Dry. Precise. With the dark humor of someone who has been very close to death and found it interesting.",
-      "speaks_like": "A researcher who has decided you're worth the time it takes to explain why the bog is beautiful.",
-      "example_opening": "You looked at the thing most people look away from.",
-      "example_decree": "You looked at the thing most people look away from and your first instinct was curiosity, not revulsion. That is rarer than you think. Witherbloom does not study life. It studies what life is made of - which requires getting uncomfortably close to what life becomes. You are already comfortable with that proximity. The bog is not a metaphor here. Come find out what it's actually made of. Bring boots you don't mind losing."
+      "tone": "Practical, observant, and curious about life/death exchange without melodrama.",
+      "speaks_like": "A field scholar explaining what an exchange costs.",
+      "example_opening": "You did not flinch from the cost of the remedy.",
+      "example_decree": "You keep asking what life can heal, what death can feed, and what a body teaches when treated as evidence rather than metaphor. Witherbloom is not generic decay; it is the study of living essence, remedies, poisons, growth, and cost. Bring questions that can survive getting dirt under them."
     },
     "biological_expression": {
       "archetype": "The Vitality Ecologist",
@@ -8375,19 +8375,19 @@ export const FACTION_CONTEXT = {
     },
     "good_fit_indicators": [
       "understands care and harm as connected powers",
-      "likes fieldwork, remedies, ecology, or the body",
-      "is comfortable with life/death exchange"
+      "likes embodied study through remedies, toxins, ecology, or the body",
+      "is comfortable with life/death exchange as practical craft"
     ],
     "poor_fit_indicators": [
       "wants abstraction without embodiment",
-      "treats death or decay as unmentionable",
-      "prefers pure spectacle over practical survival"
+      "treats death or life-cost as irrelevant to the craft",
+      "prefers generic spectacle, nature, or graveyard value without practical essence exchange"
     ],
     "inhibitor_traps": [
       "Sterile separation of life and death; cannot tolerate bodily mess, decay, blood, sacrifice, or morally ambiguous healing.",
       "wants abstraction without embodiment",
-      "treats death or decay as unmentionable",
-      "prefers pure spectacle over practical survival"
+      "treats death or life-cost as irrelevant to the craft",
+      "prefers generic spectacle, nature, or graveyard value without practical essence exchange"
     ],
     "lateral_inhibition_targets": [
       "BG",
@@ -8401,28 +8401,50 @@ export const FACTION_CONTEXT = {
       {
         "id": "witherbloom_q1",
         "prompt": "When is taking life energy a cure, and when is it a theft?",
-        "purpose": "Tests the college's central ethical tension.",
-        "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-        "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
+        "purpose": "Tests whether the answer understands Witherbloom life-energy tension as cost-aware healing, harm, cultivation, or extraction.",
+        "supports": "The answer explains how life energy, living essence, or life/death exchange can be used responsibly or exploitatively in practical craft.",
+        "weakens": "The answer treats life/death exchange as irrelevant, purely abstract, or generic death magic without Witherbloom essence craft.",
         "collision_targets": [],
         "evidence_claim_ids": [
-          "witherbloom_claim_001",
           "witherbloom_claim_002",
-          "witherbloom_claim_003"
+          "witherbloom_claim_003",
+          "witherbloom_claim_004",
+          "witherbloom_claim_0020",
+          "witherbloom_claim_0023",
+          "witherbloom_claim_0024"
         ],
         "confidence": "Medium"
       },
       {
         "id": "witherbloom_q2",
-        "prompt": "Do you learn more from a library, a wound, a garden, or a swamp?",
-        "purpose": "Finds embodied and ecological learning patterns.",
-        "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-        "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
+        "prompt": "Do you learn more from a formula, a wound, a remedy, or a living system?",
+        "purpose": "Tests whether learning is embodied and practical rather than only detached abstraction.",
+        "supports": "The answer centers embodied study, remedies, toxins, living essence, practical craft, or life/death exchange.",
+        "weakens": "The answer centers abstraction, optimization, civic graveyard value, or harmony without Witherbloom body/essence evidence.",
         "collision_targets": [],
+        "evidence_claim_ids": [
+          "witherbloom_claim_003",
+          "witherbloom_claim_005",
+          "witherbloom_claim_0021",
+          "witherbloom_claim_0026"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "q_witherbloom_9800",
+        "prompt": "Is death useful because a school studies essence and bodily exchange, or because an undercity turns decay into civic continuity?",
+        "purpose": "",
+        "supports": "",
+        "weakens": "the answer centers rot farms, graveyard recursion, burial, undercity society, or discarded matter becoming civic infrastructure",
+        "collision_targets": [
+          "BG"
+        ],
         "evidence_claim_ids": [
           "witherbloom_claim_001",
           "witherbloom_claim_002",
-          "witherbloom_claim_003"
+          "witherbloom_claim_003",
+          "witherbloom_claim_0019",
+          "witherbloom_claim_0026"
         ],
         "confidence": "Medium"
       },
@@ -8462,17 +8484,17 @@ export const FACTION_CONTEXT = {
     "chatbot_guidance": {
       "how_to_recognize_match": [
         "understands care and harm as connected powers",
-        "likes fieldwork, remedies, ecology, or the body",
-        "is comfortable with life/death exchange"
+        "likes embodied study through remedies, toxins, ecology, or the body",
+        "is comfortable with life/death exchange as practical craft"
       ],
       "how_to_recognize_mismatch": [
         "wants abstraction without embodiment",
-        "treats death or decay as unmentionable",
-        "prefers pure spectacle over practical survival"
+        "treats death or life-cost as irrelevant to the craft",
+        "prefers generic spectacle, nature, or graveyard value without practical essence exchange"
       ],
       "questions_to_ask_when_uncertain": [
         "When is taking life energy a cure, and when is it a theft?",
-        "Do you learn more from a library, a wound, a garden, or a swamp?"
+        "Do you learn more from a formula, a wound, a remedy, or a living system?"
       ],
       "do_not_overweight": [
         "Do not overfit a single color preference.",

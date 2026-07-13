@@ -1,0 +1,171 @@
+{
+    "identity_key":  "WITHERBLOOM",
+    "contract_version":  "v1.1",
+    "runtime_assertions":  false,
+    "fixtures":  [
+                     {
+                         "fixture_id":  "witherbloom_core_life_death_essence",
+                         "fixture_type":  "core_inclusion",
+                         "scenario":  "A clear Witherbloom case where life and death are treated as living essences for practical craft.",
+                         "intended_interpretation":  "Witherbloom inclusion is grounded when brewing, healing, harm, death-facing magic, or practical study uses living essence rather than generic black-green mood.",
+                         "evidence_claim_ids":  [
+                                                    "witherbloom_claim_001",
+                                                    "witherbloom_claim_002",
+                                                    "witherbloom_claim_003",
+                                                    "witherbloom_claim_0019"
+                                                ],
+                         "evidence_source_ids":  [
+                                                     "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+                                                     "src_wotc_planeswalkers_guide_strixhaven_2021",
+                                                     "src_wotc_strixhaven_product_page_2021"
+                                                 ],
+                         "defensible_guidance":  "The answer should be explainable through life/death essence and practical Witherbloom craft evidence.",
+                         "unsupported_certainty_to_avoid":  "Do not infer generic decay, graveyard value, predation, or biology optimization unless the answer supplies that evidence."
+                     },
+                     {
+                         "fixture_id":  "witherbloom_pressure_cost_exchange",
+                         "fixture_type":  "mature_or_pressure_behavior",
+                         "scenario":  "Witherbloom under pressure chooses a remedy, poison, sacrifice, or exchange while naming the cost.",
+                         "intended_interpretation":  "Mature or pressure behavior is defensible when the case centers embodied life/death exchange, practical cost, and the risk of over-extraction.",
+                         "evidence_claim_ids":  [
+                                                    "witherbloom_claim_003",
+                                                    "witherbloom_claim_004",
+                                                    "witherbloom_claim_0020",
+                                                    "witherbloom_claim_0023",
+                                                    "witherbloom_claim_0024"
+                                                ],
+                         "evidence_source_ids":  [
+                                                     "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+                                                     "src_wotc_planeswalkers_guide_strixhaven_2021"
+                                                 ],
+                         "defensible_guidance":  "The packet can explain Witherbloom as cost-aware essence craft without turning every sacrifice or drain pattern into identity proof.",
+                         "unsupported_certainty_to_avoid":  "Do not claim predation, cruelty, generic morbidity, or graveyard identity unless the cited evidence actually supports it."
+                     },
+                     {
+                         "fixture_id":  "witherbloom_exclusion_golgari_bg",
+                         "fixture_type":  "required_neighbor_exclusion",
+                         "neighbor":  "BG",
+                         "scenario":  "Decay, graveyard value, burial, or undercity survival alone should remain BG/Golgari rather than Witherbloom.",
+                         "intended_interpretation":  "Witherbloom needs school-based life/death essence craft; BG/Golgari can own civic decay, graveyard loops, burial, and undercity survival without Witherbloom evidence.",
+                         "evidence_claim_ids":  [
+                                                    "witherbloom_claim_001",
+                                                    "witherbloom_claim_002",
+                                                    "witherbloom_claim_003",
+                                                    "witherbloom_claim_0019",
+                                                    "witherbloom_claim_0026"
+                                                ],
+                         "evidence_source_ids":  [
+                                                     "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+                                                     "src_wotc_planeswalkers_guide_strixhaven_2021",
+                                                     "src_wotc_strixhaven_product_page_2021"
+                                                 ],
+                         "defensible_guidance":  "Use Witherbloom only when life/death essence study and practical craft are visible; otherwise keep the broader BG/Golgari read open.",
+                         "unsupported_certainty_to_avoid":  "Do not present Golgari contrast terms as new Witherbloom canon."
+                     },
+                     {
+                         "fixture_id":  "witherbloom_exclusion_selesnya",
+                         "fixture_type":  "required_neighbor_exclusion",
+                         "neighbor":  "SELESNYA_CONCLAVE",
+                         "scenario":  "Harmony, belonging, and collective nurturing should remain Selesnya unless life/death essence craft is decisive.",
+                         "intended_interpretation":  "Witherbloom may involve growth and care, but it differs when the answer centers remedies, poisons, living essence, and cost-aware exchange.",
+                         "evidence_claim_ids":  [
+                                                    "witherbloom_claim_001",
+                                                    "witherbloom_claim_002",
+                                                    "witherbloom_claim_003",
+                                                    "witherbloom_claim_0023",
+                                                    "witherbloom_claim_0026"
+                                                ],
+                         "evidence_source_ids":  [
+                                                     "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+                                                     "src_wotc_planeswalkers_guide_strixhaven_2021",
+                                                     "src_wotc_strixhaven_product_page_2021"
+                                                 ],
+                         "defensible_guidance":  "Ask whether the case is about communal harmony or about practical life/death essence craft with costs and tradeoffs.",
+                         "unsupported_certainty_to_avoid":  "Do not reduce Selesnya to naive nurture or Witherbloom to generic nature."
+                     },
+                     {
+                         "fixture_id":  "witherbloom_exclusion_simic",
+                         "fixture_type":  "required_neighbor_exclusion",
+                         "neighbor":  "SIMIC_COMBINE",
+                         "scenario":  "Biology optimization, adaptation, or engineered improvement belongs to Simic unless Witherbloom life/death essence craft is explicit.",
+                         "intended_interpretation":  "Witherbloom uses biological or body-level evidence through living essence, remedies, poisons, and cost; Simic remains the adaptation/optimization neighbor.",
+                         "evidence_claim_ids":  [
+                                                    "witherbloom_claim_001",
+                                                    "witherbloom_claim_002",
+                                                    "witherbloom_claim_003",
+                                                    "witherbloom_claim_0021",
+                                                    "witherbloom_claim_0026"
+                                                ],
+                         "evidence_source_ids":  [
+                                                     "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+                                                     "src_wotc_planeswalkers_guide_strixhaven_2021",
+                                                     "src_wotc_strixhaven_product_page_2021"
+                                                 ],
+                         "defensible_guidance":  "Keep biological improvement and adaptation with Simic unless the Witherbloom evidence chain supplies essence craft and life/death exchange.",
+                         "unsupported_certainty_to_avoid":  "Do not turn all biology language into Witherbloom proof."
+                     },
+                     {
+                         "fixture_id":  "witherbloom_exclusion_quandrix",
+                         "fixture_type":  "required_neighbor_exclusion",
+                         "neighbor":  "QUANDRIX",
+                         "scenario":  "Mathematical proof, models, and abstract systems should remain Quandrix unless embodied life/death craft is decisive.",
+                         "intended_interpretation":  "Witherbloom may observe living systems, but the recovered boundary requires practical essence craft rather than proof or abstraction alone.",
+                         "evidence_claim_ids":  [
+                                                    "witherbloom_claim_002",
+                                                    "witherbloom_claim_003",
+                                                    "witherbloom_claim_005",
+                                                    "witherbloom_claim_006",
+                                                    "witherbloom_claim_0021",
+                                                    "witherbloom_claim_0026"
+                                                ],
+                         "evidence_source_ids":  [
+                                                     "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+                                                     "src_wotc_planeswalkers_guide_strixhaven_2021"
+                                                 ],
+                         "defensible_guidance":  "Ask whether the answer seeks proof/model elegance or embodied life/death exchange through living essence.",
+                         "unsupported_certainty_to_avoid":  "Do not force a Witherbloom read from systems language alone."
+                     },
+                     {
+                         "fixture_id":  "witherbloom_ambiguous_bg_life_death_cycle",
+                         "fixture_type":  "nearest_collision_ambiguity",
+                         "neighbor":  "BG",
+                         "scenario":  "A case about decay, growth, and resources is ambiguous until the answer shows school-based essence craft or broader BG/Golgari civic ecology.",
+                         "intended_interpretation":  "Keep uncertainty when the case shares life/death or growth/decay language but does not identify whether practical Witherbloom essence craft is decisive.",
+                         "evidence_claim_ids":  [
+                                                    "witherbloom_claim_0019",
+                                                    "witherbloom_claim_0022",
+                                                    "witherbloom_claim_0026"
+                                                ],
+                         "evidence_source_ids":  [
+                                                     "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+                                                     "src_wotc_planeswalkers_guide_strixhaven_2021"
+                                                 ],
+                         "defensible_guidance":  "Use ambiguity guidance instead of unsupported certainty when the answer supplies only shared black-green cycle language.",
+                         "unsupported_certainty_to_avoid":  "Do not certify Witherbloom from decay, graveyards, or survival alone."
+                     },
+                     {
+                         "fixture_id":  "witherbloom_provenance_match_guidance",
+                         "fixture_type":  "provenance",
+                         "scenario":  "The first match-guidance item must preserve the complete evidence chain for life/death essence craft guidance.",
+                         "canonical_file":  "data/raw-factions/witherbloom/witherbloom.placement.json",
+                         "canonical_pointer":  "/chatbot_guidance/how_to_recognize_match/0",
+                         "evidence_claim_ids":  [
+                                                    "witherbloom_claim_003",
+                                                    "witherbloom_claim_004",
+                                                    "witherbloom_claim_0020",
+                                                    "witherbloom_claim_0023"
+                                                ],
+                         "evidence_source_ids":  [
+                                                     "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+                                                     "src_wotc_planeswalkers_guide_strixhaven_2021"
+                                                 ],
+                         "expected_generated_consumers":  [
+                                                              "data/factions.json#/factions/WITHERBLOOM/chatbot_guidance/how_to_recognize_match/0",
+                                                              "data/placement-model.json#/factions/WITHERBLOOM/chatbot_guidance/how_to_recognize_match/0",
+                                                              "supabase/functions/guild-recruiter/faction-context.ts#/WITHERBLOOM/chatbot_guidance/how_to_recognize_match/0"
+                                                          ],
+                         "defensible_guidance":  "Generated consumers must preserve claim and source provenance for recruiter-facing match guidance.",
+                         "unsupported_certainty_to_avoid":  "Do not expose internal claim IDs in user-facing recruiter prose."
+                     }
+                 ]
+}

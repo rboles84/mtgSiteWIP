@@ -2,8 +2,75 @@
   "schema_version": "1.0.0",
   "faction_id": "witherbloom",
   "faction_name": "Witherbloom College",
-  "last_updated": "2026-06-13",
+  "last_updated": "2026-07-13",
   "changes": [
+    {
+      "change_id": "witherbloom_change_crit001_gate3_semantic_remediation_20260713",
+      "change_type": "CRIT-001 Gate 3 Canonical Remediation",
+      "change_date": "2026-07-13",
+      "summary": "Classified Witherbloom claims by semantic role, added bounded evidence locations and minimal substantive synthesis claims, removed discovery/support records from authoritative profile and placement proof chains, added recruiter guidance evidence mappings, and recorded bounded required-neighbor evidence. Generated artifacts remain stale until Gate 4.",
+      "sources_added": [],
+      "sources_updated": [],
+      "claims_added": [
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0020",
+        "witherbloom_claim_0021",
+        "witherbloom_claim_0022",
+        "witherbloom_claim_0023",
+        "witherbloom_claim_0024",
+        "witherbloom_claim_0025",
+        "witherbloom_claim_0026"
+      ],
+      "claims_updated": [
+        "witherbloom_claim_001",
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_004",
+        "witherbloom_claim_005",
+        "witherbloom_claim_006",
+        "witherbloom_claim_0007",
+        "witherbloom_claim_0008",
+        "witherbloom_claim_0009",
+        "witherbloom_claim_0010",
+        "witherbloom_claim_0011",
+        "witherbloom_claim_0012",
+        "witherbloom_claim_0013",
+        "witherbloom_claim_0014",
+        "witherbloom_claim_0015",
+        "witherbloom_claim_0016",
+        "witherbloom_claim_0017",
+        "witherbloom_claim_0018"
+      ],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "core_identity",
+        "site_surface",
+        "structure",
+        "great_tension",
+        "mechanics",
+        "commander_compass.identity_basis",
+        "key_figures support isolation"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "placement_axes",
+        "moral_and_psychological_profile",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "collision_guidance",
+        "semantic_guidance_evidence",
+        "required_neighbor_evidence",
+        "semantic_readiness"
+      ],
+      "manual_review_required": [
+        "Gate 4 must rebuild generated artifacts, regenerate provenance, add semantic fixtures, and validate source/generated parity."
+      ],
+      "notes": "No generated artifacts, runtime calibration, Hall/Crucible content, scoring, confidence, inhibition, tie ordering, scheduling, or global recruiter behavior changed in Gate 3."
+    },
     {
       "change_id": "change_witherbloom_placement_ready_20260510025603",
       "date": "2026-05-10",
@@ -141,7 +208,7 @@
     "number_of_official_sources_used": 3,
     "number_of_repository_archive_sources_used": 10,
     "number_of_secondary_discovery_sources_used": 0,
-    "number_of_claims_verified": 18,
+    "number_of_claims_verified": 26,
     "number_of_claims_marked_uncertain": 0,
     "sections_with_limited_evidence": [
       "deep story episode coverage",
@@ -149,7 +216,7 @@
     ],
     "conflicting_sources_found": [],
     "assumptions_removed_during_validation": [],
-    "overall_confidence_rating": "Medium-High for bounded public richness; support-only for Commander/deck surfaces.",
+    "overall_confidence_rating": "Medium-High for bounded official-source identity and placement synthesis; support-only for Commander/deck/card surfaces.",
     "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
   }
 }

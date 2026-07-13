@@ -1,466 +1,679 @@
 {
-  "schema_version": "1.0.0",
-  "faction_id": "witherbloom",
-  "faction_name": "Witherbloom College",
-  "last_updated": "2026-05-10T02:56:03.254Z",
-  "placement_model_version": "vox-mana-lore-json-v1",
-  "color_identity": [
-    "black",
-    "green"
-  ],
-  "ideal_fit_indicators": [
-    {
-      "indicator": "understands care and harm as connected powers",
-      "rationale": "Matches the official Witherbloom College identity summarized in the profile.",
-      "claim_ids": [
-        "witherbloom_claim_001"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "indicator": "likes fieldwork, remedies, ecology, or the body",
-      "rationale": "Matches the official Witherbloom College identity summarized in the profile.",
-      "claim_ids": [
-        "witherbloom_claim_002"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "indicator": "is comfortable with life/death exchange",
-      "rationale": "Matches the official Witherbloom College identity summarized in the profile.",
-      "claim_ids": [
-        "witherbloom_claim_003"
-      ],
-      "confidence": "Medium"
-    }
-  ],
-  "poor_fit_indicators": [
-    {
-      "indicator": "wants abstraction without embodiment",
-      "rationale": "Counters a core Witherbloom College placement signal.",
-      "claim_ids": [
-        "witherbloom_claim_001"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "indicator": "treats death or decay as unmentionable",
-      "rationale": "Counters a core Witherbloom College placement signal.",
-      "claim_ids": [
-        "witherbloom_claim_002"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "indicator": "prefers pure spectacle over practical survival",
-      "rationale": "Counters a core Witherbloom College placement signal.",
-      "claim_ids": [
-        "witherbloom_claim_003"
-      ],
-      "confidence": "Medium"
-    }
-  ],
-  "discriminator_questions": [
-    {
-      "question_id": "witherbloom_q1",
-      "question": "When is taking life energy a cure, and when is it a theft?",
-      "purpose": "Tests the college's central ethical tension.",
-      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
-      "related_factions_to_compare": [],
-      "claim_ids": [
-        "witherbloom_claim_001",
-        "witherbloom_claim_002",
-        "witherbloom_claim_003"
-      ],
-      "confidence": "Medium",
-      "notes": "Question is placement-engine guidance, not canon text."
-    },
-    {
-      "question_id": "witherbloom_q2",
-      "question": "Do you learn more from a library, a wound, a garden, or a swamp?",
-      "purpose": "Finds embodied and ecological learning patterns.",
-      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
-      "related_factions_to_compare": [],
-      "claim_ids": [
-        "witherbloom_claim_001",
-        "witherbloom_claim_002",
-        "witherbloom_claim_003"
-      ],
-      "confidence": "Medium",
-      "notes": "Question is placement-engine guidance, not canon text."
-    },
-    {
-      "question_id": "q_witherbloom_9801",
-      "collision_targets": [
-        "selesnya_conclave"
-      ],
-      "prompt": "Do you nurture the group toward peace, or study the exchange of life and death directly?",
-      "target_signal": "Witherbloom is practical life/death craft; Selesnya is collective harmony and belonging.",
-      "suppresses_this_faction_if": "the answer centers consensus, harmony, or selfless belonging",
-      "evidence_claim_ids": [
-        "witherbloom_claim_001",
-        "witherbloom_claim_002",
-        "witherbloom_claim_003"
-      ]
-    },
-    {
-      "question_id": "q_witherbloom_9802",
-      "collision_targets": [
-        "simic_combine"
-      ],
-      "prompt": "Is the living thing a system to improve or a source of essence to understand and spend?",
-      "target_signal": "Witherbloom studies essence and cost; Simic optimizes living systems.",
-      "suppresses_this_faction_if": "the answer centers optimization, adaptation, or engineered progress",
-      "evidence_claim_ids": [
-        "witherbloom_claim_001",
-        "witherbloom_claim_002",
-        "witherbloom_claim_003"
-      ]
-    }
-  ],
-  "chatbot_guidance": {
-    "how_to_recognize_match": [
-      "understands care and harm as connected powers",
-      "likes fieldwork, remedies, ecology, or the body",
-      "is comfortable with life/death exchange"
-    ],
-    "how_to_recognize_mismatch": [
-      "wants abstraction without embodiment",
-      "treats death or decay as unmentionable",
-      "prefers pure spectacle over practical survival"
-    ],
-    "questions_to_ask_when_uncertain": [
-      "When is taking life energy a cure, and when is it a theft?",
-      "Do you learn more from a library, a wound, a garden, or a swamp?"
-    ],
-    "do_not_overweight": [
-      "Do not overfit a single color preference.",
-      "Do not treat one favorite card or mechanic as enough evidence by itself.",
-      "Do not score a faction highly from color identity alone when another faction shares the same colors or surface traits."
-    ],
-    "never_claim_as_canon": [
-      "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
-      "Do not state that a user's personality is objectively determined by a faction.",
-      "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
-    ],
-    "calibration_note": "Witherbloom College should require its specific positive evidence cluster: essence, life, death, pest, craft. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
-    "scoring_guardrail": "Do not award for generic nature, decay, or healing without craft/essence/exchange language."
-  },
-  "placement_quality": {
-    "overall_confidence": "Medium",
-    "strongest_evidence_areas": [
-      "official faction overview",
-      "official mechanics identity",
-      "MTG-Stories corpus search evidence"
-    ],
-    "weakest_evidence_areas": [
-      "deep story episode coverage",
-      "cross-faction comparison calibration"
-    ],
-    "manual_review_recommended": true,
-    "notes": "Good for initial placement testing; should be expanded with story-specific claims in a later pass. Corpus-enriched data should be reviewed with calibration and collision reports before being treated as tuned scoring fuel.",
-    "calibration_tuning_status": "explicit",
-    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
-  },
-  "placement_profile_version": "vox-mana-lore-json-v1",
-  "based_on_profile_version": "1.0.0",
-  "placement_summary": {
-    "short_description": "Witherbloom College placement is informed by official overview sources and MTG-Stories corpus evidence.",
-    "best_fit_summary": "understands care and harm as connected powers likes fieldwork, remedies, ecology, or the body is comfortable with life/death exchange",
-    "poor_fit_summary": "wants abstraction without embodiment treats death or decay as unmentionable prefers pure spectacle over practical survival",
-    "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
-    "claim_ids": [
-      "witherbloom_claim_0007",
-      "witherbloom_claim_0008",
-      "witherbloom_claim_0009",
-      "witherbloom_claim_0010",
-      "witherbloom_claim_0011",
-      "witherbloom_claim_0012",
-      "witherbloom_claim_0013",
-      "witherbloom_claim_0014"
-    ],
-    "calibrated_primary_read": "Requires life/death craft, essence, bodily exchange, pests, brewing, or practical natural magic.",
-    "calibrated_false_positive_guardrail": "Do not award for generic nature, decay, or healing without craft/essence/exchange language.",
-    "evidence_claim_ids": [
-      "witherbloom_claim_001",
-      "witherbloom_claim_002",
-      "witherbloom_claim_003",
-      "witherbloom_claim_004",
-      "witherbloom_claim_005",
-      "witherbloom_claim_006"
-    ]
-  },
-  "placement_axes": [
-    {
-      "axis_id": "axis_essence_craft_vs_abstraction",
-      "label": "Essence Craft vs Abstraction",
-      "description": "Measures whether user answers align with Witherbloom College's specific evidence instead of only its color pair.",
-      "low_end_label": "detached abstraction",
-      "high_end_label": "embodied life-death craft",
-      "faction_position": 87,
-      "rationale": "Corpus evidence adds story-context support for Witherbloom, Witherbloom College, Dina, Lisette, Valentin, pest, essence, bayou.",
-      "claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009",
-        "witherbloom_claim_0010",
-        "witherbloom_claim_0011",
-        "witherbloom_claim_0012",
-        "witherbloom_claim_0013",
-        "witherbloom_claim_0014"
-      ],
-      "confidence": "Medium",
-      "notes": "Added during MTG-Stories corpus upgrade."
-    }
-  ],
-  "moral_and_psychological_profile": {
-    "summary": "Witherbloom College should be scored through faction-specific behavioral evidence, not only broad color identity.",
-    "claim_ids": [
-      "witherbloom_claim_0007",
-      "witherbloom_claim_0008",
-      "witherbloom_claim_0009",
-      "witherbloom_claim_0010",
-      "witherbloom_claim_0011"
-    ]
-  },
-  "core_values": [
-    {
-      "value": "Witherbloom",
-      "placement_relevance": "Corpus search evidence for Witherbloom College.",
-      "claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "Witherbloom College",
-      "placement_relevance": "Corpus search evidence for Witherbloom College.",
-      "claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "Dina",
-      "placement_relevance": "Corpus search evidence for Witherbloom College.",
-      "claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "Lisette",
-      "placement_relevance": "Corpus search evidence for Witherbloom College.",
-      "claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "Valentin",
-      "placement_relevance": "Corpus search evidence for Witherbloom College.",
-      "claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "pest",
-      "placement_relevance": "Corpus search evidence for Witherbloom College.",
-      "claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "essence",
-      "placement_relevance": "Corpus search evidence for Witherbloom College.",
-      "claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "bayou",
-      "placement_relevance": "Corpus search evidence for Witherbloom College.",
-      "claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "swamp",
-      "placement_relevance": "Corpus search evidence for Witherbloom College.",
-      "claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "growth",
-      "placement_relevance": "Corpus search evidence for Witherbloom College.",
-      "claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
-      ],
-      "confidence": "Medium"
-    }
-  ],
-  "behavioral_signals": [
-    {
-      "signal": "References The Chains That Bind, Episode 2: Lessons, Episode 4: Put to the Test as story-context evidence rather than relying only on color identity.",
-      "placement_relevance": "Strengthens Witherbloom College with corpus-backed specificity.",
-      "supports_match_when": "The user's answers echo Witherbloom, Witherbloom College, Dina, Lisette, Valentin, pest in a faction-specific way.",
-      "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
-      "claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009",
-        "witherbloom_claim_0010",
-        "witherbloom_claim_0011",
-        "witherbloom_claim_0012"
-      ],
-      "confidence": "Medium"
-    },
-    "studies what life costs",
-    "works through practical craft",
-    "sees vitality and death as usable materials"
-  ],
-  "inhibitor_traits": [
-    {
-      "trait": "Generic color-pair overfit",
-      "why_it_conflicts": "The corpus upgrade is intended to prevent Witherbloom College from winning on broad color identity alone.",
-      "status": "Supported Interpretation",
-      "claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009",
-        "witherbloom_claim_0010"
-      ],
-      "confidence": "Medium",
-      "notes": "Use collision questions when another faction shares the same or adjacent colors."
-    },
-    "prioritizes group harmony",
-    "optimizes organisms",
-    "builds society from decay rather than studying essence"
-  ],
-  "good_fit_indicators": [
-    {
-      "indicator": "understands care and harm as connected powers",
-      "rationale": "Matches the official Witherbloom College identity summarized in the profile.",
-      "claim_ids": [
-        "witherbloom_claim_001"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "indicator": "likes fieldwork, remedies, ecology, or the body",
-      "rationale": "Matches the official Witherbloom College identity summarized in the profile.",
-      "claim_ids": [
-        "witherbloom_claim_002"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "indicator": "is comfortable with life/death exchange",
-      "rationale": "Matches the official Witherbloom College identity summarized in the profile.",
-      "claim_ids": [
-        "witherbloom_claim_003"
-      ],
-      "confidence": "Medium"
-    }
-  ],
-  "calibration_tuning": {
-    "required_positive_evidence_terms": [
-      "essence",
-      "life",
-      "death",
-      "pest",
-      "craft",
-      "brew",
-      "swamp",
-      "study",
-      "body",
-      "drain",
-      "growth"
-    ],
-    "required_positive_min_hits": 2,
-    "broad_match_penalty": 0.1,
-    "strengthen_when_user_centers": [
-      "life death craft",
-      "essence study",
-      "practical magic",
-      "body and exchange"
-    ],
-    "suppress_when_user_centers": [
-      "community harmony",
-      "biological optimization",
-      "graveyard civilization",
-      "wild dispossession",
-      "abstract proof"
-    ],
-    "false_positive_guardrail": "Do not award for generic nature, decay, or healing without craft/essence/exchange language.",
-    "smoke_test_note": "Used by lore review scripts as metadata-level calibration guidance; production placement may use richer weighted logic."
-  },
-  "collision_guidance": [
-    {
-      "collision_id": "collision_witherbloom_vs_selesnya_conclave_placement_ready",
-      "against": "selesnya_conclave",
-      "separator": "Witherbloom is practical life/death craft; Selesnya is collective harmony and belonging.",
-      "ask": "Do you nurture the group toward peace, or study the exchange of life and death directly?",
-      "suppress_if": "the answer centers consensus, harmony, or selfless belonging",
-      "evidence_claim_ids": [
-        "witherbloom_claim_001",
-        "witherbloom_claim_002",
-        "witherbloom_claim_003"
-      ]
-    },
-    {
-      "collision_id": "collision_witherbloom_vs_simic_combine_placement_ready",
-      "against": "simic_combine",
-      "separator": "Witherbloom studies essence and cost; Simic optimizes living systems.",
-      "ask": "Is the living thing a system to improve or a source of essence to understand and spend?",
-      "suppress_if": "the answer centers optimization, adaptation, or engineered progress",
-      "evidence_claim_ids": [
-        "witherbloom_claim_001",
-        "witherbloom_claim_002",
-        "witherbloom_claim_003"
-      ]
-    },
-    {
-      "collision_id": "collision_witherbloom_vs_quandrix_placement_ready",
-      "against": "quandrix",
-      "lateral_inhibition": false,
-      "separator": "Witherbloom studies practical life/death essence in bodies, remedies, and fieldwork; Quandrix proves the abstract pattern beneath reality.",
-      "ask": "A living system behaves strangely. Do you trust the equation beneath it or the messy exchange of life and death?",
-      "suppress_if": "the answer centers mathematical proof, abstract models, hidden structures, or theoretical metaphysics before embodied essence",
-      "evidence_claim_ids": [
-        "witherbloom_claim_002",
-        "witherbloom_claim_003",
-        "witherbloom_claim_005",
-        "witherbloom_claim_006"
-      ]
-    }
-  ]
+    "schema_version":  "1.0.0",
+    "faction_id":  "witherbloom",
+    "faction_name":  "Witherbloom College",
+    "last_updated":  "2026-07-13",
+    "placement_model_version":  "vox-mana-lore-json-v1",
+    "color_identity":  [
+                           "black",
+                           "green"
+                       ],
+    "ideal_fit_indicators":  [
+                                 {
+                                     "indicator":  "understands care and harm as connected powers",
+                                     "rationale":  "Matches the official Witherbloom College identity summarized in the profile.",
+                                     "claim_ids":  [
+                                                       "witherbloom_claim_003",
+                                                       "witherbloom_claim_004",
+                                                       "witherbloom_claim_0020",
+                                                       "witherbloom_claim_0023"
+                                                   ],
+                                     "confidence":  "Medium"
+                                 },
+                                 {
+                                     "indicator":  "likes embodied study through remedies, toxins, ecology, or the body",
+                                     "rationale":  "Matches the official Witherbloom College identity summarized in the profile.",
+                                     "claim_ids":  [
+                                                       "witherbloom_claim_003",
+                                                       "witherbloom_claim_005",
+                                                       "witherbloom_claim_0021"
+                                                   ],
+                                     "confidence":  "Medium"
+                                 },
+                                 {
+                                     "indicator":  "is comfortable with life/death exchange as practical craft",
+                                     "rationale":  "Matches the official Witherbloom College identity summarized in the profile.",
+                                     "claim_ids":  [
+                                                       "witherbloom_claim_002",
+                                                       "witherbloom_claim_003",
+                                                       "witherbloom_claim_0020"
+                                                   ],
+                                     "confidence":  "Medium"
+                                 }
+                             ],
+    "poor_fit_indicators":  [
+                                {
+                                    "indicator":  "wants abstraction without embodiment",
+                                    "rationale":  "Counters a core Witherbloom College placement signal.",
+                                    "claim_ids":  [
+                                                      "witherbloom_claim_0021",
+                                                      "witherbloom_claim_0026"
+                                                  ],
+                                    "confidence":  "Medium"
+                                },
+                                {
+                                    "indicator":  "treats death or life-cost as irrelevant to the craft",
+                                    "rationale":  "Counters a core Witherbloom College placement signal.",
+                                    "claim_ids":  [
+                                                      "witherbloom_claim_002",
+                                                      "witherbloom_claim_003",
+                                                      "witherbloom_claim_0020"
+                                                  ],
+                                    "confidence":  "Medium"
+                                },
+                                {
+                                    "indicator":  "prefers generic spectacle, nature, or graveyard value without practical essence exchange",
+                                    "rationale":  "Counters a core Witherbloom College placement signal.",
+                                    "claim_ids":  [
+                                                      "witherbloom_claim_0019",
+                                                      "witherbloom_claim_0022",
+                                                      "witherbloom_claim_0026"
+                                                  ],
+                                    "confidence":  "Medium"
+                                }
+                            ],
+    "discriminator_questions":  [
+                                    {
+                                        "question_id":  "witherbloom_q1",
+                                        "question":  "When is taking life energy a cure, and when is it a theft?",
+                                        "purpose":  "Tests whether the answer understands Witherbloom life-energy tension as cost-aware healing, harm, cultivation, or extraction.",
+                                        "answer_pattern_that_supports_this_faction":  "The answer explains how life energy, living essence, or life/death exchange can be used responsibly or exploitatively in practical craft.",
+                                        "answer_pattern_that_weakens_this_faction":  "The answer treats life/death exchange as irrelevant, purely abstract, or generic death magic without Witherbloom essence craft.",
+                                        "related_factions_to_compare":  [
+
+                                                                        ],
+                                        "claim_ids":  [
+                                                          "witherbloom_claim_002",
+                                                          "witherbloom_claim_003",
+                                                          "witherbloom_claim_004",
+                                                          "witherbloom_claim_0020",
+                                                          "witherbloom_claim_0023",
+                                                          "witherbloom_claim_0024"
+                                                      ],
+                                        "confidence":  "Medium",
+                                        "notes":  "Question is placement-engine guidance, not canon text."
+                                    },
+                                    {
+                                        "question_id":  "witherbloom_q2",
+                                        "question":  "Do you learn more from a formula, a wound, a remedy, or a living system?",
+                                        "purpose":  "Tests whether learning is embodied and practical rather than only detached abstraction.",
+                                        "answer_pattern_that_supports_this_faction":  "The answer centers embodied study, remedies, toxins, living essence, practical craft, or life/death exchange.",
+                                        "answer_pattern_that_weakens_this_faction":  "The answer centers abstraction, optimization, civic graveyard value, or harmony without Witherbloom body/essence evidence.",
+                                        "related_factions_to_compare":  [
+
+                                                                        ],
+                                        "claim_ids":  [
+                                                          "witherbloom_claim_003",
+                                                          "witherbloom_claim_005",
+                                                          "witherbloom_claim_0021",
+                                                          "witherbloom_claim_0026"
+                                                      ],
+                                        "confidence":  "Medium",
+                                        "notes":  "Question is placement-engine guidance, not canon text."
+                                    },
+                                    {
+                                        "question_id":  "q_witherbloom_9800",
+                                        "collision_targets":  [
+                                                                  "golgari_swarm"
+                                                              ],
+                                        "prompt":  "Is death useful because a school studies essence and bodily exchange, or because an undercity turns decay into civic continuity?",
+                                        "target_signal":  "Witherbloom is school-based essence craft; Golgari is civic ecology, rot, burial, reclamation, and undercity continuity.",
+                                        "suppresses_this_faction_if":  "the answer centers rot farms, graveyard recursion, burial, undercity society, or discarded matter becoming civic infrastructure",
+                                        "evidence_claim_ids":  [
+                                                                   "witherbloom_claim_001",
+                                                                   "witherbloom_claim_002",
+                                                                   "witherbloom_claim_003",
+                                                                   "witherbloom_claim_0019",
+                                                                   "witherbloom_claim_0026"
+                                                               ]
+                                    },
+                                    {
+                                        "question_id":  "q_witherbloom_9801",
+                                        "collision_targets":  [
+                                                                  "selesnya_conclave"
+                                                              ],
+                                        "prompt":  "Do you nurture the group toward peace, or study the exchange of life and death directly?",
+                                        "target_signal":  "Witherbloom is practical life/death craft; Selesnya is collective harmony and belonging.",
+                                        "suppresses_this_faction_if":  "the answer centers consensus, harmony, or selfless belonging",
+                                        "evidence_claim_ids":  [
+                                                                   "witherbloom_claim_001",
+                                                                   "witherbloom_claim_002",
+                                                                   "witherbloom_claim_003"
+                                                               ]
+                                    },
+                                    {
+                                        "question_id":  "q_witherbloom_9802",
+                                        "collision_targets":  [
+                                                                  "simic_combine"
+                                                              ],
+                                        "prompt":  "Is the living thing a system to improve or a source of essence to understand and spend?",
+                                        "target_signal":  "Witherbloom studies essence and cost; Simic optimizes living systems.",
+                                        "suppresses_this_faction_if":  "the answer centers optimization, adaptation, or engineered progress",
+                                        "evidence_claim_ids":  [
+                                                                   "witherbloom_claim_001",
+                                                                   "witherbloom_claim_002",
+                                                                   "witherbloom_claim_003"
+                                                               ]
+                                    }
+                                ],
+    "chatbot_guidance":  {
+                             "how_to_recognize_match":  [
+                                                            "understands care and harm as connected powers",
+                                                            "likes embodied study through remedies, toxins, ecology, or the body",
+                                                            "is comfortable with life/death exchange as practical craft"
+                                                        ],
+                             "how_to_recognize_mismatch":  [
+                                                               "wants abstraction without embodiment",
+                                                               "treats death or life-cost as irrelevant to the craft",
+                                                               "prefers generic spectacle, nature, or graveyard value without practical essence exchange"
+                                                           ],
+                             "questions_to_ask_when_uncertain":  [
+                                                                     "When is taking life energy a cure, and when is it a theft?",
+                                                                     "Do you learn more from a formula, a wound, a remedy, or a living system?"
+                                                                 ],
+                             "do_not_overweight":  [
+                                                       "Do not overfit a single color preference.",
+                                                       "Do not treat one favorite card or mechanic as enough evidence by itself.",
+                                                       "Do not score a faction highly from color identity alone when another faction shares the same colors or surface traits."
+                                                   ],
+                             "never_claim_as_canon":  [
+                                                          "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
+                                                          "Do not state that a user\u0027s personality is objectively determined by a faction.",
+                                                          "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+                                                      ],
+                             "calibration_note":  "Witherbloom College should require its specific positive evidence cluster: essence, life, death, pest, craft. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
+                             "scoring_guardrail":  "Do not award for generic nature, decay, or healing without craft/essence/exchange language."
+                         },
+    "placement_quality":  {
+                              "overall_confidence":  "Medium",
+                              "strongest_evidence_areas":  [
+                                                               "official faction overview",
+                                                               "official mechanics identity",
+                                                               "MTG-Stories corpus search evidence"
+                                                           ],
+                              "weakest_evidence_areas":  [
+                                                             "deep story episode coverage",
+                                                             "cross-faction comparison calibration"
+                                                         ],
+                              "manual_review_recommended":  true,
+                              "notes":  "Good for initial placement testing; should be expanded with story-specific claims in a later pass. Corpus-enriched data should be reviewed with calibration and collision reports before being treated as tuned scoring fuel.",
+                              "calibration_tuning_status":  "explicit",
+                              "last_placement_ready_pass":  "2026-05-10T02:56:03.254Z"
+                          },
+    "placement_profile_version":  "vox-mana-lore-json-v1",
+    "based_on_profile_version":  "1.0.0",
+    "placement_summary":  {
+                              "short_description":  "Witherbloom placement centers practical life/death craft: essence studies, living essence, remedies, poisons, bodily knowledge, and cost-aware exchange.",
+                              "best_fit_summary":  "understands care and harm as connected powers, likes embodied study through remedies, toxins, ecology, or the body, and is comfortable with life/death exchange",
+                              "poor_fit_summary":  "wants detached abstraction, generic nature or decay, collective harmony, engineered biological optimization, or graveyard value without Witherbloom essence craft",
+                              "interpretation_warning":  "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
+                              "claim_ids":  [
+                                                "witherbloom_claim_001",
+                                                "witherbloom_claim_002",
+                                                "witherbloom_claim_003",
+                                                "witherbloom_claim_004",
+                                                "witherbloom_claim_005",
+                                                "witherbloom_claim_006",
+                                                "witherbloom_claim_0019",
+                                                "witherbloom_claim_0020",
+                                                "witherbloom_claim_0021",
+                                                "witherbloom_claim_0022",
+                                                "witherbloom_claim_0023",
+                                                "witherbloom_claim_0024",
+                                                "witherbloom_claim_0025",
+                                                "witherbloom_claim_0026"
+                                            ],
+                              "calibrated_primary_read":  "Requires life/death craft, essence, bodily exchange, pests, brewing, or practical natural magic.",
+                              "calibrated_false_positive_guardrail":  "Do not award for generic nature, decay, or healing without craft/essence/exchange language.",
+                              "evidence_claim_ids":  [
+                                                         "witherbloom_claim_001",
+                                                         "witherbloom_claim_002",
+                                                         "witherbloom_claim_003",
+                                                         "witherbloom_claim_004",
+                                                         "witherbloom_claim_005",
+                                                         "witherbloom_claim_006",
+                                                         "witherbloom_claim_0019",
+                                                         "witherbloom_claim_0020",
+                                                         "witherbloom_claim_0021",
+                                                         "witherbloom_claim_0022",
+                                                         "witherbloom_claim_0023",
+                                                         "witherbloom_claim_0024",
+                                                         "witherbloom_claim_0025",
+                                                         "witherbloom_claim_0026"
+                                                     ]
+                          },
+    "placement_axes":  [
+                           {
+                               "axis_id":  "axis_essence_craft_vs_abstraction",
+                               "label":  "Essence Craft vs Abstraction",
+                               "description":  "Measures whether user answers align with Witherbloom College\u0027s specific evidence instead of only its color pair.",
+                               "low_end_label":  "detached abstraction",
+                               "high_end_label":  "embodied life-death craft",
+                               "faction_position":  87,
+                               "rationale":  "Official Witherbloom evidence supports essence studies, living essence, life/death magic, practical study areas, and embodied craft; Gate 3 removes story-search rows from this placement axis.",
+                               "claim_ids":  [
+                                                 "witherbloom_claim_001",
+                                                 "witherbloom_claim_002",
+                                                 "witherbloom_claim_003",
+                                                 "witherbloom_claim_004",
+                                                 "witherbloom_claim_005",
+                                                 "witherbloom_claim_006",
+                                                 "witherbloom_claim_0019",
+                                                 "witherbloom_claim_0021",
+                                                 "witherbloom_claim_0022"
+                                             ],
+                               "confidence":  "Medium",
+                               "notes":  "CRIT-001 Gate 3 replaces corpus-search proof with source-backed substantive Witherbloom claims; generated artifacts remain stale until Gate 4."
+                           }
+                       ],
+    "moral_and_psychological_profile":  {
+                                            "summary":  "Witherbloom College should be scored through embodied life/death exchange, essence studies, practical craft, and cost-aware use of living systems rather than broad black-green identity.",
+                                            "claim_ids":  [
+                                                              "witherbloom_claim_001",
+                                                              "witherbloom_claim_002",
+                                                              "witherbloom_claim_003",
+                                                              "witherbloom_claim_004",
+                                                              "witherbloom_claim_006",
+                                                              "witherbloom_claim_0019",
+                                                              "witherbloom_claim_0020",
+                                                              "witherbloom_claim_0023",
+                                                              "witherbloom_claim_0024",
+                                                              "witherbloom_claim_0025",
+                                                              "witherbloom_claim_0026"
+                                                          ]
+                                        },
+    "core_values":  [
+                        {
+                            "value":  "College of Essence Studies",
+                            "placement_relevance":  "Witherbloom identity starts with essence studies and black-green Strixhaven college context, not generic BG mood.",
+                            "claim_ids":  [
+                                              "witherbloom_claim_001"
+                                          ],
+                            "confidence":  "Medium"
+                        },
+                        {
+                            "value":  "life/death exchange",
+                            "placement_relevance":  "Answers strengthen Witherbloom when life and death are treated as connected forces to understand and work with.",
+                            "claim_ids":  [
+                                              "witherbloom_claim_002",
+                                              "witherbloom_claim_003",
+                                              "witherbloom_claim_0020"
+                                          ],
+                            "confidence":  "Medium"
+                        },
+                        {
+                            "value":  "living essence as material",
+                            "placement_relevance":  "Witherbloom should recognize magic that works through living essence, natural components, healing, harm, and death-facing craft.",
+                            "claim_ids":  [
+                                              "witherbloom_claim_003",
+                                              "witherbloom_claim_0019"
+                                          ],
+                            "confidence":  "Medium"
+                        },
+                        {
+                            "value":  "cultivation versus extraction",
+                            "placement_relevance":  "Witherbloom internal tension asks whether life energy is cultivated, healed, exploited, or consumed.",
+                            "claim_ids":  [
+                                              "witherbloom_claim_004",
+                                              "witherbloom_claim_0020",
+                                              "witherbloom_claim_0024"
+                                          ],
+                            "confidence":  "Medium"
+                        },
+                        {
+                            "value":  "applied life sciences",
+                            "placement_relevance":  "Medicine, toxicology, pathology, biomancy, mortuary science, and necromancy support Witherbloom as practical study rather than detached abstraction.",
+                            "claim_ids":  [
+                                              "witherbloom_claim_005",
+                                              "witherbloom_claim_0021"
+                                          ],
+                            "confidence":  "Medium"
+                        },
+                        {
+                            "value":  "embodied practical method",
+                            "placement_relevance":  "Witherbloom strengthens when the answer centers bodies, ingredients, remedies, poisons, ecology, or field/body learning.",
+                            "claim_ids":  [
+                                              "witherbloom_claim_003",
+                                              "witherbloom_claim_005",
+                                              "witherbloom_claim_0021"
+                                          ],
+                            "confidence":  "Medium"
+                        },
+                        {
+                            "value":  "mechanics as biological exchange",
+                            "placement_relevance":  "Life gain, life loss, Pests, sacrifice, healing, harm, and death triggers are Witherbloom only when they express life/death exchange or essence craft.",
+                            "claim_ids":  [
+                                              "witherbloom_claim_0022"
+                                          ],
+                            "confidence":  "Medium"
+                        },
+                        {
+                            "value":  "mature cost-aware craft",
+                            "placement_relevance":  "Mature Witherbloom understands healing, nourishment, survival, and study without pretending exchange has no cost.",
+                            "claim_ids":  [
+                                              "witherbloom_claim_0023"
+                                          ],
+                            "confidence":  "Medium"
+                        },
+                        {
+                            "value":  "over-extraction guardrail",
+                            "placement_relevance":  "Witherbloom weakens when life systems become only consumable material or generic death/decay without embodied craft.",
+                            "claim_ids":  [
+                                              "witherbloom_claim_0024",
+                                              "witherbloom_claim_0025"
+                                          ],
+                            "confidence":  "Medium"
+                        },
+                        {
+                            "value":  "required-neighbor boundaries",
+                            "placement_relevance":  "Purpose and method separate Witherbloom from Golgari civic decay, Selesnya harmony, Simic optimization, and Quandrix abstraction.",
+                            "claim_ids":  [
+                                              "witherbloom_claim_0026"
+                                          ],
+                            "confidence":  "Medium"
+                        }
+                    ],
+    "behavioral_signals":  [
+                               {
+                                   "signal":  "Treats life and death as practical forces to study, brew with, heal through, harm through, or pay for in embodied exchange.",
+                                   "placement_relevance":  "Strengthens Witherbloom when the answer centers essence studies, remedies, poisons, bodies, cost, or practical life/death craft rather than generic black-green identity.",
+                                   "supports_match_when":  "The user describes healing and harm, life/death exchange, ingredients, medicine, toxicology, mortality, Pests, sacrifice, or embodied field/body learning as the active method.",
+                                   "weakens_match_when":  "The user centers abstract proof, collective harmony, engineered optimization, civic graveyard recursion, or broad color identity without Witherbloom-specific craft.",
+                                   "claim_ids":  [
+                                                     "witherbloom_claim_002",
+                                                     "witherbloom_claim_003",
+                                                     "witherbloom_claim_004",
+                                                     "witherbloom_claim_005",
+                                                     "witherbloom_claim_0019",
+                                                     "witherbloom_claim_0021",
+                                                     "witherbloom_claim_0026"
+                                                 ],
+                                   "confidence":  "Medium"
+                               },
+                               "studies what life costs",
+                               "works through practical craft",
+                               "sees vitality and death as usable materials"
+                           ],
+    "inhibitor_traits":  [
+                             {
+                                 "trait":  "Generic color-pair overfit",
+                                 "why_it_conflicts":  "Witherbloom should not win on black-green color identity alone; it needs essence studies, life/death exchange, embodied craft, remedies, poisons, pests, or practical biological evidence.",
+                                 "status":  "Supported Interpretation",
+                                 "claim_ids":  [
+                                                   "witherbloom_claim_001",
+                                                   "witherbloom_claim_002",
+                                                   "witherbloom_claim_003",
+                                                   "witherbloom_claim_006",
+                                                   "witherbloom_claim_0019",
+                                                   "witherbloom_claim_0026"
+                                               ],
+                                 "confidence":  "Medium",
+                                 "notes":  "Use collision questions when another faction shares the same colors or nearby life/death language."
+                             },
+                             "prioritizes group harmony",
+                             "optimizes organisms",
+                             "builds society from decay rather than studying essence"
+                         ],
+    "good_fit_indicators":  [
+                                {
+                                    "indicator":  "understands care and harm as connected powers",
+                                    "rationale":  "Matches the official Witherbloom College identity summarized in the profile.",
+                                    "claim_ids":  [
+                                                      "witherbloom_claim_003",
+                                                      "witherbloom_claim_004",
+                                                      "witherbloom_claim_0020",
+                                                      "witherbloom_claim_0023"
+                                                  ],
+                                    "confidence":  "Medium"
+                                },
+                                {
+                                    "indicator":  "likes embodied study through remedies, toxins, ecology, or the body",
+                                    "rationale":  "Matches official Witherbloom life/death craft and study-area evidence.",
+                                    "claim_ids":  [
+                                                      "witherbloom_claim_003",
+                                                      "witherbloom_claim_005",
+                                                      "witherbloom_claim_0021"
+                                                  ],
+                                    "confidence":  "Medium"
+                                },
+                                {
+                                    "indicator":  "is comfortable with life/death exchange as practical craft",
+                                    "rationale":  "Matches official Witherbloom life/death and living-essence evidence plus bounded placement synthesis.",
+                                    "claim_ids":  [
+                                                      "witherbloom_claim_002",
+                                                      "witherbloom_claim_003",
+                                                      "witherbloom_claim_0019",
+                                                      "witherbloom_claim_0022"
+                                                  ],
+                                    "confidence":  "Medium"
+                                }
+                            ],
+    "calibration_tuning":  {
+                               "required_positive_evidence_terms":  [
+                                                                        "essence",
+                                                                        "life",
+                                                                        "death",
+                                                                        "pest",
+                                                                        "craft",
+                                                                        "brew",
+                                                                        "swamp",
+                                                                        "study",
+                                                                        "body",
+                                                                        "drain",
+                                                                        "growth"
+                                                                    ],
+                               "required_positive_min_hits":  2,
+                               "broad_match_penalty":  0.1,
+                               "strengthen_when_user_centers":  [
+                                                                    "life death craft",
+                                                                    "essence study",
+                                                                    "practical magic",
+                                                                    "body and exchange"
+                                                                ],
+                               "suppress_when_user_centers":  [
+                                                                  "community harmony",
+                                                                  "biological optimization",
+                                                                  "graveyard civilization",
+                                                                  "wild dispossession",
+                                                                  "abstract proof"
+                                                              ],
+                               "false_positive_guardrail":  "Do not award for generic nature, decay, or healing without craft/essence/exchange language.",
+                               "smoke_test_note":  "Used by lore review scripts as metadata-level calibration guidance; production placement may use richer weighted logic."
+                           },
+    "collision_guidance":  [
+                               {
+                                   "collision_id":  "collision_witherbloom_vs_selesnya_conclave_placement_ready",
+                                   "against":  "selesnya_conclave",
+                                   "separator":  "Witherbloom is practical life/death craft; Selesnya is collective harmony and belonging.",
+                                   "ask":  "Do you nurture the group toward peace, or study the exchange of life and death directly?",
+                                   "suppress_if":  "the answer centers consensus, harmony, or selfless belonging",
+                                   "evidence_claim_ids":  [
+                                                              "witherbloom_claim_001",
+                                                              "witherbloom_claim_002",
+                                                              "witherbloom_claim_003",
+                                                              "witherbloom_claim_0023",
+                                                              "witherbloom_claim_0026"
+                                                          ]
+                               },
+                               {
+                                   "collision_id":  "collision_witherbloom_vs_simic_combine_placement_ready",
+                                   "against":  "simic_combine",
+                                   "separator":  "Witherbloom studies essence and cost through embodied craft; Simic optimizes or adapts living systems.",
+                                   "ask":  "Is the living thing a system to improve or a source of essence to understand and spend?",
+                                   "suppress_if":  "the answer centers optimization, adaptation, or engineered progress",
+                                   "evidence_claim_ids":  [
+                                                              "witherbloom_claim_001",
+                                                              "witherbloom_claim_002",
+                                                              "witherbloom_claim_003",
+                                                              "witherbloom_claim_0021",
+                                                              "witherbloom_claim_0026"
+                                                          ]
+                               },
+                               {
+                                   "collision_id":  "collision_witherbloom_vs_quandrix_placement_ready",
+                                   "against":  "quandrix",
+                                   "lateral_inhibition":  false,
+                                   "separator":  "Witherbloom studies practical life/death essence in bodies, remedies, and fieldwork; Quandrix proves the abstract pattern beneath reality.",
+                                   "ask":  "A living system behaves strangely. Do you trust the equation beneath it or the messy exchange of life and death?",
+                                   "suppress_if":  "the answer centers mathematical proof, abstract models, hidden structures, or theoretical metaphysics before embodied essence",
+                                   "evidence_claim_ids":  [
+                                                              "witherbloom_claim_002",
+                                                              "witherbloom_claim_003",
+                                                              "witherbloom_claim_005",
+                                                              "witherbloom_claim_006",
+                                                              "witherbloom_claim_0021",
+                                                              "witherbloom_claim_0026"
+                                                          ]
+                               },
+                               {
+                                   "collision_id":  "collision_witherbloom_vs_golgari_swarm_placement_ready",
+                                   "against":  "golgari_swarm",
+                                   "separator":  "Witherbloom practices school-based essence studies and embodied life/death craft; Golgari turns decay, burial, graveyard value, and undercity survival into civic ecology.",
+                                   "ask":  "Is death useful because a school studies essence and bodily exchange, or because an undercity turns decay into civic continuity?",
+                                   "suppress_if":  "the answer centers rot farms, graveyard recursion, burial, undercity society, or discarded matter becoming civic infrastructure",
+                                   "evidence_claim_ids":  [
+                                                              "witherbloom_claim_001",
+                                                              "witherbloom_claim_002",
+                                                              "witherbloom_claim_003",
+                                                              "witherbloom_claim_0019",
+                                                              "witherbloom_claim_0026"
+                                                          ]
+                               }
+                           ],
+    "semantic_guidance_evidence":  [
+                                       {
+                                           "canonical_pointer":  "/chatbot_guidance/how_to_recognize_match/0",
+                                           "evidence_claim_ids":  [
+                                                                      "witherbloom_claim_003",
+                                                                      "witherbloom_claim_004",
+                                                                      "witherbloom_claim_0020",
+                                                                      "witherbloom_claim_0023"
+                                                                  ]
+                                       },
+                                       {
+                                           "canonical_pointer":  "/chatbot_guidance/how_to_recognize_match/1",
+                                           "evidence_claim_ids":  [
+                                                                      "witherbloom_claim_003",
+                                                                      "witherbloom_claim_005",
+                                                                      "witherbloom_claim_0021"
+                                                                  ]
+                                       },
+                                       {
+                                           "canonical_pointer":  "/chatbot_guidance/how_to_recognize_match/2",
+                                           "evidence_claim_ids":  [
+                                                                      "witherbloom_claim_002",
+                                                                      "witherbloom_claim_003",
+                                                                      "witherbloom_claim_0019",
+                                                                      "witherbloom_claim_0022"
+                                                                  ]
+                                       },
+                                       {
+                                           "canonical_pointer":  "/chatbot_guidance/how_to_recognize_mismatch/0",
+                                           "evidence_claim_ids":  [
+                                                                      "witherbloom_claim_0021",
+                                                                      "witherbloom_claim_0026"
+                                                                  ]
+                                       },
+                                       {
+                                           "canonical_pointer":  "/chatbot_guidance/how_to_recognize_mismatch/1",
+                                           "evidence_claim_ids":  [
+                                                                      "witherbloom_claim_002",
+                                                                      "witherbloom_claim_003",
+                                                                      "witherbloom_claim_0020"
+                                                                  ]
+                                       },
+                                       {
+                                           "canonical_pointer":  "/chatbot_guidance/how_to_recognize_mismatch/2",
+                                           "evidence_claim_ids":  [
+                                                                      "witherbloom_claim_0019",
+                                                                      "witherbloom_claim_0022",
+                                                                      "witherbloom_claim_0026"
+                                                                  ]
+                                       },
+                                       {
+                                           "canonical_pointer":  "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+                                           "evidence_claim_ids":  [
+                                                                      "witherbloom_claim_002",
+                                                                      "witherbloom_claim_003",
+                                                                      "witherbloom_claim_004",
+                                                                      "witherbloom_claim_0020",
+                                                                      "witherbloom_claim_0023",
+                                                                      "witherbloom_claim_0024"
+                                                                  ]
+                                       },
+                                       {
+                                           "canonical_pointer":  "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+                                           "evidence_claim_ids":  [
+                                                                      "witherbloom_claim_003",
+                                                                      "witherbloom_claim_005",
+                                                                      "witherbloom_claim_0021",
+                                                                      "witherbloom_claim_0026"
+                                                                  ]
+                                       }
+                                   ],
+    "required_neighbor_evidence":  [
+                                       {
+                                           "neighbor":  "BG",
+                                           "label":  "Golgari Swarm",
+                                           "reason":  "Same-color guild twin and explicit Strixhaven/Golgari boundary requirement.",
+                                           "evidence_claim_ids":  [
+                                                                      "witherbloom_claim_001",
+                                                                      "witherbloom_claim_002",
+                                                                      "witherbloom_claim_003",
+                                                                      "witherbloom_claim_0019",
+                                                                      "witherbloom_claim_0026"
+                                                                  ],
+                                           "ambiguity":  "Both can involve life, death, decay, and black-green resource loops; Witherbloom needs school-based essence craft while Golgari resolves into civic decay, burial, graveyard recursion, or undercity continuity."
+                                       },
+                                       {
+                                           "neighbor":  "SELESNYA_CONCLAVE",
+                                           "label":  "Selesnya Conclave",
+                                           "reason":  "Existing collision guidance and overlap around life, growth, care, and nature.",
+                                           "evidence_claim_ids":  [
+                                                                      "witherbloom_claim_002",
+                                                                      "witherbloom_claim_003",
+                                                                      "witherbloom_claim_0023",
+                                                                      "witherbloom_claim_0026"
+                                                                  ],
+                                           "ambiguity":  "Both can involve care and growth; Witherbloom needs cost-aware life/death exchange rather than harmony or selfless belonging alone."
+                                       },
+                                       {
+                                           "neighbor":  "SIMIC_COMBINE",
+                                           "label":  "Simic Combine",
+                                           "reason":  "Existing collision guidance and overlap around biology and living systems.",
+                                           "evidence_claim_ids":  [
+                                                                      "witherbloom_claim_003",
+                                                                      "witherbloom_claim_005",
+                                                                      "witherbloom_claim_0021",
+                                                                      "witherbloom_claim_0026"
+                                                                  ],
+                                           "ambiguity":  "Both can study living systems; Witherbloom centers essence, bodies, remedies, toxins, and cost while Simic centers optimization, adaptation, or engineered progress."
+                                       },
+                                       {
+                                           "neighbor":  "QUANDRIX",
+                                           "label":  "Quandrix College",
+                                           "reason":  "Existing Strixhaven natural-system neighbor with body/fieldwork versus abstraction ambiguity.",
+                                           "evidence_claim_ids":  [
+                                                                      "witherbloom_claim_002",
+                                                                      "witherbloom_claim_003",
+                                                                      "witherbloom_claim_005",
+                                                                      "witherbloom_claim_006",
+                                                                      "witherbloom_claim_0021",
+                                                                      "witherbloom_claim_0026"
+                                                                  ],
+                                           "ambiguity":  "Both can investigate natural systems; Witherbloom is embodied life/death craft while Quandrix leads with proof, equations, and abstract models."
+                                       }
+                                   ],
+    "semantic_readiness":  {
+                               "contract_version":  "v1.1",
+                               "certification_status":  "gate3_canonical_remediation",
+                               "required_neighbors":  [
+                                                          "BG",
+                                                          "SELESNYA_CONCLAVE",
+                                                          "SIMIC_COMBINE",
+                                                          "QUANDRIX"
+                                                      ],
+                               "audit_report":  "docs/incidents/recoveries/VM-505-witherbloom-semantic-recovery.md",
+                               "generated_artifacts_status":  "stale_until_gate4"
+                           }
 }

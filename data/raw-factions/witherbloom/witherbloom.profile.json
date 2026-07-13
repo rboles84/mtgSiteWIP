@@ -8,13 +8,13 @@
     "black",
     "green"
   ],
-  "last_updated": "2026-06-13",
+  "last_updated": "2026-07-13",
   "profile": {
     "overview": "Witherbloom College is a black-green college associated with Arcavios / Strixhaven.",
-    "philosophy": "Life and death are living essences to study, brew, heal with, bargain with, and weaponize.",
-    "core_tension": "Witherbloom splits between nurturing ecosystems and exploiting life essence for personal or practical power.",
-    "social_or_institutional_role": "The official guides frame Witherbloom as the College of Essence Studies, with mages at home in swamps, labs, clinics, and dangerous fieldwork.",
-    "mechanics_and_play_pattern": "Witherbloom identity centers on life gain, pests, sacrifice, healing, harm, and biological exchange.",
+    "philosophy": "Life and death are living essences to study and use through brewing, healing, harm, death-facing magic, and practical craft.",
+    "core_tension": "Witherbloom splits between cultivating life energy and extracting it for personal or practical power.",
+    "social_or_institutional_role": "The official guides frame Witherbloom as the College of Essence Studies, with study areas including alchemy, medicine, biomancy, pathology, toxicology, mortuary science, and necromancy.",
+    "mechanics_and_play_pattern": "Witherbloom identity can use life gain, life loss, Pests, sacrifice, healing, harm, and death triggers when those mechanics express embodied life/death exchange.",
     "placement_use": "Use this profile to support thematic placement, quiz design, and lore browsing. Do not present placement inferences as canon.",
     "strongest_source_ids": [
       "src_wotc_planeswalkers_guide_strixhaven_2021",
@@ -27,7 +27,11 @@
       "witherbloom_claim_003",
       "witherbloom_claim_004",
       "witherbloom_claim_005",
-      "witherbloom_claim_006"
+      "witherbloom_claim_006",
+      "witherbloom_claim_0019",
+      "witherbloom_claim_0020",
+      "witherbloom_claim_0021",
+      "witherbloom_claim_0022"
     ]
   },
   "evidence_summary": {
@@ -42,48 +46,44 @@
   "last_incremental_review": "2026-06-13",
   "core_identity": {
     "summary": "Witherbloom College is a black-green college associated with Arcavios / Strixhaven.",
-    "philosophy": "Life and death are living essences to study, brew, heal with, bargain with, and weaponize.",
-    "central_tension": "Witherbloom splits between nurturing ecosystems and exploiting life essence for personal or practical power.",
+    "philosophy": "Life and death are living essences to study and use through brewing, healing, harm, death-facing magic, and practical craft.",
+    "central_tension": "Witherbloom splits between cultivating life energy and extracting it for personal or practical power.",
     "claim_ids": [
-      "witherbloom_claim_0007",
-      "witherbloom_claim_0008",
-      "witherbloom_claim_0009",
-      "witherbloom_claim_0010",
-      "witherbloom_claim_0011",
-      "witherbloom_claim_0012",
-      "witherbloom_claim_0013",
-      "witherbloom_claim_0014"
+      "witherbloom_claim_001",
+      "witherbloom_claim_002",
+      "witherbloom_claim_003",
+      "witherbloom_claim_004",
+      "witherbloom_claim_0019",
+      "witherbloom_claim_0020"
     ]
   },
   "site_surface": {
     "display_name": "Witherbloom College",
     "short_label": "Witherbloom College",
-    "tagline": "Life and death are living essences to study, brew, heal with, bargain with, and weaponize.",
+    "tagline": "Life and death are living essences to study and use through brewing, healing, harm, death-facing magic, and practical craft.",
     "claim_ids": [
-      "witherbloom_claim_0007",
-      "witherbloom_claim_0008",
-      "witherbloom_claim_0009",
-      "witherbloom_claim_0010"
+      "witherbloom_claim_001",
+      "witherbloom_claim_002",
+      "witherbloom_claim_003",
+      "witherbloom_claim_0019"
     ]
   },
   "structure": {
-    "summary": "The official guides frame Witherbloom as the College of Essence Studies, with mages at home in swamps, labs, clinics, and dangerous fieldwork.",
+    "summary": "The official guides frame Witherbloom as the College of Essence Studies, with study areas including alchemy, medicine, biomancy, pathology, toxicology, mortuary science, and necromancy.",
     "claim_ids": [
-      "witherbloom_claim_0007",
-      "witherbloom_claim_0008",
-      "witherbloom_claim_0009",
-      "witherbloom_claim_0010"
+      "witherbloom_claim_001",
+      "witherbloom_claim_005",
+      "witherbloom_claim_0021"
     ]
   },
   "great_tension": {
-    "summary": "Witherbloom splits between nurturing ecosystems and exploiting life essence for personal or practical power.",
+    "summary": "Witherbloom splits between cultivating life energy and extracting it for personal or practical power.",
     "placement_relevance": "Used to distinguish surface color overlap from faction-specific behavior.",
     "claim_ids": [
-      "witherbloom_claim_0007",
-      "witherbloom_claim_0008",
-      "witherbloom_claim_0009",
-      "witherbloom_claim_0010",
-      "witherbloom_claim_0011"
+      "witherbloom_claim_004",
+      "witherbloom_claim_0020",
+      "witherbloom_claim_0023",
+      "witherbloom_claim_0024"
     ]
   },
   "historical_timeline": [],
@@ -110,30 +110,24 @@
       "name": "Dina, Essence Brewer",
       "role": "Face commander for Witherbloom Pestilence in the official Secrets of Strixhaven Commander decklist.",
       "relationship_to_faction": "Support-only product/navigation anchor; not a lore biography or popularity claim.",
-      "claim_ids": [
-        "witherbloom_claim_0017"
-      ],
       "source_ids": [
         "src_wotc_secrets_strixhaven_commander_decklists_20260401",
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
       "confidence": "High for product/card fact; support-only for lore and recommendations.",
-      "notes": "Product row can support deck availability, commander name, and navigation only."
+      "notes": "Product row can support deck availability, commander name, and navigation only; no claim_ids are attached because support records cannot prove key-figure identity meaning."
     },
     {
       "character_id": "card_gorma_the_gullet",
       "name": "Gorma, the Gullet",
       "role": "Featured commander for Witherbloom Pestilence in the official Secrets of Strixhaven Commander decklist.",
       "relationship_to_faction": "Support-only product/navigation anchor; not a lore biography or popularity claim.",
-      "claim_ids": [
-        "witherbloom_claim_0017"
-      ],
       "source_ids": [
         "src_wotc_secrets_strixhaven_commander_decklists_20260401",
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
       "confidence": "High for product/card fact; support-only for lore and recommendations.",
-      "notes": "Product row can support deck availability, commander name, and navigation only."
+      "notes": "Product row can support deck availability, commander name, and navigation only; no claim_ids are attached because support records cannot prove key-figure identity meaning."
     }
   ],
   "canonical_flavor_text": [
@@ -150,7 +144,8 @@
       "source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+      "evidence_use": "auxiliary_support"
     },
     {
       "card_name": "Witherbloom Apprentice",
@@ -165,7 +160,8 @@
       "source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+      "evidence_use": "auxiliary_support"
     },
     {
       "card_name": "Witherbloom Pledgemage",
@@ -180,17 +176,18 @@
       "source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+      "evidence_use": "auxiliary_support"
     }
   ],
   "views_on_other_factions": [],
   "mechanics": {
-    "summary": "Witherbloom identity centers on life gain, pests, sacrifice, healing, harm, and biological exchange.",
+    "summary": "Witherbloom identity can use life gain, life loss, Pests, sacrifice, healing, harm, and death triggers when those mechanics express embodied life/death exchange.",
     "claim_ids": [
-      "witherbloom_claim_0007",
-      "witherbloom_claim_0008",
-      "witherbloom_claim_0009",
-      "witherbloom_claim_0010"
+      "witherbloom_claim_002",
+      "witherbloom_claim_003",
+      "witherbloom_claim_005",
+      "witherbloom_claim_0022"
     ]
   },
   "search_and_filter_metadata": {
@@ -255,7 +252,8 @@
         "witherbloom_claim_0014",
         "witherbloom_claim_0015",
         "witherbloom_claim_0016"
-      ]
+      ],
+      "evidence_use": "discovery_metadata"
     },
     "raw_enrichment": {
       "review_date": "2026-06-13",
@@ -313,11 +311,20 @@
         "witherbloom_claim_003",
         "witherbloom_claim_004",
         "witherbloom_claim_006",
-        "witherbloom_claim_0017",
-        "witherbloom_claim_0018"
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0020",
+        "witherbloom_claim_0021",
+        "witherbloom_claim_0022"
       ],
       "supporting_source_ids": [
         "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "auxiliary_support_claim_ids": [
+        "witherbloom_claim_0017",
+        "witherbloom_claim_0018"
+      ],
+      "auxiliary_support_source_ids": [
         "src_wotc_secrets_strixhaven_commander_decklists_20260401",
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ]
@@ -358,7 +365,8 @@
             "witherbloom_claim_0017"
           ],
           "support_only": true,
-          "boundary": "Official product/card-data support only."
+          "boundary": "Official product/card-data support only.",
+          "evidence_use": "auxiliary_support"
         },
         "confidence": "High for product/card identity; support-only for recommendation texture.",
         "caution_notes": [
@@ -401,7 +409,8 @@
             "witherbloom_claim_0017"
           ],
           "support_only": true,
-          "boundary": "Official product/card-data support only."
+          "boundary": "Official product/card-data support only.",
+          "evidence_use": "auxiliary_support"
         },
         "confidence": "High for product/card identity; support-only for recommendation texture.",
         "caution_notes": [

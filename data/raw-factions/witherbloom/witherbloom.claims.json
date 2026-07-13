@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "faction_id": "witherbloom",
   "faction_name": "Witherbloom College",
-  "last_updated": "2026-06-13",
-  "claim_count": 18,
+  "last_updated": "2026-07-13",
+  "claim_count": 26,
   "claims": [
     {
       "claim_id": "witherbloom_claim_001",
@@ -16,7 +16,26 @@
         "src_wotc_strixhaven_product_page_2021"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven - Witherbloom college overview",
+          "bounded_paraphrase": "Official Strixhaven sources identify Witherbloom as the black-green College of Essence Studies.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct"
+        },
+        {
+          "source_id": "src_wotc_strixhaven_product_page_2021",
+          "locator_type": "product overview",
+          "locator": "Strixhaven: School of Mages - college product overview",
+          "bounded_paraphrase": "Official Strixhaven product overview material identifies Witherbloom as the black-green Strixhaven college.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct"
+        }
+      ]
     },
     {
       "claim_id": "witherbloom_claim_002",
@@ -28,7 +47,18 @@
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven - Witherbloom college overview",
+          "bounded_paraphrase": "The official 2021 Witherbloom overview says Witherbloom mages draw power from opposing forces of life and death.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct"
+        }
+      ]
     },
     {
       "claim_id": "witherbloom_claim_003",
@@ -40,7 +70,18 @@
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven - Witherbloom college overview",
+          "bounded_paraphrase": "The official 2021 Witherbloom overview describes magic brewed from natural components and living essence for healing, harm, raising, and entreating the dead.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct"
+        }
+      ]
     },
     {
       "claim_id": "witherbloom_claim_004",
@@ -52,7 +93,18 @@
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven - Witherbloom college overview",
+          "bounded_paraphrase": "The official 2021 Witherbloom overview frames a black-green split between exploiting life energy and encouraging life energy to blossom and grow.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct"
+        }
+      ]
     },
     {
       "claim_id": "witherbloom_claim_005",
@@ -64,7 +116,18 @@
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven - Witherbloom college overview and study areas",
+          "bounded_paraphrase": "The official 2026 Witherbloom overview lists life-science and death-facing study areas including alchemy, medicine, biomancy, pathology, toxicology, mortuary science, and necromancy.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct"
+        }
+      ]
     },
     {
       "claim_id": "witherbloom_claim_006",
@@ -77,7 +140,26 @@
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
       ],
       "confidence": "High",
-      "notes": "Placement inference derived from official faction identity and mechanics; not an official Wizards psychological taxonomy."
+      "notes": "Placement inference derived from official faction identity and mechanics; not an official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven - Witherbloom college overview",
+          "bounded_paraphrase": "Official Witherbloom identity, life/death magic, living essence, and black-green tension support Vox Mana placement weighting toward embodied life/death craft and practical exchange.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven - Witherbloom college overview and study areas",
+          "bounded_paraphrase": "Official Witherbloom study areas support Vox Mana placement weighting toward medicine, toxicology, ecology, mortuary practice, field/body learning, and practical magic.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "witherbloom_claim_0007",
@@ -90,7 +172,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "witherbloom_claim_0008",
@@ -103,7 +186,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "witherbloom_claim_0009",
@@ -116,7 +200,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "witherbloom_claim_0010",
@@ -129,7 +214,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "witherbloom_claim_0011",
@@ -142,7 +228,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "witherbloom_claim_0012",
@@ -155,7 +242,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "witherbloom_claim_0013",
@@ -168,7 +256,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "witherbloom_claim_0014",
@@ -181,7 +270,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "witherbloom_claim_0015",
@@ -194,7 +284,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "witherbloom_claim_0016",
@@ -207,7 +298,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "witherbloom_claim_0017",
@@ -219,7 +311,8 @@
         "src_wotc_secrets_strixhaven_commander_decklists_20260401"
       ],
       "confidence": "High",
-      "notes": "Decklist support is product/navigation only. It is not lore proof, popularity proof, metagame proof, legality proof, or canon identity proof."
+      "notes": "Decklist support is product/navigation only. It is not lore proof, popularity proof, metagame proof, legality proof, or canon identity proof.",
+      "semantic_role": "support_record"
     },
     {
       "claim_id": "witherbloom_claim_0018",
@@ -231,7 +324,255 @@
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
       "confidence": "High for card-data attribution",
-      "notes": "Use only short summaries in generated/public surfaces; do not copy long flavor blocks."
+      "notes": "Use only short summaries in generated/public surfaces; do not copy long flavor blocks.",
+      "semantic_role": "support_record"
+    },
+    {
+      "claim_id": "witherbloom_claim_0019",
+      "faction_id": "witherbloom",
+      "claim_type": "placement_synthesis",
+      "statement": "Witherbloom identity is practical life/death craft: living essence, natural components, healing, harm, medicine, toxicology, mortuary practice, and other embodied studies matter when they show life and death as usable forces rather than abstract mood.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "High",
+      "notes": "Vox Mana placement synthesis derived from official Witherbloom identity and study-area evidence; not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven - Witherbloom college overview",
+          "bounded_paraphrase": "Official 2021 evidence supports living essence, natural components, healing, harm, and death-facing magic as Witherbloom methods.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven - Witherbloom college overview and study areas",
+          "bounded_paraphrase": "Official 2026 evidence supports medicine, biomancy, pathology, toxicology, mortuary science, and necromancy as Witherbloom study areas.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "witherbloom_claim_0020",
+      "faction_id": "witherbloom",
+      "claim_type": "internal_tension",
+      "statement": "Witherbloom internal tension is the difference between cultivating life energy and extracting it: growth, remedy, and care can sit beside exploitation, harm, and death-facing use of living essence.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "confidence": "High",
+      "notes": "Synthesis of the official black-green Witherbloom life-energy split and life/death magic description.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven - Witherbloom college overview",
+          "bounded_paraphrase": "Official 2021 evidence frames black-aligned exploitation of life energy and green-aligned encouragement of life energy to blossom and grow.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "bounded_inference"
+        }
+      ]
+    },
+    {
+      "claim_id": "witherbloom_claim_0021",
+      "faction_id": "witherbloom",
+      "claim_type": "method",
+      "statement": "Witherbloom method is embodied and practical: it learns through ingredients, living essence, medicine, toxins, bodies, pathology, mortuary practice, necromancy, and applied magical study rather than detached abstraction alone.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "High",
+      "notes": "Bounded synthesis from official natural-component, living-essence, and academic-study evidence.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven - Witherbloom college overview",
+          "bounded_paraphrase": "Official 2021 evidence describes Witherbloom magic brewed from natural components and living essence.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "bounded_inference"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven - Witherbloom college overview and study areas",
+          "bounded_paraphrase": "Official 2026 evidence lists applied life/death study areas such as medicine, toxicology, pathology, mortuary science, and necromancy.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "bounded_inference"
+        }
+      ]
+    },
+    {
+      "claim_id": "witherbloom_claim_0022",
+      "faction_id": "witherbloom",
+      "claim_type": "mechanics_identity",
+      "statement": "Witherbloom mechanics-facing identity may use life gain, life loss, Pests, sacrifice, healing, harm, and death triggers when those mechanics express biological exchange, living essence, or practical life/death craft.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "Medium-High",
+      "notes": "Project synthesis for mechanics-facing consumers; card/product support rows remain auxiliary and cannot independently prove identity meaning.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven - Witherbloom college overview",
+          "bounded_paraphrase": "Official 2021 evidence supports life/death power, natural components, living essence, healing, harm, and death-facing magic.",
+          "evidence_scope": "mechanics-synthesis",
+          "interpretation_level": "project_synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven - Witherbloom college overview and study areas",
+          "bounded_paraphrase": "Official 2026 evidence supports applied life/death study areas that justify mechanics-facing interpretation when tied to biology or essence exchange.",
+          "evidence_scope": "mechanics-synthesis",
+          "interpretation_level": "project_synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "witherbloom_claim_0023",
+      "faction_id": "witherbloom",
+      "claim_type": "mature_expression",
+      "statement": "Mature Witherbloom expression uses life/death knowledge to heal, nourish, study, brew, cultivate, and survive while acknowledging that every exchange has a cost.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "Medium-High",
+      "notes": "Vox Mana maturity synthesis from official healing/harm, living essence, growth, medicine, and applied-study evidence.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven - Witherbloom college overview",
+          "bounded_paraphrase": "Official 2021 evidence supports healing, harm, living essence, and the growth/exploitation tension as Witherbloom material.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven - Witherbloom college overview and study areas",
+          "bounded_paraphrase": "Official 2026 evidence supports medicine, toxicology, pathology, mortuary science, and necromancy as practical study areas.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "witherbloom_claim_0024",
+      "faction_id": "witherbloom",
+      "claim_type": "unhealthy_expression",
+      "statement": "Unhealthy Witherbloom expression treats living systems only as extractable material or reduces life/death craft to consumption, exploitation, poison, harm, or death-facing use without reciprocal cultivation or care.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "Medium-High",
+      "notes": "Bounded shadow synthesis; it does not claim Witherbloom is villainous by default.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven - Witherbloom college overview",
+          "bounded_paraphrase": "Official 2021 evidence supports the exploit/cultivate life-energy split and Witherbloom magic that can heal or harm.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven - Witherbloom college overview and study areas",
+          "bounded_paraphrase": "Official 2026 evidence supports toxins, pathology, mortuary science, and necromancy as part of the Witherbloom study range.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "witherbloom_claim_0025",
+      "faction_id": "witherbloom",
+      "claim_type": "pressure_behavior",
+      "statement": "Under pressure, a Witherbloom reading can drift toward over-extraction, treating bodies and ecosystems as resources, or toward losing the embodied life/death exchange that makes the college distinct.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "Medium",
+      "notes": "Vox Mana pressure-behavior synthesis from official Witherbloom tension and method evidence.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven - Witherbloom college overview",
+          "bounded_paraphrase": "Official 2021 evidence supports exploit/cultivate tension, life/death forces, and healing/harm as Witherbloom methods.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven - Witherbloom college overview and study areas",
+          "bounded_paraphrase": "Official 2026 evidence supports applied life/death study areas that can be misread when separated from embodied exchange.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "witherbloom_claim_0026",
+      "faction_id": "witherbloom",
+      "claim_type": "neighbor_boundary",
+      "statement": "Witherbloom should be distinguished from nearby identities by its school-based essence studies, embodied life/death exchange, remedies, poisons, biology, and practical craft rather than generic black-green graveyard value, collective harmony, engineered biological optimization, or abstract proof.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "Medium-High",
+      "notes": "Witherbloom-side required-neighbor boundary synthesis for BG/Golgari, Selesnya, Simic, and Quandrix; adjacent identities still require their own certified evidence on their side.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven - Witherbloom college overview",
+          "bounded_paraphrase": "Official 2021 evidence supports Witherbloom as life/death essence craft, not generic black-green or abstract naturalism.",
+          "evidence_scope": "neighbor-boundary",
+          "interpretation_level": "project_synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven - Witherbloom college overview and study areas",
+          "bounded_paraphrase": "Official 2026 evidence supports practical study areas such as medicine, toxicology, biomancy, pathology, mortuary science, and necromancy for Witherbloom-side boundaries.",
+          "evidence_scope": "neighbor-boundary",
+          "interpretation_level": "project_synthesis"
+        }
+      ]
     }
   ]
 }

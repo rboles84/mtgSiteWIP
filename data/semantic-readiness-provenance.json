@@ -30769,22 +30769,215 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/behavioral_signals/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:c98429d45a9abcf4c82a54ff8f5f23e07fdd5b9f797c3039088ce19cd45e8b24",
+      "canonical_content_hash": "sha256:4984b1f8c34883da94dd37835a9c0146c268fa75915cb62afae4a99d859cb689",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009",
-        "witherbloom_claim_0010",
-        "witherbloom_claim_0011",
-        "witherbloom_claim_0012"
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_004",
+        "witherbloom_claim_005",
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0021",
+        "witherbloom_claim_0026"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_down_to_the_lake_alone_520df369",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:b9ba23e52f68d0a92b2d88f036ba26bc84b5f20e8fc59fd111368cb96362ed03",
+      "evidence_claim_ids": [
+        "witherbloom_claim_003",
+        "witherbloom_claim_004",
+        "witherbloom_claim_0020",
+        "witherbloom_claim_0023"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:2f359af1217a5dab1d3746bd13621499ccaf6e08b3e668400f8474e6dc50343e",
+      "evidence_claim_ids": [
+        "witherbloom_claim_003",
+        "witherbloom_claim_005",
+        "witherbloom_claim_0021"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:283beb98f9109af56c37615bfa07301a9566126b1654425a337df3d820ff4db9",
+      "evidence_claim_ids": [
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0022"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:a6f0ff297690cd1254b0246781a8868d712aaa60346dd4ead454480bdbb80e96",
+      "evidence_claim_ids": [
+        "witherbloom_claim_0021",
+        "witherbloom_claim_0026"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:d72984039472d65483f3aa95eb1b29e012a3cbe1ec5a716a31849bb4528339f5",
+      "evidence_claim_ids": [
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_0020"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:4287eb05df8715174692805025f46d4bbf319dd4fed706f045765715d5d9dc4a",
+      "evidence_claim_ids": [
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0022",
+        "witherbloom_claim_0026"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:94243362a8dbe8c0a103e9712a55761328835c298ade76fd1da25b9433fe4fef",
+      "evidence_claim_ids": [
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_004",
+        "witherbloom_claim_0020",
+        "witherbloom_claim_0023",
+        "witherbloom_claim_0024"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:5d6b29c58eac550bf98c829478132093d544cd2c5dbb57e823a1c28fa8155b51",
+      "evidence_claim_ids": [
+        "witherbloom_claim_003",
+        "witherbloom_claim_005",
+        "witherbloom_claim_0021",
+        "witherbloom_claim_0026"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -30802,9 +30995,12 @@
       "evidence_claim_ids": [
         "witherbloom_claim_001",
         "witherbloom_claim_002",
-        "witherbloom_claim_003"
+        "witherbloom_claim_003",
+        "witherbloom_claim_0023",
+        "witherbloom_claim_0026"
       ],
       "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021",
         "src_wotc_strixhaven_product_page_2021"
       ],
@@ -30820,13 +31016,16 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/collision_guidance/1",
       "canonical_id": "collision_witherbloom_vs_simic_combine_placement_ready",
-      "canonical_content_hash": "sha256:c684b3c9e8bfe4fd1c9eb79978e1052e688fa11415be177236fc7a69a92bba22",
+      "canonical_content_hash": "sha256:ff5d7f47b9a9f3ddf800404f8a82fe88c095528fec6e2bc43f2ead00ce031673",
       "evidence_claim_ids": [
         "witherbloom_claim_001",
         "witherbloom_claim_002",
-        "witherbloom_claim_003"
+        "witherbloom_claim_003",
+        "witherbloom_claim_0021",
+        "witherbloom_claim_0026"
       ],
       "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021",
         "src_wotc_strixhaven_product_page_2021"
       ],
@@ -30847,7 +31046,9 @@
         "witherbloom_claim_002",
         "witherbloom_claim_003",
         "witherbloom_claim_005",
-        "witherbloom_claim_006"
+        "witherbloom_claim_006",
+        "witherbloom_claim_0021",
+        "witherbloom_claim_0026"
       ],
       "evidence_source_ids": [
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
@@ -30863,18 +31064,40 @@
     {
       "identity_key": "WITHERBLOOM",
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
-      "canonical_pointer": "/core_values/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:26bae3ca97510554d0dc53fe9f214505048b02b47afd53c92a36a1459d66400e",
+      "canonical_pointer": "/collision_guidance/3",
+      "canonical_id": "collision_witherbloom_vs_golgari_swarm_placement_ready",
+      "canonical_content_hash": "sha256:44f0d93c283f682b885f014fd84f1c2d02de37ca48855ea1e23a037ca4aebe41",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
+        "witherbloom_claim_001",
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0026"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/core_values/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:5257597fc89c992ef1dc4ccb3acc27af0bf6bc814f96e6559000741cf81b4b75",
+      "evidence_claim_ids": [
+        "witherbloom_claim_001"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -30888,16 +31111,14 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/core_values/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:05c3374e6dc827864a70e05e53f28a9d2b3683194ec813b9009f8a06fd0b9b9e",
+      "canonical_content_hash": "sha256:f41317fa65b064ed00025514645b25194d54d855ecf30b6d8048f25c9cbdf656",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -30911,16 +31132,14 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/core_values/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:a733e4bc9cbf07de0dff4b246fe34eb6da2c962bf118e0563d3eca71ed8aab6c",
+      "canonical_content_hash": "sha256:2767b78be266d4aa0752d02b39f9714d018708b9cc8f905b8b86410370998a60",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
+        "witherbloom_claim_003",
+        "witherbloom_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -30934,16 +31153,15 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/core_values/3",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:dea477342eb7a1d6dc4d03f3f542f4ef53c1df9e7d342cf9ce6bacdefdb05326",
+      "canonical_content_hash": "sha256:6a5fe721c2d8dca23851325c85b8094aef469ed43cccb111098c2b8fe525843c",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
+        "witherbloom_claim_004",
+        "witherbloom_claim_0020",
+        "witherbloom_claim_0024"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -30957,16 +31175,14 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/core_values/4",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:7bb2b868efa61c09a21b921c1ebde0455b0dd8a6e6dd5a213e32e9368d081e4b",
+      "canonical_content_hash": "sha256:acf3f036142c930935ce24cbc88c6170f708d75be5fea57d4e584f50fb2a8ccc",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
+        "witherbloom_claim_005",
+        "witherbloom_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -30980,16 +31196,15 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/core_values/5",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:1cb05a12b0a9262000eae93449c4abfcc412bd836d870e0dab551eb2723805f0",
+      "canonical_content_hash": "sha256:6c0fe233bbb6d2d30278076d56415b9be6649d434d3ff47ada44b3689603efd8",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
+        "witherbloom_claim_003",
+        "witherbloom_claim_005",
+        "witherbloom_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -31003,16 +31218,13 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/core_values/6",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:372c18695b3e674e240a70d8826fed5c6113e4afcb5b63cb56cbf2db369a1faf",
+      "canonical_content_hash": "sha256:80aa5df7397c707f0fd31b2e2145f971bef711c847a62d50369df28fcb32d89e",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
+        "witherbloom_claim_0022"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -31026,16 +31238,13 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/core_values/7",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:9570c1d805addd7466b920494dd655e26b588fdf56b5de98e682340923216d6d",
+      "canonical_content_hash": "sha256:148f6fad4f956a88472237f67bb43c10e16fad6ba7db7978705779d91ec66f61",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
+        "witherbloom_claim_0023"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -31049,16 +31258,14 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/core_values/8",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:5c0b456d7a490afd2cd21e0c32db056aa7535a89aa2f34013aefd69949b0740f",
+      "canonical_content_hash": "sha256:9f9ba4178b2cf095982cf2a0ec8e72a1f834f6061ca56395bee95be58e1c1d57",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
+        "witherbloom_claim_0024",
+        "witherbloom_claim_0025"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -31072,16 +31279,13 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/core_values/9",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:25b7668ed8f0d26c0b0d6d4fd812e6be209aee040e0cb8db9b898682473fcaf6",
+      "canonical_content_hash": "sha256:be9e2de4b556cdba573fff975ca46547f0e72cba8bfd5c5348658d3e16e105ae",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009"
+        "witherbloom_claim_0026"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -31095,15 +31299,18 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/discriminator_questions/0",
       "canonical_id": "witherbloom_q1",
-      "canonical_content_hash": "sha256:b5a3067c1b7503bfc0b26500a7f62882de2b6681413d69f1be7275e13d518d43",
+      "canonical_content_hash": "sha256:dfac783edb67c37e37ae4071e5203221eedba00f34a630674716240c53b338fd",
       "evidence_claim_ids": [
-        "witherbloom_claim_001",
         "witherbloom_claim_002",
-        "witherbloom_claim_003"
+        "witherbloom_claim_003",
+        "witherbloom_claim_004",
+        "witherbloom_claim_0020",
+        "witherbloom_claim_0023",
+        "witherbloom_claim_0024"
       ],
       "evidence_source_ids": [
-        "src_wotc_planeswalkers_guide_strixhaven_2021",
-        "src_wotc_strixhaven_product_page_2021"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -31117,13 +31324,39 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/discriminator_questions/1",
       "canonical_id": "witherbloom_q2",
-      "canonical_content_hash": "sha256:ea3fd9d66a9b95acb4c85f13910957d93759b19074e83f5850f0e453bf45db48",
+      "canonical_content_hash": "sha256:b3922d0437472fd6f5531a9a4fdab68872edf12e2db371241f219bd497fe5891",
+      "evidence_claim_ids": [
+        "witherbloom_claim_003",
+        "witherbloom_claim_005",
+        "witherbloom_claim_0021",
+        "witherbloom_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/discriminator_questions/2",
+      "canonical_id": "q_witherbloom_9800",
+      "canonical_content_hash": "sha256:c807b87c5b695ed24afc2fcd2c0fae028c46d5744bd7ff1f63eb0951c847e6d0",
       "evidence_claim_ids": [
         "witherbloom_claim_001",
         "witherbloom_claim_002",
-        "witherbloom_claim_003"
+        "witherbloom_claim_003",
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0026"
       ],
       "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021",
         "src_wotc_strixhaven_product_page_2021"
       ],
@@ -31137,7 +31370,7 @@
     {
       "identity_key": "WITHERBLOOM",
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
-      "canonical_pointer": "/discriminator_questions/2",
+      "canonical_pointer": "/discriminator_questions/3",
       "canonical_id": "q_witherbloom_9801",
       "canonical_content_hash": "sha256:7169551ff454ecf9a34f8ab565d8bb1ed6275873a3e3c5b4ee1ba91f3117813a",
       "evidence_claim_ids": [
@@ -31159,7 +31392,7 @@
     {
       "identity_key": "WITHERBLOOM",
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
-      "canonical_pointer": "/discriminator_questions/3",
+      "canonical_pointer": "/discriminator_questions/4",
       "canonical_id": "q_witherbloom_9802",
       "canonical_content_hash": "sha256:b77d8c0c71e19732b26b03a6907972b0a18ff47328acd30acb3aebe34dbb94c0",
       "evidence_claim_ids": [
@@ -31185,11 +31418,14 @@
       "canonical_id": null,
       "canonical_content_hash": "sha256:61bae2c1e7959dddee4b0c964c5e9c84fdd227252d4e264ebef513638f677fac",
       "evidence_claim_ids": [
-        "witherbloom_claim_001"
+        "witherbloom_claim_003",
+        "witherbloom_claim_004",
+        "witherbloom_claim_0020",
+        "witherbloom_claim_0023"
       ],
       "evidence_source_ids": [
-        "src_wotc_planeswalkers_guide_strixhaven_2021",
-        "src_wotc_strixhaven_product_page_2021"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -31203,11 +31439,14 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/good_fit_indicators/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:540495d786f53f2c5f75ac94a4386af59ea4c9c3f947ae499097c12960212de2",
+      "canonical_content_hash": "sha256:c0783f084279618079a3a3124eec9d0b8689cacd9a28b344767703add5d4968d",
       "evidence_claim_ids": [
-        "witherbloom_claim_002"
+        "witherbloom_claim_003",
+        "witherbloom_claim_005",
+        "witherbloom_claim_0021"
       ],
       "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
@@ -31222,11 +31461,15 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/good_fit_indicators/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:a5408300185e1a4afba3c7e1fe83972f43e5de09cac940810e4ec05604feb2e0",
+      "canonical_content_hash": "sha256:1f40c0371da37e72088177cd4ec0feed729412d1780c32ca2ac53e09d3ca24c6",
       "evidence_claim_ids": [
-        "witherbloom_claim_003"
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0022"
       ],
       "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
@@ -31243,11 +31486,14 @@
       "canonical_id": null,
       "canonical_content_hash": "sha256:61bae2c1e7959dddee4b0c964c5e9c84fdd227252d4e264ebef513638f677fac",
       "evidence_claim_ids": [
-        "witherbloom_claim_001"
+        "witherbloom_claim_003",
+        "witherbloom_claim_004",
+        "witherbloom_claim_0020",
+        "witherbloom_claim_0023"
       ],
       "evidence_source_ids": [
-        "src_wotc_planeswalkers_guide_strixhaven_2021",
-        "src_wotc_strixhaven_product_page_2021"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -31261,11 +31507,14 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:540495d786f53f2c5f75ac94a4386af59ea4c9c3f947ae499097c12960212de2",
+      "canonical_content_hash": "sha256:055ccb09c097f4fbf882a957a1613c87c19b8f28327e8f8b35c61d87435484b2",
       "evidence_claim_ids": [
-        "witherbloom_claim_002"
+        "witherbloom_claim_003",
+        "witherbloom_claim_005",
+        "witherbloom_claim_0021"
       ],
       "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
@@ -31280,9 +31529,11 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:a5408300185e1a4afba3c7e1fe83972f43e5de09cac940810e4ec05604feb2e0",
+      "canonical_content_hash": "sha256:ceaad8318ad11c60f0f1f5e395587cb929a2fb119c730ca89151bcb664443512",
       "evidence_claim_ids": [
-        "witherbloom_claim_003"
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_0020"
       ],
       "evidence_source_ids": [
         "src_wotc_planeswalkers_guide_strixhaven_2021"
@@ -31299,18 +31550,19 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/inhibitor_traits/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:fe1a49301ac86c4623bed682806db2ee2889fb7b44b7b109df69d520395574a7",
+      "canonical_content_hash": "sha256:8397d50cc4ae213ddade262f3ae7f73fa8dec58180ccaeadc8645833d7d24390",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009",
-        "witherbloom_claim_0010"
+        "witherbloom_claim_001",
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_006",
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0026"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_down_to_the_lake_alone_520df369",
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -31324,20 +31576,24 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/moral_and_psychological_profile",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:064fc91584458a92059c465119ae7dd2eff6b897f221d87859695ca3601d198c",
+      "canonical_content_hash": "sha256:71ccdb7a124e63eceaa0f5137c6470a91cfbd727be49903ce5c1443bcc5f1030",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009",
-        "witherbloom_claim_0010",
-        "witherbloom_claim_0011"
+        "witherbloom_claim_001",
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_004",
+        "witherbloom_claim_006",
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0020",
+        "witherbloom_claim_0023",
+        "witherbloom_claim_0024",
+        "witherbloom_claim_0025",
+        "witherbloom_claim_0026"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_down_to_the_lake_alone_520df369",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -31351,26 +31607,22 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/placement_axes/0",
       "canonical_id": "axis_essence_craft_vs_abstraction",
-      "canonical_content_hash": "sha256:277c659aebc724122a626dda3011510e824814babbf76a721b19cfe999629009",
+      "canonical_content_hash": "sha256:2fa483799851a53ceeaabdaeaaba105129f44b64de8d759a8bc2b1f7ab3615ab",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009",
-        "witherbloom_claim_0010",
-        "witherbloom_claim_0011",
-        "witherbloom_claim_0012",
-        "witherbloom_claim_0013",
-        "witherbloom_claim_0014"
+        "witherbloom_claim_001",
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_004",
+        "witherbloom_claim_005",
+        "witherbloom_claim_006",
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0021",
+        "witherbloom_claim_0022"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_down_to_the_lake_alone_520df369",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -31384,32 +31636,24 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/placement_summary",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:aee4af0a54082e1049912445452bd09fa7ef98b431b089300056650e5c62b184",
+      "canonical_content_hash": "sha256:8e152be3ada5e7f7aebc7eae345003a84c51aba8df3be9f8453ec4e3a0a566b5",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009",
-        "witherbloom_claim_0010",
-        "witherbloom_claim_0011",
-        "witherbloom_claim_0012",
-        "witherbloom_claim_0013",
-        "witherbloom_claim_0014",
         "witherbloom_claim_001",
         "witherbloom_claim_002",
         "witherbloom_claim_003",
         "witherbloom_claim_004",
         "witherbloom_claim_005",
-        "witherbloom_claim_006"
+        "witherbloom_claim_006",
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0020",
+        "witherbloom_claim_0021",
+        "witherbloom_claim_0022",
+        "witherbloom_claim_0023",
+        "witherbloom_claim_0024",
+        "witherbloom_claim_0025",
+        "witherbloom_claim_0026"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_down_to_the_lake_alone_520df369",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021",
         "src_wotc_strixhaven_product_page_2021"
@@ -31428,11 +31672,12 @@
       "canonical_id": null,
       "canonical_content_hash": "sha256:13a82904852e24704f45793e685d430d4915f7aab2de58e370fbc1825f24c9b7",
       "evidence_claim_ids": [
-        "witherbloom_claim_001"
+        "witherbloom_claim_0021",
+        "witherbloom_claim_0026"
       ],
       "evidence_source_ids": [
-        "src_wotc_planeswalkers_guide_strixhaven_2021",
-        "src_wotc_strixhaven_product_page_2021"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -31446,9 +31691,11 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/poor_fit_indicators/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:02c4dd893167586b6fef4eb39688c74dc03bf0481935e93b282cd552128840f0",
+      "canonical_content_hash": "sha256:237f069fd9aedc07cfdb27eaaf8f9a9b1cf717f3714bbd1246f23a464ae82b4e",
       "evidence_claim_ids": [
-        "witherbloom_claim_002"
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_0020"
       ],
       "evidence_source_ids": [
         "src_wotc_planeswalkers_guide_strixhaven_2021"
@@ -31465,11 +31712,290 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
       "canonical_pointer": "/poor_fit_indicators/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:fb542cd78f1326bc0886ad0dea48f80bde08fb14560e57c29fae13d08ba29b1a",
+      "canonical_content_hash": "sha256:d057ec5a2ee5a19338a0be07e7a2052b73bc1c38df1b47ad0811a99831e26b3c",
       "evidence_claim_ids": [
-        "witherbloom_claim_003"
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0022",
+        "witherbloom_claim_0026"
       ],
       "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:44da35aa9f8dfd131de27af1c33aa4c8ce40ca170baf5920e2128dc79e7fa124",
+      "evidence_claim_ids": [
+        "witherbloom_claim_001",
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:5a1fad0a1e78104a4c04b4f852e68ea7303d6fa23886b08a5886aa38f25dbb80",
+      "evidence_claim_ids": [
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_0023",
+        "witherbloom_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:84b5d05e5dab2097bae11f7e5878a210198a6ef5e2badde741a50653f300dab4",
+      "evidence_claim_ids": [
+        "witherbloom_claim_003",
+        "witherbloom_claim_005",
+        "witherbloom_claim_0021",
+        "witherbloom_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/3",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:ba525c0bc4ea18e48262383e5de2cc4b2293d58e4cc2bc098340d99b263e4901",
+      "evidence_claim_ids": [
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_005",
+        "witherbloom_claim_006",
+        "witherbloom_claim_0021",
+        "witherbloom_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:58eef7e95f4bbaae81160e0d20c299befccfe8648e203c85efcdbd858302547a",
+      "evidence_claim_ids": [
+        "witherbloom_claim_003",
+        "witherbloom_claim_004",
+        "witherbloom_claim_0020",
+        "witherbloom_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:a482a8d543afcbf77a7752d7b90c51dae164ba75b3475cbed008890be12f2751",
+      "evidence_claim_ids": [
+        "witherbloom_claim_003",
+        "witherbloom_claim_005",
+        "witherbloom_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:d789f6180ff94dc064b9cd84c53aef01380496ba2eb7ec2d88cd50c28375e5e4",
+      "evidence_claim_ids": [
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:9f20f01ec45b38d3bb024439b9ef8d4a69b8cd3f254082f4db6aa681a5bdc49f",
+      "evidence_claim_ids": [
+        "witherbloom_claim_0021",
+        "witherbloom_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:f592b4feeaac069c2f9b459ba6bc155cc05f810f3bce3d8fe90de097de190f61",
+      "evidence_claim_ids": [
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:1cc8563c2a93c41de3e623b3f4c9b40b5b58b9e289d78cd931e460311cdf3a66",
+      "evidence_claim_ids": [
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0022",
+        "witherbloom_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:4835d25064ffc9cc0ef08ed6ec52d2ad92c19be20f389159e6e93ad2ba4fab04",
+      "evidence_claim_ids": [
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_004",
+        "witherbloom_claim_0020",
+        "witherbloom_claim_0023",
+        "witherbloom_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITHERBLOOM",
+        "data/placement-model.json#/factions/WITHERBLOOM",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_file": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/7",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:5256880b775dc5eff59704107e14b72f02b2f141907acc76e432d23f89956f91",
+      "evidence_claim_ids": [
+        "witherbloom_claim_003",
+        "witherbloom_claim_005",
+        "witherbloom_claim_0021",
+        "witherbloom_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
@@ -31484,10 +32010,11 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.profile.json",
       "canonical_pointer": "/canonical_flavor_text/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:6b9750a8dc1c45cb6a6c6ebdca215300444f195890fe1990a0ed614dfd61c652",
+      "canonical_content_hash": "sha256:29dcaf8119ce7134d5cbe21add871f49e314894b36552e08f8c52d9625efd184",
       "evidence_claim_ids": [
         "witherbloom_claim_0018"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
@@ -31503,10 +32030,11 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.profile.json",
       "canonical_pointer": "/canonical_flavor_text/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:80d5b9eb87803300da2f0f78c46cc0a0cc3dcc26a6e6aa1e1cc8861337c0d64a",
+      "canonical_content_hash": "sha256:751f762a332b59a03233b424fb4b5ff7796e749a863fc7c83e739dea33722dd5",
       "evidence_claim_ids": [
         "witherbloom_claim_0018"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
@@ -31522,10 +32050,11 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.profile.json",
       "canonical_pointer": "/canonical_flavor_text/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:40c0f42c243309a9a77eb2d9d0e5bdece1883b1bb43f5c6aa1f8b08725089c1c",
+      "canonical_content_hash": "sha256:e68d596c5b321ecffd127393e86ac27b6fc58d26e001c44dd3a084e4e75cbd11",
       "evidence_claim_ids": [
         "witherbloom_claim_0018"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
@@ -31541,10 +32070,11 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.profile.json",
       "canonical_pointer": "/commander_compass/native_fit_commanders/0/source_basis",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:1a6ffc552919e9172941b07d2d46cf0b6a26298ac0ce8857c3a3f7956b39046d",
+      "canonical_content_hash": "sha256:1683be8ef4b73fa5cf6c2de278e9d5b4af73a1b80888fd9992ac19757fbf8ca5",
       "evidence_claim_ids": [
         "witherbloom_claim_0017"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_wotc_secrets_strixhaven_commander_decklists_20260401"
       ],
@@ -31560,10 +32090,11 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.profile.json",
       "canonical_pointer": "/commander_compass/native_fit_commanders/1/source_basis",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:1a6ffc552919e9172941b07d2d46cf0b6a26298ac0ce8857c3a3f7956b39046d",
+      "canonical_content_hash": "sha256:1683be8ef4b73fa5cf6c2de278e9d5b4af73a1b80888fd9992ac19757fbf8ca5",
       "evidence_claim_ids": [
         "witherbloom_claim_0017"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_wotc_secrets_strixhaven_commander_decklists_20260401"
       ],
@@ -31579,26 +32110,19 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.profile.json",
       "canonical_pointer": "/core_identity",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:0870ed763b182d9799cd9acd0a003482a2b9d4825c4729635312c76ce97bd8a1",
+      "canonical_content_hash": "sha256:915a5d0dc751f830a3cb3b8a40283f86c4c520125e2b72fedb8eb63e5747410a",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009",
-        "witherbloom_claim_0010",
-        "witherbloom_claim_0011",
-        "witherbloom_claim_0012",
-        "witherbloom_claim_0013",
-        "witherbloom_claim_0014"
+        "witherbloom_claim_001",
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_004",
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_down_to_the_lake_alone_520df369",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -31612,7 +32136,7 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.profile.json",
       "canonical_pointer": "/data_quality/corpus_upgrade",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:2c839bde9a3bccd5efa7915ae6b16499513bbda1d5dfd0ce20d9b1505a8ab9cd",
+      "canonical_content_hash": "sha256:8e4d03d9d5c032809982c313ff3adb85b5f9eaa10be20362111a1d5666813be6",
       "evidence_claim_ids": [
         "witherbloom_claim_0007",
         "witherbloom_claim_0008",
@@ -31625,6 +32149,7 @@
         "witherbloom_claim_0015",
         "witherbloom_claim_0016"
       ],
+      "evidence_use": "discovery_metadata",
       "evidence_source_ids": [
         "src_mtg_stories_a_silent_voice_calls_36854b19",
         "src_mtg_stories_down_to_the_lake_alone_520df369",
@@ -31649,20 +32174,16 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.profile.json",
       "canonical_pointer": "/great_tension",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:30a736052f2114ab730ba6ed49c5285a46c877f26c1ca85bbd9e04c34c3e590a",
+      "canonical_content_hash": "sha256:547a0c6e7e2af7e567df2460e0a5f34981983aeba7f9b580767a78f0877a3a26",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009",
-        "witherbloom_claim_0010",
-        "witherbloom_claim_0011"
+        "witherbloom_claim_004",
+        "witherbloom_claim_0020",
+        "witherbloom_claim_0023",
+        "witherbloom_claim_0024"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_down_to_the_lake_alone_520df369",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -31697,58 +32218,18 @@
     {
       "identity_key": "WITHERBLOOM",
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.profile.json",
-      "canonical_pointer": "/key_figures/1",
-      "canonical_id": "card_dina_essence_brewer",
-      "canonical_content_hash": "sha256:7e48dee6081208286bc9add5837e07f021b714beba7554065861f0189b3e81c0",
-      "evidence_claim_ids": [
-        "witherbloom_claim_0017"
-      ],
-      "evidence_source_ids": [
-        "src_wotc_secrets_strixhaven_commander_decklists_20260401"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/WITHERBLOOM",
-        "data/placement-model.json#/factions/WITHERBLOOM",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "WITHERBLOOM",
-      "canonical_file": "data/raw-factions/witherbloom/witherbloom.profile.json",
-      "canonical_pointer": "/key_figures/2",
-      "canonical_id": "card_gorma_the_gullet",
-      "canonical_content_hash": "sha256:5900705565915ed444243e5057958ded52e5a3ff3fbd22eb934fa8ebe6a4fc82",
-      "evidence_claim_ids": [
-        "witherbloom_claim_0017"
-      ],
-      "evidence_source_ids": [
-        "src_wotc_secrets_strixhaven_commander_decklists_20260401"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/WITHERBLOOM",
-        "data/placement-model.json#/factions/WITHERBLOOM",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITHERBLOOM"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "WITHERBLOOM",
-      "canonical_file": "data/raw-factions/witherbloom/witherbloom.profile.json",
       "canonical_pointer": "/mechanics",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:d230583f6e955ef1e3b8a76b3874450ba7fdad5ff7c15e8832512ebdd1aac15d",
+      "canonical_content_hash": "sha256:5149b0ce38f6bbc6e69503ca9cea3a9b25c9aa72c873a73acab80879deefa574",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009",
-        "witherbloom_claim_0010"
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_005",
+        "witherbloom_claim_0022"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_down_to_the_lake_alone_520df369",
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -31762,14 +32243,18 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.profile.json",
       "canonical_pointer": "/profile",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:68458bd29f4d262240521d1ab3a15828e20f082774885cd2a5fd7093a1e9993a",
+      "canonical_content_hash": "sha256:30d7173f508eb55fd71035c44e0291fd087ee5f3a2fdd39c46970531fa5828ac",
       "evidence_claim_ids": [
         "witherbloom_claim_001",
         "witherbloom_claim_002",
         "witherbloom_claim_003",
         "witherbloom_claim_004",
         "witherbloom_claim_005",
-        "witherbloom_claim_006"
+        "witherbloom_claim_006",
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0020",
+        "witherbloom_claim_0021",
+        "witherbloom_claim_0022"
       ],
       "evidence_source_ids": [
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
@@ -31788,18 +32273,17 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.profile.json",
       "canonical_pointer": "/site_surface",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:1e3988c24ada2b288ae1b695574d78b0154a3111f98ef607a377e6ddf705b3c8",
+      "canonical_content_hash": "sha256:cc51c3caea75921f27bb8ab9492f5171ea20c891bda8896b20ab9f687e09a45c",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009",
-        "witherbloom_claim_0010"
+        "witherbloom_claim_001",
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_down_to_the_lake_alone_520df369",
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
@@ -31813,18 +32297,16 @@
       "canonical_file": "data/raw-factions/witherbloom/witherbloom.profile.json",
       "canonical_pointer": "/structure",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:b1f93baddb64d5439d8cc84a3f3a5df53cb89f772bffe313bd17a1cc4027955e",
+      "canonical_content_hash": "sha256:b22a54ae56ecb4a6dea8a3b4c9a03f924b15eabac9151713537bcef58fb0cfc7",
       "evidence_claim_ids": [
-        "witherbloom_claim_0007",
-        "witherbloom_claim_0008",
-        "witherbloom_claim_0009",
-        "witherbloom_claim_0010"
+        "witherbloom_claim_001",
+        "witherbloom_claim_005",
+        "witherbloom_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_down_to_the_lake_alone_520df369",
-        "src_mtg_stories_episode_2_lessons_988edeb7",
-        "src_mtg_stories_episode_4_put_to_the_test_8c6b8d55",
-        "src_mtg_stories_the_chains_that_bind_5673ab04"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WITHERBLOOM",
