@@ -7875,37 +7875,36 @@ export const FACTION_CONTEXT = {
       }
     },
     "tagline": "Sharp style. Sharper wit.",
-    "philosophy": "The College of Eloquence holds that words are not merely descriptions of power but power itself. Silverquill mages wield language as weapon and beacon - battle poetry, biting arcane precision, shadow magic conjured from ink. They are the most visible people in every room and they are aware of this.",
-    "core_tension": "Is eloquence a tool of service or self-advancement? The Radiance tradition holds that language is most powerful when it uplifts. The Shadow tradition holds that language flows toward individual power and pretending otherwise is the most dishonest thing a Silverquill mage can do. Both are right. The tension is the curriculum.",
+    "philosophy": "Silverquill treats language as action. Spoken, written, signed, rhetorical, and ink-and-light expression can lead, persuade, inspire, criticize, or pressure a room; the placement should require words, rhetoric, or word magic as the active method rather than generic black-white power.",
+    "core_tension": "Silverquill's bounded tension is whether eloquence becomes responsible leadership and uplift or intimidation, competition, and status pressure. Its method is language-as-action: spoken, written, signed, rhetorical, or ink-and-light expression doing the work.",
     "affinity": {
       "drawn_to": [
-        "The power of precisely chosen words over brute force or volume",
-        "Reputation, image, and how perception actively shapes reality",
-        "The ability to change how someone sees themselves as the highest power",
-        "Leadership as a performative act - presence, not just decision",
-        "Cutting through pretense to say the true and uncomfortable thing"
+        "Precise words that change how people relate or act",
+        "Spoken, written, signed, or ink-and-light expression as the active tool",
+        "Leadership presence carried through eloquence rather than generic authority",
+        "Critique or persuasion that clarifies a situation",
+        "Awareness that public language can create trust, pressure, or action"
       ],
       "repelled_by": [
-        "Vague imprecise communication when precision is possible",
-        "False modesty or unnecessary hedging",
-        "People who have influence and waste it",
-        "Earnestness that refuses to acknowledge the politics of a situation"
+        "Vague communication when precise language is needed",
+        "Treating words as harmless decoration",
+        "Influence that depends on debt, secrecy, procedure, or spectacle without Silverquill language evidence",
+        "Generic black-white ambition without rhetoric, word magic, or visible social influence"
       ],
-      "core_question": "Tell me about a time you said something that changed how a situation went. Were you satisfied with that power?",
+      "core_question": "When did your words change how people related, decided, or acted?",
       "interview_tells": [
-        "Articulate in a way that suggests awareness of how they're coming across",
-        "Mentions persuasion, rhetoric, or the specific impact of words",
-        "Describes influencing situations through communication rather than direct action",
-        "Strong opinions about how things should be said, not just what",
-        "Treats the interview itself as a performance - which it is"
+        "Centers language, rhetoric, critique, persuasion, leadership presence, or word magic as the active method",
+        "Describes spoken, written, signed, or ink-and-light expression shaping a social situation",
+        "Treats influence as something words do in public or remembered contexts",
+        "Distinguishes rhetorical precision from debt, secrecy, procedure, or artistic/elemental expression"
       ],
-      "not_to_be_confused_with": "Azorius - both value structured language but Azorius codifies it into law; Silverquill wields it as personal power. Prismari - both performative but Prismari uses elemental spectacle and scale; Silverquill uses precision and wit. Dimir - both manipulate through language but Dimir is invisible; Silverquill is the most visible person in the room."
+      "not_to_be_confused_with": "Orzhov/WB centers obligation, debt, contract, tithe, or institutional ledger logic. House Dimir centers secrecy, anonymity, hidden information, or information asymmetry. Prismari centers artistic or elemental medium and expression. Silverquill needs language, rhetoric, signed/spoken/written expression, or ink/light word magic as the active method. Azorius/WU remains a non-required guardrail for procedure-only language."
     },
     "decree_voice": {
-      "tone": "Cutting and admiring in the same breath. Precise. Aware that this decree is itself a performance.",
-      "speaks_like": "Embrose writing something he knows will outlast the occasion.",
-      "example_opening": "You already know what we're going to say.",
-      "example_decree": "You already know what we're going to say, which is the first qualification for joining us. Silverquill does not recruit people who are surprised by the power of words. It recruits people who have always known - and have been waiting for an institution sophisticated enough to take that knowledge seriously. You have something to say. We have the ink to make it permanent. Welcome to the college that will remember what everyone else forgets to write down."
+      "tone": "Precise, articulate, and aware that language can lead, praise, criticize, or pressure.",
+      "speaks_like": "A Silverquill speaker choosing words because the words themselves change the room.",
+      "example_opening": "Choose the words that make the room answer.",
+      "example_decree": "Silverquill does not treat language as decoration. It asks what your words do: whether they clarify, lead, persuade, inspire, wound, or pressure. If your method is eloquence made active, step to the lectern and make the room listen."
     },
     "biological_expression": {
       "archetype": "The Rhetorical Status Shaper",
@@ -7946,7 +7945,7 @@ export const FACTION_CONTEXT = {
     },
     "good_fit_indicators": [
       "uses words deliberately",
-      "understands performance and reputation",
+      "understands language, reputation, and public influence",
       "can inspire or cut through pretense with precision"
     ],
     "poor_fit_indicators": [
@@ -7984,7 +7983,7 @@ export const FACTION_CONTEXT = {
       {
         "id": "silverquill_q2",
         "prompt": "Is influence more dangerous when it flatters or when it wounds?",
-        "purpose": "Separates Radiance and Shadow readings.",
+        "purpose": "Tests whether public language is being used to uplift, pressure, persuade, or dominate through rhetoric and social force.",
         "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
         "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
         "collision_targets": [],
@@ -8031,7 +8030,7 @@ export const FACTION_CONTEXT = {
     "chatbot_guidance": {
       "how_to_recognize_match": [
         "uses words deliberately",
-        "understands performance and reputation",
+        "uses public language, praise, critique, or performance to shape how people are seen or treated",
         "can inspire or cut through pretense with precision"
       ],
       "how_to_recognize_mismatch": [

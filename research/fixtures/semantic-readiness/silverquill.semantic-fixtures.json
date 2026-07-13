@@ -1,0 +1,142 @@
+{
+  "identity_key": "SILVERQUILL",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "intended_interpretation": "Silverquill inclusion is grounded when spoken, written, signed, rhetorical, or ink/light expression is the active method.",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "defensible_guidance": "The answer should be explainable through language-as-action and word-magic evidence rather than generic black-white ambition.",
+      "unsupported_certainty_to_avoid": "Do not infer debt, legal procedure, secret manipulation, or artistic/elemental expression unless the answer supplies that evidence.",
+      "fixture_id": "silverquill_core_language_as_action",
+      "fixture_type": "core_inclusion",
+      "scenario": "A clear Silverquill case where language itself changes the social situation.",
+      "evidence_claim_ids": [
+        "silverquill_claim_002",
+        "silverquill_claim_004",
+        "silverquill_claim_0019"
+      ]
+    },
+    {
+      "intended_interpretation": "Mature or pressure behavior is defensible when the case centers precise communication and awareness of power relationships.",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "defensible_guidance": "The packet can explain Silverquill as leadership, criticism, persuasion, or pressure through language without reducing it to generic manipulation.",
+      "unsupported_certainty_to_avoid": "Do not claim a personality diagnosis, cruelty, domination, or humiliation unless the cited evidence actually supports it.",
+      "fixture_id": "silverquill_pressure_precision",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "Silverquill under pressure chooses precise language, leadership presence, or critique and avoids vague influence.",
+      "evidence_claim_ids": [
+        "silverquill_claim_003",
+        "silverquill_claim_006",
+        "silverquill_claim_0020",
+        "silverquill_claim_0021",
+        "silverquill_claim_0022"
+      ]
+    },
+    {
+      "intended_interpretation": "Silverquill needs visible language, rhetoric, word magic, or social-influence evidence; black-white power alone is insufficient.",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
+      ],
+      "defensible_guidance": "Use WB/Orzhov when the answer centers debt, contract, tithe, obligation, or ledger logic without Silverquill language evidence.",
+      "unsupported_certainty_to_avoid": "Do not present Orzhov contrast terms as new Silverquill canon.",
+      "fixture_id": "silverquill_exclusion_orzhov_wb",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Debt, obligation, contract, or institutional ledger logic alone should remain Orzhov/WB rather than Silverquill.",
+      "evidence_claim_ids": [
+        "silverquill_claim_001",
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_0023"
+      ],
+      "neighbor": "WB"
+    },
+    {
+      "intended_interpretation": "Silverquill should be public, remembered, or visible rhetorical force; Dimir resolves into secrecy and information asymmetry.",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "defensible_guidance": "Keep cases centered on hidden information, anonymity, or unseen manipulation outside Silverquill unless visible language/rhetoric is also decisive.",
+      "unsupported_certainty_to_avoid": "Do not turn Silverquill into generic manipulation or Dimir into a public rhetoric faction.",
+      "fixture_id": "silverquill_exclusion_house_dimir",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Hidden information and anonymity are Dimir boundaries, not Silverquill proof by themselves.",
+      "evidence_claim_ids": [
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_006",
+        "silverquill_claim_0024"
+      ],
+      "neighbor": "HOUSE_DIMIR"
+    },
+    {
+      "intended_interpretation": "Silverquill uses language, rhetoric, signed/spoken/written expression, or ink/light word magic; Prismari centers artistic or elemental medium and expression.",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "defensible_guidance": "Ask whether the public act moves the room through language/rhetoric or through artistic/elemental medium.",
+      "unsupported_certainty_to_avoid": "Do not reduce Prismari to spectacle or Silverquill to status alone.",
+      "fixture_id": "silverquill_exclusion_prismari",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Artistic or elemental medium belongs to Prismari unless language and rhetoric are the decisive method.",
+      "evidence_claim_ids": [
+        "silverquill_claim_002",
+        "silverquill_claim_004",
+        "silverquill_claim_006",
+        "silverquill_claim_0025"
+      ],
+      "neighbor": "PRISMARI"
+    },
+    {
+      "intended_interpretation": "If the moving force is rhetoric, word choice, or ink/light language, Silverquill is defensible; if it is chosen art or elemental form, Prismari remains plausible.",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "defensible_guidance": "Keep uncertainty when the case describes public impact but not whether language/rhetoric or artistic/elemental medium is decisive.",
+      "unsupported_certainty_to_avoid": "Do not force a winner from shared performance language alone.",
+      "fixture_id": "silverquill_ambiguous_language_vs_performance",
+      "fixture_type": "nearest_collision_ambiguity",
+      "scenario": "A public performance that moves the room remains ambiguous until the decisive medium is known.",
+      "evidence_claim_ids": [
+        "silverquill_claim_0019",
+        "silverquill_claim_0021",
+        "silverquill_claim_0025"
+      ],
+      "neighbor": "PRISMARI"
+    },
+    {
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "expected_generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL/chatbot_guidance/how_to_recognize_match/0",
+        "data/placement-model.json#/factions/SILVERQUILL/chatbot_guidance/how_to_recognize_match/0",
+        "supabase/functions/guild-recruiter/faction-context.ts#/SILVERQUILL/chatbot_guidance/how_to_recognize_match/0"
+      ],
+      "defensible_guidance": "Generated consumers must preserve claim and source provenance for recruiter-facing match guidance.",
+      "unsupported_certainty_to_avoid": "Do not expose internal claim IDs in user-facing recruiter prose.",
+      "fixture_id": "silverquill_provenance_match_guidance",
+      "fixture_type": "provenance",
+      "scenario": "The first match-guidance item must preserve the complete evidence chain for language-as-action guidance.",
+      "evidence_claim_ids": [
+        "silverquill_claim_002",
+        "silverquill_claim_004",
+        "silverquill_claim_0019"
+      ]
+    }
+  ]
+}

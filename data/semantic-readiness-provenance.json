@@ -19756,22 +19756,209 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/behavioral_signals/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:462602008b2a6c9ab91a91b389957b160a850c3aaf726ff09109dba413e3f719",
+      "canonical_content_hash": "sha256:af294d59db89163c22587c9e5eaad4c659fe2fe76dc3c6176fdbc8f598c8ccc4",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009",
-        "silverquill_claim_0010",
-        "silverquill_claim_0011",
-        "silverquill_claim_0012"
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_004",
+        "silverquill_claim_006",
+        "silverquill_claim_0019",
+        "silverquill_claim_0022"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-        "src_mtg_stories_off_the_record_2ea68353",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:98fe433a83d617259e46f04df51677d5c244e2d0161dcd3d29d8d39537759903",
+      "evidence_claim_ids": [
+        "silverquill_claim_002",
+        "silverquill_claim_004",
+        "silverquill_claim_0019"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:47f995ae9693032e9fdb8de83bb86cafbfd68c3b3366c4fc0ff825546fe1c0c0",
+      "evidence_claim_ids": [
+        "silverquill_claim_003",
+        "silverquill_claim_006",
+        "silverquill_claim_0021"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:5d13e11cd838226fcdb77726caed1a5704814600b273a70aa5675bc35b34f176",
+      "evidence_claim_ids": [
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_0021"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:ddb6541f9714defd793afec930bc4c3ba5cb74842696a8bd589bec686c7ddabb",
+      "evidence_claim_ids": [
+        "silverquill_claim_0022"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:6de174bbba7c9a4d1818ab2c176858767f16e9b190b69e29eefbdd9752be19c7",
+      "evidence_claim_ids": [
+        "silverquill_claim_006",
+        "silverquill_claim_0022"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:eb41c836352a366f7f473de16c051b2632a462102acebdb5d2ec1b4af2aeee61",
+      "evidence_claim_ids": [
+        "silverquill_claim_0022",
+        "silverquill_claim_0023",
+        "silverquill_claim_0024",
+        "silverquill_claim_0025"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:bb9425fa4fa9e2b822a36c5a9786cb52dd39f347c68c5e452f6362c6ed8e51a0",
+      "evidence_claim_ids": [
+        "silverquill_claim_0019",
+        "silverquill_claim_0021",
+        "silverquill_claim_0024",
+        "silverquill_claim_0025"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:e179ff800bcf06a46e84d3322f8e1f179d7c31a6e4db5f7eaa05c4bb080217bc",
+      "evidence_claim_ids": [
+        "silverquill_claim_0020",
+        "silverquill_claim_0021",
+        "silverquill_claim_0022"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
@@ -19785,13 +19972,15 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/collision_guidance/0",
       "canonical_id": "collision_silverquill_vs_orzhov_syndicate_placement_ready",
-      "canonical_content_hash": "sha256:c8a0e9ecf55179da64eac87924e98ff0c3ede666f9a8e2a24aa1caafe97be5a7",
+      "canonical_content_hash": "sha256:1bea46451874da4d48973c9a6b8bb6fd9e330339d4075354c01e9d5ccc35c9e7",
       "evidence_claim_ids": [
         "silverquill_claim_001",
         "silverquill_claim_002",
-        "silverquill_claim_003"
+        "silverquill_claim_003",
+        "silverquill_claim_0023"
       ],
       "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021",
         "src_wotc_strixhaven_product_page_2021"
       ],
@@ -19807,13 +19996,15 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/collision_guidance/1",
       "canonical_id": "collision_silverquill_vs_house_dimir_placement_ready",
-      "canonical_content_hash": "sha256:d9cd284caada9528690e3e92d6343f2dc38ecd4673804f6714532e0ac8919497",
+      "canonical_content_hash": "sha256:6fe8f80351aa997382688141cdf47894d70bf2e96284815716eb1fd50a332568",
       "evidence_claim_ids": [
         "silverquill_claim_001",
         "silverquill_claim_002",
-        "silverquill_claim_003"
+        "silverquill_claim_003",
+        "silverquill_claim_0024"
       ],
       "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021",
         "src_wotc_strixhaven_product_page_2021"
       ],
@@ -19829,12 +20020,12 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/collision_guidance/2",
       "canonical_id": "collision_silverquill_vs_prismari_placement_ready",
-      "canonical_content_hash": "sha256:4d2133b377f5b186ae3df7c460c982442e97fbfac973304e828a12795cf57b6b",
+      "canonical_content_hash": "sha256:0be4df5b179233a6b4b007d41915fcaabde45a97a0f65bf3d402d8e8c6ad3ff1",
       "evidence_claim_ids": [
         "silverquill_claim_002",
-        "silverquill_claim_003",
         "silverquill_claim_004",
-        "silverquill_claim_006"
+        "silverquill_claim_006",
+        "silverquill_claim_0025"
       ],
       "evidence_source_ids": [
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
@@ -19852,16 +20043,13 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/core_values/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:2d08718edee4e9daac3c80403e847c74a04524296053e56784a9f0b7e9066fd7",
+      "canonical_content_hash": "sha256:879eac69783c9d55f4167a2c1d658cfd12457864648f7d3f5a5eabab850acbec",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_001"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
@@ -19875,16 +20063,15 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/core_values/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:8acd9bdc340aca1053f0a1b02b59fb8c8f57891e4c0777e1e7bd926d9d8f6ae4",
+      "canonical_content_hash": "sha256:b1accc436b10bee269ba380cf353147df67fff833d2c11a91b7acf2c9a36a541",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_002",
+        "silverquill_claim_004",
+        "silverquill_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
@@ -19898,16 +20085,15 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/core_values/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:3979bf94f2ef07fd376c6317a1f71325b99f7dd2c72bf3d2411df8eba624c47a",
+      "canonical_content_hash": "sha256:95128cef6f2cb0088f4f607dd58aae665e3c6a35d7f65917c901c01c4bb88d9c",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_002",
+        "silverquill_claim_006",
+        "silverquill_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
@@ -19921,16 +20107,14 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/core_values/3",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:696ca7dd10917c4c3ecc115926239a71bfa89961a827d178970330d8f35f6651",
+      "canonical_content_hash": "sha256:714b2ee30f10d0306b41529b9aa66a458a7a6099b42a38e521ca8a92dab38b6e",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_003",
+        "silverquill_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
@@ -19944,16 +20128,15 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/core_values/4",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:e9f2fb2eb9bd2f1f6ea82d8684de19393b42561402d0e84037475aa36e4f4ab2",
+      "canonical_content_hash": "sha256:2c674740859260dc5a50489388a74e87af18f41dafed89031179bc34219785e7",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_006",
+        "silverquill_claim_0019",
+        "silverquill_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
@@ -19967,16 +20150,15 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/core_values/5",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:8fcc91a59d5b78a2c56438428659973837dd5a01aecdf77f136d3eb0464be4e2",
+      "canonical_content_hash": "sha256:2d7a8645dace00b868ea888eb7f024c04acdac87f06833d4fcffeda8c43fef00",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_003",
+        "silverquill_claim_006",
+        "silverquill_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
@@ -19990,16 +20172,15 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/core_values/6",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:eaf6013c2c0cd5bb6ab54741753589de9d86f4cc772a2f5a0f3fd3dfe2f1546e",
+      "canonical_content_hash": "sha256:5db76d8b11245268c1bf279834dd00c8a58e2a31266fcc44adc8f0186c502755",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_0023",
+        "silverquill_claim_0024",
+        "silverquill_claim_0025"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
@@ -20013,16 +20194,14 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/core_values/7",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:8b800e40d4199bdfcffcd888bdc5484118e2c23fd14e2eaab5f55dc5d0bdf3ea",
+      "canonical_content_hash": "sha256:d612cf7872465decab456b5abdf8ce011f00a5f2fe848483402cda2c69d9be1f",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_0019",
+        "silverquill_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
@@ -20036,16 +20215,15 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/core_values/8",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:1eb3cff335ff4ccd0b2fef6eab859950562c1a14b19383c0d2b1028e55c23392",
+      "canonical_content_hash": "sha256:60c064de70da9ebf3c010f66b9803dbed427971bbb63442c28ebec83ef0051f0",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_0020",
+        "silverquill_claim_0021",
+        "silverquill_claim_0022"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
@@ -20059,16 +20237,12 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/core_values/9",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:d44808e1ddadf69eddd61e927089b3dafcff151da98fa2ab40c7c93e907e0493",
+      "canonical_content_hash": "sha256:b8fadb7db3041c6a79983a9d930990ecf2f0e14bd9261de3ab15704a2162f40e",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_0026"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
@@ -20104,7 +20278,7 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/discriminator_questions/1",
       "canonical_id": "silverquill_q2",
-      "canonical_content_hash": "sha256:73060746056ade9552bad8ed68ac7f7b152c3d592b9572ac3502bc65cbb7aade",
+      "canonical_content_hash": "sha256:d901756fe3ca748b052576d15e5ae3b520eecb216aa64f58f647183664ef3fbe",
       "evidence_claim_ids": [
         "silverquill_claim_001",
         "silverquill_claim_002",
@@ -20190,11 +20364,15 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/good_fit_indicators/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:635776b1f3ae27ad97163d352a992a596a95fe3bd8132037519803950d66d107",
+      "canonical_content_hash": "sha256:b85d9802be0c8063ca5e6ae7a096452540d53b9de239475ff264f5320fb30238",
       "evidence_claim_ids": [
-        "silverquill_claim_002"
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_006",
+        "silverquill_claim_0021"
       ],
       "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
@@ -20211,9 +20389,12 @@
       "canonical_id": null,
       "canonical_content_hash": "sha256:fcfdd9b1cafb07b91f0862522ddb244e5cace1bb2d94fe1686cff6713382d960",
       "evidence_claim_ids": [
-        "silverquill_claim_003"
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_0021"
       ],
       "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
@@ -20248,7 +20429,7 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:635776b1f3ae27ad97163d352a992a596a95fe3bd8132037519803950d66d107",
+      "canonical_content_hash": "sha256:6a3063b9e98ed7ff67219c950a9a159ff00ee2cb79745779f94fbf11bf4ec952",
       "evidence_claim_ids": [
         "silverquill_claim_002"
       ],
@@ -20286,18 +20467,19 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/inhibitor_traits/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:ee8bee3a32c1c840d79ad6423dc26180504aba0c8d26a1bea759b4632f1dfcad",
+      "canonical_content_hash": "sha256:427c846e76ff215a7e7c6f8d20fb8d7239283b71b11e976b4e08ffbf3adefe55",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009",
-        "silverquill_claim_0010"
+        "silverquill_claim_001",
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_006",
+        "silverquill_claim_0022",
+        "silverquill_claim_0023"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_off_the_record_2ea68353",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
@@ -20311,20 +20493,22 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/moral_and_psychological_profile",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:95681033a73516047e3ae06b83108c44117966e7798243c0230eb1db63c40252",
+      "canonical_content_hash": "sha256:0e9f9af22cd52b86f3bdbdd5c6f0c005923ded47f4d432d515f505a3f0cc6004",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009",
-        "silverquill_claim_0010",
-        "silverquill_claim_0011"
+        "silverquill_claim_001",
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_004",
+        "silverquill_claim_006",
+        "silverquill_claim_0019",
+        "silverquill_claim_0020",
+        "silverquill_claim_0021",
+        "silverquill_claim_0022"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-        "src_mtg_stories_off_the_record_2ea68353",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
@@ -20338,26 +20522,23 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/placement_axes/0",
       "canonical_id": "axis_language_power_vs_vague_intention",
-      "canonical_content_hash": "sha256:2cb98d6df3bc693a85451821a07af0a80c09238b44ae6592af48f0cd2861b2d8",
+      "canonical_content_hash": "sha256:022643b85a050f86b1e272b1ff4c206fba2e96b3271a5bae9f8dd65a68d5307a",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009",
-        "silverquill_claim_0010",
-        "silverquill_claim_0011",
-        "silverquill_claim_0012",
-        "silverquill_claim_0013",
-        "silverquill_claim_0014"
+        "silverquill_claim_001",
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_004",
+        "silverquill_claim_005",
+        "silverquill_claim_006",
+        "silverquill_claim_0019",
+        "silverquill_claim_0020",
+        "silverquill_claim_0021",
+        "silverquill_claim_0022"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-        "src_mtg_stories_off_the_record_2ea68353",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
@@ -20371,32 +20552,24 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
       "canonical_pointer": "/placement_summary",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:378c88114dbd9dec856a47a53ccc5e632c3ae0285e4deac0e75aa12d5abda325",
+      "canonical_content_hash": "sha256:1df6b61dad9b8a18586774dddae607ccbae7f08027dfb820a20b4549b5a02147",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009",
-        "silverquill_claim_0010",
-        "silverquill_claim_0011",
-        "silverquill_claim_0012",
-        "silverquill_claim_0013",
-        "silverquill_claim_0014",
         "silverquill_claim_001",
         "silverquill_claim_002",
         "silverquill_claim_003",
         "silverquill_claim_004",
         "silverquill_claim_005",
-        "silverquill_claim_006"
+        "silverquill_claim_006",
+        "silverquill_claim_0019",
+        "silverquill_claim_0020",
+        "silverquill_claim_0021",
+        "silverquill_claim_0022",
+        "silverquill_claim_0023",
+        "silverquill_claim_0024",
+        "silverquill_claim_0025",
+        "silverquill_claim_0026"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-        "src_mtg_stories_off_the_record_2ea68353",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59",
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
         "src_wotc_planeswalkers_guide_strixhaven_2021",
         "src_wotc_strixhaven_product_page_2021"
@@ -20468,13 +20641,259 @@
     },
     {
       "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:2b5704ae7f5365a9dab90d1b1362f78135452a079a8c0cba013c3d0705457216",
+      "evidence_claim_ids": [
+        "silverquill_claim_001",
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:24da11b561d447f7182e8b470c1dd4ec960c980e595e5f3e429288651a9f432f",
+      "evidence_claim_ids": [
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_006",
+        "silverquill_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:a4baa4370d4744d63133618914ef1ee27c0e2b7334426006851c26122d273a37",
+      "evidence_claim_ids": [
+        "silverquill_claim_002",
+        "silverquill_claim_004",
+        "silverquill_claim_006",
+        "silverquill_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:58eef7e95f4bbaae81160e0d20c299befccfe8648e203c85efcdbd858302547a",
+      "evidence_claim_ids": [
+        "silverquill_claim_002",
+        "silverquill_claim_004",
+        "silverquill_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:a482a8d543afcbf77a7752d7b90c51dae164ba75b3475cbed008890be12f2751",
+      "evidence_claim_ids": [
+        "silverquill_claim_003",
+        "silverquill_claim_006",
+        "silverquill_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:d789f6180ff94dc064b9cd84c53aef01380496ba2eb7ec2d88cd50c28375e5e4",
+      "evidence_claim_ids": [
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:9f20f01ec45b38d3bb024439b9ef8d4a69b8cd3f254082f4db6aa681a5bdc49f",
+      "evidence_claim_ids": [
+        "silverquill_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:f592b4feeaac069c2f9b459ba6bc155cc05f810f3bce3d8fe90de097de190f61",
+      "evidence_claim_ids": [
+        "silverquill_claim_006",
+        "silverquill_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:1cc8563c2a93c41de3e623b3f4c9b40b5b58b9e289d78cd931e460311cdf3a66",
+      "evidence_claim_ids": [
+        "silverquill_claim_0022",
+        "silverquill_claim_0023",
+        "silverquill_claim_0024",
+        "silverquill_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:4835d25064ffc9cc0ef08ed6ec52d2ad92c19be20f389159e6e93ad2ba4fab04",
+      "evidence_claim_ids": [
+        "silverquill_claim_0019",
+        "silverquill_claim_0021",
+        "silverquill_claim_0024",
+        "silverquill_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_file": "data/raw-factions/silverquill/silverquill.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/7",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:5256880b775dc5eff59704107e14b72f02b2f141907acc76e432d23f89956f91",
+      "evidence_claim_ids": [
+        "silverquill_claim_0020",
+        "silverquill_claim_0021",
+        "silverquill_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SILVERQUILL",
+        "data/placement-model.json#/factions/SILVERQUILL",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SILVERQUILL",
       "canonical_file": "data/raw-factions/silverquill/silverquill.profile.json",
       "canonical_pointer": "/canonical_flavor_text/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:f3ea91216b5a9faccfc0bfef912f25e9cf0843d4e67f9cfbd08a2b57d654c3e0",
+      "canonical_content_hash": "sha256:be2d9cfc3a83c785187160b150340a1cb268e3cb11da9bba149ed35f9eabb21b",
       "evidence_claim_ids": [
         "silverquill_claim_0018"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
@@ -20490,10 +20909,11 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.profile.json",
       "canonical_pointer": "/canonical_flavor_text/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:6f97b901c0c169b654ff9e0d637b0978c0c7473e4c3d23038170205bffdbb23e",
+      "canonical_content_hash": "sha256:69cd6537c55574c144411fe5d9b016103bd1f368ca09a933cb1fe3e50394f4b0",
       "evidence_claim_ids": [
         "silverquill_claim_0018"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
@@ -20509,10 +20929,11 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.profile.json",
       "canonical_pointer": "/canonical_flavor_text/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:d5ad69dba86d37337fc8c66a8377eceb668e1d32773e7ad32ea9f5ae8163ac02",
+      "canonical_content_hash": "sha256:c1ad8017fda67c22d43141e3f367d4be599f6e0035ce8b495f4790c663d69214",
       "evidence_claim_ids": [
         "silverquill_claim_0018"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
@@ -20528,10 +20949,11 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.profile.json",
       "canonical_pointer": "/commander_compass/native_fit_commanders/0/source_basis",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:1a6ffc552919e9172941b07d2d46cf0b6a26298ac0ce8857c3a3f7956b39046d",
+      "canonical_content_hash": "sha256:1683be8ef4b73fa5cf6c2de278e9d5b4af73a1b80888fd9992ac19757fbf8ca5",
       "evidence_claim_ids": [
         "silverquill_claim_0017"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_wotc_secrets_strixhaven_commander_decklists_20260401"
       ],
@@ -20547,10 +20969,11 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.profile.json",
       "canonical_pointer": "/commander_compass/native_fit_commanders/1/source_basis",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:1a6ffc552919e9172941b07d2d46cf0b6a26298ac0ce8857c3a3f7956b39046d",
+      "canonical_content_hash": "sha256:1683be8ef4b73fa5cf6c2de278e9d5b4af73a1b80888fd9992ac19757fbf8ca5",
       "evidence_claim_ids": [
         "silverquill_claim_0017"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_wotc_secrets_strixhaven_commander_decklists_20260401"
       ],
@@ -20568,24 +20991,18 @@
       "canonical_id": null,
       "canonical_content_hash": "sha256:1f8e3207286dbf9f03e8b3dbe63d7d34e2e08aed36e6550bea839302c351f72d",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009",
-        "silverquill_claim_0010",
-        "silverquill_claim_0011",
-        "silverquill_claim_0012",
-        "silverquill_claim_0013",
-        "silverquill_claim_0014"
+        "silverquill_claim_001",
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_004",
+        "silverquill_claim_0019",
+        "silverquill_claim_0020",
+        "silverquill_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_blue_green_ribbons_2e2606a8",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-        "src_mtg_stories_episode_1_penmanship_practice_f245144d",
-        "src_mtg_stories_episode_3_extracurriculars_39c7efc0",
-        "src_mtg_stories_off_the_record_2ea68353",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
@@ -20599,7 +21016,7 @@
       "canonical_file": "data/raw-factions/silverquill/silverquill.profile.json",
       "canonical_pointer": "/data_quality/corpus_upgrade",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:2c839bde9a3bccd5efa7915ae6b16499513bbda1d5dfd0ce20d9b1505a8ab9cd",
+      "canonical_content_hash": "sha256:8e4d03d9d5c032809982c313ff3adb85b5f9eaa10be20362111a1d5666813be6",
       "evidence_claim_ids": [
         "silverquill_claim_0007",
         "silverquill_claim_0008",
@@ -20612,6 +21029,7 @@
         "silverquill_claim_0015",
         "silverquill_claim_0016"
       ],
+      "evidence_use": "discovery_metadata",
       "evidence_source_ids": [
         "src_mtg_stories_a_silent_voice_calls_36854b19",
         "src_mtg_stories_blue_green_ribbons_2e2606a8",
@@ -20638,18 +21056,13 @@
       "canonical_id": null,
       "canonical_content_hash": "sha256:964b4ea1b0ad8cd640b5126787fe9570c06b51d83ba06da057eebbc9f12207ef",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009",
-        "silverquill_claim_0010",
-        "silverquill_claim_0011"
+        "silverquill_claim_003",
+        "silverquill_claim_006",
+        "silverquill_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_episode_1_class_is_in_session_bd3caf13",
-        "src_mtg_stories_off_the_record_2ea68353",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
@@ -20685,58 +21098,17 @@
     {
       "identity_key": "SILVERQUILL",
       "canonical_file": "data/raw-factions/silverquill/silverquill.profile.json",
-      "canonical_pointer": "/key_figures/1",
-      "canonical_id": "card_killian_decisive_mentor",
-      "canonical_content_hash": "sha256:575b0470cbe43e873a16aa31b72b8a32140b136fb78f462b6a83afa3b711f109",
-      "evidence_claim_ids": [
-        "silverquill_claim_0017"
-      ],
-      "evidence_source_ids": [
-        "src_wotc_secrets_strixhaven_commander_decklists_20260401"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/SILVERQUILL",
-        "data/placement-model.json#/factions/SILVERQUILL",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "SILVERQUILL",
-      "canonical_file": "data/raw-factions/silverquill/silverquill.profile.json",
-      "canonical_pointer": "/key_figures/2",
-      "canonical_id": "card_scriv_the_obligator",
-      "canonical_content_hash": "sha256:84d627e878fd9d00b2e52836de22dd76a2ef144121588357865f7bb0d36d3a72",
-      "evidence_claim_ids": [
-        "silverquill_claim_0017"
-      ],
-      "evidence_source_ids": [
-        "src_wotc_secrets_strixhaven_commander_decklists_20260401"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/SILVERQUILL",
-        "data/placement-model.json#/factions/SILVERQUILL",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SILVERQUILL"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "SILVERQUILL",
-      "canonical_file": "data/raw-factions/silverquill/silverquill.profile.json",
       "canonical_pointer": "/mechanics",
       "canonical_id": null,
       "canonical_content_hash": "sha256:6696ad294904528a5a0e488ecd2dda13070ab79b4bf4e723891df34ceec49aed",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009",
-        "silverquill_claim_0010"
+        "silverquill_claim_002",
+        "silverquill_claim_004",
+        "silverquill_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_off_the_record_2ea68353",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
@@ -20778,16 +21150,15 @@
       "canonical_id": null,
       "canonical_content_hash": "sha256:5dc878aaff2335756a632771dce21afeeeecac2f7a7c74ca651a491a3360cd84",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009",
-        "silverquill_claim_0010"
+        "silverquill_claim_001",
+        "silverquill_claim_002",
+        "silverquill_claim_004",
+        "silverquill_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_off_the_record_2ea68353",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
@@ -20803,16 +21174,15 @@
       "canonical_id": null,
       "canonical_content_hash": "sha256:6f0414505e48ef9bd13d15741adeeaff3ff2eaf016a63d5bb7428d68bf06e228",
       "evidence_claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009",
-        "silverquill_claim_0010"
+        "silverquill_claim_001",
+        "silverquill_claim_002",
+        "silverquill_claim_004",
+        "silverquill_claim_005"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_a_silent_voice_calls_36854b19",
-        "src_mtg_stories_off_the_record_2ea68353",
-        "src_mtg_stories_the_chains_that_bind_5673ab04",
-        "src_mtg_stories_winnowing_season_0ca1ec59"
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/SILVERQUILL",
