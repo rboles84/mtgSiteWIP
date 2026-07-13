@@ -477,10 +477,10 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate5_candidate_creation",
-        "status": "active",
+        "current_gate": "gate5_independent_review",
+        "status": "awaiting_review",
         "started_at": "2026-07-12T23:47:43.847Z",
-        "gate_entered_at": "2026-07-12T21:31:00Z",
+        "gate_entered_at": "2026-07-12T21:48:00Z",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WITHERBLOOM",
@@ -501,14 +501,14 @@
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
+        "candidate_recovery_sha": "b9cd9e914c280e9c40c7a977b8f7c07204614d3e",
         "recovery_commit": null,
         "certification_commit": null,
         "reviewer": null,
-        "review_cycles": 0,
+        "review_cycles": 1,
         "approval_date": null,
         "certified_at": null,
-        "review_result": "changes_requested_superseded",
+        "review_result": "awaiting_independent_review",
         "final_state": null,
         "known_unchanged_warnings": [
           "dossier_audit: 113 warnings, 0 failures",
@@ -517,7 +517,8 @@
         "rejected_candidate_shas": [
           "078310b428d66e3f1423fb897d919040542a4593"
         ],
-        "superseded_candidate_sha": "078310b428d66e3f1423fb897d919040542a4593"
+        "superseded_candidate_sha": "078310b428d66e3f1423fb897d919040542a4593",
+        "safety_ref": "backup/vm-504-rejected-silverquill-candidate-078310b"
       }
     },
     {

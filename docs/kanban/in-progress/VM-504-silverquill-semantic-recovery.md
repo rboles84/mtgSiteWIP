@@ -1,7 +1,7 @@
 # VM-504 — Silverquill Semantic Recovery
 
 ID: VM-504
-Status: In Progress - Replacement candidate being prepared after review-requested hygiene correction
+Status: In Progress - Replacement candidate ready for independent Gate 5 review
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: SILVERQUILL
@@ -9,7 +9,7 @@ Raw packet: `data/raw-factions/silverquill/`
 Cohort: college
 Contract: v1.1
 
-Current state: active identity after VM-503 Quandrix certification. Gate 1 through Gate 4, bounded wording-blocker resolution, pre-candidate scope-policy cleanup, and replacement-candidate hygiene correction are complete. The prior candidate was rejected for BOM/workflow-placeholder hygiene only; Silverquill remains uncertified.
+Current state: replacement candidate `b9cd9e914c280e9c40c7a977b8f7c07204614d3e` is ready for independent Gate 5 review. The superseded rejected candidate `078310b428d66e3f1423fb897d919040542a4593` is preserved by safety ref `backup/vm-504-rejected-silverquill-candidate-078310b`. Silverquill remains uncertified; no certification commit exists.
 
 Gate 1 / Gate 2 report: `docs/incidents/recoveries/VM-504-silverquill-semantic-recovery.md`
 Primary disposition: `Claim-extraction pass required`
@@ -54,7 +54,7 @@ Gate 3 remediated only Silverquill canonical raw data and VM-504 workflow record
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-504-silverquill-semantic-recovery.md`
-- Candidate recovery SHA: pending replacement workflow-record commit
+- Candidate recovery SHA: `b9cd9e914c280e9c40c7a977b8f7c07204614d3e`
 - Independent reviewer: pending
 - Certification commit: pending
 
@@ -91,7 +91,7 @@ Validation passed. Candidate-scope guard now has no confidence/calibration findi
 ## Gate 5 Replacement Candidate Preparation
 
 Candidate parent SHA: `3baa8307cf1d6b23aab1564b866e6580e500cf66`
-Replacement candidate recovery SHA: pending workflow-record commit
+Replacement candidate recovery SHA: `b9cd9e914c280e9c40c7a977b8f7c07204614d3e`
 Workflow state: replacement candidate is being prepared after rejected candidate `078310b428d66e3f1423fb897d919040542a4593`. Silverquill remains uncertified; no certification commit exists.
 
 Candidate content includes Gate 3 canonical remediation, Gate 4 generated artifacts and provenance, bounded wording-blocker resolution, scope-policy cleanup, Silverquill semantic fixtures, and VM-504 workflow/report records through candidate readiness.
@@ -105,4 +105,13 @@ Validation summary recorded for review:
 - Dossier audit remains 113 warnings / 0 failures.
 
 Superseded rejected candidate SHA: `078310b428d66e3f1423fb897d919040542a4593`
-Replacement candidate SHA: to be recorded by the separate workflow-record commit after candidate creation.
+Replacement candidate SHA: `b9cd9e914c280e9c40c7a977b8f7c07204614d3e`.
+
+
+## Gate 5 Replacement Candidate Record
+
+Replacement candidate parent SHA: `3baa8307cf1d6b23aab1564b866e6580e500cf66`
+Replacement candidate recovery SHA: `b9cd9e914c280e9c40c7a977b8f7c07204614d3e`
+Superseded rejected candidate SHA: `078310b428d66e3f1423fb897d919040542a4593`
+Safety ref: `backup/vm-504-rejected-silverquill-candidate-078310b`
+Workflow state: awaiting independent Gate 5 review. Silverquill remains uncertified; no certification commit exists.
