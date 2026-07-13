@@ -798,6 +798,68 @@ Known warnings unchanged:
 - Dossier audit remains 113 warnings / 0 failures.
 
 Witherbloom is ready for Gate 5 candidate creation when explicitly authorized. Witherbloom remains uncertified until an immutable recovery candidate is created, independently reviewed, approved by exact SHA, and certified in a separate certification commit.
+## Gate 5 Candidate Record
+
+Candidate recovery commit created for independent review. No certification exists.
+
+- Candidate parent SHA: `41d291072340f7ddfe4ffe90f2e57e4f4793142d`
+- Candidate recovery SHA: `48d240db3c7001a498a6e5a4602cc8cd54349776`
+- Contract version: `v1.1`
+- Review result: pending independent review
+- Certification state: not certified
+
+### Candidate changed-file list
+
+- `data/factions.json`
+- `data/identity-layers.json`
+- `data/placement-model.json`
+- `data/raw-factions/witherbloom/witherbloom.changelog.json`
+- `data/raw-factions/witherbloom/witherbloom.claims.json`
+- `data/raw-factions/witherbloom/witherbloom.placement.json`
+- `data/raw-factions/witherbloom/witherbloom.profile.json`
+- `data/semantic-readiness-provenance.json`
+- `docs/handoffs/2026-07-12-2319-codex-vm505-witherbloom-gate1-audit.md`
+- `docs/handoffs/2026-07-12-2348-codex-vm505-witherbloom-gate2-evidence.md`
+- `docs/handoffs/2026-07-13-0805-codex-vm505-witherbloom-gate3-remediation.md`
+- `docs/handoffs/2026-07-13-0844-codex-vm505-witherbloom-gate4-validation.md`
+- `docs/handoffs/2026-07-13-1152-codex-vm505-witherbloom-scope-policy-cleanup.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/incidents/recoveries/VM-505-witherbloom-semantic-recovery.md`
+- `docs/kanban/backlog/VM-505-witherbloom-semantic-recovery.md` deleted
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-505-witherbloom-semantic-recovery.md`
+- `research/fixtures/semantic-readiness/witherbloom.semantic-fixtures.json`
+- `supabase/functions/guild-recruiter/faction-context.ts`
+
+### Validation summary
+
+- npm.cmd run build:factions: passed
+- node research/validate-semantic-readiness.mjs --targets=WITHERBLOOM: passed
+- npm.cmd run validate:source-generated -- --targets=WITHERBLOOM: passed with one unchanged builder-owned inhibitor warning
+- npm.cmd run test:semantic-readiness: passed
+- npm.cmd run test:placement: passed
+- npm.cmd run test:faction-context-isolation: passed
+- node research/archscry-dossier-followup-tests.js: passed
+- npm.cmd run dossier:audit: 113 warnings / 0 failures
+- npm.cmd run audit:semantic-readiness -- --targets=WITHERBLOOM: passed
+- git diff --check: passed with LF/CRLF warnings only
+- working-tree candidate-scope dry-run: passed with documented Witherbloom display-source exceptions only
+
+### Known warnings
+
+- Source/generated guardrail warning remains builder-owned: inhibitor_traps[model_owned] for the model-owned biological prior.
+- Dossier audit remains 113 warnings / 0 failures.
+- Candidate-scope dry-run retains documented Witherbloom display-source exceptions: data/identity-layers.json and generated data/factions.json identity-layer content.
+
+### Candidate-scope result
+
+Candidate-scope dry-run passes with only documented Witherbloom display-source exceptions:
+
+- `data/identity-layers.json`
+- generated `data/factions.json` identity-layer content for `WITHERBLOOM`
+
+The exact SHA-based candidate-scope guard must be rerun by Gate 5 review against candidate SHA `48d240db3c7001a498a6e5a4602cc8cd54349776`.
+
 ## Final Status
 
-Gate 4 generation and validation is mechanically complete but blocked for Gate 5 readiness by a path-based lateral_inhibition scope-policy concern caused by collision-guidance array ordering. Witherbloom remains uncertified. No recovery candidate or certification commit exists. Prismari, Lorehold, Quandrix, and Silverquill remain certified semantically ready under CRIT-001 Contract v1.1. No other identity was started.
+Gate 5 candidate recovery commit `48d240db3c7001a498a6e5a4602cc8cd54349776` has been created for independent review. Witherbloom remains uncertified. No certification commit exists. Prismari, Lorehold, Quandrix, and Silverquill remain certified semantically ready under CRIT-001 Contract v1.1. No other identity was started.

@@ -1,7 +1,7 @@
 # VM-505 - Witherbloom Semantic Recovery
 
 ID: VM-505
-Status: In Progress - Gate 4 complete; ready for Gate 5 candidate creation
+Status: In Progress - Gate 5 candidate recorded; independent review pending
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: WITHERBLOOM
@@ -19,7 +19,7 @@ Recover Witherbloom end to end under CRIT-001: audit the existing packet, bound 
 - [x] Gate 2 - Sufficient evidence completion.
 - [x] Gate 3 - Canonical remediation.
 - [x] Gate 4 - Generation, validation, and scope-policy cleanup complete.
-- [ ] Gate 5 - Candidate creation and independent certification.
+- [ ] Gate 5 - Candidate created; independent review and certification pending.
 
 ## Gate 1 Result
 
@@ -74,6 +74,16 @@ Recover Witherbloom end to end under CRIT-001: audit the existing packet, bound 
 - Gate 1 handoff: `docs/handoffs/2026-07-12-2319-codex-vm505-witherbloom-gate1-audit.md`
 - Gate 2 handoff: `docs/handoffs/2026-07-12-2348-codex-vm505-witherbloom-gate2-evidence.md`
 - Gate 3 handoff: `docs/handoffs/2026-07-13-0805-codex-vm505-witherbloom-gate3-remediation.md`
-- Candidate recovery SHA: pending
+- Candidate recovery SHA: `48d240db3c7001a498a6e5a4602cc8cd54349776`
 - Independent reviewer: pending
 - Certification commit: pending
+
+## Gate 5 Candidate Record
+
+- Candidate parent SHA: `41d291072340f7ddfe4ffe90f2e57e4f4793142d`
+- Candidate recovery SHA: `48d240db3c7001a498a6e5a4602cc8cd54349776`
+- Workflow-record commit: pending in this commit
+- Review status: pending independent review
+- Certification: none
+- Candidate-scope guard: dry-run passed with documented Witherbloom display-source exceptions only.
+- Witherbloom remains uncertified.
