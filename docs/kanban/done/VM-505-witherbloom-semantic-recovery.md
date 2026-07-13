@@ -1,7 +1,7 @@
 # VM-505 - Witherbloom Semantic Recovery
 
 ID: VM-505
-Status: In Progress - Gate 5 candidate recorded; independent review pending
+Status: Done - certified semantically_ready under CRIT-001 Contract v1.1
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: WITHERBLOOM
@@ -19,7 +19,7 @@ Recover Witherbloom end to end under CRIT-001: audit the existing packet, bound 
 - [x] Gate 2 - Sufficient evidence completion.
 - [x] Gate 3 - Canonical remediation.
 - [x] Gate 4 - Generation, validation, and scope-policy cleanup complete.
-- [ ] Gate 5 - Candidate created; independent review and certification pending.
+- [x] Gate 5 - Candidate independently approved and certified.
 
 ## Gate 1 Result
 
@@ -27,7 +27,7 @@ Recover Witherbloom end to end under CRIT-001: audit the existing packet, bound 
 - Primary disposition: `Claim-extraction pass required`.
 - Gate 2 required: yes.
 - Summary: Witherbloom shares the thin Strixhaven packet pattern: 18 claims, 6 likely substantive official/source-backed claims, 10 discovery/search records, and 2 support records. Discovery/support records currently flow into authoritative profile, placement, and generated provenance chains.
-- Witherbloom remains uncertified.
+- At Gate 1 close, Witherbloom remained uncertified.
 
 ## Gate 2 Result
 
@@ -36,7 +36,7 @@ Recover Witherbloom end to end under CRIT-001: audit the existing packet, bound 
 - Gate 3 required: yes, canonical remediation only when authorized.
 - Gate 3 should use current official/source-backed claims, local Witherbloom/Golgari canon guides, and already-known official source entries listed in `docs/research/canon/strixhaven/witherbloom/SOURCES.md`.
 - Required-neighbor set for Gate 3 planning: BG/Golgari, Selesnya, Simic, and Quandrix.
-- Witherbloom remains uncertified.
+- At Gate 2 close, Witherbloom remained uncertified.
 
 ## Gate 3 Result
 
@@ -46,7 +46,7 @@ Recover Witherbloom end to end under CRIT-001: audit the existing packet, bound 
 - New substantive claims added: `witherbloom_claim_0019` through `witherbloom_claim_0026`.
 - Required neighbors selected: BG/Golgari, `SELESNYA_CONCLAVE`, `SIMIC_COMBINE`, and `QUANDRIX`.
 - Generated artifacts remain stale until Gate 4; no candidate recovery commit exists.
-- Witherbloom remains uncertified.
+- At Gate 3 close, Witherbloom remained uncertified.
 
 
 ## Gate 4 Result
@@ -57,7 +57,7 @@ Recover Witherbloom end to end under CRIT-001: audit the existing packet, bound 
 - Source/generated validation, semantic-readiness tests, placement tests, faction-context isolation, dossier follow-ups, dossier audit, structural audit, and `git diff --check` passed.
 - Known warnings unchanged: builder-owned Witherbloom inhibitor warning; dossier audit remains 113 warnings / 0 failures.
 - Scope-policy cleanup complete: existing collision rows retain accepted-base indexes, the new BG/Golgari row is appended, and the existing Quandrix `lateral_inhibition: false` path remains stable at index 2.
-- Witherbloom remains uncertified; ready for Gate 5 candidate creation when authorized.
+- At Gate 4 close, Witherbloom remained uncertified and was ready for Gate 5 candidate creation when authorized.
 ## Scope Rules
 
 - One card owns the complete identity lifecycle.
@@ -75,15 +75,26 @@ Recover Witherbloom end to end under CRIT-001: audit the existing packet, bound 
 - Gate 2 handoff: `docs/handoffs/2026-07-12-2348-codex-vm505-witherbloom-gate2-evidence.md`
 - Gate 3 handoff: `docs/handoffs/2026-07-13-0805-codex-vm505-witherbloom-gate3-remediation.md`
 - Candidate recovery SHA: `48d240db3c7001a498a6e5a4602cc8cd54349776`
-- Independent reviewer: pending
-- Certification commit: pending
+- Independent reviewer: Robert / user-supplied independent Gate 5 review in this Codex thread
+- Certification commit: `PENDING_VM505_CERTIFICATION_COMMIT_SHA`
 
 ## Gate 5 Candidate Record
 
 - Candidate parent SHA: `41d291072340f7ddfe4ffe90f2e57e4f4793142d`
 - Candidate recovery SHA: `48d240db3c7001a498a6e5a4602cc8cd54349776`
 - Workflow-record commit: pending in this commit
-- Review status: pending independent review
-- Certification: none
+- Review status: APPROVE EXACT SHA
+- Certification: semantically_ready under CRIT-001 Contract v1.1
+- Certification commit: `PENDING_VM505_CERTIFICATION_COMMIT_SHA`
 - Candidate-scope guard: dry-run passed with documented Witherbloom display-source exceptions only.
-- Witherbloom remains uncertified.
+- Before independent exact-SHA approval and certification, Witherbloom remained uncertified.
+
+## Certification
+
+- Approved recovery SHA: `48d240db3c7001a498a6e5a4602cc8cd54349776`
+- Workflow-record SHA: `a0efe415c8eb38cf041a39f20bc90ca462216593`
+- Certification commit: `PENDING_VM505_CERTIFICATION_COMMIT_SHA`
+- Final state: `semantically_ready` under CRIT-001 Contract v1.1
+- Residual LOW non-blocking finding: MTG-Stories corpus search evidence remains under `placement_quality.strongest_evidence_areas` in `data/raw-factions/witherbloom/witherbloom.placement.json`; it is not in an authoritative proof chain and is deferred as readability/source-labeling hygiene.
+- Known unchanged warnings: builder-owned Witherbloom inhibitor warning; dossier audit logic verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, and 0 failures.
+- Next identity: VM-507 Izzet branch setup only; no remediation started.

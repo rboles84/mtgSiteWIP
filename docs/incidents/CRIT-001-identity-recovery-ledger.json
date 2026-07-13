@@ -5,8 +5,8 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "WITHERBLOOM",
-    "next_identity": "IZZET",
+    "active_identity": "IZZET",
+    "next_identity": "AZORIUS",
     "wip_limit": 1,
     "active_prerequisite": null,
     "prerequisite_candidate_sha": "6e53acd5691c85caf3328d3bd301ac18d07879e1",
@@ -588,10 +588,10 @@
         "template_cohort_change_explanation": "Gate 3/Gate 4 recovery changed Witherbloom from thin discovery-heavy/template-cohort triage pattern to mixed-role/support-heavy structural pattern; semantic readiness awaits independent Gate 5 review."
       },
       "workflow": {
-        "current_gate": "gate_5_candidate_review",
-        "status": "awaiting_independent_review",
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": "2026-07-12T23:08:00Z",
-        "gate_entered_at": "2026-07-13T12:02:00-06:00",
+        "gate_entered_at": "2026-07-13T13:24:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "IZZET",
@@ -606,29 +606,32 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-505-witherbloom-semantic-recovery.md",
         "residual_findings": [
+          "LOW: MTG-Stories corpus search evidence remains under placement_quality.strongest_evidence_areas in data/raw-factions/witherbloom/witherbloom.placement.json; it is not in an authoritative proof chain, is readability/source-labeling hygiene only, and is deferred to a separately authorized post-certification cleanup.",
           "Runtime Hall, Crucible, scoring, inhibition, scheduling, confidence, and live recruiter calibration remain post-CRIT investigations.",
           "Pre-existing non-Witherbloom/Selesnya public comparison copy mentioning Witherbloom remains out of VM-505 scope.",
-          "Candidate-scope dry-run has documented Witherbloom display-source exceptions for data/identity-layers.json and generated data/factions.json identity-layer content."
+          "Candidate-scope guard has documented Witherbloom display-source exceptions for data/identity-layers.json and generated data/factions.json identity-layer content."
         ]
       },
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "48d240db3c7001a498a6e5a4602cc8cd54349776",
-        "recovery_commit": null,
-        "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
-        "certified_at": null,
-        "review_result": "pending_independent_review",
+        "recovery_commit": "48d240db3c7001a498a6e5a4602cc8cd54349776",
+        "certification_commit": "PENDING_VM505_CERTIFICATION_COMMIT_SHA",
+        "reviewer": "Robert / user-supplied independent Gate 5 review in this Codex thread",
+        "review_cycles": 1,
+        "approval_date": "2026-07-13",
+        "certified_at": "2026-07-13T13:24:00-06:00",
+        "review_result": "approved_exact_sha",
         "candidate_parent_sha": "41d291072340f7ddfe4ffe90f2e57e4f4793142d",
         "candidate_recorded_at": "2026-07-13T12:02:00-06:00",
         "known_unchanged_warnings": [
-          "dossier_audit: 113 warnings, 0 failures",
-          "existing builder-owned Witherbloom inhibitor warning unchanged",
+          "builder-owned Witherbloom inhibitor warning remains unchanged",
+          "dossier audit logic verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures; direct npm.cmd run dossier:audit may require artifact-write permissions",
           "documented Witherbloom display-source exceptions: data/identity-layers.json and generated data/factions.json identity-layer content"
-        ]
+        ],
+        "workflow_record_commit": "a0efe415c8eb38cf041a39f20bc90ca462216593",
+        "final_state": "semantically_ready"
       }
     },
     {

@@ -2,7 +2,7 @@
 
 ## Gate 1 Semantic Audit - Contract v1.1
 
-Status: Gate 1 audit complete; Witherbloom remains uncertified.
+Status: certified semantically_ready under CRIT-001 Contract v1.1.
 Branch: `codex/vm-505-witherbloom-semantic-recovery`
 Starting SHA / current HEAD during audit: `41d291072340f7ddfe4ffe90f2e57e4f4793142d`
 Program base: `41d291072340f7ddfe4ffe90f2e57e4f4793142d`
@@ -860,6 +860,34 @@ Candidate-scope dry-run passes with only documented Witherbloom display-source e
 
 The exact SHA-based candidate-scope guard must be rerun by Gate 5 review against candidate SHA `48d240db3c7001a498a6e5a4602cc8cd54349776`.
 
+## Certification and Program Acceptance
+
+Independent Gate 5 review returned **APPROVE EXACT SHA** for recovery commit `48d240db3c7001a498a6e5a4602cc8cd54349776`. This certification commit does not modify the approved recovery candidate, canonical Witherbloom data, generated artifacts, fixtures, Hall/Crucible content, scoring, inhibition, confidence, scheduling, tie ordering, or global recruiter behavior.
+
+| Field | Value |
+|---|---|
+| Identity | Witherbloom |
+| VM | VM-505 |
+| Contract version | `v1.1` |
+| Approved recovery SHA | `48d240db3c7001a498a6e5a4602cc8cd54349776` |
+| Workflow-record SHA | `a0efe415c8eb38cf041a39f20bc90ca462216593` |
+| Independent review result | `APPROVE EXACT SHA` |
+| Reviewer reference | Robert / user-supplied independent Gate 5 review in this Codex thread |
+| Approval date | 2026-07-13 |
+| Final certification state | `semantically_ready` |
+| Certification commit | `PENDING_VM505_CERTIFICATION_COMMIT_SHA` |
+
+### Residual non-blocking findings
+
+- LOW: MTG-Stories corpus search evidence remains under `placement_quality.strongest_evidence_areas` in `data/raw-factions/witherbloom/witherbloom.placement.json`. It does not appear in an authoritative proof chain. It should be cleaned later by replacing it with source-backed wording or explicitly labeling corpus material as discovery metadata only. This is readability/source-labeling hygiene only and does not block certification.
+- Runtime Hall, Crucible, scoring, inhibition, scheduling, confidence, and live recruiter calibration remain post-CRIT investigations.
+- Candidate-scope guard retains documented Witherbloom display-source exceptions for `data/identity-layers.json` and generated `data/factions.json` identity-layer content.
+
+### Known unchanged warnings
+
+- Builder-owned Witherbloom inhibitor warning remains unchanged.
+- Dossier audit direct write may require artifact-write permissions; reviewer independently ran the same dossier audit logic in memory and verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, and 0 failures.
+
 ## Final Status
 
-Gate 5 candidate recovery commit `48d240db3c7001a498a6e5a4602cc8cd54349776` has been created for independent review. Witherbloom remains uncertified. No certification commit exists. Prismari, Lorehold, Quandrix, and Silverquill remain certified semantically ready under CRIT-001 Contract v1.1. No other identity was started.
+Witherbloom is certified `semantically_ready` under CRIT-001 Contract v1.1. Recovery commit `48d240db3c7001a498a6e5a4602cc8cd54349776` is accepted by exact-SHA independent review; certification commit is recorded as `PENDING_VM505_CERTIFICATION_COMMIT_SHA` in self-referential records and will be reported with its exact SHA after commit creation. Prismari, Lorehold, Quandrix, Silverquill, and Witherbloom are certified. Izzet is the next identity for branch setup only; no Izzet remediation has started.
