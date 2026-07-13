@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "faction_id": "silverquill",
   "faction_name": "Silverquill College",
-  "last_updated": "2026-06-13",
-  "claim_count": 18,
+  "last_updated": "2026-07-12",
+  "claim_count": 26,
   "claims": [
     {
       "claim_id": "silverquill_claim_001",
@@ -16,7 +16,26 @@
         "src_wotc_strixhaven_product_page_2021"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "Official Strixhaven sources identify Silverquill as the white-black College of Eloquence.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct"
+        },
+        {
+          "source_id": "src_wotc_strixhaven_product_page_2021",
+          "locator_type": "product overview",
+          "locator": "Strixhaven: School of Mages ? college product overview",
+          "bounded_paraphrase": "Official Strixhaven sources identify Silverquill as the white-black College of Eloquence.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct"
+        }
+      ]
     },
     {
       "claim_id": "silverquill_claim_002",
@@ -28,7 +47,18 @@
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "The official 2021 Silverquill overview frames the college through word magic, spoken-word battle poetry, and magical written manifestations.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct"
+        }
+      ]
     },
     {
       "claim_id": "silverquill_claim_003",
@@ -40,7 +70,18 @@
         "src_wotc_planeswalkers_guide_strixhaven_2021"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "The official 2021 Silverquill overview describes the college personality through style, intimidation, drive, competition, and leadership.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct"
+        }
+      ]
     },
     {
       "claim_id": "silverquill_claim_004",
@@ -52,7 +93,18 @@
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "The official 2026 Silverquill overview emphasizes spoken, written, and signed word magic manifested through calligraphic ink and light.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct"
+        }
+      ]
     },
     {
       "claim_id": "silverquill_claim_005",
@@ -64,7 +116,18 @@
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "The official 2026 Silverquill overview lists academic fields including language, politics, social systems, law, espionage, and journalism.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct"
+        }
+      ]
     },
     {
       "claim_id": "silverquill_claim_006",
@@ -77,7 +140,26 @@
         "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
       ],
       "confidence": "High",
-      "notes": "Placement inference derived from official faction identity and mechanics; not an official Wizards psychological taxonomy."
+      "notes": "Placement inference derived from official faction identity and mechanics; not an official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "Official Silverquill identity, word-magic method, leadership/intimidation framing, and study-area evidence support Vox Mana placement weighting toward rhetorical precision, influence, reputation, and words changing power relationships.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "Official Silverquill identity, word-magic method, leadership/intimidation framing, and study-area evidence support Vox Mana placement weighting toward rhetorical precision, influence, reputation, and words changing power relationships.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "silverquill_claim_0007",
@@ -90,7 +172,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "silverquill_claim_0008",
@@ -103,7 +186,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "silverquill_claim_0009",
@@ -116,7 +200,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "silverquill_claim_0010",
@@ -129,7 +214,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "silverquill_claim_0011",
@@ -142,7 +228,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "silverquill_claim_0012",
@@ -155,7 +242,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "silverquill_claim_0013",
@@ -168,7 +256,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "silverquill_claim_0014",
@@ -181,7 +270,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "silverquill_claim_0015",
@@ -194,7 +284,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "silverquill_claim_0016",
@@ -207,7 +298,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "silverquill_claim_0017",
@@ -219,7 +311,8 @@
         "src_wotc_secrets_strixhaven_commander_decklists_20260401"
       ],
       "confidence": "High",
-      "notes": "Decklist support is product/navigation only. It is not lore proof, popularity proof, metagame proof, legality proof, or canon identity proof."
+      "notes": "Decklist support is product/navigation only. It is not lore proof, popularity proof, metagame proof, legality proof, or canon identity proof.",
+      "semantic_role": "support_record"
     },
     {
       "claim_id": "silverquill_claim_0018",
@@ -231,7 +324,255 @@
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
       "confidence": "High for card-data attribution",
-      "notes": "Use only short summaries in generated/public surfaces; do not copy long flavor blocks."
+      "notes": "Use only short summaries in generated/public surfaces; do not copy long flavor blocks.",
+      "semantic_role": "support_record"
+    },
+    {
+      "claim_id": "silverquill_claim_0019",
+      "faction_id": "silverquill",
+      "claim_type": "placement_semantic",
+      "statement": "Silverquill positive placement evidence may treat language as action when an answer centers spoken, written, signed, or ink-and-light expression as the tool that changes a social situation.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "High",
+      "notes": "Vox Mana placement synthesis from official word-magic, language, and ink/light Silverquill sources; not an official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "The 2021 and 2026 official Silverquill overviews establish word magic and spoken/written/signed expression as the college method; Vox Mana uses that as placement evidence when language is the active tool.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "The 2021 and 2026 official Silverquill overviews establish word magic and spoken/written/signed expression as the college method; Vox Mana uses that as placement evidence when language is the active tool.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "silverquill_claim_0020",
+      "faction_id": "silverquill",
+      "claim_type": "internal_tension",
+      "statement": "Silverquill?s bounded internal placement tension is whether eloquence functions as responsible leadership and uplift or as intimidation, competition, and status pressure.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "Medium-High",
+      "notes": "Project synthesis from official leadership, intimidation, drive, competition, word-magic, and language-study evidence; does not claim a formal Wizards faction doctrine beyond those sources.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "Official Silverquill evidence combines word magic and leadership with intimidation, drive, and competition; Vox Mana constrains this into an uplift-versus-pressure placement tension.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "Official Silverquill evidence combines word magic and leadership with intimidation, drive, and competition; Vox Mana constrains this into an uplift-versus-pressure placement tension.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "silverquill_claim_0021",
+      "faction_id": "silverquill",
+      "claim_type": "mature_expression",
+      "statement": "Mature Silverquill expression uses precise language, leadership presence, and awareness of power relationships to clarify, persuade, or lead without reducing the college to generic manipulation.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "Medium-High",
+      "notes": "Bounded placement synthesis from official word-magic and leadership evidence plus existing Silverquill placement interpretation.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "Official Silverquill evidence supports word magic, leadership presence, and language-related social disciplines; Vox Mana treats precise, aware influence as mature placement expression.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "Official Silverquill evidence supports word magic, leadership presence, and language-related social disciplines; Vox Mana treats precise, aware influence as mature placement expression.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "silverquill_claim_0022",
+      "faction_id": "silverquill",
+      "claim_type": "failure_pressure_behavior",
+      "statement": "Silverquill placement weakens under pressure when an answer prefers vague communication, denies that words affect power relationships, or avoids visible rhetorical influence when language is the relevant tool.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "Medium",
+      "notes": "Negative/pressure placement synthesis; it is not a canon personality diagnosis.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "Official Silverquill evidence establishes language, eloquence, leadership, and social disciplines as central; Vox Mana treats vagueness or refusal of language-as-action as pressure/mismatch evidence.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "Official Silverquill evidence establishes language, eloquence, leadership, and social disciplines as central; Vox Mana treats vagueness or refusal of language-as-action as pressure/mismatch evidence.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "silverquill_claim_0023",
+      "faction_id": "silverquill",
+      "claim_type": "neighbor_boundary",
+      "statement": "The Silverquill-Orzhov boundary should require Silverquill?s positive evidence to center visible language, rhetorical force, and social influence rather than debt, contract, tithe, inherited obligation, or institutional ledger logic.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "Medium",
+      "notes": "Boundary claim for required-neighbor placement. The Silverquill side is sourced from official Silverquill evidence; Orzhov terms are existing Vox Mana comparison labels and must not be presented as new Silverquill canon.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "Official Silverquill evidence supplies the positive language/rhetoric side of the boundary; existing placement comparison language supplies the Orzhov suppressor terms as Vox Mana boundary metadata.",
+          "evidence_scope": "neighbor-boundary",
+          "interpretation_level": "project_synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "Official Silverquill evidence supplies the positive language/rhetoric side of the boundary; existing placement comparison language supplies the Orzhov suppressor terms as Vox Mana boundary metadata.",
+          "evidence_scope": "neighbor-boundary",
+          "interpretation_level": "project_synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "silverquill_claim_0024",
+      "faction_id": "silverquill",
+      "claim_type": "neighbor_boundary",
+      "statement": "The Silverquill-Dimir boundary should separate public, remembered, or visible rhetorical influence from secrecy, anonymity, hidden information, or information asymmetry.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "Medium",
+      "notes": "Boundary claim for required-neighbor placement. The Silverquill side is official word-magic and leadership evidence; Dimir terms are existing Vox Mana comparison labels.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "Official Silverquill evidence supports language, performance of words, and leadership/public influence; existing placement comparison language supplies the Dimir suppressor terms as Vox Mana boundary metadata.",
+          "evidence_scope": "neighbor-boundary",
+          "interpretation_level": "project_synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "Official Silverquill evidence supports language, performance of words, and leadership/public influence; existing placement comparison language supplies the Dimir suppressor terms as Vox Mana boundary metadata.",
+          "evidence_scope": "neighbor-boundary",
+          "interpretation_level": "project_synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "silverquill_claim_0025",
+      "faction_id": "silverquill",
+      "claim_type": "neighbor_boundary",
+      "statement": "The Silverquill-Prismari boundary should distinguish language, rhetoric, signed/spoken/written expression, and ink/light word magic from artistic or elemental media where the chosen medium and expression are the primary purpose.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "Medium",
+      "notes": "Boundary claim aligned to certified Prismari recovery; it avoids reducing Prismari to spectacle alone.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "Official Silverquill evidence supports word magic and language-form expression; the Prismari contrast is retained as Vox Mana required-neighbor synthesis aligned to certified Prismari boundaries.",
+          "evidence_scope": "neighbor-boundary",
+          "interpretation_level": "project_synthesis"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "Official Silverquill evidence supports word magic and language-form expression; the Prismari contrast is retained as Vox Mana required-neighbor synthesis aligned to certified Prismari boundaries.",
+          "evidence_scope": "neighbor-boundary",
+          "interpretation_level": "project_synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "silverquill_claim_0026",
+      "faction_id": "silverquill",
+      "claim_type": "non_required_neighbor_guardrail",
+      "statement": "Azorius/WU remains a non-required Silverquill guardrail unless generated public copy requires it: legal or procedural language alone should not be treated as Silverquill without rhetorical, social, or word-magic evidence.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "confidence": "Medium",
+      "notes": "This supports the existing calibration suppressor without promoting Azorius/WU into the required-neighbor set during Gate 3.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator_type": "section",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven ? Silverquill college overview",
+          "bounded_paraphrase": "The official 2026 Silverquill study-area list includes law among several language/social disciplines; Vox Mana therefore treats procedure-only answers as insufficient unless the answer also carries Silverquill rhetorical evidence.",
+          "evidence_scope": "placement-synthesis",
+          "interpretation_level": "project_synthesis"
+        }
+      ]
     }
   ]
 }

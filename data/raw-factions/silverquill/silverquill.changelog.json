@@ -2,8 +2,76 @@
   "schema_version": "1.0.0",
   "faction_id": "silverquill",
   "faction_name": "Silverquill College",
-  "last_updated": "2026-06-13",
+  "last_updated": "2026-07-12",
   "changes": [
+    {
+      "change_id": "silverquill_change_crit001_vm504_gate3_semantic_remediation_20260712",
+      "change_type": "CRIT-001 Gate 3 Canonical Remediation",
+      "change_date": "2026-07-12",
+      "summary": "Added Contract v1.1 semantic roles, bounded evidence localization, minimal substantive extraction, profile/placement evidence-chain repairs, recruiter guidance evidence mappings, required-neighbor mappings, and auxiliary support isolation for Silverquill. Generated artifacts remain stale until Gate 4.",
+      "sources_added": [],
+      "sources_updated": [],
+      "claims_added": [
+        "silverquill_claim_0019",
+        "silverquill_claim_0020",
+        "silverquill_claim_0021",
+        "silverquill_claim_0022",
+        "silverquill_claim_0023",
+        "silverquill_claim_0024",
+        "silverquill_claim_0025",
+        "silverquill_claim_0026"
+      ],
+      "claims_updated": [
+        "silverquill_claim_001",
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_004",
+        "silverquill_claim_005",
+        "silverquill_claim_006",
+        "silverquill_claim_0007",
+        "silverquill_claim_0008",
+        "silverquill_claim_0009",
+        "silverquill_claim_0010",
+        "silverquill_claim_0011",
+        "silverquill_claim_0012",
+        "silverquill_claim_0013",
+        "silverquill_claim_0014",
+        "silverquill_claim_0015",
+        "silverquill_claim_0016",
+        "silverquill_claim_0017",
+        "silverquill_claim_0018"
+      ],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "core_identity",
+        "site_surface",
+        "structure",
+        "great_tension",
+        "mechanics",
+        "data_quality",
+        "key_figures",
+        "canonical_flavor_text",
+        "commander_compass"
+      ],
+      "placement_fields_updated": [
+        "placement_summary",
+        "placement_axes",
+        "moral_and_psychological_profile",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "good_fit_indicators",
+        "collision_guidance",
+        "semantic_guidance_evidence",
+        "required_neighbor_evidence",
+        "semantic_readiness"
+      ],
+      "manual_review_required": [
+        "Gate 4 must rebuild generated artifacts, regenerate provenance, add semantic fixtures, and validate generated consumer completeness."
+      ],
+      "notes": "No generated files, Hall/Crucible content, scoring, inhibition, confidence behavior, scheduling, tie ordering, global recruiter behavior, or other identity packets were changed in Gate 3."
+    },
     {
       "change_id": "change_silverquill_placement_ready_20260510025603",
       "date": "2026-05-10",
@@ -141,7 +209,7 @@
     "number_of_official_sources_used": 3,
     "number_of_repository_archive_sources_used": 10,
     "number_of_secondary_discovery_sources_used": 0,
-    "number_of_claims_verified": 18,
+    "number_of_claims_verified": 26,
     "number_of_claims_marked_uncertain": 0,
     "sections_with_limited_evidence": [
       "deep story episode coverage",
@@ -149,7 +217,7 @@
     ],
     "conflicting_sources_found": [],
     "assumptions_removed_during_validation": [],
-    "overall_confidence_rating": "Medium-High for bounded public richness; support-only for Commander/deck surfaces.",
+    "overall_confidence_rating": "Medium-High for bounded official-source identity and placement synthesis; support-only for Commander/deck/card surfaces.",
     "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
   }
 }

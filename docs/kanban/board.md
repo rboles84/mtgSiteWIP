@@ -1,4 +1,4 @@
-# Vox Mana Kanban Board
+﻿# Vox Mana Kanban Board
 
 This board tracks planned, active, blocked, and completed Vox Mana work.
 
@@ -9,11 +9,11 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 **CRIT-001 is open.** Faction-foundation authoring, readiness approvals, canonical semantic guidance outside an active recovery card, Hall/Crucible authoring, and placement calibration are frozen. VM-501 owns shared recovery infrastructure; VM-502 through VM-538 recover the 37 identities one at a time. See the [incident](../incidents/CRIT-001-faction-semantic-readiness-integrity.md) and [authoritative recovery ledger](../incidents/CRIT-001-identity-recovery-ledger.json).
 
-**VM-502 Prismari is certified semantically ready under CRIT-001 Contract v1.1.** Approved recovery SHA `19800da6322100b28fa6325fef91321e147b6f69` is accepted by independent Gate 5 review and recorded in certification commit `492598f13df24d0f74f5869e249d860ff661a3aa`. **VM-506 Lorehold is certified semantically ready under CRIT-001 Contract v1.1.** Approved recovery SHA `6d8d46d8df0429a105c08e656a8303474c435abd` is accepted by independent Gate 5 review and recorded in certification commit `fa435b17ab36633b200a8405065732568f0ef78c`. **VM-503 Quandrix is certified semantically ready under CRIT-001 Contract v1.1.** Approved recovery SHA `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe` is accepted by independent Gate 5 review and recorded in certification commit `cb495e11ba875f1801cbd8f8cb8e7204c27f5840`. Silverquill is the next active identity by branch setup only; no VM-504 remediation has started.
+**VM-502 Prismari is certified semantically ready under CRIT-001 Contract v1.1.** Approved recovery SHA `19800da6322100b28fa6325fef91321e147b6f69` is accepted by independent Gate 5 review and recorded in certification commit `492598f13df24d0f74f5869e249d860ff661a3aa`. **VM-506 Lorehold is certified semantically ready under CRIT-001 Contract v1.1.** Approved recovery SHA `6d8d46d8df0429a105c08e656a8303474c435abd` is accepted by independent Gate 5 review and recorded in certification commit `fa435b17ab36633b200a8405065732568f0ef78c`. **VM-503 Quandrix is certified semantically ready under CRIT-001 Contract v1.1.** Approved recovery SHA `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe` is accepted by independent Gate 5 review and recorded in certification commit `cb495e11ba875f1801cbd8f8cb8e7204c27f5840`. VM-504 Silverquill completed Gate 1 through Gate 4, bounded wording-blocker resolution, and scope-policy cleanup; Silverquill is ready for Gate 5 candidate creation and remains uncertified.
 
 ## Backlog
 
-- [VM-502 through VM-538 — Identity Semantic Recovery](../incidents/CRIT-001-identity-recovery-ledger.md) - standardized one-card-per-identity recovery queue; execution order and status live in the CRIT-001 ledger.
+- [VM-502 through VM-538 â€” Identity Semantic Recovery](../incidents/CRIT-001-identity-recovery-ledger.md) - standardized one-card-per-identity recovery queue; execution order and status live in the CRIT-001 ledger.
 
 - [VM-422 - Account Deck Links And Community Deck Ledger](backlog/VM-422-account-deck-links-community-deck-ledger.md) - deferred enhancement; deck saving remains wanted later, but the active Archscry surface is hidden until higher-priority readiness work is complete.
 - [VM-446 - VM-422 Live Private Deck-Link RLS Proof](backlog/VM-446-vm422-live-private-deck-link-rls-proof.md) - conditional security gate required only before shipping private account-backed deck-link saving.

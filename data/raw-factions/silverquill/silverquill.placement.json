@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "silverquill",
   "faction_name": "Silverquill College",
-  "last_updated": "2026-05-10T02:56:03.254Z",
+  "last_updated": "2026-07-12",
   "placement_model_version": "vox-mana-lore-json-v1",
   "color_identity": [
     "white",
@@ -18,7 +18,7 @@
       "confidence": "Medium"
     },
     {
-      "indicator": "understands performance and reputation",
+      "indicator": "uses public language, praise, critique, or performance to shape how people are seen or treated",
       "rationale": "Matches the official Silverquill College identity summarized in the profile.",
       "claim_ids": [
         "silverquill_claim_002"
@@ -79,7 +79,7 @@
     {
       "question_id": "silverquill_q2",
       "question": "Is influence more dangerous when it flatters or when it wounds?",
-      "purpose": "Separates Radiance and Shadow readings.",
+      "purpose": "Tests whether public language is being used to uplift, pressure, persuade, or dominate through rhetoric and social force.",
       "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
       "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
       "related_factions_to_compare": [],
@@ -123,7 +123,7 @@
   "chatbot_guidance": {
     "how_to_recognize_match": [
       "uses words deliberately",
-      "understands performance and reputation",
+      "uses public language, praise, critique, or performance to shape how people are seen or treated",
       "can inspire or cut through pretense with precision"
     ],
     "how_to_recognize_mismatch": [
@@ -167,19 +167,25 @@
   "placement_profile_version": "vox-mana-lore-json-v1",
   "based_on_profile_version": "1.0.0",
   "placement_summary": {
-    "short_description": "Silverquill College placement is informed by official overview sources and MTG-Stories corpus evidence.",
-    "best_fit_summary": "uses words deliberately understands performance and reputation can inspire or cut through pretense with precision",
-    "poor_fit_summary": "communicates vaguely by preference denies that language has power avoids visibility even when influence is needed",
+    "short_description": "Silverquill placement centers language as action: eloquence, word magic, rhetorical precision, and visible social influence.",
+    "best_fit_summary": "uses words deliberately, understands how public language changes relationships, and can lead, persuade, inspire, or cut through pretense with precision",
+    "poor_fit_summary": "communicates vaguely by preference, denies that language has power, or centers debt, secrecy, elemental art, or procedure without Silverquill rhetorical evidence",
     "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
     "claim_ids": [
-      "silverquill_claim_0007",
-      "silverquill_claim_0008",
-      "silverquill_claim_0009",
-      "silverquill_claim_0010",
-      "silverquill_claim_0011",
-      "silverquill_claim_0012",
-      "silverquill_claim_0013",
-      "silverquill_claim_0014"
+      "silverquill_claim_001",
+      "silverquill_claim_002",
+      "silverquill_claim_003",
+      "silverquill_claim_004",
+      "silverquill_claim_005",
+      "silverquill_claim_006",
+      "silverquill_claim_0019",
+      "silverquill_claim_0020",
+      "silverquill_claim_0021",
+      "silverquill_claim_0022",
+      "silverquill_claim_0023",
+      "silverquill_claim_0024",
+      "silverquill_claim_0025",
+      "silverquill_claim_0026"
     ],
     "calibrated_primary_read": "Requires language as power, reputation, public influence, precision of speech, or verbal pressure.",
     "calibrated_false_positive_guardrail": "Do not award for generic manipulation or black-white identity without visible language/status signals.",
@@ -189,7 +195,15 @@
       "silverquill_claim_003",
       "silverquill_claim_004",
       "silverquill_claim_005",
-      "silverquill_claim_006"
+      "silverquill_claim_006",
+      "silverquill_claim_0019",
+      "silverquill_claim_0020",
+      "silverquill_claim_0021",
+      "silverquill_claim_0022",
+      "silverquill_claim_0023",
+      "silverquill_claim_0024",
+      "silverquill_claim_0025",
+      "silverquill_claim_0026"
     ]
   },
   "placement_axes": [
@@ -200,146 +214,146 @@
       "low_end_label": "unshaped feeling",
       "high_end_label": "precise influence",
       "faction_position": 90,
-      "rationale": "Corpus evidence adds story-context support for Silverquill, Embrose Lu, Killian Lu, Shaile, ink magic, inkling, eloquence, shadow.",
+      "rationale": "Official Silverquill evidence supports word magic, spoken/written/signed expression, leadership, competition, and language-related social disciplines; Gate 3 removes story-search rows from this placement axis.",
       "claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009",
-        "silverquill_claim_0010",
-        "silverquill_claim_0011",
-        "silverquill_claim_0012",
-        "silverquill_claim_0013",
-        "silverquill_claim_0014"
+        "silverquill_claim_001",
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_004",
+        "silverquill_claim_005",
+        "silverquill_claim_006",
+        "silverquill_claim_0019",
+        "silverquill_claim_0020",
+        "silverquill_claim_0021",
+        "silverquill_claim_0022"
       ],
       "confidence": "Medium",
-      "notes": "Added during MTG-Stories corpus upgrade."
+      "notes": "CRIT-001 Gate 3 replaces corpus-search proof with source-backed substantive Silverquill claims; generated artifacts remain stale until Gate 4."
     }
   ],
   "moral_and_psychological_profile": {
-    "summary": "Silverquill College should be scored through faction-specific behavioral evidence, not only broad color identity.",
+    "summary": "Silverquill College should be scored through language-as-action, leadership, rhetorical precision, and visible social influence rather than only broad color identity.",
     "claim_ids": [
-      "silverquill_claim_0007",
-      "silverquill_claim_0008",
-      "silverquill_claim_0009",
-      "silverquill_claim_0010",
-      "silverquill_claim_0011"
+      "silverquill_claim_001",
+      "silverquill_claim_002",
+      "silverquill_claim_003",
+      "silverquill_claim_004",
+      "silverquill_claim_006",
+      "silverquill_claim_0019",
+      "silverquill_claim_0020",
+      "silverquill_claim_0021",
+      "silverquill_claim_0022"
     ]
   },
   "core_values": [
     {
-      "value": "Silverquill",
-      "placement_relevance": "Corpus search evidence for Silverquill College.",
+      "value": "College of Eloquence",
+      "placement_relevance": "Silverquill identity starts with eloquence and white-black Strixhaven college context, not generic WB power.",
       "claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_001"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Embrose Lu",
-      "placement_relevance": "Corpus search evidence for Silverquill College.",
+      "value": "word magic",
+      "placement_relevance": "Silverquill should recognize spoken, written, signed, or ink/light language as a magical and social method.",
       "claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_002",
+        "silverquill_claim_004",
+        "silverquill_claim_0019"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Killian Lu",
-      "placement_relevance": "Corpus search evidence for Silverquill College.",
+      "value": "rhetorical precision",
+      "placement_relevance": "Answers strengthen Silverquill when exact wording, argument, critique, or persuasion is the decisive tool.",
       "claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_002",
+        "silverquill_claim_006",
+        "silverquill_claim_0019"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Shaile",
-      "placement_relevance": "Corpus search evidence for Silverquill College.",
+      "value": "leadership presence",
+      "placement_relevance": "Silverquill can express influence through visible leadership, style, drive, and competition.",
       "claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_003",
+        "silverquill_claim_0021"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "ink magic",
-      "placement_relevance": "Corpus search evidence for Silverquill College.",
+      "value": "language changing power relationships",
+      "placement_relevance": "Silverquill placement should ask whether words alter status, trust, pressure, or the social situation.",
       "claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_006",
+        "silverquill_claim_0019",
+        "silverquill_claim_0021"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "inkling",
-      "placement_relevance": "Corpus search evidence for Silverquill College.",
+      "value": "uplift versus pressure",
+      "placement_relevance": "Silverquill?s internal tension is bounded as leadership/uplift versus intimidation, competition, and status pressure.",
       "claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_003",
+        "silverquill_claim_006",
+        "silverquill_claim_0020"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "eloquence",
-      "placement_relevance": "Corpus search evidence for Silverquill College.",
+      "value": "required-neighbor boundaries",
+      "placement_relevance": "Purpose and method separate Silverquill from Orzhov debt, Dimir secrecy, and Prismari artistic/elemental expression.",
       "claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_0023",
+        "silverquill_claim_0024",
+        "silverquill_claim_0025"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "shadow",
-      "placement_relevance": "Corpus search evidence for Silverquill College.",
+      "value": "public language shaping social treatment",
+      "placement_relevance": "Silverquill can strengthen when praise, critique, or public language shapes how people are seen or treated.",
       "claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_0019",
+        "silverquill_claim_0021"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "learn",
-      "placement_relevance": "Corpus search evidence for Silverquill College.",
+      "value": "praise, critique, and rhetorical pressure",
+      "placement_relevance": "Silverquill evidence supports words used to lead, uplift, criticize, intimidate, compete, or pressure without requiring unsupported Radiance/Shadow shorthand.",
       "claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_0020",
+        "silverquill_claim_0021",
+        "silverquill_claim_0022"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Shadrix Silverquill",
-      "placement_relevance": "Corpus search evidence for Silverquill College.",
+      "value": "procedure-only guardrail",
+      "placement_relevance": "Legal or procedural language alone should not be treated as Silverquill without rhetorical, social, or word-magic evidence.",
       "claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009"
+        "silverquill_claim_0026"
       ],
       "confidence": "Medium"
     }
   ],
   "behavioral_signals": [
     {
-      "signal": "References A Silent Voice Calls, Winnowing Season, The Chains That Bind as story-context evidence rather than relying only on color identity.",
-      "placement_relevance": "Strengthens Silverquill College with corpus-backed specificity.",
-      "supports_match_when": "The user's answers echo Silverquill, Embrose Lu, Killian Lu, Shaile, ink magic, inkling in a faction-specific way.",
-      "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
+      "signal": "Uses language deliberately as the active tool in a social situation.",
+      "placement_relevance": "Strengthens Silverquill when the answer centers words, signs, rhetoric, ink/light expression, leadership, or public influence rather than generic WB identity.",
+      "supports_match_when": "The user describes precise wording, critique, persuasion, leadership presence, or rhetorical pressure changing how people relate or act.",
+      "weakens_match_when": "The user centers debt, hidden information, elemental/artistic medium, procedure-only logic, or vague intention without Silverquill language evidence.",
       "claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009",
-        "silverquill_claim_0010",
-        "silverquill_claim_0011",
-        "silverquill_claim_0012"
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_004",
+        "silverquill_claim_006",
+        "silverquill_claim_0019",
+        "silverquill_claim_0022"
       ],
       "confidence": "Medium"
     },
@@ -350,16 +364,18 @@
   "inhibitor_traits": [
     {
       "trait": "Generic color-pair overfit",
-      "why_it_conflicts": "The corpus upgrade is intended to prevent Silverquill College from winning on broad color identity alone.",
+      "why_it_conflicts": "Silverquill should not win on black-white color identity alone; it needs language, eloquence, rhetorical pressure, leadership, or social-influence evidence.",
       "status": "Supported Interpretation",
       "claim_ids": [
-        "silverquill_claim_0007",
-        "silverquill_claim_0008",
-        "silverquill_claim_0009",
-        "silverquill_claim_0010"
+        "silverquill_claim_001",
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_006",
+        "silverquill_claim_0022",
+        "silverquill_claim_0023"
       ],
       "confidence": "Medium",
-      "notes": "Use collision questions when another faction shares the same or adjacent colors."
+      "notes": "Use collision questions when another faction shares the same colors or nearby influence language."
     },
     "prefers invisibility",
     "frames power as debt",
@@ -375,10 +391,13 @@
       "confidence": "Medium"
     },
     {
-      "indicator": "understands performance and reputation",
-      "rationale": "Matches the official Silverquill College identity summarized in the profile.",
+      "indicator": "understands language, reputation, and public influence",
+      "rationale": "Matches official Silverquill word-magic and leadership evidence plus bounded placement synthesis.",
       "claim_ids": [
-        "silverquill_claim_002"
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_006",
+        "silverquill_claim_0021"
       ],
       "confidence": "Medium"
     },
@@ -386,7 +405,9 @@
       "indicator": "can inspire or cut through pretense with precision",
       "rationale": "Matches the official Silverquill College identity summarized in the profile.",
       "claim_ids": [
-        "silverquill_claim_003"
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_0021"
       ],
       "confidence": "Medium"
     }
@@ -426,40 +447,159 @@
     {
       "collision_id": "collision_silverquill_vs_orzhov_syndicate_placement_ready",
       "against": "orzhov_syndicate",
-      "separator": "Silverquill is visible rhetorical force; Orzhov is obligation made institutional.",
+      "separator": "Silverquill uses visible language, rhetorical force, and social influence; Orzhov is the existing Vox Mana boundary for obligation, debt, contract, and institutional ledger logic.",
       "ask": "Is the decisive tool the sentence that changes the room, or the ledger everyone must answer to later?",
       "suppress_if": "the answer centers debt, contract, tithe, or inherited obligation",
       "evidence_claim_ids": [
         "silverquill_claim_001",
         "silverquill_claim_002",
-        "silverquill_claim_003"
+        "silverquill_claim_003",
+        "silverquill_claim_0023"
       ]
     },
     {
       "collision_id": "collision_silverquill_vs_house_dimir_placement_ready",
       "against": "house_dimir",
-      "separator": "Silverquill stands in the light and shapes perception; Dimir disappears behind information.",
+      "separator": "Silverquill leaves a public or remembered rhetorical mark; Dimir is the existing Vox Mana boundary for secrecy, anonymity, hidden information, and information asymmetry.",
       "ask": "Do you want the decisive phrase remembered, or the decisive hand never noticed?",
       "suppress_if": "the answer prefers secrecy, anonymity, or information asymmetry",
       "evidence_claim_ids": [
         "silverquill_claim_001",
         "silverquill_claim_002",
-        "silverquill_claim_003"
+        "silverquill_claim_003",
+        "silverquill_claim_0024"
       ]
     },
     {
       "collision_id": "collision_silverquill_vs_prismari_placement_ready",
       "against": "prismari",
       "lateral_inhibition": false,
-      "separator": "Silverquill moves the room through precise words, reputation, and public influence; Prismari moves the room through art, performance, and elemental spectacle.",
-      "ask": "When language can move a room, should it become a precise argument, a public performance, or an elemental spectacle?",
-      "suppress_if": "the answer centers expressive art, elemental spectacle, emotion, or performance before rhetoric",
+      "separator": "Silverquill moves the room through precise language, rhetoric, signed/spoken/written word, and ink/light word magic; Prismari centers artistic or elemental media and expression.",
+      "ask": "When a public act moves the room, is the decisive medium language/rhetoric, artistic form, or elemental expression?",
+      "suppress_if": "the answer centers artistic or elemental medium, emotional expression, or chosen art form before language/rhetoric",
+      "evidence_claim_ids": [
+        "silverquill_claim_002",
+        "silverquill_claim_004",
+        "silverquill_claim_006",
+        "silverquill_claim_0025"
+      ]
+    }
+  ],
+  "semantic_guidance_evidence": [
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "evidence_claim_ids": [
+        "silverquill_claim_002",
+        "silverquill_claim_004",
+        "silverquill_claim_0019"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "evidence_claim_ids": [
+        "silverquill_claim_003",
+        "silverquill_claim_006",
+        "silverquill_claim_0021"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
       "evidence_claim_ids": [
         "silverquill_claim_002",
         "silverquill_claim_003",
-        "silverquill_claim_004",
-        "silverquill_claim_006"
+        "silverquill_claim_0021"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "evidence_claim_ids": [
+        "silverquill_claim_0022"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "evidence_claim_ids": [
+        "silverquill_claim_006",
+        "silverquill_claim_0022"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "evidence_claim_ids": [
+        "silverquill_claim_0022",
+        "silverquill_claim_0023",
+        "silverquill_claim_0024",
+        "silverquill_claim_0025"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "evidence_claim_ids": [
+        "silverquill_claim_0019",
+        "silverquill_claim_0021",
+        "silverquill_claim_0024",
+        "silverquill_claim_0025"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "evidence_claim_ids": [
+        "silverquill_claim_0020",
+        "silverquill_claim_0021",
+        "silverquill_claim_0022"
       ]
     }
-  ]
+  ],
+  "required_neighbor_evidence": [
+    {
+      "neighbor": "WB",
+      "label": "Orzhov Syndicate",
+      "reason": "Same-color alternative and existing Silverquill/Orzhov collision guidance.",
+      "evidence_claim_ids": [
+        "silverquill_claim_001",
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_0023"
+      ],
+      "ambiguity": "Both can involve WB power and influence; Silverquill needs language/rhetorical evidence rather than debt or obligation logic."
+    },
+    {
+      "neighbor": "HOUSE_DIMIR",
+      "label": "House Dimir",
+      "reason": "Existing collision guidance and overlap around influence, manipulation, and information.",
+      "evidence_claim_ids": [
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_006",
+        "silverquill_claim_0024"
+      ],
+      "ambiguity": "Both can shape perception; Silverquill should be visible or remembered rhetorical force while Dimir resolves into hidden information."
+    },
+    {
+      "neighbor": "PRISMARI",
+      "label": "Prismari College",
+      "reason": "Existing college collision and overlap around public expression and moving an audience.",
+      "evidence_claim_ids": [
+        "silverquill_claim_002",
+        "silverquill_claim_004",
+        "silverquill_claim_006",
+        "silverquill_claim_0025"
+      ],
+      "ambiguity": "Both can move a room; Silverquill uses language/rhetoric while Prismari centers artistic or elemental medium and expression."
+    }
+  ],
+  "semantic_readiness": {
+    "contract_version": "v1.1",
+    "certification_status": "gate3_canonical_remediation",
+    "required_neighbors": [
+      "WB",
+      "HOUSE_DIMIR",
+      "PRISMARI"
+    ],
+    "non_blocking_neighbor_guardrails": [
+      "WU"
+    ],
+    "audit_report": "docs/incidents/recoveries/VM-504-silverquill-semantic-recovery.md",
+    "generated_artifacts_status": "stale_until_gate4"
+  }
 }

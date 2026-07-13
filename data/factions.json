@@ -10471,68 +10471,59 @@
       "accent": "#9a7ab0",
       "banner": "linear-gradient(160deg,rgba(90,60,120,0.3) 0%,rgba(12,11,10,0) 60%)",
       "tagline": "Sharp style. Sharper wit.",
-      "philosophy": "The College of Eloquence holds that words are not merely descriptions of power but power itself. Silverquill mages wield language as weapon and beacon - battle poetry, biting arcane precision, shadow magic conjured from ink. They are the most visible people in every room and they are aware of this.",
-      "lore_summary": "Is eloquence a tool of service or self-advancement? The Radiance tradition holds that language is most powerful when it uplifts. The Shadow tradition holds that language flows toward individual power and pretending otherwise is the most dishonest thing a Silverquill mage can do. Both are right. The tension is the curriculum.",
-      "core_tension": "Is eloquence a tool of service or self-advancement? The Radiance tradition holds that language is most powerful when it uplifts. The Shadow tradition holds that language flows toward individual power and pretending otherwise is the most dishonest thing a Silverquill mage can do. Both are right. The tension is the curriculum.",
+      "philosophy": "Silverquill treats language as action. Spoken, written, signed, rhetorical, and ink-and-light expression can lead, persuade, inspire, criticize, or pressure a room; the placement should require words, rhetoric, or word magic as the active method rather than generic black-white power.",
+      "lore_summary": "Silverquill's bounded tension is whether eloquence becomes responsible leadership and uplift or intimidation, competition, and status pressure. Its method is language-as-action: spoken, written, signed, rhetorical, or ink-and-light expression doing the work.",
+      "core_tension": "Silverquill's bounded tension is whether eloquence becomes responsible leadership and uplift or intimidation, competition, and status pressure. Its method is language-as-action: spoken, written, signed, rhetorical, or ink-and-light expression doing the work.",
       "affinity": {
         "drawn_to": [
-          "The power of precisely chosen words over brute force or volume",
-          "Reputation, image, and how perception actively shapes reality",
-          "The ability to change how someone sees themselves as the highest power",
-          "Leadership as a performative act - presence, not just decision",
-          "Cutting through pretense to say the true and uncomfortable thing"
+          "Precise words that change how people relate or act",
+          "Spoken, written, signed, or ink-and-light expression as the active tool",
+          "Leadership presence carried through eloquence rather than generic authority",
+          "Critique or persuasion that clarifies a situation",
+          "Awareness that public language can create trust, pressure, or action"
         ],
         "repelled_by": [
-          "Vague imprecise communication when precision is possible",
-          "False modesty or unnecessary hedging",
-          "People who have influence and waste it",
-          "Earnestness that refuses to acknowledge the politics of a situation"
+          "Vague communication when precise language is needed",
+          "Treating words as harmless decoration",
+          "Influence that depends on debt, secrecy, procedure, or spectacle without Silverquill language evidence",
+          "Generic black-white ambition without rhetoric, word magic, or visible social influence"
         ],
-        "core_question": "Tell me about a time you said something that changed how a situation went. Were you satisfied with that power?",
+        "core_question": "When did your words change how people related, decided, or acted?",
         "interview_tells": [
-          "Articulate in a way that suggests awareness of how they're coming across",
-          "Mentions persuasion, rhetoric, or the specific impact of words",
-          "Describes influencing situations through communication rather than direct action",
-          "Strong opinions about how things should be said, not just what",
-          "Treats the interview itself as a performance - which it is"
+          "Centers language, rhetoric, critique, persuasion, leadership presence, or word magic as the active method",
+          "Describes spoken, written, signed, or ink-and-light expression shaping a social situation",
+          "Treats influence as something words do in public or remembered contexts",
+          "Distinguishes rhetorical precision from debt, secrecy, procedure, or artistic/elemental expression"
         ],
-        "not_to_be_confused_with": "Azorius - both value structured language but Azorius codifies it into law; Silverquill wields it as personal power. Prismari - both performative but Prismari uses elemental spectacle and scale; Silverquill uses precision and wit. Dimir - both manipulate through language but Dimir is invisible; Silverquill is the most visible person in the room."
+        "not_to_be_confused_with": "Orzhov/WB centers obligation, debt, contract, tithe, or institutional ledger logic. House Dimir centers secrecy, anonymity, hidden information, or information asymmetry. Prismari centers artistic or elemental medium and expression. Silverquill needs language, rhetoric, signed/spoken/written expression, or ink/light word magic as the active method. Azorius/WU remains a non-required guardrail for procedure-only language."
       },
       "decree_voice": {
-        "tone": "Cutting and admiring in the same breath. Precise. Aware that this decree is itself a performance.",
-        "speaks_like": "Embrose writing something he knows will outlast the occasion.",
-        "example_opening": "You already know what we're going to say.",
-        "example_decree": "You already know what we're going to say, which is the first qualification for joining us. Silverquill does not recruit people who are surprised by the power of words. It recruits people who have always known - and have been waiting for an institution sophisticated enough to take that knowledge seriously. You have something to say. We have the ink to make it permanent. Welcome to the college that will remember what everyone else forgets to write down."
+        "tone": "Precise, articulate, and aware that language can lead, praise, criticize, or pressure.",
+        "speaks_like": "A Silverquill speaker choosing words because the words themselves change the room.",
+        "example_opening": "Choose the words that make the room answer.",
+        "example_decree": "Silverquill does not treat language as decoration. It asks what your words do: whether they clarify, lead, persuade, inspire, wound, or pressure. If your method is eloquence made active, step to the lectern and make the room listen."
       },
       "archetypes": [
         {
-          "name": "Inkling Tokens / Go-Wide",
-          "desc": "Shadrix Silverquill generates Inkling tokens that drain opponents - flood the board, back it with counters, close with an alpha strike."
+          "name": "Word-Magic and Rhetorical Influence",
+          "desc": "Use Silverquill evidence when language, rhetoric, signed/spoken/written expression, or ink-and-light word magic is the active method. Do not treat generic black-white power as Silverquill proof."
         },
         {
-          "name": "Political Goad",
-          "desc": "Breena the Demagogue draws cards when opponents attack each other - goad the table into fighting itself while you accumulate advantage."
+          "name": "Leadership, Critique, and Social Pressure",
+          "desc": "Silverquill can lead, inspire, intimidate, or compete through precise communication; keep that reading bounded to language-centered evidence."
         },
         {
-          "name": "Orzhov Aristocrats",
-          "desc": "Blood Artist and sacrifice outlets drain the table one death trigger at a time - every creature that dies advances your position."
+          "name": "Support-Only Product Navigation",
+          "desc": "Killian and Scriv are official Silverquill Influence product anchors for navigation/support only, not independent lore, popularity, legality, or metagame proof."
         }
       ],
       "staples": {
         "creatures": [
-          "Shadrix Silverquill",
-          "Breena the Demagogue",
-          "Killian Ink Duelist"
+          "Killian, Decisive Mentor",
+          "Scriv, the Obligator"
         ],
-        "spells": [
-          "Silverquill Command",
-          "Vanishing Verse",
-          "Inkshield"
-        ],
-        "permanents": [
-          "Phyrexian Arena",
-          "Necropotence"
-        ]
+        "spells": [],
+        "permanents": []
       },
       "land_base": {
         "premium": [
@@ -10568,7 +10559,7 @@
           "label": "Orzhov"
         }
       },
-      "identity_blend": "White standards articulated through Black pressure, rhetoric, and status.",
+      "identity_blend": "White leadership and structure expressed through Black pressure, competition, and social ambition, with language as the active method.",
       "research_links": {
         "source_packet": "data/raw-factions/silverquill/silverquill.sources.json",
         "official_strixhaven_guide_2021": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-strixhaven-2021-04-01",
@@ -10611,11 +10602,20 @@
             "silverquill_claim_003",
             "silverquill_claim_004",
             "silverquill_claim_006",
-            "silverquill_claim_0017",
-            "silverquill_claim_0018"
+            "silverquill_claim_0019",
+            "silverquill_claim_0020",
+            "silverquill_claim_0021"
           ],
           "supporting_source_ids": [
             "src_wotc_planeswalkers_guide_strixhaven_2021",
+            "src_wotc_strixhaven_product_page_2021",
+            "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+          ],
+          "auxiliary_support_claim_ids": [
+            "silverquill_claim_0017",
+            "silverquill_claim_0018"
+          ],
+          "auxiliary_support_source_ids": [
             "src_wotc_secrets_strixhaven_commander_decklists_20260401",
             "src_scryfall_oracle_cards_local_strixhaven_20260613"
           ]
@@ -10655,7 +10655,8 @@
                 "silverquill_claim_0017"
               ],
               "support_only": true,
-              "boundary": "Official product/card-data support only."
+              "boundary": "Official product/card-data support only.",
+              "evidence_use": "auxiliary_support"
             },
             "confidence": "High for product/card identity; support-only for recommendation texture.",
             "caution_notes": [
@@ -10698,7 +10699,8 @@
                 "silverquill_claim_0017"
               ],
               "support_only": true,
-              "boundary": "Official product/card-data support only."
+              "boundary": "Official product/card-data support only.",
+              "evidence_use": "auxiliary_support"
             },
             "confidence": "High for product/card identity; support-only for recommendation texture.",
             "caution_notes": [
@@ -10781,30 +10783,24 @@
             "name": "Killian, Decisive Mentor",
             "role": "Face commander for Silverquill Influence in the official Secrets of Strixhaven Commander decklist.",
             "relationship_to_faction": "Support-only product/navigation anchor; not a lore biography or popularity claim.",
-            "claim_ids": [
-              "silverquill_claim_0017"
-            ],
             "source_ids": [
               "src_wotc_secrets_strixhaven_commander_decklists_20260401",
               "src_scryfall_oracle_cards_local_strixhaven_20260613"
             ],
             "confidence": "High for product/card fact; support-only for lore and recommendations.",
-            "notes": "Product row can support deck availability, commander name, and navigation only."
+            "notes": "Product row can support deck availability, commander name, and navigation only; no claim_ids are attached because support records cannot prove key-figure identity meaning."
           },
           {
             "character_id": "card_scriv_the_obligator",
             "name": "Scriv, the Obligator",
             "role": "Featured commander for Silverquill Influence in the official Secrets of Strixhaven Commander decklist.",
             "relationship_to_faction": "Support-only product/navigation anchor; not a lore biography or popularity claim.",
-            "claim_ids": [
-              "silverquill_claim_0017"
-            ],
             "source_ids": [
               "src_wotc_secrets_strixhaven_commander_decklists_20260401",
               "src_scryfall_oracle_cards_local_strixhaven_20260613"
             ],
             "confidence": "High for product/card fact; support-only for lore and recommendations.",
-            "notes": "Product row can support deck availability, commander name, and navigation only."
+            "notes": "Product row can support deck availability, commander name, and navigation only; no claim_ids are attached because support records cannot prove key-figure identity meaning."
           }
         ],
         "canonical_flavor_text": [
@@ -10821,7 +10817,8 @@
             "source_ids": [
               "src_scryfall_oracle_cards_local_strixhaven_20260613"
             ],
-            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+            "evidence_use": "auxiliary_support"
           },
           {
             "card_name": "Silverquill Apprentice",
@@ -10836,7 +10833,8 @@
             "source_ids": [
               "src_scryfall_oracle_cards_local_strixhaven_20260613"
             ],
-            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+            "evidence_use": "auxiliary_support"
           },
           {
             "card_name": "Silverquill Pledgemage",
@@ -10851,7 +10849,8 @@
             "source_ids": [
               "src_scryfall_oracle_cards_local_strixhaven_20260613"
             ],
-            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+            "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+            "evidence_use": "auxiliary_support"
           }
         ],
         "views_on_other_factions": [],
@@ -24512,8 +24511,8 @@
           "mtgdecks_slug": "orzhov",
           "label": "Orzhov"
         },
-        "core_tension": "Is eloquence a tool of service or self-advancement? The Radiance tradition holds that language is most powerful when it uplifts. The Shadow tradition holds that language flows toward individual power and pretending otherwise is the most dishonest thing a Silverquill mage can do. Both are right. The tension is the curriculum.",
-        "identity_blend": "White standards articulated through Black pressure, rhetoric, and status.",
+        "core_tension": "Silverquill's bounded tension is whether eloquence becomes responsible leadership and uplift or intimidation, competition, and status pressure. Its method is language-as-action: spoken, written, signed, rhetorical, or ink-and-light expression doing the work.",
+        "identity_blend": "White leadership and structure expressed through Black pressure, competition, and social ambition, with language as the active method.",
         "display_code": "WB",
         "aliases": [
           "SILVERQUILL"
@@ -24522,8 +24521,8 @@
         "preview_eligible": true,
         "preview_order": 15,
         "preview_label": "Silverquill",
-        "preview_title": "Silverquill — Language through Pressure",
-        "preview_text": "Silverquill overlays White structure and Black ambition through rhetoric, charisma, status, moral pressure, sharp critique, and words as weapons.",
+        "preview_title": "Silverquill - Language as Action",
+        "preview_text": "Silverquill overlays White leadership and Black pressure through eloquence, rhetoric, word magic, and visible social influence.",
         "preview_hex": "#efe2ff",
         "preview_scores": {
           "order": 82,

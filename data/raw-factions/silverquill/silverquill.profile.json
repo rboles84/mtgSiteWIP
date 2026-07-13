@@ -8,7 +8,7 @@
     "white",
     "black"
   ],
-  "last_updated": "2026-06-13",
+  "last_updated": "2026-07-12",
   "profile": {
     "overview": "Silverquill College is a white-black college associated with Arcavios / Strixhaven.",
     "philosophy": "Language is power: it can inspire, expose, command, wound, defend, and transform identity.",
@@ -45,14 +45,13 @@
     "philosophy": "Language is power: it can inspire, expose, command, wound, defend, and transform identity.",
     "central_tension": "Silverquill argues over whether eloquence should uplift others or advance personal dominance.",
     "claim_ids": [
-      "silverquill_claim_0007",
-      "silverquill_claim_0008",
-      "silverquill_claim_0009",
-      "silverquill_claim_0010",
-      "silverquill_claim_0011",
-      "silverquill_claim_0012",
-      "silverquill_claim_0013",
-      "silverquill_claim_0014"
+      "silverquill_claim_001",
+      "silverquill_claim_002",
+      "silverquill_claim_003",
+      "silverquill_claim_004",
+      "silverquill_claim_0019",
+      "silverquill_claim_0020",
+      "silverquill_claim_0021"
     ]
   },
   "site_surface": {
@@ -60,30 +59,28 @@
     "short_label": "Silverquill College",
     "tagline": "Language is power: it can inspire, expose, command, wound, defend, and transform identity.",
     "claim_ids": [
-      "silverquill_claim_0007",
-      "silverquill_claim_0008",
-      "silverquill_claim_0009",
-      "silverquill_claim_0010"
+      "silverquill_claim_001",
+      "silverquill_claim_002",
+      "silverquill_claim_004",
+      "silverquill_claim_0019"
     ]
   },
   "structure": {
     "summary": "The official guides frame Silverquill as the College of Eloquence, with mages using spoken, written, and signed magic through ink, light, and words.",
     "claim_ids": [
-      "silverquill_claim_0007",
-      "silverquill_claim_0008",
-      "silverquill_claim_0009",
-      "silverquill_claim_0010"
+      "silverquill_claim_001",
+      "silverquill_claim_002",
+      "silverquill_claim_004",
+      "silverquill_claim_005"
     ]
   },
   "great_tension": {
     "summary": "Silverquill argues over whether eloquence should uplift others or advance personal dominance.",
     "placement_relevance": "Used to distinguish surface color overlap from faction-specific behavior.",
     "claim_ids": [
-      "silverquill_claim_0007",
-      "silverquill_claim_0008",
-      "silverquill_claim_0009",
-      "silverquill_claim_0010",
-      "silverquill_claim_0011"
+      "silverquill_claim_003",
+      "silverquill_claim_006",
+      "silverquill_claim_0020"
     ]
   },
   "historical_timeline": [],
@@ -110,30 +107,24 @@
       "name": "Killian, Decisive Mentor",
       "role": "Face commander for Silverquill Influence in the official Secrets of Strixhaven Commander decklist.",
       "relationship_to_faction": "Support-only product/navigation anchor; not a lore biography or popularity claim.",
-      "claim_ids": [
-        "silverquill_claim_0017"
-      ],
       "source_ids": [
         "src_wotc_secrets_strixhaven_commander_decklists_20260401",
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
       "confidence": "High for product/card fact; support-only for lore and recommendations.",
-      "notes": "Product row can support deck availability, commander name, and navigation only."
+      "notes": "Product row can support deck availability, commander name, and navigation only; no claim_ids are attached because support records cannot prove key-figure identity meaning."
     },
     {
       "character_id": "card_scriv_the_obligator",
       "name": "Scriv, the Obligator",
       "role": "Featured commander for Silverquill Influence in the official Secrets of Strixhaven Commander decklist.",
       "relationship_to_faction": "Support-only product/navigation anchor; not a lore biography or popularity claim.",
-      "claim_ids": [
-        "silverquill_claim_0017"
-      ],
       "source_ids": [
         "src_wotc_secrets_strixhaven_commander_decklists_20260401",
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
       "confidence": "High for product/card fact; support-only for lore and recommendations.",
-      "notes": "Product row can support deck availability, commander name, and navigation only."
+      "notes": "Product row can support deck availability, commander name, and navigation only; no claim_ids are attached because support records cannot prove key-figure identity meaning."
     }
   ],
   "canonical_flavor_text": [
@@ -150,7 +141,8 @@
       "source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+      "evidence_use": "auxiliary_support"
     },
     {
       "card_name": "Silverquill Apprentice",
@@ -165,7 +157,8 @@
       "source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+      "evidence_use": "auxiliary_support"
     },
     {
       "card_name": "Silverquill Pledgemage",
@@ -180,21 +173,21 @@
       "source_ids": [
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ],
-      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+      "evidence_use": "auxiliary_support"
     }
   ],
   "views_on_other_factions": [],
   "mechanics": {
     "summary": "Silverquill's mechanical identity is tied to word-magic, leadership, morale, criticism, and black-white pressure.",
     "claim_ids": [
-      "silverquill_claim_0007",
-      "silverquill_claim_0008",
-      "silverquill_claim_0009",
-      "silverquill_claim_0010"
+      "silverquill_claim_002",
+      "silverquill_claim_004",
+      "silverquill_claim_0019"
     ]
   },
   "search_and_filter_metadata": {
-      "search_keywords": [
+    "search_keywords": [
       "Silverquill",
       "Killian Lu",
       "ink magic",
@@ -249,7 +242,8 @@
         "silverquill_claim_0014",
         "silverquill_claim_0015",
         "silverquill_claim_0016"
-      ]
+      ],
+      "evidence_use": "discovery_metadata"
     },
     "raw_enrichment": {
       "review_date": "2026-06-13",
@@ -307,11 +301,20 @@
         "silverquill_claim_003",
         "silverquill_claim_004",
         "silverquill_claim_006",
-        "silverquill_claim_0017",
-        "silverquill_claim_0018"
+        "silverquill_claim_0019",
+        "silverquill_claim_0020",
+        "silverquill_claim_0021"
       ],
       "supporting_source_ids": [
         "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "auxiliary_support_claim_ids": [
+        "silverquill_claim_0017",
+        "silverquill_claim_0018"
+      ],
+      "auxiliary_support_source_ids": [
         "src_wotc_secrets_strixhaven_commander_decklists_20260401",
         "src_scryfall_oracle_cards_local_strixhaven_20260613"
       ]
@@ -352,7 +355,8 @@
             "silverquill_claim_0017"
           ],
           "support_only": true,
-          "boundary": "Official product/card-data support only."
+          "boundary": "Official product/card-data support only.",
+          "evidence_use": "auxiliary_support"
         },
         "confidence": "High for product/card identity; support-only for recommendation texture.",
         "caution_notes": [
@@ -395,7 +399,8 @@
             "silverquill_claim_0017"
           ],
           "support_only": true,
-          "boundary": "Official product/card-data support only."
+          "boundary": "Official product/card-data support only.",
+          "evidence_use": "auxiliary_support"
         },
         "confidence": "High for product/card identity; support-only for recommendation texture.",
         "caution_notes": [
@@ -439,7 +444,8 @@
     "merge_notes": {
       "support_boundary": "VM-378 surfaces Compass data only after official product and local card-data support rows were recorded.",
       "deferred": "Story-corpus-only figures and unverified dean/founder statuses remain source-intake-needed."
-    }
+    },
+    "evidence_use": "auxiliary_support"
   },
   "deck_links": [
     {

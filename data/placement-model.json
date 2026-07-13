@@ -8970,7 +8970,7 @@
       },
       "good_fit_indicators": [
         "uses words deliberately",
-        "understands performance and reputation",
+        "understands language, reputation, and public influence",
         "can inspire or cut through pretense with precision"
       ],
       "poor_fit_indicators": [
@@ -9002,7 +9002,7 @@
         {
           "id": "silverquill_q2",
           "prompt": "Is influence more dangerous when it flatters or when it wounds?",
-          "purpose": "Separates Radiance and Shadow readings.",
+          "purpose": "Tests whether public language is being used to uplift, pressure, persuade, or dominate through rhetoric and social force.",
           "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
           "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
           "collision_targets": [],
@@ -9056,46 +9056,48 @@
         {
           "collision_id": "collision_silverquill_vs_orzhov_syndicate_placement_ready",
           "against": "WB",
-          "separator": "Silverquill is visible rhetorical force; Orzhov is obligation made institutional.",
+          "separator": "Silverquill uses visible language, rhetorical force, and social influence; Orzhov is the existing Vox Mana boundary for obligation, debt, contract, and institutional ledger logic.",
           "ask": "Is the decisive tool the sentence that changes the room, or the ledger everyone must answer to later?",
           "suppress_if": "the answer centers debt, contract, tithe, or inherited obligation",
           "evidence_claim_ids": [
             "silverquill_claim_001",
             "silverquill_claim_002",
-            "silverquill_claim_003"
+            "silverquill_claim_003",
+            "silverquill_claim_0023"
           ]
         },
         {
           "collision_id": "collision_silverquill_vs_house_dimir_placement_ready",
           "against": "UB",
-          "separator": "Silverquill stands in the light and shapes perception; Dimir disappears behind information.",
+          "separator": "Silverquill leaves a public or remembered rhetorical mark; Dimir is the existing Vox Mana boundary for secrecy, anonymity, hidden information, and information asymmetry.",
           "ask": "Do you want the decisive phrase remembered, or the decisive hand never noticed?",
           "suppress_if": "the answer prefers secrecy, anonymity, or information asymmetry",
           "evidence_claim_ids": [
             "silverquill_claim_001",
             "silverquill_claim_002",
-            "silverquill_claim_003"
+            "silverquill_claim_003",
+            "silverquill_claim_0024"
           ]
         },
         {
           "collision_id": "collision_silverquill_vs_prismari_placement_ready",
           "against": "PRISMARI",
           "lateral_inhibition": false,
-          "separator": "Silverquill moves the room through precise words, reputation, and public influence; Prismari moves the room through art, performance, and elemental spectacle.",
-          "ask": "When language can move a room, should it become a precise argument, a public performance, or an elemental spectacle?",
-          "suppress_if": "the answer centers expressive art, elemental spectacle, emotion, or performance before rhetoric",
+          "separator": "Silverquill moves the room through precise language, rhetoric, signed/spoken/written word, and ink/light word magic; Prismari centers artistic or elemental media and expression.",
+          "ask": "When a public act moves the room, is the decisive medium language/rhetoric, artistic form, or elemental expression?",
+          "suppress_if": "the answer centers artistic or elemental medium, emotional expression, or chosen art form before language/rhetoric",
           "evidence_claim_ids": [
             "silverquill_claim_002",
-            "silverquill_claim_003",
             "silverquill_claim_004",
-            "silverquill_claim_006"
+            "silverquill_claim_006",
+            "silverquill_claim_0025"
           ]
         }
       ],
       "chatbot_guidance": {
         "how_to_recognize_match": [
           "uses words deliberately",
-          "understands performance and reputation",
+          "uses public language, praise, critique, or performance to shape how people are seen or treated",
           "can inspire or cut through pretense with precision"
         ],
         "how_to_recognize_mismatch": [
