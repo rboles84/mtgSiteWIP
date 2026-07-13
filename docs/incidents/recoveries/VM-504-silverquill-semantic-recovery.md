@@ -1,6 +1,6 @@
 # VM-504 Silverquill Semantic Recovery
 
-## Gate 1 Semantic Audit Ã¢â‚¬â€ Contract v1.1
+## Gate 1 Semantic Audit ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Contract v1.1
 
 Status: Gate 1 complete; Silverquill remains uncertified.
 Branch: `codex/vm-504-silverquill-semantic-recovery`
@@ -151,7 +151,7 @@ The structural audit reported 28 potential role-invalid support links. Gate 1 cl
 | `inhibitor_traits/0` | HIGH | Color-pair overfit guardrail is useful, but its evidence chain is discovery-backed. |
 | `collision_guidance` | PASS WITH BLOCKING ROLE/LINKAGE LIMITATION | Orzhov, Dimir, and Prismari boundaries use first-six claims and look directionally plausible; Gate 2 must confirm whether Dimir and Prismari boundaries are sufficiently bounded. |
 
-Unsupported or overbroad wording risks: generated/public recruiter copy says Silverquill is Ã¢â‚¬Å“the most visible people in every roomÃ¢â‚¬Â and Ã¢â‚¬Å“the most visible person in the room.Ã¢â‚¬Â This may be valid Vox Mana synthesis, but the current raw evidence chain must explicitly support or narrow it before certification. Ã¢â‚¬Å“Performance and reputationÃ¢â‚¬Â is plausible, but Gate 2 should ensure reputation/status is supported by claims and not just architecture prose.
+Unsupported or overbroad wording risks: generated/public recruiter copy says Silverquill is ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œthe most visible people in every roomÃƒÂ¢Ã¢â€šÂ¬Ã‚Â and ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œthe most visible person in the room.ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â This may be valid Vox Mana synthesis, but the current raw evidence chain must explicitly support or narrow it before certification. ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œPerformance and reputationÃƒÂ¢Ã¢â€šÂ¬Ã‚Â is plausible, but Gate 2 should ensure reputation/status is supported by claims and not just architecture prose.
 
 ## Required Contract v1.1 Dimensions
 
@@ -161,8 +161,8 @@ Unsupported or overbroad wording risks: generated/public recruiter copy says Sil
 | Internal tension | UNRESOLVED / HIGH | Uplift vs dominance is present in profile/architecture, but Gate 2 must confirm direct bounded evidence. |
 | Motivation | PASS WITH LIMITATION | Rhetorical precision/influence is present; needs evidence mapping. |
 | Preferred method | PASS WITH LIMITATION | Word magic, spoken/written/signed word, ink/light support method; needs bounded locations. |
-| Mature expression | UNRESOLVED | Ã¢â‚¬Å“Inspire/uplift/leadershipÃ¢â‚¬Â is present but should be extracted into substantive claims. |
-| Unhealthy expression | UNRESOLVED | Ã¢â‚¬Å“Wound/domination/intimidationÃ¢â‚¬Â is present but needs bounded support. |
+| Mature expression | UNRESOLVED | ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œInspire/uplift/leadershipÃƒÂ¢Ã¢â€šÂ¬Ã‚Â is present but should be extracted into substantive claims. |
+| Unhealthy expression | UNRESOLVED | ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œWound/domination/intimidationÃƒÂ¢Ã¢â€šÂ¬Ã‚Â is present but needs bounded support. |
 | Failure or pressure behavior | FAIL | Current packet lacks explicit grounded pressure/failure behavior beyond generic mismatch/guardrails. |
 | Positive inclusion evidence | PASS WITH LIMITATION | Existing ideal-fit indicators and first-six claims provide a basis. |
 | Negative exclusion evidence | PASS WITH LIMITATION | Poor-fit and collision guidance exists, but mapping is incomplete. |
@@ -179,7 +179,7 @@ Bounded required-neighbor set proposed for Gate 2 confirmation:
 | `WB` / Orzhov | Same color pair and explicit collision guidance; local canon audit names Silverquill-Orzhov as the college/guild twin. | Existing collision guidance separates sentence/rhetorical force from ledger/debt/obligation. | Required; likely strong but needs bounded evidence and neutral wording. |
 | `HOUSE_DIMIR` | Current collision guidance; overlap around language, manipulation, secrecy/information. | Existing guidance separates remembered public phrase from hidden hand. | Required; needs evidence confirmation because Dimir is not same-color but is an existing canonical collision. |
 | `PRISMARI` | Existing paired collision; overlap around performance, public expression, and moving a room. | Existing guidance separates word magic/rhetoric from art/performance/elemental spectacle. | Required; must avoid unsupported stereotypes and align with certified Prismari recovery. |
-| `WU` / Azorius | Local Silverquill architecture flags structured language vs law/procedure as a guardrail. | Present only as architecture/generated Ã¢â‚¬Å“not to be confusedÃ¢â‚¬Â language, not raw collision guidance. | Gate 2 should decide whether to include as required neighbor or non-blocking guardrail. |
+| `WU` / Azorius | Local Silverquill architecture flags structured language vs law/procedure as a guardrail. | Present only as architecture/generated ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œnot to be confusedÃƒÂ¢Ã¢â€šÂ¬Ã‚Â language, not raw collision guidance. | Gate 2 should decide whether to include as required neighbor or non-blocking guardrail. |
 | `SELESNYA` | Local architecture mentions selfless belonging as suppressor. | Present in calibration suppressors only. | Candidate optional; do not force unless Gate 2 finds actual placement ambiguity. |
 | `BOROS` | Local architecture explicitly says Boros is cautionary thin evidence. | Not enough direct Silverquill anchor. | Out of required set for now unless Gate 2 finds stronger evidence. |
 
@@ -196,7 +196,7 @@ Observed generated state:
 Findings:
 
 - Missing consumers: none obvious at Gate 1.
-- Stale/unsupported generated language: likely present where public/recruiter copy intensifies Ã¢â‚¬Å“visible,Ã¢â‚¬Â Ã¢â‚¬Å“status,Ã¢â‚¬Â Ã¢â‚¬Å“personal power,Ã¢â‚¬Â and Ã¢â‚¬Å“performanceÃ¢â‚¬Â framing beyond currently bounded claims. Gate 2 should trace this to raw/profile/identity-layer sources before Gate 4.
+- Stale/unsupported generated language: likely present where public/recruiter copy intensifies ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œvisible,ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œstatus,ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œpersonal power,ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â and ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œperformanceÃƒÂ¢Ã¢â€šÂ¬Ã‚Â framing beyond currently bounded claims. Gate 2 should trace this to raw/profile/identity-layer sources before Gate 4.
 - Internal claim IDs leak into recruiter prose: not observed as visible prose leakage; IDs appear in internal evidence arrays, which is expected.
 - Provenance points to non-substantive/unclassified records: yes, discovery/support chains appear in provenance and block certification.
 - Content hash/pointer issues: not audited as stale because Gate 1 does not rebuild; Gate 4 must validate after remediation.
@@ -311,7 +311,7 @@ Targeted source discovery should be requested only if Gate 2 proves a certificat
 - `git -C C:\dev\mtgSiteWIP-crit001 merge-base --is-ancestor 3baa8307cf1d6b23aab1564b866e6580e500cf66 HEAD`
 - `git -C C:\dev\mtgSiteWIP status --short --branch`
 - `npm.cmd run audit:semantic-readiness -- --targets=SILVERQUILL`
-- `node research/validate-semantic-readiness.mjs --targets=SILVERQUILL` Ã¢â‚¬â€ expected failure for Gate 1; failures documented above.`r`n- `git diff --check` Ã¢â‚¬â€ passed after documentation updates.
+- `node research/validate-semantic-readiness.mjs --targets=SILVERQUILL` ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â expected failure for Gate 1; failures documented above.`r`n- `git diff --check` ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â passed after documentation updates.
 
 `build:factions`, source/generated validation, full test suite, parser tests, and generated rebuilds were intentionally deferred because Gate 1 is read-only and generated artifacts must not be modified.
 
@@ -390,12 +390,12 @@ Gate 3 should add only the smallest set of new substantive claims needed to repl
 | Current chain | Discovery evidence currently used | Can existing claims support it? | Gate 3 plan |
 | --- | --- | --- | --- |
 | `profile.core_identity.summary` | `silverquill_claim_0007`-`0014` | Yes: `001`, plus profile top-level already cites first-six claims | Replace with `001`; preserve wording. |
-| `profile.core_identity.philosophy` and `site_surface.tagline` | `0007`-`0014` / `0007`-`0010` | Partly: `002`, `004`, `006`; needs new language-as-action claim | Preserve if new claim confirms the exact verbs; otherwise narrow to â€œwords, eloquence, and word magic as influence.â€ |
-| `profile.core_identity.central_tension` / `great_tension` | `0007`-`0011` | Partly: `003`, `006`; needs new internal-tension claim | Preserve or narrow to â€œuplift/leadership versus intimidation/competition/status pressureâ€ depending on source locator. |
+| `profile.core_identity.philosophy` and `site_surface.tagline` | `0007`-`0014` / `0007`-`0010` | Partly: `002`, `004`, `006`; needs new language-as-action claim | Preserve if new claim confirms the exact verbs; otherwise narrow to Ã¢â‚¬Å“words, eloquence, and word magic as influence.Ã¢â‚¬Â |
+| `profile.core_identity.central_tension` / `great_tension` | `0007`-`0011` | Partly: `003`, `006`; needs new internal-tension claim | Preserve or narrow to Ã¢â‚¬Å“uplift/leadership versus intimidation/competition/status pressureÃ¢â‚¬Â depending on source locator. |
 | `profile.structure.summary` | `0007`-`0010` | Yes: `001`, `002`, `004`, `005` | Replace with substantive claims; preserve. |
-| `profile.mechanics.summary` | `0007`-`0010` | Partly: `002`, `003`, `004`, `006`; needs mechanics/project-synthesis claim for morale/criticism/WB pressure | Preserve word-magic/leadership; narrow â€œmorale, criticism, black-white pressureâ€ if not directly supported. |
-| `placement.placement_summary.claim_ids` | `0007`-`0014` | Yes/partly: `001`-`006` plus new public-influence and failure-pressure claims | Replace discovery `claim_ids` with substantive/evidence IDs; preserve summary after narrowing â€œcorpus evidenceâ€ language. |
-| `placement.placement_axes/0` | `0007`-`0014` | Partly: `001`-`006`; current rationale is search-corpus-specific and should be rewritten | Replace search-corpus axis with source-backed â€œlanguage as power vs vague/unshaped communicationâ€ axis. |
+| `profile.mechanics.summary` | `0007`-`0010` | Partly: `002`, `003`, `004`, `006`; needs mechanics/project-synthesis claim for morale/criticism/WB pressure | Preserve word-magic/leadership; narrow Ã¢â‚¬Å“morale, criticism, black-white pressureÃ¢â‚¬Â if not directly supported. |
+| `placement.placement_summary.claim_ids` | `0007`-`0014` | Yes/partly: `001`-`006` plus new public-influence and failure-pressure claims | Replace discovery `claim_ids` with substantive/evidence IDs; preserve summary after narrowing Ã¢â‚¬Å“corpus evidenceÃ¢â‚¬Â language. |
+| `placement.placement_axes/0` | `0007`-`0014` | Partly: `001`-`006`; current rationale is search-corpus-specific and should be rewritten | Replace search-corpus axis with source-backed Ã¢â‚¬Å“language as power vs vague/unshaped communicationÃ¢â‚¬Â axis. |
 | `placement.moral_and_psychological_profile` | `0007`-`0011` | Yes as project synthesis from `001`-`006`, but wording needs evidence mapping | Preserve as placement heuristic if marked and supported by substantive claims. |
 | `placement.core_values/0`-`9` | `0007`-`0009` | Some values are supportable (`Silverquill`, `ink magic`, `eloquence`) from `001`/`002`/`004`; others are character/name discovery only | Replace keyword/search core values with source-backed conceptual values; remove or move character/search tokens to metadata unless new claims support them. |
 | `placement.behavioral_signals/0` | `0007`-`0012` | No as written; it says story-context evidence and names stories | Replace with source-backed behavioral signal about deliberate words, public influence, or rhetorical pressure; keep story rows discovery-only. |
@@ -418,7 +418,7 @@ Killian and Scriv should not become key identity figures unless Gate 3 adds sepa
 | Profile section | Existing support | Missing support | Gate 3 disposition |
 | --- | --- | --- | --- |
 | Core identity | `001`, `002`, `004`, `005`, `006` | Bounded evidence locations; current chain uses discovery rows | Preserve and cite substantive claims. |
-| Philosophy | `002`, `004`, `006` plus project synthesis | Exact support for verbs â€œinspire, expose, command, wound, defend, transform identityâ€ | Preserve if bounded official source supports the verbs; otherwise narrow. |
+| Philosophy | `002`, `004`, `006` plus project synthesis | Exact support for verbs Ã¢â‚¬Å“inspire, expose, command, wound, defend, transform identityÃ¢â‚¬Â | Preserve if bounded official source supports the verbs; otherwise narrow. |
 | Internal tension | `003`, `006`, local architecture | Direct bounded claim for uplift/service versus dominance/self-advancement | Preserve if extracted; otherwise narrow and label project synthesis. |
 | Academic/institutional role | `001`, `005` | Bounded 2026 study-area locator | Preserve. |
 | Key figures | Rinald: `001`-`004`; Killian/Scriv: `0017` product support only | Lore role for Killian/Scriv, Shadrix/deans if retained | Keep Rinald as source-backed guide speaker; keep Killian/Scriv auxiliary product support only unless new claims are added. Do not add Shadrix/deans unless sourced. |
@@ -434,8 +434,8 @@ Killian and Scriv should not become key identity figures unless Gate 3 adds sepa
 | --- | --- | --- | --- |
 | Placement summary | `001`-`006` in `evidence_claim_ids`; invalid discovery `claim_ids` | Remove discovery support; bounded evidence | Preserve/narrow. |
 | Core values | Current values are search terms and names from discovery rows | Source-backed conceptual values | Replace with concepts such as College of Eloquence, word magic, spoken/written/signed word, leadership/competition, rhetorical precision, academic language disciplines; remove search/name tokens unless separately supported. |
-| Behavioral signals | Some strings are plausible; object row is discovery-backed | Bounded evidence for â€œlanguage changes situation,â€ â€œimage as leverage,â€ etc. | Replace object row; preserve simple strings only if supported or convert to structured evidence-backed entries. |
-| Positive guidance | Existing ideal/good-fit items | Evidence mappings and possible narrowing of â€œperformance and reputationâ€ | Preserve with mappings to `001`-`006` plus new public-influence claim. |
+| Behavioral signals | Some strings are plausible; object row is discovery-backed | Bounded evidence for Ã¢â‚¬Å“language changes situation,Ã¢â‚¬Â Ã¢â‚¬Å“image as leverage,Ã¢â‚¬Â etc. | Replace object row; preserve simple strings only if supported or convert to structured evidence-backed entries. |
+| Positive guidance | Existing ideal/good-fit items | Evidence mappings and possible narrowing of Ã¢â‚¬Å“performance and reputationÃ¢â‚¬Â | Preserve with mappings to `001`-`006` plus new public-influence claim. |
 | Negative guidance | Existing poor-fit and mismatch items | Evidence mappings | Preserve as project placement inference from substantive claims. |
 | Uncertainty guidance | Existing q1/q2 questions | Evidence mappings; q2 needs internal tension claim | Preserve if internal-tension claim added; otherwise narrow q2. |
 | Raw discriminator questions | Four existing questions | Evidence locations and mappings; no new broad questions needed yet | Preserve with possible wording/evidence refinement; do not alter Hall/Crucible. |
@@ -446,14 +446,14 @@ Killian and Scriv should not become key identity figures unless Gate 3 adds sepa
 
 | Guidance item | Proposed support | Gap / Gate 3 action |
 | --- | --- | --- |
-| Match: â€œuses words deliberatelyâ€ | `001`, `002`, `004`, proposed language-as-action claim | Add evidence mapping; preserve. |
-| Match: â€œunderstands performance and reputationâ€ | `003`, `006`, proposed public-influence/status claim | Narrow to â€œpublic influence/reputationâ€ if â€œperformanceâ€ is not bounded. |
-| Match: â€œcan inspire or cut through pretense with precisionâ€ | `002`, `003`, `006`, proposed mature/unhealthy expression claim | Add claim or narrow if â€œpretenseâ€ unsupported. |
-| Mismatch: â€œcommunicates vaguely by preferenceâ€ | `002`, `004`, `006`, proposed failure-pressure claim | Add mapping as negative project inference. |
-| Mismatch: â€œdenies that language has powerâ€ | `002`, `004`, proposed language-as-action claim | Add mapping. |
-| Mismatch: â€œavoids visibility even when influence is neededâ€ | `003`, `006`, proposed public-influence/status claim | Preserve only if visibility/status is bounded; otherwise narrow. |
-| Uncertainty: â€œTell me about a time one sentence changed the room.â€ | `002`, `004`, `006`, proposed language-as-action claim | Add mapping; fits general inclusion discriminator. |
-| Uncertainty: â€œIs influence more dangerous when it flatters or when it wounds?â€ | `003`, `006`, proposed internal-tension/mature-unhealthy claim | Add mapping only after tension claim; otherwise rewrite/narrow in Gate 3. |
+| Match: Ã¢â‚¬Å“uses words deliberatelyÃ¢â‚¬Â | `001`, `002`, `004`, proposed language-as-action claim | Add evidence mapping; preserve. |
+| Match: Ã¢â‚¬Å“understands performance and reputationÃ¢â‚¬Â | `003`, `006`, proposed public-influence/status claim | Narrow to Ã¢â‚¬Å“public influence/reputationÃ¢â‚¬Â if Ã¢â‚¬Å“performanceÃ¢â‚¬Â is not bounded. |
+| Match: Ã¢â‚¬Å“can inspire or cut through pretense with precisionÃ¢â‚¬Â | `002`, `003`, `006`, proposed mature/unhealthy expression claim | Add claim or narrow if Ã¢â‚¬Å“pretenseÃ¢â‚¬Â unsupported. |
+| Mismatch: Ã¢â‚¬Å“communicates vaguely by preferenceÃ¢â‚¬Â | `002`, `004`, `006`, proposed failure-pressure claim | Add mapping as negative project inference. |
+| Mismatch: Ã¢â‚¬Å“denies that language has powerÃ¢â‚¬Â | `002`, `004`, proposed language-as-action claim | Add mapping. |
+| Mismatch: Ã¢â‚¬Å“avoids visibility even when influence is neededÃ¢â‚¬Â | `003`, `006`, proposed public-influence/status claim | Preserve only if visibility/status is bounded; otherwise narrow. |
+| Uncertainty: Ã¢â‚¬Å“Tell me about a time one sentence changed the room.Ã¢â‚¬Â | `002`, `004`, `006`, proposed language-as-action claim | Add mapping; fits general inclusion discriminator. |
+| Uncertainty: Ã¢â‚¬Å“Is influence more dangerous when it flatters or when it wounds?Ã¢â‚¬Â | `003`, `006`, proposed internal-tension/mature-unhealthy claim | Add mapping only after tension claim; otherwise rewrite/narrow in Gate 3. |
 
 ### Provenance Repair Plan
 
@@ -525,9 +525,9 @@ Do not add Selesnya or Boros as required neighbors in Gate 3 unless a later vali
 10. Confirm whether Killian/Scriv remain product-navigation key figures only; do not promote them to lore/identity proof without new bounded character claims.
 11. Define `required_neighbors` / evidence mappings for Orzhov, Dimir, Prismari, and conditional Azorius if retained.
 12. Review and narrow generated/public-source copy in canonical or identity-layer source if unsupported:
-   - â€œmost visible people/person in the roomâ€;
-   - â€œpersonal powerâ€;
-   - â€œperformance and reputationâ€;
+   - Ã¢â‚¬Å“most visible people/person in the roomÃ¢â‚¬Â;
+   - Ã¢â‚¬Å“personal powerÃ¢â‚¬Â;
+   - Ã¢â‚¬Å“performance and reputationÃ¢â‚¬Â;
    - any Prismari comparison that reduces Prismari to spectacle.
 13. Update Silverquill changelog/readiness evidence to describe the canonical remediation.
 14. Update the VM-504 report/card with Gate 3 status.
@@ -621,14 +621,14 @@ Support records `silverquill_claim_0017` and `silverquill_claim_0018` remain as 
 
 ### New Substantive Claims Added
 
-- `silverquill_claim_0019` � language as action.
-- `silverquill_claim_0020` � uplift/service versus intimidation/status-pressure tension.
-- `silverquill_claim_0021` � mature precise-language/leadership expression.
-- `silverquill_claim_0022` � failure/pressure mismatch behavior.
-- `silverquill_claim_0023` � Orzhov/WB boundary.
-- `silverquill_claim_0024` � House Dimir boundary.
-- `silverquill_claim_0025` � Prismari boundary.
-- `silverquill_claim_0026` � non-required Azorius/WU procedure-only guardrail.
+- `silverquill_claim_0019` — language as action.
+- `silverquill_claim_0020` — uplift/service versus intimidation/status-pressure tension.
+- `silverquill_claim_0021` — mature precise-language/leadership expression.
+- `silverquill_claim_0022` — failure/pressure mismatch behavior.
+- `silverquill_claim_0023` — Orzhov/WB boundary.
+- `silverquill_claim_0024` — House Dimir boundary.
+- `silverquill_claim_0025` — Prismari boundary.
+- `silverquill_claim_0026` — non-required Azorius/WU procedure-only guardrail.
 
 All new substantive claims use already-listed official Silverquill sources and bounded evidence localization. No new source discovery was performed.
 
@@ -650,9 +650,9 @@ These mappings bind existing recruiter-facing strings to substantive Silverquill
 
 Required neighbors selected for Silverquill Gate 3:
 
-1. `WB` / Orzhov � same-color and existing collision boundary.
-2. `HOUSE_DIMIR` � existing collision boundary around public rhetoric versus hidden information.
-3. `PRISMARI` � existing college collision around language/rhetoric versus artistic or elemental medium.
+1. `WB` / Orzhov — same-color and existing collision boundary.
+2. `HOUSE_DIMIR` — existing collision boundary around public rhetoric versus hidden information.
+3. `PRISMARI` — existing college collision around language/rhetoric versus artistic or elemental medium.
 
 `WU` / Azorius remains a non-blocking guardrail because Gate 3 did not identify a certification need to promote it to the required-neighbor set.
 
@@ -679,9 +679,9 @@ Commands run during Gate 3:
 - `git status --short --branch`
 - JSON parse checks for changed Silverquill canonical files.
 - `npm.cmd run audit:semantic-readiness -- --targets=SILVERQUILL`
-- `node research/validate-semantic-readiness.mjs --targets=SILVERQUILL` � expected Gate 4 failures only: stale/missing generated provenance and missing semantic fixtures.
-- `git diff --check` � passed.
-- Generated-file diff check for `data/factions.json`, `data/placement-model.json`, `supabase/functions/guild-recruiter/faction-context.ts`, and `data/semantic-readiness-provenance.json` � no diff.
+- `node research/validate-semantic-readiness.mjs --targets=SILVERQUILL` — expected Gate 4 failures only: stale/missing generated provenance and missing semantic fixtures.
+- `git diff --check` — passed.
+- Generated-file diff check for `data/factions.json`, `data/placement-model.json`, `supabase/functions/guild-recruiter/faction-context.ts`, and `data/semantic-readiness-provenance.json` — no diff.
 
 Gate 3 structural audit result: 26 total claims, 14 substantive, 10 discovery, 2 support, 0 unclassified, no missing references, and no potential role-invalid support links.
 
@@ -761,14 +761,14 @@ Candidate-scope warning: `data/identity-layers.json` is a Silverquill display-so
 
 Commands run:
 
-- `npm.cmd run build:factions` — passed.
-- `node research/validate-semantic-readiness.mjs --targets=SILVERQUILL` — passed after fixture schema/claim-ID correction.
-- `npm.cmd run validate:source-generated -- --targets=SILVERQUILL` — passed with one known builder-owned inhibitor warning.
-- `npm.cmd run test:semantic-readiness` — passed.
-- `npm.cmd run test:placement` — passed, 37 factions / 37 golden paths.
-- `npm.cmd run test:faction-context-isolation` — passed.
-- `node research/archscry-dossier-followup-tests.js` — passed.
-- `npm.cmd run dossier:audit` — passed with known `113` warnings and `0` failures.
+- `npm.cmd run build:factions` â€” passed.
+- `node research/validate-semantic-readiness.mjs --targets=SILVERQUILL` â€” passed after fixture schema/claim-ID correction.
+- `npm.cmd run validate:source-generated -- --targets=SILVERQUILL` â€” passed with one known builder-owned inhibitor warning.
+- `npm.cmd run test:semantic-readiness` â€” passed.
+- `npm.cmd run test:placement` â€” passed, 37 factions / 37 golden paths.
+- `npm.cmd run test:faction-context-isolation` â€” passed.
+- `node research/archscry-dossier-followup-tests.js` â€” passed.
+- `npm.cmd run dossier:audit` â€” passed with known `113` warnings and `0` failures.
 
 Deferred until Gate 5 or later authorization:
 
@@ -823,16 +823,16 @@ Search confirmed the replacement wording is present in:
 
 Commands run:
 
-- `npm.cmd run build:factions` — passed.
-- `node research/validate-semantic-readiness.mjs --targets=SILVERQUILL` — passed.
-- `npm.cmd run validate:source-generated -- --targets=SILVERQUILL` — passed with the known builder-owned inhibitor warning.
-- `npm.cmd run test:semantic-readiness` — passed.
-- `npm.cmd run test:placement` — passed, 37 factions / 37 golden paths.
-- `npm.cmd run test:faction-context-isolation` — passed.
-- `node research/archscry-dossier-followup-tests.js` — passed.
-- `npm.cmd run dossier:audit` — passed with known `113` warnings and `0` failures.
-- Manual generated-diff isolation check — Silverquill-scoped for `data/factions.json`, `data/placement-model.json`, `data/semantic-readiness-provenance.json`, and `data/identity-layers.json` after excluding Silverquill sections.
-- `git diff --check` — passed with line-ending warnings only.
+- `npm.cmd run build:factions` â€” passed.
+- `node research/validate-semantic-readiness.mjs --targets=SILVERQUILL` â€” passed.
+- `npm.cmd run validate:source-generated -- --targets=SILVERQUILL` â€” passed with the known builder-owned inhibitor warning.
+- `npm.cmd run test:semantic-readiness` â€” passed.
+- `npm.cmd run test:placement` â€” passed, 37 factions / 37 golden paths.
+- `npm.cmd run test:faction-context-isolation` â€” passed.
+- `node research/archscry-dossier-followup-tests.js` â€” passed.
+- `npm.cmd run dossier:audit` â€” passed with known `113` warnings and `0` failures.
+- Manual generated-diff isolation check â€” Silverquill-scoped for `data/factions.json`, `data/placement-model.json`, `data/semantic-readiness-provenance.json`, and `data/identity-layers.json` after excluding Silverquill sections.
+- `git diff --check` â€” passed with line-ending warnings only.
 
 ### Remaining Generated-Diff Concern
 
@@ -880,17 +880,17 @@ The restored core-value rows use substantive claims only and do not reintroduce 
 
 Commands run:
 
-- `npm.cmd run build:factions` — passed.
-- `node research/validate-semantic-readiness.mjs --targets=SILVERQUILL` — passed.
-- `npm.cmd run validate:source-generated -- --targets=SILVERQUILL` — passed with the known builder-owned inhibitor warning.
-- `npm.cmd run test:semantic-readiness` — passed.
-- `npm.cmd run test:placement` — passed, 37 factions / 37 golden paths.
-- `npm.cmd run test:faction-context-isolation` — passed.
-- `node research/archscry-dossier-followup-tests.js` — passed.
-- `npm.cmd run dossier:audit` — passed with known `113` warnings and `0` failures.
-- Candidate-scope guard against temporary snapshot — only documented Silverquill display-source exception findings remain.
-- Manual generated-diff isolation check — Silverquill-scoped.
-- `git diff --check` — passed with line-ending warnings only.
+- `npm.cmd run build:factions` â€” passed.
+- `node research/validate-semantic-readiness.mjs --targets=SILVERQUILL` â€” passed.
+- `npm.cmd run validate:source-generated -- --targets=SILVERQUILL` â€” passed with the known builder-owned inhibitor warning.
+- `npm.cmd run test:semantic-readiness` â€” passed.
+- `npm.cmd run test:placement` â€” passed, 37 factions / 37 golden paths.
+- `npm.cmd run test:faction-context-isolation` â€” passed.
+- `node research/archscry-dossier-followup-tests.js` â€” passed.
+- `npm.cmd run dossier:audit` â€” passed with known `113` warnings and `0` failures.
+- Candidate-scope guard against temporary snapshot â€” only documented Silverquill display-source exception findings remain.
+- Manual generated-diff isolation check â€” Silverquill-scoped.
+- `git diff --check` â€” passed with line-ending warnings only.
 
 ### Final Scope-Policy Cleanup Status
 
@@ -904,3 +904,53 @@ Commands run:
 - Prismari, Lorehold, and Quandrix remain certified.
 - No other identity was started.
 - Original dirty main worktree remains untouched.
+
+## Gate 5 Candidate Creation
+
+Status: candidate created; Silverquill remains uncertified pending independent Gate 5 review.
+
+Candidate parent SHA: $parent
+Candidate recovery SHA: $candidate
+
+Candidate content:
+
+- Gate 3 canonical remediation.
+- Gate 4 generated artifacts and provenance.
+- Gate 4 bounded wording-blocker resolution.
+- Scope-policy cleanup restoring frozen confidence/calibration fields.
+- Silverquill semantic fixtures.
+- VM-504 report, card, board, ledger, handoff, and index records required to document Gate 1 through Gate 4 and candidate readiness.
+
+Validation summary:
+
+-
+pm.cmd run build:factions — passed.
+-
+ode research/validate-semantic-readiness.mjs --targets=SILVERQUILL — passed.
+-
+pm.cmd run validate:source-generated -- --targets=SILVERQUILL — passed with known builder-owned Silverquill inhibitor warning unchanged.
+-
+pm.cmd run test:semantic-readiness — passed.
+-
+pm.cmd run test:placement — passed.
+-
+pm.cmd run test:faction-context-isolation — passed.
+-
+ode research/archscry-dossier-followup-tests.js — passed.
+-
+pm.cmd run dossier:audit — 113 warnings / 0 failures.
+- git diff --check — passed.
+- Candidate-scope guard — no confidence/calibration findings; only documented Silverquill display-source exception remains for data/identity-layers.json and generated data/factions.json identity-layer content.
+
+Known warnings / exceptions:
+
+- Existing builder-owned Silverquill inhibitor warning remains unchanged.
+- Dossier audit remains 113 warnings / 0 failures.
+- Documented display-source exception is Silverquill-scoped, required to resolve stale generated/public Silverquill copy, and did not change builder code or other identity semantics.
+
+Final Gate 5 candidate state:
+
+- Silverquill is uncertified.
+- Prismari, Lorehold, and Quandrix remain certified.
+- No other identity was started.
+- No certification commit exists.

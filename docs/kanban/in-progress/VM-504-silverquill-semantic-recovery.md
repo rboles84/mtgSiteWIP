@@ -1,7 +1,7 @@
-﻿# VM-504 — Silverquill Semantic Recovery
+# VM-504 — Silverquill Semantic Recovery
 
 ID: VM-504
-Status: In Progress — Gate 4 and scope-policy cleanup complete; ready for Gate 5 candidate creation when authorized
+Status: In Progress — Candidate ready for independent Gate 5 review
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: SILVERQUILL
@@ -9,7 +9,7 @@ Raw packet: `data/raw-factions/silverquill/`
 Cohort: college
 Contract: v1.1
 
-Current state: active identity after VM-503 Quandrix certification. Gate 1 semantic audit, Gate 2 bounded evidence confirmation, Gate 3 canonical remediation, Gate 4 generation/validation, bounded Gate 4 wording blocker resolution, and pre-candidate scope-policy cleanup are complete. Silverquill remains uncertified and is ready for Gate 5 candidate creation when authorized.
+Current state: active identity after VM-503 Quandrix certification. Gate 1 semantic audit, Gate 2 bounded evidence confirmation, Gate 3 canonical remediation, Gate 4 generation/validation, bounded Gate 4 wording blocker resolution, pre-candidate scope-policy cleanup, and immutable candidate creation are complete. Silverquill remains uncertified and is awaiting independent Gate 5 review.
 
 Gate 1 / Gate 2 report: `docs/incidents/recoveries/VM-504-silverquill-semantic-recovery.md`
 Primary disposition: `Claim-extraction pass required`
@@ -54,7 +54,7 @@ Gate 3 remediated only Silverquill canonical raw data and VM-504 workflow record
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-504-silverquill-semantic-recovery.md`
-- Candidate recovery SHA: pending
+- Candidate recovery SHA: $candidate
 - Independent reviewer: pending
 - Certification commit: pending
 
@@ -87,3 +87,19 @@ Pre-candidate scope verification found frozen confidence/calibration deltas. Cle
 - `/placement_summary/calibrated_primary_read` exactly to the accepted program-base value.
 
 Validation passed. Candidate-scope guard now has no confidence/calibration findings; only the documented Silverquill-scoped display-source exception remains for `data/identity-layers.json` / generated `data/factions.json` identity-layer content. Silverquill is ready for Gate 5 candidate creation when authorized.
+
+## Gate 5 Candidate Record
+
+Candidate parent SHA: $parent
+Candidate recovery SHA: $candidate
+Workflow state: awaiting independent Gate 5 review. Silverquill remains uncertified; no certification commit exists.
+
+Candidate content includes Gate 3 canonical remediation, Gate 4 generated artifacts and provenance, bounded wording-blocker resolution, scope-policy cleanup, Silverquill semantic fixtures, and VM-504 workflow/report records through candidate readiness.
+
+Validation summary recorded for review:
+
+- Gate 4 validation passed.
+- Candidate-scope guard has no confidence/calibration findings.
+- Remaining candidate-scope findings are only the documented Silverquill display-source exception: data/identity-layers.json and generated data/factions.json identity-layer content.
+- Known builder-owned Silverquill inhibitor warning remains unchanged.
+- Dossier audit remains 113 warnings / 0 failures.

@@ -1,4 +1,4 @@
-﻿# Vox Mana Agent Handoff Index
+# Vox Mana Agent Handoff Index
 
 This index tracks agent work across planning, board updates, documentation, JSON/data mapping, testing, implementation, and release review.
 
@@ -6,6 +6,7 @@ Reconciliation note, 2026-06-30: final assigned `VM-448` and `VM-449` were compl
 
 | Date | Agent | Task | Related Card | Status | Handoff |
 |---|---|---|---|---|---|
+| 2026-07-12 21:31 | Codex | Record VM-504 Silverquill recovery candidate SHA for independent Gate 5 review | VM-504, CRIT-001 | Candidate $candidate ready for independent review; Silverquill remains uncertified | [2026-07-12-2131-codex-vm504-silverquill-candidate-record.md](2026-07-12-2131-codex-vm504-silverquill-candidate-record.md) |
 | 2026-07-12 20:59 | Codex | Clean VM-504 Silverquill pre-candidate confidence/calibration scope findings without candidate creation | VM-504, CRIT-001 | Scope-policy cleanup complete; no confidence/calibration findings remain; Silverquill ready for Gate 5 with documented display-source exception | [2026-07-12-2059-codex-vm504-silverquill-scope-policy-cleanup.md](2026-07-12-2059-codex-vm504-silverquill-scope-policy-cleanup.md) |
 | 2026-07-12 20:29 | Codex | Resolve VM-504 Silverquill Gate 4 raw-sourced wording blockers and validate without candidate creation | VM-504, CRIT-001 | Gate 4 blocker resolved; validations passed; Silverquill ready for Gate 5 candidate creation but remains uncertified | [2026-07-12-2029-codex-vm504-silverquill-wording-blocker-resolution.md](2026-07-12-2029-codex-vm504-silverquill-wording-blocker-resolution.md) |
 | 2026-07-12 20:18 | Codex | Complete VM-504 Silverquill Gate 4 generation/validation and stop on raw-sourced generated wording blocker | VM-504, CRIT-001 | Gate 4 validations passed; Silverquill remains uncertified and not ready for Gate 5 until bounded wording correction | [2026-07-12-2018-codex-vm504-silverquill-gate4-validation.md](2026-07-12-2018-codex-vm504-silverquill-gate4-validation.md) |

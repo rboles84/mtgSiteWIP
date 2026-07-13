@@ -1,4 +1,4 @@
-﻿# CRIT-001 Identity Recovery Ledger
+# CRIT-001 Identity Recovery Ledger
 
 Generated from `CRIT-001-identity-recovery-ledger.json`. The JSON file is authoritative.
 
@@ -11,7 +11,7 @@ Generated from `CRIT-001-identity-recovery-ledger.json`. The JSON file is author
 |---|---|---|---|---|---|---|---|---|
 | VM-502 | PRISMARI â€” Prismari | college | certified | semantically_ready | mixed-role-pattern, support-heavy-pattern | v1.1 | 19800da6322100b28fa6325fef91321e147b6f69 | 492598f13df24d0f74f5869e249d860ff661a3aa |
 | VM-503 | QUANDRIX ? Quandrix | college | certified | semantically_ready | mixed-role-pattern, support-heavy-pattern | v1.1 | af3c2439f9c96fb4b199b4c47eea1f7c735dfebe | cb495e11ba875f1801cbd8f8cb8e7204c27f5840 |
-| VM-504 | SILVERQUILL ? Silverquill | college | gate5_candidate_creation | active | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | v1.1 | ? | ? |
+| VM-504 | SILVERQUILL ? Silverquill | college | gate5_independent_review | awaiting_review | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | v1.1 | 078310b428d66e3f1423fb897d919040542a4593 | ? |
 | VM-505 | WITHERBLOOM â€” Witherbloom | college | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern, template-cohort-pattern | â€” | â€” | â€” |
 | VM-506 | LOREHOLD â€” Lorehold | college | certified | semantically_ready | high-volume-pattern, mixed-role-pattern | v1.1 | 6d8d46d8df0429a105c08e656a8303474c435abd | fa435b17ab36633b200a8405065732568f0ef78c |
 | VM-507 | UR â€” Izzet | guild | not_started | backlog | high-volume-pattern, support-heavy-pattern | â€” | â€” | â€” |
