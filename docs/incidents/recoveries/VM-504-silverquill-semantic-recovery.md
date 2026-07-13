@@ -2,7 +2,7 @@
 
 ## Gate 1 Semantic Audit ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Contract v1.1
 
-Status: Gate 1 complete; Silverquill remains uncertified.
+Status: certified semantically_ready under CRIT-001 Contract v1.1.
 Branch: `codex/vm-504-silverquill-semantic-recovery`
 Starting SHA / current HEAD during audit: `3baa8307cf1d6b23aab1564b866e6580e500cf66`
 Program base: `3baa8307cf1d6b23aab1564b866e6580e500cf66`
@@ -982,3 +982,36 @@ Safety ref: `backup/vm-504-rejected-silverquill-candidate-078310b`
 Silverquill remains uncertified pending independent Gate 5 review. No certification commit exists.
 
 Workflow-record scope: docs/card/report/ledger/board/handoff index only. No Silverquill canonical data, generated artifacts, fixtures, contract files, shared tooling, or other identity data changed in this workflow-record step.
+
+
+## Certification
+
+| Field | Value |
+|---|---|
+| Identity | Silverquill |
+| VM | VM-504 |
+| Contract version | v1.1 |
+| Approved recovery SHA | `b9cd9e914c280e9c40c7a977b8f7c07204614d3e` |
+| Superseded rejected candidate SHA | `078310b428d66e3f1423fb897d919040542a4593` |
+| Workflow-record SHA | `d5239942f806deb4d580d1a64b16d0ebaade7236` |
+| Independent review result | APPROVE EXACT SHA |
+| Reviewer | Robert / user-supplied independent Gate 5 review in this Codex thread |
+| Approval date | 2026-07-12 |
+| Final certification state | `semantically_ready` |
+| Recovery commit | `b9cd9e914c280e9c40c7a977b8f7c07204614d3e` |
+| Certification commit | `PENDING_VM504_CERTIFICATION_COMMIT_SHA` |
+
+### Residual Non-Blocking Findings
+
+- LOW: literal `Silverquill?s` apostrophe artifacts remain in canonical text at `data/raw-factions/silverquill/silverquill.claims.json` and `data/raw-factions/silverquill/silverquill.placement.json`. This is readability hygiene only, does not change semantic evidence chains, and is deferred to post-certification non-blocking cleanup.
+- Runtime Hall, Crucible, scoring, inhibition, scheduling, confidence, and live recruiter calibration remain post-CRIT investigations.
+- Candidate-scope guard retains the documented Silverquill display-source exception for `data/identity-layers.json` and generated `data/factions.json` identity-layer content.
+
+### Known Unchanged Warnings
+
+- Builder-owned Silverquill inhibitor warning remains unchanged.
+- Dossier audit logic verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, and 0 failures; direct `npm.cmd run dossier:audit` may require artifact-write permissions.
+
+### Certification Scope
+
+This certification commit records approval only. It does not modify canonical Silverquill data, generated artifacts, semantic fixtures, Contract v1.1, shared schema, validators, builder scripts, Hall/Crucible content, scoring, inhibition, confidence, scheduling, tie-ordering, global recruiter behavior, Prismari, Lorehold, Quandrix, or Witherbloom.

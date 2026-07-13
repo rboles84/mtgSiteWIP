@@ -1,7 +1,7 @@
 # VM-504 — Silverquill Semantic Recovery
 
 ID: VM-504
-Status: In Progress - Replacement candidate ready for independent Gate 5 review
+Status: Done
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: SILVERQUILL
@@ -9,7 +9,7 @@ Raw packet: `data/raw-factions/silverquill/`
 Cohort: college
 Contract: v1.1
 
-Current state: replacement candidate `b9cd9e914c280e9c40c7a977b8f7c07204614d3e` is ready for independent Gate 5 review. The superseded rejected candidate `078310b428d66e3f1423fb897d919040542a4593` is preserved by safety ref `backup/vm-504-rejected-silverquill-candidate-078310b`. Silverquill remains uncertified; no certification commit exists.
+Current state: certified semantically ready under CRIT-001 Contract v1.1. Approved recovery SHA `b9cd9e914c280e9c40c7a977b8f7c07204614d3e` was approved by independent Gate 5 exact-SHA review on 2026-07-12. Certification commit is `PENDING_VM504_CERTIFICATION_COMMIT_SHA`.
 
 Gate 1 / Gate 2 report: `docs/incidents/recoveries/VM-504-silverquill-semantic-recovery.md`
 Primary disposition: `Claim-extraction pass required`
@@ -25,7 +25,7 @@ Recover Silverquill end to end under CRIT-001: audit the existing packet, bound 
 - [x] Gate 2 — Sufficient evidence completion.
 - [x] Gate 3 — Canonical remediation.
 - [x] Gate 4 — Generation and validation, including bounded wording blocker resolution.
-- [ ] Gate 5 — Independent certification.
+- [x] Gate 5 — Independent certification.
 
 ## Gate 1 Summary
 
@@ -55,8 +55,8 @@ Gate 3 remediated only Silverquill canonical raw data and VM-504 workflow record
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-504-silverquill-semantic-recovery.md`
 - Candidate recovery SHA: `b9cd9e914c280e9c40c7a977b8f7c07204614d3e`
-- Independent reviewer: pending
-- Certification commit: pending
+- Independent reviewer: Robert / user-supplied independent Gate 5 review in this Codex thread
+- Certification commit: `PENDING_VM504_CERTIFICATION_COMMIT_SHA`
 
 ## Gate 4 Summary
 
@@ -115,3 +115,26 @@ Replacement candidate recovery SHA: `b9cd9e914c280e9c40c7a977b8f7c07204614d3e`
 Superseded rejected candidate SHA: `078310b428d66e3f1423fb897d919040542a4593`
 Safety ref: `backup/vm-504-rejected-silverquill-candidate-078310b`
 Workflow state: awaiting independent Gate 5 review. Silverquill remains uncertified; no certification commit exists.
+
+
+## Certification
+
+- Identity: Silverquill.
+- VM: VM-504.
+- Contract version: v1.1.
+- Approved recovery SHA: `b9cd9e914c280e9c40c7a977b8f7c07204614d3e`.
+- Superseded rejected candidate SHA: `078310b428d66e3f1423fb897d919040542a4593`.
+- Candidate workflow-record SHA: `d5239942f806deb4d580d1a64b16d0ebaade7236`.
+- Independent review result: APPROVE EXACT SHA.
+- Reviewer: Robert / user-supplied independent Gate 5 review in this Codex thread.
+- Approval date: 2026-07-12.
+- Final certification state: `semantically_ready`.
+- Recovery commit: `b9cd9e914c280e9c40c7a977b8f7c07204614d3e`.
+- Certification commit: `PENDING_VM504_CERTIFICATION_COMMIT_SHA`.
+- Residual non-blocking findings:
+  - LOW: literal `Silverquill?s` apostrophe artifacts remain in canonical text at `data/raw-factions/silverquill/silverquill.claims.json` and `data/raw-factions/silverquill/silverquill.placement.json`. This is readability hygiene only, does not change semantic evidence chains, and is deferred to post-certification non-blocking cleanup.
+  - Runtime Hall, Crucible, scoring, inhibition, scheduling, confidence, and live recruiter calibration remain post-CRIT investigations.
+  - Candidate-scope guard has the documented Silverquill display-source exception: `data/identity-layers.json` and generated `data/factions.json` identity-layer content.
+- Known unchanged warnings:
+  - Builder-owned Silverquill inhibitor warning remains unchanged.
+  - Dossier audit logic verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, and 0 failures; direct `npm.cmd run dossier:audit` may require artifact-write permissions.
