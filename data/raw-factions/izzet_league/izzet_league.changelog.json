@@ -2,8 +2,20 @@
   "schema_version": "1.0.0",
   "faction_id": "izzet_league",
   "faction_name": "Izzet League",
-  "last_updated": "2026-06-09T00:00:00.000Z",
+  "last_updated": "2026-07-13",
   "changes": [
+    {
+      "date": "2026-07-13",
+      "change_type": "CRIT-001 Contract v1.1 Gate 3 canonical remediation",
+      "summary": "Added semantic roles and bounded evidence localization to all 104 Izzet claims; isolated support-only rules material; added recruiter guidance evidence mappings; added bounded required-neighbor collision guidance; and narrowed overbroad raw wording without rebuilding generated artifacts.",
+      "files_changed": [
+        "data/raw-factions/izzet_league/izzet_league.claims.json",
+        "data/raw-factions/izzet_league/izzet_league.profile.json",
+        "data/raw-factions/izzet_league/izzet_league.placement.json",
+        "data/raw-factions/izzet_league/izzet_league.changelog.json"
+      ],
+      "notes": "Gate 3 only. Generated artifacts, fixtures, semantic-readiness provenance, scoring, confidence, inhibition, scheduling, tie ordering, Hall/Crucible content, and global recruiter behavior were not rebuilt or modified. Gate 4 must rebuild generated artifacts, regenerate provenance, add fixtures, and validate source/generated parity."
+    },
     {
       "change_id": "change_izzet_league_vm306_mechanics_source_first_20260609",
       "date": "2026-06-09",
@@ -285,6 +297,19 @@
       "Removed assumption that Izzet placement should reward reckless harm; ethical shadow expression is now an inhibitor/caution signal."
     ],
     "overall_confidence_rating": "High",
-    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z",
+    "crit_001_gate3_status": {
+      "gate": "Gate 3 canonical remediation",
+      "completed": "2026-07-13",
+      "contract_version": "v1.1",
+      "claim_roles": {
+        "substantive_claim": 104,
+        "discovery_record": 0,
+        "support_record": 0,
+        "unclassified": 0
+      },
+      "generated_artifacts_rebuilt": false,
+      "certification_state": "uncertified_pending_gate4"
+    }
   }
 }

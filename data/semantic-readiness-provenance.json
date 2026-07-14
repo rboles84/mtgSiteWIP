@@ -25206,6 +25206,761 @@
     {
       "identity_key": "UR",
       "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:10ff9c6a149fdd7a59feb4d588e61094fd82df1dca5019e7cec5028efc275d9b",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0058"
+      ],
+      "declared_content_hash": "sha256:10ff9c6a149fdd7a59feb4d588e61094fd82df1dca5019e7cec5028efc275d9b",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:919d159db50225c78c2d026f881072d9eef8c9804b7c251dbcae1267b67258bc",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0047",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0049",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0051",
+        "claim_izzet_league_0052"
+      ],
+      "declared_content_hash": "sha256:919d159db50225c78c2d026f881072d9eef8c9804b7c251dbcae1267b67258bc",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0001",
+        "src_izzet_league_0004",
+        "src_izzet_league_0005",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0009"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:32c6ad56f597ca5a66faff6f4508be2d01d4a13b9b1884f8f1d60f08f6ecc6a5",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060"
+      ],
+      "declared_content_hash": "sha256:32c6ad56f597ca5a66faff6f4508be2d01d4a13b9b1884f8f1d60f08f6ecc6a5",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0010"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/3",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:e7ca03dcee9e1207862b811739c5e81882bb91370e1b2f8fa877b0cd001aec83",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0059"
+      ],
+      "declared_content_hash": "sha256:e7ca03dcee9e1207862b811739c5e81882bb91370e1b2f8fa877b0cd001aec83",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0010"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/4",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:e8cd57cefb9da0b59a3b009e733e8cea1b1991707d074d9eb8999041b344ef7e",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0054",
+        "claim_izzet_league_0058"
+      ],
+      "declared_content_hash": "sha256:e8cd57cefb9da0b59a3b009e733e8cea1b1991707d074d9eb8999041b344ef7e",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/5",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:2fd110c2fc4e789a3e7970fdd5cacdfddaaa3ac4d99b88a569772b0ebb24b3c4",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0094",
+        "claim_izzet_league_0100"
+      ],
+      "declared_content_hash": "sha256:2fd110c2fc4e789a3e7970fdd5cacdfddaaa3ac4d99b88a569772b0ebb24b3c4",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0017",
+        "src_izzet_league_0023",
+        "src_izzet_league_0025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/6",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:4c8b9b091c602e7584cb9ef70a2765d0d75a6e937eb7f60d7715834d875c3b65",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0091",
+        "claim_izzet_league_0092",
+        "claim_izzet_league_0093",
+        "claim_izzet_league_0098"
+      ],
+      "declared_content_hash": "sha256:4c8b9b091c602e7584cb9ef70a2765d0d75a6e937eb7f60d7715834d875c3b65",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0023",
+        "src_izzet_league_0025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:1175c469d947cce6ac46f0367f5f31321629ea05d5ff8ee3d24d96238909fff3",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0027",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0057"
+      ],
+      "declared_content_hash": "sha256:1175c469d947cce6ac46f0367f5f31321629ea05d5ff8ee3d24d96238909fff3",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0005"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:e65518a733d70dc41f9526a0b4844e613424fe5f3f4086f6f5db61c23d1b48de",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0019",
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0052"
+      ],
+      "declared_content_hash": "sha256:e65518a733d70dc41f9526a0b4844e613424fe5f3f4086f6f5db61c23d1b48de",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0001",
+        "src_izzet_league_0002",
+        "src_izzet_league_0005",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:466f27c0c9598aa031ec58746c2281cfdf7cd71d6b06f509d332639e5d583ffd",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0027",
+        "claim_izzet_league_0029",
+        "claim_izzet_league_0057"
+      ],
+      "declared_content_hash": "sha256:466f27c0c9598aa031ec58746c2281cfdf7cd71d6b06f509d332639e5d583ffd",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0005"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:c0d763cf32e0ffec0a62b527d2e08c3a9c8ed1dd1c97b805fb92091373e95971",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060",
+        "claim_izzet_league_0100"
+      ],
+      "declared_content_hash": "sha256:c0d763cf32e0ffec0a62b527d2e08c3a9c8ed1dd1c97b805fb92091373e95971",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0010",
+        "src_izzet_league_0025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/4",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:56ab97c9a7e491f8ee3ca58b2752e03c7ea3c5a763dfc7e3db1fab9db083a94c",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0058"
+      ],
+      "declared_content_hash": "sha256:56ab97c9a7e491f8ee3ca58b2752e03c7ea3c5a763dfc7e3db1fab9db083a94c",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/5",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:f3ca2123a0e7bd5c82b4dbcfe18e551e736d9fa2fd9bcc6b5fe727a46d58b942",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0087",
+        "claim_izzet_league_0100"
+      ],
+      "declared_content_hash": "sha256:f3ca2123a0e7bd5c82b4dbcfe18e551e736d9fa2fd9bcc6b5fe727a46d58b942",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0022",
+        "src_izzet_league_0025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/6",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:c8c9cde3398e17eaea370129ccf1b73934141916aac9d34b378be3756418b1c3",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0063",
+        "claim_izzet_league_0077",
+        "claim_izzet_league_0084"
+      ],
+      "declared_content_hash": "sha256:c8c9cde3398e17eaea370129ccf1b73934141916aac9d34b378be3756418b1c3",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0017",
+        "src_izzet_league_0019",
+        "src_izzet_league_0022"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:4ff6efed478fa64f6d39aa556ac3e4f0e1d2c64f75005a6f84e456b952e718ef",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059"
+      ],
+      "declared_content_hash": "sha256:4ff6efed478fa64f6d39aa556ac3e4f0e1d2c64f75005a6f84e456b952e718ef",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0004",
+        "src_izzet_league_0005",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0010"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:2925a3c7c55abdcf2ee4a767904e0e6453b738a8ac1de0824a7086be9a7b4501",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060"
+      ],
+      "declared_content_hash": "sha256:2925a3c7c55abdcf2ee4a767904e0e6453b738a8ac1de0824a7086be9a7b4501",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0010"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:b1f5d5c8b1683b8f78f02615554a3e4a7513b7a6026ef22fb2cc3c337cfa0847",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0022",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0085",
+        "claim_izzet_league_0086",
+        "claim_izzet_league_0094"
+      ],
+      "declared_content_hash": "sha256:b1f5d5c8b1683b8f78f02615554a3e4a7513b7a6026ef22fb2cc3c337cfa0847",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0022",
+        "src_izzet_league_0023"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/3",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:bad1f688cda32e81124382eb81ebcc3fef615e9151d95ddf549fe53fb7f83513",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0029",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0078"
+      ],
+      "declared_content_hash": "sha256:bad1f688cda32e81124382eb81ebcc3fef615e9151d95ddf549fe53fb7f83513",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0017",
+        "src_izzet_league_0021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/4",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:74e9385a39037592a545d83cd605dd03c2552c2590e7f9551a1fc3e6c8d094b6",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0087",
+        "claim_izzet_league_0094",
+        "claim_izzet_league_0100"
+      ],
+      "declared_content_hash": "sha256:74e9385a39037592a545d83cd605dd03c2552c2590e7f9551a1fc3e6c8d094b6",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0017",
+        "src_izzet_league_0022",
+        "src_izzet_league_0023",
+        "src_izzet_league_0025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/5",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:146a41d3ca5dcb419f1511322dfaeb1d734039dd76d29bccc3f81d2afed4e1db",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0091",
+        "claim_izzet_league_0098"
+      ],
+      "declared_content_hash": "sha256:146a41d3ca5dcb419f1511322dfaeb1d734039dd76d29bccc3f81d2afed4e1db",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_izzet_league_0003",
+        "src_izzet_league_0010",
+        "src_izzet_league_0023",
+        "src_izzet_league_0025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/collision_guidance/0",
+      "canonical_id": "collision_izzet_league_vs_prismari_placement_ready",
+      "canonical_content_hash": "sha256:e073ebc45cb35f89bd1772d597835cad80bc89b433bcb2d4c21b674e2cc774b3",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0052",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0001",
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0004",
+        "src_izzet_league_0005",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0010"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/collision_guidance/1",
+      "canonical_id": "collision_izzet_league_vs_quandrix_placement_ready",
+      "canonical_content_hash": "sha256:382f59ddd9eb655921ed5e4aa6ef28ea128c12775a52c97fab88374a07d83d44",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0010"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/collision_guidance/2",
+      "canonical_id": "collision_izzet_league_vs_simic_combine_placement_ready",
+      "canonical_content_hash": "sha256:5a6b883e3c0f02eadb1cbaf52b5676558f37cd84b764f4ceabb976d87e19b9b4",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0029",
+        "claim_izzet_league_0078",
+        "claim_izzet_league_0079",
+        "claim_izzet_league_0080"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0001",
+        "src_izzet_league_0002",
+        "src_izzet_league_0021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/collision_guidance/3",
+      "canonical_id": "collision_izzet_league_vs_azorius_senate_placement_ready",
+      "canonical_content_hash": "sha256:9231c1c6afa1cb397fc5d5e5a14a343873dff79e59124cd1138c3b8e26d0e780",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0027",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0054",
+        "claim_izzet_league_0057"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0005",
+        "src_izzet_league_0010"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/collision_guidance/4",
+      "canonical_id": "collision_izzet_league_vs_cult_of_rakdos_placement_ready",
+      "canonical_content_hash": "sha256:75e183b34367714bc194c02a30a73e0568381da0ff0d62f979c331603fa160a9",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060",
+        "claim_izzet_league_0100"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0010",
+        "src_izzet_league_0025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/collision_guidance/5",
+      "canonical_id": "collision_izzet_league_vs_house_dimir_placement_ready",
+      "canonical_content_hash": "sha256:c8f49f20fe8945cfbb30ada34aa84417c3743c914b256d69ec2c699cc1cd2f35",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0022",
+        "claim_izzet_league_0025",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0085",
+        "claim_izzet_league_0086"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0022"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/collision_guidance/6",
+      "canonical_id": "collision_izzet_league_vs_generic_ur_overfit_guardrail",
+      "canonical_content_hash": "sha256:3246c6b47ea2858e1b23c6234fdea51795f9db4f0a18bfaac215df13c37f05c8",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0001",
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0019",
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0052",
+        "claim_izzet_league_0059"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0001",
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0005",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0010"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
       "canonical_pointer": "/core_values/0",
       "canonical_id": null,
       "canonical_content_hash": "sha256:93269ce567f1cbcf5725724bd2295fe7afcbd14347efd3cd256b933b3bc01396",
@@ -25440,7 +26195,7 @@
       "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
       "canonical_pointer": "/discriminator_questions/1",
       "canonical_id": "q_izzet_league_0002",
-      "canonical_content_hash": "sha256:efc39f914583c422a2d676dcb911357f68bda8113e2baa13099ce01893fb6fd5",
+      "canonical_content_hash": "sha256:b3570cc2f460df36d4e62879af653eb6112f2737469bf03a7c8fb6786a35f73b",
       "evidence_claim_ids": [
         "claim_izzet_league_0046",
         "claim_izzet_league_0047",
@@ -25473,7 +26228,7 @@
       "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
       "canonical_pointer": "/discriminator_questions/10",
       "canonical_id": "q_izzet_league_0011",
-      "canonical_content_hash": "sha256:242f6b27e2f8d9bc359436bd9132328f15b8961b0001fc4c763158c0896e6178",
+      "canonical_content_hash": "sha256:befee8fce449ddd48ca05f4c90eb9bbd39d468bd83b7be680cf175a49e52163d",
       "evidence_claim_ids": [
         "claim_izzet_league_0067",
         "claim_izzet_league_0091",
@@ -25681,7 +26436,7 @@
       "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
       "canonical_pointer": "/discriminator_questions/7",
       "canonical_id": "q_izzet_league_0008",
-      "canonical_content_hash": "sha256:f992c477c98eda97f4fb5b3436a710423b9f3ab3eddd6230aba48026d1f5787f",
+      "canonical_content_hash": "sha256:e331a62d8536e4ddaf23503e00844d11c3b187d88f37becf62b3b8deb3392832",
       "evidence_claim_ids": [
         "claim_izzet_league_0003",
         "claim_izzet_league_0005",
@@ -26690,6 +27445,721 @@
     },
     {
       "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/0",
+      "canonical_id": "collision_izzet_league_vs_prismari_placement_ready",
+      "canonical_content_hash": "sha256:bd6cd60a967a2bea8fa8b9217e2eff8513080c08026733d0e9b4ac9f2c753b9c",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0052",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0001",
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0004",
+        "src_izzet_league_0005",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0010"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/1",
+      "canonical_id": "collision_izzet_league_vs_quandrix_placement_ready",
+      "canonical_content_hash": "sha256:44c978c460176bbc79b9e9004acd8159f949217590968db44f8eb8668c5f4cc6",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0010"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/2",
+      "canonical_id": "collision_izzet_league_vs_simic_combine_placement_ready",
+      "canonical_content_hash": "sha256:6daba1b84321309557c45230dd24165c9ef8c98f3dfce494967145ffdadca8b4",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0029",
+        "claim_izzet_league_0078",
+        "claim_izzet_league_0079",
+        "claim_izzet_league_0080"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0001",
+        "src_izzet_league_0002",
+        "src_izzet_league_0021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/3",
+      "canonical_id": "collision_izzet_league_vs_azorius_senate_placement_ready",
+      "canonical_content_hash": "sha256:5ccfc9da394a1c0636d1409c3bbaf49ec27c7e7ba8db6d7a92ba7593a2357090",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0027",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0054",
+        "claim_izzet_league_0057"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0005",
+        "src_izzet_league_0010"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/4",
+      "canonical_id": "collision_izzet_league_vs_cult_of_rakdos_placement_ready",
+      "canonical_content_hash": "sha256:bd9174d3644f87720a78a0c15c25e393e861bf8bd52fdedb0438a7af2966c54c",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060",
+        "claim_izzet_league_0100"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0010",
+        "src_izzet_league_0025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/5",
+      "canonical_id": "collision_izzet_league_vs_house_dimir_placement_ready",
+      "canonical_content_hash": "sha256:f43d18619592fa0c9bdabaef066a35e78d0f44521846c5cfc01ba0fca47abf45",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0022",
+        "claim_izzet_league_0025",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0085",
+        "claim_izzet_league_0086"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0022"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/6",
+      "canonical_id": "collision_izzet_league_vs_generic_ur_overfit_guardrail",
+      "canonical_content_hash": "sha256:181b12a629c5166ca8c61e7ee775f6baa673d9b442d84e642611eb8a65bedbaa",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0001",
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0019",
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0052",
+        "claim_izzet_league_0059"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0001",
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0005",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0010"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:2c112824c1da3b037175e05d1edd2374088221f223a7186c6b39eecf0851c884",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0058"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:a09d2c9105f6058a117cf4fd15ac48a4f858a0d7a28c55c317dd442756c3f876",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0047",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0049",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0051",
+        "claim_izzet_league_0052"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0001",
+        "src_izzet_league_0004",
+        "src_izzet_league_0005",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0009"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/10",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:7309cde39e4e5f9cf072689ac2a9a73c5e9257aff3723dafc4a67e544dc86646",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060",
+        "claim_izzet_league_0100"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0010",
+        "src_izzet_league_0025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/11",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:7442677e6e3537bcf8d226a4915c576d2780dd60d95485ec46db34b1b2a64642",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0058"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/12",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:7571ae605d929155d3e8334d1784120257012766c38ff5f53f614a81d54fcb58",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0087",
+        "claim_izzet_league_0100"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0022",
+        "src_izzet_league_0025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/13",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:e60f93e4dc759a1b7943f264002e519bce63bc675eb550f23c56659cfbffff3c",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0063",
+        "claim_izzet_league_0077",
+        "claim_izzet_league_0084"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0017",
+        "src_izzet_league_0019",
+        "src_izzet_league_0022"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/14",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:667ebd76c16091120b73db1f93ad24ef4c60aab9c96262a334a9b8866e56c73e",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0004",
+        "src_izzet_league_0005",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0010"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/15",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:73b12e0e5302374c2ca2a6d419bd90818875c4e5a765a9992777151ce40db13e",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0010"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/16",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:9c9490e93690d2487c05ff29a59f49203b1ea4f9b0ee48983733cb9830508a40",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0022",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0085",
+        "claim_izzet_league_0086",
+        "claim_izzet_league_0094"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0022",
+        "src_izzet_league_0023"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/17",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:8277b57115d0600822bdadd62f7ba1a5e03b90cc51eb4f5082383bab11626ded",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0029",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0078"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0017",
+        "src_izzet_league_0021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/18",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:225961d8d7f5c8e29be8ce9bc17ffed8df2a00e1e444383a31c4697cce570f97",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0087",
+        "claim_izzet_league_0094",
+        "claim_izzet_league_0100"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0017",
+        "src_izzet_league_0022",
+        "src_izzet_league_0023",
+        "src_izzet_league_0025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/19",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:73ffb1c92296f0cf9c89bce80e55392d45aaa5c559f6d4765e227d4508dcca3d",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0091",
+        "claim_izzet_league_0098"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0003",
+        "src_izzet_league_0010",
+        "src_izzet_league_0023",
+        "src_izzet_league_0025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:ebe3607b27aaf0ff7d92d12be13a20270588d90439075dccc180a2a4144bf947",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0010"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:ad42b33130d17e94a8bc511f465b3d395d0c8ecea5501dd57833e9832369a916",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0059"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0010"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:8d912b4152b7774c426f08bb39ee309a77beb7b3d0dad55e61a54c459d4e7b64",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0054",
+        "claim_izzet_league_0058"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:032990a7f4fc44ad14b101d2636f30ee06717bdd5f2dd88fbedc292d61534ef4",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0094",
+        "claim_izzet_league_0100"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0017",
+        "src_izzet_league_0023",
+        "src_izzet_league_0025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:4e50b7872eb8e192ae495a66fa23f8cd4de7c21165c0c55405f758dbb2e56d8f",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0091",
+        "claim_izzet_league_0092",
+        "claim_izzet_league_0093",
+        "claim_izzet_league_0098"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0023",
+        "src_izzet_league_0025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/7",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:cea22abe80552b72c61a162828c08ccf941be9066a8dda27d008a4dffef3ff8d",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0027",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0057"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0005"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/8",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:5952abedb16a97be0740ab67854df47e2a5b3f7f54d4d4b83c28ccdd5c304eb9",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0019",
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0052"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0001",
+        "src_izzet_league_0002",
+        "src_izzet_league_0005",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/9",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:c76a592f1abba093be1a014db0d87cbaef583b997f98b2c190898fcd4638b913",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0027",
+        "claim_izzet_league_0029",
+        "claim_izzet_league_0057"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0005"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UR",
+        "data/placement-model.json#/factions/UR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UR",
       "canonical_file": "data/raw-factions/izzet_league/izzet_league.profile.json",
       "canonical_pointer": "/canonical_flavor_text/0",
       "canonical_id": null,
@@ -27534,7 +29004,7 @@
       "canonical_file": "data/raw-factions/izzet_league/izzet_league.profile.json",
       "canonical_pointer": "/site_surface",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:d23799ae29b669a1ed3eb90cbc86d6da3acd9c901792a5072f978f676d031811",
+      "canonical_content_hash": "sha256:8c9330ad61e9b755f48020c715640a4001007e708bf1e03db01fabf4403fc8a5",
       "evidence_claim_ids": [
         "claim_izzet_league_0001",
         "claim_izzet_league_0003",

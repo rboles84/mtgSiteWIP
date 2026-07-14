@@ -4863,10 +4863,10 @@
       ],
       "accent": "#d08030",
       "banner": "linear-gradient(160deg,rgba(180,80,20,0.28) 0%,rgba(12,11,10,0) 60%)",
-      "tagline": "The question isn't whether it will explode. It's whether the explosion is interesting.",
-      "philosophy": "Ravnica's civic infrastructure department, weapons laboratory, and mad science collective - all run by a 16,000-year-old dragon whose ego is so complete he named the guild after himself. Izzet members are obsessive, brilliant, creative, and constitutionally incapable of finishing things because there is always something more interesting to start.",
-      "lore_summary": "The guild is built around a single dragon's ego and intellect. Under Ral Zarek, the Izzet are being asked to be useful rather than merely brilliant. Many find this an intolerable constraint.",
-      "core_tension": "The guild is built around a single dragon's ego and intellect. Under Ral Zarek, the Izzet are being asked to be useful rather than merely brilliant. Many find this an intolerable constraint.",
+      "tagline": "Invent first. Stabilize what the experiment teaches.",
+      "philosophy": "The Izzet League turns blue-red curiosity into elemental magic, mizzium technology, civic engineering, spell engines, and prototypes. Its best work makes discovery useful; its pressure point is volatile experimentation that can outrun care, procedure, or restraint.",
+      "lore_summary": "The Izzet tension is invention as public benefit versus invention as obsession: the same guild that builds infrastructure and emergency solutions can also reward speed, spectacle, and risky discovery pressure.",
+      "core_tension": "Izzet discovery wants to move fast enough to find the breakthrough while remaining useful enough to repair, rebuild, or stabilize what the experiment affects.",
       "affinity": {
         "drawn_to": [
           "Following a question wherever it leads regardless of practical application",
@@ -5612,17 +5612,17 @@
         "schema_version": "1.0.0",
         "source_research_file": "izzet_league.commander_compass.research.json",
         "last_reviewed": "2026-05-14",
-        "review_status": "reviewed_not_canonical_lore",
-        "recommendation_philosophy": "Favor commanders that turn casting, copying, drawing, and sequencing spells into visible momentum. Native Izzet should feel like a lab experiment that might become a controlled masterpiece or a spectacular explosion; weird stretches are allowed only when they preserve the spell-experiment gameplay loop.",
+        "review_status": "support_only_product_navigation_auxiliary",
+        "recommendation_philosophy": "Favor commanders that turn casting, copying, drawing, and sequencing spells into visible momentum. Native Izzet should feel like an experiment that can become a controlled spell-engine breakthrough or a visible failed test; weird stretches are allowed only when they preserve the spell-experiment gameplay loop.",
         "identity_basis": {
           "owned_themes": [
-            "reckless invention",
+            "risky invention",
             "public works and infrastructure",
             "experimentation",
             "instants and sorceries",
             "spell copying",
             "card draw engines",
-            "big explosive turns",
+            "scalable spell turns",
             "mizzium/chemister aesthetics",
             "Niv-Mizzet and the Firemind"
           ],
@@ -5658,7 +5658,8 @@
             "src_izzet_league_0012",
             "src_izzet_league_0010",
             "src_izzet_league_0011"
-          ]
+          ],
+          "auxiliary_support_boundary": "Commander/card/product and external deck-navigation surfaces are auxiliary only; they cannot prove Izzet lore identity unless tied back to substantive raw Izzet claims."
         },
         "native_fit_commanders": [
           {
@@ -5738,7 +5739,7 @@
               "Spell Copy",
               "Topdeck"
             ],
-            "why_this_fits": "Melek preserves the lab-chaos feel without defaulting to the dragon. Revealing the top card and copying spells feels like an unstable experiment becoming repeatable technique.",
+            "why_this_fits": "Melek preserves the lab-experiment feel without defaulting to the dragon. Revealing the top card and copying spells feels like an unstable experiment becoming repeatable technique.",
             "skip_if": "Skip if you want a low-curve commander or dislike playing with the top of your library revealed.",
             "gameplay_summary": "A six-mana spell-copy commander that turns the top of the library into an extension of your hand for instant and sorcery chains.",
             "faction_identity_terms": [

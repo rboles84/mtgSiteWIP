@@ -4,7 +4,7 @@
   "faction_id": "izzet_league",
   "faction_name": "Izzet League",
   "based_on_profile_version": "1.1.0",
-  "last_updated": "2026-05-10T02:56:03.254Z",
+  "last_updated": "2026-07-13",
   "placement_summary": {
     "short_description": "The Experimental Spark: an Izzet match is energized by discovery, prototypes, technical imagination, fast iteration, and the willingness to learn from volatile failure.",
     "best_fit_summary": "Best fits people who turn strange ideas into working systems, enjoy technical or magical experimentation, can improvise under pressure, and treat failed tests as data rather than personal defeat.",
@@ -788,11 +788,18 @@
         "claim_izzet_league_0058"
       ],
       "confidence": "Medium",
-      "notes": ""
+      "notes": "",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0057",
+        "claim_izzet_league_0058"
+      ]
     },
     {
       "question_id": "q_izzet_league_0002",
-      "question": "Is your favorite kind of solution elegant, explosive, reusable, or socially stabilizing?",
+      "question": "Is your favorite kind of solution elegant, scalable, reusable, or socially stabilizing?",
       "purpose": "Identify whether the user prefers Izzet scaling/energy or other faction value centers.",
       "answer_pattern_that_supports_this_faction": "Explosive or reusable, especially when tied to technical creativity.",
       "answer_pattern_that_weakens_this_faction": "Socially stabilizing without experimentation, or elegant abstraction without messy implementation.",
@@ -813,7 +820,17 @@
         "claim_izzet_league_0055"
       ],
       "confidence": "Medium",
-      "notes": ""
+      "notes": "",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0047",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0049",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0051",
+        "claim_izzet_league_0052",
+        "claim_izzet_league_0055"
+      ]
     },
     {
       "question_id": "q_izzet_league_0003",
@@ -836,7 +853,16 @@
         "claim_izzet_league_0030"
       ],
       "confidence": "Medium",
-      "notes": ""
+      "notes": "",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0019",
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0021",
+        "claim_izzet_league_0025",
+        "claim_izzet_league_0026",
+        "claim_izzet_league_0030"
+      ]
     },
     {
       "question_id": "q_izzet_league_0004",
@@ -857,7 +883,14 @@
         "claim_izzet_league_0058"
       ],
       "confidence": "Medium",
-      "notes": ""
+      "notes": "",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0006",
+        "claim_izzet_league_0017",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0058"
+      ]
     },
     {
       "question_id": "q_izzet_league_0005",
@@ -880,7 +913,16 @@
         "claim_izzet_league_0043"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0018",
+        "claim_izzet_league_0029",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043"
+      ]
     },
     {
       "question_id": "q_izzet_league_0006",
@@ -906,7 +948,19 @@
         "claim_izzet_league_0058"
       ],
       "confidence": "Medium",
-      "notes": ""
+      "notes": "",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0047",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0049",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0051",
+        "claim_izzet_league_0052",
+        "claim_izzet_league_0058"
+      ]
     },
     {
       "question_id": "q_izzet_league_0007",
@@ -926,13 +980,20 @@
         "claim_izzet_league_0057"
       ],
       "confidence": "Medium",
-      "notes": ""
+      "notes": "",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0027",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0054",
+        "claim_izzet_league_0057"
+      ]
     },
     {
       "question_id": "q_izzet_league_0008",
-      "question": "Which feels more like you: careful guardian, hidden operator, living designer, or reckless inventor who still wants the machine to work?",
+      "question": "Which feels more like you: careful guardian, hidden operator, living designer, or risky inventor who still wants the machine to work?",
       "purpose": "Broad final discriminator across adjacent Ravnica identities.",
-      "answer_pattern_that_supports_this_faction": "Reckless inventor who still wants the machine to work.",
+      "answer_pattern_that_supports_this_faction": "Risk-aware inventor who wants the experiment to keep working, scale, or teach something useful.",
       "answer_pattern_that_weakens_this_faction": "Careful guardian, hidden operator, or living designer.",
       "related_factions_to_compare": [
         "Boros Legion",
@@ -953,7 +1014,19 @@
         "claim_izzet_league_0060"
       ],
       "confidence": "Medium",
-      "notes": ""
+      "notes": "",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0006",
+        "claim_izzet_league_0029",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060"
+      ]
     },
     {
       "question_id": "q_izzet_league_0009",
@@ -972,7 +1045,12 @@
         "claim_izzet_league_0094"
       ],
       "confidence": "Medium",
-      "notes": ""
+      "notes": "",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0087",
+        "claim_izzet_league_0094"
+      ]
     },
     {
       "question_id": "q_izzet_league_0010",
@@ -991,11 +1069,16 @@
         "claim_izzet_league_0078"
       ],
       "confidence": "Medium",
-      "notes": ""
+      "notes": "",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0078"
+      ]
     },
     {
       "question_id": "q_izzet_league_0011",
-      "question": "Would you rather be known for a safe system that never fails, or a breakthrough that changes the field even if the first version explodes?",
+      "question": "Would you rather be known for a safe system that never fails, or a breakthrough that changes the field even if the first version fails dramatically?",
       "purpose": "Tests appetite for breakthrough and volatility.",
       "answer_pattern_that_supports_this_faction": "Breakthrough, especially if followed by iteration and better safeguards.",
       "answer_pattern_that_weakens_this_faction": "Safe system above all points more toward Azorius, Boros, or civic-maintenance profiles.",
@@ -1010,7 +1093,12 @@
         "claim_izzet_league_0100"
       ],
       "confidence": "Medium",
-      "notes": ""
+      "notes": "",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0091",
+        "claim_izzet_league_0100"
+      ]
     },
     {
       "question_id": "q_izzet_league_0012",
@@ -1029,7 +1117,12 @@
         "claim_izzet_league_0104"
       ],
       "confidence": "Medium",
-      "notes": ""
+      "notes": "",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0085",
+        "claim_izzet_league_0086",
+        "claim_izzet_league_0104"
+      ]
     },
     {
       "question_id": "q_izzet_league_0013",
@@ -1048,12 +1141,17 @@
         "claim_izzet_league_0098"
       ],
       "confidence": "Medium",
-      "notes": ""
+      "notes": "",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0091",
+        "claim_izzet_league_0092",
+        "claim_izzet_league_0098"
+      ]
     }
   ],
   "chatbot_guidance": {
     "how_to_recognize_match": [
-      "User describes learning by building, testing, breaking, and rebuilding.",
+      "User describes learning by building, testing, failing, and rebuilding.",
       "User enjoys technical creativity, prototypes, magic-tech, spell chains, or experimental systems.",
       "User accepts failure as data and wants ideas to scale or become useful tools.",
       "User pairs creativity with practical infrastructure or systems improvement.",
@@ -1065,15 +1163,15 @@
       "User consistently prioritizes fixed procedure, permission, and risk elimination over experimentation.",
       "User dislikes technical systems, tool-building, spellcraft metaphors, or iteration.",
       "User prefers secrecy, law, communal harmony, biological evolution, or martial protection as the primary motive.",
-      "User wants novelty without any usefulness, which may be more Rakdos/Prismari depending on tone.",
+      "User wants novelty or spectacle without usefulness, prototype learning, or technical problem solving.",
       "User demands complete predictability before trying anything new.",
-      "User endorses harming or deceiving people as acceptable simply because a discovery is interesting.",
+      "User treats test subjects, collaborators, or bystanders as disposable because a discovery is interesting.",
       "User wants status without curiosity, experimentation, or technical problem solving."
     ],
     "questions_to_ask_when_uncertain": [
       "Do you enjoy prototypes more when they are useful, beautiful, mathematically elegant, or disruptive?",
       "What matters more: proving the theory, building the device, protecting people, or enforcing the rules?",
-      "When something fails, do you document it, hide it, mourn it, rebuild it, or weaponize it?",
+      "When something fails, do you document it, hide it, mourn it, rebuild it, or use the lesson as leverage?",
       "Ask whether they are more motivated by breakthrough, beauty, biological adaptation, law, or protection.",
       "Ask how they respond after a dangerous prototype failure: abandon, stabilize, iterate, or hide it.",
       "Ask whether they prefer planned systems engineering or improvised crisis engineering."
@@ -1083,7 +1181,7 @@
       "Do not overfit Izzet to safe engineering; official sources also support volatile experimentation and dangerous ambition.",
       "Do not treat Ral Zarek's personal history or Bolas involvement as a required user-placement trait.",
       "Do not treat Niv-Mizzet's arrogance as mandatory for every Izzet-aligned user.",
-      "Do not overweight one explosive or chaotic answer; look for curiosity plus systems thinking.",
+      "Do not overweight one dramatic or chaotic answer; look for curiosity plus systems thinking.",
       "Do not treat unethical experimentation as a positive score just because it resembles Izzet shadow behavior.",
       "Do not confuse Prismari expressive performance with Izzet applied experimentation unless the user emphasizes prototypes and discovery."
     ],
@@ -1158,5 +1256,425 @@
     "false_positive_guardrail": "Do not award for generic curiosity, intelligence, or blue-red color identity without an experiment/build signal.",
     "smoke_test_note": "Used by lore review scripts as metadata-level calibration guidance; production placement may use richer weighted logic."
   },
-  "collision_guidance": []
+  "collision_guidance": [
+    {
+      "collision_id": "collision_izzet_league_vs_prismari_placement_ready",
+      "against": "prismari",
+      "separator": "Izzet turns blue-red creativity into experiments, devices, spell engines, and civic systems; Prismari centers expressive elemental art and performance.",
+      "ask": "Is the creative spark trying to build a working prototype, or to make a visible artistic experience?",
+      "suppress_if": "the answer centers performance, beauty, theatricality, or elemental art without prototype/build/test language",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0052",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059"
+      ]
+    },
+    {
+      "collision_id": "collision_izzet_league_vs_quandrix_placement_ready",
+      "against": "quandrix",
+      "separator": "Izzet applies theory through prototypes, machinery, spells, and experiments; Quandrix follows mathematical proof, scale, and hidden pattern.",
+      "ask": "When an idea is exciting, do you want to prove the structure beneath it or build the thing and see what happens?",
+      "suppress_if": "the answer centers equations, abstract proof, mathematical elegance, or hidden patterns before applied testing",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060"
+      ]
+    },
+    {
+      "collision_id": "collision_izzet_league_vs_simic_combine_placement_ready",
+      "against": "simic_combine",
+      "separator": "Izzet builds with elemental magic, mizzium, spells, and civic technology; Simic centers biological adaptation and living-system optimization.",
+      "ask": "Is the experiment a machine/spell system to test, or a living system to evolve?",
+      "suppress_if": "the answer centers biological adaptation, organism design, or living-system optimization over mizzium, spells, tools, or civic engineering",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0029",
+        "claim_izzet_league_0078",
+        "claim_izzet_league_0079",
+        "claim_izzet_league_0080"
+      ]
+    },
+    {
+      "collision_id": "collision_izzet_league_vs_azorius_senate_placement_ready",
+      "against": "azorius_senate",
+      "separator": "Izzet tests and iterates under uncertainty; Azorius prioritizes law, permission, procedure, and stable order.",
+      "ask": "When procedure slows discovery, do you seek authorization first or design a contained experiment path?",
+      "suppress_if": "the answer centers procedure, permission, risk elimination, or enforcement before experimentation",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0027",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0054",
+        "claim_izzet_league_0057"
+      ]
+    },
+    {
+      "collision_id": "collision_izzet_league_vs_cult_of_rakdos_placement_ready",
+      "against": "cult_of_rakdos",
+      "separator": "Izzet accepts volatility when it advances experiment, invention, or useful systems; Rakdos-adjacent answers center spectacle, disruption, or appetite as the point.",
+      "ask": "Is the dramatic moment valuable because it teaches the machine something, or because disruption itself is the payoff?",
+      "suppress_if": "the answer centers spectacle, shock, appetite, or disruption without experiment/build/usefulness language",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060",
+        "claim_izzet_league_0100"
+      ]
+    },
+    {
+      "collision_id": "collision_izzet_league_vs_house_dimir_placement_ready",
+      "against": "house_dimir",
+      "separator": "Izzet wants knowledge to become tools, prototypes, and visible systems; Dimir-adjacent answers treat knowledge as secrecy, leverage, or hidden control.",
+      "ask": "Do you learn so you can build the device in public, or so you can hold leverage in secret?",
+      "suppress_if": "the answer centers concealment, leverage, infiltration, or information control over applied invention",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0022",
+        "claim_izzet_league_0025",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0085",
+        "claim_izzet_league_0086"
+      ]
+    },
+    {
+      "collision_id": "collision_izzet_league_vs_generic_ur_overfit_guardrail",
+      "against": "generic_ur_overfit",
+      "separator": "Izzet is not generic blue-red curiosity or chaos; it needs Ravnican guild, mizzium, spellcraft, prototype, civic engineering, or experimental method evidence.",
+      "ask": "Is the answer only blue-red energy, or does it name building, testing, tools, spell engines, public works, or Izzet-style experiment?",
+      "suppress_if": "the answer is only generic blue-red color preference, curiosity, chaos, or spell-goodstuff without Izzet guild-specific build/test evidence",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0001",
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0019",
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0052",
+        "claim_izzet_league_0059"
+      ]
+    }
+  ],
+  "semantic_guidance_evidence": [
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_content_hash": "sha256:10ff9c6a149fdd7a59feb4d588e61094fd82df1dca5019e7cec5028efc275d9b",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0058"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_content_hash": "sha256:919d159db50225c78c2d026f881072d9eef8c9804b7c251dbcae1267b67258bc",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0047",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0049",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0051",
+        "claim_izzet_league_0052"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_content_hash": "sha256:32c6ad56f597ca5a66faff6f4508be2d01d4a13b9b1884f8f1d60f08f6ecc6a5",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/3",
+      "canonical_content_hash": "sha256:e7ca03dcee9e1207862b811739c5e81882bb91370e1b2f8fa877b0cd001aec83",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0059"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/4",
+      "canonical_content_hash": "sha256:e8cd57cefb9da0b59a3b009e733e8cea1b1991707d074d9eb8999041b344ef7e",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0054",
+        "claim_izzet_league_0058"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/5",
+      "canonical_content_hash": "sha256:2fd110c2fc4e789a3e7970fdd5cacdfddaaa3ac4d99b88a569772b0ebb24b3c4",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0094",
+        "claim_izzet_league_0100"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/6",
+      "canonical_content_hash": "sha256:4c8b9b091c602e7584cb9ef70a2765d0d75a6e937eb7f60d7715834d875c3b65",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0091",
+        "claim_izzet_league_0092",
+        "claim_izzet_league_0093",
+        "claim_izzet_league_0098"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_content_hash": "sha256:1175c469d947cce6ac46f0367f5f31321629ea05d5ff8ee3d24d96238909fff3",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0027",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0057"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_content_hash": "sha256:e65518a733d70dc41f9526a0b4844e613424fe5f3f4086f6f5db61c23d1b48de",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0019",
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0052"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_content_hash": "sha256:466f27c0c9598aa031ec58746c2281cfdf7cd71d6b06f509d332639e5d583ffd",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0027",
+        "claim_izzet_league_0029",
+        "claim_izzet_league_0057"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_content_hash": "sha256:c0d763cf32e0ffec0a62b527d2e08c3a9c8ed1dd1c97b805fb92091373e95971",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060",
+        "claim_izzet_league_0100"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/4",
+      "canonical_content_hash": "sha256:56ab97c9a7e491f8ee3ca58b2752e03c7ea3c5a763dfc7e3db1fab9db083a94c",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0058"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/5",
+      "canonical_content_hash": "sha256:f3ca2123a0e7bd5c82b4dbcfe18e551e736d9fa2fd9bcc6b5fe727a46d58b942",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0087",
+        "claim_izzet_league_0100"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/6",
+      "canonical_content_hash": "sha256:c8c9cde3398e17eaea370129ccf1b73934141916aac9d34b378be3756418b1c3",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0063",
+        "claim_izzet_league_0077",
+        "claim_izzet_league_0084"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_content_hash": "sha256:4ff6efed478fa64f6d39aa556ac3e4f0e1d2c64f75005a6f84e456b952e718ef",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_content_hash": "sha256:2925a3c7c55abdcf2ee4a767904e0e6453b738a8ac1de0824a7086be9a7b4501",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/2",
+      "canonical_content_hash": "sha256:b1f5d5c8b1683b8f78f02615554a3e4a7513b7a6026ef22fb2cc3c337cfa0847",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0022",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0085",
+        "claim_izzet_league_0086",
+        "claim_izzet_league_0094"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/3",
+      "canonical_content_hash": "sha256:bad1f688cda32e81124382eb81ebcc3fef615e9151d95ddf549fe53fb7f83513",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0029",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0078"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/4",
+      "canonical_content_hash": "sha256:74e9385a39037592a545d83cd605dd03c2552c2590e7f9551a1fc3e6c8d094b6",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0067",
+        "claim_izzet_league_0087",
+        "claim_izzet_league_0094",
+        "claim_izzet_league_0100"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/5",
+      "canonical_content_hash": "sha256:146a41d3ca5dcb419f1511322dfaeb1d734039dd76d29bccc3f81d2afed4e1db",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0091",
+        "claim_izzet_league_0098"
+      ]
+    }
+  ],
+  "required_neighbor_evidence": [
+    {
+      "neighbor": "PRISMARI",
+      "collision_id": "collision_izzet_league_vs_prismari_placement_ready",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0052",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059"
+      ],
+      "status": "required_neighbor"
+    },
+    {
+      "neighbor": "QUANDRIX",
+      "collision_id": "collision_izzet_league_vs_quandrix_placement_ready",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060"
+      ],
+      "status": "required_neighbor"
+    },
+    {
+      "neighbor": "UG",
+      "neighbor_name": "Simic Combine",
+      "collision_id": "collision_izzet_league_vs_simic_combine_placement_ready",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0029",
+        "claim_izzet_league_0078",
+        "claim_izzet_league_0079",
+        "claim_izzet_league_0080"
+      ],
+      "status": "required_neighbor"
+    },
+    {
+      "neighbor": "WU",
+      "neighbor_name": "Azorius Senate",
+      "collision_id": "collision_izzet_league_vs_azorius_senate_placement_ready",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0027",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0054",
+        "claim_izzet_league_0057"
+      ],
+      "status": "required_neighbor"
+    },
+    {
+      "neighbor": "BR",
+      "neighbor_name": "Cult of Rakdos",
+      "collision_id": "collision_izzet_league_vs_cult_of_rakdos_placement_ready",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060",
+        "claim_izzet_league_0100"
+      ],
+      "status": "required_neighbor"
+    },
+    {
+      "neighbor": "UB",
+      "neighbor_name": "House Dimir",
+      "collision_id": "collision_izzet_league_vs_house_dimir_placement_ready",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0022",
+        "claim_izzet_league_0025",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0085",
+        "claim_izzet_league_0086"
+      ],
+      "status": "retained_required_neighbor"
+    },
+    {
+      "neighbor": "GENERIC_UR_OVERFIT",
+      "collision_id": "collision_izzet_league_vs_generic_ur_overfit_guardrail",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0001",
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0019",
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0052",
+        "claim_izzet_league_0059"
+      ],
+      "status": "required_guardrail"
+    }
+  ]
 }

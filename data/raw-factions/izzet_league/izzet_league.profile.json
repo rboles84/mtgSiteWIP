@@ -13,11 +13,11 @@
   "source_review_date": "2026-05-09",
   "last_full_review": "2026-05-09",
   "last_incremental_review": "2026-05-09",
-  "last_updated": "2026-06-09T00:00:00.000Z",
+  "last_updated": "2026-07-13",
   "site_surface": {
     "display_name": "Izzet League",
-    "short_summary": "Blue-red Ravnican guild of elemental science, civic engineering, volatile invention, and crisis-scale experimentation under the long shadow of Niv-Mizzet and Ral Zarek.",
-    "one_sentence_identity": "The Izzet League turns curiosity into machinery, spells, public works, and occasionally city-shaking disasters.",
+    "short_summary": "Blue-red Ravnican guild of elemental magic, mizzium technology, civic engineering, volatile invention, and crisis-scale experimentation under the long shadow of Niv-Mizzet and Ral Zarek.",
+    "one_sentence_identity": "The Izzet League turns curiosity into machinery, spells, public works, and sometimes dangerous failed tests.",
     "tagline": "Invent first. Stabilize later.",
     "primary_tags": [
       "innovation",
@@ -949,7 +949,6 @@
       "src_izzet_league_0004",
       "src_izzet_league_0005",
       "src_izzet_league_0006",
-      "src_izzet_league_0008",
       "src_izzet_league_0009",
       "src_izzet_league_0014",
       "VM-043"
@@ -959,77 +958,81 @@
     ],
     "entries": [
       {
-      "mechanic_id": "mech_replicate",
-      "mechanic_name": "Replicate",
-      "associated_set": "Guildpact / original Ravnica block",
-      "rules_summary": "A replicate cost may be paid any number of times as an additional cost; when the spell is cast, it is copied for each time the replicate cost was paid.",
-      "design_or_flavor_connection": "Official guild kit guidance identifies replicate as the original Ravnica-block Izzet mechanic and connects it to Izzet's spell-scaling identity.",
-      "claim_ids": [
-        "claim_izzet_league_0048",
-        "claim_izzet_league_0049"
-      ],
-      "confidence": "High",
-      "notes": ""
-    },
+        "mechanic_id": "mech_replicate",
+        "mechanic_name": "Replicate",
+        "associated_set": "Guildpact / original Ravnica block",
+        "rules_summary": "A replicate cost may be paid any number of times as an additional cost; when the spell is cast, it is copied for each time the replicate cost was paid.",
+        "design_or_flavor_connection": "Official guild kit guidance identifies replicate as the original Ravnica-block Izzet mechanic and connects it to Izzet's spell-scaling identity.",
+        "claim_ids": [
+          "claim_izzet_league_0048",
+          "claim_izzet_league_0049"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
       {
-      "mechanic_id": "mech_overload",
-      "mechanic_name": "Overload",
-      "associated_set": "Return to Ravnica",
-      "rules_summary": "A spell can be cast for its overload cost; if paid, its text changes instances of target to each and the spell does not require targets.",
-      "design_or_flavor_connection": "Official mechanics guidance identifies overload as the Return to Ravnica Izzet League mechanic and frames it as powering up instants and sorceries to large proportions.",
-      "claim_ids": [
-        "claim_izzet_league_0046",
-        "claim_izzet_league_0047"
-      ],
-      "confidence": "High",
-      "notes": ""
-    },
+        "mechanic_id": "mech_overload",
+        "mechanic_name": "Overload",
+        "associated_set": "Return to Ravnica",
+        "rules_summary": "A spell can be cast for its overload cost; if paid, its text changes instances of target to each and the spell does not require targets.",
+        "design_or_flavor_connection": "Official mechanics guidance identifies overload as the Return to Ravnica Izzet League mechanic and frames it as powering up instants and sorceries to large proportions.",
+        "claim_ids": [
+          "claim_izzet_league_0046",
+          "claim_izzet_league_0047"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
       {
-      "mechanic_id": "mech_jump_start",
-      "mechanic_name": "Jump-start",
-      "associated_set": "Guilds of Ravnica",
-      "rules_summary": "A player may cast an instant or sorcery card from their graveyard by discarding a card as an additional cost; if cast this way, the card is exiled when it leaves the stack.",
-      "design_or_flavor_connection": "Official mechanics and guild kit guidance identify jump-start as the Guilds of Ravnica Izzet mechanic and connect it to getting a second chance at spells.",
-      "claim_ids": [
-        "claim_izzet_league_0050",
-        "claim_izzet_league_0051"
-      ],
-      "confidence": "High",
-      "notes": ""
-    },
+        "mechanic_id": "mech_jump_start",
+        "mechanic_name": "Jump-start",
+        "associated_set": "Guilds of Ravnica",
+        "rules_summary": "A player may cast an instant or sorcery card from their graveyard by discarding a card as an additional cost; if cast this way, the card is exiled when it leaves the stack.",
+        "design_or_flavor_connection": "Official mechanics and guild kit guidance identify jump-start as the Guilds of Ravnica Izzet mechanic and connect it to getting a second chance at spells.",
+        "claim_ids": [
+          "claim_izzet_league_0050",
+          "claim_izzet_league_0051"
+        ],
+        "confidence": "High",
+        "notes": ""
+      },
       {
-      "mechanic_id": "mech_mizzium_augmentation",
-      "mechanic_name": "Mizzium augmentation",
-      "associated_set": "Story-local technology",
-      "rules_summary": "Not a formal card keyword in this profile; represents story technology involving mizzium frameworks, suits, coils, batteries, and devices.",
-      "design_or_flavor_connection": "Story evidence makes mizzium a useful search and placement signal for Izzet applied invention.",
-      "claim_ids": [
-        "claim_izzet_league_0065",
-        "claim_izzet_league_0076",
-        "claim_izzet_league_0078",
-        "claim_izzet_league_0083",
-        "claim_izzet_league_0092",
-        "claim_izzet_league_0097"
-      ],
-      "confidence": "Medium",
-      "notes": "Not a game mechanic; stored here as lore technology metadata."
-    },
+        "mechanic_id": "mech_mizzium_augmentation",
+        "mechanic_name": "Mizzium augmentation",
+        "associated_set": "Story-local technology",
+        "rules_summary": "Not a formal card keyword in this profile; represents story technology involving mizzium frameworks, suits, coils, batteries, and devices.",
+        "design_or_flavor_connection": "Story evidence makes mizzium a useful search and placement signal for Izzet applied invention.",
+        "claim_ids": [
+          "claim_izzet_league_0065",
+          "claim_izzet_league_0076",
+          "claim_izzet_league_0078",
+          "claim_izzet_league_0083",
+          "claim_izzet_league_0092",
+          "claim_izzet_league_0097"
+        ],
+        "confidence": "Medium",
+        "notes": "Not a game mechanic; stored here as lore technology metadata."
+      },
       {
-      "mechanic_id": "mech_resonator_network",
-      "mechanic_name": "Resonator network",
-      "associated_set": "The Gathering Storm",
-      "rules_summary": "Not a formal game mechanic; story-scale Izzet/Guildpact engineering system.",
-      "design_or_flavor_connection": "Represents Izzet crisis engineering at city scale and supports placement around volatile scaling.",
-      "claim_ids": [
-        "claim_izzet_league_0090",
-        "claim_izzet_league_0092",
-        "claim_izzet_league_0093",
-        "claim_izzet_league_0094"
-      ],
-      "confidence": "Medium",
-      "notes": "Story technology, not rules text."
+        "mechanic_id": "mech_resonator_network",
+        "mechanic_name": "Resonator network",
+        "associated_set": "The Gathering Storm",
+        "rules_summary": "Not a formal game mechanic; story-scale Izzet/Guildpact engineering system.",
+        "design_or_flavor_connection": "Represents Izzet crisis engineering at city scale and supports placement around volatile scaling.",
+        "claim_ids": [
+          "claim_izzet_league_0090",
+          "claim_izzet_league_0092",
+          "claim_izzet_league_0093",
+          "claim_izzet_league_0094"
+        ],
+        "confidence": "Medium",
+        "notes": "Story technology, not rules text."
       }
-    ]
+    ],
+    "auxiliary_support_source_ids": [
+      "src_izzet_league_0008"
+    ],
+    "auxiliary_support_boundary": "The rules landing page and rules/product/card support material are auxiliary context only. Authoritative Izzet mechanics meaning is supported by claim-bearing mechanics, story, and rules claims, not by support-only records alone."
   },
   "search_and_filter_metadata": {
     "aliases": [
@@ -1241,17 +1244,17 @@
     "schema_version": "1.0.0",
     "source_research_file": "izzet_league.commander_compass.research.json",
     "last_reviewed": "2026-05-14",
-    "review_status": "reviewed_not_canonical_lore",
-    "recommendation_philosophy": "Favor commanders that turn casting, copying, drawing, and sequencing spells into visible momentum. Native Izzet should feel like a lab experiment that might become a controlled masterpiece or a spectacular explosion; weird stretches are allowed only when they preserve the spell-experiment gameplay loop.",
+    "review_status": "support_only_product_navigation_auxiliary",
+    "recommendation_philosophy": "Favor commanders that turn casting, copying, drawing, and sequencing spells into visible momentum. Native Izzet should feel like an experiment that can become a controlled spell-engine breakthrough or a visible failed test; weird stretches are allowed only when they preserve the spell-experiment gameplay loop.",
     "identity_basis": {
       "owned_themes": [
-        "reckless invention",
+        "risky invention",
         "public works and infrastructure",
         "experimentation",
         "instants and sorceries",
         "spell copying",
         "card draw engines",
-        "big explosive turns",
+        "scalable spell turns",
         "mizzium/chemister aesthetics",
         "Niv-Mizzet and the Firemind"
       ],
@@ -1287,7 +1290,8 @@
         "src_izzet_league_0012",
         "src_izzet_league_0010",
         "src_izzet_league_0011"
-      ]
+      ],
+      "auxiliary_support_boundary": "Commander/card/product and external deck-navigation surfaces are auxiliary only; they cannot prove Izzet lore identity unless tied back to substantive raw Izzet claims."
     },
     "native_fit_commanders": [
       {
@@ -1367,7 +1371,7 @@
           "Spell Copy",
           "Topdeck"
         ],
-        "why_this_fits": "Melek preserves the lab-chaos feel without defaulting to the dragon. Revealing the top card and copying spells feels like an unstable experiment becoming repeatable technique.",
+        "why_this_fits": "Melek preserves the lab-experiment feel without defaulting to the dragon. Revealing the top card and copying spells feels like an unstable experiment becoming repeatable technique.",
         "skip_if": "Skip if you want a low-curve commander or dislike playing with the top of your library revealed.",
         "gameplay_summary": "A six-mana spell-copy commander that turns the top of the library into an extension of your hand for instant and sorcery chains.",
         "faction_identity_terms": [

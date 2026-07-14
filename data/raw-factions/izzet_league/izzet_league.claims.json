@@ -3,7 +3,7 @@
   "faction_id": "izzet_league",
   "faction_name": "Izzet League",
   "source_review_date": "2026-05-09",
-  "last_updated": "2026-05-09",
+  "last_updated": "2026-07-13",
   "claims": [
     {
       "claim_id": "claim_izzet_league_0001",
@@ -32,7 +32,34 @@
         "placement_summary"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0001",
+          "locator_type": "official-source-record",
+          "locator": "Ravnica — reviewed source record src_izzet_league_0001",
+          "bounded_paraphrase": "The Izzet League is the blue-red guild of Ravnica. Local source review summary: Official plane overview stating that Ravnica has ten two-color guilds and that the dragon-led blue-red Izzet fuse elemental magic and technology as masters of innovation.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "src_izzet_league_0005",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Return to Ravnica Mechanics — reviewed source record src_izzet_league_0005",
+          "bounded_paraphrase": "The Izzet League is the blue-red guild of Ravnica. Local source review summary: Official mechanics article describing Return to Ravnica guilds, calling Izzet blue-red experimenters, and explaining overload as the Izzet League mechanic.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "src_izzet_league_0007",
+          "locator_type": "official-card-data-source-record",
+          "locator": "Commanding the Guilds of Ravnica — reviewed source record src_izzet_league_0007",
+          "bounded_paraphrase": "The Izzet League is the blue-red guild of Ravnica. Local source review summary: Official Commander-focused article describing Izzet as blue-red, tied to public works, infrastructure, experimentation, instants, sorceries, combinations, and mana mastery.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0002",
@@ -58,7 +85,26 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0001",
+          "locator_type": "official-source-record",
+          "locator": "Ravnica — reviewed source record src_izzet_league_0001",
+          "bounded_paraphrase": "Ravnica has ten guilds that each master two colors of mana. Local source review summary: Official plane overview stating that Ravnica has ten two-color guilds and that the dragon-led blue-red Izzet fuse elemental magic and technology as masters of innovation.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "src_izzet_league_0010",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Murders at Karlov Manor — reviewed source record src_izzet_league_0010",
+          "bounded_paraphrase": "Ravnica has ten guilds that each master two colors of mana. Local source review summary: Official current-status Ravnica guide describing the post-Phyrexian invasion state of the guilds, Niv-Mizzet as current Living Guildpact, Izzet reconstruction work, and some Izzet/Simic being drawn to Phyrexian opportunities.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0003",
@@ -86,7 +132,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0001",
+          "locator_type": "official-source-record",
+          "locator": "Ravnica — reviewed source record src_izzet_league_0001",
+          "bounded_paraphrase": "The dragon-led Izzet fuse elemental magic and technology. Local source review summary: Official plane overview stating that Ravnica has ten two-color guilds and that the dragon-led blue-red Izzet fuse elemental magic and technology as masters of innovation.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0004",
@@ -113,7 +170,18 @@
         "core_values"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0001",
+          "locator_type": "official-source-record",
+          "locator": "Ravnica — reviewed source record src_izzet_league_0001",
+          "bounded_paraphrase": "The Izzet are described as masters of innovation on Ravnica. Local source review summary: Official plane overview stating that Ravnica has ten two-color guilds and that the dragon-led blue-red Izzet fuse elemental magic and technology as masters of innovation.",
+          "evidence_scope": "identity-wide placement interpretation",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0005",
@@ -141,7 +209,18 @@
         "placement_summary"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "The original mandate of the Izzet guild was to provide solutions for public works projects, including sewers, boilers, and roadways. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0006",
@@ -169,7 +248,18 @@
         "possible_shadow_expression"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "Izzet experiments often produce dangerous or uncontrolled phenomena such as mana geysers, spatial rifts, or arcane portals. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "identity-wide placement interpretation",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0007",
@@ -196,7 +286,18 @@
         "do_not_overweight"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "The purpose of Niv-Mizzet's late Return to Ravnica-era push into deeper dangerous experimental magic was stated as unknown. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0008",
@@ -224,7 +325,26 @@
         "placement_summary"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "Niv-Mizzet, the Firemind, is the original parun of the Izzet League. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "src_izzet_league_0003",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica — reviewed source record src_izzet_league_0003",
+          "bounded_paraphrase": "Niv-Mizzet, the Firemind, is the original parun of the Izzet League. Local source review summary: Official Guilds of Ravnica feature summarizing Izzet values, invention, civic engineering, Niv-Mizzet's leadership, Ral Zarek's day-to-day role, and Ral's hidden Bolas allegiance at that story point.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0009",
@@ -252,7 +372,26 @@
         "placement_axes"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "Niv-Mizzet rarely concerns himself with the day-to-day running of the Izzet guild. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "src_izzet_league_0003",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica — reviewed source record src_izzet_league_0003",
+          "bounded_paraphrase": "Niv-Mizzet rarely concerns himself with the day-to-day running of the Izzet guild. Local source review summary: Official Guilds of Ravnica feature summarizing Izzet values, invention, civic engineering, Niv-Mizzet's leadership, Ral Zarek's day-to-day role, and Ral's hidden Bolas allegiance at that story point.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0010",
@@ -277,7 +416,18 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "The Izmundi are servants of Niv-Mizzet who make up his personal court. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0011",
@@ -302,7 +452,18 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "The Izmagnus are the most powerful members of the Izmundi court. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0012",
@@ -329,7 +490,18 @@
         "visual_keywords"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "Nivix, also known as the Aerie of the Firemind, is the home of Niv-Mizzet and the central guildhall of the Izzet. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "location or infrastructure evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0013",
@@ -356,7 +528,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "Nivix houses Izzet alchemists, mages, and sages who are constantly theorizing and experimenting. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "location or infrastructure evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0014",
@@ -383,7 +566,18 @@
         "visual_keywords"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "The Blistercoils contain mizzium coils that generate copious and volatile mana. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "location or infrastructure evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0015",
@@ -410,7 +604,18 @@
         "do_not_overweight"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "The purpose of the Blistercoils beyond generating dangerous amounts of mana was stated as unknown. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "location or infrastructure evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0016",
@@ -437,7 +642,18 @@
         "visual_keywords"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "The Boilerpits are underground passageways formed by intertwined high-pressure metal pipelines. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "location or infrastructure evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0017",
@@ -465,7 +681,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "The Izzet have been criticized for using the Boilerpits to perform grand and risky experiments. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "location or infrastructure evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0018",
@@ -492,7 +719,18 @@
         "visual_keywords"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "The Mizzium Foundry is the only place on Ravnica where mizzium alloy is smelted. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "location or infrastructure evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0019",
@@ -518,7 +756,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "Chemisters are alchemists who forge mizzium and other elements into arcane tools. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0020",
@@ -544,7 +793,18 @@
         "core_values"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "Chemisters experiment with new alloys, energies, and runic markings. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0021",
@@ -568,7 +828,18 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "Blastseekers are mages who wield and control arcane tools devised by chemisters. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0022",
@@ -594,7 +865,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "Izzet attendants record and organize information, acquire rare items or elements, and complete experiments, often under dangerous circumstances. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0023",
@@ -622,7 +904,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "Weirds are products of an Izzet experiment intended to combine opposing elemental types. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0024",
@@ -648,7 +941,18 @@
         "possible_shadow_expression"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "Weirds are described as wilder and more unpredictable than elementals of their component elements. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0025",
@@ -676,7 +980,18 @@
         "inhibitor_traits"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "Niv-Mizzet compartmentalizes information among the members of his guild. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0026",
@@ -704,7 +1019,18 @@
         "discriminator_questions"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "The Interlocus is Niv-Mizzet's scattered grand meta-project, whose purpose is difficult for most observers to detect. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0027",
@@ -730,7 +1056,18 @@
         "discriminator_questions"
       ],
       "notes": "Summarized from the official Izzet attitude line toward Azorius.",
-      "risk_of_hallucination_or_overreach": "Medium"
+      "risk_of_hallucination_or_overreach": "Medium",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "The Izzet view Azorius rulemaking as hostile to freedom. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "inter-faction boundary evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0028",
@@ -756,7 +1093,18 @@
         "discriminator_questions"
       ],
       "notes": "Summarized from the official Izzet attitude line toward Boros.",
-      "risk_of_hallucination_or_overreach": "Medium"
+      "risk_of_hallucination_or_overreach": "Medium",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "The Izzet see Boros intervention as spoiling dangerous experimental fun. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "inter-faction boundary evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0029",
@@ -782,7 +1130,18 @@
         "discriminator_questions"
       ],
       "notes": "Summarized from the official Izzet attitude line toward Simic.",
-      "risk_of_hallucination_or_overreach": "Medium"
+      "risk_of_hallucination_or_overreach": "Medium",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "The Izzet admire Simic inventiveness but judge Simic creation as lacking soul and fire. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "inter-faction boundary evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0030",
@@ -810,7 +1169,18 @@
         "moral_and_psychological_profile"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0003",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica — reviewed source record src_izzet_league_0003",
+          "bounded_paraphrase": "In Guilds of Ravnica-era official guidance, Izzet members value invention and discovery above all else. Local source review summary: Official Guilds of Ravnica feature summarizing Izzet values, invention, civic engineering, Niv-Mizzet's leadership, Ral Zarek's day-to-day role, and Ral's hidden Bolas allegiance at that story point.",
+          "evidence_scope": "identity-wide placement interpretation",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0031",
@@ -837,7 +1207,18 @@
         "inhibitor_traits"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0003",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica — reviewed source record src_izzet_league_0003",
+          "bounded_paraphrase": "In Guilds of Ravnica-era official guidance, Izzet members are described as having little patience for prolonged experimentation. Local source review summary: Official Guilds of Ravnica feature summarizing Izzet values, invention, civic engineering, Niv-Mizzet's leadership, Ral Zarek's day-to-day role, and Ral's hidden Bolas allegiance at that story point.",
+          "evidence_scope": "identity-wide placement interpretation",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0032",
@@ -864,7 +1245,18 @@
         "core_values"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0003",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica — reviewed source record src_izzet_league_0003",
+          "bounded_paraphrase": "Izzet civic engineering produced iconic brass boilers, roadways, and canals across Ravnica. Local source review summary: Official Guilds of Ravnica feature summarizing Izzet values, invention, civic engineering, Niv-Mizzet's leadership, Ral Zarek's day-to-day role, and Ral's hidden Bolas allegiance at that story point.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0033",
@@ -891,7 +1283,18 @@
         "placement_axes"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0003",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica — reviewed source record src_izzet_league_0003",
+          "bounded_paraphrase": "Ral Zarek handled day-to-day operations for the Izzet while Niv-Mizzet remained leader in name and spirit during the Guilds of Ravnica story period. Local source review summary: Official Guilds of Ravnica feature summarizing Izzet values, invention, civic engineering, Niv-Mizzet's leadership, Ral Zarek's day-to-day role, and Ral's hidden Bolas allegiance at that story point.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0034",
@@ -916,7 +1319,18 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0014",
+          "locator_type": "official-source-record",
+          "locator": "Project Lightning Bug — reviewed source record src_izzet_league_0014",
+          "bounded_paraphrase": "Ral Zarek was secretly a Planeswalker during Project Lightning Bug. Local source review summary: Official story source identifying Ral Zarek as an Izzet guildmage and secret Planeswalker, and showing Jace Beleren as Living Guildpact at that story point.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0035",
@@ -941,7 +1355,18 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0013",
+          "locator_type": "official-source-record",
+          "locator": "War of the Spark: Ravnica—Rallying the Reluctant — reviewed source record src_izzet_league_0013",
+          "bounded_paraphrase": "The Izzet League was led by Master Zarek and Chamberlain Maree during a War of the Spark crisis scene before Operation Desperation. Local source review summary: Official story source showing the Izzet League led by Master Zarek and Chamberlain Maree during the War of the Spark crisis and referencing the dead Firemind before Operation Desperation.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0036",
@@ -968,7 +1393,18 @@
         "placement_summary"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0012",
+          "locator_type": "official-source-record",
+          "locator": "War of the Spark: Ravnica—Operation Desperation — reviewed source record src_izzet_league_0012",
+          "bounded_paraphrase": "Operation Desperation sought to resurrect Niv-Mizzet as the new Living Guildpact. Local source review summary: Official story source for Operation Desperation: Ral explains the plan to resurrect Niv-Mizzet as the new Living Guildpact and for Niv-Mizzet to step down as Izzet guildmaster.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0037",
@@ -993,7 +1429,18 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0012",
+          "locator_type": "official-source-record",
+          "locator": "War of the Spark: Ravnica—Operation Desperation — reviewed source record src_izzet_league_0012",
+          "bounded_paraphrase": "Under the terms described by Ral Zarek during Operation Desperation, Niv-Mizzet would step down as guildmaster of the Izzet if resurrected as Living Guildpact. Local source review summary: Official story source for Operation Desperation: Ral explains the plan to resurrect Niv-Mizzet as the new Living Guildpact and for Niv-Mizzet to step down as Izzet guildmaster.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0038",
@@ -1018,7 +1465,18 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0015",
+          "locator_type": "official-source-record",
+          "locator": "March of the Machine | Ravnica: One and the Same — reviewed source record src_izzet_league_0015",
+          "bounded_paraphrase": "A March of the Machine story refers to Ral Zarek as Izzet guildmaster during the Phyrexian invasion of Ravnica. Local source review summary: Official story source during the Phyrexian invasion referring to Ral Zarek as Izzet guildmaster.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0039",
@@ -1047,7 +1505,26 @@
         "do_not_overweight"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0010",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Murders at Karlov Manor — reviewed source record src_izzet_league_0010",
+          "bounded_paraphrase": "Niv-Mizzet is the current embodiment of the Living Guildpact after taking over during War of the Spark. Local source review summary: Official current-status Ravnica guide describing the post-Phyrexian invasion state of the guilds, Niv-Mizzet as current Living Guildpact, Izzet reconstruction work, and some Izzet/Simic being drawn to Phyrexian opportunities.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "src_izzet_league_0011",
+          "locator_type": "official-source-record",
+          "locator": "The Legends (and Characters) of Murders at Karlov Manor — reviewed source record src_izzet_league_0011",
+          "bounded_paraphrase": "Niv-Mizzet is the current embodiment of the Living Guildpact after taking over during War of the Spark. Local source review summary: Official character feature identifying Niv-Mizzet, Guildpact as the current embodiment of the Living Guildpact and the most intelligent being on Ravnica.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0040",
@@ -1073,7 +1550,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0010",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Murders at Karlov Manor — reviewed source record src_izzet_league_0010",
+          "bounded_paraphrase": "Some Izzet fought on the defender side during the Phyrexian invasion of Ravnica. Local source review summary: Official current-status Ravnica guide describing the post-Phyrexian invasion state of the guilds, Niv-Mizzet as current Living Guildpact, Izzet reconstruction work, and some Izzet/Simic being drawn to Phyrexian opportunities.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0041",
@@ -1101,7 +1589,18 @@
         "poor_fit_indicators"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0010",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Murders at Karlov Manor — reviewed source record src_izzet_league_0010",
+          "bounded_paraphrase": "Some Izzet were drawn to New Phyrexia by perceived technological opportunities during the Phyrexian invasion and realized their mistake too late. Local source review summary: Official current-status Ravnica guide describing the post-Phyrexian invasion state of the guilds, Niv-Mizzet as current Living Guildpact, Izzet reconstruction work, and some Izzet/Simic being drawn to Phyrexian opportunities.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0042",
@@ -1128,7 +1627,18 @@
         "core_values"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0010",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Murders at Karlov Manor — reviewed source record src_izzet_league_0010",
+          "bounded_paraphrase": "After the Phyrexian invasion, much of Ravnica's rebuilding was spearheaded by the Izzet League. Local source review summary: Official current-status Ravnica guide describing the post-Phyrexian invasion state of the guilds, Niv-Mizzet as current Living Guildpact, Izzet reconstruction work, and some Izzet/Simic being drawn to Phyrexian opportunities.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0043",
@@ -1156,7 +1666,18 @@
         "placement_axes"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0010",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Murders at Karlov Manor — reviewed source record src_izzet_league_0010",
+          "bounded_paraphrase": "After the Phyrexian invasion, the Izzet shelved wild destructive experiments in favor of reconstruction and public works in official Murders at Karlov Manor-era guidance. Local source review summary: Official current-status Ravnica guide describing the post-Phyrexian invasion state of the guilds, Niv-Mizzet as current Living Guildpact, Izzet reconstruction work, and some Izzet/Simic being drawn to Phyrexian opportunities.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0044",
@@ -1181,7 +1702,18 @@
       ],
       "used_by_placement_fields": [],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0010",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Murders at Karlov Manor — reviewed source record src_izzet_league_0010",
+          "bounded_paraphrase": "The Chamber of the Guildpact was still being rebuilt after being destroyed during the recent Phyrexian invasion, and Niv-Mizzet refused to relocate from it. Local source review summary: Official current-status Ravnica guide describing the post-Phyrexian invasion state of the guilds, Niv-Mizzet as current Living Guildpact, Izzet reconstruction work, and some Izzet/Simic being drawn to Phyrexian opportunities.",
+          "evidence_scope": "location or infrastructure evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0045",
@@ -1207,7 +1739,18 @@
         "placement_summary"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0011",
+          "locator_type": "official-source-record",
+          "locator": "The Legends (and Characters) of Murders at Karlov Manor — reviewed source record src_izzet_league_0011",
+          "bounded_paraphrase": "Niv-Mizzet is described in Murders at Karlov Manor character guidance as the most intelligent being on Ravnica. Local source review summary: Official character feature identifying Niv-Mizzet, Guildpact as the current embodiment of the Living Guildpact and the most intelligent being on Ravnica.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0046",
@@ -1233,7 +1776,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0005",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Return to Ravnica Mechanics — reviewed source record src_izzet_league_0005",
+          "bounded_paraphrase": "Overload is identified as the Izzet League mechanic in Return to Ravnica. Local source review summary: Official mechanics article describing Return to Ravnica guilds, calling Izzet blue-red experimenters, and explaining overload as the Izzet League mechanic.",
+          "evidence_scope": "mechanics or play-pattern evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0047",
@@ -1259,7 +1813,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0009",
+          "locator_type": "official-rules-source-record",
+          "locator": "Magic: The Gathering Comprehensive Rules — reviewed source record src_izzet_league_0009",
+          "bounded_paraphrase": "Overload allows a spell to be cast for an overload cost and changes instances of 'target' to 'each' if that cost is paid. Local source review summary: Current Comprehensive Rules text reviewed for the rules meaning of replicate, overload, and jump-start.",
+          "evidence_scope": "mechanics or play-pattern evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0048",
@@ -1285,7 +1850,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0006",
+          "locator_type": "official-card-data-source-record",
+          "locator": "Getting Kitted Out with Guilds Kits — reviewed source record src_izzet_league_0006",
+          "bounded_paraphrase": "Replicate is identified in official guild kit guidance as the Izzet mechanic from the original Ravnica block's Guildpact set. Local source review summary: Official guild kit article stating that Izzet is all about spells and connecting replicate, overload, and jump-start across Ravnica visits.",
+          "evidence_scope": "mechanics or play-pattern evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0049",
@@ -1311,7 +1887,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0009",
+          "locator_type": "official-rules-source-record",
+          "locator": "Magic: The Gathering Comprehensive Rules — reviewed source record src_izzet_league_0009",
+          "bounded_paraphrase": "Replicate lets a caster pay a replicate cost any number of times and copy the spell for each time the cost was paid. Local source review summary: Current Comprehensive Rules text reviewed for the rules meaning of replicate, overload, and jump-start.",
+          "evidence_scope": "mechanics or play-pattern evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0050",
@@ -1338,7 +1925,26 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0004",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Guilds of Ravnica Mechanics — reviewed source record src_izzet_league_0004",
+          "bounded_paraphrase": "Jump-start is identified as the Guilds of Ravnica Izzet mechanic in official mechanics and guild kit guidance. Local source review summary: Official mechanics article for Guilds of Ravnica identifying Izzet among featured guilds and explaining jump-start as a Guilds of Ravnica mechanic.",
+          "evidence_scope": "mechanics or play-pattern evidence",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "src_izzet_league_0006",
+          "locator_type": "official-card-data-source-record",
+          "locator": "Getting Kitted Out with Guilds Kits — reviewed source record src_izzet_league_0006",
+          "bounded_paraphrase": "Jump-start is identified as the Guilds of Ravnica Izzet mechanic in official mechanics and guild kit guidance. Local source review summary: Official guild kit article stating that Izzet is all about spells and connecting replicate, overload, and jump-start across Ravnica visits.",
+          "evidence_scope": "mechanics or play-pattern evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0051",
@@ -1364,7 +1970,18 @@
         "behavioral_signals"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0009",
+          "locator_type": "official-rules-source-record",
+          "locator": "Magic: The Gathering Comprehensive Rules — reviewed source record src_izzet_league_0009",
+          "bounded_paraphrase": "Jump-start lets a player cast an instant or sorcery card from their graveyard by discarding a card as an additional cost, and the card is exiled when it leaves the stack if cast this way. Local source review summary: Current Comprehensive Rules text reviewed for the rules meaning of replicate, overload, and jump-start.",
+          "evidence_scope": "mechanics or play-pattern evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0052",
@@ -1393,7 +2010,26 @@
         "core_values"
       ],
       "notes": "",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0006",
+          "locator_type": "official-card-data-source-record",
+          "locator": "Getting Kitted Out with Guilds Kits — reviewed source record src_izzet_league_0006",
+          "bounded_paraphrase": "Izzet gameplay identity across Ravnica visits strongly emphasizes spells, especially instants and sorceries. Local source review summary: Official guild kit article stating that Izzet is all about spells and connecting replicate, overload, and jump-start across Ravnica visits.",
+          "evidence_scope": "mechanics or play-pattern evidence",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "src_izzet_league_0007",
+          "locator_type": "official-card-data-source-record",
+          "locator": "Commanding the Guilds of Ravnica — reviewed source record src_izzet_league_0007",
+          "bounded_paraphrase": "Izzet gameplay identity across Ravnica visits strongly emphasizes spells, especially instants and sorceries. Local source review summary: Official Commander-focused article describing Izzet as blue-red, tied to public works, infrastructure, experimentation, instants, sorceries, combinations, and mana mastery.",
+          "evidence_scope": "mechanics or play-pattern evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0053",
@@ -1421,7 +2057,42 @@
         "placement_quality"
       ],
       "notes": "This claim explicitly guards against presenting the placement model as canon.",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0001",
+          "locator_type": "official-source-record",
+          "locator": "Ravnica — reviewed source record src_izzet_league_0001",
+          "bounded_paraphrase": "Interpreting Izzet placement through Moral Foundations Theory is a non-canon matching heuristic, not official Wizards intent. Local source review summary: Official plane overview stating that Ravnica has ten two-color guilds and that the dragon-led blue-red Izzet fuse elemental magic and technology as masters of innovation.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "Interpreting Izzet placement through Moral Foundations Theory is a non-canon matching heuristic, not official Wizards intent. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0003",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica — reviewed source record src_izzet_league_0003",
+          "bounded_paraphrase": "Interpreting Izzet placement through Moral Foundations Theory is a non-canon matching heuristic, not official Wizards intent. Local source review summary: Official Guilds of Ravnica feature summarizing Izzet values, invention, civic engineering, Niv-Mizzet's leadership, Ral Zarek's day-to-day role, and Ral's hidden Bolas allegiance at that story point.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0007",
+          "locator_type": "official-card-data-source-record",
+          "locator": "Commanding the Guilds of Ravnica — reviewed source record src_izzet_league_0007",
+          "bounded_paraphrase": "Interpreting Izzet placement through Moral Foundations Theory is a non-canon matching heuristic, not official Wizards intent. Local source review summary: Official Commander-focused article describing Izzet as blue-red, tied to public works, infrastructure, experimentation, instants, sorceries, combinations, and mana mastery.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0054",
@@ -1448,7 +2119,26 @@
         "placement_axes"
       ],
       "notes": "Interpretation derived from official faction traits; not direct canon.",
-      "risk_of_hallucination_or_overreach": "Medium"
+      "risk_of_hallucination_or_overreach": "Medium",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "The Izzet placement signal can reasonably weight Liberty because official sources repeatedly associate the guild with invention, discovery, experimentation, and friction with externally imposed limits. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0003",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica — reviewed source record src_izzet_league_0003",
+          "bounded_paraphrase": "The Izzet placement signal can reasonably weight Liberty because official sources repeatedly associate the guild with invention, discovery, experimentation, and friction with externally imposed limits. Local source review summary: Official Guilds of Ravnica feature summarizing Izzet values, invention, civic engineering, Niv-Mizzet's leadership, Ral Zarek's day-to-day role, and Ral's hidden Bolas allegiance at that story point.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0055",
@@ -1475,7 +2165,34 @@
         "core_values"
       ],
       "notes": "Interpretation based on public works and rebuilding claims.",
-      "risk_of_hallucination_or_overreach": "Medium"
+      "risk_of_hallucination_or_overreach": "Medium",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "The Izzet placement signal can reasonably weight Fairness or Care as secondary only when framed through civic infrastructure and rebuilding rather than personal empathy or moral restraint. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0003",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica — reviewed source record src_izzet_league_0003",
+          "bounded_paraphrase": "The Izzet placement signal can reasonably weight Fairness or Care as secondary only when framed through civic infrastructure and rebuilding rather than personal empathy or moral restraint. Local source review summary: Official Guilds of Ravnica feature summarizing Izzet values, invention, civic engineering, Niv-Mizzet's leadership, Ral Zarek's day-to-day role, and Ral's hidden Bolas allegiance at that story point.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0010",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Murders at Karlov Manor — reviewed source record src_izzet_league_0010",
+          "bounded_paraphrase": "The Izzet placement signal can reasonably weight Fairness or Care as secondary only when framed through civic infrastructure and rebuilding rather than personal empathy or moral restraint. Local source review summary: Official current-status Ravnica guide describing the post-Phyrexian invasion state of the guilds, Niv-Mizzet as current Living Guildpact, Izzet reconstruction work, and some Izzet/Simic being drawn to Phyrexian opportunities.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0056",
@@ -1503,7 +2220,42 @@
         "poor_fit_indicators"
       ],
       "notes": "Placement heuristic, not canon psychology.",
-      "risk_of_hallucination_or_overreach": "Medium"
+      "risk_of_hallucination_or_overreach": "Medium",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "A strong aversion to experimentation, iteration, risk, or learning through volatile prototypes is a poor-fit placement signal for Izzet. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0003",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica — reviewed source record src_izzet_league_0003",
+          "bounded_paraphrase": "A strong aversion to experimentation, iteration, risk, or learning through volatile prototypes is a poor-fit placement signal for Izzet. Local source review summary: Official Guilds of Ravnica feature summarizing Izzet values, invention, civic engineering, Niv-Mizzet's leadership, Ral Zarek's day-to-day role, and Ral's hidden Bolas allegiance at that story point.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0006",
+          "locator_type": "official-card-data-source-record",
+          "locator": "Getting Kitted Out with Guilds Kits — reviewed source record src_izzet_league_0006",
+          "bounded_paraphrase": "A strong aversion to experimentation, iteration, risk, or learning through volatile prototypes is a poor-fit placement signal for Izzet. Local source review summary: Official guild kit article stating that Izzet is all about spells and connecting replicate, overload, and jump-start across Ravnica visits.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0007",
+          "locator_type": "official-card-data-source-record",
+          "locator": "Commanding the Guilds of Ravnica — reviewed source record src_izzet_league_0007",
+          "bounded_paraphrase": "A strong aversion to experimentation, iteration, risk, or learning through volatile prototypes is a poor-fit placement signal for Izzet. Local source review summary: Official Commander-focused article describing Izzet as blue-red, tied to public works, infrastructure, experimentation, instants, sorceries, combinations, and mana mastery.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0057",
@@ -1530,7 +2282,34 @@
         "chatbot_guidance"
       ],
       "notes": "Placement heuristic intended for faction discrimination.",
-      "risk_of_hallucination_or_overreach": "Medium"
+      "risk_of_hallucination_or_overreach": "Medium",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "A user who prefers controlled rule enforcement, process stability, and low-variance execution over creative experimentation is likely better compared against Azorius or Boros than Izzet. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0003",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica — reviewed source record src_izzet_league_0003",
+          "bounded_paraphrase": "A user who prefers controlled rule enforcement, process stability, and low-variance execution over creative experimentation is likely better compared against Azorius or Boros than Izzet. Local source review summary: Official Guilds of Ravnica feature summarizing Izzet values, invention, civic engineering, Niv-Mizzet's leadership, Ral Zarek's day-to-day role, and Ral's hidden Bolas allegiance at that story point.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0005",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Return to Ravnica Mechanics — reviewed source record src_izzet_league_0005",
+          "bounded_paraphrase": "A user who prefers controlled rule enforcement, process stability, and low-variance execution over creative experimentation is likely better compared against Azorius or Boros than Izzet. Local source review summary: Official mechanics article describing Return to Ravnica guilds, calling Izzet blue-red experimenters, and explaining overload as the Izzet League mechanic.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0058",
@@ -1558,7 +2337,42 @@
         "behavioral_signals"
       ],
       "notes": "Placement heuristic, not direct canon.",
-      "risk_of_hallucination_or_overreach": "Medium"
+      "risk_of_hallucination_or_overreach": "Medium",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "A user who is motivated by creating, testing, improving, and scaling ideas is a strong Izzet placement signal when paired with tolerance for mistakes or explosions metaphorically understood as failed experiments. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0003",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica — reviewed source record src_izzet_league_0003",
+          "bounded_paraphrase": "A user who is motivated by creating, testing, improving, and scaling ideas is a strong Izzet placement signal when paired with tolerance for mistakes or explosions metaphorically understood as failed experiments. Local source review summary: Official Guilds of Ravnica feature summarizing Izzet values, invention, civic engineering, Niv-Mizzet's leadership, Ral Zarek's day-to-day role, and Ral's hidden Bolas allegiance at that story point.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0006",
+          "locator_type": "official-card-data-source-record",
+          "locator": "Getting Kitted Out with Guilds Kits — reviewed source record src_izzet_league_0006",
+          "bounded_paraphrase": "A user who is motivated by creating, testing, improving, and scaling ideas is a strong Izzet placement signal when paired with tolerance for mistakes or explosions metaphorically understood as failed experiments. Local source review summary: Official guild kit article stating that Izzet is all about spells and connecting replicate, overload, and jump-start across Ravnica visits.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0007",
+          "locator_type": "official-card-data-source-record",
+          "locator": "Commanding the Guilds of Ravnica — reviewed source record src_izzet_league_0007",
+          "bounded_paraphrase": "A user who is motivated by creating, testing, improving, and scaling ideas is a strong Izzet placement signal when paired with tolerance for mistakes or explosions metaphorically understood as failed experiments. Local source review summary: Official Commander-focused article describing Izzet as blue-red, tied to public works, infrastructure, experimentation, instants, sorceries, combinations, and mana mastery.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0059",
@@ -1585,7 +2399,34 @@
         "placement_quality"
       ],
       "notes": "Anti-overfit placement guidance.",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "The Izzet pattern should not be reduced to random chaos because official sources also tie the guild to infrastructure, information recording, civic engineering, and reconstruction. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0003",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica — reviewed source record src_izzet_league_0003",
+          "bounded_paraphrase": "The Izzet pattern should not be reduced to random chaos because official sources also tie the guild to infrastructure, information recording, civic engineering, and reconstruction. Local source review summary: Official Guilds of Ravnica feature summarizing Izzet values, invention, civic engineering, Niv-Mizzet's leadership, Ral Zarek's day-to-day role, and Ral's hidden Bolas allegiance at that story point.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0010",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Murders at Karlov Manor — reviewed source record src_izzet_league_0010",
+          "bounded_paraphrase": "The Izzet pattern should not be reduced to random chaos because official sources also tie the guild to infrastructure, information recording, civic engineering, and reconstruction. Local source review summary: Official current-status Ravnica guide describing the post-Phyrexian invasion state of the guilds, Niv-Mizzet as current Living Guildpact, Izzet reconstruction work, and some Izzet/Simic being drawn to Phyrexian opportunities.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0060",
@@ -1612,7 +2453,34 @@
         "placement_quality"
       ],
       "notes": "Anti-overfit placement guidance.",
-      "risk_of_hallucination_or_overreach": "Low"
+      "risk_of_hallucination_or_overreach": "Low",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "The Izzet pattern should not be reduced to safe civic engineering because official sources also tie the guild to dangerous experiments, volatile mana, impatience, and destructive risk. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0003",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica — reviewed source record src_izzet_league_0003",
+          "bounded_paraphrase": "The Izzet pattern should not be reduced to safe civic engineering because official sources also tie the guild to dangerous experiments, volatile mana, impatience, and destructive risk. Local source review summary: Official Guilds of Ravnica feature summarizing Izzet values, invention, civic engineering, Niv-Mizzet's leadership, Ral Zarek's day-to-day role, and Ral's hidden Bolas allegiance at that story point.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0010",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Murders at Karlov Manor — reviewed source record src_izzet_league_0010",
+          "bounded_paraphrase": "The Izzet pattern should not be reduced to safe civic engineering because official sources also tie the guild to dangerous experiments, volatile mana, impatience, and destructive risk. Local source review summary: Official current-status Ravnica guide describing the post-Phyrexian invasion state of the guilds, Niv-Mizzet as current Living Guildpact, Izzet reconstruction work, and some Izzet/Simic being drawn to Phyrexian opportunities.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "claim_izzet_league_0061",
@@ -1639,6 +2507,17 @@
       "risk_of_hallucination_or_overreach": [
         "key_figures",
         "historical_timeline"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0017",
+          "locator_type": "repository-archive-source-record",
+          "locator": "Epic Experiment — reviewed source record src_izzet_league_0017",
+          "bounded_paraphrase": "Epic Experiment depicts the Izzet researcher Trenz operating from a remote workshop on Experiment Day. Local source review summary: Repository archive copy of an official Magic story used to support story-local claims about Trenz, Experiment Day, Nivix, Niv-Mizzet assignments, and volatile Izzet testing.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -1665,6 +2544,17 @@
       "notes": "Supports Niv-Mizzet personally directing promising researchers.",
       "risk_of_hallucination_or_overreach": [
         "key_figures"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0017",
+          "locator_type": "repository-archive-source-record",
+          "locator": "Epic Experiment — reviewed source record src_izzet_league_0017",
+          "bounded_paraphrase": "Niv-Mizzet gave Trenz a remote area of the city as a playground for Exospecial Experiments. Local source review summary: Repository archive copy of an official Magic story used to support story-local claims about Trenz, Experiment Day, Nivix, Niv-Mizzet assignments, and volatile Izzet testing.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -1692,6 +2582,17 @@
       "risk_of_hallucination_or_overreach": [
         "key_figures",
         "search_and_filter_metadata"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0017",
+          "locator_type": "repository-archive-source-record",
+          "locator": "Epic Experiment — reviewed source record src_izzet_league_0017",
+          "bounded_paraphrase": "Before becoming a full-fledged Chemister, Trenz attracted Niv-Mizzet’s attention by creating an Ætherprax tunnel from Nivix to the gates of Sunhome. Local source review summary: Repository archive copy of an official Magic story used to support story-local claims about Trenz, Experiment Day, Nivix, Niv-Mizzet assignments, and volatile Izzet testing.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -1718,6 +2619,17 @@
       "notes": "Shows personal assignment as one way Izzet research can be guided by the Firemind.",
       "risk_of_hallucination_or_overreach": [
         "structure"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0017",
+          "locator_type": "repository-archive-source-record",
+          "locator": "Epic Experiment — reviewed source record src_izzet_league_0017",
+          "bounded_paraphrase": "Niv-Mizzet gave Trenz personal assignments that directed his research beyond paths Trenz would have chosen alone. Local source review summary: Repository archive copy of an official Magic story used to support story-local claims about Trenz, Experiment Day, Nivix, Niv-Mizzet assignments, and volatile Izzet testing.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -1744,6 +2656,17 @@
       "notes": "Story-local evidence for mizzium as experimental infrastructure.",
       "risk_of_hallucination_or_overreach": [
         "search_and_filter_metadata"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0017",
+          "locator_type": "repository-archive-source-record",
+          "locator": "Epic Experiment — reviewed source record src_izzet_league_0017",
+          "bounded_paraphrase": "Trenz fired up mizzium coils as part of the Aerial-Antistasis Chamber test in Epic Experiment. Local source review summary: Repository archive copy of an official Magic story used to support story-local claims about Trenz, Experiment Day, Nivix, Niv-Mizzet assignments, and volatile Izzet testing.",
+          "evidence_scope": "mechanics or play-pattern evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -1770,6 +2693,17 @@
       "notes": "Demonstrates destructive accidental outputs in story.",
       "risk_of_hallucination_or_overreach": [
         "historical_timeline"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0017",
+          "locator_type": "repository-archive-source-record",
+          "locator": "Epic Experiment — reviewed source record src_izzet_league_0017",
+          "bounded_paraphrase": "One of Trenz’s tests produced a lightning-charged tornado that damaged an abandoned block. Local source review summary: Repository archive copy of an official Magic story used to support story-local claims about Trenz, Experiment Day, Nivix, Niv-Mizzet assignments, and volatile Izzet testing.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -1798,6 +2732,25 @@
       "notes": "Interpretive synthesis from story events plus official Izzet guide.",
       "risk_of_hallucination_or_overreach": [
         "great_tension"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0017",
+          "locator_type": "repository-archive-source-record",
+          "locator": "Epic Experiment — reviewed source record src_izzet_league_0017",
+          "bounded_paraphrase": "Epic Experiment supports the interpretation that Izzet discovery culture treats risk and explosive failure as part of useful experimentation. Local source review summary: Repository archive copy of an official Magic story used to support story-local claims about Trenz, Experiment Day, Nivix, Niv-Mizzet assignments, and volatile Izzet testing.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator_type": "official-source-record",
+          "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002",
+          "bounded_paraphrase": "Epic Experiment supports the interpretation that Izzet discovery culture treats risk and explosive failure as part of useful experimentation. Local source review summary: Primary official worldbuilding source for Izzet identity, mandate, Niv-Mizzet, internal court, key locations, roles, weirds, Interlocus, and attitudes toward other guilds.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        }
       ]
     },
     {
@@ -1822,6 +2775,17 @@
       "notes": "Story-local character evidence.",
       "risk_of_hallucination_or_overreach": [
         "key_figures"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0018",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Pursuit, Part 1 — reviewed source record src_izzet_league_0018",
+          "bounded_paraphrase": "Madarrak is an aging Izzet guildmage whose laboratory accident revealed a hidden Izzet receiver in The Pursuit, Part 1. Local source review summary: Repository archive copy of an official Magic story used to support claims about an Izzet lab accident, Nivix, Niv-Mizzet delegating a recovery mission, and internal ambition toward the Izmagnus.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -1847,6 +2811,17 @@
       "risk_of_hallucination_or_overreach": [
         "key_figures",
         "structure"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0018",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Pursuit, Part 1 — reviewed source record src_izzet_league_0018",
+          "bounded_paraphrase": "Castan is a vedalken attendant working with Madarrak in The Pursuit, Part 1. Local source review summary: Repository archive copy of an official Magic story used to support claims about an Izzet lab accident, Nivix, Niv-Mizzet delegating a recovery mission, and internal ambition toward the Izmagnus.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -1871,6 +2846,17 @@
       "notes": "Included as a secondary story figure.",
       "risk_of_hallucination_or_overreach": [
         "key_figures"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0018",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Pursuit, Part 1 — reviewed source record src_izzet_league_0018",
+          "bounded_paraphrase": "Yzaak is a cyclops in Madarrak’s service during The Pursuit, Part 1. Local source review summary: Repository archive copy of an official Magic story used to support claims about an Izzet lab accident, Nivix, Niv-Mizzet delegating a recovery mission, and internal ambition toward the Izmagnus.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -1896,6 +2882,17 @@
       "risk_of_hallucination_or_overreach": [
         "leaders",
         "key_figures"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0018",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Pursuit, Part 1 — reviewed source record src_izzet_league_0018",
+          "bounded_paraphrase": "Chamberlain Pelener is identified as Niv-Mizzet’s chief attendant in The Pursuit, Part 1. Local source review summary: Repository archive copy of an official Magic story used to support claims about an Izzet lab accident, Nivix, Niv-Mizzet delegating a recovery mission, and internal ambition toward the Izmagnus.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -1922,6 +2919,25 @@
       "risk_of_hallucination_or_overreach": [
         "key_figures",
         "historical_timeline"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0018",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Pursuit, Part 1 — reviewed source record src_izzet_league_0018",
+          "bounded_paraphrase": "Erno Zslod was an Izzet chemister who disappeared while testing a hypermana focusing lens. Local source review summary: Repository archive copy of an official Magic story used to support claims about an Izzet lab accident, Nivix, Niv-Mizzet delegating a recovery mission, and internal ambition toward the Izmagnus.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "src_izzet_league_0019",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Pursuit, Part 2 — reviewed source record src_izzet_league_0019",
+          "bounded_paraphrase": "Erno Zslod was an Izzet chemister who disappeared while testing a hypermana focusing lens. Local source review summary: Repository archive copy of an official Magic story used to support claims about Erno Zslod, a mizzium suit/device, a dangerous recovery mission, and Madarrak returning to Nivix.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -1948,6 +2964,17 @@
       "notes": "Shows Niv-Mizzet’s technical interpretation in story.",
       "risk_of_hallucination_or_overreach": [
         "key_figures"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0018",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Pursuit, Part 1 — reviewed source record src_izzet_league_0018",
+          "bounded_paraphrase": "Niv-Mizzet recognized the recovered flashing disk as a homing mechanism or receiver connected to Erno Zslod. Local source review summary: Repository archive copy of an official Magic story used to support claims about an Izzet lab accident, Nivix, Niv-Mizzet delegating a recovery mission, and internal ambition toward the Izmagnus.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -1974,6 +3001,17 @@
       "notes": "A direct story assignment from Firemind to guildmage through chamberlain.",
       "risk_of_hallucination_or_overreach": [
         "historical_timeline"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0018",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Pursuit, Part 1 — reviewed source record src_izzet_league_0018",
+          "bounded_paraphrase": "Niv-Mizzet directed Madarrak to find Erno Zslod and return what transported him away. Local source review summary: Repository archive copy of an official Magic story used to support claims about an Izzet lab accident, Nivix, Niv-Mizzet delegating a recovery mission, and internal ambition toward the Izmagnus.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2000,6 +3038,17 @@
       "notes": "Relevant to risks of experimental breakthroughs and cross-guild manipulation.",
       "risk_of_hallucination_or_overreach": [
         "historical_timeline"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0019",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Pursuit, Part 2 — reviewed source record src_izzet_league_0019",
+          "bounded_paraphrase": "Erno Zslod’s hypermana focusing lens worked, but he said he altered its design after outside manipulation. Local source review summary: Repository archive copy of an official Magic story used to support claims about Erno Zslod, a mizzium suit/device, a dangerous recovery mission, and Madarrak returning to Nivix.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2026,6 +3075,17 @@
       "notes": "Story-local mizzium device evidence.",
       "risk_of_hallucination_or_overreach": [
         "search_and_filter_metadata"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0019",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Pursuit, Part 2 — reviewed source record src_izzet_league_0019",
+          "bounded_paraphrase": "The Pursuit, Part 2 connects Erno Zslod’s transport event to a mizzium suit and a mizzium device recovered by Madarrak. Local source review summary: Repository archive copy of an official Magic story used to support claims about Erno Zslod, a mizzium suit/device, a dangerous recovery mission, and Madarrak returning to Nivix.",
+          "evidence_scope": "mechanics or play-pattern evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2052,6 +3112,17 @@
       "notes": "Shows Izzet reporting/recognition loop after a dangerous recovery.",
       "risk_of_hallucination_or_overreach": [
         "historical_timeline"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0019",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Pursuit, Part 2 — reviewed source record src_izzet_league_0019",
+          "bounded_paraphrase": "Madarrak returned to Nivix with Erno Zslod’s device and intended to report the device’s success to Niv-Mizzet. Local source review summary: Repository archive copy of an official Magic story used to support claims about Erno Zslod, a mizzium suit/device, a dangerous recovery mission, and Madarrak returning to Nivix.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2079,6 +3150,17 @@
       "risk_of_hallucination_or_overreach": [
         "mechanics",
         "search_and_filter_metadata"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0021",
+          "locator_type": "repository-archive-source-record",
+          "locator": "Paper Trail — reviewed source record src_izzet_league_0021",
+          "bounded_paraphrase": "Paper Trail includes an Izzet trial proposal for implanting a simple mizzium mechanical augmentation framework into a biological organism with neuroamplification serum. Local source review summary: Repository archive copy of an official Magic story used to support claims about Izzet biomechanical augmentation, mizzium framework, and downstream consequences from cross-guild contamination.",
+          "evidence_scope": "mechanics or play-pattern evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2106,6 +3188,17 @@
       "risk_of_hallucination_or_overreach": [
         "historical_timeline",
         "views_on_other_factions"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0021",
+          "locator_type": "repository-archive-source-record",
+          "locator": "Paper Trail — reviewed source record src_izzet_league_0021",
+          "bounded_paraphrase": "Paper Trail later describes a snapjaw’s reinforced skeletal system as the result of Izzet tinkering. Local source review summary: Repository archive copy of an official Magic story used to support claims about Izzet biomechanical augmentation, mizzium framework, and downstream consequences from cross-guild contamination.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2132,6 +3225,17 @@
       "notes": "Useful cross-guild contamination evidence.",
       "risk_of_hallucination_or_overreach": [
         "views_on_other_factions"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0021",
+          "locator_type": "repository-archive-source-record",
+          "locator": "Paper Trail — reviewed source record src_izzet_league_0021",
+          "bounded_paraphrase": "Paper Trail says Simic biomancers surgically removed most of the Izzet mechanisms from the snapjaw but could not remove all without risking central nervous system damage. Local source review summary: Repository archive copy of an official Magic story used to support claims about Izzet biomechanical augmentation, mizzium framework, and downstream consequences from cross-guild contamination.",
+          "evidence_scope": "inter-faction boundary evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2157,6 +3261,17 @@
       "risk_of_hallucination_or_overreach": [
         "key_figures",
         "structure"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0022",
+          "locator_type": "repository-archive-source-record",
+          "locator": "Testing the Dark Waters — reviewed source record src_izzet_league_0022",
+          "bounded_paraphrase": "Testing the Dark Waters is narrated by an Izzet attendant serving Master Dax Foley, a high-level chemister specializing in arcane metallurgy and practical alchemy. Local source review summary: Repository archive copy of an official Magic story used to support claims about Izzet lower-rank ambition, lab hierarchy, discovery pressure, unsanctioned experimentation, and ethical shadow risks.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2183,6 +3298,17 @@
       "notes": "Adds practical labor detail to Izzet hierarchy.",
       "risk_of_hallucination_or_overreach": [
         "structure"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0022",
+          "locator_type": "repository-archive-source-record",
+          "locator": "Testing the Dark Waters — reviewed source record src_izzet_league_0022",
+          "bounded_paraphrase": "Testing the Dark Waters describes low-ranking Izzet attendant work as sorting cable connectors, degreasing turbines, and trapping rogue elementals from lab equipment. Local source review summary: Repository archive copy of an official Magic story used to support claims about Izzet lower-rank ambition, lab hierarchy, discovery pressure, unsanctioned experimentation, and ethical shadow risks.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2210,6 +3336,17 @@
       "risk_of_hallucination_or_overreach": [
         "mechanics",
         "search_and_filter_metadata"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0022",
+          "locator_type": "repository-archive-source-record",
+          "locator": "Testing the Dark Waters — reviewed source record src_izzet_league_0022",
+          "bounded_paraphrase": "The narrator of Testing the Dark Waters uses a mizzium-plated canister and ballast rod to detect and identify mana traces. Local source review summary: Repository archive copy of an official Magic story used to support claims about Izzet lower-rank ambition, lab hierarchy, discovery pressure, unsanctioned experimentation, and ethical shadow risks.",
+          "evidence_scope": "mechanics or play-pattern evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2238,6 +3375,17 @@
       "risk_of_hallucination_or_overreach": [
         "structure",
         "great_tension"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0022",
+          "locator_type": "repository-archive-source-record",
+          "locator": "Testing the Dark Waters — reviewed source record src_izzet_league_0022",
+          "bounded_paraphrase": "Testing the Dark Waters states that the Izmundi were demanding more significant discoveries and faster results, pressuring chemisters to run experiments day and night. Local source review summary: Repository archive copy of an official Magic story used to support claims about Izzet lower-rank ambition, lab hierarchy, discovery pressure, unsanctioned experimentation, and ethical shadow risks.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2266,6 +3414,17 @@
       "risk_of_hallucination_or_overreach": [
         "locations",
         "historical_timeline"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0022",
+          "locator_type": "repository-archive-source-record",
+          "locator": "Testing the Dark Waters — reviewed source record src_izzet_league_0022",
+          "bounded_paraphrase": "Testing the Dark Waters depicts an ambitious Izzet attendant starting an unsanctioned laboratory in a boilerpit beneath an apartment building. Local source review summary: Repository archive copy of an official Magic story used to support claims about Izzet lower-rank ambition, lab hierarchy, discovery pressure, unsanctioned experimentation, and ethical shadow risks.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2292,6 +3451,17 @@
       "notes": "Supports lab recognition and rules-gaming motif.",
       "risk_of_hallucination_or_overreach": [
         "internal_divisions"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0022",
+          "locator_type": "repository-archive-source-record",
+          "locator": "Testing the Dark Waters — reviewed source record src_izzet_league_0022",
+          "bounded_paraphrase": "Testing the Dark Waters describes the Laboratory of Elemental Metastream Dynamics and Coil Field Fractalization as officially recognized by the Izmundi after procedural manipulation. Local source review summary: Repository archive copy of an official Magic story used to support claims about Izzet lower-rank ambition, lab hierarchy, discovery pressure, unsanctioned experimentation, and ethical shadow risks.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2320,6 +3490,17 @@
       "notes": "Interpretive claim based on the story’s test-subject deaths and lab secrecy.",
       "risk_of_hallucination_or_overreach": [
         "great_tension"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0022",
+          "locator_type": "repository-archive-source-record",
+          "locator": "Testing the Dark Waters — reviewed source record src_izzet_league_0022",
+          "bounded_paraphrase": "Testing the Dark Waters shows Izzet experimentation can cross ethical lines when ambition, secrecy, and discovery pressure override care for test subjects. Local source review summary: Repository archive copy of an official Magic story used to support claims about Izzet lower-rank ambition, lab hierarchy, discovery pressure, unsanctioned experimentation, and ethical shadow risks.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        }
       ]
     },
     {
@@ -2345,6 +3526,17 @@
       "risk_of_hallucination_or_overreach": [
         "structure",
         "locations"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0023",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Gathering Storm: Chapter 17 — reviewed source record src_izzet_league_0023",
+          "bounded_paraphrase": "The Gathering Storm: Chapter 17 describes streets around Nivix as frequented by chemisters, workers, scorchbringers, viashino, vedalken, and project leaders. Local source review summary: Repository archive copy of an official Magic story used to support claims about Ral directing Izzet personnel at Nivix, resonator-node operations, and catastrophic crisis engineering.",
+          "evidence_scope": "guild structure and institutional role",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2371,6 +3563,17 @@
       "notes": "Useful Izzet cultural location.",
       "risk_of_hallucination_or_overreach": [
         "locations"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0023",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Gathering Storm: Chapter 17 — reviewed source record src_izzet_league_0023",
+          "bounded_paraphrase": "The Smoking Wreckage is a tavern near Nivix associated with failed projects, rival triumphs, schemes, and explosive outcomes. Local source review summary: Repository archive copy of an official Magic story used to support claims about Ral directing Izzet personnel at Nivix, resonator-node operations, and catastrophic crisis engineering.",
+          "evidence_scope": "location or infrastructure evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2397,6 +3600,17 @@
       "notes": "Story-local resonator project claim.",
       "risk_of_hallucination_or_overreach": [
         "historical_timeline"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0023",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Gathering Storm: Chapter 17 — reviewed source record src_izzet_league_0023",
+          "bounded_paraphrase": "Ral Zarek’s resonator project sought to modify the Guildpact against Azor’s will in The Gathering Storm: Chapter 17. Local source review summary: Repository archive copy of an official Magic story used to support claims about Ral directing Izzet personnel at Nivix, resonator-node operations, and catastrophic crisis engineering.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2425,6 +3639,17 @@
       "risk_of_hallucination_or_overreach": [
         "leaders",
         "historical_timeline"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0023",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Gathering Storm: Chapter 17 — reviewed source record src_izzet_league_0023",
+          "bounded_paraphrase": "Ral Zarek ordered Izzet personnel at Nivix to bring the resonator network online immediately because Bolas was expected that night. Local source review summary: Repository archive copy of an official Magic story used to support claims about Ral directing Izzet personnel at Nivix, resonator-node operations, and catastrophic crisis engineering.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2452,6 +3677,17 @@
       "risk_of_hallucination_or_overreach": [
         "locations",
         "mechanics"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0023",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Gathering Storm: Chapter 17 — reviewed source record src_izzet_league_0023",
+          "bounded_paraphrase": "The central resonator node was at Nivix and used mizzium coils, generators, control stations, and links to other nodes. Local source review summary: Repository archive copy of an official Magic story used to support claims about Ral directing Izzet personnel at Nivix, resonator-node operations, and catastrophic crisis engineering.",
+          "evidence_scope": "mechanics or play-pattern evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2478,6 +3714,17 @@
       "notes": "Network scale claim.",
       "risk_of_hallucination_or_overreach": [
         "historical_timeline"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0023",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Gathering Storm: Chapter 17 — reviewed source record src_izzet_league_0023",
+          "bounded_paraphrase": "The resonator network linked Nivix to seven other stations across the Tenth District. Local source review summary: Repository archive copy of an official Magic story used to support claims about Ral directing Izzet personnel at Nivix, resonator-node operations, and catastrophic crisis engineering.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2506,6 +3753,17 @@
       "risk_of_hallucination_or_overreach": [
         "historical_timeline",
         "key_figures"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0023",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Gathering Storm: Chapter 17 — reviewed source record src_izzet_league_0023",
+          "bounded_paraphrase": "A surge through the connection to the Azorius-side node caused catastrophic failure in Nivix’s control chamber and killed Gullifen. Local source review summary: Repository archive copy of an official Magic story used to support claims about Ral directing Izzet personnel at Nivix, resonator-node operations, and catastrophic crisis engineering.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2533,6 +3791,17 @@
       "risk_of_hallucination_or_overreach": [
         "historical_timeline",
         "leaders"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0024",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Gathering Storm: Chapter 18 — reviewed source record src_izzet_league_0024",
+          "bounded_paraphrase": "The Gathering Storm: Chapter 18 shows Niv-Mizzet acknowledging failure and entrusting Ral Zarek with activating the beacon as Ravnica’s remaining hope. Local source review summary: Repository archive copy of an official Magic story used to support claims about Niv-Mizzet entrusting Ral with the beacon mission and personally delaying Bolas.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2558,6 +3827,17 @@
       "risk_of_hallucination_or_overreach": [
         "historical_timeline",
         "key_figures"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0024",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Gathering Storm: Chapter 18 — reviewed source record src_izzet_league_0024",
+          "bounded_paraphrase": "The Gathering Storm: Chapter 18 shows Niv-Mizzet personally delaying Nicol Bolas after Bolas arrived on Ravnica. Local source review summary: Repository archive copy of an official Magic story used to support claims about Niv-Mizzet entrusting Ral with the beacon mission and personally delaying Bolas.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2584,6 +3864,17 @@
       "notes": "Technical combat infrastructure evidence.",
       "risk_of_hallucination_or_overreach": [
         "mechanics"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0024",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Gathering Storm: Chapter 18 — reviewed source record src_izzet_league_0024",
+          "bounded_paraphrase": "Niv-Mizzet used prepared mizzium batteries around the Tenth District to focus an opening attack against Nicol Bolas. Local source review summary: Repository archive copy of an official Magic story used to support claims about Niv-Mizzet entrusting Ral with the beacon mission and personally delaying Bolas.",
+          "evidence_scope": "mechanics or play-pattern evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2610,6 +3901,17 @@
       "notes": "Major War of the Spark setup event.",
       "risk_of_hallucination_or_overreach": [
         "historical_timeline"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0025",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Gathering Storm: Chapter 20 — reviewed source record src_izzet_league_0025",
+          "bounded_paraphrase": "The Gathering Storm: Chapter 20 shows Ral Zarek activating the Interplanar Beacon. Local source review summary: Repository archive copy of an official Magic story used to support claims about Ral activating the Interplanar Beacon, his restraint toward Lavinia, and the cost of the Bolas crisis.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2636,6 +3938,17 @@
       "notes": "Character nuance for Ral beyond raw ambition.",
       "risk_of_hallucination_or_overreach": [
         "key_figures"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0025",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Gathering Storm: Chapter 20 — reviewed source record src_izzet_league_0025",
+          "bounded_paraphrase": "The Gathering Storm: Chapter 20 shows Ral Zarek trying to avoid killing Lavinia while she is controlled by Bolas’s magic. Local source review summary: Repository archive copy of an official Magic story used to support claims about Ral activating the Interplanar Beacon, his restraint toward Lavinia, and the cost of the Bolas crisis.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2663,6 +3976,17 @@
       "notes": "Interpretive placement claim, not a broad canon statement about all Izzet.",
       "risk_of_hallucination_or_overreach": [
         "great_tension"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0025",
+          "locator_type": "repository-archive-source-record",
+          "locator": "The Gathering Storm: Chapter 20 — reviewed source record src_izzet_league_0025",
+          "bounded_paraphrase": "Ral Zarek’s reluctance to kill Lavinia in Chapter 20 supports interpreting mature Izzet expression as capable of restraint under pressure. Local source review summary: Repository archive copy of an official Magic story used to support claims about Ral activating the Interplanar Beacon, his restraint toward Lavinia, and the cost of the Bolas crisis.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        }
       ]
     },
     {
@@ -2689,6 +4013,17 @@
         "leaders",
         "key_figures",
         "search_and_filter_metadata"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0014",
+          "locator_type": "official-source-record",
+          "locator": "Project Lightning Bug — reviewed source record src_izzet_league_0014",
+          "bounded_paraphrase": "Project Lightning Bug states that Chamberlain Maree impressed Niv-Mizzet with her work on Melek. Local source review summary: Official story source identifying Ral Zarek as an Izzet guildmage and secret Planeswalker, and showing Jace Beleren as Living Guildpact at that story point.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2714,6 +4049,17 @@
       "risk_of_hallucination_or_overreach": [
         "key_figures",
         "search_and_filter_metadata"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0014",
+          "locator_type": "official-source-record",
+          "locator": "Project Lightning Bug — reviewed source record src_izzet_league_0014",
+          "bounded_paraphrase": "Project Lightning Bug states that Maree and Mizzix calibrated Ral Zarek’s detector spell and improved its range. Local source review summary: Official story source identifying Ral Zarek as an Izzet guildmage and secret Planeswalker, and showing Jace Beleren as Living Guildpact at that story point.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2741,6 +4087,17 @@
       "risk_of_hallucination_or_overreach": [
         "historical_timeline",
         "key_figures"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0014",
+          "locator_type": "official-source-record",
+          "locator": "Project Lightning Bug — reviewed source record src_izzet_league_0014",
+          "bounded_paraphrase": "Project Lightning Bug appointed Ral Zarek as Head Researcher of a project to record and explain Jace Beleren’s disappearances from Ravnica. Local source review summary: Official story source identifying Ral Zarek as an Izzet guildmage and secret Planeswalker, and showing Jace Beleren as Living Guildpact at that story point.",
+          "evidence_scope": "story timeline and historical role",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     },
     {
@@ -2768,6 +4125,17 @@
       "notes": "Adds important Ral secrecy/deception nuance.",
       "risk_of_hallucination_or_overreach": [
         "key_figures"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_izzet_league_0014",
+          "locator_type": "official-source-record",
+          "locator": "Project Lightning Bug — reviewed source record src_izzet_league_0014",
+          "bounded_paraphrase": "Ral Zarek deliberately weakened Project Lightning Bug’s precision so it would not immediately prove the existence of Planeswalkers. Local source review summary: Official story source identifying Ral Zarek as an Izzet guildmage and secret Planeswalker, and showing Jace Beleren as Living Guildpact at that story point.",
+          "evidence_scope": "key figure or character evidence",
+          "interpretation_level": "direct-source-support"
+        }
       ]
     }
   ],
@@ -2779,6 +4147,13 @@
     "confirmed_canon_claims": 50,
     "supported_interpretation_claims": 11,
     "unknown_or_not_found_claims": 0,
-    "needs_review_claims": 0
+    "needs_review_claims": 0,
+    "semantic_role_counts": {
+      "substantive_claim": 104,
+      "discovery_record": 0,
+      "support_record": 0,
+      "unclassified": 0
+    },
+    "contract_v1_1_gate3_note": "VM-507 Gate 3 classified all current Izzet claims as substantive_claim and added bounded evidence_locations matching each claim's source_ids. Discovery/support handling remains at source and auxiliary metadata boundaries; no claim records were demoted in Gate 3."
   }
 }

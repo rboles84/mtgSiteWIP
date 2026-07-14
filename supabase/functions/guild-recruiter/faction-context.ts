@@ -6390,9 +6390,9 @@ export const FACTION_CONTEXT = {
         "label": "Izzet"
       }
     },
-    "tagline": "The question isn't whether it will explode. It's whether the explosion is interesting.",
-    "philosophy": "Ravnica's civic infrastructure department, weapons laboratory, and mad science collective - all run by a 16,000-year-old dragon whose ego is so complete he named the guild after himself. Izzet members are obsessive, brilliant, creative, and constitutionally incapable of finishing things because there is always something more interesting to start.",
-    "core_tension": "The guild is built around a single dragon's ego and intellect. Under Ral Zarek, the Izzet are being asked to be useful rather than merely brilliant. Many find this an intolerable constraint.",
+    "tagline": "Invent first. Stabilize what the experiment teaches.",
+    "philosophy": "The Izzet League turns blue-red curiosity into elemental magic, mizzium technology, civic engineering, spell engines, and prototypes. Its best work makes discovery useful; its pressure point is volatile experimentation that can outrun care, procedure, or restraint.",
+    "core_tension": "Izzet discovery wants to move fast enough to find the breakthrough while remaining useful enough to repair, rebuild, or stabilize what the experiment affects.",
     "affinity": {
       "drawn_to": [
         "Following a question wherever it leads regardless of practical application",
@@ -6485,9 +6485,9 @@ export const FACTION_CONTEXT = {
       "User consistently prioritizes fixed procedure, permission, and risk elimination over experimentation.",
       "User dislikes technical systems, tool-building, spellcraft metaphors, or iteration.",
       "User prefers secrecy, law, communal harmony, biological evolution, or martial protection as the primary motive.",
-      "User wants novelty without any usefulness, which may be more Rakdos/Prismari depending on tone.",
+      "User wants novelty or spectacle without usefulness, prototype learning, or technical problem solving.",
       "User demands complete predictability before trying anything new.",
-      "User endorses harming or deceiving people as acceptable simply because a discovery is interesting.",
+      "User treats test subjects, collaborators, or bystanders as disposable because a discovery is interesting.",
       "User wants status without curiosity, experimentation, or technical problem solving.",
       "You need formal approval, complete predictability, and fixed procedure before trying anything.",
       "You dislike technical systems, spell chains, or invention metaphors.",
@@ -6502,7 +6502,10 @@ export const FACTION_CONTEXT = {
       "QUANDRIX",
       "UG",
       "GRIXIS",
-      "TEMUR"
+      "TEMUR",
+      "WU",
+      "BR",
+      "UB"
     ],
     "discriminator_questions": [
       {
@@ -6527,7 +6530,7 @@ export const FACTION_CONTEXT = {
       },
       {
         "id": "q_izzet_league_0002",
-        "prompt": "Is your favorite kind of solution elegant, explosive, reusable, or socially stabilizing?",
+        "prompt": "Is your favorite kind of solution elegant, scalable, reusable, or socially stabilizing?",
         "purpose": "Identify whether the user prefers Izzet scaling/energy or other faction value centers.",
         "supports": "Explosive or reusable, especially when tied to technical creativity.",
         "weakens": "Socially stabilizing without experimentation, or elegant abstraction without messy implementation.",
@@ -6616,7 +6619,7 @@ export const FACTION_CONTEXT = {
     ],
     "chatbot_guidance": {
       "how_to_recognize_match": [
-        "User describes learning by building, testing, breaking, and rebuilding.",
+        "User describes learning by building, testing, failing, and rebuilding.",
         "User enjoys technical creativity, prototypes, magic-tech, spell chains, or experimental systems.",
         "User accepts failure as data and wants ideas to scale or become useful tools.",
         "User pairs creativity with practical infrastructure or systems improvement.",
@@ -6628,15 +6631,15 @@ export const FACTION_CONTEXT = {
         "User consistently prioritizes fixed procedure, permission, and risk elimination over experimentation.",
         "User dislikes technical systems, tool-building, spellcraft metaphors, or iteration.",
         "User prefers secrecy, law, communal harmony, biological evolution, or martial protection as the primary motive.",
-        "User wants novelty without any usefulness, which may be more Rakdos/Prismari depending on tone.",
+        "User wants novelty or spectacle without usefulness, prototype learning, or technical problem solving.",
         "User demands complete predictability before trying anything new.",
-        "User endorses harming or deceiving people as acceptable simply because a discovery is interesting.",
+        "User treats test subjects, collaborators, or bystanders as disposable because a discovery is interesting.",
         "User wants status without curiosity, experimentation, or technical problem solving."
       ],
       "questions_to_ask_when_uncertain": [
         "Do you enjoy prototypes more when they are useful, beautiful, mathematically elegant, or disruptive?",
         "What matters more: proving the theory, building the device, protecting people, or enforcing the rules?",
-        "When something fails, do you document it, hide it, mourn it, rebuild it, or weaponize it?",
+        "When something fails, do you document it, hide it, mourn it, rebuild it, or use the lesson as leverage?",
         "Ask whether they are more motivated by breakthrough, beauty, biological adaptation, law, or protection.",
         "Ask how they respond after a dangerous prototype failure: abandon, stabilize, iterate, or hide it.",
         "Ask whether they prefer planned systems engineering or improvised crisis engineering."
@@ -6646,7 +6649,7 @@ export const FACTION_CONTEXT = {
         "Do not overfit Izzet to safe engineering; official sources also support volatile experimentation and dangerous ambition.",
         "Do not treat Ral Zarek's personal history or Bolas involvement as a required user-placement trait.",
         "Do not treat Niv-Mizzet's arrogance as mandatory for every Izzet-aligned user.",
-        "Do not overweight one explosive or chaotic answer; look for curiosity plus systems thinking.",
+        "Do not overweight one dramatic or chaotic answer; look for curiosity plus systems thinking.",
         "Do not treat unethical experimentation as a positive score just because it resembles Izzet shadow behavior.",
         "Do not confuse Prismari expressive performance with Izzet applied experimentation unless the user emphasizes prototypes and discovery."
       ],

@@ -7127,8 +7127,8 @@
       ],
       "identity": {
         "summary": "The Izzet League is the blue-red guild of Ravnica: a dragon-led culture of elemental magic, mizzium technology, civic engineering, and volatile discovery. The expanded story pass adds concrete examples of this identity at multiple levels: Trenz on Experiment Day, Madarrak and Castan pursuing Erno Zslod, lower-rank attendants fighting for recognition, and Ral Zarek directing crisis-scale resonator and beacon operations.",
-        "philosophy": "Ravnica's civic infrastructure department, weapons laboratory, and mad science collective - all run by a 16,000-year-old dragon whose ego is so complete he named the guild after himself. Izzet members are obsessive, brilliant, creative, and constitutionally incapable of finishing things because there is always something more interesting to start.",
-        "central_tension": "The guild is built around a single dragon's ego and intellect. Under Ral Zarek, the Izzet are being asked to be useful rather than merely brilliant. Many find this an intolerable constraint.",
+        "philosophy": "The Izzet League turns blue-red curiosity into elemental magic, mizzium technology, civic engineering, spell engines, and prototypes. Its best work makes discovery useful; its pressure point is volatile experimentation that can outrun care, procedure, or restraint.",
+        "central_tension": "Izzet discovery wants to move fast enough to find the breakthrough while remaining useful enough to repair, rebuild, or stabilize what the experiment affects.",
         "display_tagline": "Invent first. Stabilize later.",
         "mechanics": "Replicate, overload, and jump-start are the source-backed Izzet mechanics expression: scalable spell copying, spells powered from single targets into sweeping effects, and second-chance instant or sorcery casting. Mizzium devices and the resonator network are story-technology texture rather than standalone rules mechanics, and should only support Izzet when they point back to experimental invention, spellcraft, and volatile civic engineering."
       },
@@ -7210,9 +7210,9 @@
         "User consistently prioritizes fixed procedure, permission, and risk elimination over experimentation.",
         "User dislikes technical systems, tool-building, spellcraft metaphors, or iteration.",
         "User prefers secrecy, law, communal harmony, biological evolution, or martial protection as the primary motive.",
-        "User wants novelty without any usefulness, which may be more Rakdos/Prismari depending on tone.",
+        "User wants novelty or spectacle without usefulness, prototype learning, or technical problem solving.",
         "User demands complete predictability before trying anything new.",
-        "User endorses harming or deceiving people as acceptable simply because a discovery is interesting.",
+        "User treats test subjects, collaborators, or bystanders as disposable because a discovery is interesting.",
         "User wants status without curiosity, experimentation, or technical problem solving.",
         "You need formal approval, complete predictability, and fixed procedure before trying anything.",
         "You dislike technical systems, spell chains, or invention metaphors.",
@@ -7245,7 +7245,7 @@
         },
         {
           "id": "q_izzet_league_0002",
-          "prompt": "Is your favorite kind of solution elegant, explosive, reusable, or socially stabilizing?",
+          "prompt": "Is your favorite kind of solution elegant, scalable, reusable, or socially stabilizing?",
           "purpose": "Identify whether the user prefers Izzet scaling/energy or other faction value centers.",
           "supports": "Explosive or reusable, especially when tied to technical creativity.",
           "weakens": "Socially stabilizing without experimentation, or elegant abstraction without messy implementation.",
@@ -7377,9 +7377,9 @@
         },
         {
           "id": "q_izzet_league_0008",
-          "prompt": "Which feels more like you: careful guardian, hidden operator, living designer, or reckless inventor who still wants the machine to work?",
+          "prompt": "Which feels more like you: careful guardian, hidden operator, living designer, or risky inventor who still wants the machine to work?",
           "purpose": "Broad final discriminator across adjacent Ravnica identities.",
-          "supports": "Reckless inventor who still wants the machine to work.",
+          "supports": "Risk-aware inventor who wants the experiment to keep working, scale, or teach something useful.",
           "weakens": "Careful guardian, hidden operator, or living designer.",
           "collision_targets": [
             "WR",
@@ -7439,7 +7439,7 @@
         },
         {
           "id": "q_izzet_league_0011",
-          "prompt": "Would you rather be known for a safe system that never fails, or a breakthrough that changes the field even if the first version explodes?",
+          "prompt": "Would you rather be known for a safe system that never fails, or a breakthrough that changes the field even if the first version fails dramatically?",
           "purpose": "Tests appetite for breakthrough and volatility.",
           "supports": "Breakthrough, especially if followed by iteration and better safeguards.",
           "weakens": "Safe system above all points more toward Azorius, Boros, or civic-maintenance profiles.",
@@ -7497,12 +7497,108 @@
         "QUANDRIX",
         "UG",
         "GRIXIS",
-        "TEMUR"
+        "TEMUR",
+        "WU",
+        "BR",
+        "UB"
       ],
-      "collision_guidance": [],
+      "collision_guidance": [
+        {
+          "collision_id": "collision_izzet_league_vs_prismari_placement_ready",
+          "against": "PRISMARI",
+          "separator": "Izzet turns blue-red creativity into experiments, devices, spell engines, and civic systems; Prismari centers expressive elemental art and performance.",
+          "ask": "Is the creative spark trying to build a working prototype, or to make a visible artistic experience?",
+          "suppress_if": "the answer centers performance, beauty, theatricality, or elemental art without prototype/build/test language",
+          "evidence_claim_ids": [
+            "claim_izzet_league_0003",
+            "claim_izzet_league_0046",
+            "claim_izzet_league_0048",
+            "claim_izzet_league_0050",
+            "claim_izzet_league_0052",
+            "claim_izzet_league_0058",
+            "claim_izzet_league_0059"
+          ]
+        },
+        {
+          "collision_id": "collision_izzet_league_vs_quandrix_placement_ready",
+          "against": "QUANDRIX",
+          "separator": "Izzet applies theory through prototypes, machinery, spells, and experiments; Quandrix follows mathematical proof, scale, and hidden pattern.",
+          "ask": "When an idea is exciting, do you want to prove the structure beneath it or build the thing and see what happens?",
+          "suppress_if": "the answer centers equations, abstract proof, mathematical elegance, or hidden patterns before applied testing",
+          "evidence_claim_ids": [
+            "claim_izzet_league_0020",
+            "claim_izzet_league_0030",
+            "claim_izzet_league_0058",
+            "claim_izzet_league_0059",
+            "claim_izzet_league_0060"
+          ]
+        },
+        {
+          "collision_id": "collision_izzet_league_vs_simic_combine_placement_ready",
+          "against": "UG",
+          "separator": "Izzet builds with elemental magic, mizzium, spells, and civic technology; Simic centers biological adaptation and living-system optimization.",
+          "ask": "Is the experiment a machine/spell system to test, or a living system to evolve?",
+          "suppress_if": "the answer centers biological adaptation, organism design, or living-system optimization over mizzium, spells, tools, or civic engineering",
+          "evidence_claim_ids": [
+            "claim_izzet_league_0003",
+            "claim_izzet_league_0029",
+            "claim_izzet_league_0078",
+            "claim_izzet_league_0079",
+            "claim_izzet_league_0080"
+          ]
+        },
+        {
+          "collision_id": "collision_izzet_league_vs_azorius_senate_placement_ready",
+          "against": "WU",
+          "separator": "Izzet tests and iterates under uncertainty; Azorius prioritizes law, permission, procedure, and stable order.",
+          "ask": "When procedure slows discovery, do you seek authorization first or design a contained experiment path?",
+          "suppress_if": "the answer centers procedure, permission, risk elimination, or enforcement before experimentation",
+          "evidence_claim_ids": [
+            "claim_izzet_league_0027",
+            "claim_izzet_league_0030",
+            "claim_izzet_league_0031",
+            "claim_izzet_league_0042",
+            "claim_izzet_league_0043",
+            "claim_izzet_league_0054",
+            "claim_izzet_league_0057"
+          ]
+        },
+        {
+          "collision_id": "collision_izzet_league_vs_cult_of_rakdos_placement_ready",
+          "against": "BR",
+          "separator": "Izzet accepts volatility when it advances experiment, invention, or useful systems; Rakdos-adjacent answers center spectacle, disruption, or appetite as the point.",
+          "ask": "Is the dramatic moment valuable because it teaches the machine something, or because disruption itself is the payoff?",
+          "suppress_if": "the answer centers spectacle, shock, appetite, or disruption without experiment/build/usefulness language",
+          "evidence_claim_ids": [
+            "claim_izzet_league_0005",
+            "claim_izzet_league_0032",
+            "claim_izzet_league_0042",
+            "claim_izzet_league_0043",
+            "claim_izzet_league_0059",
+            "claim_izzet_league_0060",
+            "claim_izzet_league_0100"
+          ]
+        },
+        {
+          "collision_id": "collision_izzet_league_vs_house_dimir_placement_ready",
+          "against": "UB",
+          "separator": "Izzet wants knowledge to become tools, prototypes, and visible systems; Dimir-adjacent answers treat knowledge as secrecy, leverage, or hidden control.",
+          "ask": "Do you learn so you can build the device in public, or so you can hold leverage in secret?",
+          "suppress_if": "the answer centers concealment, leverage, infiltration, or information control over applied invention",
+          "evidence_claim_ids": [
+            "claim_izzet_league_0020",
+            "claim_izzet_league_0022",
+            "claim_izzet_league_0025",
+            "claim_izzet_league_0030",
+            "claim_izzet_league_0058",
+            "claim_izzet_league_0085",
+            "claim_izzet_league_0086"
+          ]
+        }
+      ],
       "chatbot_guidance": {
         "how_to_recognize_match": [
-          "User describes learning by building, testing, breaking, and rebuilding.",
+          "User describes learning by building, testing, failing, and rebuilding.",
           "User enjoys technical creativity, prototypes, magic-tech, spell chains, or experimental systems.",
           "User accepts failure as data and wants ideas to scale or become useful tools.",
           "User pairs creativity with practical infrastructure or systems improvement.",
@@ -7514,15 +7610,15 @@
           "User consistently prioritizes fixed procedure, permission, and risk elimination over experimentation.",
           "User dislikes technical systems, tool-building, spellcraft metaphors, or iteration.",
           "User prefers secrecy, law, communal harmony, biological evolution, or martial protection as the primary motive.",
-          "User wants novelty without any usefulness, which may be more Rakdos/Prismari depending on tone.",
+          "User wants novelty or spectacle without usefulness, prototype learning, or technical problem solving.",
           "User demands complete predictability before trying anything new.",
-          "User endorses harming or deceiving people as acceptable simply because a discovery is interesting.",
+          "User treats test subjects, collaborators, or bystanders as disposable because a discovery is interesting.",
           "User wants status without curiosity, experimentation, or technical problem solving."
         ],
         "questions_to_ask_when_uncertain": [
           "Do you enjoy prototypes more when they are useful, beautiful, mathematically elegant, or disruptive?",
           "What matters more: proving the theory, building the device, protecting people, or enforcing the rules?",
-          "When something fails, do you document it, hide it, mourn it, rebuild it, or weaponize it?",
+          "When something fails, do you document it, hide it, mourn it, rebuild it, or use the lesson as leverage?",
           "Ask whether they are more motivated by breakthrough, beauty, biological adaptation, law, or protection.",
           "Ask how they respond after a dangerous prototype failure: abandon, stabilize, iterate, or hide it.",
           "Ask whether they prefer planned systems engineering or improvised crisis engineering."
@@ -7532,7 +7628,7 @@
           "Do not overfit Izzet to safe engineering; official sources also support volatile experimentation and dangerous ambition.",
           "Do not treat Ral Zarek's personal history or Bolas involvement as a required user-placement trait.",
           "Do not treat Niv-Mizzet's arrogance as mandatory for every Izzet-aligned user.",
-          "Do not overweight one explosive or chaotic answer; look for curiosity plus systems thinking.",
+          "Do not overweight one dramatic or chaotic answer; look for curiosity plus systems thinking.",
           "Do not treat unethical experimentation as a positive score just because it resembles Izzet shadow behavior.",
           "Do not confuse Prismari expressive performance with Izzet applied experimentation unless the user emphasizes prototypes and discovery."
         ],

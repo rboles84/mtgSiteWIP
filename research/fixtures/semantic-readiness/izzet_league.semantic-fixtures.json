@@ -1,0 +1,278 @@
+{
+  "identity_key": "UR",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "izzet_core_experimental_guild_identity",
+      "fixture_type": "core_inclusion",
+      "scenario": "A clear Izzet case centers blue-red Ravnican guild identity, elemental magic, mizzium technology, civic engineering, prototypes, and learning by building and testing.",
+      "intended_interpretation": "Izzet inclusion is grounded when curiosity becomes applied experimentation, spellcraft, tools, or public works rather than generic blue-red energy.",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0004",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0001",
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0010"
+      ],
+      "defensible_guidance": "The answer should be explainable through Izzet guild-specific experimentation, invention, spell engines, mizzium, tools, or civic engineering.",
+      "unsupported_certainty_to_avoid": "Do not infer Izzet from generic curiosity, blue-red color preference, chaos, explosions, or spells without an experiment/build signal."
+    },
+    {
+      "fixture_id": "izzet_pressure_crisis_engineering",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "Under pressure, the Izzet-aligned response is crisis engineering: rewiring or stabilizing a failing system while preserving the lesson and avoiding reckless harm.",
+      "intended_interpretation": "Mature Izzet pressure behavior is useful invention, reconstruction, and technical improvisation under constraint, not random destruction.",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0091",
+        "claim_izzet_league_0092",
+        "claim_izzet_league_0093",
+        "claim_izzet_league_0098",
+        "claim_izzet_league_0100"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0010",
+        "src_izzet_league_0023",
+        "src_izzet_league_0025"
+      ],
+      "defensible_guidance": "The packet can explain Izzet as fast, applied, high-pressure engineering when the evidence includes systems, tools, Ral/Nivix crisis work, or reconstruction.",
+      "unsupported_certainty_to_avoid": "Do not treat reckless harm, arrogance, or spectacle as a mature Izzet match."
+    },
+    {
+      "fixture_id": "izzet_exclusion_prismari",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "PRISMARI",
+      "scenario": "A blue-red answer about performance, beauty, theatrical expression, or elemental art should stay Prismari unless the user centers prototypes, tools, experiments, or civic systems.",
+      "intended_interpretation": "Izzet and Prismari share colors, but Izzet needs applied experiment/build/test evidence while Prismari owns expressive elemental art.",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0052",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0001",
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0004",
+        "src_izzet_league_0005",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0010"
+      ],
+      "defensible_guidance": "Ask whether the creative spark is trying to build a working prototype or create an artistic experience.",
+      "unsupported_certainty_to_avoid": "Do not collapse Prismari performance into Izzet spellcraft merely because both are blue-red."
+    },
+    {
+      "fixture_id": "izzet_exclusion_quandrix",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "QUANDRIX",
+      "scenario": "A case about theory, mathematical elegance, proof, or hidden structure should stay Quandrix unless the user wants to build and test a device, spell engine, or prototype.",
+      "intended_interpretation": "Izzet applies theory through experiment and invention; Quandrix follows proof, scale, and mathematical pattern.",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0010"
+      ],
+      "defensible_guidance": "Separate proving the hidden structure from building the experiment and seeing what happens.",
+      "unsupported_certainty_to_avoid": "Do not treat abstract theory or mathematical elegance alone as Izzet."
+    },
+    {
+      "fixture_id": "izzet_exclusion_simic_ug",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UG",
+      "scenario": "A living-system, adaptation, or biological optimization answer should stay Simic unless the evidence centers Izzet mizzium, spells, tools, machines, or civic technology.",
+      "intended_interpretation": "Izzet engineering is elemental, spellcraft, mizzium, and civic technology; Simic owns biological adaptation and living-system optimization.",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0029",
+        "claim_izzet_league_0078",
+        "claim_izzet_league_0079",
+        "claim_izzet_league_0080"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0001",
+        "src_izzet_league_0002",
+        "src_izzet_league_0021"
+      ],
+      "defensible_guidance": "Ask whether the experiment is a machine/spell system or a living system to evolve.",
+      "unsupported_certainty_to_avoid": "Do not turn all science or engineering language into Izzet when the answer is biological optimization."
+    },
+    {
+      "fixture_id": "izzet_exclusion_azorius_wu",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WU",
+      "scenario": "A user who prioritizes procedure, permission, legal order, and risk elimination should remain Azorius/WU unless they also show Izzet-style contained experiment and iteration.",
+      "intended_interpretation": "Izzet can respect useful systems, but its placement center is testing and invention under uncertainty rather than procedure-first order.",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0027",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0054",
+        "claim_izzet_league_0057"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0005",
+        "src_izzet_league_0010"
+      ],
+      "defensible_guidance": "Ask whether procedure slows discovery into approval-seeking or a safely bounded experiment path.",
+      "unsupported_certainty_to_avoid": "Do not reward pure rule-breaking as Izzet, and do not treat every orderly system as anti-Izzet."
+    },
+    {
+      "fixture_id": "izzet_exclusion_rakdos_br",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BR",
+      "scenario": "Novelty, spectacle, disruption, or shock belongs away from Izzet unless it advances experiment, invention, or useful systems.",
+      "intended_interpretation": "Izzet can be volatile, but the volatility must teach the machine something or produce a useful experimental breakthrough.",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0042",
+        "claim_izzet_league_0043",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060",
+        "claim_izzet_league_0100"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0010",
+        "src_izzet_league_0025"
+      ],
+      "defensible_guidance": "Ask whether the dramatic moment serves experiment/build/usefulness or whether disruption itself is the payoff.",
+      "unsupported_certainty_to_avoid": "Do not certify Izzet from chaos, explosions, or spectacle alone."
+    },
+    {
+      "fixture_id": "izzet_exclusion_dimir_ub",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UB",
+      "scenario": "Knowledge pursued as secrecy, leverage, hidden control, or infiltration should remain Dimir/UB unless the answer turns knowledge into visible tools, prototypes, or public systems.",
+      "intended_interpretation": "Izzet wants knowledge to become devices, spells, and experiments; Dimir-adjacent answers treat knowledge as hidden leverage.",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0022",
+        "claim_izzet_league_0025",
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0085",
+        "claim_izzet_league_0086"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0022"
+      ],
+      "defensible_guidance": "Ask whether knowledge is for building in the open or holding leverage in secret.",
+      "unsupported_certainty_to_avoid": "Do not use isolated secrecy or side-lab language as a healthy Izzet signal."
+    },
+    {
+      "fixture_id": "izzet_exclusion_generic_ur_overfit",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_UR_OVERFIT",
+      "scenario": "Generic blue-red curiosity, chaos, spell-goodstuff, or color preference should not certify Izzet without Ravnican guild-specific experiment/build evidence.",
+      "intended_interpretation": "Izzet needs mizzium, spellcraft, prototype thinking, civic engineering, or experimental method rather than color-pair shorthand.",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0001",
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0019",
+        "claim_izzet_league_0020",
+        "claim_izzet_league_0032",
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0052",
+        "claim_izzet_league_0059"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0001",
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0005",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0010"
+      ],
+      "defensible_guidance": "Require Izzet-specific build/test/tool/spell-engine/public-works evidence before certifying UR as Izzet.",
+      "unsupported_certainty_to_avoid": "Do not treat generic blue-red energy or spell preference as enough."
+    },
+    {
+      "fixture_id": "izzet_ambiguous_blue_red_creativity",
+      "fixture_type": "nearest_collision_ambiguity",
+      "neighbor": "PRISMARI",
+      "scenario": "A user likes volatile spell creativity but has not clarified whether the motive is prototype, performance, proof, or generic blue-red energy.",
+      "intended_interpretation": "Keep ambiguity until the answer chooses Izzet applied experiment over Prismari expression, Quandrix proof, or generic UR overfit.",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0046",
+        "claim_izzet_league_0048",
+        "claim_izzet_league_0050",
+        "claim_izzet_league_0058",
+        "claim_izzet_league_0059",
+        "claim_izzet_league_0060"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0004",
+        "src_izzet_league_0005",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007",
+        "src_izzet_league_0010"
+      ],
+      "defensible_guidance": "Use uncertainty guidance when the answer shares blue-red spell creativity but does not show applied experiment/build evidence.",
+      "unsupported_certainty_to_avoid": "Do not certify Izzet just because the answer is energetic, creative, or spell-focused."
+    },
+    {
+      "fixture_id": "izzet_provenance_match_guidance",
+      "fixture_type": "provenance",
+      "scenario": "The first Izzet match-guidance item must preserve the complete evidence chain for building, testing, failing, and rebuilding.",
+      "canonical_file": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "evidence_claim_ids": [
+        "claim_izzet_league_0030",
+        "claim_izzet_league_0031",
+        "claim_izzet_league_0056",
+        "claim_izzet_league_0058"
+      ],
+      "evidence_source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0006",
+        "src_izzet_league_0007"
+      ],
+      "expected_generated_consumers": [
+        "data/factions.json#/factions/UR/chatbot_guidance/how_to_recognize_match/0",
+        "data/placement-model.json#/factions/UR/chatbot_guidance/how_to_recognize_match/0",
+        "supabase/functions/guild-recruiter/faction-context.ts#/UR/chatbot_guidance/how_to_recognize_match/0"
+      ],
+      "defensible_guidance": "Generated consumers must preserve claim and source provenance for recruiter-facing Izzet match guidance.",
+      "unsupported_certainty_to_avoid": "Do not expose internal claim IDs in user-facing recruiter prose."
+    }
+  ]
+}
