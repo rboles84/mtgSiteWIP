@@ -14,7 +14,7 @@ Generated from `CRIT-001-identity-recovery-ledger.json`. The JSON file is author
 | VM-504 | SILVERQUILL — Silverquill | college | certified | semantically_ready | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | v1.1 | b9cd9e914c280e9c40c7a977b8f7c07204614d3e | PENDING_VM504_CERTIFICATION_COMMIT_SHA |
 | VM-505 | WITHERBLOOM — Witherbloom | college | certified | semantically_ready | mixed-role-pattern, support-heavy-pattern | v1.1 | 48d240db3c7001a498a6e5a4602cc8cd54349776 | PENDING_VM505_CERTIFICATION_COMMIT_SHA |
 | VM-506 | LOREHOLD — Lorehold | college | certified | semantically_ready | high-volume-pattern, mixed-role-pattern | v1.1 | 6d8d46d8df0429a105c08e656a8303474c435abd | fa435b17ab36633b200a8405065732568f0ef78c |
-| VM-507 | UR — Izzet | guild | not_started | backlog | high-volume-pattern, support-heavy-pattern | — | — | — |
+| VM-507 | UR — Izzet | guild | gate_5_candidate_created | pending_independent_review | high-volume-pattern, support-heavy-pattern | v1.1 | d5bca29f3c55d0d69fe8567a69c8326dcc83d770 | — |
 | VM-508 | WU — Azorius | guild | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | — | — | — |
 | VM-509 | WR — Boros | guild | not_started | backlog | mixed-role-pattern, discovery-heavy-pattern | — | — | — |
 | VM-510 | BR — Rakdos | guild | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | — | — | — |

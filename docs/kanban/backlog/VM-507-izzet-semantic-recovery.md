@@ -34,7 +34,7 @@ Recover Izzet end to end under CRIT-001: audit the existing packet, bound readin
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-507-izzet-semantic-recovery.md`
-- Candidate recovery SHA: pending
+- Candidate recovery SHA: `d5bca29f3c55d0d69fe8567a69c8326dcc83d770`
 - Independent reviewer: pending
 - Certification commit: pending
 
@@ -73,3 +73,16 @@ Validation passed for `build:factions`, semantic readiness, source/generated par
 Known warnings are unchanged: the builder-owned Izzet inhibitor warning remains, and dossier audit remains 113 warnings / 0 failures.
 
 Izzet remains uncertified. Gate 5 candidate creation is ready when explicitly authorized; no candidate or certification commit has been created.
+
+## Gate 5 Candidate Record
+
+Candidate recovery commit created 2026-07-13.
+
+- Candidate parent SHA: `5bc25af194d2c7e14c4350d58c9b791775253734`
+- Candidate recovery SHA: `d5bca29f3c55d0d69fe8567a69c8326dcc83d770`
+- Candidate message: `VM-507 create Izzet semantic recovery candidate`
+- Workflow-record commit: pending this separate record commit
+- Candidate-scope guard result: no confidence, calibration, lateral-inhibition, non-Izzet raw packet, or non-Izzet semantic findings. Generated changes are UR/Izzet-scoped; `data/factions.json` contains the documented Izzet display-source cleanup for stale preserved public copy.
+- Known warnings unchanged: builder-owned Izzet inhibitor warning; dossier audit remains 113 warnings / 0 failures.
+
+Izzet remains uncertified pending independent Gate 5 review of the exact candidate SHA. No certification commit has been created.

@@ -778,10 +778,10 @@
           "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 104,
           "discovery_record": 0,
           "support_record": 0,
-          "unclassified": 104
+          "unclassified": 0
         },
         "source_count": 26,
         "source_role_counts": {
@@ -791,7 +791,7 @@
         },
         "claim_bearing_source_count": 22,
         "claim_bearing_source_rate": 0.8462,
-        "reference_site_count": 132,
+        "reference_site_count": 166,
         "missing_references": [],
         "potential_role_invalid_support_links": [],
         "raw_question_count": 13,
@@ -850,45 +850,65 @@
           "Selesnya Conclave",
           "Simic Combine"
         ],
-        "recruiter_context_size": 14258,
+        "recruiter_context_size": 14161,
         "creation_commit": "f6a1dd4644849ffb3bad6f1bba82f7cd55fa549a",
         "readiness_mentions": [
           "docs/reference/ravnica-guild-source-readiness-matrix.md:32"
         ],
         "provisional_risk_indicators": {
-          "coverage": [
-            "no-explicit-substantive-role"
-          ],
+          "coverage": [],
           "neighbors": []
         },
         "template_cohort_pattern": false,
-        "inventory_updated_at": "2026-07-11T18:42:33.624Z"
+        "inventory_updated_at": "2026-07-13T22:59:00-06:00"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "gate_5_candidate_created",
+        "status": "pending_independent_review",
+        "started_at": "2026-07-13T13:24:00-06:00",
+        "gate_entered_at": "2026-07-13T22:59:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
-        "next_identity": "QUANDRIX",
-        "primary_disposition": null
+        "next_identity": "AZORIUS",
+        "primary_disposition": "source_linkage_cleanup_required"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "PRISMARI",
+          "QUANDRIX",
+          "UG",
+          "WU",
+          "BR",
+          "UB",
+          "GENERIC_UR_OVERFIT"
+        ],
+        "audit_report": "docs/incidents/recoveries/VM-507-izzet-semantic-recovery.md",
+        "residual_findings": [
+          "Builder-owned Izzet inhibitor warning remains unchanged.",
+          "Dossier audit remains 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures.",
+          "Candidate-scope display-source exception: data/factions.json contains UR/Izzet-scoped cleanup for stale preserved public copy; data/identity-layers.json is unchanged.",
+          "Rakdos, Dimir, Simic, and Azorius are not yet certified; Izzet-side boundaries are bounded guidance only and do not certify reciprocal neighbor packets."
+        ]
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "d5bca29f3c55d0d69fe8567a69c8326dcc83d770",
+        "recovery_commit": "d5bca29f3c55d0d69fe8567a69c8326dcc83d770",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
         "approval_date": null,
-        "certified_at": null
+        "certified_at": null,
+        "candidate_parent_sha": "5bc25af194d2c7e14c4350d58c9b791775253734",
+        "candidate_recorded_at": "2026-07-13T22:59:00-06:00",
+        "known_unchanged_warnings": [
+          "builder-owned Izzet inhibitor warning remains unchanged",
+          "dossier audit verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures",
+          "documented Izzet display-source exception: data/factions.json UR display-source cleanup for stale preserved public copy"
+        ],
+        "workflow_record_commit": "PENDING_VM507_WORKFLOW_RECORD_COMMIT_SHA",
+        "final_state": "pending_independent_review"
       }
     },
     {

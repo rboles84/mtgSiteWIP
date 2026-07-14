@@ -808,6 +808,51 @@ Known warnings are unchanged:
 ### Gate 4 final state
 
 Izzet remains uncertified. No recovery candidate commit or certification commit has been created. Gate 5 candidate creation is ready when explicitly authorized.
+
+## Gate 5 Candidate Record
+
+Gate 5 candidate creation was completed on 2026-07-13. This section records the immutable recovery candidate only; it is not certification and does not start independent review.
+
+- Candidate parent SHA: `5bc25af194d2c7e14c4350d58c9b791775253734`
+- Candidate recovery SHA: `d5bca29f3c55d0d69fe8567a69c8326dcc83d770`
+- Candidate commit message: `VM-507 create Izzet semantic recovery candidate`
+- Workflow-record commit: pending this separate record commit
+
+Candidate contents:
+
+- Gate 3 canonical Izzet remediation.
+- Gate 4 generated artifacts and semantic-readiness provenance.
+- Gate 4 Izzet semantic fixtures.
+- Gate 4 bounded wording-blocker resolution for `q_izzet_league_0008`.
+- Izzet-scoped `data/factions.json` display-source cleanup for stale preserved public copy.
+- VM-507 Gate 1 through Gate 4 workflow/report/handoff records.
+
+Validation summary recorded for the candidate:
+
+- `npm.cmd run build:factions` passed.
+- `node research/validate-semantic-readiness.mjs --targets=UR` passed.
+- `npm.cmd run validate:source-generated -- --targets=UR` passed with one known builder-owned inhibitor warning.
+- `npm.cmd run test:semantic-readiness` passed.
+- `npm.cmd run test:placement` passed.
+- `npm.cmd run test:faction-context-isolation` passed.
+- `node research/archscry-dossier-followup-tests.js` passed.
+- `npm.cmd run dossier:audit` reported 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures.
+- `node research/audit-semantic-readiness.mjs --targets=UR` passed structurally.
+- Generated-diff isolation showed UR/Izzet-only generated changes.
+- Worktree candidate-scope dry-run before commit showed no confidence, calibration, lateral-inhibition, non-Izzet raw packet, or non-Izzet semantic findings.
+- `git diff --check` passed, with LF-to-CRLF working-copy warnings only.
+
+Documented display-source exception:
+
+- `data/factions.json` includes an Izzet-scoped display-source cleanup required to remove stale preserved public copy. `data/identity-layers.json` is unchanged. The cleanup does not alter any other identity semantics and no builder code changed.
+
+Known warnings:
+
+- Builder-owned Izzet inhibitor warning remains unchanged.
+- Dossier audit remains 113 warnings / 0 failures.
+- Rakdos, Dimir, Simic, and Azorius are not yet certified; Izzet-side boundaries are bounded guidance only and do not certify reciprocal neighbor packets.
+
+Izzet remains uncertified pending independent review of exact candidate SHA `d5bca29f3c55d0d69fe8567a69c8326dcc83d770`. No certification commit has been created.
 ## Validation commands run or intentionally deferred
 
 Run:
@@ -869,4 +914,4 @@ Intentionally deferred:
 
 Gate 4 generation, bounded wording-blocker resolution, fixture addition, provenance rebuild, and validation are complete.
 
-Izzet remains uncertified. No candidate or certification commit has been created. Gate 5 candidate creation is ready when explicitly authorized.
+Izzet remains uncertified. Candidate recovery commit `d5bca29f3c55d0d69fe8567a69c8326dcc83d770` is ready for independent Gate 5 review. No certification commit has been created.
