@@ -853,6 +853,40 @@ Known warnings:
 - Rakdos, Dimir, Simic, and Azorius are not yet certified; Izzet-side boundaries are bounded guidance only and do not certify reciprocal neighbor packets.
 
 Izzet remains uncertified pending independent review of exact candidate SHA `d5bca29f3c55d0d69fe8567a69c8326dcc83d770`. No certification commit has been created.
+
+## Certification and Program Acceptance
+
+Independent Gate 5 review returned **APPROVE EXACT SHA** for recovery commit `d5bca29f3c55d0d69fe8567a69c8326dcc83d770`. This certification commit does not modify the approved recovery candidate, canonical Izzet data, generated artifacts, fixtures, Hall/Crucible content, scoring, inhibition, confidence, scheduling, tie ordering, or global recruiter behavior.
+
+- Identity: Izzet
+- Target: UR
+- VM: VM-507
+- Contract version: v1.1
+- Approved recovery SHA: `d5bca29f3c55d0d69fe8567a69c8326dcc83d770`
+- Workflow-record SHA: `eca2e27228eb4623baa910c80dd04a95c47709b8`
+- Independent review result: APPROVE EXACT SHA
+- Reviewer reference: Robert / user-supplied independent Gate 5 review in this Codex thread
+- Approval date: 2026-07-14
+- Final certification state: `semantically_ready`
+- Certification commit: `PENDING_VM507_CERTIFICATION_COMMIT_SHA`
+
+Residual non-blocking observation:
+
+- Direct `npm.cmd run dossier:audit` was blocked in the independent review sandbox by EPERM while writing `artifacts/dossier-snapshots/dossier-audit-report.md`.
+- Reviewer independently reran the same audit logic in memory and verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures.
+- No correction is required for the candidate.
+
+Known unchanged warnings:
+
+- Builder-owned Izzet inhibitor warning remains unchanged.
+- Dossier audit logic verified 113 warnings / 0 failures.
+
+Program acceptance:
+
+- Recovery commit `d5bca29f3c55d0d69fe8567a69c8326dcc83d770`, workflow-record commit `eca2e27228eb4623baa910c80dd04a95c47709b8`, and this certification commit are accepted into the CRIT-001 program base.
+- Izzet / UR is semantically ready under CRIT-001 Contract v1.1.
+- VM-507 is moved to Done.
+- Azorius is the next identity in the approved CRIT-001 recovery order. No Azorius remediation has started.
 ## Validation commands run or intentionally deferred
 
 Run:
@@ -914,4 +948,4 @@ Intentionally deferred:
 
 Gate 4 generation, bounded wording-blocker resolution, fixture addition, provenance rebuild, and validation are complete.
 
-Izzet remains uncertified. Candidate recovery commit `d5bca29f3c55d0d69fe8567a69c8326dcc83d770` is ready for independent Gate 5 review. No certification commit has been created.
+Izzet is certified `semantically_ready` under CRIT-001 Contract v1.1. Recovery commit `d5bca29f3c55d0d69fe8567a69c8326dcc83d770` is accepted by exact-SHA independent review; certification commit is recorded as `PENDING_VM507_CERTIFICATION_COMMIT_SHA` in self-referential records and will be reported with its exact SHA after commit creation. Prismari, Lorehold, Quandrix, Silverquill, Witherbloom, and Izzet are certified. Azorius is next for branch setup only; no Azorius remediation has started.

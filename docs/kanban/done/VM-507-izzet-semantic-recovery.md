@@ -1,7 +1,7 @@
 ﻿# VM-507 â€” Izzet Semantic Recovery
 
 ID: VM-507
-Status: In Progress
+Status: Done
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: UR
@@ -19,7 +19,7 @@ Recover Izzet end to end under CRIT-001: audit the existing packet, bound readin
 - [x] Gate 2 â€” Sufficient evidence completion.
 - [x] Gate 3 â€” Canonical remediation.
 - [x] Gate 4 â€” Generation and validation.
-- [ ] Gate 5 â€” Independent certification.
+- [x] Gate 5 â€” Independent certification.
 
 ## Scope Rules
 
@@ -35,8 +35,8 @@ Recover Izzet end to end under CRIT-001: audit the existing packet, bound readin
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-507-izzet-semantic-recovery.md`
 - Candidate recovery SHA: `d5bca29f3c55d0d69fe8567a69c8326dcc83d770`
-- Independent reviewer: pending
-- Certification commit: pending
+- Independent reviewer: Robert / user-supplied independent Gate 5 review in this Codex thread
+- Certification commit: `PENDING_VM507_CERTIFICATION_COMMIT_SHA`
 
 ## Gate 1 Status
 
@@ -86,3 +86,19 @@ Candidate recovery commit created 2026-07-13.
 - Known warnings unchanged: builder-owned Izzet inhibitor warning; dossier audit remains 113 warnings / 0 failures.
 
 Izzet remains uncertified pending independent Gate 5 review of the exact candidate SHA. No certification commit has been created.
+
+## Certification Status
+
+Certified 2026-07-14 under CRIT-001 Contract v1.1.
+
+- Identity: Izzet
+- Target: UR
+- Approved recovery SHA: `d5bca29f3c55d0d69fe8567a69c8326dcc83d770`
+- Workflow-record SHA: `eca2e27228eb4623baa910c80dd04a95c47709b8`
+- Independent review result: APPROVE EXACT SHA
+- Final certification state: `semantically_ready`
+- Certification commit: `PENDING_VM507_CERTIFICATION_COMMIT_SHA`
+
+Residual non-blocking observation: direct `npm.cmd run dossier:audit` was blocked in the review sandbox by EPERM while writing `artifacts/dossier-snapshots/dossier-audit-report.md`; reviewer independently reran the same audit logic in memory and verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures. No candidate correction was required.
+
+Known warnings remain unchanged: builder-owned Izzet inhibitor warning; dossier audit logic verified 113 warnings / 0 failures.
