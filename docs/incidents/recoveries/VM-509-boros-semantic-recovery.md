@@ -1005,7 +1005,7 @@ Pre-candidate state:
 - Known builder-owned Boros inhibitor warning remains unchanged.
 - Dossier audit remains 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures.
 - Boros remains uncertified.
-- No recovery candidate SHA has been recorded yet; this section will be updated by the separate workflow-record commit after candidate creation.
+- Replacement recovery candidate SHA: `c2f5d064460a007f0dca6be95b7beabb4ca85026`.
 ## Replacement Candidate Scope Cleanup
 
 After infrastructure unblock commit `4d351747f0634663ea8f796099057e431af8a65b`, the failed candidate `abff94b91e94b99a6b2a77b71806a9d005ecec76` was used only as source material for a clean replacement candidate reconstruction.
@@ -1030,4 +1030,16 @@ Superseded failed candidate SHA: `abff94b91e94b99a6b2a77b71806a9d005ecec76`.
 
 Superseded failed workflow-record SHA: `25420bad09715645ba4af37f07cac097b3e7966d`.
 
-Replacement candidate SHA: pending until immutable candidate commit creation.
+Replacement candidate SHA: `c2f5d064460a007f0dca6be95b7beabb4ca85026`.
+
+## Replacement Recovery Candidate Record
+
+- Replacement candidate parent SHA: `4d351747f0634663ea8f796099057e431af8a65b`.
+- Replacement candidate SHA: `c2f5d064460a007f0dca6be95b7beabb4ca85026`.
+- Superseded failed candidate SHA: `abff94b91e94b99a6b2a77b71806a9d005ecec76`.
+- Superseded failed workflow-record SHA: `25420bad09715645ba4af37f07cac097b3e7966d`.
+- Infrastructure unblock commit: `4d351747f0634663ea8f796099057e431af8a65b`.
+- Safety refs preserved: `backup/vm-509-boros-failed-candidate-abff94b`, `backup/vm-509-boros-failed-workflow-25420ba`.
+- Independent reviewer: pending.
+- Certification commit: pending.
+- Boros remains uncertified.

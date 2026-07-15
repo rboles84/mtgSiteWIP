@@ -1,7 +1,7 @@
 # VM-509 â€” Boros Semantic Recovery
 
 ID: VM-509
-Status: Replacement candidate validation complete; replacement candidate SHA pending
+Status: Replacement candidate recorded; independent Gate 5 review required
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: WR
@@ -34,7 +34,7 @@ Recover Boros end to end under CRIT-001: audit the existing packet, bound readin
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-509-boros-semantic-recovery.md`
-- Candidate recovery SHA: pending
+- Candidate recovery SHA: `c2f5d064460a007f0dca6be95b7beabb4ca85026`
 - Independent reviewer: pending
 - Certification commit: pending
 
@@ -84,7 +84,7 @@ Recover Boros end to end under CRIT-001: audit the existing packet, bound readin
 
 - Candidate creation authorized after Gate 4 completion.
 - Candidate parent SHA: `4d351747f0634663ea8f796099057e431af8a65b`.
-- Candidate recovery SHA: pending until the immutable candidate commit is created.
+- Candidate recovery SHA: `c2f5d064460a007f0dca6be95b7beabb4ca85026`.
 - Boros remains uncertified; certification requires independent Gate 5 review and separate authorization.
 ## Infrastructure Unblock Note
 
@@ -98,4 +98,4 @@ Recover Boros end to end under CRIT-001: audit the existing packet, bound readin
 - Superseded failed candidate: `abff94b91e94b99a6b2a77b71806a9d005ecec76`.
 - Superseded failed workflow record: `25420bad09715645ba4af37f07cac097b3e7966d`.
 - Scope cleanup complete for generated WR lateral-target churn, frozen scoring hints, and retained native IDs.
-- Replacement candidate SHA remains pending until the immutable candidate commit is created.
+- Replacement candidate SHA: `c2f5d064460a007f0dca6be95b7beabb4ca85026`.
