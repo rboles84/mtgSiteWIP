@@ -1120,38 +1120,38 @@ export const FACTION_CONTEXT = {
         "label": "Azorius"
       }
     },
-    "tagline": "Order is not a constraint. It is civilization itself.",
-    "philosophy": "The Senate holds that clear, enforceable rules protect everyone equally. Without structure there is only chaos; without understanding, only fear. The Azorius believe their legislation is the only thing standing between civilization and collapse - and they are not entirely wrong.",
-    "core_tension": "The gap between their legislative output and actual enforcement is immense. The Senate responds to this by inventing more laws. They are not sure whether to acknowledge this.",
+    "tagline": "Law, procedure, and enforceable structure protect civic order when they stay accountable to the people they govern.",
+    "philosophy": "Azorius trusts law, information, documentation, and procedure to make civic life legible and protected, while recognizing that process must remain accountable to people.",
+    "core_tension": "Azorius rules can protect society, but its desire for order can become emotionally distant, inaccessible, and slow when procedure turns into an end in itself.",
     "affinity": {
       "drawn_to": [
-        "Systems that prevent chaos before it starts",
-        "Precedent and procedure as accumulated wisdom",
-        "The satisfaction of an airtight argument",
-        "Knowing the rules before entering any situation",
-        "Institutional stability across generations"
+        "Public procedure that protects people before crisis",
+        "Precedent and documentation as accumulated civic memory",
+        "Enforceable fairness rather than private exceptions",
+        "Knowing the rules before entering a situation",
+        "Institutions that stay accountable across generations"
       ],
       "repelled_by": [
         "Vigilante justice, even when it works",
-        "Breaking rules for good reasons - the exception always becomes the precedent",
+        "Breaking rules without preserving public accountability",
         "Impulsive action that creates cascading consequences",
-        "Ambiguity in agreements"
+        "Private leverage disguised as law"
       ],
-      "core_question": "Do you trust that the right system, perfectly applied, produces better outcomes than individual judgment?",
+      "core_question": "Do you trust public procedure and accountable rules to protect people better than individual judgment alone?",
       "interview_tells": [
-        "Talks about fairness in terms of process, not outcomes",
+        "Talks about fairness in terms of process, not only outcomes",
         "Wants to understand the rules of a situation before acting",
-        "Uncomfortable when others make exceptions, even reasonable ones",
+        "Treats documentation as a safeguard against private exceptions",
         "Describes a time when improvisation caused more problems than it solved",
-        "Uses phrases like 'properly', 'should have', 'the right way to handle this'"
+        "Uses phrases like proper channel, precedent, accountable, or enforceable"
       ],
-      "not_to_be_confused_with": "Boros - Boros breaks rules for justice; Azorius trusts the rules above individual judgment. Silverquill - both value structured language but Azorius codifies into law while Silverquill wields it as personal power."
+      "not_to_be_confused_with": "Boros acts faster when someone needs protection now; Selesnya repairs belonging and consensus first; Orzhov treats rules and contracts as obligation or leverage. Azorius requires public procedure, documentation, and enforceable fairness."
     },
     "decree_voice": {
-      "tone": "Formal. Precise. With the faint satisfaction of someone who was right all along.",
-      "speaks_like": "A senior lawmage issuing a ruling - not unkind, but not warm.",
+      "tone": "Formal, precise, and civic-minded without becoming cruel or omniscient.",
+      "speaks_like": "A lawmage issuing a careful ruling: restrained, accountable, and aware that procedure must serve people.",
       "example_opening": "The record shows a mind that seeks structure before it seeks action.",
-      "example_decree": "The record shows a mind that seeks structure before it seeks action - not from timidity but from the understanding that improvised justice is no justice at all. The Senate does not ask you to be inflexible. It asks you to be consistent. The law you enforce today is the law that protects you tomorrow. Welcome to the institution that outlasts everyone in it."
+      "example_decree": "The record shows a mind that seeks structure before it seeks action. Azorius does not ask you to worship paperwork; it asks whether a decision can be explained, repeated, and trusted when pressure arrives. The rule is strongest when it protects people without hiding from them."
     },
     "biological_expression": {
       "archetype": "The Institutional Stabilizer",
@@ -1194,72 +1194,95 @@ export const FACTION_CONTEXT = {
       "broad_match_penalty": 0.12
     },
     "good_fit_indicators": [
-      "asks what rule applies before acting",
-      "values fairness through process",
-      "likes airtight systems and documented precedent"
+      "asks what rule or process applies before acting",
+      "values fairness through enforceable public procedure",
+      "likes documented precedent, careful systems, and auditable rules"
     ],
     "poor_fit_indicators": [
-      "prefers impulse over process",
-      "treats exceptions as automatically noble",
+      "prefers impulse or ad hoc judgment over process",
+      "treats rules primarily as private leverage or negotiated advantage",
       "rejects institutions even when they protect people"
     ],
     "inhibitor_traps": [
       "Open contempt for rules, process, and institutional legitimacy; treats order as oppression by default.",
       "prefers impulse over process",
       "treats exceptions as automatically noble",
-      "rejects institutions even when they protect people"
+      "rejects institutions even when they protect people",
+      "prefers impulse or ad hoc judgment over process",
+      "treats rules primarily as private leverage or negotiated advantage"
     ],
     "lateral_inhibition_targets": [
       "WG",
       "WR",
       "WB",
       "SILVERQUILL",
-      "ESPER"
+      "ESPER",
+      "UR",
+      "UB",
+      "UG"
     ],
     "discriminator_questions": [
       {
         "id": "azorius_q1",
         "prompt": "When everyone agrees on the desired outcome but disagrees on the process, what matters most to you?",
-        "purpose": "Tests whether process is seen as protection or obstruction.",
-        "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-        "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-        "collision_targets": [],
-        "evidence_claim_ids": [
-          "azorius_senate_claim_001",
-          "azorius_senate_claim_002",
-          "azorius_senate_claim_003"
-        ],
-        "confidence": "Medium"
-      },
-      {
-        "id": "azorius_q2",
-        "prompt": "Tell me about a time a rule prevented a worse problem.",
-        "purpose": "Distinguishes Azorius trust in systems from Boros moral urgency.",
-        "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-        "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-        "collision_targets": [],
-        "evidence_claim_ids": [
-          "azorius_senate_claim_001",
-          "azorius_senate_claim_002",
-          "azorius_senate_claim_003"
-        ],
-        "confidence": "Medium"
-      },
-      {
-        "id": "q_azorius_senate_9001",
-        "prompt": "A loved community wants one outcome, a vulnerable person needs help now, and the written process points somewhere colder. Which obligation decides your first move?",
-        "purpose": "",
-        "supports": "",
-        "weakens": "",
+        "purpose": "Tests whether process is seen as civic protection, auditable fairness, or needless obstruction.",
+        "supports": "The answer names procedure, lawful channels, precedent, documentation, or enforceable fairness as necessary protections.",
+        "weakens": "The answer dismisses procedure in favor of impulse, private judgment, belonging, leverage, or experiment-first action.",
         "collision_targets": [
           "WG",
           "WR",
           "WB"
         ],
         "evidence_claim_ids": [
-          "azorius_senate_claim_001",
           "azorius_senate_claim_002",
-          "azorius_senate_claim_003"
+          "azorius_senate_claim_0020",
+          "azorius_senate_claim_0021",
+          "azorius_senate_claim_0025",
+          "azorius_senate_claim_0026"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "azorius_q2",
+        "prompt": "Tell me about a time a rule prevented a worse problem.",
+        "purpose": "Tests whether law, prevention, or delay is framed as protective civic structure rather than generic caution or control.",
+        "supports": "The answer treats rules, documentation, or institutional restraint as protections that remain accountable to people.",
+        "weakens": "The answer treats rules as mere stasis, personal leverage, or an obstacle to urgent protection without Azorius process language.",
+        "collision_targets": [
+          "WR",
+          "UR",
+          "UB",
+          "UG"
+        ],
+        "evidence_claim_ids": [
+          "azorius_senate_claim_0018",
+          "azorius_senate_claim_0020",
+          "azorius_senate_claim_0021",
+          "azorius_senate_claim_0022",
+          "azorius_senate_claim_0023",
+          "azorius_senate_claim_0026"
+        ],
+        "confidence": "Medium"
+      },
+      {
+        "id": "q_azorius_senate_9001",
+        "prompt": "A loved community wants one outcome, a vulnerable person needs help now, and the written process points to a slower, more formal route. Which obligation decides your first move?",
+        "purpose": "Separates Azorius procedure-as-protection from Selesnya belonging, Boros immediate rescue, and Orzhov leverage/obligation framing.",
+        "supports": "The answer keeps procedure, precedent, and public accountability central while acknowledging the human cost of delay.",
+        "weakens": "The answer replaces public process with harmony, urgent intervention, debt, status, or private leverage.",
+        "collision_targets": [
+          "WG",
+          "WR",
+          "WB",
+          "WG",
+          "WR",
+          "WB"
+        ],
+        "evidence_claim_ids": [
+          "azorius_senate_claim_002",
+          "azorius_senate_claim_0021",
+          "azorius_senate_claim_0023",
+          "azorius_senate_claim_0026"
         ],
         "confidence": "Medium"
       }

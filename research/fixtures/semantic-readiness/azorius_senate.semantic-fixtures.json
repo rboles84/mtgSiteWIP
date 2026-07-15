@@ -1,0 +1,214 @@
+{
+  "identity_key": "WU",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "azorius_core_civic_procedure",
+      "fixture_type": "core_inclusion",
+      "scenario": "A clear Azorius case centers public law, procedure, precedent, documentation, and enforceable civic fairness rather than generic order or control.",
+      "intended_interpretation": "Azorius inclusion is grounded when white-blue order is expressed as Ravnican civic/legal institution, lawful process, and auditable public structure.",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "defensible_guidance": "The answer should be explainable through Azorius lawmaking, enforcement, interpretation, public procedure, documentation, or enforceable fairness.",
+      "unsupported_certainty_to_avoid": "Do not infer Azorius from generic WU color preference, clean control gameplay, caution, or order without civic/legal process evidence."
+    },
+    {
+      "fixture_id": "azorius_pressure_procedure_or_paralysis",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "Under pressure, a mature Azorius response keeps procedure accountable to protection; an unhealthy response delays, over-controls, or hides behind inaccessible process.",
+      "intended_interpretation": "Mature or pressure behavior is defensible when rules and documentation protect people while acknowledging delay and over-procedure as real failure modes.",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0022",
+        "azorius_senate_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "defensible_guidance": "Use Azorius when procedure functions as accountable civic protection; use caution when the answer centers delay, restricted knowledge, or procedure as its own end.",
+      "unsupported_certainty_to_avoid": "Do not call all bureaucracy, stasis, or control Azorius unless the packet evidence supports the specific process/protection chain."
+    },
+    {
+      "fixture_id": "azorius_exclusion_generic_wu_overfit",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_WU_OVERFIT",
+      "scenario": "A user likes white-blue control, caution, clean order, or defensive gameplay but does not mention law, procedure, public institution, precedent, or documentation.",
+      "intended_interpretation": "Generic WU surface traits should not certify Azorius without civic/legal procedure evidence.",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "defensible_guidance": "Require Azorius-specific public law, procedure, institution, precedent, documentation, or enforceable structure before certifying WU as Azorius.",
+      "unsupported_certainty_to_avoid": "Do not collapse all white-blue order or control into Azorius."
+    },
+    {
+      "fixture_id": "azorius_exclusion_orzhov_leverage",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ORZHOV_SYNDICATE",
+      "scenario": "A user treats law, contracts, or institutional obligation as debt, status, private leverage, or collectible power.",
+      "intended_interpretation": "That should remain Orzhov-adjacent unless the answer centers impartial public procedure and enforceable fairness.",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "defensible_guidance": "Ask whether the rule binds everyone impartially or creates advantage that can be collected.",
+      "unsupported_certainty_to_avoid": "Do not present Orzhov contrast terms as new Azorius canon."
+    },
+    {
+      "fixture_id": "azorius_exclusion_boros_immediate_rescue",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BOROS_LEGION",
+      "scenario": "A user prioritizes immediate protection, intervention, or martial rescue over proper channels and auditable procedure.",
+      "intended_interpretation": "That should remain Boros-adjacent unless the answer keeps lawful process and public accountability central.",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "defensible_guidance": "Separate proper channels and enforceable procedure from urgent intervention when process is slow.",
+      "unsupported_certainty_to_avoid": "Do not call every protective impulse Azorius when the answer rejects procedure."
+    },
+    {
+      "fixture_id": "azorius_exclusion_selesnya_belonging",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SELESNYA_CONCLAVE",
+      "scenario": "A user prioritizes group belonging, consensus, and harmony over written procedure or enforceable fairness.",
+      "intended_interpretation": "That should remain Selesnya-adjacent unless the answer makes public procedure and documentation decisive.",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "defensible_guidance": "Ask whether the user repairs the group first or follows the public procedure because fairness must be enforceable.",
+      "unsupported_certainty_to_avoid": "Do not reduce Selesnya to naive harmony or Azorius to loveless rule-following."
+    },
+    {
+      "fixture_id": "azorius_exclusion_izzet_experiment_first",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "IZZET_LEAGUE",
+      "scenario": "A user wants to bypass procedure for contained experiment, prototype learning, or useful iteration under uncertainty.",
+      "intended_interpretation": "That should remain Izzet/UR-adjacent unless the answer seeks authorization, lawful procedure, and stable civic order first.",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "defensible_guidance": "Ask whether procedure slows discovery into approval-seeking or into a bounded experiment path.",
+      "unsupported_certainty_to_avoid": "Do not treat all planning as Azorius or all rule-bending as Izzet."
+    },
+    {
+      "fixture_id": "azorius_exclusion_dimir_hidden_control",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "HOUSE_DIMIR",
+      "scenario": "A user wants information to remain secret until it creates hidden control, leverage, or advantage.",
+      "intended_interpretation": "That should remain Dimir-adjacent unless information is used for public adjudication, documentation, and accountable procedure.",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "defensible_guidance": "Ask whether information should make the process publicly accountable or stay hidden for leverage.",
+      "unsupported_certainty_to_avoid": "Do not turn every information/control answer into Azorius when it centers secrecy."
+    },
+    {
+      "fixture_id": "azorius_exclusion_simic_biological_optimization",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SIMIC_COMBINE",
+      "scenario": "A user treats systems as living organisms to optimize, adapt, or biologically improve rather than civic/legal processes to authorize and adjudicate.",
+      "intended_interpretation": "That should remain Simic-adjacent unless the answer centers Azorius law, procedure, institution, or Addendum-like timing as civic order.",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0024",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018",
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "defensible_guidance": "Ask whether the system is a civic/legal process to authorize or a living system to optimize.",
+      "unsupported_certainty_to_avoid": "Do not turn all systems language into Azorius when the answer is biological adaptation."
+    },
+    {
+      "fixture_id": "azorius_ambiguous_process_protection_or_rescue",
+      "fixture_type": "nearest_collision_ambiguity",
+      "neighbor": "BOROS_LEGION",
+      "scenario": "A user wants rules to protect people but is tempted by immediate rescue or group repair when the written process is slow.",
+      "intended_interpretation": "Keep ambiguity until the answer chooses Azorius public procedure, Boros immediate intervention, Selesnya belonging, or Orzhov leverage.",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "defensible_guidance": "Use uncertainty guidance when process, protection, rescue, and belonging are all present but not yet prioritized.",
+      "unsupported_certainty_to_avoid": "Do not force Azorius when the user has not chosen procedure as the deciding obligation."
+    },
+    {
+      "fixture_id": "azorius_provenance_match_guidance",
+      "fixture_type": "provenance",
+      "scenario": "The first Azorius match-guidance item must preserve the complete evidence chain for rule/process-before-action guidance.",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "expected_generated_consumers": [
+        "data/factions.json#/factions/WU/chatbot_guidance/how_to_recognize_match/0",
+        "data/placement-model.json#/factions/WU/chatbot_guidance/how_to_recognize_match/0",
+        "supabase/functions/guild-recruiter/faction-context.ts#/WU/chatbot_guidance/how_to_recognize_match/0"
+      ],
+      "defensible_guidance": "Generated consumers must preserve claim and source provenance for recruiter-facing Azorius match guidance.",
+      "unsupported_certainty_to_avoid": "Do not expose internal claim IDs in user-facing recruiter prose."
+    }
+  ]
+}

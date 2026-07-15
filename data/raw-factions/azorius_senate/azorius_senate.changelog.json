@@ -2,8 +2,69 @@
   "schema_version": "1.0.0",
   "faction_id": "azorius_senate",
   "faction_name": "Azorius Senate",
-  "last_updated": "2026-05-10T02:56:03.254Z",
+  "last_updated": "2026-07-14",
   "changes": [
+    {
+      "change_id": "azorius_senate_change_vm508_gate3_20260714",
+      "date": "2026-07-14",
+      "change_type": "contract_v1_1_gate3_canonical_remediation",
+      "summary": "Added semantic roles, bounded evidence locations, minimal source-backed claims, profile and placement proof-chain repairs, recruiter guidance evidence mappings, required-neighbor and collision guidance, and discovery/support isolation for Azorius. Generated artifacts remain stale until Gate 4.",
+      "affected_files": [
+        "azorius_senate.claims.json",
+        "azorius_senate.sources.json",
+        "azorius_senate.profile.json",
+        "azorius_senate.placement.json",
+        "azorius_senate.changelog.json"
+      ],
+      "claims_added": [
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0019",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0022",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0024",
+        "azorius_senate_claim_0025",
+        "azorius_senate_claim_0026"
+      ],
+      "claims_updated": [
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_003",
+        "azorius_senate_claim_004",
+        "azorius_senate_claim_005",
+        "azorius_senate_claim_006",
+        "azorius_senate_claim_007",
+        "azorius_senate_claim_0008",
+        "azorius_senate_claim_0009",
+        "azorius_senate_claim_0010",
+        "azorius_senate_claim_0011",
+        "azorius_senate_claim_0012",
+        "azorius_senate_claim_0013",
+        "azorius_senate_claim_0014",
+        "azorius_senate_claim_0015",
+        "azorius_senate_claim_0016",
+        "azorius_senate_claim_0017"
+      ],
+      "discovery_records_retained": [
+        "azorius_senate_claim_0008",
+        "azorius_senate_claim_0009",
+        "azorius_senate_claim_0010",
+        "azorius_senate_claim_0011",
+        "azorius_senate_claim_0012",
+        "azorius_senate_claim_0013",
+        "azorius_senate_claim_0014",
+        "azorius_senate_claim_0015",
+        "azorius_senate_claim_0016",
+        "azorius_senate_claim_0017"
+      ],
+      "support_surfaces_isolated": [
+        "src_wotc_dragons_maze_mechanics_2013",
+        "commander_compass",
+        "card/product Commander navigation"
+      ],
+      "generated_artifacts_status": "stale_until_gate4"
+    },
     {
       "change_id": "change_azorius_senate_placement_ready_20260510025603",
       "date": "2026-05-10",
@@ -114,15 +175,15 @@
   "audit_summary": {
     "faction_researched": "Azorius Senate",
     "plane_or_setting": "Ravnica",
-    "number_of_sources_reviewed": 13,
-    "number_of_official_sources_used": 3,
+    "number_of_sources_reviewed": 14,
+    "number_of_official_sources_used": 4,
     "number_of_repository_archive_sources_used": 10,
     "number_of_secondary_discovery_sources_used": 0,
     "number_of_claims_verified": 16,
     "number_of_claims_marked_uncertain": 0,
     "sections_with_limited_evidence": [
-      "deep story episode coverage",
-      "current post-source leadership status where later canon may update the cited-era overview"
+      "deep story episode coverage remains discovery-only",
+      "generated artifacts and provenance remain stale until Gate 4"
     ],
     "conflicting_sources_found": [],
     "assumptions_removed_during_validation": [],

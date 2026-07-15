@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "azorius_senate",
   "faction_name": "Azorius Senate",
-  "last_updated": "2026-05-10T02:56:03.254Z",
+  "last_updated": "2026-07-14",
   "placement_model_version": "vox-mana-lore-json-v1",
   "color_identity": [
     "white",
@@ -10,52 +10,63 @@
   ],
   "ideal_fit_indicators": [
     {
-      "indicator": "asks what rule applies before acting",
-      "rationale": "Matches the official Azorius Senate identity summarized in the profile.",
+      "indicator": "asks what rule or process applies before acting",
+      "rationale": "Supported by official Azorius civic/legal identity and White/Blue process framing.",
       "claim_ids": [
-        "azorius_senate_claim_001"
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "values fairness through process",
-      "rationale": "Matches the official Azorius Senate identity summarized in the profile.",
+      "indicator": "values fairness through enforceable public procedure",
+      "rationale": "Matches Azorius lawmaking/enforcement/interpreting role and mature process-as-protection reading.",
       "claim_ids": [
-        "azorius_senate_claim_002"
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "likes airtight systems and documented precedent",
-      "rationale": "Matches the official Azorius Senate identity summarized in the profile.",
+      "indicator": "likes documented precedent, careful systems, and auditable rules",
+      "rationale": "Supported by White/Blue systems/detail orientation and Azorius institutional law framing.",
       "claim_ids": [
-        "azorius_senate_claim_003"
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025"
       ],
       "confidence": "Medium"
     }
   ],
   "poor_fit_indicators": [
     {
-      "indicator": "prefers impulse over process",
-      "rationale": "Counters a core Azorius Senate placement signal.",
+      "indicator": "prefers impulse or ad hoc judgment over process",
+      "rationale": "Counters Azorius trust in orderly, lawful, procedural action.",
       "claim_ids": [
-        "azorius_senate_claim_001"
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0026"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "treats exceptions as automatically noble",
-      "rationale": "Counters a core Azorius Senate placement signal.",
+      "indicator": "treats rules primarily as private leverage or negotiated advantage",
+      "rationale": "Counters Azorius public-law and enforceable-fairness framing.",
       "claim_ids": [
-        "azorius_senate_claim_002"
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025",
+        "azorius_senate_claim_0026"
       ],
       "confidence": "Medium"
     },
     {
       "indicator": "rejects institutions even when they protect people",
-      "rationale": "Counters a core Azorius Senate placement signal.",
+      "rationale": "Counters the mature Azorius process-as-protection reading.",
       "claim_ids": [
-        "azorius_senate_claim_003"
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
       ],
       "confidence": "Medium"
     }
@@ -64,14 +75,28 @@
     {
       "question_id": "azorius_q1",
       "question": "When everyone agrees on the desired outcome but disagrees on the process, what matters most to you?",
-      "purpose": "Tests whether process is seen as protection or obstruction.",
-      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
-      "related_factions_to_compare": [],
+      "purpose": "Tests whether process is seen as civic protection, auditable fairness, or needless obstruction.",
+      "answer_pattern_that_supports_this_faction": "The answer names procedure, lawful channels, precedent, documentation, or enforceable fairness as necessary protections.",
+      "answer_pattern_that_weakens_this_faction": "The answer dismisses procedure in favor of impulse, private judgment, belonging, leverage, or experiment-first action.",
+      "related_factions_to_compare": [
+        "generic_wu_overfit",
+        "selesnya_conclave",
+        "boros_legion",
+        "orzhov_syndicate"
+      ],
       "claim_ids": [
-        "azorius_senate_claim_001",
         "azorius_senate_claim_002",
-        "azorius_senate_claim_003"
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025",
+        "azorius_senate_claim_0026"
       ],
       "confidence": "Medium",
       "notes": "Question is placement-engine guidance, not canon text."
@@ -79,14 +104,30 @@
     {
       "question_id": "azorius_q2",
       "question": "Tell me about a time a rule prevented a worse problem.",
-      "purpose": "Distinguishes Azorius trust in systems from Boros moral urgency.",
-      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
-      "related_factions_to_compare": [],
+      "purpose": "Tests whether law, prevention, or delay is framed as protective civic structure rather than generic caution or control.",
+      "answer_pattern_that_supports_this_faction": "The answer treats rules, documentation, or institutional restraint as protections that remain accountable to people.",
+      "answer_pattern_that_weakens_this_faction": "The answer treats rules as mere stasis, personal leverage, or an obstacle to urgent protection without Azorius process language.",
+      "related_factions_to_compare": [
+        "boros_legion",
+        "izzet_league",
+        "house_dimir",
+        "simic_combine"
+      ],
       "claim_ids": [
-        "azorius_senate_claim_001",
-        "azorius_senate_claim_002",
-        "azorius_senate_claim_003"
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0022",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_claim_ids": [
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0022",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
       ],
       "confidence": "Medium",
       "notes": "Question is placement-engine guidance, not canon text."
@@ -98,14 +139,30 @@
         "boros_legion",
         "orzhov_syndicate"
       ],
-      "prompt": "A loved community wants one outcome, a vulnerable person needs help now, and the written process points somewhere colder. Which obligation decides your first move?",
-      "azorius_signal": "chooses the written process because impartial rules protect everyone",
-      "suppresses_azorius_if": "chooses belonging, immediate rescue, or leverage over process",
-      "evidence_claim_ids": [
-        "azorius_senate_claim_001",
+      "prompt": "A loved community wants one outcome, a vulnerable person needs help now, and the written process points to a slower, more formal route. Which obligation decides your first move?",
+      "purpose": "Separates Azorius procedure-as-protection from Selesnya belonging, Boros immediate rescue, and Orzhov leverage/obligation framing.",
+      "azorius_signal": "chooses the lawful or documented process because impartial rules protect everyone and keep decisions auditable",
+      "suppresses_azorius_if": "chooses belonging, immediate rescue, or leverage over process without preserving enforceable public procedure",
+      "answer_pattern_that_supports_this_faction": "The answer keeps procedure, precedent, and public accountability central while acknowledging the human cost of delay.",
+      "answer_pattern_that_weakens_this_faction": "The answer replaces public process with harmony, urgent intervention, debt, status, or private leverage.",
+      "related_factions_to_compare": [
+        "selesnya_conclave",
+        "boros_legion",
+        "orzhov_syndicate"
+      ],
+      "claim_ids": [
         "azorius_senate_claim_002",
-        "azorius_senate_claim_003"
-      ]
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
+      ],
+      "notes": "Nearest-collision ambiguity prompt; not canon text."
     }
   ],
   "chatbot_guidance": {
@@ -141,14 +198,14 @@
     "strongest_evidence_areas": [
       "official faction overview",
       "official mechanics identity",
-      "MTG-Stories corpus search evidence"
+      "local official White/Blue philosophy capture"
     ],
     "weakest_evidence_areas": [
       "deep story episode coverage",
-      "cross-faction comparison calibration"
+      "cross-faction comparison calibration beyond the bounded required-neighbor set"
     ],
     "manual_review_recommended": true,
-    "notes": "Good for initial placement testing; should be expanded with story-specific claims in a later pass. Corpus-enriched data should be reviewed with calibration and collision reports before being treated as tuned scoring fuel.",
+    "notes": "Gate 3 isolates MTG-Stories corpus rows as discovery metadata and uses official/local source-backed claims for placement semantics. Generated artifacts remain stale until Gate 4.",
     "last_tuning_pass": "2026-05-10T02:24:27.430Z",
     "calibration_status": "metadata_tuned",
     "calibration_tuning_status": "explicit",
@@ -157,179 +214,184 @@
   "placement_profile_version": "vox-mana-lore-json-v1",
   "based_on_profile_version": "1.0.0",
   "placement_summary": {
-    "short_description": "Azorius Senate placement is informed by official overview sources and MTG-Stories corpus evidence.",
-    "best_fit_summary": "asks what rule applies before acting values fairness through process likes airtight systems and documented precedent",
-    "poor_fit_summary": "prefers impulse over process treats exceptions as automatically noble rejects institutions even when they protect people",
+    "short_description": "Azorius Senate placement is informed by official Azorius guild identity, official mechanics evidence, and local official White/Blue philosophy, with corpus rows retained only as discovery metadata.",
+    "best_fit_summary": "asks what rule or process applies before acting values fairness through enforceable public procedure likes documented precedent and auditable systems",
+    "poor_fit_summary": "prefers impulse over process treats rules as private leverage rejects institutions even when they protect people",
     "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
     "claim_ids": [
-      "azorius_senate_claim_0008",
-      "azorius_senate_claim_0009",
-      "azorius_senate_claim_0010",
-      "azorius_senate_claim_0011",
-      "azorius_senate_claim_0012",
-      "azorius_senate_claim_0013",
-      "azorius_senate_claim_0014",
-      "azorius_senate_claim_0015"
+      "azorius_senate_claim_001",
+      "azorius_senate_claim_002",
+      "azorius_senate_claim_007",
+      "azorius_senate_claim_0018",
+      "azorius_senate_claim_0020",
+      "azorius_senate_claim_0021",
+      "azorius_senate_claim_0022",
+      "azorius_senate_claim_0023",
+      "azorius_senate_claim_0025",
+      "azorius_senate_claim_0026"
     ],
     "calibrated_primary_read": "Requires explicit trust in law, procedure, precedent, documentation, or institutional restraint.",
     "calibrated_false_positive_guardrail": "Do not award for generic order, generic caution, clean control gameplay, or fairness without process language.",
     "evidence_claim_ids": [
       "azorius_senate_claim_001",
       "azorius_senate_claim_002",
-      "azorius_senate_claim_003",
-      "azorius_senate_claim_004",
-      "azorius_senate_claim_005",
-      "azorius_senate_claim_006"
+      "azorius_senate_claim_007",
+      "azorius_senate_claim_0018",
+      "azorius_senate_claim_0020",
+      "azorius_senate_claim_0021",
+      "azorius_senate_claim_0022",
+      "azorius_senate_claim_0023",
+      "azorius_senate_claim_0025",
+      "azorius_senate_claim_0026"
     ]
   },
   "placement_axes": [
     {
       "axis_id": "axis_procedure_vs_impulse",
       "label": "Procedure vs Impulse",
-      "description": "Measures whether user answers align with Azorius Senate's specific evidence instead of only its color pair.",
-      "low_end_label": "procedural stability",
-      "high_end_label": "ad hoc judgment",
+      "description": "Measures whether user answers align with Azorius Senate law/procedure/institution evidence instead of only WU color identity or generic order.",
+      "low_end_label": "ad hoc or impulse-first judgment",
+      "high_end_label": "lawful procedure and auditable process",
       "faction_position": 82,
-      "rationale": "Corpus evidence adds story-context support for Azorius Senate, Azor, Isperia, Dovin Baan, Lavinia, Grand Arbiter, Azorius, Prahv.",
+      "rationale": "Azorius is supported by official guild lawmaking/enforcement/interpreting identity plus White/Blue order/process framing.",
       "claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011",
-        "azorius_senate_claim_0012",
-        "azorius_senate_claim_0013",
-        "azorius_senate_claim_0014",
-        "azorius_senate_claim_0015"
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0025"
       ],
       "confidence": "Medium",
-      "notes": "Added during MTG-Stories corpus upgrade."
+      "notes": "Gate 3 replaces corpus-search rationale with source-backed Azorius claims."
     }
   ],
   "moral_and_psychological_profile": {
-    "summary": "Azorius Senate should be scored through faction-specific behavioral evidence, not only broad color identity.",
+    "summary": "Azorius should be scored through explicit law, procedure, institution, precedent, documentation, or enforceable public-structure evidence, not generic WU order/control alone.",
     "claim_ids": [
-      "azorius_senate_claim_0008",
-      "azorius_senate_claim_0009",
-      "azorius_senate_claim_0010",
-      "azorius_senate_claim_0011",
-      "azorius_senate_claim_0012"
+      "azorius_senate_claim_001",
+      "azorius_senate_claim_002",
+      "azorius_senate_claim_0019",
+      "azorius_senate_claim_0020",
+      "azorius_senate_claim_0021",
+      "azorius_senate_claim_0022",
+      "azorius_senate_claim_0025"
     ]
   },
   "core_values": [
     {
-      "value": "Azorius Senate",
-      "placement_relevance": "Corpus search evidence for Azorius Senate.",
+      "value": "Procedure before action",
+      "placement_relevance": "Source-backed Azorius placement value replacing corpus-search inventory terms.",
       "claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0025"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Azor",
-      "placement_relevance": "Corpus search evidence for Azorius Senate.",
+      "value": "Law as civic structure",
+      "placement_relevance": "Source-backed Azorius placement value replacing corpus-search inventory terms.",
       "claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Isperia",
-      "placement_relevance": "Corpus search evidence for Azorius Senate.",
+      "value": "Enforceable fairness",
+      "placement_relevance": "Source-backed Azorius placement value replacing corpus-search inventory terms.",
       "claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0026"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Dovin Baan",
-      "placement_relevance": "Corpus search evidence for Azorius Senate.",
+      "value": "Documented precedent",
+      "placement_relevance": "Source-backed Azorius placement value replacing corpus-search inventory terms.",
       "claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Lavinia",
-      "placement_relevance": "Corpus search evidence for Azorius Senate.",
+      "value": "Institutional restraint",
+      "placement_relevance": "Source-backed Azorius placement value replacing corpus-search inventory terms.",
       "claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Grand Arbiter",
-      "placement_relevance": "Corpus search evidence for Azorius Senate.",
+      "value": "Public accountability",
+      "placement_relevance": "Source-backed Azorius placement value replacing corpus-search inventory terms.",
       "claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0022",
+        "azorius_senate_claim_0025"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Azorius",
-      "placement_relevance": "Corpus search evidence for Azorius Senate.",
+      "value": "Careful classification",
+      "placement_relevance": "Source-backed Azorius placement value replacing corpus-search inventory terms.",
       "claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_003",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Prahv",
-      "placement_relevance": "Corpus search evidence for Azorius Senate.",
+      "value": "Regulation and authorization",
+      "placement_relevance": "Source-backed Azorius placement value replacing corpus-search inventory terms.",
       "claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0026"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "New Prahv",
-      "placement_relevance": "Corpus search evidence for Azorius Senate.",
+      "value": "Prevention before crisis",
+      "placement_relevance": "Source-backed Azorius placement value replacing corpus-search inventory terms.",
       "claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0023"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "detain",
-      "placement_relevance": "Corpus search evidence for Azorius Senate.",
+      "value": "Planning before motion",
+      "placement_relevance": "Source-backed Azorius placement value replacing corpus-search inventory terms.",
       "claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0023"
       ],
       "confidence": "Medium"
     }
   ],
   "behavioral_signals": [
     {
-      "signal": "References The Gathering Storm: Chapter 3, Rallying the Reluctant, Ashes as story-context evidence rather than relying only on color identity.",
-      "placement_relevance": "Strengthens Azorius Senate with corpus-backed specificity.",
-      "supports_match_when": "The user's answers echo Azorius Senate, Azor, Isperia, Dovin Baan, Lavinia, Grand Arbiter in a faction-specific way.",
-      "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
+      "signal": "Names law, precedent, documentation, proper channels, or enforceable process before acting.",
+      "placement_relevance": "Strengthens Azorius with source-backed procedure and institution specificity.",
+      "supports_match_when": "The user frames procedure as protective, auditable, or civically accountable.",
+      "weakens_match_when": "The user only names generic order, caution, or WU control without law/procedure evidence.",
       "claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011",
-        "azorius_senate_claim_0012",
-        "azorius_senate_claim_0013"
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025"
       ],
       "confidence": "Medium"
     },
@@ -342,21 +404,20 @@
   ],
   "inhibitor_traits": [
     {
-      "trait": "Generic color-pair overfit",
-      "why_it_conflicts": "The corpus upgrade is intended to prevent Azorius Senate from winning on broad color identity alone.",
+      "trait": "Generic WU or order/control overfit",
+      "why_it_conflicts": "Azorius requires specific law, procedure, public institution, precedent, documentation, or enforceable fairness evidence.",
       "status": "Supported Interpretation",
       "claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011"
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0025"
       ],
       "confidence": "Medium",
-      "notes": "Use collision questions when another faction shares the same or adjacent colors."
+      "notes": "Use required-neighbor and generic-WU guardrails when answers contain only broad color identity or control gameplay."
     },
     "chooses belonging or harmony over procedure",
     "chooses immediate protection over institutional restraint",
-    "chooses historical field evidence over codified process",
+    "chooses experimentation or adaptive optimization over codified process",
     "chooses life/death craft, expressive performance, or pure pattern abstraction instead of law",
     "chooses belonging over process",
     "chooses immediate rescue over proper channels",
@@ -364,26 +425,31 @@
   ],
   "good_fit_indicators": [
     {
-      "indicator": "asks what rule applies before acting",
-      "rationale": "Matches the official Azorius Senate identity summarized in the profile.",
+      "indicator": "asks what rule or process applies before acting",
+      "rationale": "Supported by official Azorius civic/legal identity and White/Blue process framing.",
       "claim_ids": [
-        "azorius_senate_claim_001"
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "values fairness through process",
-      "rationale": "Matches the official Azorius Senate identity summarized in the profile.",
+      "indicator": "values fairness through enforceable public procedure",
+      "rationale": "Matches Azorius lawmaking/enforcement/interpreting role and mature process-as-protection reading.",
       "claim_ids": [
-        "azorius_senate_claim_002"
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "likes airtight systems and documented precedent",
-      "rationale": "Matches the official Azorius Senate identity summarized in the profile.",
+      "indicator": "likes documented precedent, careful systems, and auditable rules",
+      "rationale": "Supported by White/Blue systems/detail orientation and Azorius institutional law framing.",
       "claim_ids": [
-        "azorius_senate_claim_003"
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025"
       ],
       "confidence": "Medium"
     }
@@ -439,22 +505,256 @@
   },
   "collision_guidance": [
     {
+      "collision_id": "collision_azorius_vs_generic_wu_overfit_guardrail",
+      "against": "generic_wu_overfit",
+      "separator": "Azorius needs public law, procedure, institution, precedent, documentation, or enforceable structure; generic WU order/control is not enough.",
+      "ask": "Is the answer only clean order/control, or does it name law, procedure, precedent, public institution, or auditable rules?",
+      "suppress_if": "the answer is only generic WU color identity, caution, clean control, or order without Azorius civic/legal evidence",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0025"
+      ]
+    },
+    {
       "collision_id": "collision_azorius_selesnya_tuned",
       "against": "selesnya_conclave",
       "separator": "Azorius trusts enforceable systems; Selesnya trusts belonging, consensus, and the peace of a shared self.",
-      "ask": "If everyone disagrees but the written procedure is clear, do you follow the procedure or repair the group first?"
+      "ask": "If everyone disagrees but the written procedure is clear, do you follow the procedure or repair the group first?",
+      "suppress_if": "the answer centers belonging, consensus, or group harmony over public procedure",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0026"
+      ]
     },
     {
       "collision_id": "collision_azorius_boros_tuned",
       "against": "boros_legion",
       "separator": "Azorius waits for legitimate process; Boros acts when process cannot protect someone in time.",
-      "ask": "When the process is too slow to prevent harm, is acting outside it a failure or a duty?"
+      "ask": "When the process is too slow to prevent harm, is acting outside it a failure or a duty?",
+      "suppress_if": "the answer centers immediate intervention or martial rescue over lawful channels",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
+      ]
     },
     {
       "collision_id": "collision_azorius_orzhov_tuned",
       "against": "orzhov_syndicate",
       "separator": "Azorius believes rules should bind everyone; Orzhov uses rule-shaped institutions to manage obligation and leverage.",
-      "ask": "Is a contract sacred because it is fair, or because it creates power that can be collected?"
+      "ask": "Is a contract sacred because it is fair, or because it creates power that can be collected?",
+      "suppress_if": "the answer centers debt, status, obligation, leverage, or private advantage over impartial public procedure",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0026"
+      ]
+    },
+    {
+      "collision_id": "collision_azorius_vs_izzet_league_placement_ready",
+      "against": "izzet_league",
+      "separator": "Azorius asks for law, permission, procedure, and stable civic order; Izzet tests and iterates through experiments, prototypes, and uncertainty.",
+      "ask": "When procedure slows discovery, do you seek authorization first or design a contained experiment path?",
+      "suppress_if": "the answer centers experiment-first iteration, prototype learning, or useful risk over authorization and procedure",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
+      ]
+    },
+    {
+      "collision_id": "collision_azorius_vs_house_dimir_placement_ready",
+      "against": "house_dimir",
+      "separator": "Azorius makes order legible through public law and adjudication; Dimir-adjacent answers treat information as secrecy, leverage, or hidden control.",
+      "ask": "Should information make the process publicly accountable, or remain hidden until it creates leverage?",
+      "suppress_if": "the answer centers secrecy, hidden control, or private information leverage over public adjudication",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0026"
+      ]
+    },
+    {
+      "collision_id": "collision_azorius_vs_simic_combine_placement_ready",
+      "against": "simic_combine",
+      "separator": "Azorius regulates through civic law and procedure; Simic-adjacent answers optimize living systems through adaptation and biological improvement.",
+      "ask": "Is the system a civic/legal process to authorize, or a living system to optimize?",
+      "suppress_if": "the answer centers biological adaptation, engineered growth, or optimization over civic procedure",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0024",
+        "azorius_senate_claim_0026"
+      ]
     }
-  ]
+  ],
+  "semantic_guidance_evidence": [
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0025"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0026"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025",
+        "azorius_senate_claim_0026"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025",
+        "azorius_senate_claim_0026"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0022",
+        "azorius_senate_claim_0023"
+      ]
+    }
+  ],
+  "required_neighbor_evidence": [
+    {
+      "neighbor": "GENERIC_WU_OVERFIT",
+      "label": "Generic white-blue overfit",
+      "reason": "Same-color generic order/control/caution can overfit Azorius.",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0025"
+      ],
+      "ambiguity": "Generic WU needs explicit law/procedure/institution/documentation evidence before becoming Azorius."
+    },
+    {
+      "neighbor": "ORZHOV_SYNDICATE",
+      "label": "Orzhov Syndicate",
+      "reason": "Existing collision and overlap around law, contracts, hierarchy, and institutional obligation.",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0026"
+      ],
+      "ambiguity": "Azorius requires impartial public procedure; Orzhov-adjacent answers center debt, leverage, status, or private advantage."
+    },
+    {
+      "neighbor": "BOROS_LEGION",
+      "label": "Boros Legion",
+      "reason": "Existing collision and overlap around public order/protection.",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
+      ],
+      "ambiguity": "Azorius asks for proper channels; Boros-adjacent answers center urgent intervention or martial rescue."
+    },
+    {
+      "neighbor": "SELESNYA_CONCLAVE",
+      "label": "Selesnya Conclave",
+      "reason": "Existing collision and overlap around civic/community order.",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0026"
+      ],
+      "ambiguity": "Azorius centers enforceable process; Selesnya-adjacent answers center belonging, consensus, and harmony."
+    },
+    {
+      "neighbor": "IZZET_LEAGUE",
+      "label": "Izzet League / UR",
+      "reason": "Certified Izzet now has reciprocal Azorius boundary pressure around procedure vs experiment.",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
+      ],
+      "ambiguity": "Azorius seeks authorization/procedure first; Izzet-adjacent answers seek experiment/prototype learning first."
+    },
+    {
+      "neighbor": "HOUSE_DIMIR",
+      "label": "House Dimir",
+      "reason": "Blue institution/information/control overlap.",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0026"
+      ],
+      "ambiguity": "Azorius makes order legible through public law; Dimir-adjacent answers use secrecy, leverage, or hidden control."
+    },
+    {
+      "neighbor": "SIMIC_COMBINE",
+      "label": "Simic Combine",
+      "reason": "Blue system-design overlap retained from Gate 2 as certification-relevant guardrail.",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0024",
+        "azorius_senate_claim_0026"
+      ],
+      "ambiguity": "Azorius centers civic/legal procedure; Simic-adjacent answers center adaptive biology or optimization."
+    }
+  ],
+  "semantic_readiness": {
+    "contract_version": "v1.1",
+    "certification_status": "gate3_canonical_remediation",
+    "required_neighbors": [
+      "GENERIC_WU_OVERFIT",
+      "ORZHOV_SYNDICATE",
+      "BOROS_LEGION",
+      "SELESNYA_CONCLAVE",
+      "IZZET_LEAGUE",
+      "HOUSE_DIMIR",
+      "SIMIC_COMBINE"
+    ],
+    "audit_report": "docs/incidents/recoveries/VM-508-azorius-semantic-recovery.md",
+    "generated_artifacts_status": "stale_until_gate4"
+  }
 }

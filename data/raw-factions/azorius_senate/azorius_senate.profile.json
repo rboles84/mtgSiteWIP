@@ -8,18 +8,18 @@
     "white",
     "blue"
   ],
-  "last_updated": "2026-05-13T21:14:06.308Z",
+  "last_updated": "2026-07-14",
   "profile": {
-    "overview": "Azorius Senate is a white-blue guild associated with Ravnica.",
-    "philosophy": "Civilization survives when law, precedent, procedure, and enforcement create a structure that can outlast individual impulse.",
-    "core_tension": "Azorius believes rules protect society, but the guild can become so invested in restraint, delay, and perfect procedure that law hardens into paralysis.",
-    "social_or_institutional_role": "The official guide frames Azorius as the lawmaking, law-enforcing, and law-interpreting institution of Ravnica, divided into three columns of authority.",
-    "mechanics_and_play_pattern": "Addendum rewards casting spells during the controller's main phase, expressing Azorius order, timing, and procedural discipline.",
+    "overview": "Azorius Senate is Ravnica's white-blue civic/legal guild: a lawmaking, law-enforcing, and law-interpreting institution that turns order, procedure, and enforceable structure into public authority.",
+    "philosophy": "Azorius trusts law, information, documentation, and procedure to make civic life legible and protected, but its care can become detached or over-procedural.",
+    "core_tension": "Azorius wants rules to protect society, yet the same commitment can harden into delay, restricted knowledge, or procedure that prevents challenge.",
+    "social_or_institutional_role": "The official guide frames Azorius as Ravnica's lawmaking, law-enforcing, and law-interpreting institution, divided into three columns of authority.",
+    "mechanics_and_play_pattern": "Addendum is safe Azorius mechanics evidence only as an official timing/procedure signal, not as standalone card inventory or generic control gameplay.",
     "placement_use": "Use this profile to support thematic placement, quiz design, lore browsing, and future faction comparison. Do not present placement inferences as canon.",
     "strongest_source_ids": [
       "src_wotc_flavorful_guide_ravnica_allegiance_2019",
       "src_wotc_ravnica_allegiance_mechanics_2018",
-      "src_wotc_dragons_maze_mechanics_2013"
+      "src_mark_rosewater_slow_and_steady_2006"
     ],
     "claim_ids": [
       "azorius_senate_claim_001",
@@ -28,63 +28,72 @@
       "azorius_senate_claim_004",
       "azorius_senate_claim_005",
       "azorius_senate_claim_006",
-      "azorius_senate_claim_007"
+      "azorius_senate_claim_007",
+      "azorius_senate_claim_0018",
+      "azorius_senate_claim_0019",
+      "azorius_senate_claim_0020",
+      "azorius_senate_claim_0021",
+      "azorius_senate_claim_0022",
+      "azorius_senate_claim_0023",
+      "azorius_senate_claim_0024",
+      "azorius_senate_claim_0025",
+      "azorius_senate_claim_0026"
     ]
   },
   "evidence_summary": {
     "overall_confidence": "High",
     "limitations": [
-      "This is a compact first-pass JSON package generated from official overview and mechanics sources.",
-      "Novel-level or story-episode-specific details should be added in a later deep-dive pass with direct story citations."
+      "Gate 3 keeps MTG-Stories corpus records as discovery metadata only; they do not prove profile, placement, generated, or provenance semantics.",
+      "Later story-specific character and location claims require direct official story localization before becoming semantic proof.",
+      "Commander/product/card surfaces remain auxiliary navigation and do not independently prove Azorius identity."
     ]
   },
   "profile_version": "1.0.0",
   "source_review_date": "2026-05-09",
   "last_incremental_review": "2026-05-09",
   "core_identity": {
-    "summary": "Azorius Senate is a white-blue guild associated with Ravnica.",
-    "philosophy": "Civilization survives when law, precedent, procedure, and enforcement create a structure that can outlast individual impulse.",
-    "central_tension": "Azorius believes rules protect society, but the guild can become so invested in restraint, delay, and perfect procedure that law hardens into paralysis.",
+    "summary": "Azorius Senate is Ravnica's white-blue civic/legal guild, anchored in law, procedure, legislation, enforcement, interpretation, and institutional structure.",
+    "philosophy": "Azorius trusts enforceable process, information, and documentation as protective civic tools rather than relying on impulse or private judgment.",
+    "central_tension": "Azorius care for social order can become detached, slow, inaccessible, or over-controlling when procedure protects itself more than people.",
     "claim_ids": [
-      "azorius_senate_claim_0008",
-      "azorius_senate_claim_0009",
-      "azorius_senate_claim_0010",
-      "azorius_senate_claim_0011",
-      "azorius_senate_claim_0012",
-      "azorius_senate_claim_0013",
-      "azorius_senate_claim_0014",
-      "azorius_senate_claim_0015"
+      "azorius_senate_claim_001",
+      "azorius_senate_claim_002",
+      "azorius_senate_claim_0018",
+      "azorius_senate_claim_0019",
+      "azorius_senate_claim_0020",
+      "azorius_senate_claim_0021",
+      "azorius_senate_claim_0022",
+      "azorius_senate_claim_0023"
     ]
   },
   "site_surface": {
     "display_name": "Azorius Senate",
     "short_label": "Azorius Senate",
-    "tagline": "Civilization survives when law, precedent, procedure, and enforcement create a structure that can outlast individual impulse.",
+    "tagline": "Law, procedure, and enforceable structure protect civic order when they stay accountable to the people they govern.",
     "claim_ids": [
-      "azorius_senate_claim_0008",
-      "azorius_senate_claim_0009",
-      "azorius_senate_claim_0010",
-      "azorius_senate_claim_0011"
+      "azorius_senate_claim_001",
+      "azorius_senate_claim_002",
+      "azorius_senate_claim_0020",
+      "azorius_senate_claim_0021",
+      "azorius_senate_claim_0022"
     ]
   },
   "structure": {
-    "summary": "The official guide frames Azorius as the lawmaking, law-enforcing, and law-interpreting institution of Ravnica, divided into three columns of authority.",
+    "summary": "The official guide frames Azorius as the lawmaking, law-enforcing, and law-interpreting institution of Ravnica, divided into the Sova, Jelenn, and Lyev columns.",
     "claim_ids": [
-      "azorius_senate_claim_0008",
-      "azorius_senate_claim_0009",
-      "azorius_senate_claim_0010",
-      "azorius_senate_claim_0011"
+      "azorius_senate_claim_002",
+      "azorius_senate_claim_003"
     ]
   },
   "great_tension": {
-    "summary": "Azorius believes rules protect society, but the guild can become so invested in restraint, delay, and perfect procedure that law hardens into paralysis.",
-    "placement_relevance": "Used to distinguish surface color overlap from faction-specific behavior.",
+    "summary": "Azorius rules can protect society, but its desire for order can become emotionally distant, inaccessible, and slow when procedure turns into an end in itself.",
+    "placement_relevance": "Distinguishes source-backed Azorius procedure from generic WU order or control.",
     "claim_ids": [
-      "azorius_senate_claim_0008",
-      "azorius_senate_claim_0009",
-      "azorius_senate_claim_0010",
-      "azorius_senate_claim_0011",
-      "azorius_senate_claim_0012"
+      "azorius_senate_claim_0019",
+      "azorius_senate_claim_0021",
+      "azorius_senate_claim_0022",
+      "azorius_senate_claim_0023",
+      "azorius_senate_claim_0025"
     ]
   },
   "historical_timeline": [
@@ -104,39 +113,12 @@
       "character_id": "char_azor",
       "name": "Azor",
       "role": "Founder of the Azorius Senate and author of the original Guildpact.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "relationship_to_faction": "Official guide-backed founding figure.",
       "claim_ids": [
-        "azorius_senate_claim_001",
-        "azorius_senate_claim_002",
-        "azorius_senate_claim_003",
-        "azorius_senate_claim_004",
-        "azorius_senate_claim_005",
-        "azorius_senate_claim_006",
-        "azorius_senate_claim_007",
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011",
-        "azorius_senate_claim_0012",
-        "azorius_senate_claim_0013",
-        "azorius_senate_claim_0014",
-        "azorius_senate_claim_0015",
-        "azorius_senate_claim_0016",
-        "azorius_senate_claim_0017"
+        "azorius_senate_claim_004"
       ],
       "source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-        "src_wotc_ravnica_allegiance_mechanics_2018",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
-        "src_mtg_stories_the_ascension_of_reza_0f733278",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-        "src_mtg_stories_fblthp_e26059d7",
-        "src_mtg_stories_expectations_56e0f1dc"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "confidence": "High",
       "notes": ""
@@ -144,115 +126,60 @@
     {
       "character_id": "char_isperia",
       "name": "Isperia",
-      "role": "Azorius sphinx lawmage and Senate leader.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "role": "Prior Azorius leader referenced in the cited Dovin Baan succession context.",
+      "relationship_to_faction": "Referenced by the official guide as the disappeared predecessor in the cited-era leadership context.",
       "claim_ids": [
-        "azorius_senate_claim_005",
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0013",
-        "azorius_senate_claim_0016"
+        "azorius_senate_claim_005"
       ],
       "source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_fblthp_e26059d7"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
-      "confidence": "High",
-      "notes": ""
+      "confidence": "Medium",
+      "notes": "Bounded to the cited guide context; discovery-only corpus rows remain search metadata, not proof."
     },
     {
       "character_id": "char_dovin_baan",
       "name": "Dovin Baan",
-      "role": "Grand Arbiter.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "role": "Grand Arbiter in the cited 2019 Azorius overview.",
+      "relationship_to_faction": "Official guide-backed cited-era leader.",
       "claim_ids": [
-        "azorius_senate_claim_005",
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011",
-        "azorius_senate_claim_0013",
-        "azorius_senate_claim_0014"
+        "azorius_senate_claim_005"
       ],
       "source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_operation_desperation_e6d285ea"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "confidence": "High",
-      "notes": ""
-    },
-    {
-      "character_id": "char_lavinia",
-      "name": "Lavinia",
-      "role": "Notable Azorius lawmage.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
-      "claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0014",
-        "azorius_senate_claim_0015"
-      ],
-      "source_ids": [
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077"
-      ],
-      "confidence": "Medium",
-      "notes": ""
+      "notes": "Bounded to the cited guide context."
     }
   ],
   "canonical_flavor_text": [
     {
       "card_name": "Azorius Senate dossier anchor",
       "set": "Ravnica",
-      "short_excerpt_or_summary": "Civilization survives when law, precedent, procedure, and enforcement create a structure that can outlast individual impulse.",
+      "short_excerpt_or_summary": "Azorius turns law, information, and procedure into civic order; at its best the system protects people, and at its worst it delays or restricts them.",
       "is_exact_excerpt": false,
       "claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011",
-        "azorius_senate_claim_0012",
-        "azorius_senate_claim_0013",
-        "azorius_senate_claim_0014",
-        "azorius_senate_claim_0015"
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0022",
+        "azorius_senate_claim_0023"
       ],
       "source_ids": [
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
-        "src_mtg_stories_the_ascension_of_reza_0f733278",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-        "src_wotc_ravnica_allegiance_mechanics_2018"
+        "src_mark_rosewater_slow_and_steady_2006"
       ],
-      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+      "notes": "Bounded synthesis from official guide and local official White/Blue article; not a card quote."
     }
   ],
   "views_on_other_factions": [],
   "mechanics": {
-    "summary": "Addendum rewards casting spells during the controller's main phase, expressing Azorius order, timing, and procedural discipline.",
+    "summary": "Addendum is Azorius mechanics evidence only when used as an official timing/procedure signal tied back to Azorius identity.",
     "claim_ids": [
-      "azorius_senate_claim_0008",
-      "azorius_senate_claim_0009",
-      "azorius_senate_claim_0010",
-      "azorius_senate_claim_0011"
+      "azorius_senate_claim_006",
+      "azorius_senate_claim_0024"
     ]
   },
   "search_and_filter_metadata": {
@@ -311,7 +238,16 @@
         "azorius_senate_claim_0015",
         "azorius_senate_claim_0016",
         "azorius_senate_claim_0017"
-      ]
+      ],
+      "retained_native_ids": [
+        {
+          "character_id": "char_lavinia",
+          "name": "Lavinia",
+          "parent_pointer": "/key_figures/3",
+          "retention_reason": "Parent native ID retained as discovery metadata; no substantive Lavinia proof chain is asserted in Gate 3 remediation."
+        }
+      ],
+      "evidence_use": "discovery_metadata"
     },
     "raw_enrichment": {
       "review_date": "2026-05-13T21:14:06.308Z",
@@ -332,8 +268,8 @@
     "schema_version": "1.0.0",
     "source_research_file": "azorius_senate.commander_compass.research.json",
     "last_reviewed": "2026-05-14",
-    "review_status": "reviewed_not_canonical_lore",
-    "recommendation_philosophy": "Focus on legislative control and the 'Addendum' or 'Forecast' mechanical feel of pausing the game to enforce rules.",
+    "review_status": "support_only_product_navigation_auxiliary",
+    "recommendation_philosophy": "Use Commander Compass material as product/navigation support for Azorius-themed Commander exploration only. It does not prove Azorius lore identity without source-backed substantive claims.",
     "identity_basis": {
       "owned_themes": [
         "Stax",
@@ -360,12 +296,19 @@
         "azorius_senate_claim_001",
         "azorius_senate_claim_002",
         "azorius_senate_claim_006",
-        "azorius_senate_claim_007"
+        "azorius_senate_claim_007",
+        "azorius_senate_claim_0024",
+        "azorius_senate_claim_0025"
       ],
       "supporting_source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-        "src_wotc_ravnica_allegiance_mechanics_2018"
-      ]
+        "src_wotc_ravnica_allegiance_mechanics_2018",
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "auxiliary_support_source_ids": [
+        "src_wotc_dragons_maze_mechanics_2013"
+      ],
+      "auxiliary_support_boundary": "Commander/card/product and support-only mechanics surfaces are auxiliary only; they cannot prove Azorius lore identity unless tied back to substantive Azorius claims."
     },
     "native_fit_commanders": [
       {
@@ -403,12 +346,7 @@
             "Mid-tier popularity in defensive Azorius builds"
           ],
           "existing_repo_claim_ids": [
-            "azorius_senate_claim_005",
-            "azorius_senate_claim_0008",
-            "azorius_senate_claim_0009",
-            "azorius_senate_claim_0010",
-            "azorius_senate_claim_0013",
-            "azorius_senate_claim_0016"
+            "azorius_senate_claim_005"
           ],
           "existing_repo_source_ids": [
             "src_wotc_flavorful_guide_ravnica_allegiance_2019",
@@ -563,13 +501,7 @@
           "commander_product_relevance": [
             "Competitive staple in certain formats"
           ],
-          "existing_repo_claim_ids": [
-            "azorius_senate_claim_0008",
-            "azorius_senate_claim_0009",
-            "azorius_senate_claim_0010",
-            "azorius_senate_claim_0014",
-            "azorius_senate_claim_0015"
-          ],
+          "existing_repo_claim_ids": [],
           "existing_repo_source_ids": [
             "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
             "src_mtg_stories_rallying_the_reluctant_d21b8009",

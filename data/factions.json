@@ -19,39 +19,39 @@
       ],
       "accent": "#5a8fbc",
       "banner": "linear-gradient(160deg,rgba(26,60,100,0.35) 0%,rgba(12,11,10,0) 60%)",
-      "tagline": "Order is not a constraint. It is civilization itself.",
-      "philosophy": "The Senate holds that clear, enforceable rules protect everyone equally. Without structure there is only chaos; without understanding, only fear. The Azorius believe their legislation is the only thing standing between civilization and collapse - and they are not entirely wrong.",
-      "lore_summary": "The gap between their legislative output and actual enforcement is immense. The Senate responds to this by inventing more laws. They are not sure whether to acknowledge this.",
-      "core_tension": "The gap between their legislative output and actual enforcement is immense. The Senate responds to this by inventing more laws. They are not sure whether to acknowledge this.",
+      "tagline": "Law, procedure, and enforceable structure protect civic order when they stay accountable to the people they govern.",
+      "philosophy": "Azorius trusts law, information, documentation, and procedure to make civic life legible and protected, while recognizing that process must remain accountable to people.",
+      "lore_summary": "Azorius is Ravnica's white-blue civic/legal guild: a lawmaking, law-enforcing, and law-interpreting institution that turns order and procedure into public authority.",
+      "core_tension": "Azorius rules can protect society, but its desire for order can become emotionally distant, inaccessible, and slow when procedure turns into an end in itself.",
       "affinity": {
         "drawn_to": [
-          "Systems that prevent chaos before it starts",
-          "Precedent and procedure as accumulated wisdom",
-          "The satisfaction of an airtight argument",
-          "Knowing the rules before entering any situation",
-          "Institutional stability across generations"
+          "Public procedure that protects people before crisis",
+          "Precedent and documentation as accumulated civic memory",
+          "Enforceable fairness rather than private exceptions",
+          "Knowing the rules before entering a situation",
+          "Institutions that stay accountable across generations"
         ],
         "repelled_by": [
           "Vigilante justice, even when it works",
-          "Breaking rules for good reasons - the exception always becomes the precedent",
+          "Breaking rules without preserving public accountability",
           "Impulsive action that creates cascading consequences",
-          "Ambiguity in agreements"
+          "Private leverage disguised as law"
         ],
-        "core_question": "Do you trust that the right system, perfectly applied, produces better outcomes than individual judgment?",
+        "core_question": "Do you trust public procedure and accountable rules to protect people better than individual judgment alone?",
         "interview_tells": [
-          "Talks about fairness in terms of process, not outcomes",
+          "Talks about fairness in terms of process, not only outcomes",
           "Wants to understand the rules of a situation before acting",
-          "Uncomfortable when others make exceptions, even reasonable ones",
+          "Treats documentation as a safeguard against private exceptions",
           "Describes a time when improvisation caused more problems than it solved",
-          "Uses phrases like 'properly', 'should have', 'the right way to handle this'"
+          "Uses phrases like proper channel, precedent, accountable, or enforceable"
         ],
-        "not_to_be_confused_with": "Boros - Boros breaks rules for justice; Azorius trusts the rules above individual judgment. Silverquill - both value structured language but Azorius codifies into law while Silverquill wields it as personal power."
+        "not_to_be_confused_with": "Boros acts faster when someone needs protection now; Selesnya repairs belonging and consensus first; Orzhov treats rules and contracts as obligation or leverage. Azorius requires public procedure, documentation, and enforceable fairness."
       },
       "decree_voice": {
-        "tone": "Formal. Precise. With the faint satisfaction of someone who was right all along.",
-        "speaks_like": "A senior lawmage issuing a ruling - not unkind, but not warm.",
+        "tone": "Formal, precise, and civic-minded without becoming cruel or omniscient.",
+        "speaks_like": "A lawmage issuing a careful ruling: restrained, accountable, and aware that procedure must serve people.",
         "example_opening": "The record shows a mind that seeks structure before it seeks action.",
-        "example_decree": "The record shows a mind that seeks structure before it seeks action - not from timidity but from the understanding that improvised justice is no justice at all. The Senate does not ask you to be inflexible. It asks you to be consistent. The law you enforce today is the law that protects you tomorrow. Welcome to the institution that outlasts everyone in it."
+        "example_decree": "The record shows a mind that seeks structure before it seeks action. Azorius does not ask you to worship paperwork; it asks whether a decision can be explained, repeated, and trusted when pressure arrives. The rule is strongest when it protects people without hiding from them."
       },
       "archetypes": [
         {
@@ -148,39 +148,12 @@
             "character_id": "char_azor",
             "name": "Azor",
             "role": "Founder of the Azorius Senate and author of the original Guildpact.",
-            "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+            "relationship_to_faction": "Official guide-backed founding figure.",
             "claim_ids": [
-              "azorius_senate_claim_001",
-              "azorius_senate_claim_002",
-              "azorius_senate_claim_003",
-              "azorius_senate_claim_004",
-              "azorius_senate_claim_005",
-              "azorius_senate_claim_006",
-              "azorius_senate_claim_007",
-              "azorius_senate_claim_0008",
-              "azorius_senate_claim_0009",
-              "azorius_senate_claim_0010",
-              "azorius_senate_claim_0011",
-              "azorius_senate_claim_0012",
-              "azorius_senate_claim_0013",
-              "azorius_senate_claim_0014",
-              "azorius_senate_claim_0015",
-              "azorius_senate_claim_0016",
-              "azorius_senate_claim_0017"
+              "azorius_senate_claim_004"
             ],
             "source_ids": [
-              "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-              "src_wotc_ravnica_allegiance_mechanics_2018",
-              "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-              "src_mtg_stories_rallying_the_reluctant_d21b8009",
-              "src_mtg_stories_ashes_6ede4fea",
-              "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
-              "src_mtg_stories_the_ascension_of_reza_0f733278",
-              "src_mtg_stories_desperate_operatives_6c6a580b",
-              "src_mtg_stories_operation_desperation_e6d285ea",
-              "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-              "src_mtg_stories_fblthp_e26059d7",
-              "src_mtg_stories_expectations_56e0f1dc"
+              "src_wotc_flavorful_guide_ravnica_allegiance_2019"
             ],
             "confidence": "High",
             "notes": ""
@@ -188,167 +161,61 @@
           {
             "character_id": "char_isperia",
             "name": "Isperia",
-            "role": "Azorius sphinx lawmage and Senate leader.",
-            "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+            "role": "Prior Azorius leader referenced in the cited Dovin Baan succession context.",
+            "relationship_to_faction": "Referenced by the official guide as the disappeared predecessor in the cited-era leadership context.",
             "claim_ids": [
-              "azorius_senate_claim_005",
-              "azorius_senate_claim_0008",
-              "azorius_senate_claim_0009",
-              "azorius_senate_claim_0010",
-              "azorius_senate_claim_0013",
-              "azorius_senate_claim_0016"
+              "azorius_senate_claim_005"
             ],
             "source_ids": [
-              "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-              "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-              "src_mtg_stories_rallying_the_reluctant_d21b8009",
-              "src_mtg_stories_ashes_6ede4fea",
-              "src_mtg_stories_desperate_operatives_6c6a580b",
-              "src_mtg_stories_fblthp_e26059d7"
+              "src_wotc_flavorful_guide_ravnica_allegiance_2019"
             ],
-            "confidence": "High",
-            "notes": ""
+            "confidence": "Medium",
+            "notes": "Bounded to the cited guide context; discovery-only corpus rows remain search metadata, not proof."
           },
           {
             "character_id": "char_dovin_baan",
             "name": "Dovin Baan",
-            "role": "Grand Arbiter.",
-            "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+            "role": "Grand Arbiter in the cited 2019 Azorius overview.",
+            "relationship_to_faction": "Official guide-backed cited-era leader.",
             "claim_ids": [
-              "azorius_senate_claim_005",
-              "azorius_senate_claim_0008",
-              "azorius_senate_claim_0009",
-              "azorius_senate_claim_0010",
-              "azorius_senate_claim_0011",
-              "azorius_senate_claim_0013",
-              "azorius_senate_claim_0014"
+              "azorius_senate_claim_005"
             ],
             "source_ids": [
-              "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-              "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-              "src_mtg_stories_rallying_the_reluctant_d21b8009",
-              "src_mtg_stories_ashes_6ede4fea",
-              "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
-              "src_mtg_stories_desperate_operatives_6c6a580b",
-              "src_mtg_stories_operation_desperation_e6d285ea"
+              "src_wotc_flavorful_guide_ravnica_allegiance_2019"
             ],
             "confidence": "High",
-            "notes": ""
-          },
-          {
-            "character_id": "char_lavinia",
-            "name": "Lavinia",
-            "role": "Notable Azorius lawmage.",
-            "relationship_to_faction": "Appears in source-backed evidence for this faction.",
-            "claim_ids": [
-              "azorius_senate_claim_0008",
-              "azorius_senate_claim_0009",
-              "azorius_senate_claim_0010",
-              "azorius_senate_claim_0014",
-              "azorius_senate_claim_0015"
-            ],
-            "source_ids": [
-              "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-              "src_mtg_stories_rallying_the_reluctant_d21b8009",
-              "src_mtg_stories_ashes_6ede4fea",
-              "src_mtg_stories_operation_desperation_e6d285ea",
-              "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077"
-            ],
-            "confidence": "Medium",
-            "notes": ""
+            "notes": "Bounded to the cited guide context."
           }
         ],
         "canonical_flavor_text": [
           {
             "card_name": "Azorius Senate dossier anchor",
             "set": "Ravnica",
-            "short_excerpt_or_summary": "Civilization survives when law, precedent, procedure, and enforcement create a structure that can outlast individual impulse.",
+            "short_excerpt_or_summary": "Azorius turns law, information, and procedure into civic order; at its best the system protects people, and at its worst it delays or restricts them.",
             "is_exact_excerpt": false,
             "claim_ids": [
-              "azorius_senate_claim_0008",
-              "azorius_senate_claim_0009",
-              "azorius_senate_claim_0010",
-              "azorius_senate_claim_0011",
-              "azorius_senate_claim_0012",
-              "azorius_senate_claim_0013",
-              "azorius_senate_claim_0014",
-              "azorius_senate_claim_0015"
+              "azorius_senate_claim_001",
+              "azorius_senate_claim_002",
+              "azorius_senate_claim_0018",
+              "azorius_senate_claim_0020",
+              "azorius_senate_claim_0021",
+              "azorius_senate_claim_0022",
+              "azorius_senate_claim_0023"
             ],
             "source_ids": [
-              "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-              "src_mtg_stories_rallying_the_reluctant_d21b8009",
-              "src_mtg_stories_ashes_6ede4fea",
-              "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
-              "src_mtg_stories_the_ascension_of_reza_0f733278",
-              "src_mtg_stories_desperate_operatives_6c6a580b",
-              "src_mtg_stories_operation_desperation_e6d285ea",
-              "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
               "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-              "src_wotc_ravnica_allegiance_mechanics_2018"
+              "src_mark_rosewater_slow_and_steady_2006"
             ],
-            "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+            "notes": "Bounded synthesis from official guide and local official White/Blue article; not a card quote."
           }
-        ],
-        "views_on_other_factions": [],
-        "search_and_filter_metadata": {
-          "search_keywords": [
-            "Azorius Senate",
-            "Azor",
-            "Isperia",
-            "Dovin Baan",
-            "Lavinia",
-            "Grand Arbiter",
-            "Azorius",
-            "Prahv",
-            "New Prahv",
-            "detain",
-            "Ravnica",
-            "addendum",
-            "Guilds of Ravnica",
-            "Ravnica Allegiance",
-            "Dragon's Maze",
-            "War of the Spark",
-            "Murders at Karlov Manor",
-            "Gatecrash"
-          ],
-          "story_corpus_paths_added": 10,
-          "known_characters": [
-            "Azor",
-            "Isperia",
-            "Dovin Baan",
-            "Lavinia"
-          ],
-          "known_mechanics": [
-            "addendum",
-            "detain"
-          ],
-          "sets_or_story_arcs": [
-            "Guilds of Ravnica",
-            "Ravnica Allegiance",
-            "Dragon's Maze",
-            "War of the Spark",
-            "Murders at Karlov Manor",
-            "Gatecrash"
-          ]
-        },
-        "data_quality": {
-          "review_date": "2026-05-13T21:14:06.308Z",
-          "source_basis": "data/raw-factions claims.json + sources.json",
-          "key_figures_added": 0,
-          "historical_timeline_entries": 1,
-          "canonical_flavor_text_entries": 1,
-          "relationship_entries": 0,
-          "known_characters": 4,
-          "known_mechanics": 2,
-          "story_arcs": 6
-        }
+        ]
       },
       "commander_compass": {
         "schema_version": "1.0.0",
         "source_research_file": "azorius_senate.commander_compass.research.json",
         "last_reviewed": "2026-05-14",
-        "review_status": "reviewed_not_canonical_lore",
-        "recommendation_philosophy": "Focus on legislative control and the 'Addendum' or 'Forecast' mechanical feel of pausing the game to enforce rules.",
+        "review_status": "support_only_product_navigation_auxiliary",
+        "recommendation_philosophy": "Use Commander Compass material as product/navigation support for Azorius-themed Commander exploration only. It does not prove Azorius lore identity without source-backed substantive claims.",
         "identity_basis": {
           "owned_themes": [
             "Stax",
@@ -375,12 +242,19 @@
             "azorius_senate_claim_001",
             "azorius_senate_claim_002",
             "azorius_senate_claim_006",
-            "azorius_senate_claim_007"
+            "azorius_senate_claim_007",
+            "azorius_senate_claim_0024",
+            "azorius_senate_claim_0025"
           ],
           "supporting_source_ids": [
             "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-            "src_wotc_ravnica_allegiance_mechanics_2018"
-          ]
+            "src_wotc_ravnica_allegiance_mechanics_2018",
+            "src_mark_rosewater_slow_and_steady_2006"
+          ],
+          "auxiliary_support_source_ids": [
+            "src_wotc_dragons_maze_mechanics_2013"
+          ],
+          "auxiliary_support_boundary": "Commander/card/product and support-only mechanics surfaces are auxiliary only; they cannot prove Azorius lore identity unless tied back to substantive Azorius claims."
         },
         "native_fit_commanders": [
           {
@@ -418,12 +292,7 @@
                 "Mid-tier popularity in defensive Azorius builds"
               ],
               "existing_repo_claim_ids": [
-                "azorius_senate_claim_005",
-                "azorius_senate_claim_0008",
-                "azorius_senate_claim_0009",
-                "azorius_senate_claim_0010",
-                "azorius_senate_claim_0013",
-                "azorius_senate_claim_0016"
+                "azorius_senate_claim_005"
               ],
               "existing_repo_source_ids": [
                 "src_wotc_flavorful_guide_ravnica_allegiance_2019",
@@ -578,13 +447,7 @@
               "commander_product_relevance": [
                 "Competitive staple in certain formats"
               ],
-              "existing_repo_claim_ids": [
-                "azorius_senate_claim_0008",
-                "azorius_senate_claim_0009",
-                "azorius_senate_claim_0010",
-                "azorius_senate_claim_0014",
-                "azorius_senate_claim_0015"
-              ],
+              "existing_repo_claim_ids": [],
               "existing_repo_source_ids": [
                 "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
                 "src_mtg_stories_rallying_the_reluctant_d21b8009",
@@ -21379,7 +21242,7 @@
         "preview_order": 5,
         "preview_label": "Azorius",
         "preview_title": "Azorius — Law through Knowledge",
-        "preview_text": "Azorius blends White order with Blue planning. It seeks peace through systems, procedure, control, and carefully managed improvement.",
+        "preview_text": "Azorius blends White order with Blue planning. It seeks peace through systems, procedure, documentation, and accountable civic structure.",
         "preview_hex": "#a8d9f5",
         "preview_scores": {
           "order": 82,

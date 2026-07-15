@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "faction_id": "azorius_senate",
   "faction_name": "Azorius Senate",
-  "last_updated": "2026-05-09",
-  "claim_count": 17,
+  "last_updated": "2026-07-14",
+  "claim_count": 26,
   "claims": [
     {
       "claim_id": "azorius_senate_claim_001",
@@ -15,7 +15,18 @@
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "section",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Azorius Senate section",
+          "bounded_paraphrase": "The official Ravnica Allegiance guild guide identifies Azorius as the white-blue Ravnica guild associated with law, order, bureaucracy, legislation, enforcement, and procedure.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct"
+        }
+      ]
     },
     {
       "claim_id": "azorius_senate_claim_002",
@@ -27,7 +38,18 @@
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "section",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Azorius Senate section",
+          "bounded_paraphrase": "The official guide frames the Azorius Senate as the Ravnican institution that makes, enforces, and interprets laws.",
+          "evidence_scope": "institution-specific",
+          "interpretation_level": "direct"
+        }
+      ]
     },
     {
       "claim_id": "azorius_senate_claim_003",
@@ -39,7 +61,18 @@
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "section",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Azorius Senate section",
+          "bounded_paraphrase": "The official guide describes the Sova, Jelenn, and Lyev columns as Azorius institutional divisions.",
+          "evidence_scope": "institution-specific",
+          "interpretation_level": "direct"
+        }
+      ]
     },
     {
       "claim_id": "azorius_senate_claim_004",
@@ -51,19 +84,41 @@
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "section",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Azorius Senate section",
+          "bounded_paraphrase": "The official guide identifies Azor I as founder of the Azorius Senate and author of the original Guildpact.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct"
+        }
+      ]
     },
     {
       "claim_id": "azorius_senate_claim_005",
       "faction_id": "azorius_senate",
       "claim_type": "leadership",
-      "statement": "The 2019 guide presents Dovin Baan as Grand Arbiter after the disappearance of Isperia.",
+      "statement": "The 2019 guide presents Dovin Baan as Grand Arbiter in the cited-era Azorius overview after the disappearance of Isperia.",
       "canon_status": "Canon-supported",
       "source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "Bounded to the cited 2019 guide era; not a universal current-leadership claim.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "section",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Azorius Senate section",
+          "bounded_paraphrase": "The official guide names Dovin Baan as Grand Arbiter after Isperia disappeared.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct"
+        }
+      ]
     },
     {
       "claim_id": "azorius_senate_claim_006",
@@ -75,20 +130,59 @@
         "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_ravnica_allegiance_mechanics_2018",
+          "locator_type": "section",
+          "locator": "Ravnica Allegiance Mechanics - Addendum section",
+          "bounded_paraphrase": "The official Ravnica Allegiance mechanics article presents Addendum as Azorius's signature set mechanic.",
+          "evidence_scope": "mechanics-specific",
+          "interpretation_level": "direct"
+        }
+      ]
     },
     {
       "claim_id": "azorius_senate_claim_007",
       "faction_id": "azorius_senate",
       "claim_type": "placement",
-      "statement": "Azorius placement signals should weight process, fairness, precedent, restraint, documentation, and discomfort with ad hoc exceptions.",
+      "statement": "Azorius placement should require explicit law, procedure, precedent, documentation, enforceable fairness, institutional restraint, or Addendum-like timing evidence rather than generic white-blue order alone.",
       "canon_status": "Supported Interpretation",
       "source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-        "src_wotc_ravnica_allegiance_mechanics_2018"
+        "src_wotc_ravnica_allegiance_mechanics_2018",
+        "src_mark_rosewater_slow_and_steady_2006"
       ],
       "confidence": "High",
-      "notes": "Placement inference derived from official faction identity and mechanics; not an official Wizards psychological taxonomy."
+      "notes": "Placement inference derived from official faction identity, official mechanics, and local official White/Blue philosophy; not an official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "section",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Azorius Senate section",
+          "bounded_paraphrase": "Official Azorius guild identity centers law, order, legislation, enforcement, and procedure.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "interpretive"
+        },
+        {
+          "source_id": "src_wotc_ravnica_allegiance_mechanics_2018",
+          "locator_type": "section",
+          "locator": "Ravnica Allegiance Mechanics - Addendum section",
+          "bounded_paraphrase": "Official Azorius Addendum mechanics support timing/procedural discipline as a mechanics-facing signal.",
+          "evidence_scope": "mechanics-specific",
+          "interpretation_level": "interpretive"
+        },
+        {
+          "source_id": "src_mark_rosewater_slow_and_steady_2006",
+          "locator_type": "local section",
+          "locator": "Slow and Steady - WHAT DOES THE GUILD CARE ABOUT? WHAT IS ITS END GOAL? WHAT MEANS DOES THE GUILD USE TO ACHIEVE THESE ENDS?",
+          "bounded_paraphrase": "The White/Blue article frames Azorius/WU tools as law, information, intricate processes, and red tape.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "interpretive"
+        }
+      ]
     },
     {
       "claim_id": "azorius_senate_claim_0008",
@@ -101,7 +195,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "azorius_senate_claim_0009",
@@ -114,7 +209,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "azorius_senate_claim_0010",
@@ -127,7 +223,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "azorius_senate_claim_0011",
@@ -140,7 +237,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "azorius_senate_claim_0012",
@@ -153,7 +251,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "azorius_senate_claim_0013",
@@ -166,7 +265,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "azorius_senate_claim_0014",
@@ -179,7 +279,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "azorius_senate_claim_0015",
@@ -192,7 +293,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "azorius_senate_claim_0016",
@@ -205,7 +307,8 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
     },
     {
       "claim_id": "azorius_senate_claim_0017",
@@ -218,7 +321,289 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record"
+    },
+    {
+      "claim_id": "azorius_senate_claim_0018",
+      "faction_id": "azorius_senate",
+      "claim_type": "motivation",
+      "statement": "The local official White/Blue article frames Azorius/WU as wanting to improve the world by using order, rules, information, and law rather than impulse or chaos.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "confidence": "High",
+      "notes": "White/Blue philosophy source; not Ravnica institution proof.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_mark_rosewater_slow_and_steady_2006",
+          "locator_type": "local section",
+          "locator": "Slow and Steady - WHAT DO THE TWO COLORS HAVE IN COMMON?",
+          "bounded_paraphrase": "The official White/Blue article says both colors want to improve the world, reject Red-style impulse/chaos, and want things done in orderly fashion.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct"
+        }
+      ]
+    },
+    {
+      "claim_id": "azorius_senate_claim_0019",
+      "faction_id": "azorius_senate",
+      "claim_type": "internal_tension",
+      "statement": "Azorius/WU tension turns on care for community and order versus blue-aligned detachment, information gathering, and perfection-seeking.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "confidence": "High",
+      "notes": "Used to support internal tension and ambiguity; not a Ravnica story claim.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_mark_rosewater_slow_and_steady_2006",
+          "locator_type": "local section",
+          "locator": "Slow and Steady - HOW DO THE TWO COLORS DIFFER? WHAT IS THE GUILD'S INTERNAL CONFLICT?",
+          "bounded_paraphrase": "The article describes White/Blue as sharing goals but not motivations: White seeks community and better society, while Blue seeks perfection and knowledge, leaving Azorius caring yet emotionally distant.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct"
+        }
+      ]
+    },
+    {
+      "claim_id": "azorius_senate_claim_0020",
+      "faction_id": "azorius_senate",
+      "claim_type": "method",
+      "statement": "Azorius/WU method relies on law, information, careful systems, intricate processes, and procedural control.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "confidence": "High",
+      "notes": "Supports method and placement wording around procedure without requiring broad authoritarian overstatement.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_mark_rosewater_slow_and_steady_2006",
+          "locator_type": "local section",
+          "locator": "Slow and Steady - WHAT DOES THE GUILD CARE ABOUT? WHAT IS ITS END GOAL? WHAT MEANS DOES THE GUILD USE TO ACHIEVE THESE ENDS?",
+          "bounded_paraphrase": "The article says White/Blue wants order and uses laws, information, convoluted laws, intricate processes, and red tape as tools.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct"
+        }
+      ]
+    },
+    {
+      "claim_id": "azorius_senate_claim_0021",
+      "faction_id": "azorius_senate",
+      "claim_type": "mature_expression",
+      "statement": "A mature Azorius reading treats rules, documentation, and institutional procedure as protective, auditable systems rather than as private leverage or mere delay.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "confidence": "High",
+      "notes": "Project synthesis from official guild role plus official White/Blue systems/protection framing.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "section",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Azorius Senate section",
+          "bounded_paraphrase": "The official guide frames Azorius as Ravnica lawmaking, enforcement, and interpretation.",
+          "evidence_scope": "institution-specific",
+          "interpretation_level": "direct"
+        },
+        {
+          "source_id": "src_mark_rosewater_slow_and_steady_2006",
+          "locator_type": "local section",
+          "locator": "Slow and Steady - WHAT DOES THE GUILD CARE ABOUT? WHAT IS ITS END GOAL? WHAT MEANS DOES THE GUILD USE TO ACHIEVE THESE ENDS?",
+          "bounded_paraphrase": "The White/Blue article says the same laws that protect White/Blue also protect the people, and that White/Blue is interested in systems that protect people.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "interpretive"
+        },
+        {
+          "source_id": "src_mark_rosewater_slow_and_steady_2006",
+          "locator_type": "local section",
+          "locator": "Slow and Steady - WHAT IS THE COLOR'S GREATEST STRENGTH AND BIGGEST WEAKNESS?",
+          "bounded_paraphrase": "The article presents White/Blue as systems-oriented, careful, detail-oriented, and concerned with loopholes.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "interpretive"
+        }
+      ]
+    },
+    {
+      "claim_id": "azorius_senate_claim_0022",
+      "faction_id": "azorius_senate",
+      "claim_type": "unhealthy_expression",
+      "statement": "An unhealthy Azorius reading turns protective procedure into inaccessible bureaucracy, restricted knowledge, excessive control, or procedure that prevents challenge.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "confidence": "High",
+      "notes": "Bounded to White/Blue article language; avoids claiming every Azorius expression is authoritarian.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_mark_rosewater_slow_and_steady_2006",
+          "locator_type": "local section",
+          "locator": "Slow and Steady - WHAT DOES THE GUILD CARE ABOUT? WHAT IS ITS END GOAL? WHAT MEANS DOES THE GUILD USE TO ACHIEVE THESE ENDS?",
+          "bounded_paraphrase": "The article describes White/Blue using convoluted laws, restricted knowledge, incomprehensible systems, and protection that also prevents people from challenging it.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "interpretive"
+        }
+      ]
+    },
+    {
+      "claim_id": "azorius_senate_claim_0023",
+      "faction_id": "azorius_senate",
+      "claim_type": "failure_pressure_behavior",
+      "statement": "Under unanticipated pressure, Azorius/WU can fail by analyzing too long, responding slowly, or requiring procedure when the situation demands immediate adaptation.",
+      "canon_status": "Canon-supported",
+      "source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "confidence": "High",
+      "notes": "Supports pressure behavior and Boros/Izzet collision ambiguity without changing frozen calibration text.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_mark_rosewater_slow_and_steady_2006",
+          "locator_type": "local section",
+          "locator": "Slow and Steady - WHAT IS THE COLOR'S GREATEST STRENGTH AND BIGGEST WEAKNESS?",
+          "bounded_paraphrase": "The article identifies White/Blue's greatest weakness as an inability to respond quickly when facing problems it did not anticipate.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct"
+        }
+      ]
+    },
+    {
+      "claim_id": "azorius_senate_claim_0024",
+      "faction_id": "azorius_senate",
+      "claim_type": "mechanics_interpretation",
+      "statement": "Addendum can support Azorius identity only when used as a source-backed timing and procedure signal, not as standalone card inventory or generic control gameplay.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_ravnica_allegiance_mechanics_2018",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "confidence": "High",
+      "notes": "Repairs the Addendum mechanics chain by keeping mechanics identity tied to the official mechanics source and Azorius guild role.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_ravnica_allegiance_mechanics_2018",
+          "locator_type": "section",
+          "locator": "Ravnica Allegiance Mechanics - Addendum section",
+          "bounded_paraphrase": "The official mechanics article ties Addendum to Azorius.",
+          "evidence_scope": "mechanics-specific",
+          "interpretation_level": "direct"
+        },
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "section",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Azorius Senate section",
+          "bounded_paraphrase": "The official guide anchors the guild identity in law, order, procedure, and Ravnican civic authority.",
+          "evidence_scope": "institution-specific",
+          "interpretation_level": "interpretive"
+        }
+      ]
+    },
+    {
+      "claim_id": "azorius_senate_claim_0025",
+      "faction_id": "azorius_senate",
+      "claim_type": "boundary",
+      "statement": "Azorius should not be inferred from generic WU, generic order, clean control gameplay, or caution unless the answer shows law, procedure, institution, precedent, documentation, or enforceable public structure.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "confidence": "High",
+      "notes": "Generic WU overfit guardrail for Contract v1.1 placement and fixture coverage.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "section",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Azorius Senate section",
+          "bounded_paraphrase": "Official Azorius identity is guild-specific and civic/legal rather than generic WU control.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "interpretive"
+        },
+        {
+          "source_id": "src_mark_rosewater_slow_and_steady_2006",
+          "locator_type": "local section",
+          "locator": "Slow and Steady - WHAT DOES THE GUILD CARE ABOUT? WHAT IS ITS END GOAL? WHAT MEANS DOES THE GUILD USE TO ACHIEVE THESE ENDS?",
+          "bounded_paraphrase": "The White/Blue article supports law, information, process, and order as the relevant WU/Azorius signals.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "interpretive"
+        }
+      ]
+    },
+    {
+      "claim_id": "azorius_senate_claim_0026",
+      "faction_id": "azorius_senate",
+      "claim_type": "required_neighbor_boundary",
+      "statement": "Azorius neighbor boundaries turn on public law and enforceable procedure versus private leverage, immediate martial rescue, group belonging, experiment-first iteration, hidden control, or biological optimization.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_mark_rosewater_slow_and_steady_2006"
+      ],
+      "confidence": "Medium",
+      "notes": "Project synthesis for required-neighbor guidance. It supports Azorius-side boundaries only and does not claim complete canon definitions for other identities.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "section",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Azorius Senate section",
+          "bounded_paraphrase": "The official guide supplies Azorius-side civic law, enforcement, interpretation, and institutional authority.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "interpretive"
+        },
+        {
+          "source_id": "src_mark_rosewater_slow_and_steady_2006",
+          "locator_type": "local section",
+          "locator": "Slow and Steady - WHAT DO THE TWO COLORS HAVE IN COMMON?",
+          "bounded_paraphrase": "The White/Blue article supplies the non-impulsive, orderly, anti-chaos WU/Azorius side of adjacent comparisons.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "interpretive"
+        },
+        {
+          "source_id": "src_mark_rosewater_slow_and_steady_2006",
+          "locator_type": "local section",
+          "locator": "Slow and Steady - WHAT DOES THE GUILD CARE ABOUT? WHAT IS ITS END GOAL? WHAT MEANS DOES THE GUILD USE TO ACHIEVE THESE ENDS?",
+          "bounded_paraphrase": "The White/Blue article supplies law, information, process, and protection/control framing used for boundaries.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "interpretive"
+        }
+      ]
     }
-  ]
+  ],
+  "semantic_readiness": {
+    "contract_version": "v1.1",
+    "gate": "gate3_canonical_remediation",
+    "substantive_claim_count": 16,
+    "discovery_record_count": 10,
+    "support_record_count": 0,
+    "unclassified_count": 0,
+    "discovery_records_retained": [
+      "azorius_senate_claim_0008",
+      "azorius_senate_claim_0009",
+      "azorius_senate_claim_0010",
+      "azorius_senate_claim_0011",
+      "azorius_senate_claim_0012",
+      "azorius_senate_claim_0013",
+      "azorius_senate_claim_0014",
+      "azorius_senate_claim_0015",
+      "azorius_senate_claim_0016",
+      "azorius_senate_claim_0017"
+    ],
+    "generated_artifacts_status": "stale_until_gate4",
+    "audit_report": "docs/incidents/recoveries/VM-508-azorius-semantic-recovery.md"
+  }
 }

@@ -34376,22 +34376,369 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/behavioral_signals/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:61c203b217b4415e97867a2d15e5c11474e9be62f540dfd94cb531b873eae960",
+      "canonical_content_hash": "sha256:b8a04b41f4e9bc4262a63c4855efe031af1b8444be972e9d12bf0127a0074532",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011",
-        "azorius_senate_claim_0012",
-        "azorius_senate_claim_0013"
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_ascension_of_reza_0f733278",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:23cb66a897040e54640d7957d04d6355b9ed2b2fa7429a97edee87e0e0d7eea2",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0025"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:322bad3d21c2e3173a581012839464221592de0a3d3137afea7bb38135ff587f",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:ce5bf2f3ce8b41c25f549801910c24bb4621c8448cf4ae40a8c773b51c5a5a3d",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:fdf34dd2fd72f87cac8a3d9861235452e4ad345985f1b704a509cf5e2845f55b",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0026"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:01afa0d1cf8fc4a441555559f2141041f28c024ab8958076ee04d7d535a65513",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025",
+        "azorius_senate_claim_0026"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:83a0f379e984347e2b8301af924871642917ba84af38806ecc3b44e5e6ee05cd",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:ff581014030d02cf0521046bc432b6cb819234428f8e34898c4d56bfb5f9e849",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025",
+        "azorius_senate_claim_0026"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:980f153bf8f61a9a91a2731114bb2f32518f850e03c16a2b4036e78b85b15456",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0022",
+        "azorius_senate_claim_0023"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/collision_guidance/0",
+      "canonical_id": "collision_azorius_vs_generic_wu_overfit_guardrail",
+      "canonical_content_hash": "sha256:51466570b9ed8d582b9a8a8a2335e9387fe8dcccbb2043e1bde04551f64273ba",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/collision_guidance/1",
+      "canonical_id": "collision_azorius_selesnya_tuned",
+      "canonical_content_hash": "sha256:8f65a826360c541a679d17d08cd1f85ae92900fb5a5fd443b927650eb51b99ef",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/collision_guidance/2",
+      "canonical_id": "collision_azorius_boros_tuned",
+      "canonical_content_hash": "sha256:d1cb8f34aa4deb5e640710fd7f08de3d62031b823d440da70ed81cbf06c7f8eb",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/collision_guidance/3",
+      "canonical_id": "collision_azorius_orzhov_tuned",
+      "canonical_content_hash": "sha256:cc6bd2dbac3f7cbe30abd934c4af0d4c7680d6d0cdba1393f858d8041b97b1ae",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/collision_guidance/4",
+      "canonical_id": "collision_azorius_vs_izzet_league_placement_ready",
+      "canonical_content_hash": "sha256:c5b16a6df2d5fda76bb981f0c1108c547380db9e544a2b0a08d7c85065de2894",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/collision_guidance/5",
+      "canonical_id": "collision_azorius_vs_house_dimir_placement_ready",
+      "canonical_content_hash": "sha256:0a7d0aac7cb64a22eedbb8573c3ad55b37698c508fb2c40cbd686eacaa30d1fc",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/collision_guidance/6",
+      "canonical_id": "collision_azorius_vs_simic_combine_placement_ready",
+      "canonical_content_hash": "sha256:fcee8b1543d401cb5b893513ada1cd062b8df3f084ba6b44840c5d4234312625",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0024",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -34405,16 +34752,15 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/core_values/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:0dc9ae26b20560abff12bbd91d78f0a4e226db19e9186259b0104ca2526f6765",
+      "canonical_content_hash": "sha256:4ae13c04be1a563ce2e18a476f3b52c629a912ed6325b704fa1b4ef8a8f67f05",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0025"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82"
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -34428,16 +34774,15 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/core_values/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:15a432901a0b684d6bcd94bf39aa878b2409c2fc0ae05efe1b85e677fb90e5fe",
+      "canonical_content_hash": "sha256:822253e8b1284a2693ecf1257a3481cfb8fd6be311754ce4b9d1533729f9cc65",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82"
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -34451,16 +34796,15 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/core_values/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:a660d17316a7eb156d56efe3bb4d9add0c7fc9ceb71ba8e6e65a7c9a3afb499f",
+      "canonical_content_hash": "sha256:faabe6be70bd3e8690d5cf33a3e2de26327b315923554b429d28a721011b5e6a",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0026"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82"
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -34474,16 +34818,15 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/core_values/3",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:eedadad7b4f804d5a1b6545a4d0cbfc5237d0a3e0450090e65386a49c8cc1b85",
+      "canonical_content_hash": "sha256:e990a0591b056331d2a90d6e1828c2efb58d838f98c8f93306a553aa8eec3174",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82"
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -34497,16 +34840,15 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/core_values/4",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:d965492b5737d28043963e50556eb06004e72cbbd1ada9fa291d2f079afb6e6c",
+      "canonical_content_hash": "sha256:d62ed8742ac5546075948bd82954ff53577397d4ff8eb17ef5a293b43fc22dee",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82"
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -34520,16 +34862,15 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/core_values/5",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:76f69f33a1f346c93ce0bc0a37810c318450f2a84dad84f77ca91d1e36446af0",
+      "canonical_content_hash": "sha256:37b4e33da1a946de31242e7eeb7dd640bde114043783e37b6b2c1cdb650c49a8",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0022",
+        "azorius_senate_claim_0025"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82"
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -34543,16 +34884,15 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/core_values/6",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:6124ba2a37a533662e94bd38e5593c9c4b930427a6071ae1b16e0a7e539112b0",
+      "canonical_content_hash": "sha256:7c53439368cb912e2612fa7ee0d3fbc28bbd2aafa860c4e699f90454e55fd24d",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_003",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82"
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -34566,16 +34906,15 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/core_values/7",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:d68d8922becebab5dd12cee9accc9e56a937dfa541ee65cf5a56da3463b3155a",
+      "canonical_content_hash": "sha256:8ddb6b448689f1156087857a02ac77ac7a1be6316dad66f2c762287314b332a0",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0026"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82"
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -34589,16 +34928,14 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/core_values/8",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:5a8d354ea69c53b90f8c2037f99f7ed364f44344a1d58c20aed0a85ccc8cd4c2",
+      "canonical_content_hash": "sha256:f684ea180357ca81e60aa0d5dbfa44aa6d73a41fd6b24ead2954420d38139cdb",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0023"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82"
+        "src_mark_rosewater_slow_and_steady_2006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -34612,16 +34949,14 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/core_values/9",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:a32e8662909a240b92a3676d249c11119d5db7d9afa9dadb10b4f45c5a62b11c",
+      "canonical_content_hash": "sha256:69ecba23b85e96fea990318aad2008dc21d07fa7278a99d2685e13bfa41bedfb",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010"
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0023"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82"
+        "src_mark_rosewater_slow_and_steady_2006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -34635,13 +34970,16 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/discriminator_questions/0",
       "canonical_id": "azorius_q1",
-      "canonical_content_hash": "sha256:bb43391c89774deffffaeee6b3e51f3dbc070627b738022beab0f53bfc0888ff",
+      "canonical_content_hash": "sha256:485bc58009f7f55b1b443397af14928855a28d1914574786398fbfd7a33a7a08",
       "evidence_claim_ids": [
-        "azorius_senate_claim_001",
         "azorius_senate_claim_002",
-        "azorius_senate_claim_003"
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025",
+        "azorius_senate_claim_0026"
       ],
       "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
@@ -34656,13 +34994,17 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/discriminator_questions/1",
       "canonical_id": "azorius_q2",
-      "canonical_content_hash": "sha256:6be073c860ba17a5782a90e13a0343cca9698954d69c8613338c1696de2bf87e",
+      "canonical_content_hash": "sha256:0ba1f88499df4519dfe4c35452462e375e499f0ef578f9603a8e5080ac1f3bdc",
       "evidence_claim_ids": [
-        "azorius_senate_claim_001",
-        "azorius_senate_claim_002",
-        "azorius_senate_claim_003"
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0022",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
       ],
       "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
@@ -34677,13 +35019,15 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/discriminator_questions/2",
       "canonical_id": "q_azorius_senate_9001",
-      "canonical_content_hash": "sha256:fc29aa6e076dd9322afa6daaa2caf363f70709a2d9b2876395c4bb8cb101eebb",
+      "canonical_content_hash": "sha256:44b4a3fbf41d736842c8b74beb918a6015b3befe96dc56f96fb60031e61f4ab1",
       "evidence_claim_ids": [
-        "azorius_senate_claim_001",
         "azorius_senate_claim_002",
-        "azorius_senate_claim_003"
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
       ],
       "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
@@ -34698,11 +35042,14 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/good_fit_indicators/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:6b95ca7a742301d8e940cfbc1bd71d5678d4ba7d431f95f1b174a244eaec5e5e",
+      "canonical_content_hash": "sha256:c213459b136dc4a51f1d04e841f07e4b21b8572dd2fb04130e9c2a6c4723b6d9",
       "evidence_claim_ids": [
-        "azorius_senate_claim_001"
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020"
       ],
       "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
@@ -34717,11 +35064,13 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/good_fit_indicators/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:5167c34d14aae988d830a9e745b8bf8355da454d5b73c1a0ab581dcbc61febab",
+      "canonical_content_hash": "sha256:1101993106aeb522d7693886e0b35967bbeb5ac260fb6c110b6624fe0875497f",
       "evidence_claim_ids": [
-        "azorius_senate_claim_002"
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021"
       ],
       "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
@@ -34736,11 +35085,14 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/good_fit_indicators/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:a8917e2c57cc5c29e97a0711af574cf3d48e8800853a6599c7dc737a7136037b",
+      "canonical_content_hash": "sha256:28e7bf0f5478b0585ed0cfa9d4fef47e0fcfc9f8ddf6831f7d53204fd194af69",
       "evidence_claim_ids": [
-        "azorius_senate_claim_003"
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025"
       ],
       "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
@@ -34755,11 +35107,14 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:6b95ca7a742301d8e940cfbc1bd71d5678d4ba7d431f95f1b174a244eaec5e5e",
+      "canonical_content_hash": "sha256:c213459b136dc4a51f1d04e841f07e4b21b8572dd2fb04130e9c2a6c4723b6d9",
       "evidence_claim_ids": [
-        "azorius_senate_claim_001"
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020"
       ],
       "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
@@ -34774,11 +35129,13 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:5167c34d14aae988d830a9e745b8bf8355da454d5b73c1a0ab581dcbc61febab",
+      "canonical_content_hash": "sha256:1101993106aeb522d7693886e0b35967bbeb5ac260fb6c110b6624fe0875497f",
       "evidence_claim_ids": [
-        "azorius_senate_claim_002"
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021"
       ],
       "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
@@ -34793,11 +35150,14 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:a8917e2c57cc5c29e97a0711af574cf3d48e8800853a6599c7dc737a7136037b",
+      "canonical_content_hash": "sha256:28e7bf0f5478b0585ed0cfa9d4fef47e0fcfc9f8ddf6831f7d53204fd194af69",
       "evidence_claim_ids": [
-        "azorius_senate_claim_003"
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025"
       ],
       "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
@@ -34812,18 +35172,15 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/inhibitor_traits/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:00aae0100bad8395c377f3e108f28deb6a3ced04d17e908c7d5e99a138b07172",
+      "canonical_content_hash": "sha256:384265813114addc9fae1f77b91bf59f830647ff6e2118a82f98d62e9c06a090",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011"
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0025"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -34837,20 +35194,19 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/moral_and_psychological_profile",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:94a1abfdbe75eaec53ac92832d337846f5f875d4f14e76ae8d6ec5b21e955523",
+      "canonical_content_hash": "sha256:e4a7f0ca2d1750f24b73276196facf54fd1c71b0f820b3d7b0f752aedebcc3c4",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011",
-        "azorius_senate_claim_0012"
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0019",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0022",
+        "azorius_senate_claim_0025"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_ascension_of_reza_0f733278",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -34864,26 +35220,19 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/placement_axes/0",
       "canonical_id": "axis_procedure_vs_impulse",
-      "canonical_content_hash": "sha256:b1a45927b0a34b3e77fe6a9ac6b2dc974774aab439c56847045a7f06a3022d87",
+      "canonical_content_hash": "sha256:aafe529cb354f937c5e3289b195adbc80723da96f1cad20331902ce14ad6408f",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011",
-        "azorius_senate_claim_0012",
-        "azorius_senate_claim_0013",
-        "azorius_senate_claim_0014",
-        "azorius_senate_claim_0015"
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0025"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_ascension_of_reza_0f733278",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -34897,32 +35246,21 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/placement_summary",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:d4566ff77571715d7c5712c930d15dd6339194575da38338fe6871026fe43eab",
+      "canonical_content_hash": "sha256:47896dcc44147a3794478d35e170cb3209724b9de38fe3e024276d5661a90eb0",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011",
-        "azorius_senate_claim_0012",
-        "azorius_senate_claim_0013",
-        "azorius_senate_claim_0014",
-        "azorius_senate_claim_0015",
         "azorius_senate_claim_001",
         "azorius_senate_claim_002",
-        "azorius_senate_claim_003",
-        "azorius_senate_claim_004",
-        "azorius_senate_claim_005",
-        "azorius_senate_claim_006"
+        "azorius_senate_claim_007",
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0022",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0025",
+        "azorius_senate_claim_0026"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_ascension_of_reza_0f733278",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
+        "src_mark_rosewater_slow_and_steady_2006",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019",
         "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
@@ -34938,11 +35276,14 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/poor_fit_indicators/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:6ae20c561de4c1677235daf594d0e077acd917b92ead5ccbbcda3cf9347c259e",
+      "canonical_content_hash": "sha256:ca6a94ea70ba462e7b251b96871e9c7fbed6074f899c1e1422cde0028b0dcb30",
       "evidence_claim_ids": [
-        "azorius_senate_claim_001"
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0026"
       ],
       "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
@@ -34957,11 +35298,14 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/poor_fit_indicators/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:89ec2c46c85d5d502a40377de7573b57b0f12dc080dc4a439eca87c103e3d6a3",
+      "canonical_content_hash": "sha256:13fe924b7b22fda5652641a0b8204e7cad7466c6eed69b00f7a38b7a28c2d154",
       "evidence_claim_ids": [
-        "azorius_senate_claim_002"
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025",
+        "azorius_senate_claim_0026"
       ],
       "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
@@ -34976,11 +35320,350 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
       "canonical_pointer": "/poor_fit_indicators/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:dcdd80793fa0f482907bb68cfaf6779ff7b322789abaf4326e0695bee915149e",
+      "canonical_content_hash": "sha256:376afd62bb34ba7edf231ddb57448668aa8992ef8ff84baf18dd659d3f15c739",
       "evidence_claim_ids": [
-        "azorius_senate_claim_003"
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
       ],
       "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:a3cd6117021d70c82c33390e098b5be906eccb9b36c30c3cadc456851bb094b6",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:4cd26fda413726fa633ffe87f9adf4bd435ba1e2c1c62b0a92b61e7a386dddd9",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:6a92d3d4392939c254dd5395a5da6cdf7c5bec3acd748f266b2d8c16fc93a883",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/3",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:3102f9b722c0ef32135a5a15174ed89b9c991b42092467bfa5f4b10d3d9bd145",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/4",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:a2fb84fb3c34bd36b3aa76bf829f9976ee60bb555ffb84af10c735dc34dea08e",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/5",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:1d3ac2f479dba68f45dcbab99feb72f6f817bbfc7d8bc13aaae48c8654668811",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/6",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:de078abe0ac967acdec88dfcd7479962c159bd6651d53dc5b3917ed25dff0149",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0024",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:58eef7e95f4bbaae81160e0d20c299befccfe8648e203c85efcdbd858302547a",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:a482a8d543afcbf77a7752d7b90c51dae164ba75b3475cbed008890be12f2751",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:d789f6180ff94dc064b9cd84c53aef01380496ba2eb7ec2d88cd50c28375e5e4",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:9f20f01ec45b38d3bb024439b9ef8d4a69b8cd3f254082f4db6aa681a5bdc49f",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:f592b4feeaac069c2f9b459ba6bc155cc05f810f3bce3d8fe90de097de190f61",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:1cc8563c2a93c41de3e623b3f4c9b40b5b58b9e289d78cd931e460311cdf3a66",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:4835d25064ffc9cc0ef08ed6ec52d2ad92c19be20f389159e6e93ad2ba4fab04",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0025",
+        "azorius_senate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WU",
+        "data/placement-model.json#/factions/WU",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WU",
+      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/7",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:5256880b775dc5eff59704107e14b72f02b2f141907acc76e432d23f89956f91",
+      "evidence_claim_ids": [
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0022",
+        "azorius_senate_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
@@ -34995,26 +35678,19 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.profile.json",
       "canonical_pointer": "/canonical_flavor_text/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:302c1a56c59ee0efd7e91667658aed1e9db54c4517ac6f89f17f46fd36a0caf9",
+      "canonical_content_hash": "sha256:21957aa15a4cf4b028d688a88e1ab7eb8f88d6d03f4ddbee1b9071bdcde833d3",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011",
-        "azorius_senate_claim_0012",
-        "azorius_senate_claim_0013",
-        "azorius_senate_claim_0014",
-        "azorius_senate_claim_0015"
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0022",
+        "azorius_senate_claim_0023"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_ascension_of_reza_0f733278",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -35028,26 +35704,20 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.profile.json",
       "canonical_pointer": "/core_identity",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:baf9ed3dd093c32c9e08b9b81c4f10af9b049a31988d9f54bc7ee85bba7b4473",
+      "canonical_content_hash": "sha256:89b457f4c9bb6bbe357889e56ae4cb906eb0297b2f72d7b8dccd0a63f017db6e",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011",
-        "azorius_senate_claim_0012",
-        "azorius_senate_claim_0013",
-        "azorius_senate_claim_0014",
-        "azorius_senate_claim_0015"
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0019",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0022",
+        "azorius_senate_claim_0023"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_ascension_of_reza_0f733278",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -35061,7 +35731,7 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.profile.json",
       "canonical_pointer": "/data_quality/corpus_upgrade",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:2c839bde9a3bccd5efa7915ae6b16499513bbda1d5dfd0ce20d9b1505a8ab9cd",
+      "canonical_content_hash": "sha256:b3c9ef7c434bf3002acaa551169cfbfc020f4091b31b2839bcbb26b8f970e268",
       "evidence_claim_ids": [
         "azorius_senate_claim_0008",
         "azorius_senate_claim_0009",
@@ -35074,6 +35744,7 @@
         "azorius_senate_claim_0016",
         "azorius_senate_claim_0017"
       ],
+      "evidence_use": "discovery_metadata",
       "evidence_source_ids": [
         "src_mtg_stories_ashes_6ede4fea",
         "src_mtg_stories_desperate_operatives_6c6a580b",
@@ -35098,20 +35769,17 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.profile.json",
       "canonical_pointer": "/great_tension",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:11aafe6efb5341da5db67f626e771029559d3fc424fe49e0333db1f9fc1cede6",
+      "canonical_content_hash": "sha256:e7a2c5c12a2957f832812fdc9c28fbaef2ad8903fa891d5601388c082b847355",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011",
-        "azorius_senate_claim_0012"
+        "azorius_senate_claim_0019",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0022",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0025"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_ascension_of_reza_0f733278",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -35144,39 +35812,12 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.profile.json",
       "canonical_pointer": "/key_figures/0",
       "canonical_id": "char_azor",
-      "canonical_content_hash": "sha256:03f8124b912726e39fde7c48afc71771fd6a27d280d0185a86eb87477168f06f",
+      "canonical_content_hash": "sha256:e1b24b7d78f4c9fdebefd9a403c0bf1e1ed62726e173c4b33392a76e94c4e72b",
       "evidence_claim_ids": [
-        "azorius_senate_claim_001",
-        "azorius_senate_claim_002",
-        "azorius_senate_claim_003",
-        "azorius_senate_claim_004",
-        "azorius_senate_claim_005",
-        "azorius_senate_claim_006",
-        "azorius_senate_claim_007",
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011",
-        "azorius_senate_claim_0012",
-        "azorius_senate_claim_0013",
-        "azorius_senate_claim_0014",
-        "azorius_senate_claim_0015",
-        "azorius_senate_claim_0016",
-        "azorius_senate_claim_0017"
+        "azorius_senate_claim_004"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-        "src_mtg_stories_expectations_56e0f1dc",
-        "src_mtg_stories_fblthp_e26059d7",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_ascension_of_reza_0f733278",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-        "src_wotc_ravnica_allegiance_mechanics_2018"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -35190,21 +35831,11 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.profile.json",
       "canonical_pointer": "/key_figures/1",
       "canonical_id": "char_isperia",
-      "canonical_content_hash": "sha256:e53ea0dbda6f6fe172ad2424d6eb7e87e8381ea716b7b1366dee777f6ac02448",
+      "canonical_content_hash": "sha256:bbade86a939cf77e05b7608a70188c83cb533af8d4282f6a3bcee36202ba0bf6",
       "evidence_claim_ids": [
-        "azorius_senate_claim_005",
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0013",
-        "azorius_senate_claim_0016"
+        "azorius_senate_claim_005"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_fblthp_e26059d7",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
@@ -35219,51 +35850,12 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.profile.json",
       "canonical_pointer": "/key_figures/2",
       "canonical_id": "char_dovin_baan",
-      "canonical_content_hash": "sha256:f396bd4189ef657154f71782c88ab0d93dd67d3a480a8cbf332babd64b5cc642",
+      "canonical_content_hash": "sha256:1bc64ab3c1eb2d8eae9c3a6a1828c12a65be0af5208ea4ce6e694704a78c1cd7",
       "evidence_claim_ids": [
-        "azorius_senate_claim_005",
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011",
-        "azorius_senate_claim_0013",
-        "azorius_senate_claim_0014"
+        "azorius_senate_claim_005"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/WU",
-        "data/placement-model.json#/factions/WU",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WU"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "WU",
-      "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.profile.json",
-      "canonical_pointer": "/key_figures/3",
-      "canonical_id": "char_lavinia",
-      "canonical_content_hash": "sha256:a656ee02c2f944b8c790a9dc201866aaffd3d684974c2d14a5c1bffbc6995065",
-      "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0014",
-        "azorius_senate_claim_0015"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -35277,18 +35869,14 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.profile.json",
       "canonical_pointer": "/mechanics",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:d584f17523607b43b5e09fd363cf37b1253ff739c808855336fa0375d27484ec",
+      "canonical_content_hash": "sha256:199ecb0cc8bcf31e82448d9a3688065e72d7d7232bf5e53394516e56b5a989b0",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011"
+        "azorius_senate_claim_006",
+        "azorius_senate_claim_0024"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -35302,7 +35890,7 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.profile.json",
       "canonical_pointer": "/profile",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:ab193ef971ccdf55ff5f8350543deea183e3822b32d27e1b15b5875a04ab86aa",
+      "canonical_content_hash": "sha256:fe033e9f23a961d125560822208fa3dd2cebfb609cfde4733448c7b52499bfef",
       "evidence_claim_ids": [
         "azorius_senate_claim_001",
         "azorius_senate_claim_002",
@@ -35310,9 +35898,19 @@
         "azorius_senate_claim_004",
         "azorius_senate_claim_005",
         "azorius_senate_claim_006",
-        "azorius_senate_claim_007"
+        "azorius_senate_claim_007",
+        "azorius_senate_claim_0018",
+        "azorius_senate_claim_0019",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0022",
+        "azorius_senate_claim_0023",
+        "azorius_senate_claim_0024",
+        "azorius_senate_claim_0025",
+        "azorius_senate_claim_0026"
       ],
       "evidence_source_ids": [
+        "src_mark_rosewater_slow_and_steady_2006",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019",
         "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
@@ -35328,18 +35926,17 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.profile.json",
       "canonical_pointer": "/site_surface",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:9966eb25ccd6c17e7aa2b49b4a9cce89f2bd83bd832f18965bce37443c4c172b",
+      "canonical_content_hash": "sha256:705433569d5db119147473e9833651a8aa49359b27ec8eb88f00c88a2ae99c7f",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011"
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_0020",
+        "azorius_senate_claim_0021",
+        "azorius_senate_claim_0022"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_mark_rosewater_slow_and_steady_2006",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
@@ -35353,18 +35950,13 @@
       "canonical_file": "data/raw-factions/azorius_senate/azorius_senate.profile.json",
       "canonical_pointer": "/structure",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:ea69da119f744a6317fd08bd1736d4ce051639133878f5258fd46bd642d0e4c0",
+      "canonical_content_hash": "sha256:9ee79845e69efee9172755163c0ee09a33b489829a8f8b829a392926a55be6bf",
       "evidence_claim_ids": [
-        "azorius_senate_claim_0008",
-        "azorius_senate_claim_0009",
-        "azorius_senate_claim_0010",
-        "azorius_senate_claim_0011"
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_003"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WU",
