@@ -1,7 +1,7 @@
 # VM-509 â€” Boros Semantic Recovery
 
 ID: VM-509
-Status: Gate 4 generation and validation complete; Gate 5 candidate creation required
+Status: Recovery candidate created; independent Gate 5 review required
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: WR
@@ -34,7 +34,7 @@ Recover Boros end to end under CRIT-001: audit the existing packet, bound readin
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-509-boros-semantic-recovery.md`
-- Candidate recovery SHA: pending
+- Candidate recovery SHA: `abff94b91e94b99a6b2a77b71806a9d005ecec76`
 - Independent reviewer: pending
 - Certification commit: pending
 
@@ -86,3 +86,12 @@ Recover Boros end to end under CRIT-001: audit the existing packet, bound readin
 - Candidate parent SHA: `cfc9e022cc23d00ab06f5c5b9d3bfc7db8129ad5`.
 - Candidate recovery SHA: pending until the immutable candidate commit is created.
 - Boros remains uncertified; certification requires independent Gate 5 review and separate authorization.
+
+## Recovery Candidate Record
+
+- Candidate parent SHA: `cfc9e022cc23d00ab06f5c5b9d3bfc7db8129ad5`
+- Candidate recovery SHA: `abff94b91e94b99a6b2a77b71806a9d005ecec76`
+- Candidate commit message: `VM-509 create Boros semantic recovery candidate`
+- Independent reviewer: pending
+- Certification commit: pending
+- Boros remains uncertified.

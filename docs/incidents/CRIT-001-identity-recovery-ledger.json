@@ -1094,10 +1094,10 @@
         "claim_count": 36
       },
       "workflow": {
-        "current_gate": "gate_5_candidate_creation_authorized",
-        "status": "candidate_creation_in_progress",
+        "current_gate": "candidate_created_pending_independent_review",
+        "status": "pending_independent_review",
         "started_at": "2026-07-14T19:34:22.3762616-06:00",
-        "gate_entered_at": "2026-07-14T23:40:00-06:00",
+        "gate_entered_at": "2026-07-14T23:45:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "BR",
@@ -1122,14 +1122,15 @@
           "Stale Boros high-heat public copy remains absent after rebuild; no discovery-only Boros claim or Commander/card/product source is used as WR semantic proof.",
           "Known warnings unchanged: builder-owned Boros inhibitor warning; dossier audit 113 warnings / 0 failures; git-ignore permission warning and LF-to-CRLF notices only.",
           "Boros remains uncertified; no candidate or certification commit exists.",
-          "Gate 5 candidate creation authorized; candidate SHA pending until immutable candidate commit is created."
+          "Gate 5 candidate creation authorized; candidate SHA pending until immutable candidate commit is created.",
+          "Recovery candidate created at exact SHA abff94b91e94b99a6b2a77b71806a9d005ecec76; independent Gate 5 review pending; Boros remains uncertified."
         ]
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "abff94b91e94b99a6b2a77b71806a9d005ecec76",
+        "recovery_commit": "abff94b91e94b99a6b2a77b71806a9d005ecec76",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,

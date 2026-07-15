@@ -1005,4 +1005,17 @@ Pre-candidate state:
 - Known builder-owned Boros inhibitor warning remains unchanged.
 - Dossier audit remains 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures.
 - Boros remains uncertified.
-- No recovery candidate SHA has been recorded yet; this section will be updated by the separate workflow-record commit after candidate creation.
+- Recovery candidate SHA recorded by workflow-record commit: `abff94b91e94b99a6b2a77b71806a9d005ecec76`.
+
+
+## Recovery Candidate Record
+
+Candidate parent SHA: `cfc9e022cc23d00ab06f5c5b9d3bfc7db8129ad5`.
+
+Candidate recovery SHA: `abff94b91e94b99a6b2a77b71806a9d005ecec76`.
+
+Candidate commit message: `VM-509 create Boros semantic recovery candidate`.
+
+Candidate contains Gate 3 canonical remediation, Gate 4 generated artifacts and provenance, Boros semantic fixtures, collision target preservation cleanup, Boros display-source/public-copy cleanup, and VM-509 workflow/report/handoff/board/index/ledger records through Gate 4 and candidate readiness.
+
+Independent Gate 5 review is pending. Boros remains uncertified.
