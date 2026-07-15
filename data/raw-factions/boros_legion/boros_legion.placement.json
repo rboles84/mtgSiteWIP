@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "boros_legion",
   "faction_name": "Boros Legion",
-  "last_updated": "2026-05-10T02:56:03.254Z",
+  "last_updated": "2026-07-14T21:45:00-06:00",
   "placement_model_version": "vox-mana-lore-json-v1",
   "color_identity": [
     "white",
@@ -10,44 +10,59 @@
   ],
   "ideal_fit_indicators": [
     {
-      "indicator": "protects others under pressure",
-      "rationale": "Aligns with the guild's core martial justice identity.",
+      "indicator": "protects others under present pressure",
+      "rationale": "Aligns with Boros peacekeeping, public-duty, and accountable-protection evidence.",
       "claim_ids": [
-        "boros_legion_claim_001"
+        "boros_legion_claim_001",
+        "boros_legion_claim_002",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026"
       ],
       "confidence": "High"
     },
     {
-      "indicator": "The 'Grizzled Veteran' Mentality",
-      "rationale": "Reflects the League of Wojek's pragmatic approach to survival and investigation.",
+      "indicator": "front-line civic accountability",
+      "rationale": "Reflects Boros as a public institution with Wojek/investigator and military arms rather than private leverage.",
       "claim_ids": [
-        "boros_legion_claim_011"
+        "boros_legion_claim_003",
+        "boros_legion_claim_008",
+        "boros_legion_claim_011",
+        "boros_legion_claim_026"
       ],
       "confidence": "High"
     },
     {
-      "indicator": "Heroic Solidarity",
-      "rationale": "Values the unit as the primary source of strength (Battalion/Mentor).",
+      "indicator": "heroic solidarity as a unit",
+      "rationale": "Values team development and coordinated attack through Mentor/Battalion support.",
       "claim_ids": [
-        "boros_legion_claim_012"
+        "boros_legion_claim_004",
+        "boros_legion_claim_006",
+        "boros_legion_claim_012",
+        "boros_legion_claim_026"
       ],
       "confidence": "High"
     }
   ],
   "poor_fit_indicators": [
     {
-      "indicator": "avoids conflict at any cost",
-      "rationale": "Directly counters the guild's martial and protective mandate.",
+      "indicator": "avoids conflict when present-tense protection requires action",
+      "rationale": "Counters the guild's peacekeeping and protective mandate.",
       "claim_ids": [
-        "boros_legion_claim_001"
+        "boros_legion_claim_001",
+        "boros_legion_claim_002",
+        "boros_legion_claim_025"
       ],
       "confidence": "High"
     },
     {
-      "indicator": "treats rules as more important than people",
-      "rationale": "Distinguishes Boros moral urgency from Azorius legal rigidity.",
+      "indicator": "wants generic aggression, spectacle, or force without civic protection",
+      "rationale": "Distinguishes Boros from generic WR overfit, Rakdos-like spectacle, and Mardu-like martial force.",
       "claim_ids": [
-        "boros_legion_claim_008"
+        "boros_legion_claim_026",
+        "boros_legion_claim_027",
+        "boros_legion_claim_029",
+        "boros_legion_claim_033",
+        "boros_legion_claim_036"
       ],
       "confidence": "High"
     }
@@ -55,38 +70,53 @@
   "discriminator_questions": [
     {
       "question_id": "q_boros_legion_0001",
-      "question": "Is the law a set of rules to be interpreted or a shield to be used for protection?",
-      "purpose": "Separates the protective instinct (Boros) from procedural debate (Azorius).",
+      "question": "When harm is unfolding now, do you first reach for a public protective response or for procedure to resolve the question?",
+      "purpose": "Separates Boros protective urgency from Azorius procedure-first governance.",
       "claim_ids": [
-        "boros_legion_claim_001",
-        "boros_legion_claim_008"
+        "boros_legion_claim_025",
+        "boros_legion_claim_028",
+        "boros_legion_claim_030"
       ]
     },
     {
       "question_id": "q_boros_legion_0002",
-      "question": "Would you work with a 'shady' ally to solve a crime that threatens the public?",
-      "purpose": "Tests for the Wojek investigator archetype (Agrus Kos).",
+      "question": "Do you want a disciplined team response to protect people, or a solo display of force that proves you can win?",
+      "purpose": "Separates Boros team-bound duty from generic WR aggression, Rakdos spectacle, and Mardu martial overfit.",
       "claim_ids": [
-        "boros_legion_claim_011"
+        "boros_legion_claim_026",
+        "boros_legion_claim_029",
+        "boros_legion_claim_033",
+        "boros_legion_claim_036"
       ]
     },
     {
       "question_id": "q_boros_legion_9001",
       "collision_targets": [
+        "generic_wr_overfit",
         "azorius_senate",
         "lorehold",
-        "selesnya_conclave"
+        "selesnya_conclave",
+        "rakdos_cult",
+        "izzet_league",
+        "orzhov_syndicate",
+        "mardu"
       ],
       "prompt": "A rule, a precedent, and a community consensus all say to wait, but someone will be hurt before the process finishes. What do you do first?",
-      "boros_signal": "acts visibly to protect the person and accepts consequences afterward",
-      "suppresses_boros_if": "waits for procedure, researches precedent, or preserves harmony as the first priority",
+      "boros_signal": "acts visibly to protect the person, keeps the response public, and accepts accountability afterward",
+      "suppresses_boros_if": "waits for procedure, researches precedent, preserves harmony, seeks spectacle, experiments, pursues leverage, or treats force as its own justification",
       "evidence_claim_ids": [
-        "boros_legion_claim_001",
-        "boros_legion_claim_002",
-        "boros_legion_claim_003",
-        "boros_legion_claim_004",
-        "boros_legion_claim_005"
-      ]
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_028",
+        "boros_legion_claim_030",
+        "boros_legion_claim_031",
+        "boros_legion_claim_032",
+        "boros_legion_claim_033",
+        "boros_legion_claim_034",
+        "boros_legion_claim_035",
+        "boros_legion_claim_036"
+      ],
+      "lateral_inhibition": false
     }
   ],
   "placement_quality": {
@@ -107,19 +137,19 @@
   "placement_profile_version": "2.0",
   "based_on_profile_version": "2.0",
   "placement_summary": {
-    "primary_read": "Place Boros when the user repeatedly chooses immediate protection, visible accountability, team loyalty, moral courage, and action under pressure over delay, secrecy, or purely abstract principle.",
-    "false_positive_guardrail": "Do not award Boros for generic rule-following, generic aggression, generic hero fantasy, or historical curiosity without present-tense intervention.",
+    "primary_read": "Place Boros when the user repeatedly chooses present-tense protection, public accountability, team duty, and disciplined action under pressure over delay, secrecy, spectacle, leverage, or abstract principle.",
+    "false_positive_guardrail": "Do not award Boros for generic rule-following, generic aggression, generic hero fantasy, red-white color identity, martial aesthetics, or rule-breaking without active protection and accountability.",
     "evidence_claim_ids": [
       "boros_legion_claim_001",
       "boros_legion_claim_002",
       "boros_legion_claim_003",
-      "boros_legion_claim_004",
-      "boros_legion_claim_005",
       "boros_legion_claim_006",
-      "boros_legion_claim_007",
       "boros_legion_claim_008",
-      "boros_legion_claim_009",
-      "boros_legion_claim_010"
+      "boros_legion_claim_012",
+      "boros_legion_claim_025",
+      "boros_legion_claim_026",
+      "boros_legion_claim_028",
+      "boros_legion_claim_029"
     ],
     "calibrated_primary_read": "Requires immediate protection, visible accountability, team duty, and moral urgency.",
     "calibrated_false_positive_guardrail": "Do not award for generic heroism, generic aggression, or white-red identity without active protection."
@@ -128,14 +158,16 @@
     {
       "axis_id": "axis_boros_action_vs_procedure",
       "name": "Immediate Protection vs Procedural Restraint",
-      "boros_pole": "Act when delay leaves someone exposed.",
-      "opposing_pole": "Wait for the proper channel even under pressure.",
+      "boros_pole": "Act publicly when delay leaves someone exposed.",
+      "opposing_pole": "Wait for the proper channel even when harm is immediate.",
       "scoring_hint": "High Boros only when protection and action are both present.",
       "evidence_claim_ids": [
         "boros_legion_claim_001",
         "boros_legion_claim_002",
         "boros_legion_claim_003",
-        "boros_legion_claim_004"
+        "boros_legion_claim_025",
+        "boros_legion_claim_028",
+        "boros_legion_claim_030"
       ]
     },
     {
@@ -146,50 +178,63 @@
       "scoring_hint": "Reward loyalty and front-line responsibility more than solitary competence.",
       "evidence_claim_ids": [
         "boros_legion_claim_004",
-        "boros_legion_claim_005",
         "boros_legion_claim_006",
-        "boros_legion_claim_007"
+        "boros_legion_claim_012",
+        "boros_legion_claim_026"
       ]
     },
     {
-      "axis_id": "axis_boros_righteous_zeal",
-      "name": "Righteous Zeal Under Constraint",
-      "boros_pole": "Moral urgency burns hotter than institutional comfort.",
-      "opposing_pole": "Anger without a protective duty or spectacle without service.",
+      "axis_id": "axis_boros_accountable_force",
+      "name": "Accountable Force Under Constraint",
+      "boros_pole": "Use force only as disciplined protection in service of peacekeeping duty.",
+      "opposing_pole": "Treat anger, spectacle, conquest, or force itself as the point.",
       "scoring_hint": "Separate Boros zeal from Rakdos performance and Gruul grievance.",
       "evidence_claim_ids": [
-        "boros_legion_claim_007",
-        "boros_legion_claim_008",
-        "boros_legion_claim_009",
-        "boros_legion_claim_010"
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_027",
+        "boros_legion_claim_029",
+        "boros_legion_claim_033",
+        "boros_legion_claim_036"
       ]
     }
   ],
   "behavioral_signals": [
-    "protects someone who cannot protect themselves",
-    "breaks procedure only when a present-tense harm requires intervention",
-    "describes duty as something carried with other people, not just a private value",
-    "prefers accountable action over hidden leverage",
-    "acts to protect someone exposed to harm",
-    "accepts consequences after doing the right thing",
-    "frames courage as shared duty"
+    "protects someone exposed to immediate harm",
+    "acts publicly and accepts accountability afterward",
+    "describes duty as carried with a team, not only as a private value",
+    "prefers disciplined intervention over hidden leverage",
+    "frames courage as service rather than spectacle",
+    "keeps force tied to protection rather than anger"
   ],
   "inhibitor_traits": [
     "prefers process over intervention even when harm is immediate",
-    "frames justice as reputation, debt, private leverage, or historical analysis rather than protection",
+    "frames justice as reputation, debt, private leverage, spectacle, conquest, or historical analysis rather than protection",
     "seeks harmony by avoiding conflict when protection would require confrontation",
-    "waits for process when someone is being harmed",
-    "prefers hidden leverage",
-    "avoids confrontation for harmony"
+    "treats force or anger as self-justifying",
+    "wants generic red-white combat without civic duty"
   ],
   "good_fit_indicators": [
     "The user chooses protection and visible duty over comfort.",
-    "The user accepts personal risk to stop a present injustice.",
-    "The user values teammates, accountability, and decisive action."
+    "The user accepts personal risk to stop a present harm while staying accountable.",
+    "The user values teammates, civic service, and decisive but disciplined action."
   ],
   "chatbot_guidance": {
-    "ask_when_uncertain": "When Boros is close to Azorius, Lorehold, or Selesnya, ask whether the user would act now to protect someone, preserve procedure, research precedent, or preserve group harmony.",
-    "avoid": "Avoid treating any white-red answer as Boros. Require active protection or moral urgency in the present.",
+    "how_to_recognize_match": [
+      "User centers present-tense protection of someone exposed to harm.",
+      "User accepts public accountability after acting.",
+      "User values team duty, disciplined intervention, and civic service."
+    ],
+    "how_to_recognize_mismatch": [
+      "User wants generic aggression, speed, martial aesthetics, or hero fantasy without protection.",
+      "User centers procedure, precedent, harmony, spectacle, experimentation, debt/leverage, or conquest before public protection.",
+      "User treats rule-breaking or force as valuable without accountability."
+    ],
+    "questions_to_ask_when_uncertain": [
+      "When delay would leave someone exposed, what matters most: procedure, precedent, harmony, experiment, leverage, spectacle, conquest, or public protection?",
+      "Do you want the response to be disciplined and accountable, or simply fast and forceful?"
+    ],
+    "avoid": "Avoid treating any white-red answer as Boros. Require active protection, public duty, and accountability in the present.",
     "calibration_note": "Boros Legion should require its specific positive evidence cluster: protect, protection, intervene, immediate, action. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
     "scoring_guardrail": "Do not award for generic heroism, generic aggression, or white-red identity without active protection."
   },
@@ -234,5 +279,311 @@
     "false_positive_guardrail": "Do not award for generic heroism, generic aggression, or white-red identity without active protection.",
     "smoke_test_note": "Used by lore review scripts as metadata-level calibration guidance; production placement may use richer weighted logic."
   },
-  "collision_guidance": []
+  "collision_guidance": [
+    {
+      "collision_id": "collision_boros_vs_generic_wr_overfit_gate3",
+      "against": "WR",
+      "lateral_inhibition": false,
+      "separator": "Boros needs civic protection, public duty, and accountability; generic WR speed, combat, anger, or heroic aesthetics are not enough.",
+      "ask": "Is the answer protecting someone through public duty, or only enjoying fast red-white action?",
+      "suppress_if": "the answer is only generic WR color identity, aggression, combat efficiency, hero fantasy, or martial imagery without protective duty",
+      "evidence_claim_ids": [
+        "boros_legion_claim_001",
+        "boros_legion_claim_002",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_029"
+      ]
+    },
+    {
+      "collision_id": "collision_boros_vs_azorius_senate_gate3",
+      "against": "azorius_senate",
+      "lateral_inhibition": false,
+      "separator": "Boros acts publicly to protect when delay exposes someone; Azorius centers legitimate procedure, law, and institutional process.",
+      "ask": "When procedure is too slow to prevent harm, is acting now a duty or a failure of process?",
+      "suppress_if": "the answer centers channels, legislation, precedent, permission, or enforceable systems before immediate protection",
+      "evidence_claim_ids": [
+        "boros_legion_claim_002",
+        "boros_legion_claim_003",
+        "boros_legion_claim_025",
+        "boros_legion_claim_028",
+        "boros_legion_claim_030"
+      ]
+    },
+    {
+      "collision_id": "collision_boros_vs_lorehold_gate3",
+      "against": "lorehold",
+      "lateral_inhibition": false,
+      "separator": "Boros is present-tense civic protection; Lorehold is history, evidence, relics, and precedent made active.",
+      "ask": "Is the first move to protect someone now or to recover/interpret the evidence that explains what should happen?",
+      "suppress_if": "the answer centers history, artifacts, records, precedent, or preservation before present protection",
+      "evidence_claim_ids": [
+        "boros_legion_claim_005",
+        "boros_legion_claim_008",
+        "boros_legion_claim_025",
+        "boros_legion_claim_031"
+      ]
+    },
+    {
+      "collision_id": "collision_boros_vs_selesnya_conclave_gate3",
+      "against": "selesnya_conclave",
+      "lateral_inhibition": false,
+      "separator": "Boros protects through disciplined public force; Selesnya-adjacent answers preserve harmony, belonging, and consensus first.",
+      "ask": "When protection requires confrontation, do you confront publicly or repair group harmony first?",
+      "suppress_if": "the answer centers harmony, consensus, or belonging over protective intervention",
+      "evidence_claim_ids": [
+        "boros_legion_claim_001",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_032"
+      ]
+    },
+    {
+      "collision_id": "collision_boros_vs_rakdos_cult_gate3",
+      "against": "cult_of_rakdos",
+      "lateral_inhibition": false,
+      "separator": "Boros may act forcefully, but the point is civic protection; Rakdos-adjacent answers center spectacle, transgression, or intensity.",
+      "ask": "Is the action service and protection, or performance and release?",
+      "suppress_if": "the answer centers spectacle, transgression, cruelty, or intensity without service",
+      "evidence_claim_ids": [
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_027",
+        "boros_legion_claim_033"
+      ]
+    },
+    {
+      "collision_id": "collision_boros_vs_izzet_league_gate3",
+      "against": "izzet_league",
+      "lateral_inhibition": false,
+      "separator": "Boros protects through duty and disciplined action; Izzet-adjacent answers solve pressure through experiments, prototypes, and technical iteration.",
+      "ask": "When pressure rises, do you protect the person first or build/test the solution first?",
+      "suppress_if": "the answer centers experiment, prototype learning, technical novelty, or useful risk before protection",
+      "evidence_claim_ids": [
+        "boros_legion_claim_006",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_034"
+      ]
+    },
+    {
+      "collision_id": "collision_boros_vs_orzhov_syndicate_gate3",
+      "against": "orzhov_syndicate",
+      "lateral_inhibition": false,
+      "separator": "Boros public duty protects people; Orzhov-adjacent answers center debt, leverage, obligation, and transactional authority.",
+      "ask": "Is the duty public protection, or an obligation someone can collect on?",
+      "suppress_if": "the answer centers debt, status, leverage, contract advantage, or private obligation over public protection",
+      "evidence_claim_ids": [
+        "boros_legion_claim_002",
+        "boros_legion_claim_003",
+        "boros_legion_claim_025",
+        "boros_legion_claim_035"
+      ]
+    },
+    {
+      "collision_id": "collision_boros_vs_mardu_gate3",
+      "against": "mardu",
+      "lateral_inhibition": false,
+      "separator": "Boros force is bounded by civic peacekeeping and protection; Mardu-adjacent answers center martial ambition, conquest, or force as identity.",
+      "ask": "Is the martial response accountable service, or conquest and momentum?",
+      "suppress_if": "the answer centers conquest, martial ambition, speed, or force without civic peacekeeping duty",
+      "evidence_claim_ids": [
+        "boros_legion_claim_001",
+        "boros_legion_claim_003",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_036"
+      ]
+    }
+  ],
+  "semantic_guidance_evidence": [
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "evidence_claim_ids": [
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_028"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "evidence_claim_ids": [
+        "boros_legion_claim_026",
+        "boros_legion_claim_028"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "evidence_claim_ids": [
+        "boros_legion_claim_006",
+        "boros_legion_claim_012",
+        "boros_legion_claim_026"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "evidence_claim_ids": [
+        "boros_legion_claim_029",
+        "boros_legion_claim_033",
+        "boros_legion_claim_036"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "evidence_claim_ids": [
+        "boros_legion_claim_030",
+        "boros_legion_claim_031",
+        "boros_legion_claim_032",
+        "boros_legion_claim_033",
+        "boros_legion_claim_034",
+        "boros_legion_claim_035",
+        "boros_legion_claim_036"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "evidence_claim_ids": [
+        "boros_legion_claim_027",
+        "boros_legion_claim_028",
+        "boros_legion_claim_029"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "evidence_claim_ids": [
+        "boros_legion_claim_025",
+        "boros_legion_claim_028",
+        "boros_legion_claim_030",
+        "boros_legion_claim_031",
+        "boros_legion_claim_032",
+        "boros_legion_claim_033",
+        "boros_legion_claim_034",
+        "boros_legion_claim_035",
+        "boros_legion_claim_036"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "evidence_claim_ids": [
+        "boros_legion_claim_026",
+        "boros_legion_claim_027",
+        "boros_legion_claim_028",
+        "boros_legion_claim_029"
+      ]
+    }
+  ],
+  "required_neighbor_evidence": [
+    {
+      "neighbor": "GENERIC_WR_OVERFIT",
+      "label": "GENERIC_WR_OVERFIT",
+      "reason": "Same-color generic combat/heroism can overfit Boros.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_001",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_029"
+      ],
+      "ambiguity": "Require civic protection and public duty before awarding Boros."
+    },
+    {
+      "neighbor": "AZORIUS_SENATE",
+      "label": "AZORIUS_SENATE",
+      "reason": "Overlap around law, order, protection, and public institutions.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_002",
+        "boros_legion_claim_003",
+        "boros_legion_claim_025",
+        "boros_legion_claim_028",
+        "boros_legion_claim_030"
+      ],
+      "ambiguity": "Boros acts to protect under present harm; Azorius-adjacent answers center procedure first."
+    },
+    {
+      "neighbor": "LOREHOLD",
+      "label": "LOREHOLD",
+      "reason": "Same-color overlap around justice, action, and history/precedent.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_005",
+        "boros_legion_claim_008",
+        "boros_legion_claim_025",
+        "boros_legion_claim_031"
+      ],
+      "ambiguity": "Boros protects in the present; Lorehold-adjacent answers use historical evidence or precedent first."
+    },
+    {
+      "neighbor": "SELESNYA_CONCLAVE",
+      "label": "SELESNYA_CONCLAVE",
+      "reason": "Overlap around community protection and collective duty.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_001",
+        "boros_legion_claim_026",
+        "boros_legion_claim_032"
+      ],
+      "ambiguity": "Boros confronts through disciplined public action; Selesnya-adjacent answers preserve harmony/consensus first."
+    },
+    {
+      "neighbor": "RAKDOS_CULT",
+      "label": "RAKDOS_CULT",
+      "reason": "Overlap around red intensity and force.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_027",
+        "boros_legion_claim_033"
+      ],
+      "ambiguity": "Boros requires service/protection; Rakdos-adjacent answers center spectacle or transgression."
+    },
+    {
+      "neighbor": "IZZET_LEAGUE",
+      "label": "IZZET_LEAGUE",
+      "reason": "Overlap around red urgency and problem-solving under pressure.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_006",
+        "boros_legion_claim_025",
+        "boros_legion_claim_034"
+      ],
+      "ambiguity": "Boros protects first; Izzet-adjacent answers experiment/build/test first."
+    },
+    {
+      "neighbor": "ORZHOV_SYNDICATE",
+      "label": "ORZHOV_SYNDICATE",
+      "reason": "Overlap around law, institution, obligation, and authority.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_002",
+        "boros_legion_claim_003",
+        "boros_legion_claim_025",
+        "boros_legion_claim_035"
+      ],
+      "ambiguity": "Boros centers public duty; Orzhov-adjacent answers center debt/leverage/private obligation."
+    },
+    {
+      "neighbor": "MARDU",
+      "label": "MARDU",
+      "reason": "Overlap around martial force, courage, and speed.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_001",
+        "boros_legion_claim_003",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_036"
+      ],
+      "ambiguity": "Boros force is accountable civic protection; Mardu-adjacent answers center conquest/martial ambition/force itself."
+    }
+  ],
+  "semantic_readiness": {
+    "contract_version": "v1.1",
+    "certification_status": "gate3_canonical_remediation",
+    "required_neighbors": [
+      "GENERIC_WR_OVERFIT",
+      "AZORIUS_SENATE",
+      "LOREHOLD",
+      "SELESNYA_CONCLAVE",
+      "RAKDOS_CULT",
+      "IZZET_LEAGUE",
+      "ORZHOV_SYNDICATE",
+      "MARDU"
+    ],
+    "audit_report": "docs/incidents/recoveries/VM-509-boros-semantic-recovery.md",
+    "generated_artifacts_status": "stale_until_gate4"
+  }
 }
