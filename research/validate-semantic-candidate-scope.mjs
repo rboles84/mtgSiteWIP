@@ -73,6 +73,34 @@ export function findForbiddenFieldChanges(before, after) {
   return changes.sort();
 }
 
+function valueAtPointer(value, pointer) {
+  if (!pointer) return value;
+  return pointer
+    .slice(1)
+    .split("/")
+    .reduce((current, part) => {
+      if (current === undefined || current === null) return undefined;
+      const key = part.replaceAll("~1", "/").replaceAll("~0", "~");
+      return current[key];
+    }, value);
+}
+
+function isExplicitNonInhibitingAddition(before, after, pointer) {
+  return pointer.endsWith("/lateral_inhibition") && valueAtPointer(before, pointer) === undefined && valueAtPointer(after, pointer) === false;
+}
+
+export function findForbiddenPlacementBehaviorChanges({ beforePlacement, afterPlacement, beforeGeneratedFaction = null, afterGeneratedFaction = null }) {
+  const beforeTargets = beforeGeneratedFaction?.lateral_inhibition_targets || [];
+  const afterTargets = afterGeneratedFaction?.lateral_inhibition_targets || [];
+  const generatedTargetsChanged = stableStringify(beforeTargets) !== stableStringify(afterTargets);
+  const changes = [];
+  if (generatedTargetsChanged) changes.push("/generated/lateral_inhibition_targets");
+  for (const pointer of findForbiddenFieldChanges(beforePlacement, afterPlacement)) {
+    if (isExplicitNonInhibitingAddition(beforePlacement, afterPlacement, pointer) && !generatedTargetsChanged) continue;
+    changes.push(pointer);
+  }
+  return [...new Set(changes)].sort();
+}
 export function collectNativeIds(value, results = new Set()) {
   if (Array.isArray(value)) {
     value.forEach((child) => collectNativeIds(child, results));
@@ -192,7 +220,17 @@ async function main() {
   const sourcesFile = `data/raw-factions/${rawId}/${rawId}.sources.json`;
   const beforePlacement = gitJson(options.base, placementFile);
   const afterPlacement = gitJson(options.target, placementFile);
-  for (const pointer of findForbiddenFieldChanges(beforePlacement, afterPlacement)) errors.push(`forbidden placement field changed ${placementFile}#${pointer}`);
+  const beforePlacementModel = gitJson(options.base, "data/placement-model.json");
+  const afterPlacementModel = gitJson(options.target, "data/placement-model.json");
+  for (const pointer of findForbiddenPlacementBehaviorChanges({
+    beforePlacement,
+    afterPlacement,
+    beforeGeneratedFaction: identityValue(beforePlacementModel, options.identity),
+    afterGeneratedFaction: identityValue(afterPlacementModel, options.identity),
+  })) {
+    if (pointer === "/generated/lateral_inhibition_targets") errors.push(`generated lateral inhibition targets changed data/placement-model.json#/factions/${options.identity}/lateral_inhibition_targets`);
+    else errors.push(`forbidden placement field changed ${placementFile}#${pointer}`);
+  }
 
   const beforeProfile = gitJson(options.base, profileFile);
   const afterProfile = gitJson(options.target, profileFile);
@@ -209,8 +247,6 @@ async function main() {
 
   const beforeFactions = gitJson(options.base, "data/factions.json");
   const afterFactions = gitJson(options.target, "data/factions.json");
-  const beforePlacementModel = gitJson(options.base, "data/placement-model.json");
-  const afterPlacementModel = gitJson(options.target, "data/placement-model.json");
   const expectedConsumers = [
     ["data/factions.json", `data/factions.json#/factions/${options.identity}`],
     ["data/placement-model.json", `data/placement-model.json#/factions/${options.identity}`],

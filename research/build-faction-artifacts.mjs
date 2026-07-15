@@ -4611,6 +4611,20 @@ function attachCommanderCompass(displayData, rawRecords) {
   });
 }
 
+export function buildLateralInhibitionTargets({ key, normalizedCollisionGuidance = [], rawQuestions = [] }) {
+  const collisionTargets = [
+    ...(KNOWN_LATERAL_INHIBITION[key] || []),
+    ...normalizedCollisionGuidance
+      .filter(({ entry }) => entry.lateral_inhibition !== false)
+      .map(({ target }) => target),
+    ...rawQuestions
+      .filter((question) => question.lateral_inhibition !== false)
+      .flatMap((question) => question.collision_targets || [])
+      .map(normalizeTarget),
+  ];
+  return unique(collisionTargets).filter((target) => target !== key);
+}
+
 function buildFactionRecord({ key, rawId, placement, profile, display, expressionMeta = null }) {
   const knownTargets = new Set(KNOWN_LATERAL_INHIBITION[key] || []);
   const normalizedCollisionGuidance = collisionGuidanceList(placement)
@@ -4626,16 +4640,7 @@ function buildFactionRecord({ key, rawId, placement, profile, display, expressio
   const calibration = placement.calibration_tuning || {};
   const rawQuestions = placement.discriminator_questions || [];
   const liveCopyOverride = LIVE_PLACEMENT_COPY_OVERRIDES[key] || {};
-  const collisionTargets = [
-    ...(KNOWN_LATERAL_INHIBITION[key] || []),
-    ...normalizedCollisionGuidance
-      .filter(({ entry }) => entry.lateral_inhibition !== false)
-      .map(({ target }) => target),
-    ...rawQuestions
-      .filter((question) => question.lateral_inhibition !== false)
-      .flatMap((question) => question.collision_targets || [])
-      .map(normalizeTarget),
-  ];
+  const lateralInhibitionTargets = buildLateralInhibitionTargets({ key, normalizedCollisionGuidance, rawQuestions });
   const goodFit = normalizeIndicatorList(
     liveCopyOverride.goodFitIndicators || placement.good_fit_indicators || placement.ideal_fit_indicators || []
   );
@@ -4700,7 +4705,7 @@ function buildFactionRecord({ key, rawId, placement, profile, display, expressio
     discriminator_questions: rawQuestions.map((question, index) =>
       normalizeQuestion(question, key, index)
     ),
-    lateral_inhibition_targets: unique(collisionTargets).filter((target) => target !== key),
+    lateral_inhibition_targets: lateralInhibitionTargets,
     collision_guidance: normalizedCollisionGuidance.map(({ entry, target }) => ({
       ...cloneJson(entry),
       collision_id: entry.collision_id || "",

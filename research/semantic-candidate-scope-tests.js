@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import {
   findForbiddenFieldChanges,
+  findForbiddenPlacementBehaviorChanges,
   findMissingNativeIds,
   findMissingProvenanceNativeIds,
   isAllowedIdentityCandidatePath,
@@ -8,6 +9,7 @@ import {
   validateGeneratedConsumerCoverage,
   validateUnrelatedGeneratedIsolation,
 } from "./validate-semantic-candidate-scope.mjs";
+import { buildLateralInhibitionTargets } from "./build-faction-artifacts.mjs";
 
 assert.equal(isFrozenSharedPath("docs/reference/semantic-readiness-contract.md"), true, "contract is frozen for identity candidates");
 assert.equal(isFrozenSharedPath("research/semantic-readiness-lib.mjs"), true, "shared validator library is frozen for identity candidates");
@@ -23,6 +25,49 @@ assert.deepEqual(
   findForbiddenFieldChanges({ collision: { lateral_inhibition: false } }, { collision: { lateral_inhibition: true } }),
   ["/collision/lateral_inhibition"],
   "lateral inhibition changes must be rejected"
+);
+assert.deepEqual(
+  buildLateralInhibitionTargets({
+    key: "TEST_IDENTITY",
+    normalizedCollisionGuidance: [
+      { entry: { lateral_inhibition: false }, target: "UR" },
+      { entry: {}, target: "WB" },
+      { entry: { lateral_inhibition: true }, target: "BR" },
+    ],
+    rawQuestions: [{ collision_targets: ["azorius_senate"] }],
+  }),
+  ["WB", "BR", "WU"],
+  "explicit non-inhibiting collision guidance must not feed generated lateral inhibition targets"
+);
+assert.deepEqual(
+  findForbiddenPlacementBehaviorChanges({
+    beforePlacement: { collision_guidance: [] },
+    afterPlacement: { collision_guidance: [{ against: "izzet_league", lateral_inhibition: false }] },
+    beforeGeneratedFaction: { lateral_inhibition_targets: ["WU"] },
+    afterGeneratedFaction: { lateral_inhibition_targets: ["WU"] },
+  }),
+  [],
+  "candidate scope allows explicit false only when generated inhibition behavior is unchanged"
+);
+assert.deepEqual(
+  findForbiddenPlacementBehaviorChanges({
+    beforePlacement: { collision_guidance: [] },
+    afterPlacement: { collision_guidance: [{ against: "izzet_league", lateral_inhibition: true }] },
+    beforeGeneratedFaction: { lateral_inhibition_targets: ["WU"] },
+    afterGeneratedFaction: { lateral_inhibition_targets: ["WU", "UR"] },
+  }),
+  ["/collision_guidance/0/lateral_inhibition", "/generated/lateral_inhibition_targets"],
+  "candidate scope still rejects true lateral inhibition behavior"
+);
+assert.deepEqual(
+  findForbiddenPlacementBehaviorChanges({
+    beforePlacement: { collision_guidance: [] },
+    afterPlacement: { collision_guidance: [] },
+    beforeGeneratedFaction: { lateral_inhibition_targets: ["WU"] },
+    afterGeneratedFaction: { lateral_inhibition_targets: ["WU", "UR"] },
+  }),
+  ["/generated/lateral_inhibition_targets"],
+  "candidate scope detects generated lateral target expansion even without a canonical lateral_inhibition field"
 );
 
 assert.deepEqual(
