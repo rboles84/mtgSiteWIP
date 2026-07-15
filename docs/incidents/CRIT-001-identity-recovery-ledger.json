@@ -1038,14 +1038,13 @@
       },
       "computed": {
         "structural_fingerprint": [
-          "mixed-role-pattern",
-          "discovery-heavy-pattern"
+          "mixed-role-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 24,
           "discovery_record": 12,
           "support_record": 0,
-          "unclassified": 12
+          "unclassified": 0
         },
         "source_count": 17,
         "source_role_counts": {
@@ -1054,88 +1053,77 @@
         },
         "claim_bearing_source_count": 5,
         "claim_bearing_source_rate": 0.2941,
-        "reference_site_count": 23,
+        "reference_site_count": 46,
         "missing_references": [],
-        "potential_role_invalid_support_links": [
-          {
-            "pointer": "data/raw-factions/boros_legion/boros_legion.profile.json#/key_figures/0",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/boros_legion/boros_legion.profile.json#/key_figures/1",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/boros_legion/boros_legion.profile.json#/key_figures/2",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/boros_legion/boros_legion.profile.json#/key_figures/3",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/boros_legion/boros_legion.profile.json#/key_figures/4",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          }
-        ],
+        "potential_role_invalid_support_links": [],
         "raw_question_count": 3,
         "unique_question_claim_ids": [
-          "boros_legion_claim_001",
-          "boros_legion_claim_008",
-          "boros_legion_claim_011",
-          "boros_legion_claim_002",
-          "boros_legion_claim_003",
-          "boros_legion_claim_004",
-          "boros_legion_claim_005"
+          "boros_legion_claim_025",
+          "boros_legion_claim_028",
+          "boros_legion_claim_030",
+          "boros_legion_claim_026",
+          "boros_legion_claim_029",
+          "boros_legion_claim_033",
+          "boros_legion_claim_036",
+          "boros_legion_claim_031",
+          "boros_legion_claim_032",
+          "boros_legion_claim_034",
+          "boros_legion_claim_035"
         ],
         "neighbor_references": [
+          "WR",
           "azorius_senate",
-          "lorehold"
+          "cult_of_rakdos",
+          "izzet_league",
+          "lorehold",
+          "mardu",
+          "orzhov_syndicate",
+          "selesnya_conclave"
         ],
-        "recruiter_context_size": 6225,
+        "recruiter_context_size": 7746,
         "creation_commit": "f6a1dd4644849ffb3bad6f1bba82f7cd55fa549a",
         "readiness_mentions": [
           "docs/reference/ravnica-guild-source-readiness-matrix.md:28"
         ],
         "provisional_risk_indicators": {
-          "coverage": [
-            "discovery-record-majority",
-            "no-explicit-substantive-role"
-          ],
+          "coverage": [],
           "neighbors": []
         },
         "template_cohort_pattern": false,
-        "inventory_updated_at": "2026-07-11T18:42:33.624Z"
+        "inventory_updated_at": "2026-07-14T23:26:00-06:00",
+        "claim_count": 36
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "gate_5_candidate_creation_authorized",
+        "status": "candidate_creation_in_progress",
+        "started_at": "2026-07-14T19:34:22.3762616-06:00",
+        "gate_entered_at": "2026-07-14T23:40:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "BR",
-        "primary_disposition": null
+        "primary_disposition": "claim_extraction_pass_required"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "GENERIC_WR_OVERFIT",
+          "AZORIUS_SENATE",
+          "LOREHOLD",
+          "SELESNYA_CONCLAVE",
+          "RAKDOS_CULT",
+          "IZZET_LEAGUE",
+          "ORZHOV_SYNDICATE",
+          "MARDU"
+        ],
+        "audit_report": "docs/incidents/recoveries/VM-509-boros-semantic-recovery.md",
+        "residual_findings": [
+          "Gate 4 generation and validation complete: WR generated artifacts, provenance, fixtures, source/generated validation, generated-diff isolation, and regressions passed.",
+          "Collision target preservation blocker resolved by canonical target normalization only: generic_wr_overfit -> WR for the generic-overfit guardrail entry; rakdos_cult -> cult_of_rakdos for Rakdos/BR.",
+          "Generated WR collision guidance preserves all 8 Gate 3 collision entries; all have lateral_inhibition false and no lateral-inhibition behavior/value changes were introduced.",
+          "Stale Boros high-heat public copy remains absent after rebuild; no discovery-only Boros claim or Commander/card/product source is used as WR semantic proof.",
+          "Known warnings unchanged: builder-owned Boros inhibitor warning; dossier audit 113 warnings / 0 failures; git-ignore permission warning and LF-to-CRLF notices only.",
+          "Boros remains uncertified; no candidate or certification commit exists.",
+          "Gate 5 candidate creation authorized; candidate SHA pending until immutable candidate commit is created."
+        ]
       },
       "certification": {
         "contract_version": null,

@@ -1,0 +1,230 @@
+{
+  "identity_key": "WR",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "boros_core_public_protection",
+      "fixture_type": "core_inclusion",
+      "scenario": "A clear Boros case centers present-tense protection, public duty, civic peacekeeping, disciplined teamwork, and accountable action rather than generic red-white combat.",
+      "intended_interpretation": "Boros inclusion is grounded when white-red urgency is expressed as Ravnican public protection and accountable peacekeeping duty.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_001",
+        "boros_legion_claim_002",
+        "boros_legion_claim_003",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "The answer should be explainable through Boros peacekeeping, protection, public duty, military/public-safety structure, and team-bound accountable action.",
+      "unsupported_certainty_to_avoid": "Do not infer Boros from WR color identity, speed, combat preference, aggression, or hero fantasy without civic protection and accountability."
+    },
+    {
+      "fixture_id": "boros_pressure_accountable_force",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "Under pressure, a mature Boros response acts visibly to protect someone, keeps force tied to public duty, and accepts accountability afterward.",
+      "intended_interpretation": "Mature or pressure behavior is defensible when action is protective and accountable; unhealthy Boros appears when force outruns the peacekeeping purpose.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_026",
+        "boros_legion_claim_027",
+        "boros_legion_claim_028"
+      ],
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Boros when urgency is bounded by protection, team duty, and accountability; use caution when the answer treats force or anger as self-justifying.",
+      "unsupported_certainty_to_avoid": "Do not use unsupported righteous fury, burning, zeal, or rule-breaking language as certification proof."
+    },
+    {
+      "fixture_id": "boros_exclusion_generic_wr_overfit",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_WR_OVERFIT",
+      "scenario": "A user likes fast red-white combat, heroic aesthetics, or aggressive gameplay but does not mention civic protection, public duty, or accountability.",
+      "intended_interpretation": "Generic WR surface traits should not certify Boros without Boros-specific civic peacekeeping evidence.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Require public protection and Boros duty before converting WR combat preference into Boros.",
+      "unsupported_certainty_to_avoid": "Do not collapse generic white-red speed or aggression into Boros."
+    },
+    {
+      "fixture_id": "boros_exclusion_azorius_procedure_first",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "AZORIUS_SENATE",
+      "scenario": "A user centers procedure, permission, precedent, and lawful channels before intervention even when harm is immediate.",
+      "intended_interpretation": "That should remain Azorius-adjacent unless protective intervention and public duty become decisive.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_030"
+      ],
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Separate Boros protective action from Azorius process-first governance.",
+      "unsupported_certainty_to_avoid": "Do not call every law/order answer Boros when procedure is the user's first value."
+    },
+    {
+      "fixture_id": "boros_exclusion_lorehold_precedent_first",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "LOREHOLD",
+      "scenario": "A user treats historical evidence, precedent, archives, or relic context as the first duty before present-tense intervention.",
+      "intended_interpretation": "That should remain Lorehold-adjacent unless public protection in the present becomes the deciding obligation.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_031"
+      ],
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Ask whether the first move is present protection or recovering/interpreting the evidence that explains what should happen.",
+      "unsupported_certainty_to_avoid": "Do not reduce Lorehold to generic Boros combat or Boros to history-minded red-white."
+    },
+    {
+      "fixture_id": "boros_exclusion_selesnya_harmony_first",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SELESNYA_CONCLAVE",
+      "scenario": "A user prioritizes consensus, harmony, and belonging over public confrontation when protection would require disciplined force.",
+      "intended_interpretation": "That should remain Selesnya-adjacent unless Boros-style protective intervention is chosen.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Separate Boros public enforcement from harmony-first community repair.",
+      "unsupported_certainty_to_avoid": "Do not treat all community protection as Boros when consensus is the primary method."
+    },
+    {
+      "fixture_id": "boros_exclusion_rakdos_spectacle_first",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "RAKDOS_CULT",
+      "scenario": "A user wants intensity, spectacle, transgression, or release more than service, public protection, or accountability.",
+      "intended_interpretation": "That should remain Rakdos-adjacent unless action is bounded by Boros civic/protective duty.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_027",
+        "boros_legion_claim_033"
+      ],
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Ask whether the action is service and protection or performance and release.",
+      "unsupported_certainty_to_avoid": "Do not frame Boros through violence or intensity for its own sake."
+    },
+    {
+      "fixture_id": "boros_exclusion_izzet_experiment_first",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "IZZET_LEAGUE",
+      "scenario": "A user responds to pressure by building, testing, prototyping, or experimenting before deciding how to protect people.",
+      "intended_interpretation": "That should remain Izzet/UR-adjacent unless public protection and duty come first.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_006",
+        "boros_legion_claim_034"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Ask whether the user protects the person first or builds/tests the solution first.",
+      "unsupported_certainty_to_avoid": "Do not treat all red urgency as Boros when the answer is experiment-first."
+    },
+    {
+      "fixture_id": "boros_exclusion_orzhov_leverage",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ORZHOV_SYNDICATE",
+      "scenario": "A user frames law, duty, or obligation as debt, status, leverage, or a private advantage that can be collected.",
+      "intended_interpretation": "That should remain Orzhov-adjacent unless the duty is public protection and peacekeeping.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_035"
+      ],
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Ask whether the duty protects people publicly or creates an obligation someone can collect on.",
+      "unsupported_certainty_to_avoid": "Do not turn hierarchy or obligation into Boros without public protection."
+    },
+    {
+      "fixture_id": "boros_exclusion_mardu_conquest",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "MARDU",
+      "scenario": "A user centers conquest, momentum, martial ambition, or force as identity rather than civic peacekeeping and accountable protection.",
+      "intended_interpretation": "That should remain Mardu-adjacent unless force is bounded by Boros public duty.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_026",
+        "boros_legion_claim_036"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Ask whether the martial response is accountable service or conquest and momentum.",
+      "unsupported_certainty_to_avoid": "Do not treat all martial courage or speed as Boros."
+    },
+    {
+      "fixture_id": "boros_ambiguous_process_harmony_or_rescue",
+      "fixture_type": "nearest_collision_ambiguity",
+      "neighbor": "AZORIUS_SENATE",
+      "scenario": "A user wants rules, precedent, consensus, and immediate rescue all at once but has not decided which obligation leads.",
+      "intended_interpretation": "Keep ambiguity until the answer chooses Boros public protection, Azorius procedure, Lorehold precedent, Selesnya harmony, or another required-neighbor motive.",
+      "evidence_claim_ids": [
+        "boros_legion_claim_025",
+        "boros_legion_claim_028",
+        "boros_legion_claim_030",
+        "boros_legion_claim_031",
+        "boros_legion_claim_032"
+      ],
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Use uncertainty guidance when protection, process, precedent, and harmony are all present but not prioritized.",
+      "unsupported_certainty_to_avoid": "Do not force Boros when the user has not chosen accountable public protection as the deciding obligation."
+    },
+    {
+      "fixture_id": "boros_provenance_placement_summary",
+      "fixture_type": "provenance",
+      "scenario": "The Boros placement summary must preserve the complete evidence chain for public protection, civic duty, and generic-WR overfit guardrails.",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/placement_summary",
+      "evidence_claim_ids": [
+        "boros_legion_claim_001",
+        "boros_legion_claim_002",
+        "boros_legion_claim_003",
+        "boros_legion_claim_006",
+        "boros_legion_claim_008",
+        "boros_legion_claim_012",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_028",
+        "boros_legion_claim_029"
+      ],
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "expected_generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "defensible_guidance": "Generated consumers must preserve claim and source provenance for Boros placement summary guidance.",
+      "unsupported_certainty_to_avoid": "Do not expose internal claim IDs in user-facing recruiter prose."
+    }
+  ]
+}

@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "faction_id": "boros_legion",
   "faction_name": "Boros Legion",
-  "last_updated": "2026-05-10T02:24:27.430Z",
-  "claim_count": 24,
+  "last_updated": "2026-07-14T21:45:00-06:00",
+  "claim_count": 36,
   "claims": [
     {
       "claim_id": "boros_legion_claim_001",
@@ -13,7 +13,18 @@
       "source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "The reviewed official guide source record identifies Boros as the white-red Ravnica guild and frames the guild around martial justice, honor, and peacekeeping.",
+          "evidence_scope": "identity-wide",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "boros_legion_claim_002",
@@ -23,7 +34,18 @@
       "source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "The reviewed official guide source record describes Boros as the military and peacekeeping arm of Ravnican society.",
+          "evidence_scope": "institution-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "boros_legion_claim_003",
@@ -33,7 +55,18 @@
       "source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "The reviewed official guide source record supports Boros as a military-style hierarchy organized around keeping peace and enforcing law.",
+          "evidence_scope": "institution-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "boros_legion_claim_004",
@@ -43,7 +76,18 @@
       "source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "The reviewed official guide source record presents Aurelia as guildmaster and as a leader who fights alongside Boros troops.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "boros_legion_claim_005",
@@ -54,7 +98,26 @@
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
         "src_ravnica_novel_2005"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "The reviewed guide source record supports Razia as the Boros parun/founding leader.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "src_ravnica_novel_2005",
+          "locator_type": "official-novel-source-record",
+          "locator": "Ravnica: City of Guilds - reviewed source record",
+          "bounded_paraphrase": "The reviewed novel source record is retained as Boros founding-era and Razia support.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "boros_legion_claim_006",
@@ -64,17 +127,49 @@
       "source_ids": [
         "src_wotc_guilds_ravnica_mechanics_2018"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Mentor / Boros reviewed source record",
+          "bounded_paraphrase": "The reviewed official mechanics source record identifies Mentor as the Guilds of Ravnica mechanic associated with Boros.",
+          "evidence_scope": "mechanic-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "boros_legion_claim_007",
-      "claim_type": "placement",
-      "statement": "Boros placement signals should weight protection, moral urgency, teamwork, and willingness to act.",
+      "claim_type": "placement_support",
+      "statement": "Boros placement support should require protection, public duty, teamwork, and accountable action rather than generic white-red aggression.",
       "canon_status": "Supported Interpretation",
       "source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "claim": "Boros placement support should require protection, public duty, teamwork, and accountable action rather than generic white-red aggression.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "Boros peacekeeping, law enforcement, and military organization support protection and public duty as placement requirements.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Mentor / Boros reviewed source record",
+          "bounded_paraphrase": "Mentor supplies mechanic-specific support for team-based Boros expression, not generic solitary aggression.",
+          "evidence_scope": "mechanic-specific placement support",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "boros_legion_claim_008",
@@ -85,7 +180,26 @@
         "src_ravnica_novel_2005",
         "src_wotc_gatecrash_boros_lore_2013"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_ravnica_novel_2005",
+          "locator_type": "official-novel-source-record",
+          "locator": "Ravnica: City of Guilds - reviewed source record",
+          "bounded_paraphrase": "The reviewed novel source record supports the League of Wojek as Boros police/investigator evidence.",
+          "evidence_scope": "institution-specific",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "src_wotc_gatecrash_boros_lore_2013",
+          "locator_type": "official-lore-source-record",
+          "locator": "The Boros Legion - reviewed source record",
+          "bounded_paraphrase": "The reviewed Gatecrash Boros source record supports Boros Army / martial-defense evidence.",
+          "evidence_scope": "institution-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "boros_legion_claim_009",
@@ -96,7 +210,26 @@
         "src_ravnica_novel_2005",
         "src_wotc_gatecrash_boros_lore_2013"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_ravnica_novel_2005",
+          "locator_type": "official-novel-source-record",
+          "locator": "Ravnica: City of Guilds - reviewed source record",
+          "bounded_paraphrase": "The reviewed novel source record supports early Boros leadership-transition context around Razia and Feather/Pierakor.",
+          "evidence_scope": "historical leadership evidence",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "src_wotc_gatecrash_boros_lore_2013",
+          "locator_type": "official-lore-source-record",
+          "locator": "The Boros Legion - reviewed source record",
+          "bounded_paraphrase": "The reviewed Gatecrash Boros source record supports the later transition context leading to Aurelia.",
+          "evidence_scope": "historical leadership evidence",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "boros_legion_claim_010",
@@ -106,28 +239,71 @@
       "source_ids": [
         "src_wotc_gatecrash_boros_lore_2013"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_gatecrash_boros_lore_2013",
+          "locator_type": "official-lore-source-record",
+          "locator": "The Boros Legion - reviewed source record",
+          "bounded_paraphrase": "The reviewed Gatecrash Boros source record identifies Sunhome and Parhelion II as Boros location/infrastructure evidence.",
+          "evidence_scope": "location-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "boros_legion_claim_011",
       "claim_type": "character",
-      "statement": "Agrus Kos (Wojek investigator) and Tajic (Legion commander) represent the two ideological halves of the guild.",
+      "statement": "Agrus Kos is Boros-side evidence for the League of Wojek / investigator expression of the guild.",
       "canon_status": "Canon-supported",
       "source_ids": [
         "src_ravnica_novel_2005",
         "src_wotc_legends_karlov_manor_2024"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "claim": "Agrus Kos is Boros-side evidence for the League of Wojek / investigator expression of the guild.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_ravnica_novel_2005",
+          "locator_type": "official-novel-source-record",
+          "locator": "Ravnica: City of Guilds - reviewed source record",
+          "bounded_paraphrase": "The reviewed novel source record is retained as the primary local source record for Agrus Kos and the League of Wojek.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "src_wotc_legends_karlov_manor_2024",
+          "locator_type": "official-lore-source-record",
+          "locator": "The Legends of Murders at Karlov Manor - reviewed source record",
+          "bounded_paraphrase": "The reviewed Karlov Manor legends source record supplies updated context for the spirit of Agrus Kos.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "boros_legion_claim_012",
       "claim_type": "mechanics",
-      "statement": "Battalion and Radiance reflect the guild's belief in group synergy and widespread moral influence.",
+      "statement": "Battalion is Boros-side mechanics evidence for coordinated group attack and unit cohesion.",
       "canon_status": "Canon-supported",
       "source_ids": [
         "src_wotc_gatecrash_boros_lore_2013"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "claim": "Battalion is Boros-side mechanics evidence for coordinated group attack and unit cohesion.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_gatecrash_boros_lore_2013",
+          "locator_type": "official-lore-source-record",
+          "locator": "The Boros Legion - reviewed source record",
+          "bounded_paraphrase": "The reviewed Gatecrash Boros source record defines Battalion as Boros mechanics evidence; unsupported Radiance language is not retained.",
+          "evidence_scope": "mechanic-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "boros_legion_claim_013",
@@ -157,7 +333,11 @@
         "radiance",
         "battalion",
         "justice"
-      ]
+      ],
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "notes": "Gate 3 classification: discovery/search record only. Do not use as authoritative profile, placement, key-figure, generated, fixture, or provenance proof unless a later source-read extracts bounded substantive evidence."
     },
     {
       "claim_id": "boros_legion_claim_014",
@@ -180,7 +360,11 @@
         "sunhome",
         "wojek",
         "skyknight"
-      ]
+      ],
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "notes": "Gate 3 classification: discovery/search record only. Do not use as authoritative profile, placement, key-figure, generated, fixture, or provenance proof unless a later source-read extracts bounded substantive evidence."
     },
     {
       "claim_id": "boros_legion_claim_015",
@@ -203,7 +387,11 @@
         "feather",
         "skyknight",
         "battalion"
-      ]
+      ],
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "notes": "Gate 3 classification: discovery/search record only. Do not use as authoritative profile, placement, key-figure, generated, fixture, or provenance proof unless a later source-read extracts bounded substantive evidence."
     },
     {
       "claim_id": "boros_legion_claim_016",
@@ -225,7 +413,11 @@
         "sunhome",
         "battalion",
         "justice"
-      ]
+      ],
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "notes": "Gate 3 classification: discovery/search record only. Do not use as authoritative profile, placement, key-figure, generated, fixture, or provenance proof unless a later source-read extracts bounded substantive evidence."
     },
     {
       "claim_id": "boros_legion_claim_017",
@@ -247,7 +439,11 @@
         "aurelia",
         "tajic",
         "sunhome"
-      ]
+      ],
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "notes": "Gate 3 classification: discovery/search record only. Do not use as authoritative profile, placement, key-figure, generated, fixture, or provenance proof unless a later source-read extracts bounded substantive evidence."
     },
     {
       "claim_id": "boros_legion_claim_018",
@@ -269,7 +465,11 @@
         "aurelia",
         "feather",
         "justice"
-      ]
+      ],
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "notes": "Gate 3 classification: discovery/search record only. Do not use as authoritative profile, placement, key-figure, generated, fixture, or provenance proof unless a later source-read extracts bounded substantive evidence."
     },
     {
       "claim_id": "boros_legion_claim_019",
@@ -291,7 +491,11 @@
         "parhelion",
         "skyknight",
         "justice"
-      ]
+      ],
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "notes": "Gate 3 classification: discovery/search record only. Do not use as authoritative profile, placement, key-figure, generated, fixture, or provenance proof unless a later source-read extracts bounded substantive evidence."
     },
     {
       "claim_id": "boros_legion_claim_020",
@@ -313,7 +517,11 @@
         "aurelia",
         "agrus_kos",
         "justice"
-      ]
+      ],
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "notes": "Gate 3 classification: discovery/search record only. Do not use as authoritative profile, placement, key-figure, generated, fixture, or provenance proof unless a later source-read extracts bounded substantive evidence."
     },
     {
       "claim_id": "boros_legion_claim_021",
@@ -335,7 +543,11 @@
         "aurelia",
         "feather",
         "agrus_kos"
-      ]
+      ],
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "notes": "Gate 3 classification: discovery/search record only. Do not use as authoritative profile, placement, key-figure, generated, fixture, or provenance proof unless a later source-read extracts bounded substantive evidence."
     },
     {
       "claim_id": "boros_legion_claim_022",
@@ -357,7 +569,11 @@
         "aurelia",
         "feather",
         "justice"
-      ]
+      ],
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "notes": "Gate 3 classification: discovery/search record only. Do not use as authoritative profile, placement, key-figure, generated, fixture, or provenance proof unless a later source-read extracts bounded substantive evidence."
     },
     {
       "claim_id": "boros_legion_claim_023",
@@ -378,7 +594,11 @@
         "boros",
         "aurelia",
         "feather"
-      ]
+      ],
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "notes": "Gate 3 classification: discovery/search record only. Do not use as authoritative profile, placement, key-figure, generated, fixture, or provenance proof unless a later source-read extracts bounded substantive evidence."
     },
     {
       "claim_id": "boros_legion_claim_024",
@@ -399,7 +619,332 @@
         "boros",
         "aurelia",
         "agrus_kos"
-      ]
+      ],
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "notes": "Gate 3 classification: discovery/search record only. Do not use as authoritative profile, placement, key-figure, generated, fixture, or provenance proof unless a later source-read extracts bounded substantive evidence."
+    },
+    {
+      "claim_id": "boros_legion_claim_025",
+      "claim_type": "motivation_method",
+      "claim": "Boros motivation and preferred method combine civic protection, peacekeeping duty, and visible action through a military/public-safety institution.",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Boros motivation and preferred method combine civic protection, peacekeeping duty, and visible action through a military/public-safety institution.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "statement": "Boros motivation and preferred method combine civic protection, peacekeeping duty, and visible action through a military/public-safety institution."
+    },
+    {
+      "claim_id": "boros_legion_claim_026",
+      "claim_type": "mature_expression",
+      "claim": "Mature Boros expression is disciplined, accountable protection carried with a public team rather than solitary heroics or generic aggression.",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_gatecrash_boros_lore_2013"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Mature Boros expression is disciplined, accountable protection carried with a public team rather than solitary heroics or generic aggression.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Mentor / Boros reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Mature Boros expression is disciplined, accountable protection carried with a public team rather than solitary heroics or generic aggression.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_gatecrash_boros_lore_2013",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Mature Boros expression is disciplined, accountable protection carried with a public team rather than solitary heroics or generic aggression.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "statement": "Mature Boros expression is disciplined, accountable protection carried with a public team rather than solitary heroics or generic aggression."
+    },
+    {
+      "claim_id": "boros_legion_claim_027",
+      "claim_type": "unhealthy_expression",
+      "claim": "Unhealthy Boros expression appears when protective duty collapses into force without accountability or when military certainty outruns the peacekeeping purpose.",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_ravnica_novel_2005"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Unhealthy Boros expression appears when protective duty collapses into force without accountability or when military certainty outruns the peacekeeping purpose.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_ravnica_novel_2005",
+          "locator_type": "official-novel-source-record",
+          "locator": "Ravnica: City of Guilds - reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Unhealthy Boros expression appears when protective duty collapses into force without accountability or when military certainty outruns the peacekeeping purpose.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "statement": "Unhealthy Boros expression appears when protective duty collapses into force without accountability or when military certainty outruns the peacekeeping purpose."
+    },
+    {
+      "claim_id": "boros_legion_claim_028",
+      "claim_type": "failure_pressure_behavior",
+      "claim": "Under pressure, Boros should be read as acting first only when present-tense protection is at stake; action without protection, team duty, or accountability is not sufficient.",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Under pressure, Boros should be read as acting first only when present-tense protection is at stake; action without protection, team duty, or accountability is not sufficient.",
+          "evidence_scope": "project placement synthesis grounded in source claims",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "statement": "Under pressure, Boros should be read as acting first only when present-tense protection is at stake; action without protection, team duty, or accountability is not sufficient."
+    },
+    {
+      "claim_id": "boros_legion_claim_029",
+      "claim_type": "required_neighbor_boundary",
+      "claim": "Boros must not be awarded for generic red-white speed, combat, anger, hero fantasy, or aggression without civic protection and public duty.",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Boros must not be awarded for generic red-white speed, combat, anger, hero fantasy, or aggression without civic protection and public duty.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Mentor / Boros reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Boros must not be awarded for generic red-white speed, combat, anger, hero fantasy, or aggression without civic protection and public duty.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "statement": "Boros must not be awarded for generic red-white speed, combat, anger, hero fantasy, or aggression without civic protection and public duty."
+    },
+    {
+      "claim_id": "boros_legion_claim_030",
+      "claim_type": "required_neighbor_boundary",
+      "claim": "Boros-side evidence separates Boros from Azorius by emphasizing protective intervention through peacekeeping/military duty rather than procedure-first governance.",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_ravnica_novel_2005"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Boros-side evidence separates Boros from Azorius by emphasizing protective intervention through peacekeeping/military duty rather than procedure-first governance.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_ravnica_novel_2005",
+          "locator_type": "official-novel-source-record",
+          "locator": "Ravnica: City of Guilds - reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Boros-side evidence separates Boros from Azorius by emphasizing protective intervention through peacekeeping/military duty rather than procedure-first governance.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "statement": "Boros-side evidence separates Boros from Azorius by emphasizing protective intervention through peacekeeping/military duty rather than procedure-first governance."
+    },
+    {
+      "claim_id": "boros_legion_claim_031",
+      "claim_type": "required_neighbor_boundary",
+      "claim": "Boros-side evidence separates Boros from Lorehold by emphasizing present-tense civic protection and enforcement rather than history, archive, or precedent as the primary motive.",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_ravnica_novel_2005"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Boros-side evidence separates Boros from Lorehold by emphasizing present-tense civic protection and enforcement rather than history, archive, or precedent as the primary motive.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_ravnica_novel_2005",
+          "locator_type": "official-novel-source-record",
+          "locator": "Ravnica: City of Guilds - reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Boros-side evidence separates Boros from Lorehold by emphasizing present-tense civic protection and enforcement rather than history, archive, or precedent as the primary motive.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "statement": "Boros-side evidence separates Boros from Lorehold by emphasizing present-tense civic protection and enforcement rather than history, archive, or precedent as the primary motive."
+    },
+    {
+      "claim_id": "boros_legion_claim_032",
+      "claim_type": "required_neighbor_boundary",
+      "claim": "Boros-side evidence separates Boros from Selesnya by grounding protection in public enforcement and disciplined force rather than harmony, consensus, or belonging as the primary method.",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Boros-side evidence separates Boros from Selesnya by grounding protection in public enforcement and disciplined force rather than harmony, consensus, or belonging as the primary method.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "statement": "Boros-side evidence separates Boros from Selesnya by grounding protection in public enforcement and disciplined force rather than harmony, consensus, or belonging as the primary method."
+    },
+    {
+      "claim_id": "boros_legion_claim_033",
+      "claim_type": "required_neighbor_boundary",
+      "claim": "Boros-side evidence separates Boros from Rakdos by requiring civic/protective service and accountability, not spectacle, transgression, or intensity for its own sake.",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Boros-side evidence separates Boros from Rakdos by requiring civic/protective service and accountability, not spectacle, transgression, or intensity for its own sake.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "statement": "Boros-side evidence separates Boros from Rakdos by requiring civic/protective service and accountability, not spectacle, transgression, or intensity for its own sake."
+    },
+    {
+      "claim_id": "boros_legion_claim_034",
+      "claim_type": "required_neighbor_boundary",
+      "claim": "Boros-side evidence separates Boros from Izzet by prioritizing public protection and duty over experimentation, prototype learning, or technical novelty.",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Boros-side evidence separates Boros from Izzet by prioritizing public protection and duty over experimentation, prototype learning, or technical novelty.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Mentor / Boros reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Boros-side evidence separates Boros from Izzet by prioritizing public protection and duty over experimentation, prototype learning, or technical novelty.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "statement": "Boros-side evidence separates Boros from Izzet by prioritizing public protection and duty over experimentation, prototype learning, or technical novelty."
+    },
+    {
+      "claim_id": "boros_legion_claim_035",
+      "claim_type": "required_neighbor_boundary",
+      "claim": "Boros-side evidence separates Boros from Orzhov by centering public protection and peacekeeping rather than debt, leverage, private obligation, or transactional authority.",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_ravnica_novel_2005"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Boros-side evidence separates Boros from Orzhov by centering public protection and peacekeeping rather than debt, leverage, private obligation, or transactional authority.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_ravnica_novel_2005",
+          "locator_type": "official-novel-source-record",
+          "locator": "Ravnica: City of Guilds - reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Boros-side evidence separates Boros from Orzhov by centering public protection and peacekeeping rather than debt, leverage, private obligation, or transactional authority.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "statement": "Boros-side evidence separates Boros from Orzhov by centering public protection and peacekeeping rather than debt, leverage, private obligation, or transactional authority."
+    },
+    {
+      "claim_id": "boros_legion_claim_036",
+      "claim_type": "required_neighbor_boundary",
+      "claim": "Boros-side evidence separates Boros from Mardu by requiring civic peacekeeping and accountable protection rather than martial ambition, conquest, or force as identity by itself.",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Boros Legion reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Boros-side evidence separates Boros from Mardu by requiring civic peacekeeping and accountable protection rather than martial ambition, conquest, or force as identity by itself.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Mentor / Boros reviewed source record",
+          "bounded_paraphrase": "Boros-side support: Boros-side evidence separates Boros from Mardu by requiring civic peacekeeping and accountable protection rather than martial ambition, conquest, or force as identity by itself.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "statement": "Boros-side evidence separates Boros from Mardu by requiring civic peacekeeping and accountable protection rather than martial ambition, conquest, or force as identity by itself."
     }
   ]
 }

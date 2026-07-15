@@ -8,13 +8,13 @@
     "white",
     "red"
   ],
-  "last_updated": "2026-05-13T21:14:06.308Z",
+  "last_updated": "2026-07-14T21:45:00-06:00",
   "profile": {
-    "overview": "The Boros Legion is the militant fist of Ravnican justice, serving as both a police force and a standing army.",
-    "philosophy": "Justice must be defended in public. Boros philosophy merges white structural order with red moral conviction, creating a peacekeeping ideal where immediate action is favored over procedural delay.",
-    "core_tension": "The 'Wojek vs. Army' dynamic: Balancing the pragmatic, street-level investigation of the officer with the unyielding, high-altitude zeal of the military commander.",
-    "social_or_institutional_role": "As the primary peacekeeping force, the Legion manages everything from local neighborhood patrols (League of Wojek) to planetary defense (Boros Army).",
-    "mechanics_and_play_pattern": "Mechanics like Battalion and Mentor emphasize unit cohesion; individuals are strengthened by the presence of their allies on the field.",
+    "overview": "The Boros Legion is Ravnica's white-red peacekeeping and military guild: a public institution that protects people through disciplined, visible action.",
+    "philosophy": "Boros philosophy joins civic order with urgent protection. Its best expression acts when harm is present, but remains accountable to the public duty it claims to serve.",
+    "core_tension": "Boros balances law-enforcement duty, military force, teamwork, and protection. Its danger is treating force as self-justifying after the peacekeeping purpose has fallen away.",
+    "social_or_institutional_role": "As Ravnica's peacekeeping and military arm, the Legion spans street-level Wojek investigation, organized patrol, and martial defense.",
+    "mechanics_and_play_pattern": "Mentor and Battalion support a Boros pattern of team development and coordinated attack; unsupported Radiance framing is not retained for certification proof.",
     "claim_ids": [
       "boros_legion_claim_001",
       "boros_legion_claim_002",
@@ -27,13 +27,18 @@
       "boros_legion_claim_009",
       "boros_legion_claim_010",
       "boros_legion_claim_011",
-      "boros_legion_claim_012"
+      "boros_legion_claim_012",
+      "boros_legion_claim_025",
+      "boros_legion_claim_026",
+      "boros_legion_claim_027",
+      "boros_legion_claim_028"
     ]
   },
   "evidence_summary": {
     "overall_confidence": "High",
     "limitations": [
-      "Integrates core mechanics and overview guides with deep-lore novel details and character archetypes."
+      "Gate 3 uses reviewed source-record locators and bounded paraphrases for existing listed sources; generated artifacts and provenance remain stale until Gate 4.",
+      "Story-corpus claims 013-024 are retained only as discovery records and are not authoritative semantic proof."
     ]
   },
   "source_review_date": "2026-05-10",
@@ -57,172 +62,110 @@
     ]
   },
   "core_identity": {
-    "summary": "Boros is the faction of immediate protection, martial solidarity, righteous intervention, and the dangerous conviction that justice sometimes has to move before procedure catches up.",
+    "summary": "Boros is the faction of public protection, civic peacekeeping, disciplined teamwork, and accountable action under present-tense harm.",
     "evidence_claim_ids": [
       "boros_legion_claim_001",
       "boros_legion_claim_002",
       "boros_legion_claim_003",
-      "boros_legion_claim_004",
-      "boros_legion_claim_005",
-      "boros_legion_claim_006",
-      "boros_legion_claim_007",
-      "boros_legion_claim_008"
+      "boros_legion_claim_025",
+      "boros_legion_claim_026",
+      "boros_legion_claim_029"
     ]
   },
   "great_tension": {
-    "summary": "Boros honors law and civic order, but its defining tension is the moment when law becomes too slow to protect the vulnerable. The placement engine should read Boros as action under moral pressure, not generic orderliness.",
+    "summary": "Boros honors civic order, but its placement tension is whether protective action stays disciplined and accountable when urgency rises. It should not be read as generic aggression, spectacle, conquest, or rule-breaking for its own sake.",
     "separates_from": [
+      "generic_wr_overfit",
       "azorius_senate",
       "lorehold",
-      "selesnya_conclave"
+      "selesnya_conclave",
+      "rakdos_cult",
+      "izzet_league",
+      "orzhov_syndicate",
+      "mardu"
     ],
     "evidence_claim_ids": [
+      "boros_legion_claim_002",
       "boros_legion_claim_003",
-      "boros_legion_claim_004",
-      "boros_legion_claim_005",
-      "boros_legion_claim_006",
       "boros_legion_claim_007",
-      "boros_legion_claim_008",
-      "boros_legion_claim_009",
-      "boros_legion_claim_010"
+      "boros_legion_claim_025",
+      "boros_legion_claim_026",
+      "boros_legion_claim_027",
+      "boros_legion_claim_028",
+      "boros_legion_claim_029",
+      "boros_legion_claim_030",
+      "boros_legion_claim_031",
+      "boros_legion_claim_032",
+      "boros_legion_claim_033",
+      "boros_legion_claim_034",
+      "boros_legion_claim_035",
+      "boros_legion_claim_036"
     ]
   },
   "key_figures": [
     {
       "character_id": "char_aurelia",
       "name": "Aurelia",
-      "role": "Guildmaster and battle-first Boros leader.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "role": "Guildmaster and battle-front Boros leader.",
+      "relationship_to_faction": "Authoritative Boros leadership figure supported by reviewed official source records.",
       "claim_ids": [
         "boros_legion_claim_004",
-        "boros_legion_claim_009",
-        "boros_legion_claim_011",
-        "boros_legion_claim_013",
-        "boros_legion_claim_015",
-        "boros_legion_claim_016",
-        "boros_legion_claim_017",
-        "boros_legion_claim_018",
-        "boros_legion_claim_019",
-        "boros_legion_claim_020",
-        "boros_legion_claim_021",
-        "boros_legion_claim_022",
-        "boros_legion_claim_023",
-        "boros_legion_claim_024"
+        "boros_legion_claim_009"
       ],
       "source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_ravnica_novel_2005",
-        "src_wotc_gatecrash_boros_lore_2013",
-        "src_wotc_legends_karlov_manor_2024",
-        "src_mtg_stories_003_clans_legions_de2e9b38",
-        "src_mtg_stories_006_the_gathering_storm_chapter_12_a8fc6d84",
-        "src_mtg_stories_006_the_greater_good_a536bab3",
-        "src_mtg_stories_011_battle_for_the_ninth_4fb87675",
-        "src_mtg_stories_009_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_006_ashes_6ede4fea",
-        "src_mtg_stories_004_episode_4_justice_before_mercy_57b8ab88",
-        "src_mtg_stories_007_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_008_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_002_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_006_episode_6_explosions_of_genius_9db78723"
+        "src_wotc_gatecrash_boros_lore_2013"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "Discovery-only story-corpus records removed from semantic proof chain during Gate 3."
     },
     {
       "character_id": "char_razia",
       "name": "Razia",
       "role": "Original founder and first leader of the Boros Legion.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "relationship_to_faction": "Authoritative founding figure supported by reviewed source records.",
       "claim_ids": [
         "boros_legion_claim_005",
-        "boros_legion_claim_009",
-        "boros_legion_claim_013",
-        "boros_legion_claim_014"
+        "boros_legion_claim_009"
       ],
       "source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
         "src_ravnica_novel_2005",
-        "src_wotc_gatecrash_boros_lore_2013",
-        "src_mtg_stories_003_clans_legions_de2e9b38",
-        "src_mtg_stories_003_the_absolution_of_the_guildpact_4e863503"
+        "src_wotc_gatecrash_boros_lore_2013"
       ],
       "confidence": "High",
-      "notes": ""
-    },
-    {
-      "character_id": "char_tajic",
-      "name": "Tajic",
-      "role": "Legion commander.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
-      "claim_ids": [
-        "boros_legion_claim_011",
-        "boros_legion_claim_013",
-        "boros_legion_claim_017"
-      ],
-      "source_ids": [
-        "src_ravnica_novel_2005",
-        "src_wotc_legends_karlov_manor_2024",
-        "src_mtg_stories_003_clans_legions_de2e9b38",
-        "src_mtg_stories_011_battle_for_the_ninth_4fb87675"
-      ],
-      "confidence": "High",
-      "notes": ""
+      "notes": "Discovery-only story-corpus records removed from semantic proof chain during Gate 3."
     },
     {
       "character_id": "char_feather",
       "name": "Feather",
       "role": "Leadership transition figure after Razia.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "relationship_to_faction": "Retained only as a bounded leadership-transition figure.",
       "claim_ids": [
-        "boros_legion_claim_009",
-        "boros_legion_claim_013",
-        "boros_legion_claim_015",
-        "boros_legion_claim_018",
-        "boros_legion_claim_021",
-        "boros_legion_claim_022",
-        "boros_legion_claim_023"
+        "boros_legion_claim_009"
       ],
       "source_ids": [
         "src_ravnica_novel_2005",
-        "src_wotc_gatecrash_boros_lore_2013",
-        "src_mtg_stories_003_clans_legions_de2e9b38",
-        "src_mtg_stories_006_the_gathering_storm_chapter_12_a8fc6d84",
-        "src_mtg_stories_009_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_007_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_008_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_002_episode_2_monsters_we_became_e6ec05b7"
+        "src_wotc_gatecrash_boros_lore_2013"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "Discovery-only story-corpus records removed; relationship narrowed to leadership-transition support."
     },
     {
       "character_id": "char_agrus_kos",
       "name": "Agrus Kos",
       "role": "Wojek investigator.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "relationship_to_faction": "Boros-side evidence for the League of Wojek / investigator expression of the guild.",
       "claim_ids": [
-        "boros_legion_claim_005",
         "boros_legion_claim_008",
-        "boros_legion_claim_009",
-        "boros_legion_claim_011",
-        "boros_legion_claim_014",
-        "boros_legion_claim_020",
-        "boros_legion_claim_021",
-        "boros_legion_claim_024"
+        "boros_legion_claim_011"
       ],
       "source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018",
         "src_ravnica_novel_2005",
-        "src_wotc_gatecrash_boros_lore_2013",
-        "src_wotc_legends_karlov_manor_2024",
-        "src_mtg_stories_003_the_absolution_of_the_guildpact_4e863503",
-        "src_mtg_stories_004_episode_4_justice_before_mercy_57b8ab88",
-        "src_mtg_stories_007_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_006_episode_6_explosions_of_genius_9db78723"
+        "src_wotc_legends_karlov_manor_2024"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "Discovery-only story-corpus records removed from semantic proof chain during Gate 3."
     }
   ],
   "search_and_filter_metadata": {
@@ -234,15 +177,14 @@
     "theme_tags": [
       "justice",
       "protection",
-      "military",
-      "intervention",
-      "zeal",
+      "peacekeeping",
+      "martial-duty",
+      "accountability",
       "teamwork"
     ],
     "known_characters": [
       "Aurelia",
       "Razia",
-      "Tajic",
       "Feather",
       "Agrus Kos"
     ],
@@ -260,13 +202,13 @@
       "Boros",
       "justice",
       "protection",
+      "peacekeeping",
       "military",
       "intervention",
-      "zeal",
+      "accountability",
       "teamwork",
       "Aurelia",
       "Razia",
-      "Tajic",
       "Feather",
       "Agrus Kos",
       "mentor",
@@ -277,7 +219,7 @@
   "data_quality": {
     "corpus_enrichment_status": "complete_for_current_prompt_rows",
     "source_count": 17,
-    "claim_count": 24,
+    "claim_count": 36,
     "last_corpus_pass": "2026-05-10T02:24:27.430Z",
     "raw_enrichment": {
       "review_date": "2026-05-13T21:14:06.308Z",
@@ -289,6 +231,26 @@
       "known_characters": 5,
       "known_mechanics": 2,
       "story_arcs": 1
+    },
+    "semantic_readiness": {
+      "contract_version": "v1.1",
+      "gate": "gate3_canonical_remediation",
+      "certification_status": "uncertified",
+      "discovery_records_retained": [
+        "boros_legion_claim_013",
+        "boros_legion_claim_014",
+        "boros_legion_claim_015",
+        "boros_legion_claim_016",
+        "boros_legion_claim_017",
+        "boros_legion_claim_018",
+        "boros_legion_claim_019",
+        "boros_legion_claim_020",
+        "boros_legion_claim_021",
+        "boros_legion_claim_022",
+        "boros_legion_claim_023",
+        "boros_legion_claim_024"
+      ],
+      "generated_artifacts_status": "stale_until_gate4"
     }
   },
   "historical_timeline": [
@@ -304,7 +266,7 @@
     },
     {
       "event_id": "event_boros_legion_boros_legion_claim_009",
-      "event": "Leadership transitioned from Razia to the angel Feather (Pierakor), and later to Aurelia.",
+      "event": "Leadership transitioned from Razia through Feather/Pierakor and later to Aurelia.",
       "date_or_era": "Leadership transition era",
       "claim_ids": [
         "boros_legion_claim_009"
@@ -317,17 +279,15 @@
     {
       "card_name": "Boros Legion dossier anchor",
       "set": "Ravnica",
-      "short_excerpt_or_summary": "Boros is the faction of immediate protection, martial solidarity, righteous intervention, and the dangerous conviction that justice sometimes has to move before procedure catches up.",
+      "short_excerpt_or_summary": "Boros is the faction of public protection, civic peacekeeping, disciplined teamwork, and accountable action under present-tense harm.",
       "is_exact_excerpt": false,
       "claim_ids": [
         "boros_legion_claim_001",
         "boros_legion_claim_002",
         "boros_legion_claim_003",
-        "boros_legion_claim_004",
-        "boros_legion_claim_005",
-        "boros_legion_claim_006",
-        "boros_legion_claim_007",
-        "boros_legion_claim_008"
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_028"
       ],
       "source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
@@ -336,7 +296,7 @@
         "src_wotc_gatecrash_boros_lore_2013",
         "src_wotc_legends_karlov_manor_2024"
       ],
-      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+      "notes": "Gate 3 canonical summary narrowed away from unsupported fury, burning, zeal, and rule-breaking language; generated consumers remain stale until Gate 4."
     }
   ],
   "views_on_other_factions": [],
@@ -345,24 +305,26 @@
     "source_research_file": "boros_legion.commander_compass.research.json",
     "last_reviewed": "2026-05-14",
     "review_status": "reviewed_not_canonical_lore",
-    "recommendation_philosophy": "Prioritize aggressive, combat-oriented commanders that reward building a board presence or enhancing a single hero.",
+    "recommendation_philosophy": "Prioritize combat-oriented commanders only as auxiliary Commander guidance; do not use Commander/product/card popularity as Boros semantic proof.",
     "identity_basis": {
       "owned_themes": [
-        "Aggro",
+        "Team combat",
         "Equipment",
-        "Extra Combats",
+        "Extra combats",
         "Tokens",
-        "Battalion"
+        "Battalion",
+        "Mentor"
       ],
       "allowed_phrases": [
-        "Justice through fire",
-        "The righteous blade",
-        "Tactical superiority"
+        "Disciplined protection",
+        "Public duty",
+        "Team-bound action"
       ],
       "avoid_or_contrast_phrases": [
-        "Passive defense",
-        "Cowardice",
-        "Hesitation"
+        "Generic aggression",
+        "Fury for its own sake",
+        "Rule-breaking without protection",
+        "Spectacle without service"
       ],
       "adjacent_overlap_notes": [
         "Artifact overlap with Lorehold/Osgir",
@@ -372,11 +334,11 @@
         "boros_legion_claim_001",
         "boros_legion_claim_002",
         "boros_legion_claim_003",
-        "boros_legion_claim_004",
-        "boros_legion_claim_005",
         "boros_legion_claim_006",
-        "boros_legion_claim_007",
-        "boros_legion_claim_008"
+        "boros_legion_claim_012",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_029"
       ],
       "supporting_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
@@ -422,27 +384,18 @@
           "existing_repo_claim_ids": [
             "boros_legion_claim_004",
             "boros_legion_claim_009",
-            "boros_legion_claim_011",
-            "boros_legion_claim_013",
-            "boros_legion_claim_015",
-            "boros_legion_claim_016",
-            "boros_legion_claim_017",
-            "boros_legion_claim_018"
+            "boros_legion_claim_026"
           ],
           "existing_repo_source_ids": [
             "src_wotc_flavorful_guide_guilds_ravnica_2018",
-            "src_ravnica_novel_2005",
-            "src_wotc_gatecrash_boros_lore_2013",
-            "src_wotc_legends_karlov_manor_2024",
-            "src_mtg_stories_003_clans_legions_de2e9b38",
-            "src_mtg_stories_006_the_gathering_storm_chapter_12_a8fc6d84",
-            "src_mtg_stories_006_the_greater_good_a536bab3",
-            "src_mtg_stories_011_battle_for_the_ninth_4fb87675",
-            "src_mtg_stories_009_the_gathering_storm_chapter_3_c2a81b82"
+            "src_wotc_gatecrash_boros_lore_2013"
           ]
         },
         "confidence": "High",
-        "caution_notes": [],
+        "caution_notes": [
+          "Discovery-only story-corpus claims removed from this support chain during Gate 3.",
+          "Commander/card/product material remains auxiliary and is not authoritative Boros semantic proof."
+        ],
         "type_line": "Legendary Creature — Angel"
       }
     ],
@@ -484,23 +437,19 @@
             "boros_legion_claim_001",
             "boros_legion_claim_002",
             "boros_legion_claim_003",
-            "boros_legion_claim_004",
-            "boros_legion_claim_005",
-            "boros_legion_claim_006",
-            "boros_legion_claim_007",
-            "boros_legion_claim_008"
+            "boros_legion_claim_029",
+            "boros_legion_claim_031"
           ],
           "existing_repo_source_ids": [
-            "src_wotc_flavorful_guide_guilds_ravnica_2018",
-            "src_ravnica_novel_2005",
-            "src_wotc_guilds_ravnica_mechanics_2018",
-            "src_wotc_gatecrash_boros_lore_2013"
+            "src_wotc_flavorful_guide_guilds_ravnica_2018"
           ]
         },
         "confidence": "High",
         "caution_notes": [
           "Flavor mismatch with Ravnica Legion.",
-          "Lorehold-branded card; keep as a cross-faction product stretch rather than native Boros lore."
+          "Lorehold-branded card; keep as a cross-faction product stretch rather than native Boros lore.",
+          "Lorehold-branded commander remains a cross-faction product stretch.",
+          "Commander/card/product material remains auxiliary and is not authoritative Boros semantic proof."
         ],
         "type_line": "Legendary Creature — Giant Artificer"
       }
@@ -541,19 +490,18 @@
             "Affordable entry-point commander"
           ],
           "existing_repo_claim_ids": [
-            "boros_legion_claim_011",
-            "boros_legion_claim_013",
-            "boros_legion_claim_017"
+            "boros_legion_claim_006",
+            "boros_legion_claim_026"
           ],
           "existing_repo_source_ids": [
-            "src_ravnica_novel_2005",
-            "src_wotc_legends_karlov_manor_2024",
-            "src_mtg_stories_003_clans_legions_de2e9b38",
-            "src_mtg_stories_011_battle_for_the_ninth_4fb87675"
+            "src_wotc_guilds_ravnica_mechanics_2018"
           ]
         },
         "confidence": "High",
-        "caution_notes": [],
+        "caution_notes": [
+          "Tajic is retained only as auxiliary Commander/card support, not as authoritative key-figure proof.",
+          "Commander/card/product material remains auxiliary and is not authoritative Boros semantic proof."
+        ],
         "type_line": "Legendary Creature — Human Soldier"
       }
     ],
@@ -592,27 +540,18 @@
             "One of the most unique WR playstyles"
           ],
           "existing_repo_claim_ids": [
-            "boros_legion_claim_009",
-            "boros_legion_claim_013",
-            "boros_legion_claim_015",
-            "boros_legion_claim_018",
-            "boros_legion_claim_021",
-            "boros_legion_claim_022",
-            "boros_legion_claim_023"
+            "boros_legion_claim_009"
           ],
           "existing_repo_source_ids": [
             "src_ravnica_novel_2005",
-            "src_wotc_gatecrash_boros_lore_2013",
-            "src_mtg_stories_003_clans_legions_de2e9b38",
-            "src_mtg_stories_006_the_gathering_storm_chapter_12_a8fc6d84",
-            "src_mtg_stories_009_the_gathering_storm_chapter_3_c2a81b82",
-            "src_mtg_stories_007_episode_7_rot_before_recovery_aff91fb1",
-            "src_mtg_stories_008_episode_8_gods_of_chaos_a773d3bd",
-            "src_mtg_stories_002_episode_2_monsters_we_became_e6ec05b7"
+            "src_wotc_gatecrash_boros_lore_2013"
           ]
         },
         "confidence": "High",
-        "caution_notes": [],
+        "caution_notes": [
+          "Feather is retained only through bounded leadership-transition support; story-corpus claims removed.",
+          "Commander/card/product material remains auxiliary and is not authoritative Boros semantic proof."
+        ],
         "type_line": "Legendary Creature — Angel"
       }
     ],
@@ -646,7 +585,8 @@
       "product_guidance_not_canon": true,
       "commander_legality_validated": true,
       "scryfall_card_pages_validated": true,
-      "do_not_use_as_claim_source": true
+      "do_not_use_as_claim_source": true,
+      "gate3_support_isolation": "Gate 3 removed discovery-only story-corpus claim IDs from Commander support chains and reaffirmed Commander/card/product material as auxiliary only."
     }
   }
 }

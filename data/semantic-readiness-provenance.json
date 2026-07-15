@@ -33788,12 +33788,273 @@
     {
       "identity_key": "WR",
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
-      "canonical_pointer": "/discriminator_questions/0",
-      "canonical_id": "q_boros_legion_0001",
-      "canonical_content_hash": "sha256:34f73bbc7d44c1890f297830f70af257f2a5ee548e025bef87105af3907f38f3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:3a79345540a7e967c0ae6e45723e4e36f47ed6b5fe61b0f9b7c19634dd9d4864",
+      "evidence_claim_ids": [
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_028"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:2e799e754676c162b82d4c00c59fbfca5fa3d1ba6f08cd388ded983e468ffedc",
+      "evidence_claim_ids": [
+        "boros_legion_claim_026",
+        "boros_legion_claim_028"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:613753b70e6187ac5089be96c217b0a40834c7eb97e50f991833a453ae9a47a5",
+      "evidence_claim_ids": [
+        "boros_legion_claim_006",
+        "boros_legion_claim_012",
+        "boros_legion_claim_026"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:2a8ae1ba5a45ebeaff858f1ff2f60370bc51b55bb3c15184475f18b23d235d0d",
+      "evidence_claim_ids": [
+        "boros_legion_claim_029",
+        "boros_legion_claim_033",
+        "boros_legion_claim_036"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:9613d6faa4386f3f7c3c5a4627f8921ed80799768f6e15ab0a722e2a13a54f1e",
+      "evidence_claim_ids": [
+        "boros_legion_claim_030",
+        "boros_legion_claim_031",
+        "boros_legion_claim_032",
+        "boros_legion_claim_033",
+        "boros_legion_claim_034",
+        "boros_legion_claim_035",
+        "boros_legion_claim_036"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:a9dd6cd817099929255e799ef1c83b8cbb24d356977aebc901e992a01ff46e1f",
+      "evidence_claim_ids": [
+        "boros_legion_claim_027",
+        "boros_legion_claim_028",
+        "boros_legion_claim_029"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:9cb7e423e1b92a0c521dc34daa5d22005e16110d7ba33eb31391c71d1f2ce10f",
+      "evidence_claim_ids": [
+        "boros_legion_claim_025",
+        "boros_legion_claim_028",
+        "boros_legion_claim_030",
+        "boros_legion_claim_031",
+        "boros_legion_claim_032",
+        "boros_legion_claim_033",
+        "boros_legion_claim_034",
+        "boros_legion_claim_035",
+        "boros_legion_claim_036"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:d12a8d559041a1d07aab9ec8ca1e9564acd575195c6844d1ad54a6f630cbceb5",
+      "evidence_claim_ids": [
+        "boros_legion_claim_026",
+        "boros_legion_claim_027",
+        "boros_legion_claim_028",
+        "boros_legion_claim_029"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/collision_guidance/0",
+      "canonical_id": "collision_boros_vs_generic_wr_overfit_gate3",
+      "canonical_content_hash": "sha256:4a7c1ea2e400ca184e2b31cbb756cb1f56634ac97317f66159863952b4d57afd",
       "evidence_claim_ids": [
         "boros_legion_claim_001",
-        "boros_legion_claim_008"
+        "boros_legion_claim_002",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/collision_guidance/1",
+      "canonical_id": "collision_boros_vs_azorius_senate_gate3",
+      "canonical_content_hash": "sha256:a365f9bd910151ddcac19349f69b65075932064d9ac1753a7b3b4467fe02292d",
+      "evidence_claim_ids": [
+        "boros_legion_claim_002",
+        "boros_legion_claim_003",
+        "boros_legion_claim_025",
+        "boros_legion_claim_028",
+        "boros_legion_claim_030"
+      ],
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/collision_guidance/2",
+      "canonical_id": "collision_boros_vs_lorehold_gate3",
+      "canonical_content_hash": "sha256:61e04ff332d797b6fa6cf0be551291a6fc157cd0b3bd50b0fc22b210276fc50d",
+      "evidence_claim_ids": [
+        "boros_legion_claim_005",
+        "boros_legion_claim_008",
+        "boros_legion_claim_025",
+        "boros_legion_claim_031"
       ],
       "evidence_source_ids": [
         "src_ravnica_novel_2005",
@@ -33810,15 +34071,162 @@
     {
       "identity_key": "WR",
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
-      "canonical_pointer": "/discriminator_questions/1",
-      "canonical_id": "q_boros_legion_0002",
-      "canonical_content_hash": "sha256:74e98d93bf2832c7511f11f033b8c49860b0831f97ef47f56ae8cb8e31b3c9af",
+      "canonical_pointer": "/collision_guidance/3",
+      "canonical_id": "collision_boros_vs_selesnya_conclave_gate3",
+      "canonical_content_hash": "sha256:ae1c6905d7235242254467925bca721f324291643a7403efc8e87d0d35722a04",
       "evidence_claim_ids": [
-        "boros_legion_claim_011"
+        "boros_legion_claim_001",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/collision_guidance/4",
+      "canonical_id": "collision_boros_vs_rakdos_cult_gate3",
+      "canonical_content_hash": "sha256:f098279e5dab5672b096dcd711553994aab7eb770bcb8047fe4b35b1dc1bbc55",
+      "evidence_claim_ids": [
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_027",
+        "boros_legion_claim_033"
       ],
       "evidence_source_ids": [
         "src_ravnica_novel_2005",
-        "src_wotc_legends_karlov_manor_2024"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/collision_guidance/5",
+      "canonical_id": "collision_boros_vs_izzet_league_gate3",
+      "canonical_content_hash": "sha256:1899cadd0d2808cc1381b18bdd39f0c62ee40453502760764986d94dc2a9736e",
+      "evidence_claim_ids": [
+        "boros_legion_claim_006",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_034"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/collision_guidance/6",
+      "canonical_id": "collision_boros_vs_orzhov_syndicate_gate3",
+      "canonical_content_hash": "sha256:2466436292862cc3cbd19c4ca68dde349cf08cd3eeac54bd95545934231c713c",
+      "evidence_claim_ids": [
+        "boros_legion_claim_002",
+        "boros_legion_claim_003",
+        "boros_legion_claim_025",
+        "boros_legion_claim_035"
+      ],
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/collision_guidance/7",
+      "canonical_id": "collision_boros_vs_mardu_gate3",
+      "canonical_content_hash": "sha256:28306f003bac9fcb70b0dad8c8d2fbc51f9436dc08c964be991d7132258a1f98",
+      "evidence_claim_ids": [
+        "boros_legion_claim_001",
+        "boros_legion_claim_003",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_036"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/discriminator_questions/0",
+      "canonical_id": "q_boros_legion_0001",
+      "canonical_content_hash": "sha256:15b4d95c4429ab1e6d42d5f6bc0e272caa5eca27f6c876f99cf5c355993a5cea",
+      "evidence_claim_ids": [
+        "boros_legion_claim_025",
+        "boros_legion_claim_028",
+        "boros_legion_claim_030"
+      ],
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/discriminator_questions/1",
+      "canonical_id": "q_boros_legion_0002",
+      "canonical_content_hash": "sha256:916caa08adb5c3fa7ed50c22c4c11ce53623452179cb4a103871511b5d58c23a",
+      "evidence_claim_ids": [
+        "boros_legion_claim_026",
+        "boros_legion_claim_029",
+        "boros_legion_claim_033",
+        "boros_legion_claim_036"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WR",
@@ -33832,17 +34240,24 @@
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
       "canonical_pointer": "/discriminator_questions/2",
       "canonical_id": "q_boros_legion_9001",
-      "canonical_content_hash": "sha256:d31c23dff02d9c69422c86b5bb349468353a09f839a63a84841afa674f873cfa",
+      "canonical_content_hash": "sha256:2c57b996aafc4d7b02bf159ff99a424d1b58d7dfc2f66964fdc44acf55c52c72",
       "evidence_claim_ids": [
-        "boros_legion_claim_001",
-        "boros_legion_claim_002",
-        "boros_legion_claim_003",
-        "boros_legion_claim_004",
-        "boros_legion_claim_005"
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_028",
+        "boros_legion_claim_030",
+        "boros_legion_claim_031",
+        "boros_legion_claim_032",
+        "boros_legion_claim_033",
+        "boros_legion_claim_034",
+        "boros_legion_claim_035",
+        "boros_legion_claim_036"
       ],
       "evidence_source_ids": [
         "src_ravnica_novel_2005",
-        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WR",
@@ -33856,12 +34271,17 @@
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:f09620c8beba9dc560c5766b86aed3b6afdf0ef09c581096503431d1fae373de",
+      "canonical_content_hash": "sha256:e5dbddee7a77a83545d0be8a91aee8ab4105090439048d4aeba666a0f33c811d",
       "evidence_claim_ids": [
-        "boros_legion_claim_001"
+        "boros_legion_claim_001",
+        "boros_legion_claim_002",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WR",
@@ -33875,12 +34295,18 @@
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:cc4fd1d8a099db04e5504d1ff7187473afb8ea39a151bf0089e30f55c122bd84",
+      "canonical_content_hash": "sha256:3b649e04a6186a3155ac59d5d0c6e1488a280843dcd3e212588b62803852c1e4",
       "evidence_claim_ids": [
-        "boros_legion_claim_011"
+        "boros_legion_claim_003",
+        "boros_legion_claim_008",
+        "boros_legion_claim_011",
+        "boros_legion_claim_026"
       ],
       "evidence_source_ids": [
         "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018",
         "src_wotc_legends_karlov_manor_2024"
       ],
       "generated_consumers": [
@@ -33895,12 +34321,17 @@
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:4f4912d2bc5fe215c167322ebf1a1c6a9abb6d838275262d130544bdf976a6d9",
+      "canonical_content_hash": "sha256:ad2a6c0455316fc4f5256dbe9a430cc308d65340bd73230deeb5f288174693c0",
       "evidence_claim_ids": [
-        "boros_legion_claim_012"
+        "boros_legion_claim_004",
+        "boros_legion_claim_006",
+        "boros_legion_claim_012",
+        "boros_legion_claim_026"
       ],
       "evidence_source_ids": [
-        "src_wotc_gatecrash_boros_lore_2013"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WR",
@@ -33914,14 +34345,17 @@
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
       "canonical_pointer": "/placement_axes/0",
       "canonical_id": "axis_boros_action_vs_procedure",
-      "canonical_content_hash": "sha256:201e8d627539ac8f5aa356e55332487894c57ffac81366d47686fb3f8bf1477e",
+      "canonical_content_hash": "sha256:f5e3b8bd4c4c7a9f233236b31eed3efc41c35ace5772f95a760a32c1a6159661",
       "evidence_claim_ids": [
         "boros_legion_claim_001",
         "boros_legion_claim_002",
         "boros_legion_claim_003",
-        "boros_legion_claim_004"
+        "boros_legion_claim_025",
+        "boros_legion_claim_028",
+        "boros_legion_claim_030"
       ],
       "evidence_source_ids": [
+        "src_ravnica_novel_2005",
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "generated_consumers": [
@@ -33939,13 +34373,13 @@
       "canonical_content_hash": "sha256:95a83a30494a0643af9a5baa3590610138114e3e717342017e8560a86808a790",
       "evidence_claim_ids": [
         "boros_legion_claim_004",
-        "boros_legion_claim_005",
         "boros_legion_claim_006",
-        "boros_legion_claim_007"
+        "boros_legion_claim_012",
+        "boros_legion_claim_026"
       ],
       "evidence_source_ids": [
-        "src_ravnica_novel_2005",
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
         "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
@@ -33959,18 +34393,21 @@
       "identity_key": "WR",
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
       "canonical_pointer": "/placement_axes/2",
-      "canonical_id": "axis_boros_righteous_zeal",
-      "canonical_content_hash": "sha256:0070ae871bc17d455b1d9ecf6925c5d2db844cebca8c991a2b88860e6a45df23",
+      "canonical_id": "axis_boros_accountable_force",
+      "canonical_content_hash": "sha256:5d4f0d3dfb3795806ce2994c8b98fe9fa03139f0bfd46edeaef5ee52307aaee6",
       "evidence_claim_ids": [
-        "boros_legion_claim_007",
-        "boros_legion_claim_008",
-        "boros_legion_claim_009",
-        "boros_legion_claim_010"
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_027",
+        "boros_legion_claim_029",
+        "boros_legion_claim_033",
+        "boros_legion_claim_036"
       ],
       "evidence_source_ids": [
         "src_ravnica_novel_2005",
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_wotc_gatecrash_boros_lore_2013"
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WR",
@@ -33984,18 +34421,18 @@
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
       "canonical_pointer": "/placement_summary",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:2729a5713df171bec298273dee87a9a42675ad93f824cc79c972c44fb08c6020",
+      "canonical_content_hash": "sha256:337a9f81bbdec4794f06c4ff296c1ba4bdb912aa3af4ea00f103f944fe33b1e1",
       "evidence_claim_ids": [
         "boros_legion_claim_001",
         "boros_legion_claim_002",
         "boros_legion_claim_003",
-        "boros_legion_claim_004",
-        "boros_legion_claim_005",
         "boros_legion_claim_006",
-        "boros_legion_claim_007",
         "boros_legion_claim_008",
-        "boros_legion_claim_009",
-        "boros_legion_claim_010"
+        "boros_legion_claim_012",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_028",
+        "boros_legion_claim_029"
       ],
       "evidence_source_ids": [
         "src_ravnica_novel_2005",
@@ -34015,9 +34452,11 @@
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
       "canonical_pointer": "/poor_fit_indicators/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:51edf618f147ab4c05e2a4acbef0b43a1a856d6ef3525989290f8287d5d3a836",
+      "canonical_content_hash": "sha256:4baa8ae13ac980a463faf1edde7d2e63b50e113b55b72e8971d825890f50efdc",
       "evidence_claim_ids": [
-        "boros_legion_claim_001"
+        "boros_legion_claim_001",
+        "boros_legion_claim_002",
+        "boros_legion_claim_025"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
@@ -34034,13 +34473,403 @@
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
       "canonical_pointer": "/poor_fit_indicators/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:fd791e294d7d61fe4693fba38b6e17e0ac5f7d38c3d62fba7986c96c8db9656f",
+      "canonical_content_hash": "sha256:30f75070e22ad48980cb1a5d5462216c32d885e102e02749539cce2b38bb9bf9",
       "evidence_claim_ids": [
-        "boros_legion_claim_008"
+        "boros_legion_claim_026",
+        "boros_legion_claim_027",
+        "boros_legion_claim_029",
+        "boros_legion_claim_033",
+        "boros_legion_claim_036"
       ],
       "evidence_source_ids": [
         "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:da765b367e88375bf6cf3f7cf4b98539d10d8dfa4c602c15ee733274c475c3c9",
+      "evidence_claim_ids": [
+        "boros_legion_claim_001",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:e8bef70c90cd794a12594b70950d0144bb6a09fec069c72ad771ff804c25b253",
+      "evidence_claim_ids": [
+        "boros_legion_claim_002",
+        "boros_legion_claim_003",
+        "boros_legion_claim_025",
+        "boros_legion_claim_028",
+        "boros_legion_claim_030"
+      ],
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:025a7f6536446edea12ee32afd982b45b97a46c93d647f25221b04959dd554a2",
+      "evidence_claim_ids": [
+        "boros_legion_claim_005",
+        "boros_legion_claim_008",
+        "boros_legion_claim_025",
+        "boros_legion_claim_031"
+      ],
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
         "src_wotc_gatecrash_boros_lore_2013"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/3",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:e012a342b0a2c3d5738c9f99fefaedcc1ba387a2605b79e89039813a7bbccde5",
+      "evidence_claim_ids": [
+        "boros_legion_claim_001",
+        "boros_legion_claim_026",
+        "boros_legion_claim_032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/4",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:e279f70a49b9340a4eef8f92732626207ad9c097131f82638145d291dc7f7a5b",
+      "evidence_claim_ids": [
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_027",
+        "boros_legion_claim_033"
+      ],
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/5",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:0c47cd6e790295cb2df58625b8b2e3f0ad7297b3986dd5c3465e718f58ab58cd",
+      "evidence_claim_ids": [
+        "boros_legion_claim_006",
+        "boros_legion_claim_025",
+        "boros_legion_claim_034"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/6",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:f081ce3d50a05b9f5c53b273fddc7c5efd30d10ca018a7422dde4c15ec75ce69",
+      "evidence_claim_ids": [
+        "boros_legion_claim_002",
+        "boros_legion_claim_003",
+        "boros_legion_claim_025",
+        "boros_legion_claim_035"
+      ],
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/7",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:31fbc09888a8461b7b9e1caac800ad4d1b57be5211358dfbda6f0acae01792ed",
+      "evidence_claim_ids": [
+        "boros_legion_claim_001",
+        "boros_legion_claim_003",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_036"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:58eef7e95f4bbaae81160e0d20c299befccfe8648e203c85efcdbd858302547a",
+      "evidence_claim_ids": [
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:a482a8d543afcbf77a7752d7b90c51dae164ba75b3475cbed008890be12f2751",
+      "evidence_claim_ids": [
+        "boros_legion_claim_026",
+        "boros_legion_claim_028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:d789f6180ff94dc064b9cd84c53aef01380496ba2eb7ec2d88cd50c28375e5e4",
+      "evidence_claim_ids": [
+        "boros_legion_claim_006",
+        "boros_legion_claim_012",
+        "boros_legion_claim_026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:9f20f01ec45b38d3bb024439b9ef8d4a69b8cd3f254082f4db6aa681a5bdc49f",
+      "evidence_claim_ids": [
+        "boros_legion_claim_029",
+        "boros_legion_claim_033",
+        "boros_legion_claim_036"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:f592b4feeaac069c2f9b459ba6bc155cc05f810f3bce3d8fe90de097de190f61",
+      "evidence_claim_ids": [
+        "boros_legion_claim_030",
+        "boros_legion_claim_031",
+        "boros_legion_claim_032",
+        "boros_legion_claim_033",
+        "boros_legion_claim_034",
+        "boros_legion_claim_035",
+        "boros_legion_claim_036"
+      ],
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:1cc8563c2a93c41de3e623b3f4c9b40b5b58b9e289d78cd931e460311cdf3a66",
+      "evidence_claim_ids": [
+        "boros_legion_claim_027",
+        "boros_legion_claim_028",
+        "boros_legion_claim_029"
+      ],
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:4835d25064ffc9cc0ef08ed6ec52d2ad92c19be20f389159e6e93ad2ba4fab04",
+      "evidence_claim_ids": [
+        "boros_legion_claim_025",
+        "boros_legion_claim_028",
+        "boros_legion_claim_030",
+        "boros_legion_claim_031",
+        "boros_legion_claim_032",
+        "boros_legion_claim_033",
+        "boros_legion_claim_034",
+        "boros_legion_claim_035",
+        "boros_legion_claim_036"
+      ],
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WR",
+        "data/placement-model.json#/factions/WR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WR",
+      "canonical_file": "data/raw-factions/boros_legion/boros_legion.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/7",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:5256880b775dc5eff59704107e14b72f02b2f141907acc76e432d23f89956f91",
+      "evidence_claim_ids": [
+        "boros_legion_claim_026",
+        "boros_legion_claim_027",
+        "boros_legion_claim_028",
+        "boros_legion_claim_029"
+      ],
+      "evidence_source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WR",
@@ -34054,19 +34883,16 @@
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.profile.json",
       "canonical_pointer": "/canonical_flavor_text/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:5df07e834bb36ff9538b59719df489f555fb06cc88631912f4a80ea3d237ea9b",
+      "canonical_content_hash": "sha256:1b9c74d9611108e7fe97c7ef9d195f327cc485aa911af79bbd18eb58943d244c",
       "evidence_claim_ids": [
         "boros_legion_claim_001",
         "boros_legion_claim_002",
         "boros_legion_claim_003",
-        "boros_legion_claim_004",
-        "boros_legion_claim_005",
-        "boros_legion_claim_006",
-        "boros_legion_claim_007",
-        "boros_legion_claim_008"
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_028"
       ],
       "evidence_source_ids": [
-        "src_ravnica_novel_2005",
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
         "src_wotc_gatecrash_boros_lore_2013",
         "src_wotc_guilds_ravnica_mechanics_2018"
@@ -34083,19 +34909,16 @@
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.profile.json",
       "canonical_pointer": "/core_identity",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:d29bcc20cd3e37c83a4c66a63b8f95de4d342ac72c718d580f63aabf83534400",
+      "canonical_content_hash": "sha256:3b69918e87dff951378cae7474f9abb5dd7ae492e9a2a4ecc31a02c4e8df88bb",
       "evidence_claim_ids": [
         "boros_legion_claim_001",
         "boros_legion_claim_002",
         "boros_legion_claim_003",
-        "boros_legion_claim_004",
-        "boros_legion_claim_005",
-        "boros_legion_claim_006",
-        "boros_legion_claim_007",
-        "boros_legion_claim_008"
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_029"
       ],
       "evidence_source_ids": [
-        "src_ravnica_novel_2005",
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
         "src_wotc_gatecrash_boros_lore_2013",
         "src_wotc_guilds_ravnica_mechanics_2018"
@@ -34112,16 +34935,23 @@
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.profile.json",
       "canonical_pointer": "/great_tension",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:3ded70cc3fe9d9f95bf3ed0cf2c8288379c35bccde78dbb528ea3928d00f77b3",
+      "canonical_content_hash": "sha256:63756eada9d34bfbec4c98d35b9133437ab08974c267cd8131a8a6ee05c1e559",
       "evidence_claim_ids": [
+        "boros_legion_claim_002",
         "boros_legion_claim_003",
-        "boros_legion_claim_004",
-        "boros_legion_claim_005",
-        "boros_legion_claim_006",
         "boros_legion_claim_007",
-        "boros_legion_claim_008",
-        "boros_legion_claim_009",
-        "boros_legion_claim_010"
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_027",
+        "boros_legion_claim_028",
+        "boros_legion_claim_029",
+        "boros_legion_claim_030",
+        "boros_legion_claim_031",
+        "boros_legion_claim_032",
+        "boros_legion_claim_033",
+        "boros_legion_claim_034",
+        "boros_legion_claim_035",
+        "boros_legion_claim_036"
       ],
       "evidence_source_ids": [
         "src_ravnica_novel_2005",
@@ -34161,7 +34991,7 @@
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.profile.json",
       "canonical_pointer": "/historical_timeline/1",
       "canonical_id": "event_boros_legion_boros_legion_claim_009",
-      "canonical_content_hash": "sha256:89b0c8ad0d4c285a89dc53f3ee1c233c16711dfc959214b0b427a570a42cb060",
+      "canonical_content_hash": "sha256:3ad2e9efc911d44990c75c248f72d25e7894e60474005e8739f3a523b79cac57",
       "evidence_claim_ids": [
         "boros_legion_claim_009"
       ],
@@ -34181,39 +35011,15 @@
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.profile.json",
       "canonical_pointer": "/key_figures/0",
       "canonical_id": "char_aurelia",
-      "canonical_content_hash": "sha256:b33604890baa9ad8ef2ae8d4c8042ba153b7e64695b36adaeeb68513b4ff00f7",
+      "canonical_content_hash": "sha256:bc723d3d148a7c18c937831b36f2ac6dc14141234ebdc77c8dd11b8723620712",
       "evidence_claim_ids": [
         "boros_legion_claim_004",
-        "boros_legion_claim_009",
-        "boros_legion_claim_011",
-        "boros_legion_claim_013",
-        "boros_legion_claim_015",
-        "boros_legion_claim_016",
-        "boros_legion_claim_017",
-        "boros_legion_claim_018",
-        "boros_legion_claim_019",
-        "boros_legion_claim_020",
-        "boros_legion_claim_021",
-        "boros_legion_claim_022",
-        "boros_legion_claim_023",
-        "boros_legion_claim_024"
+        "boros_legion_claim_009"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_002_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_003_clans_legions_de2e9b38",
-        "src_mtg_stories_004_episode_4_justice_before_mercy_57b8ab88",
-        "src_mtg_stories_006_ashes_6ede4fea",
-        "src_mtg_stories_006_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_006_the_gathering_storm_chapter_12_a8fc6d84",
-        "src_mtg_stories_006_the_greater_good_a536bab3",
-        "src_mtg_stories_007_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_008_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_009_the_gathering_storm_chapter_3_c2a81b82",
-        "src_mtg_stories_011_battle_for_the_ninth_4fb87675",
         "src_ravnica_novel_2005",
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_wotc_gatecrash_boros_lore_2013",
-        "src_wotc_legends_karlov_manor_2024"
+        "src_wotc_gatecrash_boros_lore_2013"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WR",
@@ -34227,16 +35033,12 @@
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.profile.json",
       "canonical_pointer": "/key_figures/1",
       "canonical_id": "char_razia",
-      "canonical_content_hash": "sha256:45027248158b5e47932d18e0e82b33f09e4f938df485e6549b70ccbde0249b67",
+      "canonical_content_hash": "sha256:4481f2cbf773208f2abe4ace7a6e6fecdc6b49e0f51a400c61c86ed79eb4517a",
       "evidence_claim_ids": [
         "boros_legion_claim_005",
-        "boros_legion_claim_009",
-        "boros_legion_claim_013",
-        "boros_legion_claim_014"
+        "boros_legion_claim_009"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_003_clans_legions_de2e9b38",
-        "src_mtg_stories_003_the_absolution_of_the_guildpact_4e863503",
         "src_ravnica_novel_2005",
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
         "src_wotc_gatecrash_boros_lore_2013"
@@ -34252,48 +35054,12 @@
       "identity_key": "WR",
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.profile.json",
       "canonical_pointer": "/key_figures/2",
-      "canonical_id": "char_tajic",
-      "canonical_content_hash": "sha256:cc6e21b89ef3b24195020cdf7fb8317bacd4487e2a842dce6fb855b3a8f09ce7",
-      "evidence_claim_ids": [
-        "boros_legion_claim_011",
-        "boros_legion_claim_013",
-        "boros_legion_claim_017"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_003_clans_legions_de2e9b38",
-        "src_mtg_stories_011_battle_for_the_ninth_4fb87675",
-        "src_ravnica_novel_2005",
-        "src_wotc_legends_karlov_manor_2024"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/WR",
-        "data/placement-model.json#/factions/WR",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WR"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "WR",
-      "canonical_file": "data/raw-factions/boros_legion/boros_legion.profile.json",
-      "canonical_pointer": "/key_figures/3",
       "canonical_id": "char_feather",
-      "canonical_content_hash": "sha256:9d63112356d17ed6e693966969d8d9e675450f15d4979f2515ebf4b474aedba3",
+      "canonical_content_hash": "sha256:07d2e8ec643e774ebab793976ebb6d9d9df44eabaaff7a7604299e25f577ee6a",
       "evidence_claim_ids": [
-        "boros_legion_claim_009",
-        "boros_legion_claim_013",
-        "boros_legion_claim_015",
-        "boros_legion_claim_018",
-        "boros_legion_claim_021",
-        "boros_legion_claim_022",
-        "boros_legion_claim_023"
+        "boros_legion_claim_009"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_002_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_003_clans_legions_de2e9b38",
-        "src_mtg_stories_006_the_gathering_storm_chapter_12_a8fc6d84",
-        "src_mtg_stories_007_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_008_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_009_the_gathering_storm_chapter_3_c2a81b82",
         "src_ravnica_novel_2005",
         "src_wotc_gatecrash_boros_lore_2013"
       ],
@@ -34307,26 +35073,15 @@
     {
       "identity_key": "WR",
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.profile.json",
-      "canonical_pointer": "/key_figures/4",
+      "canonical_pointer": "/key_figures/3",
       "canonical_id": "char_agrus_kos",
-      "canonical_content_hash": "sha256:92415ec9b56f73734e705b406868a04b8b7928aca27dbca5076a83a9d4f5ee4e",
+      "canonical_content_hash": "sha256:30f1d6a45a6aaf81acf1f50001d74ed89306bcee06334955de2bd3d474eae1b2",
       "evidence_claim_ids": [
-        "boros_legion_claim_005",
         "boros_legion_claim_008",
-        "boros_legion_claim_009",
-        "boros_legion_claim_011",
-        "boros_legion_claim_014",
-        "boros_legion_claim_020",
-        "boros_legion_claim_021",
-        "boros_legion_claim_024"
+        "boros_legion_claim_011"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_003_the_absolution_of_the_guildpact_4e863503",
-        "src_mtg_stories_004_episode_4_justice_before_mercy_57b8ab88",
-        "src_mtg_stories_006_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_007_episode_7_rot_before_recovery_aff91fb1",
         "src_ravnica_novel_2005",
-        "src_wotc_flavorful_guide_guilds_ravnica_2018",
         "src_wotc_gatecrash_boros_lore_2013",
         "src_wotc_legends_karlov_manor_2024"
       ],
@@ -34342,7 +35097,7 @@
       "canonical_file": "data/raw-factions/boros_legion/boros_legion.profile.json",
       "canonical_pointer": "/profile",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:59952a462a6c1310db643e7b9d3ffeb1a8ebf1b63a90aaedce03ccb472c344e7",
+      "canonical_content_hash": "sha256:1bb8f5321667792ae723c0a8df0ae4787152d625828a50974d67fb90074b7f9c",
       "evidence_claim_ids": [
         "boros_legion_claim_001",
         "boros_legion_claim_002",
@@ -34355,7 +35110,11 @@
         "boros_legion_claim_009",
         "boros_legion_claim_010",
         "boros_legion_claim_011",
-        "boros_legion_claim_012"
+        "boros_legion_claim_012",
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_027",
+        "boros_legion_claim_028"
       ],
       "evidence_source_ids": [
         "src_ravnica_novel_2005",

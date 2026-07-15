@@ -2,8 +2,24 @@
   "schema_version": "1.0.0",
   "faction_id": "boros_legion",
   "faction_name": "Boros Legion",
-  "last_updated": "2026-05-10T02:56:03.254Z",
+  "last_updated": "2026-07-14T21:45:00-06:00",
   "changes": [
+    {
+      "change_id": "change_boros_legion_vm509_gate3_canonical_remediation_20260714",
+      "date": "2026-07-14",
+      "change_type": "crit001_gate3_canonical_remediation",
+      "summary": "Classified Boros claims under Contract v1.1, added bounded evidence locations for substantive claims, narrowed/split claims 007/011/012, removed discovery-only story-corpus records from authoritative proof chains, added required-neighbor/collision evidence mappings, and left generated artifacts stale for Gate 4.",
+      "affected_files": [
+        "boros_legion.claims.json",
+        "boros_legion.profile.json",
+        "boros_legion.placement.json",
+        "boros_legion.changelog.json"
+      ],
+      "contract_version": "v1.1",
+      "gate": "Gate 3",
+      "generated_artifacts_status": "stale_until_gate4",
+      "certification_status": "uncertified"
+    },
     {
       "change_id": "change_boros_legion_placement_ready_20260510025603",
       "date": "2026-05-10",
@@ -59,9 +75,15 @@
   "audit_summary": {
     "faction_researched": "Boros Legion",
     "number_of_sources_reviewed": 5,
-    "number_of_claims_verified": 12,
+    "number_of_claims_verified": 24,
     "overall_confidence_rating": "High",
     "last_tuning_pass": "2026-05-10T02:24:27.430Z",
-    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z",
+    "gate3_semantic_role_counts": {
+      "substantive_claim": 24,
+      "discovery_record": 12,
+      "support_record": 0,
+      "unclassified": 0
+    }
   }
 }

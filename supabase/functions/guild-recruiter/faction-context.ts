@@ -1591,9 +1591,9 @@ export const FACTION_CONTEXT = {
         "label": "Boros"
       }
     },
-    "tagline": "Righteous fury is still fury. It still wins.",
-    "philosophy": "The Boros Legion believes in a higher law - one in which righteousness is fire and justice is the light that shines from it. They act when institutions fail. They protect when others deliberate. They burn bright so others can see and choose to stand with them.",
-    "core_tension": "They believe their cause is righteous. That belief is both their greatest strength and their greatest danger. The line between justice and zealotry is thinner than any Boros soldier admits.",
+    "tagline": "Public protection. Disciplined action.",
+    "philosophy": "Boros philosophy joins civic order with urgent protection. Its best expression acts when harm is present, but remains accountable to the public duty it claims to serve.",
+    "core_tension": "Boros balances law-enforcement duty, military force, teamwork, and protection. Its danger is treating force as self-justifying after the peacekeeping purpose has fallen away.",
     "affinity": {
       "drawn_to": [
         "Clear moral lines - right and wrong, not negotiable",
@@ -1608,21 +1608,21 @@ export const FACTION_CONTEXT = {
         "Watching injustice unfold and waiting for the proper channels",
         "Rules that protect the wrong people"
       ],
-      "core_question": "When the rules stood between you and doing what was right - what did you do?",
+      "core_question": "When delay would leave someone exposed, what matters most: procedure, precedent, harmony, experiment, leverage, spectacle, conquest, or public protection?",
       "interview_tells": [
-        "Describes a moment of acting before thinking and not regretting it",
-        "Expresses frustration with systems that protect wrongdoers",
-        "Mentions a specific person they protected or tried to",
-        "Uses words like 'wrong', 'have to', 'couldn't just stand there'",
-        "Talks about loyalty to people over institutions"
+        "Centers present-tense protection of someone exposed to harm",
+        "Chooses visible public duty over comfort or delay",
+        "Keeps force tied to protection rather than anger",
+        "Names teamwork, witness, or accountability around urgent action",
+        "Resists generic hero fantasy, spectacle, or martial aesthetics without protection"
       ],
-      "not_to_be_confused_with": "Azorius - Azorius trusts the system to produce justice eventually. Boros acts when it doesn't. Lorehold - both honor-driven but Lorehold excavates the past while Boros charges into the present."
+      "not_to_be_confused_with": "Azorius centers procedure and enforceable systems before immediate protection. Lorehold centers history, records, relics, and precedent before present-tense protection. Rakdos and Mardu may share intensity or martial pressure, but Boros keeps action bounded by civic protection and accountability."
     },
     "decree_voice": {
       "tone": "Martial. Direct. Charged with moral weight. No equivocation.",
       "speaks_like": "A senior angel-commander issuing an order that is also an invitation.",
-      "example_opening": "You see wrongness and you move to right it.",
-      "example_decree": "You see wrongness and you move to right it - not hesitantly, not alone, but with others who can stand witness and confirm the justice of your action. The Legion does not move in secret. We burn bright so others can see the light and choose to stand with us. Come. We have much that needs righting, and we cannot do it alone either."
+      "example_opening": "You see harm and you move to protect.",
+      "example_decree": "You see harm and you move to protect - not alone, not in secret, and not without accountability. The Legion asks whether action can remain visible, disciplined, and public while someone still needs defending. Come. There is work that cannot wait, and it must still answer to the people it claims to serve."
     },
     "biological_expression": {
       "archetype": "The Protective Intervener",
@@ -1663,47 +1663,56 @@ export const FACTION_CONTEXT = {
     },
     "good_fit_indicators": [
       "The user chooses protection and visible duty over comfort.",
-      "The user accepts personal risk to stop a present injustice.",
-      "The user values teammates, accountability, and decisive action."
+      "The user accepts personal risk to stop a present harm while staying accountable.",
+      "The user values teammates, civic service, and decisive but disciplined action."
     ],
     "poor_fit_indicators": [
-      "avoids conflict at any cost",
-      "treats rules as more important than people"
+      "avoids conflict when present-tense protection requires action",
+      "wants generic aggression, spectacle, or force without civic protection"
     ],
     "inhibitor_traps": [
       "Moral passivity in the face of harm; prefers neutrality, delay, or self-protection when someone needs defending.",
-      "avoids conflict at any cost",
-      "treats rules as more important than people"
+      "User wants generic aggression, speed, martial aesthetics, or hero fantasy without protection.",
+      "User centers procedure, precedent, harmony, spectacle, experimentation, debt/leverage, or conquest before public protection.",
+      "User treats rule-breaking or force as valuable without accountability.",
+      "avoids conflict when present-tense protection requires action",
+      "wants generic aggression, spectacle, or force without civic protection"
     ],
     "lateral_inhibition_targets": [
       "WU",
       "LOREHOLD",
       "WG",
-      "MARDU"
+      "MARDU",
+      "UR",
+      "WB"
     ],
     "discriminator_questions": [
       {
         "id": "q_boros_legion_0001",
-        "prompt": "Is the law a set of rules to be interpreted or a shield to be used for protection?",
-        "purpose": "Separates the protective instinct (Boros) from procedural debate (Azorius).",
+        "prompt": "When harm is unfolding now, do you first reach for a public protective response or for procedure to resolve the question?",
+        "purpose": "Separates Boros protective urgency from Azorius procedure-first governance.",
         "supports": "",
         "weakens": "",
         "collision_targets": [],
         "evidence_claim_ids": [
-          "boros_legion_claim_001",
-          "boros_legion_claim_008"
+          "boros_legion_claim_025",
+          "boros_legion_claim_028",
+          "boros_legion_claim_030"
         ],
         "confidence": "Medium"
       },
       {
         "id": "q_boros_legion_0002",
-        "prompt": "Would you work with a 'shady' ally to solve a crime that threatens the public?",
-        "purpose": "Tests for the Wojek investigator archetype (Agrus Kos).",
+        "prompt": "Do you want a disciplined team response to protect people, or a solo display of force that proves you can win?",
+        "purpose": "Separates Boros team-bound duty from generic WR aggression, Rakdos spectacle, and Mardu martial overfit.",
         "supports": "",
         "weakens": "",
         "collision_targets": [],
         "evidence_claim_ids": [
-          "boros_legion_claim_011"
+          "boros_legion_claim_026",
+          "boros_legion_claim_029",
+          "boros_legion_claim_033",
+          "boros_legion_claim_036"
         ],
         "confidence": "Medium"
       },
@@ -1716,21 +1725,42 @@ export const FACTION_CONTEXT = {
         "collision_targets": [
           "WU",
           "LOREHOLD",
-          "WG"
+          "WG",
+          "UR",
+          "WB",
+          "MARDU"
         ],
         "evidence_claim_ids": [
-          "boros_legion_claim_001",
-          "boros_legion_claim_002",
-          "boros_legion_claim_003",
-          "boros_legion_claim_004",
-          "boros_legion_claim_005"
+          "boros_legion_claim_025",
+          "boros_legion_claim_026",
+          "boros_legion_claim_028",
+          "boros_legion_claim_030",
+          "boros_legion_claim_031",
+          "boros_legion_claim_032",
+          "boros_legion_claim_033",
+          "boros_legion_claim_034",
+          "boros_legion_claim_035",
+          "boros_legion_claim_036"
         ],
         "confidence": "Medium"
       }
     ],
     "chatbot_guidance": {
-      "ask_when_uncertain": "When Boros is close to Azorius, Lorehold, or Selesnya, ask whether the user would act now to protect someone, preserve procedure, research precedent, or preserve group harmony.",
-      "avoid": "Avoid treating any white-red answer as Boros. Require active protection or moral urgency in the present.",
+      "how_to_recognize_match": [
+        "User centers present-tense protection of someone exposed to harm.",
+        "User accepts public accountability after acting.",
+        "User values team duty, disciplined intervention, and civic service."
+      ],
+      "how_to_recognize_mismatch": [
+        "User wants generic aggression, speed, martial aesthetics, or hero fantasy without protection.",
+        "User centers procedure, precedent, harmony, spectacle, experimentation, debt/leverage, or conquest before public protection.",
+        "User treats rule-breaking or force as valuable without accountability."
+      ],
+      "questions_to_ask_when_uncertain": [
+        "When delay would leave someone exposed, what matters most: procedure, precedent, harmony, experiment, leverage, spectacle, conquest, or public protection?",
+        "Do you want the response to be disciplined and accountable, or simply fast and forceful?"
+      ],
+      "avoid": "Avoid treating any white-red answer as Boros. Require active protection, public duty, and accountability in the present.",
       "calibration_note": "Boros Legion should require its specific positive evidence cluster: protect, protection, intervene, immediate, action. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
       "scoring_guardrail": "Do not award for generic heroism, generic aggression, or white-red identity without active protection."
     },
