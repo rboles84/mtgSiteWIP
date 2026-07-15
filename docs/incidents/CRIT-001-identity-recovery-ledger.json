@@ -1094,10 +1094,10 @@
         "claim_count": 36
       },
       "workflow": {
-        "current_gate": "gate_5_candidate_creation_authorized",
-        "status": "candidate_creation_in_progress",
+        "current_gate": "gate_5_independent_review_pending",
+        "status": "corrected_replacement_candidate_recorded",
         "started_at": "2026-07-14T19:34:22.3762616-06:00",
-        "gate_entered_at": "2026-07-14T23:40:00-06:00",
+        "gate_entered_at": "2026-07-15T11:41:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "BR",
@@ -1116,25 +1116,32 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-509-boros-semantic-recovery.md",
         "residual_findings": [
-          "Gate 4 generation and validation complete: WR generated artifacts, provenance, fixtures, source/generated validation, generated-diff isolation, and regressions passed.",
-          "Collision target preservation blocker resolved by canonical target normalization only: generic_wr_overfit -> WR for the generic-overfit guardrail entry; rakdos_cult -> cult_of_rakdos for Rakdos/BR.",
-          "Generated WR collision guidance preserves all 8 Gate 3 collision entries; all have lateral_inhibition false and no lateral-inhibition behavior/value changes were introduced.",
-          "Stale Boros high-heat public copy remains absent after rebuild; no discovery-only Boros claim or Commander/card/product source is used as WR semantic proof.",
-          "Known warnings unchanged: builder-owned Boros inhibitor warning; dossier audit 113 warnings / 0 failures; git-ignore permission warning and LF-to-CRLF notices only.",
-          "Boros remains uncertified; no candidate or certification commit exists.",
-          "Gate 5 candidate creation authorized; candidate SHA pending until immutable candidate commit is created."
+          "Corrected replacement candidate recorded for independent Gate 5 review; Boros remains uncertified.",
+          "Supersedes rejected candidate c2f5d064460a007f0dca6be95b7beabb4ca85026 and rejected workflow record d7f2523d53cfbc6420e75c83b9ab03192158a1a1.",
+          "Earlier failed candidate abff94b91e94b99a6b2a77b71806a9d005ecec76 and workflow record 25420bad09715645ba4af37f07cac097b3e7966d remain superseded and preserved by safety refs.",
+          "Review-requested key-figure generated-chain cleanup complete: data/factions.json WR raw_enrichment.key_figures no longer uses discovery records as source-backed faction proof and Tajic is not emitted as authoritative generated key-figure proof.",
+          "Claim boros_legion_claim_026 Gatecrash locator corrected to The Boros Legion - reviewed source record without changing claim meaning.",
+          "Generated WR lateral targets remain parent-stable: WU, LOREHOLD, WG, MARDU; generated WR collision guidance preserves all 8 required neighbors.",
+          "Known warnings unchanged: builder-owned Boros inhibitor warning; dossier audit 113 warnings / 0 failures; git-ignore permission warning and LF-to-CRLF notices only."
         ]
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "da2e9ef4036c427c17dca66c5a1a9d9a8fe03436",
+        "recovery_commit": "da2e9ef4036c427c17dca66c5a1a9d9a8fe03436",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
         "approval_date": null,
-        "certified_at": null
+        "certified_at": null,
+        "candidate_parent_sha": "4d351747f0634663ea8f796099057e431af8a65b",
+        "candidate_recorded_at": "2026-07-15T11:41:00-06:00",
+        "superseded_rejected_candidate_sha": "c2f5d064460a007f0dca6be95b7beabb4ca85026",
+        "superseded_rejected_workflow_sha": "d7f2523d53cfbc6420e75c83b9ab03192158a1a1",
+        "earlier_superseded_failed_candidate_sha": "abff94b91e94b99a6b2a77b71806a9d005ecec76",
+        "earlier_superseded_failed_workflow_sha": "25420bad09715645ba4af37f07cac097b3e7966d",
+        "infrastructure_unblock_commit": "4d351747f0634663ea8f796099057e431af8a65b"
       }
     },
     {

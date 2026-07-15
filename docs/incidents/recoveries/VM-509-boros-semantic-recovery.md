@@ -1048,4 +1048,17 @@ Corrections applied for the new corrected replacement candidate:
 
 Corrected replacement candidate parent SHA: `4d351747f0634663ea8f796099057e431af8a65b`.
 
-Corrected replacement candidate SHA: pending until immutable candidate commit creation.
+Corrected replacement candidate SHA: `da2e9ef4036c427c17dca66c5a1a9d9a8fe03436`.
+
+## Corrected Replacement Recovery Candidate Record
+
+- Corrected replacement candidate parent SHA: `4d351747f0634663ea8f796099057e431af8a65b`.
+- Corrected replacement candidate SHA: `da2e9ef4036c427c17dca66c5a1a9d9a8fe03436`.
+- Superseded rejected candidate SHA: `c2f5d064460a007f0dca6be95b7beabb4ca85026`.
+- Superseded rejected workflow-record SHA: `d7f2523d53cfbc6420e75c83b9ab03192158a1a1`.
+- Earlier superseded failed candidate SHA: `abff94b91e94b99a6b2a77b71806a9d005ecec76`.
+- Earlier superseded failed workflow-record SHA: `25420bad09715645ba4af37f07cac097b3e7966d`.
+- Safety refs preserved: `backup/vm-509-boros-rejected-candidate-c2f5d06`, `backup/vm-509-boros-rejected-workflow-d7f2523`, `backup/vm-509-boros-failed-candidate-abff94b`, `backup/vm-509-boros-failed-workflow-25420ba`.
+- Independent reviewer: pending.
+- Certification commit: pending.
+- Boros remains uncertified.

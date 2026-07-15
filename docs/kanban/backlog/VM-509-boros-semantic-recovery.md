@@ -1,7 +1,7 @@
 # VM-509 â€” Boros Semantic Recovery
 
 ID: VM-509
-Status: Corrected replacement candidate validation complete; corrected replacement candidate SHA pending
+Status: Corrected replacement candidate recorded; independent Gate 5 review required
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: WR
@@ -34,7 +34,7 @@ Recover Boros end to end under CRIT-001: audit the existing packet, bound readin
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-509-boros-semantic-recovery.md`
-- Candidate recovery SHA: pending
+- Candidate recovery SHA: `da2e9ef4036c427c17dca66c5a1a9d9a8fe03436`
 - Independent reviewer: pending
 - Certification commit: pending
 
@@ -84,7 +84,7 @@ Recover Boros end to end under CRIT-001: audit the existing packet, bound readin
 
 - Candidate creation authorized after Gate 4 completion.
 - Candidate parent SHA: `4d351747f0634663ea8f796099057e431af8a65b`.
-- Candidate recovery SHA: pending until the immutable candidate commit is created.
+- Candidate recovery SHA: `da2e9ef4036c427c17dca66c5a1a9d9a8fe03436`.
 - Boros remains uncertified; certification requires independent Gate 5 review and separate authorization.
 ## Infrastructure Unblock Note
 
@@ -106,4 +106,4 @@ Recover Boros end to end under CRIT-001: audit the existing packet, bound readin
 - Rejected workflow record: `d7f2523d53cfbc6420e75c83b9ab03192158a1a1`.
 - Review-requested key-figure generated-chain cleanup complete: discovery records are not emitted as source-backed WR key-figure proof and Tajic is not emitted as authoritative generated key-figure proof.
 - Claim `boros_legion_claim_026` Gatecrash locator corrected to "The Boros Legion - reviewed source record".
-- Corrected replacement candidate SHA remains pending until immutable candidate commit creation.
+- Corrected replacement candidate SHA: `da2e9ef4036c427c17dca66c5a1a9d9a8fe03436`.
