@@ -2,11 +2,16 @@ import assert from "node:assert/strict";
 import {
   findForbiddenFieldChanges,
   findForbiddenPlacementBehaviorChanges,
+  findEvidenceLocationSourceInconsistencies,
+  findInvalidSemanticClaimReferences,
   findMissingNativeIds,
   findMissingProvenanceNativeIds,
   isAllowedIdentityCandidatePath,
   isFrozenSharedPath,
+  validateCollisionGuidancePreservation,
   validateGeneratedConsumerCoverage,
+  validateGeneratedKeyFigureProofChains,
+  validateRequiredProvenanceFields,
   validateUnrelatedGeneratedIsolation,
 } from "./validate-semantic-candidate-scope.mjs";
 import { buildLateralInhibitionTargets } from "./build-faction-artifacts.mjs";
@@ -115,6 +120,86 @@ assert.deepEqual(
   }),
   ["missing generated provenance consumer data/factions.json#/factions/PRISMARI"],
   "every changed generated semantic consumer must be declared"
+);
+
+const roleFixtureClaims = {
+  claims: [
+    { claim_id: "claim_substantive", semantic_role: "substantive_claim" },
+    { claim_id: "claim_discovery", semantic_role: "discovery_record" },
+    { claim_id: "claim_support", semantic_role: "support_record" },
+  ],
+};
+assert.deepEqual(
+  findInvalidSemanticClaimReferences({
+    document: { generated: { claim_ids: ["claim_substantive", "claim_discovery", "claim_support", "claim_missing"] } },
+    claimsFile: roleFixtureClaims,
+    label: "generated.json#/factions/TEST",
+  }),
+  [
+    "generated.json#/factions/TEST#/generated/claim_ids references claim_discovery as semantic proof but role is discovery_record",
+    "generated.json#/factions/TEST#/generated/claim_ids references claim_support as semantic proof but role is support_record",
+    "generated.json#/factions/TEST#/generated/claim_ids references claim_missing as semantic proof but role is missing",
+  ],
+  "generated authoritative proof chains must not use discovery, support, or missing claim roles"
+);
+assert.deepEqual(
+  findInvalidSemanticClaimReferences({
+    document: { bibliography: { claim_ids: ["claim_discovery"], evidence_use: "discovery_metadata" } },
+    claimsFile: roleFixtureClaims,
+    label: "generated.json#/factions/TEST",
+  }),
+  [],
+  "explicit non-authoritative discovery metadata may retain discovery claim references"
+);
+assert.ok(
+  validateGeneratedKeyFigureProofChains({
+    identityKey: "TEST",
+    faction: { raw_enrichment: { key_figures: [{ character_id: "char_test", claim_ids: ["claim_discovery"] }] } },
+    claimsFile: roleFixtureClaims,
+  })[0].includes("generated key-figure proof chain contamination"),
+  "generated key-figure proof chains must not present discovery records as source-backed faction proof"
+);
+assert.deepEqual(
+  validateRequiredProvenanceFields({
+    identityKey: "TEST",
+    provenance: { entries: [{ identity_key: "TEST", evidence_claim_ids: ["claim_substantive"], generated_consumers: [] }] },
+  }),
+  [
+    "data/semantic-readiness-provenance.json#/entries/0 missing canonical_file",
+    "data/semantic-readiness-provenance.json#/entries/0 missing canonical_pointer",
+    "data/semantic-readiness-provenance.json#/entries/0 missing canonical_content_hash",
+    "data/semantic-readiness-provenance.json#/entries/0 missing generated_consumers",
+    "data/semantic-readiness-provenance.json#/entries/0 missing evidence_source_ids for declared evidence_claim_ids",
+  ],
+  "semantic provenance entries must retain required non-null traceability fields"
+);
+assert.deepEqual(
+  findEvidenceLocationSourceInconsistencies({
+    claimsFile: {
+      claims: [{
+        claim_id: "claim_locator",
+        source_ids: ["src_gatecrash"],
+        evidence_locations: [{ source_id: "src_gatecrash", locator: "A Flavorful Guide to the Guilds of Ravnica - reviewed source record" }],
+      }],
+    },
+    sourcesFile: {
+      sources: [
+        { source_id: "src_gatecrash", title: "The Boros Legion" },
+        { source_id: "src_flavorful", title: "A Flavorful Guide to the Guilds of Ravnica" },
+      ],
+    },
+  }),
+  ["claim_locator/evidence_locations/0 locator names A Flavorful Guide to the Guilds of Ravnica but source_id is src_gatecrash"],
+  "evidence locators must not name a different source record than their source_id"
+);
+assert.deepEqual(
+  validateCollisionGuidancePreservation({
+    identityKey: "WR",
+    placement: { collision_guidance: [{ collision_id: "collision_kept", against: "azorius_senate" }, { collision_id: "collision_dropped", against: "cult_of_rakdos" }] },
+    generatedFaction: { lateral_inhibition_targets: [], collision_guidance: [{ collision_id: "collision_kept", against: "WU" }] },
+  }),
+  ["generated collision guidance dropped collision_dropped for WR"],
+  "candidate scope must detect generated collision-guidance drops"
 );
 
 const isolationBase = {

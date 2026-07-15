@@ -6,6 +6,8 @@ Generated from `CRIT-001-identity-recovery-ledger.json`. The JSON file is author
 - Active identity: `RAKDOS`
 - Next identity: `RAKDOS`
 - WIP limit: 1
+- Gate 0 hardening: VM-540 accepted; Operating Playbook v2 at `docs/incidents/CRIT-001-operating-playbook.md`
+- VM-510 start note: Rakdos begins after the accepted VM-540 base with Gate 1+2 read-only audit/evidence confirmation.
 
 | Card | Identity | Cohort | Gate | Status | Structural fingerprint | Contract | Recovery | Certification |
 |---|---|---|---|---|---|---|---|---|

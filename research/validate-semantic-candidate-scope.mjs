@@ -200,6 +200,145 @@ function identityValue(document, key) {
   return document?.factions?.[key] ?? document?.[key];
 }
 
+function claimIdFor(claim) {
+  return claim?.claim_id || claim?.id || null;
+}
+
+function sourceIdFor(source) {
+  return source?.source_id || source?.id || null;
+}
+
+export function buildClaimRoleMap(claimsFile) {
+  return new Map((claimsFile.claims || []).map((claim) => [claimIdFor(claim), claim.semantic_role || "unclassified"]).filter(([id]) => id));
+}
+
+function collectClaimReferenceSites(value, pointer = "", results = []) {
+  if (Array.isArray(value)) {
+    value.forEach((child, index) => collectClaimReferenceSites(child, `${pointer}/${index}`, results));
+    return results;
+  }
+  if (!value || typeof value !== "object") return results;
+  for (const [key, child] of Object.entries(value)) {
+    const childPointer = `${pointer}/${key.replaceAll("~", "~0").replaceAll("/", "~1")}`;
+    if ((key === "claim_ids" || key === "evidence_claim_ids") && Array.isArray(child)) {
+      results.push({
+        pointer: childPointer,
+        claimIds: child.map(String),
+        evidenceUse: value.evidence_use || null,
+      });
+    }
+    collectClaimReferenceSites(child, childPointer, results);
+  }
+  return results;
+}
+
+export function findInvalidSemanticClaimReferences({ document, claimsFile, label, allowedNonSemanticEvidenceUses = ["discovery_metadata", "auxiliary_support"] }) {
+  const roles = buildClaimRoleMap(claimsFile);
+  const errors = [];
+  for (const site of collectClaimReferenceSites(document)) {
+    if (allowedNonSemanticEvidenceUses.includes(site.evidenceUse)) continue;
+    for (const claimId of site.claimIds) {
+      const role = roles.get(claimId);
+      if (role !== "substantive_claim") {
+        errors.push(`${label}#${site.pointer} references ${claimId} as semantic proof but role is ${role || "missing"}`);
+      }
+    }
+  }
+  return errors;
+}
+
+export function validateGeneratedKeyFigureProofChains({ identityKey, faction, claimsFile }) {
+  const figures = faction?.raw_enrichment?.key_figures || [];
+  return findInvalidSemanticClaimReferences({
+    document: figures,
+    claimsFile,
+    label: `data/factions.json#/factions/${identityKey}/raw_enrichment/key_figures`,
+  }).map((error) => `generated key-figure proof chain contamination: ${error}`);
+}
+
+export function validateRequiredProvenanceFields({ identityKey, provenance }) {
+  const errors = [];
+  for (const [index, entry] of (provenance.entries || []).entries()) {
+    if (entry.identity_key !== identityKey) continue;
+    const pointer = `data/semantic-readiness-provenance.json#/entries/${index}`;
+    if (!entry.canonical_file) errors.push(`${pointer} missing canonical_file`);
+    if (!entry.canonical_pointer) errors.push(`${pointer} missing canonical_pointer`);
+    if (typeof entry.canonical_content_hash !== "string" || !entry.canonical_content_hash.startsWith("sha256:")) {
+      errors.push(`${pointer} missing canonical_content_hash`);
+    }
+    if (!Array.isArray(entry.generated_consumers) || entry.generated_consumers.length === 0) {
+      errors.push(`${pointer} missing generated_consumers`);
+    }
+    if ((entry.evidence_claim_ids || []).length > 0 && (!Array.isArray(entry.evidence_source_ids) || entry.evidence_source_ids.length === 0)) {
+      errors.push(`${pointer} missing evidence_source_ids for declared evidence_claim_ids`);
+    }
+  }
+  return errors;
+}
+
+export function findEvidenceLocationSourceInconsistencies({ claimsFile, sourcesFile }) {
+  const sources = new Map((sourcesFile.sources || []).map((source) => [sourceIdFor(source), source]).filter(([id]) => id));
+  const sourceTitles = [...sources.values()]
+    .map((source) => ({ sourceId: sourceIdFor(source), title: source.title }))
+    .filter((entry) => entry.sourceId && entry.title)
+    .sort((a, b) => b.title.length - a.title.length);
+  const errors = [];
+  for (const claim of claimsFile.claims || []) {
+    const claimId = claimIdFor(claim) || "(unknown claim)";
+    const claimSourceIds = new Set((claim.source_ids || []).map(String));
+    for (const [index, location] of (claim.evidence_locations || []).entries()) {
+      const sourceId = location.source_id;
+      const pointer = `${claimId}/evidence_locations/${index}`;
+      if (!sourceId) {
+        errors.push(`${pointer} missing source_id`);
+        continue;
+      }
+      if (!sources.has(sourceId)) errors.push(`${pointer} references unknown source_id ${sourceId}`);
+      if (!claimSourceIds.has(sourceId)) errors.push(`${pointer} source_id ${sourceId} is not declared in claim.source_ids`);
+      const locator = String(location.locator || "");
+      const expectedTitle = sources.get(sourceId)?.title;
+      const mismatchedTitle = sourceTitles.find((entry) => entry.sourceId !== sourceId && entry.title !== expectedTitle && locator.includes(entry.title));
+      if (mismatchedTitle) {
+        errors.push(`${pointer} locator names ${mismatchedTitle.title} but source_id is ${sourceId}`);
+      }
+    }
+  }
+  return errors;
+}
+
+export function normalizeCandidateTarget(rawTarget) {
+  if (!rawTarget) return null;
+  const value = String(rawTarget);
+  const upper = value.toUpperCase();
+  if (["W", "U", "B", "R", "G"].includes(upper)) return upper;
+  if (RAW_TO_KEY[value]) return RAW_TO_KEY[value];
+  if ([...Object.values(RAW_TO_KEY)].includes(value)) return value;
+  const lowered = value.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
+  return RAW_TO_KEY[lowered] || null;
+}
+
+export function validateCollisionGuidancePreservation({ identityKey, placement, generatedFaction }) {
+  const knownTargets = new Set(generatedFaction?.lateral_inhibition_targets || []);
+  const generatedById = new Map((generatedFaction?.collision_guidance || []).map((entry) => [entry.collision_id, entry]));
+  const errors = [];
+  for (const [index, entry] of (placement.collision_guidance || []).entries()) {
+    const target = normalizeCandidateTarget(entry.against);
+    const collisionId = entry.collision_id || "";
+    if (!target) {
+      errors.push(`canonical collision guidance ${identityKey}#/collision_guidance/${index} has unsupported target ${entry.against}`);
+      continue;
+    }
+    if (String(collisionId).endsWith("_draft") && !knownTargets.has(target)) continue;
+    const generated = generatedById.get(collisionId);
+    if (!generated) {
+      errors.push(`generated collision guidance dropped ${collisionId || `entry ${index}`} for ${identityKey}`);
+    } else if (generated.against !== target) {
+      errors.push(`generated collision guidance target mismatch for ${collisionId}: expected ${target}, got ${generated.against}`);
+    }
+  }
+  return errors;
+}
+
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   const rawId = Object.entries(RAW_TO_KEY).find(([, key]) => key === options.identity)?.[0];
@@ -218,6 +357,8 @@ async function main() {
   const profileFile = `data/raw-factions/${rawId}/${rawId}.profile.json`;
   const claimsFile = `data/raw-factions/${rawId}/${rawId}.claims.json`;
   const sourcesFile = `data/raw-factions/${rawId}/${rawId}.sources.json`;
+  const afterClaimsFile = gitJson(options.target, claimsFile);
+  const afterSourcesFile = gitJson(options.target, sourcesFile);
   const beforePlacement = gitJson(options.base, placementFile);
   const afterPlacement = gitJson(options.target, placementFile);
   const beforePlacementModel = gitJson(options.base, "data/placement-model.json");
@@ -236,9 +377,12 @@ async function main() {
   const afterProfile = gitJson(options.target, profileFile);
   const missingIds = findMissingNativeIds(
     { claims: gitJson(options.base, claimsFile), sources: gitJson(options.base, sourcesFile), profile: beforeProfile, placement: beforePlacement },
-    { claims: gitJson(options.target, claimsFile), sources: gitJson(options.target, sourcesFile), profile: afterProfile, placement: afterPlacement }
+    { claims: afterClaimsFile, sources: afterSourcesFile, profile: afterProfile, placement: afterPlacement }
   );
   for (const id of missingIds) errors.push(`native canonical ID was not retained: ${id}`);
+  for (const error of findEvidenceLocationSourceInconsistencies({ claimsFile: afterClaimsFile, sourcesFile: afterSourcesFile })) {
+    errors.push(`evidence locator/source mismatch ${claimsFile}#${error}`);
+  }
 
   const targetProvenance = gitJson(options.target, "data/semantic-readiness-provenance.json");
   for (const id of findMissingProvenanceNativeIds({ documents: { profile: afterProfile, placement: afterPlacement }, provenance: targetProvenance, identityKey: options.identity })) {
@@ -266,6 +410,37 @@ async function main() {
     identityKey: options.identity,
     changedConsumers,
     provenance: targetProvenance,
+  }));
+  errors.push(...validateGeneratedKeyFigureProofChains({
+    identityKey: options.identity,
+    faction: identityValue(afterFactions, options.identity),
+    claimsFile: afterClaimsFile,
+  }));
+  for (const error of findInvalidSemanticClaimReferences({
+    document: identityValue(afterFactions, options.identity),
+    claimsFile: afterClaimsFile,
+    label: `data/factions.json#/factions/${options.identity}`,
+  })) errors.push(`generated authoritative proof chain contamination: ${error}`);
+  for (const error of findInvalidSemanticClaimReferences({
+    document: identityValue(afterPlacementModel, options.identity),
+    claimsFile: afterClaimsFile,
+    label: `data/placement-model.json#/factions/${options.identity}`,
+  })) errors.push(`generated authoritative proof chain contamination: ${error}`);
+  for (const error of findInvalidSemanticClaimReferences({
+    document: afterContext[options.identity],
+    claimsFile: afterClaimsFile,
+    label: `supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/${options.identity}`,
+  })) errors.push(`generated authoritative proof chain contamination: ${error}`);
+  for (const error of findInvalidSemanticClaimReferences({
+    document: (targetProvenance.entries || []).filter((entry) => entry.identity_key === options.identity && (entry.evidence_use || "semantic") === "semantic"),
+    claimsFile: afterClaimsFile,
+    label: `data/semantic-readiness-provenance.json#/entries[identity_key=${options.identity}]`,
+  })) errors.push(`generated provenance proof chain contamination: ${error}`);
+  errors.push(...validateRequiredProvenanceFields({ identityKey: options.identity, provenance: targetProvenance }));
+  errors.push(...validateCollisionGuidancePreservation({
+    identityKey: options.identity,
+    placement: afterPlacement,
+    generatedFaction: identityValue(afterPlacementModel, options.identity),
   }));
   errors.push(...validateUnrelatedGeneratedIsolation({
     identityKey: options.identity,

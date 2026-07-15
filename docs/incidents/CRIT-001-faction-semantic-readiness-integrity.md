@@ -58,6 +58,7 @@ CRIT-001 does not certify or modify Hall scheduling, Crucible reachability, pair
 ## Operational Records
 
 - [Semantic Readiness Contract](../reference/semantic-readiness-contract.md)
+- [Operating Playbook v2](CRIT-001-operating-playbook.md)
 - [Recovery ledger — JSON](CRIT-001-identity-recovery-ledger.json)
 - [Recovery ledger — Markdown](CRIT-001-identity-recovery-ledger.md)
 - [Permanent learning](../strategy/2026-07-11-semantic-readiness-integrity-learning.md)

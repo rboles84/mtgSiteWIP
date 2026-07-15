@@ -15,6 +15,18 @@
     "prerequisite_reviewer": "/root/vm501_prerequisite_review",
     "prerequisite_approved_at": "2026-07-11",
     "prerequisite_acceptance_commit": "1ed5fe1",
+    "gate_zero_hardening": {
+      "card": "VM-540",
+      "status": "accepted",
+      "playbook": "docs/incidents/CRIT-001-operating-playbook.md",
+      "playbook_version": "v2",
+      "accepted_at": "2026-07-15T15:56:41-06:00",
+      "notes": [
+        "VM-510 Rakdos starts after the accepted VM-540 program base.",
+        "Rakdos begins with Gate 1+2 read-only audit/evidence confirmation.",
+        "No Rakdos raw data, generated artifacts, fixtures, or runtime behavior changed in VM-540."
+      ]
+    },
     "rejected_prerequisite_candidates": [
       {
         "sha": "b5d1c8db4758cab740392a6417c16019d778cc4c",
@@ -1389,7 +1401,11 @@
       "semantic_review": {
         "required_neighbors": [],
         "audit_report": null,
-        "residual_findings": []
+        "residual_findings": [
+          "VM-510 Rakdos starts after accepted VM-540 Gate 0 base.",
+          "Operating model: docs/incidents/CRIT-001-operating-playbook.md v2.",
+          "Initial Rakdos work must be Gate 1+2 read-only audit/evidence confirmation; no Rakdos raw data, generated artifacts, fixtures, or runtime behavior changed in VM-540."
+        ]
       },
       "certification": {
         "contract_version": null,
