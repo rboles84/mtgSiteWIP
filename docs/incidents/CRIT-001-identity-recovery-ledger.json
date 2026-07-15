@@ -5,7 +5,7 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "BOROS",
+    "active_identity": "RAKDOS",
     "next_identity": "RAKDOS",
     "wip_limit": 1,
     "active_prerequisite": null,
@@ -1094,10 +1094,10 @@
         "claim_count": 36
       },
       "workflow": {
-        "current_gate": "gate_5_independent_review_pending",
-        "status": "corrected_replacement_candidate_recorded",
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": "2026-07-14T19:34:22.3762616-06:00",
-        "gate_entered_at": "2026-07-15T11:41:00-06:00",
+        "gate_entered_at": "2026-07-15T12:03:21-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "BR",
@@ -1116,13 +1116,13 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-509-boros-semantic-recovery.md",
         "residual_findings": [
-          "Corrected replacement candidate recorded for independent Gate 5 review; Boros remains uncertified.",
+          "Boros / WR certified semantically_ready under CRIT-001 Contract v1.1 after independent Gate 5 review returned APPROVE EXACT SHA for da2e9ef4036c427c17dca66c5a1a9d9a8fe03436.",
           "Supersedes rejected candidate c2f5d064460a007f0dca6be95b7beabb4ca85026 and rejected workflow record d7f2523d53cfbc6420e75c83b9ab03192158a1a1.",
           "Earlier failed candidate abff94b91e94b99a6b2a77b71806a9d005ecec76 and workflow record 25420bad09715645ba4af37f07cac097b3e7966d remain superseded and preserved by safety refs.",
           "Review-requested key-figure generated-chain cleanup complete: data/factions.json WR raw_enrichment.key_figures no longer uses discovery records as source-backed faction proof and Tajic is not emitted as authoritative generated key-figure proof.",
           "Claim boros_legion_claim_026 Gatecrash locator corrected to The Boros Legion - reviewed source record without changing claim meaning.",
           "Generated WR lateral targets remain parent-stable: WU, LOREHOLD, WG, MARDU; generated WR collision guidance preserves all 8 required neighbors.",
-          "Known warnings unchanged: builder-owned Boros inhibitor warning; dossier audit 113 warnings / 0 failures; git-ignore permission warning and LF-to-CRLF notices only."
+          "Known warnings unchanged: builder-owned Boros inhibitor warning; dossier audit logic verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures; review-sandbox direct npm.cmd run dossier:audit artifact-write limitation is non-blocking."
         ]
       },
       "certification": {
@@ -1130,18 +1130,31 @@
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "da2e9ef4036c427c17dca66c5a1a9d9a8fe03436",
         "recovery_commit": "da2e9ef4036c427c17dca66c5a1a9d9a8fe03436",
-        "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
-        "certified_at": null,
+        "certification_commit": "PENDING_VM509_CERTIFICATION_COMMIT_SHA",
+        "reviewer": "Robert / user-supplied independent Gate 5 review in this Codex thread",
+        "review_cycles": 3,
+        "approval_date": "2026-07-15",
+        "certified_at": "2026-07-15T12:03:21-06:00",
         "candidate_parent_sha": "4d351747f0634663ea8f796099057e431af8a65b",
         "candidate_recorded_at": "2026-07-15T11:41:00-06:00",
         "superseded_rejected_candidate_sha": "c2f5d064460a007f0dca6be95b7beabb4ca85026",
         "superseded_rejected_workflow_sha": "d7f2523d53cfbc6420e75c83b9ab03192158a1a1",
         "earlier_superseded_failed_candidate_sha": "abff94b91e94b99a6b2a77b71806a9d005ecec76",
         "earlier_superseded_failed_workflow_sha": "25420bad09715645ba4af37f07cac097b3e7966d",
-        "infrastructure_unblock_commit": "4d351747f0634663ea8f796099057e431af8a65b"
+        "infrastructure_unblock_commit": "4d351747f0634663ea8f796099057e431af8a65b",
+        "workflow_record_commit": "05aeda06ff73a7ac51e6dd8e5366148a5ad6fb88",
+        "known_unchanged_warnings": [
+          "builder-owned Boros inhibitor warning remains unchanged",
+          "dossier audit logic verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures; independent review sandbox direct npm.cmd run dossier:audit was not usable because it attempted to write artifacts/dossier-snapshots/dossier-audit-report.md",
+          "documented WR/Boros display-source cleanup: data/factions.json WR public/key-figure display cleanup; no candidate correction required"
+        ],
+        "validation_notes": [
+          "Independent review returned APPROVE EXACT SHA for da2e9ef4036c427c17dca66c5a1a9d9a8fe03436.",
+          "Review-sandbox direct npm.cmd run dossier:audit artifact-write limitation is non-blocking; reviewer reran the same audit logic in memory and verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures.",
+          "No correction required for the approved candidate."
+        ],
+        "final_state": "semantically_ready",
+        "review_result": "approved_exact_sha"
       }
     },
     {

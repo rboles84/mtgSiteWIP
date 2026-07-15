@@ -1,7 +1,7 @@
 # VM-509 â€” Boros Semantic Recovery
 
 ID: VM-509
-Status: Corrected replacement candidate recorded; independent Gate 5 review required
+Status: Done
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: WR
@@ -19,7 +19,7 @@ Recover Boros end to end under CRIT-001: audit the existing packet, bound readin
 - [x] Gate 2 â€” Sufficient evidence completion.
 - [x] Gate 3 â€” Canonical remediation.
 - [x] Gate 4 ? Generation and validation.
-- [ ] Gate 5 â€” Independent certification.
+- [x] Gate 5 â€” Independent certification.
 
 ## Scope Rules
 
@@ -35,8 +35,8 @@ Recover Boros end to end under CRIT-001: audit the existing packet, bound readin
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-509-boros-semantic-recovery.md`
 - Candidate recovery SHA: `da2e9ef4036c427c17dca66c5a1a9d9a8fe03436`
-- Independent reviewer: pending
-- Certification commit: pending
+- Independent reviewer: APPROVE EXACT SHA
+- Certification commit: this VM-509 certification commit; exact SHA reported in final task output
 
 ## Gate 1 Audit Status
 
@@ -78,14 +78,14 @@ Recover Boros end to end under CRIT-001: audit the existing packet, bound readin
 - Stale Boros high-heat public copy remains absent after rebuild.
 - Known warnings unchanged: builder-owned Boros inhibitor warning; dossier audit 113 warnings / 0 failures; git-ignore permission warning and LF-to-CRLF notices only.
 - Scope preservation: no candidate commit, certification commit, next identity work, non-Boros raw packet change, or runtime/scoring/inhibition/confidence/scheduling/tie-order/global recruiter behavior change.
-- Boros remains uncertified and is ready for Gate 5 candidate creation when explicitly authorized.
+- Historical Gate 4 status before certification: Boros was uncertified and ready for Gate 5 candidate creation when explicitly authorized.
 
 ## Gate 5 Candidate Readiness
 
 - Candidate creation authorized after Gate 4 completion.
 - Candidate parent SHA: `4d351747f0634663ea8f796099057e431af8a65b`.
 - Candidate recovery SHA: `da2e9ef4036c427c17dca66c5a1a9d9a8fe03436`.
-- Boros remains uncertified; certification requires independent Gate 5 review and separate authorization.
+- Historical candidate-readiness status before certification: certification required independent Gate 5 review and separate authorization.
 ## Infrastructure Unblock Note
 
 - 2026-07-15: VM-509 failed candidate `abff94b91e94b99a6b2a77b71806a9d005ecec76` exposed a candidate-scope mismatch around explicit `lateral_inhibition: false` on non-inhibiting collision guidance.
@@ -98,7 +98,7 @@ Recover Boros end to end under CRIT-001: audit the existing packet, bound readin
 - Superseded failed candidate: `abff94b91e94b99a6b2a77b71806a9d005ecec76`.
 - Superseded failed workflow record: `25420bad09715645ba4af37f07cac097b3e7966d`.
 - Scope cleanup complete for generated WR lateral-target churn, frozen scoring hints, and retained native IDs.
-- Replacement candidate SHA remains pending until the immutable candidate commit is created.
+- Historical replacement-candidate readiness note: replacement candidate SHA was pending until immutable candidate commit creation.
 
 ## Corrected Replacement Candidate Readiness
 
@@ -107,3 +107,34 @@ Recover Boros end to end under CRIT-001: audit the existing packet, bound readin
 - Review-requested key-figure generated-chain cleanup complete: discovery records are not emitted as source-backed WR key-figure proof and Tajic is not emitted as authoritative generated key-figure proof.
 - Claim `boros_legion_claim_026` Gatecrash locator corrected to "The Boros Legion - reviewed source record".
 - Corrected replacement candidate SHA: `da2e9ef4036c427c17dca66c5a1a9d9a8fe03436`.
+
+## Certification and Program Acceptance
+
+- Certified: 2026-07-15.
+- Identity: Boros.
+- Target: WR.
+- VM: VM-509.
+- Contract version: v1.1.
+- Independent review result: `APPROVE EXACT SHA`.
+- Final certification state: `semantically_ready`.
+- Approved recovery SHA: `da2e9ef4036c427c17dca66c5a1a9d9a8fe03436`.
+- Workflow-record SHA: `05aeda06ff73a7ac51e6dd8e5366148a5ad6fb88`.
+- Infrastructure unblock SHA: `4d351747f0634663ea8f796099057e431af8a65b`.
+- Superseded rejected candidate SHA: `c2f5d064460a007f0dca6be95b7beabb4ca85026`.
+- Superseded rejected workflow SHA: `d7f2523d53cfbc6420e75c83b9ab03192158a1a1`.
+- Earlier superseded failed candidate SHA: `abff94b91e94b99a6b2a77b71806a9d005ecec76`.
+- Earlier superseded failed workflow SHA: `25420bad09715645ba4af37f07cac097b3e7966d`.
+- Certification commit: this VM-509 certification commit; exact SHA reported in final task output.
+
+Validation notes:
+
+- Review-sandbox direct `npm.cmd run dossier:audit` was not usable because it attempted to write the markdown report.
+- Reviewer reran the same audit logic in memory and verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, and 0 failures.
+- Known builder-owned Boros inhibitor warning remains unchanged.
+- No correction was required for the approved candidate.
+
+Program acceptance:
+
+- Approved recovery commit, workflow-record commit, and certification commit accepted into the CRIT-001 program base.
+- Next identity set as Rakdos / BR.
+- Rakdos branch setup only; no Rakdos remediation started.

@@ -1059,6 +1059,50 @@ Corrected replacement candidate SHA: `da2e9ef4036c427c17dca66c5a1a9d9a8fe03436`.
 - Earlier superseded failed candidate SHA: `abff94b91e94b99a6b2a77b71806a9d005ecec76`.
 - Earlier superseded failed workflow-record SHA: `25420bad09715645ba4af37f07cac097b3e7966d`.
 - Safety refs preserved: `backup/vm-509-boros-rejected-candidate-c2f5d06`, `backup/vm-509-boros-rejected-workflow-d7f2523`, `backup/vm-509-boros-failed-candidate-abff94b`, `backup/vm-509-boros-failed-workflow-25420ba`.
-- Independent reviewer: pending.
-- Certification commit: pending.
-- Boros remains uncertified.
+- Independent reviewer: APPROVE EXACT SHA.
+- Certification commit: this VM-509 certification commit; exact SHA is reported in the task final after commit creation.
+- Boros is certified semantically_ready under CRIT-001 Contract v1.1.
+
+## Certification and Program Acceptance
+
+Certification completed: 2026-07-15.
+
+Independent Gate 5 review result: `APPROVE EXACT SHA`.
+
+Approved recovery SHA: `da2e9ef4036c427c17dca66c5a1a9d9a8fe03436`.
+
+Workflow-record SHA: `05aeda06ff73a7ac51e6dd8e5366148a5ad6fb88`.
+
+Infrastructure unblock SHA: `4d351747f0634663ea8f796099057e431af8a65b`.
+
+Superseded rejected candidate SHA: `c2f5d064460a007f0dca6be95b7beabb4ca85026`.
+
+Superseded rejected workflow-record SHA: `d7f2523d53cfbc6420e75c83b9ab03192158a1a1`.
+
+Earlier superseded failed candidate SHA: `abff94b91e94b99a6b2a77b71806a9d005ecec76`.
+
+Earlier superseded failed workflow-record SHA: `25420bad09715645ba4af37f07cac097b3e7966d`.
+
+Final certification state: `semantically_ready` under CRIT-001 Contract v1.1.
+
+Certification commit: this VM-509 certification commit; exact SHA is reported in the task final after commit creation.
+
+### Certification validation notes
+
+- Direct `npm.cmd run dossier:audit` was not usable in the read-only review sandbox because it attempted to write the markdown report.
+- The reviewer independently reran the same audit logic in memory and verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, and 0 failures.
+- No correction is required for the approved candidate.
+- Known builder-owned Boros inhibitor warning remains unchanged.
+- Dossier audit logic remains verified at 113 warnings / 0 failures.
+
+### Certification scope
+
+The certification commit records only governance/workflow acceptance. It does not modify the approved recovery candidate, Boros canonical raw data, generated artifacts, fixtures, runtime behavior, Contract v1.1, schemas, validators, builders, Hall, Crucible, scoring, inhibition, confidence behavior, scheduling, tie ordering, or global recruiter behavior.
+
+### Program acceptance
+
+The approved recovery commit, workflow-record commit, and certification commit are accepted into the CRIT-001 program base.
+
+Next identity: Rakdos / BR.
+
+No Rakdos remediation was started.
