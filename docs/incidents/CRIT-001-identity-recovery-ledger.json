@@ -5,8 +5,8 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "AZORIUS",
-    "next_identity": "BOROS",
+    "active_identity": "BOROS",
+    "next_identity": "RAKDOS",
     "wip_limit": 1,
     "active_prerequisite": null,
     "prerequisite_candidate_sha": "6e53acd5691c85caf3328d3bd301ac18d07879e1",
@@ -977,10 +977,10 @@
         "inventory_updated_at": "2026-07-14T18:38:28-06:00"
       },
       "workflow": {
-        "current_gate": "gate_5_candidate_created",
-        "status": "pending_independent_review",
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": "2026-07-14T07:05:00-06:00",
-        "gate_entered_at": "2026-07-14T18:38:28-06:00",
+        "gate_entered_at": "2026-07-14T18:59:48-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WR",
@@ -998,9 +998,10 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-508-azorius-semantic-recovery.md",
         "residual_findings": [
+          "NON-BLOCKING OBSERVATION: data/raw-factions/azorius_senate/azorius_senate.profile.json includes confidence Medium for Isperia profile metadata. Independent review verified this is profile metadata confidence narrowed from the parent broader value after discovery-backed proof was removed. It is not placement confidence, generated confidence, runtime calibration, scoring, or lateral-inhibition behavior. No correction required.",
+          "NON-BLOCKING OBSERVATION: direct npm.cmd run dossier:audit was blocked in the independent review sandbox by EPERM while writing artifacts/dossier-snapshots/dossier-audit-report.md; reviewer independently reran the same audit logic in memory and verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures. No candidate correction required.",
           "Builder-owned Azorius inhibitor warning remains unchanged.",
-          "Dossier audit remains 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures.",
-          "Candidate-scope display-source exception: data/factions.json contains WU/Azorius-scoped display cleanup and data/identity-layers.json changes only expressions.WU.preview_text.",
+          "Candidate-scope display-source exception: data/factions.json contains WU/Azorius-scoped display cleanup; data/identity-layers.json changes only expressions.WU.preview_text; parsed diffs confirm data/placement-model.json changes only WU/Azorius fields.",
           "Lavinia native ID is retained once under data_quality.corpus_upgrade.retained_native_ids as discovery metadata; it is not promoted into key_figures without substantive evidence."
         ]
       },
@@ -1009,21 +1010,22 @@
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "221a19b690cad02fb9aba2c91ae506b6d4fcc205",
         "recovery_commit": "221a19b690cad02fb9aba2c91ae506b6d4fcc205",
-        "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
-        "certified_at": null,
+        "certification_commit": "PENDING_VM508_CERTIFICATION_COMMIT_SHA",
+        "reviewer": "Robert / user-supplied independent Gate 5 review in this Codex thread",
+        "review_cycles": 1,
+        "approval_date": "2026-07-14",
+        "certified_at": "2026-07-14T18:59:48-06:00",
         "candidate_parent_sha": "ad6322d4cb2120e83788a4af0dca7ef21cad4cc2",
         "candidate_recorded_at": "2026-07-14T18:38:28-06:00",
         "known_unchanged_warnings": [
           "builder-owned Azorius inhibitor warning remains unchanged",
-          "dossier audit verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures",
+          "dossier audit logic verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures; independent review sandbox direct npm.cmd run dossier:audit hit EPERM writing artifacts/dossier-snapshots/dossier-audit-report.md",
           "documented Azorius/WU display-source exception: data/factions.json WU/Azorius display cleanup and data/identity-layers.json expressions.WU.preview_text",
-          "git diff --check passes with line-ending normalization warnings only"
+          "Isperia profile metadata confidence Medium is non-blocking profile metadata, not placement confidence, generated confidence, runtime calibration, scoring, or lateral-inhibition behavior"
         ],
-        "workflow_record_commit": "PENDING_VM508_WORKFLOW_RECORD_COMMIT_SHA",
-        "final_state": "pending_independent_review"
+        "workflow_record_commit": "8ff965e52603625e1cc63cce51fc042c4c30603c",
+        "final_state": "semantically_ready",
+        "review_result": "approved_exact_sha"
       }
     },
     {

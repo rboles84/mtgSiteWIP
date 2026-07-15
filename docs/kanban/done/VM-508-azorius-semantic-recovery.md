@@ -1,7 +1,7 @@
-# VM-508 Ã¢â‚¬â€ Azorius Semantic Recovery
+﻿# VM-508 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Azorius Semantic Recovery
 
 ID: VM-508
-Status: Gate 5 recovery candidate created; pending independent review
+Status: Certified semantically_ready under CRIT-001 Contract v1.1
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: WU
@@ -15,11 +15,11 @@ Recover Azorius end to end under CRIT-001: audit the existing packet, bound read
 
 ## Gates
 
-- [x] Gate 1 Ã¢â‚¬â€ Packet audit and bounded disposition.
-- [x] Gate 2 Ã¢â‚¬â€ Sufficient evidence completion.
-- [x] Gate 3 Ã¢â‚¬â€ Canonical remediation.
+- [x] Gate 1 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Packet audit and bounded disposition.
+- [x] Gate 2 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Sufficient evidence completion.
+- [x] Gate 3 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Canonical remediation.
 - [x] Gate 4 - Generation and validation.
-- [ ] Gate 5 Ã¢â‚¬â€ Independent certification.
+- [x] Gate 5 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Independent certification.
 
 ## Scope Rules
 
@@ -35,8 +35,8 @@ Recover Azorius end to end under CRIT-001: audit the existing packet, bound read
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-508-azorius-semantic-recovery.md`
 - Candidate recovery SHA: `221a19b690cad02fb9aba2c91ae506b6d4fcc205`
-- Independent reviewer: pending
-- Certification commit: pending
+- Independent reviewer: Robert / user-supplied independent Gate 5 review in this Codex thread
+- Certification commit: `PENDING_VM508_CERTIFICATION_COMMIT_SHA`
 
 ## Gate 1 Audit Status
 
@@ -98,3 +98,16 @@ Recover Azorius end to end under CRIT-001: audit the existing packet, bound read
 - Certification state: Azorius remains uncertified.
 - Candidate-scope result: no confidence, calibration, lateral-inhibition, missing-native-ID, missing-provenance-native-ID, generated-consumer coverage, non-Azorius semantic, or non-Azorius raw findings remain.
 - Documented display-source exception: `data/factions.json` WU/Azorius display cleanup and `data/identity-layers.json#/expressions/WU/preview_text`.
+
+## Certification Status
+
+- Certified: 2026-07-14
+- Contract version: CRIT-001 Contract v1.1
+- Independent review result: APPROVE EXACT SHA
+- Approved recovery SHA: `221a19b690cad02fb9aba2c91ae506b6d4fcc205`
+- Workflow-record SHA: `8ff965e52603625e1cc63cce51fc042c4c30603c`
+- Certification commit: `PENDING_VM508_CERTIFICATION_COMMIT_SHA`
+- Final state: `semantically_ready`
+- Non-blocking observation: Isperia profile metadata has `confidence: Medium`; reviewer verified this is profile metadata confidence narrowed after discovery-backed proof was removed, not placement confidence, generated confidence, runtime calibration, scoring, or lateral-inhibition behavior.
+- Non-blocking observation: direct `npm.cmd run dossier:audit` was blocked in the independent review sandbox by EPERM while writing `artifacts/dossier-snapshots/dossier-audit-report.md`; reviewer independently reran the same audit logic in memory and verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures.
+- Known scope findings: only the documented WU/Azorius display-source exceptions in `data/factions.json` and `data/identity-layers.json#/expressions/WU/preview_text`.

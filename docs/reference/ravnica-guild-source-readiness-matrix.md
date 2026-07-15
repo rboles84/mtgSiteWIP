@@ -24,7 +24,7 @@ Rejected or `not_used_or_rejected_sources` entries are not included in the sourc
 
 | Guild | Key | Raw folder | Source rows | Role counts | Unresolved rows | Claim-bearing coverage | Placement / discriminator readiness | Commander / deck support classification | Future repair notes |
 |---|---:|---|---:|---|---:|---|---|---|---|
-| Azorius Senate | WU | `data/raw-factions/azorius_senate/` | 13 | `claim-bearing`: 2; `support-only`: 1; `discovery-only`: 10 | 0 | Official overview and mechanics rows cover core identity, mechanics, and placement inference. Story corpus rows remain discovery-only. | Ready for existing placement model; no VM-343 discriminator edit. | Commander Compass material remains product/operator support and must not promote discovery-only story rows by itself. | Future story deep-read could promote specific Azorius story claims, but not needed for this normalization pass. |
+| Azorius Senate | WU | `data/raw-factions/azorius_senate/` | 14 | `claim-bearing`: 3; `support-only`: 1; `discovery-only`: 10 | 0 | Official overview, official mechanics, and local official WU philosophy rows cover core identity, mechanics, placement inference, and required-neighbor guardrails. Story corpus rows remain discovery-only. | Semantically ready under CRIT-001 Contract v1.1 via VM-508; approved recovery SHA `221a19b690cad02fb9aba2c91ae506b6d4fcc205`. | Commander Compass material remains product/operator support and must not promote discovery-only story rows by itself. | Non-blocking: future story deep-read could promote specific Azorius story claims; Isperia profile metadata confidence observation is certification-non-blocking and not placement/runtime confidence. |
 | Boros Legion | WR | `data/raw-factions/boros_legion/` | 17 | `claim-bearing`: 5; `discovery-only`: 12 | 0 | Official guide, novel, Boros lore article, Karlov Manor legends article, and mechanics article cover current claim-bearing floor. | Ready for existing placement model; no VM-343 discriminator edit. | Commander/deck support is bounded to existing profile support; story-corpus rows stay discovery-only. | Future official page capture could replace or strengthen novel/story archive dependencies where exact public-source proof is desired. |
 | House Dimir | UB | `data/raw-factions/house_dimir/` | 14 | `claim-bearing`: 3; `support-only`: 1; `discovery-only`: 10 | 0 | Official guide, mechanics article, and prerelease primer cover identity, mechanics, and placement inference. | Ready for existing placement model; no VM-343 discriminator edit. | Commander/deck support remains support texture only. | Future deep story pass should promote only source-read story claims, not search-hit claims. |
 | Golgari Swarm | BG | `data/raw-factions/golgari_swarm/` | 14 | `claim-bearing`: 3; `support-only`: 1; `discovery-only`: 10 | 0 | Official guide, mechanics article, and prerelease primer cover life/death/decay, undergrowth, and placement inference. | VM-344 added `golgari_q3` to sharpen decay/reclamation/cycle logic against generic resilience, nature, Witherbloom, Abzan, and Jund readings. | Commander/deck support remains support texture only. | Future story promotion can add specific Vraska/Jarad/undercity claims if read and rebound; corpus rows remain discovery-only now. |
@@ -37,8 +37,8 @@ Rejected or `not_used_or_rejected_sources` entries are not included in the sourc
 
 ## Cohort Totals
 
-- Total active source rows: 158.
-- `claim-bearing`: 57.
+- Total active source rows: 159.
+- `claim-bearing`: 58.
 - `support-only`: 9.
 - `shaping-only`: 0.
 - `discovery-only`: 92.

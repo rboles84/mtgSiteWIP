@@ -816,3 +816,38 @@ Known warnings remain unchanged:
 - `git diff --check` passes with line-ending normalization warnings only.
 
 Azorius remains uncertified. Independent review has not been started by this task.
+
+## Certification and Program Acceptance
+
+Azorius / WU is certified semantically_ready under CRIT-001 Contract v1.1 after independent Gate 5 review returned APPROVE EXACT SHA.
+
+- Identity: Azorius
+- Target: WU
+- VM: VM-508
+- Contract version: v1.1
+- Approved recovery SHA: `221a19b690cad02fb9aba2c91ae506b6d4fcc205`
+- Workflow-record SHA: `8ff965e52603625e1cc63cce51fc042c4c30603c`
+- Independent review result: APPROVE EXACT SHA
+- Approval date: 2026-07-14
+- Final certification state: `semantically_ready`
+- Certification commit: `PENDING_VM508_CERTIFICATION_COMMIT_SHA`
+
+Residual non-blocking observations:
+
+- `data/raw-factions/azorius_senate/azorius_senate.profile.json` includes `confidence: Medium` for Isperia profile metadata. Independent review verified this is profile metadata confidence narrowed from the parent's broader value after discovery-backed proof was removed. It is not placement confidence, generated confidence, runtime calibration, scoring, or lateral-inhibition behavior. No correction required.
+- Direct `npm.cmd run dossier:audit` was blocked in the independent review sandbox by EPERM when writing `artifacts/dossier-snapshots/dossier-audit-report.md`. Reviewer independently reran the same audit logic in memory and verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures.
+
+Known scope findings:
+
+- Candidate-scope guard reports only documented WU/Azorius display-source exceptions: `data/identity-layers.json` and `data/factions.json`.
+- Parsed diffs confirm `data/identity-layers.json` changed only `expressions.WU.preview_text`.
+- Parsed diffs confirm `data/factions.json` changed only WU/Azorius fields.
+- Parsed diffs confirm `data/placement-model.json` changed only WU/Azorius fields.
+- Known builder-owned Azorius inhibitor warning remains unchanged.
+
+Program acceptance:
+
+- Recovery commit `221a19b690cad02fb9aba2c91ae506b6d4fcc205` is accepted into the CRIT-001 program base.
+- Workflow-record commit `8ff965e52603625e1cc63cce51fc042c4c30603c` is accepted into the CRIT-001 program base.
+- Certification commit is recorded as `PENDING_VM508_CERTIFICATION_COMMIT_SHA` in self-referential records and will be reported with its exact SHA after commit creation.
+- Boros / WR is the next identity for branch setup only. No Boros remediation has started.
