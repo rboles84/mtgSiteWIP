@@ -1,7 +1,7 @@
 # VM-508 Ã¢â‚¬â€ Azorius Semantic Recovery
 
 ID: VM-508
-Status: Pre-candidate scope cleanup complete; ready for Gate 5 candidate creation when authorized
+Status: Gate 5 recovery candidate created; pending independent review
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: WU
@@ -34,7 +34,7 @@ Recover Azorius end to end under CRIT-001: audit the existing packet, bound read
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-508-azorius-semantic-recovery.md`
-- Candidate recovery SHA: pending
+- Candidate recovery SHA: `221a19b690cad02fb9aba2c91ae506b6d4fcc205`
 - Independent reviewer: pending
 - Certification commit: pending
 
@@ -87,3 +87,14 @@ Recover Azorius end to end under CRIT-001: audit the existing packet, bound read
 - Candidate-scope dry-run has no confidence, calibration, lateral-inhibition, native-ID, provenance, non-Azorius raw, or generated-consumer coverage blockers.
 - Remaining dry-run generated-scope findings are the documented WU/Azorius display-source exceptions: `data/factions.json` WU/Azorius display cleanup and `data/identity-layers.json#/expressions/WU/preview_text`.
 - Azorius remains uncertified; no recovery candidate, workflow-record, independent review, or certification commit has been created.
+
+## Gate 5 Candidate Status
+
+- Candidate created: 2026-07-14
+- Candidate parent SHA: `ad6322d4cb2120e83788a4af0dca7ef21cad4cc2`
+- Candidate recovery SHA: `221a19b690cad02fb9aba2c91ae506b6d4fcc205`
+- Workflow-record commit: pending until this record commit is finalized.
+- Review state: pending independent review of the exact candidate SHA.
+- Certification state: Azorius remains uncertified.
+- Candidate-scope result: no confidence, calibration, lateral-inhibition, missing-native-ID, missing-provenance-native-ID, generated-consumer coverage, non-Azorius semantic, or non-Azorius raw findings remain.
+- Documented display-source exception: `data/factions.json` WU/Azorius display cleanup and `data/identity-layers.json#/expressions/WU/preview_text`.

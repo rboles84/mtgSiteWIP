@@ -780,3 +780,39 @@ Known warnings remain unchanged:
 - `git diff --check` passes with line-ending normalization warnings only.
 
 Pre-candidate cleanup is complete. Azorius remains uncertified and is ready for Gate 5 candidate creation when explicitly authorized.
+
+## Gate 5 Candidate Creation
+
+Gate 5 candidate creation completed on 2026-07-14. Azorius remains uncertified and is pending independent review of the exact candidate SHA.
+
+- Candidate parent SHA: `ad6322d4cb2120e83788a4af0dca7ef21cad4cc2`
+- Candidate recovery SHA: `221a19b690cad02fb9aba2c91ae506b6d4fcc205`
+- Workflow-record commit: pending until the SHA-record commit is finalized.
+- Candidate commit message: `VM-508 create Azorius semantic recovery candidate`
+- Workflow-record commit message: `VM-508 record Azorius recovery candidate`
+
+Candidate commit contents:
+
+- Gate 3 canonical remediation.
+- Gate 4 generated artifacts and semantic-readiness provenance.
+- Gate 4 Azorius semantic fixtures.
+- Pre-candidate scope cleanup.
+- WU/Azorius display-source cleanup.
+- VM-508 report/card/handoff/index records documenting Gate 1 through Gate 4, cleanup, and candidate readiness.
+
+Candidate-scope result at creation:
+
+- No confidence, calibration, or lateral-inhibition findings.
+- No missing native ID findings.
+- No missing provenance native ID findings.
+- No generated-consumer coverage findings.
+- No non-Azorius raw packet changes.
+- Documented display-source exception only: `data/factions.json` WU/Azorius display cleanup and `data/identity-layers.json#/expressions/WU/preview_text`.
+
+Known warnings remain unchanged:
+
+- Known builder-owned Azorius inhibitor warning remains unchanged.
+- Dossier audit remains 113 warnings / 0 failures.
+- `git diff --check` passes with line-ending normalization warnings only.
+
+Azorius remains uncertified. Independent review has not been started by this task.

@@ -928,235 +928,102 @@
           "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 16,
           "discovery_record": 10,
           "support_record": 0,
-          "unclassified": 7
+          "unclassified": 0
         },
-        "source_count": 13,
+        "source_count": 14,
         "source_role_counts": {
-          "claim-bearing": 2,
+          "claim-bearing": 3,
           "discovery-only": 10,
           "support-only": 1
         },
-        "claim_bearing_source_count": 2,
-        "claim_bearing_source_rate": 0.1538,
-        "reference_site_count": 40,
+        "claim_bearing_source_count": 3,
+        "claim_bearing_source_rate": 0.2143,
+        "reference_site_count": 61,
         "missing_references": [],
-        "potential_role_invalid_support_links": [
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.profile.json#/core_identity",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.profile.json#/site_surface",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.profile.json#/structure",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.profile.json#/great_tension",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.profile.json#/key_figures/0",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.profile.json#/key_figures/1",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.profile.json#/key_figures/2",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.profile.json#/key_figures/3",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.profile.json#/canonical_flavor_text/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.profile.json#/mechanics",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.profile.json#/data_quality/corpus_upgrade",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.placement.json#/placement_summary",
-            "roles": [
-              "discovery_record",
-              "unclassified"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.placement.json#/placement_axes/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.placement.json#/moral_and_psychological_profile",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.placement.json#/core_values/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.placement.json#/core_values/1",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.placement.json#/core_values/2",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.placement.json#/core_values/3",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.placement.json#/core_values/4",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.placement.json#/core_values/5",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.placement.json#/core_values/6",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.placement.json#/core_values/7",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.placement.json#/core_values/8",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.placement.json#/core_values/9",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.placement.json#/behavioral_signals/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/azorius_senate/azorius_senate.placement.json#/inhibitor_traits/0",
-            "roles": [
-              "discovery_record"
-            ]
-          }
-        ],
+        "potential_role_invalid_support_links": [],
         "raw_question_count": 3,
         "unique_question_claim_ids": [
-          "azorius_senate_claim_001",
           "azorius_senate_claim_002",
-          "azorius_senate_claim_003"
+          "azorius_senate_claim_0020",
+          "azorius_senate_claim_0021",
+          "azorius_senate_claim_0025",
+          "azorius_senate_claim_0026",
+          "azorius_senate_claim_0018",
+          "azorius_senate_claim_0022",
+          "azorius_senate_claim_0023"
         ],
         "neighbor_references": [
           "boros_legion",
+          "generic_wu_overfit",
+          "house_dimir",
+          "izzet_league",
           "orzhov_syndicate",
-          "selesnya_conclave"
+          "selesnya_conclave",
+          "simic_combine"
         ],
-        "recruiter_context_size": 7527,
+        "recruiter_context_size": 8578,
         "creation_commit": "f6a1dd4644849ffb3bad6f1bba82f7cd55fa549a",
         "readiness_mentions": [
           "docs/reference/ravnica-guild-source-readiness-matrix.md:27"
         ],
         "provisional_risk_indicators": {
-          "coverage": [
-            "low-record-volume",
-            "discovery-record-majority",
-            "no-explicit-substantive-role"
-          ],
+          "coverage": [],
           "neighbors": []
         },
         "template_cohort_pattern": false,
-        "inventory_updated_at": "2026-07-11T18:42:33.624Z"
+        "inventory_updated_at": "2026-07-14T18:38:28-06:00"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "gate_5_candidate_created",
+        "status": "pending_independent_review",
+        "started_at": "2026-07-14T07:05:00-06:00",
+        "gate_entered_at": "2026-07-14T18:38:28-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WR",
-        "primary_disposition": null
+        "primary_disposition": "claim_extraction_pass_required"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "GENERIC_WU_OVERFIT",
+          "ORZHOV_SYNDICATE",
+          "BOROS_LEGION",
+          "SELESNYA_CONCLAVE",
+          "IZZET_LEAGUE",
+          "HOUSE_DIMIR",
+          "SIMIC_COMBINE"
+        ],
+        "audit_report": "docs/incidents/recoveries/VM-508-azorius-semantic-recovery.md",
+        "residual_findings": [
+          "Builder-owned Azorius inhibitor warning remains unchanged.",
+          "Dossier audit remains 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures.",
+          "Candidate-scope display-source exception: data/factions.json contains WU/Azorius-scoped display cleanup and data/identity-layers.json changes only expressions.WU.preview_text.",
+          "Lavinia native ID is retained once under data_quality.corpus_upgrade.retained_native_ids as discovery metadata; it is not promoted into key_figures without substantive evidence."
+        ]
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "221a19b690cad02fb9aba2c91ae506b6d4fcc205",
+        "recovery_commit": "221a19b690cad02fb9aba2c91ae506b6d4fcc205",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
         "approval_date": null,
-        "certified_at": null
+        "certified_at": null,
+        "candidate_parent_sha": "ad6322d4cb2120e83788a4af0dca7ef21cad4cc2",
+        "candidate_recorded_at": "2026-07-14T18:38:28-06:00",
+        "known_unchanged_warnings": [
+          "builder-owned Azorius inhibitor warning remains unchanged",
+          "dossier audit verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures",
+          "documented Azorius/WU display-source exception: data/factions.json WU/Azorius display cleanup and data/identity-layers.json expressions.WU.preview_text",
+          "git diff --check passes with line-ending normalization warnings only"
+        ],
+        "workflow_record_commit": "PENDING_VM508_WORKFLOW_RECORD_COMMIT_SHA",
+        "final_state": "pending_independent_review"
       }
     },
     {
