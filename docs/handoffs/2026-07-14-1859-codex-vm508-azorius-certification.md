@@ -50,7 +50,7 @@ Decisions made:
 
 Risks / uncertainties:
 
-- Certification commit SHA is self-referential in records as `PENDING_VM508_CERTIFICATION_COMMIT_SHA`; exact SHA is reported in the task final.
+- Certification commit SHA is self-referential in records as `9243c5a32fbb222dac4c4fd7999126aa60e52619`; exact SHA is reported in the task final.
 - Boros branch exists for the next identity, but remediation has not started.
 
 Tests run:

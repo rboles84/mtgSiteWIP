@@ -626,11 +626,11 @@ Gate 3 canonical remediation is complete for Azorius / WU. The work stayed insid
 
 ### Gate 3 validation commands run
 
-- `git status --short --branch` — ran before and during work.
-- JSON parse checks for changed Azorius canonical files — passed.
-- `node research/audit-semantic-readiness.mjs --targets=WU` — passed; reported 26 claims, 16 substantive, 10 discovery, 0 support, 0 unclassified, and no potential role-invalid support links.
-- `node research/validate-semantic-readiness.mjs --targets=WU` — failed only on expected stale provenance/content hashes, missing generated provenance for new canonical chains, and missing identity semantic fixtures. This is expected in Gate 3 because generated artifacts/provenance/fixtures are deferred to Gate 4.
-- `git diff --check` — run after documentation update in final Gate 3 validation.
+- `git status --short --branch` â€” ran before and during work.
+- JSON parse checks for changed Azorius canonical files â€” passed.
+- `node research/audit-semantic-readiness.mjs --targets=WU` â€” passed; reported 26 claims, 16 substantive, 10 discovery, 0 support, 0 unclassified, and no potential role-invalid support links.
+- `node research/validate-semantic-readiness.mjs --targets=WU` â€” failed only on expected stale provenance/content hashes, missing generated provenance for new canonical chains, and missing identity semantic fixtures. This is expected in Gate 3 because generated artifacts/provenance/fixtures are deferred to Gate 4.
+- `git diff --check` â€” run after documentation update in final Gate 3 validation.
 
 ### Gate 3 final status
 
@@ -830,7 +830,7 @@ Azorius / WU is certified semantically_ready under CRIT-001 Contract v1.1 after 
 - Independent review result: APPROVE EXACT SHA
 - Approval date: 2026-07-14
 - Final certification state: `semantically_ready`
-- Certification commit: `PENDING_VM508_CERTIFICATION_COMMIT_SHA`
+- Certification commit: `9243c5a32fbb222dac4c4fd7999126aa60e52619`
 
 Residual non-blocking observations:
 
@@ -849,5 +849,5 @@ Program acceptance:
 
 - Recovery commit `221a19b690cad02fb9aba2c91ae506b6d4fcc205` is accepted into the CRIT-001 program base.
 - Workflow-record commit `8ff965e52603625e1cc63cce51fc042c4c30603c` is accepted into the CRIT-001 program base.
-- Certification commit is recorded as `PENDING_VM508_CERTIFICATION_COMMIT_SHA` in self-referential records and will be reported with its exact SHA after commit creation.
+- Certification commit is recorded as `9243c5a32fbb222dac4c4fd7999126aa60e52619` in self-referential records and will be reported with its exact SHA after commit creation.
 - Boros / WR is the next identity for branch setup only. No Boros remediation has started.

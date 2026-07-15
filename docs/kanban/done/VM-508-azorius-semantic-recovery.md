@@ -1,4 +1,4 @@
-﻿# VM-508 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Azorius Semantic Recovery
+# VM-508 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Azorius Semantic Recovery
 
 ID: VM-508
 Status: Certified semantically_ready under CRIT-001 Contract v1.1
@@ -36,7 +36,7 @@ Recover Azorius end to end under CRIT-001: audit the existing packet, bound read
 - Audit/recovery report: `docs/incidents/recoveries/VM-508-azorius-semantic-recovery.md`
 - Candidate recovery SHA: `221a19b690cad02fb9aba2c91ae506b6d4fcc205`
 - Independent reviewer: Robert / user-supplied independent Gate 5 review in this Codex thread
-- Certification commit: `PENDING_VM508_CERTIFICATION_COMMIT_SHA`
+- Certification commit: `9243c5a32fbb222dac4c4fd7999126aa60e52619`
 
 ## Gate 1 Audit Status
 
@@ -106,7 +106,7 @@ Recover Azorius end to end under CRIT-001: audit the existing packet, bound read
 - Independent review result: APPROVE EXACT SHA
 - Approved recovery SHA: `221a19b690cad02fb9aba2c91ae506b6d4fcc205`
 - Workflow-record SHA: `8ff965e52603625e1cc63cce51fc042c4c30603c`
-- Certification commit: `PENDING_VM508_CERTIFICATION_COMMIT_SHA`
+- Certification commit: `9243c5a32fbb222dac4c4fd7999126aa60e52619`
 - Final state: `semantically_ready`
 - Non-blocking observation: Isperia profile metadata has `confidence: Medium`; reviewer verified this is profile metadata confidence narrowed after discovery-backed proof was removed, not placement confidence, generated confidence, runtime calibration, scoring, or lateral-inhibition behavior.
 - Non-blocking observation: direct `npm.cmd run dossier:audit` was blocked in the independent review sandbox by EPERM while writing `artifacts/dossier-snapshots/dossier-audit-report.md`; reviewer independently reran the same audit logic in memory and verified 37 primary dossiers, 76 adjacent dossiers, 113 warnings, 0 failures.
