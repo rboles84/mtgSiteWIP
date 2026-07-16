@@ -7,7 +7,7 @@ Generated from `CRIT-001-identity-recovery-ledger.json`. The JSON file is author
 - Next identity: `RAKDOS`
 - WIP limit: 1
 - Gate 0 hardening: VM-540 accepted; Operating Playbook v2 at `docs/incidents/CRIT-001-operating-playbook.md`
-- VM-510 Gate 1+2 note: Rakdos read-only audit/evidence confirmation is complete from VM-540 base `797bf23750886d43802700ddbfb974f3ce666f5e`; primary disposition is `Claim-extraction pass required`; Gate 3 requires explicit authorization.
+- VM-510 Gate 5 note: Rakdos candidate `c96ceea602370fd146cdad5393d17e4cf68f8aa3` created from starting SHA `30bd86bec4134cbdd136fe0c73f052f92a00bd96`; awaiting independent review; not certified; no certification SHA yet; no next identity started.
 
 | Card | Identity | Cohort | Gate | Status | Structural fingerprint | Contract | Recovery | Certification |
 |---|---|---|---|---|---|---|---|---|
@@ -19,7 +19,7 @@ Generated from `CRIT-001-identity-recovery-ledger.json`. The JSON file is author
 | VM-507 | UR Ã¢â‚¬â€ Izzet | guild | certified | semantically_ready | high-volume-pattern, support-heavy-pattern | v1.1 | d5bca29f3c55d0d69fe8567a69c8326dcc83d770 | PENDING_VM507_CERTIFICATION_COMMIT_SHA |
 | VM-508 | WU Ã¢â‚¬â€ Azorius | guild | certified | semantically_ready | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | v1.1 | 221a19b690cad02fb9aba2c91ae506b6d4fcc205 | 9243c5a32fbb222dac4c4fd7999126aa60e52619 |
 | VM-509 | WR - Boros | guild | certified | semantically_ready | mixed-role-pattern | v1.1 | da2e9ef4036c427c17dca66c5a1a9d9a8fe03436 | PENDING_VM509_CERTIFICATION_COMMIT_SHA |
-| VM-510 | BR Ã¢â‚¬â€ Rakdos | guild | gate_1_2_complete | awaiting_gate_3_authorization | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | v1.1 | docs/incidents/recoveries/VM-510-rakdos-semantic-recovery.md | Ã¢â‚¬â€ |
+| VM-510 | BR - Rakdos | guild | gate_5_candidate_created | awaiting_independent_review | mixed-role-pattern, support-heavy-pattern | v1.1 | c96ceea602370fd146cdad5393d17e4cf68f8aa3 | - |
 | VM-511 | BG Ã¢â‚¬â€ Golgari | guild | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | Ã¢â‚¬â€ | Ã¢â‚¬â€ | Ã¢â‚¬â€ |
 | VM-512 | RG Ã¢â‚¬â€ Gruul | guild | not_started | backlog | high-volume-pattern, mixed-role-pattern | Ã¢â‚¬â€ | Ã¢â‚¬â€ | Ã¢â‚¬â€ |
 | VM-513 | UB Ã¢â‚¬â€ Dimir | guild | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | Ã¢â‚¬â€ | Ã¢â‚¬â€ | Ã¢â‚¬â€ |

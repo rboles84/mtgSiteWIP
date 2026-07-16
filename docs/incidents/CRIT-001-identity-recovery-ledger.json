@@ -1179,16 +1179,14 @@
       },
       "computed": {
         "structural_fingerprint": [
-          "low-volume-pattern",
           "mixed-role-pattern",
-          "discovery-heavy-pattern",
           "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 22,
           "discovery_record": 10,
           "support_record": 0,
-          "unclassified": 6
+          "unclassified": 0
         },
         "source_count": 13,
         "source_role_counts": {
@@ -1198,235 +1196,97 @@
         },
         "claim_bearing_source_count": 2,
         "claim_bearing_source_rate": 0.1538,
-        "reference_site_count": 39,
+        "reference_site_count": 67,
         "missing_references": [],
-        "potential_role_invalid_support_links": [
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json#/core_identity",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json#/site_surface",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json#/structure",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json#/great_tension",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json#/key_figures/0",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json#/key_figures/1",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json#/key_figures/2",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json#/key_figures/3",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json#/canonical_flavor_text/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json#/mechanics",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json#/data_quality/corpus_upgrade",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json#/placement_summary",
-            "roles": [
-              "discovery_record",
-              "unclassified"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json#/placement_axes/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json#/moral_and_psychological_profile",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json#/core_values/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json#/core_values/1",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json#/core_values/2",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json#/core_values/3",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json#/core_values/4",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json#/core_values/5",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json#/core_values/6",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json#/core_values/7",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json#/core_values/8",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json#/core_values/9",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json#/behavioral_signals/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json#/inhibitor_traits/0",
-            "roles": [
-              "discovery_record"
-            ]
-          }
-        ],
+        "potential_role_invalid_support_links": [],
         "raw_question_count": 3,
         "unique_question_claim_ids": [
           "cult_of_rakdos_claim_001",
           "cult_of_rakdos_claim_002",
-          "cult_of_rakdos_claim_003",
-          "cult_of_rakdos_claim_005",
-          "cult_of_rakdos_claim_006"
+          "cult_of_rakdos_claim_006",
+          "cult_of_rakdos_claim_0018",
+          "cult_of_rakdos_claim_0021",
+          "cult_of_rakdos_claim_0017",
+          "cult_of_rakdos_claim_0020",
+          "cult_of_rakdos_claim_0022",
+          "cult_of_rakdos_claim_0030",
+          "cult_of_rakdos_claim_005"
         ],
         "neighbor_references": [
-          "Golgari Swarm",
-          "Jund",
-          "Mardu Horde",
-          "Orzhov Syndicate"
+          "BR",
+          "black",
+          "boros_legion",
+          "golgari_swarm",
+          "grixis",
+          "gruul_clans",
+          "izzet_league",
+          "jund",
+          "mardu",
+          "orzhov_syndicate",
+          "prismari",
+          "red"
         ],
-        "recruiter_context_size": 7889,
+        "recruiter_context_size": 9747,
         "creation_commit": "f6a1dd4644849ffb3bad6f1bba82f7cd55fa549a",
         "readiness_mentions": [],
+        "template_signature": "{\"claimTypes\":[\"collision_boundary\",\"collision_boundary\",\"collision_boundary\",\"collision_boundary\",\"collision_boundary\",\"collision_boundary\",\"collision_boundary\",\"collision_boundary\",\"collision_boundary\",\"collision_boundary\",\"collision_boundary\",\"collision_boundary\",\"identity\",\"leadership\",\"mature_expression\",\"mechanics\",\"organization\",\"placement\",\"placement_motivation\",\"pressure_behavior\",\"role\",\"story_corpus_evidence\",\"story_corpus_evidence\",\"story_corpus_evidence\",\"story_corpus_evidence\",\"story_corpus_evidence\",\"story_corpus_evidence\",\"story_corpus_evidence\",\"story_corpus_evidence\",\"story_corpus_evidence\",\"story_corpus_evidence\",\"unhealthy_expression\"],\"sourceRoles\":[\"claim-bearing\",\"claim-bearing\",\"discovery-only\",\"discovery-only\",\"discovery-only\",\"discovery-only\",\"discovery-only\",\"discovery-only\",\"discovery-only\",\"discovery-only\",\"discovery-only\",\"discovery-only\",\"support-only\"],\"questions\":3}",
         "provisional_risk_indicators": {
-          "coverage": [
-            "low-record-volume",
-            "discovery-record-majority",
-            "no-explicit-substantive-role"
-          ],
+          "coverage": [],
           "neighbors": []
         },
         "template_cohort_pattern": false,
-        "inventory_updated_at": "2026-07-11T18:42:33.624Z"
+        "inventory_updated_at": "2026-07-16T04:54:32.448Z"
       },
-  "workflow": {
-    "current_gate": "gate_1_2_complete",
-    "status": "awaiting_gate_3_authorization",
-    "started_at": "2026-07-15",
-    "gate_entered_at": "2026-07-15",
-    "blocked_at": null,
-    "blocked_reason": null,
-    "next_identity": "BG",
-    "primary_disposition": "Claim-extraction pass required"
-  },
-  "semantic_review": {
-    "required_neighbors": [
-      "GENERIC_BR_OVERFIT",
-      "B",
-      "R",
-      "WR",
-      "RG",
-      "BG",
-      "WB",
-      "UR",
-      "PRISMARI",
-      "GRIXIS",
-      "JUND",
-      "MARDU"
-    ],
-    "audit_report": "docs/incidents/recoveries/VM-510-rakdos-semantic-recovery.md",
-    "residual_findings": [
-      "Gate 1+2 read-only audit/evidence confirmation complete from VM-540 base 797bf23750886d43802700ddbfb974f3ce666f5e.",
-      "Primary disposition: Claim-extraction pass required.",
-      "Blockers: all 16 claims lack semantic_role and evidence_locations; authoritative profile/placement/key-figure chains have no substantive claims; discovery records are used as semantic proof; generated BR key-figure/provenance chains are discovery-contaminated; collision_guidance and BR fixtures are missing.",
-      "Gate 3 required with bounded source localization against existing listed/local sources; no broad online discovery required before Gate 3.",
-      "No Rakdos raw data, generated artifacts, fixtures, runtime behavior, builder, validator, schema, contract, Hall, Crucible, scoring, inhibition, confidence, scheduling, tie-ordering, or global recruiter files changed in Gate 1+2."
-    ]
-  },
+      "workflow": {
+        "current_gate": "gate_5_candidate_created",
+        "status": "awaiting_independent_review",
+        "started_at": "2026-07-15",
+        "gate_entered_at": "2026-07-16",
+        "blocked_at": null,
+        "blocked_reason": null,
+        "next_identity": "RAKDOS",
+        "primary_disposition": "Rakdos candidate created; awaiting independent review; not certified; no certification SHA yet; no next identity started."
+      },
+      "semantic_review": {
+        "required_neighbors": [
+          "GENERIC_BR_OVERFIT",
+          "B",
+          "R",
+          "WR",
+          "RG",
+          "BG",
+          "WB",
+          "UR",
+          "PRISMARI",
+          "GRIXIS",
+          "JUND",
+          "MARDU"
+        ],
+        "audit_report": "docs/incidents/recoveries/VM-510-rakdos-semantic-recovery.md",
+        "remediation_report": "docs/incidents/recoveries/VM-510-rakdos-semantic-recovery.md#gate-34-remediation-and-validation",
+        "residual_findings": [
+          "Gate 3+4 canonical remediation and generation completed in the worktree from starting SHA 30bd86bec4134cbdd136fe0c73f052f92a00bd96.",
+          "All 32 Rakdos claims now have semantic roles: 22 substantive_claim and 10 discovery_record; zero support_record and zero unclassified.",
+          "Discovery-only story-corpus records are retained as metadata/history only and no longer prove profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, public copy, or provenance chains.",
+          "BR required-neighbor/collision guidance covers GENERIC_BR_OVERFIT, B, R, WR, RG, BG, WB, UR, PRISMARI, GRIXIS, JUND, and MARDU with explicit lateral_inhibition false and unchanged generated lateral targets.",
+          "BR generated consumers and provenance rebuilt; provenance has zero null canonical IDs, zero null content hashes, and zero discovery-backed chains.",
+          "Gate 5 candidate commit c96ceea602370fd146cdad5393d17e4cf68f8aa3 was created; Rakdos is awaiting independent review and is not certified."
+        ],
+        "validation_summary": [
+          "node research/audit-semantic-readiness.mjs --targets=BR passed.",
+          "node research/validate-semantic-readiness.mjs --targets=BR passed.",
+          "node research/semantic-candidate-scope-tests.js passed.",
+          "npm.cmd run test:semantic-readiness passed.",
+          "npm.cmd run test:placement passed.",
+          "npm.cmd run test:faction-context-isolation passed.",
+          "Semantic candidate scope worktree dry-run passed for BR against 30bd86bec4134cbdd136fe0c73f052f92a00bd96..worktree."
+        ]
+      },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "c96ceea602370fd146cdad5393d17e4cf68f8aa3",
+        "recovery_commit": "c96ceea602370fd146cdad5393d17e4cf68f8aa3",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,

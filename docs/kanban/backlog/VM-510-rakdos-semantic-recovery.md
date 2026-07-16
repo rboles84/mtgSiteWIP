@@ -1,7 +1,7 @@
 # VM-510 — Rakdos Semantic Recovery
 
 ID: VM-510
-Status: Gate 1+2 audit/evidence confirmation complete; awaiting explicit Gate 3 authorization
+Status: Gate 5 candidate created; awaiting independent review; not certified; no certification SHA yet; no next identity started
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: BR
@@ -19,8 +19,8 @@ Rakdos starts only after VM-540 CRIT-001 Operating Playbook v2 and Gate 0 harden
 
 - [x] Gate 1 - Packet audit and bounded disposition.
 - [x] Gate 2 - Sufficient evidence completion.
-- [ ] Gate 3 — Canonical remediation.
-- [ ] Gate 4 — Generation and validation.
+- [x] Gate 3 — Canonical remediation.
+- [x] Gate 4 — Generation and validation.
 - [ ] Gate 5 — Independent certification.
 
 ## Scope Rules
@@ -41,7 +41,7 @@ Rakdos starts only after VM-540 CRIT-001 Operating Playbook v2 and Gate 0 harden
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Operating playbook: `docs/incidents/CRIT-001-operating-playbook.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-510-rakdos-semantic-recovery.md`
-- Candidate recovery SHA: pending
+- Candidate recovery SHA: `c96ceea602370fd146cdad5393d17e4cf68f8aa3`
 - Independent reviewer: pending
 - Certification commit: pending
 
@@ -58,3 +58,19 @@ Rakdos starts only after VM-540 CRIT-001 Operating Playbook v2 and Gate 0 harden
 - Gate 3 is required before Rakdos can proceed: add semantic roles, bounded evidence locations, substantive proof chains, required-neighbor collision guidance, recruiter evidence mappings, provenance sourceability, and BR fixtures in later gates.
 - No Rakdos raw data, generated artifacts, fixtures, runtime behavior, builder, validator, schema, contract, Hall, Crucible, scoring, inhibition, confidence, scheduling, tie-ordering, or global recruiter files were changed in Gate 1+2.
 - Broad online source discovery is not required before Gate 3; Gate 3 must localize evidence against existing listed/local sources and stop if locators or high-heat wording support are unavailable.
+
+## Gate 3+4 Result - 2026-07-15
+
+- Gate 3 canonical remediation is complete in the worktree: all Rakdos claims have semantic roles, substantive claims have bounded evidence locations, discovery records are retained only as metadata/history, and BR collision guidance covers the required neighbor set.
+- Gate 4 generation and validation are complete in the worktree: BR generated consumers and provenance were rebuilt, BR fixtures were added, and required validation passed.
+- No Gate 5 candidate commit was created.
+- No certification occurred.
+- No other identity was started.
+
+## Gate 5 Candidate Result - 2026-07-15
+
+- Candidate commit created: `c96ceea602370fd146cdad5393d17e4cf68f8aa3`.
+- Rakdos is awaiting independent review.
+- Rakdos is not certified.
+- Certification SHA: none yet.
+- No next identity was started.

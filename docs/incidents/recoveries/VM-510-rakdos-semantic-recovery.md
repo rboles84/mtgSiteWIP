@@ -434,3 +434,183 @@ Commands run:
 - No candidate commit created.
 - No certification created.
 - No other identity started.
+
+## Gate 3+4 Remediation and Validation
+
+### Gate 3+4 preflight
+
+- Worktree path confirmed before edits: `C:\dev\mtgSiteWIP-crit001`
+- Branch confirmed before edits: `codex/vm-510-rakdos-semantic-recovery`
+- Starting SHA for this Gate 3+4 task: `30bd86bec4134cbdd136fe0c73f052f92a00bd96`
+- Worktree status before edits: clean
+- Original main worktree `C:\dev\mtgSiteWIP` was checked read-only and not touched; its pre-existing dirty docs/workflow baseline remained outside this task.
+- VM-510 Gate 1+2 report was present and committed at `30bd86bec4134cbdd136fe0c73f052f92a00bd96`.
+- No online source intake was performed.
+
+### Files changed
+
+- `data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json`
+- `data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json`
+- `data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json`
+- `data/raw-factions/cult_of_rakdos/cult_of_rakdos.changelog.json`
+- `data/factions.json`
+- `data/placement-model.json`
+- `data/semantic-readiness-provenance.json`
+- `supabase/functions/guild-recruiter/faction-context.ts`
+- `research/fixtures/semantic-readiness/cult_of_rakdos.semantic-fixtures.json`
+- `docs/incidents/CRIT-001-identity-recovery-ledger.json`
+- `docs/incidents/CRIT-001-identity-recovery-ledger.md`
+- `docs/incidents/recoveries/VM-510-rakdos-semantic-recovery.md`
+- `docs/kanban/backlog/VM-510-rakdos-semantic-recovery.md`
+- `docs/kanban/board.md`
+
+### Files intentionally not changed
+
+- `docs/reference/semantic-readiness-contract.md`
+- `data/raw-factions/semantic-readiness.schema.json`
+- `research/build-faction-artifacts.mjs`
+- `research/semantic-readiness-lib.mjs`
+- `research/validate-semantic-readiness.mjs`
+- `research/validate-semantic-candidate-scope.mjs`
+- Hall, Crucible, scoring, confidence, calibration, scheduling, tie-order, and global recruiter runtime files
+- Other raw identity packets
+- `C:\dev\mtgSiteWIP`
+
+### Claim role assignment
+
+| Claim | Gate 3 role | Evidence locator / use |
+|---|---|---|
+| `cult_of_rakdos_claim_001` | `substantive_claim` | Official source record: `A Flavorful Guide to the Guilds of Ravnica Allegiance - Rakdos reviewed source record`; direct support for black-red guild identity, performance, dangerous entertainment, provocation, and public transgression. |
+| `cult_of_rakdos_claim_002` | `substantive_claim` | Same official guide record; direct support for entertainers/hosts and destructive or hedonistic performances. |
+| `cult_of_rakdos_claim_003` | `substantive_claim` | Same official guide record; direct support for Rings and travelling theater-troupe organization. |
+| `cult_of_rakdos_claim_004` | `substantive_claim` | Same official guide record; direct support for Rakdos as ancient demon, founder, namesake, and object of worship. |
+| `cult_of_rakdos_claim_005` | `substantive_claim` | Official mechanics source record: `Ravnica Allegiance Mechanics - Spectacle / Rakdos reviewed source record`; direct support for spectacle as the Rakdos mechanic. |
+| `cult_of_rakdos_claim_006` | `substantive_claim` | Official guide plus mechanics records; bounded project synthesis for placement signals requiring performance, spectacle, transgression, sensation, danger, audience, cost, or consequence rather than generic BR aggression. |
+| `cult_of_rakdos_claim_0007` through `cult_of_rakdos_claim_0016` | `discovery_record` | Retained as discovery/search history only. Removed from authoritative proof chains and stored only as metadata/history under `retained_discovery_claim_ids`. |
+| `cult_of_rakdos_claim_0017` | `substantive_claim` | Official guide plus mechanics records; bounded synthesis for motivation/preferred method as public release through performance, appetite, provocation, sensation, and visible cost. |
+| `cult_of_rakdos_claim_0018` | `substantive_claim` | Official guide plus mechanics records; bounded synthesis for mature expression as performance/spectacle/transgression with appetite, cost, or social pressure visible. |
+| `cult_of_rakdos_claim_0019` | `substantive_claim` | Official guide plus mechanics records; bounded synthesis for unhealthy expression when performance/audience/cost frame disappears. |
+| `cult_of_rakdos_claim_0020` | `substantive_claim` | Official guide plus mechanics records; bounded synthesis for pressure behavior and false-positive suppression. |
+| `cult_of_rakdos_claim_0021` | `substantive_claim` | Official guide plus mechanics records; generic BR overfit boundary. |
+| `cult_of_rakdos_claim_0022` | `substantive_claim` | Official guide plus mechanics records; B/private leverage boundary. |
+| `cult_of_rakdos_claim_0023` | `substantive_claim` | Official guide plus mechanics records; R/direct impulse boundary. |
+| `cult_of_rakdos_claim_0024` | `substantive_claim` | Official guide plus mechanics records; WR/Boros discipline and protection boundary. |
+| `cult_of_rakdos_claim_0025` | `substantive_claim` | Official guide plus mechanics records; RG/Gruul dispossession and anti-civilization boundary. |
+| `cult_of_rakdos_claim_0026` | `substantive_claim` | Official guide plus mechanics records; BG/Golgari survival, rot, and recursion boundary. |
+| `cult_of_rakdos_claim_0027` | `substantive_claim` | Official guide plus mechanics records; WB/Orzhov obligation and debt boundary. |
+| `cult_of_rakdos_claim_0028` | `substantive_claim` | Official guide plus mechanics records; UR/Izzet experiment and invention boundary. |
+| `cult_of_rakdos_claim_0029` | `substantive_claim` | Official guide plus mechanics records; Prismari craft/expression boundary. |
+| `cult_of_rakdos_claim_0030` | `substantive_claim` | Official guide plus mechanics records; Grixis survival leverage/control boundary. |
+| `cult_of_rakdos_claim_0031` | `substantive_claim` | Official guide plus mechanics records; Jund predation/survival appetite boundary. |
+| `cult_of_rakdos_claim_0032` | `substantive_claim` | Official guide plus mechanics records; Mardu martial oath/momentum boundary. |
+
+Final claim counts: 32 total; 22 `substantive_claim`, 10 `discovery_record`, 0 `support_record`, 0 `unclassified`.
+
+### Authoritative chain cleanup
+
+- Profile identity, site surface, structure, great tension, mechanics, and flavor anchor now cite only substantive claims.
+- Discovery-only story-corpus claims are retained as `retained_discovery_claim_ids`, not `claim_ids`.
+- Generated BR key figures now include only `Rakdos` with `cult_of_rakdos_claim_004` and `src_wotc_flavorful_guide_ravnica_allegiance_2019`.
+- `Rakdos the Defiler`, `Exava`, and `Judith` native IDs are retained as discovery metadata only, not generated key figures or proof chains.
+- Commander Compass remains auxiliary product guidance; its supporting claim/source basis was narrowed to substantive claims and official source IDs.
+
+### Collision guidance
+
+Required-neighbor set retained exactly:
+
+`GENERIC_BR_OVERFIT`, `B`, `R`, `WR`, `RG`, `BG`, `WB`, `UR`, `PRISMARI`, `GRIXIS`, `JUND`, `MARDU`.
+
+All 12 collision rows were added with `lateral_inhibition: false`. Generated BR `lateral_inhibition_targets` remained unchanged:
+
+`RG`, `PRISMARI`, `WR`, `GRIXIS`, `JUND`, `MARDU`.
+
+No required neighbor was removed. No Dimir boundary was added because Gate 3 evidence did not require expanding beyond the Gate 1+2 proposed set.
+
+### Fixtures
+
+Added `research/fixtures/semantic-readiness/cult_of_rakdos.semantic-fixtures.json` with:
+
+- core inclusion fixture for source-bounded public spectacle;
+- mature/pressure fixture for visible-cost behavior;
+- required-neighbor exclusion fixtures for all 12 retained neighbors;
+- nearest-collision ambiguity fixture for generic BR heat vs Rakdos performance;
+- provenance fixture for `/placement_summary`.
+
+### Stale phrase handling
+
+- Removed/narrowed unsupported public copy: `Pain is entertainment`, `Death is the final punchline`, `burning the stage down`, generic random-disruption/chaos copy, generic pain-as-identity copy, and broad cruelty/hedonism framing.
+- Retained `hedonistic` only inside `cult_of_rakdos_claim_002`, where it is bounded to the official role source record.
+- Retained `generic evil`, `chaos`, and `rule-breaking` only as negative guardrails or frozen calibration language, not positive Rakdos proof.
+- Retained `Mayhem Devil`, `Kroxa, Titan of Death's Hunger`, `Mogis, God of Slaughter`, and `deathtouch` as exact Magic card/keyword/product-support names, not semantic identity proof.
+- Narrowed product-copy uses of `death` and `chaos` to `creatures dying` and `high-variance effects` where they were not exact names or frozen guardrails.
+
+### Generated artifacts and provenance
+
+- Standard generation command run: `npm.cmd run build:factions`
+- Updated generated consumers: `data/factions.json`, `data/placement-model.json`, `data/semantic-readiness-provenance.json`, `supabase/functions/guild-recruiter/faction-context.ts`
+- BR provenance after regeneration: 75 entries, 0 null canonical IDs, 0 null content hashes, 0 discovery-backed chains.
+- Generated collision guidance survived with targets normalized to `BR`, `B`, `R`, `WR`, `RG`, `BG`, `WB`, `UR`, `PRISMARI`, `GRIXIS`, `JUND`, `MARDU`.
+- Generated lateral-inhibition targets did not drift.
+
+### Validation results
+
+- JSON parse checks for Rakdos raw files and BR fixture: passed.
+- `npm.cmd run build:factions`: passed; rebuilt required generated artifacts.
+- `node research/audit-semantic-readiness.mjs --targets=BR`: passed; reported 32 claims, role counts `22 substantive / 10 discovery / 0 support / 0 unclassified`, 13 sources, 67 reference sites, no invalid support links.
+- `node research/validate-semantic-readiness.mjs --targets=BR`: passed.
+- `node research/semantic-candidate-scope-tests.js`: passed.
+- `npm.cmd run test:semantic-readiness`: passed; verified 1576 semantic provenance entries.
+- `npm.cmd run test:placement`: passed; 37 factions, 37 golden paths.
+- `npm.cmd run test:faction-context-isolation`: passed.
+- Candidate-scope worktree dry-run using the candidate-scope guard exports: passed for `BR` against `30bd86bec4134cbdd136fe0c73f052f92a00bd96..worktree` without creating a commit.
+
+- `git diff --check`: passed after final documentation updates.
+
+### Gate 3+4 status
+
+- Gate 3 canonical remediation: complete in worktree.
+- Gate 4 generation and validation: complete in worktree.
+- Gate 5 candidate commit: not created.
+- Certification: not performed.
+- Other identity started: no.
+- Recommendation: proceed to Gate 5 candidate creation only after explicit authorization.
+
+## Gate 5 Candidate Creation
+
+### Gate 5 preflight
+
+- Worktree path confirmed: `C:\dev\mtgSiteWIP-crit001`.
+- Branch confirmed: `codex/vm-510-rakdos-semantic-recovery`.
+- Starting SHA before Gate 3+4 worktree edits: `30bd86bec4134cbdd136fe0c73f052f92a00bd96`.
+- Candidate creation started from dirty worktree containing only completed VM-510 Gate 3+4 semantic and governance changes.
+- Original main worktree `C:\dev\mtgSiteWIP` was checked read-only and not touched; its pre-existing dirty docs/workflow baseline remained outside this task.
+
+### Final pre-candidate validation
+
+- JSON parse checks for Rakdos raw files and BR fixture: passed.
+- `npm.cmd run build:factions`: passed.
+- `node research/audit-semantic-readiness.mjs --targets=BR`: passed.
+- `node research/validate-semantic-readiness.mjs --targets=BR`: passed.
+- `node research/semantic-candidate-scope-tests.js`: passed.
+- `npm.cmd run test:semantic-readiness`: passed.
+- `npm.cmd run test:placement`: passed.
+- `npm.cmd run test:faction-context-isolation`: passed.
+- Candidate-scope worktree dry-run against `30bd86bec4134cbdd136fe0c73f052f92a00bd96..worktree`: passed.
+- `git diff --check`: passed.
+
+### Candidate commit
+
+- Candidate commit created: `c96ceea602370fd146cdad5393d17e4cf68f8aa3`.
+- Candidate commit message: `VM-510 remediate Rakdos semantic readiness candidate`.
+- Candidate commit contains only Rakdos semantic remediation candidate files and required generated/fixture artifacts.
+- No governance/report files are included in the candidate commit.
+- No Contract v1.1, schema, builder, validator, runtime, scoring, confidence, calibration, scheduling, tie-order, Hall, Crucible, or global recruiter behavior files are included in the candidate commit.
+
+### Workflow state
+
+- Rakdos candidate created.
+- Rakdos is awaiting independent review.
+- Rakdos is not certified.
+- Certification SHA: none yet.
+- No next identity started.
+- No certification occurred.

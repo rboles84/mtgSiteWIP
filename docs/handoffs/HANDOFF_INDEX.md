@@ -1,6 +1,7 @@
 # Vox Mana Agent Handoff Index
 
 This index tracks agent work across planning, board updates, documentation, JSON/data mapping, testing, implementation, and release review.
+| 2026-07-15 22:52 | Codex | Complete VM-510 Rakdos Gate 3+4 remediation and Gate 5 candidate creation | VM-510, CRIT-001 | Candidate `c96ceea602370fd146cdad5393d17e4cf68f8aa3` created; awaiting independent review; not certified; no next identity started | [2026-07-15-2252-codex-vm510-rakdos-gate3-gate4.md](2026-07-15-2252-codex-vm510-rakdos-gate3-gate4.md) |
 | 2026-07-15 16:56 | Codex | Complete VM-510 Rakdos Gate 1+2 read-only audit and bounded evidence confirmation | VM-510, CRIT-001 | Complete; primary disposition `Claim-extraction pass required`; no Rakdos remediation started | [2026-07-15-1656-codex-vm510-rakdos-gate1-gate2.md](2026-07-15-1656-codex-vm510-rakdos-gate1-gate2.md) |
 | 2026-07-15 15:56 | Codex | Add VM-540 CRIT-001 Operating Playbook v2 and Gate 0 hardening before Rakdos starts | VM-540, VM-510, CRIT-001 | Operating Playbook v2 and narrow candidate-scope guard hardening added; Rakdos remains not_started | [2026-07-15-1556-codex-vm540-operating-playbook-gate-zero.md](2026-07-15-1556-codex-vm540-operating-playbook-gate-zero.md) |
 | 2026-07-15 12:03 | Codex | Certify VM-509 Boros exact recovery SHA and accept it into CRIT-001 program base | VM-509, VM-510, CRIT-001 | Boros certified semantically_ready; Rakdos branch setup only; no Rakdos remediation started | [2026-07-15-1203-codex-vm509-boros-certification.md](2026-07-15-1203-codex-vm509-boros-certification.md) |
