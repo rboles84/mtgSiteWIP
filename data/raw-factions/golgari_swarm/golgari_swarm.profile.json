@@ -8,19 +8,18 @@
     "black",
     "green"
   ],
-  "last_updated": "2026-05-13T21:14:06.308Z",
+  "last_updated": "2026-07-16T16:20:00.000Z",
   "profile": {
-    "overview": "Golgari Swarm is a black-green guild associated with Ravnica.",
-    "philosophy": "Death, decay, survival, and renewal are one cycle, not separate moral categories.",
-    "core_tension": "Golgari is philosophically stable around cycles, but politically unstable because succession, overthrow, and reanimation are built into the system.",
+    "overview": "Golgari Swarm is the black-green Ravnican guild whose source-bounded identity joins life, death, decay, reanimation, survival, underground society, and food production.",
+    "philosophy": "Golgari treats death and decay as useful material inside a living cycle, not as generic morbidity or generic nature.",
+    "core_tension": "Golgari is strongest when reclamation feeds survival and renewal; it weakens when reduced to black-green color identity, graveyard aesthetics, or fatalistic rot without a cycle.",
     "social_or_institutional_role": "The official guide presents Golgari as an underground society in forgotten places that also feeds much of Ravnica.",
-    "mechanics_and_play_pattern": "Undergrowth expresses Golgari's ability to turn dead creatures in graveyards into present power.",
+    "mechanics_and_play_pattern": "Undergrowth expresses Golgari by turning creatures in graveyards into present power.",
     "placement_use": "Use this profile to support thematic placement, quiz design, and lore browsing. Do not present placement inferences as canon.",
     "strongest_source_ids": [
       "src_wotc_flavorful_guide_guilds_ravnica_2018",
       "src_wotc_guilds_ravnica_mechanics_2018",
-      "src_wotc_guilds_ravnica_prerelease_primer_2018",
-      "src_wotc_dragons_maze_mechanics_2013"
+      "src_wotc_guilds_ravnica_prerelease_primer_2018"
     ],
     "claim_ids": [
       "golgari_swarm_claim_001",
@@ -29,63 +28,67 @@
       "golgari_swarm_claim_004",
       "golgari_swarm_claim_005",
       "golgari_swarm_claim_006",
-      "golgari_swarm_claim_007"
+      "golgari_swarm_claim_007",
+      "golgari_swarm_claim_0018",
+      "golgari_swarm_claim_0019",
+      "golgari_swarm_claim_0020",
+      "golgari_swarm_claim_0021"
     ]
   },
   "evidence_summary": {
     "overall_confidence": "High",
     "limitations": [
-      "This is a compact first-pass JSON package generated from official overview and mechanics sources.",
-      "Novel-level or story-episode-specific details should be added in a later deep-dive pass with direct story citations."
+      "Gate 3 uses existing official Golgari overview, mechanics, and prerelease source records for authoritative semantic proof.",
+      "MTG-Stories repository rows are retained as discovery metadata only until a later deep story localization pass supplies bounded source locations.",
+      "Placement language is Vox Mana interpretation and must not be presented as official Wizards personality canon."
     ]
   },
   "profile_version": "1.0.0",
   "source_review_date": "2026-05-09",
-  "last_incremental_review": "2026-05-09",
+  "last_incremental_review": "2026-07-16T16:20:00.000Z",
   "core_identity": {
-    "summary": "Golgari Swarm is a black-green guild associated with Ravnica.",
-    "philosophy": "Death, decay, survival, and renewal are one cycle, not separate moral categories.",
-    "central_tension": "Golgari is philosophically stable around cycles, but politically unstable because succession, overthrow, and reanimation are built into the system.",
-    "claim_ids": [
-      "golgari_swarm_claim_0008",
-      "golgari_swarm_claim_0009",
-      "golgari_swarm_claim_0010",
-      "golgari_swarm_claim_0011",
-      "golgari_swarm_claim_0012",
-      "golgari_swarm_claim_0013",
-      "golgari_swarm_claim_0014",
-      "golgari_swarm_claim_0015"
+    "summary": "Golgari Swarm is the black-green guild whose authoritative signal is death-to-life reclamation, decay, undercity survival, food production, and graveyard resource use.",
+    "philosophy": "Death and decay matter because they become material for survival, food, and renewal.",
+    "central_tension": "The Swarm can make loss useful, but it becomes a false positive when only generic resilience, nature, morbidity, or black-green color identity is present.",
+    "evidence_claim_ids": [
+      "golgari_swarm_claim_001",
+      "golgari_swarm_claim_002",
+      "golgari_swarm_claim_003",
+      "golgari_swarm_claim_006",
+      "golgari_swarm_claim_0018",
+      "golgari_swarm_claim_0021"
     ]
   },
   "site_surface": {
     "display_name": "Golgari Swarm",
     "short_label": "Golgari Swarm",
-    "tagline": "Death, decay, survival, and renewal are one cycle, not separate moral categories.",
-    "claim_ids": [
-      "golgari_swarm_claim_0008",
-      "golgari_swarm_claim_0009",
-      "golgari_swarm_claim_0010",
-      "golgari_swarm_claim_0011"
+    "tagline": "What is discarded can feed the next cycle.",
+    "evidence_claim_ids": [
+      "golgari_swarm_claim_001",
+      "golgari_swarm_claim_002",
+      "golgari_swarm_claim_003",
+      "golgari_swarm_claim_006",
+      "golgari_swarm_claim_0018"
     ]
   },
   "structure": {
-    "summary": "The official guide presents Golgari as an underground society in forgotten places that also feeds much of Ravnica.",
-    "claim_ids": [
-      "golgari_swarm_claim_0008",
-      "golgari_swarm_claim_0009",
-      "golgari_swarm_claim_0010",
-      "golgari_swarm_claim_0011"
+    "summary": "The official guide presents Golgari as an underground society in forgotten and unwanted places, with a farming role that feeds much of Ravnica.",
+    "evidence_claim_ids": [
+      "golgari_swarm_claim_002",
+      "golgari_swarm_claim_003",
+      "golgari_swarm_claim_004",
+      "golgari_swarm_claim_005"
     ]
   },
   "great_tension": {
-    "summary": "Golgari is philosophically stable around cycles, but politically unstable because succession, overthrow, and reanimation are built into the system.",
-    "placement_relevance": "Used to distinguish surface color overlap from faction-specific behavior.",
-    "claim_ids": [
-      "golgari_swarm_claim_0008",
-      "golgari_swarm_claim_0009",
-      "golgari_swarm_claim_0010",
-      "golgari_swarm_claim_0011",
-      "golgari_swarm_claim_0012"
+    "summary": "Golgari placement must preserve the source-backed cycle of death, decay, underground survival, food production, and renewal while suppressing generic BG resilience or rot aesthetics.",
+    "placement_relevance": "Used to distinguish Golgari from generic black-green, Witherbloom, Selesnya, Abzan, Jund, Sultai, and other adjacent readings.",
+    "evidence_claim_ids": [
+      "golgari_swarm_claim_0018",
+      "golgari_swarm_claim_0019",
+      "golgari_swarm_claim_0020",
+      "golgari_swarm_claim_0021",
+      "golgari_swarm_claim_0022"
     ]
   },
   "historical_timeline": [
@@ -97,7 +100,7 @@
         "golgari_swarm_claim_004"
       ],
       "confidence": "High",
-      "notes": "Canon-supported claim used for raw enrichment."
+      "notes": "Canon-supported claim retained as authoritative history evidence."
     }
   ],
   "key_figures": [
@@ -105,7 +108,7 @@
       "character_id": "char_svogthir",
       "name": "Svogthir",
       "role": "Original founder of the Golgari Swarm.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "relationship_to_faction": "Authoritative founder figure for the source-bounded Golgari profile.",
       "claim_ids": [
         "golgari_swarm_claim_004"
       ],
@@ -113,119 +116,67 @@
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "Bounded to official guide source record."
     },
     {
       "character_id": "char_vraska",
       "name": "Vraska",
-      "role": "Prominent Golgari leader and turncoat-turned-operator.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "role": "Leader presented by the 2018 official guide after removing Jarad with Nicol Bolas assistance.",
+      "relationship_to_faction": "Authoritative cited-era leader for the source-bounded Golgari profile.",
       "claim_ids": [
-        "golgari_swarm_claim_005",
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010",
-        "golgari_swarm_claim_0011",
-        "golgari_swarm_claim_0012",
-        "golgari_swarm_claim_0013",
-        "golgari_swarm_claim_0014",
-        "golgari_swarm_claim_0015",
-        "golgari_swarm_claim_0016",
-        "golgari_swarm_claim_0017"
+        "golgari_swarm_claim_005"
       ],
       "source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
-        "src_mtg_stories_the_gathering_storm_chapter_9_9913612d",
-        "src_mtg_stories_the_gathering_storm_chapter_7_de8fb26e",
-        "src_mtg_stories_the_gathering_storm_chapter_14_a6cf56c0",
-        "src_mtg_stories_the_gathering_storm_chapter_16_819d5212",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "confidence": "High",
-      "notes": ""
-    },
-    {
-      "character_id": "char_izoni",
-      "name": "Izoni",
-      "role": "Prominent Golgari figure.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
-      "claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009"
-      ],
-      "source_ids": [
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
-      ],
-      "confidence": "Medium",
-      "notes": ""
+      "notes": "Discovery-only Vraska story rows are retained under data_quality.corpus_upgrade.retained_native_ids, not as semantic proof."
     },
     {
       "character_id": "char_jarad",
       "name": "Jarad",
-      "role": "Prominent Golgari figure.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "role": "Former Golgari leader referenced in the 2018 leadership transition.",
+      "relationship_to_faction": "Source-bounded leadership context for Vraska replacing Jarad.",
       "claim_ids": [
-        "golgari_swarm_claim_005",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0011",
-        "golgari_swarm_claim_0013"
+        "golgari_swarm_claim_005"
       ],
       "source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_gathering_storm_chapter_9_9913612d"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "Discovery-only Jarad story rows are retained as discovery metadata only."
     }
   ],
   "canonical_flavor_text": [
     {
-      "card_name": "Golgari Swarm dossier anchor",
+      "card_name": "Golgari Swarm public anchor",
       "set": "Ravnica",
-      "short_excerpt_or_summary": "Death, decay, survival, and renewal are one cycle, not separate moral categories.",
+      "evidence_use": "auxiliary_support",
+      "short_excerpt_or_summary": "What is discarded can feed the next cycle.",
       "is_exact_excerpt": false,
+      "usage_note": "Bounded public anchor derived from official overview/mechanics, not a direct quotation.",
       "claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010",
-        "golgari_swarm_claim_0011",
-        "golgari_swarm_claim_0012",
-        "golgari_swarm_claim_0013",
-        "golgari_swarm_claim_0014",
-        "golgari_swarm_claim_0015"
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_0018"
       ],
       "source_ids": [
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
-        "src_mtg_stories_the_gathering_storm_chapter_9_9913612d",
-        "src_mtg_stories_the_gathering_storm_chapter_7_de8fb26e",
-        "src_mtg_stories_the_gathering_storm_chapter_14_a6cf56c0",
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_wotc_guilds_ravnica_prerelease_primer_2018",
-        "src_wotc_guilds_ravnica_mechanics_2018"
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
-      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+      "notes": "Commander/product guidance remains auxiliary and cannot independently prove Golgari semantic identity."
     }
   ],
   "views_on_other_factions": [],
   "mechanics": {
-    "summary": "Undergrowth expresses Golgari's ability to turn dead creatures in graveyards into present power.",
-    "claim_ids": [
-      "golgari_swarm_claim_0008",
-      "golgari_swarm_claim_0009",
-      "golgari_swarm_claim_0010",
-      "golgari_swarm_claim_0011"
+    "summary": "Undergrowth is the Guilds of Ravnica Golgari mechanic and supports graveyard-resource placement language.",
+    "evidence_claim_ids": [
+      "golgari_swarm_claim_006",
+      "golgari_swarm_claim_0018",
+      "golgari_swarm_claim_0021"
     ]
   },
   "search_and_filter_metadata": {
@@ -263,13 +214,31 @@
       "Dragon's Maze",
       "War of the Spark",
       "Ravnica Allegiance"
-    ]
+    ],
+    "metadata_note": "Search keywords and story-corpus names are discovery metadata only and are not authoritative semantic proof under CRIT-001."
   },
   "data_quality": {
     "corpus_upgrade": {
       "review_date": "2026-05-09",
-      "status": "MTG-Stories corpus evidence added",
-      "claim_ids": [
+      "status": "Discovery metadata retained; not authoritative semantic proof.",
+      "evidence_use": "discovery_metadata",
+      "gate3_review_date": "2026-07-16",
+      "retained_native_ids": [
+        {
+          "character_id": "char_izoni",
+          "retained_as": "discovery metadata only"
+        },
+        {
+          "character_id": "char_vraska",
+          "retained_as": "authoritative key figure only through claim_005; story rows discovery metadata only"
+        },
+        {
+          "character_id": "char_jarad",
+          "retained_as": "authoritative key figure only through claim_005; story rows discovery metadata only"
+        }
+      ],
+      "restriction": "Do not use these discovery records as proof for profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, or public-facing claims.",
+      "retained_discovery_claim_ids": [
         "golgari_swarm_claim_0008",
         "golgari_swarm_claim_0009",
         "golgari_swarm_claim_0010",
@@ -326,25 +295,19 @@
         "Lands overlap with Gruul"
       ],
       "supporting_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010",
-        "golgari_swarm_claim_0011",
-        "golgari_swarm_claim_0012",
-        "golgari_swarm_claim_0013",
-        "golgari_swarm_claim_0014",
-        "golgari_swarm_claim_0015"
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0021"
       ],
       "supporting_source_ids": [
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
-        "src_mtg_stories_the_gathering_storm_chapter_9_9913612d",
-        "src_mtg_stories_the_gathering_storm_chapter_7_de8fb26e",
-        "src_mtg_stories_the_gathering_storm_chapter_14_a6cf56c0"
-      ]
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+      ],
+      "auxiliary_support_boundary": "Commander/card/product guidance is auxiliary only; existing_repo_claim_ids and existing_repo_source_ids exclude discovery-only story-corpus records and cannot independently prove Golgari identity, placement, key figures, recruiter guidance, semantic readiness, public copy, or provenance chains."
     },
     "native_fit_commanders": [
       {
@@ -381,20 +344,23 @@
             "High popularity for Golgari veterans"
           ],
           "existing_repo_claim_ids": [
-            "golgari_swarm_claim_005",
-            "golgari_swarm_claim_0009",
-            "golgari_swarm_claim_0011",
-            "golgari_swarm_claim_0013"
+            "golgari_swarm_claim_001",
+            "golgari_swarm_claim_002",
+            "golgari_swarm_claim_003",
+            "golgari_swarm_claim_006",
+            "golgari_swarm_claim_0018"
           ],
           "existing_repo_source_ids": [
             "src_wotc_flavorful_guide_guilds_ravnica_2018",
-            "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
-            "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-            "src_mtg_stories_the_gathering_storm_chapter_9_9913612d"
+            "src_wotc_guilds_ravnica_mechanics_2018",
+            "src_wotc_guilds_ravnica_prerelease_primer_2018"
           ]
         },
         "confidence": "High",
-        "caution_notes": [],
+        "caution_notes": [
+          "Discovery-only story-corpus claim IDs removed from this auxiliary support chain.",
+          "Commander/card/product material remains auxiliary and is not authoritative Golgari semantic proof."
+        ],
         "type_line": "Legendary Creature — Zombie Elf"
       }
     ],
@@ -432,29 +398,23 @@
             "Competitive staple in BG"
           ],
           "existing_repo_claim_ids": [
-            "golgari_swarm_claim_0008",
-            "golgari_swarm_claim_0009",
-            "golgari_swarm_claim_0010",
-            "golgari_swarm_claim_0011",
-            "golgari_swarm_claim_0012",
-            "golgari_swarm_claim_0013",
-            "golgari_swarm_claim_0014",
-            "golgari_swarm_claim_0015"
+            "golgari_swarm_claim_001",
+            "golgari_swarm_claim_002",
+            "golgari_swarm_claim_003",
+            "golgari_swarm_claim_006",
+            "golgari_swarm_claim_0018"
           ],
           "existing_repo_source_ids": [
-            "src_mtg_stories_desperate_operatives_6c6a580b",
-            "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
-            "src_mtg_stories_deaths_precious_moments_1f524c65",
-            "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-            "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
-            "src_mtg_stories_the_gathering_storm_chapter_9_9913612d",
-            "src_mtg_stories_the_gathering_storm_chapter_7_de8fb26e",
-            "src_mtg_stories_the_gathering_storm_chapter_14_a6cf56c0"
+            "src_wotc_flavorful_guide_guilds_ravnica_2018",
+            "src_wotc_guilds_ravnica_mechanics_2018",
+            "src_wotc_guilds_ravnica_prerelease_primer_2018"
           ]
         },
         "confidence": "High",
         "caution_notes": [
-          "Mechanically very high complexity."
+          "Mechanically very high complexity.",
+          "Discovery-only story-corpus claim IDs removed from this auxiliary support chain.",
+          "Commander/card/product material remains auxiliary and is not authoritative Golgari semantic proof."
         ],
         "type_line": "Legendary Creature — Frog Horror"
       }
@@ -494,29 +454,23 @@
             "Hall of Fame commander status"
           ],
           "existing_repo_claim_ids": [
-            "golgari_swarm_claim_0008",
-            "golgari_swarm_claim_0009",
-            "golgari_swarm_claim_0010",
-            "golgari_swarm_claim_0011",
-            "golgari_swarm_claim_0012",
-            "golgari_swarm_claim_0013",
-            "golgari_swarm_claim_0014",
-            "golgari_swarm_claim_0015"
+            "golgari_swarm_claim_001",
+            "golgari_swarm_claim_002",
+            "golgari_swarm_claim_003",
+            "golgari_swarm_claim_006",
+            "golgari_swarm_claim_0018"
           ],
           "existing_repo_source_ids": [
-            "src_mtg_stories_desperate_operatives_6c6a580b",
-            "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
-            "src_mtg_stories_deaths_precious_moments_1f524c65",
-            "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-            "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
-            "src_mtg_stories_the_gathering_storm_chapter_9_9913612d",
-            "src_mtg_stories_the_gathering_storm_chapter_7_de8fb26e",
-            "src_mtg_stories_the_gathering_storm_chapter_14_a6cf56c0"
+            "src_wotc_flavorful_guide_guilds_ravnica_2018",
+            "src_wotc_guilds_ravnica_mechanics_2018",
+            "src_wotc_guilds_ravnica_prerelease_primer_2018"
           ]
         },
         "confidence": "High",
         "caution_notes": [
-          "Not Golgari Swarm canon or Ravnica lore; keep framed as gameplay guidance."
+          "Not Golgari Swarm canon or Ravnica lore; keep framed as gameplay guidance.",
+          "Discovery-only story-corpus claim IDs removed from this auxiliary support chain.",
+          "Commander/card/product material remains auxiliary and is not authoritative Golgari semantic proof."
         ],
         "type_line": "Legendary Creature — Human Shaman"
       }
@@ -564,7 +518,8 @@
       "product_guidance_not_canon": true,
       "commander_legality_validated": true,
       "scryfall_card_pages_validated": true,
-      "do_not_use_as_claim_source": true
+      "do_not_use_as_claim_source": true,
+      "crit001_gate3": "Commander compass is auxiliary product guidance. Discovery-story native IDs are retained as metadata but are not authoritative proof chains."
     }
   }
 }

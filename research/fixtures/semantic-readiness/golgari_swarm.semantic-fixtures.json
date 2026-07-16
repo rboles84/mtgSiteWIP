@@ -1,0 +1,258 @@
+{
+  "identity_key": "BG",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "golgari_core_reclamation_cycle",
+      "fixture_type": "core_inclusion",
+      "scenario": "A clear Golgari case centers discarded matter, death, decay, rot, graveyard resources, undercity survival, food, and renewal rather than generic BG resilience.",
+      "intended_interpretation": "Golgari inclusion is grounded when black-green identity is expressed as source-bounded death-to-life reclamation.",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+      ],
+      "defensible_guidance": "Explain Golgari through official black-green identity, undercity/unwanted places, food production, undergrowth, and reclamation guardrails.",
+      "unsupported_certainty_to_avoid": "Do not use death, graveyard, rot, sacrifice, survival, or nature language as standalone proof."
+    },
+    {
+      "fixture_id": "golgari_pressure_reclaims_loss",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "Under pressure, a mature Golgari reading makes loss into useful material; unhealthy Golgari appears when decay becomes fatalism or rot without renewal.",
+      "intended_interpretation": "Mature or pressure behavior is defensible only when reclamation and survival remain visible.",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0019",
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Ask whether death and failure become food, shelter, renewal, or graveyard-resource use.",
+      "unsupported_certainty_to_avoid": "Do not certify Golgari from fatalism, predation, or graveyard aesthetics without useful reclamation."
+    },
+    {
+      "fixture_id": "golgari_exclusion_generic_bg_overfit",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_BG_OVERFIT",
+      "scenario": "A user presents generic BG surface overlap without choosing Golgari death, decay, reclamation, undercity survival, food-production, or graveyard-resource use as the leading signal.",
+      "intended_interpretation": "Keep Golgari adjacent or suppressed unless the source-bounded Golgari reclamation cluster is present.",
+      "evidence_claim_ids": ["golgari_swarm_claim_0022"],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Require death-to-life reclamation before certifying Golgari.",
+      "unsupported_certainty_to_avoid": "Do not infer Golgari from color identity or generic resilience alone."
+    },
+    {
+      "fixture_id": "golgari_exclusion_b",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "B",
+      "scenario": "A user presents B surface overlap without Golgari reclamation.",
+      "intended_interpretation": "Keep Golgari adjacent or suppressed unless black leverage is tied to the source-bounded Golgari cycle.",
+      "evidence_claim_ids": ["golgari_swarm_claim_0023"],
+      "evidence_source_ids": ["src_wotc_flavorful_guide_guilds_ravnica_2018", "src_wotc_guilds_ravnica_mechanics_2018"],
+      "defensible_guidance": "Ask whether death is private asset or material feeding a cycle.",
+      "unsupported_certainty_to_avoid": "Do not infer Golgari from black color preference alone."
+    },
+    {
+      "fixture_id": "golgari_exclusion_g",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "G",
+      "scenario": "A user presents G surface overlap without decay or reclamation.",
+      "intended_interpretation": "Keep Golgari adjacent or suppressed unless growth is joined to death, decay, rot, graveyard material, or reclaimed waste.",
+      "evidence_claim_ids": ["golgari_swarm_claim_0024"],
+      "evidence_source_ids": ["src_wotc_flavorful_guide_guilds_ravnica_2018", "src_wotc_guilds_ravnica_mechanics_2018"],
+      "defensible_guidance": "Ask whether growth is joined to death and reclaimed matter.",
+      "unsupported_certainty_to_avoid": "Do not infer Golgari from generic nature."
+    },
+    {
+      "fixture_id": "golgari_exclusion_witherbloom",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WITHERBLOOM",
+      "scenario": "A user presents Witherbloom-like school, essence, pest, potion, or life-drain language without Golgari undercity reclamation.",
+      "intended_interpretation": "Keep Golgari adjacent or suppressed unless civic-undercity ecology, rot, food production, graveyard resource use, or reclamation leads.",
+      "evidence_claim_ids": ["golgari_swarm_claim_0025"],
+      "evidence_source_ids": ["src_wotc_flavorful_guide_guilds_ravnica_2018", "src_wotc_guilds_ravnica_mechanics_2018"],
+      "defensible_guidance": "Separate Strixhaven essence craft from Golgari civic-undercity reclamation.",
+      "unsupported_certainty_to_avoid": "Do not flatten Witherbloom into Golgari."
+    },
+    {
+      "fixture_id": "golgari_exclusion_wg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WG",
+      "scenario": "A user presents white-green harmony without discarded matter or death feeding renewal.",
+      "intended_interpretation": "Keep Golgari adjacent or suppressed unless belonging is led by discarded matter, decay, underground survival, or death feeding renewal.",
+      "evidence_claim_ids": ["golgari_swarm_claim_0026"],
+      "evidence_source_ids": ["src_wotc_flavorful_guide_guilds_ravnica_2018", "src_wotc_guilds_ravnica_mechanics_2018"],
+      "defensible_guidance": "Distinguish clean communal preservation from Golgari reclamation.",
+      "unsupported_certainty_to_avoid": "Do not infer Golgari from community harmony."
+    },
+    {
+      "fixture_id": "golgari_exclusion_wb",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WB",
+      "scenario": "A user presents white-black obligation or hierarchy without ecological reclamation.",
+      "intended_interpretation": "Keep Golgari adjacent or suppressed unless debt, death, or hierarchy gives way to ecological reclamation, rot, food, and the death-to-life cycle.",
+      "evidence_claim_ids": ["golgari_swarm_claim_0027"],
+      "evidence_source_ids": ["src_wotc_flavorful_guide_guilds_ravnica_2018", "src_wotc_guilds_ravnica_mechanics_2018"],
+      "defensible_guidance": "Separate collectible obligation from reclaimed material.",
+      "unsupported_certainty_to_avoid": "Do not infer Golgari from death plus debt."
+    },
+    {
+      "fixture_id": "golgari_exclusion_rg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "RG",
+      "scenario": "A user presents red-green wild dispossession without city-underside reclamation.",
+      "intended_interpretation": "Keep Golgari adjacent or suppressed unless rage or survival is grounded in rot, discarded material, and reclamation.",
+      "evidence_claim_ids": ["golgari_swarm_claim_0028"],
+      "evidence_source_ids": ["src_wotc_flavorful_guide_guilds_ravnica_2018", "src_wotc_guilds_ravnica_mechanics_2018"],
+      "defensible_guidance": "Separate anti-civilization fury from Golgari undercity survival.",
+      "unsupported_certainty_to_avoid": "Do not infer Golgari from survival rage."
+    },
+    {
+      "fixture_id": "golgari_exclusion_br",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BR",
+      "scenario": "A user presents black-red spectacle without reclamation or renewal.",
+      "intended_interpretation": "Keep Golgari adjacent or suppressed unless sacrifice, death, or appetite is framed as reclamation, graveyard resource use, or renewal.",
+      "evidence_claim_ids": ["golgari_swarm_claim_0029"],
+      "evidence_source_ids": ["src_wotc_flavorful_guide_guilds_ravnica_2018", "src_wotc_guilds_ravnica_mechanics_2018"],
+      "defensible_guidance": "Separate public release and performance from Golgari reclamation.",
+      "unsupported_certainty_to_avoid": "Do not infer Golgari from sacrifice spectacle."
+    },
+    {
+      "fixture_id": "golgari_exclusion_ub",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UB",
+      "scenario": "A user presents blue-black secrecy without material life-death cycles.",
+      "intended_interpretation": "Keep Golgari adjacent or suppressed unless hidden knowledge gives way to material cycles, undercity survival, and reclaimed matter.",
+      "evidence_claim_ids": ["golgari_swarm_claim_0030"],
+      "evidence_source_ids": ["src_wotc_flavorful_guide_guilds_ravnica_2018", "src_wotc_guilds_ravnica_mechanics_2018"],
+      "defensible_guidance": "Separate information leverage from reclaimed living material.",
+      "unsupported_certainty_to_avoid": "Do not infer Golgari from secrecy plus death."
+    },
+    {
+      "fixture_id": "golgari_exclusion_simic_combine",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SIMIC_COMBINE",
+      "scenario": "A user presents biological improvement without death, decay, or graveyard material.",
+      "intended_interpretation": "Keep Golgari adjacent or suppressed unless adaptation is centered on death, decay, graveyard material, and reclamation.",
+      "evidence_claim_ids": ["golgari_swarm_claim_0031"],
+      "evidence_source_ids": ["src_wotc_flavorful_guide_guilds_ravnica_2018", "src_wotc_guilds_ravnica_mechanics_2018"],
+      "defensible_guidance": "Separate optimization from death feeding the next cycle.",
+      "unsupported_certainty_to_avoid": "Do not infer Golgari from biology alone."
+    },
+    {
+      "fixture_id": "golgari_exclusion_abzan",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ABZAN",
+      "scenario": "A user presents Abzan endurance without black-green decay and reclamation.",
+      "intended_interpretation": "Keep Golgari adjacent or suppressed unless endurance is led by black-green decay and reclamation rather than white-coded preservation.",
+      "evidence_claim_ids": ["golgari_swarm_claim_0032"],
+      "evidence_source_ids": ["src_wotc_flavorful_guide_guilds_ravnica_2018", "src_wotc_guilds_ravnica_mechanics_2018"],
+      "defensible_guidance": "Separate kinship preservation from Golgari reclamation.",
+      "unsupported_certainty_to_avoid": "Do not infer Golgari from endurance alone."
+    },
+    {
+      "fixture_id": "golgari_exclusion_jund",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "JUND",
+      "scenario": "A user presents Jund appetite and predation without reclaimed death, rot, food, or graveyard resource use.",
+      "intended_interpretation": "Keep Golgari adjacent or suppressed unless survival is framed through reclaimed death and useful decay.",
+      "evidence_claim_ids": ["golgari_swarm_claim_0033"],
+      "evidence_source_ids": ["src_wotc_flavorful_guide_guilds_ravnica_2018", "src_wotc_guilds_ravnica_mechanics_2018"],
+      "defensible_guidance": "Separate predation from useful decay feeding renewal.",
+      "unsupported_certainty_to_avoid": "Do not infer Golgari from appetite."
+    },
+    {
+      "fixture_id": "golgari_exclusion_sultai",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SULTAI",
+      "scenario": "A user presents Sultai calculation or necromantic ambition without black-green cycle and reclamation.",
+      "intended_interpretation": "Keep Golgari adjacent or suppressed unless resource use is bounded by black-green cycle, rot, reclamation, and undercity survival.",
+      "evidence_claim_ids": ["golgari_swarm_claim_0034"],
+      "evidence_source_ids": ["src_wotc_flavorful_guide_guilds_ravnica_2018", "src_wotc_guilds_ravnica_mechanics_2018"],
+      "defensible_guidance": "Separate cold control from reclaimed cycle logic.",
+      "unsupported_certainty_to_avoid": "Do not infer Golgari from necromantic ambition alone."
+    },
+    {
+      "fixture_id": "golgari_ambiguous_bg_or_reclamation",
+      "fixture_type": "nearest_collision_ambiguity",
+      "neighbor": "GENERIC_BG_OVERFIT",
+      "scenario": "A user likes black-green survival, sacrifice, and graveyard value but has not said whether the point is Golgari reclamation, Witherbloom essence craft, Jund appetite, or Sultai calculation.",
+      "intended_interpretation": "Keep ambiguity until the answer chooses Golgari death-to-life reclamation or a required-neighbor motive.",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0021",
+        "golgari_swarm_claim_0022",
+        "golgari_swarm_claim_0025",
+        "golgari_swarm_claim_0033",
+        "golgari_swarm_claim_0034"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Use uncertainty guidance when BG/graveyard surface language is present but reclamation is not yet chosen.",
+      "unsupported_certainty_to_avoid": "Do not force Golgari from color identity, sacrifice gameplay, or graveyard/value language alone."
+    },
+    {
+      "fixture_id": "golgari_provenance_placement_summary",
+      "fixture_type": "provenance",
+      "scenario": "The Golgari placement summary must preserve complete evidence chains for profile identity, reclamation behavior, and required-neighbor guardrails.",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/placement_summary",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_004",
+        "golgari_swarm_claim_005",
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_007",
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0019",
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0021",
+        "golgari_swarm_claim_0022",
+        "golgari_swarm_claim_0023",
+        "golgari_swarm_claim_0024",
+        "golgari_swarm_claim_0025",
+        "golgari_swarm_claim_0026",
+        "golgari_swarm_claim_0027",
+        "golgari_swarm_claim_0028",
+        "golgari_swarm_claim_0029",
+        "golgari_swarm_claim_0030",
+        "golgari_swarm_claim_0031",
+        "golgari_swarm_claim_0032",
+        "golgari_swarm_claim_0033",
+        "golgari_swarm_claim_0034"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+      ],
+      "expected_generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "defensible_guidance": "Generated consumers must preserve claim/source provenance for Golgari placement summary guidance.",
+      "unsupported_certainty_to_avoid": "Do not expose internal claim IDs in user-facing recruiter prose."
+    }
+  ]
+}

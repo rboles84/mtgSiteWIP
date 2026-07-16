@@ -6736,11 +6736,11 @@
         "G"
       ],
       "identity": {
-        "summary": "Golgari Swarm is a black-green guild associated with Ravnica.",
-        "philosophy": "Death, decay, survival, and renewal are one cycle, not separate moral categories.",
-        "central_tension": "Golgari is philosophically stable around cycles, but politically unstable because succession, overthrow, and reanimation are built into the system.",
-        "display_tagline": "Death, decay, survival, and renewal are one cycle, not separate moral categories.",
-        "mechanics": "Undergrowth expresses Golgari's ability to turn dead creatures in graveyards into present power."
+        "summary": "Golgari Swarm is the black-green guild whose authoritative signal is death-to-life reclamation, decay, undercity survival, food production, and graveyard resource use.",
+        "philosophy": "Death and decay matter because they become material for survival, food, and renewal.",
+        "central_tension": "The Swarm can make loss useful, but it becomes a false positive when only generic resilience, nature, morbidity, or black-green color identity is present.",
+        "display_tagline": "What is discarded can feed the next cycle.",
+        "mechanics": "Undergrowth is the Guilds of Ravnica Golgari mechanic and supports graveyard-resource placement language."
       },
       "layered_identity": {
         "core_color": "B",
@@ -6797,47 +6797,75 @@
       "good_fit_indicators": [
         "finds value in what others discard",
         "accepts endings as material for renewal",
-        "survives through adaptation and practical resilience"
+        "survives through reclamation and practical undercity resilience"
       ],
       "poor_fit_indicators": [
         "needs purity or cleanliness as a moral principle",
-        "denies loss instead of integrating it",
-        "rejects the body, decay, or mortality as topics"
+        "denies loss instead of integrating it into useful material",
+        "uses generic nature, resilience, or morbidity without reclamation"
       ],
       "inhibitor_traps": [
         "Disgust toward decay, death, dirt, failure, or the marginalized; needs life to look clean, respectable, and untouched.",
+        "User only wants generic BG resilience, generic nature, graveyard style, morbidity, or survival without reclamation.",
+        "User centers Witherbloom essence craft, Selesnya harmony, Orzhov obligation, Gruul dispossession, Rakdos spectacle, Dimir secrecy, Simic optimization, Abzan family endurance, Jund predation, or Sultai calculation first.",
+        "User treats death as an endpoint, performance, private leverage, or cold control rather than material that feeds the next cycle.",
         "needs purity or cleanliness as a moral principle",
-        "denies loss instead of integrating it",
-        "rejects the body, decay, or mortality as topics"
+        "denies loss instead of integrating it into useful material",
+        "uses generic nature, resilience, or morbidity without reclamation"
       ],
       "discriminator_questions": [
         {
           "id": "golgari_q1",
           "prompt": "What do you do with a failure after everyone else has walked away from it?",
-          "purpose": "Tests renewal, salvage, and survival thinking.",
-          "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-          "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-          "collision_targets": [],
-          "evidence_claim_ids": [
-            "golgari_swarm_claim_001",
-            "golgari_swarm_claim_002",
-            "golgari_swarm_claim_003"
+          "purpose": "Tests reclamation, salvage, and survival thinking without generic BG overfit.",
+          "supports": "The answer makes discarded material, death, decay, rot, graveyard resources, or undercity survival feed renewal.",
+          "weakens": "The answer prefers clean preservation, private leverage, public spectacle, generic nature, or abstract study without reclamation.",
+          "collision_targets": [
+            "BG",
+            "B",
+            "G",
+            "WITHERBLOOM",
+            "WG",
+            "WB",
+            "RG"
           ],
-          "confidence": "Medium"
+          "evidence_claim_ids": [
+            "golgari_swarm_claim_0018",
+            "golgari_swarm_claim_0021",
+            "golgari_swarm_claim_0022",
+            "golgari_swarm_claim_0023",
+            "golgari_swarm_claim_0024"
+          ],
+          "confidence": "Medium",
+          "lateral_inhibition": false
         },
         {
           "id": "golgari_q2",
-          "prompt": "Is an ending mainly a loss, a release, or raw material?",
-          "purpose": "Distinguishes Golgari cycle logic from Witherbloom study.",
-          "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-          "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-          "collision_targets": [],
-          "evidence_claim_ids": [
-            "golgari_swarm_claim_001",
-            "golgari_swarm_claim_002",
-            "golgari_swarm_claim_003"
+          "prompt": "Is an ending mainly a loss, a release, an experiment, or raw material for the next cycle?",
+          "purpose": "Distinguishes Golgari cycle logic from Rakdos release, Witherbloom study, Simic experiment, and generic resilience.",
+          "supports": "The answer treats ending, death, or decay as material that feeds survival, food, renewal, or graveyard-resource use.",
+          "weakens": "The answer chooses performance, private power, essence craft, optimization, appetite, or family endurance before reclamation.",
+          "collision_targets": [
+            "BR",
+            "WITHERBLOOM",
+            "UG",
+            "JUND",
+            "ABZAN",
+            "SULTAI"
           ],
-          "confidence": "Medium"
+          "evidence_claim_ids": [
+            "golgari_swarm_claim_0018",
+            "golgari_swarm_claim_0019",
+            "golgari_swarm_claim_0020",
+            "golgari_swarm_claim_0021",
+            "golgari_swarm_claim_0025",
+            "golgari_swarm_claim_0029",
+            "golgari_swarm_claim_0031",
+            "golgari_swarm_claim_0033",
+            "golgari_swarm_claim_0034"
+          ],
+          "confidence": "Medium",
+          "lateral_inhibition": false
         },
         {
           "id": "golgari_q3",
@@ -6846,17 +6874,27 @@
           "supports": "The answer centers decay as useful truth, reclaimed waste, death feeding life, undercity survival, or endings becoming material for renewal.",
           "weakens": "The answer centers clean preservation, generic nature, abstract study, long endurance, appetite, or survival without decay, reclamation, or cycle logic.",
           "collision_targets": [
+            "WITHERBLOOM",
+            "ABZAN",
             "JUND",
-            "WG"
+            "WG",
+            "UG",
+            "SULTAI"
           ],
           "evidence_claim_ids": [
             "golgari_swarm_claim_001",
             "golgari_swarm_claim_002",
             "golgari_swarm_claim_003",
             "golgari_swarm_claim_006",
-            "golgari_swarm_claim_007"
+            "golgari_swarm_claim_007",
+            "golgari_swarm_claim_0018",
+            "golgari_swarm_claim_0021",
+            "golgari_swarm_claim_0025",
+            "golgari_swarm_claim_0032",
+            "golgari_swarm_claim_0033"
           ],
-          "confidence": "Medium"
+          "confidence": "Medium",
+          "lateral_inhibition": false
         }
       ],
       "lateral_inhibition_targets": [
@@ -6867,21 +6905,165 @@
         "ABZAN",
         "SULTAI"
       ],
-      "collision_guidance": [],
+      "collision_guidance": [
+        {
+          "collision_id": "golgari_vs_generic_bg_overfit_gate3",
+          "against": "BG",
+          "lateral_inhibition": false,
+          "separator": "Golgari requires death, decay, undercity survival, food-production, graveyard resources, or reclamation; generic black-green resilience does not certify it.",
+          "ask": "Is there a death-to-life reclamation frame, or only BG color overlap?",
+          "suppress_if": "Suppress Golgari when the answer lacks death, decay, reclamation, undercity, food, or graveyard-resource proof.",
+          "evidence_claim_ids": [
+            "golgari_swarm_claim_0022"
+          ]
+        },
+        {
+          "collision_id": "golgari_vs_black_private_leverage_gate3",
+          "against": "B",
+          "lateral_inhibition": false,
+          "separator": "Golgari turns death and discarded matter into a living cycle; mono-black-adjacent leverage can remain private power.",
+          "ask": "Is death a private asset or material feeding a cycle?",
+          "suppress_if": "Suppress Golgari when private leverage leads without reclamation or renewal.",
+          "evidence_claim_ids": [
+            "golgari_swarm_claim_0023"
+          ]
+        },
+        {
+          "collision_id": "golgari_vs_green_generic_nature_gate3",
+          "against": "G",
+          "lateral_inhibition": false,
+          "separator": "Golgari adds death, decay, and graveyard material to growth; mono-green nature does not need rot or the undercity.",
+          "ask": "Is growth joined to death and reclaimed matter, or only nature?",
+          "suppress_if": "Suppress Golgari when nature/growth lacks decay, death, or reclamation.",
+          "evidence_claim_ids": [
+            "golgari_swarm_claim_0024"
+          ]
+        },
+        {
+          "collision_id": "golgari_vs_witherbloom_essence_craft_gate3",
+          "against": "WITHERBLOOM",
+          "lateral_inhibition": false,
+          "separator": "Witherbloom-like school, essence, pest, potion, or life-drain language stays adjacent unless Golgari undercity ecology and reclamation lead.",
+          "ask": "Is the answer school/essence craft, or civic-undercity reclamation?",
+          "suppress_if": "Suppress Golgari when Strixhaven essence craft or life-drain school language leads.",
+          "evidence_claim_ids": [
+            "golgari_swarm_claim_0025"
+          ]
+        },
+        {
+          "collision_id": "golgari_vs_selesnya_harmony_gate3",
+          "against": "WG",
+          "lateral_inhibition": false,
+          "separator": "Selesnya tends harmony and belonging; Golgari works from discarded matter, death, decay, and survival below the city.",
+          "ask": "Is the community cleanly preserved, or is unwanted matter feeding renewal?",
+          "suppress_if": "Suppress Golgari when communal harmony and preservation lead.",
+          "evidence_claim_ids": [
+            "golgari_swarm_claim_0026"
+          ]
+        },
+        {
+          "collision_id": "golgari_vs_orzhov_obligation_gate3",
+          "against": "WB",
+          "lateral_inhibition": false,
+          "separator": "Orzhov makes death and obligation collectible; Golgari makes death and waste feed ecological survival.",
+          "ask": "Is pressure debt/obligation, or reclaimed material?",
+          "suppress_if": "Suppress Golgari when debt, status, or hierarchy leads.",
+          "evidence_claim_ids": [
+            "golgari_swarm_claim_0027"
+          ]
+        },
+        {
+          "collision_id": "golgari_vs_gruul_dispossession_gate3",
+          "against": "RG",
+          "lateral_inhibition": false,
+          "separator": "Gruul centers wild dispossession and anti-civilization rage; Golgari uses the city underside and waste as infrastructure.",
+          "ask": "Is refusal wild grief against civilization, or reclamation below it?",
+          "suppress_if": "Suppress Golgari when dispossession or anti-civilization rage leads.",
+          "evidence_claim_ids": [
+            "golgari_swarm_claim_0028"
+          ]
+        },
+        {
+          "collision_id": "golgari_vs_rakdos_spectacle_gate3",
+          "against": "BR",
+          "lateral_inhibition": false,
+          "separator": "Rakdos performs release as spectacle; Golgari converts death, rot, and waste into renewal and survival.",
+          "ask": "Is sacrifice becoming public performance, or reclaimed material?",
+          "suppress_if": "Suppress Golgari when spectacle, audience, or visible cost leads.",
+          "evidence_claim_ids": [
+            "golgari_swarm_claim_0029"
+          ]
+        },
+        {
+          "collision_id": "golgari_vs_dimir_secrecy_gate3",
+          "against": "UB",
+          "lateral_inhibition": false,
+          "separator": "Dimir centers hidden information and manipulation; Golgari centers material life-death cycles and undercity survival.",
+          "ask": "Is the hidden thing information leverage, or reclaimed living material?",
+          "suppress_if": "Suppress Golgari when secrecy or information control leads.",
+          "evidence_claim_ids": [
+            "golgari_swarm_claim_0030"
+          ]
+        },
+        {
+          "collision_id": "golgari_vs_simic_optimization_gate3",
+          "against": "UG",
+          "lateral_inhibition": false,
+          "separator": "Simic improves and adapts biology; Golgari reclaims death, decay, and graveyard material into survival.",
+          "ask": "Is the body being optimized, or is death feeding the next cycle?",
+          "suppress_if": "Suppress Golgari when improvement, adaptation, or experiment leads without reclamation.",
+          "evidence_claim_ids": [
+            "golgari_swarm_claim_0031"
+          ]
+        },
+        {
+          "collision_id": "golgari_vs_abzan_endurance_gate3",
+          "against": "ABZAN",
+          "lateral_inhibition": false,
+          "separator": "Abzan endurance preserves family and ancestor duty; Golgari lacks that white-coded structure and centers decay and reclamation.",
+          "ask": "Is endurance kinship preservation, or black-green reclamation?",
+          "suppress_if": "Suppress Golgari when family duty, ancestor preservation, or white-coded endurance leads.",
+          "evidence_claim_ids": [
+            "golgari_swarm_claim_0032"
+          ]
+        },
+        {
+          "collision_id": "golgari_vs_jund_predation_gate3",
+          "against": "JUND",
+          "lateral_inhibition": false,
+          "separator": "Jund centers appetite, predation, and survival hierarchy; Golgari centers reclaimed death, rot, food, and the next cycle.",
+          "ask": "Is appetite survival dominance, or useful decay feeding renewal?",
+          "suppress_if": "Suppress Golgari when predation or instinctive dominance leads.",
+          "evidence_claim_ids": [
+            "golgari_swarm_claim_0033"
+          ]
+        },
+        {
+          "collision_id": "golgari_vs_sultai_calculation_gate3",
+          "against": "SULTAI",
+          "lateral_inhibition": false,
+          "separator": "Sultai calculation uses resource and death through cold control; Golgari stays black-green cycle, rot, reclamation, and undercity survival.",
+          "ask": "Is death being calculated as control, or reclaimed as a cycle?",
+          "suppress_if": "Suppress Golgari when blue-black-green calculation or cold control leads.",
+          "evidence_claim_ids": [
+            "golgari_swarm_claim_0034"
+          ]
+        }
+      ],
       "chatbot_guidance": {
         "how_to_recognize_match": [
-          "finds value in what others discard",
-          "accepts endings as material for renewal",
-          "survives through adaptation and practical resilience"
+          "User turns death, decay, discarded matter, or failure into material for renewal.",
+          "User centers undercity survival, reclamation, food, rot, graveyard resources, or life-from-death cycles.",
+          "User accepts endings as useful truth rather than treating decay as aesthetics or generic resilience."
         ],
         "how_to_recognize_mismatch": [
-          "needs purity or cleanliness as a moral principle",
-          "denies loss instead of integrating it",
-          "rejects the body, decay, or mortality as topics"
+          "User only wants generic BG resilience, generic nature, graveyard style, morbidity, or survival without reclamation.",
+          "User centers Witherbloom essence craft, Selesnya harmony, Orzhov obligation, Gruul dispossession, Rakdos spectacle, Dimir secrecy, Simic optimization, Abzan family endurance, Jund predation, or Sultai calculation first.",
+          "User treats death as an endpoint, performance, private leverage, or cold control rather than material that feeds the next cycle."
         ],
         "questions_to_ask_when_uncertain": [
-          "What do you do with a failure after everyone else has walked away from it?",
-          "Is an ending mainly a loss, a release, or raw material?"
+          "Does the ending become useful material for renewal, food, shelter, or survival, or is it only loss, power, spectacle, or study?",
+          "When something is discarded, do you preserve it, monetize it, perform it, optimize it, consume it, or make it feed the next cycle?"
         ],
         "do_not_overweight": [
           "Do not overfit a single color preference.",
@@ -6907,7 +7089,7 @@
         "profile_version": "1.0.0",
         "placement_model_version": "vox-mana-lore-json-v1",
         "source_review_date": "2026-05-09",
-        "claim_count": 7
+        "claim_count": 11
       }
     },
     "RG": {

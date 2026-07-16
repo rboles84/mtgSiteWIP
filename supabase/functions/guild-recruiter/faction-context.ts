@@ -5832,18 +5832,21 @@ export const FACTION_CONTEXT = {
     "good_fit_indicators": [
       "finds value in what others discard",
       "accepts endings as material for renewal",
-      "survives through adaptation and practical resilience"
+      "survives through reclamation and practical undercity resilience"
     ],
     "poor_fit_indicators": [
       "needs purity or cleanliness as a moral principle",
-      "denies loss instead of integrating it",
-      "rejects the body, decay, or mortality as topics"
+      "denies loss instead of integrating it into useful material",
+      "uses generic nature, resilience, or morbidity without reclamation"
     ],
     "inhibitor_traps": [
       "Disgust toward decay, death, dirt, failure, or the marginalized; needs life to look clean, respectable, and untouched.",
+      "User only wants generic BG resilience, generic nature, graveyard style, morbidity, or survival without reclamation.",
+      "User centers Witherbloom essence craft, Selesnya harmony, Orzhov obligation, Gruul dispossession, Rakdos spectacle, Dimir secrecy, Simic optimization, Abzan family endurance, Jund predation, or Sultai calculation first.",
+      "User treats death as an endpoint, performance, private leverage, or cold control rather than material that feeds the next cycle.",
       "needs purity or cleanliness as a moral principle",
-      "denies loss instead of integrating it",
-      "rejects the body, decay, or mortality as topics"
+      "denies loss instead of integrating it into useful material",
+      "uses generic nature, resilience, or morbidity without reclamation"
     ],
     "lateral_inhibition_targets": [
       "WITHERBLOOM",
@@ -5857,30 +5860,55 @@ export const FACTION_CONTEXT = {
       {
         "id": "golgari_q1",
         "prompt": "What do you do with a failure after everyone else has walked away from it?",
-        "purpose": "Tests renewal, salvage, and survival thinking.",
-        "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-        "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-        "collision_targets": [],
-        "evidence_claim_ids": [
-          "golgari_swarm_claim_001",
-          "golgari_swarm_claim_002",
-          "golgari_swarm_claim_003"
+        "purpose": "Tests reclamation, salvage, and survival thinking without generic BG overfit.",
+        "supports": "The answer makes discarded material, death, decay, rot, graveyard resources, or undercity survival feed renewal.",
+        "weakens": "The answer prefers clean preservation, private leverage, public spectacle, generic nature, or abstract study without reclamation.",
+        "collision_targets": [
+          "BG",
+          "B",
+          "G",
+          "WITHERBLOOM",
+          "WG",
+          "WB",
+          "RG"
         ],
-        "confidence": "Medium"
+        "evidence_claim_ids": [
+          "golgari_swarm_claim_0018",
+          "golgari_swarm_claim_0021",
+          "golgari_swarm_claim_0022",
+          "golgari_swarm_claim_0023",
+          "golgari_swarm_claim_0024"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
       },
       {
         "id": "golgari_q2",
-        "prompt": "Is an ending mainly a loss, a release, or raw material?",
-        "purpose": "Distinguishes Golgari cycle logic from Witherbloom study.",
-        "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-        "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-        "collision_targets": [],
-        "evidence_claim_ids": [
-          "golgari_swarm_claim_001",
-          "golgari_swarm_claim_002",
-          "golgari_swarm_claim_003"
+        "prompt": "Is an ending mainly a loss, a release, an experiment, or raw material for the next cycle?",
+        "purpose": "Distinguishes Golgari cycle logic from Rakdos release, Witherbloom study, Simic experiment, and generic resilience.",
+        "supports": "The answer treats ending, death, or decay as material that feeds survival, food, renewal, or graveyard-resource use.",
+        "weakens": "The answer chooses performance, private power, essence craft, optimization, appetite, or family endurance before reclamation.",
+        "collision_targets": [
+          "BR",
+          "WITHERBLOOM",
+          "UG",
+          "JUND",
+          "ABZAN",
+          "SULTAI"
         ],
-        "confidence": "Medium"
+        "evidence_claim_ids": [
+          "golgari_swarm_claim_0018",
+          "golgari_swarm_claim_0019",
+          "golgari_swarm_claim_0020",
+          "golgari_swarm_claim_0021",
+          "golgari_swarm_claim_0025",
+          "golgari_swarm_claim_0029",
+          "golgari_swarm_claim_0031",
+          "golgari_swarm_claim_0033",
+          "golgari_swarm_claim_0034"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
       },
       {
         "id": "golgari_q3",
@@ -5889,33 +5917,43 @@ export const FACTION_CONTEXT = {
         "supports": "The answer centers decay as useful truth, reclaimed waste, death feeding life, undercity survival, or endings becoming material for renewal.",
         "weakens": "The answer centers clean preservation, generic nature, abstract study, long endurance, appetite, or survival without decay, reclamation, or cycle logic.",
         "collision_targets": [
+          "WITHERBLOOM",
+          "ABZAN",
           "JUND",
-          "WG"
+          "WG",
+          "UG",
+          "SULTAI"
         ],
         "evidence_claim_ids": [
           "golgari_swarm_claim_001",
           "golgari_swarm_claim_002",
           "golgari_swarm_claim_003",
           "golgari_swarm_claim_006",
-          "golgari_swarm_claim_007"
+          "golgari_swarm_claim_007",
+          "golgari_swarm_claim_0018",
+          "golgari_swarm_claim_0021",
+          "golgari_swarm_claim_0025",
+          "golgari_swarm_claim_0032",
+          "golgari_swarm_claim_0033"
         ],
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "lateral_inhibition": false
       }
     ],
     "chatbot_guidance": {
       "how_to_recognize_match": [
-        "finds value in what others discard",
-        "accepts endings as material for renewal",
-        "survives through adaptation and practical resilience"
+        "User turns death, decay, discarded matter, or failure into material for renewal.",
+        "User centers undercity survival, reclamation, food, rot, graveyard resources, or life-from-death cycles.",
+        "User accepts endings as useful truth rather than treating decay as aesthetics or generic resilience."
       ],
       "how_to_recognize_mismatch": [
-        "needs purity or cleanliness as a moral principle",
-        "denies loss instead of integrating it",
-        "rejects the body, decay, or mortality as topics"
+        "User only wants generic BG resilience, generic nature, graveyard style, morbidity, or survival without reclamation.",
+        "User centers Witherbloom essence craft, Selesnya harmony, Orzhov obligation, Gruul dispossession, Rakdos spectacle, Dimir secrecy, Simic optimization, Abzan family endurance, Jund predation, or Sultai calculation first.",
+        "User treats death as an endpoint, performance, private leverage, or cold control rather than material that feeds the next cycle."
       ],
       "questions_to_ask_when_uncertain": [
-        "What do you do with a failure after everyone else has walked away from it?",
-        "Is an ending mainly a loss, a release, or raw material?"
+        "Does the ending become useful material for renewal, food, shelter, or survival, or is it only loss, power, spectacle, or study?",
+        "When something is discarded, do you preserve it, monetize it, perform it, optimize it, consume it, or make it feed the next cycle?"
       ],
       "do_not_overweight": [
         "Do not overfit a single color preference.",

@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "faction_id": "golgari_swarm",
   "faction_name": "Golgari Swarm",
-  "last_updated": "2026-05-09",
-  "claim_count": 17,
+  "last_updated": "2026-07-16T16:20:00.000Z",
+  "claim_count": 34,
   "claims": [
     {
       "claim_id": "golgari_swarm_claim_001",
@@ -16,7 +16,26 @@
         "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "Bounded to reviewed official source record for VM-511 Gate 3 remediation.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "canonical identity",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_prerelease_primer_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Prerelease Primer - Golgari reviewed source record",
+          "bounded_paraphrase": "Official prerelease primer summarizes Golgari as the black-green Guilds of Ravnica guild and supports broad identity placement.",
+          "evidence_scope": "canonical identity",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "golgari_swarm_claim_002",
@@ -28,7 +47,18 @@
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "Bounded to reviewed official source record for VM-511 Gate 3 remediation.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "institutional role",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "golgari_swarm_claim_003",
@@ -40,7 +70,18 @@
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "Bounded to reviewed official source record for VM-511 Gate 3 remediation.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "institutional role",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "golgari_swarm_claim_004",
@@ -52,7 +93,18 @@
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "Bounded to reviewed official source record for VM-511 Gate 3 remediation.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "history/key figure",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "golgari_swarm_claim_005",
@@ -64,7 +116,18 @@
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "Bounded to reviewed official source record for VM-511 Gate 3 remediation.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "leadership/key figures",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "golgari_swarm_claim_006",
@@ -76,20 +139,50 @@
         "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "Bounded to reviewed official source record for VM-511 Gate 3 remediation.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "mechanics identity",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "golgari_swarm_claim_007",
       "faction_id": "golgari_swarm",
       "claim_type": "placement",
-      "statement": "Golgari placement signals should weight resilience, comfort with uncomfortable truths, resourcefulness from waste, and belief in cycles.",
+      "statement": "Golgari placement signals should require a source-bounded death-to-life, decay, reclamation, undercity, food-production, or graveyard-resource frame rather than generic black-green resilience or nature language.",
       "canon_status": "Supported Interpretation",
       "source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
         "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "confidence": "High",
-      "notes": "Placement inference derived from official faction identity and mechanics; not an official Wizards psychological taxonomy."
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "placement interpretation",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "placement interpretation",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "notes": "VM-511 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy."
     },
     {
       "claim_id": "golgari_swarm_claim_0008",
@@ -102,7 +195,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, or public-facing claims until bounded source localization is performed."
     },
     {
       "claim_id": "golgari_swarm_claim_0009",
@@ -115,7 +212,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, or public-facing claims until bounded source localization is performed."
     },
     {
       "claim_id": "golgari_swarm_claim_0010",
@@ -128,7 +229,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, or public-facing claims until bounded source localization is performed."
     },
     {
       "claim_id": "golgari_swarm_claim_0011",
@@ -141,7 +246,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, or public-facing claims until bounded source localization is performed."
     },
     {
       "claim_id": "golgari_swarm_claim_0012",
@@ -154,7 +263,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, or public-facing claims until bounded source localization is performed."
     },
     {
       "claim_id": "golgari_swarm_claim_0013",
@@ -167,7 +280,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, or public-facing claims until bounded source localization is performed."
     },
     {
       "claim_id": "golgari_swarm_claim_0014",
@@ -180,7 +297,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, or public-facing claims until bounded source localization is performed."
     },
     {
       "claim_id": "golgari_swarm_claim_0015",
@@ -193,7 +314,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, or public-facing claims until bounded source localization is performed."
     },
     {
       "claim_id": "golgari_swarm_claim_0016",
@@ -206,7 +331,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, or public-facing claims until bounded source localization is performed."
     },
     {
       "claim_id": "golgari_swarm_claim_0017",
@@ -219,7 +348,555 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, or public-facing claims until bounded source localization is performed."
+    },
+    {
+      "claim_id": "golgari_swarm_claim_0018",
+      "faction_id": "golgari_swarm",
+      "claim_type": "placement_motivation",
+      "statement": "Golgari motivation is best bounded as reclaiming what is dead, discarded, buried, or unwanted so it can feed survival, infrastructure, or the next cycle.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "placement motivation",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "placement motivation",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "notes": "VM-511 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy."
+    },
+    {
+      "claim_id": "golgari_swarm_claim_0019",
+      "faction_id": "golgari_swarm",
+      "claim_type": "mature_expression",
+      "statement": "A mature Golgari reading turns endings and waste into support, food, shelter, renewal, or useful material without denying decay or treating death as merely aesthetic.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "mature expression",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "mature expression",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "notes": "VM-511 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy."
+    },
+    {
+      "claim_id": "golgari_swarm_claim_0020",
+      "faction_id": "golgari_swarm",
+      "claim_type": "unhealthy_expression",
+      "statement": "An unhealthy Golgari reading appears when decay becomes fatalism, predation, rot-for-its-own-sake, or death identity without renewal, food, survival, or useful reclamation.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "unhealthy expression",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "unhealthy expression",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "notes": "VM-511 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy."
+    },
+    {
+      "claim_id": "golgari_swarm_claim_0021",
+      "faction_id": "golgari_swarm",
+      "claim_type": "pressure_behavior",
+      "statement": "Under pressure, Golgari should recover through salvage, graveyard-resource use, patience, underground survival, and making loss into material rather than through spectacle, purity, or abstract study.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "pressure behavior",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "pressure behavior",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "notes": "VM-511 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy."
+    },
+    {
+      "claim_id": "golgari_swarm_claim_0022",
+      "faction_id": "golgari_swarm",
+      "claim_type": "collision_boundary",
+      "statement": "Generic black-green overfit should remain adjacent unless the answer includes Golgari-specific death, decay, reclamation, undercity survival, food-production, or graveyard-resource proof.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "notes": "VM-511 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy."
+    },
+    {
+      "claim_id": "golgari_swarm_claim_0023",
+      "faction_id": "golgari_swarm",
+      "claim_type": "collision_boundary",
+      "statement": "Mono-black or black-led leverage should not become Golgari unless private power, death, or graveyard use is tied to the source-bounded Golgari cycle of decay, food, reclamation, and survival.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "notes": "VM-511 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy."
+    },
+    {
+      "claim_id": "golgari_swarm_claim_0024",
+      "faction_id": "golgari_swarm",
+      "claim_type": "collision_boundary",
+      "statement": "Mono-green or green-led nature should not become Golgari unless growth is explicitly joined to death, decay, rot, graveyard material, or reclaimed waste.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "notes": "VM-511 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy."
+    },
+    {
+      "claim_id": "golgari_swarm_claim_0025",
+      "faction_id": "golgari_swarm",
+      "claim_type": "collision_boundary",
+      "statement": "Witherbloom-like black-green school, essence, pest, potion, or life-drain language should remain adjacent unless the answer chooses Golgari civic-undercity ecology, rot, food production, graveyard resource use, or reclamation.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "notes": "VM-511 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy."
+    },
+    {
+      "claim_id": "golgari_swarm_claim_0026",
+      "faction_id": "golgari_swarm",
+      "claim_type": "collision_boundary",
+      "statement": "Selesnya or white-green community harmony should not become Golgari unless belonging is led by discarded matter, decay, underground survival, or death feeding renewal rather than clean communal preservation.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "notes": "VM-511 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy."
+    },
+    {
+      "claim_id": "golgari_swarm_claim_0027",
+      "faction_id": "golgari_swarm",
+      "claim_type": "collision_boundary",
+      "statement": "Orzhov or white-black obligation should not become Golgari unless debt, death, or hierarchy gives way to ecological reclamation, rot, food, and the death-to-life cycle.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "notes": "VM-511 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy."
+    },
+    {
+      "claim_id": "golgari_swarm_claim_0028",
+      "faction_id": "golgari_swarm",
+      "claim_type": "collision_boundary",
+      "statement": "Gruul or red-green wild dispossession should not become Golgari unless rage or survival is grounded in the city underside, rot, discarded material, and reclamation rather than anti-civilization fury.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "notes": "VM-511 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy."
+    },
+    {
+      "claim_id": "golgari_swarm_claim_0029",
+      "faction_id": "golgari_swarm",
+      "claim_type": "collision_boundary",
+      "statement": "Rakdos or black-red spectacle should not become Golgari unless sacrifice, death, or appetite is framed as reclamation, graveyard resource use, or renewal rather than public release and performance.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "notes": "VM-511 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy."
+    },
+    {
+      "claim_id": "golgari_swarm_claim_0030",
+      "faction_id": "golgari_swarm",
+      "claim_type": "collision_boundary",
+      "statement": "Dimir or blue-black secrecy should not become Golgari unless hidden knowledge gives way to material life-death cycles, undercity survival, and reclaimed matter.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "notes": "VM-511 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy."
+    },
+    {
+      "claim_id": "golgari_swarm_claim_0031",
+      "faction_id": "golgari_swarm",
+      "claim_type": "collision_boundary",
+      "statement": "Simic biological improvement should not become Golgari unless adaptation is centered on death, decay, graveyard material, and reclamation rather than optimization or experimental upgrade.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "notes": "VM-511 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy."
+    },
+    {
+      "claim_id": "golgari_swarm_claim_0032",
+      "faction_id": "golgari_swarm",
+      "claim_type": "collision_boundary",
+      "statement": "Abzan endurance should not become Golgari unless ancestor, family, or survival language is led by black-green decay and reclamation rather than white-coded preservation and kinship duty.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "notes": "VM-511 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy."
+    },
+    {
+      "claim_id": "golgari_swarm_claim_0033",
+      "faction_id": "golgari_swarm",
+      "claim_type": "collision_boundary",
+      "statement": "Jund appetite and predation should not become Golgari unless survival is framed through reclaimed death, rot, food, or graveyard resource use rather than instinctive dominance.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "notes": "VM-511 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy."
+    },
+    {
+      "claim_id": "golgari_swarm_claim_0034",
+      "faction_id": "golgari_swarm",
+      "claim_type": "collision_boundary",
+      "statement": "Sultai calculation or necromantic ambition should not become Golgari unless resource use is bounded by black-green cycle, rot, reclamation, and undercity survival rather than blue-black-green cold control.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Golgari reviewed source record",
+          "bounded_paraphrase": "Official Golgari overview identifies the guild through black-green Ravnica identity, underground unwanted places, farming and food production, founder Svogthir, and Vraska/Jarad leadership context.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies undergrowth as Golgari and frames graveyard contents as present mechanical resource.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ],
+      "notes": "VM-511 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy."
     }
   ]
 }

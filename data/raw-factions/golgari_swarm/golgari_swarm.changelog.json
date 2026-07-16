@@ -2,8 +2,93 @@
   "schema_version": "1.0.0",
   "faction_id": "golgari_swarm",
   "faction_name": "Golgari Swarm",
-  "last_updated": "2026-05-10T02:56:03.254Z",
+  "last_updated": "2026-07-16T16:20:00.000Z",
   "changes": [
+    {
+      "change_id": "golgari_swarm_change_crit001_vm511_gate3_20260716",
+      "change_type": "crit001_semantic_readiness_gate3",
+      "change_date": "2026-07-16",
+      "summary": "Added semantic roles, bounded evidence locators, discovery-only fencing, source-bounded placement/collision claims, non-inhibiting required-neighbor guidance, and Commander/product proof-chain cleanup for VM-511.",
+      "sources_added": [],
+      "sources_updated": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+      ],
+      "claims_added": [
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0019",
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0021",
+        "golgari_swarm_claim_0022",
+        "golgari_swarm_claim_0023",
+        "golgari_swarm_claim_0024",
+        "golgari_swarm_claim_0025",
+        "golgari_swarm_claim_0026",
+        "golgari_swarm_claim_0027",
+        "golgari_swarm_claim_0028",
+        "golgari_swarm_claim_0029",
+        "golgari_swarm_claim_0030",
+        "golgari_swarm_claim_0031",
+        "golgari_swarm_claim_0032",
+        "golgari_swarm_claim_0033",
+        "golgari_swarm_claim_0034"
+      ],
+      "claims_updated": [
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_004",
+        "golgari_swarm_claim_005",
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_007",
+        "golgari_swarm_claim_0008",
+        "golgari_swarm_claim_0009",
+        "golgari_swarm_claim_0010",
+        "golgari_swarm_claim_0011",
+        "golgari_swarm_claim_0012",
+        "golgari_swarm_claim_0013",
+        "golgari_swarm_claim_0014",
+        "golgari_swarm_claim_0015",
+        "golgari_swarm_claim_0016",
+        "golgari_swarm_claim_0017"
+      ],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "profile",
+        "evidence_summary",
+        "core_identity",
+        "site_surface",
+        "structure",
+        "great_tension",
+        "key_figures",
+        "canonical_flavor_text",
+        "mechanics",
+        "data_quality",
+        "commander_compass"
+      ],
+      "placement_fields_updated": [
+        "ideal_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "chatbot_guidance",
+        "placement_summary",
+        "placement_axes",
+        "moral_and_psychological_profile",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "collision_guidance",
+        "semantic_guidance_evidence",
+        "required_neighbor_evidence",
+        "semantic_readiness"
+      ],
+      "manual_review_required": [
+        "Independent Gate 5 review must verify the exact candidate SHA before certification."
+      ],
+      "notes": "No schema, builder, validator, scoring, confidence, calibration, or lateral-inhibition behavior changes are intended."
+    },
     {
       "change_id": "change_golgari_swarm_placement_ready_20260510025603",
       "date": "2026-05-10",
@@ -110,15 +195,15 @@
     "number_of_official_sources_used": 4,
     "number_of_repository_archive_sources_used": 10,
     "number_of_secondary_discovery_sources_used": 0,
-    "number_of_claims_verified": 16,
+    "number_of_claims_verified": 34,
     "number_of_claims_marked_uncertain": 0,
     "sections_with_limited_evidence": [
-      "deep story episode coverage",
+      "deep story episode coverage remains discovery-only",
       "current post-source leadership status where later canon may update the cited-era overview"
     ],
     "conflicting_sources_found": [],
     "assumptions_removed_during_validation": [],
-    "overall_confidence_rating": "Medium",
-    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+    "overall_confidence_rating": "Medium-High",
+    "last_placement_ready_pass": "2026-07-16T16:20:00.000Z"
   }
 }

@@ -2169,22 +2169,483 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/behavioral_signals/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:de7350696efd2f10f7c20e89f0c8fccace3c1e7bd6b1dde87a172b0169533b5d",
+      "canonical_content_hash": "sha256:06aa78192cda73b4406a714b8f2ae35942a9eba8de76b7f9856b2bed6aa6c24a",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010",
-        "golgari_swarm_claim_0011",
-        "golgari_swarm_claim_0012",
-        "golgari_swarm_claim_0013"
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0021",
+        "golgari_swarm_claim_0022"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
-        "src_mtg_stories_the_gathering_storm_chapter_9_9913612d"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "golgari_how_to_recognize_match_1",
+      "canonical_content_hash": "sha256:55fd3c82c79360fc4e4c1fee9aa9213d727259e8d9996b8ff8cf0d33653c6d58",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0019"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "golgari_how_to_recognize_match_2",
+      "canonical_content_hash": "sha256:bf34211468e666c2889a2e78c3b587a817b3b2b7d8f384479c3770a1259f335f",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_0021"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "golgari_how_to_recognize_match_3",
+      "canonical_content_hash": "sha256:59b7f4102fe20c8fc27c3e97a93504d5ab34671d03b13d6859afb6eb02a37d20",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0022"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "golgari_how_to_recognize_mismatch_1",
+      "canonical_content_hash": "sha256:9c0b9cccf2bd3931f0e50b527ee7630e1d5e28301e7f56b2a7ea744d4f3ef2f2",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0022"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "golgari_how_to_recognize_mismatch_2",
+      "canonical_content_hash": "sha256:ae46fa44f4ddc5b5df01c8bed07c74a35bab91530d8c11c1cf58f1bcf1806ea6",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0025",
+        "golgari_swarm_claim_0026",
+        "golgari_swarm_claim_0027",
+        "golgari_swarm_claim_0028",
+        "golgari_swarm_claim_0029",
+        "golgari_swarm_claim_0030",
+        "golgari_swarm_claim_0031",
+        "golgari_swarm_claim_0032",
+        "golgari_swarm_claim_0033",
+        "golgari_swarm_claim_0034"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "golgari_how_to_recognize_mismatch_3",
+      "canonical_content_hash": "sha256:5d632fa445767ab42c675880eb6d58d258f56aedf4c196c21961d48da7553f00",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0021",
+        "golgari_swarm_claim_0030",
+        "golgari_swarm_claim_0034"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_id": "golgari_questions_to_ask_when_uncertain_1",
+      "canonical_content_hash": "sha256:d67a5dece467a692793b7f3f5dc576344cc54187103f9db5638c8b61bc561be7",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0021"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_id": "golgari_questions_to_ask_when_uncertain_2",
+      "canonical_content_hash": "sha256:41515a43bc1124bec3c573a9c6662d7e06133b94c7f34c2e003e678ffa797b93",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0022",
+        "golgari_swarm_claim_0023",
+        "golgari_swarm_claim_0024",
+        "golgari_swarm_claim_0025",
+        "golgari_swarm_claim_0026",
+        "golgari_swarm_claim_0027",
+        "golgari_swarm_claim_0028",
+        "golgari_swarm_claim_0029",
+        "golgari_swarm_claim_0031",
+        "golgari_swarm_claim_0033",
+        "golgari_swarm_claim_0034"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/collision_guidance/0",
+      "canonical_id": "golgari_vs_generic_bg_overfit_gate3",
+      "canonical_content_hash": "sha256:39d00dd2b96762a42cb3bf7bb5ec7049e39bd98817d564f9405e91e89bda57bf",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/collision_guidance/1",
+      "canonical_id": "golgari_vs_black_private_leverage_gate3",
+      "canonical_content_hash": "sha256:78ee0ee7cbcb02b1c2f1a66fa2597fc839b1cd5def90621ce5660733a4a8d2d8",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/collision_guidance/10",
+      "canonical_id": "golgari_vs_abzan_endurance_gate3",
+      "canonical_content_hash": "sha256:f082cdf76babbf399bbcca37b92b2c86c659a16416e0ad40832c943bd8f4906c",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/collision_guidance/11",
+      "canonical_id": "golgari_vs_jund_predation_gate3",
+      "canonical_content_hash": "sha256:efe77d5b22025bffd74f306c383907ed31335ac8c7ff1530eed3a535e3532e43",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0033"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/collision_guidance/12",
+      "canonical_id": "golgari_vs_sultai_calculation_gate3",
+      "canonical_content_hash": "sha256:f4a5e8af727a429ab82880df927a8a25439c46eaac8e734dec22eaef33450e8d",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0034"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/collision_guidance/2",
+      "canonical_id": "golgari_vs_green_generic_nature_gate3",
+      "canonical_content_hash": "sha256:c3c54627e3d7e1622af4d55d696b579e18b9b24f80cb17c70a87acd2b04a8c50",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/collision_guidance/3",
+      "canonical_id": "golgari_vs_witherbloom_essence_craft_gate3",
+      "canonical_content_hash": "sha256:e14d3f4b88e6e707572c4111ce5e2a4cb32a6848b51ecaa6df1f4e4905a8db52",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/collision_guidance/4",
+      "canonical_id": "golgari_vs_selesnya_harmony_gate3",
+      "canonical_content_hash": "sha256:1c00b3498f214d97be2486334fc9bba633d7b8ae757f19627d347ddcad7d1789",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/collision_guidance/5",
+      "canonical_id": "golgari_vs_orzhov_obligation_gate3",
+      "canonical_content_hash": "sha256:9c1d709967d4f3ef97d662e307c90d4502c5f82459dd6839d2f92d8e65e1b8e7",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0027"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/collision_guidance/6",
+      "canonical_id": "golgari_vs_gruul_dispossession_gate3",
+      "canonical_content_hash": "sha256:1443a89b4a54e6fc47c3604ad0bffa0fc28c469a118ca4a87cda88aa7d101520",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/collision_guidance/7",
+      "canonical_id": "golgari_vs_rakdos_spectacle_gate3",
+      "canonical_content_hash": "sha256:387e49a508bf900d372b781c58e3727013f6085a6b3bbfef7f8cea11e23f470d",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/collision_guidance/8",
+      "canonical_id": "golgari_vs_dimir_secrecy_gate3",
+      "canonical_content_hash": "sha256:0386fd45568c535eca82b46acf52e26e02bf66997877909305cc881994e7dd3f",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0030"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/collision_guidance/9",
+      "canonical_id": "golgari_vs_simic_optimization_gate3",
+      "canonical_content_hash": "sha256:0435273249fa230b68a7ef0bad5f2fc4dd74846205058b129fdde61697e31047",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0031"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2198,16 +2659,15 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/core_values/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:a57d040a450f954afc28ff7c75ccf321608f81b4f50e667a7afa0889474692a7",
+      "canonical_content_hash": "sha256:a013b4014adf649823c91d1afc4a94326761750acf8f8ef9c7973c67a58fc4dc",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010"
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2221,16 +2681,14 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/core_values/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:28dbd35cbca2a8917e808a4096130f7ec3644aeebae993b7f093941f68785f8c",
+      "canonical_content_hash": "sha256:985c957db2cfd160520a6667c9a26349d8204981413bed39d3a1f706a8d7ef47",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010"
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2244,16 +2702,14 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/core_values/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:4b1f1006b85686988bdb79be52c9efe962ee7411da87afab7b42b328b89d735f",
+      "canonical_content_hash": "sha256:64d76597b9d3e809a7e630aa70eae66a4f4224528832dd28cd7a98e619c44eab",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010"
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2267,16 +2723,14 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/core_values/3",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:a60ab70a551b232a6c4e2a9aedf581e530fb299ce2b2fef81b51717068d903c3",
+      "canonical_content_hash": "sha256:eddd7c4dd87ce3c7e8a3901d7433ad6fb12726094ca9fbad12b9048c42aa7a94",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010"
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2290,16 +2744,14 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/core_values/4",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:c023f8dd869d2c28de6091416e4a76ec0c823100ccc0e594a7697d65af70d785",
+      "canonical_content_hash": "sha256:361b5cd0acc9ad5342db72a79a8a96a858e84d5e72f3f2704179f09b0250ead2",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010"
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2313,16 +2765,14 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/core_values/5",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:3cdc8bf085034741b77d7918191743f30ebb159799638c975bcd6bbbd5f94a0d",
+      "canonical_content_hash": "sha256:435dd6b953a6d5875f90264b04ddf845387a5a9ac6c5edd76757432648f1ffb6",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010"
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2336,16 +2786,14 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/core_values/6",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:671eec2a29208d3a8e2bef6dd7e7ad9f6e1ee195260a894dbf06f8227c1d95b4",
+      "canonical_content_hash": "sha256:cdb6d622a42967f09e382b618a9652bfdaa80fc7199d96c3b21618297f24046f",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010"
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2359,16 +2807,14 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/core_values/7",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:52f9df50dc67f76121a355d9c48e33ea565eab126792ae6bff50aabe5db98a05",
+      "canonical_content_hash": "sha256:e6c7e216f1f2b6308f2654eff040d748aacbbf6b05b4924d5e5ac304fb84f046",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010"
+        "golgari_swarm_claim_0021",
+        "golgari_swarm_claim_0022"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2382,16 +2828,15 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/core_values/8",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:908f97a7026d9f58474c61ed835546b4eebc7ba768d78e9ae8ab4215528dd3e1",
+      "canonical_content_hash": "sha256:d50b1bdf3bc1458d57bbfc2925bf45e97cec036bfe3b1514224fb5b4dc63d3ff",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010"
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2405,16 +2850,13 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/core_values/9",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:a315c299a4080b29f991faec9e7a26deac1e8bc72cf721061017ca53be8d7b8c",
+      "canonical_content_hash": "sha256:1477cf6862ded750bb90ede1406b3133e575553a3808d5ba270a1c6f0b2cbd26",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010"
+        "golgari_swarm_claim_0022"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2428,15 +2870,17 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/discriminator_questions/0",
       "canonical_id": "golgari_q1",
-      "canonical_content_hash": "sha256:b92c855b4f80415b7275a886c75457f639a96ee9d23cf150ee2b54b38f8652dc",
+      "canonical_content_hash": "sha256:9c6dd1255275ae1d191adff18326e9792a8ae6267e57e4ea97dbfaacbff7a654",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_001",
-        "golgari_swarm_claim_002",
-        "golgari_swarm_claim_003"
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0021",
+        "golgari_swarm_claim_0022",
+        "golgari_swarm_claim_0023",
+        "golgari_swarm_claim_0024"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2450,15 +2894,21 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/discriminator_questions/1",
       "canonical_id": "golgari_q2",
-      "canonical_content_hash": "sha256:c9f04d3746362ae151b68cebe8f62cbca3ccdf70eb99a122e7e1f977accb5eb9",
+      "canonical_content_hash": "sha256:33dc189bcf4dae7990f97a9dbdc7dd7e5f3c63cb4dd92b17fb78250c6fd2bac4",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_001",
-        "golgari_swarm_claim_002",
-        "golgari_swarm_claim_003"
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0019",
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0021",
+        "golgari_swarm_claim_0025",
+        "golgari_swarm_claim_0029",
+        "golgari_swarm_claim_0031",
+        "golgari_swarm_claim_0033",
+        "golgari_swarm_claim_0034"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2472,13 +2922,18 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/discriminator_questions/2",
       "canonical_id": "golgari_q3",
-      "canonical_content_hash": "sha256:7c120fa3d10cef7056aca8142aab89aa903ce74affe2dd163bd2c3b144fe449a",
+      "canonical_content_hash": "sha256:02ac77f9e62c4f67e8e97ba8d23cf56127b0f4a7316efd9ec162aa2369309bfc",
       "evidence_claim_ids": [
         "golgari_swarm_claim_001",
         "golgari_swarm_claim_002",
         "golgari_swarm_claim_003",
         "golgari_swarm_claim_006",
-        "golgari_swarm_claim_007"
+        "golgari_swarm_claim_007",
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0021",
+        "golgari_swarm_claim_0025",
+        "golgari_swarm_claim_0032",
+        "golgari_swarm_claim_0033"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
@@ -2497,12 +2952,16 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/good_fit_indicators/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:1aa140ef483daed5785c452b15e9242a04ef092c159d871c331f4dce4ad33559",
+      "canonical_content_hash": "sha256:b44e8ecf491d73ac39c099b6a52b4bb30440743e8cf91785bf279eb3502d2299",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_001"
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_0018"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
         "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
       "generated_consumers": [
@@ -2517,12 +2976,17 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/good_fit_indicators/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:1d4c6d097aea0e5e4216369160067ce4365644699d4c2749cac4ce0b08a73985",
+      "canonical_content_hash": "sha256:090af5e184e5d11c52f0a4de35904586f580d0b907b7cadac9dec4ef21336b09",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_002"
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2536,12 +3000,16 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/good_fit_indicators/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:f932a6197b826679764facdc82fc3a8c70c7177452e86629d4e237f21cf93ce0",
+      "canonical_content_hash": "sha256:59e37e39617764e67216ae0bfd665118529793213a058a0f50f777e54f4492d1",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_003"
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2555,12 +3023,16 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:1aa140ef483daed5785c452b15e9242a04ef092c159d871c331f4dce4ad33559",
+      "canonical_content_hash": "sha256:b44e8ecf491d73ac39c099b6a52b4bb30440743e8cf91785bf279eb3502d2299",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_001"
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_0018"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
         "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
       "generated_consumers": [
@@ -2575,12 +3047,17 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:1d4c6d097aea0e5e4216369160067ce4365644699d4c2749cac4ce0b08a73985",
+      "canonical_content_hash": "sha256:090af5e184e5d11c52f0a4de35904586f580d0b907b7cadac9dec4ef21336b09",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_002"
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2594,12 +3071,16 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:f932a6197b826679764facdc82fc3a8c70c7177452e86629d4e237f21cf93ce0",
+      "canonical_content_hash": "sha256:59e37e39617764e67216ae0bfd665118529793213a058a0f50f777e54f4492d1",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_003"
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2613,18 +3094,14 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/inhibitor_traits/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:1a0bd300410fe060988a1d2f397e7a1e2e349aead46a1c1ba8e48d7c7b2c4bf1",
+      "canonical_content_hash": "sha256:ba652dd2578660b465b2ad9e960f32385e7e15f128adb9050a08bc22d882f98d",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010",
-        "golgari_swarm_claim_0011"
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0022"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2638,20 +3115,17 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/moral_and_psychological_profile",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:7a9539b74640f4f868bac1df65f90744919680f519e7081b103f72c66facfb3a",
+      "canonical_content_hash": "sha256:32075ee788a20d7843bf5894f4003a74d51c707016d3c2053314532d31d3f8c4",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010",
-        "golgari_swarm_claim_0011",
-        "golgari_swarm_claim_0012"
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0019",
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0021",
+        "golgari_swarm_claim_0022"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2665,26 +3139,17 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/placement_axes/0",
       "canonical_id": "axis_reclamation_vs_denial",
-      "canonical_content_hash": "sha256:760caaea8526add52458b2d1b1fac39cf0e58df4923f856313399e8dbd3d277b",
+      "canonical_content_hash": "sha256:ec4277fad39031ddc1a6116b1129515d0771fd5e119362e1bdd03e93380d4868",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010",
-        "golgari_swarm_claim_0011",
-        "golgari_swarm_claim_0012",
-        "golgari_swarm_claim_0013",
-        "golgari_swarm_claim_0014",
-        "golgari_swarm_claim_0015"
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0019",
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0021",
+        "golgari_swarm_claim_0022"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
-        "src_mtg_stories_the_gathering_storm_chapter_14_a6cf56c0",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
-        "src_mtg_stories_the_gathering_storm_chapter_7_de8fb26e",
-        "src_mtg_stories_the_gathering_storm_chapter_9_9913612d"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2698,32 +3163,34 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/placement_summary",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:f363f3386402efcd97873a119a4bf945836e240dc5e80d423aa60d52920e8673",
+      "canonical_content_hash": "sha256:870bca405471720f8ebaf4a6285ae39d2f44a967dedf1a891bc816c42f214154",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010",
-        "golgari_swarm_claim_0011",
-        "golgari_swarm_claim_0012",
-        "golgari_swarm_claim_0013",
-        "golgari_swarm_claim_0014",
-        "golgari_swarm_claim_0015",
         "golgari_swarm_claim_001",
         "golgari_swarm_claim_002",
         "golgari_swarm_claim_003",
         "golgari_swarm_claim_004",
         "golgari_swarm_claim_005",
-        "golgari_swarm_claim_006"
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_007",
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0019",
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0021",
+        "golgari_swarm_claim_0022",
+        "golgari_swarm_claim_0023",
+        "golgari_swarm_claim_0024",
+        "golgari_swarm_claim_0025",
+        "golgari_swarm_claim_0026",
+        "golgari_swarm_claim_0027",
+        "golgari_swarm_claim_0028",
+        "golgari_swarm_claim_0029",
+        "golgari_swarm_claim_0030",
+        "golgari_swarm_claim_0031",
+        "golgari_swarm_claim_0032",
+        "golgari_swarm_claim_0033",
+        "golgari_swarm_claim_0034"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
-        "src_mtg_stories_the_gathering_storm_chapter_14_a6cf56c0",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
-        "src_mtg_stories_the_gathering_storm_chapter_7_de8fb26e",
-        "src_mtg_stories_the_gathering_storm_chapter_9_9913612d",
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
         "src_wotc_guilds_ravnica_mechanics_2018",
         "src_wotc_guilds_ravnica_prerelease_primer_2018"
@@ -2740,13 +3207,15 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/poor_fit_indicators/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:79f7ff728e2701ab8a387616ebe84877e2931381de3b9b99449ba1f1c7345c81",
+      "canonical_content_hash": "sha256:2d2f5eb0894e7826d08cf3d20c2838288a360cda7ca2e3118314aa1fa12f34a1",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_001"
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0019",
+        "golgari_swarm_claim_0026"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2760,12 +3229,15 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/poor_fit_indicators/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:1493292065b9fbac7db577ab93b2a81f350aa43b0517b33a4556023766bf2c6f",
+      "canonical_content_hash": "sha256:1b4956c29ae29ea585976069beaf725b949d61a07f5cb79b7f6dd5e12b83805e",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_002"
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2779,12 +3251,466 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
       "canonical_pointer": "/poor_fit_indicators/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:7b2f3bef157831437750b9b5d57315b41740fe07a196bba57e24ad0495d440d4",
+      "canonical_content_hash": "sha256:11e5d05808eb23bab7a09b844bfa0a4a0dbfd2f2c76f396cdd6e3892a7e35bc4",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_003"
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0022",
+        "golgari_swarm_claim_0024"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/0",
+      "canonical_id": "golgari_required_neighbor_generic_bg_overfit",
+      "canonical_content_hash": "sha256:7edda1e9d20c3e01ad921988bb25441aa93775efc1e7cb767ff69e4c420dd008",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/1",
+      "canonical_id": "golgari_required_neighbor_b",
+      "canonical_content_hash": "sha256:1b4d7d1ad0d851054d1e801ad826d8bd5aad428b2b8afbbf8e0fb7e7400d5871",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/10",
+      "canonical_id": "golgari_required_neighbor_abzan",
+      "canonical_content_hash": "sha256:2ad5cf00e0ca24b1baf6c5ab0d11506c549bd7cc34e57b3dde3d66702c57eb0c",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/11",
+      "canonical_id": "golgari_required_neighbor_jund",
+      "canonical_content_hash": "sha256:86ba819b93f4b77ea21634946392f24e83cbff4ff7b8d47a66e4284e3b906943",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0033"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/12",
+      "canonical_id": "golgari_required_neighbor_sultai",
+      "canonical_content_hash": "sha256:0756844fdcef395ee72e6dfad59d303d73e8810ec4d7daa84c73aa98f2a6094a",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0034"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/2",
+      "canonical_id": "golgari_required_neighbor_g",
+      "canonical_content_hash": "sha256:515e21c994d14191a4f2a8aef796ea0079927697bae71e3720d971a561050806",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/3",
+      "canonical_id": "golgari_required_neighbor_witherbloom",
+      "canonical_content_hash": "sha256:3bbdcd17909922a5aa1c93d0260ae5be163d43f7c4d936d8bc035ed5cb7ca86e",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/4",
+      "canonical_id": "golgari_required_neighbor_wg",
+      "canonical_content_hash": "sha256:414f308c7076450c3fbfbc0844e5ac8b5bc853aa056e65bfcecf4dc875897b08",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/5",
+      "canonical_id": "golgari_required_neighbor_wb",
+      "canonical_content_hash": "sha256:ea80e4b64c30656642bf22b42a3578d282400e1ab4b47d4a193eebca9ac69120",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0027"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/6",
+      "canonical_id": "golgari_required_neighbor_rg",
+      "canonical_content_hash": "sha256:1c320065e154866ae0de99c2bbb8c6b2044d8aef5530dbf3778a9f818b37957d",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/7",
+      "canonical_id": "golgari_required_neighbor_br",
+      "canonical_content_hash": "sha256:4b182e93119c083dba0feebd46a5ca1528b87011fb8adddc32511c9d4fbb6f55",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/8",
+      "canonical_id": "golgari_required_neighbor_ub",
+      "canonical_content_hash": "sha256:fe04f60f4be6969bbee298b6d1037b1b1466e83effbacbccfee0e09a9c83f572",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0030"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/9",
+      "canonical_id": "golgari_required_neighbor_simic_combine",
+      "canonical_content_hash": "sha256:5d33f3dd8bb0b3c895b8ea26f73d79db857eb9895921f0364e320e4e45c39758",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0031"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "golgari_how_to_recognize_match_1",
+      "canonical_content_hash": "sha256:2d617a6ccf574935fa10b0cb9d2a4643e8278cdc4ea167f25e4f385c4187081d",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "golgari_how_to_recognize_match_2",
+      "canonical_content_hash": "sha256:5998602f0c60445bd9b5a0d28f9d73388619fcac29d598f55fec4f8b0104654a",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "golgari_how_to_recognize_match_3",
+      "canonical_content_hash": "sha256:95c1420ece5bd7a8325af956ded26a0b34ae61b82315c0ef7185d137d2e57cca",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "golgari_how_to_recognize_mismatch_1",
+      "canonical_content_hash": "sha256:30590c1b87e8d69992d631534dce88cbd2c0d797e84f611e988c2bf8d0b2e670",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "golgari_how_to_recognize_mismatch_2",
+      "canonical_content_hash": "sha256:8309df115bba0e78b93549edf150bd440fde907c45a26b00d121926e63e8269a",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0025",
+        "golgari_swarm_claim_0026",
+        "golgari_swarm_claim_0027",
+        "golgari_swarm_claim_0028",
+        "golgari_swarm_claim_0029",
+        "golgari_swarm_claim_0030",
+        "golgari_swarm_claim_0031",
+        "golgari_swarm_claim_0032",
+        "golgari_swarm_claim_0033",
+        "golgari_swarm_claim_0034"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": "golgari_how_to_recognize_mismatch_3",
+      "canonical_content_hash": "sha256:0c8d4b49e399ef44a8d7d88d822f2a4c3f1b2639c3a371f716e8f9bbaf6519fb",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0021",
+        "golgari_swarm_claim_0030",
+        "golgari_swarm_claim_0034"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": "golgari_questions_to_ask_when_uncertain_1",
+      "canonical_content_hash": "sha256:134f456ac2684a3feb76559484798cb88c2d6c635f63f23af58ed0f2f5b538e2",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BG",
+        "data/placement-model.json#/factions/BG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BG",
+      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/7",
+      "canonical_id": "golgari_questions_to_ask_when_uncertain_2",
+      "canonical_content_hash": "sha256:1174fa3b1f4431932775a04a73c692251293e78fef0824197f1eea15fd377978",
+      "evidence_claim_ids": [
+        "golgari_swarm_claim_0022",
+        "golgari_swarm_claim_0023",
+        "golgari_swarm_claim_0024",
+        "golgari_swarm_claim_0025",
+        "golgari_swarm_claim_0026",
+        "golgari_swarm_claim_0027",
+        "golgari_swarm_claim_0028",
+        "golgari_swarm_claim_0029",
+        "golgari_swarm_claim_0031",
+        "golgari_swarm_claim_0033",
+        "golgari_swarm_claim_0034"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2798,26 +3724,19 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json",
       "canonical_pointer": "/canonical_flavor_text/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:3d35ab2d5d6210559ad3091f859fcf50119cb2df6c7097aee258008e2c119f07",
+      "canonical_content_hash": "sha256:0f50e4e7f24bd30c13a5e695f9653e0c9254b578b5a6a0c1a7fbf808f6188b23",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010",
-        "golgari_swarm_claim_0011",
-        "golgari_swarm_claim_0012",
-        "golgari_swarm_claim_0013",
-        "golgari_swarm_claim_0014",
-        "golgari_swarm_claim_0015"
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_0018"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
-        "src_mtg_stories_the_gathering_storm_chapter_14_a6cf56c0",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
-        "src_mtg_stories_the_gathering_storm_chapter_7_de8fb26e",
-        "src_mtg_stories_the_gathering_storm_chapter_9_9913612d"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2831,63 +3750,19 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json",
       "canonical_pointer": "/core_identity",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:9048ba540677e39f520a0ca628d7631dc772d70db73d935b4237ab5a83d4e752",
+      "canonical_content_hash": "sha256:3ba5809f18d483eff6840ad0ecb3377e9829dc0c2030ecd0cb054845a7a25f26",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010",
-        "golgari_swarm_claim_0011",
-        "golgari_swarm_claim_0012",
-        "golgari_swarm_claim_0013",
-        "golgari_swarm_claim_0014",
-        "golgari_swarm_claim_0015"
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
-        "src_mtg_stories_the_gathering_storm_chapter_14_a6cf56c0",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
-        "src_mtg_stories_the_gathering_storm_chapter_7_de8fb26e",
-        "src_mtg_stories_the_gathering_storm_chapter_9_9913612d"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/BG",
-        "data/placement-model.json#/factions/BG",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "BG",
-      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json",
-      "canonical_pointer": "/data_quality/corpus_upgrade",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:2c839bde9a3bccd5efa7915ae6b16499513bbda1d5dfd0ce20d9b1505a8ab9cd",
-      "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010",
-        "golgari_swarm_claim_0011",
-        "golgari_swarm_claim_0012",
-        "golgari_swarm_claim_0013",
-        "golgari_swarm_claim_0014",
-        "golgari_swarm_claim_0015",
-        "golgari_swarm_claim_0016",
-        "golgari_swarm_claim_0017"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
-        "src_mtg_stories_the_gathering_storm_chapter_14_a6cf56c0",
-        "src_mtg_stories_the_gathering_storm_chapter_16_819d5212",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
-        "src_mtg_stories_the_gathering_storm_chapter_7_de8fb26e",
-        "src_mtg_stories_the_gathering_storm_chapter_9_9913612d"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2901,20 +3776,17 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json",
       "canonical_pointer": "/great_tension",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:f8bc7cf12d3bd1e780ec462b18d1f4b379a7c83232b30f916916f26ad2a119fe",
+      "canonical_content_hash": "sha256:3db3b81f031a980d5ba51107961f86e320b7e6aa4e706b914708e9ffca9214f5",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010",
-        "golgari_swarm_claim_0011",
-        "golgari_swarm_claim_0012"
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0019",
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0021",
+        "golgari_swarm_claim_0022"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -2947,7 +3819,7 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json",
       "canonical_pointer": "/key_figures/0",
       "canonical_id": "char_svogthir",
-      "canonical_content_hash": "sha256:87bf08c2b8368bc2aceb6f8960355ee3af162136eefb4d91139876326c6ed1d2",
+      "canonical_content_hash": "sha256:cd62cdfd3d0d13074f6d77ca2ee22eeb11554150e14c0327d8122297c918e024",
       "evidence_claim_ids": [
         "golgari_swarm_claim_004"
       ],
@@ -2966,31 +3838,11 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json",
       "canonical_pointer": "/key_figures/1",
       "canonical_id": "char_vraska",
-      "canonical_content_hash": "sha256:92b6bca3b383b84f7eded660afe6705670c4113b969babc49e0d1a257eed2735",
+      "canonical_content_hash": "sha256:d5bc02584c7c2e1c6e7473a556b1841f007aad9cb861f335d1995e4d75158703",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_005",
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010",
-        "golgari_swarm_claim_0011",
-        "golgari_swarm_claim_0012",
-        "golgari_swarm_claim_0013",
-        "golgari_swarm_claim_0014",
-        "golgari_swarm_claim_0015",
-        "golgari_swarm_claim_0016",
-        "golgari_swarm_claim_0017"
+        "golgari_swarm_claim_005"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_11_48705560",
-        "src_mtg_stories_the_gathering_storm_chapter_14_a6cf56c0",
-        "src_mtg_stories_the_gathering_storm_chapter_16_819d5212",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
-        "src_mtg_stories_the_gathering_storm_chapter_7_de8fb26e",
-        "src_mtg_stories_the_gathering_storm_chapter_9_9913612d",
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "generated_consumers": [
@@ -3004,39 +3856,12 @@
       "identity_key": "BG",
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json",
       "canonical_pointer": "/key_figures/2",
-      "canonical_id": "char_izoni",
-      "canonical_content_hash": "sha256:0f643ade3d626b4f33526716c2c5f4443a2057883aa7f2f77cf8d56b0c52323a",
-      "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/BG",
-        "data/placement-model.json#/factions/BG",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BG"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "BG",
-      "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json",
-      "canonical_pointer": "/key_figures/3",
       "canonical_id": "char_jarad",
-      "canonical_content_hash": "sha256:0473c2e053c99e9193a2d21f71677c932951ff3bb9d0678830ab48c32d2dff6d",
+      "canonical_content_hash": "sha256:7e7db97b83a747dda67285cf3dd0f757939fd3be5f84559aabf186a86293525b",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_005",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0011",
-        "golgari_swarm_claim_0013"
+        "golgari_swarm_claim_005"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134",
-        "src_mtg_stories_the_gathering_storm_chapter_9_9913612d",
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "generated_consumers": [
@@ -3051,18 +3876,15 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json",
       "canonical_pointer": "/mechanics",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:6c71209615bbe0d03887a8578af03bf121784f314b40d2a4466055b568987e44",
+      "canonical_content_hash": "sha256:d10033773f3e694e93f99dcf4b170b8082d9b1a59539e01b11fcfe2fbb03e228",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010",
-        "golgari_swarm_claim_0011"
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -3076,7 +3898,7 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json",
       "canonical_pointer": "/profile",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:93c153dca8f6bb2a0544326ca15c632a73b4706a1af3f9f6b4e297160dd28403",
+      "canonical_content_hash": "sha256:28bf32acab3955db48ff94adacacbf1f33a8bee67bbac949072000af80f57509",
       "evidence_claim_ids": [
         "golgari_swarm_claim_001",
         "golgari_swarm_claim_002",
@@ -3084,7 +3906,11 @@
         "golgari_swarm_claim_004",
         "golgari_swarm_claim_005",
         "golgari_swarm_claim_006",
-        "golgari_swarm_claim_007"
+        "golgari_swarm_claim_007",
+        "golgari_swarm_claim_0018",
+        "golgari_swarm_claim_0019",
+        "golgari_swarm_claim_0020",
+        "golgari_swarm_claim_0021"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
@@ -3103,18 +3929,18 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json",
       "canonical_pointer": "/site_surface",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:7fde750931dd65654ddf95dacb4e15f0558bd09fbd79868ff1cdb82ca3e9eb4d",
+      "canonical_content_hash": "sha256:11a8116c025c9f626499e7ac3c26902e64741a54c348923da1c553d2067f3927",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010",
-        "golgari_swarm_claim_0011"
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
@@ -3128,18 +3954,15 @@
       "canonical_file": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json",
       "canonical_pointer": "/structure",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:1bff5353ccb544af72d4aaaae0cedcc166428b26182f20de3eea990dd9912e68",
+      "canonical_content_hash": "sha256:97c1967444a71ae4473de8fe8d419cca0085b6080dd6b7e1146697dd8f679a68",
       "evidence_claim_ids": [
-        "golgari_swarm_claim_0008",
-        "golgari_swarm_claim_0009",
-        "golgari_swarm_claim_0010",
-        "golgari_swarm_claim_0011"
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_004",
+        "golgari_swarm_claim_005"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_deaths_precious_moments_1f524c65",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_gathering_storm_chapter_4_910c6134"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BG",
