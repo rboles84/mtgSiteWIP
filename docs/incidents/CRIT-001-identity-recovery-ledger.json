@@ -1388,25 +1388,40 @@
         "template_cohort_pattern": false,
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
-      "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
-        "blocked_at": null,
-        "blocked_reason": null,
-        "next_identity": "BG",
-        "primary_disposition": null
-      },
-      "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": [
-          "VM-510 Rakdos starts after accepted VM-540 Gate 0 base.",
-          "Operating model: docs/incidents/CRIT-001-operating-playbook.md v2.",
-          "Initial Rakdos work must be Gate 1+2 read-only audit/evidence confirmation; no Rakdos raw data, generated artifacts, fixtures, or runtime behavior changed in VM-540."
-        ]
-      },
+  "workflow": {
+    "current_gate": "gate_1_2_complete",
+    "status": "awaiting_gate_3_authorization",
+    "started_at": "2026-07-15",
+    "gate_entered_at": "2026-07-15",
+    "blocked_at": null,
+    "blocked_reason": null,
+    "next_identity": "BG",
+    "primary_disposition": "Claim-extraction pass required"
+  },
+  "semantic_review": {
+    "required_neighbors": [
+      "GENERIC_BR_OVERFIT",
+      "B",
+      "R",
+      "WR",
+      "RG",
+      "BG",
+      "WB",
+      "UR",
+      "PRISMARI",
+      "GRIXIS",
+      "JUND",
+      "MARDU"
+    ],
+    "audit_report": "docs/incidents/recoveries/VM-510-rakdos-semantic-recovery.md",
+    "residual_findings": [
+      "Gate 1+2 read-only audit/evidence confirmation complete from VM-540 base 797bf23750886d43802700ddbfb974f3ce666f5e.",
+      "Primary disposition: Claim-extraction pass required.",
+      "Blockers: all 16 claims lack semantic_role and evidence_locations; authoritative profile/placement/key-figure chains have no substantive claims; discovery records are used as semantic proof; generated BR key-figure/provenance chains are discovery-contaminated; collision_guidance and BR fixtures are missing.",
+      "Gate 3 required with bounded source localization against existing listed/local sources; no broad online discovery required before Gate 3.",
+      "No Rakdos raw data, generated artifacts, fixtures, runtime behavior, builder, validator, schema, contract, Hall, Crucible, scoring, inhibition, confidence, scheduling, tie-ordering, or global recruiter files changed in Gate 1+2."
+    ]
+  },
       "certification": {
         "contract_version": null,
         "contract_revalidation_required": false,

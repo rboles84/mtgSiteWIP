@@ -1,7 +1,7 @@
 # VM-510 — Rakdos Semantic Recovery
 
 ID: VM-510
-Status: Backlog; starts after accepted VM-540 Gate 0 base
+Status: Gate 1+2 audit/evidence confirmation complete; awaiting explicit Gate 3 authorization
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: BR
@@ -17,8 +17,8 @@ Rakdos starts only after VM-540 CRIT-001 Operating Playbook v2 and Gate 0 harden
 
 ## Gates
 
-- [ ] Gate 1 — Packet audit and bounded disposition.
-- [ ] Gate 2 — Sufficient evidence completion.
+- [x] Gate 1 - Packet audit and bounded disposition.
+- [x] Gate 2 - Sufficient evidence completion.
 - [ ] Gate 3 — Canonical remediation.
 - [ ] Gate 4 — Generation and validation.
 - [ ] Gate 5 — Independent certification.
@@ -40,7 +40,7 @@ Rakdos starts only after VM-540 CRIT-001 Operating Playbook v2 and Gate 0 harden
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Operating playbook: `docs/incidents/CRIT-001-operating-playbook.md`
-- Audit/recovery report: pending
+- Audit/recovery report: `docs/incidents/recoveries/VM-510-rakdos-semantic-recovery.md`
 - Candidate recovery SHA: pending
 - Independent reviewer: pending
 - Certification commit: pending
@@ -49,4 +49,12 @@ Rakdos starts only after VM-540 CRIT-001 Operating Playbook v2 and Gate 0 harden
 
 - VM-540 must be accepted before Rakdos starts.
 - Starting SHA for Rakdos Gate 1 is the accepted VM-540 program-base SHA.
-- Rakdos remains `not_started` until an explicit Gate 1+2 audit/evidence-confirmation task begins.
+- Rakdos remained `not_started` until this explicit Gate 1+2 audit/evidence-confirmation task began; it is now awaiting explicit Gate 3 authorization.
+
+## Gate 1+2 Audit Result — 2026-07-15
+
+- Gate 1+2 completed from VM-540 base `797bf23750886d43802700ddbfb974f3ce666f5e` on branch `codex/vm-510-rakdos-semantic-recovery`.
+- Primary disposition: **Claim-extraction pass required**.
+- Gate 3 is required before Rakdos can proceed: add semantic roles, bounded evidence locations, substantive proof chains, required-neighbor collision guidance, recruiter evidence mappings, provenance sourceability, and BR fixtures in later gates.
+- No Rakdos raw data, generated artifacts, fixtures, runtime behavior, builder, validator, schema, contract, Hall, Crucible, scoring, inhibition, confidence, scheduling, tie-ordering, or global recruiter files were changed in Gate 1+2.
+- Broad online source discovery is not required before Gate 3; Gate 3 must localize evidence against existing listed/local sources and stop if locators or high-heat wording support are unavailable.
