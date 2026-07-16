@@ -1540,19 +1540,39 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "gate_2_complete",
+        "status": "gate_3_authorized",
+        "started_at": "2026-07-16T09:17:00-06:00",
+        "gate_entered_at": "2026-07-16T09:17:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "RG",
-        "primary_disposition": null
+        "primary_disposition": "claim_extraction_pass_required"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "GENERIC_BG_OVERFIT",
+          "B",
+          "G",
+          "WITHERBLOOM",
+          "WG",
+          "WB",
+          "RG",
+          "BR",
+          "UB",
+          "SIMIC_COMBINE",
+          "ABZAN",
+          "JUND",
+          "SULTAI"
+        ],
+        "audit_report": "docs/incidents/recoveries/VM-511-golgari-semantic-recovery.md",
+        "residual_findings": [
+          "Gate 1+2 found no certifying semantic roles or bounded evidence locations in current Golgari claims.",
+          "Discovery-only story-corpus rows currently support authoritative profile/placement/generated key-figure chains and must be isolated before certification.",
+          "BG collision guidance and semantic fixtures are missing.",
+          "BG generated provenance has null canonical IDs; content hashes are non-null.",
+          "Gate 3 is authorized only if exact local/listed source locators can be bounded without online intake, schema/contract/builder/validator changes, or frozen-field drift."
+        ]
       },
       "certification": {
         "contract_version": null,
