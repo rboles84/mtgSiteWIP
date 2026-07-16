@@ -5760,9 +5760,9 @@ export const FACTION_CONTEXT = {
         "label": "Golgari"
       }
     },
-    "tagline": "Nothing is wasted. Everything feeds something else.",
-    "philosophy": "The most honest guild on Ravnica. It does not pretend death is bad or decay is shameful - it has built an entire civilization around the truth that everything dies, rot is not failure but the first act of the next life, and a city that ignores its dead is a city that doesn't understand itself.",
-    "core_tension": "The most philosophically consistent guild on Ravnica and the most politically unstable. Their philosophy says all things die and from death comes new life. Their internal politics demonstrate this constantly - every guildmaster is eventually betrayed, every faction eventually overthrows the last.",
+    "tagline": "What is discarded can feed the next cycle.",
+    "philosophy": "Golgari treats death, decay, and discarded matter as useful material inside a living cycle: undercity survival, food production, graveyard resources, and renewal rather than generic morbidity.",
+    "core_tension": "Golgari is strongest when reclamation feeds survival and renewal; it weakens when reduced to generic black-green resilience, graveyard aesthetics, or fatalistic rot without a cycle.",
     "affinity": {
       "drawn_to": [
         "The cycle of death and renewal as genuinely, not morbidly, beautiful",

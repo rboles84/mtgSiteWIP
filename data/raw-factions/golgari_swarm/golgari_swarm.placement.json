@@ -10,6 +10,7 @@
   ],
   "ideal_fit_indicators": [
     {
+      "indicator_id": "golgari_ideal_discarded_value",
       "indicator": "finds value in what others discard",
       "rationale": "Matches the source-bounded Golgari reclamation and unwanted-places cluster.",
       "claim_ids": [
@@ -21,6 +22,7 @@
       "confidence": "Medium"
     },
     {
+      "indicator_id": "golgari_ideal_endings_renewal",
       "indicator": "accepts endings as material for renewal",
       "rationale": "Matches official life/death identity and undergrowth graveyard-resource mechanics.",
       "claim_ids": [
@@ -32,6 +34,7 @@
       "confidence": "Medium"
     },
     {
+      "indicator_id": "golgari_ideal_undercity_reclamation",
       "indicator": "survives through reclamation and practical undercity resilience",
       "rationale": "Matches official underground, farming, and bounded placement synthesis.",
       "claim_ids": [
@@ -45,6 +48,7 @@
   ],
   "poor_fit_indicators": [
     {
+      "indicator_id": "golgari_poor_purity_cleanliness",
       "indicator": "needs purity or cleanliness as a moral principle",
       "rationale": "Counters the source-bounded Golgari decay and reclamation cluster.",
       "claim_ids": [
@@ -55,6 +59,7 @@
       "confidence": "Medium"
     },
     {
+      "indicator_id": "golgari_poor_denies_loss",
       "indicator": "denies loss instead of integrating it into useful material",
       "rationale": "Counters Golgari death-to-life and graveyard-resource placement logic.",
       "claim_ids": [
@@ -65,6 +70,7 @@
       "confidence": "Medium"
     },
     {
+      "indicator_id": "golgari_poor_generic_bg_without_reclamation",
       "indicator": "uses generic nature, resilience, or morbidity without reclamation",
       "rationale": "Counters generic BG overfit.",
       "claim_ids": [
@@ -209,6 +215,7 @@
   "placement_profile_version": "vox-mana-lore-json-v1",
   "based_on_profile_version": "1.0.0",
   "placement_summary": {
+    "summary_id": "golgari_placement_summary_gate3",
     "short_description": "Golgari Swarm placement is source-bounded by official overview and undergrowth mechanics, with story-corpus rows retained as discovery metadata only.",
     "best_fit_summary": "discarded matter made useful; endings feeding renewal; undercity survival; death, decay, food, rot, and graveyard resources turned into the next cycle",
     "poor_fit_summary": "generic BG resilience, clean preservation, abstract nature, private leverage, spectacle, study, predation, or control without reclamation",
@@ -263,6 +270,7 @@
     }
   ],
   "moral_and_psychological_profile": {
+    "profile_id": "golgari_moral_psychological_gate3",
     "summary": "Golgari Swarm should be scored through death-to-life reclamation, undercity survival, rot, food, graveyard resources, and useful decay, not only broad color identity.",
     "evidence_claim_ids": [
       "golgari_swarm_claim_0018",
@@ -274,6 +282,7 @@
   },
   "core_values": [
     {
+      "value_id": "golgari_value_death_to_life_reclamation",
       "value": "death-to-life reclamation",
       "placement_relevance": "Golgari should win when death, waste, or failure becomes useful material.",
       "claim_ids": [
@@ -283,6 +292,7 @@
       "confidence": "Medium"
     },
     {
+      "value_id": "golgari_value_decay_useful_truth",
       "value": "decay as useful truth",
       "placement_relevance": "Decay is source-bounded when joined to survival, renewal, and reclamation.",
       "claim_ids": [
@@ -292,6 +302,7 @@
       "confidence": "Medium"
     },
     {
+      "value_id": "golgari_value_undercity_survival",
       "value": "undercity survival",
       "placement_relevance": "The official guide places Golgari in forgotten and unwanted underground spaces.",
       "claim_ids": [
@@ -301,6 +312,7 @@
       "confidence": "Medium"
     },
     {
+      "value_id": "golgari_value_food_from_unwanted_places",
       "value": "food from unwanted places",
       "placement_relevance": "The official guide supports Golgari farming and food-production roles.",
       "claim_ids": [
@@ -310,6 +322,7 @@
       "confidence": "Medium"
     },
     {
+      "value_id": "golgari_value_graveyard_resources",
       "value": "graveyard resources",
       "placement_relevance": "Undergrowth supports graveyard material becoming present power.",
       "claim_ids": [
@@ -319,6 +332,7 @@
       "confidence": "Medium"
     },
     {
+      "value_id": "golgari_value_reclaimed_waste",
       "value": "reclaimed waste",
       "placement_relevance": "Discarded matter should feed survival or renewal, not remain aesthetic rot.",
       "claim_ids": [
@@ -328,6 +342,7 @@
       "confidence": "Medium"
     },
     {
+      "value_id": "golgari_value_cycle_over_endpoint",
       "value": "cycle over endpoint",
       "placement_relevance": "Golgari treats endings as material for continuation.",
       "claim_ids": [
@@ -337,6 +352,7 @@
       "confidence": "Medium"
     },
     {
+      "value_id": "golgari_value_practical_resilience",
       "value": "practical resilience",
       "placement_relevance": "Resilience counts only when source-bounded by reclamation and survival.",
       "claim_ids": [
@@ -346,6 +362,7 @@
       "confidence": "Medium"
     },
     {
+      "value_id": "golgari_value_body_and_mortality",
       "value": "body and mortality",
       "placement_relevance": "Body, death, and mortality language needs a useful-cycle frame.",
       "claim_ids": [
@@ -355,6 +372,7 @@
       "confidence": "Medium"
     },
     {
+      "value_id": "golgari_value_overfit_guardrail",
       "value": "generic BG overfit guardrail",
       "placement_relevance": "The packet must suppress black-green resilience without death, decay, undercity, graveyard, food, or reclamation proof.",
       "claim_ids": [
@@ -365,6 +383,7 @@
   ],
   "behavioral_signals": [
     {
+      "signal_id": "golgari_signal_reclamation_cycle",
       "signal": "The user makes discarded, dead, buried, or failed material feed survival or renewal.",
       "placement_relevance": "Strengthens source-bounded Golgari while avoiding discovery-only proof.",
       "supports_match_when": "Reclamation, rot, food, undercity survival, or graveyard-resource use is the user's chosen method.",
@@ -383,6 +402,7 @@
   ],
   "inhibitor_traits": [
     {
+      "trait_id": "golgari_inhibitor_generic_bg_overfit",
       "trait": "Generic color-pair overfit",
       "why_it_conflicts": "Golgari should not win on black-green resilience, nature, graveyard aesthetics, or morbidity alone.",
       "status": "Supported Interpretation",
@@ -398,6 +418,7 @@
   ],
   "good_fit_indicators": [
     {
+      "indicator_id": "golgari_ideal_discarded_value",
       "indicator": "finds value in what others discard",
       "rationale": "Matches the source-bounded Golgari reclamation and unwanted-places cluster.",
       "claim_ids": [
@@ -409,6 +430,7 @@
       "confidence": "Medium"
     },
     {
+      "indicator_id": "golgari_ideal_endings_renewal",
       "indicator": "accepts endings as material for renewal",
       "rationale": "Matches official life/death identity and undergrowth graveyard-resource mechanics.",
       "claim_ids": [
@@ -420,6 +442,7 @@
       "confidence": "Medium"
     },
     {
+      "indicator_id": "golgari_ideal_undercity_reclamation",
       "indicator": "survives through reclamation and practical undercity resilience",
       "rationale": "Matches official underground, farming, and bounded placement synthesis.",
       "claim_ids": [
