@@ -1,7 +1,7 @@
 # VM-510 — Rakdos Semantic Recovery
 
 ID: VM-510
-Status: Gate 5 candidate created; awaiting independent review; not certified; no certification SHA yet; no next identity started
+Status: Gate 5 replacement candidate created; awaiting independent review; not certified; no certification SHA yet; no next identity started
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: BR
@@ -41,7 +41,7 @@ Rakdos starts only after VM-540 CRIT-001 Operating Playbook v2 and Gate 0 harden
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Operating playbook: `docs/incidents/CRIT-001-operating-playbook.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-510-rakdos-semantic-recovery.md`
-- Candidate recovery SHA: `c96ceea602370fd146cdad5393d17e4cf68f8aa3`
+- Candidate recovery SHA: `c929a12a4f7be15cb563b2a6b050b33c32b39b7a`
 - Independent reviewer: pending
 - Certification commit: pending
 
@@ -70,6 +70,17 @@ Rakdos starts only after VM-540 CRIT-001 Operating Playbook v2 and Gate 0 harden
 ## Gate 5 Candidate Result - 2026-07-15
 
 - Candidate commit created: `c96ceea602370fd146cdad5393d17e4cf68f8aa3`.
+- Rakdos is awaiting independent review.
+- Rakdos is not certified.
+- Certification SHA: none yet.
+- No next identity was started.
+
+## Gate 5 Review-Fix Replacement Result - 2026-07-15
+
+- Independent review decision for candidate `c96ceea602370fd146cdad5393d17e4cf68f8aa3` and workflow record `175414aa8daba7ca6f713b93a2d3d32a9953dfd3`: REQUEST CHANGES.
+- Blocker fixed: all 39 substantive Rakdos evidence-location entries now include Contract v1.1 `evidence_scope`.
+- Medium finding fixed: Commander Compass `source_basis` support chains no longer carry discovery-only story-corpus claim/source IDs and are explicitly auxiliary/non-authoritative.
+- Replacement candidate commit created: `c929a12a4f7be15cb563b2a6b050b33c32b39b7a`.
 - Rakdos is awaiting independent review.
 - Rakdos is not certified.
 - Certification SHA: none yet.

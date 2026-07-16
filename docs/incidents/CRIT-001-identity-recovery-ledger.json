@@ -1238,14 +1238,14 @@
         "inventory_updated_at": "2026-07-16T04:54:32.448Z"
       },
       "workflow": {
-        "current_gate": "gate_5_candidate_created",
+        "current_gate": "gate_5_replacement_candidate_created",
         "status": "awaiting_independent_review",
         "started_at": "2026-07-15",
         "gate_entered_at": "2026-07-16",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "RAKDOS",
-        "primary_disposition": "Rakdos candidate created; awaiting independent review; not certified; no certification SHA yet; no next identity started."
+        "primary_disposition": "Replacement Rakdos candidate created after REQUEST CHANGES; awaiting independent review; not certified; no certification SHA yet; no next identity started."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -1270,28 +1270,49 @@
           "Discovery-only story-corpus records are retained as metadata/history only and no longer prove profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, public copy, or provenance chains.",
           "BR required-neighbor/collision guidance covers GENERIC_BR_OVERFIT, B, R, WR, RG, BG, WB, UR, PRISMARI, GRIXIS, JUND, and MARDU with explicit lateral_inhibition false and unchanged generated lateral targets.",
           "BR generated consumers and provenance rebuilt; provenance has zero null canonical IDs, zero null content hashes, and zero discovery-backed chains.",
-          "Gate 5 candidate commit c96ceea602370fd146cdad5393d17e4cf68f8aa3 was created; Rakdos is awaiting independent review and is not certified."
+          "Independent review returned REQUEST CHANGES for rejected candidate c96ceea602370fd146cdad5393d17e4cf68f8aa3 and rejected workflow record 175414aa8daba7ca6f713b93a2d3d32a9953dfd3.",
+          "Blocker fixed in replacement candidate c929a12a4f7be15cb563b2a6b050b33c32b39b7a: all 39 substantive Rakdos evidence-location entries now include Contract v1.1 evidence_scope.",
+          "Medium finding fixed in replacement candidate c929a12a4f7be15cb563b2a6b050b33c32b39b7a: Commander Compass source_basis support chains no longer carry discovery-only story-corpus claim/source IDs; retained Commander guidance is explicitly auxiliary and non-authoritative.",
+          "Rakdos remains awaiting independent review and is not certified; no certification SHA exists and no next identity has started."
         ],
         "validation_summary": [
+          "JSON parse checks for Rakdos raw files passed.",
+          "npm.cmd run build:factions passed.",
+          "Explicit evidence_scope check passed: zero substantive Rakdos evidence_locations entries missing evidence_scope.",
+          "Explicit auxiliary discovery-ID check passed: raw/generated Commander Compass source_basis chains contain no discovery-only claim/source IDs.",
           "node research/audit-semantic-readiness.mjs --targets=BR passed.",
           "node research/validate-semantic-readiness.mjs --targets=BR passed.",
           "node research/semantic-candidate-scope-tests.js passed.",
           "npm.cmd run test:semantic-readiness passed.",
           "npm.cmd run test:placement passed.",
           "npm.cmd run test:faction-context-isolation passed.",
-          "Semantic candidate scope worktree dry-run passed for BR against 30bd86bec4134cbdd136fe0c73f052f92a00bd96..worktree."
+          "Candidate-scope worktree dry-run passed for BR against 30bd86bec4134cbdd136fe0c73f052f92a00bd96..worktree and 175414aa8daba7ca6f713b93a2d3d32a9953dfd3..worktree.",
+          "Committed candidate-scope validation passed for BR against 30bd86bec4134cbdd136fe0c73f052f92a00bd96..c929a12a4f7be15cb563b2a6b050b33c32b39b7a and 175414aa8daba7ca6f713b93a2d3d32a9953dfd3..c929a12a4f7be15cb563b2a6b050b33c32b39b7a.",
+          "git diff --check passed."
         ]
       },
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": "c96ceea602370fd146cdad5393d17e4cf68f8aa3",
-        "recovery_commit": "c96ceea602370fd146cdad5393d17e4cf68f8aa3",
+        "candidate_recovery_sha": "c929a12a4f7be15cb563b2a6b050b33c32b39b7a",
+        "recovery_commit": "c929a12a4f7be15cb563b2a6b050b33c32b39b7a",
         "certification_commit": null,
         "reviewer": null,
-        "review_cycles": 0,
+        "review_cycles": 1,
         "approval_date": null,
-        "certified_at": null
+        "certified_at": null,
+        "review_result": "changes_requested",
+        "rejected_candidate_sha": "c96ceea602370fd146cdad5393d17e4cf68f8aa3",
+        "rejected_candidate_shas": [
+          "c96ceea602370fd146cdad5393d17e4cf68f8aa3"
+        ],
+        "rejected_workflow_sha": "175414aa8daba7ca6f713b93a2d3d32a9953dfd3",
+        "replacement_candidate_sha": "c929a12a4f7be15cb563b2a6b050b33c32b39b7a",
+        "review_findings": {
+          "decision": "REQUEST CHANGES",
+          "blocker": "Contract v1.1 evidence_locations entries missing evidence_scope across all 39 substantive Rakdos evidence-location entries.",
+          "medium": "Auxiliary Commander Compass source_basis.existing_repo_claim_ids carried discovery claim IDs while marked reviewed_not_canonical_lore / do_not_use_as_claim_source."
+        }
       }
     },
     {

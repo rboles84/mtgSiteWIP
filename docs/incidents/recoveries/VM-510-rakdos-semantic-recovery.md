@@ -614,3 +614,46 @@ Added `research/fixtures/semantic-readiness/cult_of_rakdos.semantic-fixtures.jso
 - Certification SHA: none yet.
 - No next identity started.
 - No certification occurred.
+
+## Gate 5 Review Findings Remediation
+
+### Review decision
+
+- Rejected candidate SHA: `c96ceea602370fd146cdad5393d17e4cf68f8aa3`.
+- Rejected workflow-record SHA: `175414aa8daba7ca6f713b93a2d3d32a9953dfd3`.
+- Independent review decision: REQUEST CHANGES.
+- Blocker: Contract v1.1 requires `evidence_scope`; all 39 substantive Rakdos `evidence_locations` entries in the rejected candidate were missing it.
+- Medium finding: auxiliary Commander Compass `source_basis.existing_repo_claim_ids` carried discovery claim IDs even though the container was marked `reviewed_not_canonical_lore` / `do_not_use_as_claim_source`.
+
+### Replacement fix
+
+- Added `evidence_scope` to all 39 substantive Rakdos evidence-location entries.
+- Used existing Contract v1.1-compatible scope vocabulary from certified packets: `identity-wide`, `institution-specific`, `character-specific`, `mechanic-specific`, `project placement synthesis grounded in source claims`, and `required-neighbor boundary`.
+- Removed discovery-only story-corpus claim/source IDs from Commander Compass `source_basis` support chains in raw and generated output.
+- Added auxiliary-support boundary notes so Commander/card/product guidance cannot be read as proof of profile identity, placement identity, key figures, recruiter guidance, semantic readiness, public copy, or provenance chains.
+
+### Replacement validation
+
+- JSON parse checks for Rakdos raw files: passed.
+- `npm.cmd run build:factions`: passed.
+- Explicit evidence-scope check: passed; zero substantive Rakdos `evidence_locations` entries missing `evidence_scope`.
+- Explicit auxiliary discovery-ID check: passed; raw/generated Commander Compass `source_basis` chains contain no discovery-only claim/source IDs.
+- `node research/audit-semantic-readiness.mjs --targets=BR`: passed.
+- `node research/validate-semantic-readiness.mjs --targets=BR`: passed.
+- `node research/semantic-candidate-scope-tests.js`: passed.
+- `npm.cmd run test:semantic-readiness`: passed.
+- `npm.cmd run test:placement`: passed.
+- `npm.cmd run test:faction-context-isolation`: passed.
+- Candidate-scope worktree dry-run passed for `30bd86bec4134cbdd136fe0c73f052f92a00bd96..worktree` and `175414aa8daba7ca6f713b93a2d3d32a9953dfd3..worktree`.
+- Committed candidate-scope validation passed for `30bd86bec4134cbdd136fe0c73f052f92a00bd96..c929a12a4f7be15cb563b2a6b050b33c32b39b7a` and `175414aa8daba7ca6f713b93a2d3d32a9953dfd3..c929a12a4f7be15cb563b2a6b050b33c32b39b7a`.
+- `git diff --check`: passed.
+
+### Replacement candidate status
+
+- Replacement candidate SHA: `c929a12a4f7be15cb563b2a6b050b33c32b39b7a`.
+- Supersedes rejected candidate SHA: `c96ceea602370fd146cdad5393d17e4cf68f8aa3`.
+- Rakdos is awaiting independent review.
+- Rakdos is not certified.
+- Certification SHA: none yet.
+- No next identity started.
+- Original main worktree `C:\dev\mtgSiteWIP` was not touched.
