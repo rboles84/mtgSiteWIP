@@ -657,3 +657,42 @@ Added `research/fixtures/semantic-readiness/cult_of_rakdos.semantic-fixtures.jso
 - Certification SHA: none yet.
 - No next identity started.
 - Original main worktree `C:\dev\mtgSiteWIP` was not touched.
+
+## Certification and Program Acceptance - 2026-07-16
+
+### Certification decision
+
+- Independent review decision: `APPROVE EXACT SHA c929a12a4f7be15cb563b2a6b050b33c32b39b7a`.
+- Approved replacement candidate SHA: `c929a12a4f7be15cb563b2a6b050b33c32b39b7a`.
+- Replacement workflow-record SHA: `515103b051ffc7cc1e43b9e2b94b2af404a14103`.
+- Rejected candidate SHA remains rejected: `c96ceea602370fd146cdad5393d17e4cf68f8aa3`.
+- Rejected workflow-record SHA remains rejected: `175414aa8daba7ca6f713b93a2d3d32a9953dfd3`.
+- Identity: Rakdos / BR.
+- VM: VM-510.
+- Contract: CRIT-001 Contract v1.1.
+- Final state: certified / `semantically_ready`.
+- Remaining findings: no blocker, high, medium, or low findings reported by the approving review.
+
+### Review-safe validation before certification
+
+- `git status --short --branch`: clean on `codex/vm-510-rakdos-semantic-recovery`.
+- Approved candidate exists in branch history: `c929a12a4f7be15cb563b2a6b050b33c32b39b7a`.
+- Replacement workflow-record exists in branch history: `515103b051ffc7cc1e43b9e2b94b2af404a14103`.
+- `node research/audit-semantic-readiness.mjs --targets=BR`: passed; 32 claims, 22 substantive, 10 discovery, 0 support, 0 unclassified.
+- `node research/validate-semantic-readiness.mjs --targets=BR`: passed.
+- `node research/semantic-candidate-scope-tests.js`: passed.
+- `npm.cmd run test:semantic-readiness`: passed; verified 1576 semantic provenance entries.
+- `npm.cmd run test:placement`: passed; 37 factions, 37 golden paths.
+- `npm.cmd run test:faction-context-isolation`: passed.
+- `git diff --check`: passed before certification edits.
+
+### Certification scope
+
+- Certification is governance-only.
+- No semantic candidate files were edited during certification.
+- No generated artifacts, provenance, or fixtures were edited during certification.
+- No Contract v1.1, schema, builder, validator, Hall, Crucible, scoring, confidence, calibration, scheduling, tie-order, or global recruiter behavior changes were made.
+- Certification commit is self-referential in tracked governance records, so the exact SHA is reported in final task output; no second SHA-record commit was created.
+- VM-510 is closed as Done.
+- Golgari / BG is prepared only as the next branch setup identity; no Golgari remediation was started.
+- Original main worktree `C:\dev\mtgSiteWIP` was checked read-only and not touched.

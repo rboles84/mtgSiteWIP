@@ -9,7 +9,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 **CRIT-001 is open.** Faction-foundation authoring, readiness approvals, canonical semantic guidance outside an active recovery card, Hall/Crucible authoring, and placement calibration are frozen. VM-501 owns shared recovery infrastructure; VM-502 through VM-538 recover the 37 identities one at a time. See the [incident](../incidents/CRIT-001-faction-semantic-readiness-integrity.md) and [authoritative recovery ledger](../incidents/CRIT-001-identity-recovery-ledger.json).
 
-**VM-502 Prismari, VM-506 Lorehold, VM-503 Quandrix, VM-504 Silverquill, VM-505 Witherbloom, VM-507 Izzet, VM-508 Azorius, and VM-509 Boros are certified semantically ready under CRIT-001 Contract v1.1.** Boros approved recovery SHA `da2e9ef4036c427c17dca66c5a1a9d9a8fe03436` is accepted by independent Gate 5 review. Boros certification records workflow-record SHA `05aeda06ff73a7ac51e6dd8e5366148a5ad6fb88`, infrastructure unblock SHA `4d351747f0634663ea8f796099057e431af8a65b`, superseded rejected candidate/workflow `c2f5d064460a007f0dca6be95b7beabb4ca85026` / `d7f2523d53cfbc6420e75c83b9ab03192158a1a1`, and earlier superseded failed candidate/workflow `abff94b91e94b99a6b2a77b71806a9d005ecec76` / `25420bad09715645ba4af37f07cac097b3e7966d`. VM-540 adds CRIT-001 Operating Playbook v2 and Gate 0 hardening before Rakdos starts. Active identity is Rakdos / BR on branch `codex/vm-510-rakdos-semantic-recovery`; rejected candidate `c96ceea602370fd146cdad5393d17e4cf68f8aa3` received REQUEST CHANGES; replacement candidate `c929a12a4f7be15cb563b2a6b050b33c32b39b7a` fixes the review findings; Rakdos is awaiting independent review and is not certified; no next identity has started.
+**VM-502 Prismari, VM-506 Lorehold, VM-503 Quandrix, VM-504 Silverquill, VM-505 Witherbloom, VM-507 Izzet, VM-508 Azorius, VM-509 Boros, and VM-510 Rakdos are certified semantically ready under CRIT-001 Contract v1.1.** Rakdos approved replacement candidate `c929a12a4f7be15cb563b2a6b050b33c32b39b7a` is accepted by independent Gate 5 review; replacement workflow-record SHA `515103b051ffc7cc1e43b9e2b94b2af404a14103` is recorded; rejected candidate/workflow `c96ceea602370fd146cdad5393d17e4cf68f8aa3` / `175414aa8daba7ca6f713b93a2d3d32a9953dfd3` remain rejected. VM-540 adds CRIT-001 Operating Playbook v2 and Gate 0 hardening. Active identity is Golgari / BG on branch `codex/vm-511-golgari-semantic-recovery` as branch setup only; no Golgari remediation has started.
 
 ## Backlog
 
@@ -38,7 +38,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-510 - Rakdos Semantic Recovery](backlog/VM-510-rakdos-semantic-recovery.md) - Gate 5 replacement candidate `c929a12a4f7be15cb563b2a6b050b33c32b39b7a` created after REQUEST CHANGES on rejected candidate `c96ceea602370fd146cdad5393d17e4cf68f8aa3`; awaiting independent review; not certified.
+- No cards currently in progress.
 
 ## Blocked
 
@@ -55,6 +55,8 @@ VM-429 Section 14 ID reconciliation, 2026-06-30: the early readiness plan expect
 - [VM-540 - CRIT-001 Operating Playbook And Gate 0 Hardening](done/VM-540-crit001-operating-playbook-gate-zero-hardening.md) - one-time campaign Gate 0 hardening before Rakdos; adds Operating Playbook v2, template/checklist updates, and narrow candidate-scope guard tests for recurring CRIT-001 defects.
 
 - [VM-509 - Boros Semantic Recovery](done/VM-509-boros-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1; approved recovery SHA `da2e9ef4036c427c17dca66c5a1a9d9a8fe03436`; certification commit recorded by this acceptance commit.
+
+- [VM-510 - Rakdos Semantic Recovery](done/VM-510-rakdos-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1; approved replacement candidate SHA `c929a12a4f7be15cb563b2a6b050b33c32b39b7a`; certification commit recorded by this acceptance commit.
 
 - [VM-503 - Quandrix Semantic Recovery](done/VM-503-quandrix-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1; approved recovery SHA `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe`; certification commit `cb495e11ba875f1801cbd8f8cb8e7204c27f5840`.
 - [VM-502 - Prismari Semantic Recovery](done/VM-502-prismari-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1; approved recovery SHA `19800da6322100b28fa6325fef91321e147b6f69`; certification commit `492598f13df24d0f74f5869e249d860ff661a3aa`.

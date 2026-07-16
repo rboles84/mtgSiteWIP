@@ -1,7 +1,7 @@
 # VM-510 — Rakdos Semantic Recovery
 
 ID: VM-510
-Status: Gate 5 replacement candidate created; awaiting independent review; not certified; no certification SHA yet; no next identity started
+Status: Done
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: BR
@@ -21,7 +21,7 @@ Rakdos starts only after VM-540 CRIT-001 Operating Playbook v2 and Gate 0 harden
 - [x] Gate 2 - Sufficient evidence completion.
 - [x] Gate 3 — Canonical remediation.
 - [x] Gate 4 — Generation and validation.
-- [ ] Gate 5 — Independent certification.
+- [x] Gate 5 - Independent certification.
 
 ## Scope Rules
 
@@ -42,8 +42,8 @@ Rakdos starts only after VM-540 CRIT-001 Operating Playbook v2 and Gate 0 harden
 - Operating playbook: `docs/incidents/CRIT-001-operating-playbook.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-510-rakdos-semantic-recovery.md`
 - Candidate recovery SHA: `c929a12a4f7be15cb563b2a6b050b33c32b39b7a`
-- Independent reviewer: pending
-- Certification commit: pending
+- Independent reviewer: APPROVE EXACT SHA c929a12a4f7be15cb563b2a6b050b33c32b39b7a
+- Certification commit: this VM-510 certification commit; exact SHA reported in final task output
 
 ## Gate 0 Note
 
@@ -85,3 +85,27 @@ Rakdos starts only after VM-540 CRIT-001 Operating Playbook v2 and Gate 0 harden
 - Rakdos is not certified.
 - Certification SHA: none yet.
 - No next identity was started.
+
+## Certification and Program Acceptance
+
+- Certified: 2026-07-16.
+- Identity: Rakdos.
+- Target: BR.
+- VM: VM-510.
+- Contract version: v1.1.
+- Independent review decision: `APPROVE EXACT SHA c929a12a4f7be15cb563b2a6b050b33c32b39b7a`.
+- Final certification state: `semantically_ready`.
+- Approved replacement candidate SHA: `c929a12a4f7be15cb563b2a6b050b33c32b39b7a`.
+- Replacement workflow-record SHA: `515103b051ffc7cc1e43b9e2b94b2af404a14103`.
+- Rejected candidate SHA: `c96ceea602370fd146cdad5393d17e4cf68f8aa3`.
+- Rejected workflow-record SHA: `175414aa8daba7ca6f713b93a2d3d32a9953dfd3`.
+- Remaining findings: none reported at blocker, high, medium, or low severity.
+- Validation passed before certification commit.
+- Certification commit: this VM-510 certification commit; exact SHA reported in final task output.
+
+Program acceptance:
+
+- Approved replacement candidate and workflow-record commit accepted into the CRIT-001 program base.
+- VM-510 closed as Done.
+- Next identity set as Golgari / BG for branch setup only.
+- No Golgari remediation started.

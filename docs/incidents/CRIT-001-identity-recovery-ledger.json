@@ -5,8 +5,8 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "RAKDOS",
-    "next_identity": "RAKDOS",
+    "active_identity": "GOLGARI",
+    "next_identity": "GOLGARI",
     "wip_limit": 1,
     "active_prerequisite": null,
     "prerequisite_candidate_sha": "6e53acd5691c85caf3328d3bd301ac18d07879e1",
@@ -1238,14 +1238,14 @@
         "inventory_updated_at": "2026-07-16T04:54:32.448Z"
       },
       "workflow": {
-        "current_gate": "gate_5_replacement_candidate_created",
-        "status": "awaiting_independent_review",
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": "2026-07-15",
-        "gate_entered_at": "2026-07-16",
+        "gate_entered_at": "2026-07-16T08:17:01-06:00",
         "blocked_at": null,
         "blocked_reason": null,
-        "next_identity": "RAKDOS",
-        "primary_disposition": "Replacement Rakdos candidate created after REQUEST CHANGES; awaiting independent review; not certified; no certification SHA yet; no next identity started."
+        "next_identity": "GOLGARI",
+        "primary_disposition": "Certified semantically_ready after independent review approved exact replacement candidate c929a12a4f7be15cb563b2a6b050b33c32b39b7a; no remaining blocker/high/medium/low findings; VM-511 Golgari branch setup only, no remediation started."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -1265,30 +1265,22 @@
         "audit_report": "docs/incidents/recoveries/VM-510-rakdos-semantic-recovery.md",
         "remediation_report": "docs/incidents/recoveries/VM-510-rakdos-semantic-recovery.md#gate-34-remediation-and-validation",
         "residual_findings": [
-          "Gate 3+4 canonical remediation and generation completed in the worktree from starting SHA 30bd86bec4134cbdd136fe0c73f052f92a00bd96.",
-          "All 32 Rakdos claims now have semantic roles: 22 substantive_claim and 10 discovery_record; zero support_record and zero unclassified.",
-          "Discovery-only story-corpus records are retained as metadata/history only and no longer prove profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, public copy, or provenance chains.",
-          "BR required-neighbor/collision guidance covers GENERIC_BR_OVERFIT, B, R, WR, RG, BG, WB, UR, PRISMARI, GRIXIS, JUND, and MARDU with explicit lateral_inhibition false and unchanged generated lateral targets.",
-          "BR generated consumers and provenance rebuilt; provenance has zero null canonical IDs, zero null content hashes, and zero discovery-backed chains.",
-          "Independent review returned REQUEST CHANGES for rejected candidate c96ceea602370fd146cdad5393d17e4cf68f8aa3 and rejected workflow record 175414aa8daba7ca6f713b93a2d3d32a9953dfd3.",
-          "Blocker fixed in replacement candidate c929a12a4f7be15cb563b2a6b050b33c32b39b7a: all 39 substantive Rakdos evidence-location entries now include Contract v1.1 evidence_scope.",
-          "Medium finding fixed in replacement candidate c929a12a4f7be15cb563b2a6b050b33c32b39b7a: Commander Compass source_basis support chains no longer carry discovery-only story-corpus claim/source IDs; retained Commander guidance is explicitly auxiliary and non-authoritative.",
-          "Rakdos remains awaiting independent review and is not certified; no certification SHA exists and no next identity has started."
+          "Independent review returned APPROVE EXACT SHA c929a12a4f7be15cb563b2a6b050b33c32b39b7a.",
+          "No remaining blocker, high, medium, or low findings after the approving review.",
+          "Rejected candidate c96ceea602370fd146cdad5393d17e4cf68f8aa3 remains rejected and is not certified.",
+          "Certification is governance-only; no semantic candidate, generated artifact, or fixture files changed during certification."
         ],
         "validation_summary": [
-          "JSON parse checks for Rakdos raw files passed.",
-          "npm.cmd run build:factions passed.",
-          "Explicit evidence_scope check passed: zero substantive Rakdos evidence_locations entries missing evidence_scope.",
-          "Explicit auxiliary discovery-ID check passed: raw/generated Commander Compass source_basis chains contain no discovery-only claim/source IDs.",
+          "Pre-certification git status confirmed the VM-510 worktree was clean on codex/vm-510-rakdos-semantic-recovery.",
+          "Approved replacement candidate c929a12a4f7be15cb563b2a6b050b33c32b39b7a exists in branch history.",
+          "Replacement workflow-record 515103b051ffc7cc1e43b9e2b94b2af404a14103 exists in branch history.",
           "node research/audit-semantic-readiness.mjs --targets=BR passed.",
           "node research/validate-semantic-readiness.mjs --targets=BR passed.",
           "node research/semantic-candidate-scope-tests.js passed.",
-          "npm.cmd run test:semantic-readiness passed.",
-          "npm.cmd run test:placement passed.",
+          "npm.cmd run test:semantic-readiness passed and verified 1576 semantic provenance entries.",
+          "npm.cmd run test:placement passed with 37 factions and 37 golden paths.",
           "npm.cmd run test:faction-context-isolation passed.",
-          "Candidate-scope worktree dry-run passed for BR against 30bd86bec4134cbdd136fe0c73f052f92a00bd96..worktree and 175414aa8daba7ca6f713b93a2d3d32a9953dfd3..worktree.",
-          "Committed candidate-scope validation passed for BR against 30bd86bec4134cbdd136fe0c73f052f92a00bd96..c929a12a4f7be15cb563b2a6b050b33c32b39b7a and 175414aa8daba7ca6f713b93a2d3d32a9953dfd3..c929a12a4f7be15cb563b2a6b050b33c32b39b7a.",
-          "git diff --check passed."
+          "git diff --check passed before certification edits."
         ]
       },
       "certification": {
@@ -1296,12 +1288,12 @@
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "c929a12a4f7be15cb563b2a6b050b33c32b39b7a",
         "recovery_commit": "c929a12a4f7be15cb563b2a6b050b33c32b39b7a",
-        "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 1,
-        "approval_date": null,
-        "certified_at": null,
-        "review_result": "changes_requested",
+        "certification_commit": "PENDING_VM510_CERTIFICATION_COMMIT_SHA",
+        "reviewer": "Robert / user-supplied independent Gate 5 review in this Codex thread",
+        "review_cycles": 2,
+        "approval_date": "2026-07-16",
+        "certified_at": "2026-07-16T08:17:01-06:00",
+        "review_result": "approved_exact_sha",
         "rejected_candidate_sha": "c96ceea602370fd146cdad5393d17e4cf68f8aa3",
         "rejected_candidate_shas": [
           "c96ceea602370fd146cdad5393d17e4cf68f8aa3"
@@ -1309,10 +1301,28 @@
         "rejected_workflow_sha": "175414aa8daba7ca6f713b93a2d3d32a9953dfd3",
         "replacement_candidate_sha": "c929a12a4f7be15cb563b2a6b050b33c32b39b7a",
         "review_findings": {
-          "decision": "REQUEST CHANGES",
-          "blocker": "Contract v1.1 evidence_locations entries missing evidence_scope across all 39 substantive Rakdos evidence-location entries.",
-          "medium": "Auxiliary Commander Compass source_basis.existing_repo_claim_ids carried discovery claim IDs while marked reviewed_not_canonical_lore / do_not_use_as_claim_source."
-        }
+          "original_rejected_candidate_decision": "REQUEST CHANGES",
+          "original_blocker": "Contract v1.1 evidence_locations entries missing evidence_scope across all 39 substantive Rakdos evidence-location entries.",
+          "original_medium": "Auxiliary Commander Compass source_basis.existing_repo_claim_ids carried discovery claim IDs while marked reviewed_not_canonical_lore / do_not_use_as_claim_source.",
+          "replacement_review_decision": "APPROVE EXACT SHA c929a12a4f7be15cb563b2a6b050b33c32b39b7a",
+          "remaining_findings": "none"
+        },
+        "final_state": "semantically_ready",
+        "approved_replacement_candidate_sha": "c929a12a4f7be15cb563b2a6b050b33c32b39b7a",
+        "replacement_workflow_sha": "515103b051ffc7cc1e43b9e2b94b2af404a14103",
+        "independent_review_decision": "APPROVE EXACT SHA c929a12a4f7be15cb563b2a6b050b33c32b39b7a",
+        "remaining_findings": {
+          "blocker": [],
+          "high": [],
+          "medium": [],
+          "low": []
+        },
+        "validation_notes": [
+          "Review-safe certification validation passed before the governance-only certification commit.",
+          "No correction was required for the approved replacement candidate.",
+          "Exact certification commit SHA is self-referential in tracked governance records and is reported in the task final output."
+        ],
+        "known_unchanged_warnings": []
       }
     },
     {
