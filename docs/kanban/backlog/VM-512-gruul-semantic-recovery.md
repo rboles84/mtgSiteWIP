@@ -1,13 +1,13 @@
 # VM-512 — Gruul Semantic Recovery
 
 ID: VM-512
-Status: Backlog
+Status: In Progress
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: RG
 Raw packet: `data/raw-factions/gruul_clans/`
 Cohort: guild
-Contract: pending Contract v1
+Contract: CRIT-001 Contract v1.1
 
 ## Objective
 
@@ -15,8 +15,8 @@ Recover Gruul end to end under CRIT-001: audit the existing packet, bound readin
 
 ## Gates
 
-- [ ] Gate 1 — Packet audit and bounded disposition.
-- [ ] Gate 2 — Sufficient evidence completion.
+- [x] Gate 1 - Packet audit and bounded disposition.
+- [x] Gate 2 - Sufficient evidence completion.
 - [ ] Gate 3 — Canonical remediation.
 - [ ] Gate 4 — Generation and validation.
 - [ ] Gate 5 — Independent certification.
@@ -33,7 +33,16 @@ Recover Gruul end to end under CRIT-001: audit the existing packet, bound readin
 - Canonical ledger: `docs/incidents/CRIT-001-identity-recovery-ledger.json`
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
-- Audit/recovery report: pending
+- Audit/recovery report: `docs/incidents/recoveries/VM-512-gruul-semantic-recovery.md`
 - Candidate recovery SHA: pending
 - Independent reviewer: pending
 - Certification commit: pending
+
+## Gate 1+2 Status
+
+- Gate 1+2 completed from base `a7aabe30cb4e9fe65ab01d15fdd41ac4445b86f8`.
+- Primary disposition: claim-extraction pass required.
+- Existing listed/local evidence is sufficient to authorize bounded Gate 3 remediation.
+- Broad online source discovery is not required before Gate 3.
+- Gruul is not certified and no Gate 5 candidate exists.
+- VM-513 has not started.

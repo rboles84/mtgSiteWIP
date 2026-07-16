@@ -1692,19 +1692,39 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "gate_2_complete",
+        "status": "gate_3_authorized",
+        "started_at": "2026-07-16T17:19:00-06:00",
+        "gate_entered_at": "2026-07-16T17:19:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "UB",
-        "primary_disposition": null
+        "primary_disposition": "claim_extraction_pass_required"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "GENERIC_RG_OVERFIT",
+          "R",
+          "G",
+          "BR",
+          "BG",
+          "WR",
+          "UR",
+          "UG",
+          "WG",
+          "JUND",
+          "NAYA",
+          "TEMUR"
+        ],
+        "audit_report": "docs/incidents/recoveries/VM-512-gruul-semantic-recovery.md",
+        "residual_findings": [
+          "Gate 1+2 found zero Gruul substantive claims and 78 unclassified claims; all authoritative claims need Contract v1.1 semantic roles and bounded evidence locations before certification.",
+          "Discovery/story-corpus rows currently appear in profile/placement authoritative chains and must be isolated before generated consumers can be certifying.",
+          "RG generated key figures and canonical flavor output include unclassified or discovery-linked material as source-backed evidence.",
+          "RG collision guidance covers only Rakdos and Golgari and must be expanded to the required neighbor set with non-inhibiting guidance.",
+          "RG generated provenance has 59 null canonical IDs; content hashes are non-null.",
+          "Gate 3 is authorized only if exact local/listed source locators can be bounded without online intake, schema/contract/builder/validator changes, frozen-field drift, or generated proof-chain contamination."
+        ]
       },
       "certification": {
         "contract_version": null,
