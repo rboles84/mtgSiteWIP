@@ -2172,11 +2172,11 @@
         "R"
       ],
       "identity": {
-        "summary": "Cult of Rakdos is a black-red guild associated with Ravnica.",
-        "philosophy": "Life is short, authority is mockable, and performance can expose truths politeness hides.",
-        "central_tension": "Rakdos is both a social pressure valve and a dangerous cult of spectacle, violence, hedonism, and anti-authoritarian expression.",
-        "display_tagline": "Life is short, authority is mockable, and performance can expose truths politeness hides.",
-        "mechanics": "Spectacle rewards action after an opponent has lost life, expressing Rakdos's taste for consequence, audience, and escalation."
+        "summary": "Cult of Rakdos is the black-red guild whose authoritative signal is performance, spectacle, anti-authoritarian provocation, dangerous entertainment, and demonic patronage.",
+        "philosophy": "Rakdos turns appetite and social pressure into public performance; the proof chain requires an act, an audience or consequence, and a source-bounded Rakdos frame.",
+        "central_tension": "The Cult can reveal pressure through spectacle, but it becomes a false positive when reduced to generic aggression or unbounded disruption.",
+        "display_tagline": "Performance makes appetite, cost, and consequence visible.",
+        "mechanics": "Spectacle is the Ravnica Allegiance Rakdos mechanic and supports consequence-gated placement language."
       },
       "layered_identity": {
         "core_color": "B",
@@ -2232,68 +2232,100 @@
         "broad_match_penalty": 0.1
       },
       "good_fit_indicators": [
-        "uses performance to reveal truth",
-        "chooses intensity over polite safety",
-        "finds hypocrisy more offensive than disruption"
+        "uses performance or provocation to make social pressure visible",
+        "chooses intensity with visible cost, audience, or consequence",
+        "uses transgression to expose restraint rather than random disruption"
       ],
       "poor_fit_indicators": [
-        "needs stability and restraint above all",
-        "avoids attention and spectacle",
-        "finds transgression meaningless rather than clarifying"
+        "needs respectability, safety, or restraint to lead over expression",
+        "wants private leverage without an act, audience, or visible consequence",
+        "uses aggression or disruption without performance, cost, or provocation"
       ],
       "inhibitor_traps": [
         "Need for respectability, emotional safety, and polite restraint above authenticity, intensity, or release.",
-        "needs stability and restraint above all",
-        "avoids attention and spectacle",
-        "finds transgression meaningless rather than clarifying"
+        "User only wants generic BR aggression, random disruption, harmful posturing, or evil-party styling without performance, audience, or cost.",
+        "User centers Boros protection, Izzet invention, Golgari survival/rot, Orzhov debt, Gruul anti-civilization rage, Prismari craft, Jund survival appetite, Grixis leverage, or Mardu martial code first.",
+        "User treats harm, shock, or rule-breaking as the whole point rather than bounded spectacle or transgression.",
+        "needs respectability, safety, or restraint to lead over expression",
+        "wants private leverage without an act, audience, or visible consequence",
+        "uses aggression or disruption without performance, cost, or provocation"
       ],
       "discriminator_questions": [
         {
           "id": "rakdos_q1",
-          "prompt": "When did a performance, joke, or provocation tell the truth better than a careful explanation?",
-          "purpose": "Tests expressive transgression.",
-          "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-          "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-          "collision_targets": [],
-          "evidence_claim_ids": [
-            "cult_of_rakdos_claim_001",
-            "cult_of_rakdos_claim_002",
-            "cult_of_rakdos_claim_003"
-          ],
-          "confidence": "Medium"
-        },
-        {
-          "id": "rakdos_q2",
-          "prompt": "What kind of boredom feels intolerable to you?",
-          "purpose": "Finds the Rakdos pressure point without asking directly about chaos.",
-          "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-          "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-          "collision_targets": [],
-          "evidence_claim_ids": [
-            "cult_of_rakdos_claim_001",
-            "cult_of_rakdos_claim_002",
-            "cult_of_rakdos_claim_003"
-          ],
-          "confidence": "Medium"
-        },
-        {
-          "id": "rakdos_q3",
-          "prompt": "When you break decorum, is it to expose a truth onstage, or only to release heat?",
-          "purpose": "Separates Rakdos theatrical truth and transgressive spectacle from generic chaos, grief, sacrifice, reckless emotion, or red-black aggression.",
-          "supports": "The answer treats performance, spectacle, provocation, or transgression as a way to reveal hypocrisy, intensify truth, or make restraint feel false.",
-          "weakens": "The answer centers grief, sacrifice, reckless anger, violence, or generic chaos without performance, spectacle, or truth-telling pressure.",
+          "prompt": "When did a performance, joke, or provocation make pressure visible better than a careful explanation?",
+          "purpose": "Tests source-bounded expressive transgression.",
+          "supports": "The answer uses performance, spectacle, audience, or provocation to expose social pressure.",
+          "weakens": "The answer prefers private control, disciplined service, experiment, survival, obligation, or unframed disruption.",
           "collision_targets": [
-            "BG",
-            "JUND",
+            "BR",
+            "B",
+            "R",
+            "WR",
+            "UR",
             "WB"
           ],
           "evidence_claim_ids": [
             "cult_of_rakdos_claim_001",
             "cult_of_rakdos_claim_002",
-            "cult_of_rakdos_claim_005",
-            "cult_of_rakdos_claim_006"
+            "cult_of_rakdos_claim_006",
+            "cult_of_rakdos_claim_0018",
+            "cult_of_rakdos_claim_0021"
           ],
-          "confidence": "Medium"
+          "confidence": "Medium",
+          "lateral_inhibition": false
+        },
+        {
+          "id": "rakdos_q2",
+          "prompt": "When intensity rises, do you want an audience, a consequence, a release valve, or a private advantage?",
+          "purpose": "Separates Rakdos public release from private leverage and generic black-red overfit.",
+          "supports": "The answer chooses audience, public release, performance, or visible consequence.",
+          "weakens": "The answer chooses private leverage, survival, debt, experiment, martial discipline, or direct impulse without spectacle.",
+          "collision_targets": [
+            "BR",
+            "B",
+            "R",
+            "BG",
+            "GRIXIS",
+            "JUND",
+            "MARDU"
+          ],
+          "evidence_claim_ids": [
+            "cult_of_rakdos_claim_0017",
+            "cult_of_rakdos_claim_0018",
+            "cult_of_rakdos_claim_0020",
+            "cult_of_rakdos_claim_0021",
+            "cult_of_rakdos_claim_0022",
+            "cult_of_rakdos_claim_0030"
+          ],
+          "confidence": "Medium",
+          "lateral_inhibition": false
+        },
+        {
+          "id": "rakdos_q3",
+          "prompt": "When you break decorum, is it to perform a truth in public, or only to create heat?",
+          "purpose": "Separates Rakdos spectacle from generic disruption, grief, sacrifice, direct emotion, and red-black aggression.",
+          "supports": "The answer treats performance, spectacle, provocation, or transgression as a way to reveal pressure, intensify truth, or make restraint feel false.",
+          "weakens": "The answer centers survival, debt, experiment, martial order, private power, direct impulse, or unframed disruption without performance or visible cost.",
+          "collision_targets": [
+            "RG",
+            "BG",
+            "WB",
+            "UR",
+            "PRISMARI",
+            "JUND",
+            "MARDU"
+          ],
+          "evidence_claim_ids": [
+            "cult_of_rakdos_claim_001",
+            "cult_of_rakdos_claim_002",
+            "cult_of_rakdos_claim_005",
+            "cult_of_rakdos_claim_006",
+            "cult_of_rakdos_claim_0018",
+            "cult_of_rakdos_claim_0020"
+          ],
+          "confidence": "Medium",
+          "lateral_inhibition": false
         }
       ],
       "lateral_inhibition_targets": [
@@ -2304,21 +2336,154 @@
         "JUND",
         "MARDU"
       ],
-      "collision_guidance": [],
+      "collision_guidance": [
+        {
+          "collision_id": "rakdos_vs_generic_br_overfit_gate3",
+          "against": "BR",
+          "lateral_inhibition": false,
+          "separator": "Rakdos requires performance, spectacle, audience, provocation, or visible cost; generic black-red heat does not certify it.",
+          "ask": "Is there an act with audience or consequence, or only black-red aggression?",
+          "suppress_if": "Suppress Rakdos when the answer lacks performance, spectacle, provocation, audience, or visible cost.",
+          "evidence_claim_ids": [
+            "cult_of_rakdos_claim_0021"
+          ]
+        },
+        {
+          "collision_id": "rakdos_vs_black_private_leverage_gate3",
+          "against": "B",
+          "lateral_inhibition": false,
+          "separator": "Rakdos externalizes appetite as public performance; mono-black-adjacent leverage can remain private.",
+          "ask": "Is the user performing release in public, or converting cost into private control?",
+          "suppress_if": "Suppress Rakdos when private leverage or self-protection leads without spectacle.",
+          "evidence_claim_ids": [
+            "cult_of_rakdos_claim_0022"
+          ]
+        },
+        {
+          "collision_id": "rakdos_vs_red_direct_impulse_gate3",
+          "against": "R",
+          "lateral_inhibition": false,
+          "separator": "Rakdos adds black-red appetite and visible cost to impulse; mono-red direct feeling does not need the Cult frame.",
+          "ask": "Is there public transgression with cost, or only direct emotion and freedom?",
+          "suppress_if": "Suppress Rakdos when direct impulse lacks black-red appetite, audience, or visible consequence.",
+          "evidence_claim_ids": [
+            "cult_of_rakdos_claim_0023"
+          ]
+        },
+        {
+          "collision_id": "rakdos_vs_boros_discipline_gate3",
+          "against": "WR",
+          "lateral_inhibition": false,
+          "separator": "Boros routes urgency through protection and disciplined public duty; Rakdos routes intensity through release and transgressive spectacle.",
+          "ask": "Is the action accountable service or a performance that releases pressure?",
+          "suppress_if": "Suppress Rakdos when protection, accountability, and militarized order lead.",
+          "evidence_claim_ids": [
+            "cult_of_rakdos_claim_0024"
+          ]
+        },
+        {
+          "collision_id": "rakdos_vs_gruul_dispossession_gate3",
+          "against": "RG",
+          "lateral_inhibition": false,
+          "separator": "Gruul rage is rooted in dispossession and anti-civilization wildness; Rakdos performs release as spectacle.",
+          "ask": "Is the refusal wild grief against civilization, or staged social release?",
+          "suppress_if": "Suppress Rakdos when dispossession, wildness, or anti-civilization rage leads.",
+          "evidence_claim_ids": [
+            "cult_of_rakdos_claim_0025"
+          ]
+        },
+        {
+          "collision_id": "rakdos_vs_golgari_survival_gate3",
+          "against": "BG",
+          "lateral_inhibition": false,
+          "separator": "Golgari turns rot, survival, and recursion into ecology; Rakdos turns pressure into spectacle and cost.",
+          "ask": "Is the answer about survival/renewal, or performance with visible consequence?",
+          "suppress_if": "Suppress Rakdos when survival, rot, recursion, or lifecycle renewal leads.",
+          "evidence_claim_ids": [
+            "cult_of_rakdos_claim_0026"
+          ]
+        },
+        {
+          "collision_id": "rakdos_vs_orzhov_obligation_gate3",
+          "against": "WB",
+          "lateral_inhibition": false,
+          "separator": "Orzhov makes obligation and debt enforceable; Rakdos rejects restraint through release and public spectacle.",
+          "ask": "Is the pressure collectible obligation or public release?",
+          "suppress_if": "Suppress Rakdos when debt, hierarchy, status, or institutional exploitation leads.",
+          "evidence_claim_ids": [
+            "cult_of_rakdos_claim_0027"
+          ]
+        },
+        {
+          "collision_id": "rakdos_vs_izzet_invention_gate3",
+          "against": "UR",
+          "lateral_inhibition": false,
+          "separator": "Izzet turns urgency into experiment and invention; Rakdos turns intensity into performance and sensation.",
+          "ask": "Is the first move to build/test, or to perform and provoke?",
+          "suppress_if": "Suppress Rakdos when experiment, invention, infrastructure, or technical problem solving leads.",
+          "evidence_claim_ids": [
+            "cult_of_rakdos_claim_0028"
+          ]
+        },
+        {
+          "collision_id": "rakdos_vs_prismari_craft_gate3",
+          "against": "PRISMARI",
+          "lateral_inhibition": false,
+          "separator": "Prismari centers expressive craft and performance discipline; Rakdos centers transgression, indulgence, danger, and visible cost.",
+          "ask": "Is the act refined expressive craft, or transgressive social release?",
+          "suppress_if": "Suppress Rakdos when craft, study, or elemental expression leads over release and cost.",
+          "evidence_claim_ids": [
+            "cult_of_rakdos_claim_0029"
+          ]
+        },
+        {
+          "collision_id": "rakdos_vs_grixis_leverage_gate3",
+          "against": "GRIXIS",
+          "lateral_inhibition": false,
+          "separator": "Grixis centers calculated survival leverage; Rakdos centers appetite, release, and public spectacle.",
+          "ask": "Is the answer about control/leverage, or appetite performed in public?",
+          "suppress_if": "Suppress Rakdos when survival leverage, necromantic resource use, or calculated control leads.",
+          "evidence_claim_ids": [
+            "cult_of_rakdos_claim_0030"
+          ]
+        },
+        {
+          "collision_id": "rakdos_vs_jund_predation_gate3",
+          "against": "JUND",
+          "lateral_inhibition": false,
+          "separator": "Jund centers instinct, predation, and survival hierarchy; Rakdos centers performance, provocation, and entertainment with cost.",
+          "ask": "Is appetite a survival hierarchy, or a staged act with consequence?",
+          "suppress_if": "Suppress Rakdos when predation, instinct, or survival appetite leads without performance.",
+          "evidence_claim_ids": [
+            "cult_of_rakdos_claim_0031"
+          ]
+        },
+        {
+          "collision_id": "rakdos_vs_mardu_martial_code_gate3",
+          "against": "MARDU",
+          "lateral_inhibition": false,
+          "separator": "Mardu centers martial oath, raid momentum, and honor; Rakdos lacks that white-coded discipline and centers spectacle, release, and public consequence.",
+          "ask": "Is speed serving a martial code, or becoming spectacle and release?",
+          "suppress_if": "Suppress Rakdos when martial oath, honor, conquest, or raid momentum leads.",
+          "evidence_claim_ids": [
+            "cult_of_rakdos_claim_0032"
+          ]
+        }
+      ],
       "chatbot_guidance": {
         "how_to_recognize_match": [
-          "uses performance to reveal truth",
-          "chooses intensity over polite safety",
-          "finds hypocrisy more offensive than disruption"
+          "User centers performance, spectacle, or provocation as public truth-pressure.",
+          "User chooses intensity with visible cost, audience, or consequence over polite restraint.",
+          "User names release, appetite, or sensation as part of an act rather than private leverage or generic aggression."
         ],
         "how_to_recognize_mismatch": [
-          "needs stability and restraint above all",
-          "avoids attention and spectacle",
-          "finds transgression meaningless rather than clarifying"
+          "User only wants generic BR aggression, random disruption, harmful posturing, or evil-party styling without performance, audience, or cost.",
+          "User centers Boros protection, Izzet invention, Golgari survival/rot, Orzhov debt, Gruul anti-civilization rage, Prismari craft, Jund survival appetite, Grixis leverage, or Mardu martial code first.",
+          "User treats harm, shock, or rule-breaking as the whole point rather than bounded spectacle or transgression."
         ],
         "questions_to_ask_when_uncertain": [
-          "When did a performance, joke, or provocation tell the truth better than a careful explanation?",
-          "What kind of boredom feels intolerable to you?"
+          "Is the disruption meant to perform a truth in public, release pressure with visible cost, or only create heat?",
+          "When intensity rises, do you want audience/consequence, private control, disciplined protection, experiment, survival, debt, rage, craft, or martial conquest to lead?"
         ],
         "do_not_overweight": [
           "Do not overfit a single color preference.",
@@ -2343,8 +2508,8 @@
       "source_metadata": {
         "profile_version": "1.0.0",
         "placement_model_version": "vox-mana-lore-json-v1",
-        "source_review_date": "2026-05-09",
-        "claim_count": 6
+        "source_review_date": "2026-07-16",
+        "claim_count": 10
       }
     },
     "ESPER": {

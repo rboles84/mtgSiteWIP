@@ -1794,32 +1794,31 @@ export const FACTION_CONTEXT = {
         "label": "Rakdos"
       }
     },
-    "tagline": "Pain is entertainment. Death is the final punchline.",
-    "philosophy": "An ancient demon of incalculable power was given a guild to keep him occupied. The result is a circus of sadomasochism, assassination, and genuinely dangerous performance art. The Cult believes that polite restraint is a form of lying - that spectacle reveals what civility conceals.",
-    "core_tension": "Their entire identity is organized around earning approval from a demon who has seen everything and outlasted every trend. The challenge of impressing something genuinely immortal and genuinely bored makes the Cult ruthlessly innovative.",
+    "tagline": "Performance makes appetite, cost, and consequence visible.",
+    "philosophy": "Rakdos turns black-red appetite into public spectacle: performance, provocation, sensation, and visible cost become the way restraint is mocked and hidden pressure is exposed. It is not generic evil or random disruption; the signal is the act, the audience, and the consequence.",
+    "core_tension": "Rakdos is strongest when spectacle reveals pressure in public, and weakest when flattened into generic aggression or shock without an act.",
     "affinity": {
       "drawn_to": [
-        "Living fully in the present - past is dead, future is abstract",
-        "Transgression as a form of honesty",
-        "Spectacle and intensity over comfort and safety",
-        "Boredom as the real enemy",
-        "Art that makes people uncomfortable because it's true"
+        "Performance as public truth-pressure",
+        "Transgression bounded by audience, cost, or consequence",
+        "Intensity that exposes what polite restraint hides",
+        "Release, appetite, and sensation made visible",
+        "Dangerous entertainment with a source-bounded Rakdos frame"
       ],
       "repelled_by": [
-        "Performing emotions you don't actually feel",
-        "Polite restraint as a social lubricant",
-        "Institutions maintaining a status quo that serves the comfortable",
-        "Being told your expression is inappropriate"
+        "Private leverage with no act or audience",
+        "Respectability or restraint as the highest good",
+        "Generic aggression without spectacle",
+        "Experiment, debt, survival, martial duty, or craft leading over release"
       ],
-      "core_question": "When was the last time you did something that genuinely scared you - and did you feel more alive or more foolish afterward?",
+      "core_question": "When intensity rises, do you want to perform a truth in public, release pressure with visible cost, or only create heat?",
       "interview_tells": [
-        "Describes experiences through sensation and intensity, not analysis",
-        "Dark or transgressive humor that lands without trying",
-        "Freedom from expectation as a core stated value",
-        "Genuinely unbothered by disturbing topics others avoid",
-        "Mentions performing, entertaining, or provoking - not necessarily on a stage"
+        "Names performance, spectacle, provocation, or audience as the point",
+        "Treats consequence as part of the act",
+        "Frames transgression as exposing pressure rather than random disruption",
+        "Rejects polite restraint when it conceals what is happening"
       ],
-      "not_to_be_confused_with": "Gruul - both reject civilization's rules but Rakdos performs the rejection as theater; Gruul rages from genuine loss. Prismari - both value expression but Prismari refines and crafts; Rakdos burns it all down."
+      "not_to_be_confused_with": "Generic BR aggression lacks the act/audience/cost requirement. Boros protects through discipline, Izzet builds and tests, Golgari survives through rot and renewal, Orzhov binds through debt, Gruul refuses civilization from dispossession, Prismari refines expressive craft, and Mardu follows martial code."
     },
     "decree_voice": {
       "tone": "Electric. Slightly too excited. Possibly dangerous. Admiring in a way that should be alarming.",
@@ -1865,20 +1864,23 @@ export const FACTION_CONTEXT = {
       "broad_match_penalty": 0.1
     },
     "good_fit_indicators": [
-      "uses performance to reveal truth",
-      "chooses intensity over polite safety",
-      "finds hypocrisy more offensive than disruption"
+      "uses performance or provocation to make social pressure visible",
+      "chooses intensity with visible cost, audience, or consequence",
+      "uses transgression to expose restraint rather than random disruption"
     ],
     "poor_fit_indicators": [
-      "needs stability and restraint above all",
-      "avoids attention and spectacle",
-      "finds transgression meaningless rather than clarifying"
+      "needs respectability, safety, or restraint to lead over expression",
+      "wants private leverage without an act, audience, or visible consequence",
+      "uses aggression or disruption without performance, cost, or provocation"
     ],
     "inhibitor_traps": [
       "Need for respectability, emotional safety, and polite restraint above authenticity, intensity, or release.",
-      "needs stability and restraint above all",
-      "avoids attention and spectacle",
-      "finds transgression meaningless rather than clarifying"
+      "User only wants generic BR aggression, random disruption, harmful posturing, or evil-party styling without performance, audience, or cost.",
+      "User centers Boros protection, Izzet invention, Golgari survival/rot, Orzhov debt, Gruul anti-civilization rage, Prismari craft, Jund survival appetite, Grixis leverage, or Mardu martial code first.",
+      "User treats harm, shock, or rule-breaking as the whole point rather than bounded spectacle or transgression.",
+      "needs respectability, safety, or restraint to lead over expression",
+      "wants private leverage without an act, audience, or visible consequence",
+      "uses aggression or disruption without performance, cost, or provocation"
     ],
     "lateral_inhibition_targets": [
       "RG",
@@ -1891,66 +1893,95 @@ export const FACTION_CONTEXT = {
     "discriminator_questions": [
       {
         "id": "rakdos_q1",
-        "prompt": "When did a performance, joke, or provocation tell the truth better than a careful explanation?",
-        "purpose": "Tests expressive transgression.",
-        "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-        "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-        "collision_targets": [],
-        "evidence_claim_ids": [
-          "cult_of_rakdos_claim_001",
-          "cult_of_rakdos_claim_002",
-          "cult_of_rakdos_claim_003"
-        ],
-        "confidence": "Medium"
-      },
-      {
-        "id": "rakdos_q2",
-        "prompt": "What kind of boredom feels intolerable to you?",
-        "purpose": "Finds the Rakdos pressure point without asking directly about chaos.",
-        "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-        "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-        "collision_targets": [],
-        "evidence_claim_ids": [
-          "cult_of_rakdos_claim_001",
-          "cult_of_rakdos_claim_002",
-          "cult_of_rakdos_claim_003"
-        ],
-        "confidence": "Medium"
-      },
-      {
-        "id": "rakdos_q3",
-        "prompt": "When you break decorum, is it to expose a truth onstage, or only to release heat?",
-        "purpose": "Separates Rakdos theatrical truth and transgressive spectacle from generic chaos, grief, sacrifice, reckless emotion, or red-black aggression.",
-        "supports": "The answer treats performance, spectacle, provocation, or transgression as a way to reveal hypocrisy, intensify truth, or make restraint feel false.",
-        "weakens": "The answer centers grief, sacrifice, reckless anger, violence, or generic chaos without performance, spectacle, or truth-telling pressure.",
+        "prompt": "When did a performance, joke, or provocation make pressure visible better than a careful explanation?",
+        "purpose": "Tests source-bounded expressive transgression.",
+        "supports": "The answer uses performance, spectacle, audience, or provocation to expose social pressure.",
+        "weakens": "The answer prefers private control, disciplined service, experiment, survival, obligation, or unframed disruption.",
         "collision_targets": [
-          "BG",
-          "JUND",
+          "BR",
+          "B",
+          "R",
+          "WR",
+          "UR",
           "WB"
         ],
         "evidence_claim_ids": [
           "cult_of_rakdos_claim_001",
           "cult_of_rakdos_claim_002",
-          "cult_of_rakdos_claim_005",
-          "cult_of_rakdos_claim_006"
+          "cult_of_rakdos_claim_006",
+          "cult_of_rakdos_claim_0018",
+          "cult_of_rakdos_claim_0021"
         ],
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "lateral_inhibition": false
+      },
+      {
+        "id": "rakdos_q2",
+        "prompt": "When intensity rises, do you want an audience, a consequence, a release valve, or a private advantage?",
+        "purpose": "Separates Rakdos public release from private leverage and generic black-red overfit.",
+        "supports": "The answer chooses audience, public release, performance, or visible consequence.",
+        "weakens": "The answer chooses private leverage, survival, debt, experiment, martial discipline, or direct impulse without spectacle.",
+        "collision_targets": [
+          "BR",
+          "B",
+          "R",
+          "BG",
+          "GRIXIS",
+          "JUND",
+          "MARDU"
+        ],
+        "evidence_claim_ids": [
+          "cult_of_rakdos_claim_0017",
+          "cult_of_rakdos_claim_0018",
+          "cult_of_rakdos_claim_0020",
+          "cult_of_rakdos_claim_0021",
+          "cult_of_rakdos_claim_0022",
+          "cult_of_rakdos_claim_0030"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
+      },
+      {
+        "id": "rakdos_q3",
+        "prompt": "When you break decorum, is it to perform a truth in public, or only to create heat?",
+        "purpose": "Separates Rakdos spectacle from generic disruption, grief, sacrifice, direct emotion, and red-black aggression.",
+        "supports": "The answer treats performance, spectacle, provocation, or transgression as a way to reveal pressure, intensify truth, or make restraint feel false.",
+        "weakens": "The answer centers survival, debt, experiment, martial order, private power, direct impulse, or unframed disruption without performance or visible cost.",
+        "collision_targets": [
+          "RG",
+          "BG",
+          "WB",
+          "UR",
+          "PRISMARI",
+          "JUND",
+          "MARDU"
+        ],
+        "evidence_claim_ids": [
+          "cult_of_rakdos_claim_001",
+          "cult_of_rakdos_claim_002",
+          "cult_of_rakdos_claim_005",
+          "cult_of_rakdos_claim_006",
+          "cult_of_rakdos_claim_0018",
+          "cult_of_rakdos_claim_0020"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
       }
     ],
     "chatbot_guidance": {
       "how_to_recognize_match": [
-        "uses performance to reveal truth",
-        "chooses intensity over polite safety",
-        "finds hypocrisy more offensive than disruption"
+        "User centers performance, spectacle, or provocation as public truth-pressure.",
+        "User chooses intensity with visible cost, audience, or consequence over polite restraint.",
+        "User names release, appetite, or sensation as part of an act rather than private leverage or generic aggression."
       ],
       "how_to_recognize_mismatch": [
-        "needs stability and restraint above all",
-        "avoids attention and spectacle",
-        "finds transgression meaningless rather than clarifying"
+        "User only wants generic BR aggression, random disruption, harmful posturing, or evil-party styling without performance, audience, or cost.",
+        "User centers Boros protection, Izzet invention, Golgari survival/rot, Orzhov debt, Gruul anti-civilization rage, Prismari craft, Jund survival appetite, Grixis leverage, or Mardu martial code first.",
+        "User treats harm, shock, or rule-breaking as the whole point rather than bounded spectacle or transgression."
       ],
       "questions_to_ask_when_uncertain": [
-        "When did a performance, joke, or provocation tell the truth better than a careful explanation?",
-        "What kind of boredom feels intolerable to you?"
+        "Is the disruption meant to perform a truth in public, release pressure with visible cost, or only create heat?",
+        "When intensity rises, do you want audience/consequence, private control, disciplined protection, experiment, survival, debt, rage, craft, or martial conquest to lead?"
       ],
       "do_not_overweight": [
         "Do not overfit a single color preference.",

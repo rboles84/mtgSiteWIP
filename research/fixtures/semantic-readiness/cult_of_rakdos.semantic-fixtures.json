@@ -1,0 +1,301 @@
+{
+  "identity_key": "BR",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "rakdos_core_public_spectacle",
+      "fixture_type": "core_inclusion",
+      "scenario": "A clear Rakdos case centers performance, spectacle, provocation, appetite, audience, and visible cost rather than generic BR aggression.",
+      "intended_interpretation": "Rakdos inclusion is grounded when black-red intensity is expressed as source-bounded public performance with consequence.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_004",
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Explain Rakdos through performance, dangerous entertainment, spectacle mechanics, demonic patronage, visible cost, and generic-BR guardrails.",
+      "unsupported_certainty_to_avoid": "Do not use pain, death, mayhem, cruelty, hedonism, or random disruption as standalone proof."
+    },
+    {
+      "fixture_id": "rakdos_pressure_visible_cost",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "Under pressure, a mature Rakdos reading chooses public performance or provocation with visible cost; unhealthy Rakdos appears when the act becomes harm or disruption without audience/consequence.",
+      "intended_interpretation": "Mature or pressure behavior is defensible only when the performance/cost frame remains visible.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0019",
+        "cult_of_rakdos_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Ask whether intensity becomes a bounded public act, a release valve, or an unframed heat spike.",
+      "unsupported_certainty_to_avoid": "Do not certify Rakdos from shock, harm, or rule-breaking without the performance/audience/cost cluster."
+    },
+    {
+      "fixture_id": "rakdos_exclusion_generic_br_overfit",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_BR_OVERFIT",
+      "scenario": "A user presents GENERIC_BR_OVERFIT surface overlap without choosing Rakdos performance, spectacle, audience, provocation, or visible cost as the leading signal.",
+      "intended_interpretation": "Keep Rakdos adjacent or suppressed unless the source-bounded Rakdos performance/cost cluster is present.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Require a bounded act, audience or consequence, and performance/provocation before certifying Rakdos.",
+      "unsupported_certainty_to_avoid": "Do not infer Rakdos from color identity, high-heat wording, generic aggression, or discovery-story search hits alone."
+    },
+    {
+      "fixture_id": "rakdos_exclusion_b",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "B",
+      "scenario": "A user presents B surface overlap without choosing Rakdos performance, spectacle, audience, provocation, or visible cost as the leading signal.",
+      "intended_interpretation": "Keep Rakdos adjacent or suppressed unless the source-bounded Rakdos performance/cost cluster is present.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Require a bounded act, audience or consequence, and performance/provocation before certifying Rakdos.",
+      "unsupported_certainty_to_avoid": "Do not infer Rakdos from color identity, high-heat wording, generic aggression, or discovery-story search hits alone."
+    },
+    {
+      "fixture_id": "rakdos_exclusion_r",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "R",
+      "scenario": "A user presents R surface overlap without choosing Rakdos performance, spectacle, audience, provocation, or visible cost as the leading signal.",
+      "intended_interpretation": "Keep Rakdos adjacent or suppressed unless the source-bounded Rakdos performance/cost cluster is present.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Require a bounded act, audience or consequence, and performance/provocation before certifying Rakdos.",
+      "unsupported_certainty_to_avoid": "Do not infer Rakdos from color identity, high-heat wording, generic aggression, or discovery-story search hits alone."
+    },
+    {
+      "fixture_id": "rakdos_exclusion_wr",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WR",
+      "scenario": "A user presents WR surface overlap without choosing Rakdos performance, spectacle, audience, provocation, or visible cost as the leading signal.",
+      "intended_interpretation": "Keep Rakdos adjacent or suppressed unless the source-bounded Rakdos performance/cost cluster is present.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Require a bounded act, audience or consequence, and performance/provocation before certifying Rakdos.",
+      "unsupported_certainty_to_avoid": "Do not infer Rakdos from color identity, high-heat wording, generic aggression, or discovery-story search hits alone."
+    },
+    {
+      "fixture_id": "rakdos_exclusion_rg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "RG",
+      "scenario": "A user presents RG surface overlap without choosing Rakdos performance, spectacle, audience, provocation, or visible cost as the leading signal.",
+      "intended_interpretation": "Keep Rakdos adjacent or suppressed unless the source-bounded Rakdos performance/cost cluster is present.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Require a bounded act, audience or consequence, and performance/provocation before certifying Rakdos.",
+      "unsupported_certainty_to_avoid": "Do not infer Rakdos from color identity, high-heat wording, generic aggression, or discovery-story search hits alone."
+    },
+    {
+      "fixture_id": "rakdos_exclusion_bg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BG",
+      "scenario": "A user presents BG surface overlap without choosing Rakdos performance, spectacle, audience, provocation, or visible cost as the leading signal.",
+      "intended_interpretation": "Keep Rakdos adjacent or suppressed unless the source-bounded Rakdos performance/cost cluster is present.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Require a bounded act, audience or consequence, and performance/provocation before certifying Rakdos.",
+      "unsupported_certainty_to_avoid": "Do not infer Rakdos from color identity, high-heat wording, generic aggression, or discovery-story search hits alone."
+    },
+    {
+      "fixture_id": "rakdos_exclusion_wb",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WB",
+      "scenario": "A user presents WB surface overlap without choosing Rakdos performance, spectacle, audience, provocation, or visible cost as the leading signal.",
+      "intended_interpretation": "Keep Rakdos adjacent or suppressed unless the source-bounded Rakdos performance/cost cluster is present.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0027"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Require a bounded act, audience or consequence, and performance/provocation before certifying Rakdos.",
+      "unsupported_certainty_to_avoid": "Do not infer Rakdos from color identity, high-heat wording, generic aggression, or discovery-story search hits alone."
+    },
+    {
+      "fixture_id": "rakdos_exclusion_ur",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UR",
+      "scenario": "A user presents UR surface overlap without choosing Rakdos performance, spectacle, audience, provocation, or visible cost as the leading signal.",
+      "intended_interpretation": "Keep Rakdos adjacent or suppressed unless the source-bounded Rakdos performance/cost cluster is present.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Require a bounded act, audience or consequence, and performance/provocation before certifying Rakdos.",
+      "unsupported_certainty_to_avoid": "Do not infer Rakdos from color identity, high-heat wording, generic aggression, or discovery-story search hits alone."
+    },
+    {
+      "fixture_id": "rakdos_exclusion_prismari",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "PRISMARI",
+      "scenario": "A user presents PRISMARI surface overlap without choosing Rakdos performance, spectacle, audience, provocation, or visible cost as the leading signal.",
+      "intended_interpretation": "Keep Rakdos adjacent or suppressed unless the source-bounded Rakdos performance/cost cluster is present.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Require a bounded act, audience or consequence, and performance/provocation before certifying Rakdos.",
+      "unsupported_certainty_to_avoid": "Do not infer Rakdos from color identity, high-heat wording, generic aggression, or discovery-story search hits alone."
+    },
+    {
+      "fixture_id": "rakdos_exclusion_grixis",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GRIXIS",
+      "scenario": "A user presents GRIXIS surface overlap without choosing Rakdos performance, spectacle, audience, provocation, or visible cost as the leading signal.",
+      "intended_interpretation": "Keep Rakdos adjacent or suppressed unless the source-bounded Rakdos performance/cost cluster is present.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0030"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Require a bounded act, audience or consequence, and performance/provocation before certifying Rakdos.",
+      "unsupported_certainty_to_avoid": "Do not infer Rakdos from color identity, high-heat wording, generic aggression, or discovery-story search hits alone."
+    },
+    {
+      "fixture_id": "rakdos_exclusion_jund",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "JUND",
+      "scenario": "A user presents JUND surface overlap without choosing Rakdos performance, spectacle, audience, provocation, or visible cost as the leading signal.",
+      "intended_interpretation": "Keep Rakdos adjacent or suppressed unless the source-bounded Rakdos performance/cost cluster is present.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0031"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Require a bounded act, audience or consequence, and performance/provocation before certifying Rakdos.",
+      "unsupported_certainty_to_avoid": "Do not infer Rakdos from color identity, high-heat wording, generic aggression, or discovery-story search hits alone."
+    },
+    {
+      "fixture_id": "rakdos_exclusion_mardu",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "MARDU",
+      "scenario": "A user presents MARDU surface overlap without choosing Rakdos performance, spectacle, audience, provocation, or visible cost as the leading signal.",
+      "intended_interpretation": "Keep Rakdos adjacent or suppressed unless the source-bounded Rakdos performance/cost cluster is present.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Require a bounded act, audience or consequence, and performance/provocation before certifying Rakdos.",
+      "unsupported_certainty_to_avoid": "Do not infer Rakdos from color identity, high-heat wording, generic aggression, or discovery-story search hits alone."
+    },
+    {
+      "fixture_id": "rakdos_ambiguous_heat_or_performance",
+      "fixture_type": "nearest_collision_ambiguity",
+      "neighbor": "GENERIC_BR_OVERFIT",
+      "scenario": "A user likes black-red volatility, sacrifice, and provocation but has not said whether the point is public performance, private leverage, survival appetite, or martial momentum.",
+      "intended_interpretation": "Keep ambiguity until the answer chooses Rakdos spectacle/visible cost or a required-neighbor motive.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021",
+        "cult_of_rakdos_claim_0022",
+        "cult_of_rakdos_claim_0030",
+        "cult_of_rakdos_claim_0031",
+        "cult_of_rakdos_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Use uncertainty guidance when BR heat is present but act/audience/consequence is not yet chosen.",
+      "unsupported_certainty_to_avoid": "Do not force Rakdos from color identity, sacrifice gameplay, or high-variance language alone."
+    },
+    {
+      "fixture_id": "rakdos_provenance_placement_summary",
+      "fixture_type": "provenance",
+      "scenario": "The Rakdos placement summary must preserve complete evidence chains for profile identity, spectacle, pressure behavior, and required-neighbor guardrails.",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/placement_summary",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_004",
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0019",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021",
+        "cult_of_rakdos_claim_0022",
+        "cult_of_rakdos_claim_0023",
+        "cult_of_rakdos_claim_0024",
+        "cult_of_rakdos_claim_0025",
+        "cult_of_rakdos_claim_0026",
+        "cult_of_rakdos_claim_0027",
+        "cult_of_rakdos_claim_0028",
+        "cult_of_rakdos_claim_0029",
+        "cult_of_rakdos_claim_0030",
+        "cult_of_rakdos_claim_0031",
+        "cult_of_rakdos_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "expected_generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "defensible_guidance": "Generated consumers must preserve claim/source provenance for Rakdos placement summary guidance.",
+      "unsupported_certainty_to_avoid": "Do not expose internal claim IDs in user-facing recruiter prose."
+    }
+  ]
+}

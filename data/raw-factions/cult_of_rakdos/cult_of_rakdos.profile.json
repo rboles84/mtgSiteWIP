@@ -8,18 +8,18 @@
     "black",
     "red"
   ],
-  "last_updated": "2026-05-13T21:14:06.308Z",
+  "last_updated": "2026-07-16T04:44:56.310Z",
   "profile": {
-    "overview": "Cult of Rakdos is a black-red guild associated with Ravnica.",
-    "philosophy": "Life is short, authority is mockable, and performance can expose truths politeness hides.",
-    "core_tension": "Rakdos is both a social pressure valve and a dangerous cult of spectacle, violence, hedonism, and anti-authoritarian expression.",
-    "social_or_institutional_role": "The official guide presents Rakdos as loosely organized around performances, rings, clubs, festivals, and the demon Rakdos himself.",
-    "mechanics_and_play_pattern": "Spectacle rewards action after an opponent has lost life, expressing Rakdos's taste for consequence, audience, and escalation.",
+    "profile_id": "profile_rakdos_gate3_authoritative_overview",
+    "overview": "Cult of Rakdos is the black-red Ravnican guild expressed through performance, spectacle, anti-authoritarian provocation, and dangerous entertainment.",
+    "philosophy": "Rakdos treats performance as public release: appetite, provocation, and visible cost expose what polite restraint hides.",
+    "core_tension": "Rakdos is strongest when spectacle and sensation have an audience or consequence; it weakens when reduced to generic black-red aggression, random disruption, or harm without an act.",
+    "social_or_institutional_role": "The official guide presents Rakdos as loosely organized around performances, Rings, clubs, festivals, travelling troupes, and the demon Rakdos himself.",
+    "mechanics_and_play_pattern": "Spectacle rewards action after an opponent has lost life, expressing Rakdos's source-bounded taste for consequence, audience, and escalation.",
     "placement_use": "Use this profile to support thematic placement, quiz design, and lore browsing. Do not present placement inferences as canon.",
     "strongest_source_ids": [
       "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-      "src_wotc_ravnica_allegiance_mechanics_2018",
-      "src_wotc_dragons_maze_mechanics_2013"
+      "src_wotc_ravnica_allegiance_mechanics_2018"
     ],
     "claim_ids": [
       "cult_of_rakdos_claim_001",
@@ -27,63 +27,71 @@
       "cult_of_rakdos_claim_003",
       "cult_of_rakdos_claim_004",
       "cult_of_rakdos_claim_005",
-      "cult_of_rakdos_claim_006"
+      "cult_of_rakdos_claim_006",
+      "cult_of_rakdos_claim_0017",
+      "cult_of_rakdos_claim_0018",
+      "cult_of_rakdos_claim_0019",
+      "cult_of_rakdos_claim_0020"
     ]
   },
   "evidence_summary": {
     "overall_confidence": "High",
     "limitations": [
-      "This is a compact first-pass JSON package generated from official overview and mechanics sources.",
-      "Novel-level or story-episode-specific details should be added in a later deep-dive pass with direct story citations."
+      "Gate 3 uses existing official Rakdos overview and mechanics source records for authoritative semantic proof.",
+      "MTG-Stories repository rows are retained as discovery metadata only until a later deep story localization pass supplies bounded source locations."
     ]
   },
   "profile_version": "1.0.0",
-  "source_review_date": "2026-05-09",
-  "last_incremental_review": "2026-05-09",
+  "source_review_date": "2026-07-16",
+  "last_incremental_review": "2026-07-16T04:44:56.310Z",
   "core_identity": {
-    "summary": "Cult of Rakdos is a black-red guild associated with Ravnica.",
-    "philosophy": "Life is short, authority is mockable, and performance can expose truths politeness hides.",
-    "central_tension": "Rakdos is both a social pressure valve and a dangerous cult of spectacle, violence, hedonism, and anti-authoritarian expression.",
-    "claim_ids": [
-      "cult_of_rakdos_claim_0007",
-      "cult_of_rakdos_claim_0008",
-      "cult_of_rakdos_claim_0009",
-      "cult_of_rakdos_claim_0010",
-      "cult_of_rakdos_claim_0011",
-      "cult_of_rakdos_claim_0012",
-      "cult_of_rakdos_claim_0013",
-      "cult_of_rakdos_claim_0014"
+    "identity_id": "rakdos_core_identity_gate3",
+    "summary": "Cult of Rakdos is the black-red guild whose authoritative signal is performance, spectacle, anti-authoritarian provocation, dangerous entertainment, and demonic patronage.",
+    "philosophy": "Rakdos turns appetite and social pressure into public performance; the proof chain requires an act, an audience or consequence, and a source-bounded Rakdos frame.",
+    "central_tension": "The Cult can reveal pressure through spectacle, but it becomes a false positive when reduced to generic aggression or unbounded disruption.",
+    "evidence_claim_ids": [
+      "cult_of_rakdos_claim_001",
+      "cult_of_rakdos_claim_002",
+      "cult_of_rakdos_claim_004",
+      "cult_of_rakdos_claim_005",
+      "cult_of_rakdos_claim_006",
+      "cult_of_rakdos_claim_0017",
+      "cult_of_rakdos_claim_0018",
+      "cult_of_rakdos_claim_0021"
     ]
   },
   "site_surface": {
+    "surface_id": "rakdos_site_surface_gate3",
     "display_name": "Cult of Rakdos",
     "short_label": "Cult of Rakdos",
-    "tagline": "Life is short, authority is mockable, and performance can expose truths politeness hides.",
-    "claim_ids": [
-      "cult_of_rakdos_claim_0007",
-      "cult_of_rakdos_claim_0008",
-      "cult_of_rakdos_claim_0009",
-      "cult_of_rakdos_claim_0010"
+    "tagline": "Performance makes appetite, cost, and consequence visible.",
+    "evidence_claim_ids": [
+      "cult_of_rakdos_claim_001",
+      "cult_of_rakdos_claim_002",
+      "cult_of_rakdos_claim_005",
+      "cult_of_rakdos_claim_006",
+      "cult_of_rakdos_claim_0018"
     ]
   },
   "structure": {
-    "summary": "The official guide presents Rakdos as loosely organized around performances, rings, clubs, festivals, and the demon Rakdos himself.",
-    "claim_ids": [
-      "cult_of_rakdos_claim_0007",
-      "cult_of_rakdos_claim_0008",
-      "cult_of_rakdos_claim_0009",
-      "cult_of_rakdos_claim_0010"
+    "structure_id": "rakdos_structure_gate3",
+    "summary": "The official guide presents Rakdos as loosely organized around performances, Rings, clubs, festivals, travelling troupes, and the demon Rakdos.",
+    "evidence_claim_ids": [
+      "cult_of_rakdos_claim_002",
+      "cult_of_rakdos_claim_003",
+      "cult_of_rakdos_claim_004"
     ]
   },
   "great_tension": {
-    "summary": "Rakdos is both a social pressure valve and a dangerous cult of spectacle, violence, hedonism, and anti-authoritarian expression.",
-    "placement_relevance": "Used to distinguish surface color overlap from faction-specific behavior.",
-    "claim_ids": [
-      "cult_of_rakdos_claim_0007",
-      "cult_of_rakdos_claim_0008",
-      "cult_of_rakdos_claim_0009",
-      "cult_of_rakdos_claim_0010",
-      "cult_of_rakdos_claim_0011"
+    "tension_id": "rakdos_great_tension_gate3",
+    "summary": "Rakdos placement must preserve the source-backed performance/spectacle/release cluster while suppressing generic black-red aggression or unbounded disruption.",
+    "placement_relevance": "Used to distinguish source-bounded Rakdos from generic BR overfit and adjacent neighbors.",
+    "evidence_claim_ids": [
+      "cult_of_rakdos_claim_0017",
+      "cult_of_rakdos_claim_0018",
+      "cult_of_rakdos_claim_0019",
+      "cult_of_rakdos_claim_0020",
+      "cult_of_rakdos_claim_0021"
     ]
   },
   "historical_timeline": [],
@@ -91,133 +99,45 @@
     {
       "character_id": "char_rakdos",
       "name": "Rakdos",
-      "role": "Namesake demon and cult patron.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
-      "claim_ids": [
-        "cult_of_rakdos_claim_001",
-        "cult_of_rakdos_claim_002",
-        "cult_of_rakdos_claim_003",
-        "cult_of_rakdos_claim_004",
-        "cult_of_rakdos_claim_005",
-        "cult_of_rakdos_claim_006",
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010",
-        "cult_of_rakdos_claim_0011",
-        "cult_of_rakdos_claim_0012",
-        "cult_of_rakdos_claim_0013",
-        "cult_of_rakdos_claim_0014",
-        "cult_of_rakdos_claim_0015",
-        "cult_of_rakdos_claim_0016"
-      ],
+      "role": "Ancient demon, founder, namesake, and cult patron.",
+      "relationship_to_faction": "Authoritative key figure for the source-bounded Cult of Rakdos profile.",
       "source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-        "src_wotc_ravnica_allegiance_mechanics_2018",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_slaughter_games_270f4c5d",
-        "src_mtg_stories_the_gathering_storm_chapter_19_dab06589",
-        "src_mtg_stories_episode_4_justice_before_mercy_57b8ab88"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "confidence": "High",
-      "notes": ""
-    },
-    {
-      "character_id": "char_rakdos_the_defiler",
-      "name": "Rakdos the Defiler",
-      "role": "Rakdos figure referenced in faction lore.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "notes": "Discovery-only rows for Rakdos the Defiler, Exava, and Judith are retained under data_quality.corpus_upgrade.retained_native_ids, not as authoritative generated key figures.",
       "claim_ids": [
-        "cult_of_rakdos_claim_0007"
-      ],
-      "source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea"
-      ],
-      "confidence": "Medium",
-      "notes": ""
-    },
-    {
-      "character_id": "char_exava",
-      "name": "Exava",
-      "role": "Prominent Cult of Rakdos figure.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
-      "claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0012"
-      ],
-      "source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_ashes_6ede4fea"
-      ],
-      "confidence": "Medium",
-      "notes": ""
-    },
-    {
-      "character_id": "char_judith",
-      "name": "Judith",
-      "role": "Prominent Cult of Rakdos figure.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
-      "claim_ids": [
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0010",
-        "cult_of_rakdos_claim_0013",
-        "cult_of_rakdos_claim_0016"
-      ],
-      "source_ids": [
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_episode_4_justice_before_mercy_57b8ab88"
-      ],
-      "confidence": "Medium",
-      "notes": ""
+        "cult_of_rakdos_claim_004"
+      ]
     }
   ],
   "canonical_flavor_text": [
     {
-      "card_name": "Cult of Rakdos dossier anchor",
-      "set": "Ravnica",
-      "short_excerpt_or_summary": "Life is short, authority is mockable, and performance can expose truths politeness hides.",
-      "is_exact_excerpt": false,
+      "flavor_anchor_id": "rakdos_public_anchor_gate3",
+      "evidence_use": "auxiliary_support",
+      "text": "Performance makes appetite, cost, and consequence visible.",
+      "usage_note": "Bounded public anchor derived from official overview/mechanics, not a direct quotation.",
       "claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010",
-        "cult_of_rakdos_claim_0011",
-        "cult_of_rakdos_claim_0012",
-        "cult_of_rakdos_claim_0013",
-        "cult_of_rakdos_claim_0014"
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0018"
       ],
       "source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_slaughter_games_270f4c5d",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019",
         "src_wotc_ravnica_allegiance_mechanics_2018"
-      ],
-      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+      ]
     }
   ],
   "views_on_other_factions": [],
   "mechanics": {
-    "summary": "Spectacle rewards action after an opponent has lost life, expressing Rakdos's taste for consequence, audience, and escalation.",
-    "claim_ids": [
-      "cult_of_rakdos_claim_0007",
-      "cult_of_rakdos_claim_0008",
-      "cult_of_rakdos_claim_0009",
-      "cult_of_rakdos_claim_0010"
+    "mechanic_id": "rakdos_spectacle_gate3",
+    "summary": "Spectacle is the Ravnica Allegiance Rakdos mechanic and supports consequence-gated placement language.",
+    "evidence_claim_ids": [
+      "cult_of_rakdos_claim_005",
+      "cult_of_rakdos_claim_006",
+      "cult_of_rakdos_claim_0017"
     ]
   },
   "search_and_filter_metadata": {
@@ -252,7 +172,6 @@
       "Judith"
     ],
     "known_mechanics": [
-      "ward",
       "spectacle",
       "unleash"
     ],
@@ -263,13 +182,32 @@
       "War of the Spark",
       "Murders at Karlov Manor",
       "Return to Ravnica"
-    ]
+    ],
+    "metadata_note": "Search keywords and story-corpus names are discovery metadata only and are not authoritative semantic proof under CRIT-001."
   },
   "data_quality": {
     "corpus_upgrade": {
+      "metadata_id": "rakdos_discovery_corpus_upgrade_gate3",
+      "evidence_use": "discovery_metadata",
       "review_date": "2026-05-09",
-      "status": "MTG-Stories corpus evidence added",
-      "claim_ids": [
+      "gate3_review_date": "2026-07-16",
+      "status": "Discovery metadata retained; not authoritative semantic proof.",
+      "retained_native_ids": [
+        {
+          "character_id": "char_rakdos_the_defiler",
+          "retained_as": "discovery metadata only"
+        },
+        {
+          "character_id": "char_exava",
+          "retained_as": "discovery metadata only"
+        },
+        {
+          "character_id": "char_judith",
+          "retained_as": "discovery metadata only"
+        }
+      ],
+      "restriction": "Do not use these discovery records as proof for profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, or public-facing claims.",
+      "retained_discovery_claim_ids": [
         "cult_of_rakdos_claim_0007",
         "cult_of_rakdos_claim_0008",
         "cult_of_rakdos_claim_0009",
@@ -302,25 +240,25 @@
     "source_research_file": "cult_of_rakdos.commander_compass.research.json",
     "last_reviewed": "2026-05-14",
     "review_status": "reviewed_not_canonical_lore",
-    "recommendation_philosophy": "Favor commanders that reward life loss, sacrifice, all-in pressure, and theatrical chaos. A strong Rakdos recommendation should feel like a performance with a cost: powerful, dangerous, funny, and a little socially volatile.",
+    "recommendation_philosophy": "Favor commanders that reward life loss, sacrifice, all-in pressure, and theatrical volatility. A strong Rakdos recommendation should feel like a performance with a cost: powerful, dangerous, funny, and a little socially volatile.",
     "identity_basis": {
       "owned_themes": [
         "performance and spectacle",
-        "hedonism and cruelty",
-        "chaos and anti-authority parody",
+        "indulgence and visible cost",
+        "provocation and anti-authority parody",
         "demons/devils/imps",
         "life-loss gates",
-        "sacrifice and death damage",
+        "sacrifice and dies-trigger damage",
         "empty-hand aggression",
         "Rix Maadi and Rakdos as cult icon"
       ],
       "allowed_phrases": [
         "the show must go on",
         "spectacle engine",
-        "pain as ticket price",
+        "life loss as ticket price",
         "demon headliner",
-        "chaotic performance",
-        "burning the stage down"
+        "volatile performance",
+        "the act has consequences"
       ],
       "avoid_or_contrast_phrases": [
         "orderly midrange with no spectacle",
@@ -329,27 +267,21 @@
         "planeswalker commander without permission"
       ],
       "adjacent_overlap_notes": [
-        "Rakdos overlaps with generic BR sacrifice, exile-value, and goad decks. Keep cult identity by emphasizing performance, pain, chaos, and audience/act language."
+        "Rakdos overlaps with generic BR sacrifice, exile-value, goad, and punisher decks. Treat product guidance as auxiliary; keep Cult identity source-bounded through performance, visible cost, volatility, and audience/act language."
       ],
       "supporting_claim_ids": [
         "cult_of_rakdos_claim_001",
         "cult_of_rakdos_claim_002",
-        "cult_of_rakdos_claim_003",
         "cult_of_rakdos_claim_004",
         "cult_of_rakdos_claim_005",
         "cult_of_rakdos_claim_006",
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010"
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0021"
       ],
       "supporting_source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-        "src_wotc_ravnica_allegiance_mechanics_2018",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0"
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ]
     },
     "native_fit_commanders": [
@@ -369,14 +301,14 @@
           "Big Mana",
           "Damage Gate"
         ],
-        "why_this_fits": "Rakdos is the native demon-headliner choice: opponents must lose life before the show begins, then pain discounts enormous creatures.",
+        "why_this_fits": "Rakdos is the native demon-headliner choice: opponents must lose life before the show begins, then life-loss discounts enormous creatures.",
         "skip_if": "Skip if you want consistent early casting, low variance, or a commander that avoids big threat perception.",
         "gameplay_summary": "A flying trampling Demon that requires opponent life loss to cast and discounts creature spells based on life opponents lost.",
         "faction_identity_terms": [
           "Rakdos",
           "demon",
           "spectacle",
-          "pain",
+          "life loss",
           "the show"
         ],
         "source_basis": {
@@ -431,15 +363,15 @@
         "archetype_tags": [
           "Aristocrats",
           "Aggro",
-          "Death Damage"
+          "dies-trigger damage"
         ],
-        "why_this_fits": "Judith makes the cult feel like a packed stage: every creature hits harder, and nontoken deaths throw damage back into the audience.",
+        "why_this_fits": "Judith makes the cult feel like a packed stage: every creature hits harder, and nontoken creatures dying throw damage back into the audience.",
         "skip_if": "Skip if you want a large demon commander or dislike small-creature sacrifice combat.",
-        "gameplay_summary": "A low-cost Rakdos legend that pumps your creatures and turns nontoken creature deaths into damage.",
+        "gameplay_summary": "A low-cost Rakdos legend that pumps your creatures and turns nontoken creatures dying into damage.",
         "faction_identity_terms": [
           "Judith",
           "performance",
-          "death damage",
+          "dies-trigger damage",
           "aggression"
         ],
         "source_basis": {
@@ -487,16 +419,16 @@
         "archetype_tags": [
           "Gifts",
           "Politics",
-          "Chaos"
+          "volatility"
         ],
-        "why_this_fits": "Blim is weird Rakdos in the right way: comedy, cruelty, and bad gifts become the performance mechanic.",
+        "why_this_fits": "Blim is weird Rakdos in the right way: comedy, punisher edge, and bad gifts become the performance mechanic.",
         "skip_if": "Skip if your table dislikes donated permanents, confusing board states, or spiteful politics.",
         "gameplay_summary": "A flying, hasty commander that gives away your permanents and punishes opponents for controlling cards they do not own.",
         "faction_identity_terms": [
           "comedy",
-          "cruelty",
+          "punisher edge",
           "performance",
-          "chaos"
+          "volatility"
         ],
         "source_basis": {
           "card_data": [
@@ -553,9 +485,9 @@
         "archetype_tags": [
           "Sacrifice",
           "Counters",
-          "Death Damage"
+          "dies-trigger damage"
         ],
-        "why_this_fits": "Juri is a compact stage-manager for budget Rakdos sacrifice: every sacrificed permanent builds toward one dramatic death burst.",
+        "why_this_fits": "Juri is a compact stage-manager for budget Rakdos sacrifice: every sacrificed permanent builds toward one dramatic final damage burst.",
         "skip_if": "Skip if you want demon tribal or a commander that wins without sacrifice density.",
         "gameplay_summary": "A two-mana sacrifice payoff that grows as you sacrifice permanents and deals its power as damage when it dies.",
         "faction_identity_terms": [
@@ -619,7 +551,7 @@
           "Treasure",
           "Combo"
         ],
-        "why_this_fits": "Prosper is not Rakdos-cult lore, but as product guidance he turns reckless opportunity into material gain: every stolen moment from exile becomes treasure.",
+        "why_this_fits": "Prosper is not Rakdos-cult lore, but as product guidance he turns risk-forward opportunity into material gain: every stolen moment from exile becomes treasure.",
         "skip_if": "Skip if you want strict Ravnican flavor or if your group dislikes high-efficiency value engines.",
         "gameplay_summary": "A deathtouch commander that exiles cards to play later and creates Treasure whenever you play from exile.",
         "faction_identity_terms": [
@@ -682,7 +614,7 @@
         "recommendation_type": "Iconic Lore-Forward",
         "archetype_tags": [
           "Demons",
-          "Chaos",
+          "volatility",
           "Board Wipe"
         ],
         "why_this_fits": "This is a pure flavor-forward Rakdos performance: the demon arrives, the stage erupts, and survival becomes a coin-flip spectacle.",
@@ -692,7 +624,7 @@
           "Rakdos",
           "demon",
           "spectacle",
-          "chaos",
+          "volatility",
           "performance"
         ],
         "source_basis": {
@@ -751,7 +683,7 @@
       {
         "name": "Mogis, God of Slaughter",
         "reason": "BR and Commander-legal but Theros lore, not Rakdos cult identity; product fit is adjacent punisher rather than native.",
-        "could_still_be_used_if": "Use in a broader BR pain/punisher path, not as core Cult of Rakdos guidance.",
+        "could_still_be_used_if": "Use in a broader BR life-loss/punisher path, not as core Cult of Rakdos guidance.",
         "confidence": "Medium"
       }
     ],
@@ -767,7 +699,7 @@
         ],
         "supporting_identity_terms": [
           "spectacle",
-          "pain",
+          "life loss",
           "showtime"
         ],
         "complexity": "Medium",
@@ -776,7 +708,7 @@
       {
         "lane_name": "Aristocrats Revue",
         "description": "Sacrifice creatures and permanents for damage, counters, and dramatic finales.",
-        "recommended_for": "Players who like creature churn and death triggers.",
+        "recommended_for": "Players who like creature churn and dies triggers.",
         "skip_if": "Avoid if sacrifice loops are not welcome.",
         "example_commanders": [
           "Judith, the Scourge Diva",
@@ -785,22 +717,22 @@
         "supporting_identity_terms": [
           "sacrifice",
           "performance",
-          "death damage"
+          "dies-trigger damage"
         ],
         "complexity": "Medium",
         "budget_friendliness": "High"
       },
       {
-        "lane_name": "Chaos Theater",
+        "lane_name": "volatility Theater",
         "description": "Use goad, gifts, coin flips, and table politics to make the game feel like a dangerous show.",
         "recommended_for": "Players who want memorable stories more than perfect efficiency.",
-        "skip_if": "Avoid in control-heavy or low-chaos groups.",
+        "skip_if": "Avoid in control-heavy or low-volatility groups.",
         "example_commanders": [
           "Blim, Comedic Genius",
           "Rakdos, the Showstopper"
         ],
         "supporting_identity_terms": [
-          "chaos",
+          "volatility",
           "comedy",
           "audience"
         ],
@@ -809,7 +741,7 @@
       },
       {
         "lane_name": "Exile Bargain Value",
-        "description": "Use temporary access to cards as reckless profit and treasure.",
+        "description": "Use temporary access to cards as risk-forward profit and treasure.",
         "recommended_for": "Players who want strong Rakdos resource engines.",
         "skip_if": "Avoid if strict lore grounding matters.",
         "example_commanders": [
@@ -833,7 +765,8 @@
       "product_guidance_not_canon": true,
       "commander_legality_validated": true,
       "scryfall_card_pages_validated": true,
-      "do_not_use_as_claim_source": true
+      "do_not_use_as_claim_source": true,
+      "crit001_gate3": "Commander compass is auxiliary product guidance. Discovery-story native IDs are retained as metadata but are not authoritative proof chains."
     }
   }
 }

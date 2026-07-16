@@ -3152,23 +3152,461 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/behavioral_signals/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:d721802355adb1f8008d035109bfbfd083ba5c3fc72a8b54471c61f2f1004452",
+      "canonical_id": "rakdos_signal_public_act",
+      "canonical_content_hash": "sha256:ad887b782c6d5afc0a26a67992f91b6d063ebc22821137a9d216294414f8a8dd",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010",
-        "cult_of_rakdos_claim_0011",
-        "cult_of_rakdos_claim_0012"
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "rakdos_how_to_recognize_match_1",
+      "canonical_content_hash": "sha256:31706ab923dd6ce2002bfee161751ce1fb533435e0888dfbe9f75aa37be96931",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_0018"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "rakdos_how_to_recognize_match_2",
+      "canonical_content_hash": "sha256:b9c02f17480d72da632a931c7e8b535b99975c5a6b3035bd60bedcf2445e0f36",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0017"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "rakdos_how_to_recognize_match_3",
+      "canonical_content_hash": "sha256:62a5e1c66c5a4f2ad506feaf8271750c4dfa95d7a29965ffed64e9154e2311b3",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0021"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "rakdos_how_to_recognize_mismatch_1",
+      "canonical_content_hash": "sha256:4f9069ae929e7c3eaab7f5810c815962e3e783cb46e66e72aaf8f88211e9abe8",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "rakdos_how_to_recognize_mismatch_2",
+      "canonical_content_hash": "sha256:7b547d294fc318cdcbc8fbda55c8ebc444853a564566ccb4f4476ac3e4d20541",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0024",
+        "cult_of_rakdos_claim_0025",
+        "cult_of_rakdos_claim_0026",
+        "cult_of_rakdos_claim_0027",
+        "cult_of_rakdos_claim_0028",
+        "cult_of_rakdos_claim_0029",
+        "cult_of_rakdos_claim_0030",
+        "cult_of_rakdos_claim_0031",
+        "cult_of_rakdos_claim_0032"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "rakdos_how_to_recognize_mismatch_3",
+      "canonical_content_hash": "sha256:78e80b8642b06dcc02ca07a5d7fc7a4511fa8fd7a37825544510fd485910f03c",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0019",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_id": "rakdos_questions_to_ask_when_uncertain_1",
+      "canonical_content_hash": "sha256:002ca5e6ee15b735cce96f79f43d0ce549906d8462eaee82fd3869702e7877f0",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_id": "rakdos_questions_to_ask_when_uncertain_2",
+      "canonical_content_hash": "sha256:a4247399cd788367b6b4cb3cfe34dc11d6405991a5192973d0edfd155323eab5",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0022",
+        "cult_of_rakdos_claim_0024",
+        "cult_of_rakdos_claim_0025",
+        "cult_of_rakdos_claim_0026",
+        "cult_of_rakdos_claim_0027",
+        "cult_of_rakdos_claim_0028",
+        "cult_of_rakdos_claim_0029",
+        "cult_of_rakdos_claim_0030",
+        "cult_of_rakdos_claim_0031",
+        "cult_of_rakdos_claim_0032"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/collision_guidance/0",
+      "canonical_id": "rakdos_vs_generic_br_overfit_gate3",
+      "canonical_content_hash": "sha256:180a486afc4b14abce6cde6df72925f33a6faf85cdd4127d953ffbf94a56f603",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/collision_guidance/1",
+      "canonical_id": "rakdos_vs_black_private_leverage_gate3",
+      "canonical_content_hash": "sha256:332569c5b58651404dd57d478ce10f55eda036f870145aba88c01ed41428cca3",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/collision_guidance/10",
+      "canonical_id": "rakdos_vs_jund_predation_gate3",
+      "canonical_content_hash": "sha256:b91c17828f01af791c0f9dca3baffc00e92a12b19df5983f17c6931efaeb9fe9",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0031"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/collision_guidance/11",
+      "canonical_id": "rakdos_vs_mardu_martial_code_gate3",
+      "canonical_content_hash": "sha256:23982ed3f1fbae2c117f175a96052d25ab0af2bfcf7e098b6a8656b975f111c3",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/collision_guidance/2",
+      "canonical_id": "rakdos_vs_red_direct_impulse_gate3",
+      "canonical_content_hash": "sha256:50e5be7ddadf28c071d1f2a61fff593c690b394687dc1c5375134a1a2c17e7ab",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/collision_guidance/3",
+      "canonical_id": "rakdos_vs_boros_discipline_gate3",
+      "canonical_content_hash": "sha256:e1724090467916daa1d0a79ccd3cf37587f2b3bb722e2f8760bbde4a463d63f3",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/collision_guidance/4",
+      "canonical_id": "rakdos_vs_gruul_dispossession_gate3",
+      "canonical_content_hash": "sha256:68550b29d173f5e35810abde77fb09d48236048bcac3d8cd47d7110569fd9782",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/collision_guidance/5",
+      "canonical_id": "rakdos_vs_golgari_survival_gate3",
+      "canonical_content_hash": "sha256:c2500ec7a211fe31a7becdec27d25cc0698f09a190a712ca1dd4075211ee913e",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/collision_guidance/6",
+      "canonical_id": "rakdos_vs_orzhov_obligation_gate3",
+      "canonical_content_hash": "sha256:cfb0e8c40220a87794b960b30ca262ee00585dc7126c5ae17f5f88766562808a",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0027"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/collision_guidance/7",
+      "canonical_id": "rakdos_vs_izzet_invention_gate3",
+      "canonical_content_hash": "sha256:45ef57ab05ed9bdd5bab7961da29a0c5c7d45982b7a08797ca4a9e0d5ddba6ff",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/collision_guidance/8",
+      "canonical_id": "rakdos_vs_prismari_craft_gate3",
+      "canonical_content_hash": "sha256:dfe546b603cd269c68d26012ed5a58d19318431adc6b88ed9ce438df2efb9ca3",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/collision_guidance/9",
+      "canonical_id": "rakdos_vs_grixis_leverage_gate3",
+      "canonical_content_hash": "sha256:206e0fd2e78f523e5b4c83d33bd8faa8efb9f4859de9331fcbddf668802102d1",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0030"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3181,17 +3619,16 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/core_values/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:dab35eb199618204e7138c009b07e41a006c27f047cf8125a65daa9b3c3f74c9",
+      "canonical_id": "rakdos_value_public_performance",
+      "canonical_content_hash": "sha256:4e356b8309e820865ee80bf259bcc8d460d37b5a37605102cb280ba2b6a9de96",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3204,17 +3641,15 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/core_values/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:64acad515c2c96eff67d9b4f5921248dc4c1ce52d042ce1cf738c8073f9067ad",
+      "canonical_id": "rakdos_value_spectacle",
+      "canonical_content_hash": "sha256:07433c977cea70aa0d40bb46b9d5460bb7d5c14e367adb999ef9555b12253a54",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3227,17 +3662,16 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/core_values/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:ea28a629ca5cd14720efe44bad40635961c5120a14dfb265f682fe06ef6dbb75",
+      "canonical_id": "rakdos_value_visible_cost",
+      "canonical_content_hash": "sha256:ab2b78b208fb1fdcf9e9e2f276465e33ead2ecea206e9d6a24771ebf49985079",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3250,17 +3684,16 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/core_values/3",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:f104223cd9cd37b63b35173a0f2c85e70e022e8d57f98a33a7f817ac0b0bcf90",
+      "canonical_id": "rakdos_value_provocation",
+      "canonical_content_hash": "sha256:f895b7e262d58510d5ed2cd0539ac3dae876d57a93cb56213376123fb3e84c2b",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3273,17 +3706,16 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/core_values/4",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:3e736743bdb7f50c8e48c129044317f768763a2e55393995fd8f0602cfb4877f",
+      "canonical_id": "rakdos_value_dangerous_entertainment",
+      "canonical_content_hash": "sha256:84ff4f02dd0891e5f169e7c3206c6e75e051bb3d8f876e45f1689d59d3f5a591",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3296,17 +3728,15 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/core_values/5",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:9635b3217b8a4dceeabd30e5bfd84da343dd29ac3e554c0a4bbf11c1fb232298",
+      "canonical_id": "rakdos_value_release",
+      "canonical_content_hash": "sha256:e856bed07fd12feb421959c58189207f5d4a47cfd0368c5201496531293d4c94",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3319,17 +3749,13 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/core_values/6",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:7af4fecc0f90f14b3fa2e59eb0014cf9d50b99d68a1e5e38745e52665e23e208",
+      "canonical_id": "rakdos_value_demonic_patronage",
+      "canonical_content_hash": "sha256:00e27bf593d5835df158fc8a89ba4cc228e952afdbd77413307ccc428e1bfb78",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_004"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3342,17 +3768,16 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/core_values/7",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:93aca786b7e1392f98af89d7a1c72a7092e3c74273159d55b59082c9c1250a7f",
+      "canonical_id": "rakdos_value_audience",
+      "canonical_content_hash": "sha256:e91f444c10988be7f0350e302492e6dcda71dbd0414c37e8650d8972ca23a04e",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3365,17 +3790,16 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/core_values/8",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:98cdadf60a0b1fa30df76c836e1c4cc30164fcdba827e73c609c196d43d8e405",
+      "canonical_id": "rakdos_value_transgression",
+      "canonical_content_hash": "sha256:80df2c45fbd51c795d769898e80b7091536b300e654fc4c602124f777e93cdf9",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3388,17 +3812,15 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/core_values/9",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:097fb0014b4529543b60e74481edb185876c2683945c00114c209cc45226bda8",
+      "canonical_id": "rakdos_value_overfit_guardrail",
+      "canonical_content_hash": "sha256:505539a4ea67cc4f35e1f36de5804bc6a027f0268e3f64636c79003cc100ee02",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3412,14 +3834,17 @@
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/discriminator_questions/0",
       "canonical_id": "rakdos_q1",
-      "canonical_content_hash": "sha256:20f4c0ee4fd9cec69568b4234b79ac59f1a0fedcc02a36f7fa651a803875bab0",
+      "canonical_content_hash": "sha256:83809d3a59f1490b5ba458d2e9946af3148cb8ed0a082e0f49e1903417568c95",
       "evidence_claim_ids": [
         "cult_of_rakdos_claim_001",
         "cult_of_rakdos_claim_002",
-        "cult_of_rakdos_claim_003"
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3433,14 +3858,18 @@
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/discriminator_questions/1",
       "canonical_id": "rakdos_q2",
-      "canonical_content_hash": "sha256:1d8b358e41bcb76cbe1f86e4b2c443566f7ee7c2147c38a92402eccfa9ebc05a",
+      "canonical_content_hash": "sha256:1dfec6f3f7c2ae42655bb581d08fc963ec7282fa38d09cea27627748c9a9f2df",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_001",
-        "cult_of_rakdos_claim_002",
-        "cult_of_rakdos_claim_003"
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021",
+        "cult_of_rakdos_claim_0022",
+        "cult_of_rakdos_claim_0030"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3454,12 +3883,14 @@
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/discriminator_questions/2",
       "canonical_id": "rakdos_q3",
-      "canonical_content_hash": "sha256:8a27e2daff09af68189bb4186a302ebf07de24212f88a63f9c00e7595009b258",
+      "canonical_content_hash": "sha256:57bc69ca04c958f7dbf74c728fa4ee25d6ce1eefc9b56dc1f04ac8f476ea80b0",
       "evidence_claim_ids": [
         "cult_of_rakdos_claim_001",
         "cult_of_rakdos_claim_002",
         "cult_of_rakdos_claim_005",
-        "cult_of_rakdos_claim_006"
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0020"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019",
@@ -3476,13 +3907,17 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/good_fit_indicators/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:b262921e52d00d1b85e2b75bff3710006badfeae940b52c4663fec581599dcf8",
+      "canonical_id": "rakdos_ideal_performance_truth_pressure",
+      "canonical_content_hash": "sha256:ddbab2d8b1bc54933af7d09c84ca5d1ddbac5cbce96b796afbdf59b18bc5306d",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_001"
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3495,13 +3930,17 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/good_fit_indicators/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:0a6203462557eab2b04eece907675315889348da1273d064710d2784c266722c",
+      "canonical_id": "rakdos_ideal_visible_cost",
+      "canonical_content_hash": "sha256:36c115be2982c069c0f1685387a7658edbeb1ee348f4daa7e65d3b4727dee308",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_002"
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3514,13 +3953,17 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/good_fit_indicators/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:26c631cd1841f88aabd8da0c17500f39bff4660837fb1c7cdb4e4214df7a108d",
+      "canonical_id": "rakdos_ideal_transgression_not_random",
+      "canonical_content_hash": "sha256:92461c8fa691fd0639fc8718776a0d9b4ef3b8a88bb01423609d004dbb855a7f",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_003"
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3533,13 +3976,17 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:b262921e52d00d1b85e2b75bff3710006badfeae940b52c4663fec581599dcf8",
+      "canonical_id": "rakdos_ideal_performance_truth_pressure",
+      "canonical_content_hash": "sha256:ddbab2d8b1bc54933af7d09c84ca5d1ddbac5cbce96b796afbdf59b18bc5306d",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_001"
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3552,13 +3999,17 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:0a6203462557eab2b04eece907675315889348da1273d064710d2784c266722c",
+      "canonical_id": "rakdos_ideal_visible_cost",
+      "canonical_content_hash": "sha256:36c115be2982c069c0f1685387a7658edbeb1ee348f4daa7e65d3b4727dee308",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_002"
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3571,13 +4022,17 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:26c631cd1841f88aabd8da0c17500f39bff4660837fb1c7cdb4e4214df7a108d",
+      "canonical_id": "rakdos_ideal_transgression_not_random",
+      "canonical_content_hash": "sha256:92461c8fa691fd0639fc8718776a0d9b4ef3b8a88bb01423609d004dbb855a7f",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_003"
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3590,19 +4045,15 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/inhibitor_traits/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:05c666ba7bca5871068de8891a32cf1c46957f3882a30312c6c2b19bb404a748",
+      "canonical_id": "rakdos_inhibitor_generic_br_overfit",
+      "canonical_content_hash": "sha256:18942e28c6316bb22ccc33092f88a8f851ca695d0d091c4fb37c3ce220dfa624",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010"
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3615,21 +4066,18 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/moral_and_psychological_profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:46af6548826c2a76f281dea77d858e295d8138aad035490239810c0ea0aa4d42",
+      "canonical_id": "rakdos_moral_psychological_gate3",
+      "canonical_content_hash": "sha256:e4ef8a0cac5dc29319cff74f26a39edee98c8f7591846966e7d1b928f7dddbc5",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010",
-        "cult_of_rakdos_claim_0011"
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0019",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3643,26 +4091,17 @@
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/placement_axes/0",
       "canonical_id": "axis_transgression_vs_restraint",
-      "canonical_content_hash": "sha256:396f2d52f88383828147aa7f3b84081c0fa5333d0170834505a9b9d2ea64231a",
+      "canonical_content_hash": "sha256:03d37293be484ef5f7da2e652592bbf09da46fe3e596483a3f40b969c5abc7b6",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010",
-        "cult_of_rakdos_claim_0011",
-        "cult_of_rakdos_claim_0012",
-        "cult_of_rakdos_claim_0013",
-        "cult_of_rakdos_claim_0014"
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_slaughter_games_270f4c5d",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3675,33 +4114,32 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/placement_summary",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:f14e9b0e4e00ab2a463516dab5b7e846a18c1e4d022159bf6554a64334656c43",
+      "canonical_id": "rakdos_placement_summary_gate3",
+      "canonical_content_hash": "sha256:de7a8b71980ba89dacc1e8d64d45570a492ed8d5360c3173751557f35538b970",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010",
-        "cult_of_rakdos_claim_0011",
-        "cult_of_rakdos_claim_0012",
-        "cult_of_rakdos_claim_0013",
-        "cult_of_rakdos_claim_0014",
         "cult_of_rakdos_claim_001",
         "cult_of_rakdos_claim_002",
-        "cult_of_rakdos_claim_003",
         "cult_of_rakdos_claim_004",
         "cult_of_rakdos_claim_005",
-        "cult_of_rakdos_claim_006"
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0019",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021",
+        "cult_of_rakdos_claim_0022",
+        "cult_of_rakdos_claim_0023",
+        "cult_of_rakdos_claim_0024",
+        "cult_of_rakdos_claim_0025",
+        "cult_of_rakdos_claim_0026",
+        "cult_of_rakdos_claim_0027",
+        "cult_of_rakdos_claim_0028",
+        "cult_of_rakdos_claim_0029",
+        "cult_of_rakdos_claim_0030",
+        "cult_of_rakdos_claim_0031",
+        "cult_of_rakdos_claim_0032"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_slaughter_games_270f4c5d",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019",
         "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
@@ -3716,13 +4154,16 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/poor_fit_indicators/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:1071cb9a5e5661fc6b771b0b62a24e6b5ee6830a981a521a2d072380b9363760",
+      "canonical_id": "rakdos_poor_restraint_first",
+      "canonical_content_hash": "sha256:b9bdc390d113396bdf35470da354538b5799fca60d57a463f51ceb9e64e6e429",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_001"
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3735,13 +4176,16 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/poor_fit_indicators/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:dfa3e12eefada176fcbcb2addda42855dad6aefc81cb8a17a5abc69bd1fa8b30",
+      "canonical_id": "rakdos_poor_private_leverage",
+      "canonical_content_hash": "sha256:e67ec5ed88b794bab37445eadc2ee2052cc191072f52c39756490245d9bcc60c",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_002"
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0022",
+        "cult_of_rakdos_claim_0030"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3754,13 +4198,16 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
       "canonical_pointer": "/poor_fit_indicators/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:b86255d7e6d84e4df9c0cd33117893fd2effa7670a4ec84cf899154db28ea07a",
+      "canonical_id": "rakdos_poor_generic_heat",
+      "canonical_content_hash": "sha256:3f071f239b464e0aa452c184e68003bd2631ed29abbcfacb69c09a5207a0197e",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_003"
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021",
+        "cult_of_rakdos_claim_0023"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3771,29 +4218,16 @@
     },
     {
       "identity_key": "BR",
-      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json",
-      "canonical_pointer": "/canonical_flavor_text/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:577640a489b62a81532998a756d237f72f0ce1f2af2fd15e5fa52b1099663c76",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/0",
+      "canonical_id": "rakdos_required_neighbor_generic_br_overfit",
+      "canonical_content_hash": "sha256:f18c200c8d6052a72665316d1cc6b3dce87b2c99dbd895b5cef8b0f9945350ed",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010",
-        "cult_of_rakdos_claim_0011",
-        "cult_of_rakdos_claim_0012",
-        "cult_of_rakdos_claim_0013",
-        "cult_of_rakdos_claim_0014"
+        "cult_of_rakdos_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_slaughter_games_270f4c5d",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3804,29 +4238,16 @@
     },
     {
       "identity_key": "BR",
-      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json",
-      "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:9444558c51b55cacacb34bdcf65fca1bfb7ba899a206a7b5b7e1f0b1056230c2",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/1",
+      "canonical_id": "rakdos_required_neighbor_b",
+      "canonical_content_hash": "sha256:f8fbfc0e4c2bf1bf86aa8e76c6ea5501e3e1f36b8fa1634aee2018b472950869",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010",
-        "cult_of_rakdos_claim_0011",
-        "cult_of_rakdos_claim_0012",
-        "cult_of_rakdos_claim_0013",
-        "cult_of_rakdos_claim_0014"
+        "cult_of_rakdos_claim_0022"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_slaughter_games_270f4c5d",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3837,33 +4258,16 @@
     },
     {
       "identity_key": "BR",
-      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json",
-      "canonical_pointer": "/data_quality/corpus_upgrade",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:2c839bde9a3bccd5efa7915ae6b16499513bbda1d5dfd0ce20d9b1505a8ab9cd",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/10",
+      "canonical_id": "rakdos_required_neighbor_jund",
+      "canonical_content_hash": "sha256:ad114521c0e6d20a43eb4533f98196761be3e874600cfa842b7c1659b7a09d1c",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010",
-        "cult_of_rakdos_claim_0011",
-        "cult_of_rakdos_claim_0012",
-        "cult_of_rakdos_claim_0013",
-        "cult_of_rakdos_claim_0014",
-        "cult_of_rakdos_claim_0015",
-        "cult_of_rakdos_claim_0016"
+        "cult_of_rakdos_claim_0031"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_episode_4_justice_before_mercy_57b8ab88",
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_slaughter_games_270f4c5d",
-        "src_mtg_stories_the_gathering_storm_chapter_19_dab06589",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3874,23 +4278,16 @@
     },
     {
       "identity_key": "BR",
-      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json",
-      "canonical_pointer": "/great_tension",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:39087f1b09c32521be77c838e399084f4ade668c9724967e1d68f0faabb4b17e",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/11",
+      "canonical_id": "rakdos_required_neighbor_mardu",
+      "canonical_content_hash": "sha256:766f6b739209ab0dad8726d834ebd1e71f33653809bd5de75de4d1c042dcc94c",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010",
-        "cult_of_rakdos_claim_0011"
+        "cult_of_rakdos_claim_0032"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3901,39 +4298,342 @@
     },
     {
       "identity_key": "BR",
-      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json",
-      "canonical_pointer": "/key_figures/0",
-      "canonical_id": "char_rakdos",
-      "canonical_content_hash": "sha256:2e28b69450de30d1ad5edd72823dc3ea836cfe4843e0cf5d1f2b5472510d79be",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/2",
+      "canonical_id": "rakdos_required_neighbor_r",
+      "canonical_content_hash": "sha256:542d79eb3b986e91d9502c6ff6c9bf10a3fa5e7ed1602eca9723985b4f4a0692",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/3",
+      "canonical_id": "rakdos_required_neighbor_wr",
+      "canonical_content_hash": "sha256:f616667e9820bc2aa7f04aa932e0aa485994454e8beb88a9fb8503d483581ffc",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/4",
+      "canonical_id": "rakdos_required_neighbor_rg",
+      "canonical_content_hash": "sha256:9c12ae4979a8437b8a7651e495ff4119c31855c320cc371637f89b92f582953f",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/5",
+      "canonical_id": "rakdos_required_neighbor_bg",
+      "canonical_content_hash": "sha256:44e35eb0b35efea647d993b9d0701ea2cb2d2f3d611d76c4b147acac6010cb38",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/6",
+      "canonical_id": "rakdos_required_neighbor_wb",
+      "canonical_content_hash": "sha256:82106d69a306fab37ea50a2ee06a31e9a9c7d97411adc266dde72c413ff73762",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0027"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/7",
+      "canonical_id": "rakdos_required_neighbor_ur",
+      "canonical_content_hash": "sha256:5723cb79141173a080a5bdd8f20c81726bb51a66320f8e55ec25fe3b14ba64ae",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/8",
+      "canonical_id": "rakdos_required_neighbor_prismari",
+      "canonical_content_hash": "sha256:b5fb24b060a371ead7b7c443d04f2bd13199eac35790896887dee22ad0c9a63b",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/9",
+      "canonical_id": "rakdos_required_neighbor_grixis",
+      "canonical_content_hash": "sha256:f137f33ed26fdde600fbeff28bc66bf4332be77a883d041dd704171a2f0161ad",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0030"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "rakdos_how_to_recognize_match_1",
+      "canonical_content_hash": "sha256:22412aef72a76ff4946bad422306897fad5f0d6da85b95e23fb557c73ac43722",
       "evidence_claim_ids": [
         "cult_of_rakdos_claim_001",
         "cult_of_rakdos_claim_002",
-        "cult_of_rakdos_claim_003",
-        "cult_of_rakdos_claim_004",
-        "cult_of_rakdos_claim_005",
-        "cult_of_rakdos_claim_006",
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010",
-        "cult_of_rakdos_claim_0011",
-        "cult_of_rakdos_claim_0012",
-        "cult_of_rakdos_claim_0013",
-        "cult_of_rakdos_claim_0014",
-        "cult_of_rakdos_claim_0015",
-        "cult_of_rakdos_claim_0016"
+        "cult_of_rakdos_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_episode_4_justice_before_mercy_57b8ab88",
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_slaughter_games_270f4c5d",
-        "src_mtg_stories_the_gathering_storm_chapter_19_dab06589",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6",
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "rakdos_how_to_recognize_match_2",
+      "canonical_content_hash": "sha256:9b3c3e3e10900da548fce9a90162897a05a2a446ad56528ad456a65a963dba41",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0017"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "rakdos_how_to_recognize_match_3",
+      "canonical_content_hash": "sha256:0eef8b5b2b838d42bfa53f35fc0d9845d3238750a7b8d71d11275d4e3944cf91",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "rakdos_how_to_recognize_mismatch_1",
+      "canonical_content_hash": "sha256:4aa3a600f8b988a22c2653daeb8a874e111ddadc6f79d1d998f7497ef07102c8",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "rakdos_how_to_recognize_mismatch_2",
+      "canonical_content_hash": "sha256:07484f6901cb2f40f4baf3cf5c3726d52d9fee02b0798adc0f836ebd08d72c4b",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0024",
+        "cult_of_rakdos_claim_0025",
+        "cult_of_rakdos_claim_0026",
+        "cult_of_rakdos_claim_0027",
+        "cult_of_rakdos_claim_0028",
+        "cult_of_rakdos_claim_0029",
+        "cult_of_rakdos_claim_0030",
+        "cult_of_rakdos_claim_0031",
+        "cult_of_rakdos_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": "rakdos_how_to_recognize_mismatch_3",
+      "canonical_content_hash": "sha256:99f7f85a11b4ee1abbe555aca38c32f8d06a37b077af33e67d6fbf3e0d9ca189",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0019",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": "rakdos_questions_to_ask_when_uncertain_1",
+      "canonical_content_hash": "sha256:44bf84df02d78c40935cf583e9818dca752aad18eae1f9a3695c1358f9c1d159",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/7",
+      "canonical_id": "rakdos_questions_to_ask_when_uncertain_2",
+      "canonical_content_hash": "sha256:a8b18e1267d6cd1162f7e9c4ec00cdc00d0d85dd4475427816c62bf02e6f20d9",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0022",
+        "cult_of_rakdos_claim_0024",
+        "cult_of_rakdos_claim_0025",
+        "cult_of_rakdos_claim_0026",
+        "cult_of_rakdos_claim_0027",
+        "cult_of_rakdos_claim_0028",
+        "cult_of_rakdos_claim_0029",
+        "cult_of_rakdos_claim_0030",
+        "cult_of_rakdos_claim_0031",
+        "cult_of_rakdos_claim_0032"
+      ],
+      "evidence_source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019",
         "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
@@ -3947,14 +4647,20 @@
     {
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json",
-      "canonical_pointer": "/key_figures/1",
-      "canonical_id": "char_rakdos_the_defiler",
-      "canonical_content_hash": "sha256:a5a9c4f9fb35ed4c41909733374b9cdbd418b3c966b01ca15b6bddee1c0219e6",
+      "canonical_pointer": "/canonical_flavor_text/0",
+      "canonical_id": "rakdos_public_anchor_gate3",
+      "canonical_content_hash": "sha256:40c682fbade530dee27cd3997e771cbc00b422471c068ed1a5d6eebe8d4b77b2",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007"
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0018"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3966,16 +4672,22 @@
     {
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json",
-      "canonical_pointer": "/key_figures/2",
-      "canonical_id": "char_exava",
-      "canonical_content_hash": "sha256:e863b9e3a463e6ec4620a24c59a9ae1b3a3c1867cf1216aae5b4b2bcab3b6a7d",
+      "canonical_pointer": "/core_identity",
+      "canonical_id": "rakdos_core_identity_gate3",
+      "canonical_content_hash": "sha256:d152bb8dd9efb855cdb048582c9b7551a7844d8163a2fd7aace52f77f5274514",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0012"
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_004",
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_ashes_6ede4fea",
-        "src_mtg_stories_operation_desperation_e6d285ea"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -3987,20 +4699,38 @@
     {
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json",
-      "canonical_pointer": "/key_figures/3",
-      "canonical_id": "char_judith",
-      "canonical_content_hash": "sha256:c04c1ecdfa8db0b1b9d38af3a546f7f1565e8859af6b939a3faa6445bc91908e",
+      "canonical_pointer": "/great_tension",
+      "canonical_id": "rakdos_great_tension_gate3",
+      "canonical_content_hash": "sha256:a859331d7f01e7c301f598b7eea17b94b204f525e230c2708f40ece0e132678f",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0010",
-        "cult_of_rakdos_claim_0013",
-        "cult_of_rakdos_claim_0016"
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0019",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_4_justice_before_mercy_57b8ab88",
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BR",
+        "data/placement-model.json#/factions/BR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BR",
+      "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json",
+      "canonical_pointer": "/key_figures/0",
+      "canonical_id": "char_rakdos",
+      "canonical_content_hash": "sha256:fccd8df1a4132d55633dba29b1fa166a3d098d2643105c4d9c9e18aaa3cc2571",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_004"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -4013,19 +4743,16 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json",
       "canonical_pointer": "/mechanics",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:94e418202f6a320d74e75925943ebd12ccbffe509d25c8db9f22df891ea73f64",
+      "canonical_id": "rakdos_spectacle_gate3",
+      "canonical_content_hash": "sha256:165e9e886c3f80879c19fbae1834f8b636f60779cf0ee7a62dc808babcd7aae7",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010"
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0017"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -4038,15 +4765,19 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json",
       "canonical_pointer": "/profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:f9ba0b009503fb14d1d87e081bf006882fb3f3928a0d769fbb353cb1be1d46f0",
+      "canonical_id": "profile_rakdos_gate3_authoritative_overview",
+      "canonical_content_hash": "sha256:07850a133bc6959eecbe1e59ca13fa127abe4d38665011ce1bbef4a8ed585113",
       "evidence_claim_ids": [
         "cult_of_rakdos_claim_001",
         "cult_of_rakdos_claim_002",
         "cult_of_rakdos_claim_003",
         "cult_of_rakdos_claim_004",
         "cult_of_rakdos_claim_005",
-        "cult_of_rakdos_claim_006"
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0019",
+        "cult_of_rakdos_claim_0020"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019",
@@ -4063,19 +4794,18 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json",
       "canonical_pointer": "/site_surface",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:810c3fd0641fd9e198cbe9f5bb6d41b1fff76c87e1f70023c063a1d72b5ba819",
+      "canonical_id": "rakdos_site_surface_gate3",
+      "canonical_content_hash": "sha256:c4ab61397956ed42c3356b79495311ea7da932b072f1660ea009afcbd13b18de",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010"
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",
@@ -4088,19 +4818,15 @@
       "identity_key": "BR",
       "canonical_file": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json",
       "canonical_pointer": "/structure",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:5adc1838c6e8fea68a74cc18c7cff043f76a7fd9960fa700ff954e1500f7db4d",
+      "canonical_id": "rakdos_structure_gate3",
+      "canonical_content_hash": "sha256:044ae3494585a9e4dc11eb280a164d9e9fec9c58ba4c5ff6ee93814d05e98d5c",
       "evidence_claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010"
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_003",
+        "cult_of_rakdos_claim_004"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_episode_7_rot_before_recovery_aff91fb1",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_illusions_of_childs_play_a33a5af6"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BR",

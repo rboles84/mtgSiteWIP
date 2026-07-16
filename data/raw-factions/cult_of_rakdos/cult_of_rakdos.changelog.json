@@ -2,8 +2,86 @@
   "schema_version": "1.0.0",
   "faction_id": "cult_of_rakdos",
   "faction_name": "Cult of Rakdos",
-  "last_updated": "2026-05-10T02:56:03.254Z",
+  "last_updated": "2026-07-16T04:44:56.310Z",
   "changes": [
+    {
+      "change_id": "cult_of_rakdos_change_crit001_gate3_20260715",
+      "change_type": "CRIT-001 Gate 3 canonical remediation",
+      "change_date": "2026-07-16",
+      "summary": "Classified Rakdos claims, added bounded evidence locations, isolated discovery records, removed discovery-backed key figures from authoritative proof, and added source-bounded BR collision guidance.",
+      "sources_added": [],
+      "sources_updated": [],
+      "claims_added": [
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0019",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021",
+        "cult_of_rakdos_claim_0022",
+        "cult_of_rakdos_claim_0023",
+        "cult_of_rakdos_claim_0024",
+        "cult_of_rakdos_claim_0025",
+        "cult_of_rakdos_claim_0026",
+        "cult_of_rakdos_claim_0027",
+        "cult_of_rakdos_claim_0028",
+        "cult_of_rakdos_claim_0029",
+        "cult_of_rakdos_claim_0030",
+        "cult_of_rakdos_claim_0031",
+        "cult_of_rakdos_claim_0032"
+      ],
+      "claims_updated": [
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_003",
+        "cult_of_rakdos_claim_004",
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0007",
+        "cult_of_rakdos_claim_0008",
+        "cult_of_rakdos_claim_0009",
+        "cult_of_rakdos_claim_0010",
+        "cult_of_rakdos_claim_0011",
+        "cult_of_rakdos_claim_0012",
+        "cult_of_rakdos_claim_0013",
+        "cult_of_rakdos_claim_0014",
+        "cult_of_rakdos_claim_0015",
+        "cult_of_rakdos_claim_0016"
+      ],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "profile",
+        "core_identity",
+        "site_surface",
+        "structure",
+        "great_tension",
+        "key_figures",
+        "canonical_flavor_text",
+        "mechanics",
+        "data_quality",
+        "commander_compass"
+      ],
+      "placement_fields_updated": [
+        "ideal_fit_indicators",
+        "poor_fit_indicators",
+        "discriminator_questions",
+        "placement_summary",
+        "placement_axes",
+        "moral_and_psychological_profile",
+        "core_values",
+        "behavioral_signals",
+        "inhibitor_traits",
+        "chatbot_guidance",
+        "collision_guidance",
+        "semantic_guidance_evidence",
+        "required_neighbor_evidence",
+        "semantic_readiness"
+      ],
+      "manual_review_required": [
+        "Run Gate 4 generation and validation before Gate 5 candidate creation."
+      ],
+      "notes": "Discovery-only MTG-Stories rows remain retained metadata/history and are not authoritative semantic proof chains."
+    },
     {
       "change_id": "change_cult_of_rakdos_placement_ready_20260510025603",
       "date": "2026-05-10",
@@ -108,15 +186,18 @@
     "number_of_official_sources_used": 3,
     "number_of_repository_archive_sources_used": 10,
     "number_of_secondary_discovery_sources_used": 0,
-    "number_of_claims_verified": 15,
+    "number_of_claims_verified": 22,
     "number_of_claims_marked_uncertain": 0,
     "sections_with_limited_evidence": [
-      "deep story episode coverage",
+      "deep story episode coverage remains discovery-only",
       "current post-source leadership status where later canon may update the cited-era overview"
     ],
     "conflicting_sources_found": [],
-    "assumptions_removed_during_validation": [],
+    "assumptions_removed_during_validation": [
+      "Discovery-only story-corpus records no longer prove authoritative identity, placement, key figures, recruiter guidance, semantic readiness, or public copy."
+    ],
     "overall_confidence_rating": "Medium",
-    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
+    "last_placement_ready_pass": "2026-05-10T02:56:03.254Z",
+    "crit001_gate3_review": "2026-07-16T04:44:56.310Z"
   }
 }

@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "cult_of_rakdos",
   "faction_name": "Cult of Rakdos",
-  "last_updated": "2026-05-10T02:56:03.254Z",
+  "last_updated": "2026-07-16T04:44:56.310Z",
   "placement_model_version": "vox-mana-lore-json-v1",
   "color_identity": [
     "black",
@@ -10,52 +10,73 @@
   ],
   "ideal_fit_indicators": [
     {
-      "indicator": "uses performance to reveal truth",
-      "rationale": "Matches the official Cult of Rakdos identity summarized in the profile.",
+      "indicator_id": "rakdos_ideal_performance_truth_pressure",
+      "indicator": "uses performance or provocation to make social pressure visible",
+      "rationale": "Matches the source-bounded Rakdos performance and public-release cluster.",
       "claim_ids": [
-        "cult_of_rakdos_claim_001"
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "chooses intensity over polite safety",
-      "rationale": "Matches the official Cult of Rakdos identity summarized in the profile.",
+      "indicator_id": "rakdos_ideal_visible_cost",
+      "indicator": "chooses intensity with visible cost, audience, or consequence",
+      "rationale": "Matches official spectacle mechanics and bounded placement synthesis.",
       "claim_ids": [
-        "cult_of_rakdos_claim_002"
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "finds hypocrisy more offensive than disruption",
-      "rationale": "Matches the official Cult of Rakdos identity summarized in the profile.",
+      "indicator_id": "rakdos_ideal_transgression_not_random",
+      "indicator": "uses transgression to expose restraint rather than random disruption",
+      "rationale": "Separates Rakdos from generic black-red overfit.",
       "claim_ids": [
-        "cult_of_rakdos_claim_003"
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
       ],
       "confidence": "Medium"
     }
   ],
   "poor_fit_indicators": [
     {
-      "indicator": "needs stability and restraint above all",
-      "rationale": "Counters a core Cult of Rakdos placement signal.",
+      "indicator_id": "rakdos_poor_restraint_first",
+      "indicator": "needs respectability, safety, or restraint to lead over expression",
+      "rationale": "Counters the Rakdos performance/release cluster.",
       "claim_ids": [
-        "cult_of_rakdos_claim_001"
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0020"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "avoids attention and spectacle",
-      "rationale": "Counters a core Cult of Rakdos placement signal.",
+      "indicator_id": "rakdos_poor_private_leverage",
+      "indicator": "wants private leverage without an act, audience, or visible consequence",
+      "rationale": "Counters Rakdos by shifting to black or Grixis-adjacent leverage.",
       "claim_ids": [
-        "cult_of_rakdos_claim_002"
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0022",
+        "cult_of_rakdos_claim_0030"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "finds transgression meaningless rather than clarifying",
-      "rationale": "Counters a core Cult of Rakdos placement signal.",
+      "indicator_id": "rakdos_poor_generic_heat",
+      "indicator": "uses aggression or disruption without performance, cost, or provocation",
+      "rationale": "Counters generic BR overfit.",
       "claim_ids": [
-        "cult_of_rakdos_claim_003"
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021",
+        "cult_of_rakdos_claim_0023"
       ],
       "confidence": "Medium"
     }
@@ -63,70 +84,98 @@
   "discriminator_questions": [
     {
       "question_id": "rakdos_q1",
-      "question": "When did a performance, joke, or provocation tell the truth better than a careful explanation?",
-      "purpose": "Tests expressive transgression.",
-      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
-      "related_factions_to_compare": [],
+      "question": "When did a performance, joke, or provocation make pressure visible better than a careful explanation?",
+      "purpose": "Tests source-bounded expressive transgression.",
+      "answer_pattern_that_supports_this_faction": "The answer uses performance, spectacle, audience, or provocation to expose social pressure.",
+      "answer_pattern_that_weakens_this_faction": "The answer prefers private control, disciplined service, experiment, survival, obligation, or unframed disruption.",
+      "related_factions_to_compare": [
+        "BR",
+        "black",
+        "red",
+        "boros_legion",
+        "izzet_league",
+        "orzhov_syndicate"
+      ],
+      "lateral_inhibition": false,
       "claim_ids": [
         "cult_of_rakdos_claim_001",
         "cult_of_rakdos_claim_002",
-        "cult_of_rakdos_claim_003"
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0021"
       ],
       "confidence": "Medium",
       "notes": "Question is placement-engine guidance, not canon text."
     },
     {
       "question_id": "rakdos_q2",
-      "question": "What kind of boredom feels intolerable to you?",
-      "purpose": "Finds the Rakdos pressure point without asking directly about chaos.",
-      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
-      "related_factions_to_compare": [],
+      "question": "When intensity rises, do you want an audience, a consequence, a release valve, or a private advantage?",
+      "purpose": "Separates Rakdos public release from private leverage and generic black-red overfit.",
+      "answer_pattern_that_supports_this_faction": "The answer chooses audience, public release, performance, or visible consequence.",
+      "answer_pattern_that_weakens_this_faction": "The answer chooses private leverage, survival, debt, experiment, martial discipline, or direct impulse without spectacle.",
+      "related_factions_to_compare": [
+        "BR",
+        "black",
+        "red",
+        "golgari_swarm",
+        "grixis",
+        "jund",
+        "mardu"
+      ],
+      "lateral_inhibition": false,
       "claim_ids": [
-        "cult_of_rakdos_claim_001",
-        "cult_of_rakdos_claim_002",
-        "cult_of_rakdos_claim_003"
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021",
+        "cult_of_rakdos_claim_0022",
+        "cult_of_rakdos_claim_0030"
       ],
       "confidence": "Medium",
       "notes": "Question is placement-engine guidance, not canon text."
     },
     {
       "question_id": "rakdos_q3",
-      "question": "When you break decorum, is it to expose a truth onstage, or only to release heat?",
-      "purpose": "Separates Rakdos theatrical truth and transgressive spectacle from generic chaos, grief, sacrifice, reckless emotion, or red-black aggression.",
-      "answer_pattern_that_supports_this_faction": "The answer treats performance, spectacle, provocation, or transgression as a way to reveal hypocrisy, intensify truth, or make restraint feel false.",
-      "answer_pattern_that_weakens_this_faction": "The answer centers grief, sacrifice, reckless anger, violence, or generic chaos without performance, spectacle, or truth-telling pressure.",
+      "question": "When you break decorum, is it to perform a truth in public, or only to create heat?",
+      "purpose": "Separates Rakdos spectacle from generic disruption, grief, sacrifice, direct emotion, and red-black aggression.",
+      "answer_pattern_that_supports_this_faction": "The answer treats performance, spectacle, provocation, or transgression as a way to reveal pressure, intensify truth, or make restraint feel false.",
+      "answer_pattern_that_weakens_this_faction": "The answer centers survival, debt, experiment, martial order, private power, direct impulse, or unframed disruption without performance or visible cost.",
       "related_factions_to_compare": [
-        "Golgari Swarm",
-        "Jund",
-        "Mardu Horde",
-        "Orzhov Syndicate"
+        "gruul_clans",
+        "golgari_swarm",
+        "orzhov_syndicate",
+        "izzet_league",
+        "prismari",
+        "jund",
+        "mardu"
       ],
+      "lateral_inhibition": false,
       "claim_ids": [
         "cult_of_rakdos_claim_001",
         "cult_of_rakdos_claim_002",
         "cult_of_rakdos_claim_005",
-        "cult_of_rakdos_claim_006"
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0020"
       ],
       "confidence": "Medium",
-      "notes": "VM-344 discriminator repair; source-backed by existing official Rakdos identity, spectacle, and placement claims."
+      "notes": "VM-510 Gate 3 discriminator repair; source-backed by existing official Rakdos identity, spectacle, and placement claims."
     }
   ],
   "chatbot_guidance": {
     "how_to_recognize_match": [
-      "uses performance to reveal truth",
-      "chooses intensity over polite safety",
-      "finds hypocrisy more offensive than disruption"
+      "User centers performance, spectacle, or provocation as public truth-pressure.",
+      "User chooses intensity with visible cost, audience, or consequence over polite restraint.",
+      "User names release, appetite, or sensation as part of an act rather than private leverage or generic aggression."
     ],
     "how_to_recognize_mismatch": [
-      "needs stability and restraint above all",
-      "avoids attention and spectacle",
-      "finds transgression meaningless rather than clarifying"
+      "User only wants generic BR aggression, random disruption, harmful posturing, or evil-party styling without performance, audience, or cost.",
+      "User centers Boros protection, Izzet invention, Golgari survival/rot, Orzhov debt, Gruul anti-civilization rage, Prismari craft, Jund survival appetite, Grixis leverage, or Mardu martial code first.",
+      "User treats harm, shock, or rule-breaking as the whole point rather than bounded spectacle or transgression."
     ],
     "questions_to_ask_when_uncertain": [
-      "When did a performance, joke, or provocation tell the truth better than a careful explanation?",
-      "What kind of boredom feels intolerable to you?"
+      "Is the disruption meant to perform a truth in public, release pressure with visible cost, or only create heat?",
+      "When intensity rises, do you want audience/consequence, private control, disciplined protection, experiment, survival, debt, rage, craft, or martial conquest to lead?"
     ],
     "do_not_overweight": [
       "Do not overfit a single color preference.",
@@ -146,213 +195,220 @@
     "strongest_evidence_areas": [
       "official faction overview",
       "official mechanics identity",
-      "MTG-Stories corpus search evidence"
+      "bounded Gate 3 placement and collision claims"
     ],
     "weakest_evidence_areas": [
-      "deep story episode coverage",
-      "cross-faction comparison calibration"
+      "deep story episode coverage remains discovery-only",
+      "future cross-faction comparison calibration outside VM-510 Gate 3+4"
     ],
     "manual_review_recommended": true,
-    "notes": "Good for initial placement testing; should be expanded with story-specific claims in a later pass. Corpus-enriched data should be reviewed with calibration and collision reports before being treated as tuned scoring fuel.",
+    "notes": "Good for initial placement testing. Discovery corpus rows are retained for search/history only and are not tuned scoring fuel under CRIT-001.",
     "calibration_tuning_status": "explicit",
     "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
   },
   "placement_profile_version": "vox-mana-lore-json-v1",
   "based_on_profile_version": "1.0.0",
   "placement_summary": {
-    "short_description": "Cult of Rakdos placement is informed by official overview sources and MTG-Stories corpus evidence.",
-    "best_fit_summary": "uses performance to reveal truth chooses intensity over polite safety finds hypocrisy more offensive than disruption",
-    "poor_fit_summary": "needs stability and restraint above all avoids attention and spectacle finds transgression meaningless rather than clarifying",
+    "summary_id": "rakdos_placement_summary_gate3",
+    "short_description": "Cult of Rakdos placement is source-bounded by official overview and spectacle mechanics, with story-corpus rows retained as discovery metadata only.",
+    "best_fit_summary": "performance or provocation that makes pressure visible; intensity with an audience, cost, or consequence; transgression that exposes restraint rather than random disruption",
+    "poor_fit_summary": "restraint-first respectability, private leverage without an act, or generic aggression without performance/cost/audience",
     "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
-    "claim_ids": [
-      "cult_of_rakdos_claim_0007",
-      "cult_of_rakdos_claim_0008",
-      "cult_of_rakdos_claim_0009",
-      "cult_of_rakdos_claim_0010",
-      "cult_of_rakdos_claim_0011",
-      "cult_of_rakdos_claim_0012",
-      "cult_of_rakdos_claim_0013",
-      "cult_of_rakdos_claim_0014"
-    ],
     "calibrated_primary_read": "Requires performance, sensation, transgression, or theatrical truth-seeking.",
     "calibrated_false_positive_guardrail": "Do not award for generic chaos if the answer is grief, survival, or anti-civilization loss.",
     "evidence_claim_ids": [
       "cult_of_rakdos_claim_001",
       "cult_of_rakdos_claim_002",
-      "cult_of_rakdos_claim_003",
       "cult_of_rakdos_claim_004",
       "cult_of_rakdos_claim_005",
-      "cult_of_rakdos_claim_006"
+      "cult_of_rakdos_claim_006",
+      "cult_of_rakdos_claim_0017",
+      "cult_of_rakdos_claim_0018",
+      "cult_of_rakdos_claim_0019",
+      "cult_of_rakdos_claim_0020",
+      "cult_of_rakdos_claim_0021",
+      "cult_of_rakdos_claim_0022",
+      "cult_of_rakdos_claim_0023",
+      "cult_of_rakdos_claim_0024",
+      "cult_of_rakdos_claim_0025",
+      "cult_of_rakdos_claim_0026",
+      "cult_of_rakdos_claim_0027",
+      "cult_of_rakdos_claim_0028",
+      "cult_of_rakdos_claim_0029",
+      "cult_of_rakdos_claim_0030",
+      "cult_of_rakdos_claim_0031",
+      "cult_of_rakdos_claim_0032"
     ]
   },
   "placement_axes": [
     {
       "axis_id": "axis_transgression_vs_restraint",
       "label": "Transgression vs Restraint",
-      "description": "Measures whether user answers align with Cult of Rakdos's specific evidence instead of only its color pair.",
-      "low_end_label": "polite restraint",
-      "high_end_label": "expressive rupture",
+      "description": "Measures whether user answers align with source-bounded Rakdos performance and visible cost instead of only the black-red color pair.",
+      "low_end_label": "restraint-first respectability",
+      "high_end_label": "public spectacle with consequence",
       "faction_position": 88,
-      "rationale": "Corpus evidence adds story-context support for Cult of Rakdos, Rakdos, Rakdos the Defiler, Exava, Rix Maadi, performance, pain, demon.",
+      "rationale": "Gate 3 replaces discovery-corpus proof with official overview/mechanics claims and bounded Rakdos collision guidance.",
       "claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010",
-        "cult_of_rakdos_claim_0011",
-        "cult_of_rakdos_claim_0012",
-        "cult_of_rakdos_claim_0013",
-        "cult_of_rakdos_claim_0014"
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
       ],
       "confidence": "Medium",
-      "notes": "Added during MTG-Stories corpus upgrade."
+      "notes": "Updated during CRIT-001 VM-510 Gate 3 remediation."
     }
   ],
   "moral_and_psychological_profile": {
-    "summary": "Cult of Rakdos should be scored through faction-specific behavioral evidence, not only broad color identity.",
-    "claim_ids": [
-      "cult_of_rakdos_claim_0007",
-      "cult_of_rakdos_claim_0008",
-      "cult_of_rakdos_claim_0009",
-      "cult_of_rakdos_claim_0010",
-      "cult_of_rakdos_claim_0011"
+    "profile_id": "rakdos_moral_psychological_gate3",
+    "summary": "Cult of Rakdos should be scored through public performance, spectacle, provocation, release, and visible consequence, not only broad color identity.",
+    "evidence_claim_ids": [
+      "cult_of_rakdos_claim_0017",
+      "cult_of_rakdos_claim_0018",
+      "cult_of_rakdos_claim_0019",
+      "cult_of_rakdos_claim_0020",
+      "cult_of_rakdos_claim_0021"
     ]
   },
   "core_values": [
     {
-      "value": "Cult of Rakdos",
-      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "value_id": "rakdos_value_public_performance",
+      "value": "public performance",
+      "placement_relevance": "Performance is an official Rakdos role and the main positive placement signal.",
       "claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Rakdos",
-      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "value_id": "rakdos_value_spectacle",
+      "value": "spectacle",
+      "placement_relevance": "Spectacle is the official Rakdos mechanic and a consequence-gated placement anchor.",
       "claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Rakdos the Defiler",
-      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "value_id": "rakdos_value_visible_cost",
+      "value": "visible cost",
+      "placement_relevance": "Visible cost separates Rakdos from generic aggression or unframed disruption.",
       "claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0021"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Exava",
-      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "value_id": "rakdos_value_provocation",
+      "value": "provocation",
+      "placement_relevance": "Provocation is source-bounded when tied to performance and public release.",
       "claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Rix Maadi",
-      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "value_id": "rakdos_value_dangerous_entertainment",
+      "value": "dangerous entertainment",
+      "placement_relevance": "Danger is retained only as official-role texture and bounded by the act/audience/consequence frame.",
       "claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_0019"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "performance",
-      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "value_id": "rakdos_value_release",
+      "value": "social release",
+      "placement_relevance": "Release is a bounded interpretation of the official performance/provocation cluster.",
       "claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "pain",
-      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "value_id": "rakdos_value_demonic_patronage",
+      "value": "demonic patronage",
+      "placement_relevance": "Rakdos himself remains the source-backed key figure and patron.",
       "claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_004"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "demon",
-      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "value_id": "rakdos_value_audience",
+      "value": "audience",
+      "placement_relevance": "Audience language is project synthesis from performance plus spectacle mechanics.",
       "claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Judith",
-      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "value_id": "rakdos_value_transgression",
+      "value": "transgression",
+      "placement_relevance": "Transgression is bounded to public performance rather than generic rule-breaking.",
       "claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0021"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "chaos",
-      "placement_relevance": "Corpus search evidence for Cult of Rakdos.",
+      "value_id": "rakdos_value_overfit_guardrail",
+      "value": "generic BR overfit guardrail",
+      "placement_relevance": "The packet must suppress black-red aggression without performance, spectacle, audience, or visible cost.",
       "claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009"
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
       ],
       "confidence": "Medium"
     }
   ],
   "behavioral_signals": [
     {
-      "signal": "References Operation Desperation, Episode 7: Rot before Recovery, The Illusions of Child's Play as story-context evidence rather than relying only on color identity.",
-      "placement_relevance": "Strengthens Cult of Rakdos with corpus-backed specificity.",
-      "supports_match_when": "The user's answers echo Cult of Rakdos, Rakdos, Rakdos the Defiler, Exava, Rix Maadi, performance in a faction-specific way.",
-      "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
+      "signal_id": "rakdos_signal_public_act",
+      "signal": "The user frames release, appetite, or provocation as a public act with audience or consequence.",
+      "placement_relevance": "Strengthens source-bounded Rakdos while avoiding discovery-only proof.",
+      "supports_match_when": "Performance, spectacle, provocation, or visible cost is the user's chosen method.",
+      "weakens_match_when": "The answer only matches the shared color pair or adjacent neighbor surface traits.",
       "claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010",
-        "cult_of_rakdos_claim_0011",
-        "cult_of_rakdos_claim_0012"
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
       ],
       "confidence": "Medium"
     },
-    "turns discomfort into art",
-    "values intensity over safety",
+    "turns discomfort into a performed truth",
+    "values intensity only when the act has cost or consequence",
     "uses spectacle to expose pretense"
   ],
   "inhibitor_traits": [
     {
+      "trait_id": "rakdos_inhibitor_generic_br_overfit",
       "trait": "Generic color-pair overfit",
-      "why_it_conflicts": "The corpus upgrade is intended to prevent Cult of Rakdos from winning on broad color identity alone.",
+      "why_it_conflicts": "Rakdos should not win on black-red aggression, evil-party styling, or disruption alone.",
       "status": "Supported Interpretation",
       "claim_ids": [
-        "cult_of_rakdos_claim_0007",
-        "cult_of_rakdos_claim_0008",
-        "cult_of_rakdos_claim_0009",
-        "cult_of_rakdos_claim_0010"
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
       ],
       "confidence": "Medium",
-      "notes": "Use collision questions when another faction shares the same or adjacent colors."
+      "notes": "Use collision guidance when another faction shares colors, methods, or high-heat surface language."
     },
     "rage rooted in dispossession",
     "quiet strategic secrecy",
@@ -360,26 +416,38 @@
   ],
   "good_fit_indicators": [
     {
-      "indicator": "uses performance to reveal truth",
-      "rationale": "Matches the official Cult of Rakdos identity summarized in the profile.",
+      "indicator_id": "rakdos_ideal_performance_truth_pressure",
+      "indicator": "uses performance or provocation to make social pressure visible",
+      "rationale": "Matches the source-bounded Rakdos performance and public-release cluster.",
       "claim_ids": [
-        "cult_of_rakdos_claim_001"
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "chooses intensity over polite safety",
-      "rationale": "Matches the official Cult of Rakdos identity summarized in the profile.",
+      "indicator_id": "rakdos_ideal_visible_cost",
+      "indicator": "chooses intensity with visible cost, audience, or consequence",
+      "rationale": "Matches official spectacle mechanics and bounded placement synthesis.",
       "claim_ids": [
-        "cult_of_rakdos_claim_002"
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "finds hypocrisy more offensive than disruption",
-      "rationale": "Matches the official Cult of Rakdos identity summarized in the profile.",
+      "indicator_id": "rakdos_ideal_transgression_not_random",
+      "indicator": "uses transgression to expose restraint rather than random disruption",
+      "rationale": "Separates Rakdos from generic black-red overfit.",
       "claim_ids": [
-        "cult_of_rakdos_claim_003"
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
       ],
       "confidence": "Medium"
     }
@@ -415,5 +483,352 @@
     "false_positive_guardrail": "Do not award for generic chaos if the answer is grief, survival, or anti-civilization loss.",
     "smoke_test_note": "Used by lore review scripts as metadata-level calibration guidance; production placement may use richer weighted logic."
   },
-  "collision_guidance": []
+  "collision_guidance": [
+    {
+      "collision_id": "rakdos_vs_generic_br_overfit_gate3",
+      "against": "BR",
+      "lateral_inhibition": false,
+      "separator": "Rakdos requires performance, spectacle, audience, provocation, or visible cost; generic black-red heat does not certify it.",
+      "ask": "Is there an act with audience or consequence, or only black-red aggression?",
+      "suppress_if": "Suppress Rakdos when the answer lacks performance, spectacle, provocation, audience, or visible cost.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0021"
+      ]
+    },
+    {
+      "collision_id": "rakdos_vs_black_private_leverage_gate3",
+      "against": "black",
+      "lateral_inhibition": false,
+      "separator": "Rakdos externalizes appetite as public performance; mono-black-adjacent leverage can remain private.",
+      "ask": "Is the user performing release in public, or converting cost into private control?",
+      "suppress_if": "Suppress Rakdos when private leverage or self-protection leads without spectacle.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0022"
+      ]
+    },
+    {
+      "collision_id": "rakdos_vs_red_direct_impulse_gate3",
+      "against": "red",
+      "lateral_inhibition": false,
+      "separator": "Rakdos adds black-red appetite and visible cost to impulse; mono-red direct feeling does not need the Cult frame.",
+      "ask": "Is there public transgression with cost, or only direct emotion and freedom?",
+      "suppress_if": "Suppress Rakdos when direct impulse lacks black-red appetite, audience, or visible consequence.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0023"
+      ]
+    },
+    {
+      "collision_id": "rakdos_vs_boros_discipline_gate3",
+      "against": "boros_legion",
+      "lateral_inhibition": false,
+      "separator": "Boros routes urgency through protection and disciplined public duty; Rakdos routes intensity through release and transgressive spectacle.",
+      "ask": "Is the action accountable service or a performance that releases pressure?",
+      "suppress_if": "Suppress Rakdos when protection, accountability, and militarized order lead.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0024"
+      ]
+    },
+    {
+      "collision_id": "rakdos_vs_gruul_dispossession_gate3",
+      "against": "gruul_clans",
+      "lateral_inhibition": false,
+      "separator": "Gruul rage is rooted in dispossession and anti-civilization wildness; Rakdos performs release as spectacle.",
+      "ask": "Is the refusal wild grief against civilization, or staged social release?",
+      "suppress_if": "Suppress Rakdos when dispossession, wildness, or anti-civilization rage leads.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0025"
+      ]
+    },
+    {
+      "collision_id": "rakdos_vs_golgari_survival_gate3",
+      "against": "golgari_swarm",
+      "lateral_inhibition": false,
+      "separator": "Golgari turns rot, survival, and recursion into ecology; Rakdos turns pressure into spectacle and cost.",
+      "ask": "Is the answer about survival/renewal, or performance with visible consequence?",
+      "suppress_if": "Suppress Rakdos when survival, rot, recursion, or lifecycle renewal leads.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0026"
+      ]
+    },
+    {
+      "collision_id": "rakdos_vs_orzhov_obligation_gate3",
+      "against": "orzhov_syndicate",
+      "lateral_inhibition": false,
+      "separator": "Orzhov makes obligation and debt enforceable; Rakdos rejects restraint through release and public spectacle.",
+      "ask": "Is the pressure collectible obligation or public release?",
+      "suppress_if": "Suppress Rakdos when debt, hierarchy, status, or institutional exploitation leads.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0027"
+      ]
+    },
+    {
+      "collision_id": "rakdos_vs_izzet_invention_gate3",
+      "against": "izzet_league",
+      "lateral_inhibition": false,
+      "separator": "Izzet turns urgency into experiment and invention; Rakdos turns intensity into performance and sensation.",
+      "ask": "Is the first move to build/test, or to perform and provoke?",
+      "suppress_if": "Suppress Rakdos when experiment, invention, infrastructure, or technical problem solving leads.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0028"
+      ]
+    },
+    {
+      "collision_id": "rakdos_vs_prismari_craft_gate3",
+      "against": "prismari",
+      "lateral_inhibition": false,
+      "separator": "Prismari centers expressive craft and performance discipline; Rakdos centers transgression, indulgence, danger, and visible cost.",
+      "ask": "Is the act refined expressive craft, or transgressive social release?",
+      "suppress_if": "Suppress Rakdos when craft, study, or elemental expression leads over release and cost.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0029"
+      ]
+    },
+    {
+      "collision_id": "rakdos_vs_grixis_leverage_gate3",
+      "against": "grixis",
+      "lateral_inhibition": false,
+      "separator": "Grixis centers calculated survival leverage; Rakdos centers appetite, release, and public spectacle.",
+      "ask": "Is the answer about control/leverage, or appetite performed in public?",
+      "suppress_if": "Suppress Rakdos when survival leverage, necromantic resource use, or calculated control leads.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0030"
+      ]
+    },
+    {
+      "collision_id": "rakdos_vs_jund_predation_gate3",
+      "against": "jund",
+      "lateral_inhibition": false,
+      "separator": "Jund centers instinct, predation, and survival hierarchy; Rakdos centers performance, provocation, and entertainment with cost.",
+      "ask": "Is appetite a survival hierarchy, or a staged act with consequence?",
+      "suppress_if": "Suppress Rakdos when predation, instinct, or survival appetite leads without performance.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0031"
+      ]
+    },
+    {
+      "collision_id": "rakdos_vs_mardu_martial_code_gate3",
+      "against": "mardu",
+      "lateral_inhibition": false,
+      "separator": "Mardu centers martial oath, raid momentum, and honor; Rakdos lacks that white-coded discipline and centers spectacle, release, and public consequence.",
+      "ask": "Is speed serving a martial code, or becoming spectacle and release?",
+      "suppress_if": "Suppress Rakdos when martial oath, honor, conquest, or raid momentum leads.",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0032"
+      ]
+    }
+  ],
+  "semantic_guidance_evidence": [
+    {
+      "guidance_id": "rakdos_how_to_recognize_match_1",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "rakdos_how_to_recognize_match_1",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_0018"
+      ]
+    },
+    {
+      "guidance_id": "rakdos_how_to_recognize_match_2",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "rakdos_how_to_recognize_match_2",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006",
+        "cult_of_rakdos_claim_0017"
+      ]
+    },
+    {
+      "guidance_id": "rakdos_how_to_recognize_match_3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "rakdos_how_to_recognize_match_3",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0017",
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0021"
+      ]
+    },
+    {
+      "guidance_id": "rakdos_how_to_recognize_mismatch_1",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "rakdos_how_to_recognize_mismatch_1",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
+      ]
+    },
+    {
+      "guidance_id": "rakdos_how_to_recognize_mismatch_2",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "rakdos_how_to_recognize_mismatch_2",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0024",
+        "cult_of_rakdos_claim_0025",
+        "cult_of_rakdos_claim_0026",
+        "cult_of_rakdos_claim_0027",
+        "cult_of_rakdos_claim_0028",
+        "cult_of_rakdos_claim_0029",
+        "cult_of_rakdos_claim_0030",
+        "cult_of_rakdos_claim_0031",
+        "cult_of_rakdos_claim_0032"
+      ]
+    },
+    {
+      "guidance_id": "rakdos_how_to_recognize_mismatch_3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "rakdos_how_to_recognize_mismatch_3",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0019",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
+      ]
+    },
+    {
+      "guidance_id": "rakdos_questions_to_ask_when_uncertain_1",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_id": "rakdos_questions_to_ask_when_uncertain_1",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0018",
+        "cult_of_rakdos_claim_0020",
+        "cult_of_rakdos_claim_0021"
+      ]
+    },
+    {
+      "guidance_id": "rakdos_questions_to_ask_when_uncertain_2",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_id": "rakdos_questions_to_ask_when_uncertain_2",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0022",
+        "cult_of_rakdos_claim_0024",
+        "cult_of_rakdos_claim_0025",
+        "cult_of_rakdos_claim_0026",
+        "cult_of_rakdos_claim_0027",
+        "cult_of_rakdos_claim_0028",
+        "cult_of_rakdos_claim_0029",
+        "cult_of_rakdos_claim_0030",
+        "cult_of_rakdos_claim_0031",
+        "cult_of_rakdos_claim_0032"
+      ]
+    }
+  ],
+  "required_neighbor_evidence": [
+    {
+      "neighbor": "GENERIC_BR_OVERFIT",
+      "neighbor_evidence_id": "rakdos_required_neighbor_generic_br_overfit",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0021"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Rakdos-side proof."
+    },
+    {
+      "neighbor": "B",
+      "neighbor_evidence_id": "rakdos_required_neighbor_b",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0022"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Rakdos-side proof."
+    },
+    {
+      "neighbor": "R",
+      "neighbor_evidence_id": "rakdos_required_neighbor_r",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0023"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Rakdos-side proof."
+    },
+    {
+      "neighbor": "WR",
+      "neighbor_evidence_id": "rakdos_required_neighbor_wr",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0024"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Rakdos-side proof."
+    },
+    {
+      "neighbor": "RG",
+      "neighbor_evidence_id": "rakdos_required_neighbor_rg",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0025"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Rakdos-side proof."
+    },
+    {
+      "neighbor": "BG",
+      "neighbor_evidence_id": "rakdos_required_neighbor_bg",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0026"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Rakdos-side proof."
+    },
+    {
+      "neighbor": "WB",
+      "neighbor_evidence_id": "rakdos_required_neighbor_wb",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0027"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Rakdos-side proof."
+    },
+    {
+      "neighbor": "UR",
+      "neighbor_evidence_id": "rakdos_required_neighbor_ur",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0028"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Rakdos-side proof."
+    },
+    {
+      "neighbor": "PRISMARI",
+      "neighbor_evidence_id": "rakdos_required_neighbor_prismari",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0029"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Rakdos-side proof."
+    },
+    {
+      "neighbor": "GRIXIS",
+      "neighbor_evidence_id": "rakdos_required_neighbor_grixis",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0030"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Rakdos-side proof."
+    },
+    {
+      "neighbor": "JUND",
+      "neighbor_evidence_id": "rakdos_required_neighbor_jund",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0031"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Rakdos-side proof."
+    },
+    {
+      "neighbor": "MARDU",
+      "neighbor_evidence_id": "rakdos_required_neighbor_mardu",
+      "evidence_claim_ids": [
+        "cult_of_rakdos_claim_0032"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Rakdos-side proof."
+    }
+  ],
+  "semantic_readiness": {
+    "contract_version": "v1.1",
+    "gate": "gate_3_canonical_remediation",
+    "certification_status": "not_certified",
+    "audit_report": "docs/incidents/recoveries/VM-510-rakdos-semantic-recovery.md",
+    "required_neighbors": [
+      "GENERIC_BR_OVERFIT",
+      "B",
+      "R",
+      "WR",
+      "RG",
+      "BG",
+      "WB",
+      "UR",
+      "PRISMARI",
+      "GRIXIS",
+      "JUND",
+      "MARDU"
+    ],
+    "generated_artifacts_status": "stale_until_gate4_generation",
+    "notes": "Do not certify or create a Gate 5 candidate from this field; it records Gate 3 canonical readiness inputs only."
+  }
 }
