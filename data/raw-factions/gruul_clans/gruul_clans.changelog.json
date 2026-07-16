@@ -5,6 +5,32 @@
   "last_updated": "2026-06-09T00:00:00.000Z",
   "changes": [
     {
+      "change_id": "change_gruul_clans_vm512_semantic_readiness_gate3_20260716",
+      "date": "2026-07-16",
+      "change_type": "crit001_semantic_readiness_gate3",
+      "summary": "Added semantic roles, bounded evidence locations with evidence_scope, discovery-only fencing, source-bounded collision guidance, native provenance IDs, and Commander/product proof-chain cleanup for VM-512.",
+      "files_changed": [
+        "gruul_clans.claims.json",
+        "gruul_clans.profile.json",
+        "gruul_clans.placement.json"
+      ],
+      "claims_added": [
+        "claim_gruul_clans_collision_0080",
+        "claim_gruul_clans_collision_0081",
+        "claim_gruul_clans_collision_0082",
+        "claim_gruul_clans_collision_0083",
+        "claim_gruul_clans_collision_0084",
+        "claim_gruul_clans_collision_0085",
+        "claim_gruul_clans_collision_0086",
+        "claim_gruul_clans_collision_0087",
+        "claim_gruul_clans_collision_0088",
+        "claim_gruul_clans_collision_0089",
+        "claim_gruul_clans_collision_0090",
+        "claim_gruul_clans_collision_0091"
+      ],
+      "notes": "Generated artifacts are stale until Gate 4 generation runs."
+    },
+    {
       "change_id": "change_gruul_clans_vm306_mechanics_source_first_20260609",
       "date": "2026-06-09",
       "change_type": "source_first_mechanics_summary",

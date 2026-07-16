@@ -1,0 +1,340 @@
+{
+  "identity_key": "RG",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "gruul_core_lost_wild_clan_identity",
+      "fixture_type": "core_inclusion",
+      "scenario": "A clear Gruul case centers lost wild places, loose clan belonging, Rubblebelt or ruined territory, and direct resistance to imposed civilization rather than generic RG aggression.",
+      "intended_interpretation": "Gruul inclusion requires red-green Ravnican identity plus source-supported dispossession, clan, wildness, or anti-civilization proof.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_core_identity_0002",
+        "claim_gruul_clans_core_identity_0003",
+        "claim_gruul_clans_structure_0005",
+        "claim_gruul_clans_philosophy_0010",
+        "claim_gruul_clans_timeline_0030",
+        "claim_gruul_clans_philosophy_0033",
+        "claim_gruul_clans_placement_0001"
+      ],
+      "evidence_source_ids": [
+        "src_gruul_clans_0001",
+        "src_gruul_clans_0002",
+        "src_gruul_clans_0003",
+        "src_gruul_clans_0004"
+      ],
+      "defensible_guidance": "Use Gruul when the answer names wildness or local belonging under pressure from imposed civilization, and keep it adjacent when only aggression, freedom, nature, or combat appears.",
+      "unsupported_certainty_to_avoid": "Do not use rage, wildness, freedom, combat, creatures, or destruction as standalone proof."
+    },
+    {
+      "fixture_id": "gruul_protective_rage_pressure",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "A mature or pressure Gruul case treats anger as a protective warning for territory, memory, old ways, or wild places under threat, not as random violence.",
+      "intended_interpretation": "Gruul evidence must remain source-bounded to lost wild places, clan/territory context, direct action, and anti-civilization grievance rather than generic RG overfit.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_philosophy_0050",
+        "claim_gruul_clans_philosophy_0051",
+        "claim_gruul_clans_philosophy_0063",
+        "claim_gruul_clans_relationship_0064",
+        "claim_gruul_clans_timeline_0065",
+        "claim_gruul_clans_placement_0072"
+      ],
+      "evidence_source_ids": [
+        "src_gruul_clans_0008",
+        "src_gruul_clans_0014"
+      ],
+      "defensible_guidance": "Ask what the anger is protecting and whether it is tied to land, memory, clan, or wildness.",
+      "unsupported_certainty_to_avoid": "Do not use rage, wildness, freedom, combat, creatures, or destruction as standalone proof."
+    },
+    {
+      "fixture_id": "gruul_exclude_generic_rg_overfit",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "A red-green deck/persona that only wants creatures, damage, stompy pressure, or combat is not Gruul without lost wildness, clan/territory, or anti-city grievance.",
+      "intended_interpretation": "Exclude or keep Gruul adjacent for GENERIC_RG_OVERFIT unless source-bounded Gruul features lead.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0080"
+      ],
+      "evidence_source_ids": [
+        "src_gruul_clans_0002",
+        "src_gruul_clans_0003",
+        "src_gruul_clans_0004",
+        "src_gruul_clans_0005"
+      ],
+      "defensible_guidance": "Use Gruul when the answer names wildness or local belonging under pressure from imposed civilization, and keep it adjacent when only aggression, freedom, nature, or combat appears.",
+      "unsupported_certainty_to_avoid": "Do not use rage, wildness, freedom, combat, creatures, or destruction as standalone proof.",
+      "neighbor": "GENERIC_RG_OVERFIT"
+    },
+    {
+      "fixture_id": "gruul_exclude_r",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Mono-red freedom or emotion alone is not Gruul unless rage is grounded in clan, territory, wildness, or dispossession.",
+      "intended_interpretation": "Exclude or keep Gruul adjacent for R unless source-bounded Gruul features lead.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0081"
+      ],
+      "evidence_source_ids": [
+        "src_gruul_clans_0002",
+        "src_gruul_clans_0003",
+        "src_gruul_clans_0004"
+      ],
+      "defensible_guidance": "Use Gruul when the answer names wildness or local belonging under pressure from imposed civilization, and keep it adjacent when only aggression, freedom, nature, or combat appears.",
+      "unsupported_certainty_to_avoid": "Do not use rage, wildness, freedom, combat, creatures, or destruction as standalone proof.",
+      "neighbor": "R"
+    },
+    {
+      "fixture_id": "gruul_exclude_g",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Mono-green nature or growth alone is not Gruul unless wildness is adversarial to the city and bound to clan or anti-civilization pressure.",
+      "intended_interpretation": "Exclude or keep Gruul adjacent for G unless source-bounded Gruul features lead.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0082"
+      ],
+      "evidence_source_ids": [
+        "src_gruul_clans_0002",
+        "src_gruul_clans_0003"
+      ],
+      "defensible_guidance": "Use Gruul when the answer names wildness or local belonging under pressure from imposed civilization, and keep it adjacent when only aggression, freedom, nature, or combat appears.",
+      "unsupported_certainty_to_avoid": "Do not use rage, wildness, freedom, combat, creatures, or destruction as standalone proof.",
+      "neighbor": "G"
+    },
+    {
+      "fixture_id": "gruul_exclude_br",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Rakdos or black-red spectacle is not Gruul when performance, audience, sensation, or provocation leads over dispossession and wild reclamation.",
+      "intended_interpretation": "Exclude or keep Gruul adjacent for BR unless source-bounded Gruul features lead.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0083"
+      ],
+      "evidence_source_ids": [
+        "src_gruul_clans_0003",
+        "src_gruul_clans_0014"
+      ],
+      "defensible_guidance": "Use Gruul when the answer names wildness or local belonging under pressure from imposed civilization, and keep it adjacent when only aggression, freedom, nature, or combat appears.",
+      "unsupported_certainty_to_avoid": "Do not use rage, wildness, freedom, combat, creatures, or destruction as standalone proof.",
+      "neighbor": "BR"
+    },
+    {
+      "fixture_id": "gruul_exclude_bg",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Golgari or black-green reclamation is not Gruul when death, rot, undercity food, graveyard resources, or waste-to-life cycles lead.",
+      "intended_interpretation": "Exclude or keep Gruul adjacent for BG unless source-bounded Gruul features lead.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0084"
+      ],
+      "evidence_source_ids": [
+        "src_gruul_clans_0002",
+        "src_gruul_clans_0003",
+        "src_gruul_clans_0014"
+      ],
+      "defensible_guidance": "Use Gruul when the answer names wildness or local belonging under pressure from imposed civilization, and keep it adjacent when only aggression, freedom, nature, or combat appears.",
+      "unsupported_certainty_to_avoid": "Do not use rage, wildness, freedom, combat, creatures, or destruction as standalone proof.",
+      "neighbor": "BG"
+    },
+    {
+      "fixture_id": "gruul_exclude_wr",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Boros or white-red combat is not Gruul when disciplined public duty and civic protection lead over clan/wild resistance.",
+      "intended_interpretation": "Exclude or keep Gruul adjacent for WR unless source-bounded Gruul features lead.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0085"
+      ],
+      "evidence_source_ids": [
+        "src_gruul_clans_0002",
+        "src_gruul_clans_0003",
+        "src_gruul_clans_0004"
+      ],
+      "defensible_guidance": "Use Gruul when the answer names wildness or local belonging under pressure from imposed civilization, and keep it adjacent when only aggression, freedom, nature, or combat appears.",
+      "unsupported_certainty_to_avoid": "Do not use rage, wildness, freedom, combat, creatures, or destruction as standalone proof.",
+      "neighbor": "WR"
+    },
+    {
+      "fixture_id": "gruul_exclude_ur",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Izzet or blue-red invention is not Gruul when experiment, technology, or technique leads over embodied territorial response.",
+      "intended_interpretation": "Exclude or keep Gruul adjacent for UR unless source-bounded Gruul features lead.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0086"
+      ],
+      "evidence_source_ids": [
+        "src_gruul_clans_0004",
+        "src_gruul_clans_0013"
+      ],
+      "defensible_guidance": "Use Gruul when the answer names wildness or local belonging under pressure from imposed civilization, and keep it adjacent when only aggression, freedom, nature, or combat appears.",
+      "unsupported_certainty_to_avoid": "Do not use rage, wildness, freedom, combat, creatures, or destruction as standalone proof.",
+      "neighbor": "UR"
+    },
+    {
+      "fixture_id": "gruul_exclude_ug",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Simic or blue-green adaptation is not Gruul when optimization, biological improvement, or design leads over anti-city wild grievance.",
+      "intended_interpretation": "Exclude or keep Gruul adjacent for UG unless source-bounded Gruul features lead.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0087"
+      ],
+      "evidence_source_ids": [
+        "src_gruul_clans_0003",
+        "src_gruul_clans_0013"
+      ],
+      "defensible_guidance": "Use Gruul when the answer names wildness or local belonging under pressure from imposed civilization, and keep it adjacent when only aggression, freedom, nature, or combat appears.",
+      "unsupported_certainty_to_avoid": "Do not use rage, wildness, freedom, combat, creatures, or destruction as standalone proof.",
+      "neighbor": "UG"
+    },
+    {
+      "fixture_id": "gruul_exclude_wg",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Selesnya or white-green harmony is not Gruul when spiritual unity, consensus, and coordinated community lead over loose clan autonomy.",
+      "intended_interpretation": "Exclude or keep Gruul adjacent for WG unless source-bounded Gruul features lead.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0088"
+      ],
+      "evidence_source_ids": [
+        "src_gruul_clans_0002",
+        "src_gruul_clans_0003",
+        "src_gruul_clans_0014"
+      ],
+      "defensible_guidance": "Use Gruul when the answer names wildness or local belonging under pressure from imposed civilization, and keep it adjacent when only aggression, freedom, nature, or combat appears.",
+      "unsupported_certainty_to_avoid": "Do not use rage, wildness, freedom, combat, creatures, or destruction as standalone proof.",
+      "neighbor": "WG"
+    },
+    {
+      "fixture_id": "gruul_exclude_jund",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Jund predation is not Gruul when appetite, dominance hierarchy, or survival pressure leads over clan and anti-civilization grievance.",
+      "intended_interpretation": "Exclude or keep Gruul adjacent for JUND unless source-bounded Gruul features lead.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0089"
+      ],
+      "evidence_source_ids": [
+        "src_gruul_clans_0002",
+        "src_gruul_clans_0003",
+        "src_gruul_clans_0014"
+      ],
+      "defensible_guidance": "Use Gruul when the answer names wildness or local belonging under pressure from imposed civilization, and keep it adjacent when only aggression, freedom, nature, or combat appears.",
+      "unsupported_certainty_to_avoid": "Do not use rage, wildness, freedom, combat, creatures, or destruction as standalone proof.",
+      "neighbor": "JUND"
+    },
+    {
+      "fixture_id": "gruul_exclude_naya",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Naya grandeur is not Gruul when awe, celebration, or champion-focused force leads over dispossession and wild reclamation.",
+      "intended_interpretation": "Exclude or keep Gruul adjacent for NAYA unless source-bounded Gruul features lead.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0090"
+      ],
+      "evidence_source_ids": [
+        "src_gruul_clans_0002",
+        "src_gruul_clans_0003"
+      ],
+      "defensible_guidance": "Use Gruul when the answer names wildness or local belonging under pressure from imposed civilization, and keep it adjacent when only aggression, freedom, nature, or combat appears.",
+      "unsupported_certainty_to_avoid": "Do not use rage, wildness, freedom, combat, creatures, or destruction as standalone proof.",
+      "neighbor": "NAYA"
+    },
+    {
+      "fixture_id": "gruul_exclude_temur",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Temur wilderness is not Gruul when broad elemental endurance or general wild wisdom leads without Ravnican clan/Rubblebelt/anti-city framing.",
+      "intended_interpretation": "Exclude or keep Gruul adjacent for TEMUR unless source-bounded Gruul features lead.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0091"
+      ],
+      "evidence_source_ids": [
+        "src_gruul_clans_0002",
+        "src_gruul_clans_0003"
+      ],
+      "defensible_guidance": "Use Gruul when the answer names wildness or local belonging under pressure from imposed civilization, and keep it adjacent when only aggression, freedom, nature, or combat appears.",
+      "unsupported_certainty_to_avoid": "Do not use rage, wildness, freedom, combat, creatures, or destruction as standalone proof.",
+      "neighbor": "TEMUR"
+    },
+    {
+      "fixture_id": "gruul_nearest_collision_rakdos_golgari",
+      "fixture_type": "nearest_collision_ambiguity",
+      "scenario": "An ambiguous destructive answer should ask whether the motive is Gruul dispossession, Rakdos spectacle, or Golgari reclamation before scoring Gruul high.",
+      "intended_interpretation": "Gruul evidence must remain source-bounded to lost wild places, clan/territory context, direct action, and anti-civilization grievance rather than generic RG overfit.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0083",
+        "claim_gruul_clans_collision_0084",
+        "claim_gruul_clans_placement_0072"
+      ],
+      "evidence_source_ids": [
+        "src_gruul_clans_0002",
+        "src_gruul_clans_0003",
+        "src_gruul_clans_0014"
+      ],
+      "defensible_guidance": "Separate public spectacle and death-to-life reclamation from Gruul grievance over wild places and territory.",
+      "unsupported_certainty_to_avoid": "Do not use rage, wildness, freedom, combat, creatures, or destruction as standalone proof."
+    },
+    {
+      "fixture_id": "gruul_stale_phrase_overheat_guard",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Stale phrases such as smash, crush, random rage, mindless destruction, or civilization-is-a-cage language are unsafe unless narrowed to source-supported Gruul loss, territory, clan, or wildness.",
+      "intended_interpretation": "Gruul evidence must remain source-bounded to lost wild places, clan/territory context, direct action, and anti-civilization grievance rather than generic RG overfit.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0080",
+        "claim_gruul_clans_collision_0081",
+        "claim_gruul_clans_collision_0083",
+        "claim_gruul_clans_placement_0004"
+      ],
+      "evidence_source_ids": [
+        "src_gruul_clans_0002",
+        "src_gruul_clans_0003",
+        "src_gruul_clans_0004",
+        "src_gruul_clans_0005",
+        "src_gruul_clans_0014"
+      ],
+      "defensible_guidance": "Use Gruul when the answer names wildness or local belonging under pressure from imposed civilization, and keep it adjacent when only aggression, freedom, nature, or combat appears.",
+      "unsupported_certainty_to_avoid": "Do not certify overheated destruction phrases without a bounded source-supported motive.",
+      "neighbor": "GENERIC_RG_OVERFIT"
+    },
+    {
+      "fixture_id": "gruul_core_identity_provenance",
+      "fixture_type": "provenance",
+      "scenario": "",
+      "intended_interpretation": "Gruul evidence must remain source-bounded to lost wild places, clan/territory context, direct action, and anti-civilization grievance rather than generic RG overfit.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_core_identity_0002",
+        "claim_gruul_clans_core_identity_0003",
+        "claim_gruul_clans_philosophy_0004",
+        "claim_gruul_clans_structure_0005",
+        "claim_gruul_clans_philosophy_0010",
+        "claim_gruul_clans_timeline_0029",
+        "claim_gruul_clans_timeline_0030",
+        "claim_gruul_clans_philosophy_0033",
+        "claim_gruul_clans_philosophy_0041",
+        "claim_gruul_clans_placement_0001",
+        "claim_gruul_clans_placement_0003",
+        "claim_gruul_clans_placement_0004",
+        "claim_gruul_clans_placement_0072",
+        "claim_gruul_clans_philosophy_0008",
+        "claim_gruul_clans_mechanic_0040",
+        "claim_gruul_clans_mechanic_0043",
+        "claim_gruul_clans_placement_0002",
+        "claim_gruul_clans_structure_0005",
+        "claim_gruul_clans_structure_0032",
+        "claim_gruul_clans_philosophy_0049",
+        "claim_gruul_clans_location_0024",
+        "claim_gruul_clans_philosophy_0056",
+        "claim_gruul_clans_philosophy_0063",
+        "claim_gruul_clans_relationship_0064",
+        "claim_gruul_clans_timeline_0065",
+        "claim_gruul_clans_placement_0072",
+        "claim_gruul_clans_placement_0073"
+      ],
+      "evidence_source_ids": [
+        "src_gruul_clans_0001",
+        "src_gruul_clans_0002",
+        "src_gruul_clans_0003",
+        "src_gruul_clans_0004",
+        "src_gruul_clans_0005",
+        "src_gruul_clans_0007",
+        "src_gruul_clans_0008",
+        "src_gruul_clans_0013",
+        "src_gruul_clans_0014",
+        "src_gruul_clans_0015"
+      ],
+      "defensible_guidance": "Generated provenance for Gruul core identity must point to source-bounded substantive claims only.",
+      "unsupported_certainty_to_avoid": "Do not use rage, wildness, freedom, combat, creatures, or destruction as standalone proof.",
+      "canonical_file": "data/raw-factions/gruul_clans/gruul_clans.profile.json",
+      "canonical_pointer": "/core_identity"
+    }
+  ]
+}

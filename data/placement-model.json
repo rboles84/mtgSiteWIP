@@ -7103,10 +7103,10 @@
         "G"
       ],
       "identity": {
-        "summary": "The Gruul Clans are a loose affiliation of Ravnican red-green clans, largely associated with ruined spaces, the Rubblebelt, raiding, instinct, and resistance to civilization. Official sources frame their present destructiveness as rooted in a lost stewardship role: they once claimed or protected wild places, but urban expansion and the other guilds' disregard helped turn that role into rage, clan survival, and attempts to break the city so nature can return. Targeted repository-archive story review adds texture around Zhur-Taa bloodcrime practice, Ghor challenge dynamics, contagious Rage, and Rubblebelt survival as a motive beyond random destruction.",
-        "philosophy": "The Gruul were a proud people charged with maintaining Ravnica's wild places. Then the other guilds expanded, paved over every wilderness, and left the Gruul with nothing. They did not recover politely. What looks like rage is grief that has nowhere else to go.",
-        "central_tension": "A legitimate historical grievance that has curdled into something that cannot be reasoned with. The wild places are gone. Their role was taken. None of it can be undone, and the Gruul are not interested in compromise.",
-        "display_tagline": "Break the city so the wild can breathe.",
+        "summary": "The Gruul Clans are a loose red-green Ravnican guild of clans whose source-bounded identity combines lost stewardship of wild places, Rubblebelt and ruined-space territory, direct action, strength-tested leadership, and anti-civilization grievance.",
+        "philosophy": "Gruul freedom is not generic impulse; it is clan and wildness answering what urban expansion took from them.",
+        "central_tension": "Gruul is strongest when rage protects territory, memory, clan, or wildness, and weakest when flattened into random rage, generic aggression, or mindless destruction.",
+        "display_tagline": "Wild places lost. The clans answer directly.",
         "mechanics": "Riot and bloodrush are the source-backed Gruul mechanics expression: riot turns immediacy into a choice between haste and added force, while bloodrush turns a creature card in hand into direct combat pressure for an attacking creature. Use these mechanics to reinforce Gruul's dispossession, wildness, clan pressure, and direct action; do not promote unrelated search metadata terms as Gruul mechanics without a future approved source pass."
       },
       "layered_identity": {
@@ -7381,16 +7381,136 @@
       ],
       "collision_guidance": [
         {
+          "collision_id": "gruul_vs_generic_rg_overfit_gate3",
+          "against": "RG",
+          "lateral_inhibition": false,
+          "separator": "Generic red-green aggression or creature combat is not Gruul unless lost wildness, clan/territory, Rubblebelt, old ways, or anti-civilization grievance leads.",
+          "ask": "Is this specifically about what the city took from wild places and clans, or only RG combat pressure?",
+          "suppress_if": "Suppress Gruul when the answer is only creatures, combat, power, damage, or generic red-green tempo.",
+          "evidence_claim_ids": [
+            "claim_gruul_clans_collision_0080"
+          ]
+        },
+        {
+          "collision_id": "gruul_vs_red_impulse_gate3",
+          "against": "R",
+          "lateral_inhibition": false,
+          "separator": "Red can be emotion and freedom alone; Gruul binds rage to wildness, clan, territory, and dispossession.",
+          "ask": "Is the impulse rooted in clan/wild loss, or just immediate feeling?",
+          "suppress_if": "Suppress Gruul when emotion or freedom lacks wild, territorial, or clan context.",
+          "evidence_claim_ids": [
+            "claim_gruul_clans_collision_0081"
+          ]
+        },
+        {
+          "collision_id": "gruul_vs_green_nature_gate3",
+          "against": "G",
+          "lateral_inhibition": false,
+          "separator": "Green can accept nature and role; Gruul makes wildness a conflict against the city and imposed civilization.",
+          "ask": "Is nature being accepted, or is the city being opposed for taking wild places?",
+          "suppress_if": "Suppress Gruul when nature/growth/instinct lacks anti-city grievance or clan pressure.",
+          "evidence_claim_ids": [
+            "claim_gruul_clans_collision_0082"
+          ]
+        },
+        {
           "collision_id": "collision_gruul_rakdos_tuned",
           "against": "BR",
-          "separator": "Gruul chaos is grief and grievance from dispossession; Rakdos chaos is performance, sensation, and transgressive honesty.",
-          "ask": "Is the destruction about showing people the truth of the moment, or about answering something that was taken from you?"
+          "lateral_inhibition": false,
+          "separator": "Rakdos performs release, spectacle, and provocation; Gruul answers dispossession, territory, old ways, and wild reclamation.",
+          "ask": "Is the destruction a public act/audience, or an answer to what was taken?",
+          "suppress_if": "Suppress Gruul when spectacle, audience, sensation, or provocation leads.",
+          "evidence_claim_ids": [
+            "claim_gruul_clans_collision_0083"
+          ]
         },
         {
           "collision_id": "collision_gruul_golgari_tuned",
           "against": "BG",
-          "separator": "Gruul mourns the wild places civilization destroyed; Golgari accepts decay and builds a society from what the city throws below.",
-          "ask": "When something dies, do you feel the urge to avenge what was lost or cultivate what grows from it?"
+          "lateral_inhibition": false,
+          "separator": "Golgari turns death, rot, and waste into survival; Gruul mourns wild places the city destroyed and pushes back through clan pressure.",
+          "ask": "Is the core rot/reclamation, or the wild being taken by civilization?",
+          "suppress_if": "Suppress Gruul when decay, undercity food, graveyard resources, or death-to-life cycles lead.",
+          "evidence_claim_ids": [
+            "claim_gruul_clans_collision_0084"
+          ]
+        },
+        {
+          "collision_id": "gruul_vs_boros_discipline_gate3",
+          "against": "WR",
+          "lateral_inhibition": false,
+          "separator": "Boros uses force as public duty and disciplined protection; Gruul force is clan/wild resistance outside civic order.",
+          "ask": "Is force accountable to public duty, or refusing imposed civilization?",
+          "suppress_if": "Suppress Gruul when civic protection, discipline, teamwork, or public order leads.",
+          "evidence_claim_ids": [
+            "claim_gruul_clans_collision_0085"
+          ]
+        },
+        {
+          "collision_id": "gruul_vs_izzet_invention_gate3",
+          "against": "UR",
+          "lateral_inhibition": false,
+          "separator": "Izzet turns energy into experiment and invention; Gruul improvisation is embodied territorial response.",
+          "ask": "Is the answer building/testing, or moving from wild/clan pressure?",
+          "suppress_if": "Suppress Gruul when experiment, invention, technique, or laboratory curiosity leads.",
+          "evidence_claim_ids": [
+            "claim_gruul_clans_collision_0086"
+          ]
+        },
+        {
+          "collision_id": "gruul_vs_simic_adaptation_gate3",
+          "against": "UG",
+          "lateral_inhibition": false,
+          "separator": "Simic optimizes and adapts biology; Gruul fights the loss of wild places and imposed civilization.",
+          "ask": "Is nature being improved, or defended against the city?",
+          "suppress_if": "Suppress Gruul when adaptation, optimization, or biological design leads.",
+          "evidence_claim_ids": [
+            "claim_gruul_clans_collision_0087"
+          ]
+        },
+        {
+          "collision_id": "gruul_vs_selesnya_harmony_gate3",
+          "against": "WG",
+          "lateral_inhibition": false,
+          "separator": "Selesnya centers harmony and shared unity; Gruul centers loose clans, autonomy, and direct conflict.",
+          "ask": "Is belonging harmonized consensus, or local clan survival against the city?",
+          "suppress_if": "Suppress Gruul when spiritual unity, harmony, and consensus lead.",
+          "evidence_claim_ids": [
+            "claim_gruul_clans_collision_0088"
+          ]
+        },
+        {
+          "collision_id": "gruul_vs_jund_predation_gate3",
+          "against": "JUND",
+          "lateral_inhibition": false,
+          "separator": "Jund appetite and dominance are not enough; Gruul strength must stay tied to clan, territory, old ways, or anti-civilization grievance.",
+          "ask": "Is this predatory dominance, or a clan answering dispossession?",
+          "suppress_if": "Suppress Gruul when survival appetite, predator hierarchy, or dominance leads.",
+          "evidence_claim_ids": [
+            "claim_gruul_clans_collision_0089"
+          ]
+        },
+        {
+          "collision_id": "gruul_vs_naya_grandeur_gate3",
+          "against": "NAYA",
+          "lateral_inhibition": false,
+          "separator": "Naya creature grandeur and communal awe are not enough; Gruul force is sharpened by dispossession and wild reclamation.",
+          "ask": "Is the large-force appeal awe/champion/community, or the wild answering the city?",
+          "suppress_if": "Suppress Gruul when awe, communal celebration, or champion grandeur leads.",
+          "evidence_claim_ids": [
+            "claim_gruul_clans_collision_0090"
+          ]
+        },
+        {
+          "collision_id": "gruul_vs_temur_wilderness_gate3",
+          "against": "TEMUR",
+          "lateral_inhibition": false,
+          "separator": "Temur wilderness or instinct is broader than Gruul; Gruul must remain Ravnican, clan, Rubblebelt, and anti-city framed.",
+          "ask": "Is this broad wilderness endurance, or Ravnican clan grievance against civilization?",
+          "suppress_if": "Suppress Gruul when elemental endurance or general wilderness wisdom leads.",
+          "evidence_claim_ids": [
+            "claim_gruul_clans_collision_0091"
+          ]
         }
       ],
       "chatbot_guidance": {

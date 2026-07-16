@@ -1921,10 +1921,10 @@
       ],
       "accent": "#4a9e30",
       "banner": "linear-gradient(160deg,rgba(60,130,30,0.28) 0%,rgba(12,11,10,0) 60%)",
-      "tagline": "Civilization is a cage. Nature is freedom.",
-      "philosophy": "The Gruul were a proud people charged with maintaining Ravnica's wild places. Then the other guilds expanded, paved over every wilderness, and left the Gruul with nothing. They did not recover politely. What looks like rage is grief that has nowhere else to go.",
-      "lore_summary": "A legitimate historical grievance that has curdled into something that cannot be reasoned with. The wild places are gone. Their role was taken. None of it can be undone, and the Gruul are not interested in compromise.",
-      "core_tension": "A legitimate historical grievance that has curdled into something that cannot be reasoned with. The wild places are gone. Their role was taken. None of it can be undone, and the Gruul are not interested in compromise.",
+      "tagline": "Wild places lost. The clans answer directly.",
+      "philosophy": "The Gruul were assigned Ravnica's wild places, then urban expansion and other guilds eroded that role. Their red-green identity is source-bounded to loose clans, Rubblebelt territory, direct action, riot and bloodrush pressure, and anger at imposed civilization.",
+      "lore_summary": "Gruul identity is not generic red-green aggression. It centers dispossessed wild places, clan autonomy, Rubblebelt belonging, and direct resistance to the city systems that replaced their stewardship.",
+      "core_tension": "Gruul is strongest when rage protects territory, memory, clan, or wildness, and weakest when flattened into random rage, generic aggression, or mindless destruction.",
       "affinity": {
         "drawn_to": [
           "Authenticity - what something actually is, not what it pretends to be",
@@ -1947,7 +1947,7 @@
           "Values directness and distrusts indirection",
           "Describes a situation where the official version and the real version diverged painfully"
         ],
-        "not_to_be_confused_with": "Rakdos - both operate outside civilization's rules but Gruul's chaos is grief and loss; Rakdos's is theater and entertainment. Witherbloom - both connected to nature but Gruul mourns what was destroyed; Witherbloom studies what remains."
+        "not_to_be_confused_with": "Rakdos seeks spectacle and release; Gruul centers lost wild places, clan territory, and anti-city grievance. Golgari turns death and rot into survival; Gruul pushes back from Rubblebelt loss and clan autonomy. Boros organizes disciplined protection; Gruul distrusts imposed order."
       },
       "decree_voice": {
         "tone": "Blunt. Undecorated. More honest than comfortable. No metaphors.",
@@ -2023,7 +2023,7 @@
         {
           "fmt": "Commander",
           "name": "Gruul Commanders",
-          "desc": "The most direct path: big bodies, ramp, and relentless aggression.",
+          "desc": "Clan-flavored pressure, lands or creatures, and direct combat that stays tied to Gruul source context.",
           "mtgg": null,
           "edhrec": "https://edhrec.com/commanders/gruul",
           "mtgd": "https://mtgdecks.net/Commander"
@@ -2244,37 +2244,29 @@
         ],
         "canonical_flavor_text": [
           {
+            "flavor_anchor_id": "gruul_public_anchor_gate3",
             "card_name": "Gruul Clans dossier anchor",
             "set": "Ravnica",
-            "short_excerpt_or_summary": "Break the city so the wild can breathe.",
+            "short_excerpt_or_summary": "The city took the wild; the clans answer from the rubble.",
             "is_exact_excerpt": false,
+            "evidence_use": "auxiliary_support",
             "claim_ids": [
               "claim_gruul_clans_core_identity_0002",
               "claim_gruul_clans_core_identity_0003",
-              "claim_gruul_clans_philosophy_0004",
               "claim_gruul_clans_structure_0005",
               "claim_gruul_clans_philosophy_0010",
+              "claim_gruul_clans_timeline_0030",
               "claim_gruul_clans_philosophy_0033",
-              "claim_gruul_clans_philosophy_0041",
-              "claim_gruul_clans_philosophy_0050"
+              "claim_gruul_clans_placement_0001",
+              "claim_gruul_clans_placement_0003"
             ],
             "source_ids": [
               "src_gruul_clans_0001",
               "src_gruul_clans_0002",
               "src_gruul_clans_0003",
-              "src_gruul_clans_0004",
-              "src_gruul_clans_0008",
-              "src_gruul_clans_0014",
-              "src_gruul_clans_0013",
-              "src_gruul_clans_0015",
-              "src_mtg_stories_the_gathering_storm_chapter_12_a8fc6d84",
-              "src_mtg_stories_in_praise_of_the_worldsoul_part_3_bc6ed8e9",
-              "src_mtg_stories_rage_of_the_unsung_d54f4c35",
-              "src_mtg_stories_desperate_operatives_6c6a580b",
-              "src_mtg_stories_the_gathering_storm_chapter_10_ed55e8dd",
-              "src_mtg_stories_rallying_the_reluctant_d21b8009"
+              "src_gruul_clans_0004"
             ],
-            "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+            "notes": "Project synthesis for display flavor only; not an exact card quote and not supported by discovery-only story-corpus rows."
           }
         ],
         "views_on_other_factions": [
@@ -2519,45 +2511,48 @@
         "source_research_file": "gruul_clans.commander_compass.research.json",
         "last_reviewed": "2026-05-14",
         "review_status": "reviewed_not_canonical_lore",
-        "recommendation_philosophy": "Prioritize high-power creatures and decks that punish the 'civilized' mechanics of other players.",
+        "recommendation_philosophy": "Auxiliary Commander recommendations may use source-bounded Gruul themes such as riot, bloodrush, large creatures, lands, clan/wildness identity, and direct pressure, but they do not prove canonical Gruul semantics.",
         "identity_basis": {
           "owned_themes": [
-            "Stompy",
-            "Lands Matters",
-            "Enrage",
+            "Large-creature pressure",
+            "Lands matter",
             "Riot",
-            "Bloodthirst"
+            "Bloodrush",
+            "Old-ways creature identity"
           ],
           "allowed_phrases": [
-            "Not for you!",
-            "Crush them!",
-            "The wild reclaims all"
+            "Wild places are not disposable",
+            "The clans answer what the city took",
+            "Rubblebelt pressure"
           ],
           "avoid_or_contrast_phrases": [
-            "Order",
-            "Civilization",
-            "Complicated plans"
+            "Order as automatic legitimacy",
+            "Civilization as unquestioned progress",
+            "Generic rage without loss"
           ],
           "adjacent_overlap_notes": [
             "Aggro overlap with Boros",
             "Land overlap with Golgari"
           ],
           "supporting_claim_ids": [
-            "gruul_clans_claim_0074",
-            "gruul_clans_claim_0075",
-            "gruul_clans_claim_0076",
-            "gruul_clans_claim_0077",
-            "gruul_clans_claim_0078",
-            "gruul_clans_claim_0079"
+            "claim_gruul_clans_core_identity_0002",
+            "claim_gruul_clans_structure_0005",
+            "claim_gruul_clans_philosophy_0010",
+            "claim_gruul_clans_mechanic_0040",
+            "claim_gruul_clans_mechanic_0043",
+            "claim_gruul_clans_placement_0001",
+            "claim_gruul_clans_placement_0002",
+            "claim_gruul_clans_placement_0003"
           ],
           "supporting_source_ids": [
-            "src_mtg_stories_the_gathering_storm_chapter_12_a8fc6d84",
-            "src_mtg_stories_in_praise_of_the_worldsoul_part_3_bc6ed8e9",
-            "src_mtg_stories_rage_of_the_unsung_d54f4c35",
-            "src_mtg_stories_desperate_operatives_6c6a580b",
-            "src_mtg_stories_the_gathering_storm_chapter_10_ed55e8dd",
-            "src_mtg_stories_rallying_the_reluctant_d21b8009"
-          ]
+            "src_gruul_clans_0001",
+            "src_gruul_clans_0002",
+            "src_gruul_clans_0004",
+            "src_gruul_clans_0007",
+            "src_gruul_clans_0005",
+            "src_gruul_clans_0003"
+          ],
+          "auxiliary_support_boundary": "Commander/card/product guidance is auxiliary only; existing_repo_claim_ids and existing_repo_source_ids exclude discovery-only story-corpus records and cannot independently prove Gruul identity, placement, key figures, recruiter guidance, semantic readiness, public copy, or provenance chains."
         },
         "native_fit_commanders": [
           {
@@ -2574,14 +2569,14 @@
             "archetype_tags": [
               "Lands",
               "Discard",
-              "Big Stompy"
+              "Large-Creature Pressure"
             ],
-            "why_this_fits": "The face of the Burning-Tree clan, he uses the land itself as a weapon to smash opponents.",
+            "why_this_fits": "A Burning-Tree-linked Gruul figure whose lands-matter damage gameplay can echo direct Rubblebelt force as auxiliary Commander texture.",
             "skip_if": "You don't want to play an 8-mana commander.",
             "gameplay_summary": "Turns discarded lands into 3-damage bolts, allowing you to weaponize your mana base.",
             "faction_identity_terms": [
               "Rubblebelt",
-              "Crush",
+              "Rubblebelt Force",
               "Enraged"
             ],
             "source_basis": {
@@ -2605,7 +2600,8 @@
                 "src_gruul_clans_0002",
                 "src_gruul_clans_0003",
                 "src_gruul_clans_0009"
-              ]
+              ],
+              "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Gruul claims."
             },
             "confidence": "High",
             "caution_notes": [],
@@ -2628,7 +2624,7 @@
               "Kicker",
               "Counters"
             ],
-            "why_this_fits": "Captures the 'destructive growth' of Gruul through the Kicker mechanic.",
+            "why_this_fits": "A non-Ravnica red-green stretch pick for counter/kicker pressure; use as gameplay texture only, not Gruul lore proof.",
             "skip_if": "You want a deck that plays generic good creatures rather than specific kicker spells.",
             "gameplay_summary": "Deals damage to each opponent whenever you cast a kicked spell, scaling with the +1/+1 counters on Hallar.",
             "faction_identity_terms": [
@@ -2645,22 +2641,9 @@
               "commander_product_relevance": [
                 "Niche but effective budget build"
               ],
-              "existing_repo_claim_ids": [
-                "gruul_clans_claim_0074",
-                "gruul_clans_claim_0075",
-                "gruul_clans_claim_0076",
-                "gruul_clans_claim_0077",
-                "gruul_clans_claim_0078",
-                "gruul_clans_claim_0079"
-              ],
-              "existing_repo_source_ids": [
-                "src_mtg_stories_the_gathering_storm_chapter_12_a8fc6d84",
-                "src_mtg_stories_in_praise_of_the_worldsoul_part_3_bc6ed8e9",
-                "src_mtg_stories_rage_of_the_unsung_d54f4c35",
-                "src_mtg_stories_desperate_operatives_6c6a580b",
-                "src_mtg_stories_the_gathering_storm_chapter_10_ed55e8dd",
-                "src_mtg_stories_rallying_the_reluctant_d21b8009"
-              ]
+              "existing_repo_claim_ids": [],
+              "existing_repo_source_ids": [],
+              "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Gruul claims."
             },
             "confidence": "Medium",
             "caution_notes": [],
@@ -2707,7 +2690,8 @@
               ],
               "existing_repo_source_ids": [
                 "src_gruul_clans_0002"
-              ]
+              ],
+              "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Gruul claims."
             },
             "confidence": "High",
             "caution_notes": [
@@ -2732,7 +2716,7 @@
             "archetype_tags": [
               "Hatebears",
               "Punisher",
-              "Stompy"
+              "Creature Pressure"
             ],
             "why_this_fits": "A severe Gruul pressure piece against noncreature spell plans; creature-first tables punish players who try to solve everything with spells.",
             "skip_if": "You want to play a deck with more than 5-10 noncreature spells.",
@@ -2757,7 +2741,8 @@
               ],
               "existing_repo_source_ids": [
                 "src_gruul_clans_0002"
-              ]
+              ],
+              "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Gruul claims."
             },
             "confidence": "High",
             "caution_notes": [],
@@ -2774,7 +2759,7 @@
         ],
         "archetype_lanes": [
           {
-            "lane_name": "Enrage / Dino-Stompy",
+            "lane_name": "Enrage / Creature-Pressure",
             "description": "Using damage to trigger your own creatures' abilities.",
             "recommended_for": "Neyith of the Dire Hunt",
             "skip_if": "You aren't running enough 'Fight' effects.",
@@ -2819,7 +2804,7 @@
           "label": "Gruul"
         }
       },
-      "identity_blend": "Red force returned to Green instinct and wild refusal."
+      "identity_blend": "Red directness bound to Green wild-place memory, clan autonomy, and anti-city grievance."
     },
     "WG": {
       "key": "WG",
@@ -21061,7 +21046,7 @@
           "mtgdecks_slug": "gruul",
           "label": "Gruul"
         },
-        "identity_blend": "Red force returned to Green instinct and wild refusal.",
+        "identity_blend": "Red directness bound to Green wild-place memory, clan autonomy, and anti-city grievance.",
         "display_code": "RG",
         "aliases": [
           "RG",
@@ -21071,8 +21056,8 @@
         "preview_eligible": true,
         "preview_order": 8,
         "preview_label": "Gruul",
-        "preview_title": "Gruul — Instinct through Action",
-        "preview_text": "Gruul blends Red freedom with Green instinct. It values impulse, survival, body-truth, terrain, revolt, and the wild beyond civilization.",
+        "preview_title": "Gruul - Wild Places Answering Back",
+        "preview_text": "Gruul blends Red directness with Green memory of place. It belongs where anger is tied to lost wilds, clan territory, Rubblebelt life, and resistance to imposed civilization.",
         "preview_hex": "#c7a96a",
         "preview_scores": {
           "order": 44,

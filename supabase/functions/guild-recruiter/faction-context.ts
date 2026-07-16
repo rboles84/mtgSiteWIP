@@ -6000,9 +6000,9 @@ export const FACTION_CONTEXT = {
         "label": "Gruul"
       }
     },
-    "tagline": "Civilization is a cage. Nature is freedom.",
-    "philosophy": "The Gruul were a proud people charged with maintaining Ravnica's wild places. Then the other guilds expanded, paved over every wilderness, and left the Gruul with nothing. They did not recover politely. What looks like rage is grief that has nowhere else to go.",
-    "core_tension": "A legitimate historical grievance that has curdled into something that cannot be reasoned with. The wild places are gone. Their role was taken. None of it can be undone, and the Gruul are not interested in compromise.",
+    "tagline": "Wild places lost. The clans answer directly.",
+    "philosophy": "The Gruul were assigned Ravnica's wild places, then urban expansion and other guilds eroded that role. Their red-green identity is source-bounded to loose clans, Rubblebelt territory, direct action, riot and bloodrush pressure, and anger at imposed civilization.",
+    "core_tension": "Gruul is strongest when rage protects territory, memory, clan, or wildness, and weakest when flattened into random rage, generic aggression, or mindless destruction.",
     "affinity": {
       "drawn_to": [
         "Authenticity - what something actually is, not what it pretends to be",
@@ -6025,7 +6025,7 @@ export const FACTION_CONTEXT = {
         "Values directness and distrusts indirection",
         "Describes a situation where the official version and the real version diverged painfully"
       ],
-      "not_to_be_confused_with": "Rakdos - both operate outside civilization's rules but Gruul's chaos is grief and loss; Rakdos's is theater and entertainment. Witherbloom - both connected to nature but Gruul mourns what was destroyed; Witherbloom studies what remains."
+      "not_to_be_confused_with": "Rakdos seeks spectacle and release; Gruul centers lost wild places, clan territory, and anti-city grievance. Golgari turns death and rot into survival; Gruul pushes back from Rubblebelt loss and clan autonomy. Boros organizes disciplined protection; Gruul distrusts imposed order."
     },
     "decree_voice": {
       "tone": "Blunt. Undecorated. More honest than comfortable. No metaphors.",

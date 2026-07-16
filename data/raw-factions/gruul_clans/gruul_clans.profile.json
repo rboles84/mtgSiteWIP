@@ -13,82 +13,80 @@
   "source_review_date": "2026-05-09",
   "last_full_review": "2026-05-09",
   "last_incremental_review": "2026-05-09",
-  "last_updated": "2026-06-09T00:00:00.000Z",
+  "last_updated": "2026-07-16",
   "site_surface": {
+    "surface_id": "gruul_site_surface_gate3",
     "display_name": "Gruul Clans",
-    "short_summary": "A loose red-green alliance of Ravnican clans rooted in the Rubblebelt, the Gruul are former stewards of the wild who became anti-civilization raiders after their lands and role were crushed by the city.",
-    "one_sentence_identity": "The Gruul Clans are Ravnica's disenfranchised red-green force of clan survival, anti-civilization rage, wild reclamation, and strength-tested leadership.",
-    "tagline": "Break the city so the wild can breathe.",
+    "short_summary": "A loose red-green alliance of Ravnican clans rooted in ruined spaces, lost wild places, Rubblebelt territory, and direct resistance to imposed civilization.",
+    "one_sentence_identity": "The Gruul Clans are Ravnica?s red-green clans of dispossessed wildness, clan autonomy, direct action, and anti-civilization grievance.",
+    "tagline": "Wild places lost. The clans answer directly.",
     "primary_tags": [
-      "anti-civilization",
-      "wild reclamation",
-      "clan survival",
+      "lost wild places",
+      "clan autonomy",
+      "Rubblebelt",
       "direct action",
-      "Rubblebelt"
+      "anti-civilization grievance"
     ],
     "secondary_tags": [
       "riot",
       "bloodrush",
-      "Rage",
       "old ways",
-      "strength-based leadership",
-      "ruins",
-      "beasts",
-      "bloodcrime",
-      "protective rage",
-      "clan challenge",
-      "rubblebelt survival"
+      "strength-tested leadership",
+      "territory",
+      "Rubblebelt survival"
     ],
     "tone_words": [
-      "feral",
       "defiant",
       "earthy",
-      "explosive",
       "wounded",
-      "uncompromising",
       "territorial",
-      "improvisational"
+      "direct"
     ],
     "visual_keywords": [
       "rubble",
-      "boar tusks",
       "burning tree symbol",
       "ruined stone",
       "wild vines",
-      "battle scars",
       "bonfires",
       "mauls",
-      "cindervine",
-      "tattoos",
-      "baby hydras",
-      "dragon-bone dust",
-      "wild bunker"
+      "cindervine"
     ],
     "best_for": [
-      "players who prefer instinct over bureaucracy",
-      "users drawn to primal freedom and anti-institutional resistance",
-      "users who see civilization as something that can erase living systems",
-      "users who value directness, embodied courage, and local clan loyalty"
+      "users who distrust systems that erase living places",
+      "users drawn to direct action and local belonging",
+      "users who value wildness with territory, clan, or ecological context"
     ],
     "content_warnings_or_sensitivity_notes": [
-      "Gruul lore includes violence, raids, body scarring, oppression, enslavement, and destructive anti-civilization themes."
+      "Gruul lore includes violence, raids, oppression, enslavement, body scarring, and destructive anti-civilization themes."
     ],
-    "claim_ids": [
+    "evidence_claim_ids": [
       "claim_gruul_clans_core_identity_0002",
       "claim_gruul_clans_core_identity_0003",
       "claim_gruul_clans_philosophy_0004",
       "claim_gruul_clans_structure_0005",
       "claim_gruul_clans_philosophy_0010",
+      "claim_gruul_clans_timeline_0029",
+      "claim_gruul_clans_timeline_0030",
       "claim_gruul_clans_philosophy_0033",
       "claim_gruul_clans_philosophy_0041",
-      "claim_gruul_clans_philosophy_0050",
+      "claim_gruul_clans_placement_0001",
+      "claim_gruul_clans_placement_0003",
+      "claim_gruul_clans_placement_0004",
       "claim_gruul_clans_placement_0072",
-      "claim_gruul_clans_placement_0073",
-      "claim_gruul_clans_philosophy_0063"
+      "claim_gruul_clans_philosophy_0008",
+      "claim_gruul_clans_mechanic_0040",
+      "claim_gruul_clans_mechanic_0043",
+      "claim_gruul_clans_placement_0002",
+      "claim_gruul_clans_philosophy_0056",
+      "claim_gruul_clans_philosophy_0063",
+      "claim_gruul_clans_relationship_0064",
+      "claim_gruul_clans_timeline_0065",
+      "claim_gruul_clans_placement_0072",
+      "claim_gruul_clans_placement_0073"
     ]
   },
   "core_identity": {
-    "summary": "The Gruul Clans are a loose affiliation of Ravnican red-green clans, largely associated with ruined spaces, the Rubblebelt, raiding, instinct, and resistance to civilization. Official sources frame their present destructiveness as rooted in a lost stewardship role: they once claimed or protected wild places, but urban expansion and the other guilds' disregard helped turn that role into rage, clan survival, and attempts to break the city so nature can return. Targeted repository-archive story review adds texture around Zhur-Taa bloodcrime practice, Ghor challenge dynamics, contagious Rage, and Rubblebelt survival as a motive beyond random destruction.",
+    "summary": "The Gruul Clans are a loose red-green Ravnican guild of clans whose source-bounded identity combines lost stewardship of wild places, Rubblebelt and ruined-space territory, direct action, strength-tested leadership, and anti-civilization grievance.",
     "confirmed_claim_ids": [
       "claim_gruul_clans_core_identity_0002",
       "claim_gruul_clans_core_identity_0003",
@@ -126,13 +124,37 @@
       "Current long-term post-War-of-the-Spark Gruul leadership was not established by the reviewed official sources."
     ],
     "claim_ids": [
-      "gruul_clans_claim_0074",
-      "gruul_clans_claim_0075",
-      "gruul_clans_claim_0076",
-      "gruul_clans_claim_0077",
-      "gruul_clans_claim_0078",
-      "gruul_clans_claim_0079"
-    ]
+      "claim_gruul_clans_core_identity_0002",
+      "claim_gruul_clans_core_identity_0003",
+      "claim_gruul_clans_philosophy_0004",
+      "claim_gruul_clans_structure_0005",
+      "claim_gruul_clans_philosophy_0010",
+      "claim_gruul_clans_timeline_0029",
+      "claim_gruul_clans_timeline_0030",
+      "claim_gruul_clans_philosophy_0033",
+      "claim_gruul_clans_philosophy_0041",
+      "claim_gruul_clans_placement_0001",
+      "claim_gruul_clans_placement_0003",
+      "claim_gruul_clans_placement_0004",
+      "claim_gruul_clans_placement_0072",
+      "claim_gruul_clans_philosophy_0008",
+      "claim_gruul_clans_mechanic_0040",
+      "claim_gruul_clans_mechanic_0043",
+      "claim_gruul_clans_placement_0002",
+      "claim_gruul_clans_structure_0005",
+      "claim_gruul_clans_structure_0032",
+      "claim_gruul_clans_philosophy_0049",
+      "claim_gruul_clans_location_0024",
+      "claim_gruul_clans_philosophy_0056",
+      "claim_gruul_clans_philosophy_0063",
+      "claim_gruul_clans_relationship_0064",
+      "claim_gruul_clans_timeline_0065",
+      "claim_gruul_clans_placement_0072",
+      "claim_gruul_clans_placement_0073"
+    ],
+    "identity_id": "gruul_core_identity_gate3",
+    "philosophy": "Gruul freedom is not generic impulse; it is clan and wildness answering what urban expansion took from them.",
+    "central_tension": "Gruul is strongest when rage protects territory, memory, clan, or wildness, and weakest when flattened into random rage, generic aggression, or mindless destruction."
   },
   "structure": {
     "summary": "Gruul organization is loose and clan-based rather than bureaucratic. Gatecrash-era material identifies several stable clans and emphasizes that no leader had fully unified all Gruul clans. Ravnica Allegiance-era material says the clan count changes over time, that seven clans existed then, and that many Gruul follow whoever appears strongest at the moment.",
@@ -146,7 +168,8 @@
           "claim_gruul_clans_key_figure_0013",
           "claim_gruul_clans_structure_0034"
         ],
-        "confidence": "High"
+        "confidence": "High",
+        "role_id": "gruul_role_clan_leader_chieftain"
       },
       {
         "role_name": "Shaman / druid",
@@ -157,7 +180,8 @@
           "claim_gruul_clans_philosophy_0022",
           "claim_gruul_clans_key_figure_0023"
         ],
-        "confidence": "High"
+        "confidence": "High",
+        "role_id": "gruul_role_shaman_druid"
       },
       {
         "role_name": "Warrior / raider",
@@ -170,7 +194,8 @@
           "claim_gruul_clans_mechanic_0043",
           "claim_gruul_clans_timeline_0045"
         ],
-        "confidence": "High"
+        "confidence": "High",
+        "role_id": "gruul_role_warrior_raider"
       },
       {
         "role_name": "Clan chieftain / challenge-recognized leader",
@@ -180,7 +205,8 @@
           "claim_gruul_clans_structure_0060",
           "claim_gruul_clans_structure_0062"
         ],
-        "confidence": "High"
+        "confidence": "High",
+        "role_id": "gruul_role_challenge_recognized_chieftain"
       },
       {
         "role_name": "Shaman",
@@ -190,7 +216,8 @@
           "claim_gruul_clans_structure_0055",
           "claim_gruul_clans_key_figure_0069"
         ],
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "role_id": "gruul_role_story_shaman"
       },
       {
         "role_name": "Tattoo artist / rage-memory keeper",
@@ -199,7 +226,8 @@
           "claim_gruul_clans_philosophy_0061",
           "claim_gruul_clans_key_figure_0066"
         ],
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "role_id": "gruul_role_rage_memory_keeper"
       }
     ],
     "leaders": [
@@ -403,10 +431,11 @@
     "unknowns": [
       "Reviewed sources did not identify every one of the seven Ravnica Allegiance-era clans by name.",
       "Reviewed sources did not establish a stable post-Domri long-term Gruul leader."
-    ]
+    ],
+    "structure_id": "gruul_structure_gate3"
   },
   "great_tension": {
-    "summary": "Gruul's central tension is not merely chaos versus order; it is erased wildness versus totalizing city. Official sources depict the guild as former stewards of Ravnica's wild places who became destructive after marginalization, enslavement, and the loss of wilderness. Their rage is aimed at civilization, but individual stories also show that Rage can be personal, cultural, historical, and tied to lost stories. MTG-Stories archive additions strengthen this tension by showing Gruul anger responding to bloodcrime, territorial defilement, and the dying Rubblebelt rather than functioning only as random destruction.",
+    "summary": "Gruul?s central tension is erased wildness versus totalizing city, not chaos versus order in the abstract. Official sources support former wild-place stewardship, anti-civilization pressure, loose clan belonging, and direct action; story-localized evidence adds territorial and memory-preserving anger without turning every Gruul signal into random destruction.",
     "status": "Supported Interpretation",
     "claim_ids": [
       "claim_gruul_clans_philosophy_0010",
@@ -427,7 +456,8 @@
       "claim_gruul_clans_timeline_0065",
       "claim_gruul_clans_placement_0072"
     ],
-    "interpretation_warning": "The ecological/grievance framing is source-supported, but the exact wording of this tension is interpretive synthesis."
+    "interpretation_warning": "The ecological/grievance framing is source-supported, but the exact wording of this tension is interpretive synthesis.",
+    "tension_id": "gruul_great_tension_gate3"
   },
   "historical_timeline": [
     {
@@ -640,37 +670,29 @@
   ],
   "canonical_flavor_text": [
     {
+      "flavor_anchor_id": "gruul_public_anchor_gate3",
       "card_name": "Gruul Clans dossier anchor",
       "set": "Ravnica",
-      "short_excerpt_or_summary": "Break the city so the wild can breathe.",
+      "short_excerpt_or_summary": "The city took the wild; the clans answer from the rubble.",
       "is_exact_excerpt": false,
+      "evidence_use": "auxiliary_support",
       "claim_ids": [
         "claim_gruul_clans_core_identity_0002",
         "claim_gruul_clans_core_identity_0003",
-        "claim_gruul_clans_philosophy_0004",
         "claim_gruul_clans_structure_0005",
         "claim_gruul_clans_philosophy_0010",
+        "claim_gruul_clans_timeline_0030",
         "claim_gruul_clans_philosophy_0033",
-        "claim_gruul_clans_philosophy_0041",
-        "claim_gruul_clans_philosophy_0050"
+        "claim_gruul_clans_placement_0001",
+        "claim_gruul_clans_placement_0003"
       ],
       "source_ids": [
         "src_gruul_clans_0001",
         "src_gruul_clans_0002",
         "src_gruul_clans_0003",
-        "src_gruul_clans_0004",
-        "src_gruul_clans_0008",
-        "src_gruul_clans_0014",
-        "src_gruul_clans_0013",
-        "src_gruul_clans_0015",
-        "src_mtg_stories_the_gathering_storm_chapter_12_a8fc6d84",
-        "src_mtg_stories_in_praise_of_the_worldsoul_part_3_bc6ed8e9",
-        "src_mtg_stories_rage_of_the_unsung_d54f4c35",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_10_ed55e8dd",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009"
+        "src_gruul_clans_0004"
       ],
-      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+      "notes": "Project synthesis for display flavor only; not an exact card quote and not supported by discovery-only story-corpus rows."
     }
   ],
   "views_on_other_factions": [
@@ -783,30 +805,30 @@
     ],
     "entries": [
       {
-      "mechanic_id": "mech_riot",
-      "mechanic_name": "Riot",
-      "associated_set": "Ravnica Allegiance; Ravnica Remastered reprint/rules support",
-      "rules_summary": "A creature with riot enters with its controller's choice of a +1/+1 counter or haste. The choice is made as the creature enters the battlefield and cannot be responded to as a separate choice.",
-      "design_or_flavor_connection": "Riot turns Gruul immediacy into a gameplay fork: hit faster or hit bigger.",
-      "claim_ids": [
-        "claim_gruul_clans_mechanic_0040",
-        "claim_gruul_clans_philosophy_0041"
-      ],
-      "confidence": "High",
-      "notes": "Use current Comprehensive Rules for future rules-critical updates."
-    },
+        "mechanic_id": "mech_riot",
+        "mechanic_name": "Riot",
+        "associated_set": "Ravnica Allegiance; Ravnica Remastered reprint/rules support",
+        "rules_summary": "A creature with riot enters with its controller's choice of a +1/+1 counter or haste. The choice is made as the creature enters the battlefield and cannot be responded to as a separate choice.",
+        "design_or_flavor_connection": "Riot turns Gruul immediacy into a gameplay fork: hit faster or hit bigger.",
+        "claim_ids": [
+          "claim_gruul_clans_mechanic_0040",
+          "claim_gruul_clans_philosophy_0041"
+        ],
+        "confidence": "High",
+        "notes": "Use current Comprehensive Rules for future rules-critical updates."
+      },
       {
-      "mechanic_id": "mech_bloodrush",
-      "mechanic_name": "Bloodrush",
-      "associated_set": "Gatecrash; Dragon's Maze",
-      "rules_summary": "Bloodrush is an ability word for activated abilities on creature cards in hand; the player pays a cost and discards the card to target an attacking creature with a card-specific combat bonus.",
-      "design_or_flavor_connection": "Bloodrush supports a combat-first Gruul pattern: a creature can become immediate force even before being cast.",
-      "claim_ids": [
-        "claim_gruul_clans_mechanic_0043",
-        "claim_gruul_clans_mechanic_0044"
-      ],
-      "confidence": "High",
-      "notes": "Ability-word details vary by card."
+        "mechanic_id": "mech_bloodrush",
+        "mechanic_name": "Bloodrush",
+        "associated_set": "Gatecrash; Dragon's Maze",
+        "rules_summary": "Bloodrush is an ability word for activated abilities on creature cards in hand; the player pays a cost and discards the card to target an attacking creature with a card-specific combat bonus.",
+        "design_or_flavor_connection": "Bloodrush supports a combat-first Gruul pattern: a creature can become immediate force even before being cast.",
+        "claim_ids": [
+          "claim_gruul_clans_mechanic_0043",
+          "claim_gruul_clans_mechanic_0044"
+        ],
+        "confidence": "High",
+        "notes": "Ability-word details vary by card."
       }
     ]
   },
@@ -980,16 +1002,19 @@
     "needs_review": true,
     "notes": "Updated to profile_version 1.1.0 with targeted MTG-Stories repository-archive evidence. Overall Gruul identity remains strongly supported by official sources, while new story details are intentionally labeled Repository Archive Supported or Supported Interpretation.",
     "corpus_upgrade": {
+      "metadata_id": "gruul_discovery_corpus_upgrade_gate3",
       "review_date": "2026-05-09",
-      "status": "MTG-Stories corpus evidence added",
-      "claim_ids": [
+      "status": "MTG-Stories corpus search records retained as discovery metadata only",
+      "evidence_use": "discovery_metadata",
+      "retained_discovery_claim_ids": [
         "gruul_clans_claim_0074",
         "gruul_clans_claim_0075",
         "gruul_clans_claim_0076",
         "gruul_clans_claim_0077",
         "gruul_clans_claim_0078",
         "gruul_clans_claim_0079"
-      ]
+      ],
+      "restriction": "Do not use these discovery records as proof for profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, public-facing claims, or provenance chains."
     },
     "raw_enrichment": {
       "review_date": "2026-05-13T21:14:06.308Z",
@@ -1001,7 +1026,8 @@
       "known_characters": 12,
       "known_mechanics": 5,
       "story_arcs": 6
-    }
+    },
+    "metadata_note": "Search keywords and story-corpus names are discovery metadata only and are not authoritative semantic proof under CRIT-001."
   },
   "research_limitations": [
     {
@@ -1052,45 +1078,48 @@
     "source_research_file": "gruul_clans.commander_compass.research.json",
     "last_reviewed": "2026-05-14",
     "review_status": "reviewed_not_canonical_lore",
-    "recommendation_philosophy": "Prioritize high-power creatures and decks that punish the 'civilized' mechanics of other players.",
+    "recommendation_philosophy": "Auxiliary Commander recommendations may use source-bounded Gruul themes such as riot, bloodrush, large creatures, lands, clan/wildness identity, and direct pressure, but they do not prove canonical Gruul semantics.",
     "identity_basis": {
       "owned_themes": [
-        "Stompy",
-        "Lands Matters",
-        "Enrage",
+        "Large-creature pressure",
+        "Lands matter",
         "Riot",
-        "Bloodthirst"
+        "Bloodrush",
+        "Old-ways creature identity"
       ],
       "allowed_phrases": [
-        "Not for you!",
-        "Crush them!",
-        "The wild reclaims all"
+        "Wild places are not disposable",
+        "The clans answer what the city took",
+        "Rubblebelt pressure"
       ],
       "avoid_or_contrast_phrases": [
-        "Order",
-        "Civilization",
-        "Complicated plans"
+        "Order as automatic legitimacy",
+        "Civilization as unquestioned progress",
+        "Generic rage without loss"
       ],
       "adjacent_overlap_notes": [
         "Aggro overlap with Boros",
         "Land overlap with Golgari"
       ],
       "supporting_claim_ids": [
-        "gruul_clans_claim_0074",
-        "gruul_clans_claim_0075",
-        "gruul_clans_claim_0076",
-        "gruul_clans_claim_0077",
-        "gruul_clans_claim_0078",
-        "gruul_clans_claim_0079"
+        "claim_gruul_clans_core_identity_0002",
+        "claim_gruul_clans_structure_0005",
+        "claim_gruul_clans_philosophy_0010",
+        "claim_gruul_clans_mechanic_0040",
+        "claim_gruul_clans_mechanic_0043",
+        "claim_gruul_clans_placement_0001",
+        "claim_gruul_clans_placement_0002",
+        "claim_gruul_clans_placement_0003"
       ],
       "supporting_source_ids": [
-        "src_mtg_stories_the_gathering_storm_chapter_12_a8fc6d84",
-        "src_mtg_stories_in_praise_of_the_worldsoul_part_3_bc6ed8e9",
-        "src_mtg_stories_rage_of_the_unsung_d54f4c35",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_the_gathering_storm_chapter_10_ed55e8dd",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009"
-      ]
+        "src_gruul_clans_0001",
+        "src_gruul_clans_0002",
+        "src_gruul_clans_0004",
+        "src_gruul_clans_0007",
+        "src_gruul_clans_0005",
+        "src_gruul_clans_0003"
+      ],
+      "auxiliary_support_boundary": "Commander/card/product guidance is auxiliary only; existing_repo_claim_ids and existing_repo_source_ids exclude discovery-only story-corpus records and cannot independently prove Gruul identity, placement, key figures, recruiter guidance, semantic readiness, public copy, or provenance chains."
     },
     "native_fit_commanders": [
       {
@@ -1107,14 +1136,14 @@
         "archetype_tags": [
           "Lands",
           "Discard",
-          "Big Stompy"
+          "Large-Creature Pressure"
         ],
-        "why_this_fits": "The face of the Burning-Tree clan, he uses the land itself as a weapon to smash opponents.",
+        "why_this_fits": "A Burning-Tree-linked Gruul figure whose lands-matter damage gameplay can echo direct Rubblebelt force as auxiliary Commander texture.",
         "skip_if": "You don't want to play an 8-mana commander.",
         "gameplay_summary": "Turns discarded lands into 3-damage bolts, allowing you to weaponize your mana base.",
         "faction_identity_terms": [
           "Rubblebelt",
-          "Crush",
+          "Rubblebelt Force",
           "Enraged"
         ],
         "source_basis": {
@@ -1138,7 +1167,8 @@
             "src_gruul_clans_0002",
             "src_gruul_clans_0003",
             "src_gruul_clans_0009"
-          ]
+          ],
+          "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Gruul claims."
         },
         "confidence": "High",
         "caution_notes": [],
@@ -1161,7 +1191,7 @@
           "Kicker",
           "Counters"
         ],
-        "why_this_fits": "Captures the 'destructive growth' of Gruul through the Kicker mechanic.",
+        "why_this_fits": "A non-Ravnica red-green stretch pick for counter/kicker pressure; use as gameplay texture only, not Gruul lore proof.",
         "skip_if": "You want a deck that plays generic good creatures rather than specific kicker spells.",
         "gameplay_summary": "Deals damage to each opponent whenever you cast a kicked spell, scaling with the +1/+1 counters on Hallar.",
         "faction_identity_terms": [
@@ -1178,22 +1208,9 @@
           "commander_product_relevance": [
             "Niche but effective budget build"
           ],
-          "existing_repo_claim_ids": [
-            "gruul_clans_claim_0074",
-            "gruul_clans_claim_0075",
-            "gruul_clans_claim_0076",
-            "gruul_clans_claim_0077",
-            "gruul_clans_claim_0078",
-            "gruul_clans_claim_0079"
-          ],
-          "existing_repo_source_ids": [
-            "src_mtg_stories_the_gathering_storm_chapter_12_a8fc6d84",
-            "src_mtg_stories_in_praise_of_the_worldsoul_part_3_bc6ed8e9",
-            "src_mtg_stories_rage_of_the_unsung_d54f4c35",
-            "src_mtg_stories_desperate_operatives_6c6a580b",
-            "src_mtg_stories_the_gathering_storm_chapter_10_ed55e8dd",
-            "src_mtg_stories_rallying_the_reluctant_d21b8009"
-          ]
+          "existing_repo_claim_ids": [],
+          "existing_repo_source_ids": [],
+          "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Gruul claims."
         },
         "confidence": "Medium",
         "caution_notes": [],
@@ -1240,7 +1257,8 @@
           ],
           "existing_repo_source_ids": [
             "src_gruul_clans_0002"
-          ]
+          ],
+          "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Gruul claims."
         },
         "confidence": "High",
         "caution_notes": [
@@ -1265,7 +1283,7 @@
         "archetype_tags": [
           "Hatebears",
           "Punisher",
-          "Stompy"
+          "Creature Pressure"
         ],
         "why_this_fits": "A severe Gruul pressure piece against noncreature spell plans; creature-first tables punish players who try to solve everything with spells.",
         "skip_if": "You want to play a deck with more than 5-10 noncreature spells.",
@@ -1290,7 +1308,8 @@
           ],
           "existing_repo_source_ids": [
             "src_gruul_clans_0002"
-          ]
+          ],
+          "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Gruul claims."
         },
         "confidence": "High",
         "caution_notes": [],
@@ -1307,7 +1326,7 @@
     ],
     "archetype_lanes": [
       {
-        "lane_name": "Enrage / Dino-Stompy",
+        "lane_name": "Enrage / Creature-Pressure",
         "description": "Using damage to trigger your own creatures' abilities.",
         "recommended_for": "Neyith of the Dire Hunt",
         "skip_if": "You aren't running enough 'Fight' effects.",
@@ -1334,6 +1353,8 @@
       "commander_legality_validated": true,
       "scryfall_card_pages_validated": true,
       "do_not_use_as_claim_source": true
-    }
-  }
+    },
+    "auxiliary_support_boundary": "Commander/card/product guidance is auxiliary only; existing_repo_claim_ids and existing_repo_source_ids exclude discovery-only story-corpus records and cannot independently prove Gruul identity, placement, key figures, recruiter guidance, semantic readiness, public copy, or provenance chains."
+  },
+  "profile_id": "profile_gruul_gate3_authoritative_overview"
 }

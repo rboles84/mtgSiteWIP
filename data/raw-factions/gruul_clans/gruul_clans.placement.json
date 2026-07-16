@@ -4,43 +4,64 @@
   "faction_id": "gruul_clans",
   "faction_name": "Gruul Clans",
   "based_on_profile_version": "1.1.0",
-  "last_updated": "2026-05-10T02:56:03.254Z",
+  "last_updated": "2026-07-16",
   "placement_summary": {
-    "short_description": "Gruul is the placement for people who instinctively resist overbuilt systems, defend wildness, and prefer direct, embodied action over procedural control. The 1.1.0 update adds story-backed distinction between shallow aggression and rage tied to land, memory, bloodcrime, and survival.",
-    "best_fit_summary": "Best fit for users who value freedom from institutions, respond strongly to ecological or cultural erasure, trust proven strength more than titles, and would rather break a harmful system than decorate it with better paperwork. Strong matches include people whose anger is activated by ecological harm, erased local history, or systems that drain life while calling themselves orderly.",
-    "poor_fit_summary": "Poor fit for users who are most comfortable with centralized bureaucracy, title-based authority, careful procedural order, or civilization-as-progress assumptions. Weaker matches want rebellion only as spectacle or domination, without the protective, territorial, or old-ways motive visible in the story evidence.",
+    "short_description": "Gruul placement is source-bounded by lost wild places, clan autonomy, Rubblebelt or territorial pressure, direct action, riot/bloodrush, and anti-civilization grievance rather than generic RG aggression.",
+    "best_fit_summary": "Best fit for users whose anger or directness protects wildness, territory, old ways, local belonging, or living systems against institutions that erase them.",
+    "poor_fit_summary": "Poor fit for users who primarily want procedure, harmonized consensus, experiment, spectacle, decay-reclamation, predatory appetite, or generic combat without Gruul-specific loss and wildness.",
     "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
     "claim_ids": [
+      "claim_gruul_clans_core_identity_0002",
+      "claim_gruul_clans_core_identity_0003",
+      "claim_gruul_clans_philosophy_0004",
+      "claim_gruul_clans_structure_0005",
       "claim_gruul_clans_philosophy_0010",
+      "claim_gruul_clans_timeline_0029",
+      "claim_gruul_clans_timeline_0030",
       "claim_gruul_clans_philosophy_0033",
       "claim_gruul_clans_philosophy_0041",
       "claim_gruul_clans_placement_0001",
-      "claim_gruul_clans_placement_0002",
       "claim_gruul_clans_placement_0003",
       "claim_gruul_clans_placement_0004",
+      "claim_gruul_clans_placement_0072",
+      "claim_gruul_clans_philosophy_0008",
+      "claim_gruul_clans_mechanic_0040",
+      "claim_gruul_clans_mechanic_0043",
+      "claim_gruul_clans_placement_0002",
+      "claim_gruul_clans_structure_0005",
+      "claim_gruul_clans_structure_0032",
+      "claim_gruul_clans_philosophy_0049",
+      "claim_gruul_clans_location_0024",
       "claim_gruul_clans_philosophy_0056",
       "claim_gruul_clans_philosophy_0063",
       "claim_gruul_clans_relationship_0064",
       "claim_gruul_clans_timeline_0065",
       "claim_gruul_clans_placement_0072",
       "claim_gruul_clans_placement_0073",
-      "gruul_clans_claim_0074",
-      "gruul_clans_claim_0075",
-      "gruul_clans_claim_0076",
-      "gruul_clans_claim_0077",
-      "gruul_clans_claim_0078",
-      "gruul_clans_claim_0079"
+      "claim_gruul_clans_collision_0080",
+      "claim_gruul_clans_collision_0081",
+      "claim_gruul_clans_collision_0082",
+      "claim_gruul_clans_collision_0083",
+      "claim_gruul_clans_collision_0084",
+      "claim_gruul_clans_collision_0085",
+      "claim_gruul_clans_collision_0086",
+      "claim_gruul_clans_collision_0087",
+      "claim_gruul_clans_collision_0088",
+      "claim_gruul_clans_collision_0089",
+      "claim_gruul_clans_collision_0090",
+      "claim_gruul_clans_collision_0091"
     ],
     "calibrated_primary_read": "Requires loss, dispossession, wildness, anti-civilization pressure, directness, or clan survival outside institutions.",
     "calibrated_false_positive_guardrail": "Do not award for generic anger or freedom without concrete loss or wildness.",
     "evidence_claim_ids": [
-      "claim_gruul_clans_location_0001",
-      "claim_gruul_clans_core_identity_0001",
       "claim_gruul_clans_core_identity_0002",
       "claim_gruul_clans_core_identity_0003",
-      "claim_gruul_clans_philosophy_0004",
-      "claim_gruul_clans_structure_0005"
-    ]
+      "claim_gruul_clans_structure_0005",
+      "claim_gruul_clans_philosophy_0010",
+      "claim_gruul_clans_timeline_0030",
+      "claim_gruul_clans_philosophy_0033"
+    ],
+    "summary_id": "gruul_placement_summary_gate3"
   },
   "moral_and_psychological_profile": {
     "primary_moral_foundations": [
@@ -56,7 +77,8 @@
           "claim_gruul_clans_philosophy_0041",
           "claim_gruul_clans_placement_0001"
         ],
-        "confidence": "High"
+        "confidence": "High",
+        "foundation_id": "gruul_moral_foundation_liberty"
       },
       {
         "foundation": "Sanctity",
@@ -71,7 +93,8 @@
           "claim_gruul_clans_timeline_0030",
           "claim_gruul_clans_placement_0003"
         ],
-        "confidence": "High"
+        "confidence": "High",
+        "foundation_id": "gruul_moral_foundation_sanctity"
       }
     ],
     "secondary_moral_foundations": [
@@ -84,7 +107,8 @@
           "claim_gruul_clans_location_0024",
           "claim_gruul_clans_philosophy_0049"
         ],
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "foundation_id": "gruul_moral_foundation_loyalty"
       },
       {
         "foundation": "Fairness",
@@ -96,7 +120,8 @@
           "claim_gruul_clans_timeline_0031",
           "claim_gruul_clans_philosophy_0051"
         ],
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "foundation_id": "gruul_moral_foundation_fairness"
       }
     ],
     "possible_shadow_expression": {
@@ -110,8 +135,11 @@
         "claim_gruul_clans_placement_0004"
       ],
       "confidence": "Medium",
-      "warning": "Supported interpretation, not direct canon."
-    }
+      "warning": "Supported interpretation, not direct canon.",
+      "shadow_expression_id": "gruul_shadow_expression_overextension"
+    },
+    "profile_id": "gruul_moral_psychological_gate3",
+    "summary": "Gruul should be scored through source-bounded dispossession, wild-place loss, loose clan belonging, Rubblebelt or territorial context, riot/bloodrush directness, and protective anti-civilization grievance, not generic rage or red-green combat alone."
   },
   "placement_axes": [
     {
@@ -253,20 +281,24 @@
       "high_end_label": "direct revolt",
       "faction_position": 88,
       "rationale": "Corpus evidence adds story-context support for Gruul Clans, Gruul, Borborygmos, Domri Rade, Rubblebelt, Nikya of the Old Ways, Zhur-Taa, The Old Ways.",
-      "claim_ids": [
+      "confidence": "Medium",
+      "notes": "Retained to preserve native axis_id and confidence surface; discovery-only story-corpus claim IDs are non-authoritative metadata.",
+      "evidence_use": "discovery_metadata",
+      "discovery_use_only": true,
+      "semantic_restriction": "Retained for corpus-search/history only; not semantic proof for profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, public copy, or provenance chains.",
+      "retained_discovery_claim_ids": [
         "gruul_clans_claim_0074",
         "gruul_clans_claim_0075",
         "gruul_clans_claim_0076",
         "gruul_clans_claim_0077",
         "gruul_clans_claim_0078",
         "gruul_clans_claim_0079"
-      ],
-      "confidence": "Medium",
-      "notes": "Added during MTG-Stories corpus upgrade."
+      ]
     }
   ],
   "core_values": [
     {
+      "value_id": "gruul_value_1_wild_reclamation",
       "value": "Wild reclamation",
       "description": "The desire for the natural world to return where the city has smothered it.",
       "placement_relevance": "Strong positive signal when the user frames systems as harmful because they erase living things, local cultures, or natural space.",
@@ -279,6 +311,7 @@
       "confidence": "High"
     },
     {
+      "value_id": "gruul_value_2_freedom_from_imposed_order",
       "value": "Freedom from imposed order",
       "description": "Resistance to civic, political, and bureaucratic structures that expand over local life.",
       "placement_relevance": "Strong positive signal when the user distrusts rules that protect systems more than people or land.",
@@ -291,6 +324,7 @@
       "confidence": "High"
     },
     {
+      "value_id": "gruul_value_3_strength_tested_leadership",
       "value": "Strength-tested leadership",
       "description": "Legitimacy through demonstrated force, survival, courage, and the ability to lead in conflict.",
       "placement_relevance": "Positive signal when the user respects earned presence over job title or inherited office.",
@@ -303,6 +337,7 @@
       "confidence": "High"
     },
     {
+      "value_id": "gruul_value_4_clan_belonging",
       "value": "Clan belonging",
       "description": "Local belonging and loyalty matter in a dangerous world where isolation can be fatal.",
       "placement_relevance": "Positive signal when the user values tight, proven circles over broad institutions.",
@@ -314,6 +349,7 @@
       "confidence": "Medium"
     },
     {
+      "value_id": "gruul_value_5_the_old_ways",
       "value": "The old ways",
       "description": "Connection to beasts, shamans, deep earth, and pre-urban memory.",
       "placement_relevance": "Positive signal when the user is drawn to ancestral, embodied, land-based, or pre-institutional wisdom.",
@@ -326,6 +362,7 @@
       "confidence": "High"
     },
     {
+      "value_id": "gruul_value_6_rage_with_a_reason",
       "value": "Rage with a reason",
       "description": "Anger as a response to erasure, stolen land, oppression, or lost stories, not merely anger for its own sake.",
       "placement_relevance": "Positive signal when the user can name what they are angry about and what living thing or memory they are trying to defend.",
@@ -337,6 +374,7 @@
       "confidence": "Medium"
     },
     {
+      "value_id": "gruul_value_7_protective_rage",
       "value": "Protective rage",
       "description": "Anger becomes meaningful when it answers territorial defilement, land-draining magic, erased stories, or systems that make wild life impossible.",
       "placement_relevance": "Strongly supports Gruul when the user frames anger as a protective warning rather than thrill-seeking or status performance.",
@@ -350,6 +388,7 @@
       "confidence": "Medium"
     },
     {
+      "value_id": "gruul_value_8_improvised_usefulness",
       "value": "Improvised usefulness",
       "description": "Gruul contribution can include scouting, shamanic magic, tattoo-art, rallying, or adaptation from enemies, not only direct brawling.",
       "placement_relevance": "Helps recognize Gruul-leaning users who are resourceful, embodied, and defiant without being simple combat maximalists.",
@@ -366,106 +405,157 @@
     {
       "value": "Gruul Clans",
       "placement_relevance": "Corpus search evidence for Gruul Clans.",
-      "claim_ids": [
+      "confidence": "Medium",
+      "value_id": "gruul_discovery_value_01_gruul_clans",
+      "evidence_use": "discovery_metadata",
+      "discovery_use_only": true,
+      "semantic_restriction": "Retained for corpus-search/history only; not semantic proof for profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, public copy, or provenance chains.",
+      "notes": "Retained to preserve frozen confidence surface; discovery-only corpus term is not a Gruul semantic value.",
+      "retained_discovery_claim_ids": [
         "gruul_clans_claim_0074",
         "gruul_clans_claim_0075",
         "gruul_clans_claim_0076"
-      ],
-      "confidence": "Medium"
+      ]
     },
     {
       "value": "Gruul",
       "placement_relevance": "Corpus search evidence for Gruul Clans.",
-      "claim_ids": [
+      "confidence": "Medium",
+      "value_id": "gruul_discovery_value_02_gruul",
+      "evidence_use": "discovery_metadata",
+      "discovery_use_only": true,
+      "semantic_restriction": "Retained for corpus-search/history only; not semantic proof for profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, public copy, or provenance chains.",
+      "notes": "Retained to preserve frozen confidence surface; discovery-only corpus term is not a Gruul semantic value.",
+      "retained_discovery_claim_ids": [
         "gruul_clans_claim_0074",
         "gruul_clans_claim_0075",
         "gruul_clans_claim_0076"
-      ],
-      "confidence": "Medium"
+      ]
     },
     {
       "value": "Borborygmos",
       "placement_relevance": "Corpus search evidence for Gruul Clans.",
-      "claim_ids": [
+      "confidence": "Medium",
+      "value_id": "gruul_discovery_value_03_borborygmos",
+      "evidence_use": "discovery_metadata",
+      "discovery_use_only": true,
+      "semantic_restriction": "Retained for corpus-search/history only; not semantic proof for profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, public copy, or provenance chains.",
+      "notes": "Retained to preserve frozen confidence surface; discovery-only corpus term is not a Gruul semantic value.",
+      "retained_discovery_claim_ids": [
         "gruul_clans_claim_0074",
         "gruul_clans_claim_0075",
         "gruul_clans_claim_0076"
-      ],
-      "confidence": "Medium"
+      ]
     },
     {
       "value": "Domri Rade",
       "placement_relevance": "Corpus search evidence for Gruul Clans.",
-      "claim_ids": [
+      "confidence": "Medium",
+      "value_id": "gruul_discovery_value_04_domri_rade",
+      "evidence_use": "discovery_metadata",
+      "discovery_use_only": true,
+      "semantic_restriction": "Retained for corpus-search/history only; not semantic proof for profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, public copy, or provenance chains.",
+      "notes": "Retained to preserve frozen confidence surface; discovery-only corpus term is not a Gruul semantic value.",
+      "retained_discovery_claim_ids": [
         "gruul_clans_claim_0074",
         "gruul_clans_claim_0075",
         "gruul_clans_claim_0076"
-      ],
-      "confidence": "Medium"
+      ]
     },
     {
       "value": "Rubblebelt",
       "placement_relevance": "Corpus search evidence for Gruul Clans.",
-      "claim_ids": [
+      "confidence": "Medium",
+      "value_id": "gruul_discovery_value_05_rubblebelt",
+      "evidence_use": "discovery_metadata",
+      "discovery_use_only": true,
+      "semantic_restriction": "Retained for corpus-search/history only; not semantic proof for profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, public copy, or provenance chains.",
+      "notes": "Retained to preserve frozen confidence surface; discovery-only corpus term is not a Gruul semantic value.",
+      "retained_discovery_claim_ids": [
         "gruul_clans_claim_0074",
         "gruul_clans_claim_0075",
         "gruul_clans_claim_0076"
-      ],
-      "confidence": "Medium"
+      ]
     },
     {
       "value": "Nikya of the Old Ways",
       "placement_relevance": "Corpus search evidence for Gruul Clans.",
-      "claim_ids": [
+      "confidence": "Medium",
+      "value_id": "gruul_discovery_value_06_nikya_of_the_old_ways",
+      "evidence_use": "discovery_metadata",
+      "discovery_use_only": true,
+      "semantic_restriction": "Retained for corpus-search/history only; not semantic proof for profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, public copy, or provenance chains.",
+      "notes": "Retained to preserve frozen confidence surface; discovery-only corpus term is not a Gruul semantic value.",
+      "retained_discovery_claim_ids": [
         "gruul_clans_claim_0074",
         "gruul_clans_claim_0075",
         "gruul_clans_claim_0076"
-      ],
-      "confidence": "Medium"
+      ]
     },
     {
       "value": "Zhur-Taa",
       "placement_relevance": "Corpus search evidence for Gruul Clans.",
-      "claim_ids": [
+      "confidence": "Medium",
+      "value_id": "gruul_discovery_value_07_zhur_taa",
+      "evidence_use": "discovery_metadata",
+      "discovery_use_only": true,
+      "semantic_restriction": "Retained for corpus-search/history only; not semantic proof for profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, public copy, or provenance chains.",
+      "notes": "Retained to preserve frozen confidence surface; discovery-only corpus term is not a Gruul semantic value.",
+      "retained_discovery_claim_ids": [
         "gruul_clans_claim_0074",
         "gruul_clans_claim_0075",
         "gruul_clans_claim_0076"
-      ],
-      "confidence": "Medium"
+      ]
     },
     {
       "value": "The Old Ways",
       "placement_relevance": "Corpus search evidence for Gruul Clans.",
-      "claim_ids": [
+      "confidence": "Medium",
+      "value_id": "gruul_discovery_value_08_the_old_ways",
+      "evidence_use": "discovery_metadata",
+      "discovery_use_only": true,
+      "semantic_restriction": "Retained for corpus-search/history only; not semantic proof for profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, public copy, or provenance chains.",
+      "notes": "Retained to preserve frozen confidence surface; discovery-only corpus term is not a Gruul semantic value.",
+      "retained_discovery_claim_ids": [
         "gruul_clans_claim_0074",
         "gruul_clans_claim_0075",
         "gruul_clans_claim_0076"
-      ],
-      "confidence": "Medium"
+      ]
     },
     {
       "value": "bloodthirst",
       "placement_relevance": "Corpus search evidence for Gruul Clans.",
-      "claim_ids": [
+      "confidence": "Medium",
+      "value_id": "gruul_discovery_value_09_bloodthirst",
+      "evidence_use": "discovery_metadata",
+      "discovery_use_only": true,
+      "semantic_restriction": "Retained for corpus-search/history only; not semantic proof for profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, public copy, or provenance chains.",
+      "notes": "Retained to preserve frozen confidence surface; discovery-only corpus term is not a Gruul semantic value.",
+      "retained_discovery_claim_ids": [
         "gruul_clans_claim_0074",
         "gruul_clans_claim_0075",
         "gruul_clans_claim_0076"
-      ],
-      "confidence": "Medium"
+      ]
     },
     {
       "value": "Skarrg",
       "placement_relevance": "Corpus search evidence for Gruul Clans.",
-      "claim_ids": [
+      "confidence": "Medium",
+      "value_id": "gruul_discovery_value_10_skarrg",
+      "evidence_use": "discovery_metadata",
+      "discovery_use_only": true,
+      "semantic_restriction": "Retained for corpus-search/history only; not semantic proof for profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, public copy, or provenance chains.",
+      "notes": "Retained to preserve frozen confidence surface; discovery-only corpus term is not a Gruul semantic value.",
+      "retained_discovery_claim_ids": [
         "gruul_clans_claim_0074",
         "gruul_clans_claim_0075",
         "gruul_clans_claim_0076"
-      ],
-      "confidence": "Medium"
+      ]
     }
   ],
   "behavioral_signals": [
     {
+      "signal_id": "gruul_signal_1",
       "signal": "Rejects bureaucracy when it protects the system instead of the living world.",
       "placement_relevance": "Strong Gruul match signal.",
       "supports_match_when": "The user says a harmful system should be dismantled, bypassed, or physically disrupted rather than endlessly reformed.",
@@ -480,6 +570,7 @@
       "confidence": "High"
     },
     {
+      "signal_id": "gruul_signal_2",
       "signal": "Moves toward conflict directly instead of waiting for perfect conditions.",
       "placement_relevance": "Strong Gruul match signal, especially when paired with wildness or anti-institutional motives.",
       "supports_match_when": "The user prefers decisive confrontation, immediate physical action, or direct intervention.",
@@ -494,6 +585,7 @@
       "confidence": "High"
     },
     {
+      "signal_id": "gruul_signal_3",
       "signal": "Trusts earned strength more than titles.",
       "placement_relevance": "Strong discriminator against Azorius, Orzhov, and some Boros expressions.",
       "supports_match_when": "The user respects someone who proves capability under pressure more than someone with official credentials.",
@@ -507,6 +599,7 @@
       "confidence": "High"
     },
     {
+      "signal_id": "gruul_signal_4",
       "signal": "Defends local group belonging without requiring uniform ideology.",
       "placement_relevance": "Moderate Gruul match signal.",
       "supports_match_when": "The user prefers small fierce circles, crews, families, or clans over formal mass organizations.",
@@ -519,6 +612,7 @@
       "confidence": "Medium"
     },
     {
+      "signal_id": "gruul_signal_5",
       "signal": "Can use cunning, stealth, or terrain rather than only brute force.",
       "placement_relevance": "Prevents shallow matching that treats Gruul as only big and loud.",
       "supports_match_when": "The user favors practical ambush, terrain advantage, embodied skill, or opportunistic survival.",
@@ -530,6 +624,7 @@
       "confidence": "Medium"
     },
     {
+      "signal_id": "gruul_signal_6",
       "signal": "Protective anger toward land, memory, or local autonomy",
       "placement_relevance": "Differentiates Gruul from factions that value rebellion as abstraction, spectacle, or opportunism.",
       "supports_match_when": "The user gets angry when institutions drain vitality, erase older stories, or call destructive control progress.",
@@ -543,6 +638,7 @@
       "confidence": "Medium"
     },
     {
+      "signal_id": "gruul_signal_7",
       "signal": "Embodied craft or scouting as real contribution",
       "placement_relevance": "Prevents the engine from reducing Gruul to only the loudest fighter.",
       "supports_match_when": "The user values hands-on skill, field observation, practical magic, or preserving group memory through craft.",
@@ -561,25 +657,25 @@
       "placement_relevance": "Strengthens Gruul Clans with corpus-backed specificity.",
       "supports_match_when": "The user's answers echo Gruul Clans, Gruul, Borborygmos, Domri Rade, Rubblebelt, Nikya of the Old Ways in a faction-specific way.",
       "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
-      "claim_ids": [
+      "confidence": "Medium",
+      "signal_id": "gruul_discovery_signal_story_corpus_specificity",
+      "evidence_use": "discovery_metadata",
+      "discovery_use_only": true,
+      "semantic_restriction": "Retained for corpus-search/history only; not semantic proof for profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, public copy, or provenance chains.",
+      "notes": "Retained to preserve frozen confidence surface; discovery-only story-corpus signal is metadata only.",
+      "retained_discovery_claim_ids": [
         "gruul_clans_claim_0074",
         "gruul_clans_claim_0075",
         "gruul_clans_claim_0076",
         "gruul_clans_claim_0077",
         "gruul_clans_claim_0078",
         "gruul_clans_claim_0079"
-      ],
-      "confidence": "Medium"
-    },
-    "names something real that was taken by a system",
-    "chooses direct physical or communal survival over negotiation with institutions",
-    "frames wildness as sacred, endangered, and worth defending",
-    "names what a system took",
-    "defends wildness as sacred",
-    "chooses direct survival over institutional negotiation"
+      ]
+    }
   ],
   "inhibitor_traits": [
     {
+      "trait_id": "gruul_inhibitor_1",
       "trait": "Bureaucratic deference",
       "why_it_conflicts": "Gruul is defined by anti-civilization, loose affiliation, strength-based leadership, and hostility toward encroaching systems.",
       "status": "Supported Interpretation",
@@ -594,6 +690,7 @@
       "notes": "This is the strongest inhibitor trait for placement."
     },
     {
+      "trait_id": "gruul_inhibitor_2",
       "trait": "Comfort with urban expansion as automatic progress",
       "why_it_conflicts": "Official sources frame Gruul trauma and rage around urban growth destroying wild places and natural beauty.",
       "status": "Supported Interpretation",
@@ -608,6 +705,7 @@
       "notes": "Distinguish from a user who likes cities but criticizes extractive systems."
     },
     {
+      "trait_id": "gruul_inhibitor_3",
       "trait": "Need for stable centralized leadership",
       "why_it_conflicts": "Gruul clan structure is unstable, loose, and often follows whoever seems strongest at the moment.",
       "status": "Supported Interpretation",
@@ -621,6 +719,7 @@
       "notes": "This does not mean Gruul lacks belonging; it means belonging is not primarily bureaucratic."
     },
     {
+      "trait_id": "gruul_inhibitor_4",
       "trait": "Pure thrill-seeking destruction",
       "why_it_conflicts": "Expanded story evidence supports destruction and Rage as tied to territory, memory, ecological survival, bloodcrime, or old-ways defense, not only spectacle.",
       "status": "Supported Interpretation",
@@ -637,25 +736,23 @@
       "trait": "Generic color-pair overfit",
       "why_it_conflicts": "The corpus upgrade is intended to prevent Gruul Clans from winning on broad color identity alone.",
       "status": "Supported Interpretation",
-      "claim_ids": [
+      "confidence": "Medium",
+      "notes": "Retained to preserve frozen confidence surface; discovery-only corpus terms are metadata and cannot prove overfit guidance.",
+      "trait_id": "gruul_discovery_inhibitor_generic_color_pair_overfit",
+      "evidence_use": "discovery_metadata",
+      "discovery_use_only": true,
+      "semantic_restriction": "Retained for corpus-search/history only; not semantic proof for profile identity, placement identity, generated key figures, recruiter guidance, semantic readiness, public copy, or provenance chains.",
+      "retained_discovery_claim_ids": [
         "gruul_clans_claim_0074",
         "gruul_clans_claim_0075",
         "gruul_clans_claim_0076",
         "gruul_clans_claim_0077"
-      ],
-      "confidence": "Medium",
-      "notes": "Use collision questions when another faction shares the same or adjacent colors."
-    },
-    "expresses generic rage without loss or dispossession",
-    "treats chaos as performance rather than grief",
-    "focuses on decay and renewal rather than ruined wildness",
-    "chooses archive/history interest over present anti-civilization pressure",
-    "chaos as performance",
-    "decay as renewal",
-    "historical curiosity instead of present grievance"
+      ]
+    }
   ],
   "good_fit_indicators": [
     {
+      "indicator_id": "gruul_good_fit_1",
       "indicator": "The user sees broken systems as things to dismantle, not merely optimize.",
       "rationale": "Gruul sources repeatedly frame civilization itself as the threat when it destroys wildness.",
       "claim_ids": [
@@ -666,6 +763,7 @@
       "confidence": "High"
     },
     {
+      "indicator_id": "gruul_good_fit_2",
       "indicator": "The user values raw honesty, presence, physicality, or courage under pressure.",
       "rationale": "Gruul leadership and mechanics emphasize strength, action, combat, and immediacy.",
       "claim_ids": [
@@ -677,6 +775,7 @@
       "confidence": "High"
     },
     {
+      "indicator_id": "gruul_good_fit_3",
       "indicator": "The user is protective of wild places, old ways, or erased local stories.",
       "rationale": "Official sources tie Gruul history and Rage to wilderness destruction and lost stories.",
       "claim_ids": [
@@ -688,6 +787,7 @@
       "confidence": "High"
     },
     {
+      "indicator_id": "gruul_good_fit_4",
       "indicator": "The user prefers fiercely loyal small groups over polished institutions.",
       "rationale": "Gruul is clan-based, and official story material treats clanlessness as dangerous.",
       "claim_ids": [
@@ -698,6 +798,7 @@
       "confidence": "Medium"
     },
     {
+      "indicator_id": "gruul_good_fit_5",
       "indicator": "Your anger is protective before it is performative",
       "rationale": "Story evidence supports Gruul Rage as a response to territory, old stories, bloodcrime, and the dying Rubblebelt.",
       "claim_ids": [
@@ -709,6 +810,7 @@
       "confidence": "Medium"
     },
     {
+      "indicator_id": "gruul_good_fit_6",
       "indicator": "You respect practical field skill over polished institutional status",
       "rationale": "The added stories show scouts, shamans, tattoo-artists, and improvised magic as meaningful Gruul contributions.",
       "claim_ids": [
@@ -723,6 +825,7 @@
   ],
   "poor_fit_indicators": [
     {
+      "indicator_id": "gruul_poor_fit_1",
       "indicator": "The user treats law, process, or official structure as inherently legitimate.",
       "rationale": "Gruul is one of the clearest anti-civilization and anti-bureaucratic placements.",
       "claim_ids": [
@@ -733,6 +836,7 @@
       "confidence": "High"
     },
     {
+      "indicator_id": "gruul_poor_fit_2",
       "indicator": "The user dislikes conflict so strongly that they avoid direct action even when something living is being harmed.",
       "rationale": "Gruul mechanics and story behavior heavily reward immediate force and confrontation.",
       "claim_ids": [
@@ -744,6 +848,7 @@
       "confidence": "High"
     },
     {
+      "indicator_id": "gruul_poor_fit_3",
       "indicator": "The user wants group identity to be peaceful, harmonious, and centrally unified.",
       "rationale": "Gruul is clan-fragmented, conflict-heavy, and strength-driven rather than consensus-driven.",
       "claim_ids": [
@@ -755,6 +860,7 @@
       "confidence": "High"
     },
     {
+      "indicator_id": "gruul_poor_fit_4",
       "indicator": "The user primarily wants secrecy, leverage, or information control.",
       "rationale": "Gruul can use stealth tactically, but its core match is not hidden information dominance.",
       "claim_ids": [
@@ -764,6 +870,7 @@
       "confidence": "Medium"
     },
     {
+      "indicator_id": "gruul_poor_fit_5",
       "indicator": "You need official authority to validate harm before you care about it",
       "rationale": "The Gruul signal strengthens when a user responds directly to visible harm, defilement, or land-draining systems without waiting for institutional permission.",
       "claim_ids": [
@@ -1088,16 +1195,455 @@
   },
   "collision_guidance": [
     {
+      "collision_id": "gruul_vs_generic_rg_overfit_gate3",
+      "against": "RG",
+      "lateral_inhibition": false,
+      "separator": "Generic red-green aggression or creature combat is not Gruul unless lost wildness, clan/territory, Rubblebelt, old ways, or anti-civilization grievance leads.",
+      "ask": "Is this specifically about what the city took from wild places and clans, or only RG combat pressure?",
+      "suppress_if": "Suppress Gruul when the answer is only creatures, combat, power, damage, or generic red-green tempo.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0080"
+      ]
+    },
+    {
+      "collision_id": "gruul_vs_red_impulse_gate3",
+      "against": "R",
+      "lateral_inhibition": false,
+      "separator": "Red can be emotion and freedom alone; Gruul binds rage to wildness, clan, territory, and dispossession.",
+      "ask": "Is the impulse rooted in clan/wild loss, or just immediate feeling?",
+      "suppress_if": "Suppress Gruul when emotion or freedom lacks wild, territorial, or clan context.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0081"
+      ]
+    },
+    {
+      "collision_id": "gruul_vs_green_nature_gate3",
+      "against": "G",
+      "lateral_inhibition": false,
+      "separator": "Green can accept nature and role; Gruul makes wildness a conflict against the city and imposed civilization.",
+      "ask": "Is nature being accepted, or is the city being opposed for taking wild places?",
+      "suppress_if": "Suppress Gruul when nature/growth/instinct lacks anti-city grievance or clan pressure.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0082"
+      ]
+    },
+    {
       "collision_id": "collision_gruul_rakdos_tuned",
-      "against": "cult_of_rakdos",
-      "separator": "Gruul chaos is grief and grievance from dispossession; Rakdos chaos is performance, sensation, and transgressive honesty.",
-      "ask": "Is the destruction about showing people the truth of the moment, or about answering something that was taken from you?"
+      "against": "BR",
+      "lateral_inhibition": false,
+      "separator": "Rakdos performs release, spectacle, and provocation; Gruul answers dispossession, territory, old ways, and wild reclamation.",
+      "ask": "Is the destruction a public act/audience, or an answer to what was taken?",
+      "suppress_if": "Suppress Gruul when spectacle, audience, sensation, or provocation leads.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0083"
+      ]
     },
     {
       "collision_id": "collision_gruul_golgari_tuned",
-      "against": "golgari_swarm",
-      "separator": "Gruul mourns the wild places civilization destroyed; Golgari accepts decay and builds a society from what the city throws below.",
-      "ask": "When something dies, do you feel the urge to avenge what was lost or cultivate what grows from it?"
+      "against": "BG",
+      "lateral_inhibition": false,
+      "separator": "Golgari turns death, rot, and waste into survival; Gruul mourns wild places the city destroyed and pushes back through clan pressure.",
+      "ask": "Is the core rot/reclamation, or the wild being taken by civilization?",
+      "suppress_if": "Suppress Gruul when decay, undercity food, graveyard resources, or death-to-life cycles lead.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0084"
+      ]
+    },
+    {
+      "collision_id": "gruul_vs_boros_discipline_gate3",
+      "against": "WR",
+      "lateral_inhibition": false,
+      "separator": "Boros uses force as public duty and disciplined protection; Gruul force is clan/wild resistance outside civic order.",
+      "ask": "Is force accountable to public duty, or refusing imposed civilization?",
+      "suppress_if": "Suppress Gruul when civic protection, discipline, teamwork, or public order leads.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0085"
+      ]
+    },
+    {
+      "collision_id": "gruul_vs_izzet_invention_gate3",
+      "against": "UR",
+      "lateral_inhibition": false,
+      "separator": "Izzet turns energy into experiment and invention; Gruul improvisation is embodied territorial response.",
+      "ask": "Is the answer building/testing, or moving from wild/clan pressure?",
+      "suppress_if": "Suppress Gruul when experiment, invention, technique, or laboratory curiosity leads.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0086"
+      ]
+    },
+    {
+      "collision_id": "gruul_vs_simic_adaptation_gate3",
+      "against": "UG",
+      "lateral_inhibition": false,
+      "separator": "Simic optimizes and adapts biology; Gruul fights the loss of wild places and imposed civilization.",
+      "ask": "Is nature being improved, or defended against the city?",
+      "suppress_if": "Suppress Gruul when adaptation, optimization, or biological design leads.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0087"
+      ]
+    },
+    {
+      "collision_id": "gruul_vs_selesnya_harmony_gate3",
+      "against": "WG",
+      "lateral_inhibition": false,
+      "separator": "Selesnya centers harmony and shared unity; Gruul centers loose clans, autonomy, and direct conflict.",
+      "ask": "Is belonging harmonized consensus, or local clan survival against the city?",
+      "suppress_if": "Suppress Gruul when spiritual unity, harmony, and consensus lead.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0088"
+      ]
+    },
+    {
+      "collision_id": "gruul_vs_jund_predation_gate3",
+      "against": "JUND",
+      "lateral_inhibition": false,
+      "separator": "Jund appetite and dominance are not enough; Gruul strength must stay tied to clan, territory, old ways, or anti-civilization grievance.",
+      "ask": "Is this predatory dominance, or a clan answering dispossession?",
+      "suppress_if": "Suppress Gruul when survival appetite, predator hierarchy, or dominance leads.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0089"
+      ]
+    },
+    {
+      "collision_id": "gruul_vs_naya_grandeur_gate3",
+      "against": "NAYA",
+      "lateral_inhibition": false,
+      "separator": "Naya creature grandeur and communal awe are not enough; Gruul force is sharpened by dispossession and wild reclamation.",
+      "ask": "Is the large-force appeal awe/champion/community, or the wild answering the city?",
+      "suppress_if": "Suppress Gruul when awe, communal celebration, or champion grandeur leads.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0090"
+      ]
+    },
+    {
+      "collision_id": "gruul_vs_temur_wilderness_gate3",
+      "against": "TEMUR",
+      "lateral_inhibition": false,
+      "separator": "Temur wilderness or instinct is broader than Gruul; Gruul must remain Ravnican, clan, Rubblebelt, and anti-city framed.",
+      "ask": "Is this broad wilderness endurance, or Ravnican clan grievance against civilization?",
+      "suppress_if": "Suppress Gruul when elemental endurance or general wilderness wisdom leads.",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0091"
+      ]
     }
-  ]
+  ],
+  "semantic_guidance_evidence": [
+    {
+      "guidance_id": "gruul_how_to_recognize_match_1",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "gruul_how_to_recognize_match_1",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_timeline_0030",
+        "claim_gruul_clans_philosophy_0033",
+        "claim_gruul_clans_placement_0001"
+      ]
+    },
+    {
+      "guidance_id": "gruul_how_to_recognize_match_2",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "gruul_how_to_recognize_match_2",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_mechanic_0040",
+        "claim_gruul_clans_mechanic_0043",
+        "claim_gruul_clans_placement_0002"
+      ]
+    },
+    {
+      "guidance_id": "gruul_how_to_recognize_match_3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "gruul_how_to_recognize_match_3",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_philosophy_0009",
+        "claim_gruul_clans_structure_0034",
+        "claim_gruul_clans_placement_0002"
+      ]
+    },
+    {
+      "guidance_id": "gruul_how_to_recognize_match_4",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/3",
+      "canonical_id": "gruul_how_to_recognize_match_4",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_structure_0005",
+        "claim_gruul_clans_location_0024",
+        "claim_gruul_clans_philosophy_0049"
+      ]
+    },
+    {
+      "guidance_id": "gruul_how_to_recognize_match_5",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/4",
+      "canonical_id": "gruul_how_to_recognize_match_5",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_philosophy_0050",
+        "claim_gruul_clans_philosophy_0051",
+        "claim_gruul_clans_placement_0072"
+      ]
+    },
+    {
+      "guidance_id": "gruul_how_to_recognize_match_6",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/5",
+      "canonical_id": "gruul_how_to_recognize_match_6",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_philosophy_0063",
+        "claim_gruul_clans_relationship_0064",
+        "claim_gruul_clans_timeline_0065",
+        "claim_gruul_clans_placement_0072"
+      ]
+    },
+    {
+      "guidance_id": "gruul_how_to_recognize_match_7",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/6",
+      "canonical_id": "gruul_how_to_recognize_match_7",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_key_figure_0053",
+        "claim_gruul_clans_structure_0055",
+        "claim_gruul_clans_philosophy_0059",
+        "claim_gruul_clans_placement_0073"
+      ]
+    },
+    {
+      "guidance_id": "gruul_how_to_recognize_mismatch_1",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "gruul_how_to_recognize_mismatch_1",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0085",
+        "claim_gruul_clans_placement_0004"
+      ]
+    },
+    {
+      "guidance_id": "gruul_how_to_recognize_mismatch_2",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "gruul_how_to_recognize_mismatch_2",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0088"
+      ]
+    },
+    {
+      "guidance_id": "gruul_how_to_recognize_mismatch_3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "gruul_how_to_recognize_mismatch_3",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0086"
+      ]
+    },
+    {
+      "guidance_id": "gruul_how_to_recognize_mismatch_4",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "gruul_how_to_recognize_mismatch_4",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0087",
+        "claim_gruul_clans_placement_0003"
+      ]
+    },
+    {
+      "guidance_id": "gruul_how_to_recognize_mismatch_5",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/4",
+      "canonical_id": "gruul_how_to_recognize_mismatch_5",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_structure_0011",
+        "claim_gruul_clans_structure_0034",
+        "claim_gruul_clans_structure_0048"
+      ]
+    },
+    {
+      "guidance_id": "gruul_how_to_recognize_mismatch_6",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/5",
+      "canonical_id": "gruul_how_to_recognize_mismatch_6",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0080",
+        "claim_gruul_clans_collision_0083",
+        "claim_gruul_clans_placement_0072"
+      ]
+    },
+    {
+      "guidance_id": "gruul_questions_to_ask_when_uncertain_1",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_id": "gruul_questions_to_ask_when_uncertain_1",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_philosophy_0050",
+        "claim_gruul_clans_philosophy_0051",
+        "claim_gruul_clans_placement_0072"
+      ]
+    },
+    {
+      "guidance_id": "gruul_questions_to_ask_when_uncertain_2",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_id": "gruul_questions_to_ask_when_uncertain_2",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_philosophy_0010",
+        "claim_gruul_clans_philosophy_0033",
+        "claim_gruul_clans_placement_0001"
+      ]
+    },
+    {
+      "guidance_id": "gruul_questions_to_ask_when_uncertain_3",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/2",
+      "canonical_id": "gruul_questions_to_ask_when_uncertain_3",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_philosophy_0009",
+        "claim_gruul_clans_structure_0034",
+        "claim_gruul_clans_placement_0002"
+      ]
+    },
+    {
+      "guidance_id": "gruul_questions_to_ask_when_uncertain_4",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/3",
+      "canonical_id": "gruul_questions_to_ask_when_uncertain_4",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0088",
+        "claim_gruul_clans_collision_0086",
+        "claim_gruul_clans_collision_0083"
+      ]
+    },
+    {
+      "guidance_id": "gruul_questions_to_ask_when_uncertain_5",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/4",
+      "canonical_id": "gruul_questions_to_ask_when_uncertain_5",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_timeline_0029",
+        "claim_gruul_clans_timeline_0030",
+        "claim_gruul_clans_philosophy_0033",
+        "claim_gruul_clans_placement_0003"
+      ]
+    },
+    {
+      "guidance_id": "gruul_questions_to_ask_when_uncertain_6",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/5",
+      "canonical_id": "gruul_questions_to_ask_when_uncertain_6",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_philosophy_0050",
+        "claim_gruul_clans_philosophy_0063",
+        "claim_gruul_clans_placement_0072"
+      ]
+    },
+    {
+      "guidance_id": "gruul_questions_to_ask_when_uncertain_7",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/6",
+      "canonical_id": "gruul_questions_to_ask_when_uncertain_7",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0082",
+        "claim_gruul_clans_collision_0087",
+        "claim_gruul_clans_collision_0088"
+      ]
+    }
+  ],
+  "required_neighbor_evidence": [
+    {
+      "neighbor_evidence_id": "gruul_required_neighbor_generic_rg_overfit",
+      "neighbor": "GENERIC_RG_OVERFIT",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0080"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Gruul-side proof."
+    },
+    {
+      "neighbor_evidence_id": "gruul_required_neighbor_r",
+      "neighbor": "R",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0081"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Gruul-side proof."
+    },
+    {
+      "neighbor_evidence_id": "gruul_required_neighbor_g",
+      "neighbor": "G",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0082"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Gruul-side proof."
+    },
+    {
+      "neighbor_evidence_id": "gruul_required_neighbor_br",
+      "neighbor": "BR",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0083"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Gruul-side proof."
+    },
+    {
+      "neighbor_evidence_id": "gruul_required_neighbor_bg",
+      "neighbor": "BG",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0084"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Gruul-side proof."
+    },
+    {
+      "neighbor_evidence_id": "gruul_required_neighbor_wr",
+      "neighbor": "WR",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0085"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Gruul-side proof."
+    },
+    {
+      "neighbor_evidence_id": "gruul_required_neighbor_ur",
+      "neighbor": "UR",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0086"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Gruul-side proof."
+    },
+    {
+      "neighbor_evidence_id": "gruul_required_neighbor_ug",
+      "neighbor": "UG",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0087"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Gruul-side proof."
+    },
+    {
+      "neighbor_evidence_id": "gruul_required_neighbor_wg",
+      "neighbor": "WG",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0088"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Gruul-side proof."
+    },
+    {
+      "neighbor_evidence_id": "gruul_required_neighbor_jund",
+      "neighbor": "JUND",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0089"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Gruul-side proof."
+    },
+    {
+      "neighbor_evidence_id": "gruul_required_neighbor_naya",
+      "neighbor": "NAYA",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0090"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Gruul-side proof."
+    },
+    {
+      "neighbor_evidence_id": "gruul_required_neighbor_temur",
+      "neighbor": "TEMUR",
+      "evidence_claim_ids": [
+        "claim_gruul_clans_collision_0091"
+      ],
+      "guidance": "Required neighbor retained from Gate 1+2; collision is non-inhibiting and source-bounded to Gruul-side proof."
+    }
+  ],
+  "semantic_readiness": {
+    "contract_version": "v1.1",
+    "gate": "gate_3_canonical_remediation",
+    "certification_status": "not_certified",
+    "audit_report": "docs/incidents/recoveries/VM-512-gruul-semantic-recovery.md",
+    "required_neighbors": [
+      "GENERIC_RG_OVERFIT",
+      "R",
+      "G",
+      "BR",
+      "BG",
+      "WR",
+      "UR",
+      "UG",
+      "WG",
+      "JUND",
+      "NAYA",
+      "TEMUR"
+    ],
+    "generated_artifacts_status": "stale_until_gate4_generation",
+    "notes": "Do not certify or create an approval from this field; it records Gate 3 canonical readiness inputs only."
+  }
 }
