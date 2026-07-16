@@ -1,7 +1,7 @@
 # VM-511 — Golgari Semantic Recovery
 
 ID: VM-511
-Status: Awaiting Independent Review - Gate 5 candidate created; not certified
+Status: Awaiting Independent Review - replacement Gate 5 candidate created; not certified
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: BG
@@ -46,7 +46,8 @@ Recover Golgari end to end under CRIT-001: audit the existing packet, bound read
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-511-golgari-semantic-recovery.md`
-- Candidate recovery SHA: `a649c306f19d0be3c9f09f549163200761ce9e15`
+- Rejected candidate recovery SHA: `a649c306f19d0be3c9f09f549163200761ce9e15`
+- Replacement candidate recovery SHA: `bb0105f3f2d91a7696aefc004254fc52dc37cd85`
 - Independent reviewer: pending
 - Certification commit: pending
 
@@ -59,5 +60,19 @@ Recover Golgari end to end under CRIT-001: audit the existing packet, bound read
 - Candidate-scope dry-run passed for BG against `da25a3aa43e88fa46e37ca82b76e066631ae53d5..f4be0db534bd9748972cdfb20749b7e6a912d37d`.
 - Candidate-scope actual result passed for BG against `da25a3aa43e88fa46e37ca82b76e066631ae53d5..HEAD`.
 - Golgari is awaiting independent exact-SHA review.
+- Golgari is not certified.
+- No VM-512 or other identity has started.
+
+## Gate 5 Review-Fix Replacement Record - 2026-07-16
+
+- Rejected candidate commit: `a649c306f19d0be3c9f09f549163200761ce9e15`.
+- Rejected workflow-record commit: `c35fa9b59a34182c83539ed2c002f94115ae54fe`.
+- Independent review decision addressed: `REQUEST CHANGES`.
+- Blocker 1 fixed: required BG authoritative/generated-consumed provenance rows now have non-null canonical IDs; content hashes remain non-null.
+- Blocker 2 fixed: stale high-risk Golgari public/recruiter copy was narrowed away from unsupported `Nothing is wasted`, `Everything feeds something else`, `most honest guild`, and broad political/rot-death framing.
+- Replacement candidate commit: `bb0105f3f2d91a7696aefc004254fc52dc37cd85`.
+- Replacement workflow-record commit: pending in this commit.
+- Candidate-scope actual result passed for BG against `c35fa9b59a34182c83539ed2c002f94115ae54fe..bb0105f3f2d91a7696aefc004254fc52dc37cd85`.
+- Golgari is awaiting independent exact-SHA review of the replacement candidate.
 - Golgari is not certified.
 - No VM-512 or other identity has started.

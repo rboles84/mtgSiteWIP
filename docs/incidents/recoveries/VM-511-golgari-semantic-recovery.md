@@ -384,3 +384,48 @@ Final VM-511 implementation status:
 - Golgari is not certified.
 - No VM-512 or other identity was started.
 - Original main worktree remained untouched; its only observed changes were the allowed pre-existing docs/workflow baseline.
+
+## Gate 5 Review Findings Remediation - Replacement Candidate
+
+Independent review returned `REQUEST CHANGES` for candidate `a649c306f19d0be3c9f09f549163200761ce9e15` and workflow-record `c35fa9b59a34182c83539ed2c002f94115ae54fe`.
+
+Review blockers remediated:
+
+- BG provenance null canonical IDs: added native canonical ID fields to Golgari raw profile and placement objects that produce authoritative/generated-consumed provenance rows, then regenerated semantic provenance.
+- Stale high-risk public/recruiter copy: narrowed BG display and recruiter copy away from `Nothing is wasted. Everything feeds something else.`, `The most honest guild on Ravnica`, and broad political/rot-death framing; updated auxiliary Commander Compass phrasing so stale public phrases do not survive as generated texture.
+
+Replacement candidate record:
+
+- Rejected candidate SHA: `a649c306f19d0be3c9f09f549163200761ce9e15`
+- Rejected workflow-record SHA: `c35fa9b59a34182c83539ed2c002f94115ae54fe`
+- Replacement candidate SHA: `bb0105f3f2d91a7696aefc004254fc52dc37cd85`
+- Replacement workflow-record SHA: pending in this workflow-record commit.
+- Review decision being addressed: `REQUEST CHANGES`
+- Status: awaiting independent exact-SHA review.
+- Certification SHA: blank; Golgari is not certified.
+- No VM-512 or other identity was started.
+
+Replacement validation results:
+
+- JSON parse checks for Golgari raw files - passed.
+- `npm.cmd run build:factions` - passed.
+- Explicit BG provenance check - 80 BG entries, 0 null `canonical_id`, 0 null `canonical_content_hash`, 0 null file/pointer values.
+- Explicit discovery-chain check - 0 non-substantive BG provenance chain references.
+- Explicit stale-copy scan - no matches for `Nothing is wasted`, `Everything feeds something else`, `most honest guild`, `most philosophically consistent`, `city that ignores its dead`, `civic-death`, or `civic death`.
+- `node research/audit-semantic-readiness.mjs --targets=BG` - passed.
+- `node research/validate-semantic-readiness.mjs --targets=BG` - passed.
+- `node research/semantic-candidate-scope-tests.js` - passed.
+- `npm.cmd run test:semantic-readiness` - passed and verified 1616 semantic provenance entries.
+- `npm.cmd run test:placement` - passed with 37 factions and 37 golden paths.
+- `npm.cmd run test:faction-context-isolation` - passed.
+- `npm.cmd run test:source-generated` - passed with unchanged JESKAI/MARDU builder-owned inhibitor warnings.
+- `npm.cmd test` - passed.
+- Candidate-scope actual result: passed for BG using `c35fa9b59a34182c83539ed2c002f94115ae54fe..bb0105f3f2d91a7696aefc004254fc52dc37cd85`.
+- `git diff --check` - passed.
+
+Final replacement status:
+
+- Golgari is awaiting independent exact-SHA review of replacement candidate `bb0105f3f2d91a7696aefc004254fc52dc37cd85`.
+- Golgari is not certified.
+- No VM-512 or other identity was started.
+- Original main worktree remained untouched; its only observed changes were the allowed pre-existing docs/workflow baseline.
