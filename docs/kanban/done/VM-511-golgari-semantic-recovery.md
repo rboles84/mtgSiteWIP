@@ -1,7 +1,7 @@
 # VM-511 — Golgari Semantic Recovery
 
 ID: VM-511
-Status: Awaiting Independent Review - replacement Gate 5 candidate created; not certified
+Status: Done
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: BG
@@ -15,11 +15,11 @@ Recover Golgari end to end under CRIT-001: audit the existing packet, bound read
 
 ## Gates
 
-- [ ] Gate 1 — Packet audit and bounded disposition.
-- [ ] Gate 2 — Sufficient evidence completion.
-- [ ] Gate 3 — Canonical remediation.
-- [ ] Gate 4 — Generation and validation.
-- [ ] Gate 5 — Independent certification.
+- [x] Gate 1 - Packet audit and bounded disposition.
+- [x] Gate 2 - Sufficient evidence completion.
+- [x] Gate 3 - Canonical remediation.
+- [x] Gate 4 - Generation and validation.
+- [x] Gate 5 - Independent certification.
 
 ## Gate 1+2 Audit Result - 2026-07-16
 
@@ -48,14 +48,14 @@ Recover Golgari end to end under CRIT-001: audit the existing packet, bound read
 - Audit/recovery report: `docs/incidents/recoveries/VM-511-golgari-semantic-recovery.md`
 - Rejected candidate recovery SHA: `a649c306f19d0be3c9f09f549163200761ce9e15`
 - Replacement candidate recovery SHA: `bb0105f3f2d91a7696aefc004254fc52dc37cd85`
-- Independent reviewer: pending
-- Certification commit: pending
+- Independent reviewer: APPROVE EXACT SHA bb0105f3f2d91a7696aefc004254fc52dc37cd85
+- Certification commit: this VM-511 certification commit; exact SHA reported in final task output
 
 ## Gate 5 Candidate Record - 2026-07-16
 
 - Gate 1+2 report commit: `da25a3aa43e88fa46e37ca82b76e066631ae53d5`.
 - Candidate commit: `a649c306f19d0be3c9f09f549163200761ce9e15`.
-- Workflow-record commit: pending in this commit.
+- Workflow-record commit: `c35fa9b59a34182c83539ed2c002f94115ae54fe`.
 - Gate 3+4 remediation, generation, fixtures, and validation are complete.
 - Candidate-scope dry-run passed for BG against `da25a3aa43e88fa46e37ca82b76e066631ae53d5..f4be0db534bd9748972cdfb20749b7e6a912d37d`.
 - Candidate-scope actual result passed for BG against `da25a3aa43e88fa46e37ca82b76e066631ae53d5..HEAD`.
@@ -71,8 +71,33 @@ Recover Golgari end to end under CRIT-001: audit the existing packet, bound read
 - Blocker 1 fixed: required BG authoritative/generated-consumed provenance rows now have non-null canonical IDs; content hashes remain non-null.
 - Blocker 2 fixed: stale high-risk Golgari public/recruiter copy was narrowed away from unsupported `Nothing is wasted`, `Everything feeds something else`, `most honest guild`, and broad political/rot-death framing.
 - Replacement candidate commit: `bb0105f3f2d91a7696aefc004254fc52dc37cd85`.
-- Replacement workflow-record commit: pending in this commit.
+- Replacement workflow-record commit: `42fc49a08e4c52c326be8538c13f3d505bcb8fec`.
 - Candidate-scope actual result passed for BG against `c35fa9b59a34182c83539ed2c002f94115ae54fe..bb0105f3f2d91a7696aefc004254fc52dc37cd85`.
 - Golgari is awaiting independent exact-SHA review of the replacement candidate.
 - Golgari is not certified.
 - No VM-512 or other identity has started.
+
+## Certification and Program Acceptance
+
+- Certified: 2026-07-16.
+- Identity: Golgari.
+- Target: BG.
+- VM: VM-511.
+- Contract version: v1.1.
+- Independent review decision: `APPROVE EXACT SHA bb0105f3f2d91a7696aefc004254fc52dc37cd85`.
+- Final certification state: `semantically_ready`.
+- Approved replacement candidate SHA: `bb0105f3f2d91a7696aefc004254fc52dc37cd85`.
+- Replacement workflow-record SHA: `42fc49a08e4c52c326be8538c13f3d505bcb8fec`.
+- Rejected candidate SHA: `a649c306f19d0be3c9f09f549163200761ce9e15`.
+- Rejected workflow-record SHA: `c35fa9b59a34182c83539ed2c002f94115ae54fe`.
+- Gate 1+2 report SHA: `da25a3aa43e88fa46e37ca82b76e066631ae53d5`.
+- Remaining findings: none reported at blocker, high, medium, or low severity.
+- Validation passed before certification commit.
+- Certification commit: this VM-511 certification commit; exact SHA reported in final task output.
+
+Program acceptance:
+
+- Approved replacement candidate and workflow-record commit accepted into the CRIT-001 program base.
+- VM-511 closed as Done.
+- Next identity set as Gruul / RG for branch setup only.
+- No VM-512 remediation started.

@@ -399,7 +399,7 @@ Replacement candidate record:
 - Rejected candidate SHA: `a649c306f19d0be3c9f09f549163200761ce9e15`
 - Rejected workflow-record SHA: `c35fa9b59a34182c83539ed2c002f94115ae54fe`
 - Replacement candidate SHA: `bb0105f3f2d91a7696aefc004254fc52dc37cd85`
-- Replacement workflow-record SHA: pending in this workflow-record commit.
+- Replacement workflow-record SHA: `42fc49a08e4c52c326be8538c13f3d505bcb8fec`.
 - Review decision being addressed: `REQUEST CHANGES`
 - Status: awaiting independent exact-SHA review.
 - Certification SHA: blank; Golgari is not certified.
@@ -429,3 +429,44 @@ Final replacement status:
 - Golgari is not certified.
 - No VM-512 or other identity was started.
 - Original main worktree remained untouched; its only observed changes were the allowed pre-existing docs/workflow baseline.
+
+## Certification and Program Acceptance - 2026-07-16
+
+### Certification decision
+
+- Independent review decision: `APPROVE EXACT SHA bb0105f3f2d91a7696aefc004254fc52dc37cd85`.
+- Approved replacement candidate SHA: `bb0105f3f2d91a7696aefc004254fc52dc37cd85`.
+- Replacement workflow-record SHA: `42fc49a08e4c52c326be8538c13f3d505bcb8fec`.
+- Rejected candidate SHA remains rejected: `a649c306f19d0be3c9f09f549163200761ce9e15`.
+- Rejected workflow-record SHA remains rejected: `c35fa9b59a34182c83539ed2c002f94115ae54fe`.
+- Gate 1+2 report SHA: `da25a3aa43e88fa46e37ca82b76e066631ae53d5`.
+- Identity: Golgari / BG.
+- VM: VM-511.
+- Contract: CRIT-001 Contract v1.1.
+- Final state: certified / `semantically_ready`.
+- Remaining findings: no blocker, high, medium, or low findings reported by the approving review.
+
+### Review-safe validation before certification
+
+- `git status --short --branch`: clean on `codex/vm-511-golgari-semantic-recovery`.
+- Approved candidate exists in branch history: `bb0105f3f2d91a7696aefc004254fc52dc37cd85`.
+- Replacement workflow-record exists in branch history: `42fc49a08e4c52c326be8538c13f3d505bcb8fec`.
+- `node research/audit-semantic-readiness.mjs --targets=BG`: passed; 34 claims, 24 substantive, 10 discovery, 0 support, 0 unclassified.
+- `node research/validate-semantic-readiness.mjs --targets=BG`: passed.
+- `node research/semantic-candidate-scope-tests.js`: passed.
+- `npm.cmd run test:semantic-readiness`: passed; verified 1616 semantic provenance entries.
+- `npm.cmd run test:placement`: passed; 37 factions, 37 golden paths.
+- `npm.cmd run test:faction-context-isolation`: passed.
+- `npm.cmd run test:source-generated`: passed with unchanged JESKAI/MARDU model-owned inhibitor warnings.
+- `git diff --check`: passed before certification edits.
+
+### Certification scope
+
+- Certification is governance-only.
+- No semantic candidate files were edited during certification.
+- No generated artifacts, provenance, or fixtures were edited during certification.
+- No Contract v1.1, schema, builder, validator, Hall, Crucible, scoring, confidence, calibration, scheduling, tie-order, or global recruiter behavior changes were made.
+- Certification commit is self-referential in tracked governance records, so the exact SHA is reported in final task output; no second SHA-record commit was created.
+- VM-511 is closed as Done.
+- Gruul / RG is prepared only as the next branch setup identity; no VM-512 remediation was started.
+- Original main worktree `C:\dev\mtgSiteWIP` was checked read-only and not touched; only the known unrelated docs/workflow baseline was observed.

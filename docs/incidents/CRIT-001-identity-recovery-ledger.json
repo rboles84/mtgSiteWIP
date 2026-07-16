@@ -5,8 +5,8 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "GOLGARI",
-    "next_identity": "GOLGARI",
+    "active_identity": "GRUUL",
+    "next_identity": "GRUUL",
     "wip_limit": 1,
     "active_prerequisite": null,
     "prerequisite_candidate_sha": "6e53acd5691c85caf3328d3bd301ac18d07879e1",
@@ -1392,7 +1392,7 @@
           "sultai",
           "witherbloom"
         ],
-    "recruiter_context_size": 9966,
+        "recruiter_context_size": 9966,
         "creation_commit": "f6a1dd4644849ffb3bad6f1bba82f7cd55fa549a",
         "readiness_mentions": [],
         "provisional_risk_indicators": {
@@ -1400,17 +1400,17 @@
           "neighbors": []
         },
         "template_cohort_pattern": false,
-    "inventory_updated_at": "2026-07-16T20:00:00.000Z"
+        "inventory_updated_at": "2026-07-16T20:00:00.000Z"
       },
       "workflow": {
-        "current_gate": "gate_5_candidate_created",
-        "status": "awaiting_independent_review",
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": "2026-07-16T09:17:00-06:00",
-    "gate_entered_at": "2026-07-16T14:00:00-06:00",
+        "gate_entered_at": "2026-07-16T16:24:29-06:00",
         "blocked_at": null,
         "blocked_reason": null,
-        "next_identity": null,
-    "primary_disposition": "claim_extraction_pass_required; rejected Gate 5 candidate received REQUEST CHANGES; replacement candidate created and awaiting independent review. Golgari is not certified."
+        "next_identity": "GRUUL",
+        "primary_disposition": "Certified semantically_ready after independent review approved exact replacement candidate bb0105f3f2d91a7696aefc004254fc52dc37cd85; no remaining blocker/high/medium/low findings; VM-512 Gruul branch setup only, no remediation started."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -1430,40 +1430,71 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-511-golgari-semantic-recovery.md",
         "residual_findings": [
-      "Independent review returned REQUEST CHANGES for rejected candidate a649c306f19d0be3c9f09f549163200761ce9e15 and workflow-record c35fa9b59a34182c83539ed2c002f94115ae54fe.",
-      "Blocker 1 fixed in replacement candidate bb0105f3f2d91a7696aefc004254fc52dc37cd85: required BG authoritative/generated-consumed provenance rows have non-null canonical IDs and content hashes remain non-null.",
-      "Blocker 2 fixed in replacement candidate bb0105f3f2d91a7696aefc004254fc52dc37cd85: stale high-risk public/recruiter Golgari copy was narrowed away from unsupported broad rot/death/political framing.",
-      "Candidate-scope validation passed for BG against c35fa9b59a34182c83539ed2c002f94115ae54fe..bb0105f3f2d91a7696aefc004254fc52dc37cd85.",
-      "Discovery story-corpus records remain retained only as discovery metadata; authoritative/generated chains use substantive claims.",
-      "Golgari awaits independent exact-SHA review of the replacement candidate and is not certified."
+          "Independent review returned APPROVE EXACT SHA bb0105f3f2d91a7696aefc004254fc52dc37cd85.",
+          "No remaining blocker, high, medium, or low findings after the approving review.",
+          "Rejected candidate a649c306f19d0be3c9f09f549163200761ce9e15 remains rejected and is not certified.",
+          "Certification is governance-only; no semantic candidate, generated artifact, or fixture files changed during certification."
+        ],
+        "validation_summary": [
+          "Pre-certification git status confirmed the VM-511 worktree was clean on codex/vm-511-golgari-semantic-recovery.",
+          "Approved replacement candidate bb0105f3f2d91a7696aefc004254fc52dc37cd85 exists in branch history.",
+          "Replacement workflow-record 42fc49a08e4c52c326be8538c13f3d505bcb8fec exists in branch history.",
+          "node research/audit-semantic-readiness.mjs --targets=BG passed.",
+          "node research/validate-semantic-readiness.mjs --targets=BG passed.",
+          "node research/semantic-candidate-scope-tests.js passed.",
+          "npm.cmd run test:semantic-readiness passed and verified 1616 semantic provenance entries.",
+          "npm.cmd run test:placement passed with 37 factions and 37 golden paths.",
+          "npm.cmd run test:faction-context-isolation passed.",
+          "npm.cmd run test:source-generated passed with unchanged JESKAI/MARDU model-owned inhibitor warnings.",
+          "git diff --check passed before certification edits."
         ]
       },
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
-    "candidate_recovery_sha": "bb0105f3f2d91a7696aefc004254fc52dc37cd85",
-    "recovery_commit": "bb0105f3f2d91a7696aefc004254fc52dc37cd85",
-        "certification_commit": null,
-    "reviewer": "Robert / user-supplied independent Gate 5 review in this Codex thread",
-    "review_cycles": 1,
-        "approval_date": null,
-        "certified_at": null,
-    "candidate_parent_sha": "c35fa9b59a34182c83539ed2c002f94115ae54fe",
-    "candidate_recorded_at": "2026-07-16T14:00:00-06:00",
-    "workflow_record_commit": "PENDING_VM511_REPLACEMENT_WORKFLOW_RECORD_COMMIT_SHA",
-    "review_result": "changes_requested",
-    "final_state": "awaiting_independent_review",
-    "rejected_candidate_sha": "a649c306f19d0be3c9f09f549163200761ce9e15",
-    "rejected_workflow_sha": "c35fa9b59a34182c83539ed2c002f94115ae54fe",
-    "replacement_candidate_sha": "bb0105f3f2d91a7696aefc004254fc52dc37cd85",
-    "review_findings": {
-      "rejected_candidate_decision": "REQUEST CHANGES",
-      "blocker_1": "BG provenance had null canonical_id values on required authoritative/generated-consumed rows.",
-      "blocker_2": "Generated public/recruiter Golgari copy retained stale high-risk wording and broad unsupported rot/death framing.",
-      "replacement_status": "awaiting independent exact-SHA review"
-    },
+        "candidate_recovery_sha": "bb0105f3f2d91a7696aefc004254fc52dc37cd85",
+        "recovery_commit": "bb0105f3f2d91a7696aefc004254fc52dc37cd85",
+        "certification_commit": "PENDING_VM511_CERTIFICATION_COMMIT_SHA",
+        "reviewer": "Robert / user-supplied independent Gate 5 review in this Codex thread",
+        "review_cycles": 2,
+        "approval_date": "2026-07-16",
+        "certified_at": "2026-07-16T16:24:29-06:00",
+        "candidate_parent_sha": "c35fa9b59a34182c83539ed2c002f94115ae54fe",
+        "candidate_recorded_at": "2026-07-16T14:00:00-06:00",
+        "workflow_record_commit": "42fc49a08e4c52c326be8538c13f3d505bcb8fec",
+        "review_result": "approved_exact_sha",
+        "final_state": "semantically_ready",
+        "rejected_candidate_sha": "a649c306f19d0be3c9f09f549163200761ce9e15",
+        "rejected_workflow_sha": "c35fa9b59a34182c83539ed2c002f94115ae54fe",
+        "replacement_candidate_sha": "bb0105f3f2d91a7696aefc004254fc52dc37cd85",
+        "review_findings": {
+          "original_rejected_candidate_decision": "REQUEST CHANGES",
+          "original_blocker_1": "BG provenance had null canonical_id values on required authoritative/generated-consumed rows.",
+          "original_blocker_2": "Generated public/recruiter Golgari copy retained stale high-risk wording and broad unsupported rot/death framing.",
+          "replacement_review_decision": "APPROVE EXACT SHA bb0105f3f2d91a7696aefc004254fc52dc37cd85",
+          "remaining_findings": "none"
+        },
         "known_unchanged_warnings": [
           "Source/generated guardrail validation reports unchanged JESKAI and MARDU builder-owned inhibitor warnings only."
+        ],
+        "replacement_workflow_sha": "42fc49a08e4c52c326be8538c13f3d505bcb8fec",
+        "rejected_candidate_shas": [
+          "a649c306f19d0be3c9f09f549163200761ce9e15"
+        ],
+        "approved_replacement_candidate_sha": "bb0105f3f2d91a7696aefc004254fc52dc37cd85",
+        "independent_review_decision": "APPROVE EXACT SHA bb0105f3f2d91a7696aefc004254fc52dc37cd85",
+        "gate_1_2_report_sha": "da25a3aa43e88fa46e37ca82b76e066631ae53d5",
+        "remaining_findings": {
+          "blocker": [],
+          "high": [],
+          "medium": [],
+          "low": []
+        },
+        "validation_notes": [
+          "Review-safe certification validation passed before the governance-only certification commit.",
+          "No correction was required for the approved replacement candidate.",
+          "Source/generated guardrail validation retained unchanged JESKAI/MARDU model-owned inhibitor warnings only.",
+          "Exact certification commit SHA is self-referential in tracked governance records and is reported in the task final output."
         ]
       }
     },
