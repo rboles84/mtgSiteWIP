@@ -8,7 +8,7 @@ Generated from `CRIT-001-identity-recovery-ledger.json`. The JSON file is author
 - WIP limit: 1
 - Gate 0 hardening: VM-540 accepted; Operating Playbook v2 at `docs/incidents/CRIT-001-operating-playbook.md`
 - VM-510 certification note: Rakdos / BR is certified semantically_ready from approved replacement candidate `c929a12a4f7be15cb563b2a6b050b33c32b39b7a`; replacement workflow-record `515103b051ffc7cc1e43b9e2b94b2af404a14103` is recorded; rejected candidate `c96ceea602370fd146cdad5393d17e4cf68f8aa3` and workflow `175414aa8daba7ca6f713b93a2d3d32a9953dfd3` remain rejected; independent review decision was `APPROVE EXACT SHA c929a12a4f7be15cb563b2a6b050b33c32b39b7a`; no remaining blocker/high/medium/low findings; certification commit recorded as `PENDING_VM510_CERTIFICATION_COMMIT_SHA` inside tracked governance and exact SHA is reported in final task output.
-- VM-511 note: Golgari / BG Gate 1+2 audit/evidence confirmation is complete; primary disposition is `claim_extraction_pass_required`; Gate 3 is authorized only if bounded local source localization succeeds; no Golgari raw/generated remediation has been committed yet.
+- VM-511 note: Golgari / BG Gate 5 candidate `a649c306f19d0be3c9f09f549163200761ce9e15` is created after Gate 3+4 remediation/generation/validation; candidate-scope passed; Golgari is awaiting independent exact-SHA review and is not certified.
 
 | Card | Identity | Cohort | Gate | Status | Structural fingerprint | Contract | Recovery | Certification |
 |---|---|---|---|---|---|---|---|---|
@@ -21,7 +21,7 @@ Generated from `CRIT-001-identity-recovery-ledger.json`. The JSON file is author
 | VM-508 | WU Ã¢â‚¬â€ Azorius | guild | certified | semantically_ready | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | v1.1 | 221a19b690cad02fb9aba2c91ae506b6d4fcc205 | 9243c5a32fbb222dac4c4fd7999126aa60e52619 |
 | VM-509 | WR - Boros | guild | certified | semantically_ready | mixed-role-pattern | v1.1 | da2e9ef4036c427c17dca66c5a1a9d9a8fe03436 | PENDING_VM509_CERTIFICATION_COMMIT_SHA |
 | VM-510 | BR - Rakdos | guild | certified | semantically_ready | mixed-role-pattern, support-heavy-pattern | v1.1 | c929a12a4f7be15cb563b2a6b050b33c32b39b7a | PENDING_VM510_CERTIFICATION_COMMIT_SHA |
-| VM-511 | BG - Golgari | guild | gate_2_complete | gate_3_authorized | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | - | - | - |
+| VM-511 | BG - Golgari | guild | gate_5_candidate_created | awaiting_independent_review | mixed-role-pattern, support-heavy-pattern | v1.1 | a649c306f19d0be3c9f09f549163200761ce9e15 | - |
 | VM-512 | RG Ã¢â‚¬â€ Gruul | guild | not_started | backlog | high-volume-pattern, mixed-role-pattern | Ã¢â‚¬â€ | Ã¢â‚¬â€ | Ã¢â‚¬â€ |
 | VM-513 | UB Ã¢â‚¬â€ Dimir | guild | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | Ã¢â‚¬â€ | Ã¢â‚¬â€ | Ã¢â‚¬â€ |
 | VM-514 | WB Ã¢â‚¬â€ Orzhov | guild | not_started | backlog | low-volume-pattern, mixed-role-pattern, discovery-heavy-pattern, support-heavy-pattern | Ã¢â‚¬â€ | Ã¢â‚¬â€ | Ã¢â‚¬â€ |

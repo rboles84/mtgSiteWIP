@@ -1,7 +1,7 @@
 # VM-511 — Golgari Semantic Recovery
 
 ID: VM-511
-Status: In Progress - Gate 1+2 complete; Gate 3 authorized if bounded local source localization succeeds
+Status: Awaiting Independent Review - Gate 5 candidate created; not certified
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: BG
@@ -46,6 +46,18 @@ Recover Golgari end to end under CRIT-001: audit the existing packet, bound read
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-511-golgari-semantic-recovery.md`
-- Candidate recovery SHA: pending
+- Candidate recovery SHA: `a649c306f19d0be3c9f09f549163200761ce9e15`
 - Independent reviewer: pending
 - Certification commit: pending
+
+## Gate 5 Candidate Record - 2026-07-16
+
+- Gate 1+2 report commit: `da25a3aa43e88fa46e37ca82b76e066631ae53d5`.
+- Candidate commit: `a649c306f19d0be3c9f09f549163200761ce9e15`.
+- Workflow-record commit: pending in this commit.
+- Gate 3+4 remediation, generation, fixtures, and validation are complete.
+- Candidate-scope dry-run passed for BG against `da25a3aa43e88fa46e37ca82b76e066631ae53d5..f4be0db534bd9748972cdfb20749b7e6a912d37d`.
+- Candidate-scope actual result passed for BG against `da25a3aa43e88fa46e37ca82b76e066631ae53d5..HEAD`.
+- Golgari is awaiting independent exact-SHA review.
+- Golgari is not certified.
+- No VM-512 or other identity has started.

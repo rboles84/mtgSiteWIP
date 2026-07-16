@@ -310,3 +310,77 @@ Commands run:
 - No candidate commit created.
 - No certification created.
 - No other identity started.
+
+## Gate 3+4 - Remediation, Generation, Validation
+
+Gate 3 canonical remediation was completed from local/listed evidence only. No online source intake, schema changes, contract changes, builder changes, validator changes, scoring changes, confidence changes, calibration changes, Hall/Crucible changes, scheduling changes, tie-order changes, or true lateral-inhibition behavior changes were made.
+
+Remediation summary:
+
+- Added semantic roles and bounded evidence locations to Golgari claims.
+- Classified story-corpus rows `golgari_swarm_claim_0008` through `golgari_swarm_claim_0017` as discovery records only.
+- Added source-bounded substantive claims for Golgari motivation, mature expression, unhealthy expression, pressure behavior, generic BG overfit, and required-neighbor boundaries.
+- Rebound profile and placement proof chains to substantive claims.
+- Isolated retained discovery native IDs in `data_quality.corpus_upgrade.retained_native_ids`.
+- Cleaned Commander Compass support chains so discovery-only rows are not authoritative proof.
+- Added non-inhibiting collision guidance for the Gate 1+2 required-neighbor set.
+- Added BG semantic fixtures.
+- Regenerated placement, faction display, recruiter context, and semantic provenance.
+
+Generated artifact summary:
+
+- `data/factions.json`: BG display/raw enrichment updated. A target-scoped display-source repair was required for `raw_enrichment.key_figures` and `raw_enrichment.canonical_flavor_text` because the builder preserves BG existing display raw-enrichment rather than rebuilding that block from raw profile.
+- `data/placement-model.json`: BG placement/collision guidance regenerated; generated lateral-inhibition targets remained stable.
+- `supabase/functions/guild-recruiter/faction-context.ts`: BG recruiter context regenerated from the remediated placement/profile packet.
+- `data/semantic-readiness-provenance.json`: BG provenance regenerated with required hashes, files, pointers, consumers, claim IDs, source IDs, and native IDs.
+
+Claim-role summary after remediation:
+
+| Role | Count |
+|---|---:|
+| `substantive_claim` | 24 |
+| `discovery_record` | 10 |
+| `support_record` | 0 |
+| `unclassified` | 0 |
+
+Fixture summary:
+
+- Added `research/fixtures/semantic-readiness/golgari_swarm.semantic-fixtures.json`.
+- Fixtures cover core inclusion, mature/pressure behavior, each required-neighbor exclusion, nearest-collision ambiguity, and placement-summary provenance.
+
+Provenance summary:
+
+- Semantic readiness provenance check verified 1616 entries.
+- BG generated provenance contains complete required fields for semantic chains.
+- Candidate-scope validation found no missing native IDs and no generated proof-chain contamination after the display-source repair.
+
+Required-neighbor/collision summary:
+
+- Required neighbors retained: `GENERIC_BG_OVERFIT`, `B`, `G`, `WITHERBLOOM`, `WG`, `WB`, `RG`, `BR`, `UB`, `SIMIC_COMBINE`, `ABZAN`, `JUND`, `SULTAI`.
+- Canonical collision guidance is non-inhibiting (`lateral_inhibition: false`).
+- Generated lateral-inhibition targets did not drift.
+
+Validation results:
+
+- `npm.cmd run build:factions` - passed.
+- `node research/validate-semantic-readiness.mjs --targets=BG` - passed.
+- `npm.cmd run test:semantic-readiness` - passed.
+- `npm.cmd run test:placement` - passed.
+- `npm.cmd run test:faction-context-isolation` - passed.
+- `npm.cmd run test:source-generated` - passed with unchanged JESKAI/MARDU builder-owned inhibitor warnings.
+- `npm.cmd test` - passed.
+- `git diff --check` - passed. Plain `npm test` was blocked by PowerShell execution policy for `npm.ps1`; `npm.cmd test` was the successful equivalent.
+
+## Gate 5 - Candidate Creation
+
+- Gate 1+2 report commit: `da25a3aa43e88fa46e37ca82b76e066631ae53d5`
+- Candidate commit: `a649c306f19d0be3c9f09f549163200761ce9e15`
+- Candidate-scope dry-run: passed for BG using temporary tree `f4be0db534bd9748972cdfb20749b7e6a912d37d` against base `da25a3aa43e88fa46e37ca82b76e066631ae53d5`.
+- Candidate-scope actual result: passed for BG using `da25a3aa43e88fa46e37ca82b76e066631ae53d5..HEAD`.
+
+Final VM-511 implementation status:
+
+- Golgari is awaiting independent exact-SHA review.
+- Golgari is not certified.
+- No VM-512 or other identity was started.
+- Original main worktree remained untouched; its only observed changes were the allowed pre-existing docs/workflow baseline.

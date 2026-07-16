@@ -1335,16 +1335,14 @@
       },
       "computed": {
         "structural_fingerprint": [
-          "low-volume-pattern",
           "mixed-role-pattern",
-          "discovery-heavy-pattern",
           "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 24,
           "discovery_record": 10,
           "support_record": 0,
-          "unclassified": 7
+          "unclassified": 0
         },
         "source_count": 14,
         "source_role_counts": {
@@ -1354,200 +1352,65 @@
         },
         "claim_bearing_source_count": 3,
         "claim_bearing_source_rate": 0.2143,
-        "reference_site_count": 40,
+        "reference_site_count": 72,
         "missing_references": [],
-        "potential_role_invalid_support_links": [
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json#/core_identity",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json#/site_surface",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json#/structure",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json#/great_tension",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json#/key_figures/1",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json#/key_figures/2",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json#/key_figures/3",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json#/canonical_flavor_text/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json#/mechanics",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json#/data_quality/corpus_upgrade",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json#/placement_summary",
-            "roles": [
-              "discovery_record",
-              "unclassified"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json#/placement_axes/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json#/moral_and_psychological_profile",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json#/core_values/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json#/core_values/1",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json#/core_values/2",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json#/core_values/3",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json#/core_values/4",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json#/core_values/5",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json#/core_values/6",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json#/core_values/7",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json#/core_values/8",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json#/core_values/9",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json#/behavioral_signals/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json#/inhibitor_traits/0",
-            "roles": [
-              "discovery_record"
-            ]
-          }
-        ],
+        "potential_role_invalid_support_links": [],
         "raw_question_count": 3,
         "unique_question_claim_ids": [
+          "golgari_swarm_claim_0018",
+          "golgari_swarm_claim_0021",
+          "golgari_swarm_claim_0022",
+          "golgari_swarm_claim_0023",
+          "golgari_swarm_claim_0024",
+          "golgari_swarm_claim_0019",
+          "golgari_swarm_claim_0020",
+          "golgari_swarm_claim_0025",
+          "golgari_swarm_claim_0029",
+          "golgari_swarm_claim_0031",
+          "golgari_swarm_claim_0033",
+          "golgari_swarm_claim_0034",
           "golgari_swarm_claim_001",
           "golgari_swarm_claim_002",
           "golgari_swarm_claim_003",
           "golgari_swarm_claim_006",
-          "golgari_swarm_claim_007"
+          "golgari_swarm_claim_007",
+          "golgari_swarm_claim_0032"
         ],
         "neighbor_references": [
-          "Abzan Houses",
-          "Jund",
-          "Selesnya Conclave",
-          "Witherbloom College"
+          "BG",
+          "BR",
+          "UB",
+          "abzan",
+          "black",
+          "cult_of_rakdos",
+          "green",
+          "gruul_clans",
+          "jund",
+          "orzhov_syndicate",
+          "selesnya_conclave",
+          "simic_combine",
+          "sultai",
+          "witherbloom"
         ],
-        "recruiter_context_size": 8131,
+        "recruiter_context_size": 10193,
         "creation_commit": "f6a1dd4644849ffb3bad6f1bba82f7cd55fa549a",
         "readiness_mentions": [],
         "provisional_risk_indicators": {
-          "coverage": [
-            "low-record-volume",
-            "discovery-record-majority",
-            "no-explicit-substantive-role"
-          ],
+          "coverage": [],
           "neighbors": []
         },
         "template_cohort_pattern": false,
-        "inventory_updated_at": "2026-07-11T18:42:33.624Z"
+        "inventory_updated_at": "2026-07-16T17:28:00.000Z"
       },
       "workflow": {
-        "current_gate": "gate_2_complete",
-        "status": "gate_3_authorized",
+        "current_gate": "gate_5_candidate_created",
+        "status": "awaiting_independent_review",
         "started_at": "2026-07-16T09:17:00-06:00",
-        "gate_entered_at": "2026-07-16T09:17:00-06:00",
+        "gate_entered_at": "2026-07-16T11:28:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
-        "next_identity": "RG",
-        "primary_disposition": "claim_extraction_pass_required"
+        "next_identity": null,
+        "primary_disposition": "claim_extraction_pass_required; Gate 5 candidate created and awaiting independent review. Golgari is not certified."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -1567,23 +1430,31 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-511-golgari-semantic-recovery.md",
         "residual_findings": [
-          "Gate 1+2 found no certifying semantic roles or bounded evidence locations in current Golgari claims.",
-          "Discovery-only story-corpus rows currently support authoritative profile/placement/generated key-figure chains and must be isolated before certification.",
-          "BG collision guidance and semantic fixtures are missing.",
-          "BG generated provenance has null canonical IDs; content hashes are non-null.",
-          "Gate 3 is authorized only if exact local/listed source locators can be bounded without online intake, schema/contract/builder/validator changes, or frozen-field drift."
+          "Gate 5 candidate a649c306f19d0be3c9f09f549163200761ce9e15 created from Gate 1+2 workflow base da25a3aa43e88fa46e37ca82b76e066631ae53d5.",
+          "Candidate-scope validation passed for BG against da25a3aa43e88fa46e37ca82b76e066631ae53d5..HEAD.",
+          "Discovery story-corpus records remain retained only as discovery metadata; authoritative/generated chains use substantive claims.",
+          "Target-scoped display-source repair in data/factions.json BG raw_enrichment was required because the builder preserves BG existing display raw_enrichment rather than rebuilding it from raw profile.",
+          "Golgari awaits independent exact-SHA review and is not certified."
         ]
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "a649c306f19d0be3c9f09f549163200761ce9e15",
+        "recovery_commit": "a649c306f19d0be3c9f09f549163200761ce9e15",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
         "approval_date": null,
-        "certified_at": null
+        "certified_at": null,
+        "candidate_parent_sha": "da25a3aa43e88fa46e37ca82b76e066631ae53d5",
+        "candidate_recorded_at": "2026-07-16T11:28:00-06:00",
+        "workflow_record_commit": "PENDING_VM511_WORKFLOW_RECORD_COMMIT_SHA",
+        "review_result": null,
+        "final_state": "awaiting_independent_review",
+        "known_unchanged_warnings": [
+          "Source/generated guardrail validation reports unchanged JESKAI and MARDU builder-owned inhibitor warnings only."
+        ]
       }
     },
     {
