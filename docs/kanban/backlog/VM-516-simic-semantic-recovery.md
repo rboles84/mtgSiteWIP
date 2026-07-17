@@ -1,13 +1,13 @@
 # VM-516 — Simic Semantic Recovery
 
 ID: VM-516
-Status: Backlog
+Status: Setup Only - Gate 1+2 Pending
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: UG
 Raw packet: `data/raw-factions/simic_combine/`
 Cohort: guild
-Contract: pending Contract v1
+Contract: CRIT-001 Contract v1.1
 
 ## Objective
 
@@ -37,3 +37,9 @@ Recover Simic end to end under CRIT-001: audit the existing packet, bound readin
 - Candidate recovery SHA: pending
 - Independent reviewer: pending
 - Certification commit: pending
+
+## Setup State
+
+VM-516 is the next CRIT-001 identity after Selesnya certification.
+
+Branch setup only was authorized from the VM-515 certification commit. Gate 1+2 audit is pending. No Simic source inspection, semantic remediation, generated artifact update, candidate creation, independent review, or certification work has started.

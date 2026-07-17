@@ -234,3 +234,44 @@ Independent review was performed against exact candidate `02252cbb24ec4ce615c85e
 - `git diff --check`: passed with line-ending warnings only.
 
 Selesnya is approved for certification review only. Selesnya is not certified, not semantically_ready, and VM-516 has not started.
+
+## Certification - 2026-07-17
+
+Certification scope: governance-only.
+
+Certified identity: VM-515 - Selesnya / WG.
+
+Certified candidate: `02252cbb24ec4ce615c85e8ad07d62d3be7db7e5`.
+
+Certification commit: `PENDING_VM515_CERTIFICATION_COMMIT_SHA`.
+
+Independent review record: `6af0a2806dd7c26e71e4596839e25bbc51e1b5af`.
+
+Candidate workflow record: `1f88f03f7b6a582614f13a912024d0c9924926d7`.
+
+Superseded candidate: `5c9f69d752d1abf6b8f7790ddb4cce1206b64ad7`; remains unapproved and is not certified.
+
+Reviewed WG provenance count: 70.
+
+Certification guard validation passed before the certification commit:
+
+- Governance and approved Selesnya candidate JSON parse validation passed.
+- Explicit claim/evidence/provenance/frozen-field guard passed: 33 claims, 23 substantive, 10 discovery, 0 support, 0 unclassified; every substantive claim retains `evidence_scope`; discovery records remain isolated from authoritative proof chains.
+- WG provenance remains the reviewed count of 70 entries, with zero required null canonical IDs, zero required null canonical content hashes, zero duplicate canonical pointers, zero unresolved canonical files, and zero discovery-backed authoritative chains.
+- `/core_identity` fixture/provenance exact chain remains 8 ordered IDs with exact equality and no duplicate, missing, or extra IDs.
+- `/placement_summary` fixture/provenance exact chain remains 10 ordered IDs with exact equality and no duplicate, missing, or extra IDs.
+- Frozen placement confidence/calibration/native-ID/lateral-target/generic collision-target form remains unchanged; generated lateral targets remain `WU`, `WR`, `WITHERBLOOM`, and `ABZAN`.
+- Exact candidate-scope validation passed for `99a239dea91039a13511d155f9b652d297baab21..02252cbb24ec4ce615c85e8ad07d62d3be7db7e5`.
+- `node research/audit-semantic-readiness.mjs --targets=WG`, `node research/validate-semantic-readiness.mjs --targets=WG`, `node research/semantic-candidate-scope-tests.js`, `npm.cmd run test:semantic-readiness`, `npm.cmd run test:placement`, `npm.cmd run test:faction-context-isolation`, and `npm.cmd run test:source-generated` all passed.
+- `npm.cmd run test:source-generated` retained only the known unrelated JESKAI/MARDU model-owned inhibitor warnings.
+- `git diff --check` passed with a line-ending warning for the shared handoff index only.
+
+Final status: `semantically_ready`.
+
+Certified identity count: 14.
+
+Next identity: VM-516 - Simic / UG.
+
+VM-516 state: setup only; Gate 1+2 pending; no Simic audit, source inspection, remediation, candidate, review, certification, or VM-517 work started.
+
+No candidate semantic, raw, generated, fixture, provenance, recruiter, source, test, schema, validator, builder, scoring, or runtime files were changed during certification.

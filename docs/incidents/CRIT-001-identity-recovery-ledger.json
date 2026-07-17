@@ -5,8 +5,8 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "SELESNYA",
-    "next_identity": "SELESNYA",
+    "active_identity": "SIMIC",
+    "next_identity": "SIMIC",
     "wip_limit": 1,
     "active_prerequisite": null,
     "prerequisite_candidate_sha": "6e53acd5691c85caf3328d3bd301ac18d07879e1",
@@ -2097,14 +2097,14 @@
         "inventory_updated_at": "2026-07-17T11:06:00-06:00"
       },
       "workflow": {
-        "current_gate": "gate_5_independent_review_approved",
-        "status": "awaiting_certification",
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": "2026-07-17T10:32:00-06:00",
-        "gate_entered_at": "2026-07-17T12:08:00-06:00",
+        "gate_entered_at": "2026-07-17T13:18:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "UG",
-        "primary_disposition": "APPROVE EXACT SHA 02252cbb24ec4ce615c85e8ad07d62d3be7db7e5; awaiting certification; not certified; not semantically_ready; no VM-516 work started."
+        "primary_disposition": "Certified semantically_ready after independent review approved exact candidate 02252cbb24ec4ce615c85e8ad07d62d3be7db7e5; reviewed WG provenance count 70; no remaining blocker/high/medium/low findings; VM-516 Simic branch setup only, no audit, source inspection, remediation, candidate, review, or certification work started."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -2125,30 +2125,33 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-515-selesnya-semantic-recovery.md",
         "residual_findings": [
+          "Independent review approved exact candidate 02252cbb24ec4ce615c85e8ad07d62d3be7db7e5 with decision APPROVE EXACT SHA 02252cbb24ec4ce615c85e8ad07d62d3be7db7e5.",
+          "No remaining blocker, high, medium, or low findings after approval review.",
           "Gate 3+4 remediated Selesnya to 33 claims: 23 substantive_claim, 10 discovery_record, 0 support_record, 0 unclassified.",
           "Discovery/story-corpus records are isolated from authoritative proof chains and retained only as metadata/history.",
-          "WG provenance has 70 entries with zero required null canonical IDs, zero required null content hashes, zero duplicate canonical pointers, and no unresolved canonical files or pointers.",
-          "WG fixtures exist and exact /core_identity and /placement_summary provenance chains match generated truth.",
+          "WG provenance has the reviewed truth of 70 entries with zero required null canonical IDs, zero required null content hashes, zero duplicate canonical pointers, no unresolved canonical files/pointers, and no discovery-backed authoritative chains.",
+          "/core_identity and /placement_summary fixture/provenance chains exactly match generated truth at 8 and 10 ordered claim IDs respectively.",
           "Superseded candidate 5c9f69d752d1abf6b8f7790ddb4cce1206b64ad7 remains unapproved because candidate-scope rejected frozen confidence/native-ID and generated proof-chain contamination.",
-          "Replacement candidate 02252cbb24ec4ce615c85e8ad07d62d3be7db7e5 passed validation, exact candidate-scope validation, and independent review.",
-          "Independent review decision: APPROVE EXACT SHA 02252cbb24ec4ce615c85e8ad07d62d3be7db7e5.",
-          "Selesnya is awaiting certification; it is not certified and not semantically_ready; VM-516 has not started.",
-          "Active Table Talk side-scan baseline remains preserved and excluded from VM-515 commits."
+          "Candidate workflow record 1f88f03f7b6a582614f13a912024d0c9924926d7 and approval review record 6af0a2806dd7c26e71e4596839e25bbc51e1b5af exist in branch history.",
+          "Certification completed as governance-only; no candidate semantic/raw/generated/provenance/fixture/recruiter/source/test/schema/validator/builder/scoring/runtime files changed during certification.",
+          "VM-516 Simic branch setup only; Gate 1+2 pending and no Simic audit, source inspection, remediation, candidate, review, certification, or VM-517 work started."
         ],
         "validation_summary": [
-          "Raw and changed JSON parse checks passed.",
-          "node research/audit-semantic-readiness.mjs --targets=WG passed with 33 claims, 23 substantive, 10 discovery, and 62 reference sites.",
+          "Governance and approved Selesnya candidate JSON parse validation passed.",
+          "Explicit Selesnya certification guard passed: 33 claims, 23 substantive, 10 discovery, 0 support, 0 unclassified; every substantive claim retains evidence_scope; discovery records remain isolated from authoritative chains.",
+          "WG provenance remains the reviewed count of 70 entries, with zero required null canonical IDs, zero required null canonical content hashes, zero duplicate canonical pointers, zero unresolved canonical files, and zero discovery-backed authoritative chains.",
+          "/core_identity fixture/provenance exact chain remains 8 ordered IDs with no duplicate, missing, or extra IDs.",
+          "/placement_summary fixture/provenance exact chain remains 10 ordered IDs with no duplicate, missing, or extra IDs.",
+          "Frozen placement confidence/calibration/native-ID/lateral-target/generic collision-target candidate-scope form is retained; generated lateral targets remain WU, WR, WITHERBLOOM, ABZAN.",
+          "node research/audit-semantic-readiness.mjs --targets=WG passed with 33 claims and 62 reference sites.",
           "node research/validate-semantic-readiness.mjs --targets=WG passed.",
-          "Explicit evidence_scope, discovery/support isolation, null canonical ID/hash, duplicate canonical entry, stale-copy, frozen confidence/calibration/native-ID/lateral-target, and exact fixture/provenance checks passed.",
-          "npm.cmd run build:factions passed and deterministic reruns produced no unrelated identity output changes.",
           "node research/semantic-candidate-scope-tests.js passed.",
           "npm.cmd run test:semantic-readiness passed and verified 1757 semantic provenance entries.",
           "npm.cmd run test:placement passed for 37 factions and 37 golden paths.",
           "npm.cmd run test:faction-context-isolation passed.",
           "npm.cmd run test:source-generated passed with known unrelated JESKAI/MARDU warnings only.",
-          "npm.cmd test passed.",
           "node research/validate-semantic-candidate-scope.mjs --base=99a239dea91039a13511d155f9b652d297baab21 --target=02252cbb24ec4ce615c85e8ad07d62d3be7db7e5 --identity=WG passed.",
-          "git diff --check and git diff --cached --check passed with line-ending warnings only."
+          "git diff --check passed with a line-ending warning for the shared handoff index only."
         ],
         "remediation_report": "docs/incidents/recoveries/VM-515-selesnya-semantic-recovery.md#gate-34-remediation-and-gate-5-candidate",
         "candidate_scope": {
@@ -2165,13 +2168,13 @@
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "02252cbb24ec4ce615c85e8ad07d62d3be7db7e5",
         "recovery_commit": "02252cbb24ec4ce615c85e8ad07d62d3be7db7e5",
-        "certification_commit": null,
-        "reviewer": "Codex independent review window",
+        "certification_commit": "PENDING_VM515_CERTIFICATION_COMMIT_SHA",
+        "reviewer": "Codex independent review record 6af0a2806dd7c26e71e4596839e25bbc51e1b5af",
         "review_cycles": 1,
         "approval_date": "2026-07-17",
-        "certified_at": null,
+        "certified_at": "2026-07-17T13:18:00-06:00",
         "review_result": "approved_exact_sha",
-        "final_state": "awaiting_certification",
+        "final_state": "semantically_ready",
         "superseded_candidate_shas": [
           "5c9f69d752d1abf6b8f7790ddb4cce1206b64ad7"
         ],
@@ -2181,7 +2184,20 @@
           "high": [],
           "medium": [],
           "low": []
-        }
+        },
+        "independent_review_decision": "APPROVE EXACT SHA 02252cbb24ec4ce615c85e8ad07d62d3be7db7e5",
+        "known_unchanged_warnings": [
+          "JESKAI and MARDU source/generated model-owned inhibitor warnings remain unchanged and unrelated.",
+          "git diff --check reported a line-ending warning for the shared handoff index only."
+        ],
+        "approval_review_record": "6af0a2806dd7c26e71e4596839e25bbc51e1b5af",
+        "review_findings": {
+          "blocker": [],
+          "high": [],
+          "medium": [],
+          "low": []
+        },
+        "reviewed_provenance_count": 70
       }
     },
     {
@@ -2402,14 +2418,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
+        "current_gate": "setup_only",
+        "status": "gate_1_2_pending",
         "started_at": null,
-        "gate_entered_at": null,
+        "gate_entered_at": "2026-07-17T13:18:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "W",
-        "primary_disposition": null
+        "primary_disposition": "Branch setup only after VM-515 Selesnya certification; Gate 1+2 pending; no Simic audit, source inspection, remediation, candidate, review, certification, or VM-517 work started."
       },
       "semantic_review": {
         "required_neighbors": [],
@@ -2417,7 +2433,7 @@
         "residual_findings": []
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": null,
         "recovery_commit": null,
