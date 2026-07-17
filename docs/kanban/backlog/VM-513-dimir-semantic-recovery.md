@@ -1,7 +1,7 @@
 # VM-513 — Dimir Semantic Recovery
 
 ID: VM-513
-Status: Candidate Created - Awaiting Independent Review
+Status: Candidate Approved - Awaiting Certification
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: UB
@@ -36,7 +36,7 @@ Recover Dimir end to end under CRIT-001: audit the existing packet, bound readin
 - Audit/recovery report: `docs/incidents/recoveries/VM-513-dimir-semantic-recovery.md`
 - Gate 1+2 governance/report SHA: `646ea02aa12959441eba6e0844b902cf32bab914`
 - Candidate recovery SHA: `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee`
-- Independent reviewer: pending
+- Independent reviewer: Codex independent review window
 - Certification commit: pending
 
 ## Gate 1+2 Finding
@@ -47,8 +47,14 @@ Gate 3+4 remediation is authorized using existing local/listed sources only. Dis
 
 ## Gate 3+4 / Gate 5 Candidate Record
 
-Candidate `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee` has been created and is awaiting independent review. Dimir is not certified and not semantically_ready. VM-514 has not started.
+Candidate `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee` has been independently reviewed and approved with decision `APPROVE EXACT SHA 6e6c079d19ee152016212f01f8c2ffd81f0ca0ee`. Dimir is awaiting certification; it is not certified and not semantically_ready. VM-514 has not started.
 
 Final remediation produced 32 Dimir claims: 22 substantive, 10 discovery, 0 support, and 0 unclassified. Substantive evidence locations have Contract v1.1 `evidence_scope`; discovery-only story-corpus rows are retained as metadata/history only and do not prove profile, placement, key figures, recruiter guidance, public copy, fixtures, or provenance chains.
 
 Validation passed, including `npm.cmd run build:factions`, UB audit/validation, semantic-readiness tests, placement tests, faction-context isolation, source/generated guardrails, full `npm.cmd test`, `git diff --check`, and exact candidate-scope validation for `646ea02aa12959441eba6e0844b902cf32bab914..6e6c079d19ee152016212f01f8c2ffd81f0ca0ee`.
+
+## Independent Review Record
+
+Independent review approved exact candidate SHA `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee` with no blocker, high, medium, or low findings. Review verified exact candidate isolation, superseded-candidate frozen-field remediation, Contract v1.1 claim roles, source-bounded evidence, discovery isolation, canonical IDs and content hashes, fixture/provenance exact-chain parity, generated public/recruiter surfaces, required-neighbor boundaries, deterministic generation, and required validations.
+
+Known non-blocking observations: `npm.cmd run test:source-generated` retains unrelated JESKAI/MARDU model-owned inhibitor warnings; `git diff --check` reports line-ending warnings only. The Table Talk side-scan baseline remained preserved and excluded from the review record.

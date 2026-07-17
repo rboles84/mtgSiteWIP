@@ -258,3 +258,54 @@ The supported Dimir discriminator is hidden information leverage: source-bounded
 Final disposition: candidate created / awaiting independent review.
 
 No independent review was performed in this window. No approval decision was issued. No certification occurred. Dimir was not marked semantically_ready. VM-514 was not started. The original main worktree was not modified. The unrelated Table Talk side-scan baseline remained preserved and excluded from VM-513 commits.
+
+## Independent Review - 2026-07-16
+
+Decision: `APPROVE EXACT SHA 6e6c079d19ee152016212f01f8c2ffd81f0ca0ee`
+
+Review base: `646ea02aa12959441eba6e0844b902cf32bab914`
+
+Superseded candidate checked: `16d7cae2565684d1320306cc3f2e31b2417b2b0f`
+
+Workflow-record commit checked: `1c3ef3013ce07c85db75554e82bd11bf99d095bc`
+
+The independent review verified exact candidate isolation, candidate scope, Contract v1.1 claim roles, bounded evidence locations, discovery-record isolation, generated public/recruiter surfaces, fixture/provenance exact-chain parity, frozen placement confidence/calibration preservation, required-neighbor coverage, deterministic generation, and required validation.
+
+Findings by severity:
+
+- Blocker: none.
+- High: none.
+- Medium: none.
+- Low: none.
+- Non-blocking observations: `npm.cmd run test:source-generated` retained the known unrelated JESKAI and MARDU model-owned inhibitor warnings; the exact Dimir candidate changes no Jeskai or Mardu raw packets and does not worsen those warnings. `git diff --check` passed with line-ending warnings only.
+
+Key review results:
+
+- Final claim counts: 32 total; 22 `substantive_claim`; 10 `discovery_record`; 0 `support_record`; 0 `unclassified`.
+- Every substantive Dimir claim has complete `evidence_locations` with `evidence_scope`, and evidence-location source IDs match declared claim source IDs.
+- Discovery-only story-corpus claims are retained only under `data_quality.corpus_upgrade` discovery metadata, including Etrata and Circu native/history references with `authoritative_semantic_use: false`.
+- UB generated provenance contains 82 entries, with no null canonical IDs, no null canonical content hashes, and no duplicate canonical locators.
+- Core identity fixture/provenance exact chain matched at `data/raw-factions/house_dimir/house_dimir.profile.json#/core_identity`: 7 generated IDs, 7 fixture IDs, exact ordered equality, no duplicates, no missing IDs, no extras.
+- Required-neighbor fixtures and collision guidance cover `GENERIC_UB_OVERFIT`, `U`, `B`, `WU`, `UR`, `BR`, `BG`, `WB`, `UG`, `SILVERQUILL`, `ESPER`, `GRIXIS`, and `SULTAI`.
+- The exact candidate restores the frozen placement primary read and confidence-slot shape after the superseded candidate's scope failure; exact candidate-scope validation passed.
+- Public and recruiter copy is source-bounded to Dimir secrecy, backroom information leverage, observation, and surveil-style filtering; generic UB control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, and generic criminality appear only as suppressions or guardrails.
+
+Validation run during review:
+
+- JSON parse checks for every changed JSON file: passed.
+- Duplicate-ID checks for Dimir canonical chains, generated provenance, and fixtures: passed.
+- Explicit fixture-versus-provenance exact-chain comparison: passed.
+- Explicit substantive `evidence_scope`, discovery isolation, support/unclassified isolation, and null canonical-ID/hash scans: passed.
+- `npm.cmd run build:factions`: passed twice; no generated drift remained.
+- `node research/audit-semantic-readiness.mjs --targets=UB`: passed.
+- `node research/validate-semantic-readiness.mjs --targets=UB`: passed.
+- `node research/semantic-candidate-scope-tests.js`: passed.
+- `npm.cmd run test:semantic-readiness`: passed; verified 1705 semantic provenance entries.
+- `npm.cmd run test:placement`: passed; 37 factions / 37 golden paths.
+- `npm.cmd run test:faction-context-isolation`: passed.
+- `npm.cmd run test:source-generated`: passed with unchanged unrelated JESKAI/MARDU warnings.
+- `npm.cmd test`: passed.
+- `git diff --check`: passed with line-ending warnings only.
+- `node research/validate-semantic-candidate-scope.mjs --base=646ea02aa12959441eba6e0844b902cf32bab914 --target=6e6c079d19ee152016212f01f8c2ffd81f0ca0ee --identity=UB`: passed.
+
+Disposition: Dimir candidate approved and awaiting certification. Dimir is not certified, not semantically_ready, and VM-514 has not started.

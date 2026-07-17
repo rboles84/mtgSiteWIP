@@ -1773,14 +1773,14 @@
         "inventory_updated_at": "2026-07-16T22:54:00-06:00"
       },
       "workflow": {
-        "current_gate": "gate_5_candidate_created",
-        "status": "awaiting_independent_review",
+        "current_gate": "gate_5_review_approved",
+        "status": "awaiting_certification",
         "started_at": "2026-07-16T22:13:00-06:00",
-        "gate_entered_at": "2026-07-16T22:54:00-06:00",
+        "gate_entered_at": "2026-07-16T23:29:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WB",
-        "primary_disposition": "candidate_created_awaiting_independent_review"
+        "primary_disposition": "candidate_approved_awaiting_certification"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -1800,11 +1800,12 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-513-dimir-semantic-recovery.md",
         "residual_findings": [
-          "Final candidate 6e6c079d19ee152016212f01f8c2ffd81f0ca0ee awaits independent review; no approval decision has been issued.",
-          "Dimir is not certified and not semantically_ready.",
+          "Independent review approved exact candidate 6e6c079d19ee152016212f01f8c2ffd81f0ca0ee with decision APPROVE EXACT SHA 6e6c079d19ee152016212f01f8c2ffd81f0ca0ee.",
+          "Dimir is awaiting certification; it is not certified and not semantically_ready.",
           "Discovery-only story-corpus rows are retained as metadata/history only and are isolated from authoritative proof chains.",
           "Remaining stale-risk terms appear only as guardrail, suppression, fixture, or discovery metadata language, not affirmative Dimir proof.",
-          "Intermediate SHA 16d7cae2565684d1320306cc3f2e31b2417b2b0f failed post-commit candidate-scope for frozen placement confidence/calibration drift and was superseded before workflow record."
+          "Intermediate SHA 16d7cae2565684d1320306cc3f2e31b2417b2b0f failed post-commit candidate-scope for frozen placement confidence/calibration drift and was superseded before workflow record.",
+          "Independent review found no blocker, high, medium, or low findings; VM-514 was not started."
         ],
         "validation_summary": [
           "JSON parse checks for changed JSON files passed.",
@@ -1828,14 +1829,25 @@
         "candidate_recovery_sha": "6e6c079d19ee152016212f01f8c2ffd81f0ca0ee",
         "recovery_commit": "6e6c079d19ee152016212f01f8c2ffd81f0ca0ee",
         "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
+        "reviewer": "Codex independent review window",
+        "review_cycles": 1,
+        "approval_date": "2026-07-16",
         "certified_at": null,
-        "review_result": null,
-        "final_state": "awaiting_independent_review",
+        "review_result": "approved_exact_sha",
+        "final_state": "awaiting_certification",
         "superseded_candidate_shas": [
           "16d7cae2565684d1320306cc3f2e31b2417b2b0f"
+        ],
+        "independent_review_decision": "APPROVE EXACT SHA 6e6c079d19ee152016212f01f8c2ffd81f0ca0ee",
+        "remaining_findings": {
+          "blocker": [],
+          "high": [],
+          "medium": [],
+          "low": []
+        },
+        "known_unchanged_warnings": [
+          "Source/generated guardrail validation reports unchanged unrelated JESKAI and MARDU model-owned inhibitor warnings only.",
+          "git diff --check reports line-ending warnings only."
         ]
       }
     },
