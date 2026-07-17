@@ -7211,13 +7211,7 @@ export const FACTION_CONTEXT = {
       "SILVERQUILL",
       "ESPER",
       "ABZAN",
-      "MARDU",
-      "W",
-      "B",
-      "WR",
-      "BR",
-      "BG",
-      "WG"
+      "MARDU"
     ],
     "discriminator_questions": [
       {
@@ -7237,7 +7231,8 @@ export const FACTION_CONTEXT = {
           "orzhov_syndicate_claim_0018",
           "orzhov_syndicate_claim_0020"
         ],
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "lateral_inhibition": false
       },
       {
         "id": "orzhov_q2",
@@ -7257,7 +7252,8 @@ export const FACTION_CONTEXT = {
           "orzhov_syndicate_claim_0028",
           "orzhov_syndicate_claim_0031"
         ],
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "lateral_inhibition": false
       },
       {
         "id": "q_orzhov_syndicate_9801",
@@ -7273,7 +7269,8 @@ export const FACTION_CONTEXT = {
           "orzhov_syndicate_claim_002",
           "orzhov_syndicate_claim_003"
         ],
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "lateral_inhibition": false
       },
       {
         "id": "q_orzhov_syndicate_9802",
@@ -7289,7 +7286,8 @@ export const FACTION_CONTEXT = {
           "orzhov_syndicate_claim_002",
           "orzhov_syndicate_claim_003"
         ],
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "lateral_inhibition": false
       }
     ],
     "chatbot_guidance": {

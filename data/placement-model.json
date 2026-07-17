@@ -8914,7 +8914,8 @@
             "orzhov_syndicate_claim_0018",
             "orzhov_syndicate_claim_0020"
           ],
-          "confidence": "Medium"
+          "confidence": "Medium",
+          "lateral_inhibition": false
         },
         {
           "id": "orzhov_q2",
@@ -8934,7 +8935,8 @@
             "orzhov_syndicate_claim_0028",
             "orzhov_syndicate_claim_0031"
           ],
-          "confidence": "Medium"
+          "confidence": "Medium",
+          "lateral_inhibition": false
         },
         {
           "id": "q_orzhov_syndicate_9801",
@@ -8950,7 +8952,8 @@
             "orzhov_syndicate_claim_002",
             "orzhov_syndicate_claim_003"
           ],
-          "confidence": "Medium"
+          "confidence": "Medium",
+          "lateral_inhibition": false
         },
         {
           "id": "q_orzhov_syndicate_9802",
@@ -8966,7 +8969,8 @@
             "orzhov_syndicate_claim_002",
             "orzhov_syndicate_claim_003"
           ],
-          "confidence": "Medium"
+          "confidence": "Medium",
+          "lateral_inhibition": false
         }
       ],
       "lateral_inhibition_targets": [
@@ -8975,13 +8979,7 @@
         "SILVERQUILL",
         "ESPER",
         "ABZAN",
-        "MARDU",
-        "W",
-        "B",
-        "WR",
-        "BR",
-        "BG",
-        "WG"
+        "MARDU"
       ],
       "collision_guidance": [
         {
@@ -8992,7 +8990,8 @@
           "suppress_if": "the answer centers selfless order, public law, or community without repayment logic",
           "evidence_claim_ids": [
             "orzhov_syndicate_claim_0021"
-          ]
+          ],
+          "lateral_inhibition": false
         },
         {
           "collision_id": "collision_orzhov_vs_b_gate3",
@@ -9002,7 +9001,8 @@
           "suppress_if": "the answer centers individual ambition or power without Orzhov institution/debt context",
           "evidence_claim_ids": [
             "orzhov_syndicate_claim_0022"
-          ]
+          ],
+          "lateral_inhibition": false
         },
         {
           "collision_id": "collision_orzhov_vs_azorius_gate3",
@@ -9012,7 +9012,8 @@
           "suppress_if": "the answer centers impartial law, procedure, or bureaucracy over repayment and leverage",
           "evidence_claim_ids": [
             "orzhov_syndicate_claim_0023"
-          ]
+          ],
+          "lateral_inhibition": false
         },
         {
           "collision_id": "collision_orzhov_vs_boros_gate3",
@@ -9022,7 +9023,8 @@
           "suppress_if": "the answer centers protection, justice, or direct intervention over obligation and repayment",
           "evidence_claim_ids": [
             "orzhov_syndicate_claim_0024"
-          ]
+          ],
+          "lateral_inhibition": false
         },
         {
           "collision_id": "collision_orzhov_vs_rakdos_gate3",
@@ -9032,7 +9034,8 @@
           "suppress_if": "the answer centers spectacle, indulgence, violence, or release over formal obligation",
           "evidence_claim_ids": [
             "orzhov_syndicate_claim_0025"
-          ]
+          ],
+          "lateral_inhibition": false
         },
         {
           "collision_id": "collision_orzhov_vs_golgari_gate3",
@@ -9042,17 +9045,19 @@
           "suppress_if": "the answer centers rot, survival, recursion, graveyard value, or ecology over obligation",
           "evidence_claim_ids": [
             "orzhov_syndicate_claim_0026"
-          ]
+          ],
+          "lateral_inhibition": false
         },
         {
-          "collision_id": "collision_orzhov_vs_dimir_gate3",
+          "collision_id": "collision_orzhov_syndicate_vs_house_dimir_placement_ready",
           "against": "UB",
           "separator": "Dimir hides leverage through information and secrecy; Orzhov makes leverage visible and collectible through debt, status, and institution.",
           "ask": "Would you rather no one know you shaped the situation, or everyone know the obligation binds them?",
           "suppress_if": "the answer centers secrecy, hidden information, or anonymity over visible obligation",
           "evidence_claim_ids": [
             "orzhov_syndicate_claim_0027"
-          ]
+          ],
+          "lateral_inhibition": false
         },
         {
           "collision_id": "collision_orzhov_vs_selesnya_gate3",
@@ -9062,17 +9067,19 @@
           "suppress_if": "the answer centers free belonging, harmony, or selfless community over repayment",
           "evidence_claim_ids": [
             "orzhov_syndicate_claim_0028"
-          ]
+          ],
+          "lateral_inhibition": false
         },
         {
-          "collision_id": "collision_orzhov_vs_silverquill_gate3",
+          "collision_id": "collision_orzhov_syndicate_vs_silverquill_placement_ready",
           "against": "SILVERQUILL",
           "separator": "Silverquill uses public language, rhetoric, reputation, and social influence; Orzhov binds status to obligation, debt, deals, and institutional hierarchy.",
           "ask": "When a room needs to move, do you bind people through what they owe or change what they believe through words?",
           "suppress_if": "the answer centers public rhetoric, verbal style, or reputation over obligation and repayment",
           "evidence_claim_ids": [
             "orzhov_syndicate_claim_0029"
-          ]
+          ],
+          "lateral_inhibition": false
         },
         {
           "collision_id": "collision_orzhov_vs_esper_gate3",
@@ -9082,7 +9089,8 @@
           "suppress_if": "the answer centers system perfection, optimization, or broad WUB control over Orzhov debt/deals",
           "evidence_claim_ids": [
             "orzhov_syndicate_claim_0030"
-          ]
+          ],
+          "lateral_inhibition": false
         },
         {
           "collision_id": "collision_orzhov_vs_abzan_gate3",
@@ -9092,7 +9100,8 @@
           "suppress_if": "the answer centers family endurance, ancestor duty, or house continuity over transactional debt",
           "evidence_claim_ids": [
             "orzhov_syndicate_claim_0031"
-          ]
+          ],
+          "lateral_inhibition": false
         },
         {
           "collision_id": "collision_orzhov_vs_mardu_gate3",
@@ -9102,7 +9111,8 @@
           "suppress_if": "the answer centers martial oath, raid momentum, or conquest over debt and deal-making",
           "evidence_claim_ids": [
             "orzhov_syndicate_claim_0032"
-          ]
+          ],
+          "lateral_inhibition": false
         }
       ],
       "chatbot_guidance": {

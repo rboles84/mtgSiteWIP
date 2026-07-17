@@ -250,7 +250,23 @@
       "known_characters": 5,
       "known_mechanics": 2,
       "story_arcs": 6
-    }
+    },
+    "retained_native_id_metadata": [
+      {
+        "character_id": "char_ghost_council",
+        "name": "Ghost Council",
+        "authoritative_semantic_use": false,
+        "evidence_use": "retained_native_metadata",
+        "retention_reason": "Retains pre-existing native character ID as history; authoritative leadership proof remains on source-bounded substantive claims."
+      },
+      {
+        "character_id": "char_karlov",
+        "name": "Karlov",
+        "authoritative_semantic_use": false,
+        "evidence_use": "retained_native_metadata",
+        "retention_reason": "Retains pre-existing native character ID as history; discovery/story material is not used as Orzhov proof."
+      }
+    ]
   },
   "research_limitations": [
     "MTG-Stories repository entries are retained as searchable discovery metadata only; they are not authoritative Orzhov semantic proof until bounded source localization is performed.",
