@@ -1,0 +1,335 @@
+{
+  "identity_key": "WG",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "selesnya_core_communal_voice_identity",
+      "fixture_type": "core_inclusion",
+      "scenario": "A clear Selesnya case centers white-green Ravnican guild identity, communal voice, nature, unity, togetherness, preservation, and care for shared purpose rather than generic WG deck texture.",
+      "intended_interpretation": "Selesnya inclusion requires source-bounded communal voice, belonging, harmony, care, and shared purpose in the Ravnican Selesnya context.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_001",
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_003",
+        "selesnya_conclave_claim_006",
+        "selesnya_conclave_claim_007",
+        "selesnya_conclave_claim_0018",
+        "selesnya_conclave_claim_0019",
+        "selesnya_conclave_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+      ],
+      "defensible_guidance": "Use Selesnya when communal voice, belonging, harmony, care, and shared purpose lead.",
+      "unsupported_certainty_to_avoid": "Do not use generic WG creatures, tokens, ramp, lifegain, counters, populate, or go-wide play as standalone Selesnya proof."
+    },
+    {
+      "fixture_id": "selesnya_pressure_communal_voice_yielding",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "A mature or pressure Selesnya case asks whether harmony and belonging ask individual voice to yield to the communal voice without becoming a caricature of erased will.",
+      "intended_interpretation": "Pressure behavior remains source-bounded to communal voice, harmony, shared purpose, and the tension between belonging and selfhood.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0018",
+        "selesnya_conclave_claim_0019",
+        "selesnya_conclave_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Ask whether belonging and shared purpose are doing the identity work.",
+      "unsupported_certainty_to_avoid": "Do not certify Selesnya from generic kindness, nature aesthetics, creature-heavy gameplay, or unsupported hive-mind language."
+    },
+    {
+      "fixture_id": "selesnya_exclude_generic_wg_overfit",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_WG_OVERFIT",
+      "scenario": "A white-green deck or persona only wants creatures, tokens, ramp, counters, lifegain, populate, go-wide gameplay, nature aesthetics, or strength-in-numbers language.",
+      "intended_interpretation": "Exclude or keep Selesnya adjacent for GENERIC_WG_OVERFIT unless source-bounded Selesnya communal voice, unity, preservation, care, or Convoke texture leads.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_007",
+        "selesnya_conclave_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Require the Selesnya-specific communal/nature/preservation context before calling the result Selesnya.",
+      "unsupported_certainty_to_avoid": "Do not infer Selesnya from WG color identity or mechanics alone."
+    },
+    {
+      "fixture_id": "selesnya_exclude_w",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "W",
+      "scenario": "Mono-white community, faith, order, duty, or cooperation appears without Selesnya nature, communal voice, or preservation context.",
+      "intended_interpretation": "Exclude or keep Selesnya adjacent for W unless communal voice and nature-bound shared purpose lead.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Separate general white order or cooperation from Selesnya communal voice and natural-world preservation.",
+      "unsupported_certainty_to_avoid": "Do not present community, faith, or cooperation alone as Selesnya."
+    },
+    {
+      "fixture_id": "selesnya_exclude_g",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "G",
+      "scenario": "Mono-green nature, growth, instinct, creatures, or ecological interdependence appears without Selesnya communal voice or togetherness.",
+      "intended_interpretation": "Exclude or keep Selesnya adjacent for G unless nature is bound to Selesnya communal harmony and preservation.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Separate generic nature from Selesnya communal voice, unity, and preservation.",
+      "unsupported_certainty_to_avoid": "Do not present nature, growth, or creatures alone as Selesnya."
+    },
+    {
+      "fixture_id": "selesnya_exclude_wu",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WU",
+      "scenario": "Azorius-like civic order, law, bureaucracy, procedure, or institutional control leads.",
+      "intended_interpretation": "Exclude or keep Selesnya adjacent for WU unless belonging, harmony, and natural communal purpose lead over procedure.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Ask whether order is procedural or rooted in communal belonging and shared purpose.",
+      "unsupported_certainty_to_avoid": "Do not collapse Selesnya into Azorius law or bureaucracy."
+    },
+    {
+      "fixture_id": "selesnya_exclude_wr",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WR",
+      "scenario": "Boros-like organized force, justice, duty, military solidarity, or direct protection leads.",
+      "intended_interpretation": "Exclude or keep Selesnya adjacent for WR unless defensive capacity serves Selesnya communal harmony rather than martial duty.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Separate martial duty and justice from communal harmony and shared purpose.",
+      "unsupported_certainty_to_avoid": "Do not collapse Selesnya into Boros solidarity or force."
+    },
+    {
+      "fixture_id": "selesnya_exclude_bg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BG",
+      "scenario": "Golgari-like death, decay, undercity survival, recursion, or resource cycling leads.",
+      "intended_interpretation": "Exclude or keep Selesnya adjacent for BG unless natural-world language is tied to Selesnya unity, preservation, and communal voice rather than decay or survival cycles.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Separate life/death resource cycling from Selesnya preservation and harmony.",
+      "unsupported_certainty_to_avoid": "Do not collapse Selesnya into Golgari decay, undercity life, or recursion."
+    },
+    {
+      "fixture_id": "selesnya_exclude_wb",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WB",
+      "scenario": "Orzhov-like debt, obligation, hierarchy, contracts, religious-business authority, or transactional power leads.",
+      "intended_interpretation": "Exclude or keep Selesnya adjacent for WB unless faith or group language is non-transactional communal belonging and harmony.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Separate obligation and hierarchy from shared belonging and mutual care.",
+      "unsupported_certainty_to_avoid": "Do not collapse Selesnya into Orzhov debt, hierarchy, or religious-business authority."
+    },
+    {
+      "fixture_id": "selesnya_exclude_ug",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UG",
+      "scenario": "Simic-like biological inquiry, adaptation, improvement, experimentation, or guided evolution leads.",
+      "intended_interpretation": "Exclude or keep Selesnya adjacent for UG unless nature language is communal, preservational, and harmony-bound rather than experimental.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0027"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Separate adaptation and improvement from harmony, unity, and preservation.",
+      "unsupported_certainty_to_avoid": "Do not collapse Selesnya into Simic inquiry or biological improvement."
+    },
+    {
+      "fixture_id": "selesnya_exclude_rg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "RG",
+      "scenario": "Gruul-like wildness, instinct, territory, clan rage, or anti-urban resistance leads.",
+      "intended_interpretation": "Exclude or keep Selesnya adjacent for RG unless nature and group belonging are source-bounded to harmony, unity, preservation, and communal voice.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Separate wildness and anti-civilization from Selesnya harmony and shared purpose.",
+      "unsupported_certainty_to_avoid": "Do not collapse Selesnya into Gruul instinct, rage, or territory."
+    },
+    {
+      "fixture_id": "selesnya_exclude_witherbloom",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WITHERBLOOM",
+      "scenario": "Witherbloom-like life/death studies, decay, harvesting, survival craft, or potion-making leads.",
+      "intended_interpretation": "Exclude or keep Selesnya adjacent for WITHERBLOOM unless life and community language is Selesnya preservation and harmony rather than life/death craft.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Separate life/death craft from Selesnya mutual care and unity.",
+      "unsupported_certainty_to_avoid": "Do not collapse Selesnya into Witherbloom decay, harvesting, or potion craft."
+    },
+    {
+      "fixture_id": "selesnya_exclude_quandrix",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "QUANDRIX",
+      "scenario": "Quandrix-like growth, nature, pattern, scale, or theory expressed through mathematics leads.",
+      "intended_interpretation": "Exclude or keep Selesnya adjacent for QUANDRIX unless growth or pattern language is source-bounded to communal voice, harmony, and preservation.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0030"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Separate mathematical growth and theory from Selesnya belonging and shared purpose.",
+      "unsupported_certainty_to_avoid": "Do not collapse Selesnya into Quandrix pattern or theory."
+    },
+    {
+      "fixture_id": "selesnya_exclude_bant",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BANT",
+      "scenario": "Bant-like order, hierarchy, community, or idealized virtue at a broader three-color identity leads.",
+      "intended_interpretation": "Exclude or keep Selesnya adjacent for BANT unless the Selesnya-specific communal voice, nature, unity, togetherness, and preservation package leads.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0031"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Separate broad Bant order or virtue from Selesnya communal voice and preservation.",
+      "unsupported_certainty_to_avoid": "Do not collapse Selesnya into generic Bant harmony or hierarchy."
+    },
+    {
+      "fixture_id": "selesnya_exclude_naya",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "NAYA",
+      "scenario": "Naya-like nature, creature grandeur, communal reverence, or large-creature identity leads.",
+      "intended_interpretation": "Exclude or keep Selesnya adjacent for NAYA unless nature and community are source-bounded to Selesnya communal voice, unity, togetherness, and preservation.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Separate creature grandeur and Naya reverence from Selesnya shared purpose.",
+      "unsupported_certainty_to_avoid": "Do not collapse Selesnya into Naya nature or creature awe."
+    },
+    {
+      "fixture_id": "selesnya_exclude_abzan",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ABZAN",
+      "scenario": "Abzan-like endurance, ancestry, family, kin obligation, or durable house continuity leads.",
+      "intended_interpretation": "Exclude or keep Selesnya adjacent for ABZAN unless belonging and duty are Selesnya communal harmony rather than ancestry or family obligation.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0033"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Separate family endurance and inherited obligation from Selesnya communal voice.",
+      "unsupported_certainty_to_avoid": "Do not collapse Selesnya into Abzan ancestry or kinship obligation."
+    },
+    {
+      "fixture_id": "selesnya_nearest_collision_community_nature_order_life",
+      "fixture_type": "nearest_collision_ambiguity",
+      "scenario": "A response about community, nature, order, or life could be Selesnya, Azorius, Boros, Golgari, Orzhov, Simic, Gruul, Witherbloom, Quandrix, Bant, Naya, or Abzan.",
+      "intended_interpretation": "Nearest-collision ambiguity should ask whether the evidence is Selesnya communal voice, harmony, and preservation rather than law, force, death cycles, debt, experimentation, wildness, life/death craft, mathematical growth, or family/three-color breadth.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0023",
+        "selesnya_conclave_claim_0024",
+        "selesnya_conclave_claim_0025",
+        "selesnya_conclave_claim_0026",
+        "selesnya_conclave_claim_0027",
+        "selesnya_conclave_claim_0028",
+        "selesnya_conclave_claim_0029",
+        "selesnya_conclave_claim_0030",
+        "selesnya_conclave_claim_0031",
+        "selesnya_conclave_claim_0032",
+        "selesnya_conclave_claim_0033"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "defensible_guidance": "Use Selesnya only when belonging, harmony, communal voice, nature, togetherness, preservation, and shared purpose are the active method.",
+      "unsupported_certainty_to_avoid": "Do not force Selesnya from generic community, nature, faith, kindness, creatures, or growth language."
+    },
+    {
+      "fixture_id": "selesnya_core_identity_provenance",
+      "fixture_type": "provenance",
+      "scenario": "",
+      "intended_interpretation": "Generated provenance for Selesnya core identity must point to source-bounded substantive claims only.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_001",
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_003",
+        "selesnya_conclave_claim_006",
+        "selesnya_conclave_claim_007",
+        "selesnya_conclave_claim_0018",
+        "selesnya_conclave_claim_0019",
+        "selesnya_conclave_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+      ],
+      "defensible_guidance": "Generated consumers must preserve source-bounded Selesnya core identity provenance.",
+      "unsupported_certainty_to_avoid": "Do not use discovery-story rows or generic WG mechanics as Selesnya core identity proof.",
+      "canonical_file": "data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json",
+      "canonical_pointer": "/core_identity"
+    },
+    {
+      "fixture_id": "selesnya_placement_summary_provenance",
+      "fixture_type": "provenance",
+      "scenario": "",
+      "intended_interpretation": "Generated provenance for Selesnya placement summary must preserve identity, leadership, mechanics, placement, and generic-overfit guardrails.",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_001",
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_003",
+        "selesnya_conclave_claim_006",
+        "selesnya_conclave_claim_007",
+        "selesnya_conclave_claim_0018",
+        "selesnya_conclave_claim_0019",
+        "selesnya_conclave_claim_0020",
+        "selesnya_conclave_claim_004",
+        "selesnya_conclave_claim_005"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+      ],
+      "defensible_guidance": "Generated consumers must preserve claim/source provenance for Selesnya placement summary guidance.",
+      "unsupported_certainty_to_avoid": "Do not expose discovery-story rows or generic WG mechanics as placement proof.",
+      "canonical_file": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json",
+      "canonical_pointer": "/placement_summary"
+    }
+  ]
+}

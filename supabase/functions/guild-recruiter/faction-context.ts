@@ -7814,38 +7814,38 @@ export const FACTION_CONTEXT = {
         "label": "Selesnya"
       }
     },
-    "tagline": "The whole is greater than the sum of its parts.",
-    "philosophy": "Either a selfless nurturing spiritual community or a brainwashing nature cult that systematically erases individual identity in service of the Worldmind. Both interpretations are accurate. The Conclave does not consider this a contradiction - it considers individual ego the source of most suffering.",
-    "core_tension": "Everything the Conclave offers comes at the price of individual selfhood. The peace of belonging they describe is real. So is what you give up for it.",
+    "tagline": "A communal voice rooted in nature and shared purpose.",
+    "philosophy": "Belonging becomes sacred when individual voice joins a greater living community.",
+    "core_tension": "Selesnya offers harmony, care, and shared purpose while asking individual voice to yield to the communal one.",
     "affinity": {
       "drawn_to": [
-        "Belonging to something larger than yourself as a genuine spiritual practice",
-        "Community as highest meaning, not just pleasant company",
-        "The ego as a source of suffering, not something to protect",
-        "Nurturing and caretaking as primary expression",
-        "Consensus over individual decision-making - including their own"
+        "Belonging to something larger as a genuine communal practice",
+        "Community as shared purpose, not just pleasant company",
+        "Nature and preservation held through collective care",
+        "Nurturing and caretaking as a group responsibility",
+        "Consensus and harmony when they are freely joined"
       ],
       "repelled_by": [
-        "Individualism as a philosophy, not just a preference",
+        "Individual distinction treated as more important than shared care",
         "Ambition that benefits only the self",
         "Conflict pursued for its own sake",
-        "People who won't yield for the group"
+        "Procedure, debt, or force replacing belonging"
       ],
-      "core_question": "Is the self something to be expressed and protected - or something to be offered up to something greater?",
+      "core_question": "When does belonging make someone more themselves, and when does it ask too much of the self?",
       "interview_tells": [
-        "Finds peace in belonging rather than in achievement",
-        "Prioritizes group harmony over personal wins, instinctively",
-        "Talks about community with genuine warmth, not just appreciation",
-        "Uncomfortable with conflict even when they're clearly right",
-        "Says 'I just want everyone to be okay' and means it"
+        "Finds strength in belonging rather than private achievement",
+        "Prioritizes group harmony over personal wins",
+        "Talks about community with concrete care, not just vague niceness",
+        "Wants conflict softened for the sake of the group",
+        "Names nature or growth in terms of preservation and shared life"
       ],
-      "not_to_be_confused_with": "Boros - both value community but Boros serves through action and protection; Selesnya through inclusion and absorption. Witherbloom - both connected to nature but Selesnya tends and nurtures; Witherbloom dissects and studies."
+      "not_to_be_confused_with": "Boros protects through duty and force; Azorius trusts procedure; Orzhov turns relationship into obligation; Witherbloom studies life and death as craft. Selesnya is source-bounded by communal voice, nature, unity, togetherness, and preservation."
     },
     "decree_voice": {
-      "tone": "Warm. Gentle. With a note of something much older underneath. Deeply sincere.",
-      "speaks_like": "The Worldmind itself, welcoming a new thread into the weave.",
-      "example_opening": "You have been looking for something that outlasts you.",
-      "example_decree": "You have been looking for something that outlasts you - not in the way of legacy or ambition, but in the way of rivers and roots. Something to belong to rather than something to build. The Worldmind heard you before you spoke. Your voice joins ours now. There is no 'I' in what follows. There is only 'we,' and we are large enough to hold everything you are willing to release."
+      "tone": "Warm, sincere, communal, and grounded in living things.",
+      "speaks_like": "A welcoming voice from a living community.",
+      "example_opening": "You have been looking for a place where your care can belong.",
+      "example_decree": "You have been looking for a place where your care can belong. Not as a loss of self, and not as proof that every difference must vanish, but as a living promise: many voices can hold one another when they choose the same peace."
     },
     "biological_expression": {
       "archetype": "The Communal Harmonizer",
@@ -7892,13 +7892,13 @@ export const FACTION_CONTEXT = {
     "poor_fit_indicators": [
       "sees compromise as weakness",
       "needs individual distinction above belonging",
-      "enjoys conflict for its own sake"
+      "enjoys conflict for its own sake or treats generic nature/creatures as enough"
     ],
     "inhibitor_traps": [
       "Absolute individual sovereignty; refuses any group bond that asks the self to yield, soften, or merge.",
       "sees compromise as weakness",
       "needs individual distinction above belonging",
-      "enjoys conflict for its own sake"
+      "enjoys conflict for its own sake or treats generic nature/creatures as enough"
     ],
     "lateral_inhibition_targets": [
       "WU",
@@ -7910,30 +7910,49 @@ export const FACTION_CONTEXT = {
       {
         "id": "selesnya_q1",
         "prompt": "When does belonging make someone more themselves, and when does it erase them?",
-        "purpose": "Tests the core self/community tension.",
-        "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-        "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-        "collision_targets": [],
-        "evidence_claim_ids": [
-          "selesnya_conclave_claim_001",
-          "selesnya_conclave_claim_002",
-          "selesnya_conclave_claim_003"
+        "purpose": "Tests the source-bounded self/community tension.",
+        "supports": "The answer emphasizes belonging, harmony, mutual care, and individual voice willingly joining a communal voice.",
+        "weakens": "The answer rejects communal belonging, treats nature/growth alone as enough, or centers imposed obedience without source-bounded Selesnya context.",
+        "collision_targets": [
+          "W",
+          "G",
+          "WB",
+          "BANT",
+          "ABZAN"
         ],
-        "confidence": "Medium"
+        "evidence_claim_ids": [
+          "selesnya_conclave_claim_002",
+          "selesnya_conclave_claim_007",
+          "selesnya_conclave_claim_0018",
+          "selesnya_conclave_claim_0019",
+          "selesnya_conclave_claim_0020"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
       },
       {
         "id": "selesnya_q2",
         "prompt": "What would you give up to keep a community whole?",
-        "purpose": "Separates Selesnya from Boros and Orzhov.",
-        "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-        "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-        "collision_targets": [],
-        "evidence_claim_ids": [
-          "selesnya_conclave_claim_001",
-          "selesnya_conclave_claim_002",
-          "selesnya_conclave_claim_003"
+        "purpose": "Separates Selesnya shared belonging from Boros duty, Orzhov obligation, and generic WG kindness.",
+        "supports": "The answer frames sacrifice as caretaking, consensus, or shared harmony rather than debt, law, or command.",
+        "weakens": "The answer centers duty, procedure, repayment, individual glory, or creature-board mechanics without communal meaning.",
+        "collision_targets": [
+          "WR",
+          "WB",
+          "WU",
+          "RG",
+          "NAYA"
         ],
-        "confidence": "Medium"
+        "evidence_claim_ids": [
+          "selesnya_conclave_claim_002",
+          "selesnya_conclave_claim_003",
+          "selesnya_conclave_claim_007",
+          "selesnya_conclave_claim_0018",
+          "selesnya_conclave_claim_0024",
+          "selesnya_conclave_claim_0026"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
       },
       {
         "id": "q_selesnya_conclave_9801",
@@ -7945,11 +7964,11 @@ export const FACTION_CONTEXT = {
           "WITHERBLOOM"
         ],
         "evidence_claim_ids": [
-          "selesnya_conclave_claim_001",
-          "selesnya_conclave_claim_002",
-          "selesnya_conclave_claim_003"
+          "selesnya_conclave_claim_0018",
+          "selesnya_conclave_claim_0029"
         ],
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "lateral_inhibition": false
       },
       {
         "id": "q_selesnya_conclave_9802",
@@ -7961,11 +7980,11 @@ export const FACTION_CONTEXT = {
           "WU"
         ],
         "evidence_claim_ids": [
-          "selesnya_conclave_claim_001",
-          "selesnya_conclave_claim_002",
-          "selesnya_conclave_claim_003"
+          "selesnya_conclave_claim_0018",
+          "selesnya_conclave_claim_0023"
         ],
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "lateral_inhibition": false
       }
     ],
     "chatbot_guidance": {
@@ -7977,7 +7996,7 @@ export const FACTION_CONTEXT = {
       "how_to_recognize_mismatch": [
         "sees compromise as weakness",
         "needs individual distinction above belonging",
-        "enjoys conflict for its own sake"
+        "enjoys conflict for its own sake or treats generic nature/creatures as enough"
       ],
       "questions_to_ask_when_uncertain": [
         "When does belonging make someone more themselves, and when does it erase them?",

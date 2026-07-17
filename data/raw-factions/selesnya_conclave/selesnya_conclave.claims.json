@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "faction_id": "selesnya_conclave",
   "faction_name": "Selesnya Conclave",
-  "last_updated": "2026-05-09",
-  "claim_count": 17,
+  "last_updated": "2026-07-17T10:45:00-06:00",
+  "claim_count": 33,
   "claims": [
     {
       "claim_id": "selesnya_conclave_claim_001",
@@ -16,7 +16,26 @@
         "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "VM-515 Gate 3 classified this as source-bounded Selesnya identity, not generic WG color philosophy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official guild guide supports Selesnya as the white-green Ravnican guild and associates its identity with collectivism, nature, unity, togetherness, and preservation.",
+          "evidence_scope": "canonical identity",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_prerelease_primer_2018",
+          "locator_type": "official-set-primer-source-record",
+          "locator": "Guilds of Ravnica Prerelease Primer - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official set primer supports Selesnya as one of the Guilds of Ravnica identities and provides broad set-level support for its white-green guild identity.",
+          "evidence_scope": "canonical identity",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "selesnya_conclave_claim_002",
@@ -28,7 +47,18 @@
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official guild guide is used for the bounded role claim that Selesnya privileges the communal voice over the individual.",
+          "evidence_scope": "institutional method",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "selesnya_conclave_claim_003",
@@ -40,7 +70,18 @@
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official guild guide is used for the bounded claim that Selesnya should not be reduced to pacifism and can field a large, powerful army.",
+          "evidence_scope": "institution-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "selesnya_conclave_claim_004",
@@ -52,7 +93,18 @@
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official guild guide is used for Mat'Selesnya as Selesnya founder, voice of nature, and Vitu-Ghazi presence.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "selesnya_conclave_claim_005",
@@ -64,7 +116,18 @@
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official guild guide is used for Trostani as Mat'Selesnya's speaker through three dryads representing Life, Order, and Harmony.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "selesnya_conclave_claim_006",
@@ -76,20 +139,50 @@
         "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Convoke / Selesnya reviewed source record",
+          "bounded_paraphrase": "The official mechanics article is used only for Convoke as the Guilds of Ravnica Selesnya mechanic.",
+          "evidence_scope": "mechanic-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "selesnya_conclave_claim_007",
       "faction_id": "selesnya_conclave",
       "claim_type": "placement",
-      "statement": "Selesnya placement signals should weight belonging, caretaking, consensus, harmony, and desire to serve a greater good.",
+      "statement": "Selesnya placement signals should require source-bounded belonging, caretaking, consensus, harmony, communal voice, or greater-good service rather than generic white-green creatures, tokens, ramp, counters, lifegain, populate, or go-wide gameplay alone.",
       "canon_status": "Supported Interpretation",
       "source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
         "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "confidence": "High",
-      "notes": "Placement inference derived from official faction identity and mechanics; not an official Wizards psychological taxonomy."
+      "notes": "Placement inference derived from official faction identity and mechanics; not an official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official Selesnya overview supports the collectivism, nature, unity, togetherness, preservation, communal-voice, and non-pacifist army cluster used for placement synthesis.",
+          "evidence_scope": "placement inference",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Convoke / Selesnya reviewed source record",
+          "bounded_paraphrase": "Convoke supports only bounded Selesnya mechanics texture; it does not make all creatures, tokens, ramp, counters, lifegain, populate, or go-wide gameplay authoritative Selesnya proof by itself.",
+          "evidence_scope": "placement inference",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "selesnya_conclave_claim_0008",
@@ -102,7 +195,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "selesnya_conclave_claim_0009",
@@ -115,7 +212,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "selesnya_conclave_claim_0010",
@@ -128,7 +229,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "selesnya_conclave_claim_0011",
@@ -141,7 +246,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "selesnya_conclave_claim_0012",
@@ -154,7 +263,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "selesnya_conclave_claim_0013",
@@ -167,7 +280,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "selesnya_conclave_claim_0014",
@@ -180,7 +297,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "selesnya_conclave_claim_0015",
@@ -193,7 +314,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "selesnya_conclave_claim_0016",
@@ -206,7 +331,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "selesnya_conclave_claim_0017",
@@ -219,7 +348,406 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
+    },
+    {
+      "claim_id": "selesnya_conclave_claim_0018",
+      "faction_id": "selesnya_conclave",
+      "claim_type": "placement_motivation",
+      "statement": "Selesnya motivation is source-bounded as belonging to a greater living community where individual voice joins communal harmony, care, and shared purpose.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-515 Gate 3 bounded placement synthesis; Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official Selesnya overview supplies collectivism, nature, unity, togetherness, preservation, and communal voice over individual as the placement-motivation cluster.",
+          "evidence_scope": "placement motivation",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Convoke / Selesnya reviewed source record",
+          "bounded_paraphrase": "Convoke supplies bounded mechanics texture for creatures contributing together; it is not used as standalone token or go-wide proof.",
+          "evidence_scope": "placement motivation",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "selesnya_conclave_claim_0019",
+      "faction_id": "selesnya_conclave",
+      "claim_type": "pressure_behavior",
+      "statement": "A mature or pressure Selesnya reading asks whether belonging, harmony, and shared purpose are asking the self to yield to the communal voice rather than merely preferring kindness, nature, or creature-heavy gameplay.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-515 Gate 3 bounded placement synthesis; Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official Selesnya overview supports communal voice over individual voice as the Selesnya-specific pressure behavior.",
+          "evidence_scope": "pressure behavior",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Convoke / Selesnya reviewed source record",
+          "bounded_paraphrase": "Convoke is bounded to mechanics texture and does not authorize generic creature-heavy gameplay as Selesnya identity.",
+          "evidence_scope": "pressure behavior",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "selesnya_conclave_claim_0020",
+      "faction_id": "selesnya_conclave",
+      "claim_type": "placement_boundary",
+      "statement": "Generic white-green creatures, tokens, counters, ramp, lifegain, board development, populate, go-wide gameplay, nature aesthetics, or perfect-harmony/brainwashing/cult caricature is not Selesnya proof unless source-bounded Selesnya collectivism, nature, unity, communal voice, preservation, Trostani/Mat'Selesnya context, or Convoke texture leads.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-515 Gate 3 stale/mechanic-overfit boundary.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official Selesnya overview supplies the required Selesnya identity cluster; generic WG deck mechanics, nature aesthetics, and overheated caricature are only adjacent unless bounded by that cluster.",
+          "evidence_scope": "placement boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Convoke / Selesnya reviewed source record",
+          "bounded_paraphrase": "Convoke supports only bounded Selesnya mechanics texture and does not authorize all token, populate, go-wide, or creature gameplay as Selesnya proof.",
+          "evidence_scope": "placement boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "selesnya_conclave_claim_0021",
+      "faction_id": "selesnya_conclave",
+      "claim_type": "neighbor_boundary",
+      "statement": "Mono-white order, law, duty, faith, or community is not Selesnya proof unless joined to the source-bounded Selesnya communal nature and greater-living-community frame.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High",
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official Selesnya overview supplies the WG communal nature cluster used to distinguish Selesnya from mono-white order, law, faith, or community alone.",
+          "evidence_scope": "neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "selesnya_conclave_claim_0022",
+      "faction_id": "selesnya_conclave",
+      "claim_type": "neighbor_boundary",
+      "statement": "Mono-green nature, growth, instinct, ecology, creatures, or preservation is not Selesnya proof unless joined to the source-bounded Selesnya communal voice, unity, and belonging frame.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High",
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official Selesnya overview supplies collectivism, nature, unity, togetherness, preservation, and communal voice as the boundary from mono-green nature or growth alone.",
+          "evidence_scope": "neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "selesnya_conclave_claim_0023",
+      "faction_id": "selesnya_conclave",
+      "claim_type": "neighbor_boundary",
+      "statement": "Azorius-like law, procedure, bureaucracy, surveillance, or enforceable fairness is not Selesnya proof unless communal belonging and harmony lead over institutional process.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High",
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official Selesnya overview supplies communal voice, unity, togetherness, and preservation as the Selesnya-side boundary from procedural order.",
+          "evidence_scope": "neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "selesnya_conclave_claim_0024",
+      "faction_id": "selesnya_conclave",
+      "claim_type": "neighbor_boundary",
+      "statement": "Boros-like duty, justice, discipline, protection, military force, or direct action is not Selesnya proof unless force is bounded by Selesnya communal preservation and shared harmony rather than martial order.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High",
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official Selesnya overview supports a non-pacifist army but keeps the Selesnya identity cluster in communal voice, unity, nature, and preservation rather than Boros-style martial discipline.",
+          "evidence_scope": "neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "selesnya_conclave_claim_0025",
+      "faction_id": "selesnya_conclave",
+      "claim_type": "neighbor_boundary",
+      "statement": "Golgari-like survival, rot, decay, undercity life, recursion, or life-death resource cycling is not Selesnya proof unless source-bounded Selesnya belonging, preservation, and communal harmony lead.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High",
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official Selesnya overview supplies the preservation, unity, nature, and communal-voice cluster used to distinguish Selesnya from decay, survival, and recursion framing.",
+          "evidence_scope": "neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "selesnya_conclave_claim_0026",
+      "faction_id": "selesnya_conclave",
+      "claim_type": "neighbor_boundary",
+      "statement": "Orzhov-like debt, obligation, hierarchy, prestige, transactional institution, or repayment is not Selesnya proof unless relationship language is source-bounded as shared belonging rather than collectible obligation.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High",
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official Selesnya overview supplies shared belonging, communal voice, unity, and preservation as the Selesnya-side boundary from debt or transactional obligation.",
+          "evidence_scope": "neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "selesnya_conclave_claim_0027",
+      "faction_id": "selesnya_conclave",
+      "claim_type": "neighbor_boundary",
+      "statement": "Simic-like inquiry, adaptation, biological improvement, experimentation, or optimization is not Selesnya proof unless nature is framed through Selesnya communal belonging and preservation rather than research or modification.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High",
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official Selesnya overview supports nature, unity, togetherness, preservation, and communal voice as the boundary from biological inquiry or improvement.",
+          "evidence_scope": "neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "selesnya_conclave_claim_0028",
+      "faction_id": "selesnya_conclave",
+      "claim_type": "neighbor_boundary",
+      "statement": "Gruul-like rage, anti-civilization revolt, destruction, or wild individual release is not Selesnya proof unless nature and force remain bounded by Selesnya unity, preservation, harmony, and community.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High",
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official Selesnya overview supplies unity, togetherness, preservation, and communal voice as the boundary from revolt, destruction, or individual release.",
+          "evidence_scope": "neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "selesnya_conclave_claim_0029",
+      "faction_id": "selesnya_conclave",
+      "claim_type": "neighbor_boundary",
+      "statement": "Witherbloom-like life/death craft, essence exchange, pests, bodily vitality costs, or death-as-resource logic is not Selesnya proof unless care for life is source-bounded as shared peace, communal belonging, and preservation.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High",
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official Selesnya overview supplies nature, preservation, communal voice, unity, and togetherness as the Selesnya-side boundary from life/death craft or vitality-cost framing.",
+          "evidence_scope": "neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "selesnya_conclave_claim_0030",
+      "faction_id": "selesnya_conclave",
+      "claim_type": "neighbor_boundary",
+      "statement": "Quandrix-like mathematical nature, pattern study, abstract balance, or theoretical growth is not Selesnya proof unless nature is source-bounded as communal belonging, unity, and preservation rather than abstraction.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High",
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official Selesnya overview supplies lived communal nature, unity, togetherness, and preservation as the boundary from mathematical or theoretical nature framing.",
+          "evidence_scope": "neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "selesnya_conclave_claim_0031",
+      "faction_id": "selesnya_conclave",
+      "claim_type": "neighbor_boundary",
+      "statement": "Bant-like honor, order, courtly community, or broader three-color civic virtue is not Selesnya proof unless narrowed to Selesnya's Ravnican communal nature, Mat'Selesnya/Trostani context, and shared voice.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High",
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official Selesnya overview supplies the Ravnican Selesnya cluster, including Mat'Selesnya, Trostani, communal voice, unity, and nature, as the boundary from broader Bant community or honor.",
+          "evidence_scope": "neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "selesnya_conclave_claim_0032",
+      "faction_id": "selesnya_conclave",
+      "claim_type": "neighbor_boundary",
+      "statement": "Naya-like creature-scale awe, feral communal vitality, wild celebration, or broader WRG life abundance is not Selesnya proof unless narrowed to Selesnya communal voice, preservation, harmony, and guild context.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High",
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official Selesnya overview supplies the Selesnya-specific communal voice, unity, preservation, nature, and guild context used to distinguish it from broader WRG life abundance.",
+          "evidence_scope": "neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "selesnya_conclave_claim_0033",
+      "faction_id": "selesnya_conclave",
+      "claim_type": "neighbor_boundary",
+      "statement": "Abzan-like family endurance, ancestry, clan obligation, long memory, or inherited duty is not Selesnya proof unless obligation is source-bounded as voluntary communal belonging and shared harmony rather than kinship continuity.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "confidence": "High",
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - Selesnya reviewed source record",
+          "bounded_paraphrase": "The official Selesnya overview supplies communal voice, unity, togetherness, and preservation as the Selesnya-side boundary from clan ancestry or inherited obligation.",
+          "evidence_scope": "neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     }
   ]
 }

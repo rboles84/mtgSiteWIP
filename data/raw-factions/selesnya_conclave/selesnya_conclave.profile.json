@@ -8,19 +8,19 @@
     "white",
     "green"
   ],
-  "last_updated": "2026-05-13T21:14:06.308Z",
+  "last_updated": "2026-07-17T10:45:00-06:00",
   "profile": {
-    "overview": "Selesnya Conclave is a white-green guild associated with Ravnica.",
-    "philosophy": "The self finds peace by becoming part of a greater living community.",
-    "core_tension": "Selesnya offers belonging, harmony, and care, but it also asks the individual voice to yield to the communal one.",
-    "social_or_institutional_role": "The official guide presents Selesnya as a collectivist nature-centered guild led through Mat'Selesnya and Trostani in the cited era.",
-    "mechanics_and_play_pattern": "Convoke expresses Selesnya solidarity by allowing a community of creatures to help cast spells.",
+    "id": "selesnya_profile_summary_gate3",
+    "overview": "Selesnya Conclave is the white-green Ravnican guild where communal voice, nature, unity, togetherness, and preservation overlap.",
+    "philosophy": "Belonging becomes sacred when individual voice joins a greater living community.",
+    "core_tension": "Selesnya offers harmony, care, and shared purpose while asking individual voice to yield to the communal one.",
+    "social_or_institutional_role": "The official guide presents Selesnya as a collectivist nature-centered guild led through Mat'Selesnya and Trostani in the cited era, with the capacity to field a large army.",
+    "mechanics_and_play_pattern": "Convoke is Selesnya mechanics texture; creatures working together can support the guild theme, but tokens, populate, lifegain, counters, ramp, or go-wide gameplay do not prove Selesnya identity alone.",
     "placement_use": "Use this profile to support thematic placement, quiz design, and lore browsing. Do not present placement inferences as canon.",
     "strongest_source_ids": [
       "src_wotc_flavorful_guide_guilds_ravnica_2018",
       "src_wotc_guilds_ravnica_mechanics_2018",
-      "src_wotc_guilds_ravnica_prerelease_primer_2018",
-      "src_wotc_dragons_maze_mechanics_2013"
+      "src_wotc_guilds_ravnica_prerelease_primer_2018"
     ],
     "claim_ids": [
       "selesnya_conclave_claim_001",
@@ -29,75 +29,84 @@
       "selesnya_conclave_claim_004",
       "selesnya_conclave_claim_005",
       "selesnya_conclave_claim_006",
-      "selesnya_conclave_claim_007"
+      "selesnya_conclave_claim_007",
+      "selesnya_conclave_claim_0018",
+      "selesnya_conclave_claim_0019",
+      "selesnya_conclave_claim_0020"
     ]
   },
   "evidence_summary": {
     "overall_confidence": "High",
     "limitations": [
-      "This is a compact first-pass JSON package generated from official overview and mechanics sources.",
-      "Novel-level or story-episode-specific details should be added in a later deep-dive pass with direct story citations."
+      "Gate 3 remediation uses existing listed/local official source records only; discovery-story corpus rows remain search metadata until bounded source localization is performed.",
+      "Commander/card/product guidance is auxiliary and cannot prove Selesnya identity, placement, key figures, recruiter guidance, semantic readiness, public copy, or provenance chains."
     ]
   },
-  "profile_version": "1.0.0",
+  "profile_version": "1.1.0",
   "source_review_date": "2026-05-09",
-  "last_incremental_review": "2026-05-09",
+  "last_incremental_review": "2026-07-17T10:45:00-06:00",
   "core_identity": {
-    "summary": "Selesnya Conclave is a white-green guild associated with Ravnica.",
-    "philosophy": "The self finds peace by becoming part of a greater living community.",
-    "central_tension": "Selesnya offers belonging, harmony, and care, but it also asks the individual voice to yield to the communal one.",
+    "id": "selesnya_core_identity_gate3",
+    "summary": "Selesnya Conclave is the white-green Ravnican guild where communal voice, nature, unity, togetherness, and preservation overlap.",
+    "philosophy": "Belonging becomes sacred when individual voice joins a greater living community.",
+    "central_tension": "Selesnya offers harmony, care, and shared purpose while asking individual voice to yield to the communal one.",
     "claim_ids": [
-      "selesnya_conclave_claim_0008",
-      "selesnya_conclave_claim_0009",
-      "selesnya_conclave_claim_0010",
-      "selesnya_conclave_claim_0011",
-      "selesnya_conclave_claim_0012",
-      "selesnya_conclave_claim_0013",
-      "selesnya_conclave_claim_0014",
-      "selesnya_conclave_claim_0015"
+      "selesnya_conclave_claim_001",
+      "selesnya_conclave_claim_002",
+      "selesnya_conclave_claim_003",
+      "selesnya_conclave_claim_006",
+      "selesnya_conclave_claim_007",
+      "selesnya_conclave_claim_0018",
+      "selesnya_conclave_claim_0019",
+      "selesnya_conclave_claim_0020"
     ]
   },
   "site_surface": {
+    "id": "selesnya_site_surface_gate3",
     "display_name": "Selesnya Conclave",
     "short_label": "Selesnya Conclave",
-    "tagline": "The self finds peace by becoming part of a greater living community.",
+    "tagline": "A communal voice rooted in nature and shared purpose.",
     "claim_ids": [
-      "selesnya_conclave_claim_0008",
-      "selesnya_conclave_claim_0009",
-      "selesnya_conclave_claim_0010",
-      "selesnya_conclave_claim_0011"
+      "selesnya_conclave_claim_001",
+      "selesnya_conclave_claim_002",
+      "selesnya_conclave_claim_007",
+      "selesnya_conclave_claim_0018",
+      "selesnya_conclave_claim_0020"
     ]
   },
   "structure": {
+    "id": "selesnya_structure_gate3",
     "summary": "The official guide presents Selesnya as a collectivist nature-centered guild led through Mat'Selesnya and Trostani in the cited era.",
     "claim_ids": [
-      "selesnya_conclave_claim_0008",
-      "selesnya_conclave_claim_0009",
-      "selesnya_conclave_claim_0010",
-      "selesnya_conclave_claim_0011"
+      "selesnya_conclave_claim_002",
+      "selesnya_conclave_claim_004",
+      "selesnya_conclave_claim_005",
+      "selesnya_conclave_claim_0018"
     ]
   },
   "great_tension": {
-    "summary": "Selesnya offers belonging, harmony, and care, but it also asks the individual voice to yield to the communal one.",
-    "placement_relevance": "Used to distinguish surface color overlap from faction-specific behavior.",
+    "id": "selesnya_great_tension_gate3",
+    "summary": "Selesnya offers belonging, harmony, and care, but its source-bounded tension is that the communal voice can take priority over individual voice.",
+    "placement_relevance": "Used to distinguish Selesnya belonging and communal harmony from generic WG mechanics, mono-white order, mono-green nature, and nearby guild/shard/wedge identities.",
     "claim_ids": [
-      "selesnya_conclave_claim_0008",
-      "selesnya_conclave_claim_0009",
-      "selesnya_conclave_claim_0010",
-      "selesnya_conclave_claim_0011",
-      "selesnya_conclave_claim_0012"
+      "selesnya_conclave_claim_002",
+      "selesnya_conclave_claim_003",
+      "selesnya_conclave_claim_007",
+      "selesnya_conclave_claim_0018",
+      "selesnya_conclave_claim_0019",
+      "selesnya_conclave_claim_0020"
     ]
   },
   "historical_timeline": [
     {
-      "event_id": "event_selesnya_conclave_selesnya_conclave_claim_004",
+      "event_id": "event_selesnya_mat_selesnya_founder_gate3",
       "event": "The guide identifies Mat'Selesnya as Selesnya's founder and voice of nature, dwelling in Vitu-Ghazi.",
       "date_or_era": "Founding era",
       "claim_ids": [
         "selesnya_conclave_claim_004"
       ],
       "confidence": "High",
-      "notes": "Canon-supported claim used for raw enrichment."
+      "notes": "Source-bounded claim used for raw enrichment."
     }
   ],
   "key_figures": [
@@ -105,118 +114,63 @@
       "character_id": "char_mat_selesnya",
       "name": "Mat'Selesnya",
       "role": "Selesnya founder and voice of nature.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "relationship_to_faction": "Source-backed founder/voice named by the official Selesnya guide.",
       "claim_ids": [
-        "selesnya_conclave_claim_004",
-        "selesnya_conclave_claim_005",
-        "selesnya_conclave_claim_0008",
-        "selesnya_conclave_claim_0010",
-        "selesnya_conclave_claim_0011",
-        "selesnya_conclave_claim_0012",
-        "selesnya_conclave_claim_0015"
+        "selesnya_conclave_claim_004"
       ],
       "source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_the_great_concourse_cc6ee0e6",
-        "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "Discovery-story claim IDs removed from authoritative key-figure proof chain during VM-515 Gate 3."
     },
     {
       "character_id": "char_trostani",
       "name": "Trostani",
-      "role": "Prominent Selesnya voice and guild leader.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "role": "Mat'Selesnya's speaker through three dryads representing Life, Order, and Harmony.",
+      "relationship_to_faction": "Source-backed Selesnya leadership figure named by the official Selesnya guide.",
       "claim_ids": [
-        "selesnya_conclave_claim_005",
-        "selesnya_conclave_claim_0008",
-        "selesnya_conclave_claim_0009",
-        "selesnya_conclave_claim_0010",
-        "selesnya_conclave_claim_0011",
-        "selesnya_conclave_claim_0012",
-        "selesnya_conclave_claim_0013",
-        "selesnya_conclave_claim_0015",
-        "selesnya_conclave_claim_0016",
-        "selesnya_conclave_claim_0017"
+        "selesnya_conclave_claim_005"
       ],
       "source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_in_praise_of_the_worldsoul_part_1_d5ba8171",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_the_great_concourse_cc6ee0e6",
-        "src_mtg_stories_in_praise_of_the_worldsoul_part_2_f671c9f9",
-        "src_mtg_stories_episode_9_beauty_in_destruction_8206653c",
-        "src_mtg_stories_the_gathering_storm_chapter_5_85ba569f",
-        "src_mtg_stories_in_praise_of_the_worldsoul_part_3_bc6ed8e9"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "confidence": "High",
-      "notes": ""
-    },
-    {
-      "character_id": "char_emmara_tandris",
-      "name": "Emmara Tandris",
-      "role": "Prominent Selesnya figure.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
-      "claim_ids": [
-        "selesnya_conclave_claim_0010",
-        "selesnya_conclave_claim_0011",
-        "selesnya_conclave_claim_0016"
-      ],
-      "source_ids": [
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_the_gathering_storm_chapter_5_85ba569f"
-      ],
-      "confidence": "Medium",
-      "notes": ""
+      "notes": "Discovery-story claim IDs removed from authoritative key-figure proof chain during VM-515 Gate 3."
     }
   ],
   "canonical_flavor_text": [
     {
+      "id": "selesnya_source_bounded_dossier_anchor",
       "card_name": "Selesnya Conclave dossier anchor",
       "set": "Ravnica",
-      "short_excerpt_or_summary": "The self finds peace by becoming part of a greater living community.",
+      "short_excerpt_or_summary": "Source-bounded Selesnya copy should center communal voice, nature, unity, togetherness, preservation, Mat'Selesnya, Trostani, non-pacifist defensive capacity, and Convoke only where those dimensions are directly or interpretively supported by reviewed sources.",
       "is_exact_excerpt": false,
       "claim_ids": [
-        "selesnya_conclave_claim_0008",
-        "selesnya_conclave_claim_0009",
-        "selesnya_conclave_claim_0010",
-        "selesnya_conclave_claim_0011",
-        "selesnya_conclave_claim_0012",
-        "selesnya_conclave_claim_0013",
-        "selesnya_conclave_claim_0014",
-        "selesnya_conclave_claim_0015"
+        "selesnya_conclave_claim_001",
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_003",
+        "selesnya_conclave_claim_006",
+        "selesnya_conclave_claim_007",
+        "selesnya_conclave_claim_0020"
       ],
       "source_ids": [
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_in_praise_of_the_worldsoul_part_1_d5ba8171",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_the_great_concourse_cc6ee0e6",
-        "src_mtg_stories_in_praise_of_the_worldsoul_part_2_f671c9f9",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
-        "src_mtg_stories_episode_9_beauty_in_destruction_8206653c",
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_wotc_guilds_ravnica_prerelease_primer_2018",
-        "src_wotc_guilds_ravnica_mechanics_2018"
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
-      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+      "evidence_use": "auxiliary_support",
+      "notes": "Auxiliary copy guardrail; not card flavor text and not an independent proof chain."
     }
   ],
   "views_on_other_factions": [],
   "mechanics": {
-    "summary": "Convoke expresses Selesnya solidarity by allowing a community of creatures to help cast spells.",
+    "mechanic_id": "selesnya_convoke_mechanics_gate3",
+    "summary": "Convoke is Selesnya mechanics texture; creatures contributing together can support the guild theme, but tokens, populate, lifegain, counters, ramp, or go-wide gameplay do not prove Selesnya identity without source-bounded communal context.",
     "claim_ids": [
-      "selesnya_conclave_claim_0008",
-      "selesnya_conclave_claim_0009",
-      "selesnya_conclave_claim_0010",
-      "selesnya_conclave_claim_0011"
+      "selesnya_conclave_claim_006",
+      "selesnya_conclave_claim_007",
+      "selesnya_conclave_claim_0020"
     ]
   },
   "search_and_filter_metadata": {
@@ -265,8 +219,10 @@
   },
   "data_quality": {
     "corpus_upgrade": {
+      "id": "selesnya_corpus_discovery_metadata_gate3",
       "review_date": "2026-05-09",
-      "status": "MTG-Stories corpus evidence added",
+      "status": "MTG-Stories corpus evidence retained as discovery metadata only",
+      "evidence_use": "discovery_metadata",
       "claim_ids": [
         "selesnya_conclave_claim_0008",
         "selesnya_conclave_claim_0009",
@@ -278,11 +234,12 @@
         "selesnya_conclave_claim_0015",
         "selesnya_conclave_claim_0016",
         "selesnya_conclave_claim_0017"
-      ]
+      ],
+      "authoritative_use_restriction": "Discovery-story rows are retained for search history and future localization only; they do not prove Selesnya identity, placement, key figures, recruiter guidance, semantic readiness, public copy, or provenance chains."
     },
     "raw_enrichment": {
       "review_date": "2026-05-13T21:14:06.308Z",
-      "source_basis": "data/raw-factions claims.json + sources.json",
+      "source_basis": "data/raw-factions claims.json + sources.json; discovery-only rows isolated as data_quality corpus metadata",
       "key_figures_added": 0,
       "historical_timeline_entries": 1,
       "canonical_flavor_text_entries": 1,
@@ -290,7 +247,16 @@
       "known_characters": 3,
       "known_mechanics": 2,
       "story_arcs": 6
-    }
+    },
+    "retained_native_id_metadata": [
+      {
+        "character_id": "char_emmara_tandris",
+        "name": "Emmara Tandris",
+        "authoritative_semantic_use": false,
+        "evidence_use": "retained_native_metadata",
+        "retention_reason": "Retains pre-existing native key-figure ID from discovery-only story rows as history; authoritative Selesnya key-figure proof remains limited to Mat'Selesnya and Trostani until bounded source localization supports more."
+      }
+    ]
   },
   "research_limitations": [
     "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
@@ -300,57 +266,52 @@
     "source_research_file": "selesnya_conclave.commander_compass.research.json",
     "last_reviewed": "2026-05-14",
     "review_status": "reviewed_not_canonical_lore",
-    "recommendation_philosophy": "Favor commanders that make many creatures matter together. Selesnya should feel like a living chorus: tokens, convoke, populate, lifegain, and board-wide growth turn individual bodies into a collective win condition.",
+    "recommendation_philosophy": "Favor commanders that make many creatures act together only as auxiliary Commander guidance. Selesnya semantic proof remains source-bounded to communal voice, nature, unity, togetherness, preservation, Mat'Selesnya/Trostani context, and Convoke texture; product/card popularity is not canon.",
     "identity_basis": {
       "owned_themes": [
-        "unity and collectivism",
-        "nature and preservation",
-        "Vitu-Ghazi and Worldsoul",
-        "Mat’Selesnya and Trostani",
-        "go-wide creatures",
-        "tokens",
-        "convoke",
-        "populate",
-        "lifegain through community",
-        "large communal boards"
+        "communal voice over individual voice",
+        "collectivism, unity, togetherness, and preservation",
+        "nature-centered guild identity",
+        "Mat'Selesnya and Trostani where official guide support exists",
+        "Convoke as bounded Selesnya mechanics texture"
       ],
       "allowed_phrases": [
-        "chorus of bodies",
-        "strength through unity",
-        "populate the Worldsoul",
-        "communal board engine",
-        "convoke swarm",
-        "many small creatures become one voice"
+        "communal voice",
+        "shared belonging",
+        "nature and preservation",
+        "unity and togetherness",
+        "Convoke texture",
+        "care held by the group"
       ],
       "avoid_or_contrast_phrases": [
-        "solitary Voltron identity",
-        "pure prison/stax with no communal theme",
-        "generic GW goodstuff",
-        "canon proof from deck popularity"
+        "generic WG creature pile",
+        "tokens or go-wide as lore proof",
+        "populate, lifegain, counters, ramp, or board development as identity proof",
+        "brainwashing or cult caricature without source support",
+        "Worldmind or erased individuality overreach",
+        "product guidance as canon"
       ],
       "adjacent_overlap_notes": [
-        "Enchantress and lifegain can overlap with Selesnya when framed as growth/community engines, but native Selesnya should center collective bodies, tokens, and unity."
+        "Tokens, populate, lifegain, enchantress, counters, ramp, and go-wide play can overlap mechanically, but Selesnya semantic use must keep source-bounded communal voice, nature, unity, togetherness, preservation, and bounded Convoke context."
       ],
       "supporting_claim_ids": [
-        "selesnya_conclave_claim_0008",
-        "selesnya_conclave_claim_0009",
-        "selesnya_conclave_claim_0010",
-        "selesnya_conclave_claim_0011",
-        "selesnya_conclave_claim_0012",
-        "selesnya_conclave_claim_0013",
-        "selesnya_conclave_claim_0014",
-        "selesnya_conclave_claim_0015"
+        "selesnya_conclave_claim_001",
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_003",
+        "selesnya_conclave_claim_004",
+        "selesnya_conclave_claim_005",
+        "selesnya_conclave_claim_006",
+        "selesnya_conclave_claim_007",
+        "selesnya_conclave_claim_0018",
+        "selesnya_conclave_claim_0019",
+        "selesnya_conclave_claim_0020"
       ],
       "supporting_source_ids": [
-        "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-        "src_mtg_stories_in_praise_of_the_worldsoul_part_1_d5ba8171",
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_the_great_concourse_cc6ee0e6",
-        "src_mtg_stories_in_praise_of_the_worldsoul_part_2_f671c9f9",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
-        "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
-      ]
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+      ],
+      "auxiliary_support_boundary": "Commander/card/product guidance is auxiliary only; existing_repo_claim_ids and existing_repo_source_ids exclude discovery-only story-corpus records and cannot independently prove Selesnya identity, placement, key figures, recruiter guidance, semantic readiness, public copy, or provenance chains."
     },
     "native_fit_commanders": [
       {
@@ -369,15 +330,15 @@
           "Populate",
           "Lifegain"
         ],
-        "why_this_fits": "Trostani is the most direct native Selesnya Commander bridge: the guild voice becomes a token-populate and lifegain engine.",
+        "why_this_fits": "Trostani has source-backed Selesnya leadership context, while her token/populate/lifegain card play is auxiliary Commander texture rather than independent lore proof.",
         "skip_if": "Skip if you dislike token bookkeeping, longer board-development games, or populate needing good token targets.",
         "gameplay_summary": "A four-mana Dryad commander that gains life from creature toughness and populates to copy creature tokens.",
         "faction_identity_terms": [
           "Trostani",
-          "Worldsoul",
-          "populate",
+          "communal voice",
+          "Convoke texture",
           "unity",
-          "lifegain"
+          "belonging"
         ],
         "source_basis": {
           "card_data": [
@@ -394,24 +355,17 @@
           ],
           "existing_repo_claim_ids": [
             "selesnya_conclave_claim_005",
-            "selesnya_conclave_claim_0008",
-            "selesnya_conclave_claim_0009",
-            "selesnya_conclave_claim_0010",
-            "selesnya_conclave_claim_0011",
-            "selesnya_conclave_claim_0012",
-            "selesnya_conclave_claim_0013",
-            "selesnya_conclave_claim_0015"
+            "selesnya_conclave_claim_006",
+            "selesnya_conclave_claim_007",
+            "selesnya_conclave_claim_0018",
+            "selesnya_conclave_claim_0020"
           ],
           "existing_repo_source_ids": [
             "src_wotc_flavorful_guide_guilds_ravnica_2018",
-            "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-            "src_mtg_stories_in_praise_of_the_worldsoul_part_1_d5ba8171",
-            "src_mtg_stories_desperate_operatives_6c6a580b",
-            "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-            "src_mtg_stories_the_great_concourse_cc6ee0e6",
-            "src_mtg_stories_in_praise_of_the_worldsoul_part_2_f671c9f9",
-            "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
-          ]
+            "src_wotc_guilds_ravnica_mechanics_2018",
+            "src_wotc_guilds_ravnica_prerelease_primer_2018"
+          ],
+          "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Selesnya claims, and do not use product/card data as canon proof."
         },
         "confidence": "High",
         "caution_notes": [],
@@ -433,14 +387,14 @@
           "Convoke",
           "Tap Synergy"
         ],
-        "why_this_fits": "Emmara turns the Selesnya body-count philosophy into a simple engine: tapping a communal worker creates another lifelink body for the chorus.",
+        "why_this_fits": "Emmara is a gameplay-adjacent Selesnya on-ramp because tapping and creature teamwork can echo bounded Convoke texture; this is product guidance, not authoritative character proof.",
         "skip_if": "Skip if you want a commander that creates large threats by itself or dislike needing tap outlets/convoke support.",
         "gameplay_summary": "A two-mana Elf Cleric that creates 1/1 lifelink Soldier tokens whenever she becomes tapped.",
         "faction_identity_terms": [
-          "convoke",
+          "Convoke texture",
           "community",
-          "lifelink tokens",
-          "Selesnya"
+          "Selesnya",
+          "teamwork"
         ],
         "source_basis": {
           "card_data": [
@@ -455,15 +409,16 @@
             "https://edhrec.com/commanders/selesnya"
           ],
           "existing_repo_claim_ids": [
-            "selesnya_conclave_claim_0010",
-            "selesnya_conclave_claim_0011",
-            "selesnya_conclave_claim_0016"
+            "selesnya_conclave_claim_006",
+            "selesnya_conclave_claim_007",
+            "selesnya_conclave_claim_0020"
           ],
           "existing_repo_source_ids": [
-            "src_mtg_stories_desperate_operatives_6c6a580b",
-            "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-            "src_mtg_stories_the_gathering_storm_chapter_5_85ba569f"
-          ]
+            "src_wotc_flavorful_guide_guilds_ravnica_2018",
+            "src_wotc_guilds_ravnica_mechanics_2018",
+            "src_wotc_guilds_ravnica_prerelease_primer_2018"
+          ],
+          "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Selesnya claims, and do not use product/card data as canon proof."
         },
         "confidence": "High",
         "caution_notes": [],
@@ -487,14 +442,13 @@
           "Lifegain",
           "Card Draw"
         ],
-        "why_this_fits": "Sythis is not Selesnya lore, but enchantments can become a product-adjacent expression of natural growth, protection, and communal infrastructure.",
+        "why_this_fits": "Sythis is not Selesnya lore, but enchantress play can be an auxiliary expression of protected growth and communal infrastructure when not treated as canon proof.",
         "skip_if": "Skip if you want tokens/convoke/populate or a Ravnica-native commander.",
         "gameplay_summary": "A two-mana enchantment-creature commander that gains life and draws a card whenever you cast an enchantment.",
         "faction_identity_terms": [
           "growth",
           "harmony",
-          "sustaining engine",
-          "lifegain"
+          "sustaining engine"
         ],
         "source_basis": {
           "card_data": [
@@ -509,25 +463,16 @@
             "https://edhrec.com/commanders/selesnya"
           ],
           "existing_repo_claim_ids": [
-            "selesnya_conclave_claim_0008",
-            "selesnya_conclave_claim_0009",
-            "selesnya_conclave_claim_0010",
-            "selesnya_conclave_claim_0011",
-            "selesnya_conclave_claim_0012",
-            "selesnya_conclave_claim_0013",
-            "selesnya_conclave_claim_0014",
-            "selesnya_conclave_claim_0015"
+            "selesnya_conclave_claim_007",
+            "selesnya_conclave_claim_0020",
+            "selesnya_conclave_claim_0022"
           ],
           "existing_repo_source_ids": [
-            "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-            "src_mtg_stories_in_praise_of_the_worldsoul_part_1_d5ba8171",
-            "src_mtg_stories_desperate_operatives_6c6a580b",
-            "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-            "src_mtg_stories_the_great_concourse_cc6ee0e6",
-            "src_mtg_stories_in_praise_of_the_worldsoul_part_2_f671c9f9",
-            "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
-            "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
-          ]
+            "src_wotc_flavorful_guide_guilds_ravnica_2018",
+            "src_wotc_guilds_ravnica_mechanics_2018",
+            "src_wotc_guilds_ravnica_prerelease_primer_2018"
+          ],
+          "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Selesnya claims, and do not use product/card data as canon proof."
         },
         "confidence": "Medium",
         "caution_notes": [
@@ -553,14 +498,13 @@
           "Counters",
           "Scry"
         ],
-        "why_this_fits": "Trelasarra offers a simple, affordable Selesnya-adjacent on-ramp: life gain becomes growth and selection, echoing community sustainment.",
+        "why_this_fits": "Trelasarra is a budget gameplay adjacency for growth and sustainment, not a Ravnica-native Selesnya proof point.",
         "skip_if": "Skip if you want a token-first guild expression or strict Ravnica flavor.",
         "gameplay_summary": "A two-mana lifegain payoff that gains +1/+1 counters and scries whenever you gain life.",
         "faction_identity_terms": [
-          "lifegain",
           "growth",
           "harmony",
-          "incremental strength"
+          "sustainment"
         ],
         "source_basis": {
           "card_data": [
@@ -574,25 +518,16 @@
             "https://edhrec.com/commanders/selesnya"
           ],
           "existing_repo_claim_ids": [
-            "selesnya_conclave_claim_0008",
-            "selesnya_conclave_claim_0009",
-            "selesnya_conclave_claim_0010",
-            "selesnya_conclave_claim_0011",
-            "selesnya_conclave_claim_0012",
-            "selesnya_conclave_claim_0013",
-            "selesnya_conclave_claim_0014",
-            "selesnya_conclave_claim_0015"
+            "selesnya_conclave_claim_007",
+            "selesnya_conclave_claim_0020",
+            "selesnya_conclave_claim_0022"
           ],
           "existing_repo_source_ids": [
-            "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-            "src_mtg_stories_in_praise_of_the_worldsoul_part_1_d5ba8171",
-            "src_mtg_stories_desperate_operatives_6c6a580b",
-            "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-            "src_mtg_stories_the_great_concourse_cc6ee0e6",
-            "src_mtg_stories_in_praise_of_the_worldsoul_part_2_f671c9f9",
-            "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
-            "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
-          ]
+            "src_wotc_flavorful_guide_guilds_ravnica_2018",
+            "src_wotc_guilds_ravnica_mechanics_2018",
+            "src_wotc_guilds_ravnica_prerelease_primer_2018"
+          ],
+          "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Selesnya claims, and do not use product/card data as canon proof."
         },
         "confidence": "Medium",
         "caution_notes": [
@@ -618,14 +553,13 @@
           "Token Doubling",
           "Go-Wide"
         ],
-        "why_this_fits": "Rhys pushes the collective to its extreme: one body becomes many, then many become overwhelming. The gameplay maps strongly to Selesnya even though the card is not Ravnican.",
+        "why_this_fits": "Rhys maps strongly to collective-board gameplay, but he is not Ravnican; use only as auxiliary product guidance for players who want many bodies acting together.",
         "skip_if": "Skip if you want native Selesnya lore, low token counts, or a deck that avoids exponential board states.",
         "gameplay_summary": "A one-mana token commander that can create Elf tokens and later double all creature tokens you control.",
         "faction_identity_terms": [
           "collective growth",
-          "go-wide",
-          "unity",
-          "token multiplication"
+          "many bodies",
+          "unity"
         ],
         "source_basis": {
           "card_data": [
@@ -640,25 +574,15 @@
             "https://edhrec.com/commanders/selesnya"
           ],
           "existing_repo_claim_ids": [
-            "selesnya_conclave_claim_0008",
-            "selesnya_conclave_claim_0009",
-            "selesnya_conclave_claim_0010",
-            "selesnya_conclave_claim_0011",
-            "selesnya_conclave_claim_0012",
-            "selesnya_conclave_claim_0013",
-            "selesnya_conclave_claim_0014",
-            "selesnya_conclave_claim_0015"
+            "selesnya_conclave_claim_007",
+            "selesnya_conclave_claim_0020"
           ],
           "existing_repo_source_ids": [
-            "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-            "src_mtg_stories_in_praise_of_the_worldsoul_part_1_d5ba8171",
-            "src_mtg_stories_desperate_operatives_6c6a580b",
-            "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-            "src_mtg_stories_the_great_concourse_cc6ee0e6",
-            "src_mtg_stories_in_praise_of_the_worldsoul_part_2_f671c9f9",
-            "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
-            "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
-          ]
+            "src_wotc_flavorful_guide_guilds_ravnica_2018",
+            "src_wotc_guilds_ravnica_mechanics_2018",
+            "src_wotc_guilds_ravnica_prerelease_primer_2018"
+          ],
+          "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Selesnya claims, and do not use product/card data as canon proof."
         },
         "confidence": "Medium",
         "caution_notes": [
@@ -684,14 +608,13 @@
           "Anthem",
           "Ownership"
         ],
-        "why_this_fits": "This Trostani version is a lore-forward snapshot of unity under strain: it makes bodies, strengthens the group, and reasserts rightful belonging.",
+        "why_this_fits": "This Trostani version is lore-forward because Trostani is source-backed; discord/ownership/card gameplay remains auxiliary card texture unless separately localized.",
         "skip_if": "Skip if you want a stronger engine commander; this is more flavor-forward than optimized.",
         "gameplay_summary": "A five-mana Dryad commander that buffs your creatures, creates lifelink Soldiers, and returns stolen creatures to their owners at end step.",
         "faction_identity_terms": [
           "Trostani",
           "Life Order Harmony",
           "unity",
-          "discord",
           "conclave"
         ],
         "source_basis": {
@@ -708,24 +631,16 @@
           ],
           "existing_repo_claim_ids": [
             "selesnya_conclave_claim_005",
-            "selesnya_conclave_claim_0008",
-            "selesnya_conclave_claim_0009",
-            "selesnya_conclave_claim_0010",
-            "selesnya_conclave_claim_0011",
-            "selesnya_conclave_claim_0012",
-            "selesnya_conclave_claim_0013",
-            "selesnya_conclave_claim_0015"
+            "selesnya_conclave_claim_007",
+            "selesnya_conclave_claim_0018",
+            "selesnya_conclave_claim_0020"
           ],
           "existing_repo_source_ids": [
             "src_wotc_flavorful_guide_guilds_ravnica_2018",
-            "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-            "src_mtg_stories_in_praise_of_the_worldsoul_part_1_d5ba8171",
-            "src_mtg_stories_desperate_operatives_6c6a580b",
-            "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-            "src_mtg_stories_the_great_concourse_cc6ee0e6",
-            "src_mtg_stories_in_praise_of_the_worldsoul_part_2_f671c9f9",
-            "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
-          ]
+            "src_wotc_guilds_ravnica_mechanics_2018",
+            "src_wotc_guilds_ravnica_prerelease_primer_2018"
+          ],
+          "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Selesnya claims, and do not use product/card data as canon proof."
         },
         "confidence": "High",
         "caution_notes": [],

@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "selesnya_conclave",
   "faction_name": "Selesnya Conclave",
-  "last_updated": "2026-05-10T02:56:03.254Z",
+  "last_updated": "2026-07-17T10:45:00-06:00",
   "placement_model_version": "vox-mana-lore-json-v1",
   "color_identity": [
     "white",
@@ -10,52 +10,69 @@
   ],
   "ideal_fit_indicators": [
     {
+      "indicator_id": "selesnya_fit_shared_belonging",
       "indicator": "feels strongest inside a community",
-      "rationale": "Matches the official Selesnya Conclave identity summarized in the profile.",
+      "rationale": "Matches source-bounded Selesnya communal voice, unity, and belonging placement synthesis.",
       "claim_ids": [
-        "selesnya_conclave_claim_001"
+        "selesnya_conclave_claim_001",
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
+      "indicator_id": "selesnya_fit_harmony_care_consensus",
       "indicator": "prioritizes harmony and mutual care",
-      "rationale": "Matches the official Selesnya Conclave identity summarized in the profile.",
+      "rationale": "Matches Selesnya belonging, care, consensus, and communal preservation rather than generic kindness.",
       "claim_ids": [
-        "selesnya_conclave_claim_002"
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_007",
+        "selesnya_conclave_claim_0019"
       ],
       "confidence": "Medium"
     },
     {
+      "indicator_id": "selesnya_fit_shared_purpose",
       "indicator": "prefers shared purpose over personal glory",
-      "rationale": "Matches the official Selesnya Conclave identity summarized in the profile.",
+      "rationale": "Matches source-bounded Selesnya communal voice over individual voice.",
       "claim_ids": [
-        "selesnya_conclave_claim_003"
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_007",
+        "selesnya_conclave_claim_0018"
       ],
       "confidence": "Medium"
     }
   ],
   "poor_fit_indicators": [
     {
+      "indicator_id": "selesnya_poor_fit_anti_community",
       "indicator": "sees compromise as weakness",
-      "rationale": "Counters a core Selesnya Conclave placement signal.",
+      "rationale": "Counters the Selesnya communal-voice and harmony cluster.",
       "claim_ids": [
-        "selesnya_conclave_claim_001"
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_0019"
       ],
       "confidence": "Medium"
     },
     {
+      "indicator_id": "selesnya_poor_fit_individual_distinction",
       "indicator": "needs individual distinction above belonging",
-      "rationale": "Counters a core Selesnya Conclave placement signal.",
+      "rationale": "Counters source-bounded Selesnya belonging and individual voice yielding to communal voice.",
       "claim_ids": [
-        "selesnya_conclave_claim_002"
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_0018",
+        "selesnya_conclave_claim_0019"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "enjoys conflict for its own sake",
-      "rationale": "Counters a core Selesnya Conclave placement signal.",
+      "indicator_id": "selesnya_poor_fit_conflict_or_overfit",
+      "indicator": "enjoys conflict for its own sake or treats generic nature/creatures as enough",
+      "rationale": "Counters Selesnya harmony while also guarding against generic WG mechanic overfit.",
       "claim_ids": [
-        "selesnya_conclave_claim_003"
+        "selesnya_conclave_claim_003",
+        "selesnya_conclave_claim_0020",
+        "selesnya_conclave_claim_0028"
       ],
       "confidence": "Medium"
     }
@@ -64,32 +81,52 @@
     {
       "question_id": "selesnya_q1",
       "question": "When does belonging make someone more themselves, and when does it erase them?",
-      "purpose": "Tests the core self/community tension.",
-      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
-      "related_factions_to_compare": [],
+      "purpose": "Tests the source-bounded self/community tension.",
+      "answer_pattern_that_supports_this_faction": "The answer emphasizes belonging, harmony, mutual care, and individual voice willingly joining a communal voice.",
+      "answer_pattern_that_weakens_this_faction": "The answer rejects communal belonging, treats nature/growth alone as enough, or centers imposed obedience without source-bounded Selesnya context.",
+      "related_factions_to_compare": [
+        "GENERIC_WG_OVERFIT",
+        "W",
+        "G",
+        "WB",
+        "BANT",
+        "ABZAN"
+      ],
       "claim_ids": [
-        "selesnya_conclave_claim_001",
         "selesnya_conclave_claim_002",
-        "selesnya_conclave_claim_003"
+        "selesnya_conclave_claim_007",
+        "selesnya_conclave_claim_0018",
+        "selesnya_conclave_claim_0019",
+        "selesnya_conclave_claim_0020"
       ],
       "confidence": "Medium",
-      "notes": "Question is placement-engine guidance, not canon text."
+      "notes": "Question is placement-engine guidance, not canon text.",
+      "lateral_inhibition": false
     },
     {
       "question_id": "selesnya_q2",
       "question": "What would you give up to keep a community whole?",
-      "purpose": "Separates Selesnya from Boros and Orzhov.",
-      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
-      "related_factions_to_compare": [],
+      "purpose": "Separates Selesnya shared belonging from Boros duty, Orzhov obligation, and generic WG kindness.",
+      "answer_pattern_that_supports_this_faction": "The answer frames sacrifice as caretaking, consensus, or shared harmony rather than debt, law, or command.",
+      "answer_pattern_that_weakens_this_faction": "The answer centers duty, procedure, repayment, individual glory, or creature-board mechanics without communal meaning.",
+      "related_factions_to_compare": [
+        "WR",
+        "WB",
+        "WU",
+        "RG",
+        "NAYA"
+      ],
       "claim_ids": [
-        "selesnya_conclave_claim_001",
         "selesnya_conclave_claim_002",
-        "selesnya_conclave_claim_003"
+        "selesnya_conclave_claim_003",
+        "selesnya_conclave_claim_007",
+        "selesnya_conclave_claim_0018",
+        "selesnya_conclave_claim_0024",
+        "selesnya_conclave_claim_0026"
       ],
       "confidence": "Medium",
-      "notes": "Question is placement-engine guidance, not canon text."
+      "notes": "Question is placement-engine guidance, not canon text.",
+      "lateral_inhibition": false
     },
     {
       "question_id": "q_selesnya_conclave_9801",
@@ -100,10 +137,10 @@
       "target_signal": "Selesnya tends harmony and belonging; Witherbloom studies life, death, essence, and exchange as craft.",
       "suppresses_this_faction_if": "the answer centers essence, bodily exchange, pests, or death as craft",
       "evidence_claim_ids": [
-        "selesnya_conclave_claim_001",
-        "selesnya_conclave_claim_002",
-        "selesnya_conclave_claim_003"
-      ]
+        "selesnya_conclave_claim_0018",
+        "selesnya_conclave_claim_0029"
+      ],
+      "lateral_inhibition": false
     },
     {
       "question_id": "q_selesnya_conclave_9802",
@@ -114,10 +151,10 @@
       "target_signal": "Selesnya seeks consensus and belonging; Azorius seeks enforceable fairness through procedure.",
       "suppresses_this_faction_if": "the answer centers procedure, law, or institutional restraint",
       "evidence_claim_ids": [
-        "selesnya_conclave_claim_001",
-        "selesnya_conclave_claim_002",
-        "selesnya_conclave_claim_003"
-      ]
+        "selesnya_conclave_claim_0018",
+        "selesnya_conclave_claim_0023"
+      ],
+      "lateral_inhibition": false
     }
   ],
   "chatbot_guidance": {
@@ -129,7 +166,7 @@
     "how_to_recognize_mismatch": [
       "sees compromise as weakness",
       "needs individual distinction above belonging",
-      "enjoys conflict for its own sake"
+      "enjoys conflict for its own sake or treats generic nature/creatures as enough"
     ],
     "questions_to_ask_when_uncertain": [
       "When does belonging make someone more themselves, and when does it erase them?",
@@ -148,245 +185,322 @@
     "calibration_note": "Selesnya Conclave should require its specific positive evidence cluster: belonging, harmony, community, consensus, peace. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
     "scoring_guardrail": "Do not award for generic kindness or nature language without community/consensus/selflessness."
   },
+  "semantic_guidance_evidence": [
+    {
+      "guidance_id": "selesnya_guidance_how_to_recognize_match_0_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "selesnya_guidance_how_to_recognize_match_0_gate3",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_001",
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_0018"
+      ]
+    },
+    {
+      "guidance_id": "selesnya_guidance_how_to_recognize_match_1_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "selesnya_guidance_how_to_recognize_match_1_gate3",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_001",
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_0018"
+      ]
+    },
+    {
+      "guidance_id": "selesnya_guidance_how_to_recognize_match_2_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "selesnya_guidance_how_to_recognize_match_2_gate3",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_001",
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_0018"
+      ]
+    },
+    {
+      "guidance_id": "selesnya_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "selesnya_guidance_how_to_recognize_mismatch_0_gate3",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_0018",
+        "selesnya_conclave_claim_0020"
+      ]
+    },
+    {
+      "guidance_id": "selesnya_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "selesnya_guidance_how_to_recognize_mismatch_1_gate3",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_0019",
+        "selesnya_conclave_claim_0020"
+      ]
+    },
+    {
+      "guidance_id": "selesnya_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "selesnya_guidance_how_to_recognize_mismatch_2_gate3",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_003",
+        "selesnya_conclave_claim_007",
+        "selesnya_conclave_claim_0020"
+      ]
+    },
+    {
+      "guidance_id": "selesnya_guidance_questions_to_ask_when_uncertain_0_gate3",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_id": "selesnya_guidance_questions_to_ask_when_uncertain_0_gate3",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_0018",
+        "selesnya_conclave_claim_0019"
+      ]
+    },
+    {
+      "guidance_id": "selesnya_guidance_questions_to_ask_when_uncertain_1_gate3",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_id": "selesnya_guidance_questions_to_ask_when_uncertain_1_gate3",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_0018",
+        "selesnya_conclave_claim_0019"
+      ]
+    }
+  ],
   "placement_quality": {
     "overall_confidence": "Medium",
     "strongest_evidence_areas": [
       "official faction overview",
       "official mechanics identity",
-      "MTG-Stories corpus search evidence"
+      "bounded placement synthesis from source-backed Selesnya claims"
     ],
     "weakest_evidence_areas": [
-      "deep story episode coverage",
-      "cross-faction comparison calibration"
+      "deep story episode coverage retained as discovery metadata only",
+      "future localized story support for individual commanders or episodes"
     ],
     "manual_review_recommended": true,
-    "notes": "Good for initial placement testing; should be expanded with story-specific claims in a later pass. Corpus-enriched data should be reviewed with calibration and collision reports before being treated as tuned scoring fuel.",
+    "notes": "Gate 3 remediation isolates discovery-story rows from semantic proof chains and keeps placement bounded to reviewed official source records.",
     "calibration_tuning_status": "explicit",
     "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
   },
   "placement_profile_version": "vox-mana-lore-json-v1",
   "based_on_profile_version": "1.0.0",
   "placement_summary": {
-    "short_description": "Selesnya Conclave placement is informed by official overview sources and MTG-Stories corpus evidence.",
-    "best_fit_summary": "feels strongest inside a community prioritizes harmony and mutual care prefers shared purpose over personal glory",
-    "poor_fit_summary": "sees compromise as weakness needs individual distinction above belonging enjoys conflict for its own sake",
+    "id": "selesnya_placement_summary_gate3",
+    "short_description": "Selesnya Conclave placement is source-bounded by communal voice, nature, unity, togetherness, preservation, Mat'Selesnya/Trostani context, non-pacifist defensive capacity, and Convoke texture.",
+    "best_fit_summary": "finds belonging in shared purpose, mutual care, harmony, consensus, and individual voice joining the communal voice",
+    "poor_fit_summary": "rejects communal belonging, centers generic nature or creatures alone, or prefers law, debt, rage, life-death craft, or individual glory over harmony",
     "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
     "claim_ids": [
-      "selesnya_conclave_claim_0008",
-      "selesnya_conclave_claim_0009",
-      "selesnya_conclave_claim_0010",
-      "selesnya_conclave_claim_0011",
-      "selesnya_conclave_claim_0012",
-      "selesnya_conclave_claim_0013",
-      "selesnya_conclave_claim_0014",
-      "selesnya_conclave_claim_0015"
+      "selesnya_conclave_claim_001",
+      "selesnya_conclave_claim_002",
+      "selesnya_conclave_claim_003",
+      "selesnya_conclave_claim_006",
+      "selesnya_conclave_claim_007",
+      "selesnya_conclave_claim_0018",
+      "selesnya_conclave_claim_0019",
+      "selesnya_conclave_claim_0020"
     ],
     "calibrated_primary_read": "Requires belonging, harmony, consensus, nurturing community, or selfhood offered to the group.",
     "calibrated_false_positive_guardrail": "Do not award for generic kindness or nature language without community/consensus/selflessness.",
     "evidence_claim_ids": [
-      "selesnya_conclave_claim_001",
-      "selesnya_conclave_claim_002",
-      "selesnya_conclave_claim_003",
       "selesnya_conclave_claim_004",
-      "selesnya_conclave_claim_005",
-      "selesnya_conclave_claim_006"
+      "selesnya_conclave_claim_005"
     ]
   },
   "placement_axes": [
     {
       "axis_id": "axis_belonging_vs_individual_distinction",
       "label": "Belonging vs Individual Distinction",
-      "description": "Measures whether user answers align with Selesnya Conclave's specific evidence instead of only its color pair.",
-      "low_end_label": "individual glory",
+      "description": "Measures whether user answers align with Selesnya's source-bounded communal voice, harmony, and preservation instead of generic WG color or creature mechanics.",
+      "low_end_label": "individual distinction",
       "high_end_label": "communal harmony",
       "faction_position": 88,
-      "rationale": "Corpus evidence adds story-context support for Selesnya Conclave, Selesnya, Mat'Selesnya, Trostani, Vitu-Ghazi, Conclave, Worldsoul, dryad.",
+      "rationale": "Source-bounded Selesnya placement requires the communal voice, unity, togetherness, nature, and preservation cluster rather than color-pair or mechanic-only overlap.",
       "claim_ids": [
-        "selesnya_conclave_claim_0008",
-        "selesnya_conclave_claim_0009",
-        "selesnya_conclave_claim_0010",
-        "selesnya_conclave_claim_0011",
-        "selesnya_conclave_claim_0012",
-        "selesnya_conclave_claim_0013",
-        "selesnya_conclave_claim_0014",
-        "selesnya_conclave_claim_0015"
+        "selesnya_conclave_claim_001",
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_007",
+        "selesnya_conclave_claim_0018",
+        "selesnya_conclave_claim_0019",
+        "selesnya_conclave_claim_0020"
       ],
       "confidence": "Medium",
-      "notes": "Added during MTG-Stories corpus upgrade."
+      "notes": "VM-515 Gate 3 replaces discovery-backed corpus axis with source-bounded Selesnya placement synthesis."
     }
   ],
   "moral_and_psychological_profile": {
-    "summary": "Selesnya Conclave should be scored through faction-specific behavioral evidence, not only broad color identity.",
+    "id": "selesnya_moral_profile_gate3",
+    "summary": "Selesnya Conclave should be scored through source-bounded communal voice, belonging, harmony, nature, unity, preservation, and bounded Convoke texture, not generic WG color identity or mechanics.",
     "claim_ids": [
-      "selesnya_conclave_claim_0008",
-      "selesnya_conclave_claim_0009",
-      "selesnya_conclave_claim_0010",
-      "selesnya_conclave_claim_0011",
-      "selesnya_conclave_claim_0012"
+      "selesnya_conclave_claim_007",
+      "selesnya_conclave_claim_0018",
+      "selesnya_conclave_claim_0019",
+      "selesnya_conclave_claim_0020"
     ]
   },
   "core_values": [
     {
-      "value": "Selesnya Conclave",
-      "placement_relevance": "Corpus search evidence for Selesnya Conclave.",
+      "value_id": "selesnya_value_communal_voice",
+      "value": "communal voice",
+      "placement_relevance": "Fits Selesnya when individual voice joins or yields to shared belonging.",
       "claim_ids": [
-        "selesnya_conclave_claim_0008",
-        "selesnya_conclave_claim_0009",
-        "selesnya_conclave_claim_0010"
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Selesnya",
-      "placement_relevance": "Corpus search evidence for Selesnya Conclave.",
+      "value_id": "selesnya_value_unity_togetherness",
+      "value": "unity and togetherness",
+      "placement_relevance": "Fits Selesnya when unity is source-bounded to the Ravnican guild, not generic friendliness.",
       "claim_ids": [
-        "selesnya_conclave_claim_0008",
-        "selesnya_conclave_claim_0009",
-        "selesnya_conclave_claim_0010"
+        "selesnya_conclave_claim_001",
+        "selesnya_conclave_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Mat'Selesnya",
-      "placement_relevance": "Corpus search evidence for Selesnya Conclave.",
+      "value_id": "selesnya_value_nature_preservation",
+      "value": "nature and preservation",
+      "placement_relevance": "Fits Selesnya when nature supports communal preservation rather than mono-green growth alone.",
       "claim_ids": [
-        "selesnya_conclave_claim_0008",
-        "selesnya_conclave_claim_0009",
-        "selesnya_conclave_claim_0010"
+        "selesnya_conclave_claim_001",
+        "selesnya_conclave_claim_0022"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Trostani",
-      "placement_relevance": "Corpus search evidence for Selesnya Conclave.",
+      "value_id": "selesnya_value_harmony_care",
+      "value": "harmony and mutual care",
+      "placement_relevance": "Fits Selesnya when care is consensual communal harmony, not debt, law, or generic niceness.",
       "claim_ids": [
-        "selesnya_conclave_claim_0008",
-        "selesnya_conclave_claim_0009",
-        "selesnya_conclave_claim_0010"
+        "selesnya_conclave_claim_007",
+        "selesnya_conclave_claim_0019",
+        "selesnya_conclave_claim_0026"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Vitu-Ghazi",
-      "placement_relevance": "Corpus search evidence for Selesnya Conclave.",
+      "value_id": "selesnya_value_bounded_convoke",
+      "value": "bounded Convoke texture",
+      "placement_relevance": "Convoke can support Selesnya texture, but it does not make all creature or token gameplay into faction philosophy.",
       "claim_ids": [
-        "selesnya_conclave_claim_0008",
-        "selesnya_conclave_claim_0009",
-        "selesnya_conclave_claim_0010"
+        "selesnya_conclave_claim_006",
+        "selesnya_conclave_claim_0020"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Conclave",
-      "placement_relevance": "Corpus search evidence for Selesnya Conclave.",
+      "value_id": "selesnya_value_non_pacifist_preservation",
+      "value": "non-pacifist preservation",
+      "placement_relevance": "Selesnya can field force, but the source-bounded reason remains communal preservation rather than Boros discipline or Gruul revolt.",
       "claim_ids": [
-        "selesnya_conclave_claim_0008",
-        "selesnya_conclave_claim_0009",
-        "selesnya_conclave_claim_0010"
+        "selesnya_conclave_claim_003",
+        "selesnya_conclave_claim_0024",
+        "selesnya_conclave_claim_0028"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Worldsoul",
-      "placement_relevance": "Corpus search evidence for Selesnya Conclave.",
+      "value_id": "selesnya_value_mat_trostani_context",
+      "value": "Mat'Selesnya and Trostani context",
+      "placement_relevance": "Leadership references are Selesnya-specific when tied to the official guide, not generic dryad or Worldsoul flavor.",
       "claim_ids": [
-        "selesnya_conclave_claim_0008",
-        "selesnya_conclave_claim_0009",
-        "selesnya_conclave_claim_0010"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "dryad",
-      "placement_relevance": "Corpus search evidence for Selesnya Conclave.",
-      "claim_ids": [
-        "selesnya_conclave_claim_0008",
-        "selesnya_conclave_claim_0009",
-        "selesnya_conclave_claim_0010"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "collective",
-      "placement_relevance": "Corpus search evidence for Selesnya Conclave.",
-      "claim_ids": [
-        "selesnya_conclave_claim_0008",
-        "selesnya_conclave_claim_0009",
-        "selesnya_conclave_claim_0010"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "vernadi",
-      "placement_relevance": "Corpus search evidence for Selesnya Conclave.",
-      "claim_ids": [
-        "selesnya_conclave_claim_0008",
-        "selesnya_conclave_claim_0009",
-        "selesnya_conclave_claim_0010"
+        "selesnya_conclave_claim_004",
+        "selesnya_conclave_claim_005"
       ],
       "confidence": "Medium"
     }
   ],
   "behavioral_signals": [
     {
-      "signal": "References Episode 5: Chains of Expectation, In Praise of the Worldsoul, Part 1, Desperate Operatives as story-context evidence rather than relying only on color identity.",
-      "placement_relevance": "Strengthens Selesnya Conclave with corpus-backed specificity.",
-      "supports_match_when": "The user's answers echo Selesnya Conclave, Selesnya, Mat'Selesnya, Trostani, Vitu-Ghazi, Conclave in a faction-specific way.",
-      "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
+      "signal_id": "selesnya_signal_shared_belonging",
+      "signal": "Frames personal strength as belonging to a living community.",
+      "placement_relevance": "Strengthens Selesnya when belonging is communal and voluntary rather than debt, law, or generic niceness.",
+      "supports_match_when": "The user's answers center harmony, care, and shared purpose.",
+      "weakens_match_when": "The user's answers center individual glory, legal procedure, repayment, or life/death craft.",
       "claim_ids": [
-        "selesnya_conclave_claim_0008",
-        "selesnya_conclave_claim_0009",
-        "selesnya_conclave_claim_0010",
-        "selesnya_conclave_claim_0011",
-        "selesnya_conclave_claim_0012",
-        "selesnya_conclave_claim_0013"
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_0018",
+        "selesnya_conclave_claim_0019"
       ],
       "confidence": "Medium"
     },
-    "prioritizes everyone being okay",
-    "finds peace through belonging",
-    "softens conflict for the group"
+    {
+      "signal_id": "selesnya_signal_nature_as_preservation",
+      "signal": "Uses nature language as preservation and togetherness, not just growth, creatures, or ecology.",
+      "placement_relevance": "Separates Selesnya from mono-green, Simic, Golgari, and generic WG overfit.",
+      "supports_match_when": "Nature is tied to shared care, unity, and preservation.",
+      "weakens_match_when": "Nature is only creatures, optimization, decay, or resource cycling.",
+      "claim_ids": [
+        "selesnya_conclave_claim_001",
+        "selesnya_conclave_claim_0020",
+        "selesnya_conclave_claim_0022",
+        "selesnya_conclave_claim_0025",
+        "selesnya_conclave_claim_0027"
+      ],
+      "confidence": "Medium"
+    }
   ],
   "inhibitor_traits": [
     {
-      "trait": "Generic color-pair overfit",
-      "why_it_conflicts": "The corpus upgrade is intended to prevent Selesnya Conclave from winning on broad color identity alone.",
+      "trait_id": "selesnya_inhibit_generic_wg_overfit",
+      "trait": "Generic color-pair or mechanic overfit",
+      "why_it_conflicts": "Selesnya cannot be certified from creatures, tokens, lifegain, counters, ramp, populate, go-wide play, or nature aesthetics alone.",
       "status": "Supported Interpretation",
       "claim_ids": [
-        "selesnya_conclave_claim_0008",
-        "selesnya_conclave_claim_0009",
-        "selesnya_conclave_claim_0010",
-        "selesnya_conclave_claim_0011"
+        "selesnya_conclave_claim_0020"
       ],
       "confidence": "Medium",
       "notes": "Use collision questions when another faction shares the same or adjacent colors."
     },
-    "chooses procedure over harmony",
-    "studies life/death as craft",
-    "tracks debt or prestige"
+    {
+      "trait_id": "selesnya_inhibit_procedure_debt_craft",
+      "trait": "Procedure, debt, or life/death craft leads over belonging",
+      "why_it_conflicts": "Centers nearby WU, WB, BG, or Witherbloom patterns instead of Selesnya communal harmony.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "selesnya_conclave_claim_0023",
+        "selesnya_conclave_claim_0025",
+        "selesnya_conclave_claim_0026",
+        "selesnya_conclave_claim_0029"
+      ],
+      "confidence": "Medium",
+      "notes": "Suppress Selesnya when the answer's core logic is law, repayment, decay, essence, or vitality cost."
+    }
   ],
   "good_fit_indicators": [
     {
+      "indicator_id": "selesnya_fit_shared_belonging",
       "indicator": "feels strongest inside a community",
-      "rationale": "Matches the official Selesnya Conclave identity summarized in the profile.",
+      "rationale": "Matches source-bounded Selesnya communal voice, unity, and belonging placement synthesis.",
       "claim_ids": [
-        "selesnya_conclave_claim_001"
+        "selesnya_conclave_claim_001",
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
+      "indicator_id": "selesnya_fit_harmony_care_consensus",
       "indicator": "prioritizes harmony and mutual care",
-      "rationale": "Matches the official Selesnya Conclave identity summarized in the profile.",
+      "rationale": "Matches Selesnya belonging, care, consensus, and communal preservation rather than generic kindness.",
       "claim_ids": [
-        "selesnya_conclave_claim_002"
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_007",
+        "selesnya_conclave_claim_0019"
       ],
       "confidence": "Medium"
     },
     {
+      "indicator_id": "selesnya_fit_shared_purpose",
       "indicator": "prefers shared purpose over personal glory",
-      "rationale": "Matches the official Selesnya Conclave identity summarized in the profile.",
+      "rationale": "Matches source-bounded Selesnya communal voice over individual voice.",
       "claim_ids": [
-        "selesnya_conclave_claim_003"
+        "selesnya_conclave_claim_002",
+        "selesnya_conclave_claim_007",
+        "selesnya_conclave_claim_0018"
       ],
       "confidence": "Medium"
     }
@@ -424,28 +538,147 @@
   },
   "collision_guidance": [
     {
+      "collision_id": "collision_selesnya_vs_w_gate3",
+      "against": "W",
+      "separator": "Selesnya requires communal nature and shared belonging; mono-white can be order, law, duty, faith, or community without that WG guild frame.",
+      "ask": "Is the community held by living belonging, or by rule, duty, or faith alone?",
+      "suppress_if": "the answer centers order, law, duty, or faith without nature and communal voice",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0021"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_selesnya_vs_g_gate3",
+      "against": "G",
+      "separator": "Selesnya joins nature to communal voice; mono-green can center growth, instinct, ecology, or creatures without shared civic belonging.",
+      "ask": "Is nature here a living community with consensus, or just growth and instinct?",
+      "suppress_if": "the answer centers growth, instinct, ecology, or creatures without communal belonging",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0022"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_selesnya_conclave_vs_azorius_senate_placement_ready",
+      "against": "WU",
+      "separator": "Selesnya seeks consensus and belonging; Azorius seeks enforceable fairness through procedure.",
+      "ask": "If the community feels whole but the rule says otherwise, which truth do you trust first?",
+      "suppress_if": "the answer centers procedure, law, surveillance, or institutional restraint",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0023"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_selesnya_vs_boros_gate3",
+      "against": "WR",
+      "separator": "Selesnya can defend a community, but Boros centers duty, discipline, justice, and direct force.",
+      "ask": "Is force serving shared harmony, or is force and duty the point?",
+      "suppress_if": "the answer centers martial discipline, justice, or protection over communal harmony",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0024"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_selesnya_vs_golgari_gate3",
+      "against": "BG",
+      "separator": "Selesnya preserves a shared living community; Golgari centers survival, decay, recursion, and life-death resource cycles.",
+      "ask": "Is life cared for as shared peace, or managed through decay and survival?",
+      "suppress_if": "the answer centers rot, survival, recursion, undercity life, or death as resource",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0025"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_selesnya_vs_orzhov_gate3",
+      "against": "WB",
+      "separator": "Selesnya offers belonging and care; Orzhov turns relationship into debt, obligation, and institutional leverage.",
+      "ask": "Is care given to keep the group whole, or recorded as something owed?",
+      "suppress_if": "the answer centers debt, repayment, prestige, or institutional leverage",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0026"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_selesnya_vs_simic_gate3",
+      "against": "UG",
+      "separator": "Selesnya treats nature as communal belonging and preservation; Simic treats life as inquiry, adaptation, or improvement.",
+      "ask": "Is nature protected as a community, or modified as a project?",
+      "suppress_if": "the answer centers experimentation, adaptation, optimization, or biological improvement",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0027"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_selesnya_vs_gruul_gate3",
+      "against": "RG",
+      "separator": "Selesnya seeks harmony and preservation; Gruul centers rage, wild release, and revolt against civilization.",
+      "ask": "Is nature a shared home to preserve, or a force breaking the city open?",
+      "suppress_if": "the answer centers rage, destruction, anti-civilization, or individual release",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0028"
+      ],
+      "lateral_inhibition": false
+    },
+    {
       "collision_id": "collision_selesnya_conclave_vs_witherbloom_placement_ready",
-      "against": "witherbloom",
+      "against": "WITHERBLOOM",
       "separator": "Selesnya tends harmony and belonging; Witherbloom studies life, death, essence, and exchange as craft.",
       "ask": "When caring for life, is the highest goal shared peace or knowing what vitality costs?",
       "suppress_if": "the answer centers essence, bodily exchange, pests, or death as craft",
       "evidence_claim_ids": [
-        "selesnya_conclave_claim_001",
-        "selesnya_conclave_claim_002",
-        "selesnya_conclave_claim_003"
-      ]
+        "selesnya_conclave_claim_0029"
+      ],
+      "lateral_inhibition": false
     },
     {
-      "collision_id": "collision_selesnya_conclave_vs_azorius_senate_placement_ready",
-      "against": "azorius_senate",
-      "separator": "Selesnya seeks consensus and belonging; Azorius seeks enforceable fairness through procedure.",
-      "ask": "If the community feels whole but the rule says otherwise, which truth do you trust first?",
-      "suppress_if": "the answer centers procedure, law, or institutional restraint",
+      "collision_id": "collision_selesnya_vs_quandrix_gate3",
+      "against": "QUANDRIX",
+      "separator": "Selesnya lives nature as communal belonging; Quandrix reads nature through mathematical pattern and abstraction.",
+      "ask": "Is the natural order a community to join, or a pattern to solve?",
+      "suppress_if": "the answer centers mathematical abstraction, pattern study, or theoretical balance",
       "evidence_claim_ids": [
-        "selesnya_conclave_claim_001",
-        "selesnya_conclave_claim_002",
-        "selesnya_conclave_claim_003"
-      ]
+        "selesnya_conclave_claim_0030"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_selesnya_vs_bant_gate3",
+      "against": "BANT",
+      "separator": "Selesnya is a Ravnican WG communal nature guild; Bant can be broader honor, order, and civic virtue.",
+      "ask": "Is the answer naming Selesnya's living communal voice, or broader courtly honor and order?",
+      "suppress_if": "the answer centers honor, courtly order, or broad Bant virtue without Selesnya guild context",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0031"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_selesnya_vs_naya_gate3",
+      "against": "NAYA",
+      "separator": "Selesnya preserves communal harmony; Naya can celebrate creature scale, wild abundance, and broader WRG vitality.",
+      "ask": "Is the life force organized as shared harmony, or celebrated as overwhelming abundance?",
+      "suppress_if": "the answer centers massive creatures, feral vitality, or wild abundance without Selesnya communal voice",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0032"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_selesnya_vs_abzan_gate3",
+      "against": "ABZAN",
+      "separator": "Selesnya offers voluntary shared belonging; Abzan can center family endurance, ancestry, and inherited clan obligation.",
+      "ask": "Is the bond chosen as communal harmony, or inherited as family duty and endurance?",
+      "suppress_if": "the answer centers ancestry, clan memory, inherited duty, or family endurance over shared harmony",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0033"
+      ],
+      "lateral_inhibition": false
     }
   ]
 }
