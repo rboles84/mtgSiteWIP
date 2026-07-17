@@ -1593,14 +1593,14 @@
         "inventory_updated_at": "2026-07-16T23:51:21.634Z"
       },
       "workflow": {
-        "current_gate": "independent_review_changes_requested",
-        "status": "changes_requested",
+        "current_gate": "replacement_candidate_created",
+        "status": "awaiting_independent_review",
         "started_at": "2026-07-16T17:19:00-06:00",
-        "gate_entered_at": "2026-07-16T17:54:00-06:00",
-        "blocked_at": "2026-07-16T18:33:00-06:00",
-        "blocked_reason": "Independent review returned REQUEST CHANGES: RG provenance fixture evidence_claim_ids do not exactly match generated provenance for data/raw-factions/gruul_clans/gruul_clans.profile.json#/core_identity because duplicate claim IDs remain in raw/fixture chains.",
+        "gate_entered_at": "2026-07-16T19:07:00-06:00",
+        "blocked_at": null,
+        "blocked_reason": null,
         "next_identity": null,
-        "primary_disposition": "independent_review_request_changes_fixture_provenance_exactness"
+        "primary_disposition": "replacement_candidate_created_awaiting_independent_review"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -1619,39 +1619,54 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-512-gruul-semantic-recovery.md",
         "residual_findings": [
-          "Independent review decision: REQUEST CHANGES for exact candidate 73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33.",
-          "MEDIUM approval-blocking finding: RG provenance fixture evidence_claim_ids do not exactly match generated provenance for data/raw-factions/gruul_clans/gruul_clans.profile.json#/core_identity because duplicate claim IDs remain in the raw/fixture chain.",
-          "Required remediation: remove duplicate claim IDs from the RG core/profile/placement chains and make the provenance fixture exactly match the generated /core_identity provenance entry before creating a replacement candidate.",
-          "No blocker/high/low findings were found beyond the approval-blocking medium fixture/provenance exactness finding.",
+          "Original candidate 73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33 remains rejected by review record 04c0933825c985373336ba9bdbfccbbcf29d8e82 with REQUEST CHANGES.",
+          "Replacement candidate 16b58c3f32d92e6406d368169d91b0b6a86f948d remediates the duplicate exact-chain fixture/provenance finding.",
+          "No blocker/high/medium/low findings remain from self-validation; new independent review has not been performed.",
           "Gruul is not certified and semantically_ready has not been set.",
           "VM-513 has not started."
         ],
         "candidate_scope": {
-          "base": "ea6e62a0fbe82975b48612ba02b143fad8a0c74b",
-          "dry_run_target": "b599d1dc314134f66f8e60ee5216293deb25943e",
-          "result": "reported_only_documented_target_scoped_display_source_exceptions",
-          "exceptions": [
-            "identity candidate modified non-identity path data/identity-layers.json",
-            "unrelated or global data/factions.json content changed"
-          ]
+          "base": "04c0933825c985373336ba9bdbfccbbcf29d8e82",
+          "target": "16b58c3f32d92e6406d368169d91b0b6a86f948d",
+          "result": "passed",
+          "exceptions": []
+        },
+        "review_remediation": {
+          "rejected_candidate_sha": "73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33",
+          "rejected_workflow_sha": "3aef320949bacec91923b8086048abd283fbecdb",
+          "request_changes_review_sha": "04c0933825c985373336ba9bdbfccbbcf29d8e82",
+          "replacement_candidate_sha": "16b58c3f32d92e6406d368169d91b0b6a86f948d",
+          "defect": "Duplicate claim IDs in RG profile /core_identity, profile /site_surface, placement /placement_summary, and provenance fixture chain.",
+          "remediation": "Removed duplicate occurrences only; fixture and generated /core_identity provenance chains now match exactly with 25 ordered claim IDs."
         },
         "validation_notes": [
-          "Gate 3+4 remediation, generation, fixtures, provenance, candidate-scope dry-run, and required validation passed.",
+          "Replacement candidate duplicate-chain remediation, generation, exact-chain comparison, candidate-scope validation, and required validation passed.",
+          "Generated RG provenance count remains 167; canonical IDs and content hashes are non-null.",
           "Source/generated guardrail validation retained existing non-Gruul JESKAI/MARDU model-owned inhibitor warnings only.",
-          "Target-scoped display-source exception recorded for data/identity-layers.json and embedded RG preview copy in data/factions.json."
+          "Replacement candidate-scope validation against review-record base passed without display-source exceptions."
         ]
       },
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": "73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33",
-        "recovery_commit": "73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33",
+        "candidate_recovery_sha": "16b58c3f32d92e6406d368169d91b0b6a86f948d",
+        "recovery_commit": "16b58c3f32d92e6406d368169d91b0b6a86f948d",
         "certification_commit": null,
-        "reviewer": "Codex independent review window",
-        "review_result": "request_changes",
+        "reviewer": null,
+        "review_result": null,
         "review_cycles": 1,
         "approval_date": null,
-        "certified_at": null
+        "certified_at": null,
+        "rejected_candidate_sha": "73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33",
+        "rejected_workflow_sha": "3aef320949bacec91923b8086048abd283fbecdb",
+        "request_changes_review_sha": "04c0933825c985373336ba9bdbfccbbcf29d8e82",
+        "replacement_candidate_sha": "16b58c3f32d92e6406d368169d91b0b6a86f948d",
+        "review_findings": {
+          "original_rejected_candidate_decision": "REQUEST CHANGES",
+          "original_medium": "RG provenance fixture evidence_claim_ids did not exactly match generated provenance for data/raw-factions/gruul_clans/gruul_clans.profile.json#/core_identity because duplicate claim IDs remained in raw/fixture chains.",
+          "replacement_status": "awaiting_independent_review",
+          "remaining_findings": "none from self-validation"
+        }
       }
     },
     {

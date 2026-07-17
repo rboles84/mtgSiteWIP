@@ -391,6 +391,68 @@ Required remediation:
 - Exact candidate-scope validator reported only the documented RG target-scoped display-source exceptions for `data/identity-layers.json` and embedded RG preview copy in `data/factions.json`.
 - `git diff --check` passed.
 
+## Review Remediation - Replacement Candidate - 2026-07-16
+
+- Rejected original candidate: `73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33`
+- Original workflow-record commit: `3aef320949bacec91923b8086048abd283fbecdb`
+- Request-changes review record: `04c0933825c985373336ba9bdbfccbbcf29d8e82`
+- Review decision remediated: `REQUEST CHANGES`
+- Approval-blocking finding: duplicate `claim_gruul_clans_structure_0005` and `claim_gruul_clans_placement_0072` entries made `gruul_core_identity_provenance` diverge from generated `/core_identity` provenance.
+- Replacement candidate SHA: `16b58c3f32d92e6406d368169d91b0b6a86f948d`
+- Replacement candidate subject: `VM-512 remediate Gruul review findings candidate`
+- Status after replacement candidate: awaiting independent review.
+- Certification: not performed.
+- `semantically_ready`: not set.
+- VM-513: not started.
+
+### Replacement Remediation Scope
+
+Changed only:
+
+- `data/raw-factions/gruul_clans/gruul_clans.profile.json`
+- `data/raw-factions/gruul_clans/gruul_clans.placement.json`
+- `research/fixtures/semantic-readiness/gruul_clans.semantic-fixtures.json`
+
+Removed only duplicate claim-ID occurrences:
+
+- `data/raw-factions/gruul_clans/gruul_clans.profile.json#/core_identity/claim_ids`: removed the later `claim_gruul_clans_structure_0005` and later `claim_gruul_clans_placement_0072`.
+- `data/raw-factions/gruul_clans/gruul_clans.profile.json#/site_surface/evidence_claim_ids`: removed the later `claim_gruul_clans_placement_0072`.
+- `data/raw-factions/gruul_clans/gruul_clans.placement.json#/placement_summary/claim_ids`: removed the later `claim_gruul_clans_structure_0005` and later `claim_gruul_clans_placement_0072`.
+- `research/fixtures/semantic-readiness/gruul_clans.semantic-fixtures.json#/fixtures/gruul_core_identity_provenance/evidence_claim_ids`: removed the later `claim_gruul_clans_structure_0005` and later `claim_gruul_clans_placement_0072`.
+
+No claim text, semantic roles, evidence scopes, source mappings, semantic wording, generated public copy, recruiter copy, neighbor boundaries, scoring, calibration, Hall/Crucible behavior, runtime logic, schemas, validators, or non-Gruul identity files were changed.
+
+### Replacement Exact-Chain Result
+
+- `profile#/core_identity`: 25 total, 25 unique, no duplicates.
+- `profile#/site_surface`: 22 total, 22 unique, no duplicates.
+- `placement#/placement_summary`: 37 total, 37 unique, no duplicates.
+- Generated provenance `data/raw-factions/gruul_clans/gruul_clans.profile.json#/core_identity`: 25 total, 25 unique, no duplicates.
+- Fixture `gruul_core_identity_provenance`: 25 total, 25 unique, no duplicates.
+- Fixture and generated `/core_identity` claim-ID lists are exactly equal in claim IDs, order, count, canonical locator, and evidence-chain membership.
+- Missing IDs: none.
+- Extra IDs: none.
+
+### Replacement Validation
+
+- `npm.cmd run build:factions` - passed twice; second run produced no additional diff.
+- JSON parse checks for changed JSON files - passed.
+- Duplicate-ID checks for `/core_identity`, `/site_surface`, `/placement_summary`, generated RG provenance, and RG fixture chains - passed.
+- Exact fixture-versus-generated `/core_identity` comparison - passed.
+- Explicit substantive evidence-scope check - passed.
+- Discovery-ID isolation check - passed.
+- Stale public/recruiter-copy scan - passed; `random rage` and `mindless destruction` remain only as explicit negative guardrail wording.
+- `node research/audit-semantic-readiness.mjs --targets=RG` - passed; 96 claims, 89 substantive / 6 discovery / 1 support / 0 unclassified.
+- `node research/validate-semantic-readiness.mjs --targets=RG` - passed.
+- `node research/semantic-candidate-scope-tests.js` - passed.
+- `npm.cmd run test:semantic-readiness` - passed; verified 1666 semantic provenance entries.
+- `npm.cmd run test:placement` - passed; 37 factions, 37 golden paths.
+- `npm.cmd run test:faction-context-isolation` - passed.
+- `npm.cmd run test:source-generated` - passed with unchanged non-Gruul JESKAI/MARDU model-owned inhibitor warnings.
+- `npm.cmd test` - passed.
+- `git diff --check` / `git diff --cached --check` - passed with CRLF warnings only, no whitespace errors.
+- `node research/validate-semantic-candidate-scope.mjs --base=04c0933825c985373336ba9bdbfccbbcf29d8e82 --target=16b58c3f32d92e6406d368169d91b0b6a86f948d --identity=RG` - passed.
+
 ## Independent Review - 2026-07-16
 
 - Reviewer: Codex independent review window.
