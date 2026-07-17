@@ -6295,38 +6295,36 @@ export const FACTION_CONTEXT = {
         "label": "Dimir"
       }
     },
-    "tagline": "Information is the only currency that never devalues.",
-    "philosophy": "For ten thousand years, most Ravnicans didn't believe Dimir existed. That fiction was the greatest intelligence operation in history. Dimir holds that information is the ultimate power - and that the most dangerous knowledge is the knowledge that you know.",
-    "core_tension": "A guild that trades in knowledge, yet whose greatest weapon is ensuring others do not have it. They are now openly acknowledged but still operationally invisible. Known existence versus unknown operation.",
+    "tagline": "Secrets, backroom deals, and hidden information leverage.",
+    "philosophy": "Dimir turns information into hidden leverage through secrecy, backroom dealing, observation, and delayed disclosure.",
+    "core_tension": "Dimir is most itself when information advantage stays concealed; generic UB control, mill, discard, theft, or evasion does not prove the guild on its own.",
     "affinity": {
       "drawn_to": [
-        "Knowing things others don't - and not revealing that you know",
-        "Operating without being observed or credited",
-        "Long-term patience for a single decisive moment",
-        "The gap between what people say and what they mean",
-        "Pulling strings from apparent irrelevance"
+        "Secrecy as an operating method rather than a vague aesthetic",
+        "Backroom information leverage and selective disclosure",
+        "Observation before action",
+        "Private timing without needing public credit"
       ],
       "repelled_by": [
-        "Transparency as a virtue in itself",
-        "Impulsive action that reveals your position",
-        "Loyalty that isn't also strategic",
-        "Being the most visible person in a room"
+        "Total transparency as a default virtue",
+        "Public reputation or visible authority as the main path",
+        "Mechanic-only UB identity without source-backed Dimir evidence",
+        "Spectacle, public rhetoric, or open institutional legitimacy as the leading signal"
       ],
-      "core_question": "If you could know everything about everyone but no one could know anything about you - would that feel like power or loneliness?",
+      "core_question": "Would hidden information leverage solve this better than public authority or visible reputation?",
       "interview_tells": [
-        "Mentions discretion, privacy, or not volunteering information",
-        "Comfortable with ambiguity in ways others aren't",
-        "Watches before engaging, reads the room first",
-        "Says 'I don't need credit, just the outcome'",
-        "Describes a time knowing something others didn't gave them an advantage"
+        "Mentions discretion, privacy, selective disclosure, or timing",
+        "Watches and filters information before acting",
+        "Separates useful secrecy from paranoia or omniscient conspiracy",
+        "Does not need public credit when the outcome is secured"
       ],
-      "not_to_be_confused_with": "Orzhov - both use hidden leverage but Dimir erases itself; Orzhov is loudly, extravagantly present. Simic - both accumulate quietly but Simic improves organisms; Dimir controls information."
+      "not_to_be_confused_with": "Generic UB mechanics do not prove Dimir. Azorius makes order public through law; Orzhov works through visible obligation; Silverquill uses public rhetoric; Golgari hides below the city for material survival, not information leverage."
     },
     "decree_voice": {
-      "tone": "Cool. Precise. With the faint suggestion that they already knew. Never threatening.",
-      "speaks_like": "Lazav acknowledging something that was already filed away long ago.",
-      "example_opening": "We have been watching this conversation more carefully than you realized.",
-      "example_decree": "We have been watching this conversation more carefully than you realized. You already knew that, which is why you answered the way you did. The House does not recruit people who need to be told that information is power. It recruits people who have already figured that out and are discreet enough not to say so. You have already been useful to us. You simply didn't know it yet."
+      "tone": "Cool, precise, and careful about what is revealed.",
+      "speaks_like": "A Dimir contact giving only the information needed for the moment.",
+      "example_opening": "Some answers are safer when they are not announced too early.",
+      "example_decree": "You do not need to be the visible authority to change the outcome. You need the right information, the right timing, and enough discretion to leave the room quieter than you found it."
     },
     "biological_expression": {
       "archetype": "The Hidden Information Operator",
@@ -6366,20 +6364,23 @@ export const FACTION_CONTEXT = {
       "broad_match_penalty": 0.1
     },
     "good_fit_indicators": [
-      "watches before acting",
-      "values leverage, discretion, and hidden information",
-      "does not need public credit"
+      "uses hidden information as leverage rather than as a vague aesthetic",
+      "observes and filters information before acting",
+      "can succeed without public credit or visible authority"
     ],
     "poor_fit_indicators": [
-      "needs total transparency",
-      "acts impulsively in ways that expose position",
-      "requires public recognition to feel successful"
+      "needs total transparency or public legitimacy before acting",
+      "treats mill, discard, theft, evasion, or control as enough by themselves",
+      "wants spectacle, public rhetoric, or visible reputation to lead"
     ],
     "inhibitor_traps": [
       "Compulsive transparency; believes all information should be shared openly regardless of risk, timing, or leverage.",
-      "needs total transparency",
-      "acts impulsively in ways that expose position",
-      "requires public recognition to feel successful"
+      "uses transparency, public law, rhetoric, or reputation as the main path",
+      "relies only on UB control, mill, discard, theft, or evasive mechanics",
+      "turns Dimir into omniscient conspiracy, mind control, or generic criminal violence",
+      "needs total transparency or public legitimacy before acting",
+      "treats mill, discard, theft, evasion, or control as enough by themselves",
+      "wants spectacle, public rhetoric, or visible reputation to lead"
     ],
     "lateral_inhibition_targets": [
       "WB",
@@ -6393,30 +6394,44 @@ export const FACTION_CONTEXT = {
       {
         "id": "dimir_q1",
         "prompt": "Would you rather solve a problem visibly and be trusted, or invisibly and be underestimated?",
-        "purpose": "Separates Dimir from Boros and Silverquill.",
-        "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-        "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-        "collision_targets": [],
+        "purpose": "Separates Dimir hidden leverage from Boros/Silverquill public presence and from generic UB mechanics.",
+        "supports": "The answer centers secret information, backroom positioning, or observation before action.",
+        "weakens": "The answer centers public trust, visible reputation, direct intervention, or mechanic-only UB preference.",
+        "collision_targets": [
+          "WR",
+          "SILVERQUILL"
+        ],
         "evidence_claim_ids": [
-          "house_dimir_claim_001",
-          "house_dimir_claim_002",
-          "house_dimir_claim_003"
+          "house_dimir_claim_0017",
+          "house_dimir_claim_0019",
+          "house_dimir_claim_0020",
+          "house_dimir_claim_0029"
         ],
         "confidence": "Medium"
       },
       {
         "id": "dimir_q2",
         "prompt": "What kind of information do you keep private even from allies?",
-        "purpose": "Tests boundaries around secrecy and strategy.",
-        "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-        "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-        "collision_targets": [],
-        "evidence_claim_ids": [
-          "house_dimir_claim_001",
-          "house_dimir_claim_002",
-          "house_dimir_claim_003"
+        "purpose": "Tests whether secrecy is strategic information leverage or only a generic personality trait.",
+        "supports": "The answer names timing, risk, backroom leverage, or selective disclosure.",
+        "weakens": "The answer treats secrecy as paranoia, omniscience, mind control, or generic criminal mood.",
+        "collision_targets": [
+          "U",
+          "B",
+          "ESPER",
+          "GRIXIS",
+          "SULTAI"
         ],
-        "confidence": "Medium"
+        "evidence_claim_ids": [
+          "house_dimir_claim_0018",
+          "house_dimir_claim_0021",
+          "house_dimir_claim_0022",
+          "house_dimir_claim_0030",
+          "house_dimir_claim_0031",
+          "house_dimir_claim_0032"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
       },
       {
         "id": "q_house_dimir_9801",
@@ -6428,9 +6443,8 @@ export const FACTION_CONTEXT = {
           "WB"
         ],
         "evidence_claim_ids": [
-          "house_dimir_claim_001",
-          "house_dimir_claim_002",
-          "house_dimir_claim_003"
+          "house_dimir_claim_0027",
+          "house_dimir_claim_0019"
         ],
         "confidence": "Medium"
       },
@@ -6444,23 +6458,22 @@ export const FACTION_CONTEXT = {
           "SILVERQUILL"
         ],
         "evidence_claim_ids": [
-          "house_dimir_claim_001",
-          "house_dimir_claim_002",
-          "house_dimir_claim_003"
+          "house_dimir_claim_0029",
+          "house_dimir_claim_0019"
         ],
         "confidence": "Medium"
       }
     ],
     "chatbot_guidance": {
       "how_to_recognize_match": [
-        "watches before acting",
-        "values leverage, discretion, and hidden information",
-        "does not need public credit"
+        "uses secrecy or backroom information as an operating method, not as vague mood",
+        "waits, observes, and filters information before acting",
+        "accepts private leverage without needing public credit"
       ],
       "how_to_recognize_mismatch": [
-        "needs total transparency",
-        "acts impulsively in ways that expose position",
-        "requires public recognition to feel successful"
+        "uses transparency, public law, rhetoric, or reputation as the main path",
+        "relies only on UB control, mill, discard, theft, or evasive mechanics",
+        "turns Dimir into omniscient conspiracy, mind control, or generic criminal violence"
       ],
       "questions_to_ask_when_uncertain": [
         "Would you rather solve a problem visibly and be trusted, or invisibly and be underestimated?",
@@ -6468,13 +6481,14 @@ export const FACTION_CONTEXT = {
       ],
       "do_not_overweight": [
         "Do not overfit a single color preference.",
-        "Do not treat one favorite card or mechanic as enough evidence by itself.",
-        "Do not score a faction highly from color identity alone when another faction shares the same colors or surface traits."
+        "Do not treat mill, discard, theft, evasion, permission, or control as enough evidence by itself.",
+        "Do not score Dimir highly from blue-black color identity alone when another faction shares the same colors or surface traits."
       ],
       "never_claim_as_canon": [
         "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
         "Do not state that a user's personality is objectively determined by a faction.",
-        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+        "Placement scoring is a Vox Mana interpretation, not official Wizards canon.",
+        "Do not claim Dimir is omniscient, omnipotent, or literally controlling every event unless a future source-read claim supports it."
       ],
       "calibration_note": "House Dimir should require its specific positive evidence cluster: secrecy, information, hidden, surveillance, discretion. Keep it adjacent when the answer only contains broad color identity or generic personality language.",
       "scoring_guardrail": "Do not award for generic manipulation if the user wants visibility, reputation, or formal power."
@@ -6483,7 +6497,8 @@ export const FACTION_CONTEXT = {
       "never_claim_as_canon": [
         "Psychological placement categories are Vox Mana interpretation, not official Wizards canon.",
         "Do not state that a user's personality is objectively determined by a faction.",
-        "Placement scoring is a Vox Mana interpretation, not official Wizards canon."
+        "Placement scoring is a Vox Mana interpretation, not official Wizards canon.",
+        "Do not claim Dimir is omniscient, omnipotent, or literally controlling every event unless a future source-read claim supports it."
       ]
     }
   },

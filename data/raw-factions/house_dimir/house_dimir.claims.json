@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "faction_id": "house_dimir",
   "faction_name": "House Dimir",
-  "last_updated": "2026-05-09",
-  "claim_count": 16,
+  "last_updated": "2026-07-16T22:45:00-06:00",
+  "claim_count": 32,
   "claims": [
     {
       "claim_id": "house_dimir_claim_001",
@@ -16,7 +16,26 @@
         "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "canonical identity",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_prerelease_primer_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Prerelease Primer - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official prerelease primer lists Dimir among the Guilds of Ravnica identities and supports using House Dimir as the blue-black Ravnican guild entry.",
+          "evidence_scope": "canonical identity",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "house_dimir_claim_002",
@@ -28,7 +47,18 @@
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "institutional method",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "house_dimir_claim_003",
@@ -40,7 +70,18 @@
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "house_dimir_claim_004",
@@ -52,7 +93,18 @@
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "house_dimir_claim_005",
@@ -64,20 +116,50 @@
         "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies surveil as the Dimir mechanic and frames it as looking at future cards, putting unwanted cards into the graveyard, and keeping others on top.",
+          "evidence_scope": "mechanics-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "house_dimir_claim_006",
       "faction_id": "house_dimir",
       "claim_type": "placement",
-      "statement": "Dimir placement signals should weight privacy, strategic patience, observation before action, and comfort operating without credit.",
+      "statement": "Dimir placement signals should weight privacy, strategic patience, observation before action, and comfort operating without public credit.",
       "canon_status": "Supported Interpretation",
       "source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
         "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "confidence": "High",
-      "notes": "Placement inference derived from official faction identity and mechanics; not an official Wizards psychological taxonomy."
+      "notes": "Placement inference derived from official faction identity and mechanics; not an official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "placement inference",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies surveil as the Dimir mechanic and frames it as looking at future cards, putting unwanted cards into the graveyard, and keeping others on top.",
+          "evidence_scope": "placement inference",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "house_dimir_claim_0007",
@@ -90,7 +172,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, public copy, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "house_dimir_claim_0008",
@@ -103,7 +189,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, public copy, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "house_dimir_claim_0009",
@@ -116,7 +206,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, public copy, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "house_dimir_claim_0010",
@@ -129,7 +223,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, public copy, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "house_dimir_claim_0011",
@@ -142,7 +240,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, public copy, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "house_dimir_claim_0012",
@@ -155,7 +257,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, public copy, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "house_dimir_claim_0013",
@@ -168,7 +274,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, public copy, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "house_dimir_claim_0014",
@@ -181,7 +291,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, public copy, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "house_dimir_claim_0015",
@@ -194,7 +308,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, public copy, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "house_dimir_claim_0016",
@@ -207,7 +325,523 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Do not use as authoritative semantic proof for identity, placement, generated key figures, recruiter guidance, fixtures, public copy, or provenance chains until bounded source localization is performed."
+    },
+    {
+      "claim_id": "house_dimir_claim_0017",
+      "faction_id": "house_dimir",
+      "claim_type": "placement_boundary",
+      "statement": "A source-bounded Dimir reading requires House Dimir secrecy, deception, backroom dealing, spies or assassins, and information-filtering texture rather than generic blue-black control, mill, discard, theft, or evasive mechanics alone.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-513 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "placement boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies surveil as the Dimir mechanic and frames it as looking at future cards, putting unwanted cards into the graveyard, and keeping others on top.",
+          "evidence_scope": "placement boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "house_dimir_claim_0018",
+      "faction_id": "house_dimir",
+      "claim_type": "mature_expression",
+      "statement": "A mature Dimir reading uses privacy, delayed disclosure, observation, and selective information leverage as strategic risk management, not omniscience, mind control, or generic criminal violence.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-513 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "mature expression",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies surveil as the Dimir mechanic and frames it as looking at future cards, putting unwanted cards into the graveyard, and keeping others on top.",
+          "evidence_scope": "mature expression",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "house_dimir_claim_0019",
+      "faction_id": "house_dimir",
+      "claim_type": "pressure_behavior",
+      "statement": "Under pressure, Dimir should narrow to hidden information leverage, backroom positioning, and observation before action rather than public reputation, open force, or spectacle.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-513 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "pressure behavior",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies surveil as the Dimir mechanic and frames it as looking at future cards, putting unwanted cards into the graveyard, and keeping others on top.",
+          "evidence_scope": "pressure behavior",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "house_dimir_claim_0020",
+      "faction_id": "house_dimir",
+      "claim_type": "collision_boundary",
+      "statement": "Generic blue-black overfit should remain adjacent unless the answer includes source-bounded Dimir secrecy, backroom information leverage, spies or assassins, manipulation, or surveil-style information filtering.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-513 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies surveil as the Dimir mechanic and frames it as looking at future cards, putting unwanted cards into the graveyard, and keeping others on top.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "house_dimir_claim_0021",
+      "faction_id": "house_dimir",
+      "claim_type": "collision_boundary",
+      "statement": "Mono-blue information, planning, or intellect should not become Dimir unless it is joined to Dimir-specific secrecy, backroom dealings, manipulation, or hidden leverage.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-513 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies surveil as the Dimir mechanic and frames it as looking at future cards, putting unwanted cards into the graveyard, and keeping others on top.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "house_dimir_claim_0022",
+      "faction_id": "house_dimir",
+      "claim_type": "collision_boundary",
+      "statement": "Mono-black ambition, secrecy, or power should not become Dimir unless it is joined to Dimir-specific information control, observation, deception, or surveil-style filtering.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-513 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies surveil as the Dimir mechanic and frames it as looking at future cards, putting unwanted cards into the graveyard, and keeping others on top.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "house_dimir_claim_0023",
+      "faction_id": "house_dimir",
+      "claim_type": "collision_boundary",
+      "statement": "Azorius-like public law, bureaucracy, surveillance, or institutional order should remain adjacent unless hidden information leverage and backroom secrecy lead.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-513 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies surveil as the Dimir mechanic and frames it as looking at future cards, putting unwanted cards into the graveyard, and keeping others on top.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "house_dimir_claim_0024",
+      "faction_id": "house_dimir",
+      "claim_type": "collision_boundary",
+      "statement": "Izzet-like experiment, invention, or knowledge for discovery should remain adjacent unless the answer centers hidden information leverage, secrecy, and backroom positioning.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-513 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies surveil as the Dimir mechanic and frames it as looking at future cards, putting unwanted cards into the graveyard, and keeping others on top.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "house_dimir_claim_0025",
+      "faction_id": "house_dimir",
+      "claim_type": "collision_boundary",
+      "statement": "Rakdos-like criminal spectacle, visible indulgence, or violence should remain adjacent unless the answer centers Dimir secrecy, backroom leverage, and information control.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-513 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies surveil as the Dimir mechanic and frames it as looking at future cards, putting unwanted cards into the graveyard, and keeping others on top.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "house_dimir_claim_0026",
+      "faction_id": "house_dimir",
+      "claim_type": "collision_boundary",
+      "statement": "Golgari-like undercity survival, decay, rot, recursion, or material reclamation should remain adjacent unless the answer centers hidden information leverage rather than life-death infrastructure.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-513 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies surveil as the Dimir mechanic and frames it as looking at future cards, putting unwanted cards into the graveyard, and keeping others on top.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "house_dimir_claim_0027",
+      "faction_id": "house_dimir",
+      "claim_type": "collision_boundary",
+      "statement": "Orzhov-like obligation, debt, status, or institutional exploitation should remain adjacent unless the answer centers Dimir secrecy, backroom information, and hidden positioning.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-513 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies surveil as the Dimir mechanic and frames it as looking at future cards, putting unwanted cards into the graveyard, and keeping others on top.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "house_dimir_claim_0028",
+      "faction_id": "house_dimir",
+      "claim_type": "collision_boundary",
+      "statement": "Simic-like inquiry, adaptation, or biological improvement should remain adjacent unless the answer centers Dimir secrecy and hidden information leverage instead of optimization.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-513 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies surveil as the Dimir mechanic and frames it as looking at future cards, putting unwanted cards into the graveyard, and keeping others on top.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "house_dimir_claim_0029",
+      "faction_id": "house_dimir",
+      "claim_type": "collision_boundary",
+      "statement": "Silverquill-like rhetoric, social influence, or reputation should remain adjacent unless influence is strongest because it stays hidden and information-based.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-513 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies surveil as the Dimir mechanic and frames it as looking at future cards, putting unwanted cards into the graveyard, and keeping others on top.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "house_dimir_claim_0030",
+      "faction_id": "house_dimir",
+      "claim_type": "collision_boundary",
+      "statement": "Esper-like control, hierarchy, or perfection should remain adjacent unless the answer specifically leads with Dimir secrecy, backroom information leverage, and blue-black Ravnican methods.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-513 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies surveil as the Dimir mechanic and frames it as looking at future cards, putting unwanted cards into the graveyard, and keeping others on top.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "house_dimir_claim_0031",
+      "faction_id": "house_dimir",
+      "claim_type": "collision_boundary",
+      "statement": "Grixis-like cruelty, broad manipulation, or predatory ambition should remain adjacent unless the answer narrows to Dimir secrecy, information leverage, and hidden operation.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-513 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies surveil as the Dimir mechanic and frames it as looking at future cards, putting unwanted cards into the graveyard, and keeping others on top.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "house_dimir_claim_0032",
+      "faction_id": "house_dimir",
+      "claim_type": "collision_boundary",
+      "statement": "Sultai-like strategic resource use or long-term manipulation should remain adjacent unless the answer specifically leads with Dimir secrecy, information filtering, and backroom leverage rather than broader resource control.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-513 Gate 3 bounded remediation; placement language is Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica - House Dimir reviewed source record",
+          "bounded_paraphrase": "Official Dimir overview identifies House Dimir as the blue-black Ravnican guild associated with deception, secrecy, spies, assassins, manipulation, secrets, backroom deals, founder Szadek, and Lazav as guildmaster in that era.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator_type": "reviewed-source-record",
+          "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record",
+          "bounded_paraphrase": "Official mechanics article identifies surveil as the Dimir mechanic and frames it as looking at future cards, putting unwanted cards into the graveyard, and keeping others on top.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     }
   ]
 }

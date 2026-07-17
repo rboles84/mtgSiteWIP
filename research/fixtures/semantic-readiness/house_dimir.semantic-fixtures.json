@@ -1,0 +1,314 @@
+{
+  "identity_key": "UB",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "dimir_core_hidden_information_identity",
+      "fixture_type": "core_inclusion",
+      "scenario": "A clear Dimir case centers House Dimir secrecy, backroom deals, hidden information leverage, and surveil-style information filtering rather than generic blue-black mechanics.",
+      "intended_interpretation": "Dimir inclusion requires source-bounded blue-black Ravnican guild identity plus secrecy/backroom information leverage.",
+      "evidence_claim_ids": [
+        "house_dimir_claim_001",
+        "house_dimir_claim_002",
+        "house_dimir_claim_005",
+        "house_dimir_claim_006",
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0018",
+        "house_dimir_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+      ],
+      "defensible_guidance": "Use Dimir only when source-bounded secrecy, backroom information leverage, observation, or surveil-style information filtering leads.",
+      "unsupported_certainty_to_avoid": "Do not use generic UB control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, or criminality as standalone proof."
+    },
+    {
+      "fixture_id": "dimir_mature_hidden_leverage_pressure",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "A mature or pressure Dimir case withholds information for timing, risk management, and strategic observation without becoming omniscient conspiracy or mind control.",
+      "intended_interpretation": "Dimir mature/pressure behavior remains hidden information leverage, not generic criminal mood or generic UB control.",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0018",
+        "house_dimir_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Dimir only when source-bounded secrecy, backroom information leverage, observation, or surveil-style information filtering leads.",
+      "unsupported_certainty_to_avoid": "Do not use generic UB control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, or criminality as standalone proof."
+    },
+    {
+      "fixture_id": "dimir_exclude_generic_ub_overfit",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "A blue-black deck/persona that only wants counterspells, removal, mill, discard, theft, evasion, or control is not Dimir without source-bounded secrecy or backroom information leverage.",
+      "intended_interpretation": "Exclude or keep Dimir adjacent for GENERIC_UB_OVERFIT unless source-bounded Dimir secrecy and hidden information leverage lead.",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Dimir only when source-bounded secrecy, backroom information leverage, observation, or surveil-style information filtering leads.",
+      "unsupported_certainty_to_avoid": "Do not use generic UB control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, or criminality as standalone proof.",
+      "neighbor": "GENERIC_UB_OVERFIT"
+    },
+    {
+      "fixture_id": "dimir_exclude_u",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Mono-blue information, planning, or intellect alone is not Dimir unless it becomes concealed leverage through Dimir methods.",
+      "intended_interpretation": "Exclude or keep Dimir adjacent for U unless source-bounded Dimir secrecy and hidden information leverage lead.",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Dimir only when source-bounded secrecy, backroom information leverage, observation, or surveil-style information filtering leads.",
+      "unsupported_certainty_to_avoid": "Do not use generic UB control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, or criminality as standalone proof.",
+      "neighbor": "U"
+    },
+    {
+      "fixture_id": "dimir_exclude_b",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Mono-black ambition, secrecy, or power alone is not Dimir unless it joins information filtering, observation, and hidden leverage.",
+      "intended_interpretation": "Exclude or keep Dimir adjacent for B unless source-bounded Dimir secrecy and hidden information leverage lead.",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Dimir only when source-bounded secrecy, backroom information leverage, observation, or surveil-style information filtering leads.",
+      "unsupported_certainty_to_avoid": "Do not use generic UB control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, or criminality as standalone proof.",
+      "neighbor": "B"
+    },
+    {
+      "fixture_id": "dimir_exclude_wu",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Azorius-like public procedure, bureaucracy, law, or visible order is not Dimir when legitimacy and process lead.",
+      "intended_interpretation": "Exclude or keep Dimir adjacent for WU unless source-bounded Dimir secrecy and hidden information leverage lead.",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Dimir only when source-bounded secrecy, backroom information leverage, observation, or surveil-style information filtering leads.",
+      "unsupported_certainty_to_avoid": "Do not use generic UB control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, or criminality as standalone proof.",
+      "neighbor": "WU"
+    },
+    {
+      "fixture_id": "dimir_exclude_ur",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Izzet-like invention or experiment is not Dimir when knowledge is pursued through testing rather than hidden leverage.",
+      "intended_interpretation": "Exclude or keep Dimir adjacent for UR unless source-bounded Dimir secrecy and hidden information leverage lead.",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Dimir only when source-bounded secrecy, backroom information leverage, observation, or surveil-style information filtering leads.",
+      "unsupported_certainty_to_avoid": "Do not use generic UB control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, or criminality as standalone proof.",
+      "neighbor": "UR"
+    },
+    {
+      "fixture_id": "dimir_exclude_br",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Rakdos-like spectacle, criminal indulgence, or visible violence is not Dimir when provocation and audience lead.",
+      "intended_interpretation": "Exclude or keep Dimir adjacent for BR unless source-bounded Dimir secrecy and hidden information leverage lead.",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Dimir only when source-bounded secrecy, backroom information leverage, observation, or surveil-style information filtering leads.",
+      "unsupported_certainty_to_avoid": "Do not use generic UB control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, or criminality as standalone proof.",
+      "neighbor": "BR"
+    },
+    {
+      "fixture_id": "dimir_exclude_bg",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Golgari-like undercity survival, rot, recursion, or reclamation is not Dimir when material life-death infrastructure leads.",
+      "intended_interpretation": "Exclude or keep Dimir adjacent for BG unless source-bounded Dimir secrecy and hidden information leverage lead.",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Dimir only when source-bounded secrecy, backroom information leverage, observation, or surveil-style information filtering leads.",
+      "unsupported_certainty_to_avoid": "Do not use generic UB control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, or criminality as standalone proof.",
+      "neighbor": "BG"
+    },
+    {
+      "fixture_id": "dimir_exclude_wb",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Orzhov-like debt, status, obligation, or institutional exploitation is not Dimir when formal leverage leads.",
+      "intended_interpretation": "Exclude or keep Dimir adjacent for WB unless source-bounded Dimir secrecy and hidden information leverage lead.",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0027"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Dimir only when source-bounded secrecy, backroom information leverage, observation, or surveil-style information filtering leads.",
+      "unsupported_certainty_to_avoid": "Do not use generic UB control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, or criminality as standalone proof.",
+      "neighbor": "WB"
+    },
+    {
+      "fixture_id": "dimir_exclude_ug",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Simic-like adaptation, inquiry, or biological improvement is not Dimir when optimization leads.",
+      "intended_interpretation": "Exclude or keep Dimir adjacent for UG unless source-bounded Dimir secrecy and hidden information leverage lead.",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Dimir only when source-bounded secrecy, backroom information leverage, observation, or surveil-style information filtering leads.",
+      "unsupported_certainty_to_avoid": "Do not use generic UB control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, or criminality as standalone proof.",
+      "neighbor": "UG"
+    },
+    {
+      "fixture_id": "dimir_exclude_silverquill",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Silverquill-like rhetoric, image, or reputation is not Dimir when influence is meant to be heard or seen.",
+      "intended_interpretation": "Exclude or keep Dimir adjacent for SILVERQUILL unless source-bounded Dimir secrecy and hidden information leverage lead.",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Dimir only when source-bounded secrecy, backroom information leverage, observation, or surveil-style information filtering leads.",
+      "unsupported_certainty_to_avoid": "Do not use generic UB control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, or criminality as standalone proof.",
+      "neighbor": "SILVERQUILL"
+    },
+    {
+      "fixture_id": "dimir_exclude_esper",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Esper-like perfection, hierarchy, or broader WUB control is not Dimir when system order leads over hidden information leverage.",
+      "intended_interpretation": "Exclude or keep Dimir adjacent for ESPER unless source-bounded Dimir secrecy and hidden information leverage lead.",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0030"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Dimir only when source-bounded secrecy, backroom information leverage, observation, or surveil-style information filtering leads.",
+      "unsupported_certainty_to_avoid": "Do not use generic UB control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, or criminality as standalone proof.",
+      "neighbor": "ESPER"
+    },
+    {
+      "fixture_id": "dimir_exclude_grixis",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Grixis-like cruelty, predation, or broad manipulation is not Dimir when the method is not source-bounded information secrecy.",
+      "intended_interpretation": "Exclude or keep Dimir adjacent for GRIXIS unless source-bounded Dimir secrecy and hidden information leverage lead.",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0031"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Dimir only when source-bounded secrecy, backroom information leverage, observation, or surveil-style information filtering leads.",
+      "unsupported_certainty_to_avoid": "Do not use generic UB control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, or criminality as standalone proof.",
+      "neighbor": "GRIXIS"
+    },
+    {
+      "fixture_id": "dimir_exclude_sultai",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Sultai-like resource strategy or long-game manipulation is not Dimir when broader UBG resource control leads.",
+      "intended_interpretation": "Exclude or keep Dimir adjacent for SULTAI unless source-bounded Dimir secrecy and hidden information leverage lead.",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Dimir only when source-bounded secrecy, backroom information leverage, observation, or surveil-style information filtering leads.",
+      "unsupported_certainty_to_avoid": "Do not use generic UB control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, or criminality as standalone proof.",
+      "neighbor": "SULTAI"
+    },
+    {
+      "fixture_id": "dimir_stale_phrase_overheat_guard",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Stale phrases such as generic control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, or generic criminality are unsafe unless narrowed to source-bounded Dimir secrecy/backroom information leverage.",
+      "intended_interpretation": "Dimir evidence must remain source-bounded and cannot be certified from overheated or mechanic-first UB wording.",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0018",
+        "house_dimir_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Dimir only when source-bounded secrecy, backroom information leverage, observation, or surveil-style information filtering leads.",
+      "unsupported_certainty_to_avoid": "Do not certify overheated Dimir phrases without bounded source-supported secrecy/backroom leverage.",
+      "neighbor": "GENERIC_UB_OVERFIT"
+    },
+    {
+      "fixture_id": "dimir_nearest_collision_hidden_vs_public_leverage",
+      "fixture_type": "nearest_collision_ambiguity",
+      "scenario": "A response about influence could be Dimir, Orzhov, Azorius, or Silverquill; Dimir only wins when influence works because information remains hidden and timing stays untraceable.",
+      "intended_interpretation": "Nearest-collision ambiguity should ask whether leverage is hidden information, public law, visible obligation, or public rhetoric.",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0023",
+        "house_dimir_claim_0027",
+        "house_dimir_claim_0029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Dimir only when source-bounded secrecy, backroom information leverage, observation, or surveil-style information filtering leads.",
+      "unsupported_certainty_to_avoid": "Do not use generic UB control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, or criminality as standalone proof."
+    },
+    {
+      "fixture_id": "dimir_core_identity_provenance",
+      "fixture_type": "provenance",
+      "scenario": "",
+      "intended_interpretation": "Generated provenance for Dimir core identity must point to source-bounded substantive claims only.",
+      "evidence_claim_ids": [
+        "house_dimir_claim_001",
+        "house_dimir_claim_002",
+        "house_dimir_claim_005",
+        "house_dimir_claim_006",
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0018",
+        "house_dimir_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+      ],
+      "defensible_guidance": "Use Dimir only when source-bounded secrecy, backroom information leverage, observation, or surveil-style information filtering leads.",
+      "unsupported_certainty_to_avoid": "Do not use generic UB control, mill, discard, theft, evasion, spy mood, omniscient conspiracy, mind control, or criminality as standalone proof.",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.profile.json",
+      "canonical_pointer": "/core_identity"
+    }
+  ]
+}

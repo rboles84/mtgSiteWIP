@@ -25630,23 +25630,208 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/behavioral_signals/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:c12345e9f9470f791c777d026506920e51b362dec7fd6aaced5087e71d634631",
+      "canonical_id": "dimir_signal_hidden_information_leverage",
+      "canonical_content_hash": "sha256:24e0ec94563aa9d81caa26787adac2ea436b3be1ad2275325abec05caf56656d",
       "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009",
-        "house_dimir_claim_0010",
-        "house_dimir_claim_0011",
-        "house_dimir_claim_0012"
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0018",
+        "house_dimir_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "dimir_how_to_recognize_match_1",
+      "canonical_content_hash": "sha256:37043f44fd5db6104e7201da053c3ef7e0dce0af94ada73ba0ee8709fed1e8e3",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0018"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "dimir_how_to_recognize_match_2",
+      "canonical_content_hash": "sha256:efa96280bc664d36fa13a2d7101071d5b753518b583ee074af576ecf773ee88b",
+      "evidence_claim_ids": [
+        "house_dimir_claim_005",
+        "house_dimir_claim_006",
+        "house_dimir_claim_0018"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "dimir_how_to_recognize_match_3",
+      "canonical_content_hash": "sha256:2fda2f7268868b3bc484238669a3677874200f02020f2c1d388d489c25e7240e",
+      "evidence_claim_ids": [
+        "house_dimir_claim_006",
+        "house_dimir_claim_0019"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "dimir_how_to_recognize_mismatch_1",
+      "canonical_content_hash": "sha256:c3c8a41565475388e1eacd58fe3ebb59cacae623067be5c25770b8cb79174286",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0023",
+        "house_dimir_claim_0027",
+        "house_dimir_claim_0029"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "dimir_how_to_recognize_mismatch_2",
+      "canonical_content_hash": "sha256:a820cfe0f5fdac148dc10fa35005296243802408bbea01b9ba2a7c2431f1e4c6",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0020"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "dimir_how_to_recognize_mismatch_3",
+      "canonical_content_hash": "sha256:6ab797315f49108c4c7746fa4959ce1ae97a29f9bc8942a7f7365997f083d682",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0018",
+        "house_dimir_claim_0025",
+        "house_dimir_claim_0031"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_id": "dimir_questions_to_ask_when_uncertain_1",
+      "canonical_content_hash": "sha256:5992b9f1e1225ef07ebf2cc4c355e767580b41e0fe0505cef4888a3399ac70cf",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0019",
+        "house_dimir_claim_0029"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_id": "dimir_questions_to_ask_when_uncertain_2",
+      "canonical_content_hash": "sha256:7bad4b6fb386fe33773aef975f5928613f1569dc7b11b67329a123d57dc23a63",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0018",
+        "house_dimir_claim_0021",
+        "house_dimir_claim_0022",
+        "house_dimir_claim_0030",
+        "house_dimir_claim_0031",
+        "house_dimir_claim_0032"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -25659,16 +25844,14 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/collision_guidance/0",
-      "canonical_id": "collision_house_dimir_vs_orzhov_syndicate_placement_ready",
-      "canonical_content_hash": "sha256:2964470cfc6f0652d27d8bf9e948bdfe014bb330b2a83ad94cd3732574ff30cd",
+      "canonical_id": "dimir_vs_generic_ub_overfit_gate3",
+      "canonical_content_hash": "sha256:2ebc4931a0fafe8fe3498f1a84fed7f04ddf740efa8d7e4fdafa70f7fa108400",
       "evidence_claim_ids": [
-        "house_dimir_claim_001",
-        "house_dimir_claim_002",
-        "house_dimir_claim_003"
+        "house_dimir_claim_0020"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -25681,16 +25864,234 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/collision_guidance/1",
-      "canonical_id": "collision_house_dimir_vs_silverquill_placement_ready",
-      "canonical_content_hash": "sha256:6d95db481c04c434a76e4488bae92ec295e485d4303d6b8cb5923c3d26eb1c41",
+      "canonical_id": "dimir_vs_u_information_gate3",
+      "canonical_content_hash": "sha256:2177cad2b57b23d09b130c12b449bf2be8713512384c222c89227eeb4503b004",
       "evidence_claim_ids": [
-        "house_dimir_claim_001",
-        "house_dimir_claim_002",
-        "house_dimir_claim_003"
+        "house_dimir_claim_0021"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/collision_guidance/10",
+      "canonical_id": "dimir_vs_esper_control_gate3",
+      "canonical_content_hash": "sha256:2f0e7ae926183c1a26fe1993580c82f2ae183d4413a6d93a8abc6a82b939a436",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0030"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/collision_guidance/11",
+      "canonical_id": "dimir_vs_grixis_manipulation_gate3",
+      "canonical_content_hash": "sha256:88332f6d9ea9d8a084515881c2dccfae33c91fddf03baa51f93526b337a3514c",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0031"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/collision_guidance/12",
+      "canonical_id": "dimir_vs_sultai_resources_gate3",
+      "canonical_content_hash": "sha256:57260c86b0f6046062dcc8f767c42eb774d1b517c436f33b9526c3f8a5ab2b3a",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/collision_guidance/2",
+      "canonical_id": "dimir_vs_b_private_power_gate3",
+      "canonical_content_hash": "sha256:ac526ea1144eca6f0122adfb93cc2a08682f434c8358543fe73d22726414a339",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/collision_guidance/3",
+      "canonical_id": "dimir_vs_azorius_public_law_gate3",
+      "canonical_content_hash": "sha256:5a328add02a9d463c7ec2a320e3a3ede086c339bd6a47ee2e35d757873118a45",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/collision_guidance/4",
+      "canonical_id": "dimir_vs_izzet_experiment_gate3",
+      "canonical_content_hash": "sha256:de517c2d8744af65ed845e86abb82fabd56c47cff06aeb830d44d4d9603aefd3",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/collision_guidance/5",
+      "canonical_id": "dimir_vs_rakdos_spectacle_gate3",
+      "canonical_content_hash": "sha256:4946e571c9253accdb5ccfc27aad7aa8e59075ad7923e0a0f9b2287705566e77",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/collision_guidance/6",
+      "canonical_id": "dimir_vs_golgari_undercity_gate3",
+      "canonical_content_hash": "sha256:58312f2b13be8a3b918bff232bd692b5a922d5a319474759a7c0e950325100ed",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/collision_guidance/7",
+      "canonical_id": "collision_house_dimir_vs_orzhov_syndicate_placement_ready",
+      "canonical_content_hash": "sha256:7bfa0cbf2772941d7d9a0b3b23afbe3b37e077ca3363612200190b057a6e3140",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0027"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/collision_guidance/8",
+      "canonical_id": "dimir_vs_simic_adaptation_gate3",
+      "canonical_content_hash": "sha256:1cd09e376086805c577c76f40c8e889cb707d155422febf5271eee083e631199",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/collision_guidance/9",
+      "canonical_id": "collision_house_dimir_vs_silverquill_placement_ready",
+      "canonical_content_hash": "sha256:5186209eb17f6932e104d90830f7882b4bb19efe5a3a242befd9e259b2c6a420",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -25703,17 +26104,15 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/core_values/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:88b38f9571a2867219a766870fbf757bf14bc054854422733a720fa764f343c2",
+      "canonical_id": "dimir_value_secrets_backroom_deals",
+      "canonical_content_hash": "sha256:b01b17e9101b4120b284082758c7f4803224fdbf39c6baef374b8c86a4aea9f2",
       "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009"
+        "house_dimir_claim_002",
+        "house_dimir_claim_0017"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -25726,17 +26125,16 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/core_values/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:837ee8560ceb82fe8ef1670cde563fd3ec4f57ede2a3454579b6cd511ba1d32f",
+      "canonical_id": "dimir_value_information_filtering",
+      "canonical_content_hash": "sha256:0d0bc41b788bdee1238002a8637f936d40893f2e7123f89cc06cb1494e84b15c",
       "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009"
+        "house_dimir_claim_005",
+        "house_dimir_claim_006",
+        "house_dimir_claim_0017"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -25749,17 +26147,16 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/core_values/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:b66a47af9e2f0db86e443bc3b52fd0018a5978997ea8e9dfe58b33eb392a9222",
+      "canonical_id": "dimir_value_private_leverage",
+      "canonical_content_hash": "sha256:a437599f8f820a853bb849a20d2198a1cb643be084cb8b46d16c5b9e6a65e217",
       "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009"
+        "house_dimir_claim_006",
+        "house_dimir_claim_0018",
+        "house_dimir_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -25772,155 +26169,16 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/core_values/3",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:99586811af157fefae981d8dee9760feee638753fcd4b9c9b154200363caa08a",
+      "canonical_id": "dimir_value_guarded_strategy",
+      "canonical_content_hash": "sha256:ce014e11519f05c4a9130725256e63099d865686983de645e9928e0108089782",
       "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009"
+        "house_dimir_claim_0018",
+        "house_dimir_claim_0020",
+        "house_dimir_claim_0031"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/UB",
-        "data/placement-model.json#/factions/UB",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "UB",
-      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
-      "canonical_pointer": "/core_values/4",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:fa44698a9ea207f964f619d6aafc6ead7445a44a625f2f4b942c99b6aa633c1e",
-      "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/UB",
-        "data/placement-model.json#/factions/UB",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "UB",
-      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
-      "canonical_pointer": "/core_values/5",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:b7b4d6ca0f242bca331785424779b0b0dc044072462031c26976828a1691f6da",
-      "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/UB",
-        "data/placement-model.json#/factions/UB",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "UB",
-      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
-      "canonical_pointer": "/core_values/6",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:70f27fd6f0ede385ac52dd3f6084de808cc07acba8502e77c55739122880197a",
-      "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/UB",
-        "data/placement-model.json#/factions/UB",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "UB",
-      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
-      "canonical_pointer": "/core_values/7",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:d4ea2eb0f196c2d91b5c4827ed3f32c10b7efb5318aab89477992e171406cc49",
-      "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/UB",
-        "data/placement-model.json#/factions/UB",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "UB",
-      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
-      "canonical_pointer": "/core_values/8",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:c8d2b1c8e809cc40e2847b907338acf025841ee9fbc50fc851093e88a606a0d2",
-      "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/UB",
-        "data/placement-model.json#/factions/UB",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "UB",
-      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
-      "canonical_pointer": "/core_values/9",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:b20a34a78e72f402f65e0dd1e76eca4d9508fd1e3c3e28f9cdc67d702455bf11",
-      "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -25934,15 +26192,16 @@
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/discriminator_questions/0",
       "canonical_id": "dimir_q1",
-      "canonical_content_hash": "sha256:96c0b18905f0ba9421d98f8789d379cc893fd0c958a190e896e6174bde34ad6f",
+      "canonical_content_hash": "sha256:d807db9f783a4d3aebf7fdf25f80b48b4c725b3f3f4814db095afd2aba207bd0",
       "evidence_claim_ids": [
-        "house_dimir_claim_001",
-        "house_dimir_claim_002",
-        "house_dimir_claim_003"
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0019",
+        "house_dimir_claim_0020",
+        "house_dimir_claim_0029"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -25956,15 +26215,18 @@
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/discriminator_questions/1",
       "canonical_id": "dimir_q2",
-      "canonical_content_hash": "sha256:7dadb194fd6485a8f335d6fc7a6fb8654819918ade0872e9ad7468c9b939fddd",
+      "canonical_content_hash": "sha256:ba9e01ac6f47f1d48253101e93be7e9a677fd9456e843c9e4d7ec921a3d35bdc",
       "evidence_claim_ids": [
-        "house_dimir_claim_001",
-        "house_dimir_claim_002",
-        "house_dimir_claim_003"
+        "house_dimir_claim_0018",
+        "house_dimir_claim_0021",
+        "house_dimir_claim_0022",
+        "house_dimir_claim_0030",
+        "house_dimir_claim_0031",
+        "house_dimir_claim_0032"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -25978,15 +26240,14 @@
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/discriminator_questions/2",
       "canonical_id": "q_house_dimir_9801",
-      "canonical_content_hash": "sha256:06d905ec6cf3d22dfb0eef7f0579ca169dd0b95cce978c3c713c36a174a49e4f",
+      "canonical_content_hash": "sha256:deb68174be3ea414d0e4544662d50ee2198be7c89d459842a5c6f340507d0a9e",
       "evidence_claim_ids": [
-        "house_dimir_claim_001",
-        "house_dimir_claim_002",
-        "house_dimir_claim_003"
+        "house_dimir_claim_0027",
+        "house_dimir_claim_0019"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -26000,15 +26261,14 @@
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/discriminator_questions/3",
       "canonical_id": "q_house_dimir_9802",
-      "canonical_content_hash": "sha256:48557120cc68314afbefc1471c203644d4015f629bbd70d1cd7a01209083f5e7",
+      "canonical_content_hash": "sha256:1305e4ef855712f2a5e95ab36f96c9c80e6dd74a3bfc13fdab2780266b6a1d8c",
       "evidence_claim_ids": [
-        "house_dimir_claim_001",
-        "house_dimir_claim_002",
-        "house_dimir_claim_003"
+        "house_dimir_claim_0029",
+        "house_dimir_claim_0019"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -26021,13 +26281,17 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/good_fit_indicators/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:3f6aba170e5bb8832cc7cae974084299a10ef76dccba619927db05c6031400a6",
+      "canonical_id": "dimir_ideal_hidden_information_leverage",
+      "canonical_content_hash": "sha256:0ba3b09ad89103b0c0c6ee7dc75650440e9a0e8c3f45b20dc51cb3584309f2ef",
       "evidence_claim_ids": [
-        "house_dimir_claim_001"
+        "house_dimir_claim_001",
+        "house_dimir_claim_002",
+        "house_dimir_claim_006",
+        "house_dimir_claim_0017"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
         "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
       "generated_consumers": [
@@ -26041,13 +26305,16 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/good_fit_indicators/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:01f27fc245fce0e1f5def326ebde1add6dd48fad534d7e59291cc8b72a5aae5c",
+      "canonical_id": "dimir_ideal_observe_before_action",
+      "canonical_content_hash": "sha256:855902c6186a6854a0734f1d2d3a6c844adb19ccd510c75a6b5fdf8a98162d1d",
       "evidence_claim_ids": [
-        "house_dimir_claim_002"
+        "house_dimir_claim_005",
+        "house_dimir_claim_006",
+        "house_dimir_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -26060,13 +26327,16 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/good_fit_indicators/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:58e3361a146b9b05616bc412b3a45807deead1b480943b3aae712acb6cc8da51",
+      "canonical_id": "dimir_ideal_private_positioning",
+      "canonical_content_hash": "sha256:2c5e5851e5a111426bdb18de8c20c52772db96808c25fdbd9a848fefbf3c630b",
       "evidence_claim_ids": [
-        "house_dimir_claim_003"
+        "house_dimir_claim_002",
+        "house_dimir_claim_006",
+        "house_dimir_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -26079,13 +26349,17 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:3f6aba170e5bb8832cc7cae974084299a10ef76dccba619927db05c6031400a6",
+      "canonical_id": "dimir_ideal_hidden_information_leverage",
+      "canonical_content_hash": "sha256:0ba3b09ad89103b0c0c6ee7dc75650440e9a0e8c3f45b20dc51cb3584309f2ef",
       "evidence_claim_ids": [
-        "house_dimir_claim_001"
+        "house_dimir_claim_001",
+        "house_dimir_claim_002",
+        "house_dimir_claim_006",
+        "house_dimir_claim_0017"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
         "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
       "generated_consumers": [
@@ -26099,13 +26373,16 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:01f27fc245fce0e1f5def326ebde1add6dd48fad534d7e59291cc8b72a5aae5c",
+      "canonical_id": "dimir_ideal_observe_before_action",
+      "canonical_content_hash": "sha256:855902c6186a6854a0734f1d2d3a6c844adb19ccd510c75a6b5fdf8a98162d1d",
       "evidence_claim_ids": [
-        "house_dimir_claim_002"
+        "house_dimir_claim_005",
+        "house_dimir_claim_006",
+        "house_dimir_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -26118,13 +26395,16 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:58e3361a146b9b05616bc412b3a45807deead1b480943b3aae712acb6cc8da51",
+      "canonical_id": "dimir_ideal_private_positioning",
+      "canonical_content_hash": "sha256:2c5e5851e5a111426bdb18de8c20c52772db96808c25fdbd9a848fefbf3c630b",
       "evidence_claim_ids": [
-        "house_dimir_claim_003"
+        "house_dimir_claim_002",
+        "house_dimir_claim_006",
+        "house_dimir_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -26137,19 +26417,15 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/inhibitor_traits/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:afc434351afa997a60626cb1e194806322c2444048130245de3013974590ab1c",
+      "canonical_id": "dimir_inhibitor_generic_ub_overfit",
+      "canonical_content_hash": "sha256:8145aa705ae2ea2a8c809a3f55365fa2f0888483a89ba61447fa8e38f20f48a4",
       "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009",
-        "house_dimir_claim_0010"
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -26162,21 +26438,17 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/moral_and_psychological_profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:427a11866442d5eb867aa24f652cab1a79cd1e512885257ecc281ba28a11fd26",
+      "canonical_id": "house_dimir_psychological_profile",
+      "canonical_content_hash": "sha256:2cea7a55af0ebc0ad0c48d8458ba89375d231b406f39f307b0445f60047a4432",
       "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009",
-        "house_dimir_claim_0010",
-        "house_dimir_claim_0011"
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0018",
+        "house_dimir_claim_0019",
+        "house_dimir_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -26190,26 +26462,17 @@
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/placement_axes/0",
       "canonical_id": "axis_concealment_vs_visibility",
-      "canonical_content_hash": "sha256:7b5ae59c3d662020b60fd2e478929e819c30acfe7a4523bd391578e1fc0dedd8",
+      "canonical_content_hash": "sha256:df9ee9b61f986bd6dfd67198ff4406e680e189325f08badfd2850f76099e027f",
       "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009",
-        "house_dimir_claim_0010",
-        "house_dimir_claim_0011",
-        "house_dimir_claim_0012",
-        "house_dimir_claim_0013",
-        "house_dimir_claim_0014"
+        "house_dimir_claim_001",
+        "house_dimir_claim_002",
+        "house_dimir_claim_005",
+        "house_dimir_claim_0017"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_last_day_94047f8e",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -26222,33 +26485,18 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/placement_summary",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:c758244f0c91957caa4a80e728bbef6b81752efaed5c814545a8db40a05be34d",
+      "canonical_id": "house_dimir_placement_summary",
+      "canonical_content_hash": "sha256:90b3a2d12ce5127cf5522121d51808346ac80ada7e3b2309cda90d71b8482dff",
       "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009",
-        "house_dimir_claim_0010",
-        "house_dimir_claim_0011",
-        "house_dimir_claim_0012",
-        "house_dimir_claim_0013",
-        "house_dimir_claim_0014",
         "house_dimir_claim_001",
         "house_dimir_claim_002",
-        "house_dimir_claim_003",
-        "house_dimir_claim_004",
         "house_dimir_claim_005",
-        "house_dimir_claim_006"
+        "house_dimir_claim_006",
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0018",
+        "house_dimir_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_last_day_94047f8e",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169",
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
         "src_wotc_guilds_ravnica_mechanics_2018",
         "src_wotc_guilds_ravnica_prerelease_primer_2018"
@@ -26264,14 +26512,15 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/poor_fit_indicators/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:c0bdd9340a44ec87c8dd8f5ec19204f1cc3c25778cbec636607b829179ed9af6",
+      "canonical_id": "dimir_poor_total_transparency",
+      "canonical_content_hash": "sha256:229781b7fbcf2e5d9f47305d18f34ebd05da40a75627cededd7889f14971f1b5",
       "evidence_claim_ids": [
-        "house_dimir_claim_001"
+        "house_dimir_claim_002",
+        "house_dimir_claim_0023"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
-        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -26284,13 +26533,15 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/poor_fit_indicators/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:ac78068fdcd5ba98278006f3a6f1bac70c5dc75eda3525c0d4330a2f63a49e61",
+      "canonical_id": "dimir_poor_generic_ub_mechanics",
+      "canonical_content_hash": "sha256:57a309b036f387c783b6dfa9107aae003c33ceea00ad4c77d9ffc34c7fc4856c",
       "evidence_claim_ids": [
-        "house_dimir_claim_002"
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -26303,13 +26554,16 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/poor_fit_indicators/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:37cc3a4c7ef64a3d0602f0ad4b1417bf03c8555ae1c9bcb9620f210ad9f598d4",
+      "canonical_id": "dimir_poor_spectacle_or_visible_reputation",
+      "canonical_content_hash": "sha256:624000c2b29de4e98f65c85c340c0e36671fac47ab9af54638915516f573915a",
       "evidence_claim_ids": [
-        "house_dimir_claim_003"
+        "house_dimir_claim_0019",
+        "house_dimir_claim_0025",
+        "house_dimir_claim_0029"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -26320,29 +26574,432 @@
     },
     {
       "identity_key": "UB",
-      "canonical_file": "data/raw-factions/house_dimir/house_dimir.profile.json",
-      "canonical_pointer": "/canonical_flavor_text/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:760ea1d0b0c75a85704166f49e3a022abb5c9e6ba5db6aea6337f0a32cf0d584",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/0",
+      "canonical_id": "dimir_required_neighbor_generic_ub_overfit",
+      "canonical_content_hash": "sha256:f63f0ffb089426a07484a6a1a5f9a875d830d844666a255bf88c1cdb9f8e2e9b",
       "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009",
-        "house_dimir_claim_0010",
-        "house_dimir_claim_0011",
-        "house_dimir_claim_0012",
-        "house_dimir_claim_0013",
-        "house_dimir_claim_0014"
+        "house_dimir_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_last_day_94047f8e",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/1",
+      "canonical_id": "dimir_required_neighbor_u",
+      "canonical_content_hash": "sha256:d36967c956fd0078305cde46b358cee3fb49e037aa510334e94f4e6b57df5586",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/10",
+      "canonical_id": "dimir_required_neighbor_esper",
+      "canonical_content_hash": "sha256:9b422cd6a4ae7086aed9c93ddd930b91651a1bfcebe62ead90d47075e7956ca4",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0030"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/11",
+      "canonical_id": "dimir_required_neighbor_grixis",
+      "canonical_content_hash": "sha256:4c53f06d874dd8b3c1d6e1f5f9d556370d279acc606fb7b28b98db69913421a0",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0031"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/12",
+      "canonical_id": "dimir_required_neighbor_sultai",
+      "canonical_content_hash": "sha256:a79ba99e07c87e0cd4f40931c3f7a7413bfeab1a8163a2488ac6e4d73995c5ea",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/2",
+      "canonical_id": "dimir_required_neighbor_b",
+      "canonical_content_hash": "sha256:8aa9983849d3ca4d9026028b433c521fb1ae8743be32f014cd58971d66988e3e",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/3",
+      "canonical_id": "dimir_required_neighbor_wu",
+      "canonical_content_hash": "sha256:a4ed36b4c3c87141827ed2987c915feb196afd60cb4297a00edc03d03117f45d",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/4",
+      "canonical_id": "dimir_required_neighbor_ur",
+      "canonical_content_hash": "sha256:3713428bb01cd36e2d8ce89e8b1275e6e66dd45e8f36fd2a048579e5741798a0",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/5",
+      "canonical_id": "dimir_required_neighbor_br",
+      "canonical_content_hash": "sha256:a99bf212629a3e144670df68aa4c6d2c001dfe9e0ff1ebba2ac3bbd5ce379bd1",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/6",
+      "canonical_id": "dimir_required_neighbor_bg",
+      "canonical_content_hash": "sha256:7c718bf1f3c07236a9e4f7d633129d7b8776a09aa06999e53033af89e47bbb9c",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/7",
+      "canonical_id": "dimir_required_neighbor_wb",
+      "canonical_content_hash": "sha256:05063ef1b21c4ca72e6aae62dc5da9906b556f8083e85177efd6bd0861cdf9e5",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0027"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/8",
+      "canonical_id": "dimir_required_neighbor_ug",
+      "canonical_content_hash": "sha256:5a032762770d23f3f94d3c761b0aeab19087be5aa53453315c2b0e9e2baf6edb",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/required_neighbor_evidence/9",
+      "canonical_id": "dimir_required_neighbor_silverquill",
+      "canonical_content_hash": "sha256:b5b5b8dcb75664028b4133b93c8468b913dbd8bb07d6742d59c4f2cd8de5c8e5",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "dimir_how_to_recognize_match_1",
+      "canonical_content_hash": "sha256:bac20f9b19f03b51988e9cd03b4043eedd1c70235056ae6dc6de2cd20edbcff4",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0018"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "dimir_how_to_recognize_match_2",
+      "canonical_content_hash": "sha256:50addc2dc4b30704c154042a1a64e110cf99b4282af41d36735dfc83cf1cca04",
+      "evidence_claim_ids": [
+        "house_dimir_claim_005",
+        "house_dimir_claim_006",
+        "house_dimir_claim_0018"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "dimir_how_to_recognize_match_3",
+      "canonical_content_hash": "sha256:f26689434bb62459e146a7664812977abafe63ed254639d6242d3c4c00189507",
+      "evidence_claim_ids": [
+        "house_dimir_claim_006",
+        "house_dimir_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "dimir_how_to_recognize_mismatch_1",
+      "canonical_content_hash": "sha256:96eabdd7a52d8f7a17a079c8e0e4ddb2583d21ac8a8eb2deb9d507f334e3ff57",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0023",
+        "house_dimir_claim_0027",
+        "house_dimir_claim_0029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "dimir_how_to_recognize_mismatch_2",
+      "canonical_content_hash": "sha256:172e751d3c3ed52394c1d4cb1a2e9aa704a9217065d93084d07f0832fa15ecc9",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": "dimir_how_to_recognize_mismatch_3",
+      "canonical_content_hash": "sha256:5a454190f3e80bbd7458f9790f0f83fa2194a9e78b24ef268dd06dc40d6dc7c5",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0018",
+        "house_dimir_claim_0025",
+        "house_dimir_claim_0031"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": "dimir_questions_to_ask_when_uncertain_1",
+      "canonical_content_hash": "sha256:f80893b23715028e18c7f963b7f91c602eab3b0523c5c55a85b411628b926c6c",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0019",
+        "house_dimir_claim_0029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/7",
+      "canonical_id": "dimir_questions_to_ask_when_uncertain_2",
+      "canonical_content_hash": "sha256:a0ad12b5c02a78674495674112be35cebabaa46e031783b8b173022591ade67c",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0018",
+        "house_dimir_claim_0021",
+        "house_dimir_claim_0022",
+        "house_dimir_claim_0030",
+        "house_dimir_claim_0031",
+        "house_dimir_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -26355,27 +27012,21 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.profile.json",
       "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:ce4d9321f85c28e5205cb417410a4600d5f404ea9a65143d797dffa616d2ea3b",
+      "canonical_id": "house_dimir_core_identity",
+      "canonical_content_hash": "sha256:4ee3e4612ff8cced754728e33cfc8f45e56f9a2fb98f29f6cee0ddd5e480e1e8",
       "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009",
-        "house_dimir_claim_0010",
-        "house_dimir_claim_0011",
-        "house_dimir_claim_0012",
-        "house_dimir_claim_0013",
-        "house_dimir_claim_0014"
+        "house_dimir_claim_001",
+        "house_dimir_claim_002",
+        "house_dimir_claim_005",
+        "house_dimir_claim_006",
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0018",
+        "house_dimir_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_last_day_94047f8e",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -26388,8 +27039,8 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.profile.json",
       "canonical_pointer": "/data_quality/corpus_upgrade",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:2c839bde9a3bccd5efa7915ae6b16499513bbda1d5dfd0ce20d9b1505a8ab9cd",
+      "canonical_id": "house_dimir_story_corpus_discovery_metadata",
+      "canonical_content_hash": "sha256:202930b31c17f68a5ce51a853636bd84483ba81b737485619d4cac40219168a4",
       "evidence_claim_ids": [
         "house_dimir_claim_0007",
         "house_dimir_claim_0008",
@@ -26402,6 +27053,7 @@
         "house_dimir_claim_0015",
         "house_dimir_claim_0016"
       ],
+      "evidence_use": "discovery_metadata",
       "evidence_source_ids": [
         "src_mtg_stories_desperate_operatives_6c6a580b",
         "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
@@ -26424,22 +27076,60 @@
     {
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.profile.json",
-      "canonical_pointer": "/great_tension",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:7d53eda0079309ebe9c0b1bff2ab72fc02671f4c05baad96a31c52b0e233e8dc",
+      "canonical_pointer": "/data_quality/corpus_upgrade/discovery_only_key_figures/0",
+      "canonical_id": "char_etrata",
+      "canonical_content_hash": "sha256:6b6cfb60c7b67adbe12bf80739947d5bef7c146e15074d54f664ec53b1293033",
       "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009",
-        "house_dimir_claim_0010",
-        "house_dimir_claim_0011"
+        "house_dimir_claim_0007"
+      ],
+      "evidence_use": "discovery_metadata",
+      "evidence_source_ids": [
+        "src_mtg_stories_episode_3_shadows_of_regret_1b969924"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.profile.json",
+      "canonical_pointer": "/data_quality/corpus_upgrade/discovery_only_key_figures/1",
+      "canonical_id": "char_circu",
+      "canonical_content_hash": "sha256:d9ecf17bbd20a299e688d338428c47180171184d27690c02ef646aae40407a0c",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0013",
+        "house_dimir_claim_0014"
+      ],
+      "evidence_use": "discovery_metadata",
+      "evidence_source_ids": [
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_last_day_94047f8e"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.profile.json",
+      "canonical_pointer": "/great_tension",
+      "canonical_id": "house_dimir_hidden_leverage_tension",
+      "canonical_content_hash": "sha256:fdcdd6e976b5723d3d202e793484545e3cffcc1aa084c69e50ff9f7626a6c940",
+      "evidence_claim_ids": [
+        "house_dimir_claim_002",
+        "house_dimir_claim_006",
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -26472,7 +27162,7 @@
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.profile.json",
       "canonical_pointer": "/key_figures/0",
       "canonical_id": "char_szadek",
-      "canonical_content_hash": "sha256:0f00b47db73bb83df0cdbaffd27c756624abd17aa756554da1457e1795a43394",
+      "canonical_content_hash": "sha256:5eef8addb8ab3f98e50cd241a27bf58e29e6b6e305615b93aff04f5e7a94f2f7",
       "evidence_claim_ids": [
         "house_dimir_claim_003"
       ],
@@ -26490,80 +27180,12 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.profile.json",
       "canonical_pointer": "/key_figures/1",
-      "canonical_id": "char_etrata",
-      "canonical_content_hash": "sha256:536f05d4afcf9d9fc350b32e2deaf3dd630e14c762f4efbebdec5865c75ee89d",
-      "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0010",
-        "house_dimir_claim_0011",
-        "house_dimir_claim_0012",
-        "house_dimir_claim_0016"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/UB",
-        "data/placement-model.json#/factions/UB",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "UB",
-      "canonical_file": "data/raw-factions/house_dimir/house_dimir.profile.json",
-      "canonical_pointer": "/key_figures/2",
-      "canonical_id": "char_circu",
-      "canonical_content_hash": "sha256:43ac3c20ce6caf918fc3f4af175e16ab4cf6f8dd747b7dcb1bef1e2dad41ddc5",
-      "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0010",
-        "house_dimir_claim_0012",
-        "house_dimir_claim_0014",
-        "house_dimir_claim_0015"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_operation_desperation_e6d285ea"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/UB",
-        "data/placement-model.json#/factions/UB",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "UB",
-      "canonical_file": "data/raw-factions/house_dimir/house_dimir.profile.json",
-      "canonical_pointer": "/key_figures/3",
       "canonical_id": "char_lazav",
-      "canonical_content_hash": "sha256:144c280dbd17671b8a2ec440cf87c1b6e2bbae121cf0a39cb73ee55029fd8bef",
+      "canonical_content_hash": "sha256:7a45e966dae5c1646b0de01d9df3e0f4cd11f0d8f920ebf606437a3cafb074f6",
       "evidence_claim_ids": [
-        "house_dimir_claim_004",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009",
-        "house_dimir_claim_0013",
-        "house_dimir_claim_0014",
-        "house_dimir_claim_0015"
+        "house_dimir_claim_004"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_desperate_operatives_6c6a580b",
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_last_day_94047f8e",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169",
         "src_wotc_flavorful_guide_guilds_ravnica_2018"
       ],
       "generated_consumers": [
@@ -26577,19 +27199,16 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.profile.json",
       "canonical_pointer": "/mechanics",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:25ad3cfcfa388171548af816222adab8ac5231b6d2d4cf33aa6d2d34ec447ae3",
+      "canonical_id": "house_dimir_surveillance_filtering",
+      "canonical_content_hash": "sha256:e2c81728b65e3388ac6d9ef5d89b0d490b85f0e6f8ca63114b8c24c031e5eb6a",
       "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009",
-        "house_dimir_claim_0010"
+        "house_dimir_claim_005",
+        "house_dimir_claim_006",
+        "house_dimir_claim_0017"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -26602,15 +27221,31 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.profile.json",
       "canonical_pointer": "/profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:e98a7c1e355eab93a095cbb2279792fe846b0410870bc3c4fcfdde99cb7449ba",
+      "canonical_id": "house_dimir_authoritative_profile",
+      "canonical_content_hash": "sha256:4038723fc41b5bdc186f19d70bd9d24f47bb540317a2e21c553c17b7249c44bf",
       "evidence_claim_ids": [
         "house_dimir_claim_001",
         "house_dimir_claim_002",
         "house_dimir_claim_003",
         "house_dimir_claim_004",
         "house_dimir_claim_005",
-        "house_dimir_claim_006"
+        "house_dimir_claim_006",
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0018",
+        "house_dimir_claim_0019",
+        "house_dimir_claim_0020",
+        "house_dimir_claim_0021",
+        "house_dimir_claim_0022",
+        "house_dimir_claim_0023",
+        "house_dimir_claim_0024",
+        "house_dimir_claim_0025",
+        "house_dimir_claim_0026",
+        "house_dimir_claim_0027",
+        "house_dimir_claim_0028",
+        "house_dimir_claim_0029",
+        "house_dimir_claim_0030",
+        "house_dimir_claim_0031",
+        "house_dimir_claim_0032"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_guilds_ravnica_2018",
@@ -26628,19 +27263,17 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.profile.json",
       "canonical_pointer": "/site_surface",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:3f5372e5df0f6eec4a1aae9de31a6b45f151f82329ae30380bf0e9b1dca464d2",
+      "canonical_id": "house_dimir_site_surface",
+      "canonical_content_hash": "sha256:7adc22b10494947440f64c4f09be98f919b6785bf2e081988d9bc39b2c75a569",
       "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009",
-        "house_dimir_claim_0010"
+        "house_dimir_claim_001",
+        "house_dimir_claim_002",
+        "house_dimir_claim_0017"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
@@ -26653,19 +27286,16 @@
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.profile.json",
       "canonical_pointer": "/structure",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:60ce9057dc228f4fba4fc6d233bcff8f1876ad58c3979e52207ef080b0e99e74",
+      "canonical_id": "house_dimir_structure",
+      "canonical_content_hash": "sha256:88a58d1ab10ca0f602efd05e77f7265056b4aba09961f365e0000ab3984a3a0c",
       "evidence_claim_ids": [
-        "house_dimir_claim_0007",
-        "house_dimir_claim_0008",
-        "house_dimir_claim_0009",
-        "house_dimir_claim_0010"
+        "house_dimir_claim_001",
+        "house_dimir_claim_002",
+        "house_dimir_claim_004"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_6_explosions_of_genius_9db78723",
-        "src_mtg_stories_under_the_cover_of_fog_7afe2169"
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UB",
