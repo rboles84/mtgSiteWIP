@@ -2035,16 +2035,14 @@
       },
       "computed": {
         "structural_fingerprint": [
-          "low-volume-pattern",
           "mixed-role-pattern",
-          "discovery-heavy-pattern",
           "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 23,
           "discovery_record": 10,
           "support_record": 0,
-          "unclassified": 7
+          "unclassified": 0
         },
         "source_count": 14,
         "source_role_counts": {
@@ -2054,198 +2052,59 @@
         },
         "claim_bearing_source_count": 3,
         "claim_bearing_source_rate": 0.2143,
-        "reference_site_count": 42,
+        "reference_site_count": 62,
         "missing_references": [],
-        "potential_role_invalid_support_links": [
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json#/core_identity",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json#/site_surface",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json#/structure",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json#/great_tension",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json#/key_figures/0",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json#/key_figures/1",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json#/key_figures/2",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json#/canonical_flavor_text/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json#/mechanics",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json#/data_quality/corpus_upgrade",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json#/placement_summary",
-            "roles": [
-              "discovery_record",
-              "unclassified"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json#/placement_axes/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json#/moral_and_psychological_profile",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json#/core_values/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json#/core_values/1",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json#/core_values/2",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json#/core_values/3",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json#/core_values/4",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json#/core_values/5",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json#/core_values/6",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json#/core_values/7",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json#/core_values/8",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json#/core_values/9",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json#/behavioral_signals/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json#/inhibitor_traits/0",
-            "roles": [
-              "discovery_record"
-            ]
-          }
-        ],
+        "potential_role_invalid_support_links": [],
         "raw_question_count": 4,
         "unique_question_claim_ids": [
-          "selesnya_conclave_claim_001",
           "selesnya_conclave_claim_002",
-          "selesnya_conclave_claim_003"
+          "selesnya_conclave_claim_007",
+          "selesnya_conclave_claim_0018",
+          "selesnya_conclave_claim_0019",
+          "selesnya_conclave_claim_0020",
+          "selesnya_conclave_claim_003",
+          "selesnya_conclave_claim_0024",
+          "selesnya_conclave_claim_0026",
+          "selesnya_conclave_claim_0029",
+          "selesnya_conclave_claim_0023"
         ],
         "neighbor_references": [
-          "azorius_senate",
-          "witherbloom"
+          "ABZAN",
+          "BANT",
+          "BG",
+          "G",
+          "GENERIC_WG_OVERFIT",
+          "NAYA",
+          "QUANDRIX",
+          "RG",
+          "UG",
+          "W",
+          "WB",
+          "WITHERBLOOM",
+          "WR",
+          "WU"
         ],
-        "recruiter_context_size": 7696,
+        "recruiter_context_size": 7911,
         "creation_commit": "f6a1dd4644849ffb3bad6f1bba82f7cd55fa549a",
         "readiness_mentions": [
           "docs/reference/ravnica-guild-source-readiness-matrix.md:35"
         ],
         "provisional_risk_indicators": {
-          "coverage": [
-            "low-record-volume",
-            "discovery-record-majority",
-            "no-explicit-substantive-role"
-          ],
+          "coverage": [],
           "neighbors": []
         },
         "template_cohort_pattern": false,
-        "inventory_updated_at": "2026-07-11T18:42:33.624Z"
+        "inventory_updated_at": "2026-07-17T11:06:00-06:00"
       },
       "workflow": {
-        "current_gate": "gate_3_4_authorized",
-        "status": "claim_extraction_pass_required",
+        "current_gate": "gate_5_candidate_created",
+        "status": "awaiting_independent_review",
         "started_at": "2026-07-17T10:32:00-06:00",
-        "gate_entered_at": "2026-07-17T10:32:00-06:00",
+        "gate_entered_at": "2026-07-17T11:06:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "UG",
-        "primary_disposition": "Gate 1+2 read-only audit completed; disposition claim_extraction_pass_required; remediation authorized from existing listed/local Selesnya sources; no Selesnya raw/generated/fixture/recruiter remediation, candidate, review, certification, or VM-516 work started."
+        "primary_disposition": "Selesnya replacement candidate 02252cbb24ec4ce615c85e8ad07d62d3be7db7e5 created after superseding scope-failing candidate 5c9f69d752d1abf6b8f7790ddb4cce1206b64ad7; awaiting independent review; not certified; not semantically_ready; no VM-516 work started."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -2266,32 +2125,62 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-515-selesnya-semantic-recovery.md",
         "residual_findings": [
-          "Gate 1+2 found 17 Selesnya claims: 0 substantive_claim, 10 discovery_record, 0 support_record, and 7 unclassified.",
-          "No Selesnya claims currently have Contract v1.1 semantic_role; no substantive evidence_locations or evidence_scope exist yet.",
-          "Discovery-only story-corpus rows currently contaminate authoritative profile, placement, public, recruiter, and provenance chains and must be demoted or isolated as metadata/history.",
-          "Commander Compass source_basis and identity_basis currently carry discovery claim IDs and must be clarified so discovery rows cannot be read as source-backed faction proof.",
-          "WG semantic fixtures are missing; generated WG provenance currently has 42 entries, 31 null canonical IDs, 0 null canonical content hashes, 25 discovery-backed chains, and 20 unclassified-backed chains.",
-          "Generated public/recruiter copy must be narrowed away from generic WG mechanics, brainwashing/cult caricature, unsupported Worldmind/erased-self wording, and Commander mechanics overfit.",
-          "Gate 3+4 must preserve frozen placement confidence/calibration fields and generated lateral targets observed at Gate 1+2: WU, WR, WITHERBLOOM, ABZAN.",
-          "Active Table Talk side-scan baseline remains preserved and must stay excluded from every VM-515 commit."
+          "Gate 3+4 remediated Selesnya to 33 claims: 23 substantive_claim, 10 discovery_record, 0 support_record, 0 unclassified.",
+          "Discovery/story-corpus records are isolated from authoritative proof chains and retained only as metadata/history.",
+          "WG provenance has 67 entries with zero required null canonical IDs, zero required null content hashes, zero duplicate canonical entries, and no unresolved canonical pointers.",
+          "WG fixtures exist and exact /core_identity and /placement_summary provenance chains match generated truth.",
+          "Superseded candidate 5c9f69d752d1abf6b8f7790ddb4cce1206b64ad7 remains unapproved because candidate-scope rejected frozen confidence/native-ID and generated proof-chain contamination.",
+          "Replacement candidate 02252cbb24ec4ce615c85e8ad07d62d3be7db7e5 passed validation and exact candidate-scope validation and awaits independent review.",
+          "Selesnya is not certified and not semantically_ready; VM-516 has not started.",
+          "Active Table Talk side-scan baseline remains preserved and excluded from VM-515 commits."
         ],
         "validation_summary": [
-          "Raw Selesnya JSON parse checks passed for claims, sources, profile, placement, and changelog.",
-          "node research/audit-semantic-readiness.mjs --targets=WG completed with expected Gate 1+2 risk findings.",
-          "node research/validate-semantic-readiness.mjs --targets=WG failed as expected for missing semantic roles, invalid proof chains, missing recruiter evidence mappings, and missing fixtures.",
-          "Custom read-only chain/provenance/frozen-field scan found no duplicate claim IDs in audited Selesnya raw chains and recorded the frozen calibration/lateral baseline."
-        ]
+          "Raw and changed JSON parse checks passed.",
+          "node research/audit-semantic-readiness.mjs --targets=WG passed with 33 claims, 23 substantive, 10 discovery, and 62 reference sites.",
+          "node research/validate-semantic-readiness.mjs --targets=WG passed.",
+          "Explicit evidence_scope, discovery/support isolation, null canonical ID/hash, duplicate canonical entry, stale-copy, frozen confidence/calibration/native-ID/lateral-target, and exact fixture/provenance checks passed.",
+          "npm.cmd run build:factions passed and deterministic reruns produced no unrelated identity output changes.",
+          "node research/semantic-candidate-scope-tests.js passed.",
+          "npm.cmd run test:semantic-readiness passed and verified 1754 semantic provenance entries.",
+          "npm.cmd run test:placement passed for 37 factions and 37 golden paths.",
+          "npm.cmd run test:faction-context-isolation passed.",
+          "npm.cmd run test:source-generated passed with known unrelated JESKAI/MARDU warnings only.",
+          "npm.cmd test passed.",
+          "node research/validate-semantic-candidate-scope.mjs --base=99a239dea91039a13511d155f9b652d297baab21 --target=02252cbb24ec4ce615c85e8ad07d62d3be7db7e5 --identity=WG passed.",
+          "git diff --check and git diff --cached --check passed with line-ending warnings only."
+        ],
+        "remediation_report": "docs/incidents/recoveries/VM-515-selesnya-semantic-recovery.md#gate-34-remediation-and-gate-5-candidate",
+        "candidate_scope": {
+          "base": "99a239dea91039a13511d155f9b652d297baab21",
+          "target": "02252cbb24ec4ce615c85e8ad07d62d3be7db7e5",
+          "result": "passed",
+          "superseded_candidate": "5c9f69d752d1abf6b8f7790ddb4cce1206b64ad7",
+          "superseded_reason": "candidate-scope rejected frozen confidence/native-ID retention and generated proof-chain contamination",
+          "exceptions": []
+        }
       },
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "02252cbb24ec4ce615c85e8ad07d62d3be7db7e5",
+        "recovery_commit": "02252cbb24ec4ce615c85e8ad07d62d3be7db7e5",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
         "approval_date": null,
-        "certified_at": null
+        "certified_at": null,
+        "review_result": "pending_independent_review",
+        "final_state": "awaiting_independent_review",
+        "superseded_candidate_shas": [
+          "5c9f69d752d1abf6b8f7790ddb4cce1206b64ad7"
+        ],
+        "candidate_workflow_record": null,
+        "remaining_findings": {
+          "blocker": [],
+          "high": [],
+          "medium": [],
+          "low": []
+        }
       }
     },
     {

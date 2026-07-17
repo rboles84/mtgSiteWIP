@@ -119,3 +119,74 @@ Remediation is authorized under CRIT-001 Contract v1.1 using existing listed/loc
 - Do not add online source intake unless a blocker is reported and separately approved.
 - Do not change Contract v1.1, schemas, builders, validators, Hall, Crucible, scoring, confidence behavior, calibration, scheduling, tie-order, or global recruiter behavior.
 - Preserve the active Table Talk baseline and exclude it from every VM-515 commit.
+
+## Gate 3+4 Remediation And Gate 5 Candidate - 2026-07-17
+
+Gate 3+4 completed under the Gate 1+2 disposition. Selesnya was remediated using the existing listed/local source hierarchy only; no online source intake, schema change, builder change, validator change, scoring change, calibration change, Hall/Crucible change, global recruiter change, original main edit, Excel edit, independent review, certification, semantically_ready transition, or VM-516 work occurred.
+
+### Candidate SHAs
+
+- Gate 1+2 governance/report commit: `99a239dea91039a13511d155f9b652d297baab21`
+- Superseded scope-failing candidate: `5c9f69d752d1abf6b8f7790ddb4cce1206b64ad7`
+- Final replacement candidate: `02252cbb24ec4ce615c85e8ad07d62d3be7db7e5`
+
+The first candidate is preserved in history and remains unapproved. It failed exact candidate-scope validation for frozen confidence/native-ID retention and generated raw-enrichment proof-chain contamination. A separate replacement candidate corrected only those scope findings and passed exact candidate-scope validation.
+
+### Canonical Remediation Summary
+
+- Final Selesnya claim count: 33.
+- Semantic roles: 23 `substantive_claim`, 10 `discovery_record`, 0 `support_record`, 0 `unclassified`.
+- Every substantive claim with `evidence_locations` has `evidence_scope`.
+- Discovery/story-corpus records are retained as discovery metadata/history only and no longer independently prove identity, placement, key figures, recruiter guidance, public copy, semantic readiness, or provenance chains.
+- Commander Compass and generated raw-enrichment proof chains use substantive Selesnya claim IDs for authoritative semantics; product/card guidance remains auxiliary.
+- Key figures are narrowed to source-bounded Mat'Selesnya and Trostani proof chains; Emmara remains non-authoritative product/guidance texture only.
+- Native event ID `event_selesnya_conclave_selesnya_conclave_claim_004` is retained.
+- Frozen placement confidence/calibration/native-ID/lateral-target/generic-collision shape is preserved after the replacement candidate.
+
+### Generated And Fixture Results
+
+- Updated generated consumers: `data/factions.json`, `data/placement-model.json`, `data/semantic-readiness-provenance.json`, and `supabase/functions/guild-recruiter/faction-context.ts`.
+- Added fixture file: `research/fixtures/semantic-readiness/selesnya_conclave.semantic-fixtures.json`.
+- WG provenance final count: 67 entries.
+- Required null canonical IDs: 0.
+- Required null canonical content hashes: 0.
+- Duplicate canonical entries: 0.
+- Generated lateral targets remain `WU`, `WR`, `WITHERBLOOM`, `ABZAN`.
+
+### Exact Chain Proof
+
+- `data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json#/core_identity`: generated count 8, fixture count 8, exact order match, no duplicate/missing/extra IDs.
+- `data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json#/placement_summary`: generated count 10, fixture count 10, exact order match, no duplicate/missing/extra IDs.
+
+### Required Neighbor And Stale Phrase Handling
+
+Collision guidance and fixtures cover `GENERIC_WG_OVERFIT`, `W`, `G`, `WU`, `WR`, `BG`, `WB`, `UG`, `RG`, `WITHERBLOOM`, `QUANDRIX`, `BANT`, `NAYA`, and `ABZAN`. Selesnya is bounded as Ravnican communal voice, nature, unity, togetherness, preservation, Mat'Selesnya/Trostani context, non-pacifist defensive capacity, and Convoke texture only where source-supported.
+
+Stale/high-risk terms such as tokens, go-wide, lifegain, ramp, counters, brainwashing, cult, perfect harmony, Worldmind, and erased individuality are not used as affirmative Selesnya proof. Retained occurrences are bounded as Commander product texture or avoid/contrast guardrails.
+
+### Validation
+
+- JSON parse checks for changed JSON files: passed.
+- Duplicate-ID checks on Selesnya canonical chains: passed.
+- Explicit substantive `evidence_scope` check: passed.
+- Discovery/support isolation check: passed.
+- Null canonical ID/hash scan: passed.
+- Stale public/recruiter-copy scan: passed with only bounded avoid/contrast or product-texture occurrences.
+- Frozen placement confidence/calibration/native-ID/lateral-target checks: passed.
+- `npm.cmd run build:factions`: passed; deterministic reruns produced no unrelated identity output changes.
+- `node research/audit-semantic-readiness.mjs --targets=WG`: passed; 33 claims, 23 substantive, 10 discovery, 62 reference sites.
+- `node research/validate-semantic-readiness.mjs --targets=WG`: passed.
+- `node research/semantic-candidate-scope-tests.js`: passed.
+- `npm.cmd run test:semantic-readiness`: passed; verified 1754 semantic provenance entries.
+- `npm.cmd run test:placement`: passed; 37 factions and 37 golden paths.
+- `npm.cmd run test:faction-context-isolation`: passed.
+- `npm.cmd run test:source-generated`: passed with known unrelated JESKAI/MARDU warnings only.
+- `npm.cmd test`: passed.
+- `git diff --check`: passed with line-ending warnings only.
+- Exact candidate-scope validation passed:
+
+`node research/validate-semantic-candidate-scope.mjs --base=99a239dea91039a13511d155f9b652d297baab21 --target=02252cbb24ec4ce615c85e8ad07d62d3be7db7e5 --identity=WG`
+
+### Gate 5 State
+
+Selesnya replacement candidate `02252cbb24ec4ce615c85e8ad07d62d3be7db7e5` is the exact candidate awaiting independent review. Selesnya is not approved, not certified, and not semantically_ready. No VM-516 work has started.
