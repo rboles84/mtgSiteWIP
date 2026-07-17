@@ -1,7 +1,7 @@
 # VM-512 — Gruul Semantic Recovery
 
 ID: VM-512
-Status: Awaiting Certification
+Status: Done
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: RG
@@ -23,7 +23,7 @@ Recover Gruul end to end under CRIT-001: audit the existing packet, bound readin
 - [x] Independent review - REQUEST CHANGES.
 - [x] Replacement candidate creation.
 - [x] Replacement independent review - APPROVE EXACT SHA `16b58c3f32d92e6406d368169d91b0b6a86f948d`.
-- [ ] Certification.
+- [x] Certification.
 
 ## Scope Rules
 
@@ -41,8 +41,10 @@ Recover Gruul end to end under CRIT-001: audit the existing packet, bound readin
 - Candidate recovery SHA: `16b58c3f32d92e6406d368169d91b0b6a86f948d`
 - Rejected candidate SHA: `73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33`
 - Request-changes review record: `04c0933825c985373336ba9bdbfccbbcf29d8e82`
-- Independent reviewer: Codex independent replacement review window
-- Certification commit: pending
+- Independent reviewer: APPROVE EXACT SHA `16b58c3f32d92e6406d368169d91b0b6a86f948d`
+- Replacement workflow-record SHA: `3fa4580e874e457c26b11b36705786863934963a`
+- Approval review record: `ff973268c211b08c288b401c8f59b58b910c4d51`
+- Certification commit: this VM-512 certification commit; exact SHA reported in final task output
 
 ## Gate 1+2 Status
 
@@ -50,8 +52,8 @@ Recover Gruul end to end under CRIT-001: audit the existing packet, bound readin
 - Primary disposition: claim-extraction pass required.
 - Existing listed/local evidence is sufficient to authorize bounded Gate 3 remediation.
 - Broad online source discovery is not required before Gate 3.
-- Gruul replacement candidate is independently approved by exact SHA and awaiting certification; Gruul is not certified.
-- VM-513 has not started.
+- Gruul replacement candidate is independently approved by exact SHA and certified semantically_ready.
+- VM-513 branch setup only; Gate 1+2 is pending and no Dimir audit or remediation has started.
 
 ## Gate 5 Candidate Status
 
@@ -61,7 +63,7 @@ Recover Gruul end to end under CRIT-001: audit the existing packet, bound readin
 - Validation: passed.
 - Independent review decision: `REQUEST CHANGES`.
 - Required remediation: remove duplicate claim IDs from the RG core/profile/placement provenance chains and make the provenance fixture evidence_claim_ids exactly match the generated `/core_identity` provenance entry before a replacement candidate.
-- Current status: changes requested; awaiting remediation/replacement candidate.
+- Historical status after original candidate review: changes requested; awaiting remediation/replacement candidate.
 - Certification: not performed.
 - `semantically_ready`: not set.
 - VM-513: not started.
@@ -77,7 +79,33 @@ Recover Gruul end to end under CRIT-001: audit the existing packet, bound readin
 - Candidate-scope result: passed for `04c0933825c985373336ba9bdbfccbbcf29d8e82..16b58c3f32d92e6406d368169d91b0b6a86f948d`.
 - Validation: passed.
 - Independent replacement review decision: `APPROVE EXACT SHA 16b58c3f32d92e6406d368169d91b0b6a86f948d`
-- Current status: replacement candidate approved; awaiting certification.
-- Certification: not performed.
-- `semantically_ready`: not set.
-- VM-513: not started.
+- Current status: certified and semantically_ready.
+- Certification: performed as a governance-only commit.
+- `semantically_ready`: set.
+- VM-513: branch setup only; Gate 1+2 pending and no audit or remediation started.
+
+## Certification and Program Acceptance
+
+- Certified: 2026-07-16.
+- Identity: Gruul.
+- Target: RG.
+- VM: VM-512.
+- Contract version: v1.1.
+- Independent review decision: `APPROVE EXACT SHA 16b58c3f32d92e6406d368169d91b0b6a86f948d`.
+- Final certification state: `semantically_ready`.
+- Approved replacement candidate SHA: `16b58c3f32d92e6406d368169d91b0b6a86f948d`.
+- Replacement workflow-record SHA: `3fa4580e874e457c26b11b36705786863934963a`.
+- Approval review record: `ff973268c211b08c288b401c8f59b58b910c4d51`.
+- Rejected original candidate SHA: `73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33`.
+- Request-changes review record: `04c0933825c985373336ba9bdbfccbbcf29d8e82`.
+- Remaining findings: none reported at blocker, high, medium, or low severity.
+- Validation passed before certification commit.
+- Certification commit: this VM-512 certification commit; exact SHA reported in final task output.
+
+Program acceptance:
+
+- Approved replacement candidate and workflow-record commit accepted into the CRIT-001 program base.
+- VM-512 closed as Done.
+- Certified identity count advanced to 11.
+- Next identity set as Dimir / UB for branch setup only.
+- No VM-513 Gate 1+2 audit, remediation, candidate, review, or certification work started.

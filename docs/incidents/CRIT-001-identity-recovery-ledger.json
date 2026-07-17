@@ -5,8 +5,8 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "GRUUL",
-    "next_identity": "GRUUL",
+    "active_identity": "DIMIR",
+    "next_identity": "DIMIR",
     "wip_limit": 1,
     "active_prerequisite": null,
     "prerequisite_candidate_sha": "6e53acd5691c85caf3328d3bd301ac18d07879e1",
@@ -1593,14 +1593,14 @@
         "inventory_updated_at": "2026-07-16T23:51:21.634Z"
       },
       "workflow": {
-        "current_gate": "replacement_candidate_approved",
-        "status": "awaiting_certification",
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": "2026-07-16T17:19:00-06:00",
-        "gate_entered_at": "2026-07-16T21:30:00-06:00",
+        "gate_entered_at": "2026-07-16T21:51:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
-        "next_identity": null,
-        "primary_disposition": "replacement_candidate_approved_awaiting_certification"
+        "next_identity": "DIMIR",
+        "primary_disposition": "Certified semantically_ready after independent review approved exact replacement candidate 16b58c3f32d92e6406d368169d91b0b6a86f948d; no remaining blocker/high/medium/low findings; VM-513 Dimir branch setup only, no remediation started."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -1622,8 +1622,8 @@
           "Original candidate 73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33 remains rejected by review record 04c0933825c985373336ba9bdbfccbbcf29d8e82 with REQUEST CHANGES.",
           "Replacement candidate 16b58c3f32d92e6406d368169d91b0b6a86f948d remediates the duplicate exact-chain fixture/provenance finding.",
           "Independent replacement review approved exact SHA 16b58c3f32d92e6406d368169d91b0b6a86f948d with no blocker/high/medium/low findings.",
-          "Gruul is not certified and semantically_ready has not been set.",
-          "VM-513 has not started."
+          "Certification completed as governance-only; no semantic candidate, generated artifact, fixture, source, schema, validator, or runtime files changed during certification.",
+          "VM-513 Dimir branch setup only; Gate 1+2 pending and no Dimir audit, remediation, candidate, or certification work started."
         ],
         "candidate_scope": {
           "base": "04c0933825c985373336ba9bdbfccbbcf29d8e82",
@@ -1643,7 +1643,10 @@
           "Independent replacement review verified duplicate-chain remediation, generation, exact-chain comparison, candidate-scope validation, and required validation passed.",
           "Generated RG provenance count remains 167; canonical IDs and content hashes are non-null.",
           "Source/generated guardrail validation retained existing non-Gruul JESKAI/MARDU model-owned inhibitor warnings only.",
-          "Replacement candidate-scope validation against review-record base passed without display-source exceptions."
+          "Replacement candidate-scope validation against review-record base passed without display-source exceptions.",
+          "Certification guard validation on 2026-07-16 passed for governance JSON parse, RG audit, RG validation, semantic-readiness tests, placement tests, faction-context-isolation tests, source-generated tests, and git diff --check.",
+          "Guard verification confirmed 96 total Gruul claims, 89 substantive / 6 discovery / 1 support / 0 unclassified, 167 RG provenance entries, non-null required canonical IDs and content hashes, and exact fixture/provenance /core_identity chain parity.",
+          "Candidate-tree integrity check found no semantic, generated, fixture, runtime, schema, source, test, or validator differences from approved SHA 16b58c3f32d92e6406d368169d91b0b6a86f948d."
         ]
       },
       "certification": {
@@ -1651,23 +1654,45 @@
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "16b58c3f32d92e6406d368169d91b0b6a86f948d",
         "recovery_commit": "16b58c3f32d92e6406d368169d91b0b6a86f948d",
-        "certification_commit": null,
+        "certification_commit": "PENDING_VM512_CERTIFICATION_COMMIT_SHA",
         "reviewer": "Codex independent replacement review window",
         "review_result": "approved_exact_sha",
         "review_cycles": 2,
         "approval_date": "2026-07-16",
-        "certified_at": null,
+        "certified_at": "2026-07-16T21:51:00-06:00",
         "rejected_candidate_sha": "73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33",
         "rejected_workflow_sha": "3aef320949bacec91923b8086048abd283fbecdb",
         "request_changes_review_sha": "04c0933825c985373336ba9bdbfccbbcf29d8e82",
+        "workflow_record_commit": "3fa4580e874e457c26b11b36705786863934963a",
         "replacement_candidate_sha": "16b58c3f32d92e6406d368169d91b0b6a86f948d",
         "review_findings": {
           "original_rejected_candidate_decision": "REQUEST CHANGES",
           "original_medium": "RG provenance fixture evidence_claim_ids did not exactly match generated provenance for data/raw-factions/gruul_clans/gruul_clans.profile.json#/core_identity because duplicate claim IDs remained in raw/fixture chains.",
-          "replacement_status": "approved_awaiting_certification",
+          "replacement_status": "approved_and_certified",
           "replacement_review_decision": "APPROVE EXACT SHA 16b58c3f32d92e6406d368169d91b0b6a86f948d",
-          "remaining_findings": "none from independent replacement review"
-        }
+          "remaining_findings": "none"
+        },
+        "known_unchanged_warnings": [
+          "Source/generated guardrail validation reports unchanged JESKAI and MARDU builder-owned inhibitor warnings only."
+        ],
+        "replacement_workflow_sha": "3fa4580e874e457c26b11b36705786863934963a",
+        "approved_replacement_candidate_sha": "16b58c3f32d92e6406d368169d91b0b6a86f948d",
+        "approval_review_sha": "ff973268c211b08c288b401c8f59b58b910c4d51",
+        "independent_review_decision": "APPROVE EXACT SHA 16b58c3f32d92e6406d368169d91b0b6a86f948d",
+        "final_state": "semantically_ready",
+        "remaining_findings": {
+          "blocker": [],
+          "high": [],
+          "medium": [],
+          "low": []
+        },
+        "validation_notes": [
+          "Review-safe certification guard validation passed before the governance-only certification commit.",
+          "No correction was required for the approved replacement candidate.",
+          "Candidate-tree integrity checks found no semantic/generated/runtime drift from approved SHA 16b58c3f32d92e6406d368169d91b0b6a86f948d.",
+          "Source/generated guardrail validation retained unchanged JESKAI/MARDU model-owned inhibitor warnings only.",
+          "Exact certification commit SHA is self-referential in tracked governance records and is reported in the task final output."
+        ]
       }
     },
     {
@@ -1882,14 +1907,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
+        "current_gate": "branch_setup",
+        "status": "gate_1_2_pending",
         "started_at": null,
-        "gate_entered_at": null,
+        "gate_entered_at": "2026-07-16T21:51:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WB",
-        "primary_disposition": null
+        "primary_disposition": "branch_setup_only_gate_1_2_pending_no_remediation_started"
       },
       "semantic_review": {
         "required_neighbors": [],

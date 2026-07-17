@@ -448,6 +448,31 @@ Required remediation:
 - `git diff --check` - passed with CRLF warnings only.
 - `node research/validate-semantic-candidate-scope.mjs --base=04c0933825c985373336ba9bdbfccbbcf29d8e82 --target=16b58c3f32d92e6406d368169d91b0b6a86f948d --identity=RG` - passed.
 
+## Certification and Program Acceptance - 2026-07-16
+
+- Certified identity: Gruul / RG.
+- VM: VM-512.
+- Contract version: v1.1.
+- Approved replacement candidate SHA: `16b58c3f32d92e6406d368169d91b0b6a86f948d`.
+- Replacement workflow-record SHA: `3fa4580e874e457c26b11b36705786863934963a`.
+- Exact approval review record: `ff973268c211b08c288b401c8f59b58b910c4d51`.
+- Independent review decision: `APPROVE EXACT SHA 16b58c3f32d92e6406d368169d91b0b6a86f948d`.
+- Rejected original candidate SHA: `73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33`.
+- Original request-changes review record: `04c0933825c985373336ba9bdbfccbbcf29d8e82`.
+- Remaining findings: none at blocker, high, medium, or low severity.
+- Final certification state: `semantically_ready`.
+- Certification guard validation: passed before governance edits.
+- Certification commit: this VM-512 certification commit; exact SHA reported in final task output.
+
+Program acceptance:
+
+- Approved replacement candidate and replacement workflow record accepted into the CRIT-001 program base.
+- VM-512 closed as Done.
+- Certified identity count advanced to 11.
+- VM-513 Dimir / UB branch setup only; Gate 1+2 pending.
+- No Dimir evidence inspection, audit, remediation, candidate, review, or certification work started.
+- No semantic candidate, raw, generated, fixture, provenance, recruiter, runtime, source, schema, validator, or test files changed during certification.
+
 ## Review Remediation - Replacement Candidate - 2026-07-16
 
 - Rejected original candidate: `73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33`
