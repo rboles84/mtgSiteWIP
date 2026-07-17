@@ -244,3 +244,102 @@ Commands run:
 - No candidate commit created.
 - No certification created.
 - No VM-513 or other identity started.
+
+## Gate 3+4 - Remediation, Generation, and Validation
+
+### Candidate Implementation Summary
+
+Gate 3+4 remediation completed in the VM-512 worktree and was captured in the Gate 5 candidate commit:
+
+- Candidate commit SHA: `73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33`
+- Candidate commit subject: `VM-512 remediate Gruul semantic readiness candidate`
+- Workflow status after candidate: awaiting independent review.
+- Certification status: not certified.
+- Review status: no independent review performed by this agent.
+- VM-513 status: not started.
+
+### Semantic Role Result
+
+Final Gruul claim counts after remediation:
+
+| Role | Count |
+|---|---:|
+| `substantive_claim` | 89 |
+| `discovery_record` | 6 |
+| `support_record` | 1 |
+| `unclassified` | 0 |
+
+All substantive Gruul evidence-location entries have Contract v1.1 `evidence_scope`. Evidence locators were normalized to source-ID-bound local records so source IDs and locators remain mechanically consistent.
+
+### Canonical Remediation Notes
+
+- Reclassified Gruul claims under Contract v1.1 and added bounded evidence locations for authoritative substantive claims.
+- Kept `gruul_clans_claim_0074` through `gruul_clans_claim_0079` as discovery records only.
+- Preserved frozen placement confidence/native-ID surfaces by retaining discovery-corpus placement rows as explicit `discovery_metadata`, with discovery IDs moved out of semantic `claim_ids` into `retained_discovery_claim_ids`.
+- Rebound core profile, placement, public copy, generated key figures, recruiter guidance, semantic readiness, and provenance chains to substantive claims only.
+- Added required-neighbor collision guidance for `GENERIC_RG_OVERFIT`, `R`, `G`, `BR`, `BG`, `WR`, `UR`, `UG`, `WG`, `JUND`, `NAYA`, and `TEMUR`, with explicit `lateral_inhibition: false` so generated lateral targets did not expand.
+- Added RG semantic fixtures covering positive Gruul semantics, generic RG overfit, required-neighbor exclusions, nearest collision ambiguity, stale phrase risk, and provenance.
+- Updated `data/identity-layers.json` only as a target-scoped display-source exception needed to remove stale RG public preview copy that the standard generator preserves into `data/factions.json`.
+
+### Generated Outputs
+
+Generated and validated consumers/provenance:
+
+- `data/factions.json`
+- `data/placement-model.json`
+- `data/semantic-readiness-provenance.json`
+- `supabase/functions/guild-recruiter/faction-context.ts`
+
+Final RG provenance result: 1666 total provenance entries across the manifest, with RG entries carrying non-null canonical IDs, non-null `sha256:` content hashes, and generated-consumer coverage.
+
+### Stale Phrase Handling
+
+Removed or narrowed stale/generated RG public language:
+
+- Replaced `Civilization is a cage. Nature is freedom.` with `Wild places lost. The clans answer directly.`
+- Replaced `Break the city so the wild can breathe.` with `The city took the wild; the clans answer from the rubble.`
+- Removed Commander Compass `Stompy` / `Crush` shorthand from authoritative-adjacent generated surfaces.
+- Retained terms like `rage`, `survival`, `generic aggression`, and `mindless destruction` only in bounded source-supported descriptions or explicit negative guardrails.
+
+### Candidate-Scope Dry-Run
+
+Command:
+
+`node research/validate-semantic-candidate-scope.mjs --base=ea6e62a0fbe82975b48612ba02b143fad8a0c74b --target=b599d1dc314134f66f8e60ee5216293deb25943e --identity=RG`
+
+Result: reported only documented target-scoped display-source exceptions:
+
+- `identity candidate modified non-identity path data/identity-layers.json`
+- `unrelated or global data/factions.json content changed`
+
+No proof-chain contamination, native-ID loss, evidence locator/source mismatch, frozen confidence/scoring/calibration drift, generated lateral-target drift, missing provenance fields, or unrelated generated/provenance identity spillover remained.
+
+### Gate 3+4 Validation
+
+Final validation commands:
+
+- `npm.cmd run build:factions` - passed; regenerated placement, faction context, factions display data, and semantic provenance.
+- JSON parse checks for Gruul raw, fixture, generated, and provenance JSON - passed.
+- Explicit substantive evidence-location `evidence_scope` check - passed with 0 missing scopes.
+- Explicit discovery-ID isolation check - passed; discovery IDs occur only in metadata-only locations.
+- Targeted stale public-copy scan for exact high-risk RG phrases - passed.
+- `node research/audit-semantic-readiness.mjs --targets=RG` - passed structurally; 96 claims, 89 substantive / 6 discovery / 1 support / 0 unclassified, 147 reference sites, no missing references, no invalid support links.
+- `node research/validate-semantic-readiness.mjs --targets=RG` - passed.
+- `node research/semantic-candidate-scope-tests.js` - passed.
+- `npm.cmd run test:semantic-readiness` - passed; provenance check verified 1666 entries.
+- `npm.cmd run test:placement` - passed; 37 factions, 37 golden paths.
+- `npm.cmd run test:faction-context-isolation` - passed.
+- `npm.cmd run test:source-generated` - passed with existing non-Gruul JESKAI/MARDU model-owned inhibitor warnings.
+- `npm.cmd test` - passed.
+- `git diff --check` / `git diff --cached --check` - passed with CRLF warnings only, no whitespace errors.
+
+## Gate 5 - Candidate Created
+
+- Candidate commit SHA: `73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33`
+- Candidate status: awaiting independent review.
+- Independent review: not performed.
+- Approval decision: none issued.
+- Certification: not performed.
+- `semantically_ready`: not set.
+- VM-513: not started.
+- External Excel tracker: not modified.

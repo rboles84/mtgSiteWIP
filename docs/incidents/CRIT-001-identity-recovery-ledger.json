@@ -1509,13 +1509,14 @@
       "computed": {
         "structural_fingerprint": [
           "high-volume-pattern",
-          "mixed-role-pattern"
+          "mixed-role-pattern",
+          "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 89,
           "discovery_record": 6,
-          "support_record": 0,
-          "unclassified": 78
+          "support_record": 1,
+          "unclassified": 0
         },
         "source_count": 21,
         "source_role_counts": {
@@ -1524,107 +1525,9 @@
         },
         "claim_bearing_source_count": 13,
         "claim_bearing_source_rate": 0.619,
-        "reference_site_count": 117,
+        "reference_site_count": 147,
         "missing_references": [],
-        "potential_role_invalid_support_links": [
-          {
-            "pointer": "data/raw-factions/gruul_clans/gruul_clans.profile.json#/core_identity",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/gruul_clans/gruul_clans.profile.json#/data_quality/corpus_upgrade",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/gruul_clans/gruul_clans.placement.json#/placement_summary",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/gruul_clans/gruul_clans.placement.json#/placement_axes/7",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/gruul_clans/gruul_clans.placement.json#/core_values/8",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/gruul_clans/gruul_clans.placement.json#/core_values/9",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/gruul_clans/gruul_clans.placement.json#/core_values/10",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/gruul_clans/gruul_clans.placement.json#/core_values/11",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/gruul_clans/gruul_clans.placement.json#/core_values/12",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/gruul_clans/gruul_clans.placement.json#/core_values/13",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/gruul_clans/gruul_clans.placement.json#/core_values/14",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/gruul_clans/gruul_clans.placement.json#/core_values/15",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/gruul_clans/gruul_clans.placement.json#/core_values/16",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/gruul_clans/gruul_clans.placement.json#/core_values/17",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/gruul_clans/gruul_clans.placement.json#/behavioral_signals/7",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/gruul_clans/gruul_clans.placement.json#/inhibitor_traits/4",
-            "roles": [
-              "discovery_record"
-            ]
-          }
-        ],
+        "potential_role_invalid_support_links": [],
         "raw_question_count": 9,
         "unique_question_claim_ids": [
           "claim_gruul_clans_timeline_0030",
@@ -1683,23 +1586,21 @@
           "docs/reference/ravnica-guild-source-readiness-matrix.md:31"
         ],
         "provisional_risk_indicators": {
-          "coverage": [
-            "no-explicit-substantive-role"
-          ],
+          "coverage": [],
           "neighbors": []
         },
         "template_cohort_pattern": false,
-        "inventory_updated_at": "2026-07-11T18:42:33.624Z"
+        "inventory_updated_at": "2026-07-16T23:51:21.634Z"
       },
       "workflow": {
-        "current_gate": "gate_2_complete",
-        "status": "gate_3_authorized",
+        "current_gate": "gate_5_candidate_created",
+        "status": "awaiting_independent_review",
         "started_at": "2026-07-16T17:19:00-06:00",
-        "gate_entered_at": "2026-07-16T17:19:00-06:00",
+        "gate_entered_at": "2026-07-16T17:54:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
-        "next_identity": "UB",
-        "primary_disposition": "claim_extraction_pass_required"
+        "next_identity": null,
+        "primary_disposition": "candidate_created_awaiting_independent_review"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -1718,19 +1619,31 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-512-gruul-semantic-recovery.md",
         "residual_findings": [
-          "Gate 1+2 found zero Gruul substantive claims and 78 unclassified claims; all authoritative claims need Contract v1.1 semantic roles and bounded evidence locations before certification.",
-          "Discovery/story-corpus rows currently appear in profile/placement authoritative chains and must be isolated before generated consumers can be certifying.",
-          "RG generated key figures and canonical flavor output include unclassified or discovery-linked material as source-backed evidence.",
-          "RG collision guidance covers only Rakdos and Golgari and must be expanded to the required neighbor set with non-inhibiting guidance.",
-          "RG generated provenance has 59 null canonical IDs; content hashes are non-null.",
-          "Gate 3 is authorized only if exact local/listed source locators can be bounded without online intake, schema/contract/builder/validator changes, frozen-field drift, or generated proof-chain contamination."
+          "Candidate created and awaiting independent review.",
+          "No blocker/high/medium/low findings remain from self-validation; independent review has not been performed.",
+          "Gruul is not certified and semantically_ready has not been set.",
+          "VM-513 has not started."
+        ],
+        "candidate_scope": {
+          "base": "ea6e62a0fbe82975b48612ba02b143fad8a0c74b",
+          "dry_run_target": "b599d1dc314134f66f8e60ee5216293deb25943e",
+          "result": "reported_only_documented_target_scoped_display_source_exceptions",
+          "exceptions": [
+            "identity candidate modified non-identity path data/identity-layers.json",
+            "unrelated or global data/factions.json content changed"
+          ]
+        },
+        "validation_notes": [
+          "Gate 3+4 remediation, generation, fixtures, provenance, candidate-scope dry-run, and required validation passed.",
+          "Source/generated guardrail validation retained existing non-Gruul JESKAI/MARDU model-owned inhibitor warnings only.",
+          "Target-scoped display-source exception recorded for data/identity-layers.json and embedded RG preview copy in data/factions.json."
         ]
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33",
+        "recovery_commit": "73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
