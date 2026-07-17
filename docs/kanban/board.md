@@ -9,7 +9,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 **CRIT-001 is open.** Faction-foundation authoring, readiness approvals, canonical semantic guidance outside an active recovery card, Hall/Crucible authoring, and placement calibration are frozen. VM-501 owns shared recovery infrastructure; VM-502 through VM-538 recover the 37 identities one at a time. See the [incident](../incidents/CRIT-001-faction-semantic-readiness-integrity.md) and [authoritative recovery ledger](../incidents/CRIT-001-identity-recovery-ledger.json).
 
-**VM-502 Prismari, VM-506 Lorehold, VM-503 Quandrix, VM-504 Silverquill, VM-505 Witherbloom, VM-507 Izzet, VM-508 Azorius, VM-509 Boros, VM-510 Rakdos, and VM-511 Golgari are certified semantically ready under CRIT-001 Contract v1.1.** Golgari approved replacement candidate `bb0105f3f2d91a7696aefc004254fc52dc37cd85` is accepted by independent Gate 5 review; replacement workflow-record SHA `42fc49a08e4c52c326be8538c13f3d505bcb8fec` is recorded; rejected candidate/workflow `a649c306f19d0be3c9f09f549163200761ce9e15` / `c35fa9b59a34182c83539ed2c002f94115ae54fe` remain rejected. VM-540 adds CRIT-001 Operating Playbook v2 and Gate 0 hardening. Active identity is Gruul / RG on branch `codex/vm-512-gruul-semantic-recovery`; candidate `73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33` is created and awaiting independent review. Gruul is not certified, and VM-513 has not started.
+**VM-502 Prismari, VM-506 Lorehold, VM-503 Quandrix, VM-504 Silverquill, VM-505 Witherbloom, VM-507 Izzet, VM-508 Azorius, VM-509 Boros, VM-510 Rakdos, and VM-511 Golgari are certified semantically ready under CRIT-001 Contract v1.1.** Golgari approved replacement candidate `bb0105f3f2d91a7696aefc004254fc52dc37cd85` is accepted by independent Gate 5 review; replacement workflow-record SHA `42fc49a08e4c52c326be8538c13f3d505bcb8fec` is recorded; rejected candidate/workflow `a649c306f19d0be3c9f09f549163200761ce9e15` / `c35fa9b59a34182c83539ed2c002f94115ae54fe` remain rejected. VM-540 adds CRIT-001 Operating Playbook v2 and Gate 0 hardening. Active identity is Gruul / RG on branch `codex/vm-512-gruul-semantic-recovery`; candidate `73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33` returned independent review decision `REQUEST CHANGES` for a provenance-fixture exact-chain mismatch. Gruul is not certified, and VM-513 has not started.
 
 ## Backlog
 
@@ -38,7 +38,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-512 - Gruul Semantic Recovery](backlog/VM-512-gruul-semantic-recovery.md) - Candidate `73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33` created after Gate 3+4 remediation and validation; awaiting independent review; Gruul is not certified; VM-513 has not started.
+- [VM-512 - Gruul Semantic Recovery](backlog/VM-512-gruul-semantic-recovery.md) - Candidate `73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33` returned independent review decision `REQUEST CHANGES`; remediation/replacement candidate required; Gruul is not certified; VM-513 has not started.
 
 ## Blocked
 

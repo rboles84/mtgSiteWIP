@@ -1593,14 +1593,14 @@
         "inventory_updated_at": "2026-07-16T23:51:21.634Z"
       },
       "workflow": {
-        "current_gate": "gate_5_candidate_created",
-        "status": "awaiting_independent_review",
+        "current_gate": "independent_review_changes_requested",
+        "status": "changes_requested",
         "started_at": "2026-07-16T17:19:00-06:00",
         "gate_entered_at": "2026-07-16T17:54:00-06:00",
-        "blocked_at": null,
-        "blocked_reason": null,
+        "blocked_at": "2026-07-16T18:33:00-06:00",
+        "blocked_reason": "Independent review returned REQUEST CHANGES: RG provenance fixture evidence_claim_ids do not exactly match generated provenance for data/raw-factions/gruul_clans/gruul_clans.profile.json#/core_identity because duplicate claim IDs remain in raw/fixture chains.",
         "next_identity": null,
-        "primary_disposition": "candidate_created_awaiting_independent_review"
+        "primary_disposition": "independent_review_request_changes_fixture_provenance_exactness"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -1619,8 +1619,10 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-512-gruul-semantic-recovery.md",
         "residual_findings": [
-          "Candidate created and awaiting independent review.",
-          "No blocker/high/medium/low findings remain from self-validation; independent review has not been performed.",
+          "Independent review decision: REQUEST CHANGES for exact candidate 73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33.",
+          "MEDIUM approval-blocking finding: RG provenance fixture evidence_claim_ids do not exactly match generated provenance for data/raw-factions/gruul_clans/gruul_clans.profile.json#/core_identity because duplicate claim IDs remain in the raw/fixture chain.",
+          "Required remediation: remove duplicate claim IDs from the RG core/profile/placement chains and make the provenance fixture exactly match the generated /core_identity provenance entry before creating a replacement candidate.",
+          "No blocker/high/low findings were found beyond the approval-blocking medium fixture/provenance exactness finding.",
           "Gruul is not certified and semantically_ready has not been set.",
           "VM-513 has not started."
         ],
@@ -1645,8 +1647,9 @@
         "candidate_recovery_sha": "73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33",
         "recovery_commit": "73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33",
         "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
+        "reviewer": "Codex independent review window",
+        "review_result": "request_changes",
+        "review_cycles": 1,
         "approval_date": null,
         "certified_at": null
       }

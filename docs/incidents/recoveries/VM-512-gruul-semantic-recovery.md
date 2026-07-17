@@ -343,3 +343,97 @@ Final validation commands:
 - `semantically_ready`: not set.
 - VM-513: not started.
 - External Excel tracker: not modified.
+
+## Independent Review - 2026-07-16
+
+- Reviewer: Codex independent review window.
+- Review base: `ea6e62a0fbe82975b48612ba02b143fad8a0c74b`
+- Exact candidate reviewed: `73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33`
+- Workflow-record commit checked: `3aef320949bacec91923b8086048abd283fbecdb`
+- Decision: `REQUEST CHANGES`
+- Certification: not performed.
+- `semantically_ready`: not set.
+- VM-513: not started.
+
+### Review Finding
+
+#### MEDIUM - Approval Blocking
+
+The RG provenance fixture does not exactly match the generated provenance entry for `data/raw-factions/gruul_clans/gruul_clans.profile.json#/core_identity`.
+
+Evidence:
+
+- `research/fixtures/semantic-readiness/gruul_clans.semantic-fixtures.json#/fixtures/16/evidence_claim_ids` contains duplicate `claim_gruul_clans_structure_0005` and duplicate `claim_gruul_clans_placement_0072`.
+- The generated provenance entry for `data/raw-factions/gruul_clans/gruul_clans.profile.json#/core_identity` deduplicates those IDs, so the fixture claim array has 27 entries while the generated provenance claim array has 25 entries.
+- The same duplicate-chain source is present in `data/raw-factions/gruul_clans/gruul_clans.profile.json#/core_identity/claim_ids`, `data/raw-factions/gruul_clans/gruul_clans.profile.json#/site_surface/evidence_claim_ids`, and `data/raw-factions/gruul_clans/gruul_clans.placement.json#/placement_summary/claim_ids`.
+- Claim/source sets are substantive-only and complete, but Contract v1.1 requires the provenance fixture to exactly match the generated chain at its canonical locator.
+
+Required remediation:
+
+- Remove duplicate claim IDs from the authoritative raw chains and provenance fixture as appropriate.
+- Ensure the provenance fixture `evidence_claim_ids` exactly matches the generated `/core_identity` provenance entry.
+- Rebuild and rerun required validation in a replacement candidate sequence.
+
+### Review Validation Summary
+
+- Preflight matched expected worktree, branch, current HEAD, candidate SHA, workflow-record SHA, Gate 1+2 SHA, program base SHA, and ancestry.
+- Candidate scope was semantic/generated/fixture only; workflow-record scope was governance only.
+- Claim roles checked: 96 total, 89 substantive, 6 discovery, 1 support, 0 unclassified.
+- Substantive evidence locations, source IDs, canonical IDs, content hashes, generated consumers, discovery/support isolation, and public/recruiter stale-copy scan passed.
+- `node research/audit-semantic-readiness.mjs --targets=RG` passed.
+- `node research/validate-semantic-readiness.mjs --targets=RG` passed.
+- `node research/semantic-candidate-scope-tests.js` passed.
+- `npm.cmd run test:semantic-readiness` passed.
+- `npm.cmd run test:placement` passed.
+- `npm.cmd run test:faction-context-isolation` passed.
+- `npm.cmd run test:source-generated` passed with unchanged non-Gruul JESKAI/MARDU model-owned inhibitor warnings only.
+- `npm.cmd test` passed.
+- Exact candidate-scope validator reported only the documented RG target-scoped display-source exceptions for `data/identity-layers.json` and embedded RG preview copy in `data/factions.json`.
+- `git diff --check` passed.
+
+## Independent Review - 2026-07-16
+
+- Reviewer: Codex independent review window.
+- Review base: `ea6e62a0fbe82975b48612ba02b143fad8a0c74b`
+- Exact candidate reviewed: `73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33`
+- Workflow-record commit checked: `3aef320949bacec91923b8086048abd283fbecdb`
+- Decision: `REQUEST CHANGES`
+- Certification: not performed.
+- `semantically_ready`: not set.
+- VM-513: not started.
+
+### Review Finding
+
+#### MEDIUM - Approval Blocking
+
+The RG provenance fixture does not exactly match the generated provenance entry for `data/raw-factions/gruul_clans/gruul_clans.profile.json#/core_identity`.
+
+Evidence:
+
+- `research/fixtures/semantic-readiness/gruul_clans.semantic-fixtures.json#/fixtures/16/evidence_claim_ids` contains duplicate `claim_gruul_clans_structure_0005` and duplicate `claim_gruul_clans_placement_0072`.
+- The generated provenance entry for `data/raw-factions/gruul_clans/gruul_clans.profile.json#/core_identity` deduplicates those IDs, so the fixture claim array has 27 entries while the generated provenance claim array has 25 entries.
+- The same duplicate-chain source is present in `data/raw-factions/gruul_clans/gruul_clans.profile.json#/core_identity/claim_ids`, `data/raw-factions/gruul_clans/gruul_clans.profile.json#/site_surface/evidence_claim_ids`, and `data/raw-factions/gruul_clans/gruul_clans.placement.json#/placement_summary/claim_ids`.
+- Claim/source sets are substantive-only and complete, but Contract v1.1 requires the provenance fixture to exactly match the generated chain at its canonical locator.
+
+Required remediation:
+
+- Remove duplicate claim IDs from the authoritative raw chains and provenance fixture as appropriate.
+- Ensure the provenance fixture `evidence_claim_ids` exactly matches the generated `/core_identity` provenance entry.
+- Rebuild and rerun required validation in a replacement candidate sequence.
+
+### Review Validation Summary
+
+- Preflight matched expected worktree, branch, current HEAD, candidate SHA, workflow-record SHA, Gate 1+2 SHA, program base SHA, and ancestry.
+- Candidate scope was semantic/generated/fixture only; workflow-record scope was governance only.
+- Claim roles checked: 96 total, 89 substantive, 6 discovery, 1 support, 0 unclassified.
+- Substantive evidence locations, source IDs, canonical IDs, content hashes, generated consumers, discovery/support isolation, and public/recruiter stale-copy scan passed.
+- `node research/audit-semantic-readiness.mjs --targets=RG` passed.
+- `node research/validate-semantic-readiness.mjs --targets=RG` passed.
+- `node research/semantic-candidate-scope-tests.js` passed.
+- `npm.cmd run test:semantic-readiness` passed.
+- `npm.cmd run test:placement` passed.
+- `npm.cmd run test:faction-context-isolation` passed.
+- `npm.cmd run test:source-generated` passed with unchanged non-Gruul JESKAI/MARDU model-owned inhibitor warnings only.
+- `npm.cmd test` passed.
+- Exact candidate-scope validator reported only the documented RG target-scoped display-source exceptions for `data/identity-layers.json` and embedded RG preview copy in `data/factions.json`.
+- `git diff --check` passed.

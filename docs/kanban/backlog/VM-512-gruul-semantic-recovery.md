@@ -1,7 +1,7 @@
 # VM-512 — Gruul Semantic Recovery
 
 ID: VM-512
-Status: Awaiting Independent Review
+Status: Review Changes Requested
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: RG
@@ -20,7 +20,7 @@ Recover Gruul end to end under CRIT-001: audit the existing packet, bound readin
 - [x] Gate 3 - Canonical remediation.
 - [x] Gate 4 - Generation and validation.
 - [x] Gate 5 - Candidate creation.
-- [ ] Independent review.
+- [x] Independent review - REQUEST CHANGES.
 - [ ] Certification.
 
 ## Scope Rules
@@ -37,7 +37,7 @@ Recover Gruul end to end under CRIT-001: audit the existing packet, bound readin
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-512-gruul-semantic-recovery.md`
 - Candidate recovery SHA: `73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33`
-- Independent reviewer: pending
+- Independent reviewer: `REQUEST CHANGES`
 - Certification commit: pending
 
 ## Gate 1+2 Status
@@ -46,7 +46,7 @@ Recover Gruul end to end under CRIT-001: audit the existing packet, bound readin
 - Primary disposition: claim-extraction pass required.
 - Existing listed/local evidence is sufficient to authorize bounded Gate 3 remediation.
 - Broad online source discovery is not required before Gate 3.
-- Gruul candidate exists and is awaiting independent review; Gruul is not certified.
+- Gruul candidate exists and independent review returned `REQUEST CHANGES`; Gruul is not certified.
 - VM-513 has not started.
 
 ## Gate 5 Candidate Status
@@ -55,7 +55,9 @@ Recover Gruul end to end under CRIT-001: audit the existing packet, bound readin
 - Candidate subject: `VM-512 remediate Gruul semantic readiness candidate`
 - Candidate-scope dry-run: reported only documented target-scoped display-source exceptions for `data/identity-layers.json` and embedded RG preview copy in `data/factions.json`.
 - Validation: passed.
-- Current status: awaiting independent review.
+- Independent review decision: `REQUEST CHANGES`.
+- Required remediation: remove duplicate claim IDs from the RG core/profile/placement provenance chains and make the provenance fixture evidence_claim_ids exactly match the generated `/core_identity` provenance entry before a replacement candidate.
+- Current status: changes requested; awaiting remediation/replacement candidate.
 - Certification: not performed.
 - `semantically_ready`: not set.
 - VM-513: not started.
