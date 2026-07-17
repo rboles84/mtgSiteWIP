@@ -33394,23 +33394,209 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/behavioral_signals/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:50d37e7c62ba60a4b21a44b0a101ee2aa7f85ac808278153c6aa44b2718fb65b",
+      "canonical_id": "orzhov_signal_collectible_obligation",
+      "canonical_content_hash": "sha256:32a177d5d8ed52e1b0f06322adb69aa721455cc328d406f3b0dbe100c9af4b0d",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010",
-        "orzhov_syndicate_claim_0011",
-        "orzhov_syndicate_claim_0012",
-        "orzhov_syndicate_claim_0013"
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019",
+        "orzhov_syndicate_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_bound_and_bonded_7559b6f4",
-        "src_mtg_stories_family_values_c60eb616",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "orzhov_guidance_how_to_recognize_match_0_gate3",
+      "canonical_content_hash": "sha256:86f8c015af625ab554bda99191f29577efb78afcce5089fa1d8d0b8b8a1daa6e",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "orzhov_guidance_how_to_recognize_match_1_gate3",
+      "canonical_content_hash": "sha256:57421be334f91f512a65476be0dadd0619ad4e0d7f7ee1fa8586c7e86d40cf20",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "orzhov_guidance_how_to_recognize_match_2_gate3",
+      "canonical_content_hash": "sha256:b5a225953abbb6373e2817eccf6acf1449b071ab5414281e73789bfd2de07e36",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "orzhov_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_content_hash": "sha256:77c3e92b67bcc0c524a7ca5d70f365eddc14feb0d2d957ead03e032afbb10947",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0020",
+        "orzhov_syndicate_claim_0021",
+        "orzhov_syndicate_claim_0028"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "orzhov_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_content_hash": "sha256:1ff863a9f94f2457288e50783ea80956de66f7a90f0fe9490cb22bd9ede14fb8",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0020",
+        "orzhov_syndicate_claim_0021",
+        "orzhov_syndicate_claim_0028"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "orzhov_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_content_hash": "sha256:98dc3108eb8c1b47edf35b9fe5b4bbddcd7d6c1357e18663954bbb1b14be35b3",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0020",
+        "orzhov_syndicate_claim_0021",
+        "orzhov_syndicate_claim_0028"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_id": "orzhov_guidance_questions_to_ask_when_uncertain_0_gate3",
+      "canonical_content_hash": "sha256:c3c3bd48d20cccc2aa705d1e6c1b0efcfb5d0ac29cdd999992206a5c542354d2",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0020"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_id": "orzhov_guidance_questions_to_ask_when_uncertain_1_gate3",
+      "canonical_content_hash": "sha256:cf75b1277b5734a3452e3d736e93f014a6504eae6593e181ae6610552acd84ff",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0020"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -33423,12 +33609,30 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/collision_guidance/0",
-      "canonical_id": "collision_orzhov_syndicate_vs_silverquill_placement_ready",
-      "canonical_content_hash": "sha256:d08afd00e0ff159234ec2aa86aa4be3e6e32b2c71446079438e457473f3852ed",
+      "canonical_id": "collision_orzhov_vs_generic_wb_overfit_gate3",
+      "canonical_content_hash": "sha256:bcbe97623f770346c825a417443310e3e6771e4ca7903efc9ef9ea4651e36746",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_001",
-        "orzhov_syndicate_claim_002",
-        "orzhov_syndicate_claim_003"
+        "orzhov_syndicate_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/collision_guidance/1",
+      "canonical_id": "collision_orzhov_vs_w_gate3",
+      "canonical_content_hash": "sha256:911debade013db8cd851227981e0bf924083f1fc319b8b03df7e88134bb748d2",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0021"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
@@ -33443,13 +33647,202 @@
     {
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
-      "canonical_pointer": "/collision_guidance/1",
-      "canonical_id": "collision_orzhov_syndicate_vs_house_dimir_placement_ready",
-      "canonical_content_hash": "sha256:c2c634526042e165c82e24dc62a87696089540b10df00d4ed152ac5b585365f3",
+      "canonical_pointer": "/collision_guidance/10",
+      "canonical_id": "collision_orzhov_vs_esper_gate3",
+      "canonical_content_hash": "sha256:875c3da666bf6200f0abeeb188e7b0722d40543e1555da5904e379abe5b6c254",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_001",
-        "orzhov_syndicate_claim_002",
-        "orzhov_syndicate_claim_003"
+        "orzhov_syndicate_claim_0030"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/collision_guidance/11",
+      "canonical_id": "collision_orzhov_vs_abzan_gate3",
+      "canonical_content_hash": "sha256:4a8f3a22d13e45122d46e5909ad88588a64c84911ea8831a04ef9a3753e37d0e",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0031"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/collision_guidance/12",
+      "canonical_id": "collision_orzhov_vs_mardu_gate3",
+      "canonical_content_hash": "sha256:669ba0b241f15f0418652ac51309bd3611384b444c5461bb0fafa93530aea061",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/collision_guidance/2",
+      "canonical_id": "collision_orzhov_vs_b_gate3",
+      "canonical_content_hash": "sha256:5262a3325a05efc176e357913f4841209924d5914c6512d2719bc7b347380045",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/collision_guidance/3",
+      "canonical_id": "collision_orzhov_vs_azorius_gate3",
+      "canonical_content_hash": "sha256:2b4dbb0aa0a54ffd951998cccab6b90af96aa545342e6f711b4631506d8c9923",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/collision_guidance/4",
+      "canonical_id": "collision_orzhov_vs_boros_gate3",
+      "canonical_content_hash": "sha256:6f3c2f2b788e566ce40297d54510af70ce83c64060b0dc0e11d084691c0389a9",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/collision_guidance/5",
+      "canonical_id": "collision_orzhov_vs_rakdos_gate3",
+      "canonical_content_hash": "sha256:93f2a92b18da6fc77d45338bea323aa466fd67e802a7b2b8067781ad4f0f7e32",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/collision_guidance/6",
+      "canonical_id": "collision_orzhov_vs_golgari_gate3",
+      "canonical_content_hash": "sha256:59fc1a799f05d9a6a22e0105b26c93f890c87c96eac5b0c66c444d2652617983",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/collision_guidance/7",
+      "canonical_id": "collision_orzhov_vs_dimir_gate3",
+      "canonical_content_hash": "sha256:5cbcc83393c4cb18f855ee9ac53479ede3627867ff93660cf8261f46a0cc575e",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0027"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/collision_guidance/8",
+      "canonical_id": "collision_orzhov_vs_selesnya_gate3",
+      "canonical_content_hash": "sha256:fe260ef4723101c7efac3544eddce8857eede938129316e9d61b4ab56d0a18f9",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/collision_guidance/9",
+      "canonical_id": "collision_orzhov_vs_silverquill_gate3",
+      "canonical_content_hash": "sha256:ba1558eebefafd790df00884bb218c82c1f106f09fed039e376d87cb108d7330",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0029"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
@@ -33465,17 +33858,16 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/core_values/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:a3e299efd8f5e1d4a03c460a5bdcf34c7877f2bdae99284335357fc2b1ac8ed1",
+      "canonical_id": "orzhov_value_debt_obligation",
+      "canonical_content_hash": "sha256:629a1dc8eea872262fe859b1193f4a14412e3517e20bca08b6a8558cb20c3851",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -33488,17 +33880,15 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/core_values/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:a344f07ef29a0e645f4e3719c1515e3cef88c61fb02b88422367b08e40c1bf8b",
+      "canonical_id": "orzhov_value_deal_making",
+      "canonical_content_hash": "sha256:51e893baaf48d38c944df844d7b5878a81b78769f3c7d84a8a85f4fe050296ff",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -33511,17 +33901,17 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/core_values/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:9f05d76170562b41e8bf65438ef0156271e946042a0ec6ce5637fd54d48af040",
+      "canonical_id": "orzhov_value_cartel_hierarchy",
+      "canonical_content_hash": "sha256:54918969a8964114c21afd3da492686b256bacefccab277cff135239a3c56eff",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0023",
+        "orzhov_syndicate_claim_0028"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -33534,155 +33924,17 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/core_values/3",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:2215fc1ff785b5878a455866c0956eb0b36a0d108a77444f085cc009b2c6637e",
+      "canonical_id": "orzhov_value_bounded_afterlife",
+      "canonical_content_hash": "sha256:5e9a4ea8174185afd550fc9d66411bfe46a680dede4b55ae880db7ab31cafd9f",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
+        "orzhov_syndicate_claim_006",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0020",
+        "orzhov_syndicate_claim_0026"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/WB",
-        "data/placement-model.json#/factions/WB",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "WB",
-      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
-      "canonical_pointer": "/core_values/4",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:5ba7e4dd5aef30786fc616fd024c399436d29782672c1c69a7f18f40dc39018a",
-      "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/WB",
-        "data/placement-model.json#/factions/WB",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "WB",
-      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
-      "canonical_pointer": "/core_values/5",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:5b65460c6aeda6e5da7c630e8231646034b6bbfae3c090b54d411dcfb4be98d0",
-      "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/WB",
-        "data/placement-model.json#/factions/WB",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "WB",
-      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
-      "canonical_pointer": "/core_values/6",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:16528cd65cd278137a468509672b6972e5991aaebe6f2af0aca62b2184e6093c",
-      "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/WB",
-        "data/placement-model.json#/factions/WB",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "WB",
-      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
-      "canonical_pointer": "/core_values/7",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:67974cd23c82cdc9bb7ad0bdfa9bc0ea5694945a75ff40088faba5a330c52e97",
-      "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/WB",
-        "data/placement-model.json#/factions/WB",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "WB",
-      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
-      "canonical_pointer": "/core_values/8",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:0d74f55395f368c7a1541ce577a17d7780b21746122e7519181b7c719ab24293",
-      "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/WB",
-        "data/placement-model.json#/factions/WB",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "WB",
-      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
-      "canonical_pointer": "/core_values/9",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:dcb70fdac724f643b28b6777ff999a65eb07dd9403903e0a19b0ace8c658a92b",
-      "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -33696,14 +33948,15 @@
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/discriminator_questions/0",
       "canonical_id": "orzhov_q1",
-      "canonical_content_hash": "sha256:9fcfb1a613380c21338914ee3a39ed4f1844ef094cf3894236df9bca6cf6fae0",
+      "canonical_content_hash": "sha256:fb5ff069e3a4bb39c0fa21629c63622e7bc5e08549eeba8d167c87b843e5c827",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_001",
-        "orzhov_syndicate_claim_002",
-        "orzhov_syndicate_claim_003"
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -33717,14 +33970,16 @@
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/discriminator_questions/1",
       "canonical_id": "orzhov_q2",
-      "canonical_content_hash": "sha256:bba161b5ee2d5266fac323f7a0baaa6aa6f80eb6e0e94d5b3fdfe7bf89ec0455",
+      "canonical_content_hash": "sha256:ac3951dca1327ad158350c54cc3d0748512f0566c39ef1bf345f84347b3e5201",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_001",
-        "orzhov_syndicate_claim_002",
-        "orzhov_syndicate_claim_003"
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0028",
+        "orzhov_syndicate_claim_0031"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -33779,13 +34034,16 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/good_fit_indicators/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:eddcb3e31995cb20ace43174158ae01cee393893b3e5ee7eb4235bc5977ea198",
+      "canonical_id": "orzhov_fit_debt_obligation",
+      "canonical_content_hash": "sha256:65f99751bc1df484616fb89102e327dd1bf43c914e001c7438707d9f8996bf94",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_001"
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -33798,13 +34056,16 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/good_fit_indicators/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:09187efcd2c0cd746643a9be5c4e135f58a6b36d1f8fbde7a8010569f7200b23",
+      "canonical_id": "orzhov_fit_institutional_leverage",
+      "canonical_content_hash": "sha256:aaf8e0a56596243915d9b303ccf33427eb3ea7a92c271c0e9710529230fe0066",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_002"
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -33817,13 +34078,16 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/good_fit_indicators/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:8fa466547ad042e4dad058411c638ce1dded6718bee6b10935d4fe268369470d",
+      "canonical_id": "orzhov_fit_prestige_payment_structure",
+      "canonical_content_hash": "sha256:cde018baaf2e3c62a1304a0dc15c4ac0e87dc66a9429824ee089edc7fa6389c4",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_003"
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -33836,13 +34100,16 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:eddcb3e31995cb20ace43174158ae01cee393893b3e5ee7eb4235bc5977ea198",
+      "canonical_id": "orzhov_fit_debt_obligation",
+      "canonical_content_hash": "sha256:65f99751bc1df484616fb89102e327dd1bf43c914e001c7438707d9f8996bf94",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_001"
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -33855,13 +34122,16 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:09187efcd2c0cd746643a9be5c4e135f58a6b36d1f8fbde7a8010569f7200b23",
+      "canonical_id": "orzhov_fit_institutional_leverage",
+      "canonical_content_hash": "sha256:aaf8e0a56596243915d9b303ccf33427eb3ea7a92c271c0e9710529230fe0066",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_002"
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -33874,13 +34144,16 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:8fa466547ad042e4dad058411c638ce1dded6718bee6b10935d4fe268369470d",
+      "canonical_id": "orzhov_fit_prestige_payment_structure",
+      "canonical_content_hash": "sha256:cde018baaf2e3c62a1304a0dc15c4ac0e87dc66a9429824ee089edc7fa6389c4",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_003"
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -33893,19 +34166,14 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/inhibitor_traits/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:e77c5f96e82359e6c4dab4d7ff16f71d03c15b4fce3eb63d31a9864544ed682b",
+      "canonical_id": "orzhov_inhibitor_generic_wb_overfit",
+      "canonical_content_hash": "sha256:c34b2747e6d4b8c40eb8cef10eab73d769947509f6d7f33f7fc15b1e4f7b9676",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010",
-        "orzhov_syndicate_claim_0011"
+        "orzhov_syndicate_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_bound_and_bonded_7559b6f4",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -33918,21 +34186,17 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/moral_and_psychological_profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:c0a82c92ee66594017d8bf387acfd74bed629b7fd8c16efc9a9996925fecdcb5",
+      "canonical_id": "orzhov_moral_profile_gate3",
+      "canonical_content_hash": "sha256:2627d6b7995a5e2a111212704b39dfe959e3df8cc7503b23cb016cb17a514c8c",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010",
-        "orzhov_syndicate_claim_0011",
-        "orzhov_syndicate_claim_0012"
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019",
+        "orzhov_syndicate_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_bound_and_bonded_7559b6f4",
-        "src_mtg_stories_family_values_c60eb616",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -33945,27 +34209,19 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/placement_axes/0",
-      "canonical_id": "axis_obligation_vs_untallied_grace",
-      "canonical_content_hash": "sha256:5fc0483b81f4fffa0330a08c290ce8cc63ae69f37f1f13b9c31cb5e4457a6444",
+      "canonical_id": "axis_orzhov_obligation_vs_untallied_grace",
+      "canonical_content_hash": "sha256:50e88d6f660b24a3e808e1ed27f42b3e618ca4748036061d4a9db7c7f0a06546",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010",
-        "orzhov_syndicate_claim_0011",
-        "orzhov_syndicate_claim_0012",
-        "orzhov_syndicate_claim_0013",
-        "orzhov_syndicate_claim_0014",
-        "orzhov_syndicate_claim_0015"
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_bound_and_bonded_7559b6f4",
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-        "src_mtg_stories_family_values_c60eb616",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -33978,33 +34234,21 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/placement_summary",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:c527cbf79a3b6c9cfa0fb469150c08e415e2dabc197f4f644ad5fa84047d98e3",
+      "canonical_id": "orzhov_placement_summary_gate3",
+      "canonical_content_hash": "sha256:c6c302d6e370215bbbb9fdacbf8dfcb569681fa0ea2ea7867ad3dc3cd209a9a5",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010",
-        "orzhov_syndicate_claim_0011",
-        "orzhov_syndicate_claim_0012",
-        "orzhov_syndicate_claim_0013",
-        "orzhov_syndicate_claim_0014",
-        "orzhov_syndicate_claim_0015",
         "orzhov_syndicate_claim_001",
         "orzhov_syndicate_claim_002",
         "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_006",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019",
+        "orzhov_syndicate_claim_0020",
         "orzhov_syndicate_claim_004",
-        "orzhov_syndicate_claim_005",
-        "orzhov_syndicate_claim_006"
+        "orzhov_syndicate_claim_005"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_bound_and_bonded_7559b6f4",
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-        "src_mtg_stories_family_values_c60eb616",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019",
         "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
@@ -34019,10 +34263,12 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/poor_fit_indicators/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:b678cd18b194eb186ccf85656155fc134f78b9d300f223ffd2510ce643a0d240",
+      "canonical_id": "orzhov_poor_fit_anti_hierarchy",
+      "canonical_content_hash": "sha256:23b27ab405eed58330dcddf78c812375351bc6885547b9b2eb8594c444445b85",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_001"
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_0021"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
@@ -34038,13 +34284,16 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/poor_fit_indicators/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:7f516947cd06f6351b0b7944801231e339143793be64fe90a9c5e3d3800eb427",
+      "canonical_id": "orzhov_poor_fit_free_charity",
+      "canonical_content_hash": "sha256:ea969aa523cd8c23f2a01de9cca010f17bb7e89ee4a58ff798a8b71eae4dba70",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_002"
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0028"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -34057,13 +34306,192 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
       "canonical_pointer": "/poor_fit_indicators/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:8ca0f4a89b17a3cbcf073dbcbe854f8aaabad14aeba887584f6c2ccec39501ce",
+      "canonical_id": "orzhov_poor_fit_chaotic_power",
+      "canonical_content_hash": "sha256:4b706b81c665b2c545ac9ac6cd20d0b586ef743c61a53c14f5f196663207be97",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_003"
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0025"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "orzhov_guidance_how_to_recognize_match_0_gate3",
+      "canonical_content_hash": "sha256:fbe30a07c2c51c1ecca570e7eb778503648dd8a52cbf0b7562bb83b25a8851a4",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "orzhov_guidance_how_to_recognize_match_1_gate3",
+      "canonical_content_hash": "sha256:0ff29f011fb351383906e61272e0b6ef417fee4e4be56856f6680aec645945ce",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "orzhov_guidance_how_to_recognize_match_2_gate3",
+      "canonical_content_hash": "sha256:d89b737ab86d26a6dc1be163ca8736b80647cf59874128d8a4db463461f5f0c9",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "orzhov_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_content_hash": "sha256:3dd926a31c092c6259b350c0c9f2ae4cdc45d714014123ea73ea069589b00bea",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0020",
+        "orzhov_syndicate_claim_0021",
+        "orzhov_syndicate_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "orzhov_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_content_hash": "sha256:8e66d1dbe850923b273fd0710ef5d906307a45c94e34a2a04c98c5bfacd9e608",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0020",
+        "orzhov_syndicate_claim_0021",
+        "orzhov_syndicate_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": "orzhov_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_content_hash": "sha256:a707373cd8ecfa7ff277ce0e6e058d5f230a0d3b4cab75840888ff351d9988aa",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0020",
+        "orzhov_syndicate_claim_0021",
+        "orzhov_syndicate_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": "orzhov_guidance_questions_to_ask_when_uncertain_0_gate3",
+      "canonical_content_hash": "sha256:a6ff5e9eda9f752c1edd79ca78cf918e76eb0854d763a1efd36a33a14efa1e6d",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WB",
+        "data/placement-model.json#/factions/WB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WB",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/7",
+      "canonical_id": "orzhov_guidance_questions_to_ask_when_uncertain_1_gate3",
+      "canonical_content_hash": "sha256:16d998d63adaf633b7dda569bf7f68c5a71d2b3d0644d1c2fb475d9ce3c3adc0",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -34076,27 +34504,20 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json",
       "canonical_pointer": "/canonical_flavor_text/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:62e0ad5f9a1c2e61e011394040fc4ae6d021edc088be2ff31dfe8624140544ef",
+      "canonical_id": "orzhov_source_bounded_dossier_anchor",
+      "canonical_content_hash": "sha256:c88dcf3e7e9a24806e9254cd4d6653c8e5ec74946cc926349f7b9ffcd3fe2bf0",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010",
-        "orzhov_syndicate_claim_0011",
-        "orzhov_syndicate_claim_0012",
-        "orzhov_syndicate_claim_0013",
-        "orzhov_syndicate_claim_0014",
-        "orzhov_syndicate_claim_0015"
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_006",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0020"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
-        "src_mtg_stories_bound_and_bonded_7559b6f4",
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-        "src_mtg_stories_family_values_c60eb616",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -34109,27 +34530,21 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json",
       "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:d640f19ff68deaa772f23bdf250b268cf6d762f0cded1e80f4f09d9200da0340",
+      "canonical_id": "orzhov_core_identity_gate3",
+      "canonical_content_hash": "sha256:65ee39626583768ba73a7cb2a2a434e180ebdfe2aa01009296a2393fc2a93da4",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010",
-        "orzhov_syndicate_claim_0011",
-        "orzhov_syndicate_claim_0012",
-        "orzhov_syndicate_claim_0013",
-        "orzhov_syndicate_claim_0014",
-        "orzhov_syndicate_claim_0015"
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_006",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019",
+        "orzhov_syndicate_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_bound_and_bonded_7559b6f4",
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-        "src_mtg_stories_family_values_c60eb616",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -34142,8 +34557,8 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json",
       "canonical_pointer": "/data_quality/corpus_upgrade",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:2c839bde9a3bccd5efa7915ae6b16499513bbda1d5dfd0ce20d9b1505a8ab9cd",
+      "canonical_id": "orzhov_corpus_discovery_metadata_gate3",
+      "canonical_content_hash": "sha256:f576eb2f34f91303c58d0edb08901ff295562e52cfc37eb91d05f25b6ff257fd",
       "evidence_claim_ids": [
         "orzhov_syndicate_claim_0008",
         "orzhov_syndicate_claim_0009",
@@ -34156,6 +34571,7 @@
         "orzhov_syndicate_claim_0016",
         "orzhov_syndicate_claim_0017"
       ],
+      "evidence_use": "discovery_metadata",
       "evidence_source_ids": [
         "src_mtg_stories_bound_and_bonded_7559b6f4",
         "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
@@ -34179,21 +34595,19 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json",
       "canonical_pointer": "/great_tension",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:eab9d3efc37f78023f56b47d164f79c54e6d68eb4a74305ee4013e5adb1b0e6f",
+      "canonical_id": "orzhov_great_tension_gate3",
+      "canonical_content_hash": "sha256:3d3b4bd13abba1a451e659feb3060417b81fbae458a4570cb3576d59ddd418f1",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010",
-        "orzhov_syndicate_claim_0011",
-        "orzhov_syndicate_claim_0012"
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019",
+        "orzhov_syndicate_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_bound_and_bonded_7559b6f4",
-        "src_mtg_stories_family_values_c60eb616",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -34207,22 +34621,11 @@
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json",
       "canonical_pointer": "/key_figures/0",
       "canonical_id": "char_obzedat",
-      "canonical_content_hash": "sha256:56b2b5912122341dfd5cd7772f8888bb689befb8d6214a8a511495b461f996a6",
+      "canonical_content_hash": "sha256:cd08ef7e9087653b0b60a5388dfdad6adfff7f086c5beb894cabe1b2600ede5d",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_004",
-        "orzhov_syndicate_claim_005",
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010",
-        "orzhov_syndicate_claim_0012",
-        "orzhov_syndicate_claim_0013"
+        "orzhov_syndicate_claim_004"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_family_values_c60eb616",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
@@ -34236,24 +34639,12 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json",
       "canonical_pointer": "/key_figures/1",
-      "canonical_id": "char_ghost_council",
-      "canonical_content_hash": "sha256:fe83050821d58bbba14d510cf05f15a91d39c7e5b6225d3c0247dcaac064e5f6",
+      "canonical_id": "char_kaya",
+      "canonical_content_hash": "sha256:aa8368b55decf5ac7074b8d99b64bd78cfdf5fc477bb94ea248af649dfd79d9d",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_004",
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010",
-        "orzhov_syndicate_claim_0012",
-        "orzhov_syndicate_claim_0013",
-        "orzhov_syndicate_claim_0015"
+        "orzhov_syndicate_claim_005"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_family_values_c60eb616",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
@@ -34268,50 +34659,11 @@
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json",
       "canonical_pointer": "/key_figures/2",
       "canonical_id": "char_teysa_karlov",
-      "canonical_content_hash": "sha256:59820b06181d103d6d7866297d3162369d205cfb2f3482a097d431733407fdaf",
+      "canonical_content_hash": "sha256:6507c5a82f05e06b2f4e2b66a8782aa6d045e0149672e1d722b1c7a9f0e28041",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0010",
-        "orzhov_syndicate_claim_0012",
-        "orzhov_syndicate_claim_0013",
-        "orzhov_syndicate_claim_0016"
+        "orzhov_syndicate_claim_005"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_family_values_c60eb616",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_gathering_storm_chapter_15_512aa9f3",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/WB",
-        "data/placement-model.json#/factions/WB",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "WB",
-      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json",
-      "canonical_pointer": "/key_figures/3",
-      "canonical_id": "char_kaya",
-      "canonical_content_hash": "sha256:bde5d506ba7fa85f51e7afb6f204fd0cfbd6e8bb4e12f1e255072fee6f66f77b",
-      "evidence_claim_ids": [
-        "orzhov_syndicate_claim_005",
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0013",
-        "orzhov_syndicate_claim_0014",
-        "orzhov_syndicate_claim_0015",
-        "orzhov_syndicate_claim_0016",
-        "orzhov_syndicate_claim_0017"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_gathering_storm_chapter_15_512aa9f3",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
@@ -34324,53 +34676,17 @@
     {
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json",
-      "canonical_pointer": "/key_figures/4",
-      "canonical_id": "char_karlov",
-      "canonical_content_hash": "sha256:5eb427142f5e4b30c1d6f278990f93f9c9fd8ac34bfa10d036322afd5a25c23e",
-      "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0010",
-        "orzhov_syndicate_claim_0012",
-        "orzhov_syndicate_claim_0013",
-        "orzhov_syndicate_claim_0014",
-        "orzhov_syndicate_claim_0015",
-        "orzhov_syndicate_claim_0016",
-        "orzhov_syndicate_claim_0017"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-        "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_family_values_c60eb616",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_gathering_storm_chapter_15_512aa9f3",
-        "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/WB",
-        "data/placement-model.json#/factions/WB",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WB"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "WB",
-      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json",
       "canonical_pointer": "/mechanics",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:a5af5af7f200400695ae44c63b2c35920818f12fbf25a5cb8ab7f4302c9cc36d",
+      "canonical_id": "orzhov_afterlife_mechanics_gate3",
+      "canonical_content_hash": "sha256:cc67135bf9e2939b902eeb3e7a7ea80fd955f069a57437df67c5e63cffe5846b",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010",
-        "orzhov_syndicate_claim_0011"
+        "orzhov_syndicate_claim_006",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_bound_and_bonded_7559b6f4",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -34383,8 +34699,8 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json",
       "canonical_pointer": "/profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:1bc3661b6f5749d38f14cfeea9f457d819f18b1a473f1cba2601ea84fcce0f27",
+      "canonical_id": "orzhov_profile_summary_gate3",
+      "canonical_content_hash": "sha256:23db1285372b816d1cbd2439b2952e11e4c6f2210d6232f477acb8c738733969",
       "evidence_claim_ids": [
         "orzhov_syndicate_claim_001",
         "orzhov_syndicate_claim_002",
@@ -34392,7 +34708,10 @@
         "orzhov_syndicate_claim_004",
         "orzhov_syndicate_claim_005",
         "orzhov_syndicate_claim_006",
-        "orzhov_syndicate_claim_007"
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019",
+        "orzhov_syndicate_claim_0020"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019",
@@ -34409,19 +34728,19 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json",
       "canonical_pointer": "/site_surface",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:09b94a761973d381693a7258bf9e828d9d7f04413873c4d9114230254d4999ab",
+      "canonical_id": "orzhov_site_surface_gate3",
+      "canonical_content_hash": "sha256:41663d6cf3ddf517dccdb961c9287ac10db5f08b89f5c5726bdd97db4d50ab6b",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010",
-        "orzhov_syndicate_claim_0011"
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_bound_and_bonded_7559b6f4",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",
@@ -34434,19 +34753,18 @@
       "identity_key": "WB",
       "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json",
       "canonical_pointer": "/structure",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:98ceab3c494cc0816ce92a1a474e4994267e252e927ccaded82ed60ae12062ca",
+      "canonical_id": "orzhov_structure_gate3",
+      "canonical_content_hash": "sha256:ffd0f386817ef19d06eeb892c1fb63a7fccca4fe8ba46e5a38109094b66db533",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010",
-        "orzhov_syndicate_claim_0011"
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_004",
+        "orzhov_syndicate_claim_005",
+        "orzhov_syndicate_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_bound_and_bonded_7559b6f4",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_teysa_karlov_88b8425e",
-        "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WB",

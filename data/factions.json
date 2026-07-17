@@ -3413,52 +3413,52 @@
       ],
       "accent": "#9a7ab0",
       "banner": "linear-gradient(160deg,rgba(90,60,120,0.3) 0%,rgba(12,11,10,0) 60%)",
-      "tagline": "The living serve the Syndicate. So do the dead.",
-      "philosophy": "An amalgam of religion, banking, and organized crime. The Orzhov preaches that sin is debt and debt is sin, lends at crushing interest, and ensures that death is not an escape from obligation. After ten thousand years, the religious function and the financial function became indistinguishable - and the Syndicate no longer sees a difference.",
-      "lore_summary": "The gap between what the Orzhov says it is (a church) and what it actually is (a criminal financial empire with ghost shareholders) is not a contradiction they are embarrassed by. It is their product.",
-      "core_tension": "The gap between what the Orzhov says it is (a church) and what it actually is (a criminal financial empire with ghost shareholders) is not a contradiction they are embarrassed by. It is their product.",
+      "tagline": "Debt, deals, and hierarchy made official.",
+      "philosophy": "Orzhov is the white-black Ravnican guild where religious legitimacy, deal-making business, debt, and cartel hierarchy overlap. Vox Mana reads it through collectible obligation and institutional leverage, not generic WB attrition, lifegain/drain, taxes, sacrifice, recursion, or removal mechanics alone.",
+      "lore_summary": "The reviewed Orzhov source supports a religious organization whose modern identity emphasizes deals and business, with a cartel hierarchy led by priests or kingpins. Public Orzhov copy should stay bounded to obligation, debt, institutional leverage, named leadership, and afterlife mechanics texture.",
+      "core_tension": "Orzhov presents religious and institutional authority while its reviewed guide emphasizes deals, business, debt, organized crime, and cartel leadership as the operating reality.",
       "affinity": {
         "drawn_to": [
-          "Power structures that appear legitimate but function differently underneath",
-          "The understanding that every relationship has a ledger",
-          "Long-term leverage over immediate confrontation",
-          "Institutional prestige as a tool, not an end",
-          "Legacy - what you leave behind matters more than what you enjoyed"
+          "Obligations that remain real after the immediate exchange ends",
+          "Institutions that turn status, hierarchy, and repayment into leverage",
+          "Deals whose terms matter more than sentiment",
+          "Prestige and legitimacy as tools for enforcing what is owed",
+          "Long consequences over immediate release"
         ],
         "repelled_by": [
-          "Chaotic power that can't be structured or owned",
-          "Charity that expects nothing in return",
-          "Relationships that aren't mutually useful",
-          "Forgiveness without restitution"
+          "Chaotic power that cannot be structured or collected",
+          "Charity that rejects reciprocity by default",
+          "Relationships treated as obligation-free sentiment only",
+          "Rules that must stay impartial even when leverage is available"
         ],
-        "core_question": "Do you believe that debts - emotional, financial, moral - are real and should be repaid, or are they just stories people tell to control each other?",
+        "core_question": "Do you treat obligation as something real enough to record, collect, and enforce?",
         "interview_tells": [
-          "Talks about fairness in terms of what's owed and what was earned",
-          "Describes maintaining appearances as a deliberate strategy",
-          "Mentions family obligation, legacy, or inherited duty",
-          "Comfortable with the gap between the official narrative and the actual reality",
-          "Says 'nothing is free' and means it as philosophy, not complaint"
+          "Talks about fairness in terms of what is owed or earned",
+          "Treats institutions as leverage rather than neutral public order",
+          "Mentions debt, repayment, legacy, hierarchy, or prestige as durable forces",
+          "Separates obligation from selfless belonging or public rhetoric",
+          "Rejects generic WB mechanics as identity proof without the deal/debt institution behind them"
         ],
-        "not_to_be_confused_with": "Dimir - both use hidden leverage but Orzhov is loudly, extravagantly, magnificently present; Dimir wants you to forget it exists. Azorius - both work through institutions but Azorius believes the rules; Orzhov wrote them to benefit itself."
+        "not_to_be_confused_with": "Azorius uses public procedure and impartial order; Boros uses duty and protection; Dimir hides leverage through information; Rakdos centers spectacle and release; Golgari centers death and survival ecology; Selesnya centers belonging; Silverquill uses public language and reputation. Orzhov centers debt, deals, religious-business authority, and institutional hierarchy."
       },
       "decree_voice": {
-        "tone": "Magnanimous. Formal. With the warmth of someone offering you a contract you haven't read yet.",
-        "speaks_like": "A senior pontiff-banker welcoming a new investment into the portfolio.",
-        "example_opening": "The Syndicate has been aware of you for some time.",
-        "example_decree": "The Syndicate has been aware of you for some time. We find your understanding of obligation - real obligation, not sentiment - to be exactly the foundation we build on. The living serve the Syndicate in life. The debt is the relationship. The relationship outlasts everything. We offer you permanence, prestige, and the comfort of knowing exactly where you stand in the ledger. Welcome to the only institution that will still exist when everything else has been forgotten."
+        "tone": "Formal, ceremonious, and exacting.",
+        "speaks_like": "A senior syndicate officer turning welcome into enforceable terms.",
+        "example_opening": "The Syndicate has reviewed the terms of your arrival.",
+        "example_decree": "The Syndicate has reviewed the terms of your arrival. You understand that obligation is not sentiment; it is structure, status, and repayment made durable. Stand with us, and every debt will have a place, every favor a ledger, and every title a use."
       },
       "archetypes": [
         {
-          "name": "Aristocrats",
-          "desc": "Blood Artist, Zulaport Cutthroat, and free sacrifice outlets drain the entire table one death trigger at a time."
+          "name": "Obligation Engines",
+          "desc": "Sacrifice or death-trigger shells can be Orzhov-flavored only when framed as contract, repayment, afterlife texture, or institutional leverage rather than automatic lore proof."
         },
         {
-          "name": "Taxes",
-          "desc": "Thalia, Tidehollow Sculler, and Kaya's Guile make every spell the opponent casts cost more than they can afford."
+          "name": "Payment Pressure",
+          "desc": "Taxing, drain, and control cards are Commander texture; they need debt, deal, payment, or hierarchy framing before they become Orzhov-adjacent."
         },
         {
-          "name": "Soul Sisters",
-          "desc": "Soul Warden converts each entering creature into life - Ajani's Pridemate and Serra Ascendant scale that into lethal pressure."
+          "name": "Afterlife Tokens",
+          "desc": "Spirit or token play echoes Orzhov only when tied to afterlife mechanics and obligation context, not all death or spirit decks."
         }
       ],
       "staples": {
@@ -3525,168 +3525,77 @@
         "edhrec_slug": "orzhov"
       },
       "raw_enrichment": {
-        "historical_timeline": [],
+        "schema_version": "1.0.0",
+        "profile_version": "1.1.0",
+        "source_review_date": "2026-05-09",
+        "last_incremental_review": "2026-07-17T07:28:00-06:00",
         "key_figures": [
           {
             "character_id": "char_obzedat",
             "name": "Obzedat",
-            "role": "Ghost Council / Orzhov authority.",
-            "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+            "role": "Ghost Council of Orzhova / historic Orzhov leadership.",
+            "relationship_to_faction": "Source-backed historic leadership named by the official Orzhov guide.",
             "claim_ids": [
-              "orzhov_syndicate_claim_004",
-              "orzhov_syndicate_claim_005",
-              "orzhov_syndicate_claim_0008",
-              "orzhov_syndicate_claim_0009",
-              "orzhov_syndicate_claim_0010",
-              "orzhov_syndicate_claim_0012",
-              "orzhov_syndicate_claim_0013"
+              "orzhov_syndicate_claim_004"
             ],
             "source_ids": [
-              "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-              "src_mtg_stories_rallying_the_reluctant_d21b8009",
-              "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
-              "src_mtg_stories_teysa_karlov_88b8425e",
-              "src_mtg_stories_family_values_c60eb616",
-              "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981"
+              "src_wotc_flavorful_guide_ravnica_allegiance_2019"
             ],
             "confidence": "High",
-            "notes": ""
-          },
-          {
-            "character_id": "char_ghost_council",
-            "name": "Ghost Council",
-            "role": "Syndicate leadership body.",
-            "relationship_to_faction": "Appears in source-backed evidence for this faction.",
-            "claim_ids": [
-              "orzhov_syndicate_claim_004",
-              "orzhov_syndicate_claim_0008",
-              "orzhov_syndicate_claim_0009",
-              "orzhov_syndicate_claim_0010",
-              "orzhov_syndicate_claim_0012",
-              "orzhov_syndicate_claim_0013",
-              "orzhov_syndicate_claim_0015"
-            ],
-            "source_ids": [
-              "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-              "src_mtg_stories_rallying_the_reluctant_d21b8009",
-              "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
-              "src_mtg_stories_teysa_karlov_88b8425e",
-              "src_mtg_stories_family_values_c60eb616",
-              "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-              "src_mtg_stories_episode_10_roots_of_decay_955d3d20"
-            ],
-            "confidence": "High",
-            "notes": ""
-          },
-          {
-            "character_id": "char_teysa_karlov",
-            "name": "Teysa Karlov",
-            "role": "Prominent Orzhov power broker.",
-            "relationship_to_faction": "Appears in source-backed evidence for this faction.",
-            "claim_ids": [
-              "orzhov_syndicate_claim_0008",
-              "orzhov_syndicate_claim_0010",
-              "orzhov_syndicate_claim_0012",
-              "orzhov_syndicate_claim_0013",
-              "orzhov_syndicate_claim_0016"
-            ],
-            "source_ids": [
-              "src_mtg_stories_rallying_the_reluctant_d21b8009",
-              "src_mtg_stories_teysa_karlov_88b8425e",
-              "src_mtg_stories_family_values_c60eb616",
-              "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-              "src_mtg_stories_the_gathering_storm_chapter_15_512aa9f3"
-            ],
-            "confidence": "Medium",
-            "notes": ""
+            "notes": "Discovery-story claim IDs removed from authoritative key-figure proof chain during VM-514 Gate 3."
           },
           {
             "character_id": "char_kaya",
             "name": "Kaya",
-            "role": "Notable Orzhov-aligned figure.",
-            "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+            "role": "Orzhov controller after destroying the Obzedat in the 2019 guide context.",
+            "relationship_to_faction": "Source-backed leadership transition named by the official Orzhov guide.",
             "claim_ids": [
-              "orzhov_syndicate_claim_005",
-              "orzhov_syndicate_claim_0008",
-              "orzhov_syndicate_claim_0013",
-              "orzhov_syndicate_claim_0014",
-              "orzhov_syndicate_claim_0015",
-              "orzhov_syndicate_claim_0016",
-              "orzhov_syndicate_claim_0017"
+              "orzhov_syndicate_claim_005"
             ],
             "source_ids": [
-              "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-              "src_mtg_stories_rallying_the_reluctant_d21b8009",
-              "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-              "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-              "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-              "src_mtg_stories_the_gathering_storm_chapter_15_512aa9f3",
-              "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd"
+              "src_wotc_flavorful_guide_ravnica_allegiance_2019"
             ],
             "confidence": "High",
-            "notes": ""
+            "notes": "Commander/card/product appearances remain auxiliary unless separately localized."
           },
           {
-            "character_id": "char_karlov",
-            "name": "Karlov",
-            "role": "Orzhov-linked power name.",
-            "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+            "character_id": "char_teysa_karlov",
+            "name": "Teysa Karlov",
+            "role": "Kaya's right hand in the 2019 guide context.",
+            "relationship_to_faction": "Source-backed named Orzhov figure in the official Orzhov guide.",
             "claim_ids": [
-              "orzhov_syndicate_claim_0008",
-              "orzhov_syndicate_claim_0010",
-              "orzhov_syndicate_claim_0012",
-              "orzhov_syndicate_claim_0013",
-              "orzhov_syndicate_claim_0014",
-              "orzhov_syndicate_claim_0015",
-              "orzhov_syndicate_claim_0016",
-              "orzhov_syndicate_claim_0017"
+              "orzhov_syndicate_claim_005"
             ],
             "source_ids": [
-              "src_mtg_stories_rallying_the_reluctant_d21b8009",
-              "src_mtg_stories_teysa_karlov_88b8425e",
-              "src_mtg_stories_family_values_c60eb616",
-              "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-              "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-              "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-              "src_mtg_stories_the_gathering_storm_chapter_15_512aa9f3",
-              "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd"
+              "src_wotc_flavorful_guide_ravnica_allegiance_2019"
             ],
-            "confidence": "Medium",
-            "notes": ""
+            "confidence": "High",
+            "notes": "Discovery-story claim IDs removed from authoritative key-figure proof chain during VM-514 Gate 3."
           }
         ],
         "canonical_flavor_text": [
           {
+            "id": "orzhov_source_bounded_dossier_anchor",
             "card_name": "Orzhov Syndicate dossier anchor",
             "set": "Ravnica",
-            "short_excerpt_or_summary": "Obligation, guilt, hierarchy, debt, and legitimacy can become the same instrument of power.",
+            "short_excerpt_or_summary": "Source-bounded Orzhov copy should center religion, deals, debt, business, cartel hierarchy, named leadership, and afterlife mechanics only where those dimensions are directly or interpretively supported by reviewed sources.",
             "is_exact_excerpt": false,
             "claim_ids": [
-              "orzhov_syndicate_claim_0008",
-              "orzhov_syndicate_claim_0009",
-              "orzhov_syndicate_claim_0010",
-              "orzhov_syndicate_claim_0011",
-              "orzhov_syndicate_claim_0012",
-              "orzhov_syndicate_claim_0013",
-              "orzhov_syndicate_claim_0014",
-              "orzhov_syndicate_claim_0015"
+              "orzhov_syndicate_claim_001",
+              "orzhov_syndicate_claim_002",
+              "orzhov_syndicate_claim_003",
+              "orzhov_syndicate_claim_006",
+              "orzhov_syndicate_claim_007",
+              "orzhov_syndicate_claim_0020"
             ],
             "source_ids": [
-              "src_mtg_stories_rallying_the_reluctant_d21b8009",
-              "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
-              "src_mtg_stories_teysa_karlov_88b8425e",
-              "src_mtg_stories_bound_and_bonded_7559b6f4",
-              "src_mtg_stories_family_values_c60eb616",
-              "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-              "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-              "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
               "src_wotc_flavorful_guide_ravnica_allegiance_2019",
               "src_wotc_ravnica_allegiance_mechanics_2018"
             ],
-            "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+            "evidence_use": "auxiliary_support",
+            "notes": "Auxiliary copy guardrail; not card flavor text and not an independent proof chain."
           }
         ],
-        "views_on_other_factions": [],
         "search_and_filter_metadata": {
           "search_keywords": [
             "Orzhov Syndicate",
@@ -3732,76 +3641,94 @@
           ]
         },
         "data_quality": {
-          "review_date": "2026-05-13T21:14:06.308Z",
-          "source_basis": "data/raw-factions claims.json + sources.json",
-          "key_figures_added": 0,
-          "historical_timeline_entries": 0,
-          "canonical_flavor_text_entries": 1,
-          "relationship_entries": 0,
-          "known_characters": 5,
-          "known_mechanics": 2,
-          "story_arcs": 6
-        }
+          "corpus_upgrade": {
+            "id": "orzhov_corpus_discovery_metadata_gate3",
+            "review_date": "2026-05-09",
+            "status": "MTG-Stories corpus evidence retained as discovery metadata only",
+            "evidence_use": "discovery_metadata",
+            "claim_ids": [
+              "orzhov_syndicate_claim_0008",
+              "orzhov_syndicate_claim_0009",
+              "orzhov_syndicate_claim_0010",
+              "orzhov_syndicate_claim_0011",
+              "orzhov_syndicate_claim_0012",
+              "orzhov_syndicate_claim_0013",
+              "orzhov_syndicate_claim_0014",
+              "orzhov_syndicate_claim_0015",
+              "orzhov_syndicate_claim_0016",
+              "orzhov_syndicate_claim_0017"
+            ],
+            "authoritative_use_restriction": "Discovery-story rows are retained for search history and future localization only; they do not prove Orzhov identity, placement, key figures, recruiter guidance, semantic readiness, public copy, or provenance chains."
+          },
+          "raw_enrichment": {
+            "review_date": "2026-05-13T21:14:06.308Z",
+            "source_basis": "data/raw-factions claims.json + sources.json; discovery-only rows isolated as data_quality corpus metadata",
+            "key_figures_added": 0,
+            "historical_timeline_entries": 0,
+            "canonical_flavor_text_entries": 1,
+            "relationship_entries": 0,
+            "known_characters": 5,
+            "known_mechanics": 2,
+            "story_arcs": 6
+          }
+        },
+        "research_limitations": [
+          "MTG-Stories repository entries are retained as searchable discovery metadata only; they are not authoritative Orzhov semantic proof until bounded source localization is performed.",
+          "Commander/card/product recommendations are auxiliary and do not prove Orzhov identity, placement, key figures, recruiter guidance, semantic readiness, public copy, or provenance chains."
+        ]
       },
       "commander_compass": {
         "schema_version": "1.0.0",
         "source_research_file": "orzhov_syndicate.commander_compass.research.json",
         "last_reviewed": "2026-05-14",
         "review_status": "reviewed_not_canonical_lore",
-        "recommendation_philosophy": "Favor commanders that make every death, payment, tithe, and transaction produce another advantage. Orzhov recommendations should feel like a contract: the deck trades creatures, life, cards, and time for control and inevitability.",
+        "recommendation_philosophy": "Favor Commander recommendations only as auxiliary product texture around source-backed Orzhov debt, deals, religious-business authority, cartel hierarchy, and bounded afterlife mechanics; do not use card mechanics as canon proof.",
         "identity_basis": {
           "owned_themes": [
             "debt and obligation",
-            "religion as institution",
-            "contracts and hierarchy",
-            "afterlife/spirits",
-            "death triggers",
-            "lifegain and drain",
-            "resource exchange",
-            "tax/control",
-            "Teysa, Kaya, and the Obzedat"
+            "deals and business as institutional method",
+            "religion as authority structure",
+            "cartel hierarchy",
+            "afterlife as bounded Orzhov mechanics texture",
+            "Obzedat, Kaya, and Teysa where official guide support exists"
           ],
           "allowed_phrases": [
-            "debt engine",
-            "afterlife value",
-            "aristocrats contract",
-            "spirit tithe",
-            "slow interest payments",
-            "lifegain into leverage"
+            "debt as leverage",
+            "institutional obligation",
+            "contractual pressure",
+            "cartel hierarchy",
+            "afterlife texture",
+            "payment and prestige"
           ],
           "avoid_or_contrast_phrases": [
-            "heroic charity without exploitation",
             "generic WB removal pile",
+            "taxes or stax as lore proof",
+            "lifegain or drain as identity proof",
+            "aristocrats as automatic Orzhov canon",
+            "death triggers without Orzhov context",
             "product guidance as canon",
             "planeswalker commander without permission"
           ],
           "adjacent_overlap_notes": [
-            "Silverquill/politics and generic aristocrats can overlap mechanically, but Orzhov should keep debt, contract, afterlife, drain, and hierarchy language. Kaya cards should be treated carefully because most are not legal commanders."
+            "Silverquill/politics, generic WB control, lifegain, drain, sacrifice, aristocrats, and taxes can overlap mechanically, but Orzhov semantic use must keep source-bounded debt, deals, religion, business, hierarchy, and bounded afterlife context."
           ],
           "supporting_claim_ids": [
-            "orzhov_syndicate_claim_0008",
-            "orzhov_syndicate_claim_0009",
-            "orzhov_syndicate_claim_0010",
-            "orzhov_syndicate_claim_0011",
-            "orzhov_syndicate_claim_0012",
-            "orzhov_syndicate_claim_0013",
-            "orzhov_syndicate_claim_0014",
-            "orzhov_syndicate_claim_0015",
-            "orzhov_syndicate_claim_0016",
-            "orzhov_syndicate_claim_0017"
+            "orzhov_syndicate_claim_001",
+            "orzhov_syndicate_claim_002",
+            "orzhov_syndicate_claim_003",
+            "orzhov_syndicate_claim_004",
+            "orzhov_syndicate_claim_005",
+            "orzhov_syndicate_claim_006",
+            "orzhov_syndicate_claim_007",
+            "orzhov_syndicate_claim_0018",
+            "orzhov_syndicate_claim_0019",
+            "orzhov_syndicate_claim_0020"
           ],
           "supporting_source_ids": [
-            "src_mtg_stories_rallying_the_reluctant_d21b8009",
-            "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
-            "src_mtg_stories_teysa_karlov_88b8425e",
-            "src_mtg_stories_bound_and_bonded_7559b6f4",
-            "src_mtg_stories_family_values_c60eb616",
-            "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-            "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-            "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-            "src_mtg_stories_the_gathering_storm_chapter_15_512aa9f3",
-            "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd"
-          ]
+            "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+            "src_wotc_ravnica_allegiance_mechanics_2018"
+          ],
+          "auxiliary_support_boundary": "Commander/card/product guidance is auxiliary only; existing_repo_claim_ids and existing_repo_source_ids exclude discovery-only story-corpus records and cannot independently prove Orzhov identity, placement, key figures, recruiter guidance, semantic readiness, public copy, or provenance chains."
         },
         "native_fit_commanders": [
           {
@@ -3844,22 +3771,23 @@
                 "https://edhrec.com/commanders/orzhov"
               ],
               "existing_repo_claim_ids": [
-                "orzhov_syndicate_claim_0008",
-                "orzhov_syndicate_claim_0010",
-                "orzhov_syndicate_claim_0012",
-                "orzhov_syndicate_claim_0013",
-                "orzhov_syndicate_claim_0016"
+                "orzhov_syndicate_claim_005",
+                "orzhov_syndicate_claim_006",
+                "orzhov_syndicate_claim_007",
+                "orzhov_syndicate_claim_0018",
+                "orzhov_syndicate_claim_0020"
               ],
               "existing_repo_source_ids": [
-                "src_mtg_stories_rallying_the_reluctant_d21b8009",
-                "src_mtg_stories_teysa_karlov_88b8425e",
-                "src_mtg_stories_family_values_c60eb616",
-                "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-                "src_mtg_stories_the_gathering_storm_chapter_15_512aa9f3"
-              ]
+                "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+                "src_wotc_ravnica_allegiance_mechanics_2018"
+              ],
+              "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Orzhov claims, and do not use product/card data as canon proof."
             },
             "confidence": "High",
-            "caution_notes": [],
+            "caution_notes": [
+              "Discovery-only story-corpus claim IDs removed from this auxiliary support chain.",
+              "Commander/card/product material remains auxiliary and is not authoritative Orzhov semantic proof."
+            ],
             "type_line": "Legendary Creature — Human Advisor"
           },
           {
@@ -3901,22 +3829,24 @@
                 "https://edhrec.com/commanders/orzhov"
               ],
               "existing_repo_claim_ids": [
-                "orzhov_syndicate_claim_0008",
-                "orzhov_syndicate_claim_0010",
-                "orzhov_syndicate_claim_0012",
-                "orzhov_syndicate_claim_0013",
-                "orzhov_syndicate_claim_0016"
+                "orzhov_syndicate_claim_002",
+                "orzhov_syndicate_claim_003",
+                "orzhov_syndicate_claim_006",
+                "orzhov_syndicate_claim_007",
+                "orzhov_syndicate_claim_0018",
+                "orzhov_syndicate_claim_0020"
               ],
               "existing_repo_source_ids": [
-                "src_mtg_stories_rallying_the_reluctant_d21b8009",
-                "src_mtg_stories_teysa_karlov_88b8425e",
-                "src_mtg_stories_family_values_c60eb616",
-                "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-                "src_mtg_stories_the_gathering_storm_chapter_15_512aa9f3"
-              ]
+                "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+                "src_wotc_ravnica_allegiance_mechanics_2018"
+              ],
+              "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Orzhov claims, and do not use product/card data as canon proof."
             },
             "confidence": "Medium",
-            "caution_notes": [],
+            "caution_notes": [
+              "Discovery-only story-corpus claim IDs removed from this auxiliary support chain.",
+              "Commander/card/product material remains auxiliary and is not authoritative Orzhov semantic proof."
+            ],
             "type_line": "Legendary Creature — Human Advisor"
           }
         ],
@@ -3960,33 +3890,22 @@
                 "https://edhrec.com/commanders/orzhov"
               ],
               "existing_repo_claim_ids": [
-                "orzhov_syndicate_claim_0008",
-                "orzhov_syndicate_claim_0009",
-                "orzhov_syndicate_claim_0010",
-                "orzhov_syndicate_claim_0011",
-                "orzhov_syndicate_claim_0012",
-                "orzhov_syndicate_claim_0013",
-                "orzhov_syndicate_claim_0014",
-                "orzhov_syndicate_claim_0015",
-                "orzhov_syndicate_claim_0016",
-                "orzhov_syndicate_claim_0017"
+                "orzhov_syndicate_claim_006",
+                "orzhov_syndicate_claim_007",
+                "orzhov_syndicate_claim_0018",
+                "orzhov_syndicate_claim_0020"
               ],
               "existing_repo_source_ids": [
-                "src_mtg_stories_rallying_the_reluctant_d21b8009",
-                "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
-                "src_mtg_stories_teysa_karlov_88b8425e",
-                "src_mtg_stories_bound_and_bonded_7559b6f4",
-                "src_mtg_stories_family_values_c60eb616",
-                "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-                "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-                "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-                "src_mtg_stories_the_gathering_storm_chapter_15_512aa9f3",
-                "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd"
-              ]
+                "src_wotc_ravnica_allegiance_mechanics_2018",
+                "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+              ],
+              "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Orzhov claims, and do not use product/card data as canon proof."
             },
             "confidence": "Medium",
             "caution_notes": [
-              "Not an Orzhov/Ravnica lore character; product-adjacent only."
+              "Not an Orzhov/Ravnica lore character; product-adjacent only.",
+              "Discovery-only story-corpus claim IDs removed from this auxiliary support chain.",
+              "Commander/card/product material remains auxiliary and is not authoritative Orzhov semantic proof."
             ],
             "type_line": "Legendary Enchantment Creature — God"
           }
@@ -4030,33 +3949,22 @@
                 "https://edhrec.com/commanders/orzhov"
               ],
               "existing_repo_claim_ids": [
-                "orzhov_syndicate_claim_0008",
-                "orzhov_syndicate_claim_0009",
-                "orzhov_syndicate_claim_0010",
-                "orzhov_syndicate_claim_0011",
-                "orzhov_syndicate_claim_0012",
-                "orzhov_syndicate_claim_0013",
-                "orzhov_syndicate_claim_0014",
-                "orzhov_syndicate_claim_0015",
-                "orzhov_syndicate_claim_0016",
-                "orzhov_syndicate_claim_0017"
+                "orzhov_syndicate_claim_006",
+                "orzhov_syndicate_claim_007",
+                "orzhov_syndicate_claim_0018",
+                "orzhov_syndicate_claim_0020"
               ],
               "existing_repo_source_ids": [
-                "src_mtg_stories_rallying_the_reluctant_d21b8009",
-                "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
-                "src_mtg_stories_teysa_karlov_88b8425e",
-                "src_mtg_stories_bound_and_bonded_7559b6f4",
-                "src_mtg_stories_family_values_c60eb616",
-                "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-                "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-                "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-                "src_mtg_stories_the_gathering_storm_chapter_15_512aa9f3",
-                "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd"
-              ]
+                "src_wotc_ravnica_allegiance_mechanics_2018",
+                "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+              ],
+              "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Orzhov claims, and do not use product/card data as canon proof."
             },
             "confidence": "High",
             "caution_notes": [
-              "Not Ravnica-native; use as budget gameplay fit."
+              "Not Ravnica-native; use as budget gameplay fit.",
+              "Discovery-only story-corpus claim IDs removed from this auxiliary support chain.",
+              "Commander/card/product material remains auxiliary and is not authoritative Orzhov semantic proof."
             ],
             "type_line": "Legendary Creature — Phyrexian Kor Cleric"
           }
@@ -4101,29 +4009,23 @@
                 "https://edhrec.com/commanders/orzhov"
               ],
               "existing_repo_claim_ids": [
-                "orzhov_syndicate_claim_0008",
-                "orzhov_syndicate_claim_0010",
-                "orzhov_syndicate_claim_0012",
-                "orzhov_syndicate_claim_0013",
-                "orzhov_syndicate_claim_0014",
-                "orzhov_syndicate_claim_0015",
-                "orzhov_syndicate_claim_0016",
-                "orzhov_syndicate_claim_0017"
+                "orzhov_syndicate_claim_004",
+                "orzhov_syndicate_claim_006",
+                "orzhov_syndicate_claim_007",
+                "orzhov_syndicate_claim_0018",
+                "orzhov_syndicate_claim_0020"
               ],
               "existing_repo_source_ids": [
-                "src_mtg_stories_rallying_the_reluctant_d21b8009",
-                "src_mtg_stories_teysa_karlov_88b8425e",
-                "src_mtg_stories_family_values_c60eb616",
-                "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981",
-                "src_mtg_stories_episode_1_ghosts_of_our_past_3c1a1077",
-                "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-                "src_mtg_stories_the_gathering_storm_chapter_15_512aa9f3",
-                "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd"
-              ]
+                "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+                "src_wotc_ravnica_allegiance_mechanics_2018"
+              ],
+              "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Orzhov claims, and do not use product/card data as canon proof."
             },
             "confidence": "High",
             "caution_notes": [
-              "Can become removal-heavy and commander-centric."
+              "Can become removal-heavy and commander-centric.",
+              "Discovery-only story-corpus claim IDs removed from this auxiliary support chain.",
+              "Commander/card/product material remains auxiliary and is not authoritative Orzhov semantic proof."
             ],
             "type_line": "Legendary Creature — Spirit Advisor"
           }
@@ -4169,24 +4071,22 @@
               ],
               "existing_repo_claim_ids": [
                 "orzhov_syndicate_claim_004",
-                "orzhov_syndicate_claim_005",
-                "orzhov_syndicate_claim_0008",
-                "orzhov_syndicate_claim_0009",
-                "orzhov_syndicate_claim_0010",
-                "orzhov_syndicate_claim_0012",
-                "orzhov_syndicate_claim_0013"
+                "orzhov_syndicate_claim_006",
+                "orzhov_syndicate_claim_007",
+                "orzhov_syndicate_claim_0018",
+                "orzhov_syndicate_claim_0020"
               ],
               "existing_repo_source_ids": [
                 "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-                "src_mtg_stories_rallying_the_reluctant_d21b8009",
-                "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
-                "src_mtg_stories_teysa_karlov_88b8425e",
-                "src_mtg_stories_family_values_c60eb616",
-                "src_mtg_stories_the_gathering_storm_chapter_2_c2c05981"
-              ]
+                "src_wotc_ravnica_allegiance_mechanics_2018"
+              ],
+              "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Orzhov claims, and do not use product/card data as canon proof."
             },
             "confidence": "Medium",
-            "caution_notes": [],
+            "caution_notes": [
+              "Discovery-only story-corpus claim IDs removed from this auxiliary support chain.",
+              "Commander/card/product material remains auxiliary and is not authoritative Orzhov semantic proof."
+            ],
             "type_line": "Legendary Creature — Spirit Advisor"
           }
         ],
@@ -4291,7 +4191,9 @@
           "product_guidance_not_canon": true,
           "commander_legality_validated": true,
           "scryfall_card_pages_validated": true,
-          "do_not_use_as_claim_source": true
+          "do_not_use_as_claim_source": true,
+          "crit001_gate3": "Commander compass is auxiliary product guidance. Discovery-story native IDs are retained as metadata but are not authoritative proof chains.",
+          "gate3_discovery_cleanup": "VM-514 removed discovery-only story-corpus claim/source IDs from Commander Compass source_basis support chains; retained Commander recommendations remain auxiliary product guidance only."
         }
       },
       "identity": {

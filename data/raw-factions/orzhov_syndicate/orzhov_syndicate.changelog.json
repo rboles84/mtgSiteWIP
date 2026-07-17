@@ -5,6 +5,17 @@
   "last_updated": "2026-05-10T02:56:03.254Z",
   "changes": [
     {
+      "date": "2026-07-17",
+      "agent": "Codex VM-514",
+      "summary": "CRIT-001 Gate 3 semantic remediation classified Orzhov claims, isolated discovery records, rebuilt authoritative proof chains, added required-neighbor collision guidance, and clarified Commander Compass auxiliary support.",
+      "files": [
+        "data/raw-factions/orzhov_syndicate/orzhov_syndicate.claims.json",
+        "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json",
+        "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+        "data/factions.json"
+      ]
+    },
+    {
       "change_id": "change_orzhov_syndicate_placement_ready_20260510025603",
       "date": "2026-05-10",
       "change_type": "placement_ready_calibration_tuning",

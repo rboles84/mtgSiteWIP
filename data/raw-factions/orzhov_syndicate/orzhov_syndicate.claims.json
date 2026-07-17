@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "faction_id": "orzhov_syndicate",
   "faction_name": "Orzhov Syndicate",
-  "last_updated": "2026-05-09",
-  "claim_count": 17,
+  "last_updated": "2026-07-17T07:28:00-06:00",
+  "claim_count": 32,
   "claims": [
     {
       "claim_id": "orzhov_syndicate_claim_001",
@@ -15,7 +15,18 @@
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "VM-514 Gate 3 classified this as source-bounded identity, not generic WB color philosophy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview supports the white-black Ravnican guild identity and associates Orzhov with religion, deals, hierarchy, debt, and organized crime.",
+          "evidence_scope": "canonical identity",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "orzhov_syndicate_claim_002",
@@ -27,7 +38,18 @@
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview is used for the bounded role of a religious organization whose modern identity emphasizes deals and business.",
+          "evidence_scope": "institutional method",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "orzhov_syndicate_claim_003",
@@ -39,7 +61,18 @@
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview is used for the bounded organizational claim that Orzhov is a loose affiliation of cartels led by priests or kingpins.",
+          "evidence_scope": "institution-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "orzhov_syndicate_claim_004",
@@ -51,7 +84,18 @@
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview is used for Obzedat as the Ghost Council of Orzhova and historic Syndicate leaders.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "orzhov_syndicate_claim_005",
@@ -63,7 +107,18 @@
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview is used for Kaya taking control after destroying the Obzedat and Teysa being installed as her right hand.",
+          "evidence_scope": "character-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "orzhov_syndicate_claim_006",
@@ -75,20 +130,431 @@
         "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_ravnica_allegiance_mechanics_2018",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Ravnica Allegiance Mechanics - Afterlife / Orzhov reviewed source record",
+          "bounded_paraphrase": "The official mechanics article is used only for afterlife as the Ravnica Allegiance Orzhov mechanic.",
+          "evidence_scope": "mechanic-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "orzhov_syndicate_claim_007",
       "faction_id": "orzhov_syndicate",
       "claim_type": "placement",
-      "statement": "Orzhov placement signals should weight obligation, social leverage, reputational structure, debt, legacy, and transactional clarity.",
+      "statement": "Orzhov placement signals should require obligation, deal-making, debt, hierarchy, institutional leverage, or cartel/religious-business context rather than generic white-black control, lifegain, drain, sacrifice, taxes, stax, removal, aristocrats, recursion, or death-matters mechanics alone.",
       "canon_status": "Supported Interpretation",
       "source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019",
         "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "confidence": "High",
-      "notes": "Placement inference derived from official faction identity and mechanics; not an official Wizards psychological taxonomy."
+      "notes": "Placement inference derived from official faction identity and mechanics; not an official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview supports religion, deals, business, debt, organized crime, cartel hierarchy, priests, and kingpins as the source-bounded Orzhov identity cluster used for placement synthesis.",
+          "evidence_scope": "placement inference",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_ravnica_allegiance_mechanics_2018",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Ravnica Allegiance Mechanics - Afterlife / Orzhov reviewed source record",
+          "bounded_paraphrase": "Afterlife supports only a bounded Orzhov mechanics texture; it does not make all death, spirit, lifegain, drain, sacrifice, or recursion mechanics authoritative Orzhov proof by itself.",
+          "evidence_scope": "placement inference",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "orzhov_syndicate_claim_0018",
+      "faction_id": "orzhov_syndicate",
+      "claim_type": "placement_motivation",
+      "statement": "Orzhov motivation is source-bounded as making religion, deals, debt, business, and cartel hierarchy function as durable leverage and collectible obligation.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-514 Gate 3 bounded placement synthesis; Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview supplies the religion, deals, business, debt, cartel, priest, and kingpin cluster used to read Orzhov as collectible obligation and durable institutional leverage.",
+          "evidence_scope": "placement motivation",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_ravnica_allegiance_mechanics_2018",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Ravnica Allegiance Mechanics - Afterlife / Orzhov reviewed source record",
+          "bounded_paraphrase": "Afterlife supplies only bounded mechanics texture for post-death value; it is not used as standalone death-matters proof.",
+          "evidence_scope": "placement motivation",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "orzhov_syndicate_claim_0019",
+      "faction_id": "orzhov_syndicate",
+      "claim_type": "pressure_behavior",
+      "statement": "A mature or pressure Orzhov reading asks whether structure is being used to bind repayment, status, or obligation rather than merely seeking order, cruelty, community, or generic white-black attrition.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-514 Gate 3 bounded placement synthesis; Vox Mana interpretation, not official Wizards psychological taxonomy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview supports deals, debt, hierarchy, business, and cartels as the Orzhov-specific structure for pressure behavior.",
+          "evidence_scope": "pressure behavior",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_ravnica_allegiance_mechanics_2018",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Ravnica Allegiance Mechanics - Afterlife / Orzhov reviewed source record",
+          "bounded_paraphrase": "Afterlife is bounded to mechanics texture and does not authorize generic death, lifegain, or attrition overfit.",
+          "evidence_scope": "pressure behavior",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "orzhov_syndicate_claim_0020",
+      "faction_id": "orzhov_syndicate",
+      "claim_type": "placement_boundary",
+      "statement": "Generic white-black control, midrange, attrition, taxes, stax, removal, lifegain, drain, aristocrats, sacrifice, tokens, recursion, extort, or death-trigger gameplay is not Orzhov proof unless source-bounded Orzhov religion, deals, debt, business, hierarchy, or cartel context leads.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-514 Gate 3 stale/mechanic-overfit boundary.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview supplies the required Orzhov identity cluster; generic WB deck mechanics are only adjacent unless they are bounded by that cluster.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_ravnica_allegiance_mechanics_2018",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Ravnica Allegiance Mechanics - Afterlife / Orzhov reviewed source record",
+          "bounded_paraphrase": "Afterlife supports Orzhov mechanics texture but does not authorize all death, spirit, token, lifegain, drain, sacrifice, or recursion gameplay as Orzhov identity proof.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "orzhov_syndicate_claim_0021",
+      "faction_id": "orzhov_syndicate",
+      "claim_type": "collision_boundary",
+      "statement": "Mono-white order, law, faith, hierarchy, or community should remain adjacent unless it becomes Orzhov-specific deal-making, debt, religious-business authority, or cartel hierarchy.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "confidence": "High",
+      "notes": "VM-514 required-neighbor boundary.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview supports debt, deals, business, religion, and cartel hierarchy as the Orzhov side of this boundary.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "orzhov_syndicate_claim_0022",
+      "faction_id": "orzhov_syndicate",
+      "claim_type": "collision_boundary",
+      "statement": "Mono-black ambition, wealth, exploitation, death, or power should remain adjacent unless it is organized through Orzhov-specific religion, deals, debt, business, or cartel hierarchy.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "confidence": "High",
+      "notes": "VM-514 required-neighbor boundary.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview supports debt, deals, business, religion, and cartel hierarchy as the Orzhov side of this boundary.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "orzhov_syndicate_claim_0023",
+      "faction_id": "orzhov_syndicate",
+      "claim_type": "collision_boundary",
+      "statement": "Azorius-like public law, bureaucracy, procedure, or institutional order should remain adjacent unless the answer centers Orzhov obligation, debt, deal-making, and institutional leverage rather than impartial process.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "confidence": "High",
+      "notes": "VM-514 required-neighbor boundary.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview supports debt, deals, business, religion, and cartel hierarchy as the Orzhov side of this boundary.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "orzhov_syndicate_claim_0024",
+      "faction_id": "orzhov_syndicate",
+      "claim_type": "collision_boundary",
+      "statement": "Boros-like duty, justice, protection, or force should remain adjacent unless hierarchy is being used for Orzhov debt, obligation, deal-making, or institutional leverage rather than public defense.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "confidence": "High",
+      "notes": "VM-514 required-neighbor boundary.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview supports debt, deals, business, religion, and cartel hierarchy as the Orzhov side of this boundary.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "orzhov_syndicate_claim_0025",
+      "faction_id": "orzhov_syndicate",
+      "claim_type": "collision_boundary",
+      "statement": "Rakdos-like criminal spectacle, violence, indulgence, or public release should remain adjacent unless formal obligation, debt, business, and institutional hierarchy lead the interpretation.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "confidence": "High",
+      "notes": "VM-514 required-neighbor boundary.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview supports debt, deals, business, religion, and cartel hierarchy as the Orzhov side of this boundary.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "orzhov_syndicate_claim_0026",
+      "faction_id": "orzhov_syndicate",
+      "claim_type": "collision_boundary",
+      "statement": "Golgari-like death, decay, undercity survival, recursion, or resource cycling should remain adjacent unless death-related texture is bounded to Orzhov afterlife, obligation, hierarchy, or debt rather than life-death ecology.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "confidence": "High",
+      "notes": "VM-514 required-neighbor boundary.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview supports debt, deals, business, religion, and cartel hierarchy as the Orzhov side of this boundary.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        },
+        {
+          "source_id": "src_wotc_ravnica_allegiance_mechanics_2018",
+          "locator_type": "official-mechanics-source-record",
+          "locator": "Ravnica Allegiance Mechanics - Afterlife / Orzhov reviewed source record",
+          "bounded_paraphrase": "Afterlife supplies bounded Orzhov mechanics texture but does not make generic death, graveyard, recursion, or ecology language Orzhov proof.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "orzhov_syndicate_claim_0027",
+      "faction_id": "orzhov_syndicate",
+      "claim_type": "collision_boundary",
+      "statement": "Dimir-like secrecy, information control, hidden positioning, or covert leverage should remain adjacent unless power is visible and collectible through Orzhov obligation, debt, deals, religious-business authority, or cartel hierarchy.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "confidence": "High",
+      "notes": "VM-514 required-neighbor boundary.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview supports debt, deals, business, religion, and cartel hierarchy as the Orzhov side of this boundary.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "orzhov_syndicate_claim_0028",
+      "faction_id": "orzhov_syndicate",
+      "claim_type": "collision_boundary",
+      "statement": "Selesnya-like faith, community, harmony, or collective care should remain adjacent unless religious or communal language becomes Orzhov deal-making, debt, hierarchy, or cartel authority rather than shared belonging.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "confidence": "High",
+      "notes": "VM-514 required-neighbor boundary.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview supports debt, deals, business, religion, and cartel hierarchy as the Orzhov side of this boundary.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "orzhov_syndicate_claim_0029",
+      "faction_id": "orzhov_syndicate",
+      "claim_type": "collision_boundary",
+      "statement": "Silverquill-like rhetoric, reputation, status, or social influence should remain adjacent unless prestige is bound to Orzhov institutional debt, obligation, deals, or hierarchy rather than public language and image.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "confidence": "High",
+      "notes": "VM-514 required-neighbor boundary.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview supports debt, deals, business, religion, and cartel hierarchy as the Orzhov side of this boundary.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "orzhov_syndicate_claim_0030",
+      "faction_id": "orzhov_syndicate",
+      "claim_type": "collision_boundary",
+      "statement": "Esper-like control, hierarchy, perfection, or broad WUB system management should remain adjacent unless the answer narrows to Orzhov white-black debt, deals, religious-business authority, and cartel hierarchy.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "confidence": "High",
+      "notes": "VM-514 required-neighbor boundary.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview supports debt, deals, business, religion, and cartel hierarchy as the Orzhov side of this boundary.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "orzhov_syndicate_claim_0031",
+      "faction_id": "orzhov_syndicate",
+      "claim_type": "collision_boundary",
+      "statement": "Abzan-like endurance, ancestry, family, house continuity, or inherited obligation should remain adjacent unless obligation becomes Orzhov transactional debt, deals, business, or cartel hierarchy rather than kinship continuity.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "confidence": "High",
+      "notes": "VM-514 required-neighbor boundary.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview supports debt, deals, business, religion, and cartel hierarchy as the Orzhov side of this boundary.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
+    },
+    {
+      "claim_id": "orzhov_syndicate_claim_0032",
+      "faction_id": "orzhov_syndicate",
+      "claim_type": "collision_boundary",
+      "statement": "Mardu-like hierarchy, conquest, martial loyalty, or raid momentum should remain adjacent unless hierarchy is Orzhov debt, deal, business, or religious-cartel authority rather than martial oath or conquest.",
+      "canon_status": "Supported Interpretation",
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "confidence": "High",
+      "notes": "VM-514 required-neighbor boundary.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator_type": "official-source-record",
+          "locator": "A Flavorful Guide to the Guilds of Ravnica Allegiance - Orzhov reviewed source record",
+          "bounded_paraphrase": "The official Orzhov overview supports debt, deals, business, religion, and cartel hierarchy as the Orzhov side of this boundary.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "bounded-project-synthesis"
+        }
+      ]
     },
     {
       "claim_id": "orzhov_syndicate_claim_0008",
@@ -101,7 +567,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "orzhov_syndicate_claim_0009",
@@ -114,7 +584,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "orzhov_syndicate_claim_0010",
@@ -127,7 +601,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "orzhov_syndicate_claim_0011",
@@ -140,7 +618,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "orzhov_syndicate_claim_0012",
@@ -153,7 +635,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "orzhov_syndicate_claim_0013",
@@ -166,7 +652,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "orzhov_syndicate_claim_0014",
@@ -179,7 +669,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "orzhov_syndicate_claim_0015",
@@ -192,7 +686,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "orzhov_syndicate_claim_0016",
@@ -205,7 +703,11 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     },
     {
       "claim_id": "orzhov_syndicate_claim_0017",
@@ -218,7 +720,18 @@
       ],
       "confidence": "Medium",
       "confidence_level": "Medium",
-      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading."
+      "notes": "This claim records searchable story-corpus relevance without treating repository search results as a substitute for full source reading.",
+      "semantic_role": "discovery_record",
+      "discovery_use_only": true,
+      "authoritative_semantic_use": false,
+      "evidence_use_restriction": "Discovery metadata only. Retain for corpus-search history and possible future localization; do not use as authoritative semantic proof for identity, placement, key figures, recruiter guidance, fixtures, public copy, semantic readiness, or provenance chains until bounded source localization is performed."
     }
-  ]
+  ],
+  "semantic_review": {
+    "incident_id": "CRIT-001",
+    "contract_version": "v1.1",
+    "gate": "gate_3",
+    "reviewed_at": "2026-07-17T07:28:00-06:00",
+    "outcome": "Existing Orzhov claims classified; discovery records isolated; bounded substantive placement and collision claims added for WB Gate 3."
+  }
 }

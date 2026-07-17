@@ -1,0 +1,327 @@
+{
+  "identity_key": "WB",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "orzhov_core_obligation_institution_identity",
+      "fixture_type": "core_inclusion",
+      "scenario": "A clear Orzhov case centers debt, deals, religious-business authority, cartel hierarchy, and bounded afterlife texture rather than generic WB mechanics.",
+      "intended_interpretation": "Orzhov inclusion requires source-bounded white-black Ravnican guild identity plus obligation, debt, deals, hierarchy, or institutional leverage.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_006",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019",
+        "orzhov_syndicate_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Orzhov when obligation, debt, deal-making, religious-business authority, or cartel hierarchy leads.",
+      "unsupported_certainty_to_avoid": "Do not use generic WB control, taxes/stax, lifegain/drain, sacrifice, aristocrats, recursion, death triggers, or extort as standalone proof."
+    },
+    {
+      "fixture_id": "orzhov_pressure_collectible_obligation",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "A mature or pressure Orzhov case makes structure, prestige, and repayment collectible without becoming generic order, cruelty, or attrition.",
+      "intended_interpretation": "Pressure behavior remains debt/deal/hierarchy leverage rather than generic WB attrition or mechanic-first gameplay.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019",
+        "orzhov_syndicate_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Ask whether the structure makes obligation durable and collectible.",
+      "unsupported_certainty_to_avoid": "Do not certify Orzhov from generic hierarchy, life-total play, removal, sacrifice, or death triggers without source-bounded Orzhov context."
+    },
+    {
+      "fixture_id": "orzhov_exclude_generic_wb_overfit",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_WB_OVERFIT",
+      "scenario": "A white-black deck/persona only wants removal, taxes, stax, lifegain, drain, aristocrats, sacrifice, recursion, or extort.",
+      "intended_interpretation": "Exclude or keep Orzhov adjacent for GENERIC_WB_OVERFIT unless source-bounded Orzhov obligation and institution context leads.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Require debt, deals, religious-business authority, hierarchy, or cartel leverage before calling the result Orzhov.",
+      "unsupported_certainty_to_avoid": "Do not infer Orzhov from WB color identity or mechanics alone."
+    },
+    {
+      "fixture_id": "orzhov_exclude_w",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "W",
+      "scenario": "Mono-white order, faith, hierarchy, law, or community appears without debt, deals, cartel hierarchy, or collectible obligation.",
+      "intended_interpretation": "Exclude or keep Orzhov adjacent for W unless Orzhov-specific debt/deal institution leads.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate impartial order or faith from Orzhov obligation and leverage.",
+      "unsupported_certainty_to_avoid": "Do not present faith, order, or hierarchy alone as Orzhov."
+    },
+    {
+      "fixture_id": "orzhov_exclude_b",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "B",
+      "scenario": "Mono-black ambition, wealth, exploitation, death, or power appears without Orzhov institution and debt hierarchy.",
+      "intended_interpretation": "Exclude or keep Orzhov adjacent for B unless power is organized through Orzhov-specific deals, debt, business, or cartel hierarchy.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate individual ambition or wealth from Orzhov institutional obligation.",
+      "unsupported_certainty_to_avoid": "Do not present power, greed, wealth, or death alone as Orzhov."
+    },
+    {
+      "fixture_id": "orzhov_exclude_wu",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WU",
+      "scenario": "Azorius-like law, bureaucracy, procedure, or public institutional order leads.",
+      "intended_interpretation": "Exclude or keep Orzhov adjacent for WU unless obligation, debt, deals, and institutional leverage lead over impartial process.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Ask whether rules bind everyone impartially or make obligations collectible.",
+      "unsupported_certainty_to_avoid": "Do not collapse Orzhov into Azorius bureaucracy."
+    },
+    {
+      "fixture_id": "orzhov_exclude_wr",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WR",
+      "scenario": "Boros-like duty, justice, protection, or direct force leads.",
+      "intended_interpretation": "Exclude or keep Orzhov adjacent for WR unless hierarchy enforces debt or repayment rather than public defense.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate protection and duty from collectible obligation.",
+      "unsupported_certainty_to_avoid": "Do not collapse Orzhov into Boros duty or justice."
+    },
+    {
+      "fixture_id": "orzhov_exclude_br",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BR",
+      "scenario": "Rakdos-like criminal spectacle, violence, indulgence, or public release leads.",
+      "intended_interpretation": "Exclude or keep Orzhov adjacent for BR unless formal obligation, debt, business, and institutional hierarchy lead.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate spectacle and release from enforceable obligation.",
+      "unsupported_certainty_to_avoid": "Do not collapse Orzhov into Rakdos criminality, violence, or spectacle."
+    },
+    {
+      "fixture_id": "orzhov_exclude_bg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BG",
+      "scenario": "Golgari-like death, decay, undercity survival, recursion, or resource cycling leads.",
+      "intended_interpretation": "Exclude or keep Orzhov adjacent for BG unless death-related texture is bounded to Orzhov obligation, hierarchy, debt, or afterlife mechanics context.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Separate life-death ecology from Orzhov obligation and afterlife texture.",
+      "unsupported_certainty_to_avoid": "Do not collapse Orzhov into Golgari death, decay, or recursion."
+    },
+    {
+      "fixture_id": "orzhov_exclude_ub",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UB",
+      "scenario": "Dimir-like secrecy, hidden information, anonymity, or covert leverage leads.",
+      "intended_interpretation": "Exclude or keep Orzhov adjacent for UB unless power is visible and collectible through debt, obligation, deals, or institutional hierarchy.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0027"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate hidden information leverage from visible obligation.",
+      "unsupported_certainty_to_avoid": "Do not collapse Orzhov into Dimir secrecy or information control."
+    },
+    {
+      "fixture_id": "orzhov_exclude_wg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WG",
+      "scenario": "Selesnya-like faith, community, harmony, or collective care leads.",
+      "intended_interpretation": "Exclude or keep Orzhov adjacent for WG unless religious or communal language becomes deal-making, debt, hierarchy, or cartel authority.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate shared belonging from transactional obligation.",
+      "unsupported_certainty_to_avoid": "Do not collapse Orzhov into Selesnya faith, community, or harmony."
+    },
+    {
+      "fixture_id": "orzhov_exclude_silverquill",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SILVERQUILL",
+      "scenario": "Silverquill-like rhetoric, reputation, status, or social influence leads through public language or image.",
+      "intended_interpretation": "Exclude or keep Orzhov adjacent for SILVERQUILL unless prestige is bound to institutional debt, obligation, deals, or hierarchy.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate public rhetoric from obligation and repayment.",
+      "unsupported_certainty_to_avoid": "Do not collapse Orzhov into Silverquill social influence."
+    },
+    {
+      "fixture_id": "orzhov_exclude_esper",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ESPER",
+      "scenario": "Esper-like hierarchy, perfection, or broad WUB system management leads.",
+      "intended_interpretation": "Exclude or keep Orzhov adjacent for ESPER unless the answer narrows to Orzhov white-black debt, deals, religious-business authority, and cartel hierarchy.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0030"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate broader WUB control from Orzhov debt/deal institution.",
+      "unsupported_certainty_to_avoid": "Do not collapse Orzhov into Esper hierarchy or optimization."
+    },
+    {
+      "fixture_id": "orzhov_exclude_abzan",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ABZAN",
+      "scenario": "Abzan-like endurance, ancestry, family, house continuity, or inherited obligation leads.",
+      "intended_interpretation": "Exclude or keep Orzhov adjacent for ABZAN unless obligation becomes transactional debt, deals, business, or cartel hierarchy rather than kinship continuity.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0031"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate family endurance from transactional obligation.",
+      "unsupported_certainty_to_avoid": "Do not collapse Orzhov into Abzan ancestry or house continuity."
+    },
+    {
+      "fixture_id": "orzhov_exclude_mardu",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "MARDU",
+      "scenario": "Mardu-like hierarchy, conquest, martial loyalty, or raid momentum leads.",
+      "intended_interpretation": "Exclude or keep Orzhov adjacent for MARDU unless hierarchy is debt, deal, business, or religious-cartel authority rather than martial oath or conquest.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate martial loyalty and conquest from collectible obligation.",
+      "unsupported_certainty_to_avoid": "Do not collapse Orzhov into Mardu raid momentum or martial hierarchy."
+    },
+    {
+      "fixture_id": "orzhov_stale_phrase_mechanic_overfit_guard",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_WB_OVERFIT",
+      "scenario": "Stale phrases such as taxes, stax, lifegain, drain, aristocrats, sacrifice, death triggers, recursion, extort, evil church, mafia, banker, greed, or undead banker are unsafe unless narrowed to source-bounded Orzhov obligation and institution context.",
+      "intended_interpretation": "Orzhov evidence must remain source-bounded and cannot be certified from overheated or mechanic-first WB wording.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Keep stale phrases only when bounded to reviewed Orzhov debt, deals, hierarchy, religious-business authority, or afterlife mechanics texture.",
+      "unsupported_certainty_to_avoid": "Do not certify overheated Orzhov phrases without bounded source support."
+    },
+    {
+      "fixture_id": "orzhov_nearest_collision_public_leverage_or_hidden_or_belonging",
+      "fixture_type": "nearest_collision_ambiguity",
+      "scenario": "A response about influence could be Orzhov, Azorius, Dimir, Selesnya, or Silverquill; Orzhov only wins when influence works because obligation, debt, deals, or institutional hierarchy is collectible.",
+      "intended_interpretation": "Nearest-collision ambiguity should ask whether leverage is impartial process, hidden information, shared belonging, public rhetoric, or collectible obligation.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0023",
+        "orzhov_syndicate_claim_0027",
+        "orzhov_syndicate_claim_0028",
+        "orzhov_syndicate_claim_0029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Use Orzhov only when debt, obligation, deals, or hierarchy are the active method.",
+      "unsupported_certainty_to_avoid": "Do not force Orzhov from generic institution, influence, faith, secrecy, or status language."
+    },
+    {
+      "fixture_id": "orzhov_core_identity_provenance",
+      "fixture_type": "provenance",
+      "scenario": "",
+      "intended_interpretation": "Generated provenance for Orzhov core identity must point to source-bounded substantive claims only.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_006",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019",
+        "orzhov_syndicate_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Generated consumers must preserve source-bounded Orzhov core identity provenance.",
+      "unsupported_certainty_to_avoid": "Do not use discovery-story rows or generic WB mechanics as Orzhov core identity proof.",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json",
+      "canonical_pointer": "/core_identity"
+    },
+    {
+      "fixture_id": "orzhov_placement_summary_provenance",
+      "fixture_type": "provenance",
+      "scenario": "",
+      "intended_interpretation": "Generated provenance for Orzhov placement summary must preserve profile identity, leadership, mechanics, placement, and generic-overfit guardrails.",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_006",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019",
+        "orzhov_syndicate_claim_0020",
+        "orzhov_syndicate_claim_004",
+        "orzhov_syndicate_claim_005"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Generated consumers must preserve claim/source provenance for Orzhov placement summary guidance.",
+      "unsupported_certainty_to_avoid": "Do not expose discovery-story rows or generic WB mechanics as placement proof.",
+      "canonical_file": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "canonical_pointer": "/placement_summary"
+    }
+  ]
+}

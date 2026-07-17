@@ -7119,38 +7119,38 @@ export const FACTION_CONTEXT = {
         "label": "Orzhov"
       }
     },
-    "tagline": "The living serve the Syndicate. So do the dead.",
-    "philosophy": "An amalgam of religion, banking, and organized crime. The Orzhov preaches that sin is debt and debt is sin, lends at crushing interest, and ensures that death is not an escape from obligation. After ten thousand years, the religious function and the financial function became indistinguishable - and the Syndicate no longer sees a difference.",
-    "core_tension": "The gap between what the Orzhov says it is (a church) and what it actually is (a criminal financial empire with ghost shareholders) is not a contradiction they are embarrassed by. It is their product.",
+    "tagline": "Debt, deals, and hierarchy made official.",
+    "philosophy": "Orzhov is the white-black Ravnican guild where religious legitimacy, deal-making business, debt, and cartel hierarchy overlap. Vox Mana reads it through collectible obligation and institutional leverage, not generic WB attrition, lifegain/drain, taxes, sacrifice, recursion, or removal mechanics alone.",
+    "core_tension": "Orzhov presents religious and institutional authority while its reviewed guide emphasizes deals, business, debt, organized crime, and cartel leadership as the operating reality.",
     "affinity": {
       "drawn_to": [
-        "Power structures that appear legitimate but function differently underneath",
-        "The understanding that every relationship has a ledger",
-        "Long-term leverage over immediate confrontation",
-        "Institutional prestige as a tool, not an end",
-        "Legacy - what you leave behind matters more than what you enjoyed"
+        "Obligations that remain real after the immediate exchange ends",
+        "Institutions that turn status, hierarchy, and repayment into leverage",
+        "Deals whose terms matter more than sentiment",
+        "Prestige and legitimacy as tools for enforcing what is owed",
+        "Long consequences over immediate release"
       ],
       "repelled_by": [
-        "Chaotic power that can't be structured or owned",
-        "Charity that expects nothing in return",
-        "Relationships that aren't mutually useful",
-        "Forgiveness without restitution"
+        "Chaotic power that cannot be structured or collected",
+        "Charity that rejects reciprocity by default",
+        "Relationships treated as obligation-free sentiment only",
+        "Rules that must stay impartial even when leverage is available"
       ],
-      "core_question": "Do you believe that debts - emotional, financial, moral - are real and should be repaid, or are they just stories people tell to control each other?",
+      "core_question": "Do you treat obligation as something real enough to record, collect, and enforce?",
       "interview_tells": [
-        "Talks about fairness in terms of what's owed and what was earned",
-        "Describes maintaining appearances as a deliberate strategy",
-        "Mentions family obligation, legacy, or inherited duty",
-        "Comfortable with the gap between the official narrative and the actual reality",
-        "Says 'nothing is free' and means it as philosophy, not complaint"
+        "Talks about fairness in terms of what is owed or earned",
+        "Treats institutions as leverage rather than neutral public order",
+        "Mentions debt, repayment, legacy, hierarchy, or prestige as durable forces",
+        "Separates obligation from selfless belonging or public rhetoric",
+        "Rejects generic WB mechanics as identity proof without the deal/debt institution behind them"
       ],
-      "not_to_be_confused_with": "Dimir - both use hidden leverage but Orzhov is loudly, extravagantly, magnificently present; Dimir wants you to forget it exists. Azorius - both work through institutions but Azorius believes the rules; Orzhov wrote them to benefit itself."
+      "not_to_be_confused_with": "Azorius uses public procedure and impartial order; Boros uses duty and protection; Dimir hides leverage through information; Rakdos centers spectacle and release; Golgari centers death and survival ecology; Selesnya centers belonging; Silverquill uses public language and reputation. Orzhov centers debt, deals, religious-business authority, and institutional hierarchy."
     },
     "decree_voice": {
-      "tone": "Magnanimous. Formal. With the warmth of someone offering you a contract you haven't read yet.",
-      "speaks_like": "A senior pontiff-banker welcoming a new investment into the portfolio.",
-      "example_opening": "The Syndicate has been aware of you for some time.",
-      "example_decree": "The Syndicate has been aware of you for some time. We find your understanding of obligation - real obligation, not sentiment - to be exactly the foundation we build on. The living serve the Syndicate in life. The debt is the relationship. The relationship outlasts everything. We offer you permanence, prestige, and the comfort of knowing exactly where you stand in the ledger. Welcome to the only institution that will still exist when everything else has been forgotten."
+      "tone": "Formal, ceremonious, and exacting.",
+      "speaks_like": "A senior syndicate officer turning welcome into enforceable terms.",
+      "example_opening": "The Syndicate has reviewed the terms of your arrival.",
+      "example_decree": "The Syndicate has reviewed the terms of your arrival. You understand that obligation is not sentiment; it is structure, status, and repayment made durable. Stand with us, and every debt will have a place, every favor a ledger, and every title a use."
     },
     "biological_expression": {
       "archetype": "The Obligation Architect",
@@ -7192,7 +7192,7 @@ export const FACTION_CONTEXT = {
     "good_fit_indicators": [
       "thinks in ledgers, obligations, and long consequences",
       "uses institutions as leverage",
-      "cares about legacy and social position"
+      "cares about legacy, prestige, repayment, or social position as enforceable structure"
     ],
     "poor_fit_indicators": [
       "hates all hierarchy reflexively",
@@ -7211,7 +7211,13 @@ export const FACTION_CONTEXT = {
       "SILVERQUILL",
       "ESPER",
       "ABZAN",
-      "MARDU"
+      "MARDU",
+      "W",
+      "B",
+      "WR",
+      "BR",
+      "BG",
+      "WG"
     ],
     "discriminator_questions": [
       {
@@ -7220,11 +7226,16 @@ export const FACTION_CONTEXT = {
         "purpose": "Tests whether obligation feels real or manipulative.",
         "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
         "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-        "collision_targets": [],
+        "collision_targets": [
+          "W",
+          "B",
+          "WG",
+          "SILVERQUILL"
+        ],
         "evidence_claim_ids": [
-          "orzhov_syndicate_claim_001",
-          "orzhov_syndicate_claim_002",
-          "orzhov_syndicate_claim_003"
+          "orzhov_syndicate_claim_007",
+          "orzhov_syndicate_claim_0018",
+          "orzhov_syndicate_claim_0020"
         ],
         "confidence": "Medium"
       },
@@ -7234,11 +7245,17 @@ export const FACTION_CONTEXT = {
         "purpose": "Separates Orzhov reciprocity from Selesnya caretaking.",
         "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
         "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-        "collision_targets": [],
+        "collision_targets": [
+          "WG",
+          "WU",
+          "SILVERQUILL",
+          "ABZAN"
+        ],
         "evidence_claim_ids": [
-          "orzhov_syndicate_claim_001",
-          "orzhov_syndicate_claim_002",
-          "orzhov_syndicate_claim_003"
+          "orzhov_syndicate_claim_007",
+          "orzhov_syndicate_claim_0018",
+          "orzhov_syndicate_claim_0028",
+          "orzhov_syndicate_claim_0031"
         ],
         "confidence": "Medium"
       },
@@ -7279,7 +7296,7 @@ export const FACTION_CONTEXT = {
       "how_to_recognize_match": [
         "thinks in ledgers, obligations, and long consequences",
         "uses institutions as leverage",
-        "cares about legacy and social position"
+        "cares about legacy, prestige, repayment, or social position as enforceable structure"
       ],
       "how_to_recognize_mismatch": [
         "hates all hierarchy reflexively",

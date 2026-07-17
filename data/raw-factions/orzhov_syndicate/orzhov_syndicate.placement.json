@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "orzhov_syndicate",
   "faction_name": "Orzhov Syndicate",
-  "last_updated": "2026-05-10T02:56:03.254Z",
+  "last_updated": "2026-07-17T07:28:00-06:00",
   "placement_model_version": "vox-mana-lore-json-v1",
   "color_identity": [
     "white",
@@ -10,52 +10,70 @@
   ],
   "ideal_fit_indicators": [
     {
+      "indicator_id": "orzhov_fit_debt_obligation",
       "indicator": "thinks in ledgers, obligations, and long consequences",
-      "rationale": "Matches the official Orzhov Syndicate identity summarized in the profile.",
+      "rationale": "Matches source-bounded Orzhov debt, deals, hierarchy, and obligation placement synthesis.",
       "claim_ids": [
-        "orzhov_syndicate_claim_001"
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
+      "indicator_id": "orzhov_fit_institutional_leverage",
       "indicator": "uses institutions as leverage",
-      "rationale": "Matches the official Orzhov Syndicate identity summarized in the profile.",
+      "rationale": "Matches Orzhov religious-business authority and cartel hierarchy rather than generic institution preference.",
       "claim_ids": [
-        "orzhov_syndicate_claim_002"
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "cares about legacy and social position",
-      "rationale": "Matches the official Orzhov Syndicate identity summarized in the profile.",
+      "indicator_id": "orzhov_fit_prestige_payment_structure",
+      "indicator": "cares about legacy, prestige, repayment, or social position as enforceable structure",
+      "rationale": "Matches bounded Orzhov placement synthesis from debt, hierarchy, deals, and obligation.",
       "claim_ids": [
-        "orzhov_syndicate_claim_003"
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019"
       ],
       "confidence": "Medium"
     }
   ],
   "poor_fit_indicators": [
     {
+      "indicator_id": "orzhov_poor_fit_anti_hierarchy",
       "indicator": "hates all hierarchy reflexively",
-      "rationale": "Counters a core Orzhov Syndicate placement signal.",
+      "rationale": "Counters the Orzhov-specific hierarchy/debt/institution cluster.",
       "claim_ids": [
-        "orzhov_syndicate_claim_001"
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_0021"
       ],
       "confidence": "Medium"
     },
     {
+      "indicator_id": "orzhov_poor_fit_free_charity",
       "indicator": "gives without caring about reciprocity",
-      "rationale": "Counters a core Orzhov Syndicate placement signal.",
+      "rationale": "Counters Orzhov obligation and repayment placement signals.",
       "claim_ids": [
-        "orzhov_syndicate_claim_002"
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0028"
       ],
       "confidence": "Medium"
     },
     {
+      "indicator_id": "orzhov_poor_fit_chaotic_power",
       "indicator": "prefers chaotic power with no durable structure",
-      "rationale": "Counters a core Orzhov Syndicate placement signal.",
+      "rationale": "Counters Orzhov institutional leverage and debt/deal structure.",
       "claim_ids": [
-        "orzhov_syndicate_claim_003"
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0025"
       ],
       "confidence": "Medium"
     }
@@ -67,11 +85,17 @@
       "purpose": "Tests whether obligation feels real or manipulative.",
       "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
       "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
-      "related_factions_to_compare": [],
+      "related_factions_to_compare": [
+        "GENERIC_WB_OVERFIT",
+        "W",
+        "B",
+        "WG",
+        "SILVERQUILL"
+      ],
       "claim_ids": [
-        "orzhov_syndicate_claim_001",
-        "orzhov_syndicate_claim_002",
-        "orzhov_syndicate_claim_003"
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0020"
       ],
       "confidence": "Medium",
       "notes": "Question is placement-engine guidance, not canon text."
@@ -82,11 +106,17 @@
       "purpose": "Separates Orzhov reciprocity from Selesnya caretaking.",
       "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
       "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
-      "related_factions_to_compare": [],
+      "related_factions_to_compare": [
+        "WG",
+        "WU",
+        "SILVERQUILL",
+        "ABZAN"
+      ],
       "claim_ids": [
-        "orzhov_syndicate_claim_001",
-        "orzhov_syndicate_claim_002",
-        "orzhov_syndicate_claim_003"
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0028",
+        "orzhov_syndicate_claim_0031"
       ],
       "confidence": "Medium",
       "notes": "Question is placement-engine guidance, not canon text."
@@ -124,7 +154,7 @@
     "how_to_recognize_match": [
       "thinks in ledgers, obligations, and long consequences",
       "uses institutions as leverage",
-      "cares about legacy and social position"
+      "cares about legacy, prestige, repayment, or social position as enforceable structure"
     ],
     "how_to_recognize_mismatch": [
       "hates all hierarchy reflexively",
@@ -153,193 +183,132 @@
     "strongest_evidence_areas": [
       "official faction overview",
       "official mechanics identity",
-      "MTG-Stories corpus search evidence"
+      "bounded placement synthesis from source-backed Orzhov claims"
     ],
     "weakest_evidence_areas": [
-      "deep story episode coverage",
-      "cross-faction comparison calibration"
+      "deep story episode coverage retained as discovery metadata only",
+      "future localized story support for individual commanders or episodes"
     ],
     "manual_review_recommended": true,
-    "notes": "Good for initial placement testing; should be expanded with story-specific claims in a later pass. Corpus-enriched data should be reviewed with calibration and collision reports before being treated as tuned scoring fuel.",
+    "notes": "Gate 3 remediation isolates discovery-story rows from semantic proof chains and keeps placement bounded to reviewed official source records.",
     "calibration_tuning_status": "explicit",
     "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
   },
   "placement_profile_version": "vox-mana-lore-json-v1",
   "based_on_profile_version": "1.0.0",
   "placement_summary": {
-    "short_description": "Orzhov Syndicate placement is informed by official overview sources and MTG-Stories corpus evidence.",
-    "best_fit_summary": "thinks in ledgers, obligations, and long consequences uses institutions as leverage cares about legacy and social position",
-    "poor_fit_summary": "hates all hierarchy reflexively gives without caring about reciprocity prefers chaotic power with no durable structure",
+    "id": "orzhov_placement_summary_gate3",
+    "short_description": "Orzhov Syndicate placement is source-bounded by religion, deals, debt, business, cartel hierarchy, named leadership, and afterlife mechanics texture.",
+    "best_fit_summary": "thinks in ledgers, obligations, durable hierarchy, institutional leverage, and repayment structures",
+    "poor_fit_summary": "rejects obligation or hierarchy reflexively, gives without reciprocity, or prefers chaotic power without durable structure",
     "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
     "claim_ids": [
-      "orzhov_syndicate_claim_0008",
-      "orzhov_syndicate_claim_0009",
-      "orzhov_syndicate_claim_0010",
-      "orzhov_syndicate_claim_0011",
-      "orzhov_syndicate_claim_0012",
-      "orzhov_syndicate_claim_0013",
-      "orzhov_syndicate_claim_0014",
-      "orzhov_syndicate_claim_0015"
+      "orzhov_syndicate_claim_001",
+      "orzhov_syndicate_claim_002",
+      "orzhov_syndicate_claim_003",
+      "orzhov_syndicate_claim_006",
+      "orzhov_syndicate_claim_007",
+      "orzhov_syndicate_claim_0018",
+      "orzhov_syndicate_claim_0019",
+      "orzhov_syndicate_claim_0020"
     ],
     "calibrated_primary_read": "Requires debt, obligation, contract, prestige, hierarchy, legacy, or guilt-as-currency.",
     "calibrated_false_positive_guardrail": "Do not award for generic institutions unless the answer frames them as leverage, obligation, or repayment.",
     "evidence_claim_ids": [
-      "orzhov_syndicate_claim_001",
-      "orzhov_syndicate_claim_002",
-      "orzhov_syndicate_claim_003",
       "orzhov_syndicate_claim_004",
-      "orzhov_syndicate_claim_005",
-      "orzhov_syndicate_claim_006"
+      "orzhov_syndicate_claim_005"
     ]
   },
   "placement_axes": [
     {
-      "axis_id": "axis_obligation_vs_untallied_grace",
+      "axis_id": "axis_orzhov_obligation_vs_untallied_grace",
       "label": "Obligation vs Untallied Grace",
-      "description": "Measures whether user answers align with Orzhov Syndicate's specific evidence instead of only its color pair.",
+      "description": "Measures whether an answer treats obligation, debt, deal-making, religious-business authority, and hierarchy as real leverage rather than generic WB mechanics or selfless belonging.",
       "low_end_label": "unstructured generosity",
       "high_end_label": "ledgered obligation",
       "faction_position": 86,
-      "rationale": "Corpus evidence adds story-context support for Orzhov Syndicate, Orzhov, Obzedat, Ghost Council, Teysa Karlov, Kaya, Karlov, debt.",
+      "rationale": "Source-bounded Orzhov placement requires the debt/deal/hierarchy/institution cluster rather than color-pair or mechanic-only overlap.",
       "claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010",
-        "orzhov_syndicate_claim_0011",
-        "orzhov_syndicate_claim_0012",
-        "orzhov_syndicate_claim_0013",
-        "orzhov_syndicate_claim_0014",
-        "orzhov_syndicate_claim_0015"
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0020"
       ],
       "confidence": "Medium",
-      "notes": "Added during MTG-Stories corpus upgrade."
+      "notes": "VM-514 Gate 3 replaces discovery-backed corpus axis with source-bounded Orzhov placement synthesis."
     }
   ],
   "moral_and_psychological_profile": {
-    "summary": "Orzhov Syndicate should be scored through faction-specific behavioral evidence, not only broad color identity.",
+    "id": "orzhov_moral_profile_gate3",
+    "summary": "Orzhov Syndicate should be scored through source-bounded obligation, debt, deals, hierarchy, religious-business authority, and cartel leverage, not generic WB color identity or mechanics.",
     "claim_ids": [
-      "orzhov_syndicate_claim_0008",
-      "orzhov_syndicate_claim_0009",
-      "orzhov_syndicate_claim_0010",
-      "orzhov_syndicate_claim_0011",
-      "orzhov_syndicate_claim_0012"
+      "orzhov_syndicate_claim_007",
+      "orzhov_syndicate_claim_0018",
+      "orzhov_syndicate_claim_0019",
+      "orzhov_syndicate_claim_0020"
     ]
   },
   "core_values": [
     {
-      "value": "Orzhov Syndicate",
-      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
+      "value_id": "orzhov_value_debt_obligation",
+      "value": "debt and obligation",
+      "placement_relevance": "Core Orzhov placement signal when tied to deals, hierarchy, or repayment.",
       "claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Orzhov",
-      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
+      "value_id": "orzhov_value_deal_making",
+      "value": "deal-making business",
+      "placement_relevance": "Separates Orzhov from generic faith, law, or WB attrition.",
       "claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Obzedat",
-      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
+      "value_id": "orzhov_value_cartel_hierarchy",
+      "value": "cartel hierarchy",
+      "placement_relevance": "Separates Orzhov institutional leverage from Azorius procedure or Selesnya community.",
       "claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0023",
+        "orzhov_syndicate_claim_0028"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Ghost Council",
-      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
+      "value_id": "orzhov_value_bounded_afterlife",
+      "value": "bounded afterlife mechanics texture",
+      "placement_relevance": "Supports Orzhov mechanics texture without promoting all death, spirit, token, drain, sacrifice, or recursion play as identity proof.",
       "claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "Teysa Karlov",
-      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
-      "claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "Kaya",
-      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
-      "claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "Karlov",
-      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
-      "claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "debt",
-      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
-      "claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "tithe",
-      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
-      "claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
-      ],
-      "confidence": "Medium"
-    },
-    {
-      "value": "thrull",
-      "placement_relevance": "Corpus search evidence for Orzhov Syndicate.",
-      "claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010"
+        "orzhov_syndicate_claim_006",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0020",
+        "orzhov_syndicate_claim_0026"
       ],
       "confidence": "Medium"
     }
   ],
   "behavioral_signals": [
     {
-      "signal": "References Rallying the Reluctant, The Ledger of Hidden Fortunes, Teysa Karlov as story-context evidence rather than relying only on color identity.",
-      "placement_relevance": "Strengthens Orzhov Syndicate with corpus-backed specificity.",
-      "supports_match_when": "The user's answers echo Orzhov Syndicate, Orzhov, Obzedat, Ghost Council, Teysa Karlov, Kaya in a faction-specific way.",
-      "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
+      "signal_id": "orzhov_signal_collectible_obligation",
+      "signal": "Frames help, status, or relationship as something owed, recorded, and collectible through an institution.",
+      "placement_relevance": "Strengthens Orzhov when obligation is tied to source-bounded debt, deals, hierarchy, or institutional leverage.",
+      "supports_match_when": "The answer centers repayment, debt, contract, hierarchy, deal-making, or prestige as enforceable leverage.",
+      "weakens_match_when": "The answer only matches WB colors, lifegain/drain, sacrifice, taxes, removal, or generic control without Orzhov institution/debt context.",
       "claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010",
-        "orzhov_syndicate_claim_0011",
-        "orzhov_syndicate_claim_0012",
-        "orzhov_syndicate_claim_0013"
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019",
+        "orzhov_syndicate_claim_0020"
       ],
       "confidence": "Medium"
     },
@@ -349,17 +318,15 @@
   ],
   "inhibitor_traits": [
     {
-      "trait": "Generic color-pair overfit",
-      "why_it_conflicts": "The corpus upgrade is intended to prevent Orzhov Syndicate from winning on broad color identity alone.",
+      "trait_id": "orzhov_inhibitor_generic_wb_overfit",
+      "trait": "Generic color-pair or mechanic overfit",
+      "why_it_conflicts": "Generic WB control, taxes/stax, removal, lifegain/drain, aristocrats, sacrifice, recursion, or death triggers do not prove Orzhov without debt, deals, hierarchy, or religious-business authority.",
       "status": "Supported Interpretation",
       "claim_ids": [
-        "orzhov_syndicate_claim_0008",
-        "orzhov_syndicate_claim_0009",
-        "orzhov_syndicate_claim_0010",
-        "orzhov_syndicate_claim_0011"
+        "orzhov_syndicate_claim_0020"
       ],
       "confidence": "Medium",
-      "notes": "Use collision questions when another faction shares the same or adjacent colors."
+      "notes": "Use collision questions when another faction shares the same or adjacent colors and surface traits."
     },
     "believes rules should be impartial",
     "wants no credit or visibility",
@@ -367,26 +334,35 @@
   ],
   "good_fit_indicators": [
     {
+      "indicator_id": "orzhov_fit_debt_obligation",
       "indicator": "thinks in ledgers, obligations, and long consequences",
-      "rationale": "Matches the official Orzhov Syndicate identity summarized in the profile.",
+      "rationale": "Matches source-bounded Orzhov debt, deals, hierarchy, and obligation placement synthesis.",
       "claim_ids": [
-        "orzhov_syndicate_claim_001"
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
+      "indicator_id": "orzhov_fit_institutional_leverage",
       "indicator": "uses institutions as leverage",
-      "rationale": "Matches the official Orzhov Syndicate identity summarized in the profile.",
+      "rationale": "Matches Orzhov religious-business authority and cartel hierarchy rather than generic institution preference.",
       "claim_ids": [
-        "orzhov_syndicate_claim_002"
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "cares about legacy and social position",
-      "rationale": "Matches the official Orzhov Syndicate identity summarized in the profile.",
+      "indicator_id": "orzhov_fit_prestige_payment_structure",
+      "indicator": "cares about legacy, prestige, repayment, or social position as enforceable structure",
+      "rationale": "Matches bounded Orzhov placement synthesis from debt, hierarchy, deals, and obligation.",
       "claim_ids": [
-        "orzhov_syndicate_claim_003"
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019"
       ],
       "confidence": "Medium"
     }
@@ -424,27 +400,215 @@
   },
   "collision_guidance": [
     {
-      "collision_id": "collision_orzhov_syndicate_vs_silverquill_placement_ready",
-      "against": "silverquill",
-      "separator": "Orzhov uses obligation, debt, hierarchy, and institutional prestige; Silverquill uses visible language, rhetoric, image, and public influence.",
-      "ask": "When a room needs to move, do you bind people through what they owe or change what they believe through words?",
-      "suppress_if": "the answer centers public rhetoric, verbal style, or reputation over obligation and repayment",
+      "collision_id": "collision_orzhov_vs_generic_wb_overfit_gate3",
+      "against": "GENERIC_WB_OVERFIT",
+      "separator": "Orzhov requires debt, deals, religious-business authority, or cartel hierarchy; generic WB mechanics, control, attrition, lifegain/drain, taxes, sacrifice, aristocrats, recursion, or death triggers are not enough.",
+      "ask": "Is the center of gravity an Orzhov obligation/deal/debt institution, or only a WB deck pattern?",
+      "suppress_if": "the answer is only WB color identity or mechanic texture",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_001",
-        "orzhov_syndicate_claim_002",
-        "orzhov_syndicate_claim_003"
+        "orzhov_syndicate_claim_0020"
       ]
     },
     {
-      "collision_id": "collision_orzhov_syndicate_vs_house_dimir_placement_ready",
-      "against": "house_dimir",
-      "separator": "Orzhov wants power to look legitimate and collectible; Dimir wants power to remain unseen and informational.",
-      "ask": "Would you rather everyone know the contract binds them, or no one know you shaped the situation at all?",
-      "suppress_if": "the answer prefers invisibility, secrecy, or no credit",
+      "collision_id": "collision_orzhov_vs_w_gate3",
+      "against": "W",
+      "separator": "Mono-white order, law, faith, hierarchy, or community lacks Orzhov deal-making debt and cartel/business leverage unless obligation becomes collectible.",
+      "ask": "Is the structure about impartial order or about what can be owed, collected, and enforced?",
+      "suppress_if": "the answer centers selfless order, public law, or community without repayment logic",
       "evidence_claim_ids": [
-        "orzhov_syndicate_claim_001",
-        "orzhov_syndicate_claim_002",
-        "orzhov_syndicate_claim_003"
+        "orzhov_syndicate_claim_0021"
+      ]
+    },
+    {
+      "collision_id": "collision_orzhov_vs_b_gate3",
+      "against": "B",
+      "separator": "Mono-black ambition, wealth, exploitation, death, or power lacks Orzhov religious-business institution and debt hierarchy unless those structures lead.",
+      "ask": "Is the power merely self-serving, or is it laundered through obligation, deals, debt, and hierarchy?",
+      "suppress_if": "the answer centers individual ambition or power without Orzhov institution/debt context",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0022"
+      ]
+    },
+    {
+      "collision_id": "collision_orzhov_vs_azorius_gate3",
+      "against": "WU",
+      "separator": "Azorius centers public procedure and impartial order; Orzhov centers obligation, debt, deal-making, and institutional leverage.",
+      "ask": "Do rules bind everyone impartially, or do they make obligations collectible?",
+      "suppress_if": "the answer centers impartial law, procedure, or bureaucracy over repayment and leverage",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0023"
+      ]
+    },
+    {
+      "collision_id": "collision_orzhov_vs_boros_gate3",
+      "against": "WR",
+      "separator": "Boros centers public duty, justice, protection, and force; Orzhov turns hierarchy into debt, obligation, and institutional leverage.",
+      "ask": "Is force used to protect someone now, or to enforce what is owed?",
+      "suppress_if": "the answer centers protection, justice, or direct intervention over obligation and repayment",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0024"
+      ]
+    },
+    {
+      "collision_id": "collision_orzhov_vs_rakdos_gate3",
+      "against": "BR",
+      "separator": "Rakdos turns heat into spectacle, release, or provocation; Orzhov makes power durable through debt, deals, business, and hierarchy.",
+      "ask": "Is the act public release or a collectible obligation?",
+      "suppress_if": "the answer centers spectacle, indulgence, violence, or release over formal obligation",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0025"
+      ]
+    },
+    {
+      "collision_id": "collision_orzhov_vs_golgari_gate3",
+      "against": "BG",
+      "separator": "Golgari turns death and decay into survival ecology; Orzhov uses bounded afterlife/death texture only when tied to obligation, debt, hierarchy, or institution.",
+      "ask": "Does death feed an ecosystem, or does it reinforce what is owed?",
+      "suppress_if": "the answer centers rot, survival, recursion, graveyard value, or ecology over obligation",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0026"
+      ]
+    },
+    {
+      "collision_id": "collision_orzhov_vs_dimir_gate3",
+      "against": "UB",
+      "separator": "Dimir hides leverage through information and secrecy; Orzhov makes leverage visible and collectible through debt, status, and institution.",
+      "ask": "Would you rather no one know you shaped the situation, or everyone know the obligation binds them?",
+      "suppress_if": "the answer centers secrecy, hidden information, or anonymity over visible obligation",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0027"
+      ]
+    },
+    {
+      "collision_id": "collision_orzhov_vs_selesnya_gate3",
+      "against": "WG",
+      "separator": "Selesnya centers shared belonging and harmony; Orzhov religious or communal texture must become deal-making, debt, hierarchy, or cartel authority.",
+      "ask": "Is the group a belonging you share, or an institution that records what is owed?",
+      "suppress_if": "the answer centers free belonging, harmony, or selfless community over repayment",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0028"
+      ]
+    },
+    {
+      "collision_id": "collision_orzhov_vs_silverquill_gate3",
+      "against": "SILVERQUILL",
+      "separator": "Silverquill uses public language, rhetoric, reputation, and social influence; Orzhov binds status to obligation, debt, deals, and institutional hierarchy.",
+      "ask": "When a room needs to move, do you bind people through what they owe or change what they believe through words?",
+      "suppress_if": "the answer centers public rhetoric, verbal style, or reputation over obligation and repayment",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0029"
+      ]
+    },
+    {
+      "collision_id": "collision_orzhov_vs_esper_gate3",
+      "against": "ESPER",
+      "separator": "Esper may use hierarchy and control, but Orzhov requires the WB debt/deal/religious-business institution rather than broader WUB optimization.",
+      "ask": "Is the structure optimizing a system, or collecting obligation through Orzhov debt and hierarchy?",
+      "suppress_if": "the answer centers system perfection, optimization, or broad WUB control over Orzhov debt/deals",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0030"
+      ]
+    },
+    {
+      "collision_id": "collision_orzhov_vs_abzan_gate3",
+      "against": "ABZAN",
+      "separator": "Abzan obligation preserves family, house, and ancestry; Orzhov obligation becomes transactional debt, deals, business, and cartel hierarchy.",
+      "ask": "Is the obligation kinship continuity, or a collectible contract?",
+      "suppress_if": "the answer centers family endurance, ancestor duty, or house continuity over transactional debt",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0031"
+      ]
+    },
+    {
+      "collision_id": "collision_orzhov_vs_mardu_gate3",
+      "against": "MARDU",
+      "separator": "Mardu hierarchy serves martial loyalty, conquest, or raid momentum; Orzhov hierarchy serves debt, deals, business, and religious-cartel authority.",
+      "ask": "Is loyalty martial and immediate, or contractual and collectible?",
+      "suppress_if": "the answer centers martial oath, raid momentum, or conquest over debt and deal-making",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0032"
+      ]
+    }
+  ],
+  "semantic_guidance_evidence": [
+    {
+      "guidance_id": "orzhov_guidance_how_to_recognize_match_0_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "orzhov_guidance_how_to_recognize_match_0_gate3",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019"
+      ]
+    },
+    {
+      "guidance_id": "orzhov_guidance_how_to_recognize_match_1_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "orzhov_guidance_how_to_recognize_match_1_gate3",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019"
+      ]
+    },
+    {
+      "guidance_id": "orzhov_guidance_how_to_recognize_match_2_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "orzhov_guidance_how_to_recognize_match_2_gate3",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0019"
+      ]
+    },
+    {
+      "guidance_id": "orzhov_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "orzhov_guidance_how_to_recognize_mismatch_0_gate3",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0020",
+        "orzhov_syndicate_claim_0021",
+        "orzhov_syndicate_claim_0028"
+      ]
+    },
+    {
+      "guidance_id": "orzhov_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "orzhov_guidance_how_to_recognize_mismatch_1_gate3",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0020",
+        "orzhov_syndicate_claim_0021",
+        "orzhov_syndicate_claim_0028"
+      ]
+    },
+    {
+      "guidance_id": "orzhov_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "orzhov_guidance_how_to_recognize_mismatch_2_gate3",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_0020",
+        "orzhov_syndicate_claim_0021",
+        "orzhov_syndicate_claim_0028"
+      ]
+    },
+    {
+      "guidance_id": "orzhov_guidance_questions_to_ask_when_uncertain_0_gate3",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_id": "orzhov_guidance_questions_to_ask_when_uncertain_0_gate3",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0020"
+      ]
+    },
+    {
+      "guidance_id": "orzhov_guidance_questions_to_ask_when_uncertain_1_gate3",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_id": "orzhov_guidance_questions_to_ask_when_uncertain_1_gate3",
+      "evidence_claim_ids": [
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0020"
       ]
     }
   ]
