@@ -112,6 +112,14 @@ Creates test strategy and acceptance checks.
 - Preserve existing project themes unless explicitly told to redesign.
 - Always report files changed and tests run.
 
+## CRIT-001 Drift Control
+
+For every CRIT-001 Goal mode, review, remediation, or certification task, first apply the mandatory drift-control baseline at `docs/incidents/CRIT-001-drift-control-template.md`. Every identity must complete the applicable drift checkpoint before advancing gates, and any `FAIL` or `UNKNOWN` scorecard result stops progression.
+
+Gate 1+2 must record frozen fields and fixture/provenance locators. Candidate creation must include exact-chain checks and exact candidate-scope validation. Superseded candidates remain recorded. Independent review must rerun the controls instead of trusting implementation summaries. Certification must reconcile reviewed/generated truth before governance and tracker updates. Only exact candidate SHAs may be reviewed or approved, and only exact approved candidate SHAs may be certified.
+
+The next identity may remain setup-only before current certification, but it may not receive semantic work. Every new identity must receive a separate committed drift-preflight control record before Gate 1+2 semantic work begins. Do not weaken stricter CRIT-001 playbook, contract, or gate rules.
+
 ## Common Commands
 
 Use these when applicable:

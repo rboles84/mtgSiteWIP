@@ -27,6 +27,28 @@
         "No Rakdos raw data, generated artifacts, fixtures, or runtime behavior changed in VM-540."
       ]
     },
+    "drift_control": {
+      "status": "installed",
+      "template": "docs/incidents/CRIT-001-drift-control-template.md",
+      "register": "docs/incidents/CRIT-001-drift-register.md",
+      "installed_after_program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
+      "governance_commit": "PENDING_CRIT001_DRIFT_CONTROL_GOVERNANCE_SHA",
+      "current_identity_hold": {
+        "identity": "UG",
+        "card": "VM-516",
+        "state": "setup_only",
+        "required_next_milestone": "separate_committed_drift_preflight_control_record",
+        "gate_1_2_blocked_until": "drift_preflight_passes_with_no_FAIL_or_UNKNOWN"
+      },
+      "pre_simic_sequence": [
+        "Install and commit the drift-control framework.",
+        "Update the external tracker with the drift-control governance SHA.",
+        "Run a separate VM-516 drift-preflight window.",
+        "Commit a VM-516 drift-preflight control record before Gate 1+2.",
+        "Update the external tracker with the drift-preflight SHA.",
+        "Begin Simic Goal mode only after the drift preflight reports no FAIL or UNKNOWN controls."
+      ]
+    },
     "rejected_prerequisite_candidates": [
       {
         "sha": "b5d1c8db4758cab740392a6417c16019d778cc4c",
@@ -2425,7 +2447,7 @@
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "W",
-        "primary_disposition": "Branch setup only after VM-515 Selesnya certification; Gate 1+2 pending; no Simic audit, source inspection, remediation, candidate, review, certification, or VM-517 work started."
+        "primary_disposition": "Branch setup only after VM-515 Selesnya certification at program base fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3. Gate 1+2 remains pending and blocked until the CRIT-001 drift-control baseline is externally tracked and a separate committed VM-516 drift-preflight control record passes with no FAIL or UNKNOWN controls. No Simic audit, source inspection, remediation, candidate, review, certification, or VM-517 work started."
       },
       "semantic_review": {
         "required_neighbors": [],

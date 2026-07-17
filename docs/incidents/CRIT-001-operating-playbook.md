@@ -12,6 +12,14 @@ This playbook records the operating model learned from VM-502 through VM-509. It
 
 The goal is simple: each identity must become semantically ready through source-backed evidence, clean canonical chains, generated propagation, candidate-scope isolation, independent exact-SHA review, and governance-only certification.
 
+## Drift-Control Baseline
+
+All CRIT-001 Goal mode, review, remediation, and certification prompts must reference and apply `docs/incidents/CRIT-001-drift-control-template.md`. The applicable drift checkpoint is mandatory before advancing any gate, and any `FAIL` or `UNKNOWN` scorecard result stops progression.
+
+Gate 1+2 must record frozen-field baselines and fixture/provenance locators. Candidate creation must include exact-chain checks and exact candidate-scope validation against the final candidate SHA. Superseded candidates remain recorded. Independent review must rerun the controls rather than trusting implementation summaries. Certification must reconcile reviewed/generated truth before governance and tracker updates, review only exact candidate SHAs, and certify only exact approved candidate SHAs.
+
+The next identity may be setup-only after current certification, but it must not receive semantic work before a separate committed drift-preflight control record passes. Do not combine that preflight with semantic audit, remediation, review, or certification.
+
 ## Worktree and Branch Gate
 
 Implementation must run only in the CRIT worktree:
