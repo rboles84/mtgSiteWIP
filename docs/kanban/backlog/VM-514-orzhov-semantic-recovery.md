@@ -1,7 +1,7 @@
 # VM-514 - Orzhov Semantic Recovery
 
 ID: VM-514
-Status: Candidate Created - Awaiting Independent Review
+Status: Independent Review Approved - Awaiting Certification
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: WB
@@ -20,7 +20,7 @@ Recover Orzhov end to end under CRIT-001: audit the existing packet, bound readi
 - [x] Gate 3 - Canonical remediation.
 - [x] Gate 4 - Generation and validation.
 - [x] Gate 5 - Candidate creation.
-- [ ] Gate 5 - Independent review.
+- [x] Gate 5 - Independent review.
 - [ ] Gate 5 - Independent certification.
 
 ## Scope Rules
@@ -39,7 +39,7 @@ Recover Orzhov end to end under CRIT-001: audit the existing packet, bound readi
 - Gate 1+2 governance SHA: `de5e2e8344dcdfd6feb44e3731a0819f44142bb6`
 - Superseded candidate SHA: `5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048`
 - Candidate recovery SHA: `8aea3e359c16687948178ad55a927cf758fd9206`
-- Independent reviewer: pending
+- Independent reviewer: Codex independent review approved exact candidate `8aea3e359c16687948178ad55a927cf758fd9206`
 - Certification commit: pending
 
 ## Setup State
@@ -66,4 +66,12 @@ Superseded candidate `5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048` remains in histo
 
 `node research/validate-semantic-candidate-scope.mjs --base=de5e2e8344dcdfd6feb44e3731a0819f44142bb6 --target=8aea3e359c16687948178ad55a927cf758fd9206 --identity=WB`
 
-Status: awaiting independent review; not certified; not semantically_ready; VM-515 not started.
+## Independent Review
+
+Independent review approved exact candidate `8aea3e359c16687948178ad55a927cf758fd9206` with decision:
+
+`APPROVE EXACT SHA 8aea3e359c16687948178ad55a927cf758fd9206`
+
+No blocker, high, medium, or low findings remain. Candidate scope, Contract v1.1 claim roles, evidence scopes, discovery isolation, provenance IDs/hashes, fixture/provenance parity, generated public/recruiter surfaces, required-neighbor boundaries, frozen placement/calibration preservation, deterministic generation, and required validations passed.
+
+Status: awaiting certification; not certified; not semantically_ready; VM-515 not started.

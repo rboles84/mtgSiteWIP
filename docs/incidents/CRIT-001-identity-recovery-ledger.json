@@ -1925,14 +1925,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_5_candidate_created",
-        "status": "awaiting_independent_review",
+        "current_gate": "gate_5_independent_review_approved",
+        "status": "awaiting_certification",
         "started_at": "2026-07-17T07:02:00-06:00",
-        "gate_entered_at": "2026-07-17T07:43:00-06:00",
+        "gate_entered_at": "2026-07-17T08:06:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WG",
-        "primary_disposition": "Candidate created and awaiting independent review; final candidate 8aea3e359c16687948178ad55a927cf758fd9206 supersedes scope-failing candidate 5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048; Orzhov is not certified and not semantically_ready; VM-515 not started."
+        "primary_disposition": "Independent review approved exact candidate 8aea3e359c16687948178ad55a927cf758fd9206 with decision APPROVE EXACT SHA 8aea3e359c16687948178ad55a927cf758fd9206; superseded candidate 5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048 remains unapproved; Orzhov is awaiting certification, not certified, not semantically_ready; VM-515 not started."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -1952,12 +1952,14 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-514-orzhov-semantic-recovery.md",
         "residual_findings": [
+          "Independent review approved exact candidate 8aea3e359c16687948178ad55a927cf758fd9206 with decision APPROVE EXACT SHA 8aea3e359c16687948178ad55a927cf758fd9206.",
+          "No remaining blocker, high, medium, or low findings after approval review.",
           "Gate 3+4 remediated Orzhov to 32 claims: 22 substantive_claim, 10 discovery_record, 0 support_record, 0 unclassified.",
           "Discovery/story-corpus records are isolated from authoritative proof chains and retained only as metadata/history.",
-          "WB provenance has 67 entries with zero required null canonical IDs, zero required null content hashes, and zero duplicate canonical entries.",
-          "Superseded candidate 5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048 remains in history but is not awaiting review because candidate-scope rejected confidence/native-ID/lateral-target/generic collision-target drift.",
-          "Final candidate 8aea3e359c16687948178ad55a927cf758fd9206 passed candidate-scope and awaits independent review.",
-          "Orzhov is not certified, not semantically_ready, and VM-515 has not started."
+          "WB provenance has 67 entries with zero required null canonical IDs, zero required null content hashes, zero duplicate canonical entries, and no unresolved canonical pointers.",
+          "Superseded candidate 5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048 remains in history but is unapproved because candidate-scope rejected confidence/native-ID/lateral-target/generic collision-target drift.",
+          "Candidate workflow record fd354556104e70bc5832907b971c8f7e4599bb91 exists in branch history; approval review record is this governance commit.",
+          "Orzhov is awaiting certification, not certified, not semantically_ready, and VM-515 has not started."
         ],
         "validation_summary": [
           "npm.cmd run build:factions passed; repeated generation produced the same scoped file set.",
@@ -1989,10 +1991,34 @@
         "candidate_recovery_sha": "8aea3e359c16687948178ad55a927cf758fd9206",
         "recovery_commit": "8aea3e359c16687948178ad55a927cf758fd9206",
         "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
-        "certified_at": null
+        "reviewer": "Codex independent review window; approval review record assigned by this governance commit",
+        "review_cycles": 1,
+        "approval_date": "2026-07-17",
+        "certified_at": null,
+        "review_result": "approved_exact_sha",
+        "final_state": "awaiting_certification",
+        "superseded_candidate_shas": [
+          "5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048"
+        ],
+        "independent_review_decision": "APPROVE EXACT SHA 8aea3e359c16687948178ad55a927cf758fd9206",
+        "remaining_findings": {
+          "blocker": [],
+          "high": [],
+          "medium": [],
+          "low": []
+        },
+        "known_unchanged_warnings": [
+          "JESKAI and MARDU source/generated model-owned inhibitor warnings remain unchanged and unrelated.",
+          "git diff --check reported line-ending warnings only."
+        ],
+        "candidate_workflow_record": "fd354556104e70bc5832907b971c8f7e4599bb91",
+        "approval_review_record": "PENDING_THIS_GOVERNANCE_COMMIT_SHA",
+        "review_findings": {
+          "blocker": [],
+          "high": [],
+          "medium": [],
+          "low": []
+        }
       }
     },
     {

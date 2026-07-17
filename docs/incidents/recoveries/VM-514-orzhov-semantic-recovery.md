@@ -169,3 +169,53 @@ Gate 3+4 completed on 2026-07-17 using only existing local/listed Orzhov sources
 - Orzhov is not certified and not semantically_ready.
 - VM-515 has not started.
 - Table Talk baseline remains preserved and excluded from VM-514 commits.
+
+## Independent Review - 2026-07-17
+
+Decision: `APPROVE EXACT SHA 8aea3e359c16687948178ad55a927cf758fd9206`
+
+Review base: `de5e2e8344dcdfd6feb44e3731a0819f44142bb6`
+
+Superseded candidate checked: `5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048`
+
+Workflow-record commit checked: `fd354556104e70bc5832907b971c8f7e4599bb91`
+
+The independent review verified exact candidate isolation, candidate scope, Contract v1.1 claim roles, bounded evidence locations, discovery-record isolation, generated public/recruiter surfaces, fixture/provenance exact-chain parity, frozen placement confidence/calibration preservation, required-neighbor coverage, deterministic generation, and required validation.
+
+Findings by severity:
+
+- Blocker: none.
+- High: none.
+- Medium: none.
+- Low: none.
+- Non-blocking observations: `npm.cmd run test:source-generated` retained the known unrelated JESKAI and MARDU model-owned inhibitor warnings; the exact Orzhov candidate changes no Jeskai or Mardu raw/generated sections and does not worsen those warnings. `git diff --check` passed with line-ending warnings only.
+
+Key review results:
+
+- Final claim counts: 32 total; 22 `substantive_claim`; 10 `discovery_record`; 0 `support_record`; 0 `unclassified`.
+- Every substantive Orzhov claim has complete `evidence_locations` with `evidence_scope`, and evidence-location source IDs match declared claim source IDs.
+- Discovery-only story-corpus claims are retained only under `data_quality.corpus_upgrade` discovery metadata; they do not prove identity, placement, public copy, recruiter guidance, fixtures, or authoritative provenance chains.
+- WB generated provenance contains 67 entries, with no null canonical IDs, no null canonical content hashes, no duplicate canonical locators, and no unresolved canonical pointers.
+- Core identity fixture/provenance exact chain matched at `data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/core_identity`: 8 generated IDs, 8 fixture IDs, exact ordered equality, no duplicates, no missing IDs, no extras.
+- Placement summary fixture/provenance exact chain matched at `data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json#/placement_summary`: 10 generated IDs, 10 fixture IDs, exact ordered equality, no duplicates, no missing IDs, no extras.
+- Required-neighbor fixtures cover `GENERIC_WB_OVERFIT`, `W`, `B`, `WU`, `WR`, `BR`, `BG`, `UB`, `WG`, `SILVERQUILL`, `ESPER`, `ABZAN`, and `MARDU`.
+- The exact candidate restores the frozen placement primary read, false-positive guardrail, calibration tuning, and generated lateral-inhibition target set after the superseded candidate's scope failure; exact candidate-scope validation passed.
+- Public and recruiter copy is source-bounded to debt, deals, religious-business authority, cartel hierarchy, leadership transition, obligation, and Afterlife mechanics texture; generic WB attrition, taxes/stax, lifegain/drain, sacrifice, aristocrats, recursion, death triggers, removal, and extort appear only as auxiliary product texture, suppressions, or guardrails.
+
+Validation run during review:
+
+- JSON parse checks for every changed candidate JSON file: passed.
+- Explicit duplicate-ID, fixture/provenance parity, evidence-scope, discovery-isolation, null canonical-ID/hash, canonical-pointer, and frozen-field checks: passed.
+- `npm.cmd run build:factions`: passed twice; no generated drift remained.
+- `node research/audit-semantic-readiness.mjs --targets=WB`: passed.
+- `node research/validate-semantic-readiness.mjs --targets=WB`: passed.
+- `node research/semantic-candidate-scope-tests.js`: passed.
+- `npm.cmd run test:semantic-readiness`: passed; verified 1729 semantic provenance entries.
+- `npm.cmd run test:placement`: passed; 37 factions / 37 golden paths.
+- `npm.cmd run test:faction-context-isolation`: passed.
+- `npm.cmd run test:source-generated`: passed with unchanged unrelated JESKAI/MARDU warnings.
+- `npm.cmd test`: passed.
+- `git diff --check`: passed with line-ending warnings only.
+- `node research/validate-semantic-candidate-scope.mjs --base=de5e2e8344dcdfd6feb44e3731a0819f44142bb6 --target=8aea3e359c16687948178ad55a927cf758fd9206 --identity=WB`: passed.
+
+Disposition: Orzhov candidate approved and awaiting certification. Orzhov is not certified, not semantically_ready, and VM-515 has not started.

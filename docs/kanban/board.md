@@ -9,7 +9,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 **CRIT-001 is open.** Faction-foundation authoring, readiness approvals, canonical semantic guidance outside an active recovery card, Hall/Crucible authoring, and placement calibration are frozen. VM-501 owns shared recovery infrastructure; VM-502 through VM-538 recover the 37 identities one at a time. See the [incident](../incidents/CRIT-001-faction-semantic-readiness-integrity.md) and [authoritative recovery ledger](../incidents/CRIT-001-identity-recovery-ledger.json).
 
-**VM-502 Prismari, VM-506 Lorehold, VM-503 Quandrix, VM-504 Silverquill, VM-505 Witherbloom, VM-507 Izzet, VM-508 Azorius, VM-509 Boros, VM-510 Rakdos, VM-511 Golgari, VM-512 Gruul, and VM-513 Dimir are certified semantically ready under CRIT-001 Contract v1.1.** Dimir approved candidate `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee` is accepted by independent Gate 5 review; candidate workflow-record SHA `1c3ef3013ce07c85db75554e82bd11bf99d095bc` and approval review SHA `f67d8398037d0169d92db07ee102865e97445e22` are recorded; superseded scope-failing candidate `16d7cae2565684d1320306cc3f2e31b2417b2b0f` remains unapproved. VM-540 adds CRIT-001 Operating Playbook v2 and Gate 0 hardening. Active identity is VM-514 Orzhov / WB on `codex/vm-514-orzhov-semantic-recovery`; final candidate `8aea3e359c16687948178ad55a927cf758fd9206` was created after superseding scope-failing candidate `5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048`; Orzhov is awaiting independent review, not certified, not semantically_ready, and VM-515 has not started.
+**VM-502 Prismari, VM-506 Lorehold, VM-503 Quandrix, VM-504 Silverquill, VM-505 Witherbloom, VM-507 Izzet, VM-508 Azorius, VM-509 Boros, VM-510 Rakdos, VM-511 Golgari, VM-512 Gruul, and VM-513 Dimir are certified semantically ready under CRIT-001 Contract v1.1.** Dimir approved candidate `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee` is accepted by independent Gate 5 review; candidate workflow-record SHA `1c3ef3013ce07c85db75554e82bd11bf99d095bc` and approval review SHA `f67d8398037d0169d92db07ee102865e97445e22` are recorded; superseded scope-failing candidate `16d7cae2565684d1320306cc3f2e31b2417b2b0f` remains unapproved. VM-540 adds CRIT-001 Operating Playbook v2 and Gate 0 hardening. Active identity is VM-514 Orzhov / WB on `codex/vm-514-orzhov-semantic-recovery`; exact candidate `8aea3e359c16687948178ad55a927cf758fd9206` is approved by independent review after superseding scope-failing candidate `5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048`; Orzhov is awaiting certification, not certified, not semantically_ready, and VM-515 has not started.
 
 ## Backlog
 
@@ -38,7 +38,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-514 - Orzhov Semantic Recovery](backlog/VM-514-orzhov-semantic-recovery.md) - Candidate `8aea3e359c16687948178ad55a927cf758fd9206` created and candidate-scope passed; awaiting independent review; not certified; not semantically_ready; VM-515 not started.
+- [VM-514 - Orzhov Semantic Recovery](backlog/VM-514-orzhov-semantic-recovery.md) - APPROVE EXACT SHA `8aea3e359c16687948178ad55a927cf758fd9206`; awaiting certification; not certified; not semantically_ready; VM-515 not started.
 
 ## Blocked
 
