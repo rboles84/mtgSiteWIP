@@ -35502,6 +35502,68 @@
     {
       "identity_key": "WG",
       "canonical_file": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json",
+      "canonical_pointer": "/core_values/7",
+      "canonical_id": "selesnya_value_defensive_capacity",
+      "canonical_content_hash": "sha256:eccf5e130c9ef380d6aaa3fe62495827b1666062641afed5122df7326ee94087",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_003",
+        "selesnya_conclave_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WG",
+        "data/placement-model.json#/factions/WG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WG",
+      "canonical_file": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json",
+      "canonical_pointer": "/core_values/8",
+      "canonical_id": "selesnya_value_consensus_guardrail",
+      "canonical_content_hash": "sha256:b7c3cfc07931923f05a01706e5f05747cbcfdb18067445bf0220e2d3c92b7380",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0019",
+        "selesnya_conclave_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WG",
+        "data/placement-model.json#/factions/WG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WG",
+      "canonical_file": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json",
+      "canonical_pointer": "/core_values/9",
+      "canonical_id": "selesnya_value_nontransactional_belonging",
+      "canonical_content_hash": "sha256:66f93ef3726fbaf74e5f746bcbe75e2a897f4255caf147405105590f7fd97421",
+      "evidence_claim_ids": [
+        "selesnya_conclave_claim_0018",
+        "selesnya_conclave_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WG",
+        "data/placement-model.json#/factions/WG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WG",
+      "canonical_file": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json",
       "canonical_pointer": "/discriminator_questions/0",
       "canonical_id": "selesnya_q1",
       "canonical_content_hash": "sha256:3a49b74be3548631ec11519a12781057c80b9b657aec5126f15194f744c114ab",
@@ -36211,8 +36273,8 @@
       "identity_key": "WG",
       "canonical_file": "data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json",
       "canonical_pointer": "/historical_timeline/0",
-      "canonical_id": "event_selesnya_mat_selesnya_founder_gate3",
-      "canonical_content_hash": "sha256:388f2d25e6f16dd764c162d20abb25751f6a57dfcb69d289eb48326e2bd6b2b2",
+      "canonical_id": "event_selesnya_conclave_selesnya_conclave_claim_004",
+      "canonical_content_hash": "sha256:e2bbe2895a81e224faa4f7c6b8355bfe03a3e637adc63951d26d084c7b19e1ef",
       "evidence_claim_ids": [
         "selesnya_conclave_claim_004"
       ],

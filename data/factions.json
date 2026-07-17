@@ -2677,7 +2677,7 @@
               "selesnya_conclave_claim_004"
             ],
             "confidence": "High",
-            "notes": "Canon-supported claim used for raw enrichment."
+            "notes": "Source-bounded claim used for raw enrichment."
           }
         ],
         "key_figures": [
@@ -2685,108 +2685,53 @@
             "character_id": "char_mat_selesnya",
             "name": "Mat'Selesnya",
             "role": "Selesnya founder and voice of nature.",
-            "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+            "relationship_to_faction": "Source-backed founder/voice named by the official Selesnya guide.",
             "claim_ids": [
-              "selesnya_conclave_claim_004",
-              "selesnya_conclave_claim_005",
-              "selesnya_conclave_claim_0008",
-              "selesnya_conclave_claim_0010",
-              "selesnya_conclave_claim_0011",
-              "selesnya_conclave_claim_0012",
-              "selesnya_conclave_claim_0015"
+              "selesnya_conclave_claim_004"
             ],
             "source_ids": [
-              "src_wotc_flavorful_guide_guilds_ravnica_2018",
-              "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-              "src_mtg_stories_desperate_operatives_6c6a580b",
-              "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-              "src_mtg_stories_the_great_concourse_cc6ee0e6",
-              "src_mtg_stories_episode_9_beauty_in_destruction_8206653c"
+              "src_wotc_flavorful_guide_guilds_ravnica_2018"
             ],
             "confidence": "High",
-            "notes": ""
+            "notes": "Discovery-story claim IDs removed from authoritative key-figure proof chain during VM-515 Gate 3."
           },
           {
             "character_id": "char_trostani",
             "name": "Trostani",
-            "role": "Prominent Selesnya voice and guild leader.",
-            "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+            "role": "Mat'Selesnya's speaker through three dryads representing Life, Order, and Harmony.",
+            "relationship_to_faction": "Source-backed Selesnya leadership figure named by the official Selesnya guide.",
             "claim_ids": [
-              "selesnya_conclave_claim_005",
-              "selesnya_conclave_claim_0008",
-              "selesnya_conclave_claim_0009",
-              "selesnya_conclave_claim_0010",
-              "selesnya_conclave_claim_0011",
-              "selesnya_conclave_claim_0012",
-              "selesnya_conclave_claim_0013",
-              "selesnya_conclave_claim_0015",
-              "selesnya_conclave_claim_0016",
-              "selesnya_conclave_claim_0017"
+              "selesnya_conclave_claim_005"
             ],
             "source_ids": [
-              "src_wotc_flavorful_guide_guilds_ravnica_2018",
-              "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-              "src_mtg_stories_in_praise_of_the_worldsoul_part_1_d5ba8171",
-              "src_mtg_stories_desperate_operatives_6c6a580b",
-              "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-              "src_mtg_stories_the_great_concourse_cc6ee0e6",
-              "src_mtg_stories_in_praise_of_the_worldsoul_part_2_f671c9f9",
-              "src_mtg_stories_episode_9_beauty_in_destruction_8206653c",
-              "src_mtg_stories_the_gathering_storm_chapter_5_85ba569f",
-              "src_mtg_stories_in_praise_of_the_worldsoul_part_3_bc6ed8e9"
+              "src_wotc_flavorful_guide_guilds_ravnica_2018"
             ],
             "confidence": "High",
-            "notes": ""
-          },
-          {
-            "character_id": "char_emmara_tandris",
-            "name": "Emmara Tandris",
-            "role": "Prominent Selesnya figure.",
-            "relationship_to_faction": "Appears in source-backed evidence for this faction.",
-            "claim_ids": [
-              "selesnya_conclave_claim_0010",
-              "selesnya_conclave_claim_0011",
-              "selesnya_conclave_claim_0016"
-            ],
-            "source_ids": [
-              "src_mtg_stories_desperate_operatives_6c6a580b",
-              "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-              "src_mtg_stories_the_gathering_storm_chapter_5_85ba569f"
-            ],
-            "confidence": "Medium",
-            "notes": ""
+            "notes": "Discovery-story claim IDs removed from authoritative key-figure proof chain during VM-515 Gate 3."
           }
         ],
         "canonical_flavor_text": [
           {
+            "id": "selesnya_source_bounded_dossier_anchor",
             "card_name": "Selesnya Conclave dossier anchor",
             "set": "Ravnica",
-            "short_excerpt_or_summary": "The self finds peace by becoming part of a greater living community.",
+            "short_excerpt_or_summary": "Source-bounded Selesnya copy should center communal voice, nature, unity, togetherness, preservation, Mat'Selesnya, Trostani, non-pacifist defensive capacity, and Convoke only where those dimensions are directly or interpretively supported by reviewed sources.",
             "is_exact_excerpt": false,
             "claim_ids": [
-              "selesnya_conclave_claim_0008",
-              "selesnya_conclave_claim_0009",
-              "selesnya_conclave_claim_0010",
-              "selesnya_conclave_claim_0011",
-              "selesnya_conclave_claim_0012",
-              "selesnya_conclave_claim_0013",
-              "selesnya_conclave_claim_0014",
-              "selesnya_conclave_claim_0015"
+              "selesnya_conclave_claim_001",
+              "selesnya_conclave_claim_002",
+              "selesnya_conclave_claim_003",
+              "selesnya_conclave_claim_006",
+              "selesnya_conclave_claim_007",
+              "selesnya_conclave_claim_0020"
             ],
             "source_ids": [
-              "src_mtg_stories_episode_5_chains_of_expectation_18265ca0",
-              "src_mtg_stories_in_praise_of_the_worldsoul_part_1_d5ba8171",
-              "src_mtg_stories_desperate_operatives_6c6a580b",
-              "src_mtg_stories_episode_10_roots_of_decay_955d3d20",
-              "src_mtg_stories_the_great_concourse_cc6ee0e6",
-              "src_mtg_stories_in_praise_of_the_worldsoul_part_2_f671c9f9",
-              "src_mtg_stories_the_ledger_of_hidden_fortunes_daa0c70e",
-              "src_mtg_stories_episode_9_beauty_in_destruction_8206653c",
               "src_wotc_flavorful_guide_guilds_ravnica_2018",
-              "src_wotc_guilds_ravnica_prerelease_primer_2018",
-              "src_wotc_guilds_ravnica_mechanics_2018"
+              "src_wotc_guilds_ravnica_mechanics_2018",
+              "src_wotc_guilds_ravnica_prerelease_primer_2018"
             ],
-            "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+            "evidence_use": "auxiliary_support",
+            "notes": "Auxiliary copy guardrail; not card flavor text and not an independent proof chain."
           }
         ],
         "views_on_other_factions": [],

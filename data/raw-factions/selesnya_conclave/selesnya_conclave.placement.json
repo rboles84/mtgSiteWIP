@@ -402,17 +402,47 @@
       ],
       "confidence": "Medium"
     },
-    {
-      "value_id": "selesnya_value_mat_trostani_context",
-      "value": "Mat'Selesnya and Trostani context",
-      "placement_relevance": "Leadership references are Selesnya-specific when tied to the official guide, not generic dryad or Worldsoul flavor.",
-      "claim_ids": [
-        "selesnya_conclave_claim_004",
-        "selesnya_conclave_claim_005"
-      ],
-      "confidence": "Medium"
-    }
-  ],
+  {
+    "value_id": "selesnya_value_mat_trostani_context",
+    "value": "Mat'Selesnya and Trostani context",
+    "placement_relevance": "Leadership references are Selesnya-specific when tied to the official guide, not generic dryad or Worldsoul flavor.",
+    "claim_ids": [
+      "selesnya_conclave_claim_004",
+      "selesnya_conclave_claim_005"
+    ],
+    "confidence": "Medium"
+  },
+  {
+    "value_id": "selesnya_value_defensive_capacity",
+    "value": "defensive capacity without Boros overfit",
+    "placement_relevance": "Selesnya can field force, but the source-bounded reason remains communal preservation rather than Boros discipline.",
+    "claim_ids": [
+      "selesnya_conclave_claim_003",
+      "selesnya_conclave_claim_0024"
+    ],
+    "confidence": "Medium"
+  },
+  {
+    "value_id": "selesnya_value_consensus_guardrail",
+    "value": "consensus without Azorius procedure",
+    "placement_relevance": "Selesnya harmony is not generic procedure, law, or civic administration.",
+    "claim_ids": [
+      "selesnya_conclave_claim_0019",
+      "selesnya_conclave_claim_0023"
+    ],
+    "confidence": "Medium"
+  },
+  {
+    "value_id": "selesnya_value_nontransactional_belonging",
+    "value": "nontransactional belonging",
+    "placement_relevance": "Shared care and belonging must remain distinct from debt, hierarchy, or repayment.",
+    "claim_ids": [
+      "selesnya_conclave_claim_0018",
+      "selesnya_conclave_claim_0026"
+    ],
+    "confidence": "Medium"
+  }
+],
   "behavioral_signals": [
     {
       "signal_id": "selesnya_signal_shared_belonging",
@@ -433,16 +463,15 @@
       "placement_relevance": "Separates Selesnya from mono-green, Simic, Golgari, and generic WG overfit.",
       "supports_match_when": "Nature is tied to shared care, unity, and preservation.",
       "weakens_match_when": "Nature is only creatures, optimization, decay, or resource cycling.",
-      "claim_ids": [
-        "selesnya_conclave_claim_001",
-        "selesnya_conclave_claim_0020",
-        "selesnya_conclave_claim_0022",
-        "selesnya_conclave_claim_0025",
-        "selesnya_conclave_claim_0027"
-      ],
-      "confidence": "Medium"
-    }
-  ],
+    "claim_ids": [
+      "selesnya_conclave_claim_001",
+      "selesnya_conclave_claim_0020",
+      "selesnya_conclave_claim_0022",
+      "selesnya_conclave_claim_0025",
+      "selesnya_conclave_claim_0027"
+    ]
+  }
+],
   "inhibitor_traits": [
     {
       "trait_id": "selesnya_inhibit_generic_wg_overfit",
@@ -460,16 +489,15 @@
       "trait": "Procedure, debt, or life/death craft leads over belonging",
       "why_it_conflicts": "Centers nearby WU, WB, BG, or Witherbloom patterns instead of Selesnya communal harmony.",
       "status": "Supported Interpretation",
-      "claim_ids": [
-        "selesnya_conclave_claim_0023",
-        "selesnya_conclave_claim_0025",
-        "selesnya_conclave_claim_0026",
-        "selesnya_conclave_claim_0029"
-      ],
-      "confidence": "Medium",
-      "notes": "Suppress Selesnya when the answer's core logic is law, repayment, decay, essence, or vitality cost."
-    }
-  ],
+    "claim_ids": [
+      "selesnya_conclave_claim_0023",
+      "selesnya_conclave_claim_0025",
+      "selesnya_conclave_claim_0026",
+      "selesnya_conclave_claim_0029"
+    ],
+    "notes": "Suppress Selesnya when the answer's core logic is law, repayment, decay, essence, or vitality cost."
+  }
+],
   "good_fit_indicators": [
     {
       "indicator_id": "selesnya_fit_shared_belonging",
