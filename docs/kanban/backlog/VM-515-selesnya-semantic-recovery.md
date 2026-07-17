@@ -1,7 +1,7 @@
 # VM-515 — Selesnya Semantic Recovery
 
 ID: VM-515
-Status: Setup Only - Gate 1+2 Pending
+Status: Gate 3 Authorized - Gate 1+2 Complete
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: WG
@@ -15,8 +15,8 @@ Recover Selesnya end to end under CRIT-001: audit the existing packet, bound rea
 
 ## Gates
 
-- [ ] Gate 1 — Packet audit and bounded disposition.
-- [ ] Gate 2 — Sufficient evidence completion.
+- [x] Gate 1 — Packet audit and bounded disposition.
+- [x] Gate 2 — Sufficient evidence completion.
 - [ ] Gate 3 — Canonical remediation.
 - [ ] Gate 4 — Generation and validation.
 - [ ] Gate 5 — Independent certification.
@@ -32,14 +32,22 @@ Recover Selesnya end to end under CRIT-001: audit the existing packet, bound rea
 
 VM-515 is the next CRIT-001 identity after Orzhov certification.
 
-Branch setup only is authorized from the VM-514 certification commit. Gate 1+2 is pending. No Selesnya source inspection, audit, remediation, generated artifact change, fixture work, candidate creation, independent review, certification, or VM-516 work has started.
+Branch setup only was authorized from the VM-514 certification commit. Gate 1+2 audit and bounded evidence confirmation completed on 2026-07-17.
+
+## Gate 1+2 Status
+
+Disposition: `claim_extraction_pass_required`.
+
+Remediation is authorized under CRIT-001 Contract v1.1 using existing listed/local Selesnya sources. The read-only audit found 17 claims: 0 `substantive_claim`, 10 `discovery_record`, 0 `support_record`, and 7 `unclassified`; no substantive evidence locations or `evidence_scope`; missing WG fixtures; 31 null WG generated provenance canonical IDs; 25 discovery-backed generated provenance chains; and authoritative profile/placement/recruiter chains contaminated by discovery or unclassified records.
+
+Gate 3+4 must preserve frozen placement confidence/calibration fields and generated lateral targets, isolate discovery/support records from proof chains, build WG fixtures from generated truth, and stop if source locators cannot support retained Selesnya wording.
 
 ## Required Records
 
 - Canonical ledger: `docs/incidents/CRIT-001-identity-recovery-ledger.json`
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
-- Audit/recovery report: pending
+- Audit/recovery report: `docs/incidents/recoveries/VM-515-selesnya-semantic-recovery.md`
 - Candidate recovery SHA: pending
 - Independent reviewer: pending
 - Certification commit: pending

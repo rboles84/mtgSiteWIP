@@ -9,7 +9,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 **CRIT-001 is open.** Faction-foundation authoring, readiness approvals, canonical semantic guidance outside an active recovery card, Hall/Crucible authoring, and placement calibration are frozen. VM-501 owns shared recovery infrastructure; VM-502 through VM-538 recover the 37 identities one at a time. See the [incident](../incidents/CRIT-001-faction-semantic-readiness-integrity.md) and [authoritative recovery ledger](../incidents/CRIT-001-identity-recovery-ledger.json).
 
-**VM-502 Prismari, VM-506 Lorehold, VM-503 Quandrix, VM-504 Silverquill, VM-505 Witherbloom, VM-507 Izzet, VM-508 Azorius, VM-509 Boros, VM-510 Rakdos, VM-511 Golgari, VM-512 Gruul, VM-513 Dimir, and VM-514 Orzhov are certified semantically ready under CRIT-001 Contract v1.1.** Orzhov approved candidate `8aea3e359c16687948178ad55a927cf758fd9206` is accepted by independent Gate 5 review; candidate workflow-record SHA `fd354556104e70bc5832907b971c8f7e4599bb91` and approval review SHA `599ee7a2b193abc6b54ffdff887c84140f78baaa` are recorded; superseded scope-failing candidate `5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048` remains unapproved. VM-540 adds CRIT-001 Operating Playbook v2 and Gate 0 hardening. Active identity is VM-515 Selesnya / WG on `codex/vm-515-selesnya-semantic-recovery`; VM-515 is setup only with Gate 1+2 pending, and no Selesnya audit, source inspection, remediation, candidate, review, certification, or VM-516 work has started.
+**VM-502 Prismari, VM-506 Lorehold, VM-503 Quandrix, VM-504 Silverquill, VM-505 Witherbloom, VM-507 Izzet, VM-508 Azorius, VM-509 Boros, VM-510 Rakdos, VM-511 Golgari, VM-512 Gruul, VM-513 Dimir, and VM-514 Orzhov are certified semantically ready under CRIT-001 Contract v1.1.** Orzhov approved candidate `8aea3e359c16687948178ad55a927cf758fd9206` is accepted by independent Gate 5 review; candidate workflow-record SHA `fd354556104e70bc5832907b971c8f7e4599bb91` and approval review SHA `599ee7a2b193abc6b54ffdff887c84140f78baaa` are recorded; superseded scope-failing candidate `5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048` remains unapproved. VM-540 adds CRIT-001 Operating Playbook v2 and Gate 0 hardening. Active identity is VM-515 Selesnya / WG on `codex/vm-515-selesnya-semantic-recovery`; VM-515 Gate 1+2 is complete with disposition `claim_extraction_pass_required`, Gate 3+4 remediation is authorized, and no Selesnya candidate, independent review, certification, or VM-516 work has started.
 
 ## Backlog
 
@@ -38,7 +38,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-515 - Selesnya Semantic Recovery](backlog/VM-515-selesnya-semantic-recovery.md) - setup only after Orzhov certification; Gate 1+2 pending; no Selesnya audit, source inspection, remediation, candidate, review, certification, or VM-516 work started.
+- [VM-515 - Selesnya Semantic Recovery](backlog/VM-515-selesnya-semantic-recovery.md) - Gate 1+2 complete; disposition `claim_extraction_pass_required`; Gate 3+4 remediation authorized; no candidate, review, certification, or VM-516 work started.
 
 ## Blocked
 

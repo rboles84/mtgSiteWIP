@@ -2238,19 +2238,49 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "setup_only",
-        "status": "gate_1_2_pending",
-        "started_at": null,
-        "gate_entered_at": "2026-07-17T08:34:00-06:00",
+        "current_gate": "gate_3_4_authorized",
+        "status": "claim_extraction_pass_required",
+        "started_at": "2026-07-17T10:32:00-06:00",
+        "gate_entered_at": "2026-07-17T10:32:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "UG",
-        "primary_disposition": "Branch setup only after VM-514 Orzhov certification; Gate 1+2 pending; no Selesnya audit, source inspection, remediation, candidate, review, certification, or VM-516 work started."
+        "primary_disposition": "Gate 1+2 read-only audit completed; disposition claim_extraction_pass_required; remediation authorized from existing listed/local Selesnya sources; no Selesnya raw/generated/fixture/recruiter remediation, candidate, review, certification, or VM-516 work started."
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "GENERIC_WG_OVERFIT",
+          "W",
+          "G",
+          "WU",
+          "WR",
+          "BG",
+          "WB",
+          "UG",
+          "RG",
+          "WITHERBLOOM",
+          "QUANDRIX",
+          "BANT",
+          "NAYA",
+          "ABZAN"
+        ],
+        "audit_report": "docs/incidents/recoveries/VM-515-selesnya-semantic-recovery.md",
+        "residual_findings": [
+          "Gate 1+2 found 17 Selesnya claims: 0 substantive_claim, 10 discovery_record, 0 support_record, and 7 unclassified.",
+          "No Selesnya claims currently have Contract v1.1 semantic_role; no substantive evidence_locations or evidence_scope exist yet.",
+          "Discovery-only story-corpus rows currently contaminate authoritative profile, placement, public, recruiter, and provenance chains and must be demoted or isolated as metadata/history.",
+          "Commander Compass source_basis and identity_basis currently carry discovery claim IDs and must be clarified so discovery rows cannot be read as source-backed faction proof.",
+          "WG semantic fixtures are missing; generated WG provenance currently has 42 entries, 31 null canonical IDs, 0 null canonical content hashes, 25 discovery-backed chains, and 20 unclassified-backed chains.",
+          "Generated public/recruiter copy must be narrowed away from generic WG mechanics, brainwashing/cult caricature, unsupported Worldmind/erased-self wording, and Commander mechanics overfit.",
+          "Gate 3+4 must preserve frozen placement confidence/calibration fields and generated lateral targets observed at Gate 1+2: WU, WR, WITHERBLOOM, ABZAN.",
+          "Active Table Talk side-scan baseline remains preserved and must stay excluded from every VM-515 commit."
+        ],
+        "validation_summary": [
+          "Raw Selesnya JSON parse checks passed for claims, sources, profile, placement, and changelog.",
+          "node research/audit-semantic-readiness.mjs --targets=WG completed with expected Gate 1+2 risk findings.",
+          "node research/validate-semantic-readiness.mjs --targets=WG failed as expected for missing semantic roles, invalid proof chains, missing recruiter evidence mappings, and missing fixtures.",
+          "Custom read-only chain/provenance/frozen-field scan found no duplicate claim IDs in audited Selesnya raw chains and recorded the frozen calibration/lateral baseline."
+        ]
       },
       "certification": {
         "contract_version": "v1.1",
