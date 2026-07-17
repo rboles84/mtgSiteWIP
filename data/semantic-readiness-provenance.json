@@ -26190,6 +26190,139 @@
     {
       "identity_key": "UB",
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/core_values/4",
+      "canonical_id": "dimir_value_secrecy_as_method",
+      "canonical_content_hash": "sha256:2792a1f6b5e20596ad104f2ced1c06e9342f7fbfb2279cb517088bfe54eb055a",
+      "evidence_claim_ids": [
+        "house_dimir_claim_001",
+        "house_dimir_claim_002",
+        "house_dimir_claim_0017"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/core_values/5",
+      "canonical_id": "dimir_value_deception_with_bounds",
+      "canonical_content_hash": "sha256:af4643a5cd37e22643dbe7427b9cd586433b9aed8de8f57f804535dbcd4a6758",
+      "evidence_claim_ids": [
+        "house_dimir_claim_002",
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0018"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/core_values/6",
+      "canonical_id": "dimir_value_spies_assassins_as_texture",
+      "canonical_content_hash": "sha256:8343d7660f80537155550d0b273c91962a0456b56c1e1eaaff30ec99217b8142",
+      "evidence_claim_ids": [
+        "house_dimir_claim_002",
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/core_values/7",
+      "canonical_id": "dimir_value_selective_disclosure",
+      "canonical_content_hash": "sha256:d1488bdd481354f526820fe56b6ff435ed07a02a2dc7bf2dcd7478429302c516",
+      "evidence_claim_ids": [
+        "house_dimir_claim_0018",
+        "house_dimir_claim_0019",
+        "house_dimir_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/core_values/8",
+      "canonical_id": "dimir_value_backroom_timing",
+      "canonical_content_hash": "sha256:03548c0b4ecc73879a6373d9b3a9961a002ce9bccc4b5d2054e48983143f589a",
+      "evidence_claim_ids": [
+        "house_dimir_claim_002",
+        "house_dimir_claim_0019",
+        "house_dimir_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
+      "canonical_pointer": "/core_values/9",
+      "canonical_id": "dimir_value_surveillance_filter",
+      "canonical_content_hash": "sha256:acd10257bddc47990c15e5a53974aa5b092fad4a0af0e1172533123842f66707",
+      "evidence_claim_ids": [
+        "house_dimir_claim_005",
+        "house_dimir_claim_006",
+        "house_dimir_claim_0017"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UB",
+        "data/placement-model.json#/factions/UB",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UB"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UB",
+      "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/discriminator_questions/0",
       "canonical_id": "dimir_q1",
       "canonical_content_hash": "sha256:d807db9f783a4d3aebf7fdf25f80b48b4c725b3f3f4814db095afd2aba207bd0",
@@ -26486,7 +26619,7 @@
       "canonical_file": "data/raw-factions/house_dimir/house_dimir.placement.json",
       "canonical_pointer": "/placement_summary",
       "canonical_id": "house_dimir_placement_summary",
-      "canonical_content_hash": "sha256:90b3a2d12ce5127cf5522121d51808346ac80ada7e3b2309cda90d71b8482dff",
+      "canonical_content_hash": "sha256:c76ba3bd7bf3497d7636d86ad9538bcbf9686d9aba4c3b0f0dbfab3af52dd555",
       "evidence_claim_ids": [
         "house_dimir_claim_001",
         "house_dimir_claim_002",

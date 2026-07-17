@@ -213,7 +213,7 @@
       "house_dimir_claim_0018",
       "house_dimir_claim_0019"
     ],
-    "calibrated_primary_read": "Requires source-backed secrecy, backroom information leverage, observation before action, or surveil-style filtering.",
+    "calibrated_primary_read": "Requires privacy, hidden knowledge, information asymmetry, discretion, or invisible operation.",
     "calibrated_false_positive_guardrail": "Do not award for generic manipulation if the user wants visibility, reputation, or formal power."
   },
   "placement_axes": [
@@ -286,6 +286,72 @@
         "house_dimir_claim_0018",
         "house_dimir_claim_0020",
         "house_dimir_claim_0031"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "dimir_value_secrecy_as_method",
+      "value": "secrecy as method",
+      "placement_relevance": "Keeps secrecy tied to source-backed Dimir operations rather than generic private mood.",
+      "claim_ids": [
+        "house_dimir_claim_001",
+        "house_dimir_claim_002",
+        "house_dimir_claim_0017"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "dimir_value_deception_with_bounds",
+      "value": "deception with source bounds",
+      "placement_relevance": "Uses deception only where the guide supports Dimir method and not as a transferable personality trait.",
+      "claim_ids": [
+        "house_dimir_claim_002",
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0018"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "dimir_value_spies_assassins_as_texture",
+      "value": "spies and assassins as Dimir texture",
+      "placement_relevance": "Uses spies and assassins as source-supported Dimir texture without turning every rogue or criminal cue into proof.",
+      "claim_ids": [
+        "house_dimir_claim_002",
+        "house_dimir_claim_0017",
+        "house_dimir_claim_0025"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "dimir_value_selective_disclosure",
+      "value": "selective disclosure",
+      "placement_relevance": "Frames mature Dimir through delayed revelation and risk management rather than omniscience.",
+      "claim_ids": [
+        "house_dimir_claim_0018",
+        "house_dimir_claim_0019",
+        "house_dimir_claim_0020"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "dimir_value_backroom_timing",
+      "value": "backroom timing",
+      "placement_relevance": "Centers hidden timing and private leverage instead of public institution, spectacle, or rhetoric.",
+      "claim_ids": [
+        "house_dimir_claim_002",
+        "house_dimir_claim_0019",
+        "house_dimir_claim_0023"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "value_id": "dimir_value_surveillance_filter",
+      "value": "surveil-style information filter",
+      "placement_relevance": "Uses surveil as information filtering and not as generic mill, discard, or card-draw proof.",
+      "claim_ids": [
+        "house_dimir_claim_005",
+        "house_dimir_claim_006",
+        "house_dimir_claim_0017"
       ],
       "confidence": "Medium"
     }
