@@ -9,7 +9,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 **CRIT-001 is open.** Faction-foundation authoring, readiness approvals, canonical semantic guidance outside an active recovery card, Hall/Crucible authoring, and placement calibration are frozen. VM-501 owns shared recovery infrastructure; VM-502 through VM-538 recover the 37 identities one at a time. See the [incident](../incidents/CRIT-001-faction-semantic-readiness-integrity.md) and [authoritative recovery ledger](../incidents/CRIT-001-identity-recovery-ledger.json).
 
-**VM-502 Prismari, VM-506 Lorehold, VM-503 Quandrix, VM-504 Silverquill, VM-505 Witherbloom, VM-507 Izzet, VM-508 Azorius, VM-509 Boros, VM-510 Rakdos, VM-511 Golgari, VM-512 Gruul, and VM-513 Dimir are certified semantically ready under CRIT-001 Contract v1.1.** Dimir approved candidate `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee` is accepted by independent Gate 5 review; candidate workflow-record SHA `1c3ef3013ce07c85db75554e82bd11bf99d095bc` and approval review SHA `f67d8398037d0169d92db07ee102865e97445e22` are recorded; superseded scope-failing candidate `16d7cae2565684d1320306cc3f2e31b2417b2b0f` remains unapproved. VM-540 adds CRIT-001 Operating Playbook v2 and Gate 0 hardening. Next identity is VM-514 Orzhov / WB on setup-only branch `codex/vm-514-orzhov-semantic-recovery`; Gate 1+2 is pending, and no Orzhov audit, source inspection, remediation, candidate, review, certification, or VM-515 work has started.
+**VM-502 Prismari, VM-506 Lorehold, VM-503 Quandrix, VM-504 Silverquill, VM-505 Witherbloom, VM-507 Izzet, VM-508 Azorius, VM-509 Boros, VM-510 Rakdos, VM-511 Golgari, VM-512 Gruul, and VM-513 Dimir are certified semantically ready under CRIT-001 Contract v1.1.** Dimir approved candidate `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee` is accepted by independent Gate 5 review; candidate workflow-record SHA `1c3ef3013ce07c85db75554e82bd11bf99d095bc` and approval review SHA `f67d8398037d0169d92db07ee102865e97445e22` are recorded; superseded scope-failing candidate `16d7cae2565684d1320306cc3f2e31b2417b2b0f` remains unapproved. VM-540 adds CRIT-001 Operating Playbook v2 and Gate 0 hardening. Active identity is VM-514 Orzhov / WB on `codex/vm-514-orzhov-semantic-recovery`; Gate 1+2 is complete with disposition `claim_extraction_pass_required`, Gate 3+4 remediation is authorized, and no Orzhov candidate, review, certification, semantically_ready transition, or VM-515 work has started.
 
 ## Backlog
 
@@ -38,7 +38,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-514 - Orzhov Semantic Recovery](backlog/VM-514-orzhov-semantic-recovery.md) - Setup only after Dimir certification; Gate 1+2 pending; no Orzhov audit, source inspection, remediation, candidate, review, or certification started.
+- [VM-514 - Orzhov Semantic Recovery](backlog/VM-514-orzhov-semantic-recovery.md) - Gate 1+2 complete; claim extraction, canonical remediation, generation, fixtures, and validation authorized; no candidate, review, certification, or VM-515 work started.
 
 ## Blocked
 

@@ -2080,19 +2080,47 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "setup_only",
-        "status": "gate_1_2_pending",
-        "started_at": null,
-        "gate_entered_at": "2026-07-16T23:49:00-06:00",
+        "current_gate": "gate_3_authorized",
+        "status": "gate_3_ready",
+        "started_at": "2026-07-17T07:02:00-06:00",
+        "gate_entered_at": "2026-07-17T07:02:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WG",
-        "primary_disposition": "VM-514 branch setup only after Dimir certification; Gate 1+2 pending; no Orzhov audit, source inspection, remediation, candidate, review, or certification started."
+        "primary_disposition": "claim_extraction_pass_required"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "GENERIC_WB_OVERFIT",
+          "W",
+          "B",
+          "WU",
+          "WR",
+          "BR",
+          "BG",
+          "UB",
+          "WG",
+          "SILVERQUILL",
+          "ESPER",
+          "ABZAN",
+          "MARDU"
+        ],
+        "audit_report": "docs/incidents/recoveries/VM-514-orzhov-semantic-recovery.md",
+        "residual_findings": [
+          "Gate 1+2 found 17 Orzhov claims: 0 substantive_claim, 10 discovery_record, 0 support_record, and 7 unclassified.",
+          "All Orzhov claims lack explicit Contract v1.1 semantic roles; no substantive evidence_locations/evidence_scope are present yet.",
+          "Authoritative profile, placement, generated public copy, recruiter copy, and provenance chains currently rely on discovery/unclassified records.",
+          "WB semantic-readiness fixtures are missing; exact fixture/provenance parity cannot pass until Gate 3+4 creates fixtures from generated truth.",
+          "Generated WB provenance has 43 entries with 31 null canonical IDs, 0 null canonical content hashes, 0 duplicate canonical entries, and 27 discovery-backed chains.",
+          "Gate 3+4 must isolate discovery-only story-corpus records, clarify auxiliary Commander Compass discovery IDs, preserve frozen placement/calibration fields, and remove unsupported generic WB or stale high-heat public/recruiter wording from consumed surfaces."
+        ],
+        "validation_summary": [
+          "Raw Orzhov JSON parse checks passed for claims, sources, profile, placement, and changelog.",
+          "node research/audit-semantic-readiness.mjs --targets=WB completed and reported the Gate 1+2 structural findings.",
+          "node research/validate-semantic-readiness.mjs --targets=WB failed as expected for missing semantic roles, missing recruiter evidence mapping, invalid proof chains, and missing fixtures.",
+          "Custom exact-chain/provenance/frozen-field scan found no duplicate current WB raw-chain claim IDs, but found missing fixtures, 31 null WB canonical IDs, and 27 discovery-backed provenance chains.",
+          "Frozen placement/calibration baseline recorded for primary read, false-positive guardrail, required positive terms, min-hit threshold, broad-match penalty, strengthen/suppress lists, and generated lateral targets."
+        ]
       },
       "certification": {
         "contract_version": "v1.1",
