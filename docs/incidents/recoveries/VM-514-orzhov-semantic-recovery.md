@@ -116,3 +116,56 @@ Remediation is authorized under CRIT-001 Contract v1.1 using existing listed/loc
 - Do not add online source intake unless a blocker is reported and separately approved.
 - Do not change Contract v1.1, schemas, builders, validators, Hall, Crucible, scoring, confidence behavior, calibration, scheduling, tie-order, or global recruiter behavior.
 - Preserve the active Table Talk baseline and exclude it from every VM-514 commit.
+
+## Gate 3+4 Remediation and Validation
+
+Gate 3+4 completed on 2026-07-17 using only existing local/listed Orzhov sources. No online source intake, Contract v1.1 change, schema change, builder/validator change, Hall/Crucible change, scoring/confidence/calibration change, scheduling/tie-order change, global recruiter behavior change, non-Orzhov raw packet edit, certification, or VM-515 work occurred.
+
+### Canonical Changes
+
+- `data/raw-factions/orzhov_syndicate/orzhov_syndicate.claims.json`: 32 final claims; 22 `substantive_claim`, 10 `discovery_record`, 0 `support_record`, 0 `unclassified`. Every substantive claim has bounded evidence locations and `evidence_scope`.
+- `data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json`: authoritative profile, site surface, structure, core tension, mechanics, key figures, and Commander Compass source basis now use substantive Orzhov claims only. Story-corpus discovery IDs are retained only as non-authoritative metadata/history.
+- `data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json`: placement summary, axes, values, behavioral signals, inhibitors, discriminator questions, and collision guidance were rebuilt from source-bounded claims while preserving frozen calibration and generated lateral targets.
+- `data/raw-factions/orzhov_syndicate/orzhov_syndicate.changelog.json`: records the VM-514 Gate 3+4 remediation.
+- Generated consumers were rebuilt through `npm.cmd run build:factions`: `data/factions.json`, `data/placement-model.json`, `data/semantic-readiness-provenance.json`, and `supabase/functions/guild-recruiter/faction-context.ts`.
+- `research/fixtures/semantic-readiness/orzhov_syndicate.semantic-fixtures.json`: new WB semantic fixtures cover positive Orzhov semantics, generic WB overfit, required neighbors, stale/mechanic-overfit wording, nearest collision ambiguity, and exact provenance fixtures.
+
+### Semantic Boundaries
+
+- Orzhov is bounded to the Ravnican WB guild evidence cluster: religion, deals/business, debt/obligation, cartel hierarchy, organized crime, leadership transition, and source-bounded Afterlife mechanics texture.
+- Generic WB control, taxes/stax, lifegain/drain, sacrifice, aristocrats, recursion, death triggers, removal, or extort do not independently prove Orzhov.
+- Discovery-only MTG-Stories records cannot prove identity, placement, key figures, public copy, recruiter guidance, semantic readiness, fixtures, or provenance chains.
+- Generic WB overfit is retained as an inhibitor/fixture risk and discriminator target, but not as a generated collision target because the candidate-scope validator only accepts canonical identity/color targets for generated collision guidance.
+- New non-frozen collision/discriminator entries are explicitly non-lateral where needed, preserving the Gate 1+2 generated lateral target set: `WU`, `UB`, `SILVERQUILL`, `ESPER`, `ABZAN`, `MARDU`.
+
+### Exact-Chain Proof
+
+- `orzhov_core_identity_provenance`: generated and fixture chains both contain 8 ordered claim IDs: `orzhov_syndicate_claim_001`, `orzhov_syndicate_claim_002`, `orzhov_syndicate_claim_003`, `orzhov_syndicate_claim_006`, `orzhov_syndicate_claim_007`, `orzhov_syndicate_claim_0018`, `orzhov_syndicate_claim_0019`, `orzhov_syndicate_claim_0020`.
+- `orzhov_placement_summary_provenance`: generated and fixture chains both contain 10 ordered claim IDs: `orzhov_syndicate_claim_001`, `orzhov_syndicate_claim_002`, `orzhov_syndicate_claim_003`, `orzhov_syndicate_claim_006`, `orzhov_syndicate_claim_007`, `orzhov_syndicate_claim_0018`, `orzhov_syndicate_claim_0019`, `orzhov_syndicate_claim_0020`, `orzhov_syndicate_claim_004`, `orzhov_syndicate_claim_005`.
+- Duplicate, missing, and extra claim-ID checks passed for both fixture/provenance pairs.
+
+### Validation
+
+- `npm.cmd run build:factions`: passed; repeated generation produced the same scoped file set.
+- Custom JSON/provenance/frozen-field guard: passed; WB provenance has 67 entries, 0 required null canonical IDs, 0 required null content hashes, and 0 duplicate canonical entries.
+- `node research/audit-semantic-readiness.mjs --targets=WB`: passed; 32 claims, 22 substantive, 10 discovery, 0 support, 0 unclassified, 59 reference sites.
+- `node research/validate-semantic-readiness.mjs --targets=WB`: passed.
+- `node research/semantic-candidate-scope-tests.js`: passed.
+- `npm.cmd run test:semantic-readiness`: passed; verified 1729 semantic provenance entries.
+- `npm.cmd run test:placement`: passed; 37 factions, 37 golden paths.
+- `npm.cmd run test:faction-context-isolation`: passed.
+- `npm.cmd run test:source-generated`: passed with known unrelated JESKAI/MARDU model-owned inhibitor warnings only.
+- `npm.cmd test`: passed.
+- `git diff --check`: passed with line-ending warnings only.
+
+## Gate 5 Candidate Record
+
+- Gate 1+2 governance/report commit: `de5e2e8344dcdfd6feb44e3731a0819f44142bb6`
+- Superseded first candidate: `5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048`
+- Superseded reason: post-commit candidate-scope validation rejected confidence/native-ID/lateral-target/generic collision-target drift.
+- Final Orzhov candidate: `8aea3e359c16687948178ad55a927cf758fd9206`
+- Candidate-scope validation: `node research/validate-semantic-candidate-scope.mjs --base=de5e2e8344dcdfd6feb44e3731a0819f44142bb6 --target=8aea3e359c16687948178ad55a927cf758fd9206 --identity=WB` passed.
+- Status: candidate created; awaiting independent review.
+- Orzhov is not certified and not semantically_ready.
+- VM-515 has not started.
+- Table Talk baseline remains preserved and excluded from VM-514 commits.

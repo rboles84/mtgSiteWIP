@@ -1870,10 +1870,10 @@
           "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 22,
           "discovery_record": 10,
           "support_record": 0,
-          "unclassified": 7
+          "unclassified": 0
         },
         "source_count": 13,
         "source_role_counts": {
@@ -1883,211 +1883,56 @@
         },
         "claim_bearing_source_count": 2,
         "claim_bearing_source_rate": 0.1538,
-        "reference_site_count": 43,
+        "reference_site_count": 59,
         "missing_references": [],
-        "potential_role_invalid_support_links": [
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/core_identity",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/site_surface",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/structure",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/great_tension",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/key_figures/0",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/key_figures/1",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/key_figures/2",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/key_figures/3",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/key_figures/4",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/canonical_flavor_text/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/mechanics",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/data_quality/corpus_upgrade",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json#/placement_summary",
-            "roles": [
-              "discovery_record",
-              "unclassified"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json#/placement_axes/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json#/moral_and_psychological_profile",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json#/core_values/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json#/core_values/1",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json#/core_values/2",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json#/core_values/3",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json#/core_values/4",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json#/core_values/5",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json#/core_values/6",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json#/core_values/7",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json#/core_values/8",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json#/core_values/9",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json#/behavioral_signals/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json#/inhibitor_traits/0",
-            "roles": [
-              "discovery_record"
-            ]
-          }
-        ],
+        "potential_role_invalid_support_links": [],
         "raw_question_count": 4,
         "unique_question_claim_ids": [
+          "orzhov_syndicate_claim_007",
+          "orzhov_syndicate_claim_0018",
+          "orzhov_syndicate_claim_0020",
+          "orzhov_syndicate_claim_0028",
+          "orzhov_syndicate_claim_0031",
           "orzhov_syndicate_claim_001",
           "orzhov_syndicate_claim_002",
           "orzhov_syndicate_claim_003"
         ],
         "neighbor_references": [
-          "house_dimir",
-          "silverquill"
+          "ABZAN",
+          "B",
+          "BG",
+          "BR",
+          "ESPER",
+          "GENERIC_WB_OVERFIT",
+          "MARDU",
+          "SILVERQUILL",
+          "UB",
+          "W",
+          "WG",
+          "WR",
+          "WU"
         ],
-        "recruiter_context_size": 8178,
+        "recruiter_context_size": 8256,
         "creation_commit": "f6a1dd4644849ffb3bad6f1bba82f7cd55fa549a",
         "readiness_mentions": [
           "docs/reference/ravnica-guild-source-readiness-matrix.md:33"
         ],
         "provisional_risk_indicators": {
-          "coverage": [
-            "low-record-volume",
-            "discovery-record-majority",
-            "no-explicit-substantive-role"
-          ],
+          "coverage": [],
           "neighbors": []
         },
         "template_cohort_pattern": false,
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_3_authorized",
-        "status": "gate_3_ready",
+        "current_gate": "gate_5_candidate_created",
+        "status": "awaiting_independent_review",
         "started_at": "2026-07-17T07:02:00-06:00",
-        "gate_entered_at": "2026-07-17T07:02:00-06:00",
+        "gate_entered_at": "2026-07-17T07:43:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WG",
-        "primary_disposition": "claim_extraction_pass_required"
+        "primary_disposition": "Candidate created and awaiting independent review; final candidate 8aea3e359c16687948178ad55a927cf758fd9206 supersedes scope-failing candidate 5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048; Orzhov is not certified and not semantically_ready; VM-515 not started."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -2107,26 +1952,42 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-514-orzhov-semantic-recovery.md",
         "residual_findings": [
-          "Gate 1+2 found 17 Orzhov claims: 0 substantive_claim, 10 discovery_record, 0 support_record, and 7 unclassified.",
-          "All Orzhov claims lack explicit Contract v1.1 semantic roles; no substantive evidence_locations/evidence_scope are present yet.",
-          "Authoritative profile, placement, generated public copy, recruiter copy, and provenance chains currently rely on discovery/unclassified records.",
-          "WB semantic-readiness fixtures are missing; exact fixture/provenance parity cannot pass until Gate 3+4 creates fixtures from generated truth.",
-          "Generated WB provenance has 43 entries with 31 null canonical IDs, 0 null canonical content hashes, 0 duplicate canonical entries, and 27 discovery-backed chains.",
-          "Gate 3+4 must isolate discovery-only story-corpus records, clarify auxiliary Commander Compass discovery IDs, preserve frozen placement/calibration fields, and remove unsupported generic WB or stale high-heat public/recruiter wording from consumed surfaces."
+          "Gate 3+4 remediated Orzhov to 32 claims: 22 substantive_claim, 10 discovery_record, 0 support_record, 0 unclassified.",
+          "Discovery/story-corpus records are isolated from authoritative proof chains and retained only as metadata/history.",
+          "WB provenance has 67 entries with zero required null canonical IDs, zero required null content hashes, and zero duplicate canonical entries.",
+          "Superseded candidate 5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048 remains in history but is not awaiting review because candidate-scope rejected confidence/native-ID/lateral-target/generic collision-target drift.",
+          "Final candidate 8aea3e359c16687948178ad55a927cf758fd9206 passed candidate-scope and awaits independent review.",
+          "Orzhov is not certified, not semantically_ready, and VM-515 has not started."
         ],
         "validation_summary": [
-          "Raw Orzhov JSON parse checks passed for claims, sources, profile, placement, and changelog.",
-          "node research/audit-semantic-readiness.mjs --targets=WB completed and reported the Gate 1+2 structural findings.",
-          "node research/validate-semantic-readiness.mjs --targets=WB failed as expected for missing semantic roles, missing recruiter evidence mapping, invalid proof chains, and missing fixtures.",
-          "Custom exact-chain/provenance/frozen-field scan found no duplicate current WB raw-chain claim IDs, but found missing fixtures, 31 null WB canonical IDs, and 27 discovery-backed provenance chains.",
-          "Frozen placement/calibration baseline recorded for primary read, false-positive guardrail, required positive terms, min-hit threshold, broad-match penalty, strengthen/suppress lists, and generated lateral targets."
-        ]
+          "npm.cmd run build:factions passed; repeated generation produced the same scoped file set.",
+          "Custom JSON/provenance/frozen-field guard passed: 32 claims, 22 substantive, 10 discovery, 0 support, 0 unclassified; WB provenance 67 entries; exact core_identity and placement_summary fixture/provenance chains match.",
+          "node research/audit-semantic-readiness.mjs --targets=WB passed with 59 reference sites and 13 neighbor references.",
+          "node research/validate-semantic-readiness.mjs --targets=WB passed.",
+          "node research/semantic-candidate-scope-tests.js passed.",
+          "npm.cmd run test:semantic-readiness passed and verified 1729 semantic provenance entries.",
+          "npm.cmd run test:placement passed for 37 factions and 37 golden paths.",
+          "npm.cmd run test:faction-context-isolation passed.",
+          "npm.cmd run test:source-generated passed with known unrelated JESKAI/MARDU warnings only.",
+          "npm.cmd test passed.",
+          "git diff --check passed with line-ending warnings only.",
+          "node research/validate-semantic-candidate-scope.mjs --base=de5e2e8344dcdfd6feb44e3731a0819f44142bb6 --target=8aea3e359c16687948178ad55a927cf758fd9206 --identity=WB passed."
+        ],
+        "remediation_report": "docs/incidents/recoveries/VM-514-orzhov-semantic-recovery.md#gate-34-remediation-and-validation",
+        "candidate_scope": {
+          "base": "de5e2e8344dcdfd6feb44e3731a0819f44142bb6",
+          "target": "8aea3e359c16687948178ad55a927cf758fd9206",
+          "result": "passed",
+          "superseded_candidate": "5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048",
+          "superseded_reason": "candidate-scope rejected confidence/native-ID/lateral-target/generic collision-target drift",
+          "exceptions": []
+        }
       },
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "8aea3e359c16687948178ad55a927cf758fd9206",
+        "recovery_commit": "8aea3e359c16687948178ad55a927cf758fd9206",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
