@@ -5,8 +5,8 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "DIMIR",
-    "next_identity": "DIMIR",
+    "active_identity": "ORZHOV",
+    "next_identity": "ORZHOV",
     "wip_limit": 1,
     "active_prerequisite": null,
     "prerequisite_candidate_sha": "6e53acd5691c85caf3328d3bd301ac18d07879e1",
@@ -1773,14 +1773,14 @@
         "inventory_updated_at": "2026-07-16T22:54:00-06:00"
       },
       "workflow": {
-        "current_gate": "gate_5_review_approved",
-        "status": "awaiting_certification",
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": "2026-07-16T22:13:00-06:00",
-        "gate_entered_at": "2026-07-16T23:29:00-06:00",
+        "gate_entered_at": "2026-07-16T23:49:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WB",
-        "primary_disposition": "candidate_approved_awaiting_certification"
+        "primary_disposition": "Certified semantically_ready after independent review approved exact candidate 6e6c079d19ee152016212f01f8c2ffd81f0ca0ee; no remaining blocker/high/medium/low findings; VM-514 Orzhov branch setup only, no audit or remediation started."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -1801,26 +1801,21 @@
         "audit_report": "docs/incidents/recoveries/VM-513-dimir-semantic-recovery.md",
         "residual_findings": [
           "Independent review approved exact candidate 6e6c079d19ee152016212f01f8c2ffd81f0ca0ee with decision APPROVE EXACT SHA 6e6c079d19ee152016212f01f8c2ffd81f0ca0ee.",
-          "Dimir is awaiting certification; it is not certified and not semantically_ready.",
-          "Discovery-only story-corpus rows are retained as metadata/history only and are isolated from authoritative proof chains.",
-          "Remaining stale-risk terms appear only as guardrail, suppression, fixture, or discovery metadata language, not affirmative Dimir proof.",
-          "Intermediate SHA 16d7cae2565684d1320306cc3f2e31b2417b2b0f failed post-commit candidate-scope for frozen placement confidence/calibration drift and was superseded before workflow record.",
-          "Independent review found no blocker, high, medium, or low findings; VM-514 was not started."
+          "No remaining blocker, high, medium, or low findings after approval review.",
+          "Superseded scope-failing candidate 16d7cae2565684d1320306cc3f2e31b2417b2b0f remains unapproved and is not certified.",
+          "Candidate workflow record 1c3ef3013ce07c85db75554e82bd11bf99d095bc and approval review record f67d8398037d0169d92db07ee102865e97445e22 exist in branch history.",
+          "VM-514 Orzhov branch setup only; Gate 1+2 pending and no Orzhov audit, source inspection, remediation, candidate, review, or certification work started."
         ],
         "validation_summary": [
-          "JSON parse checks for changed JSON files passed.",
-          "npm.cmd run build:factions passed; repeated generation stable for final candidate shape.",
-          "Explicit duplicate-ID, fixture/provenance equality, evidence_scope, discovery/support isolation, and null canonical-ID/hash checks passed.",
+          "Governance JSON parse validation passed.",
           "node research/audit-semantic-readiness.mjs --targets=UB passed with 32 claims: 22 substantive, 10 discovery, 0 support, 0 unclassified, 74 reference sites.",
           "node research/validate-semantic-readiness.mjs --targets=UB passed.",
-          "node research/semantic-candidate-scope-tests.js passed.",
           "npm.cmd run test:semantic-readiness passed; verified 1705 semantic provenance entries.",
           "npm.cmd run test:placement passed; 37 factions / 37 golden paths.",
           "npm.cmd run test:faction-context-isolation passed.",
           "npm.cmd run test:source-generated passed with unchanged unrelated JESKAI and MARDU warnings.",
-          "npm.cmd test passed.",
           "git diff --check passed with line-ending warnings only.",
-          "node research/validate-semantic-candidate-scope.mjs --base=646ea02aa12959441eba6e0844b902cf32bab914 --target=6e6c079d19ee152016212f01f8c2ffd81f0ca0ee --identity=UB passed."
+          "Explicit evidence_scope, discovery isolation, UB provenance, fixture/provenance exact-chain, frozen placement confidence/calibration, and candidate-tree integrity checks passed."
         ]
       },
       "certification": {
@@ -1828,13 +1823,13 @@
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "6e6c079d19ee152016212f01f8c2ffd81f0ca0ee",
         "recovery_commit": "6e6c079d19ee152016212f01f8c2ffd81f0ca0ee",
-        "certification_commit": null,
-        "reviewer": "Codex independent review window",
+        "certification_commit": "PENDING_VM513_CERTIFICATION_COMMIT_SHA",
+        "reviewer": "Codex independent review record f67d8398037d0169d92db07ee102865e97445e22",
         "review_cycles": 1,
         "approval_date": "2026-07-16",
-        "certified_at": null,
+        "certified_at": "2026-07-16T23:49:00-06:00",
         "review_result": "approved_exact_sha",
-        "final_state": "awaiting_certification",
+        "final_state": "semantically_ready",
         "superseded_candidate_shas": [
           "16d7cae2565684d1320306cc3f2e31b2417b2b0f"
         ],
@@ -1846,9 +1841,17 @@
           "low": []
         },
         "known_unchanged_warnings": [
-          "Source/generated guardrail validation reports unchanged unrelated JESKAI and MARDU model-owned inhibitor warnings only.",
-          "git diff --check reports line-ending warnings only."
-        ]
+          "JESKAI and MARDU source/generated model-owned inhibitor warnings remain unchanged and unrelated.",
+          "git diff --check reported line-ending warnings only."
+        ],
+        "candidate_workflow_record": "1c3ef3013ce07c85db75554e82bd11bf99d095bc",
+        "approval_review_record": "f67d8398037d0169d92db07ee102865e97445e22",
+        "review_findings": {
+          "blocker": [],
+          "high": [],
+          "medium": [],
+          "low": []
+        }
       }
     },
     {
@@ -2077,14 +2080,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
+        "current_gate": "setup_only",
+        "status": "gate_1_2_pending",
         "started_at": null,
-        "gate_entered_at": null,
+        "gate_entered_at": "2026-07-16T23:49:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WG",
-        "primary_disposition": null
+        "primary_disposition": "VM-514 branch setup only after Dimir certification; Gate 1+2 pending; no Orzhov audit, source inspection, remediation, candidate, review, or certification started."
       },
       "semantic_review": {
         "required_neighbors": [],
@@ -2092,7 +2095,7 @@
         "residual_findings": []
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": null,
         "recovery_commit": null,

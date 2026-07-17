@@ -9,7 +9,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 **CRIT-001 is open.** Faction-foundation authoring, readiness approvals, canonical semantic guidance outside an active recovery card, Hall/Crucible authoring, and placement calibration are frozen. VM-501 owns shared recovery infrastructure; VM-502 through VM-538 recover the 37 identities one at a time. See the [incident](../incidents/CRIT-001-faction-semantic-readiness-integrity.md) and [authoritative recovery ledger](../incidents/CRIT-001-identity-recovery-ledger.json).
 
-**VM-502 Prismari, VM-506 Lorehold, VM-503 Quandrix, VM-504 Silverquill, VM-505 Witherbloom, VM-507 Izzet, VM-508 Azorius, VM-509 Boros, VM-510 Rakdos, VM-511 Golgari, and VM-512 Gruul are certified semantically ready under CRIT-001 Contract v1.1.** Gruul approved replacement candidate `16b58c3f32d92e6406d368169d91b0b6a86f948d` is accepted by independent Gate 5 review; replacement workflow-record SHA `3fa4580e874e457c26b11b36705786863934963a` and approval review SHA `ff973268c211b08c288b401c8f59b58b910c4d51` are recorded; rejected candidate/review `73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33` / `04c0933825c985373336ba9bdbfccbbcf29d8e82` remain rejected. VM-540 adds CRIT-001 Operating Playbook v2 and Gate 0 hardening. Active identity is Dimir / UB on `codex/vm-513-dimir-semantic-recovery`; Gate 1+2 through independent Gate 5 review are complete, candidate `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee` is approved and awaiting certification, and no Dimir certification, semantically_ready transition, or VM-514 work has started.
+**VM-502 Prismari, VM-506 Lorehold, VM-503 Quandrix, VM-504 Silverquill, VM-505 Witherbloom, VM-507 Izzet, VM-508 Azorius, VM-509 Boros, VM-510 Rakdos, VM-511 Golgari, VM-512 Gruul, and VM-513 Dimir are certified semantically ready under CRIT-001 Contract v1.1.** Dimir approved candidate `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee` is accepted by independent Gate 5 review; candidate workflow-record SHA `1c3ef3013ce07c85db75554e82bd11bf99d095bc` and approval review SHA `f67d8398037d0169d92db07ee102865e97445e22` are recorded; superseded scope-failing candidate `16d7cae2565684d1320306cc3f2e31b2417b2b0f` remains unapproved. VM-540 adds CRIT-001 Operating Playbook v2 and Gate 0 hardening. Next identity is VM-514 Orzhov / WB on setup-only branch `codex/vm-514-orzhov-semantic-recovery`; Gate 1+2 is pending, and no Orzhov audit, source inspection, remediation, candidate, review, certification, or VM-515 work has started.
 
 ## Backlog
 
@@ -38,7 +38,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-513 - Dimir Semantic Recovery](backlog/VM-513-dimir-semantic-recovery.md) - Candidate `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee` approved by independent review and awaiting certification; not certified, not semantically_ready, and VM-514 not started.
+- [VM-514 - Orzhov Semantic Recovery](backlog/VM-514-orzhov-semantic-recovery.md) - Setup only after Dimir certification; Gate 1+2 pending; no Orzhov audit, source inspection, remediation, candidate, review, or certification started.
 
 ## Blocked
 
@@ -61,6 +61,8 @@ VM-429 Section 14 ID reconciliation, 2026-06-30: the early readiness plan expect
 - [VM-511 - Golgari Semantic Recovery](done/VM-511-golgari-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1; approved replacement candidate SHA `bb0105f3f2d91a7696aefc004254fc52dc37cd85`; certification commit recorded by this acceptance commit.
 
 - [VM-512 - Gruul Semantic Recovery](done/VM-512-gruul-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1; approved replacement candidate SHA `16b58c3f32d92e6406d368169d91b0b6a86f948d`; certification commit recorded by this acceptance commit.
+
+- [VM-513 - Dimir Semantic Recovery](done/VM-513-dimir-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1; approved recovery SHA `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee`; superseded candidate `16d7cae2565684d1320306cc3f2e31b2417b2b0f` remains unapproved; certification commit recorded by this acceptance commit.
 
 - [VM-503 - Quandrix Semantic Recovery](done/VM-503-quandrix-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1; approved recovery SHA `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe`; certification commit `cb495e11ba875f1801cbd8f8cb8e7204c27f5840`.
 - [VM-502 - Prismari Semantic Recovery](done/VM-502-prismari-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1; approved recovery SHA `19800da6322100b28fa6325fef91321e147b6f69`; certification commit `492598f13df24d0f74f5869e249d860ff661a3aa`.

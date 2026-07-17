@@ -1,7 +1,7 @@
 # VM-513 — Dimir Semantic Recovery
 
 ID: VM-513
-Status: Candidate Approved - Awaiting Certification
+Status: Certified - Semantically Ready
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: UB
@@ -19,7 +19,7 @@ Recover Dimir end to end under CRIT-001: audit the existing packet, bound readin
 - [x] Gate 2 — Sufficient evidence completion.
 - [x] Gate 3 - Canonical remediation.
 - [x] Gate 4 - Generation and validation.
-- [ ] Gate 5 — Independent certification.
+- [x] Gate 5 - Independent certification.
 
 ## Scope Rules
 
@@ -36,8 +36,10 @@ Recover Dimir end to end under CRIT-001: audit the existing packet, bound readin
 - Audit/recovery report: `docs/incidents/recoveries/VM-513-dimir-semantic-recovery.md`
 - Gate 1+2 governance/report SHA: `646ea02aa12959441eba6e0844b902cf32bab914`
 - Candidate recovery SHA: `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee`
+- Candidate workflow record: `1c3ef3013ce07c85db75554e82bd11bf99d095bc`
+- Approval review record: `f67d8398037d0169d92db07ee102865e97445e22`
 - Independent reviewer: Codex independent review window
-- Certification commit: pending
+- Certification commit: `PENDING_VM513_CERTIFICATION_COMMIT_SHA`
 
 ## Gate 1+2 Finding
 
@@ -58,3 +60,19 @@ Validation passed, including `npm.cmd run build:factions`, UB audit/validation, 
 Independent review approved exact candidate SHA `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee` with no blocker, high, medium, or low findings. Review verified exact candidate isolation, superseded-candidate frozen-field remediation, Contract v1.1 claim roles, source-bounded evidence, discovery isolation, canonical IDs and content hashes, fixture/provenance exact-chain parity, generated public/recruiter surfaces, required-neighbor boundaries, deterministic generation, and required validations.
 
 Known non-blocking observations: `npm.cmd run test:source-generated` retains unrelated JESKAI/MARDU model-owned inhibitor warnings; `git diff --check` reports line-ending warnings only. The Table Talk side-scan baseline remained preserved and excluded from the review record.
+
+## Certification Record
+
+Dimir / UB is certified `semantically_ready` under CRIT-001 Contract v1.1 on 2026-07-16 from exact approved candidate `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee`.
+
+Certification records:
+
+- Gate 1+2 commit: `646ea02aa12959441eba6e0844b902cf32bab914`
+- Superseded scope-failing candidate: `16d7cae2565684d1320306cc3f2e31b2417b2b0f`
+- Approved recovery candidate: `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee`
+- Candidate workflow record: `1c3ef3013ce07c85db75554e82bd11bf99d095bc`
+- Approval review record: `f67d8398037d0169d92db07ee102865e97445e22`
+- Approval decision: `APPROVE EXACT SHA 6e6c079d19ee152016212f01f8c2ffd81f0ca0ee`
+- Certification commit: `PENDING_VM513_CERTIFICATION_COMMIT_SHA`
+
+No candidate semantic, generated, fixture, provenance, recruiter, test, schema, validator, or runtime files changed during certification. VM-514 Orzhov / WB is setup-only with Gate 1+2 pending and no remediation started.

@@ -309,3 +309,43 @@ Validation run during review:
 - `node research/validate-semantic-candidate-scope.mjs --base=646ea02aa12959441eba6e0844b902cf32bab914 --target=6e6c079d19ee152016212f01f8c2ffd81f0ca0ee --identity=UB`: passed.
 
 Disposition: Dimir candidate approved and awaiting certification. Dimir is not certified, not semantically_ready, and VM-514 has not started.
+
+## Certification - 2026-07-16
+
+### Certification Status
+
+Dimir / UB is certified `semantically_ready` under CRIT-001 Contract v1.1.
+
+Approved recovery candidate: `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee`
+
+Superseded scope-failing candidate: `16d7cae2565684d1320306cc3f2e31b2417b2b0f`
+
+Gate 1+2 governance commit: `646ea02aa12959441eba6e0844b902cf32bab914`
+
+Candidate workflow record: `1c3ef3013ce07c85db75554e82bd11bf99d095bc`
+
+Approval review record: `f67d8398037d0169d92db07ee102865e97445e22`
+
+Approval decision: `APPROVE EXACT SHA 6e6c079d19ee152016212f01f8c2ffd81f0ca0ee`
+
+Certification commit placeholder in tracked governance: `PENDING_VM513_CERTIFICATION_COMMIT_SHA`
+
+The actual certification commit SHA is reported in the certification task output and becomes the CRIT-001 program base.
+
+### Certification Guard Results
+
+- Governance JSON parse validation: passed.
+- `node research/audit-semantic-readiness.mjs --targets=UB`: passed.
+- `node research/validate-semantic-readiness.mjs --targets=UB`: passed.
+- `npm.cmd run test:semantic-readiness`: passed; verified 1705 semantic provenance entries.
+- `npm.cmd run test:placement`: passed; 37 factions / 37 golden paths.
+- `npm.cmd run test:faction-context-isolation`: passed.
+- `npm.cmd run test:source-generated`: passed with unchanged unrelated JESKAI and MARDU warnings.
+- `git diff --check`: passed with line-ending warnings only.
+- Exact candidate-scope validation for `646ea02aa12959441eba6e0844b902cf32bab914..6e6c079d19ee152016212f01f8c2ffd81f0ca0ee`: passed.
+
+Certification guards also verified 32 Dimir claims, 22 substantive / 10 discovery / 0 support / 0 unclassified; zero missing substantive `evidence_scope`; discovery-only rows isolated from authoritative proof; Etrata and Circu retained only as non-authoritative discovery metadata; UB provenance at 82 entries with zero required null canonical IDs/hashes and zero duplicate canonical entries; exact core-identity fixture/provenance parity at seven ordered claim IDs; frozen placement confidence/calibration restored; and no candidate semantic/generated/runtime files changed after approval.
+
+### Program Transition
+
+Certified identity count advances from 11 to 12. VM-514 Orzhov / WB becomes the next setup-only identity. Its Gate 1+2 audit is pending; no Orzhov source inspection, remediation, review, candidate, or certification work occurred in this certification window.

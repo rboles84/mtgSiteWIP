@@ -1,13 +1,13 @@
 # VM-514 — Orzhov Semantic Recovery
 
 ID: VM-514
-Status: Backlog
+Status: Setup Only - Gate 1+2 Pending
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: WB
 Raw packet: `data/raw-factions/orzhov_syndicate/`
 Cohort: guild
-Contract: pending Contract v1
+Contract: CRIT-001 Contract v1.1
 
 ## Objective
 
@@ -37,3 +37,7 @@ Recover Orzhov end to end under CRIT-001: audit the existing packet, bound readi
 - Candidate recovery SHA: pending
 - Independent reviewer: pending
 - Certification commit: pending
+
+## Setup State
+
+VM-514 is the next CRIT-001 identity after Dimir certification. Branch setup is authorized only after VM-513 certification. Gate 1+2 has not started; no Orzhov audit, source inspection, remediation, candidate, review, or certification work has occurred.
