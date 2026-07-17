@@ -219,3 +219,42 @@ Validation run during review:
 - `node research/validate-semantic-candidate-scope.mjs --base=de5e2e8344dcdfd6feb44e3731a0819f44142bb6 --target=8aea3e359c16687948178ad55a927cf758fd9206 --identity=WB`: passed.
 
 Disposition: Orzhov candidate approved and awaiting certification. Orzhov is not certified, not semantically_ready, and VM-515 has not started.
+
+## Certification - 2026-07-17
+
+Certification scope: governance-only.
+
+Certified identity: VM-514 - Orzhov / WB.
+
+Certified candidate: `8aea3e359c16687948178ad55a927cf758fd9206`.
+
+Certification commit: `PENDING_VM514_CERTIFICATION_COMMIT_SHA`.
+
+Independent review record: `599ee7a2b193abc6b54ffdff887c84140f78baaa`.
+
+Candidate workflow record: `fd354556104e70bc5832907b971c8f7e4599bb91`.
+
+Superseded candidate: `5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048`; remains unapproved and is not certified.
+
+Certification guard validation passed before the certification commit:
+
+- Governance and approved Orzhov candidate JSON parse validation passed.
+- Explicit claim/evidence/provenance/frozen-field guard passed: 32 claims, 22 substantive, 10 discovery, 0 support, 0 unclassified; every substantive claim retains `evidence_scope`; discovery remains isolated except for approved non-authoritative `data_quality/corpus_upgrade` metadata.
+- WB provenance remains 67 entries, with zero required null canonical IDs, zero required null canonical content hashes, zero duplicate canonical entries, and zero unresolved canonical files.
+- `/core_identity` fixture/provenance exact chain remains 8 IDs with exact ordered equality and no duplicate, missing, or extra IDs.
+- `/placement_summary` fixture/provenance exact chain remains 10 IDs with exact ordered equality and no duplicate, missing, or extra IDs.
+- Frozen placement confidence/calibration fields and generated lateral targets remain unchanged from Gate 1+2: `WU`, `UB`, `SILVERQUILL`, `ESPER`, `ABZAN`, `MARDU`.
+- Exact candidate-scope validation passed for `de5e2e8344dcdfd6feb44e3731a0819f44142bb6..8aea3e359c16687948178ad55a927cf758fd9206`.
+- `node research/audit-semantic-readiness.mjs --targets=WB`, `node research/validate-semantic-readiness.mjs --targets=WB`, `node research/semantic-candidate-scope-tests.js`, `npm.cmd run test:semantic-readiness`, `npm.cmd run test:placement`, `npm.cmd run test:faction-context-isolation`, and `npm.cmd run test:source-generated` all passed.
+- `npm.cmd run test:source-generated` retained only the known unrelated JESKAI/MARDU model-owned inhibitor warnings.
+- `git diff --check` passed with a line-ending warning for the shared handoff index only.
+
+Final status: `semantically_ready`.
+
+Certified identity count: 13.
+
+Next identity: VM-515 - Selesnya / WG.
+
+VM-515 state: setup only; Gate 1+2 pending; no Selesnya audit, source inspection, remediation, candidate, review, certification, or VM-516 work started.
+
+No candidate semantic, raw, generated, fixture, provenance, recruiter, source, test, schema, validator, builder, scoring, or runtime files were changed during certification.

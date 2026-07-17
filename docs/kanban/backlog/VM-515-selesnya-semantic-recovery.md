@@ -1,13 +1,13 @@
 # VM-515 — Selesnya Semantic Recovery
 
 ID: VM-515
-Status: Backlog
+Status: Setup Only - Gate 1+2 Pending
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: WG
 Raw packet: `data/raw-factions/selesnya_conclave/`
 Cohort: guild
-Contract: pending Contract v1
+Contract: CRIT-001 Contract v1.1
 
 ## Objective
 
@@ -27,6 +27,12 @@ Recover Selesnya end to end under CRIT-001: audit the existing packet, bound rea
 - Reviewer corrections stay in this card.
 - Non-blocking enrichment is recorded, not ticketed.
 - Runtime scoring, Hall/Crucible behavior, inhibition, scheduling, and global recruiter tuning are excluded.
+
+## Setup State
+
+VM-515 is the next CRIT-001 identity after Orzhov certification.
+
+Branch setup only is authorized from the VM-514 certification commit. Gate 1+2 is pending. No Selesnya source inspection, audit, remediation, generated artifact change, fixture work, candidate creation, independent review, certification, or VM-516 work has started.
 
 ## Required Records
 

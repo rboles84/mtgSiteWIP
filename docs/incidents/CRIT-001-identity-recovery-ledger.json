@@ -5,8 +5,8 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "ORZHOV",
-    "next_identity": "ORZHOV",
+    "active_identity": "SELESNYA",
+    "next_identity": "SELESNYA",
     "wip_limit": 1,
     "active_prerequisite": null,
     "prerequisite_candidate_sha": "6e53acd5691c85caf3328d3bd301ac18d07879e1",
@@ -1925,14 +1925,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_5_independent_review_approved",
-        "status": "awaiting_certification",
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": "2026-07-17T07:02:00-06:00",
-        "gate_entered_at": "2026-07-17T08:06:00-06:00",
+        "gate_entered_at": "2026-07-17T08:34:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WG",
-        "primary_disposition": "Independent review approved exact candidate 8aea3e359c16687948178ad55a927cf758fd9206 with decision APPROVE EXACT SHA 8aea3e359c16687948178ad55a927cf758fd9206; superseded candidate 5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048 remains unapproved; Orzhov is awaiting certification, not certified, not semantically_ready; VM-515 not started."
+        "primary_disposition": "Certified semantically_ready after independent review approved exact candidate 8aea3e359c16687948178ad55a927cf758fd9206; no remaining blocker/high/medium/low findings; VM-515 Selesnya branch setup only, no audit, source inspection, remediation, candidate, review, or certification work started."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -1957,23 +1957,27 @@
           "Gate 3+4 remediated Orzhov to 32 claims: 22 substantive_claim, 10 discovery_record, 0 support_record, 0 unclassified.",
           "Discovery/story-corpus records are isolated from authoritative proof chains and retained only as metadata/history.",
           "WB provenance has 67 entries with zero required null canonical IDs, zero required null content hashes, zero duplicate canonical entries, and no unresolved canonical pointers.",
-          "Superseded candidate 5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048 remains in history but is unapproved because candidate-scope rejected confidence/native-ID/lateral-target/generic collision-target drift.",
-          "Candidate workflow record fd354556104e70bc5832907b971c8f7e4599bb91 exists in branch history; approval review record is this governance commit.",
-          "Orzhov is awaiting certification, not certified, not semantically_ready, and VM-515 has not started."
+          "Superseded candidate 5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048 remains unapproved because candidate-scope rejected confidence/native-ID/lateral-target/generic collision-target drift.",
+          "Candidate workflow record fd354556104e70bc5832907b971c8f7e4599bb91 and approval review record 599ee7a2b193abc6b54ffdff887c84140f78baaa exist in branch history.",
+          "Certification completed as governance-only; no candidate semantic/raw/generated/provenance/fixture/recruiter/source/test/schema/validator/builder/scoring/runtime files changed during certification.",
+          "VM-515 Selesnya branch setup only; Gate 1+2 pending and no Selesnya audit, source inspection, remediation, candidate, review, certification, or VM-516 work started."
         ],
         "validation_summary": [
-          "npm.cmd run build:factions passed; repeated generation produced the same scoped file set.",
-          "Custom JSON/provenance/frozen-field guard passed: 32 claims, 22 substantive, 10 discovery, 0 support, 0 unclassified; WB provenance 67 entries; exact core_identity and placement_summary fixture/provenance chains match.",
-          "node research/audit-semantic-readiness.mjs --targets=WB passed with 59 reference sites and 13 neighbor references.",
+          "Governance and approved Orzhov candidate JSON parse validation passed.",
+          "Explicit Orzhov certification guard passed: 32 claims, 22 substantive, 10 discovery, 0 support, 0 unclassified; every substantive claim retains evidence_scope; discovery remains isolated except approved non-authoritative data_quality/corpus_upgrade metadata.",
+          "WB provenance remains 67 entries, with zero required null canonical IDs, zero required null canonical content hashes, zero duplicate canonical entries, and zero unresolved canonical files.",
+          "/core_identity fixture/provenance exact chain remains 8 ordered IDs with no duplicate, missing, or extra IDs.",
+          "/placement_summary fixture/provenance exact chain remains 10 ordered IDs with no duplicate, missing, or extra IDs.",
+          "Frozen placement confidence/calibration/native-ID/lateral-target/generic collision-target candidate-scope form is retained.",
+          "node research/audit-semantic-readiness.mjs --targets=WB passed with 32 claims and 59 reference sites.",
           "node research/validate-semantic-readiness.mjs --targets=WB passed.",
           "node research/semantic-candidate-scope-tests.js passed.",
           "npm.cmd run test:semantic-readiness passed and verified 1729 semantic provenance entries.",
           "npm.cmd run test:placement passed for 37 factions and 37 golden paths.",
           "npm.cmd run test:faction-context-isolation passed.",
           "npm.cmd run test:source-generated passed with known unrelated JESKAI/MARDU warnings only.",
-          "npm.cmd test passed.",
-          "git diff --check passed with line-ending warnings only.",
-          "node research/validate-semantic-candidate-scope.mjs --base=de5e2e8344dcdfd6feb44e3731a0819f44142bb6 --target=8aea3e359c16687948178ad55a927cf758fd9206 --identity=WB passed."
+          "node research/validate-semantic-candidate-scope.mjs --base=de5e2e8344dcdfd6feb44e3731a0819f44142bb6 --target=8aea3e359c16687948178ad55a927cf758fd9206 --identity=WB passed.",
+          "git diff --check passed with a line-ending warning for the shared handoff index only."
         ],
         "remediation_report": "docs/incidents/recoveries/VM-514-orzhov-semantic-recovery.md#gate-34-remediation-and-validation",
         "candidate_scope": {
@@ -1990,13 +1994,13 @@
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "8aea3e359c16687948178ad55a927cf758fd9206",
         "recovery_commit": "8aea3e359c16687948178ad55a927cf758fd9206",
-        "certification_commit": null,
-        "reviewer": "Codex independent review window; approval review record assigned by this governance commit",
+        "certification_commit": "PENDING_VM514_CERTIFICATION_COMMIT_SHA",
+        "reviewer": "Codex independent review record 599ee7a2b193abc6b54ffdff887c84140f78baaa",
         "review_cycles": 1,
         "approval_date": "2026-07-17",
-        "certified_at": null,
+        "certified_at": "2026-07-17T08:34:00-06:00",
         "review_result": "approved_exact_sha",
-        "final_state": "awaiting_certification",
+        "final_state": "semantically_ready",
         "superseded_candidate_shas": [
           "5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048"
         ],
@@ -2009,10 +2013,10 @@
         },
         "known_unchanged_warnings": [
           "JESKAI and MARDU source/generated model-owned inhibitor warnings remain unchanged and unrelated.",
-          "git diff --check reported line-ending warnings only."
+          "git diff --check reported a line-ending warning for the shared handoff index only."
         ],
         "candidate_workflow_record": "fd354556104e70bc5832907b971c8f7e4599bb91",
-        "approval_review_record": "PENDING_THIS_GOVERNANCE_COMMIT_SHA",
+        "approval_review_record": "599ee7a2b193abc6b54ffdff887c84140f78baaa",
         "review_findings": {
           "blocker": [],
           "high": [],
@@ -2234,14 +2238,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
+        "current_gate": "setup_only",
+        "status": "gate_1_2_pending",
         "started_at": null,
-        "gate_entered_at": null,
+        "gate_entered_at": "2026-07-17T08:34:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "UG",
-        "primary_disposition": null
+        "primary_disposition": "Branch setup only after VM-514 Orzhov certification; Gate 1+2 pending; no Selesnya audit, source inspection, remediation, candidate, review, certification, or VM-516 work started."
       },
       "semantic_review": {
         "required_neighbors": [],
@@ -2249,7 +2253,7 @@
         "residual_findings": []
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": null,
         "recovery_commit": null,

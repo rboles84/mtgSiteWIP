@@ -1,7 +1,7 @@
 # VM-514 - Orzhov Semantic Recovery
 
 ID: VM-514
-Status: Independent Review Approved - Awaiting Certification
+Status: Certified - Semantically Ready
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: WB
@@ -21,7 +21,7 @@ Recover Orzhov end to end under CRIT-001: audit the existing packet, bound readi
 - [x] Gate 4 - Generation and validation.
 - [x] Gate 5 - Candidate creation.
 - [x] Gate 5 - Independent review.
-- [ ] Gate 5 - Independent certification.
+- [x] Gate 5 - Independent certification.
 
 ## Scope Rules
 
@@ -40,7 +40,7 @@ Recover Orzhov end to end under CRIT-001: audit the existing packet, bound readi
 - Superseded candidate SHA: `5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048`
 - Candidate recovery SHA: `8aea3e359c16687948178ad55a927cf758fd9206`
 - Independent reviewer: Codex independent review approved exact candidate `8aea3e359c16687948178ad55a927cf758fd9206`
-- Certification commit: pending
+- Certification commit: `PENDING_VM514_CERTIFICATION_COMMIT_SHA`
 
 ## Setup State
 
@@ -74,4 +74,14 @@ Independent review approved exact candidate `8aea3e359c16687948178ad55a927cf758f
 
 No blocker, high, medium, or low findings remain. Candidate scope, Contract v1.1 claim roles, evidence scopes, discovery isolation, provenance IDs/hashes, fixture/provenance parity, generated public/recruiter surfaces, required-neighbor boundaries, frozen placement/calibration preservation, deterministic generation, and required validations passed.
 
-Status: awaiting certification; not certified; not semantically_ready; VM-515 not started.
+## Certification
+
+Orzhov / WB is certified `semantically_ready` under CRIT-001 Contract v1.1 from exact approved candidate `8aea3e359c16687948178ad55a927cf758fd9206`.
+
+Certification date: 2026-07-17.
+
+Certification commit: `PENDING_VM514_CERTIFICATION_COMMIT_SHA`.
+
+The superseded candidate `5cbd1bd5f3a10cdc84db4d15ad4bb92a16572048` remains unapproved and is not certified.
+
+VM-515 Selesnya / WG was created as setup only with Gate 1+2 pending. No Selesnya audit, source inspection, remediation, candidate, review, or certification work started during VM-514 certification.
