@@ -1,7 +1,7 @@
 # VM-516 — Simic Semantic Recovery
 
 ID: VM-516
-Status: Setup Only - Gate 1+2 Pending
+Status: Drift Preflight Passed - Gate 1+2 Authorized But Not Started
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: UG
@@ -42,8 +42,18 @@ Recover Simic end to end under CRIT-001: audit the existing packet, bound readin
 
 VM-516 is the next CRIT-001 identity after Selesnya certification.
 
-Branch setup only was authorized from the VM-515 certification commit. Gate 1+2 audit is pending. No Simic source inspection, semantic remediation, generated artifact update, candidate creation, independent review, or certification work has started.
+Branch setup only was authorized from the VM-515 certification commit. Gate 1+2 audit is pending. The drift preflight performed read-only inventory only; no Gate 1+2 semantic audit, claim adjudication, semantic remediation, generated artifact update, candidate creation, independent review, or certification work has started.
 
 Program base: `fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3`.
 
-The CRIT-001 drift-control baseline must be installed before further progression. After that installation, a separate governance-only VM-516 drift-preflight control record must be created and pass with no `FAIL` or `UNKNOWN` controls before Simic Gate 1+2 can begin. Simic Goal mode remains blocked until that record exists and passes. VM-517 must not start.
+The CRIT-001 drift-control baseline is installed. VM-516 drift preflight passed with no `FAIL` or `UNKNOWN` controls, so the next VM-516 window may begin Gate 1+2 read-only audit.
+
+## Drift Preflight
+
+Record: `docs/incidents/recoveries/VM-516-simic-drift-preflight.md`
+
+Decision: `PASS — SIMIC GATE 1+2 AUTHORIZED`
+
+Scope of authorization: Gate 1+2 read-only audit only. Remediation, generation, candidate creation, independent review, certification, semantically_ready transition, and VM-517 work remain unauthorized and not started.
+
+Program base remains `fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3`; this drift-preflight governance commit is not the CRIT-001 program base.
