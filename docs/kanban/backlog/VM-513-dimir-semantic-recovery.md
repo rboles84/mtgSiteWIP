@@ -1,7 +1,7 @@
 # VM-513 — Dimir Semantic Recovery
 
 ID: VM-513
-Status: Gate 3 Authorized
+Status: Candidate Created - Awaiting Independent Review
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: UB
@@ -17,8 +17,8 @@ Recover Dimir end to end under CRIT-001: audit the existing packet, bound readin
 
 - [x] Gate 1 — Packet audit and bounded disposition.
 - [x] Gate 2 — Sufficient evidence completion.
-- [ ] Gate 3 — Canonical remediation.
-- [ ] Gate 4 — Generation and validation.
+- [x] Gate 3 - Canonical remediation.
+- [x] Gate 4 - Generation and validation.
 - [ ] Gate 5 — Independent certification.
 
 ## Scope Rules
@@ -34,7 +34,8 @@ Recover Dimir end to end under CRIT-001: audit the existing packet, bound readin
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-513-dimir-semantic-recovery.md`
-- Candidate recovery SHA: pending
+- Gate 1+2 governance/report SHA: `646ea02aa12959441eba6e0844b902cf32bab914`
+- Candidate recovery SHA: `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee`
 - Independent reviewer: pending
 - Certification commit: pending
 
@@ -43,3 +44,11 @@ Recover Dimir end to end under CRIT-001: audit the existing packet, bound readin
 Read-only audit found 16 Dimir claims, with 0 substantive claims, 10 discovery records, 0 support records, and 6 unclassified claims. All claims lack explicit Contract v1.1 semantic roles; substantive evidence locations and `evidence_scope` are missing because no claims are yet remediated as substantive. Existing profile, placement, generated public copy, recruiter copy, and provenance chains rely on non-certifying discovery/unclassified records. UB fixtures are missing.
 
 Gate 3+4 remediation is authorized using existing local/listed sources only. Discovery-only story-corpus records must be isolated from authoritative proof chains, generated copy must stop presenting generic UB mechanics or stale spy-thriller language as Dimir identity, and fixture/provenance parity must be proven before candidate creation.
+
+## Gate 3+4 / Gate 5 Candidate Record
+
+Candidate `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee` has been created and is awaiting independent review. Dimir is not certified and not semantically_ready. VM-514 has not started.
+
+Final remediation produced 32 Dimir claims: 22 substantive, 10 discovery, 0 support, and 0 unclassified. Substantive evidence locations have Contract v1.1 `evidence_scope`; discovery-only story-corpus rows are retained as metadata/history only and do not prove profile, placement, key figures, recruiter guidance, public copy, fixtures, or provenance chains.
+
+Validation passed, including `npm.cmd run build:factions`, UB audit/validation, semantic-readiness tests, placement tests, faction-context isolation, source/generated guardrails, full `npm.cmd test`, `git diff --check`, and exact candidate-scope validation for `646ea02aa12959441eba6e0844b902cf32bab914..6e6c079d19ee152016212f01f8c2ffd81f0ca0ee`.

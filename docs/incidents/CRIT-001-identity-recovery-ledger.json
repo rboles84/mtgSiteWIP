@@ -1705,16 +1705,14 @@
       },
       "computed": {
         "structural_fingerprint": [
-          "low-volume-pattern",
           "mixed-role-pattern",
-          "discovery-heavy-pattern",
           "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 22,
           "discovery_record": 10,
           "support_record": 0,
-          "unclassified": 6
+          "unclassified": 0
         },
         "source_count": 14,
         "source_role_counts": {
@@ -1724,197 +1722,65 @@
         },
         "claim_bearing_source_count": 3,
         "claim_bearing_source_rate": 0.2143,
-        "reference_site_count": 43,
+        "reference_site_count": 74,
         "missing_references": [],
-        "potential_role_invalid_support_links": [
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.profile.json#/core_identity",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.profile.json#/site_surface",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.profile.json#/structure",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.profile.json#/great_tension",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.profile.json#/key_figures/1",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.profile.json#/key_figures/2",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.profile.json#/key_figures/3",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.profile.json#/canonical_flavor_text/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.profile.json#/mechanics",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.profile.json#/data_quality/corpus_upgrade",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.placement.json#/placement_summary",
-            "roles": [
-              "discovery_record",
-              "unclassified"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.placement.json#/placement_axes/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.placement.json#/moral_and_psychological_profile",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.placement.json#/core_values/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.placement.json#/core_values/1",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.placement.json#/core_values/2",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.placement.json#/core_values/3",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.placement.json#/core_values/4",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.placement.json#/core_values/5",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.placement.json#/core_values/6",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.placement.json#/core_values/7",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.placement.json#/core_values/8",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.placement.json#/core_values/9",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.placement.json#/behavioral_signals/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/house_dimir/house_dimir.placement.json#/inhibitor_traits/0",
-            "roles": [
-              "discovery_record"
-            ]
-          }
-        ],
+        "potential_role_invalid_support_links": [],
         "raw_question_count": 4,
         "unique_question_claim_ids": [
-          "house_dimir_claim_001",
-          "house_dimir_claim_002",
-          "house_dimir_claim_003"
+          "house_dimir_claim_0017",
+          "house_dimir_claim_0019",
+          "house_dimir_claim_0020",
+          "house_dimir_claim_0029",
+          "house_dimir_claim_0018",
+          "house_dimir_claim_0021",
+          "house_dimir_claim_0022",
+          "house_dimir_claim_0030",
+          "house_dimir_claim_0031",
+          "house_dimir_claim_0032",
+          "house_dimir_claim_0027"
         ],
         "neighbor_references": [
+          "B",
+          "ESPER",
+          "GENERIC_UB_OVERFIT",
+          "GRIXIS",
+          "SILVERQUILL",
+          "SULTAI",
+          "U",
+          "UB",
+          "WR",
+          "azorius_senate",
+          "cult_of_rakdos",
+          "esper",
+          "golgari_swarm",
+          "grixis",
+          "izzet_league",
           "orzhov_syndicate",
-          "silverquill"
+          "silverquill",
+          "simic_combine",
+          "sultai"
         ],
-        "recruiter_context_size": 7670,
+        "recruiter_context_size": 8501,
         "creation_commit": "f6a1dd4644849ffb3bad6f1bba82f7cd55fa549a",
         "readiness_mentions": [
           "docs/reference/ravnica-guild-source-readiness-matrix.md:29"
         ],
         "provisional_risk_indicators": {
-          "coverage": [
-            "low-record-volume",
-            "discovery-record-majority",
-            "no-explicit-substantive-role"
-          ],
+          "coverage": [],
           "neighbors": []
         },
         "template_cohort_pattern": false,
-        "inventory_updated_at": "2026-07-11T18:42:33.624Z"
+        "inventory_updated_at": "2026-07-16T22:54:00-06:00"
       },
       "workflow": {
-        "current_gate": "gate_3_authorized",
-        "status": "gate_3_ready",
+        "current_gate": "gate_5_candidate_created",
+        "status": "awaiting_independent_review",
         "started_at": "2026-07-16T22:13:00-06:00",
-        "gate_entered_at": "2026-07-16T22:13:00-06:00",
+        "gate_entered_at": "2026-07-16T22:54:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WB",
-        "primary_disposition": "claim_extraction_pass_required"
+        "primary_disposition": "candidate_created_awaiting_independent_review"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -1934,30 +1800,43 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-513-dimir-semantic-recovery.md",
         "residual_findings": [
-          "Gate 1+2 found 16 Dimir claims: 0 substantive_claim, 10 discovery_record, 0 support_record, and 6 unclassified.",
-          "All Dimir claims lack explicit Contract v1.1 semantic roles; no substantive evidence_locations/evidence_scope are present yet.",
-          "Authoritative profile, placement, generated public copy, recruiter copy, and provenance chains currently rely on discovery/unclassified records.",
-          "UB semantic-readiness fixtures are missing; exact fixture/provenance parity cannot pass until Gate 3+4 creates fixtures from generated truth.",
-          "Generated UB provenance has 43 entries with 31 null canonical IDs; no duplicate UB generated provenance claim IDs were found in the Gate 1+2 scan.",
-          "Gate 3+4 must isolate discovery-only story-corpus records, clarify auxiliary Commander Compass discovery IDs, and remove unsupported generic UB or stale spy-thriller wording from consumed surfaces."
+          "Final candidate 6e6c079d19ee152016212f01f8c2ffd81f0ca0ee awaits independent review; no approval decision has been issued.",
+          "Dimir is not certified and not semantically_ready.",
+          "Discovery-only story-corpus rows are retained as metadata/history only and are isolated from authoritative proof chains.",
+          "Remaining stale-risk terms appear only as guardrail, suppression, fixture, or discovery metadata language, not affirmative Dimir proof.",
+          "Intermediate SHA 16d7cae2565684d1320306cc3f2e31b2417b2b0f failed post-commit candidate-scope for frozen placement confidence/calibration drift and was superseded before workflow record."
         ],
         "validation_summary": [
-          "Raw Dimir JSON parse checks passed for claims, sources, profile, placement, and changelog.",
-          "node research/audit-semantic-readiness.mjs --targets=UB completed and reported the Gate 1+2 structural findings.",
-          "node research/validate-semantic-readiness.mjs --targets=UB failed as expected for missing semantic roles, missing recruiter evidence mapping, invalid proof chains, and missing fixtures.",
-          "Custom exact-chain/provenance scan found no duplicate current UB generated provenance claim IDs, but found missing fixtures and 31 null UB canonical IDs."
+          "JSON parse checks for changed JSON files passed.",
+          "npm.cmd run build:factions passed; repeated generation stable for final candidate shape.",
+          "Explicit duplicate-ID, fixture/provenance equality, evidence_scope, discovery/support isolation, and null canonical-ID/hash checks passed.",
+          "node research/audit-semantic-readiness.mjs --targets=UB passed with 32 claims: 22 substantive, 10 discovery, 0 support, 0 unclassified, 74 reference sites.",
+          "node research/validate-semantic-readiness.mjs --targets=UB passed.",
+          "node research/semantic-candidate-scope-tests.js passed.",
+          "npm.cmd run test:semantic-readiness passed; verified 1705 semantic provenance entries.",
+          "npm.cmd run test:placement passed; 37 factions / 37 golden paths.",
+          "npm.cmd run test:faction-context-isolation passed.",
+          "npm.cmd run test:source-generated passed with unchanged unrelated JESKAI and MARDU warnings.",
+          "npm.cmd test passed.",
+          "git diff --check passed with line-ending warnings only.",
+          "node research/validate-semantic-candidate-scope.mjs --base=646ea02aa12959441eba6e0844b902cf32bab914 --target=6e6c079d19ee152016212f01f8c2ffd81f0ca0ee --identity=UB passed."
         ]
       },
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "6e6c079d19ee152016212f01f8c2ffd81f0ca0ee",
+        "recovery_commit": "6e6c079d19ee152016212f01f8c2ffd81f0ca0ee",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
         "approval_date": null,
-        "certified_at": null
+        "certified_at": null,
+        "review_result": null,
+        "final_state": "awaiting_independent_review",
+        "superseded_candidate_shas": [
+          "16d7cae2565684d1320306cc3f2e31b2417b2b0f"
+        ]
       }
     },
     {

@@ -135,3 +135,126 @@ No broad online source discovery is required before Gate 3. Gate 3 must localize
 Primary disposition: `claim_extraction_pass_required`.
 
 Dimir may proceed to Gate 3+4 remediation under Contract v1.1. Dimir is not certified, not semantically ready, not reviewed, and VM-514 has not started.
+
+## Gate 3+4 Remediation And Gate 5 Candidate - 2026-07-16
+
+### Candidate Status
+
+Gate 1+2 governance/report commit: `646ea02aa12959441eba6e0844b902cf32bab914`
+
+Final Dimir candidate SHA awaiting independent review: `6e6c079d19ee152016212f01f8c2ffd81f0ca0ee`
+
+Intermediate candidate SHA `16d7cae2565684d1320306cc3f2e31b2417b2b0f` failed the exact post-commit candidate-scope guard because frozen placement `confidence` positions and `/placement_summary/calibrated_primary_read` had drifted. It was not sent for review. The final candidate restores the frozen calibration text and preserves the confidence-slot shape without reintroducing discovery-backed proof.
+
+Dimir is not certified, not semantically_ready, and VM-514 has not started.
+
+### Files Changed In Candidate Range
+
+- `data/raw-factions/house_dimir/house_dimir.claims.json`
+- `data/raw-factions/house_dimir/house_dimir.profile.json`
+- `data/raw-factions/house_dimir/house_dimir.placement.json`
+- `data/factions.json`
+- `data/placement-model.json`
+- `data/semantic-readiness-provenance.json`
+- `supabase/functions/guild-recruiter/faction-context.ts`
+- `research/fixtures/semantic-readiness/house_dimir.semantic-fixtures.json`
+
+### Claim And Evidence Remediation
+
+Final Dimir claim counts:
+
+- Total claims: 32
+- `substantive_claim`: 22
+- `discovery_record`: 10
+- `support_record`: 0
+- `unclassified`: 0
+
+Claims `house_dimir_claim_001` through `house_dimir_claim_006` were converted into bounded substantive claims with Contract v1.1 `evidence_scope` entries against the local official WotC source set. Claims `house_dimir_claim_0007` through `house_dimir_claim_0016` remain discovery-only story-corpus records and are isolated from profile, placement, generated, recruiter, and fixture proof chains. Claims `house_dimir_claim_0017` through `house_dimir_claim_0032` add bounded placement, mature-expression, pressure-behavior, generic UB overfit, mono-color, guild, college, and shard/wedge neighbor boundaries.
+
+Substantive evidence-location `evidence_scope` check: passed; zero missing scopes.
+
+### Generated And Fixture Results
+
+Generated consumers rebuilt through `npm.cmd run build:factions`. No non-UB generated identity drift was detected. UB lateral-inhibition targets remained unchanged.
+
+Generated UB provenance final state:
+
+- Entries: 82
+- Null canonical IDs: 0
+- Null canonical content hashes: 0
+- Duplicate canonical entries: 0
+
+Created `research/fixtures/semantic-readiness/house_dimir.semantic-fixtures.json` with positive Dimir semantics, generic UB overfit guards, required-neighbor exclusions, stale phrase/overheat coverage, nearest-collision ambiguity, and exact core-identity provenance.
+
+Exact core-identity fixture/provenance chain:
+
+- Locator: `data/raw-factions/house_dimir/house_dimir.profile.json#/core_identity`
+- Generated claim-ID count: 7
+- Fixture claim-ID count: 7
+- Ordered equality: true
+- Duplicate IDs: none
+- Missing IDs: none
+- Extra IDs: none
+
+Ordered claim IDs:
+
+1. `house_dimir_claim_001`
+2. `house_dimir_claim_002`
+3. `house_dimir_claim_005`
+4. `house_dimir_claim_006`
+5. `house_dimir_claim_0017`
+6. `house_dimir_claim_0018`
+7. `house_dimir_claim_0019`
+
+### Public, Recruiter, And Auxiliary Discovery Handling
+
+Generated/public and recruiter surfaces no longer define Dimir through generic UB control, mill, discard, theft, evasion, counterspell/removal/card-draw mechanics, unsupported spy-thriller absolutes, mind-control overreach, omniscient conspiracy, or generic criminality. Remaining risk terms appear as explicit suppressions, guardrails, stale-phrase fixtures, or discovery metadata, not affirmative proof.
+
+Commander Compass discovery IDs were removed from authoritative source-basis proof fields. Etrata and Circu native character IDs are retained only as discovery/history metadata under `data_quality.corpus_upgrade.discovery_only_key_figures`, with `authoritative_semantic_use: false`.
+
+### Required-Neighbor Coverage
+
+Collision guidance and fixtures cover:
+
+- `GENERIC_UB_OVERFIT`
+- `U`
+- `B`
+- `WU`
+- `UR`
+- `BR`
+- `BG`
+- `WB`
+- `UG`
+- `SILVERQUILL`
+- `ESPER`
+- `GRIXIS`
+- `SULTAI`
+
+The supported Dimir discriminator is hidden information leverage: source-bounded secrecy, backroom deals, spies/assassins as Dimir texture, manipulation as bounded method, observation before action, and surveil-style information filtering. The remediation separates Dimir from generic UB mechanics, mono-blue planning, mono-black private power, Azorius public law, Izzet experiment, Rakdos spectacle/criminal release, Golgari undercity survival/rot, Orzhov debt/obligation, Simic adaptation, Silverquill public rhetoric, and broader Esper/Grixis/Sultai frames.
+
+### Validation Results
+
+- JSON parse checks for changed JSON files: passed.
+- `npm.cmd run build:factions`: passed; repeated generation stable for the final candidate shape.
+- Explicit duplicate-ID checks for `/core_identity`, `/site_surface`, `/placement_summary`, generated UB provenance, and Dimir fixture chains: passed.
+- Explicit fixture/provenance exact-chain comparison: passed.
+- Explicit substantive `evidence_scope` check: passed.
+- Explicit discovery/support isolation check: passed.
+- Explicit null canonical-ID/hash scan: passed.
+- Targeted stale Dimir public/recruiter-copy scan: residual terms are guardrail/discovery metadata uses only.
+- `node research/audit-semantic-readiness.mjs --targets=UB`: passed; 32 claims, 22 substantive / 10 discovery / 0 support / 0 unclassified, 74 reference sites.
+- `node research/validate-semantic-readiness.mjs --targets=UB`: passed.
+- `node research/semantic-candidate-scope-tests.js`: passed.
+- `npm.cmd run test:semantic-readiness`: passed; verified 1705 semantic provenance entries.
+- `npm.cmd run test:placement`: passed; 37 factions / 37 golden paths.
+- `npm.cmd run test:faction-context-isolation`: passed.
+- `npm.cmd run test:source-generated`: passed with unchanged unrelated JESKAI and MARDU model-owned inhibitor warnings.
+- `npm.cmd test`: passed.
+- `git diff --check`: passed with line-ending warnings only.
+- `node research/validate-semantic-candidate-scope.mjs --base=646ea02aa12959441eba6e0844b902cf32bab914 --target=6e6c079d19ee152016212f01f8c2ffd81f0ca0ee --identity=UB`: passed.
+
+### Gate 5 Disposition
+
+Final disposition: candidate created / awaiting independent review.
+
+No independent review was performed in this window. No approval decision was issued. No certification occurred. Dimir was not marked semantically_ready. VM-514 was not started. The original main worktree was not modified. The unrelated Table Talk side-scan baseline remained preserved and excluded from VM-513 commits.
