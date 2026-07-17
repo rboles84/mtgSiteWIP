@@ -1907,22 +1907,49 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "branch_setup",
-        "status": "gate_1_2_pending",
-        "started_at": null,
-        "gate_entered_at": "2026-07-16T21:51:00-06:00",
+        "current_gate": "gate_3_authorized",
+        "status": "gate_3_ready",
+        "started_at": "2026-07-16T22:13:00-06:00",
+        "gate_entered_at": "2026-07-16T22:13:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WB",
-        "primary_disposition": "branch_setup_only_gate_1_2_pending_no_remediation_started"
+        "primary_disposition": "claim_extraction_pass_required"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "GENERIC_UB_OVERFIT",
+          "U",
+          "B",
+          "WU",
+          "UR",
+          "BR",
+          "BG",
+          "WB",
+          "UG",
+          "SILVERQUILL",
+          "ESPER",
+          "GRIXIS",
+          "SULTAI"
+        ],
+        "audit_report": "docs/incidents/recoveries/VM-513-dimir-semantic-recovery.md",
+        "residual_findings": [
+          "Gate 1+2 found 16 Dimir claims: 0 substantive_claim, 10 discovery_record, 0 support_record, and 6 unclassified.",
+          "All Dimir claims lack explicit Contract v1.1 semantic roles; no substantive evidence_locations/evidence_scope are present yet.",
+          "Authoritative profile, placement, generated public copy, recruiter copy, and provenance chains currently rely on discovery/unclassified records.",
+          "UB semantic-readiness fixtures are missing; exact fixture/provenance parity cannot pass until Gate 3+4 creates fixtures from generated truth.",
+          "Generated UB provenance has 43 entries with 31 null canonical IDs; no duplicate UB generated provenance claim IDs were found in the Gate 1+2 scan.",
+          "Gate 3+4 must isolate discovery-only story-corpus records, clarify auxiliary Commander Compass discovery IDs, and remove unsupported generic UB or stale spy-thriller wording from consumed surfaces."
+        ],
+        "validation_summary": [
+          "Raw Dimir JSON parse checks passed for claims, sources, profile, placement, and changelog.",
+          "node research/audit-semantic-readiness.mjs --targets=UB completed and reported the Gate 1+2 structural findings.",
+          "node research/validate-semantic-readiness.mjs --targets=UB failed as expected for missing semantic roles, missing recruiter evidence mapping, invalid proof chains, and missing fixtures.",
+          "Custom exact-chain/provenance scan found no duplicate current UB generated provenance claim IDs, but found missing fixtures and 31 null UB canonical IDs."
+        ]
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": null,
         "recovery_commit": null,
