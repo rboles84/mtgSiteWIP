@@ -147,7 +147,7 @@ The first candidate is preserved in history and remains unapproved. It failed ex
 
 - Updated generated consumers: `data/factions.json`, `data/placement-model.json`, `data/semantic-readiness-provenance.json`, and `supabase/functions/guild-recruiter/faction-context.ts`.
 - Added fixture file: `research/fixtures/semantic-readiness/selesnya_conclave.semantic-fixtures.json`.
-- WG provenance final count: 67 entries.
+- WG provenance final count: 70 entries.
 - Required null canonical IDs: 0.
 - Required null canonical content hashes: 0.
 - Duplicate canonical entries: 0.
@@ -177,7 +177,7 @@ Stale/high-risk terms such as tokens, go-wide, lifegain, ramp, counters, brainwa
 - `node research/audit-semantic-readiness.mjs --targets=WG`: passed; 33 claims, 23 substantive, 10 discovery, 62 reference sites.
 - `node research/validate-semantic-readiness.mjs --targets=WG`: passed.
 - `node research/semantic-candidate-scope-tests.js`: passed.
-- `npm.cmd run test:semantic-readiness`: passed; verified 1754 semantic provenance entries.
+- `npm.cmd run test:semantic-readiness`: passed; verified 1757 semantic provenance entries.
 - `npm.cmd run test:placement`: passed; 37 factions and 37 golden paths.
 - `npm.cmd run test:faction-context-isolation`: passed.
 - `npm.cmd run test:source-generated`: passed with known unrelated JESKAI/MARDU warnings only.
@@ -190,3 +190,47 @@ Stale/high-risk terms such as tokens, go-wide, lifegain, ramp, counters, brainwa
 ### Gate 5 State
 
 Selesnya replacement candidate `02252cbb24ec4ce615c85e8ad07d62d3be7db7e5` is the exact candidate awaiting independent review. Selesnya is not approved, not certified, and not semantically_ready. No VM-516 work has started.
+
+## Independent Review - 2026-07-17
+
+Decision: `APPROVE EXACT SHA 02252cbb24ec4ce615c85e8ad07d62d3be7db7e5`.
+
+Independent review was performed against exact candidate `02252cbb24ec4ce615c85e8ad07d62d3be7db7e5`, with review base `99a239dea91039a13511d155f9b652d297baab21`, superseded scope-failing candidate `5c9f69d752d1abf6b8f7790ddb4cce1206b64ad7`, and workflow-record commit `1f88f03f7b6a582614f13a912024d0c9924926d7` checked separately. The workflow-record diff was governance-only and was excluded from semantic candidate approval.
+
+### Review Findings
+
+- Blocker findings: none.
+- High findings: none.
+- Medium findings: none.
+- Low findings: none.
+- Non-blocking observation: the implementation summary recorded 67 WG provenance entries, while review-generated truth contains 70 WG provenance entries. The 70 reviewed entries have zero required null canonical IDs, zero required null canonical content hashes, zero duplicate canonical pointers, no unresolved canonical files/pointers, and no discovery-backed authoritative chains.
+
+### Independent Review Results
+
+- Candidate file scope is limited to Selesnya raw data, WG generated consumers/provenance, recruiter context content, and WG fixtures.
+- Superseded candidate comparison confirmed the final candidate removed the frozen confidence/native-ID and generated proof-chain scope defects without introducing unrelated semantic drift.
+- Contract v1.1 checks passed: 33 claims, 23 `substantive_claim`, 10 `discovery_record`, 0 `support_record`, 0 `unclassified`; every substantive evidence location has `evidence_scope`.
+- Discovery records are isolated to metadata/history and do not prove identity, placement, public copy, recruiter guidance, fixtures, key figures, semantic readiness, or provenance chains.
+- Fixture/provenance parity passed for `data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json#/core_identity` and `data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json#/placement_summary`.
+- Generated public and recruiter copy is source-bounded to Selesnya communal voice, nature, unity/togetherness/preservation, Mat'Selesnya/Trostani context, non-pacifist defensive capacity, and Convoke texture only where supported.
+- Required-neighbor boundaries are present for `GENERIC_WG_OVERFIT`, `W`, `G`, `WU`, `WR`, `BG`, `WB`, `UG`, `RG`, `WITHERBLOOM`, `QUANDRIX`, `BANT`, `NAYA`, and `ABZAN`.
+- Frozen placement confidence/calibration/native-ID/lateral-target checks passed; generated lateral targets remain `WU`, `WR`, `WITHERBLOOM`, and `ABZAN`.
+
+### Independent Review Validation
+
+- `git status --short --branch`: correct branch with the allowed Table Talk baseline only.
+- JSON parse checks for all changed JSON files: passed.
+- Explicit WG evidence-scope, discovery-isolation, null canonical ID/hash, duplicate canonical pointer, and fixture/provenance parity checks: passed.
+- `npm.cmd run build:factions`: passed twice; generated outputs were deterministic and content-clean.
+- `node research/audit-semantic-readiness.mjs --targets=WG`: passed; 33 claims, 23 substantive, 10 discovery, 62 reference sites.
+- `node research/validate-semantic-readiness.mjs --targets=WG`: passed.
+- `node research/semantic-candidate-scope-tests.js`: passed.
+- `npm.cmd run test:semantic-readiness`: passed; verified 1757 semantic provenance entries.
+- `npm.cmd run test:placement`: passed; 37 factions and 37 golden paths.
+- `npm.cmd run test:faction-context-isolation`: passed.
+- `npm.cmd run test:source-generated`: passed with unchanged unrelated JESKAI/MARDU model-owned inhibitor warnings only.
+- `npm.cmd test`: passed.
+- `node research/validate-semantic-candidate-scope.mjs --base=99a239dea91039a13511d155f9b652d297baab21 --target=02252cbb24ec4ce615c85e8ad07d62d3be7db7e5 --identity=WG`: passed.
+- `git diff --check`: passed with line-ending warnings only.
+
+Selesnya is approved for certification review only. Selesnya is not certified, not semantically_ready, and VM-516 has not started.

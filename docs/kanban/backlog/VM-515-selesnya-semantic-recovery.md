@@ -1,7 +1,7 @@
 # VM-515 — Selesnya Semantic Recovery
 
 ID: VM-515
-Status: Candidate Created - Awaiting Independent Review
+Status: Independent Review Approved - Awaiting Certification
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: WG
@@ -44,7 +44,7 @@ Gate 3+4 must preserve frozen placement confidence/calibration fields and genera
 
 ## Gate 3+4 / Gate 5 Candidate Status
 
-Disposition: `candidate_created_awaiting_independent_review`.
+Disposition: `independent_review_approved_awaiting_certification`.
 
 Selesnya replacement candidate `02252cbb24ec4ce615c85e8ad07d62d3be7db7e5` supersedes scope-failing candidate `5c9f69d752d1abf6b8f7790ddb4cce1206b64ad7`. The superseded candidate remains preserved and unapproved because exact candidate-scope validation found frozen confidence/native-ID retention and generated proof-chain contamination issues.
 
@@ -52,7 +52,9 @@ The replacement candidate passed the required validation suite and exact candida
 
 `node research/validate-semantic-candidate-scope.mjs --base=99a239dea91039a13511d155f9b652d297baab21 --target=02252cbb24ec4ce615c85e8ad07d62d3be7db7e5 --identity=WG`
 
-Current workflow state: awaiting independent review. Selesnya is not certified and not semantically_ready. VM-516 has not started.
+Independent review decision: `APPROVE EXACT SHA 02252cbb24ec4ce615c85e8ad07d62d3be7db7e5`.
+
+Current workflow state: awaiting certification. Selesnya is not certified and not semantically_ready. VM-516 has not started.
 
 ## Required Records
 
@@ -61,5 +63,5 @@ Current workflow state: awaiting independent review. Selesnya is not certified a
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-515-selesnya-semantic-recovery.md`
 - Candidate recovery SHA: `02252cbb24ec4ce615c85e8ad07d62d3be7db7e5`
-- Independent reviewer: pending
+- Independent reviewer: Codex independent review window, 2026-07-17
 - Certification commit: pending

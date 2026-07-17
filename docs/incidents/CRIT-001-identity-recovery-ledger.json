@@ -2097,14 +2097,14 @@
         "inventory_updated_at": "2026-07-17T11:06:00-06:00"
       },
       "workflow": {
-        "current_gate": "gate_5_candidate_created",
-        "status": "awaiting_independent_review",
+        "current_gate": "gate_5_independent_review_approved",
+        "status": "awaiting_certification",
         "started_at": "2026-07-17T10:32:00-06:00",
-        "gate_entered_at": "2026-07-17T11:06:00-06:00",
+        "gate_entered_at": "2026-07-17T12:08:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "UG",
-        "primary_disposition": "Selesnya replacement candidate 02252cbb24ec4ce615c85e8ad07d62d3be7db7e5 created after superseding scope-failing candidate 5c9f69d752d1abf6b8f7790ddb4cce1206b64ad7; awaiting independent review; not certified; not semantically_ready; no VM-516 work started."
+        "primary_disposition": "APPROVE EXACT SHA 02252cbb24ec4ce615c85e8ad07d62d3be7db7e5; awaiting certification; not certified; not semantically_ready; no VM-516 work started."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -2127,11 +2127,12 @@
         "residual_findings": [
           "Gate 3+4 remediated Selesnya to 33 claims: 23 substantive_claim, 10 discovery_record, 0 support_record, 0 unclassified.",
           "Discovery/story-corpus records are isolated from authoritative proof chains and retained only as metadata/history.",
-          "WG provenance has 67 entries with zero required null canonical IDs, zero required null content hashes, zero duplicate canonical entries, and no unresolved canonical pointers.",
+          "WG provenance has 70 entries with zero required null canonical IDs, zero required null content hashes, zero duplicate canonical pointers, and no unresolved canonical files or pointers.",
           "WG fixtures exist and exact /core_identity and /placement_summary provenance chains match generated truth.",
           "Superseded candidate 5c9f69d752d1abf6b8f7790ddb4cce1206b64ad7 remains unapproved because candidate-scope rejected frozen confidence/native-ID and generated proof-chain contamination.",
-          "Replacement candidate 02252cbb24ec4ce615c85e8ad07d62d3be7db7e5 passed validation and exact candidate-scope validation and awaits independent review.",
-          "Selesnya is not certified and not semantically_ready; VM-516 has not started.",
+          "Replacement candidate 02252cbb24ec4ce615c85e8ad07d62d3be7db7e5 passed validation, exact candidate-scope validation, and independent review.",
+          "Independent review decision: APPROVE EXACT SHA 02252cbb24ec4ce615c85e8ad07d62d3be7db7e5.",
+          "Selesnya is awaiting certification; it is not certified and not semantically_ready; VM-516 has not started.",
           "Active Table Talk side-scan baseline remains preserved and excluded from VM-515 commits."
         ],
         "validation_summary": [
@@ -2141,7 +2142,7 @@
           "Explicit evidence_scope, discovery/support isolation, null canonical ID/hash, duplicate canonical entry, stale-copy, frozen confidence/calibration/native-ID/lateral-target, and exact fixture/provenance checks passed.",
           "npm.cmd run build:factions passed and deterministic reruns produced no unrelated identity output changes.",
           "node research/semantic-candidate-scope-tests.js passed.",
-          "npm.cmd run test:semantic-readiness passed and verified 1754 semantic provenance entries.",
+          "npm.cmd run test:semantic-readiness passed and verified 1757 semantic provenance entries.",
           "npm.cmd run test:placement passed for 37 factions and 37 golden paths.",
           "npm.cmd run test:faction-context-isolation passed.",
           "npm.cmd run test:source-generated passed with known unrelated JESKAI/MARDU warnings only.",
@@ -2165,16 +2166,16 @@
         "candidate_recovery_sha": "02252cbb24ec4ce615c85e8ad07d62d3be7db7e5",
         "recovery_commit": "02252cbb24ec4ce615c85e8ad07d62d3be7db7e5",
         "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
+        "reviewer": "Codex independent review window",
+        "review_cycles": 1,
+        "approval_date": "2026-07-17",
         "certified_at": null,
-        "review_result": "pending_independent_review",
-        "final_state": "awaiting_independent_review",
+        "review_result": "approved_exact_sha",
+        "final_state": "awaiting_certification",
         "superseded_candidate_shas": [
           "5c9f69d752d1abf6b8f7790ddb4cce1206b64ad7"
         ],
-        "candidate_workflow_record": null,
+        "candidate_workflow_record": "1f88f03f7b6a582614f13a912024d0c9924926d7",
         "remaining_findings": {
           "blocker": [],
           "high": [],
