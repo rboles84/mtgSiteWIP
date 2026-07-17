@@ -1593,14 +1593,14 @@
         "inventory_updated_at": "2026-07-16T23:51:21.634Z"
       },
       "workflow": {
-        "current_gate": "replacement_candidate_created",
-        "status": "awaiting_independent_review",
+        "current_gate": "replacement_candidate_approved",
+        "status": "awaiting_certification",
         "started_at": "2026-07-16T17:19:00-06:00",
-        "gate_entered_at": "2026-07-16T19:07:00-06:00",
+        "gate_entered_at": "2026-07-16T21:30:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": null,
-        "primary_disposition": "replacement_candidate_created_awaiting_independent_review"
+        "primary_disposition": "replacement_candidate_approved_awaiting_certification"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -1621,7 +1621,7 @@
         "residual_findings": [
           "Original candidate 73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33 remains rejected by review record 04c0933825c985373336ba9bdbfccbbcf29d8e82 with REQUEST CHANGES.",
           "Replacement candidate 16b58c3f32d92e6406d368169d91b0b6a86f948d remediates the duplicate exact-chain fixture/provenance finding.",
-          "No blocker/high/medium/low findings remain from self-validation; new independent review has not been performed.",
+          "Independent replacement review approved exact SHA 16b58c3f32d92e6406d368169d91b0b6a86f948d with no blocker/high/medium/low findings.",
           "Gruul is not certified and semantically_ready has not been set.",
           "VM-513 has not started."
         ],
@@ -1640,7 +1640,7 @@
           "remediation": "Removed duplicate occurrences only; fixture and generated /core_identity provenance chains now match exactly with 25 ordered claim IDs."
         },
         "validation_notes": [
-          "Replacement candidate duplicate-chain remediation, generation, exact-chain comparison, candidate-scope validation, and required validation passed.",
+          "Independent replacement review verified duplicate-chain remediation, generation, exact-chain comparison, candidate-scope validation, and required validation passed.",
           "Generated RG provenance count remains 167; canonical IDs and content hashes are non-null.",
           "Source/generated guardrail validation retained existing non-Gruul JESKAI/MARDU model-owned inhibitor warnings only.",
           "Replacement candidate-scope validation against review-record base passed without display-source exceptions."
@@ -1652,10 +1652,10 @@
         "candidate_recovery_sha": "16b58c3f32d92e6406d368169d91b0b6a86f948d",
         "recovery_commit": "16b58c3f32d92e6406d368169d91b0b6a86f948d",
         "certification_commit": null,
-        "reviewer": null,
-        "review_result": null,
-        "review_cycles": 1,
-        "approval_date": null,
+        "reviewer": "Codex independent replacement review window",
+        "review_result": "approved_exact_sha",
+        "review_cycles": 2,
+        "approval_date": "2026-07-16",
         "certified_at": null,
         "rejected_candidate_sha": "73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33",
         "rejected_workflow_sha": "3aef320949bacec91923b8086048abd283fbecdb",
@@ -1664,8 +1664,9 @@
         "review_findings": {
           "original_rejected_candidate_decision": "REQUEST CHANGES",
           "original_medium": "RG provenance fixture evidence_claim_ids did not exactly match generated provenance for data/raw-factions/gruul_clans/gruul_clans.profile.json#/core_identity because duplicate claim IDs remained in raw/fixture chains.",
-          "replacement_status": "awaiting_independent_review",
-          "remaining_findings": "none from self-validation"
+          "replacement_status": "approved_awaiting_certification",
+          "replacement_review_decision": "APPROVE EXACT SHA 16b58c3f32d92e6406d368169d91b0b6a86f948d",
+          "remaining_findings": "none from independent replacement review"
         }
       }
     },

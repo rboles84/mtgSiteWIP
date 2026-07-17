@@ -391,6 +391,63 @@ Required remediation:
 - Exact candidate-scope validator reported only the documented RG target-scoped display-source exceptions for `data/identity-layers.json` and embedded RG preview copy in `data/factions.json`.
 - `git diff --check` passed.
 
+## Independent Replacement Review - 2026-07-16
+
+- Reviewer: Codex independent replacement review window.
+- Rejected original candidate: `73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33`
+- Original request-changes review record: `04c0933825c985373336ba9bdbfccbbcf29d8e82`
+- Replacement review base: `04c0933825c985373336ba9bdbfccbbcf29d8e82`
+- Exact replacement candidate reviewed: `16b58c3f32d92e6406d368169d91b0b6a86f948d`
+- Replacement workflow-record commit checked: `3fa4580e874e457c26b11b36705786863934963a`
+- Decision: `APPROVE EXACT SHA 16b58c3f32d92e6406d368169d91b0b6a86f948d`
+- Certification: not performed.
+- `semantically_ready`: not set.
+- VM-513: not started.
+
+### Replacement Review Findings
+
+- Blocker findings: none.
+- High findings: none.
+- Medium findings: none.
+- Low findings: none.
+- Non-blocking observation: the active worktree had an unrelated side-scan handoff/index baseline during review; it was not treated as candidate content and was not included in the VM-512 review-record commit.
+
+### Replacement Review Evidence
+
+- Reproduced the original rejected-candidate defect: raw `/core_identity`, `/site_surface`, `/placement_summary`, and fixture chains contained duplicate `claim_gruul_clans_structure_0005` and/or `claim_gruul_clans_placement_0072`, while generated `/core_identity` provenance contained 25 unique IDs.
+- Verified replacement raw profile `/core_identity`: 25 total, 25 unique, no duplicates.
+- Verified replacement raw profile `/site_surface`: 22 total, 22 unique, no duplicates.
+- Verified replacement raw placement `/placement_summary`: 37 total, 37 unique, no duplicates.
+- Verified generated `/core_identity` provenance: 25 total, 25 unique, no duplicates.
+- Verified fixture `gruul_core_identity_provenance`: 25 total, 25 unique, no duplicates.
+- Verified generated and fixture `/core_identity` chains have the same canonical locator, same ordered claim-ID array, same count, no missing IDs, and no extra IDs.
+- Verified 96 total Gruul claims: 89 substantive, 6 discovery, 1 support, 0 unclassified.
+- Verified every substantive claim has bounded evidence locations with `evidence_scope`.
+- Verified discovery/support records do not appear in authoritative profile, placement, generated provenance, or fixture proof chains.
+- Verified RG provenance count remains 167 with non-null canonical IDs and content hashes.
+- Verified public/recruiter high-risk terms remain only as explicit negative guardrails, not as affirmative Gruul identity copy.
+- Verified required neighbor boundaries remain present for `GENERIC_RG_OVERFIT`, `R`, `G`, `BR`, `BG`, `WR`, `UR`, `UG`, `WG`, `JUND`, `NAYA`, and `TEMUR`.
+- Verified deterministic generation with two `npm.cmd run build:factions` passes and no generated diff.
+
+### Replacement Review Validation
+
+- JSON parse checks for replacement candidate JSON files - passed.
+- Duplicate-ID and exact fixture-versus-generated checks - passed.
+- Explicit substantive evidence-scope check - passed.
+- Discovery/support isolation check - passed.
+- Stale public/recruiter-copy scan - passed; risky terms appeared only in negative guardrail context.
+- `npm.cmd run build:factions` - passed twice with no generated diff.
+- `node research/audit-semantic-readiness.mjs --targets=RG` - passed.
+- `node research/validate-semantic-readiness.mjs --targets=RG` - passed.
+- `node research/semantic-candidate-scope-tests.js` - passed.
+- `npm.cmd run test:semantic-readiness` - passed.
+- `npm.cmd run test:placement` - passed.
+- `npm.cmd run test:faction-context-isolation` - passed.
+- `npm.cmd run test:source-generated` - passed with unchanged non-Gruul JESKAI/MARDU model-owned inhibitor warnings only.
+- `npm.cmd test` - passed.
+- `git diff --check` - passed with CRLF warnings only.
+- `node research/validate-semantic-candidate-scope.mjs --base=04c0933825c985373336ba9bdbfccbbcf29d8e82 --target=16b58c3f32d92e6406d368169d91b0b6a86f948d --identity=RG` - passed.
+
 ## Review Remediation - Replacement Candidate - 2026-07-16
 
 - Rejected original candidate: `73f4f5103b0ce9605260aa6ee6ae44b03ccc4d33`
