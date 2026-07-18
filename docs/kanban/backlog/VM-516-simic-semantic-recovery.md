@@ -1,7 +1,7 @@
 # VM-516 — Simic Semantic Recovery
 
 ID: VM-516
-Status: Independent Review Requested Changes - Awaiting Remediation
+Status: Replacement Candidate Created - Awaiting Fresh Independent Review
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: UG
@@ -21,7 +21,8 @@ Recover Simic end to end under CRIT-001: audit the existing packet, bound readin
 - [x] Gate 4 - Generation and validation.
 - [x] Gate 5 candidate - Candidate created for independent review.
 - [x] Gate 5 review - Independent review returned REQUEST CHANGES.
-- [ ] Review remediation - Replacement candidate required.
+- [x] Review remediation - Replacement candidate created.
+- [ ] Fresh independent review - Replacement candidate.
 - [ ] Gate 5 certification - Independent certification.
 
 ## Scope Rules
@@ -37,17 +38,19 @@ Recover Simic end to end under CRIT-001: audit the existing packet, bound readin
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-516-simic-semantic-recovery.md`
-- Candidate recovery SHA: `cbca9f596a090e924d532e7cb657c27c79ccb9de`
+- Rejected candidate SHA: `cbca9f596a090e924d532e7cb657c27c79ccb9de`
 - Candidate workflow record: `04510577b7f3e1c4bacc5f2a88018b461760a80a`
 - Independent reviewer: Codex independent review returned `REQUEST CHANGES`
-- Independent review record: `PENDING_VM516_REVIEW_RECORD_COMMIT_SHA`
+- Independent review record: `4da00dc997162ad609e84a77f6817c2ad0726dbc`
+- Replacement candidate SHA: `bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e`
+- Replacement workflow record: `PENDING_VM516_REPLACEMENT_WORKFLOW_RECORD_COMMIT_SHA`
 - Certification commit: pending
 
 ## Setup State
 
 VM-516 is the next CRIT-001 identity after Selesnya certification.
 
-Branch setup only was authorized from the VM-515 certification commit. The drift preflight performed read-only inventory only. Gate 1+2 audit authorized Gate 3+4 remediation, and the final scope-passing candidate was independently reviewed. Certification, semantically_ready transition, and VM-517 work have not started.
+Branch setup only was authorized from the VM-515 certification commit. The drift preflight performed read-only inventory only. Gate 1+2 audit authorized Gate 3+4 remediation, the final candidate was independently reviewed, and a replacement candidate now remediates the preview-surface blocker. Certification, semantically_ready transition, and VM-517 work have not started.
 
 Program base: `fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3`.
 
@@ -89,4 +92,12 @@ Required remediation:
 - Record any target-scoped display-source exception if candidate-scope requires it.
 - Create a replacement candidate and separate workflow-record commit.
 
-Simic is not approved, not certified, not `semantically_ready`, and VM-517 has not started.
+## Replacement Candidate - 2026-07-17
+
+Replacement candidate `bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e` remediates the single independent-review blocker by replacing stale UG identity-layer preview copy in `data/identity-layers.json` and regenerating the embedded preview in `data/factions.json`.
+
+The replacement preserves the previously passing Simic semantic state: 33 claims, 23 substantive, 10 discovery, 0 support, 0 unclassified; 72 UG provenance entries; exact fixture/provenance equality for `/core_identity` and `/placement_summary`; unchanged frozen confidence, terms, thresholds, penalty, strengthen/suppress lists, lateral targets, absent generic collision target, and calibration.
+
+Exact candidate-scope command returned only the documented target-scoped display-source exception for `data/identity-layers.json` and embedded `data/factions.json` identity-layer content. Full validation otherwise passed.
+
+Simic is awaiting fresh independent review of exact replacement candidate `bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e`. Simic is not approved, not certified, not `semantically_ready`, and VM-517 has not started.

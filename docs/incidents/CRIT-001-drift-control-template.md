@@ -72,6 +72,7 @@ These are proven failure modes from the campaign and must be checked explicitly.
 | Null canonical IDs/hashes | Multiple Ravnica packets emitted null generated/provenance IDs | Run explicit null-ID/hash scans before candidate creation and certification |
 | Discovery leakage | Story-corpus/search records entered authoritative chains | Verify discovery IDs appear only in allowed metadata/history/data-quality locations |
 | Stale generated/recruiter copy | Golgari retained old high-risk language after canonical remediation | Search every consumed surface, not only raw source files |
+| Stale identity-layer preview copy | Simic retained generic UG preview text in `data/identity-layers.json` and embedded `data/factions.json` after canonical remediation | Identify preview ownership, compare source-to-embedded preview text, and search exact plus semantic-equivalent preview wording |
 | Generic color-pair overfit | Gruul, Dimir, Orzhov, and Selesnya risked collapsing into generic mechanics | Require explicit generic-color-pair and neighbor discrimination |
 | Superseded candidate confusion | Several first candidates failed candidate-scope after commit | Record every superseded SHA and ensure only the final passing SHA is awaiting review |
 | Summary-vs-generated count drift | Selesnya summary said 67 provenance entries; review found 70 | Generated truth wins; governance and external tracker must be corrected |
@@ -122,6 +123,7 @@ Confirm:
 - Required IDs and hashes are non-null.
 - Discovery and support records are isolated.
 - Public and recruiter copy no longer contains stale or generic overfit language.
+- Identity-layer preview ownership is identified, source preview and embedded consumers are equal, and preview text is checked for exact stale wording and semantic-equivalent generic overfit.
 - Frozen placement and calibration fields match Gate 1+2.
 - No unrelated identity changed.
 - No unrelated worktree files are staged.
@@ -153,6 +155,7 @@ The reviewer must independently verify:
 - Fixture/provenance exact ordered equality.
 - Frozen fields and candidate scope.
 - Generated and recruiter surfaces.
+- Identity-layer preview surfaces, including `data/identity-layers.json#/expressions/<IDENTITY>/preview_text`, `data/factions.json#/identity_layers/expressions/<IDENTITY>/preview_text`, and any other embedded preview consumer.
 - Generic color-pair and neighbor boundaries.
 - Deterministic generation.
 - Full validation.

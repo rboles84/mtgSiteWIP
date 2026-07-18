@@ -454,3 +454,113 @@ Because the scorecard contains `FAIL`, approval is blocked.
 `REQUEST CHANGES`
 
 Simic is not approved, not certified, not `semantically_ready`, and VM-517 has not started.
+
+## Replacement Candidate Remediation - 2026-07-17
+
+### Scope
+
+This remediation responds only to the independent review blocker for stale preview-eligible Simic public copy.
+
+Rejected candidate: `cbca9f596a090e924d532e7cb657c27c79ccb9de`
+Request-changes review record: `4da00dc997162ad609e84a77f6817c2ad0726dbc`
+Replacement candidate: `bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e`
+Replacement workflow record: `PENDING_VM516_REPLACEMENT_WORKFLOW_RECORD_COMMIT_SHA`
+
+No independent review, approval, certification, `semantically_ready` transition, program-base advancement, or VM-517 work occurred in this remediation window.
+
+### Preview Ownership
+
+- Authoritative preview source: `data/identity-layers.json#/expressions/UG/preview_text`.
+- Generated embedded consumer: `data/factions.json#/identity_layers/expressions/UG/preview_text`.
+- Propagation path: `npm.cmd run build:factions` runs `research/build-faction-artifacts.mjs`, reads `data/identity-layers.json`, and embeds active identity-layer expressions into `data/factions.json`.
+- `data/identity-layers.json` is a runtime/display registry authority for preview surfaces. It is not a Contract v1.1 canonical claim source and does not enter authoritative proof chains.
+- The candidate-scope validator does not allow `data/identity-layers.json` by default and reports the embedded `data/factions.json` identity-layer block as unrelated/global. This is the documented target-scoped display-source exception required to remove stale public copy at its source without changing the shared validator.
+
+### Remediation
+
+Old preview:
+
+`Simic blends Green growth with Blue knowledge. It values mutation, research, guided evolution, optimization, and becoming.`
+
+Replacement preview:
+
+`Simic studies life as living systems to heal, adapt, and improve through biology, clades, and public health.`
+
+The replacement is source-bounded to already approved Simic substantive claims:
+
+- `simic_combine_claim_001`: Simic is associated with biological research, adaptation, medicine, and experimental improvement.
+- `simic_combine_claim_003`: Simic members include scientists, physicians, surgeons, and maintainers of public health.
+- `simic_combine_claim_004`: Simic organization includes clades handling biological research.
+- `simic_combine_claim_0018`: Simic motivation is improving living systems through study, medicine, adaptation, and iterative biological change.
+- `simic_combine_claim_0020`: Generic UG value, mechanics, science language, or nature-plus-science aesthetics are not Simic proof without source-bounded living-system adaptation, biological research, medicine, clades, or improvement.
+
+Files changed in the replacement candidate:
+
+- `data/identity-layers.json`: replaces the UG preview source text.
+- `data/factions.json`: regenerated embedded identity-layer preview from the corrected source.
+
+No Simic raw claims/profile/placement, fixtures, provenance, placement model, recruiter context, runtime logic, schema, builder, validator, scoring, Hall, Crucible, scheduling, or unrelated identity files changed in the replacement candidate.
+
+### Consumed-Surface Sweep
+
+- Exact rejected text scan over consumed data/runtime surfaces (`data`, `supabase`, `research`) found no remaining matches after the replacement candidate.
+- Historical governance records still quote the rejected sentence to preserve the review finding; those records are not consumed runtime/public surfaces.
+- Semantic-equivalent preview shortcut scan found no remaining UG preview text using the rejected generic "Green growth with Blue knowledge", mutation, guided evolution, optimization, counters, mechanics, or generic-UG shortcut framing.
+- Source-to-consumer equality passed: `data/identity-layers.json#/expressions/UG/preview_text` exactly equals `data/factions.json#/identity_layers/expressions/UG/preview_text`.
+- Public/recruiter/generated Simic semantic surfaces remained unchanged from the rejected candidate except for the identity-layer preview fix already described.
+
+### Replacement Drift Scorecard
+
+| Control | Result | Evidence |
+|---|---|---|
+| Exact blocker removed from authoritative preview source | PASS | `data/identity-layers.json#/expressions/UG/preview_text` now uses source-bounded living-system/clade/public-health wording |
+| Embedded `data/factions.json` preview aligned | PASS | Embedded UG preview exactly matches `data/identity-layers.json` |
+| Exact rejected sentence absent from consumed surfaces | PASS | `rg` over `data`, `supabase`, and `research` found no matches |
+| Semantic-equivalent stale generic-UG preview absent | PASS | Preview no longer uses mutation/research/guided-evolution/optimization/becoming shortcut framing |
+| Preview traceable to approved claims | PASS | Supported by `simic_combine_claim_001`, `003`, `004`, `0018`, and `0020` |
+| Public, recruiter, identity-layer, and embedded surfaces agree | PASS | Only preview source/consumer changed; recruiter and core public copy remained aligned from rejected candidate |
+| Source ownership documented | PASS | This section records ownership and propagation path |
+| Generator-owned files regenerated | PASS | `npm.cmd run build:factions` regenerated the embedded consumer |
+| Claim counts unchanged | PASS | 33 total, 23 substantive, 10 discovery, 0 support, 0 unclassified |
+| UG provenance unchanged | PASS | 72 entries, zero null IDs/hashes, zero unresolved pointers, zero duplicate canonical entries |
+| Discovery/support isolation preserved | PASS | No non-substantive IDs appear in authoritative/default proof chains |
+| Fixture/provenance exact chains unchanged | PASS | `/core_identity` 8 IDs and `/placement_summary` 10 IDs remain exact ordered matches |
+| Frozen confidence/calibration/native IDs unchanged | PASS | Placement-model and raw Simic semantic files are unchanged from rejected candidate; frozen comparison to Gate 1+2 passed |
+| Lateral targets unchanged | PASS | `QUANDRIX`, `UR`, `WITHERBLOOM`, `TEMUR`, `SULTAI` |
+| Generic collision target absent | PASS | Remains absent |
+| Deterministic generation | PASS | Two `npm.cmd run build:factions` runs after the candidate commit left no generated diff |
+| No unrelated identity drift | PASS | Candidate commit changes only UG preview source and embedded identity-layer preview |
+| Table Talk excluded | PASS | Existing Table Talk handoff index/untracked baseline preserved and uncommitted |
+| Candidate-scope command | PASS with documented display-source exception | Exact command reports only `data/identity-layers.json` and embedded `data/factions.json` identity-layer global-path findings, the expected target-scoped display-source exception |
+
+No automated regression test was added because the existing candidate-scope validator freezes shared `research/` and code/test files for identity candidates. Adding or changing a shared validator/test would itself be non-identity scope drift. Permanent prevention is therefore recorded in the drift register and drift-control template as a mandatory manual consumed-preview control.
+
+### Replacement Validation
+
+- JSON parse checks for `data/identity-layers.json` and `data/factions.json`: passed.
+- Source-to-embedded preview equality check: passed.
+- Exact rejected-text scan across consumed data/runtime surfaces: passed with no matches.
+- Semantic-equivalent stale-preview scan: passed.
+- Explicit claim-role count: passed, 33 total / 23 substantive / 10 discovery / 0 support / 0 unclassified.
+- Substantive evidence-scope check: passed.
+- Discovery/support isolation check: passed for authoritative/default proof chains; discovery metadata remains confined to data-quality history.
+- Null canonical-ID/hash, unresolved-pointer, and duplicate canonical-entry scan: passed for 72 UG provenance entries.
+- Exact fixture/provenance checks: `/core_identity` 8 IDs exact ordered equality; `/placement_summary` 10 IDs exact ordered equality.
+- Frozen confidence/native-ID/term/threshold/penalty/strengthen/suppress/lateral-target/generic-collision/calibration comparisons: passed.
+- `npm.cmd run build:factions`: passed before commit and twice after commit; deterministic with no generated diff.
+- `node research/audit-semantic-readiness.mjs --targets=UG`: passed.
+- `node research/validate-semantic-readiness.mjs --targets=UG`: passed.
+- `node research/semantic-candidate-scope-tests.js`: passed.
+- `npm.cmd run test:semantic-readiness`: passed; verified 1787 semantic provenance entries.
+- `npm.cmd run test:placement`: passed, 37 factions and 37 golden paths.
+- `npm.cmd run test:faction-context-isolation`: passed.
+- `npm.cmd run test:source-generated`: passed with unchanged unrelated JESKAI/MARDU model-owned inhibitor warnings only.
+- `npm.cmd test`: passed.
+- `git diff --check`: passed with line-ending warnings only.
+- `node research/validate-semantic-candidate-scope.mjs --base=06f140a1e78a24d6c549943d6beb471f4e714302 --target=bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e --identity=UG`: returned only the documented target-scoped display-source exception:
+  - `identity candidate modified non-identity path data/identity-layers.json`
+  - `unrelated or global data/factions.json content changed`
+
+### Status
+
+Replacement candidate `bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e` is created and awaits fresh independent review. It is not approved, not certified, and not `semantically_ready`. The program base remains `fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3`. VM-517 has not started.
