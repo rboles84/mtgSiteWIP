@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "simic_combine",
   "faction_name": "Simic Combine",
-  "last_updated": "2026-05-10T02:56:03.254Z",
+  "last_updated": "2026-07-17T18:28:00-06:00",
   "placement_model_version": "vox-mana-lore-json-v1",
   "color_identity": [
     "green",
@@ -10,52 +10,68 @@
   ],
   "ideal_fit_indicators": [
     {
-      "indicator": "wants to improve systems rather than merely preserve them",
-      "rationale": "Matches the official Simic Combine identity summarized in the profile.",
+      "indicator_id": "simic_fit_living_system_improvement",
+      "indicator": "wants to improve living systems rather than merely preserve them",
+      "rationale": "Matches source-bounded Simic natural connection plus continual biological improvement.",
       "claim_ids": [
-        "simic_combine_claim_001"
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "thinks biologically and experimentally",
-      "rationale": "Matches the official Simic Combine identity summarized in the profile.",
+      "indicator_id": "simic_fit_biology_public_health_research",
+      "indicator": "thinks through biology, public health, and clade research",
+      "rationale": "Matches source-bounded scientists, physicians, surgeons, public health, clades, and biological research.",
       "claim_ids": [
-        "simic_combine_claim_002"
+        "simic_combine_claim_003",
+        "simic_combine_claim_004",
+        "simic_combine_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "is comfortable changing in response to new conditions",
-      "rationale": "Matches the official Simic Combine identity summarized in the profile.",
+      "indicator_id": "simic_fit_adaptive_change_conditions",
+      "indicator": "is comfortable changing living forms in response to new conditions",
+      "rationale": "Matches bounded Adapt texture and Simic placement synthesis when change remains organism-centered.",
       "claim_ids": [
-        "simic_combine_claim_003"
+        "simic_combine_claim_006",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020"
       ],
       "confidence": "Medium"
     }
   ],
   "poor_fit_indicators": [
     {
-      "indicator": "treats nature as untouchable",
-      "rationale": "Counters a core Simic Combine placement signal.",
+      "indicator_id": "simic_poor_fit_untouchable_nature",
+      "indicator": "treats living systems as untouchable",
+      "rationale": "Counters Simic improvement and adaptation while staying distinct from mono-green preservation.",
       "claim_ids": [
-        "simic_combine_claim_001"
+        "simic_combine_claim_002",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0022"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "rejects experimentation categorically",
-      "rationale": "Counters a core Simic Combine placement signal.",
+      "indicator_id": "simic_poor_fit_abstract_or_nonliving_systems",
+      "indicator": "prefers abstract systems or equations without organism-level stakes",
+      "rationale": "Counters the living-system boundary from mono-blue, Izzet, and Quandrix overfit.",
       "claim_ids": [
-        "simic_combine_claim_002"
+        "simic_combine_claim_0021",
+        "simic_combine_claim_0023",
+        "simic_combine_claim_0028"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "cares more about spectacle than sustained inquiry",
-      "rationale": "Counters a core Simic Combine placement signal.",
+      "indicator_id": "simic_poor_fit_generic_ug_mechanics",
+      "indicator": "treats UG value, counters, ramp, or card draw as enough",
+      "rationale": "Counters generic UG and mechanics-first overfit.",
       "claim_ids": [
-        "simic_combine_claim_003"
+        "simic_combine_claim_0020"
       ],
       "confidence": "Medium"
     }
@@ -63,33 +79,50 @@
   "discriminator_questions": [
     {
       "question_id": "simic_q1",
-      "question": "What part of yourself would you improve if the change was permanent?",
-      "purpose": "Tests adaptation and ethical boundaries.",
-      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
-      "related_factions_to_compare": [],
+      "question": "What part of a living system would you improve if the change was permanent?",
+      "purpose": "Tests source-bounded adaptation and ethical/pressure boundaries without making perfect-lifeform claims.",
+      "answer_pattern_that_supports_this_faction": "The answer centers organism-level adaptation, medicine, public health, clade research, or biological improvement.",
+      "answer_pattern_that_weakens_this_faction": "The answer centers abstract proof, generic science, nature untouched, or mechanics without living-system stakes.",
+      "related_factions_to_compare": [
+        "GENERIC_UG_OVERFIT",
+        "U",
+        "G",
+        "QUANDRIX",
+        "WITHERBLOOM",
+        "BANT"
+      ],
       "claim_ids": [
-        "simic_combine_claim_001",
-        "simic_combine_claim_002",
-        "simic_combine_claim_003"
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0019",
+        "simic_combine_claim_0020"
       ],
       "confidence": "Medium",
-      "notes": "Question is placement-engine guidance, not canon text."
+      "notes": "Question is placement-engine guidance, not canon text.",
+      "lateral_inhibition": false
     },
     {
       "question_id": "simic_q2",
       "question": "When does healing become experimentation?",
-      "purpose": "Distinguishes Simic from Selesnya and Witherbloom.",
-      "answer_pattern_that_supports_this_faction": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-      "answer_pattern_that_weakens_this_faction": "The answer rejects or treats the faction's core tension as irrelevant.",
-      "related_factions_to_compare": [],
+      "purpose": "Distinguishes Simic public-health and adaptation pressure from Selesnya preservation, Witherbloom life/death craft, and Izzet experiment-first inquiry.",
+      "answer_pattern_that_supports_this_faction": "The answer treats living-system change as studied adaptation or medicine rather than spectacle, abstraction, or life-force exchange.",
+      "answer_pattern_that_weakens_this_faction": "The answer rejects biological change categorically or centers nonliving systems, death craft, communal preservation, or invention-first experimentation.",
+      "related_factions_to_compare": [
+        "WG",
+        "WITHERBLOOM",
+        "UR",
+        "BG",
+        "UB",
+        "SULTAI"
+      ],
       "claim_ids": [
-        "simic_combine_claim_001",
-        "simic_combine_claim_002",
-        "simic_combine_claim_003"
+        "simic_combine_claim_003",
+        "simic_combine_claim_006",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0019"
       ],
       "confidence": "Medium",
-      "notes": "Question is placement-engine guidance, not canon text."
+      "notes": "Question is placement-engine guidance, not canon text.",
+      "lateral_inhibition": false
     },
     {
       "question_id": "q_simic_combine_9801",
@@ -100,10 +133,9 @@
       "target_signal": "Simic improves living systems; Quandrix proves and manipulates abstract pattern.",
       "suppresses_this_faction_if": "the answer centers proof, equations, abstraction, or mathematical precision",
       "evidence_claim_ids": [
-        "simic_combine_claim_001",
-        "simic_combine_claim_002",
-        "simic_combine_claim_003"
-      ]
+        "simic_combine_claim_0028"
+      ],
+      "lateral_inhibition": false
     },
     {
       "question_id": "q_simic_combine_9802",
@@ -111,28 +143,27 @@
         "witherbloom"
       ],
       "prompt": "Are you improving the organism, or learning what vitality costs and how to spend it?",
-      "target_signal": "Simic optimizes biology toward progress; Witherbloom studies essence, cost, and life/death craft.",
-      "suppresses_this_faction_if": "the answer centers essence, bodily exchange, or life/death craft",
+      "target_signal": "Simic adapts biology toward improvement; Witherbloom studies essence, cost, and life/death craft.",
+      "suppresses_this_faction_if": "the answer centers essence, bodily exchange, pests, or life/death craft",
       "evidence_claim_ids": [
-        "simic_combine_claim_001",
-        "simic_combine_claim_002",
-        "simic_combine_claim_003"
-      ]
+        "simic_combine_claim_0029"
+      ],
+      "lateral_inhibition": false
     }
   ],
   "chatbot_guidance": {
     "how_to_recognize_match": [
-      "wants to improve systems rather than merely preserve them",
-      "thinks biologically and experimentally",
-      "is comfortable changing in response to new conditions"
+      "wants to improve living systems rather than merely preserve them",
+      "thinks through biology, public health, and clade research",
+      "is comfortable changing living forms in response to new conditions"
     ],
     "how_to_recognize_mismatch": [
-      "treats nature as untouchable",
-      "rejects experimentation categorically",
-      "cares more about spectacle than sustained inquiry"
+      "treats living systems as untouchable",
+      "prefers abstract systems or equations without organism-level stakes",
+      "treats UG value, counters, ramp, or card draw as enough"
     ],
     "questions_to_ask_when_uncertain": [
-      "What part of yourself would you improve if the change was permanent?",
+      "What part of a living system would you improve if the change was permanent?",
       "When does healing become experimentation?"
     ],
     "do_not_overweight": [
@@ -153,240 +184,284 @@
     "strongest_evidence_areas": [
       "official faction overview",
       "official mechanics identity",
-      "MTG-Stories corpus search evidence"
+      "bounded placement synthesis from source-backed Simic claims"
     ],
     "weakest_evidence_areas": [
-      "deep story episode coverage",
-      "cross-faction comparison calibration"
+      "deep story episode coverage retained as discovery metadata only",
+      "future localized story support for Vorel or individual story events"
     ],
     "manual_review_recommended": true,
-    "notes": "Good for initial placement testing; should be expanded with story-specific claims in a later pass. Corpus-enriched data should be reviewed with calibration and collision reports before being treated as tuned scoring fuel.",
+    "notes": "Gate 3 remediation isolates discovery-story rows from semantic proof chains and keeps placement bounded to reviewed official source records.",
     "calibration_tuning_status": "explicit",
     "last_placement_ready_pass": "2026-05-10T02:56:03.254Z"
   },
   "placement_profile_version": "vox-mana-lore-json-v1",
   "based_on_profile_version": "1.0.0",
   "placement_summary": {
-    "short_description": "Simic Combine placement is informed by official overview sources and MTG-Stories corpus evidence.",
-    "best_fit_summary": "wants to improve systems rather than merely preserve them thinks biologically and experimentally is comfortable changing in response to new conditions",
-    "poor_fit_summary": "treats nature as untouchable rejects experimentation categorically cares more about spectacle than sustained inquiry",
+    "id": "simic_placement_summary_gate3",
+    "short_description": "Simic Combine placement is source-bounded by living-system adaptation, biological improvement, medicine, public health, clade research, zonot context, and bounded Adapt texture.",
+    "best_fit_summary": "wants to improve living systems through biology, public health, clade research, and adaptive change rather than generic UG value",
+    "poor_fit_summary": "treats living systems as untouchable, centers abstract proof or nonliving systems, or treats counters, ramp, card draw, and UG mechanics as enough",
     "interpretation_warning": "Placement data is interpretive and should be treated as a matching heuristic, not direct canon.",
     "claim_ids": [
-      "simic_combine_claim_0008",
-      "simic_combine_claim_0009",
-      "simic_combine_claim_0010",
-      "simic_combine_claim_0011",
-      "simic_combine_claim_0012",
-      "simic_combine_claim_0013",
-      "simic_combine_claim_0014",
-      "simic_combine_claim_0015"
-    ],
-    "calibrated_primary_read": "Requires biological adaptation, improvement, mutation, optimization, or living-system experimentation.",
-    "calibrated_false_positive_guardrail": "Do not award for generic systems thinking without organism/adaptation language.",
-    "evidence_claim_ids": [
       "simic_combine_claim_001",
       "simic_combine_claim_002",
       "simic_combine_claim_003",
       "simic_combine_claim_004",
+      "simic_combine_claim_006",
+      "simic_combine_claim_007",
+      "simic_combine_claim_0018",
+      "simic_combine_claim_0020"
+    ],
+    "calibrated_primary_read": "Requires biological adaptation, improvement, mutation, optimization, or living-system experimentation.",
+    "calibrated_false_positive_guardrail": "Do not award for generic systems thinking without organism/adaptation language.",
+    "evidence_claim_ids": [
       "simic_combine_claim_005",
-      "simic_combine_claim_006"
+      "simic_combine_claim_0019"
     ]
   },
   "placement_axes": [
     {
       "axis_id": "axis_adaptation_vs_preservation",
       "label": "Adaptation vs Preservation",
-      "description": "Measures whether user answers align with Simic Combine's specific evidence instead of only its color pair.",
+      "description": "Measures whether user answers align with Simic Combine's source-bounded living-system adaptation and improvement instead of generic UG color, abstract theory, or nature-preservation overlap.",
       "low_end_label": "unchanged preservation",
       "high_end_label": "iterative biological improvement",
       "faction_position": 86,
-      "rationale": "Corpus evidence adds story-context support for Simic Combine, Simic, Momir Vig, Vannifar, Zonot, cytoplast, adaptation, adapt.",
+      "rationale": "Source-bounded Simic placement requires living-system adaptation, medicine, clade research, and improvement rather than color-pair or mechanic-only overlap.",
       "claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011",
-        "simic_combine_claim_0012",
-        "simic_combine_claim_0013",
-        "simic_combine_claim_0014",
-        "simic_combine_claim_0015"
+        "simic_combine_claim_002",
+        "simic_combine_claim_007",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020"
       ],
       "confidence": "Medium",
-      "notes": "Added during MTG-Stories corpus upgrade."
+      "notes": "VM-516 Gate 3 replaces discovery-backed corpus axis with source-bounded Simic placement synthesis."
     }
   ],
   "moral_and_psychological_profile": {
-    "summary": "Simic Combine should be scored through faction-specific behavioral evidence, not only broad color identity.",
+    "id": "simic_moral_profile_gate3",
+    "summary": "Simic Combine should be scored through source-bounded biological adaptation, public health, clade research, and living-system improvement, not generic UG value, abstract science, nature aesthetics, or mechanics alone.",
     "claim_ids": [
-      "simic_combine_claim_0008",
-      "simic_combine_claim_0009",
-      "simic_combine_claim_0010",
-      "simic_combine_claim_0011",
-      "simic_combine_claim_0012"
+      "simic_combine_claim_007",
+      "simic_combine_claim_0018",
+      "simic_combine_claim_0019",
+      "simic_combine_claim_0020"
     ]
   },
   "core_values": [
     {
-      "value": "Simic Combine",
-      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "value_id": "simic_value_living_system_adaptation",
+      "value": "living-system adaptation",
+      "placement_relevance": "Fits Simic when adaptation is organism-level and source-bounded rather than generic change.",
       "claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_001",
+        "simic_combine_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Simic",
-      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "value_id": "simic_value_nature_improved_by_study",
+      "value": "nature improved by study",
+      "placement_relevance": "Fits Simic when nature is a starting point for improvement rather than an untouchable endpoint.",
       "claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_002",
+        "simic_combine_claim_0022"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Momir Vig",
-      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "value_id": "simic_value_public_health_medicine",
+      "value": "public health and medicine",
+      "placement_relevance": "Fits Simic when scientific work is tied to physicians, surgeons, and Ravnican public health.",
       "claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_003"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Vannifar",
-      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "value_id": "simic_value_clade_research",
+      "value": "clade biological research",
+      "placement_relevance": "Fits Simic when research is organized through source-backed clades and biological specialization.",
       "claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_004"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Zonot",
-      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "value_id": "simic_value_bounded_adapt_texture",
+      "value": "bounded Adapt texture",
+      "placement_relevance": "Adapt can support Simic texture, but mechanics do not prove Simic identity alone.",
       "claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_006",
+        "simic_combine_claim_0020"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "cytoplast",
-      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "value_id": "simic_value_utopian_balance",
+      "value": "incremental balance",
+      "placement_relevance": "Zegana-side Utopian balance helps keep Simic from becoming unsupported perfect-lifeform or radical certainty.",
       "claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_005",
+        "simic_combine_claim_0019"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "adaptation",
-      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "value_id": "simic_value_adaptionist_pressure",
+      "value": "radical intervention pressure",
+      "placement_relevance": "Vannifar-side pressure can sharpen Simic without turning it into generic body-horror or mad-science caricature.",
       "claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_005",
+        "simic_combine_claim_0019"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "adapt",
-      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "value_id": "simic_value_generic_ug_guardrail",
+      "value": "generic UG guardrail",
+      "placement_relevance": "Keeps counters, ramp, card draw, tempo, value, and broad science language from counting as Simic proof by themselves.",
       "claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_0020"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "mutation",
-      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "value_id": "simic_value_nonabstract_method",
+      "value": "organisms over abstraction",
+      "placement_relevance": "Separates Simic living-system method from mono-blue, Izzet, and Quandrix abstraction.",
       "claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_0021",
+        "simic_combine_claim_0023",
+        "simic_combine_claim_0028"
       ],
       "confidence": "Medium"
     },
     {
-      "value": "Prime Speaker Zegana",
-      "placement_relevance": "Corpus search evidence for Simic Combine.",
+      "value_id": "simic_value_life_not_lifedeath_craft",
+      "value": "adaptation rather than life-death craft",
+      "placement_relevance": "Separates Simic biological improvement from Golgari, Witherbloom, and Sultai life-resource readings.",
       "claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_0024",
+        "simic_combine_claim_0029",
+        "simic_combine_claim_0032"
       ],
       "confidence": "Medium"
     }
   ],
   "behavioral_signals": [
     {
-      "signal": "References The Principles of Unnatural Selection, The Fathom Edict, Operation Desperation as story-context evidence rather than relying only on color identity.",
-      "placement_relevance": "Strengthens Simic Combine with corpus-backed specificity.",
-      "supports_match_when": "The user's answers echo Simic Combine, Simic, Momir Vig, Vannifar, Zonot, cytoplast in a faction-specific way.",
-      "weakens_match_when": "The user's answers only match the shared color pair without any faction-specific behavior.",
+      "signal_id": "simic_signal_living_system_problem_solving",
+      "signal": "Frames a problem as a living system that can be studied, healed, adapted, or improved.",
+      "placement_relevance": "Strengthens Simic when the method is biological and source-bounded rather than abstract or generic science.",
+      "supports_match_when": "The user centers organism-level adaptation, clade research, public health, or biological improvement.",
+      "weakens_match_when": "The user centers abstraction, equations, spectacle, decay, secrecy, or generic UG value.",
       "claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011",
-        "simic_combine_claim_0012",
-        "simic_combine_claim_0013"
+        "simic_combine_claim_001",
+        "simic_combine_claim_003",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020"
       ],
       "confidence": "Medium"
     },
-    "improves living systems",
-    "treats change as progress",
-    "optimizes through adaptation"
+    {
+      "signal_id": "simic_signal_adaptation_pressure",
+      "signal": "Treats adaptation as directed improvement that can become radical under pressure.",
+      "placement_relevance": "Captures the Zegana/Vannifar tension without unsupported body-horror or perfect-lifeform claims.",
+      "supports_match_when": "The user accepts biological change while acknowledging limits, balance, or public-health stakes.",
+      "weakens_match_when": "The user wants untouched preservation or unlimited transformation without source-bounded Simic context.",
+      "claim_ids": [
+        "simic_combine_claim_005",
+        "simic_combine_claim_0019"
+      ],
+      "confidence": "Medium"
+    },
+    {
+      "signal_id": "simic_signal_mechanics_are_texture",
+      "signal": "Uses counters or Adapt as texture only when tied to living-system adaptation.",
+      "placement_relevance": "Prevents mechanics-first generic UG overfit.",
+      "supports_match_when": "Mechanics serve the biological-improvement frame.",
+      "weakens_match_when": "Counters, ramp, draw, or value are the whole reason.",
+      "claim_ids": [
+        "simic_combine_claim_006",
+        "simic_combine_claim_007",
+        "simic_combine_claim_0020"
+      ],
+      "confidence": "Medium"
+    }
   ],
   "inhibitor_traits": [
     {
-      "trait": "Generic color-pair overfit",
-      "why_it_conflicts": "The corpus upgrade is intended to prevent Simic Combine from winning on broad color identity alone.",
+      "trait_id": "simic_inhibit_generic_ug_overfit",
+      "trait": "Generic UG color-pair or mechanic overfit",
+      "why_it_conflicts": "Simic cannot be certified from creatures, ramp, card draw, counters, tempo, midrange, evolve, adapt, graft, proliferate, mutate, or science aesthetics alone.",
       "status": "Supported Interpretation",
       "claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011"
+        "simic_combine_claim_0020"
       ],
       "confidence": "Medium",
-      "notes": "Use collision questions when another faction shares the same or adjacent colors."
+      "notes": "Use fixtures and non-inhibiting collision guidance when another identity shares adjacent biology, growth, or systems language."
     },
-    "seeks mathematical proof",
-    "studies essence craft",
-    "mourns wilderness lost to systems"
+    {
+      "trait_id": "simic_inhibit_abstract_proof_or_equation",
+      "trait": "Abstract proof or equation leads over living systems",
+      "why_it_conflicts": "Centers mono-blue, Izzet, or Quandrix patterns instead of Simic organism-level adaptation.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "simic_combine_claim_0021",
+        "simic_combine_claim_0023",
+        "simic_combine_claim_0028"
+      ],
+      "confidence": "Medium",
+      "notes": "Suppress Simic when nonliving abstraction is the method."
+    },
+    {
+      "trait_id": "simic_inhibit_preservation_decay_or_lifecost",
+      "trait": "Preservation, decay, or life-cost craft leads over biological improvement",
+      "why_it_conflicts": "Centers Selesnya, Golgari, Witherbloom, or Sultai readings instead of Simic public-health and adaptation method.",
+      "status": "Supported Interpretation",
+      "claim_ids": [
+        "simic_combine_claim_0025",
+        "simic_combine_claim_0024",
+        "simic_combine_claim_0029",
+        "simic_combine_claim_0032"
+      ],
+      "confidence": "Medium",
+      "notes": "Suppress Simic when the answer's core logic is communal preservation, decay/resource cycling, vitality-cost craft, or extraction."
+    }
   ],
   "good_fit_indicators": [
     {
-      "indicator": "wants to improve systems rather than merely preserve them",
-      "rationale": "Matches the official Simic Combine identity summarized in the profile.",
+      "indicator_id": "simic_fit_living_system_improvement",
+      "indicator": "wants to improve living systems rather than merely preserve them",
+      "rationale": "Matches source-bounded Simic natural connection plus continual biological improvement.",
       "claim_ids": [
-        "simic_combine_claim_001"
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "thinks biologically and experimentally",
-      "rationale": "Matches the official Simic Combine identity summarized in the profile.",
+      "indicator_id": "simic_fit_biology_public_health_research",
+      "indicator": "thinks through biology, public health, and clade research",
+      "rationale": "Matches source-bounded scientists, physicians, surgeons, public health, clades, and biological research.",
       "claim_ids": [
-        "simic_combine_claim_002"
+        "simic_combine_claim_003",
+        "simic_combine_claim_004",
+        "simic_combine_claim_0018"
       ],
       "confidence": "Medium"
     },
     {
-      "indicator": "is comfortable changing in response to new conditions",
-      "rationale": "Matches the official Simic Combine identity summarized in the profile.",
+      "indicator_id": "simic_fit_adaptive_change_conditions",
+      "indicator": "is comfortable changing living forms in response to new conditions",
+      "rationale": "Matches bounded Adapt texture and Simic placement synthesis when change remains organism-centered.",
       "claim_ids": [
-        "simic_combine_claim_003"
+        "simic_combine_claim_006",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020"
       ],
       "confidence": "Medium"
     }
@@ -424,27 +499,216 @@
   },
   "collision_guidance": [
     {
+      "collision_id": "collision_simic_vs_u_gate3",
+      "against": "U",
+      "separator": "Simic requires living-system adaptation; mono-blue can be knowledge, planning, control, or experiment without organisms.",
+      "ask": "Is the system being understood, or is a living organism being changed?",
+      "suppress_if": "the answer centers information, planning, control, or nonliving knowledge",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0021"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_simic_vs_g_gate3",
+      "against": "G",
+      "separator": "Simic improves nature through study; mono-green can center inherent growth, instinct, and preservation without directed biological research.",
+      "ask": "Is nature trusted to unfold, or changed through medicine and research?",
+      "suppress_if": "the answer centers untouched nature, instinct, or inherent growth over directed adaptation",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0022"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_simic_vs_izzet_gate3",
+      "against": "UR",
+      "separator": "Simic experiments on living systems; Izzet-like inquiry centers invention, spark, improvisation, or devices.",
+      "ask": "Is the experiment building a device or adapting an organism?",
+      "suppress_if": "the answer centers invention, gadgets, explosions, or experiment-first novelty",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0023"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_simic_vs_golgari_gate3",
+      "against": "BG",
+      "separator": "Simic adapts and heals living systems; Golgari turns decay and death into survival ecology.",
+      "ask": "Is life being improved, or reclaimed through decay and survival?",
+      "suppress_if": "the answer centers rot, recursion, undercity survival, or death as resource",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0024"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_simic_vs_selesnya_gate3",
+      "against": "WG",
+      "separator": "Simic treats nature as improvable; Selesnya treats nature as communal belonging and preservation.",
+      "ask": "Is nature protected as a community, or modified as a living system?",
+      "suppress_if": "the answer centers harmony, communal preservation, or shared belonging over adaptation",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0025"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_simic_vs_gruul_gate3",
+      "against": "RG",
+      "separator": "Simic studies and directs adaptation; Gruul centers instinct, rage, wild release, and anti-civilization pressure.",
+      "ask": "Is the change researched, or is it a wild refusal of control?",
+      "suppress_if": "the answer centers rage, territorial instinct, or anti-civilization release",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0026"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_simic_vs_dimir_gate3",
+      "against": "UB",
+      "separator": "Simic may be reclusive, but its method is biological research and public health; Dimir centers hidden information and covert leverage.",
+      "ask": "Is secrecy protecting research, or is information control the point?",
+      "suppress_if": "the answer centers secrecy, manipulation, anonymity, or information leverage",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0027"
+      ],
+      "lateral_inhibition": false
+    },
+    {
       "collision_id": "collision_simic_combine_vs_quandrix_placement_ready",
       "against": "quandrix",
       "separator": "Simic improves living systems; Quandrix proves and manipulates abstract pattern.",
       "ask": "If a system can be changed, do you start with the organism or the equation underneath it?",
       "suppress_if": "the answer centers proof, equations, abstraction, or mathematical precision",
       "evidence_claim_ids": [
-        "simic_combine_claim_001",
-        "simic_combine_claim_002",
-        "simic_combine_claim_003"
-      ]
+        "simic_combine_claim_0028"
+      ],
+      "lateral_inhibition": false
     },
     {
       "collision_id": "collision_simic_combine_vs_witherbloom_placement_ready",
       "against": "witherbloom",
-      "separator": "Simic optimizes biology toward progress; Witherbloom studies essence, cost, and life/death craft.",
+      "separator": "Simic adapts biology toward improvement; Witherbloom studies essence, cost, and life/death craft.",
       "ask": "Are you improving the organism, or learning what vitality costs and how to spend it?",
-      "suppress_if": "the answer centers essence, bodily exchange, or life/death craft",
+      "suppress_if": "the answer centers essence, bodily exchange, pests, or life/death craft",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0029"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_simic_vs_bant_gate3",
+      "against": "BANT",
+      "separator": "Simic is Ravnican UG biological research; Bant can be broader order, community, stewardship, or virtue.",
+      "ask": "Is the answer naming living-system adaptation, or broader civic virtue and stewardship?",
+      "suppress_if": "the answer centers honor, order, stewardship, or broad Bant virtue without Simic biology",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0030"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_simic_vs_temur_gate3",
+      "against": "TEMUR",
+      "separator": "Simic directs adaptation through research; Temur-like identity can center wild expression, elemental force, and creature scale.",
+      "ask": "Is adaptation engineered through study, or expressed as wild scale and momentum?",
+      "suppress_if": "the answer centers elemental momentum, wild expression, or creature scale without directed research",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0031"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_simic_vs_sultai_gate3",
+      "against": "SULTAI",
+      "separator": "Simic improves living systems; Sultai-like readings can center extraction, organic resources, and long-term manipulation.",
+      "ask": "Is the organism being improved, or used as a resource for power?",
+      "suppress_if": "the answer centers exploitation, resource strategy, or long-term manipulation over public-health/adaptation method",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0032"
+      ],
+      "lateral_inhibition": false
+    }
+  ],
+  "semantic_guidance_evidence": [
+    {
+      "guidance_id": "simic_guidance_how_to_recognize_match_0_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "simic_guidance_how_to_recognize_match_0_gate3",
       "evidence_claim_ids": [
         "simic_combine_claim_001",
         "simic_combine_claim_002",
-        "simic_combine_claim_003"
+        "simic_combine_claim_0018"
+      ]
+    },
+    {
+      "guidance_id": "simic_guidance_how_to_recognize_match_1_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "simic_guidance_how_to_recognize_match_1_gate3",
+      "evidence_claim_ids": [
+        "simic_combine_claim_003",
+        "simic_combine_claim_004",
+        "simic_combine_claim_0018"
+      ]
+    },
+    {
+      "guidance_id": "simic_guidance_how_to_recognize_match_2_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "simic_guidance_how_to_recognize_match_2_gate3",
+      "evidence_claim_ids": [
+        "simic_combine_claim_006",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020"
+      ]
+    },
+    {
+      "guidance_id": "simic_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "simic_guidance_how_to_recognize_mismatch_0_gate3",
+      "evidence_claim_ids": [
+        "simic_combine_claim_002",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0022"
+      ]
+    },
+    {
+      "guidance_id": "simic_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "simic_guidance_how_to_recognize_mismatch_1_gate3",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0021",
+        "simic_combine_claim_0023",
+        "simic_combine_claim_0028"
+      ]
+    },
+    {
+      "guidance_id": "simic_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "simic_guidance_how_to_recognize_mismatch_2_gate3",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0020"
+      ]
+    },
+    {
+      "guidance_id": "simic_guidance_questions_to_ask_when_uncertain_0_gate3",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_id": "simic_guidance_questions_to_ask_when_uncertain_0_gate3",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0019",
+        "simic_combine_claim_0020"
+      ]
+    },
+    {
+      "guidance_id": "simic_guidance_questions_to_ask_when_uncertain_1_gate3",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_id": "simic_guidance_questions_to_ask_when_uncertain_1_gate3",
+      "evidence_claim_ids": [
+        "simic_combine_claim_003",
+        "simic_combine_claim_006",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0019"
       ]
     }
   ]

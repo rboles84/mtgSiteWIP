@@ -1,0 +1,322 @@
+{
+  "identity_key": "UG",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "simic_core_living_system_adaptation_identity",
+      "fixture_type": "core_inclusion",
+      "scenario": "A clear Simic case centers the green-blue Ravnican guild identity through living-system adaptation, biological improvement, medicine, public health, clade research, and bounded Adapt texture rather than generic UG deck value.",
+      "intended_interpretation": "Simic inclusion requires source-bounded biological adaptation and living-system improvement in the Ravnican Simic context.",
+      "evidence_claim_ids": [
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_003",
+        "simic_combine_claim_004",
+        "simic_combine_claim_006",
+        "simic_combine_claim_007",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Simic when organism-level adaptation, public health, clade research, and biological improvement lead.",
+      "unsupported_certainty_to_avoid": "Do not use generic UG ramp, card draw, counters, tempo, midrange, science aesthetics, or mechanics alone as Simic proof."
+    },
+    {
+      "fixture_id": "simic_pressure_adaptation_radical_intervention",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "A mature or pressure Simic case asks whether living-system improvement remains careful and public-health oriented or becomes Vannifar-style radical intervention.",
+      "intended_interpretation": "Pressure behavior remains source-bounded to biological improvement, Zegana/Vannifar leadership tension, and adaptation pressure without unsupported perfect-lifeform or body-horror certainty.",
+      "evidence_claim_ids": [
+        "simic_combine_claim_005",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0019",
+        "simic_combine_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Ask whether adaptation and improvement are the method and whether pressure changes how far biological intervention goes.",
+      "unsupported_certainty_to_avoid": "Do not certify Simic from generic mad science, benevolent science, unethical science, monsters, or perfect-lifeform claims without source support."
+    },
+    {
+      "fixture_id": "simic_exclude_generic_ug_overfit",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_UG_OVERFIT",
+      "scenario": "A UG deck or persona only wants creatures, ramp, counters, card draw, tempo, midrange, value, evolve, adapt, graft, proliferate, mutate, or generic science/nature language.",
+      "intended_interpretation": "Exclude or keep Simic adjacent for GENERIC_UG_OVERFIT unless source-bounded living-system adaptation, medicine, clade research, or biological improvement leads.",
+      "evidence_claim_ids": [
+        "simic_combine_claim_007",
+        "simic_combine_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Require Simic-specific organism, medicine, clade, public-health, or adaptation context before calling the result Simic.",
+      "unsupported_certainty_to_avoid": "Do not infer Simic from UG color identity or mechanics alone."
+    },
+    {
+      "fixture_id": "simic_exclude_u",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "U",
+      "scenario": "Mono-blue knowledge, planning, control, calculation, or experimentation appears without living-system adaptation.",
+      "intended_interpretation": "Exclude or keep Simic adjacent for U unless source-bounded organisms, biology, medicine, or adaptation lead.",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0021"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate knowledge and planning from biological improvement.",
+      "unsupported_certainty_to_avoid": "Do not present information, control, or experiment language alone as Simic."
+    },
+    {
+      "fixture_id": "simic_exclude_g",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "G",
+      "scenario": "Mono-green nature, growth, instinct, creatures, ecology, or preservation appears without biological research or directed adaptation.",
+      "intended_interpretation": "Exclude or keep Simic adjacent for G unless nature is being studied, healed, adapted, or improved through Simic method.",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate inherent growth or preservation from Simic directed biological improvement.",
+      "unsupported_certainty_to_avoid": "Do not present nature, growth, or creatures alone as Simic."
+    },
+    {
+      "fixture_id": "simic_exclude_ur",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UR",
+      "scenario": "Izzet-like invention, spark, improvisation, gadgetry, or experiment-first novelty leads.",
+      "intended_interpretation": "Exclude or keep Simic adjacent for UR unless experimentation is centered on living systems, public health, or biological adaptation.",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate invention-first experiment from organism-centered adaptation.",
+      "unsupported_certainty_to_avoid": "Do not collapse Simic into Izzet invention or improvisational research."
+    },
+    {
+      "fixture_id": "simic_exclude_bg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BG",
+      "scenario": "Golgari-like survival, rot, decay, undercity resource cycles, recursion, or death-as-ecology leads.",
+      "intended_interpretation": "Exclude or keep Simic adjacent for BG unless life is being studied or improved as a living system rather than reclaimed through decay.",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate biological improvement from decay and survival ecology.",
+      "unsupported_certainty_to_avoid": "Do not collapse Simic into Golgari rot, recursion, or undercity survival."
+    },
+    {
+      "fixture_id": "simic_exclude_wg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WG",
+      "scenario": "Selesnya-like harmony, communal belonging, preservation, or nature as shared home leads.",
+      "intended_interpretation": "Exclude or keep Simic adjacent for WG unless nature is modified through biological inquiry and adaptation rather than preserved through communal harmony.",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate shared nature and belonging from Simic adaptation and improvement.",
+      "unsupported_certainty_to_avoid": "Do not collapse Simic into Selesnya harmony or preservation."
+    },
+    {
+      "fixture_id": "simic_exclude_rg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "RG",
+      "scenario": "Gruul-like instinct, wild release, territorial revolt, rage, or anti-civilization pressure leads.",
+      "intended_interpretation": "Exclude or keep Simic adjacent for RG unless living systems are deliberately studied, healed, adapted, or improved.",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate directed research from wildness and anti-civilization release.",
+      "unsupported_certainty_to_avoid": "Do not collapse Simic into Gruul rage, instinct, or revolt."
+    },
+    {
+      "fixture_id": "simic_exclude_ub",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UB",
+      "scenario": "Dimir-like secrecy, hidden information, covert leverage, or manipulation leads.",
+      "intended_interpretation": "Exclude or keep Simic adjacent for UB unless reclusiveness is secondary to biological research, medicine, or living-system adaptation.",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0027"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate reclusive laboratories from information-control identity.",
+      "unsupported_certainty_to_avoid": "Do not collapse Simic into Dimir secrecy or manipulation."
+    },
+    {
+      "fixture_id": "simic_exclude_quandrix",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "QUANDRIX",
+      "scenario": "Quandrix-like mathematics, proof, abstraction, theory, pattern, or equations leads.",
+      "intended_interpretation": "Exclude or keep Simic adjacent for QUANDRIX unless the system being changed is a living organism or biological ecology.",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate organism-level adaptation from abstract pattern.",
+      "unsupported_certainty_to_avoid": "Do not collapse Simic into Quandrix mathematics or theoretical pattern."
+    },
+    {
+      "fixture_id": "simic_exclude_witherbloom",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WITHERBLOOM",
+      "scenario": "Witherbloom-like essence, potion craft, pests, life-death exchange, or vitality cost leads.",
+      "intended_interpretation": "Exclude or keep Simic adjacent for WITHERBLOOM unless life is being adapted and improved rather than spent, harvested, or exchanged.",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Separate adaptation and medicine from life/death craft.",
+      "unsupported_certainty_to_avoid": "Do not collapse Simic into Witherbloom essence, pests, or potion craft."
+    },
+    {
+      "fixture_id": "simic_exclude_bant",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BANT",
+      "scenario": "Bant-like order, community, stewardship, civic virtue, or idealized responsibility at a broader three-color identity leads.",
+      "intended_interpretation": "Exclude or keep Simic adjacent for BANT unless the Simic-specific biological research and adaptation method leads.",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0030"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate broader virtue or stewardship from Simic living-system improvement.",
+      "unsupported_certainty_to_avoid": "Do not collapse Simic into generic Bant order or stewardship."
+    },
+    {
+      "fixture_id": "simic_exclude_temur",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "TEMUR",
+      "scenario": "Temur-like wild expression, elemental momentum, creature scale, or instinctive adaptation leads.",
+      "intended_interpretation": "Exclude or keep Simic adjacent for TEMUR unless adaptation is studied and directed through Simic biological research or improvement.",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0031"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Separate engineered adaptation from wild scale and momentum.",
+      "unsupported_certainty_to_avoid": "Do not collapse Simic into Temur creature scale or elemental expression."
+    },
+    {
+      "fixture_id": "simic_exclude_sultai",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SULTAI",
+      "scenario": "Sultai-like exploitation, resource strategy, long-term manipulation, or power through organic resources leads.",
+      "intended_interpretation": "Exclude or keep Simic adjacent for SULTAI unless organic matter is being adapted for public-health or biological improvement rather than extracted for power.",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "defensible_guidance": "Separate biological improvement from extraction and manipulation.",
+      "unsupported_certainty_to_avoid": "Do not collapse Simic into Sultai resource strategy or exploitation."
+    },
+    {
+      "fixture_id": "simic_nearest_collision_biology_systems_growth",
+      "fixture_type": "nearest_collision_ambiguity",
+      "scenario": "A response about growth, systems, science, biology, nature, or improvement could be Simic, mono-blue, mono-green, Izzet, Golgari, Selesnya, Gruul, Dimir, Quandrix, Witherbloom, Bant, Temur, or Sultai.",
+      "intended_interpretation": "Nearest-collision ambiguity should ask whether the active method is Simic living-system adaptation and biological improvement rather than abstraction, invention, preservation, wildness, decay, secrecy, life/death craft, stewardship, scale, or exploitation.",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0021",
+        "simic_combine_claim_0022",
+        "simic_combine_claim_0023",
+        "simic_combine_claim_0024",
+        "simic_combine_claim_0025",
+        "simic_combine_claim_0026",
+        "simic_combine_claim_0027",
+        "simic_combine_claim_0028",
+        "simic_combine_claim_0029",
+        "simic_combine_claim_0030",
+        "simic_combine_claim_0031",
+        "simic_combine_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Use Simic only when biology, adaptation, medicine, clade research, or living-system improvement is the active method.",
+      "unsupported_certainty_to_avoid": "Do not force Simic from generic growth, systems, science, counters, ramp, or UG value language."
+    },
+    {
+      "fixture_id": "simic_core_identity_provenance",
+      "fixture_type": "provenance",
+      "scenario": "",
+      "intended_interpretation": "Generated provenance for Simic core identity must point to source-bounded substantive claims only.",
+      "evidence_claim_ids": [
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_003",
+        "simic_combine_claim_004",
+        "simic_combine_claim_006",
+        "simic_combine_claim_007",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Generated consumers must preserve source-bounded Simic core identity provenance.",
+      "unsupported_certainty_to_avoid": "Do not use discovery-story rows or generic UG mechanics as Simic core identity proof.",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.profile.json",
+      "canonical_pointer": "/core_identity"
+    },
+    {
+      "fixture_id": "simic_placement_summary_provenance",
+      "fixture_type": "provenance",
+      "scenario": "",
+      "intended_interpretation": "Generated provenance for Simic placement summary must preserve profile identity, leadership, mechanics, placement, and generic-overfit guardrails.",
+      "evidence_claim_ids": [
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_003",
+        "simic_combine_claim_004",
+        "simic_combine_claim_006",
+        "simic_combine_claim_007",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020",
+        "simic_combine_claim_005",
+        "simic_combine_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "defensible_guidance": "Generated consumers must preserve claim/source provenance for Simic placement summary guidance.",
+      "unsupported_certainty_to_avoid": "Do not expose discovery-story rows or generic UG mechanics as placement proof.",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/placement_summary"
+    }
+  ]
+}

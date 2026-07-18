@@ -8,18 +8,18 @@
     "green",
     "blue"
   ],
-  "last_updated": "2026-05-13T21:14:06.308Z",
+  "last_updated": "2026-07-17T18:28:00-06:00",
   "profile": {
-    "overview": "Simic Combine is a green-blue guild associated with Ravnica.",
-    "philosophy": "Life is a system that can adapt, heal, and improve when studied deeply enough.",
-    "core_tension": "Simic values natural connection and public health, but its experiments can become invasive, secretive, or improvement-obsessed.",
-    "social_or_institutional_role": "The official guide presents Simic as reclusive scientists, physicians, surgeons, and clade-organized researchers living around the zonots.",
-    "mechanics_and_play_pattern": "Adapt expresses biological improvement by letting creatures grow when conditions and resources allow.",
+    "id": "simic_profile_summary_gate3",
+    "overview": "Simic Combine is the green-blue Ravnican guild where biology, adaptation, medicine, clades, and experimental improvement overlap.",
+    "philosophy": "Life starts from nature and can be studied, healed, adapted, and improved through bounded biological research.",
+    "core_tension": "Simic keeps a connection to nature while pursuing improvement; under pressure that can become radical intervention rather than generic science, mechanics, or nature aesthetics.",
+    "social_or_institutional_role": "The official guide presents Simic as reclusive scientists, physicians, surgeons, public-health maintainers, clade researchers, and zonot-based communities.",
+    "mechanics_and_play_pattern": "Adapt is Simic mechanics texture for biological improvement; counters and other UG mechanics do not prove Simic identity without the source-bounded living-system frame.",
     "placement_use": "Use this profile to support thematic placement, quiz design, and lore browsing. Do not present placement inferences as canon.",
     "strongest_source_ids": [
       "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-      "src_wotc_ravnica_allegiance_mechanics_2018",
-      "src_wotc_dragons_maze_mechanics_2013"
+      "src_wotc_ravnica_allegiance_mechanics_2018"
     ],
     "claim_ids": [
       "simic_combine_claim_001",
@@ -28,181 +28,163 @@
       "simic_combine_claim_004",
       "simic_combine_claim_005",
       "simic_combine_claim_006",
-      "simic_combine_claim_007"
+      "simic_combine_claim_007",
+      "simic_combine_claim_0018",
+      "simic_combine_claim_0019",
+      "simic_combine_claim_0020"
     ]
   },
   "evidence_summary": {
     "overall_confidence": "High",
     "limitations": [
-      "This is a compact first-pass JSON package generated from official overview and mechanics sources.",
-      "Novel-level or story-episode-specific details should be added in a later deep-dive pass with direct story citations."
+      "Gate 3 remediation uses existing listed/local official source records only; discovery-story corpus rows remain search metadata until bounded source localization is performed.",
+      "Commander/card/product guidance is auxiliary and cannot prove Simic identity, placement, key figures, recruiter guidance, semantic readiness, public copy, or provenance chains."
     ]
   },
-  "profile_version": "1.0.0",
+  "profile_version": "1.1.0",
   "source_review_date": "2026-05-09",
-  "last_incremental_review": "2026-05-09",
+  "last_incremental_review": "2026-07-17T18:28:00-06:00",
   "core_identity": {
-    "summary": "Simic Combine is a green-blue guild associated with Ravnica.",
-    "philosophy": "Life is a system that can adapt, heal, and improve when studied deeply enough.",
-    "central_tension": "Simic values natural connection and public health, but its experiments can become invasive, secretive, or improvement-obsessed.",
+    "id": "simic_core_identity_gate3",
+    "summary": "Simic Combine is the green-blue Ravnican guild where life is studied, healed, adapted, and improved through biological research and clade practice.",
+    "philosophy": "Natural connection is the starting point; deliberate adaptation and improvement are the Simic method.",
+    "central_tension": "Simic balances nature, public health, and incremental improvement against the risk of radical biological intervention.",
     "claim_ids": [
-      "simic_combine_claim_0008",
-      "simic_combine_claim_0009",
-      "simic_combine_claim_0010",
-      "simic_combine_claim_0011",
-      "simic_combine_claim_0012",
-      "simic_combine_claim_0013",
-      "simic_combine_claim_0014",
-      "simic_combine_claim_0015"
+      "simic_combine_claim_001",
+      "simic_combine_claim_002",
+      "simic_combine_claim_003",
+      "simic_combine_claim_004",
+      "simic_combine_claim_006",
+      "simic_combine_claim_007",
+      "simic_combine_claim_0018",
+      "simic_combine_claim_0020"
     ]
   },
   "site_surface": {
+    "id": "simic_site_surface_gate3",
     "display_name": "Simic Combine",
     "short_label": "Simic Combine",
-    "tagline": "Life is a system that can adapt, heal, and improve when studied deeply enough.",
+    "tagline": "Life studied as an adaptive, improvable system.",
     "claim_ids": [
-      "simic_combine_claim_0008",
-      "simic_combine_claim_0009",
-      "simic_combine_claim_0010",
-      "simic_combine_claim_0011"
+      "simic_combine_claim_001",
+      "simic_combine_claim_002",
+      "simic_combine_claim_003",
+      "simic_combine_claim_006",
+      "simic_combine_claim_0018",
+      "simic_combine_claim_0020"
     ]
   },
   "structure": {
-    "summary": "The official guide presents Simic as reclusive scientists, physicians, surgeons, and clade-organized researchers living around the zonots.",
+    "id": "simic_structure_gate3",
+    "summary": "The official guide presents Simic as reclusive scientists, physicians, surgeons, clade-organized researchers, and zonot communities working on biological research and public health.",
     "claim_ids": [
-      "simic_combine_claim_0008",
-      "simic_combine_claim_0009",
-      "simic_combine_claim_0010",
-      "simic_combine_claim_0011"
+      "simic_combine_claim_003",
+      "simic_combine_claim_004"
     ]
   },
   "great_tension": {
-    "summary": "Simic values natural connection and public health, but its experiments can become invasive, secretive, or improvement-obsessed.",
-    "placement_relevance": "Used to distinguish surface color overlap from faction-specific behavior.",
+    "id": "simic_great_tension_gate3",
+    "summary": "Simic begins from nature and public health, but its improvement impulse can move from careful adaptation into radical biological intervention.",
+    "placement_relevance": "Used to distinguish Simic living-system adaptation from generic UG value, Izzet experimentation, Quandrix abstraction, Selesnya preservation, Witherbloom life/death craft, and other UG-adjacent overfit.",
     "claim_ids": [
-      "simic_combine_claim_0008",
-      "simic_combine_claim_0009",
-      "simic_combine_claim_0010",
-      "simic_combine_claim_0011",
-      "simic_combine_claim_0012"
+      "simic_combine_claim_002",
+      "simic_combine_claim_003",
+      "simic_combine_claim_005",
+      "simic_combine_claim_0018",
+      "simic_combine_claim_0019",
+      "simic_combine_claim_0020"
     ]
   },
-  "historical_timeline": [],
+  "historical_timeline": [
+    {
+      "event_id": "event_simic_momir_vig_gate3",
+      "event": "The official guide identifies Momir Vig as a former Simic guildmaster whose cytoplast work pursued biological improvement.",
+      "date_or_era": "Dissension-era Simic history",
+      "claim_ids": [
+        "simic_combine_claim_0033"
+      ],
+      "confidence": "High",
+      "notes": "Source-bounded claim used for raw enrichment; discovery-story rows remain metadata only."
+    }
+  ],
   "key_figures": [
     {
       "character_id": "char_momir_vig",
       "name": "Momir Vig",
-      "role": "Prominent Simic founder-era figure.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "role": "Former Simic guildmaster and cytoplast figure.",
+      "relationship_to_faction": "Source-backed old-Simic biological-improvement figure named by the official Simic guide.",
       "claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009"
+        "simic_combine_claim_0033"
       ],
       "source_ids": [
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5",
-        "src_mtg_stories_the_fathom_edict_740e71e8"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
-      "confidence": "Medium",
-      "notes": ""
+      "confidence": "High",
+      "notes": "Discovery-story claim IDs removed from authoritative key-figure proof chain during VM-516 Gate 3."
     },
     {
       "character_id": "char_vannifar",
-      "name": "Vannifar",
-      "role": "Prominent Simic figure.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "name": "Prime Speaker Vannifar",
+      "role": "Current Prime Speaker in the cited Ravnica Allegiance era.",
+      "relationship_to_faction": "Source-backed Simic leader named by the official Simic guide and tied to Adaptionist radical change.",
       "claim_ids": [
         "simic_combine_claim_005",
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011",
-        "simic_combine_claim_0012",
-        "simic_combine_claim_0013",
-        "simic_combine_claim_0014"
+        "simic_combine_claim_0019"
       ],
       "source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "confidence": "High",
-      "notes": ""
+      "notes": "Discovery-story claim IDs removed from authoritative key-figure proof chain during VM-516 Gate 3."
     },
     {
       "character_id": "char_prime_speaker_zegana",
       "name": "Prime Speaker Zegana",
-      "role": "Prime Speaker and prominent Simic leader.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
+      "role": "Prior Prime Speaker and Utopian voice in the cited guide.",
+      "relationship_to_faction": "Source-backed Simic leadership figure named by the official Simic guide.",
       "claim_ids": [
-        "simic_combine_claim_0009"
+        "simic_combine_claim_005"
       ],
       "source_ids": [
-        "src_mtg_stories_the_fathom_edict_740e71e8"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
-      "confidence": "Medium",
-      "notes": ""
-    },
-    {
-      "character_id": "char_vorel",
-      "name": "Vorel",
-      "role": "Prominent Simic figure.",
-      "relationship_to_faction": "Appears in source-backed evidence for this faction.",
-      "claim_ids": [
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011",
-        "simic_combine_claim_0015"
-      ],
-      "source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_path_to_opulent_2807430f"
-      ],
-      "confidence": "Medium",
-      "notes": ""
+      "confidence": "High",
+      "notes": "Discovery-story claim IDs removed from authoritative key-figure proof chain during VM-516 Gate 3."
     }
   ],
   "canonical_flavor_text": [
     {
+      "id": "simic_source_bounded_dossier_anchor",
       "card_name": "Simic Combine dossier anchor",
       "set": "Ravnica",
-      "short_excerpt_or_summary": "Life is a system that can adapt, heal, and improve when studied deeply enough.",
+      "short_excerpt_or_summary": "Source-bounded Simic copy should center biology, adaptation, public health, clade research, natural connection, and improvement; mechanics and Commander products remain auxiliary texture, not independent proof.",
       "is_exact_excerpt": false,
       "claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011",
-        "simic_combine_claim_0012",
-        "simic_combine_claim_0013",
-        "simic_combine_claim_0014",
-        "simic_combine_claim_0015"
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_003",
+        "simic_combine_claim_004",
+        "simic_combine_claim_006",
+        "simic_combine_claim_007",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020"
       ],
       "source_ids": [
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_the_path_to_opulent_2807430f",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019",
         "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
-      "notes": "Derived from the faction's raw dossier copy so the flavor layer stays evidence-backed and reusable for Commander Compass."
+      "evidence_use": "auxiliary_support",
+      "notes": "Auxiliary copy guardrail; not card flavor text and not an independent proof chain."
     }
   ],
   "views_on_other_factions": [],
   "mechanics": {
-    "summary": "Adapt expresses biological improvement by letting creatures grow when conditions and resources allow.",
+    "mechanic_id": "simic_adapt_mechanics_gate3",
+    "summary": "Adapt is Simic mechanics texture for biological improvement; +1/+1 counters, evolve, graft, proliferate, mutate, ramp, or card draw do not prove Simic identity without source-bounded living-system adaptation.",
     "claim_ids": [
-      "simic_combine_claim_0008",
-      "simic_combine_claim_0009",
-      "simic_combine_claim_0010",
-      "simic_combine_claim_0011"
+      "simic_combine_claim_006",
+      "simic_combine_claim_007",
+      "simic_combine_claim_0020"
     ]
   },
   "search_and_filter_metadata": {
@@ -252,8 +234,10 @@
   },
   "data_quality": {
     "corpus_upgrade": {
+      "id": "simic_corpus_discovery_metadata_gate3",
       "review_date": "2026-05-09",
-      "status": "MTG-Stories corpus evidence added",
+      "status": "MTG-Stories corpus evidence retained as discovery metadata only",
+      "evidence_use": "discovery_metadata",
       "claim_ids": [
         "simic_combine_claim_0008",
         "simic_combine_claim_0009",
@@ -265,19 +249,29 @@
         "simic_combine_claim_0015",
         "simic_combine_claim_0016",
         "simic_combine_claim_0017"
-      ]
+      ],
+      "authoritative_use_restriction": "Discovery-story rows are retained for search history and future localization only; they do not prove Simic identity, placement, key figures, recruiter guidance, semantic readiness, public copy, or provenance chains."
     },
     "raw_enrichment": {
       "review_date": "2026-05-13T21:14:06.308Z",
-      "source_basis": "data/raw-factions claims.json + sources.json",
+      "source_basis": "data/raw-factions claims.json + sources.json; discovery-only rows isolated as data_quality corpus metadata",
       "key_figures_added": 0,
-      "historical_timeline_entries": 0,
+      "historical_timeline_entries": 1,
       "canonical_flavor_text_entries": 1,
       "relationship_entries": 0,
       "known_characters": 4,
       "known_mechanics": 2,
       "story_arcs": 7
-    }
+    },
+    "retained_native_id_metadata": [
+      {
+        "character_id": "char_vorel",
+        "name": "Vorel",
+        "authoritative_semantic_use": false,
+        "evidence_use": "retained_native_metadata",
+        "retention_reason": "Retains pre-existing native key-figure ID from discovery-only story rows as history; authoritative Simic key-figure proof remains limited to Momir Vig, Prime Speaker Zegana, and Prime Speaker Vannifar until bounded source localization supports Vorel."
+      }
+    ]
   },
   "research_limitations": [
     "MTG-Stories repository entries are treated as searchable archive copies; official Wizards pages should remain the primary canon authority when available."
@@ -287,56 +281,53 @@
     "source_research_file": "simic_combine.commander_compass.research.json",
     "last_reviewed": "2026-05-14",
     "review_status": "reviewed_not_canonical_lore",
-    "recommendation_philosophy": "Favor commanders that make creatures change, scale, or climb an evolutionary chain. Simic recommendations should feel like guided adaptation: counters, pod lines, card-draw from creature size, and experimental growth engines.",
+    "recommendation_philosophy": "Favor commanders whose play can be framed as bounded biological adaptation, clade research, or living-system improvement. Commander, product, and card data are auxiliary guidance only and cannot prove Simic identity without source-bounded claims.",
     "identity_basis": {
       "owned_themes": [
-        "biomancy and adaptation",
-        "Holdfast and Upwelling",
-        "clades and zonots",
-        "+1/+1 counters",
-        "evolve/adapt/graft",
-        "creature improvement",
-        "scientific isolation",
-        "Prime Speakers Zegana and Vannifar",
-        "Momir Vig and cytoplast legacy"
+        "living-system adaptation and biological improvement",
+        "Holdfast and Upwelling as natural connection plus renewal",
+        "scientists, physicians, surgeons, public health, clades, and zonots",
+        "Adapt as bounded Simic mechanics texture",
+        "Zegana and Vannifar leadership tension where official guide support exists",
+        "Momir Vig and cytoplast history where official guide support exists"
       ],
       "allowed_phrases": [
-        "improve upon nature",
-        "adaptation engine",
-        "counter laboratory",
-        "evolutionary ladder",
-        "biomantic growth",
-        "creatures as experiments"
+        "living-system adaptation",
+        "biological improvement",
+        "public-health research",
+        "clade practice",
+        "bounded Adapt texture",
+        "nature improved through study"
       ],
       "avoid_or_contrast_phrases": [
-        "generic Simic goodstuff with no experiment identity",
-        "pure landfall without adaptation framing",
-        "canon proof from Commander popularity",
-        "planeswalker commander without permission"
+        "generic UG value deck",
+        "counters, ramp, card draw, tempo, or midrange as lore proof",
+        "evolve/adapt/graft/proliferate/mutate mechanics as identity proof by themselves",
+        "perfect lifeform or body-horror certainty without source support",
+        "generic mad-scientist stereotype",
+        "product guidance as canon"
       ],
       "adjacent_overlap_notes": [
-        "Landfall/ramp and generic UG value are Commander-relevant but should be marked adjacent unless tied back to growth, resource flow, or adaptation. Native Simic should emphasize counters, evolving creatures, and biomantic experimentation."
+        "Landfall, ramp, counters, card draw, and generic UG value are Commander-relevant but must stay adjacent unless tied back to source-bounded living-system adaptation, public health, clade research, or biological improvement."
       ],
       "supporting_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011",
-        "simic_combine_claim_0012",
-        "simic_combine_claim_0013",
-        "simic_combine_claim_0014",
-        "simic_combine_claim_0015"
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_003",
+        "simic_combine_claim_004",
+        "simic_combine_claim_005",
+        "simic_combine_claim_006",
+        "simic_combine_claim_007",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0019",
+        "simic_combine_claim_0020",
+        "simic_combine_claim_0033"
       ],
       "supporting_source_ids": [
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_the_path_to_opulent_2807430f"
-      ]
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "auxiliary_support_boundary": "Commander/card/product guidance is auxiliary only; existing_repo_claim_ids and existing_repo_source_ids exclude discovery-only story-corpus records and cannot independently prove Simic identity, placement, key figures, recruiter guidance, semantic readiness, public copy, or provenance chains."
     },
     "native_fit_commanders": [
       {
@@ -355,7 +346,7 @@
           "Card Draw",
           "Counters"
         ],
-        "why_this_fits": "Zegana is a native Simic leader whose gameplay converts improved creature size into knowledge and momentum.",
+        "why_this_fits": "Zegana has source-backed Simic leadership context, while her size-to-cards gameplay is auxiliary Commander texture for improvement and knowledge rather than independent lore proof.",
         "skip_if": "Skip if you want a low-curve commander or a deck that does not rely on having another large creature first.",
         "gameplay_summary": "A six-mana Merfolk Wizard that enters with counters based on your greatest creature power and draws cards equal to her power.",
         "faction_identity_terms": [
@@ -378,11 +369,15 @@
             "https://edhrec.com/commanders/simic"
           ],
           "existing_repo_claim_ids": [
-            "simic_combine_claim_0009"
+            "simic_combine_claim_005",
+            "simic_combine_claim_006",
+            "simic_combine_claim_0018"
           ],
           "existing_repo_source_ids": [
-            "src_mtg_stories_the_fathom_edict_740e71e8"
-          ]
+            "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+            "src_wotc_ravnica_allegiance_mechanics_2018"
+          ],
+          "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Simic claims, and do not use product/card data as canon proof."
         },
         "confidence": "High",
         "caution_notes": [],
@@ -404,7 +399,7 @@
           "Adapt",
           "Trample"
         ],
-        "why_this_fits": "This Zegana version is a direct adapt-era Simic fit: she checks for +1/+1 counters, draws cards, and helps counter-bearing creatures end games.",
+        "why_this_fits": "This Zegana version is an auxiliary adapt-era Simic recommendation: counters and Adapt echo bounded mechanics texture, while official identity proof remains the source-backed Simic leadership and adaptation cluster.",
         "skip_if": "Skip if you want a commander that creates counters without support or if your deck lacks enough counter density.",
         "gameplay_summary": "A four-mana Merfolk Wizard that rewards creatures with +1/+1 counters, can adapt, and gives counter-bearing creatures trample.",
         "faction_identity_terms": [
@@ -428,11 +423,16 @@
             "https://edhrec.com/commanders/simic"
           ],
           "existing_repo_claim_ids": [
-            "simic_combine_claim_0009"
+            "simic_combine_claim_005",
+            "simic_combine_claim_006",
+            "simic_combine_claim_0018",
+            "simic_combine_claim_0020"
           ],
           "existing_repo_source_ids": [
-            "src_mtg_stories_the_fathom_edict_740e71e8"
-          ]
+            "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+            "src_wotc_ravnica_allegiance_mechanics_2018"
+          ],
+          "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Simic claims, and do not use product/card data as canon proof."
         },
         "confidence": "High",
         "caution_notes": [],
@@ -456,7 +456,7 @@
           "Ramp",
           "Card Draw"
         ],
-        "why_this_fits": "Tatyova is not a Simic Combine lore card, but landfall can be framed as Upwelling-style resource flow: every land drop renews the ecosystem and draws knowledge.",
+        "why_this_fits": "Tatyova is not Simic Combine lore proof, but her landfall play can be kept adjacent to Upwelling-style renewal when explicitly framed as auxiliary resource flow rather than canonical identity.",
         "skip_if": "Skip if you want biomancy, counters, or strict Ravnica flavor.",
         "gameplay_summary": "A five-mana Merfolk Druid that gains life and draws a card whenever a land enters under your control.",
         "faction_identity_terms": [
@@ -478,25 +478,15 @@
             "https://edhrec.com/commanders/simic"
           ],
           "existing_repo_claim_ids": [
-            "simic_combine_claim_0008",
-            "simic_combine_claim_0009",
-            "simic_combine_claim_0010",
-            "simic_combine_claim_0011",
-            "simic_combine_claim_0012",
-            "simic_combine_claim_0013",
-            "simic_combine_claim_0014",
-            "simic_combine_claim_0015"
+            "simic_combine_claim_002",
+            "simic_combine_claim_0018",
+            "simic_combine_claim_0020"
           ],
           "existing_repo_source_ids": [
-            "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5",
-            "src_mtg_stories_the_fathom_edict_740e71e8",
-            "src_mtg_stories_operation_desperation_e6d285ea",
-            "src_mtg_stories_rallying_the_reluctant_d21b8009",
-            "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-            "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-            "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
-            "src_mtg_stories_the_path_to_opulent_2807430f"
-          ]
+            "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+            "src_wotc_ravnica_allegiance_mechanics_2018"
+          ],
+          "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Simic claims, and do not use product/card data as canon proof. This candidate remains adjacent rather than source-backed native Simic lore."
         },
         "confidence": "Medium",
         "caution_notes": [
@@ -522,7 +512,7 @@
           "Counter Doubling",
           "Artifacts"
         ],
-        "why_this_fits": "Vorel is a clean budget Simic bridge: a named clade representative who turns counters into repeatable biological improvement.",
+        "why_this_fits": "Vorel is a Commander/card bridge to Hull Clade counter play, but his recommendation is auxiliary unless future bounded source localization supports Vorel-specific lore proof.",
         "skip_if": "Skip if you want card advantage in the command zone or dislike activated-ability setup turns.",
         "gameplay_summary": "A three-mana Human Merfolk that taps to double counters on an artifact, creature, or land.",
         "faction_identity_terms": [
@@ -545,15 +535,16 @@
             "https://edhrec.com/commanders/simic"
           ],
           "existing_repo_claim_ids": [
-            "simic_combine_claim_0010",
-            "simic_combine_claim_0011",
-            "simic_combine_claim_0015"
+            "simic_combine_claim_004",
+            "simic_combine_claim_006",
+            "simic_combine_claim_007",
+            "simic_combine_claim_0020"
           ],
           "existing_repo_source_ids": [
-            "src_mtg_stories_operation_desperation_e6d285ea",
-            "src_mtg_stories_rallying_the_reluctant_d21b8009",
-            "src_mtg_stories_the_path_to_opulent_2807430f"
-          ]
+            "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+            "src_wotc_ravnica_allegiance_mechanics_2018"
+          ],
+          "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Simic claims, and do not use product/card data as canon proof."
         },
         "confidence": "High",
         "caution_notes": [],
@@ -577,7 +568,7 @@
           "Toolbox",
           "Creature Combo"
         ],
-        "why_this_fits": "Vannifar expresses Simic evolution as a biological ladder: each creature becomes raw material for the next, more specialized organism.",
+        "why_this_fits": "Vannifar has source-backed Simic leadership and Adaptionist pressure context, while pod-style gameplay is auxiliary Commander texture rather than independent canon proof.",
         "skip_if": "Skip if your group dislikes Birthing Pod-style chains, tutor density, or combo toolboxes.",
         "gameplay_summary": "A four-mana Elf Ooze Wizard that taps and sacrifices a creature to search a creature with mana value one higher directly onto the battlefield.",
         "faction_identity_terms": [
@@ -601,22 +592,13 @@
           ],
           "existing_repo_claim_ids": [
             "simic_combine_claim_005",
-            "simic_combine_claim_0008",
-            "simic_combine_claim_0010",
-            "simic_combine_claim_0011",
-            "simic_combine_claim_0012",
-            "simic_combine_claim_0013",
-            "simic_combine_claim_0014"
+            "simic_combine_claim_0019",
+            "simic_combine_claim_0020"
           ],
           "existing_repo_source_ids": [
-            "src_wotc_flavorful_guide_ravnica_allegiance_2019",
-            "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5",
-            "src_mtg_stories_operation_desperation_e6d285ea",
-            "src_mtg_stories_rallying_the_reluctant_d21b8009",
-            "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-            "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-            "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd"
-          ]
+            "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+          ],
+          "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Simic claims, and do not use product/card data as canon proof."
         },
         "confidence": "High",
         "caution_notes": [
@@ -642,7 +624,7 @@
           "Combo",
           "Value"
         ],
-        "why_this_fits": "Momir Vig is iconic old-Simic lore: visionary biomancy, dangerous improvement, and creature-search precision all in one commander.",
+        "why_this_fits": "Momir Vig has source-backed old-Simic cytoplast and improvement history; tutor-heavy gameplay is auxiliary Commander texture rather than standalone faction proof.",
         "skip_if": "Skip if you want modern counter mechanics or if repeated tutoring slows your games.",
         "gameplay_summary": "A five-mana Elf Wizard that manipulates the top of the library and finds creatures when you cast green and/or blue creature spells.",
         "faction_identity_terms": [
@@ -665,13 +647,14 @@
             "https://edhrec.com/commanders/simic"
           ],
           "existing_repo_claim_ids": [
-            "simic_combine_claim_0008",
-            "simic_combine_claim_0009"
+            "simic_combine_claim_0033",
+            "simic_combine_claim_0018",
+            "simic_combine_claim_0020"
           ],
           "existing_repo_source_ids": [
-            "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5",
-            "src_mtg_stories_the_fathom_edict_740e71e8"
-          ]
+            "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+          ],
+          "auxiliary_support_boundary": "Non-authoritative Commander/product support; do not use as semantic proof unless existing_repo_claim_ids resolve to substantive Simic claims, and do not use product/card data as canon proof."
         },
         "confidence": "High",
         "caution_notes": [

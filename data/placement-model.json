@@ -10331,11 +10331,11 @@
         "G"
       ],
       "identity": {
-        "summary": "Simic Combine is a green-blue guild associated with Ravnica.",
-        "philosophy": "Life is a system that can adapt, heal, and improve when studied deeply enough.",
-        "central_tension": "Simic values natural connection and public health, but its experiments can become invasive, secretive, or improvement-obsessed.",
-        "display_tagline": "Life is a system that can adapt, heal, and improve when studied deeply enough.",
-        "mechanics": "Adapt expresses biological improvement by letting creatures grow when conditions and resources allow."
+        "summary": "Simic Combine is the green-blue Ravnican guild where life is studied, healed, adapted, and improved through biological research and clade practice.",
+        "philosophy": "Natural connection is the starting point; deliberate adaptation and improvement are the Simic method.",
+        "central_tension": "Simic balances nature, public health, and incremental improvement against the risk of radical biological intervention.",
+        "display_tagline": "Life studied as an adaptive, improvable system.",
+        "mechanics": "Adapt is Simic mechanics texture for biological improvement; +1/+1 counters, evolve, graft, proliferate, mutate, ramp, or card draw do not prove Simic identity without source-bounded living-system adaptation."
       },
       "layered_identity": {
         "core_color": "U",
@@ -10391,49 +10391,65 @@
         "broad_match_penalty": 0.1
       },
       "good_fit_indicators": [
-        "wants to improve systems rather than merely preserve them",
-        "thinks biologically and experimentally",
-        "is comfortable changing in response to new conditions"
+        "wants to improve living systems rather than merely preserve them",
+        "thinks through biology, public health, and clade research",
+        "is comfortable changing living forms in response to new conditions"
       ],
       "poor_fit_indicators": [
-        "treats nature as untouchable",
-        "rejects experimentation categorically",
-        "cares more about spectacle than sustained inquiry"
+        "treats living systems as untouchable",
+        "prefers abstract systems or equations without organism-level stakes",
+        "treats UG value, counters, ramp, or card draw as enough"
       ],
       "inhibitor_traps": [
         "Bodily or natural-form absolutism; believes living systems must remain untouched even when adaptation would prevent collapse.",
-        "treats nature as untouchable",
-        "rejects experimentation categorically",
-        "cares more about spectacle than sustained inquiry"
+        "treats living systems as untouchable",
+        "prefers abstract systems or equations without organism-level stakes",
+        "treats UG value, counters, ramp, or card draw as enough"
       ],
       "discriminator_questions": [
         {
           "id": "simic_q1",
-          "prompt": "What part of yourself would you improve if the change was permanent?",
-          "purpose": "Tests adaptation and ethical boundaries.",
-          "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-          "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-          "collision_targets": [],
-          "evidence_claim_ids": [
-            "simic_combine_claim_001",
-            "simic_combine_claim_002",
-            "simic_combine_claim_003"
+          "prompt": "What part of a living system would you improve if the change was permanent?",
+          "purpose": "Tests source-bounded adaptation and ethical/pressure boundaries without making perfect-lifeform claims.",
+          "supports": "The answer centers organism-level adaptation, medicine, public health, clade research, or biological improvement.",
+          "weakens": "The answer centers abstract proof, generic science, nature untouched, or mechanics without living-system stakes.",
+          "collision_targets": [
+            "U",
+            "G",
+            "QUANDRIX",
+            "WITHERBLOOM",
+            "BANT"
           ],
-          "confidence": "Medium"
+          "evidence_claim_ids": [
+            "simic_combine_claim_0018",
+            "simic_combine_claim_0019",
+            "simic_combine_claim_0020"
+          ],
+          "confidence": "Medium",
+          "lateral_inhibition": false
         },
         {
           "id": "simic_q2",
           "prompt": "When does healing become experimentation?",
-          "purpose": "Distinguishes Simic from Selesnya and Witherbloom.",
-          "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-          "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-          "collision_targets": [],
-          "evidence_claim_ids": [
-            "simic_combine_claim_001",
-            "simic_combine_claim_002",
-            "simic_combine_claim_003"
+          "purpose": "Distinguishes Simic public-health and adaptation pressure from Selesnya preservation, Witherbloom life/death craft, and Izzet experiment-first inquiry.",
+          "supports": "The answer treats living-system change as studied adaptation or medicine rather than spectacle, abstraction, or life-force exchange.",
+          "weakens": "The answer rejects biological change categorically or centers nonliving systems, death craft, communal preservation, or invention-first experimentation.",
+          "collision_targets": [
+            "WG",
+            "WITHERBLOOM",
+            "UR",
+            "BG",
+            "UB",
+            "SULTAI"
           ],
-          "confidence": "Medium"
+          "evidence_claim_ids": [
+            "simic_combine_claim_003",
+            "simic_combine_claim_006",
+            "simic_combine_claim_0018",
+            "simic_combine_claim_0019"
+          ],
+          "confidence": "Medium",
+          "lateral_inhibition": false
         },
         {
           "id": "q_simic_combine_9801",
@@ -10445,27 +10461,25 @@
             "QUANDRIX"
           ],
           "evidence_claim_ids": [
-            "simic_combine_claim_001",
-            "simic_combine_claim_002",
-            "simic_combine_claim_003"
+            "simic_combine_claim_0028"
           ],
-          "confidence": "Medium"
+          "confidence": "Medium",
+          "lateral_inhibition": false
         },
         {
           "id": "q_simic_combine_9802",
           "prompt": "Are you improving the organism, or learning what vitality costs and how to spend it?",
           "purpose": "",
           "supports": "",
-          "weakens": "the answer centers essence, bodily exchange, or life/death craft",
+          "weakens": "the answer centers essence, bodily exchange, pests, or life/death craft",
           "collision_targets": [
             "WITHERBLOOM"
           ],
           "evidence_claim_ids": [
-            "simic_combine_claim_001",
-            "simic_combine_claim_002",
-            "simic_combine_claim_003"
+            "simic_combine_claim_0029"
           ],
-          "confidence": "Medium"
+          "confidence": "Medium",
+          "lateral_inhibition": false
         }
       ],
       "lateral_inhibition_targets": [
@@ -10477,43 +10491,151 @@
       ],
       "collision_guidance": [
         {
+          "collision_id": "collision_simic_vs_u_gate3",
+          "against": "U",
+          "separator": "Simic requires living-system adaptation; mono-blue can be knowledge, planning, control, or experiment without organisms.",
+          "ask": "Is the system being understood, or is a living organism being changed?",
+          "suppress_if": "the answer centers information, planning, control, or nonliving knowledge",
+          "evidence_claim_ids": [
+            "simic_combine_claim_0021"
+          ],
+          "lateral_inhibition": false
+        },
+        {
+          "collision_id": "collision_simic_vs_g_gate3",
+          "against": "G",
+          "separator": "Simic improves nature through study; mono-green can center inherent growth, instinct, and preservation without directed biological research.",
+          "ask": "Is nature trusted to unfold, or changed through medicine and research?",
+          "suppress_if": "the answer centers untouched nature, instinct, or inherent growth over directed adaptation",
+          "evidence_claim_ids": [
+            "simic_combine_claim_0022"
+          ],
+          "lateral_inhibition": false
+        },
+        {
+          "collision_id": "collision_simic_vs_izzet_gate3",
+          "against": "UR",
+          "separator": "Simic experiments on living systems; Izzet-like inquiry centers invention, spark, improvisation, or devices.",
+          "ask": "Is the experiment building a device or adapting an organism?",
+          "suppress_if": "the answer centers invention, gadgets, explosions, or experiment-first novelty",
+          "evidence_claim_ids": [
+            "simic_combine_claim_0023"
+          ],
+          "lateral_inhibition": false
+        },
+        {
+          "collision_id": "collision_simic_vs_golgari_gate3",
+          "against": "BG",
+          "separator": "Simic adapts and heals living systems; Golgari turns decay and death into survival ecology.",
+          "ask": "Is life being improved, or reclaimed through decay and survival?",
+          "suppress_if": "the answer centers rot, recursion, undercity survival, or death as resource",
+          "evidence_claim_ids": [
+            "simic_combine_claim_0024"
+          ],
+          "lateral_inhibition": false
+        },
+        {
+          "collision_id": "collision_simic_vs_selesnya_gate3",
+          "against": "WG",
+          "separator": "Simic treats nature as improvable; Selesnya treats nature as communal belonging and preservation.",
+          "ask": "Is nature protected as a community, or modified as a living system?",
+          "suppress_if": "the answer centers harmony, communal preservation, or shared belonging over adaptation",
+          "evidence_claim_ids": [
+            "simic_combine_claim_0025"
+          ],
+          "lateral_inhibition": false
+        },
+        {
+          "collision_id": "collision_simic_vs_gruul_gate3",
+          "against": "RG",
+          "separator": "Simic studies and directs adaptation; Gruul centers instinct, rage, wild release, and anti-civilization pressure.",
+          "ask": "Is the change researched, or is it a wild refusal of control?",
+          "suppress_if": "the answer centers rage, territorial instinct, or anti-civilization release",
+          "evidence_claim_ids": [
+            "simic_combine_claim_0026"
+          ],
+          "lateral_inhibition": false
+        },
+        {
+          "collision_id": "collision_simic_vs_dimir_gate3",
+          "against": "UB",
+          "separator": "Simic may be reclusive, but its method is biological research and public health; Dimir centers hidden information and covert leverage.",
+          "ask": "Is secrecy protecting research, or is information control the point?",
+          "suppress_if": "the answer centers secrecy, manipulation, anonymity, or information leverage",
+          "evidence_claim_ids": [
+            "simic_combine_claim_0027"
+          ],
+          "lateral_inhibition": false
+        },
+        {
           "collision_id": "collision_simic_combine_vs_quandrix_placement_ready",
           "against": "QUANDRIX",
           "separator": "Simic improves living systems; Quandrix proves and manipulates abstract pattern.",
           "ask": "If a system can be changed, do you start with the organism or the equation underneath it?",
           "suppress_if": "the answer centers proof, equations, abstraction, or mathematical precision",
           "evidence_claim_ids": [
-            "simic_combine_claim_001",
-            "simic_combine_claim_002",
-            "simic_combine_claim_003"
-          ]
+            "simic_combine_claim_0028"
+          ],
+          "lateral_inhibition": false
         },
         {
           "collision_id": "collision_simic_combine_vs_witherbloom_placement_ready",
           "against": "WITHERBLOOM",
-          "separator": "Simic optimizes biology toward progress; Witherbloom studies essence, cost, and life/death craft.",
+          "separator": "Simic adapts biology toward improvement; Witherbloom studies essence, cost, and life/death craft.",
           "ask": "Are you improving the organism, or learning what vitality costs and how to spend it?",
-          "suppress_if": "the answer centers essence, bodily exchange, or life/death craft",
+          "suppress_if": "the answer centers essence, bodily exchange, pests, or life/death craft",
           "evidence_claim_ids": [
-            "simic_combine_claim_001",
-            "simic_combine_claim_002",
-            "simic_combine_claim_003"
-          ]
+            "simic_combine_claim_0029"
+          ],
+          "lateral_inhibition": false
+        },
+        {
+          "collision_id": "collision_simic_vs_bant_gate3",
+          "against": "BANT",
+          "separator": "Simic is Ravnican UG biological research; Bant can be broader order, community, stewardship, or virtue.",
+          "ask": "Is the answer naming living-system adaptation, or broader civic virtue and stewardship?",
+          "suppress_if": "the answer centers honor, order, stewardship, or broad Bant virtue without Simic biology",
+          "evidence_claim_ids": [
+            "simic_combine_claim_0030"
+          ],
+          "lateral_inhibition": false
+        },
+        {
+          "collision_id": "collision_simic_vs_temur_gate3",
+          "against": "TEMUR",
+          "separator": "Simic directs adaptation through research; Temur-like identity can center wild expression, elemental force, and creature scale.",
+          "ask": "Is adaptation engineered through study, or expressed as wild scale and momentum?",
+          "suppress_if": "the answer centers elemental momentum, wild expression, or creature scale without directed research",
+          "evidence_claim_ids": [
+            "simic_combine_claim_0031"
+          ],
+          "lateral_inhibition": false
+        },
+        {
+          "collision_id": "collision_simic_vs_sultai_gate3",
+          "against": "SULTAI",
+          "separator": "Simic improves living systems; Sultai-like readings can center extraction, organic resources, and long-term manipulation.",
+          "ask": "Is the organism being improved, or used as a resource for power?",
+          "suppress_if": "the answer centers exploitation, resource strategy, or long-term manipulation over public-health/adaptation method",
+          "evidence_claim_ids": [
+            "simic_combine_claim_0032"
+          ],
+          "lateral_inhibition": false
         }
       ],
       "chatbot_guidance": {
         "how_to_recognize_match": [
-          "wants to improve systems rather than merely preserve them",
-          "thinks biologically and experimentally",
-          "is comfortable changing in response to new conditions"
+          "wants to improve living systems rather than merely preserve them",
+          "thinks through biology, public health, and clade research",
+          "is comfortable changing living forms in response to new conditions"
         ],
         "how_to_recognize_mismatch": [
-          "treats nature as untouchable",
-          "rejects experimentation categorically",
-          "cares more about spectacle than sustained inquiry"
+          "treats living systems as untouchable",
+          "prefers abstract systems or equations without organism-level stakes",
+          "treats UG value, counters, ramp, or card draw as enough"
         ],
         "questions_to_ask_when_uncertain": [
-          "What part of yourself would you improve if the change was permanent?",
+          "What part of a living system would you improve if the change was permanent?",
           "When does healing become experimentation?"
         ],
         "do_not_overweight": [
@@ -10537,10 +10659,10 @@
         ]
       },
       "source_metadata": {
-        "profile_version": "1.0.0",
+        "profile_version": "1.1.0",
         "placement_model_version": "vox-mana-lore-json-v1",
         "source_review_date": "2026-05-09",
-        "claim_count": 7
+        "claim_count": 10
       }
     },
     "WITHERBLOOM": {

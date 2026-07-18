@@ -8260,38 +8260,38 @@ export const FACTION_CONTEXT = {
         "label": "Simic"
       }
     },
-    "tagline": "The natural world is a first draft. We are the revision.",
-    "philosophy": "Founded to preserve nature, currently preparing for war by fusing citizens with crabs. The Simic have asked 'what if this organism were better?' so many times and in so many directions that the question of what stewardship means has become genuinely unresolved.",
-    "core_tension": "What does stewardship mean? Preservation? Forced improvement? Balance? Militarized adaptation? Each answer superseded the last, each driven by someone who found the previous answer insufficiently ambitious.",
+    "tagline": "Life studied as an adaptive, improvable system.",
+    "philosophy": "Simic treats nature as living systems to preserve, heal, study, adapt, and improve through biology, clade practice, and source-bounded experimentation.",
+    "core_tension": "Simic keeps a connection to nature while pursuing improvement; its risk is radical biological intervention, not generic science, counters, ramp, or nature aesthetics.",
     "affinity": {
       "drawn_to": [
-        "Improvement as a continuous, never-finished project",
-        "What something could become rather than what it currently is",
-        "Adaptation as the core survival strategy - change is safety",
-        "Biological systems and how things fit and interact",
-        "Pragmatic solutions over ideological purity"
+        "Studying living systems as organisms that can adapt",
+        "Biological improvement when source context gives it organism-level stakes",
+        "Medicine, surgery, public health, clade practice, and zonot communities",
+        "Adaptation as a practical response to changing pressure",
+        "Pragmatic iteration grounded in life, not pure abstraction"
       ],
       "repelled_by": [
-        "Preserving past usefulness when something better is possible",
-        "Refusing to change because change feels like betrayal",
-        "The idea that things are fine as they are",
-        "Idealism that refuses to engage with physical reality"
+        "Treating +1/+1 counters, ramp, or card draw as enough to prove identity",
+        "Abstract systems with no living organism at stake",
+        "Experimentation for its own spectacle or novelty",
+        "Treating nature as either untouched shrine or disposable material"
       ],
-      "core_question": "If you could redesign one thing about yourself - your psychology, your biology, how you process the world - what would it be and why haven't you yet?",
+      "core_question": "When a living system is under pressure, do you preserve its current form or guide it toward adaptation?",
       "interview_tells": [
-        "Talks about self-improvement or adaptation as ongoing, not destination",
-        "Interested in systems and how components interact",
-        "Frames problems as engineering or design challenges",
-        "Describes significantly changing their approach to something",
-        "Asks 'what if' questions naturally, as a default mode of thinking"
+        "Talks about adaptation through bodies, organisms, public health, or living systems",
+        "Connects improvement to nature rather than abstract optimization",
+        "Frames change as practical response to environmental or social pressure",
+        "Separates biological research from generic invention or mathematical proof",
+        "Recognizes that Simic risk appears when improvement becomes radical intervention"
       ],
-      "not_to_be_confused_with": "Quandrix - both think in systems but Simic applies theory to living things and transforms them; Quandrix studies mathematical patterns without necessarily intervening. Izzet - both experiment but Simic's experiments are biological and purposeful; Izzet experiments for the joy of discovery."
+      "not_to_be_confused_with": "Generic UG value uses ramp, counters, creatures, or card draw without proving Simic. Izzet experiments for discovery and invention; Simic uses biological adaptation. Quandrix studies mathematical structure; Simic intervenes in living systems. Selesnya protects communal nature; Simic studies and changes living organisms."
     },
     "decree_voice": {
-      "tone": "Clinical but not cold. Interested in what you could become more than what you are.",
-      "speaks_like": "A senior biomancer noting a promising specimen.",
-      "example_opening": "You already know you're a draft, not a finished work.",
-      "example_decree": "You already know you're a draft, not a finished work - and you find that exciting rather than troubling. The Combine does not ask you to be satisfied with your current form. It asks you to keep asking what the next version looks like. We have the tools. You have the willingness. What we build from that collaboration has not been determined yet. That is the point. Welcome to the most interesting ongoing experiment in Ravnica."
+      "tone": "Analytical, practical, and organism-focused without treating every experiment as canon proof.",
+      "speaks_like": "A guild researcher weighing preservation against adaptation.",
+      "example_opening": "The question is not whether life changes, but whether that change is guided well.",
+      "example_decree": "You are drawn to life as a system that can heal, adapt, and improve under pressure. The Combine asks where preservation ends and intervention begins, then tests that boundary through biology, clades, and living forms. Keep the organism in view. Keep the evidence bounded. Welcome to Simic."
     },
     "biological_expression": {
       "archetype": "The Adaptive Biodesigner",
@@ -8331,20 +8331,20 @@ export const FACTION_CONTEXT = {
       "broad_match_penalty": 0.1
     },
     "good_fit_indicators": [
-      "wants to improve systems rather than merely preserve them",
-      "thinks biologically and experimentally",
-      "is comfortable changing in response to new conditions"
+      "wants to improve living systems rather than merely preserve them",
+      "thinks through biology, public health, and clade research",
+      "is comfortable changing living forms in response to new conditions"
     ],
     "poor_fit_indicators": [
-      "treats nature as untouchable",
-      "rejects experimentation categorically",
-      "cares more about spectacle than sustained inquiry"
+      "treats living systems as untouchable",
+      "prefers abstract systems or equations without organism-level stakes",
+      "treats UG value, counters, ramp, or card draw as enough"
     ],
     "inhibitor_traps": [
       "Bodily or natural-form absolutism; believes living systems must remain untouched even when adaptation would prevent collapse.",
-      "treats nature as untouchable",
-      "rejects experimentation categorically",
-      "cares more about spectacle than sustained inquiry"
+      "treats living systems as untouchable",
+      "prefers abstract systems or equations without organism-level stakes",
+      "treats UG value, counters, ramp, or card draw as enough"
     ],
     "lateral_inhibition_targets": [
       "QUANDRIX",
@@ -8356,31 +8356,47 @@ export const FACTION_CONTEXT = {
     "discriminator_questions": [
       {
         "id": "simic_q1",
-        "prompt": "What part of yourself would you improve if the change was permanent?",
-        "purpose": "Tests adaptation and ethical boundaries.",
-        "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-        "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-        "collision_targets": [],
-        "evidence_claim_ids": [
-          "simic_combine_claim_001",
-          "simic_combine_claim_002",
-          "simic_combine_claim_003"
+        "prompt": "What part of a living system would you improve if the change was permanent?",
+        "purpose": "Tests source-bounded adaptation and ethical/pressure boundaries without making perfect-lifeform claims.",
+        "supports": "The answer centers organism-level adaptation, medicine, public health, clade research, or biological improvement.",
+        "weakens": "The answer centers abstract proof, generic science, nature untouched, or mechanics without living-system stakes.",
+        "collision_targets": [
+          "U",
+          "G",
+          "QUANDRIX",
+          "WITHERBLOOM",
+          "BANT"
         ],
-        "confidence": "Medium"
+        "evidence_claim_ids": [
+          "simic_combine_claim_0018",
+          "simic_combine_claim_0019",
+          "simic_combine_claim_0020"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
       },
       {
         "id": "simic_q2",
         "prompt": "When does healing become experimentation?",
-        "purpose": "Distinguishes Simic from Selesnya and Witherbloom.",
-        "supports": "The answer emphasizes the ideal-fit indicators listed for this faction.",
-        "weakens": "The answer rejects or treats the faction's core tension as irrelevant.",
-        "collision_targets": [],
-        "evidence_claim_ids": [
-          "simic_combine_claim_001",
-          "simic_combine_claim_002",
-          "simic_combine_claim_003"
+        "purpose": "Distinguishes Simic public-health and adaptation pressure from Selesnya preservation, Witherbloom life/death craft, and Izzet experiment-first inquiry.",
+        "supports": "The answer treats living-system change as studied adaptation or medicine rather than spectacle, abstraction, or life-force exchange.",
+        "weakens": "The answer rejects biological change categorically or centers nonliving systems, death craft, communal preservation, or invention-first experimentation.",
+        "collision_targets": [
+          "WG",
+          "WITHERBLOOM",
+          "UR",
+          "BG",
+          "UB",
+          "SULTAI"
         ],
-        "confidence": "Medium"
+        "evidence_claim_ids": [
+          "simic_combine_claim_003",
+          "simic_combine_claim_006",
+          "simic_combine_claim_0018",
+          "simic_combine_claim_0019"
+        ],
+        "confidence": "Medium",
+        "lateral_inhibition": false
       },
       {
         "id": "q_simic_combine_9801",
@@ -8392,42 +8408,40 @@ export const FACTION_CONTEXT = {
           "QUANDRIX"
         ],
         "evidence_claim_ids": [
-          "simic_combine_claim_001",
-          "simic_combine_claim_002",
-          "simic_combine_claim_003"
+          "simic_combine_claim_0028"
         ],
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "lateral_inhibition": false
       },
       {
         "id": "q_simic_combine_9802",
         "prompt": "Are you improving the organism, or learning what vitality costs and how to spend it?",
         "purpose": "",
         "supports": "",
-        "weakens": "the answer centers essence, bodily exchange, or life/death craft",
+        "weakens": "the answer centers essence, bodily exchange, pests, or life/death craft",
         "collision_targets": [
           "WITHERBLOOM"
         ],
         "evidence_claim_ids": [
-          "simic_combine_claim_001",
-          "simic_combine_claim_002",
-          "simic_combine_claim_003"
+          "simic_combine_claim_0029"
         ],
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "lateral_inhibition": false
       }
     ],
     "chatbot_guidance": {
       "how_to_recognize_match": [
-        "wants to improve systems rather than merely preserve them",
-        "thinks biologically and experimentally",
-        "is comfortable changing in response to new conditions"
+        "wants to improve living systems rather than merely preserve them",
+        "thinks through biology, public health, and clade research",
+        "is comfortable changing living forms in response to new conditions"
       ],
       "how_to_recognize_mismatch": [
-        "treats nature as untouchable",
-        "rejects experimentation categorically",
-        "cares more about spectacle than sustained inquiry"
+        "treats living systems as untouchable",
+        "prefers abstract systems or equations without organism-level stakes",
+        "treats UG value, counters, ramp, or card draw as enough"
       ],
       "questions_to_ask_when_uncertain": [
-        "What part of yourself would you improve if the change was permanent?",
+        "What part of a living system would you improve if the change was permanent?",
         "When does healing become experimentation?"
       ],
       "do_not_overweight": [

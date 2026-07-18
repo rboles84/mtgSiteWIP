@@ -27441,23 +27441,249 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/behavioral_signals/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:822742d2836f03e985831c827a4a5ce8f7cabbd3d265bf3a9cadadfb3b253985",
+      "canonical_id": "simic_signal_living_system_problem_solving",
+      "canonical_content_hash": "sha256:327a6fc39f59ca031c1a745d3921857d85577a3295058cff12590f2bd0c50891",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011",
-        "simic_combine_claim_0012",
-        "simic_combine_claim_0013"
+        "simic_combine_claim_001",
+        "simic_combine_claim_003",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/behavioral_signals/1",
+      "canonical_id": "simic_signal_adaptation_pressure",
+      "canonical_content_hash": "sha256:1d45846b91f4a677b61e7cc6c39336470c49612ff8ea640cb900b262bebf214f",
+      "evidence_claim_ids": [
+        "simic_combine_claim_005",
+        "simic_combine_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/behavioral_signals/2",
+      "canonical_id": "simic_signal_mechanics_are_texture",
+      "canonical_content_hash": "sha256:a8fa3a4d49a76cb62d7d8bedddc9dced5fbce418cc66804681831fa47692613c",
+      "evidence_claim_ids": [
+        "simic_combine_claim_006",
+        "simic_combine_claim_007",
+        "simic_combine_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "simic_guidance_how_to_recognize_match_0_gate3",
+      "canonical_content_hash": "sha256:3cfa93ec1136424c033756895ffd300c0a2e87e34ada5b412694781c236e11a0",
+      "evidence_claim_ids": [
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_0018"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "simic_guidance_how_to_recognize_match_1_gate3",
+      "canonical_content_hash": "sha256:217ad58194f0eb1d261d5473f7d464cde053d81ebe01381b37adc5fce4e914fb",
+      "evidence_claim_ids": [
+        "simic_combine_claim_003",
+        "simic_combine_claim_004",
+        "simic_combine_claim_0018"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "simic_guidance_how_to_recognize_match_2_gate3",
+      "canonical_content_hash": "sha256:f125d34e653aef32cdbabb4de1a36fe6c1b70a91bfb208b630a2dd5fe652b7bf",
+      "evidence_claim_ids": [
+        "simic_combine_claim_006",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "simic_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_content_hash": "sha256:d52e9ff679a146c338c779ea8d45026cfa8e875680bacde171e86f598e536faa",
+      "evidence_claim_ids": [
+        "simic_combine_claim_002",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0022"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "simic_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_content_hash": "sha256:7d19e5521a1d2317dd63996212bbe7c2ff5896d71f7980e592b0d980287d4483",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0021",
+        "simic_combine_claim_0023",
+        "simic_combine_claim_0028"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "simic_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_content_hash": "sha256:14e63e153e5a1e29f83c13b8f04a5acfc522da1c1ca4ae1e83fd0d9736797b6a",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0020"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_id": "simic_guidance_questions_to_ask_when_uncertain_0_gate3",
+      "canonical_content_hash": "sha256:755366b098c51909e923e76613695dc3980c0909899704e51dbf0ea65ad8d98e",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0019",
+        "simic_combine_claim_0020"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_id": "simic_guidance_questions_to_ask_when_uncertain_1_gate3",
+      "canonical_content_hash": "sha256:93126f28d45e01044e1b32e413323a618f5b4ae1fb03da615c21386d4348f3a2",
+      "evidence_claim_ids": [
+        "simic_combine_claim_003",
+        "simic_combine_claim_006",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0019"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27470,12 +27696,10 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/collision_guidance/0",
-      "canonical_id": "collision_simic_combine_vs_quandrix_placement_ready",
-      "canonical_content_hash": "sha256:5be6bdae1622034b077ed3a75f010b963fbe06039344e9989f0bc978b1451d08",
+      "canonical_id": "collision_simic_vs_u_gate3",
+      "canonical_content_hash": "sha256:94b9819fbc9d9b938c95217e4c669dba9b3eef0938ead4e8abf3f0bac8754dcd",
       "evidence_claim_ids": [
-        "simic_combine_claim_001",
-        "simic_combine_claim_002",
-        "simic_combine_claim_003"
+        "simic_combine_claim_0021"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
@@ -27491,12 +27715,202 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/collision_guidance/1",
-      "canonical_id": "collision_simic_combine_vs_witherbloom_placement_ready",
-      "canonical_content_hash": "sha256:cf65272030029d166a091d8f34261bb2a7c3b51478ed534455be4f757d8deb04",
+      "canonical_id": "collision_simic_vs_g_gate3",
+      "canonical_content_hash": "sha256:17520ee7616599e7ba54c2ed161c8131f326716aecebee4004f179d108a9f061",
       "evidence_claim_ids": [
-        "simic_combine_claim_001",
-        "simic_combine_claim_002",
-        "simic_combine_claim_003"
+        "simic_combine_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/collision_guidance/10",
+      "canonical_id": "collision_simic_vs_temur_gate3",
+      "canonical_content_hash": "sha256:cf5a0ef5e96f5f883d30d758ec0da87c45366e8be569312cc51d5be645b2ce7d",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0031"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/collision_guidance/11",
+      "canonical_id": "collision_simic_vs_sultai_gate3",
+      "canonical_content_hash": "sha256:ed0d53df56f7f0785731edc594f6c7ce23cf1ae7ac59ad186611b466b3acf281",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0032"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/collision_guidance/2",
+      "canonical_id": "collision_simic_vs_izzet_gate3",
+      "canonical_content_hash": "sha256:3d1681880b3f2fcfbfb7c106f703e73e19ab5aa743d78a10d4456f6f1487c01d",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0023"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/collision_guidance/3",
+      "canonical_id": "collision_simic_vs_golgari_gate3",
+      "canonical_content_hash": "sha256:863dfec3ec33eb52b2a2a58650822f46a613e256ad74252dafc9b6663aae5703",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0024"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/collision_guidance/4",
+      "canonical_id": "collision_simic_vs_selesnya_gate3",
+      "canonical_content_hash": "sha256:e0a86a819a0f61573e5a9e8e718d23ef4feae7e39faed77853378e7e0e1bcbb6",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0025"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/collision_guidance/5",
+      "canonical_id": "collision_simic_vs_gruul_gate3",
+      "canonical_content_hash": "sha256:3f35bf889d7dcc8b54149362b89b4bdaf4579d0e201eb6f461873739d093a5db",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0026"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/collision_guidance/6",
+      "canonical_id": "collision_simic_vs_dimir_gate3",
+      "canonical_content_hash": "sha256:1597a9afcb005775f31053b478e1fde28a2506859dcc877685386e0979a121f3",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0027"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/collision_guidance/7",
+      "canonical_id": "collision_simic_combine_vs_quandrix_placement_ready",
+      "canonical_content_hash": "sha256:6842bfeaa654aa4c7b4a66559afe8a9c817cbc9d18e7c20808b26bd7bfb51835",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0028"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/collision_guidance/8",
+      "canonical_id": "collision_simic_combine_vs_witherbloom_placement_ready",
+      "canonical_content_hash": "sha256:c4d78fac003b8814fcf6b707ca30b773ba6bff674fadab22e2efef08b9b3463b",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0029"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/collision_guidance/9",
+      "canonical_id": "collision_simic_vs_bant_gate3",
+      "canonical_content_hash": "sha256:c2d26a1c51212ddd7d452a1cdcd35cf43ea8759a3dad0303f04577a12e5b9410",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0030"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
@@ -27512,17 +27926,15 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/core_values/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:47e53f412ee698cdf7984cf35a624a04cf5f55177dd8a9b514308562196783a1",
+      "canonical_id": "simic_value_living_system_adaptation",
+      "canonical_content_hash": "sha256:18892f1a269e40df18563ce859901deee3d43889f71a9c45858bb06cf91874ab",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_001",
+        "simic_combine_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27535,17 +27947,14 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/core_values/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:56544935e77cba4b53c8521b4d8bf0c13eeff6546082e7da76527231bd01acad",
+      "canonical_id": "simic_value_nature_improved_by_study",
+      "canonical_content_hash": "sha256:ca606aa0261f9d95dcbf89f59efc03d1dec8c498dd416053f722df25e4d4481d",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_002",
+        "simic_combine_claim_0022"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27558,17 +27967,13 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/core_values/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:2d013849efc132cd5ecd2ad69c07ce60cbae04400d2b523b894fbfc484ab30e6",
+      "canonical_id": "simic_value_public_health_medicine",
+      "canonical_content_hash": "sha256:82a8de1deb1eb3782bdd80b2a5703ec3deda9e502feb90224d9c16b0ce36ba3a",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_003"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27581,17 +27986,13 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/core_values/3",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:e5fd9a25ee9b1c61d358e8325afdfa52e8f6ed68a58e046800490c038bc67ddc",
+      "canonical_id": "simic_value_clade_research",
+      "canonical_content_hash": "sha256:dde73b68e3a02f155b81adcb4770fc8ad165c4f136e2849f5c06f8229557ab15",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_004"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27604,17 +28005,15 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/core_values/4",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:a1dbef28caf609a2481217e49303dbf5a0dbaa7dc073ae065208a2eafd973eb2",
+      "canonical_id": "simic_value_bounded_adapt_texture",
+      "canonical_content_hash": "sha256:2710839cc6137e3c782170acb991c7332ff8cffb10bddd96c9937ea67f17992c",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_006",
+        "simic_combine_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27627,17 +28026,14 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/core_values/5",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:06cec64fe0ceecbd06391aa30dd3aebe5d602e3bf7a92811cead74597f710023",
+      "canonical_id": "simic_value_utopian_balance",
+      "canonical_content_hash": "sha256:d15e42750292e9f3688cb825d18e3920d563d1e26ea6d0cea6615da4c28aa064",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_005",
+        "simic_combine_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27650,17 +28046,14 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/core_values/6",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:ec54bd87857ba5ece54db34f461bd54f92e0473180f26fe99799d6f4c8cffd0b",
+      "canonical_id": "simic_value_adaptionist_pressure",
+      "canonical_content_hash": "sha256:7eec85cde4598c3c81a56800a7f6f677ac1ff802668c007a554ac3657ca6e764",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_005",
+        "simic_combine_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27673,17 +28066,14 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/core_values/7",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:7b9699b0a0ecb27163ea4af051f5bab54f329e8b439add97f38e5aa22d53875e",
+      "canonical_id": "simic_value_generic_ug_guardrail",
+      "canonical_content_hash": "sha256:531bc274e01a151320fa4906df3108914a48d313c6edd4d9e1d3051aa24cd51b",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27696,17 +28086,15 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/core_values/8",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:ed7ae49462ae4fe9963c1f490529ac5bf199632b7eea018c9c1c20920b583014",
+      "canonical_id": "simic_value_nonabstract_method",
+      "canonical_content_hash": "sha256:90d6c5acb024403dd84413052ec9fbe14e491c42dc72a11c0334108e972dc9c1",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_0021",
+        "simic_combine_claim_0023",
+        "simic_combine_claim_0028"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27719,17 +28107,16 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/core_values/9",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:7d8af2ac70b7041bacb9451e33eef2f703fc28e5980b5922638200d76c6d1f46",
+      "canonical_id": "simic_value_life_not_lifedeath_craft",
+      "canonical_content_hash": "sha256:d1c61c3c39ee5a119596f1803c4605012e4457b9bcd2e5e4dd3f8f07f3a1181f",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010"
+        "simic_combine_claim_0024",
+        "simic_combine_claim_0029",
+        "simic_combine_claim_0032"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27743,14 +28130,15 @@
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/discriminator_questions/0",
       "canonical_id": "simic_q1",
-      "canonical_content_hash": "sha256:a1e3efde3a2641213ad76c54ccc47f3e778f818b4eadf0c999eed9ad22d7a9f0",
+      "canonical_content_hash": "sha256:d2ed4cbb50a45c9ec1e089b79357fa96f1bcdf91f207d21dd430724cb622e387",
       "evidence_claim_ids": [
-        "simic_combine_claim_001",
-        "simic_combine_claim_002",
-        "simic_combine_claim_003"
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0019",
+        "simic_combine_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27764,14 +28152,16 @@
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/discriminator_questions/1",
       "canonical_id": "simic_q2",
-      "canonical_content_hash": "sha256:a92b3194c9db7e3384f026b8611b7829cf1b85a61d28eddce3543809058c5fa0",
+      "canonical_content_hash": "sha256:52a52449ecffaa47ebbb8e1f66aaf4c5fd4ff8c8ad77710299c3d40efa5d2a62",
       "evidence_claim_ids": [
-        "simic_combine_claim_001",
-        "simic_combine_claim_002",
-        "simic_combine_claim_003"
+        "simic_combine_claim_003",
+        "simic_combine_claim_006",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27785,11 +28175,9 @@
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/discriminator_questions/2",
       "canonical_id": "q_simic_combine_9801",
-      "canonical_content_hash": "sha256:ee77886f4f713e4f14d62757283ff944d566d70238256d5e8328166adacda870",
+      "canonical_content_hash": "sha256:6de1a5669f465ddecf53fc07f7b0c73b18d0ff835224a99f6d42d60d129a0365",
       "evidence_claim_ids": [
-        "simic_combine_claim_001",
-        "simic_combine_claim_002",
-        "simic_combine_claim_003"
+        "simic_combine_claim_0028"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
@@ -27806,14 +28194,13 @@
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/discriminator_questions/3",
       "canonical_id": "q_simic_combine_9802",
-      "canonical_content_hash": "sha256:4b5b6ac39f91dcf34bcdb00c3a1af7eb21b82371ea37cd2ee53dd83e843e395d",
+      "canonical_content_hash": "sha256:2c53b7541f516cd0da35dc937d991a8a1542831750758329a4e7351d36dc5db6",
       "evidence_claim_ids": [
-        "simic_combine_claim_001",
-        "simic_combine_claim_002",
-        "simic_combine_claim_003"
+        "simic_combine_claim_0029"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27826,13 +28213,16 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/good_fit_indicators/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:a9436a7f2bc7743061ea845958bdbecd3c9ff973e22a539dbd949ed66600c3eb",
+      "canonical_id": "simic_fit_living_system_improvement",
+      "canonical_content_hash": "sha256:7d86bc9b90ca9717b6f372a624424ea2000d6f593f774a1a29826f2906fa4333",
       "evidence_claim_ids": [
-        "simic_combine_claim_001"
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27845,13 +28235,16 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/good_fit_indicators/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:9e59bfcba4c96c90e85e1868c2181d3d931b1f324c39ebec67a57e15cd66b432",
+      "canonical_id": "simic_fit_biology_public_health_research",
+      "canonical_content_hash": "sha256:6323b191c1ce299bc0161882861844ea6c67a812a3811597939f067511017628",
       "evidence_claim_ids": [
-        "simic_combine_claim_002"
+        "simic_combine_claim_003",
+        "simic_combine_claim_004",
+        "simic_combine_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27864,13 +28257,16 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/good_fit_indicators/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:bdc06eefaa416eab6a766bf5236d3a081050c9e0007ae8635d731fb4ec8e17db",
+      "canonical_id": "simic_fit_adaptive_change_conditions",
+      "canonical_content_hash": "sha256:13566c09896eebb337912b7c574219b597f864223ec6cc27192bb8ae184adabd",
       "evidence_claim_ids": [
-        "simic_combine_claim_003"
+        "simic_combine_claim_006",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27883,13 +28279,16 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:a9436a7f2bc7743061ea845958bdbecd3c9ff973e22a539dbd949ed66600c3eb",
+      "canonical_id": "simic_fit_living_system_improvement",
+      "canonical_content_hash": "sha256:7d86bc9b90ca9717b6f372a624424ea2000d6f593f774a1a29826f2906fa4333",
       "evidence_claim_ids": [
-        "simic_combine_claim_001"
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27902,13 +28301,16 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:9e59bfcba4c96c90e85e1868c2181d3d931b1f324c39ebec67a57e15cd66b432",
+      "canonical_id": "simic_fit_biology_public_health_research",
+      "canonical_content_hash": "sha256:6323b191c1ce299bc0161882861844ea6c67a812a3811597939f067511017628",
       "evidence_claim_ids": [
-        "simic_combine_claim_002"
+        "simic_combine_claim_003",
+        "simic_combine_claim_004",
+        "simic_combine_claim_0018"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27921,10 +28323,54 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/ideal_fit_indicators/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:bdc06eefaa416eab6a766bf5236d3a081050c9e0007ae8635d731fb4ec8e17db",
+      "canonical_id": "simic_fit_adaptive_change_conditions",
+      "canonical_content_hash": "sha256:13566c09896eebb337912b7c574219b597f864223ec6cc27192bb8ae184adabd",
       "evidence_claim_ids": [
-        "simic_combine_claim_003"
+        "simic_combine_claim_006",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/inhibitor_traits/0",
+      "canonical_id": "simic_inhibit_generic_ug_overfit",
+      "canonical_content_hash": "sha256:35e0a7fbf90a33153a964f0e781df51b33f5f05984711f11559cf74e6bd37fbc",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/inhibitor_traits/1",
+      "canonical_id": "simic_inhibit_abstract_proof_or_equation",
+      "canonical_content_hash": "sha256:4d8e5a35a4e5c2ea095684bcdc52a3ce29fe13ed14c31dc5f0839ab142a5f179",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0021",
+        "simic_combine_claim_0023",
+        "simic_combine_claim_0028"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
@@ -27939,20 +28385,18 @@
     {
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
-      "canonical_pointer": "/inhibitor_traits/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:23dcf4055dcb8949d7f2562a2ce07cafb8a4398ef85a883f0e312033f4f04ace",
+      "canonical_pointer": "/inhibitor_traits/2",
+      "canonical_id": "simic_inhibit_preservation_decay_or_lifecost",
+      "canonical_content_hash": "sha256:c8edefd59f43d51a0049aa60ee189e3722f5f3f10c32122eb30161b6e62254e1",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011"
+        "simic_combine_claim_0025",
+        "simic_combine_claim_0024",
+        "simic_combine_claim_0029",
+        "simic_combine_claim_0032"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27965,21 +28409,17 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/moral_and_psychological_profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:80802440c83d56bd0a7ea38238ba2267ab44b005d9634cb8e7823363c9f390bc",
+      "canonical_id": "simic_moral_profile_gate3",
+      "canonical_content_hash": "sha256:e50058d13fa7ba50256ed84ce76f68b311a4a0524f0339fc440d72b2af34fb1f",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011",
-        "simic_combine_claim_0012"
+        "simic_combine_claim_007",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0019",
+        "simic_combine_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -27993,26 +28433,16 @@
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/placement_axes/0",
       "canonical_id": "axis_adaptation_vs_preservation",
-      "canonical_content_hash": "sha256:10dae4e125e9c161d1b9cc562e34682b4f75bb789a0f8d77ad8c1113b6628f32",
+      "canonical_content_hash": "sha256:9de9984a0de93947b208e2b36cb01a9f8dc9854d45c7e7cfbb08f60e26daf9d8",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011",
-        "simic_combine_claim_0012",
-        "simic_combine_claim_0013",
-        "simic_combine_claim_0014",
-        "simic_combine_claim_0015"
+        "simic_combine_claim_002",
+        "simic_combine_claim_007",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_path_to_opulent_2807430f",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -28025,33 +28455,21 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/placement_summary",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:f49ae31b76bd57719d3ffa2fabeb0c4d6b2ba2174642cd3e5607d6568025e989",
+      "canonical_id": "simic_placement_summary_gate3",
+      "canonical_content_hash": "sha256:2c2ab5db96acfc154b478b0308a7021449cbd4c26fe583f9ddb39ca80267678c",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011",
-        "simic_combine_claim_0012",
-        "simic_combine_claim_0013",
-        "simic_combine_claim_0014",
-        "simic_combine_claim_0015",
         "simic_combine_claim_001",
         "simic_combine_claim_002",
         "simic_combine_claim_003",
         "simic_combine_claim_004",
+        "simic_combine_claim_006",
+        "simic_combine_claim_007",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020",
         "simic_combine_claim_005",
-        "simic_combine_claim_006"
+        "simic_combine_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_path_to_opulent_2807430f",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019",
         "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
@@ -28066,13 +28484,16 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/poor_fit_indicators/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:4f76c35d4af92faffb0ef4c28354d03f498ef4faa0806c7d698bdbc1c1ad6c43",
+      "canonical_id": "simic_poor_fit_untouchable_nature",
+      "canonical_content_hash": "sha256:c36bd457c0b4999e4e4f0d616f1269e6be14ffdcd815ef69b5f12116b71064c0",
       "evidence_claim_ids": [
-        "simic_combine_claim_001"
+        "simic_combine_claim_002",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0022"
       ],
       "evidence_source_ids": [
-        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -28085,10 +28506,12 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/poor_fit_indicators/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:3ef2130c4295031f54f83c4e14f8f1d522cd6b421225b35910059759e7aeb5b1",
+      "canonical_id": "simic_poor_fit_abstract_or_nonliving_systems",
+      "canonical_content_hash": "sha256:de6a153a64439ffc719d49f3015de347ef512c9ff2e24e736e958b8923c456fa",
       "evidence_claim_ids": [
-        "simic_combine_claim_002"
+        "simic_combine_claim_0021",
+        "simic_combine_claim_0023",
+        "simic_combine_claim_0028"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
@@ -28104,10 +28527,120 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
       "canonical_pointer": "/poor_fit_indicators/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:ab6e182f22ada649ef3340756f0d1ea66f1c4dcd2038943c5ea11dbb7d2ee4dd",
+      "canonical_id": "simic_poor_fit_generic_ug_mechanics",
+      "canonical_content_hash": "sha256:d6e2cd4d3960a1733306805cfdff8e88afef25dd0fa768930b38fb7772d68e91",
       "evidence_claim_ids": [
-        "simic_combine_claim_003"
+        "simic_combine_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "simic_guidance_how_to_recognize_match_0_gate3",
+      "canonical_content_hash": "sha256:25b50abcad75a0a62ed475422e0d0361c23b97ec5ea632fea5fefc0975b114a5",
+      "evidence_claim_ids": [
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_0018"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "simic_guidance_how_to_recognize_match_1_gate3",
+      "canonical_content_hash": "sha256:dd6e0113ab1adf32783940df28f4135177ffe066108482b54ed344d2cffd8e52",
+      "evidence_claim_ids": [
+        "simic_combine_claim_003",
+        "simic_combine_claim_004",
+        "simic_combine_claim_0018"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "simic_guidance_how_to_recognize_match_2_gate3",
+      "canonical_content_hash": "sha256:57465ef5e603a7d04d2333738bf487486a7b1e47d9711dc34d14bc94684d9ce3",
+      "evidence_claim_ids": [
+        "simic_combine_claim_006",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "simic_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_content_hash": "sha256:2a36470814972244f8935b3562c6efc553bc79dd9735380832e53790767b498a",
+      "evidence_claim_ids": [
+        "simic_combine_claim_002",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0022"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "simic_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_content_hash": "sha256:79fef494465adacd3072193e024f0d6ff549e139c7550ef53f427695b5bb38bc",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0021",
+        "simic_combine_claim_0023",
+        "simic_combine_claim_0028"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
@@ -28121,29 +28654,89 @@
     },
     {
       "identity_key": "UG",
-      "canonical_file": "data/raw-factions/simic_combine/simic_combine.profile.json",
-      "canonical_pointer": "/canonical_flavor_text/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:d03cacc8741d760f2b904b231198b22e1d7a32f0d63e7dd5b649ca8c77e375d4",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": "simic_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_content_hash": "sha256:c28bf0ad88821752049566ad0c4450f87e8e89b83b5d5f9fb5b9122a87a3e488",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011",
-        "simic_combine_claim_0012",
-        "simic_combine_claim_0013",
-        "simic_combine_claim_0014",
-        "simic_combine_claim_0015"
+        "simic_combine_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_path_to_opulent_2807430f",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": "simic_guidance_questions_to_ask_when_uncertain_0_gate3",
+      "canonical_content_hash": "sha256:637fe4144ee45ccc2061fbb2999dba99dac7d88a91587e183f05856655fb6ae8",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0019",
+        "simic_combine_claim_0020"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/7",
+      "canonical_id": "simic_guidance_questions_to_ask_when_uncertain_1_gate3",
+      "canonical_content_hash": "sha256:25413e4523b565319d94ca8837d95c480ce42390ef6f9d5f4567488fb830612b",
+      "evidence_claim_ids": [
+        "simic_combine_claim_003",
+        "simic_combine_claim_006",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.profile.json",
+      "canonical_pointer": "/canonical_flavor_text/0",
+      "canonical_id": "simic_source_bounded_dossier_anchor",
+      "canonical_content_hash": "sha256:73c34fb1f86bc0eb58380c17e0a94639e834aac601f5229ea01484cde81d073d",
+      "evidence_claim_ids": [
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_003",
+        "simic_combine_claim_004",
+        "simic_combine_claim_006",
+        "simic_combine_claim_007",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020"
+      ],
+      "evidence_use": "auxiliary_support",
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -28156,27 +28749,21 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.profile.json",
       "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:ffcf3b20f195ef8c6fd366b754938474a7e254d25c3d8764315b9a0b2565c42d",
+      "canonical_id": "simic_core_identity_gate3",
+      "canonical_content_hash": "sha256:6da8ec3ae1516dd501ba9abfd53041bbe85bdb52b0679e33b96d0b5b5c418c94",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011",
-        "simic_combine_claim_0012",
-        "simic_combine_claim_0013",
-        "simic_combine_claim_0014",
-        "simic_combine_claim_0015"
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_003",
+        "simic_combine_claim_004",
+        "simic_combine_claim_006",
+        "simic_combine_claim_007",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_path_to_opulent_2807430f",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -28189,8 +28776,8 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.profile.json",
       "canonical_pointer": "/data_quality/corpus_upgrade",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:2c839bde9a3bccd5efa7915ae6b16499513bbda1d5dfd0ce20d9b1505a8ab9cd",
+      "canonical_id": "simic_corpus_discovery_metadata_gate3",
+      "canonical_content_hash": "sha256:6a4a781c4023d72df1596e999a6eb2aa15b6859c6a804f91805e735c2f7047f3",
       "evidence_claim_ids": [
         "simic_combine_claim_0008",
         "simic_combine_claim_0009",
@@ -28203,6 +28790,7 @@
         "simic_combine_claim_0016",
         "simic_combine_claim_0017"
       ],
+      "evidence_use": "discovery_metadata",
       "evidence_source_ids": [
         "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
         "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
@@ -28226,21 +28814,38 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.profile.json",
       "canonical_pointer": "/great_tension",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:8ed4323a11220fd1d1ba0b0559ba5602a75bfe63473f0bcefea3ebbc655bfb3d",
+      "canonical_id": "simic_great_tension_gate3",
+      "canonical_content_hash": "sha256:7e73e44cff9b5534148780acb56c8a75eba7d29d0c872703bc848c0727f7511c",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011",
-        "simic_combine_claim_0012"
+        "simic_combine_claim_002",
+        "simic_combine_claim_003",
+        "simic_combine_claim_005",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0019",
+        "simic_combine_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/UG",
+        "data/placement-model.json#/factions/UG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "UG",
+      "canonical_file": "data/raw-factions/simic_combine/simic_combine.profile.json",
+      "canonical_pointer": "/historical_timeline/0",
+      "canonical_id": "event_simic_momir_vig_gate3",
+      "canonical_content_hash": "sha256:75e5934d1ac39f3e089c67816c4249299357dc463dee39f2d6e0e27e563a2267",
+      "evidence_claim_ids": [
+        "simic_combine_claim_0033"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -28254,14 +28859,12 @@
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.profile.json",
       "canonical_pointer": "/key_figures/0",
       "canonical_id": "char_momir_vig",
-      "canonical_content_hash": "sha256:d4f5d61319bf004275e656802aab3ee6ad1e30fdf36d4acfe70153a9a5024f7b",
+      "canonical_content_hash": "sha256:ec67536daa364cd514223301eb90fe5a617a7c2a9cf3f5b51b18e4232a1c08d0",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009"
+        "simic_combine_claim_0033"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -28275,23 +28878,12 @@
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.profile.json",
       "canonical_pointer": "/key_figures/1",
       "canonical_id": "char_vannifar",
-      "canonical_content_hash": "sha256:20ebda99bcd49a1f3423824ed25792803394af0249d0a8215ec856370060da6a",
+      "canonical_content_hash": "sha256:22191b8e7c61ddf2ea3cc533b1b00a60185e879e7c0c51f7f7d017cbec641f8a",
       "evidence_claim_ids": [
         "simic_combine_claim_005",
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011",
-        "simic_combine_claim_0012",
-        "simic_combine_claim_0013",
-        "simic_combine_claim_0014"
+        "simic_combine_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_episode_2_monsters_we_became_e6ec05b7",
-        "src_mtg_stories_episode_3_shadows_of_regret_1b969924",
-        "src_mtg_stories_episode_8_gods_of_chaos_a773d3bd",
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5",
         "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
@@ -28306,35 +28898,12 @@
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.profile.json",
       "canonical_pointer": "/key_figures/2",
       "canonical_id": "char_prime_speaker_zegana",
-      "canonical_content_hash": "sha256:645edbf5656100e87d33df08cd87c396ca3beeea2fc989b3a79550edb4edcfbb",
+      "canonical_content_hash": "sha256:8e8ca0950c8bcc2c82d85a6ab69c99aaa5a1c24d3f57b9dc00a1bc2377a7ad11",
       "evidence_claim_ids": [
-        "simic_combine_claim_0009"
+        "simic_combine_claim_005"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_the_fathom_edict_740e71e8"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/UG",
-        "data/placement-model.json#/factions/UG",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/UG"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "UG",
-      "canonical_file": "data/raw-factions/simic_combine/simic_combine.profile.json",
-      "canonical_pointer": "/key_figures/3",
-      "canonical_id": "char_vorel",
-      "canonical_content_hash": "sha256:08e7ad0e475187cad2c138a17e4136322ecca31d1e3715a7f4fdb2e491974ae5",
-      "evidence_claim_ids": [
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011",
-        "simic_combine_claim_0015"
-      ],
-      "evidence_source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_path_to_opulent_2807430f"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -28347,19 +28916,16 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.profile.json",
       "canonical_pointer": "/mechanics",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:2360c39def858d74b6acb4b20a646612aa81a4e10bd40d0a2e0b455d02094130",
+      "canonical_id": "simic_adapt_mechanics_gate3",
+      "canonical_content_hash": "sha256:4efd2de9b799f8f0b92256e14ae3e67d9c9026c11598a4dc837e7940f852b555",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011"
+        "simic_combine_claim_006",
+        "simic_combine_claim_007",
+        "simic_combine_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -28372,8 +28938,8 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.profile.json",
       "canonical_pointer": "/profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:770a303ae720f6d35f1378fc521f38fcf1ee0865ee7df07b2d4ac1e2d6bb54ce",
+      "canonical_id": "simic_profile_summary_gate3",
+      "canonical_content_hash": "sha256:1b9c4a1b83b6f5190b8cae7b1bd84c21e3025aaba694b7724310c0f5dee16124",
       "evidence_claim_ids": [
         "simic_combine_claim_001",
         "simic_combine_claim_002",
@@ -28381,7 +28947,10 @@
         "simic_combine_claim_004",
         "simic_combine_claim_005",
         "simic_combine_claim_006",
-        "simic_combine_claim_007"
+        "simic_combine_claim_007",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0019",
+        "simic_combine_claim_0020"
       ],
       "evidence_source_ids": [
         "src_wotc_flavorful_guide_ravnica_allegiance_2019",
@@ -28398,19 +28967,19 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.profile.json",
       "canonical_pointer": "/site_surface",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:b9632eabd9d0cb7d2740edf6669ace114b6e153fadeb35e47de6f2cdcfc0e413",
+      "canonical_id": "simic_site_surface_gate3",
+      "canonical_content_hash": "sha256:14d5ac1b960c3c5bb80612dd499ae45ad73a9a9c630f589ed368d2035c8dfa0b",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011"
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_003",
+        "simic_combine_claim_006",
+        "simic_combine_claim_0018",
+        "simic_combine_claim_0020"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
@@ -28423,19 +28992,14 @@
       "identity_key": "UG",
       "canonical_file": "data/raw-factions/simic_combine/simic_combine.profile.json",
       "canonical_pointer": "/structure",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:f1a0198c8e222ba2759ba07ecb5b6f03070f7b19f27e9e757825f1de1ed15d93",
+      "canonical_id": "simic_structure_gate3",
+      "canonical_content_hash": "sha256:dac6522b943031ffced06ac1515cc7c267b65030d60dced71f152ae99df0d6e8",
       "evidence_claim_ids": [
-        "simic_combine_claim_0008",
-        "simic_combine_claim_0009",
-        "simic_combine_claim_0010",
-        "simic_combine_claim_0011"
+        "simic_combine_claim_003",
+        "simic_combine_claim_004"
       ],
       "evidence_source_ids": [
-        "src_mtg_stories_operation_desperation_e6d285ea",
-        "src_mtg_stories_rallying_the_reluctant_d21b8009",
-        "src_mtg_stories_the_fathom_edict_740e71e8",
-        "src_mtg_stories_the_principles_of_unnatural_selection_8a6586c5"
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/UG",
