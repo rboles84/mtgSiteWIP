@@ -91,6 +91,8 @@ Confirm:
 - The next identity has not already received semantic work.
 - Allowed dirty-worktree baseline is fully enumerated.
 - The identity-specific source hierarchy is known.
+- Candidate-scope-sensitive data shapes are inventoried before authorizing a new cohort or structural model.
+- Candidate-scope-sensitive data shapes are inventoried before authorizing a new cohort or structural model.
 - Required neighbors are declared.
 - Frozen fields are captured before remediation.
 - Fixture/provenance locators are identified.
@@ -549,6 +551,8 @@ Before each new identity, compare the planned workflow against the last three co
 - Did commit separation change?
 - Did validation coverage shrink?
 - Did candidate-scope rules change?
+- Did a new cohort or structural model introduce new candidate-scope-sensitive data shapes?
+- Did a new cohort or structural model introduce new candidate-scope-sensitive data shapes?
 - Did exact-chain checking change?
 - Did source-authority treatment change?
 - Did the dirty-worktree allowance change?

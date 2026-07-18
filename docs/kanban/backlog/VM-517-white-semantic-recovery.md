@@ -1,7 +1,7 @@
 # VM-517 — White Semantic Recovery
 
 ID: VM-517
-Status: Governance Hold - Drift Preflight Failed
+Status: Governance Hold - Infrastructure Candidate Awaiting Review
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: W
@@ -53,3 +53,17 @@ Preflight decision: `STOP - WHITE GATE 1+2 NOT AUTHORIZED`.
 Reason: Wave 3 monocolor compatibility is not process-ready. The exact candidate-scope probe `node research/validate-semantic-candidate-scope.mjs --base=272337004aa63cfd33da5f1a859c33d211c8ca74 --target=272337004aa63cfd33da5f1a859c33d211c8ca74 --identity=W` exits 1 with a TypeError because the validator assumes raw `collision_guidance` is an array while White stores `collision_guidance` as an object with `pairs`.
 
 White Gate 1+2, source inspection, semantic audit, remediation, generation, candidate creation, review, certification, and VM-518 work remain not started and unauthorized.
+
+## Infrastructure Candidate State
+
+Shared infrastructure candidate: `aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2`.
+
+Workflow record: `docs/incidents/recoveries/VM-517-monocolor-validator-candidate-workflow.md`.
+
+Drift register entry: `DRIFT-016`.
+
+Candidate status: awaiting independent exact-SHA review.
+
+Scope: validator/test infrastructure only. The candidate normalizes documented array and object-with-`pairs` collision-guidance shapes for candidate-scope validation and fails closed on unsupported shapes with explicit diagnostics.
+
+White status remains blocked. The infrastructure candidate does not authorize White Gate 1+2, source inspection, semantic audit, remediation, generated rebuild, candidate creation, independent review, certification, VM-518 work, program-base advancement, or external tracker updates. After exact infrastructure approval, the VM-517 drift preflight must be rerun in a separate authorized window before Gate 1+2 can be reconsidered.
