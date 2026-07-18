@@ -33682,6 +33682,116 @@
     {
       "identity_key": "W",
       "canonical_file": "data/raw-factions/white/white.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "white_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_content_hash": "sha256:00c0c489d77ac5c056b99a651ca517c137d6da2ef734c0ca7a8baaeb51ac211a",
+      "evidence_claim_ids": [
+        "white_claim_0005"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/W",
+        "data/placement-model.json#/factions/W",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/W"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "W",
+      "canonical_file": "data/raw-factions/white/white.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "white_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_content_hash": "sha256:217b5bb819fa58dddc933a2a76f22c36833059f67284d4938d3fb12e91da4ca1",
+      "evidence_claim_ids": [
+        "white_claim_0005"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/W",
+        "data/placement-model.json#/factions/W",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/W"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "W",
+      "canonical_file": "data/raw-factions/white/white.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "white_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_content_hash": "sha256:4987e8ac3e6d885357814d51edcd0dcb5b7bd11c51a51a0521909d865fe0d1bf",
+      "evidence_claim_ids": [
+        "white_claim_0005"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/W",
+        "data/placement-model.json#/factions/W",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/W"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "W",
+      "canonical_file": "data/raw-factions/white/white.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "white_guidance_how_to_recognize_mismatch_3_gate3",
+      "canonical_content_hash": "sha256:a03891cf84dc90a8806cef49548ec14e1af2c7314170b9561243b9e60d967241",
+      "evidence_claim_ids": [
+        "white_claim_0005"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/W",
+        "data/placement-model.json#/factions/W",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/W"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "W",
+      "canonical_file": "data/raw-factions/white/white.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/4",
+      "canonical_id": "white_guidance_how_to_recognize_mismatch_4_gate3",
+      "canonical_content_hash": "sha256:1456528763d35ed26a466bea1b9d3ae8cc213183a3e79dc32f74d0a9abe9abac",
+      "evidence_claim_ids": [
+        "white_claim_0007"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "GOV-COC-2024",
+        "MECH-CP-2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/W",
+        "data/placement-model.json#/factions/W",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/W"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "W",
+      "canonical_file": "data/raw-factions/white/white.placement.json",
       "canonical_pointer": "/collision_guidance/pairs/0",
       "canonical_id": "white_vs_black",
       "canonical_content_hash": "sha256:36b4ffe45e1a996a453a93f62846d1314b282aa3588c1073c86d81b6ffe28ab2",
@@ -33788,17 +33898,13 @@
       "canonical_file": "data/raw-factions/white/white.placement.json",
       "canonical_pointer": "/discriminator_questions/3",
       "canonical_id": "white_disc_004",
-      "canonical_content_hash": "sha256:a6edf5adeb1e4212c8316ff314e76919dd6300170a4e2404e97c2f9334a9f22e",
+      "canonical_content_hash": "sha256:ebf6710f977d2a0fb8c83ad983e091457e7b10ca6e2818951fb2e585fd7a9f2b",
       "evidence_claim_ids": [
-        "white_claim_0007",
-        "white_claim_0008"
+        "white_claim_0007"
       ],
       "evidence_source_ids": [
         "GOV-COC-2024",
-        "MECH-CP-2021",
-        "RULES-CR",
-        "SCRYFALL-W-2026-06-13",
-        "VM-377"
+        "MECH-CP-2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/W",
@@ -33872,25 +33978,142 @@
     },
     {
       "identity_key": "W",
-      "canonical_file": "data/raw-factions/white/white.profile.json",
-      "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:8ff5142d2115437b5632c40131200e7ff957d44573d641d94247e8631dedf5e2",
+      "canonical_file": "data/raw-factions/white/white.placement.json",
+      "canonical_pointer": "/placement_summary",
+      "canonical_id": "white_placement_summary_gate3",
+      "canonical_content_hash": "sha256:0e753e977811a3761a155b36c5b47ad185d0205e39ff1738ef1bda71a6a289b2",
       "evidence_claim_ids": [
-        "white_claim_0001",
         "white_claim_0002",
         "white_claim_0003",
         "white_claim_0004",
         "white_claim_0005",
         "white_claim_0006",
-        "white_claim_0007",
-        "white_claim_0008"
+        "white_claim_0007"
       ],
       "evidence_source_ids": [
         "GOV-COC-2024",
         "MECH-CP-2021",
         "MONO-W-2015",
-        "MONO-W-2025",
+        "MONO-W-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/W",
+        "data/placement-model.json#/factions/W",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/W"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "W",
+      "canonical_file": "data/raw-factions/white/white.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "white_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_content_hash": "sha256:84ce3fb1ea485c463ad831f0b6d4806ad260447550b77aa42a3b9f507971a0af",
+      "evidence_claim_ids": [
+        "white_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/W",
+        "data/placement-model.json#/factions/W",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/W"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "W",
+      "canonical_file": "data/raw-factions/white/white.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "white_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_content_hash": "sha256:d7bd88ad1f24b7d8727207e5f1b4c7394f44b4b5359c3aa47ccfdf783a562f4c",
+      "evidence_claim_ids": [
+        "white_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/W",
+        "data/placement-model.json#/factions/W",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/W"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "W",
+      "canonical_file": "data/raw-factions/white/white.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "white_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_content_hash": "sha256:b283809a7a2b0566c76cfc90650b99c2fe30d3db96b03059e5422696223020e0",
+      "evidence_claim_ids": [
+        "white_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/W",
+        "data/placement-model.json#/factions/W",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/W"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "W",
+      "canonical_file": "data/raw-factions/white/white.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "white_guidance_how_to_recognize_mismatch_3_gate3",
+      "canonical_content_hash": "sha256:2166c54876c3b26a8658bd0a9d10c52ac8d6c76e231217b32bf124275c85a4b9",
+      "evidence_claim_ids": [
+        "white_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/W",
+        "data/placement-model.json#/factions/W",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/W"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "W",
+      "canonical_file": "data/raw-factions/white/white.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "white_guidance_how_to_recognize_mismatch_4_gate3",
+      "canonical_content_hash": "sha256:ee38e6894374b0c8c565ae194379d7ae3fefd4b8b1a8c2dd2afc2ab26f7982e7",
+      "evidence_claim_ids": [
+        "white_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "GOV-COC-2024",
+        "MECH-CP-2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/W",
+        "data/placement-model.json#/factions/W",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/W"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "W",
+      "canonical_file": "data/raw-factions/white/white.profile.json",
+      "canonical_pointer": "/commander_compass/identity_basis",
+      "canonical_id": "white_commander_compass_identity_basis_support_gate3",
+      "canonical_content_hash": "sha256:854c1c97c305e7f648d8dadc01c2a15312d4a50bae58f4f6742b223213fd838e",
+      "evidence_claim_ids": [
+        "white_claim_0008"
+      ],
+      "evidence_use": "auxiliary_support",
+      "evidence_source_ids": [
         "RULES-CR",
         "SCRYFALL-W-2026-06-13",
         "VM-377"
@@ -33905,9 +34128,33 @@
     {
       "identity_key": "W",
       "canonical_file": "data/raw-factions/white/white.profile.json",
+      "canonical_pointer": "/core_identity",
+      "canonical_id": "white_core_identity_gate3",
+      "canonical_content_hash": "sha256:fd88f066fa84e8ba7fca3736735f2d83e276052409fece217d5a57b7662462bd",
+      "evidence_claim_ids": [
+        "white_claim_0002",
+        "white_claim_0003",
+        "white_claim_0004",
+        "white_claim_0005",
+        "white_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/W",
+        "data/placement-model.json#/factions/W",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/W"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "W",
+      "canonical_file": "data/raw-factions/white/white.profile.json",
       "canonical_pointer": "/mechanics",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:c693e22e2274bac15a17c57662f0a372b19de8cf1999f2fd8e332da21422a46f",
+      "canonical_id": "white_mechanics_gate3",
+      "canonical_content_hash": "sha256:246e822597188379b73e91bd80211a618dbbfcc4a8f0a904a40df304a0863dce",
       "evidence_claim_ids": [
         "white_claim_0007"
       ],
@@ -33926,26 +34173,44 @@
       "identity_key": "W",
       "canonical_file": "data/raw-factions/white/white.profile.json",
       "canonical_pointer": "/profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:b219ba93a445a420dfa6767f41c5d9b0868501451e841e0e57ec86b7f046f9b3",
+      "canonical_id": "white_profile_gate3",
+      "canonical_content_hash": "sha256:be7189fe5f7b5396dbb517cc9e72da1e9e96ef7fd366d2ce2fb93cd4425d90b3",
       "evidence_claim_ids": [
-        "white_claim_0001",
         "white_claim_0002",
         "white_claim_0003",
         "white_claim_0004",
         "white_claim_0005",
         "white_claim_0006",
-        "white_claim_0007",
-        "white_claim_0008"
+        "white_claim_0007"
       ],
       "evidence_source_ids": [
         "GOV-COC-2024",
         "MECH-CP-2021",
         "MONO-W-2015",
-        "MONO-W-2025",
-        "RULES-CR",
-        "SCRYFALL-W-2026-06-13",
-        "VM-377"
+        "MONO-W-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/W",
+        "data/placement-model.json#/factions/W",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/W"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "W",
+      "canonical_file": "data/raw-factions/white/white.profile.json",
+      "canonical_pointer": "/site_surface",
+      "canonical_id": "white_site_surface_gate3",
+      "canonical_content_hash": "sha256:1cbdf6e8fcc886da201cffbc465692b4e181bfe5e2b1abaa6bef1e3b4b52fd0c",
+      "evidence_claim_ids": [
+        "white_claim_0002",
+        "white_claim_0003",
+        "white_claim_0004",
+        "white_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/W",

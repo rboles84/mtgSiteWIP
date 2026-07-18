@@ -3,6 +3,25 @@
   "faction_id": "white",
   "entries": [
     {
+      "date": "2026-07-18",
+      "change_type": "crit001_gate3_remediation",
+      "summary": "Assigned Contract v1.1 semantic roles, added bounded evidence locations with evidence_scope to substantive White claims, isolated governance/Commander support rows, added canonical IDs to profile proof chains, and mapped placement guidance evidence for VM-517.",
+      "related_card": "VM-517",
+      "tests": [
+        "npm.cmd run build:factions",
+        "node research/audit-semantic-readiness.mjs --targets=W",
+        "node research/validate-semantic-readiness.mjs --targets=W",
+        "node research/semantic-candidate-scope-tests.js",
+        "npm.cmd run test:semantic-readiness",
+        "npm.cmd run test:placement",
+        "npm.cmd run test:faction-context-isolation",
+        "npm.cmd run test:source-generated",
+        "npm.cmd test",
+        "git diff --check"
+      ],
+      "notes": "Frozen placement calibration, object-with-pairs collision guidance, lateral/collision targets, and preview source-to-embedded equality must remain preserved."
+    },
+    {
       "date": "2026-06-13",
       "change_type": "mono_gold_promotion",
       "summary": "Created source-backed mono-white raw source, claim, profile, placement, and changelog packets from the promoted mono_upgrade source-intake bundle.",

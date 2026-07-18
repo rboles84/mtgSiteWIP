@@ -1,0 +1,380 @@
+{
+  "identity_key": "W",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "white_core_group_order_identity",
+      "fixture_type": "core_inclusion",
+      "scenario": "A clear White case wants reduced harm and group flourishing made repeatable through shared rules, duty, law, defense, protection, and organized care rather than generic virtue.",
+      "intended_interpretation": "White inclusion requires peace/reduced suffering through group-first structure and obligation, with rigidity pressure visible.",
+      "evidence_claim_ids": [
+        "white_claim_0002",
+        "white_claim_0003",
+        "white_claim_0004",
+        "white_claim_0005",
+        "white_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Use White when group needs, shared standards, law, duty, protection, and organized care lead together.",
+      "unsupported_certainty_to_avoid": "Do not certify White from generic goodness, kindness, safety, law, morality, religion, soldiers, or heroism without group-duty structure."
+    },
+    {
+      "fixture_id": "white_pressure_rigidity_and_over_prescription",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "A mature White reading asks whether order protects people while still adapting to edge cases instead of becoming brittle paternal control.",
+      "intended_interpretation": "White pressure behavior is the tension between organized protection and rigidity, over-prescription, or poor adaptation.",
+      "evidence_claim_ids": [
+        "white_claim_0003",
+        "white_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Ask whether the structure protects the group and whether it can still adapt to real individual cases.",
+      "unsupported_certainty_to_avoid": "Do not flatten White into objectively good authority, totalitarian control, or punishment without source-bounded care and peace."
+    },
+    {
+      "fixture_id": "white_nearest_collision_order_community_duty",
+      "fixture_type": "nearest_collision_ambiguity",
+      "scenario": "The answer names order, community, faith, duty, or defense but could be Azorius, Boros, Orzhov, Selesnya, Silverquill, Lorehold, or mono-White depending on method and purpose.",
+      "intended_interpretation": "Resolve ambiguity by asking whether the center is mono-White group needs and peace through structure rather than a neighbor-specific institution, method, or broader color identity.",
+      "evidence_claim_ids": [
+        "white_claim_0003",
+        "white_claim_0005",
+        "white_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Keep White adjacent until the answer ties protection and order to group-first obligation instead of a guild/shard-specific expression.",
+      "unsupported_certainty_to_avoid": "Do not choose White just because a neighbor also uses law, community, faith, duty, military language, rhetoric, or tradition."
+    },
+    {
+      "fixture_id": "white_exclude_generic_w_overfit",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_W_OVERFIT",
+      "scenario": "Generic White overfit uses goodness, morality, protection, law, safety, tokens, lifegain, taxes, or soldiers as enough by themselves.",
+      "intended_interpretation": "Exclude or keep White adjacent for GENERIC_W_OVERFIT unless source-bounded mono-White peace-through-structure and group-first obligation lead.",
+      "evidence_claim_ids": [
+        "white_claim_0002",
+        "white_claim_0003",
+        "white_claim_0004",
+        "white_claim_0006",
+        "white_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "GOV-COC-2024",
+        "MECH-CP-2021",
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Require source-bounded group needs plus durable structure, not generic White-coded vocabulary or mechanics.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient White proof."
+    },
+    {
+      "fixture_id": "white_exclude_wu",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WU",
+      "scenario": "Azorius-like readings center bureaucracy, procedure, surveillance, codified law, or institutional control more than mono-White group care.",
+      "intended_interpretation": "Exclude or keep White adjacent for WU unless source-bounded mono-White peace-through-structure and group-first obligation lead.",
+      "evidence_claim_ids": [
+        "white_claim_0003",
+        "white_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Separate White law-as-protective structure from Azorius law/procedure/control as a white-blue institution.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient White proof."
+    },
+    {
+      "fixture_id": "white_exclude_wr",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WR",
+      "scenario": "Boros-like readings center militant justice, solidarity in action, force, or disciplined violence more than mono-White peace through order.",
+      "intended_interpretation": "Exclude or keep White adjacent for WR unless source-bounded mono-White peace-through-structure and group-first obligation lead.",
+      "evidence_claim_ids": [
+        "white_claim_0004",
+        "white_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Separate White defense/order from Boros red-white action, justice, and force.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient White proof."
+    },
+    {
+      "fixture_id": "white_exclude_wb",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WB",
+      "scenario": "Orzhov-like readings center debt, transaction, wealth, hierarchy, religious institution, or service obligation more than mono-White group floor.",
+      "intended_interpretation": "Exclude or keep White adjacent for WB unless source-bounded mono-White peace-through-structure and group-first obligation lead.",
+      "evidence_claim_ids": [
+        "white_claim_0003",
+        "white_claim_0004",
+        "white_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Separate White moral/civil law and religion from Orzhov contractual, economic, and hierarchical exploitation.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient White proof."
+    },
+    {
+      "fixture_id": "white_exclude_wg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WG",
+      "scenario": "Selesnya-like readings center harmony, collective spiritual unity, nature/community communion, or shared life more than mono-White law and duty.",
+      "intended_interpretation": "Exclude or keep White adjacent for WG unless source-bounded mono-White peace-through-structure and group-first obligation lead.",
+      "evidence_claim_ids": [
+        "white_claim_0004",
+        "white_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Separate White community/protection from Selesnya green-white belonging and harmony.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient White proof."
+    },
+    {
+      "fixture_id": "white_exclude_silverquill",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SILVERQUILL",
+      "scenario": "Silverquill-like readings center rhetoric, reputation, status, social leverage, or verbal pressure rather than White group-order structure.",
+      "intended_interpretation": "Exclude or keep White adjacent for SILVERQUILL unless source-bounded mono-White peace-through-structure and group-first obligation lead.",
+      "evidence_claim_ids": [
+        "white_claim_0003",
+        "white_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Require White protective structure instead of social/rhetorical status mechanics.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient White proof."
+    },
+    {
+      "fixture_id": "white_exclude_lorehold",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "LOREHOLD",
+      "scenario": "Lorehold-like readings center history, archaeology, monuments, traditions, evidence, or ancestral memory rather than White group order.",
+      "intended_interpretation": "Exclude or keep White adjacent for LOREHOLD unless source-bounded mono-White peace-through-structure and group-first obligation lead.",
+      "evidence_claim_ids": [
+        "white_claim_0003",
+        "white_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Require present group-duty structure rather than red-white historical preservation or scholarly tradition.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient White proof."
+    },
+    {
+      "fixture_id": "white_exclude_bant",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BANT",
+      "scenario": "Bant-like readings center noble hierarchy, exalted order, or three-color ordered community beyond mono-White.",
+      "intended_interpretation": "Exclude or keep White adjacent for BANT unless source-bounded mono-White peace-through-structure and group-first obligation lead.",
+      "evidence_claim_ids": [
+        "white_claim_0002",
+        "white_claim_0003",
+        "white_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Keep White mono when the proof does not require blue-green additions to order and community.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient White proof."
+    },
+    {
+      "fixture_id": "white_exclude_esper",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ESPER",
+      "scenario": "Esper-like readings center controlled perfection, artifice, systemic hierarchy, or broader white-blue-black management.",
+      "intended_interpretation": "Exclude or keep White adjacent for ESPER unless source-bounded mono-White peace-through-structure and group-first obligation lead.",
+      "evidence_claim_ids": [
+        "white_claim_0003",
+        "white_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Require mono-White peace/order rather than Esper-style optimized control or hierarchy.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient White proof."
+    },
+    {
+      "fixture_id": "white_exclude_mardu",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "MARDU",
+      "scenario": "Mardu-like readings center martial conquest, raid momentum, clan hierarchy, or battle loyalty rather than peace through restraint.",
+      "intended_interpretation": "Exclude or keep White adjacent for MARDU unless source-bounded mono-White peace-through-structure and group-first obligation lead.",
+      "evidence_claim_ids": [
+        "white_claim_0004",
+        "white_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Separate White defense and order from broader red-black-white aggression or conquest.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient White proof."
+    },
+    {
+      "fixture_id": "white_exclude_naya",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "NAYA",
+      "scenario": "Naya-like readings center creature grandeur, nature reverence, passion, or communal vitality beyond mono-White.",
+      "intended_interpretation": "Exclude or keep White adjacent for NAYA unless source-bounded mono-White peace-through-structure and group-first obligation lead.",
+      "evidence_claim_ids": [
+        "white_claim_0004",
+        "white_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Require White group-order structure rather than red-green-white nature and creature emphasis.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient White proof."
+    },
+    {
+      "fixture_id": "white_exclude_abzan",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ABZAN",
+      "scenario": "Abzan-like readings center family, ancestry, endurance, survival, and clan obligation at a broader identity.",
+      "intended_interpretation": "Exclude or keep White adjacent for ABZAN unless source-bounded mono-White peace-through-structure and group-first obligation lead.",
+      "evidence_claim_ids": [
+        "white_claim_0003",
+        "white_claim_0005",
+        "white_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Separate White duty from Abzan family/ancestry/endurance obligation.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient White proof."
+    },
+    {
+      "fixture_id": "white_exclude_u",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "U",
+      "scenario": "Mono-blue-like readings center knowledge, optimization, planning, control, or individual improvement rather than group floor.",
+      "intended_interpretation": "Exclude or keep White adjacent for U unless source-bounded mono-White peace-through-structure and group-first obligation lead.",
+      "evidence_claim_ids": [
+        "white_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Separate White raising the group floor from Blue raising the individual ceiling.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient White proof."
+    },
+    {
+      "fixture_id": "white_exclude_b",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "B",
+      "scenario": "Mono-black-like readings center self-interest, ambition, power, or selfishness as honest motive.",
+      "intended_interpretation": "Exclude or keep White adjacent for B unless source-bounded mono-White peace-through-structure and group-first obligation lead.",
+      "evidence_claim_ids": [
+        "white_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Use White only when the answer subordinates self-interest to shared obligation.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient White proof."
+    },
+    {
+      "fixture_id": "white_exclude_r",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "R",
+      "scenario": "Mono-red-like readings center freedom, impulse, emotion, action, or chaos as the good.",
+      "intended_interpretation": "Exclude or keep White adjacent for R unless source-bounded mono-White peace-through-structure and group-first obligation lead.",
+      "evidence_claim_ids": [
+        "white_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Use White only when restraint and rules serve peace rather than blocking desired action.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient White proof."
+    },
+    {
+      "fixture_id": "white_exclude_g",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "G",
+      "scenario": "Mono-green-like readings center nature, destiny, instinct, web of life, or acceptance over taught moral order.",
+      "intended_interpretation": "Exclude or keep White adjacent for G unless source-bounded mono-White peace-through-structure and group-first obligation lead.",
+      "evidence_claim_ids": [
+        "white_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Use White only when taught moral/civil structure and group-duty order lead over natural destiny.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient White proof."
+    },
+    {
+      "fixture_id": "white_core_identity_provenance",
+      "fixture_type": "provenance",
+      "scenario": "",
+      "intended_interpretation": "Generated provenance for White core identity must point to source-bounded substantive claims only.",
+      "evidence_claim_ids": [
+        "white_claim_0002",
+        "white_claim_0003",
+        "white_claim_0004",
+        "white_claim_0005",
+        "white_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Generated consumers must preserve source-bounded White core identity provenance.",
+      "unsupported_certainty_to_avoid": "Do not use support/governance/Commander rows or mechanics-only rows as White core identity proof.",
+      "canonical_file": "data/raw-factions/white/white.profile.json",
+      "canonical_pointer": "/core_identity"
+    },
+    {
+      "fixture_id": "white_placement_summary_provenance",
+      "fixture_type": "provenance",
+      "scenario": "",
+      "intended_interpretation": "Generated provenance for White placement summary must preserve philosophy, relationship, pressure, and bounded mechanic texture claims without support leakage.",
+      "evidence_claim_ids": [
+        "white_claim_0002",
+        "white_claim_0003",
+        "white_claim_0004",
+        "white_claim_0005",
+        "white_claim_0006",
+        "white_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "GOV-COC-2024",
+        "MECH-CP-2021",
+        "MONO-W-2015",
+        "MONO-W-2025"
+      ],
+      "defensible_guidance": "Generated consumers must preserve claim/source provenance for White placement summary guidance.",
+      "unsupported_certainty_to_avoid": "Do not expose support rows, card verification, or generic White mechanics as placement proof.",
+      "canonical_file": "data/raw-factions/white/white.placement.json",
+      "canonical_pointer": "/placement_summary"
+    }
+  ]
+}

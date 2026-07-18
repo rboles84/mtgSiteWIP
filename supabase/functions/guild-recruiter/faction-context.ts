@@ -109,7 +109,7 @@ export const FACTION_CONTEXT = {
       "impulse, chaos, or freedom from law as the central good",
       "knowledge optimization with little concern for group floor",
       "destiny or natural order preferred over taught moral structure",
-      "candidate commander names treated as verified evidence",
+      "card names or mechanics treated as White philosophy proof",
       "rigid punishment without concern for peace or protection"
     ],
     "lateral_inhibition_targets": [
@@ -174,17 +174,16 @@ export const FACTION_CONTEXT = {
       },
       {
         "id": "white_disc_004",
-        "prompt": "Are mechanics like tokens, protection, taxing, or conditional removal being used as White texture rather than Commander legality proof?",
-        "purpose": "Keeps mechanical and Commander support source-bound.",
-        "supports": "Supports White when mechanics are treated as dated color-pie texture and commander examples remain unpromoted.",
-        "weakens": "Weakens White when candidate commanders or stale deck notes are treated as verified Layer 2 support.",
+        "prompt": "Are mechanics like tokens, protection, taxing, or conditional removal being used as White texture rather than White identity proof?",
+        "purpose": "Keeps mechanic examples source-bound and prevents Commander/card support rows from proving White philosophy.",
+        "supports": "Supports White only when mechanics are treated as dated color-pie texture bound to White structure, protection, and group play.",
+        "weakens": "Weakens White when card names, Commander support rows, or mechanics are treated as philosophy or placement-axis evidence.",
         "collision_targets": [
           "WUBRG",
           "COLORLESS"
         ],
         "evidence_claim_ids": [
-          "white_claim_0007",
-          "white_claim_0008"
+          "white_claim_0007"
         ],
         "confidence": "High",
         "lateral_inhibition": false
@@ -206,7 +205,7 @@ export const FACTION_CONTEXT = {
         "impulse, chaos, or freedom from law as the central good",
         "knowledge optimization with little concern for group floor",
         "destiny or natural order preferred over taught moral structure",
-        "candidate commander names treated as verified evidence"
+        "card names or mechanics treated as White philosophy proof"
       ],
       "calibration_note": "White should rise only when care is organized through rules, obligation, community, or protection.",
       "never_claim_as_canon": [
