@@ -1,6 +1,6 @@
 # VM-519 Black Semantic Recovery
 
-Status: Gate 1+2 complete. Remediation authorized.
+Status: Replacement candidate awaiting new independent review.
 
 Identity: Black / B
 Contract: CRIT-001 semantic-readiness Contract v1.1
@@ -264,7 +264,7 @@ Black is not certified and is not `semantically_ready`. No approval decision was
 
 Independent review report: `docs/incidents/recoveries/VM-519-black-independent-review.md`.
 
-Review-record SHA: `PENDING_VM519_BLACK_REVIEW_RECORD_SHA`.
+Review-record SHA: `118facf42dd5b613d3aa946de6b3968b24e9455a`.
 
 Decision:
 
@@ -286,3 +286,121 @@ Both retain unchanged pre-remediation preview copy:
 The review concluded that equality between source and embedded preview is true but insufficient. The line remains a generic Black autonomy/ambition/survival summary and does not include the candidate's source-backed cost, leverage, opportunity, resource-conversion, consequence, or internal-tension boundaries.
 
 Black remains not approved, not certified, and not `semantically_ready`. VM-520 was not started. A later replacement candidate is required.
+
+## 17. Replacement Candidate Workflow - 2026-07-18
+
+Status: awaiting new independent review.
+
+- Program base: `04547ecfc52d1c96537b6375e9d5c4b8f3690a32`.
+- Black drift preflight: `741ed6a81edb567d51a2699cbe7d0ec70e9b5e61`.
+- Gate 1+2: `604a19696d3dfb0d43d6b96676c0c6605628eb33`.
+- Rejected candidate: `5bffc3465786c18950d32dcb6f056504b3b8e668`.
+- Rejected-candidate workflow: `72106e50b8aca3ec1ef8d0e8b8d5973809d2efc6`.
+- Governance hold correction: `4eff477fdc47190dcb9b8df451329475ff47f7d0`.
+- Rejection review: `118facf42dd5b613d3aa946de6b3968b24e9455a`.
+- Review decision: `REQUEST CHANGES`.
+- Replacement candidate: `0bfe8b3d46d163de6e20064f5de9717075ca02c8`.
+- Replacement candidate subject: `VM-519 replace stale Black preview candidate`.
+- Superseded replacement candidates: none.
+
+Approval-blocking paths:
+
+- `data/identity-layers.json#/expressions/B/preview_text`.
+- `data/factions.json#/identity_layers/expressions/B/preview_text`.
+
+Rejected preview:
+
+`Black values ambition, self-definition, pragmatism, and survival. It asks what you are willing to do to claim agency.`
+
+Replacement preview:
+
+`Black claims agency by turning costs, risks, and resources into leverage. Its power is deliberate, consequential, and not cruelty for its own sake.`
+
+Source-support and semantic alignment:
+
+- The replacement is bounded by accepted claims `black_claim_0002`, `black_claim_0003`, `black_claim_0004`, and `black_claim_0006`.
+- It preserves Black as agency through power/opportunity, cost accounting, risk, resource conversion, and leverage.
+- It records consequence pressure and rejects cruelty as a sufficient Black definition.
+- It does not reopen accepted claims, profile, placement, provenance, fixtures, recruiter context, validators, schemas, scoring, calibration, or runtime logic.
+
+Required-neighbor pressure test:
+
+- PASS for `GENERIC_B_OVERFIT`: the preview is not generic ambition, autonomy, pragmatism, survival, or self-definition copy because it requires costs, risks, resources, leverage, consequence, and non-cruelty bounds.
+- PASS for `WB` / Orzhov: it does not center debt, obligation, hierarchy, religion, transaction, or institutional power.
+- PASS for `UB` / Dimir: it does not center secrecy, surveillance, manipulation, information asymmetry, or covert timing.
+- PASS for `BR` / Rakdos: it does not center appetite, spectacle, impulse, immediate gratification, or public transgression.
+- PASS for `BG` / Golgari: it does not center decay, ecology, death-cycle reuse, endurance, or underclass survival systems.
+- PASS for Silverquill and Witherbloom: it does not center rhetoric/status/prestige or life/death study, harvesting, vitality exchange, or potion craft.
+- PASS for Esper, Grixis, Jund, Mardu, Sultai, and Abzan: it remains mono-Black by centering agency through cost/resource leverage rather than three-color social, ecological, martial, manipulative, or ancestral structures.
+
+DRIFT-015 propagation:
+
+- Authoritative source `data/identity-layers.json#/expressions/B/preview_text` was edited first.
+- `npm.cmd run build:factions` propagated the source into `data/factions.json#/identity_layers/expressions/B/preview_text`.
+- Source-to-embedded equality: PASS.
+- Second `npm.cmd run build:factions`: PASS; no additional content diff beyond the same two preview fields.
+
+Stale-copy results:
+
+- Exact old-preview search in active `data`, `supabase`, and `research` surfaces: no hits after remediation.
+- Fragment search for `Black values ambition`, `self-definition`, `pragmatism, and survival`, `claim agency`, and equivalent stale combinations: no active Black stale copy; one unrelated Bant `Private self-definition` label remains unrelated.
+- Historical governance occurrences remain in recovery, review, ledger, card, board, and drift records as audit history.
+- Semantic-equivalent stale generic Black preview review: PASS; no active product surface retains the old generic autonomy/ambition preview.
+
+Accepted-state regression:
+
+- Claim roles remain 8 total; 6 substantive, 0 discovery, 2 support, 0 unclassified.
+- B provenance remains 25 entries; 0 required null canonical IDs; 0 null hashes; 0 unresolved pointers; 0 duplicate canonical entries; 0 duplicate null keys.
+- Exact fixture chains remain `/core_identity` 5/5 exact and `/placement_summary` 6/6 exact.
+- Frozen placement summary, top-level confidence absence, required terms, minimum hits, broad penalty, strengthen/suppress lists, false-positive guardrail, lateral targets, collision targets, native IDs, calibration, raw object-with-`pairs` structure/order, generated collision semantics/order, absent `GENERIC_B_OVERFIT`, and absent Black-local scoring/golden paths remain unchanged.
+- Public faction, placement, and recruiter context remain consistent with the accepted candidate packet.
+
+Validation results:
+
+- `npm.cmd run build:factions` - exit 0; built 37 faction placement records and wrote generated artifacts.
+- `npm.cmd run build:factions` - exit 0; deterministic rerun with no additional content diff beyond the two preview fields.
+- JSON parse for `data/identity-layers.json` and `data/factions.json` - exit 0.
+- Source-to-embedded preview equality script - exit 0; values exactly equal.
+- Exact old-preview search in active surfaces - exit 1; no hits.
+- Fragment stale searches - exit 0 only for unrelated Bant `Private self-definition`; no active Black stale preview.
+- Manual role/provenance/fixture/frozen/preview regression script - exit 0.
+- `node research/audit-semantic-readiness.mjs --targets=B` - exit 0; reports 8 claims, 6 substantive, 0 discovery, 2 support, 0 unclassified.
+- `node research/validate-semantic-readiness.mjs --targets=B` - exit 0.
+- `node research/semantic-candidate-scope-tests.js` - exit 0.
+- `npm.cmd run test:semantic-readiness` - exit 0; verified 1826 semantic provenance entries.
+- `npm.cmd run test:placement` - exit 0; 37 factions, 37 golden paths.
+- `npm.cmd run test:faction-context-isolation` - exit 0.
+- `npm.cmd run test:source-generated` - exit 0 with known unrelated JESKAI/MARDU model-owned inhibitor warnings.
+- `npm.cmd test` - exit 0.
+- `git diff --check` - exit 0 with line-ending warnings only.
+
+Candidate-scope validation:
+
+`node research/validate-semantic-candidate-scope.mjs --base=604a19696d3dfb0d43d6b96676c0c6605628eb33 --target=0bfe8b3d46d163de6e20064f5de9717075ca02c8 --identity=B`
+
+Result: exit 1, documented DRIFT-015 target-scoped display-source exception only.
+
+Reported paths:
+
+- `data/identity-layers.json`
+- `data/factions.json`
+
+Exception rationale:
+
+- The only replacement-candidate differences from the current review HEAD are `data/identity-layers.json#/expressions/B/preview_text` and `data/factions.json#/identity_layers/expressions/B/preview_text`.
+- Source and embedded preview values are exactly equal.
+- The change is required to remediate the independent-review blocker.
+- No other frozen or candidate-scope-sensitive field changed.
+- The exception remains subject to fresh independent review.
+
+Current state:
+
+- Replacement candidate `0bfe8b3d46d163de6e20064f5de9717075ca02c8` awaits new independent review.
+- Black is not approved.
+- Black is not certified.
+- Black is not `semantically_ready`.
+- Program base remains `04547ecfc52d1c96537b6375e9d5c4b8f3690a32`.
+- Certified identity count remains 17; Wave 3 remains 2 of 5 certified.
+- VM-520 is not started.
+- Original main and external Excel tracker were not modified.
+- Table Talk baseline remains preserved and excluded.

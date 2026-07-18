@@ -1,7 +1,7 @@
 # VM-519 - Black Semantic Recovery
 
 ID: VM-519
-Status: Independent Review Returned REQUEST CHANGES - Awaiting Replacement Candidate
+Status: Replacement Candidate Awaiting New Independent Review
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: B
@@ -13,7 +13,7 @@ Contract: CRIT-001 Contract v1.1 after separate drift preflight; Gate 1+2 read-o
 
 Recover Black end to end under CRIT-001 after VM-518 Blue certification. The separate committed VM-519 drift-preflight control record has passed with no `FAIL` or `UNKNOWN` results.
 
-Current state: Black Gate 5 candidate `5bffc3465786c18950d32dcb6f056504b3b8e668` received independent review decision `REQUEST CHANGES`. The approval-blocking finding is stale/generic Black preview copy retained in `data/identity-layers.json#/expressions/B/preview_text` and embedded `data/factions.json#/identity_layers/expressions/B/preview_text`. Certification, external tracker update, push, PR, merge, semantically_ready transition, and VM-520 remain not started.
+Current state: Black Gate 5 candidate `5bffc3465786c18950d32dcb6f056504b3b8e668` received independent review decision `REQUEST CHANGES` in review record `118facf42dd5b613d3aa946de6b3968b24e9455a`. Replacement candidate `0bfe8b3d46d163de6e20064f5de9717075ca02c8` remediates only the stale/generic Black preview copy in `data/identity-layers.json#/expressions/B/preview_text` and embedded `data/factions.json#/identity_layers/expressions/B/preview_text`; it awaits a new independent review. Certification, external tracker update, push, PR, merge, semantically_ready transition, and VM-520 remain not started.
 
 ## Gates
 
@@ -24,7 +24,7 @@ Current state: Black Gate 5 candidate `5bffc3465786c18950d32dcb6f056504b3b8e668`
 - [x] Gate 4 - Generation and validation.
 - [x] Gate 5 - Candidate creation.
 - [x] Independent review of exact candidate SHA - REQUEST CHANGES.
-- [ ] Replacement candidate for preview-surface finding.
+- [x] Replacement candidate for preview-surface finding.
 - [ ] Independent review of replacement exact candidate SHA.
 - [ ] Certification of exact approved candidate SHA.
 
@@ -43,8 +43,9 @@ Current state: Black Gate 5 candidate `5bffc3465786c18950d32dcb6f056504b3b8e668`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-519-black-semantic-recovery.md`
 - Drift preflight record: `docs/incidents/recoveries/VM-519-black-drift-preflight.md`
-- Candidate recovery SHA: `5bffc3465786c18950d32dcb6f056504b3b8e668`
-- Independent reviewer: `REQUEST CHANGES` in `docs/incidents/recoveries/VM-519-black-independent-review.md`
+- Rejected candidate recovery SHA: `5bffc3465786c18950d32dcb6f056504b3b8e668`
+- Rejection reviewer: `REQUEST CHANGES` in `docs/incidents/recoveries/VM-519-black-independent-review.md` at `118facf42dd5b613d3aa946de6b3968b24e9455a`
+- Replacement candidate SHA: `0bfe8b3d46d163de6e20064f5de9717075ca02c8`
 - Certification commit: pending
 
 ## Setup Boundary
@@ -77,8 +78,20 @@ VM-519 Black / B passed drift preflight from the VM-518 Blue certification progr
 
 - Exact candidate reviewed: `5bffc3465786c18950d32dcb6f056504b3b8e668`.
 - Review record: `docs/incidents/recoveries/VM-519-black-independent-review.md`.
-- Review-record SHA: `PENDING_VM519_BLACK_REVIEW_RECORD_SHA`.
+- Review-record SHA: `118facf42dd5b613d3aa946de6b3968b24e9455a`.
 - Decision: `REQUEST CHANGES`.
 - Blocker: `data/identity-layers.json#/expressions/B/preview_text` and `data/factions.json#/identity_layers/expressions/B/preview_text` retain stale generic Black copy: `Black values ambition, self-definition, pragmatism, and survival. It asks what you are willing to do to claim agency.`
-- Required next step: create a later replacement candidate that updates the source-owned B preview and regenerated embedded preview consumer without unrelated identity drift, then submit the replacement exact SHA for fresh independent review.
+- Required next step: submit replacement candidate `0bfe8b3d46d163de6e20064f5de9717075ca02c8` for fresh independent review.
 - Status: not approved, not certified, not `semantically_ready`; VM-520 not started.
+
+## Replacement Candidate - 2026-07-18
+
+- Replacement candidate SHA: `0bfe8b3d46d163de6e20064f5de9717075ca02c8`.
+- Subject: `VM-519 replace stale Black preview candidate`.
+- Files: `data/identity-layers.json`, `data/factions.json`.
+- Old preview: `Black values ambition, self-definition, pragmatism, and survival. It asks what you are willing to do to claim agency.`
+- New preview: `Black claims agency by turning costs, risks, and resources into leverage. Its power is deliberate, consequential, and not cruelty for its own sake.`
+- Source-to-embedded equality: PASS.
+- Stale active product copy search: no active Black stale copy remains; historical governance references retained.
+- Candidate-scope result: exit 1 only for the documented DRIFT-015 display-source exception limited to `data/identity-layers.json#/expressions/B/preview_text` and `data/factions.json#/identity_layers/expressions/B/preview_text`.
+- Status: awaiting new independent review; not approved, not certified, not `semantically_ready`; program base unchanged; VM-520 not started.
