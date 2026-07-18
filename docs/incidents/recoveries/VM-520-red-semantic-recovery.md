@@ -1,6 +1,6 @@
 # VM-520 Red Semantic Recovery
 
-Status: Gate 1+2 complete. Remediation authorized.
+Status: Gate 5 candidate created. Awaiting independent review.
 
 Identity: Red / R
 Contract: CRIT-001 semantic-readiness Contract v1.1
@@ -8,7 +8,9 @@ Program base: `1116786785dc4c5c8c1447dcad79c89e527657eb`
 Red drift preflight/current starting HEAD: `94a33b70fdac83b350195a3eed7f34118f999e31`
 Approved monocolor validator candidate: `aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2`
 Approved validator review: `af3d8c6c563b3743f65c2dc8478519707f4785c8`
-Gate 1+2 governance commit: `PENDING_VM520_GATE_1_2_SHA`
+Gate 1+2 governance commit: `6c2b6dfc3e9e838f9e75801517a81258b675923d`
+Final candidate commit: `deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870`
+Workflow-record commit: pending until this governance update is committed.
 
 This record is the read-only Gate 1+2 semantic and evidence audit for Red. No Red raw semantic data, generated consumers, provenance, recruiter context, fixtures, tests, validators, builders, schemas, runtime, scoring, calibration, VM-521 files, original-main files, Excel tracker, or Table Talk files were modified by this gate.
 
@@ -248,3 +250,148 @@ Commands and checks actually run during Gate 1+2:
 - Red was not marked `semantically_ready`.
 - No VM-521 work occurred.
 - No original-main write, Excel update, push, PR, or merge occurred.
+
+## 14. Gate 3+4 Implementation
+
+Gate 3+4 proceeded only after Gate 1+2 recorded `REMEDIATION AUTHORIZED`.
+
+Authoritative files changed:
+
+- `data/raw-factions/red/red.claims.json`: assigned Contract v1.1 semantic roles; added bounded evidence locations and evidence scopes to six substantive claims; isolated `red_claim_0001` and `red_claim_0008` as support records with evidence-use restrictions.
+- `data/raw-factions/red/red.profile.json`: removed support/governance/Commander proof from core profile chains, added stable native IDs for profile surfaces, and made Commander Compass support explicitly auxiliary.
+- `data/raw-factions/red/red.placement.json`: converted placement summary into an ID-bearing proof-chain object while preserving the frozen summary text; removed Commander support from semantic discriminator proof; added evidence mapping for chatbot mismatch guidance; preserved frozen calibration, collision, confidence, and optional-field absences.
+- `data/identity-layers.json`: updated only `expressions.R.preview_text` under DRIFT-015 because the Gate 1+2 preview was semantically generic Red overfit.
+
+Generated files changed by `npm.cmd run build:factions`:
+
+- `data/factions.json`
+- `data/placement-model.json`
+- `data/semantic-readiness-provenance.json`
+- `supabase/functions/guild-recruiter/faction-context.ts`
+
+Fixture changed:
+
+- `research/fixtures/semantic-readiness/red.semantic-fixtures.json` was added with core inclusion, pressure behavior, nearest-collision ambiguity, required-neighbor exclusions, and provenance fixtures for `/core_identity` and `/placement_summary`.
+
+No tests, validators, builders, schemas, scoring, calibration, unrelated identity raw packets, VM-521 files, original-main files, Table Talk files, or Excel files were modified.
+
+Final role counts: 8 total claims; 6 substantive, 0 discovery, 2 support, 0 unclassified.
+
+Final provenance count: 25 Red entries; 0 required null canonical IDs; 0 required null content hashes; 0 unresolved claim references; 0 duplicate canonical keys.
+
+Red semantic boundary: the candidate defines Red as source-bounded freedom through feeling, action, lived experience, loyalty/attachment, and consequence pressure. It does not certify Red from generic emotion, authenticity, passion, anger, chaos, speed, fire, mechanics, Commander cards, or adjacent guild/college/shard/wedge patterns.
+
+## 15. Exact-Chain Proof
+
+| Canonical locator | Generated ordered IDs | Fixture ordered IDs | Counts | Exact equality | Duplicates | Missing | Extra |
+|---|---|---|---:|---|---|---|---|
+| `data/raw-factions/red/red.profile.json#/core_identity` | `red_claim_0002`, `red_claim_0003`, `red_claim_0004`, `red_claim_0005`, `red_claim_0006` | `red_claim_0002`, `red_claim_0003`, `red_claim_0004`, `red_claim_0005`, `red_claim_0006` | 5 / 5 | true | none | none | none |
+| `data/raw-factions/red/red.placement.json#/placement_summary` | `red_claim_0002`, `red_claim_0003`, `red_claim_0004`, `red_claim_0005`, `red_claim_0006`, `red_claim_0007` | `red_claim_0002`, `red_claim_0003`, `red_claim_0004`, `red_claim_0005`, `red_claim_0006`, `red_claim_0007` | 6 / 6 | true | none | none | none |
+
+Additional generated Red provenance locators were inspected and contain only Red-local canonical rows. Support claim `red_claim_0008` appears only on `/commander_compass/identity_basis` with auxiliary support semantics.
+
+## 16. Frozen, Collision, and Preview Proof
+
+- Placement summary text: unchanged and exact.
+- Top-level confidence: absent before and after.
+- Discriminator confidences: `red_disc_001:High`, `red_disc_002:Medium`, `red_disc_003:High`, `red_disc_004:High`.
+- Required terms: `freedom`, `emotion`, `action`, `passion`, `impulse`, `experience`, `speed`.
+- Minimum hits: 2.
+- Broad penalty: 0.13.
+- Strengthen list: `acting from feeling`; `learning by doing`; `breaking restrictive stasis`; `loyalty or passion`.
+- Suppress list: `rules over desire`; `analysis before every action`; `power calculation without feeling`; `chaos without emotional truth`.
+- Guardrail: `Do not place Red for chaos, anger, or haste alone; require freedom, emotion, action, or lived experience.`
+- Lateral targets: `WR`, `UR`, `BR`, `RG`.
+- Native IDs: `red`, `axis_emotion_to_action`, `axis_freedom_over_constraint`, `axis_consequence_shadow`, `red_disc_001`, `red_disc_002`, `red_disc_003`, `red_disc_004`, `red_vs_white`, `red_vs_blue`.
+- Optional-field absences: top-level confidence, Red-local scoring, and Red-local golden path remain absent.
+- Raw collision structure/order: object keys `rule`, `review_triggers`, `pairs`; pair order `W`, then `U`; IDs `red_vs_white`, `red_vs_blue`.
+- Generated collision semantics/order: `W`, then `U`; IDs `red_vs_white`, `red_vs_blue`.
+- Explicit `GENERIC_R_OVERFIT` collision target: absent.
+- Preview source: `data/identity-layers.json#/expressions/R/preview_text`.
+- Preview text: `Red turns feeling into action before life hardens into regret. Its freedom stays vivid, loyal, and answerable for the sparks it throws.`
+- Embedded consumer: `data/factions.json#/identity_layers/expressions/R/preview_text`.
+- Preview equality: true.
+- Exact stale Red preview search: no active exact or Red-preview-fragment hits in changed active data, generated, recruiter, provenance, or fixture surfaces.
+- Determinism: `npm.cmd run build:factions` was run after edits and again during validation; generated content remained in the expected Red implementation scope.
+
+## 17. Candidate-Stage Drift Scorecard
+
+| Control | Result | Evidence |
+|---|---|---|
+| Source authority corrected | PASS | Philosophy sources support claims 0002-0006; mechanics/governance support claim 0007 only in mechanic/process scope; rules/project/Scryfall are support-only. |
+| Claim roles complete | PASS | 6 substantive, 0 discovery, 2 support, 0 unclassified. |
+| Evidence scopes complete | PASS | All substantive claims have bounded evidence locations with `evidence_scope`. |
+| Non-authoritative records isolated | PASS | Support rows excluded from semantic proof chains except auxiliary Commander Compass support. |
+| IDs and hashes valid | PASS | Required generated provenance rows have canonical IDs and content hashes; no required null rows remain. |
+| Pointers and duplicates | PASS | 0 unresolved claim refs and 0 duplicate canonical keys. |
+| Fixture/provenance parity | PASS | `/core_identity` and `/placement_summary` fixtures exactly match generated ordered IDs. |
+| Frozen fields unchanged | PASS | Summary text, confidence absence, terms, threshold, penalty, lists, guardrail, lateral targets, native IDs, collision order, and optional absences preserved. |
+| Collision controls preserved | PASS | Raw object-with-`pairs` and generated W/U semantics/order preserved. |
+| Preview controls | PASS | Source-owned R preview changed under DRIFT-015; embedded consumer equal; stale exact Red preview absent; semantic alignment improved. |
+| Unrelated identity changes | PASS | Implementation commit changed Red raw, Red fixture, generated Red consumers/provenance, and source-owned Red preview surfaces only. |
+| Validation | PASS | Required command matrix passed; candidate-scope exited 1 only for documented display-source file diagnostics. |
+| Table Talk excluded | PASS | Table Talk baseline remains unstaged/uncommitted. |
+| VM-521 untouched | PASS | No VM-521 work started. |
+
+No required candidate-stage control is FAIL or UNKNOWN.
+
+## 18. Validation Run After Remediation
+
+| Command | Exit | Result / important output |
+|---|---:|---|
+| `node -e "JSON.parse(...red.semantic-fixtures.json...)"` | 0 | Red fixture JSON parse OK. |
+| `node research/validate-semantic-readiness.mjs --targets=R` | 0 | Semantic readiness validation passed for R. |
+| custom read-only Red controls over raw/generated/fixture/preview/frozen fields | 0 | Role counts 6/0/2/0; support isolation none; mechanics/governance unexpected rows none; null rows none; unresolved refs none; duplicate keys none; exact fixture parity true; frozen summary true; preview equality true; old exact Red preview hits none. |
+| `npm.cmd run build:factions` | 0 | Built 37 faction placement records; wrote generated placement, schema, recruiter context, and provenance. |
+| `node research/audit-semantic-readiness.mjs --targets=R` | 0 | 8 claims; 6 substantive, 0 discovery, 2 support, 0 unclassified; 7 sources; 20 reference sites; recruiter context size 7451. |
+| `node research/validate-semantic-readiness.mjs --targets=R` | 0 | Semantic readiness validation passed for R. |
+| `node research/semantic-candidate-scope-tests.js` | 0 | Semantic candidate scope tests passed. |
+| `npm.cmd run test:semantic-readiness` | 0 | Semantic readiness contract tests passed; candidate-scope tests passed; contract fixtures passed; 1839 semantic provenance entries verified. |
+| `npm.cmd run test:placement` | 0 | PASS adaptive placement tests: 37 factions, 37 golden paths. |
+| `npm.cmd run test:faction-context-isolation` | 0 | Faction context isolation helper tests passed. |
+| `npm.cmd run test:source-generated` | 0 | Source/generated guardrail validation passed for JESKAI and MARDU with two known unrelated model-owned inhibitor warnings. |
+| `npm.cmd test` | 0 | Full suite passed; 226 parser cases, 6 builder cases, semantic readiness, Maze contracts, and presentation snapshots passed. |
+| `git diff --check` | 0 | No whitespace errors; line-ending warnings only. |
+| `node research/validate-semantic-candidate-scope.mjs --base=6c2b6dfc3e9e838f9e75801517a81258b675923d --target=deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870 --identity=R` | 1 | Documented DRIFT-015 exception: `data/identity-layers.json` and global `data/factions.json` changed due source-owned R preview and embedded generated consumer. No validator crash and no third diagnostic. |
+
+Environmental notes: Git reported line-ending warnings for touched files. `npm.cmd test` rewrote live gate-bias reports with no content diff. `test:source-generated` warnings were unchanged/unrelated JESKAI and MARDU model-owned inhibitor notes.
+
+## 19. Candidate
+
+Superseded candidates: none.
+
+Final candidate SHA: `deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870`
+
+Candidate subject: `VM-520 remediate Red semantic readiness candidate`
+
+Candidate files:
+
+- `data/factions.json`
+- `data/identity-layers.json`
+- `data/placement-model.json`
+- `data/raw-factions/red/red.claims.json`
+- `data/raw-factions/red/red.placement.json`
+- `data/raw-factions/red/red.profile.json`
+- `data/semantic-readiness-provenance.json`
+- `research/fixtures/semantic-readiness/red.semantic-fixtures.json`
+- `supabase/functions/guild-recruiter/faction-context.ts`
+
+Candidate-scope result: acceptable pending independent review, with documented DRIFT-015 display-source exception limited to the source-owned Red preview and embedded generated preview consumer. The validator reports the exception at file level as `data/identity-layers.json` and `data/factions.json`; inspection confirms the global `data/factions.json` change outside `factions.R` is the embedded R preview consumer.
+
+Status: exact candidate awaits independent review. It is not approved, not certified, and not `semantically_ready`.
+
+## 20. Final State Before Workflow Record Commit
+
+- Branch: `codex/vm-520-red-semantic-recovery`.
+- Program base: `1116786785dc4c5c8c1447dcad79c89e527657eb`.
+- Candidate and workflow-record commits are separate.
+- Independent review did not occur.
+- No approval decision was issued.
+- Certification did not occur.
+- Red is not `semantically_ready`.
+- Certified count remains 18.
+- Wave 3 monocolors remain 3 of 5 certified.
+- VM-521 did not start.
+- Original main was not modified.
+- Excel was not modified.
+- Table Talk baseline remains excluded.

@@ -45,20 +45,26 @@
       "current_identity_hold": {
         "identity": "R",
         "card": "VM-520",
-      "state": "gate_1_2_complete_remediation_authorized",
+      "state": "candidate_awaiting_independent_review",
         "branch": "codex/vm-520-red-semantic-recovery",
         "prior_identity_certified": "B",
       "prior_identity_certification": "1116786785dc4c5c8c1447dcad79c89e527657eb",
-      "authorized_next_scope": "VM-520 Red Gate 1+2 read-only audit is complete and records REMEDIATION AUTHORIZED. Gate 3+4 remediation and generation may proceed under the recorded frozen-field, source-authority, evidence-scope, preview, and drift controls. Candidate creation, review, certification, VM-521 work, original-main modification, and Excel update remain unauthorized until their later gates.",
-      "required_next_milestone": "Run VM-520 Red Gate 3+4 remediation under the Gate 1+2 control record; do not create a candidate until candidate-stage drift checkpoint and full validation pass.",
+      "authorized_next_scope": "VM-520 Red exact candidate deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870 is created after Gate 3+4 remediation and Gate 5 validation. The only authorized next scope is independent review of that exact candidate SHA. Certification, semantically_ready transition, program-base advancement, VM-521 work, original-main modification, and Excel update remain unauthorized.",
+      "required_next_milestone": "Run independent review of exact Red candidate deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870; do not certify or start VM-521 in this hold.",
       "drift_preflight_started": true,
       "drift_preflight_completed": true,
       "drift_preflight_record": "docs/incidents/recoveries/VM-520-red-drift-preflight.md",
       "drift_preflight_commit": "PENDING_VM520_DRIFT_PREFLIGHT_SHA",
       "gate_1_2_status": "complete_remediation_authorized",
       "gate_1_2_record": "docs/incidents/recoveries/VM-520-red-semantic-recovery.md",
-      "gate_1_2_commit": "PENDING_VM520_GATE_1_2_SHA",
-        "candidate_created": false,
+      "gate_1_2_commit": "6c2b6dfc3e9e838f9e75801517a81258b675923d",
+        "candidate_created": true,
+        "candidate_sha": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
+        "candidate_scope_result": "PASS - documented R display-source exception pending independent review",
+        "candidate_scope_exception_paths": [
+          "data/identity-layers.json#/expressions/R/preview_text",
+          "data/factions.json#/identity_layers/expressions/R/preview_text"
+        ],
         "independent_review": {
           "performed": false,
           "status": "not_started"
@@ -69,7 +75,7 @@
           "certification_sha": null
         },
       "program_base": "1116786785dc4c5c8c1447dcad79c89e527657eb",
-      "updated_at": "2026-07-18T17:05:00-06:00"
+      "updated_at": "2026-07-18T17:40:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -3245,13 +3251,14 @@
       "computed": {
         "structural_fingerprint": [
           "low-volume-pattern",
-          "template-cohort-pattern"
+          "mixed-role-pattern",
+          "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 6,
           "discovery_record": 0,
-          "support_record": 0,
-          "unclassified": 8
+          "support_record": 2,
+          "unclassified": 0
         },
         "source_count": 7,
         "source_role_counts": {
@@ -3265,7 +3272,7 @@
         },
         "claim_bearing_source_count": 0,
         "claim_bearing_source_rate": 0,
-        "reference_site_count": 12,
+        "reference_site_count": 20,
         "missing_references": [],
         "potential_role_invalid_support_links": [],
         "raw_question_count": 4,
@@ -3275,14 +3282,13 @@
           "red_claim_0004",
           "red_claim_0005",
           "red_claim_0006",
-          "red_claim_0007",
-          "red_claim_0008"
+          "red_claim_0007"
         ],
         "neighbor_references": [
           "U",
           "W"
         ],
-        "recruiter_context_size": 7432,
+        "recruiter_context_size": 7451,
         "creation_commit": "9322e58c2218b9a8f3c687f70fe0b82b376016ef",
         "readiness_mentions": [
           "docs/reference/strixhaven-college-source-readiness-matrix.md:28",
@@ -3296,8 +3302,7 @@
         ],
         "provisional_risk_indicators": {
           "coverage": [
-            "low-record-volume",
-            "no-explicit-substantive-role"
+            "low-record-volume"
           ],
           "neighbors": []
         },
@@ -3305,14 +3310,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
     "workflow": {
-      "current_gate": "gate_1_2",
-      "status": "remediation_authorized",
+      "current_gate": "gate_5",
+      "status": "candidate_awaiting_independent_review",
         "started_at": "2026-07-18T16:24:00-06:00",
         "gate_entered_at": null,
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "R",
-      "primary_disposition": "VM-520 Red Gate 1+2 read-only audit completed from preflight HEAD 94a33b70fdac83b350195a3eed7f34118f999e31 and program base 1116786785dc4c5c8c1447dcad79c89e527657eb. Decision: REMEDIATION AUTHORIZED. Gate 3+4 must assign 6 substantive claims and 2 support records, add bounded evidence scopes, isolate support/process records, repair null canonical IDs, create Red semantic fixtures, preserve frozen fields/object-with-pairs collision structure, and apply DRIFT-015 preview controls.",
+      "primary_disposition": "VM-520 Red exact candidate deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870 was created after Gate 1+2 audit, Gate 3+4 remediation, generation, fixture/provenance exact-chain proof, frozen-field proof, DRIFT-015 preview remediation, stale-copy scan, and validation. Red awaits independent review and is not approved, not certified, and not semantically_ready. Program base remains 1116786785dc4c5c8c1447dcad79c89e527657eb.",
       "drift_preflight": {
         "status": "passed",
         "required_before_gate_1_2": true,
@@ -3326,7 +3331,7 @@
       "gate_1_2": {
         "status": "complete",
         "record": "docs/incidents/recoveries/VM-520-red-semantic-recovery.md",
-        "commit": "PENDING_VM520_GATE_1_2_SHA",
+        "commit": "6c2b6dfc3e9e838f9e75801517a81258b675923d",
         "decision": "REMEDIATION AUTHORIZED",
         "initial_role_counts": {
           "total": 8,
@@ -3342,6 +3347,45 @@
           "support_record": 2,
           "unclassified": 0
         }
+      },
+      "gate_3_4": {
+        "status": "complete",
+        "record": "docs/incidents/recoveries/VM-520-red-semantic-recovery.md",
+        "decision": "REMEDIATION COMPLETE",
+        "semantic_edits": true,
+        "generated_edits": true,
+        "fixtures_created": true,
+        "final_role_counts": {
+          "total": 8,
+          "substantive_claim": 6,
+          "discovery_record": 0,
+          "support_record": 2,
+          "unclassified": 0
+        },
+        "final_provenance_count": 25,
+        "candidate_created": true,
+        "review_performed": false,
+        "certified": false
+      },
+      "gate_5": {
+        "status": "candidate_awaiting_independent_review",
+        "final_candidate_sha": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
+        "superseded_candidates": [],
+        "candidate_scope": {
+          "command": "node research/validate-semantic-candidate-scope.mjs --base=6c2b6dfc3e9e838f9e75801517a81258b675923d --target=deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870 --identity=R",
+          "exit_code": 1,
+          "result": "PASS - documented R display-source exception pending independent review",
+          "diagnostics": [
+            "identity candidate modified non-identity path data/identity-layers.json",
+            "unrelated or global data/factions.json content changed"
+          ],
+          "exception_paths": [
+            "data/identity-layers.json#/expressions/R/preview_text",
+            "data/factions.json#/identity_layers/expressions/R/preview_text"
+          ]
+        },
+        "review_performed": false,
+        "certified": false
       }
       },
   "semantic_review": {
@@ -3370,24 +3414,124 @@
     "audit_report": "docs/incidents/recoveries/VM-520-red-semantic-recovery.md",
     "residual_findings": [
       "Gate 1+2 completed read-only and records REMEDIATION AUTHORIZED.",
-      "Current Red baseline has 8 unclassified claims, 12 provenance rows, 3 null canonical IDs, missing Red semantic fixtures, and pre-remediation validation failures.",
-      "Gate 3+4 must isolate governance/rules/Scryfall Commander support and mechanics/process-only material from broad philosophical proof chains.",
-      "DRIFT-015/017 preview semantic-alignment review is mandatory; current equal preview copy is semantically risky because it centers generic emotion, impulse, authenticity, passion, and expression without consequence/attachment boundaries."
-    ]
+      "Gate 3+4 remediation isolated governance/rules/Scryfall Commander support and mechanics/process-only material from broad philosophical proof chains.",
+      "Final Red counts are 8 total claims with 6 substantive, 0 discovery, 2 support, and 0 unclassified.",
+      "Final R provenance has 25 entries, 0 required null canonical IDs, 0 required null content hashes, 0 unresolved pointers, and 0 duplicate canonical entries.",
+      "Exact fixture/provenance parity is true for /core_identity and /placement_summary.",
+      "DRIFT-015 preview remediation replaced generic Red preview copy with source-bounded feeling/action, loyalty, and consequence language; source and embedded preview values are equal and stale exact Red preview is absent.",
+      "Candidate-scope exits 1 only for the documented R display-source exception diagnostics at data/identity-layers.json and global data/factions.json, limited by inspection to data/identity-layers.json#/expressions/R/preview_text and data/factions.json#/identity_layers/expressions/R/preview_text.",
+      "Red awaits independent review and is not approved, not certified, and not semantically_ready; VM-521 has not started."
+    ],
+    "decision": "CANDIDATE AWAITING INDEPENDENT REVIEW",
+    "drift_preflight_commit": "PENDING_VM520_DRIFT_PREFLIGHT_SHA",
+    "drift_preflight_decision": "PASS - RED GATE 1+2 AUTHORIZED",
+    "gate_1_2_status": "complete",
+    "gate_1_2_commit": "6c2b6dfc3e9e838f9e75801517a81258b675923d",
+    "remediation_authorized": true,
+    "candidate_created": true,
+    "candidate_sha": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
+    "review_status": "awaiting_independent_review",
+    "final_claim_role_counts": {
+      "total": 8,
+      "substantive_claim": 6,
+      "discovery_record": 0,
+      "support_record": 2,
+      "unclassified": 0
+    },
+    "final_provenance": {
+      "entries": 25,
+      "required_null_canonical_ids": 0,
+      "required_null_canonical_content_hashes": 0,
+      "unresolved_pointers": 0,
+      "duplicate_canonical_entries": 0
+    },
+    "exact_chain_proof": [
+      {
+        "canonical_locator": "data/raw-factions/red/red.profile.json#/core_identity",
+        "generated_count": 5,
+        "fixture_count": 5,
+        "ordered_claim_ids": [
+          "red_claim_0002",
+          "red_claim_0003",
+          "red_claim_0004",
+          "red_claim_0005",
+          "red_claim_0006"
+        ],
+        "exact_ordered_equality": true,
+        "duplicates": [],
+        "missing_ids": [],
+        "extra_ids": []
+      },
+      {
+        "canonical_locator": "data/raw-factions/red/red.placement.json#/placement_summary",
+        "generated_count": 6,
+        "fixture_count": 6,
+        "ordered_claim_ids": [
+          "red_claim_0002",
+          "red_claim_0003",
+          "red_claim_0004",
+          "red_claim_0005",
+          "red_claim_0006",
+          "red_claim_0007"
+        ],
+        "exact_ordered_equality": true,
+        "duplicates": [],
+        "missing_ids": [],
+        "extra_ids": []
+      }
+    ],
+    "frozen_scope_result": {
+      "placement_summary_text_preserved": true,
+      "top_level_confidence_absent": true,
+      "required_terms_preserved": true,
+      "minimum_hits_preserved": true,
+      "broad_penalty_preserved": true,
+      "strengthen_suppress_preserved": true,
+      "lateral_targets_preserved": [
+        "WR",
+        "UR",
+        "BR",
+        "RG"
+      ],
+      "raw_collision_pairs_preserved": [
+        "W",
+        "U"
+      ],
+      "generic_collision_target_absent": true,
+      "red_local_scoring_absent": true,
+      "preview_source_embedded_equal": true
+    },
+    "candidate_scope": {
+      "command": "node research/validate-semantic-candidate-scope.mjs --base=6c2b6dfc3e9e838f9e75801517a81258b675923d --target=deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870 --identity=R",
+      "result": "PASS - documented R display-source exception pending independent review",
+      "exit_code": 1,
+      "exception_paths": [
+        "data/identity-layers.json#/expressions/R/preview_text",
+        "data/factions.json#/identity_layers/expressions/R/preview_text"
+      ]
+    }
   },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
+        "recovery_commit": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
         "approval_date": null,
         "certified_at": null
       },
-    "gate": "gate_1_2",
-    "status": "remediation_authorized"
+    "gate": "gate_5",
+    "status": "candidate_awaiting_independent_review",
+    "structural_fingerprint": [
+      "low-volume-pattern",
+      "mixed-role-pattern",
+      "support-heavy-pattern"
+    ],
+    "contract": "v1.1",
+    "recovery": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
+    "certification_status": "awaiting_independent_review"
     },
     {
       "identity": {
