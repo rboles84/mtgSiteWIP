@@ -317,21 +317,91 @@ export function normalizeCandidateTarget(rawTarget) {
   return RAW_TO_KEY[lowered] || null;
 }
 
-export function validateCollisionGuidancePreservation({ identityKey, placement, generatedFaction }) {
+function typeLabel(value) {
+  if (value === null) return "Null";
+  if (Array.isArray(value)) return "Array";
+  return typeof value === "object" ? "Object" : typeof value;
+}
+
+function collisionGuidanceDiagnostic({ identityKey, file, jsonPath, value, reason }) {
+  return [
+    `collision guidance validation cannot continue for ${identityKey} at ${file}${jsonPath}:`,
+    `observed ${typeLabel(value)};`,
+    "supported shapes are Array at #/collision_guidance or Object with Array pairs at #/collision_guidance/pairs;",
+    reason,
+  ].join(" ");
+}
+
+export function normalizeCollisionGuidanceForCandidateScope({ identityKey, file, guidance, jsonPath = "#/collision_guidance" }) {
+  const errors = [];
+  if (Array.isArray(guidance)) {
+    return {
+      entries: guidance.map((entry, index) => ({ entry, pointer: `${jsonPath}/${index}` })),
+      errors,
+    };
+  }
+  if (!guidance || typeof guidance !== "object") {
+    return {
+      entries: [],
+      errors: [collisionGuidanceDiagnostic({
+        identityKey,
+        file,
+        jsonPath,
+        value: guidance,
+        reason: "collision_guidance must be present and contain ordered collision pair data.",
+      })],
+    };
+  }
+  if (!Array.isArray(guidance.pairs)) {
+    return {
+      entries: [],
+      errors: [collisionGuidanceDiagnostic({
+        identityKey,
+        file,
+        jsonPath,
+        value: guidance.pairs,
+        reason: "object-shaped collision_guidance must provide pairs as an array.",
+      })],
+    };
+  }
+  return {
+    entries: guidance.pairs.map((entry, index) => ({ entry, pointer: `${jsonPath}/pairs/${index}` })),
+    errors,
+  };
+}
+
+export function validateCollisionGuidancePreservation({ identityKey, placement, generatedFaction, placementFile = `data/raw-factions/${identityKey}/${identityKey}.placement.json` }) {
   const knownTargets = new Set(generatedFaction?.lateral_inhibition_targets || []);
   const generatedById = new Map((generatedFaction?.collision_guidance || []).map((entry) => [entry.collision_id, entry]));
   const errors = [];
-  for (const [index, entry] of (placement.collision_guidance || []).entries()) {
+  const normalized = normalizeCollisionGuidanceForCandidateScope({
+    identityKey,
+    file: placementFile,
+    guidance: placement.collision_guidance,
+  });
+  errors.push(...normalized.errors);
+  if (normalized.errors.length) return errors;
+  for (const { entry, pointer } of normalized.entries) {
+    if (!entry || typeof entry !== "object" || Array.isArray(entry)) {
+      errors.push(collisionGuidanceDiagnostic({
+        identityKey,
+        file: placementFile,
+        jsonPath: pointer,
+        value: entry,
+        reason: "collision pair entries must be objects.",
+      }));
+      continue;
+    }
     const target = normalizeCandidateTarget(entry.against);
     const collisionId = entry.collision_id || "";
     if (!target) {
-      errors.push(`canonical collision guidance ${identityKey}#/collision_guidance/${index} has unsupported target ${entry.against}`);
+      errors.push(`canonical collision guidance ${identityKey}${pointer} has unsupported target ${entry.against}`);
       continue;
     }
     if (String(collisionId).endsWith("_draft") && !knownTargets.has(target)) continue;
     const generated = generatedById.get(collisionId);
     if (!generated) {
-      errors.push(`generated collision guidance dropped ${collisionId || `entry ${index}`} for ${identityKey}`);
+      errors.push(`generated collision guidance dropped ${collisionId || pointer} for ${identityKey}`);
     } else if (generated.against !== target) {
       errors.push(`generated collision guidance target mismatch for ${collisionId}: expected ${target}, got ${generated.against}`);
     }
@@ -441,6 +511,7 @@ async function main() {
     identityKey: options.identity,
     placement: afterPlacement,
     generatedFaction: identityValue(afterPlacementModel, options.identity),
+    placementFile,
   }));
   errors.push(...validateUnrelatedGeneratedIsolation({
     identityKey: options.identity,

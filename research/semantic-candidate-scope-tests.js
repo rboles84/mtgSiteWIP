@@ -8,6 +8,7 @@ import {
   findMissingProvenanceNativeIds,
   isAllowedIdentityCandidatePath,
   isFrozenSharedPath,
+  normalizeCollisionGuidanceForCandidateScope,
   validateCollisionGuidancePreservation,
   validateGeneratedConsumerCoverage,
   validateGeneratedKeyFigureProofChains,
@@ -201,6 +202,135 @@ assert.deepEqual(
   ["generated collision guidance dropped collision_dropped for WR"],
   "candidate scope must detect generated collision-guidance drops"
 );
+const arrayGuidance = [
+  { collision_id: "array_first", against: "azorius_senate" },
+  { collision_id: "array_second", against: "cult_of_rakdos" },
+];
+assert.deepEqual(
+  normalizeCollisionGuidanceForCandidateScope({
+    identityKey: "WR",
+    file: "data/raw-factions/boros_legion/boros_legion.placement.json",
+    guidance: arrayGuidance,
+  }).entries.map(({ entry, pointer }) => [entry.collision_id, pointer]),
+  [
+    ["array_first", "#/collision_guidance/0"],
+    ["array_second", "#/collision_guidance/1"],
+  ],
+  "array-shaped collision guidance must preserve existing order and pointer shape"
+);
+assert.deepEqual(
+  validateCollisionGuidancePreservation({
+    identityKey: "WR",
+    placement: { collision_guidance: arrayGuidance },
+    generatedFaction: {
+      lateral_inhibition_targets: [],
+      collision_guidance: [
+        { collision_id: "array_first", against: "WU" },
+        { collision_id: "array_second", against: "BR" },
+      ],
+    },
+  }),
+  [],
+  "existing array-shaped collision guidance still validates unchanged generated comparisons"
+);
+assert.deepEqual(
+  validateCollisionGuidancePreservation({
+    identityKey: "WR",
+    placement: { collision_guidance: arrayGuidance },
+    generatedFaction: {
+      lateral_inhibition_targets: [],
+      collision_guidance: [
+        { collision_id: "array_first", against: "WU" },
+        { collision_id: "array_second", against: "BG" },
+      ],
+    },
+  }),
+  ["generated collision guidance target mismatch for array_second: expected BR, got BG"],
+  "array-shaped collision guidance still reports changed generated targets"
+);
+
+const whiteObjectGuidance = {
+  rule: "Preserve metadata without treating it as a pair.",
+  review_triggers: ["metadata stays metadata"],
+  pairs: [
+    { collision_id: "white_vs_black", against: "B" },
+    { collision_id: "white_vs_red", against: "R" },
+  ],
+};
+assert.deepEqual(
+  normalizeCollisionGuidanceForCandidateScope({
+    identityKey: "W",
+    file: "data/raw-factions/white/white.placement.json",
+    guidance: whiteObjectGuidance,
+  }).entries.map(({ entry, pointer }) => [entry.collision_id, pointer]),
+  [
+    ["white_vs_black", "#/collision_guidance/pairs/0"],
+    ["white_vs_red", "#/collision_guidance/pairs/1"],
+  ],
+  "object-with-pairs collision guidance must preserve pair order and ignore object metadata as pairs"
+);
+assert.deepEqual(
+  validateCollisionGuidancePreservation({
+    identityKey: "W",
+    placement: { collision_guidance: whiteObjectGuidance },
+    generatedFaction: {
+      lateral_inhibition_targets: ["WU", "WB", "WG", "WR"],
+      collision_guidance: [
+        { collision_id: "white_vs_black", against: "B" },
+        { collision_id: "white_vs_red", against: "R" },
+      ],
+    },
+    placementFile: "data/raw-factions/white/white.placement.json",
+  }),
+  [],
+  "White object-with-pairs collision guidance validates without crashing"
+);
+assert.deepEqual(
+  validateCollisionGuidancePreservation({
+    identityKey: "W",
+    placement: { collision_guidance: whiteObjectGuidance },
+    generatedFaction: {
+      lateral_inhibition_targets: [],
+      collision_guidance: [
+        { collision_id: "white_vs_black", against: "B" },
+        { collision_id: "white_vs_red", against: "U" },
+      ],
+    },
+    placementFile: "data/raw-factions/white/white.placement.json",
+  }),
+  ["generated collision guidance target mismatch for white_vs_red: expected R, got U"],
+  "object-with-pairs collision guidance still detects changed generated targets"
+);
+
+for (const [label, guidance, expected] of [
+  ["object without pairs", { rule: "missing pairs" }, "object-shaped collision_guidance must provide pairs as an array"],
+  ["pairs is not array", { pairs: { collision_id: "too_broad" } }, "object-shaped collision_guidance must provide pairs as an array"],
+  ["unsupported primitive", "not guidance", "collision_guidance must be present and contain ordered collision pair data"],
+  ["null guidance", null, "collision_guidance must be present and contain ordered collision pair data"],
+]) {
+  const errors = validateCollisionGuidancePreservation({
+    identityKey: "W",
+    placement: { collision_guidance: guidance },
+    generatedFaction: { lateral_inhibition_targets: [], collision_guidance: [] },
+    placementFile: "data/raw-factions/white/white.placement.json",
+  });
+  assert.equal(errors.length, 1, `${label} must fail closed with one diagnostic`);
+  assert.ok(errors[0].includes("collision guidance validation cannot continue for W"), `${label} diagnostic includes identity`);
+  assert.ok(errors[0].includes("data/raw-factions/white/white.placement.json"), `${label} diagnostic includes file`);
+  assert.ok(errors[0].includes("supported shapes are Array"), `${label} diagnostic includes supported shapes`);
+  assert.ok(errors[0].includes(expected), `${label} diagnostic includes precise reason`);
+}
+{
+  const errors = validateCollisionGuidancePreservation({
+    identityKey: "W",
+    placement: { collision_guidance: { pairs: [{ collision_id: "valid", against: "B" }, null] } },
+    generatedFaction: { lateral_inhibition_targets: [], collision_guidance: [{ collision_id: "valid", against: "B" }] },
+    placementFile: "data/raw-factions/white/white.placement.json",
+  });
+  assert.equal(errors.length, 1, "malformed pair element must fail closed with one diagnostic");
+  assert.ok(errors[0].includes("#/collision_guidance/pairs/1"), "malformed pair diagnostic includes pair path");
+  assert.ok(errors[0].includes("collision pair entries must be objects"), "malformed pair diagnostic includes precise reason");
+}
 
 const isolationBase = {
   PRISMARI: { value: "before" },
