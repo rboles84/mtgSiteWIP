@@ -1,0 +1,442 @@
+{
+  "identity_key": "B",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "black_core_power_agency_identity",
+      "fixture_type": "core_inclusion",
+      "scenario": "A clear Black case wants self-directed agency, opportunity, power, and practical leverage under harsh conditions rather than darkness or villainy as an aesthetic.",
+      "intended_interpretation": "Black inclusion requires power and opportunity serving self-advocacy, cost conversion, and refusal of inherited taboos.",
+      "evidence_claim_ids": [
+        "black_claim_0002",
+        "black_claim_0003",
+        "black_claim_0004",
+        "black_claim_0005",
+        "black_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Use Black when agency, ambition, opportunity, self-interest, and cost-aware leverage lead together.",
+      "unsupported_certainty_to_avoid": "Do not certify Black from evil, cruelty, darkness, card names, creature types, or sacrifice mechanics without source-bounded power and agency logic."
+    },
+    {
+      "fixture_id": "black_pressure_cost_and_backfire",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "A mature Black reading asks whether a cost serves the goal or whether taboo-breaking and sunk costs have become self-consuming.",
+      "intended_interpretation": "Black pressure behavior is calculated risk and resource conversion under the risk that dangerous tools can rebound.",
+      "evidence_claim_ids": [
+        "black_claim_0003",
+        "black_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Ask what the user wants, what they will spend, and whether the cost still serves agency.",
+      "unsupported_certainty_to_avoid": "Do not flatten Black into reckless harm, nihilism, or power at any cost."
+    },
+    {
+      "fixture_id": "black_nearest_collision_power_cost_self_interest",
+      "fixture_type": "nearest_collision_ambiguity",
+      "scenario": "The answer names ambition, power, control, secrecy, sacrifice, survival, death, wealth, or ruthlessness and could be Black, a Black-aligned guild, a shard, a wedge, or generic mono-Black overfit.",
+      "intended_interpretation": "Resolve ambiguity by asking whether mono-Black power, opportunity, self-interest, and cost conversion lead rather than a neighbor-specific institution, secrecy, spectacle, ecology, obligation, or broader color identity.",
+      "evidence_claim_ids": [
+        "black_claim_0002",
+        "black_claim_0003",
+        "black_claim_0005",
+        "black_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Keep Black adjacent until the answer ties power to self-directed agency and cost accounting instead of a guild, shard, wedge, or mechanic package.",
+      "unsupported_certainty_to_avoid": "Do not choose Black only because a neighbor also uses ambition, secrecy, death, control, or resource leverage."
+    },
+    {
+      "fixture_id": "black_exclude_generic_b_overfit",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_B_OVERFIT",
+      "scenario": "Generic Black overfit uses evil, villainy, cruelty, greed, darkness, death, sacrifice, discard, removal, demons, zombies, vampires, or graveyard mechanics as enough by themselves.",
+      "intended_interpretation": "Exclude or keep Black adjacent for GENERIC_B_OVERFIT unless source-bounded power, opportunity, self-advocacy, cost accounting, and resource conversion lead.",
+      "evidence_claim_ids": [
+        "black_claim_0002",
+        "black_claim_0003",
+        "black_claim_0004",
+        "black_claim_0006",
+        "black_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "MECH-CP-2021",
+        "MECH-CP-2021-CHG",
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Require source-bounded agency and cost logic, not Black-coded vocabulary, mechanics, or aesthetics alone.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient Black proof."
+    },
+    {
+      "fixture_id": "black_exclude_wb",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WB",
+      "scenario": "Orzhov-like readings center debt, transaction, religious institution, hierarchy, spiritual obligation, wealth systems, or service after death more than mono-Black self-advocacy.",
+      "intended_interpretation": "Exclude or keep Black adjacent for WB unless mono-Black power and opportunity lead without Orzhov institutional debt or obligation.",
+      "evidence_claim_ids": [
+        "black_claim_0002",
+        "black_claim_0003",
+        "black_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Separate Black self-directed agency from Orzhov contractual hierarchy and exploitation.",
+      "unsupported_certainty_to_avoid": "Do not choose Black solely for wealth, debt, corruption, or church-like imagery."
+    },
+    {
+      "fixture_id": "black_exclude_ub",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UB",
+      "scenario": "Dimir-like readings center secrecy, covert networks, hidden information, surveillance, or strategic concealment more than mono-Black opportunity and self-advocacy.",
+      "intended_interpretation": "Exclude or keep Black adjacent for UB unless Black power and self-interest lead without Dimir information-control structure.",
+      "evidence_claim_ids": [
+        "black_claim_0002",
+        "black_claim_0003",
+        "black_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Separate Black power as self-advocacy from Dimir information as covert leverage.",
+      "unsupported_certainty_to_avoid": "Do not choose Black merely for manipulation, secrecy, or hidden control."
+    },
+    {
+      "fixture_id": "black_exclude_br",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BR",
+      "scenario": "Rakdos-like or generic BR readings center spectacle, indulgence, emotional excess, shock, violence, or destructive release more than calculated Black cost logic.",
+      "intended_interpretation": "Exclude or keep Black adjacent for BR unless Black's calculated self-interest and agency lead over Red-Black spectacle or impulse.",
+      "evidence_claim_ids": [
+        "black_claim_0003",
+        "black_claim_0005",
+        "black_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Separate Black calculated risk from Rakdos performance, emotional excess, or generic aggression.",
+      "unsupported_certainty_to_avoid": "Do not choose Black merely for violence, danger, or indulgent cruelty."
+    },
+    {
+      "fixture_id": "black_exclude_bg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BG",
+      "scenario": "Golgari-like readings center survival, rot, decay cycles, undercity ecology, resource recursion, or life from death more than mono-Black agency.",
+      "intended_interpretation": "Exclude or keep Black adjacent for BG unless self-directed opportunity and power lead without Green-Black ecological or survival-cycle framing.",
+      "evidence_claim_ids": [
+        "black_claim_0002",
+        "black_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Separate Black agency from Golgari death-life ecology and undercity survival systems.",
+      "unsupported_certainty_to_avoid": "Do not choose Black only for death, graveyard, decay, or survival vocabulary."
+    },
+    {
+      "fixture_id": "black_exclude_silverquill",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SILVERQUILL",
+      "scenario": "Silverquill-like readings center rhetoric, reputation, social influence, performance of status, or verbal pressure more than Black's power-as-agency frame.",
+      "intended_interpretation": "Exclude or keep Black adjacent for SILVERQUILL unless Black self-advocacy and opportunity lead without a school-specific rhetoric/status method.",
+      "evidence_claim_ids": [
+        "black_claim_0002",
+        "black_claim_0003",
+        "black_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Separate Black power logic from Silverquill rhetorical and reputation-based influence.",
+      "unsupported_certainty_to_avoid": "Do not choose Black merely for status, sharp words, or social dominance."
+    },
+    {
+      "fixture_id": "black_exclude_witherbloom",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WITHERBLOOM",
+      "scenario": "Witherbloom-like readings center life/death study, potion craft, biology, pests, or material exchange more than mono-Black agency.",
+      "intended_interpretation": "Exclude or keep Black adjacent for WITHERBLOOM unless Black opportunity and cost conversion lead without Green-Black life/death craft.",
+      "evidence_claim_ids": [
+        "black_claim_0004",
+        "black_claim_0005",
+        "black_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "MECH-CP-2021",
+        "MECH-CP-2021-CHG",
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Separate Black resource conversion from Witherbloom life/death biology and craft.",
+      "unsupported_certainty_to_avoid": "Do not choose Black solely for life payment, drain, death, or potion-like mechanics."
+    },
+    {
+      "fixture_id": "black_exclude_esper",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ESPER",
+      "scenario": "Esper-like readings center managed perfection, hierarchy, artifice, law, or white-blue-black control beyond mono-Black.",
+      "intended_interpretation": "Exclude or keep Black adjacent for ESPER unless mono-Black power and self-interest lead without Esper order, artifice, or tri-color management.",
+      "evidence_claim_ids": [
+        "black_claim_0002",
+        "black_claim_0003",
+        "black_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Require mono-Black agency rather than Esper controlled hierarchy or perfection.",
+      "unsupported_certainty_to_avoid": "Do not use control, artifice, or ambition as sufficient Black proof."
+    },
+    {
+      "fixture_id": "black_exclude_grixis",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GRIXIS",
+      "scenario": "Grixis-like readings center predation, manipulation, cruelty, control, or blue-black-red domination beyond mono-Black.",
+      "intended_interpretation": "Exclude or keep Black adjacent for GRIXIS unless source-bounded mono-Black self-interest and cost accounting lead.",
+      "evidence_claim_ids": [
+        "black_claim_0002",
+        "black_claim_0003",
+        "black_claim_0005",
+        "black_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Separate Black agency from Grixis broader manipulation, domination, or destructive control.",
+      "unsupported_certainty_to_avoid": "Do not choose Black merely for cruelty, manipulation, or ambition."
+    },
+    {
+      "fixture_id": "black_exclude_jund",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "JUND",
+      "scenario": "Jund-like readings center appetite, predation, survival hierarchy, violence, or red-green-black dominance beyond mono-Black.",
+      "intended_interpretation": "Exclude or keep Black adjacent for JUND unless Black self-directed opportunity leads without Jund appetite, wild force, or survival hierarchy.",
+      "evidence_claim_ids": [
+        "black_claim_0002",
+        "black_claim_0005",
+        "black_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Separate Black calculated agency from Jund instinct, predation, and violent dominance.",
+      "unsupported_certainty_to_avoid": "Do not choose Black merely for appetite, violence, death, or survival power."
+    },
+    {
+      "fixture_id": "black_exclude_mardu",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "MARDU",
+      "scenario": "Mardu-like readings center conquest, battle discipline, martial loyalty, speed, or hierarchy beyond mono-Black.",
+      "intended_interpretation": "Exclude or keep Black adjacent for MARDU unless Black cost-aware self-interest leads without Mardu martial or conquest framing.",
+      "evidence_claim_ids": [
+        "black_claim_0003",
+        "black_claim_0005",
+        "black_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Separate Black personal agency from Mardu conquest, speed, and martial loyalty.",
+      "unsupported_certainty_to_avoid": "Do not choose Black merely for aggression, hierarchy, or victory."
+    },
+    {
+      "fixture_id": "black_exclude_sultai",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SULTAI",
+      "scenario": "Sultai-like readings center long-game resource exploitation, recursion, survival, hidden knowledge, or blue-black-green domination beyond mono-Black.",
+      "intended_interpretation": "Exclude or keep Black adjacent for SULTAI unless mono-Black opportunity and agency lead without Sultai ecology, long-game exploitation, or tri-color strategy.",
+      "evidence_claim_ids": [
+        "black_claim_0002",
+        "black_claim_0003",
+        "black_claim_0005",
+        "black_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Separate Black cost conversion from Sultai resource exploitation and survival strategy.",
+      "unsupported_certainty_to_avoid": "Do not choose Black merely for patience, recursion, exploitation, or hidden advantage."
+    },
+    {
+      "fixture_id": "black_exclude_abzan",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ABZAN",
+      "scenario": "Abzan-like readings center endurance, ancestry, family obligation, tradition, or white-black-green collective survival beyond mono-Black.",
+      "intended_interpretation": "Exclude or keep Black adjacent for ABZAN unless source-bounded Black self-interest leads without Abzan kinship, ancestry, or obligation.",
+      "evidence_claim_ids": [
+        "black_claim_0002",
+        "black_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Separate Black self-advocacy from Abzan endurance, family, and inherited duty.",
+      "unsupported_certainty_to_avoid": "Do not choose Black merely for survival, obligation, or clan-like hierarchy."
+    },
+    {
+      "fixture_id": "black_exclude_w",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "W",
+      "scenario": "Mono-white-like readings center group morality, shared duty, law, safety, or peace over self-interest.",
+      "intended_interpretation": "Exclude or keep Black adjacent for W unless Black self-directed power and opportunity lead over group-first obligation.",
+      "evidence_claim_ids": [
+        "black_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Separate Black self-advocacy from White group morality and duty.",
+      "unsupported_certainty_to_avoid": "Do not choose Black only because the answer critiques authority or wants control."
+    },
+    {
+      "fixture_id": "black_exclude_u",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "U",
+      "scenario": "Mono-blue-like readings center knowledge, planning, perfection, control, or self-improvement as ends rather than power and opportunity.",
+      "intended_interpretation": "Exclude or keep Black adjacent for U unless Black uses knowledge pragmatically for self-directed power and opportunity.",
+      "evidence_claim_ids": [
+        "black_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Separate Black pragmatic use of knowledge from Blue knowledge-led becoming.",
+      "unsupported_certainty_to_avoid": "Do not choose Black only for planning, control, or cleverness."
+    },
+    {
+      "fixture_id": "black_exclude_r",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "R",
+      "scenario": "Mono-red-like readings center emotion, impulse, freedom, immediacy, expression, or risk for its own sake.",
+      "intended_interpretation": "Exclude or keep Black adjacent for R unless Black's calculated self-interest and cost accounting lead over impulse.",
+      "evidence_claim_ids": [
+        "black_claim_0005",
+        "black_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Separate Black calculated ruthlessness from Red immediacy and emotional action.",
+      "unsupported_certainty_to_avoid": "Do not choose Black only because the answer wants freedom, danger, or intense feeling."
+    },
+    {
+      "fixture_id": "black_exclude_g",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "G",
+      "scenario": "Mono-green-like readings center destiny, natural order, inborn role, instinct, or acceptance over self-directed agency.",
+      "intended_interpretation": "Exclude or keep Black adjacent for G unless Black self-authorship and opportunity lead over destiny or natural role.",
+      "evidence_claim_ids": [
+        "black_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Separate Black seized opportunity from Green acceptance of place in the natural order.",
+      "unsupported_certainty_to_avoid": "Do not choose Black only for survival, nature's harshness, or graveyard ecology."
+    },
+    {
+      "fixture_id": "black_exclude_wubrg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WUBRG",
+      "scenario": "Five-color or Commander-style readings use card names, color identity, legality, deck breadth, or all-color access as if they proved Black philosophy.",
+      "intended_interpretation": "Exclude or keep Black adjacent for WUBRG unless Black evidence comes from source-bounded identity claims, not Commander legality or multi-color deck access.",
+      "evidence_claim_ids": [
+        "black_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "MECH-CP-2021",
+        "MECH-CP-2021-CHG"
+      ],
+      "defensible_guidance": "Keep mechanics and deck identity as texture only; do not use Commander rows as Black semantic proof.",
+      "unsupported_certainty_to_avoid": "Do not choose Black from Commander legality, card names, or five-color access."
+    },
+    {
+      "fixture_id": "black_exclude_colorless",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "COLORLESS",
+      "scenario": "Colorless or artifact-like readings use generic cost, resource conversion, mechanics, or card names without Black's color-philosophy agency.",
+      "intended_interpretation": "Exclude or keep Black adjacent for COLORLESS unless Black's source-bounded power, opportunity, and self-interest lead beyond mechanics.",
+      "evidence_claim_ids": [
+        "black_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "MECH-CP-2021",
+        "MECH-CP-2021-CHG"
+      ],
+      "defensible_guidance": "Separate Black mechanic texture from colorless cost engines or generic artifact resource conversion.",
+      "unsupported_certainty_to_avoid": "Do not choose Black merely for cost payment or resource conversion mechanics."
+    },
+    {
+      "fixture_id": "black_core_identity_provenance",
+      "fixture_type": "provenance",
+      "scenario": "",
+      "intended_interpretation": "Generated provenance for Black core identity must point to source-bounded substantive philosophy claims only.",
+      "evidence_claim_ids": [
+        "black_claim_0002",
+        "black_claim_0003",
+        "black_claim_0004",
+        "black_claim_0005",
+        "black_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Generated consumers must preserve source-bounded Black core identity provenance.",
+      "unsupported_certainty_to_avoid": "Do not use support/governance/Commander rows or mechanics-only rows as Black core identity proof.",
+      "canonical_file": "data/raw-factions/black/black.profile.json",
+      "canonical_pointer": "/core_identity"
+    },
+    {
+      "fixture_id": "black_placement_summary_provenance",
+      "fixture_type": "provenance",
+      "scenario": "",
+      "intended_interpretation": "Generated provenance for Black placement summary must preserve philosophy, relationship, pressure, and bounded mechanic texture claims without support leakage.",
+      "evidence_claim_ids": [
+        "black_claim_0002",
+        "black_claim_0003",
+        "black_claim_0004",
+        "black_claim_0005",
+        "black_claim_0006",
+        "black_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "MECH-CP-2021",
+        "MECH-CP-2021-CHG",
+        "MONO-B-2015",
+        "MONO-B-2025"
+      ],
+      "defensible_guidance": "Generated consumers must preserve claim/source provenance for Black placement summary guidance.",
+      "unsupported_certainty_to_avoid": "Do not expose support rows, card verification, generic Black aesthetics, or mechanics alone as placement proof.",
+      "canonical_file": "data/raw-factions/black/black.placement.json",
+      "canonical_pointer": "/placement_summary"
+    }
+  ]
+}

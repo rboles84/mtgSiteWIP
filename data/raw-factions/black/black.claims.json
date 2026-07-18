@@ -17,7 +17,9 @@
       "evidence_rows": [
         "black_evid_0013"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "support_record",
+      "evidence_use_restriction": "Project governance/source-intake boundary only. Retain as metadata/history; do not use as authoritative proof for Black identity, placement, recruiter guidance, semantic readiness, public copy, fixtures, or provenance chains."
     },
     {
       "claim_id": "black_claim_0002",
@@ -39,7 +41,26 @@
         "B2025-a",
         "B2025-e"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-B-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/12_black.md#B2015-Q1;B2015-Q1b",
+          "bounded_paraphrase": "The 2015 official Black article frames Black around power, control over its life and happiness, and self-advocacy in a world that will not provide those outcomes by default.",
+          "evidence_scope": "canonical identity",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-B-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/12_black.md#B2025-a;B2025-e",
+          "bounded_paraphrase": "The 2025 Black voice keeps opportunity, thriving, harsh-world realism, and being one's own champion at the center rather than villainy or aesthetics.",
+          "evidence_scope": "canonical identity",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "black_claim_0003",
@@ -61,7 +82,26 @@
         "B2025-c",
         "B2025-d"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-B-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/12_black.md#B2015-Q2",
+          "bounded_paraphrase": "The 2015 article identifies Black's means as seeing opportunities, refusing outside restrictions and taboos, accepting costs, and putting itself first when pursuing success.",
+          "evidence_scope": "preferred method",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-B-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/12_black.md#B2025-b;B2025-c;B2025-d",
+          "bounded_paraphrase": "The 2025 Black voice defends self-interest, distinguishes selfishness from lack of care for loved ones, and bounds ruthlessness as calculated rather than reckless.",
+          "evidence_scope": "preferred method",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "black_claim_0004",
@@ -83,7 +123,26 @@
         "B2025-b",
         "B2025-d"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-B-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/12_black.md#B2015-Q3;B2015-Q4",
+          "bounded_paraphrase": "The 2015 article bounds Black's thematic material to death, fear, pain, decay, disease, corruption, darkness, manipulation, sacrifice, and individualism, while naming self-denial for others' sake as a core pressure point.",
+          "evidence_scope": "thematic boundary",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-B-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/12_black.md#B2025-b;B2025-d",
+          "bounded_paraphrase": "The 2025 Black voice bounds selfishness and ruthlessness around opportunity, merit, and calculated action, preventing high-heat theme words from becoming generic cruelty proof.",
+          "evidence_scope": "thematic boundary",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "black_claim_0005",
@@ -107,7 +166,26 @@
         "B2025-h",
         "B2025-i"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-B-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/12_black.md#B2015-Q5;B2015-Q5b",
+          "bounded_paraphrase": "The 2015 article defines Black's allied and enemy relationships through Blue planning/knowledge, Red action/self-interest, White group morality, and Green destiny or natural order.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-B-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/12_black.md#B2025-f;B2025-g;B2025-h;B2025-i",
+          "bounded_paraphrase": "The 2025 Black voice distinguishes Blue knowledge for knowledge's sake, Red impulse, White altruism, and Green destiny from Black's own power, opportunity, and self-advocacy framing.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "black_claim_0006",
@@ -127,7 +205,26 @@
         "B2015-Q6",
         "B2025-j"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-B-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/12_black.md#B2015-Q6",
+          "bounded_paraphrase": "The 2015 article names Black's strength as willingness to do what is needed and its weakness as the possibility that risk, taboo-breaking, and dangerous tools can rebound.",
+          "evidence_scope": "pressure behavior",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-B-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/12_black.md#B2025-j",
+          "bounded_paraphrase": "The 2025 Black voice repeats overlooked opportunities and personal drive as strengths while identifying unwillingness to let go of sunk-cost choices as weakness.",
+          "evidence_scope": "pressure behavior",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "black_claim_0007",
@@ -152,7 +249,26 @@
         "CHG-discard-cost"
       ],
       "confidence": "Medium-High",
-      "notes": "Mechanical Color Pie 2021 is a dated snapshot and must be overridden by later verified sources where needed."
+      "notes": "Mechanical Color Pie 2021 is a dated snapshot and must be overridden by later verified sources where needed.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MECH-CP-2021",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/20_mechanical_color_pie_2021.md#MECH-removal;MECH-carddraw;MECH-discard-effect",
+          "bounded_paraphrase": "The mechanical color pie digest bounds Black's mechanical texture around primary creature removal, resource-paid card draw, discard, sacrifice, recursion, life payment, drain, deathtouch, menace, and related mechanical expressions.",
+          "evidence_scope": "mechanic-specific",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MECH-CP-2021-CHG",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/21_mechanical_color_pie_2021_changes.md#CHG-cantblock;CHG-discard-cost",
+          "bounded_paraphrase": "The change digest narrows dated mechanic updates such as cannot-block movement and discard-as-cost boundaries without turning mechanics into Black's whole philosophy.",
+          "evidence_scope": "mechanic-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "black_claim_0008",
@@ -174,7 +290,9 @@
         "CR-903.3",
         "CR-903.4"
       ],
-      "confidence": "High for current Scryfall support status; not evidence for popularity, price, metagame, deck quality, philosophy, or profile axes"
+      "confidence": "High for current Scryfall support status; not evidence for popularity, price, metagame, deck quality, philosophy, or profile axes",
+      "semantic_role": "support_record",
+      "evidence_use_restriction": "Commander rules, project governance, and Scryfall verification support navigation only. Retain for Commander Compass metadata; do not use as authoritative proof for Black identity, placement, recruiter guidance, semantic readiness, public copy, fixtures, or canonical provenance chains."
     }
   ]
 }

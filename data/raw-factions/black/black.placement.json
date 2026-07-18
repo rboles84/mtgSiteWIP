@@ -5,11 +5,28 @@
   "based_on_profile_version": "1.0.0",
   "faction_id": "black",
   "faction_name": "Black",
-  "last_updated": "2026-06-13",
+  "last_updated": "2026-07-18",
   "color_identity": [
     "B"
   ],
-  "placement_summary": "Black is a strong fit when a user wants agency, ambition, and power through clear-eyed cost accounting, resource conversion, and refusal to let inherited taboos choose for them.",
+  "placement_summary": {
+    "id": "black_placement_summary_gate3",
+    "text": "Black is a strong fit when a user wants agency, ambition, and power through clear-eyed cost accounting, resource conversion, and refusal to let inherited taboos choose for them.",
+    "short_description": "Black placement is source-bounded by agency, ambition, opportunity, self-interest, cost accounting, and resource conversion rather than generic evil or villain-coded aesthetics.",
+    "best_fit_summary": "wants self-directed agency, power, opportunity, and practical leverage while accepting costs and tradeoffs that serve a concrete goal",
+    "poor_fit_summary": "wants darkness, cruelty, villainy, mechanics, Commander card names, or reckless danger without Black's source-backed power, self-advocacy, opportunity, or cost-conversion logic",
+    "interpretation_warning": "Placement data is Vox Mana interpretation and should be treated as a matching heuristic, not direct Wizards canon or moral judgment.",
+    "claim_ids": [
+      "black_claim_0002",
+      "black_claim_0003",
+      "black_claim_0004",
+      "black_claim_0005",
+      "black_claim_0006"
+    ],
+    "evidence_claim_ids": [
+      "black_claim_0007"
+    ]
+  },
   "moral_and_psychological_profile": {
     "primary_drive": "Secure the power to choose one's own life by using opportunities and resources others may refuse.",
     "ethical_pressure": "A tool that wins can still leave a debt; self-advocacy can become isolation or exploitation.",
@@ -164,17 +181,16 @@
     },
     {
       "question_id": "black_disc_004",
-      "question": "Are removal, discard, sacrifice, or reanimation being used as Black texture rather than Commander legality proof?",
-      "purpose": "Keeps mechanical and Commander support source-bound.",
-      "answer_pattern_that_supports_this_faction": "Supports Black when mechanics are treated as dated color-pie texture and commander examples remain unpromoted.",
-      "answer_pattern_that_weakens_this_faction": "Weakens Black when candidate commanders or stale deck notes are treated as verified Layer 2 support.",
+      "question": "Are removal, discard, sacrifice, reanimation, life payment, drain, or creature-type cues being used as Black texture rather than Black identity proof?",
+      "purpose": "Keeps mechanical examples source-bound and prevents mechanics or Commander rows from becoming Black philosophy.",
+      "answer_pattern_that_supports_this_faction": "Supports Black only when mechanics are treated as dated color-pie texture tied to cost, resource conversion, life, death, or leverage.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Black when card names, Commander support rows, or mechanics are treated as philosophy or placement-axis evidence.",
       "collision_targets": [
         "WUBRG",
         "COLORLESS"
       ],
       "claim_ids": [
-        "black_claim_0007",
-        "black_claim_0008"
+        "black_claim_0007"
       ],
       "confidence": "High",
       "lateral_inhibition": false
@@ -253,7 +269,7 @@
       "natural destiny over personal ambition",
       "emotion-first action without calculation",
       "improvement for its own sake without concrete power",
-      "candidate commander names treated as verified evidence"
+      "card names, creature types, or mechanics treated as Black philosophy proof"
     ],
     "calibration_note": "Black should rise only when ambition, self-advocacy, cost, and power are materially important.",
     "never_claim_as_canon": [
@@ -261,5 +277,48 @@
       "Vox Mana placement axes are official Wizards color-pie scores.",
       "A candidate mono-black commander is Layer 2 support without current verification."
     ]
-  }
+  },
+  "semantic_guidance_evidence": [
+    {
+      "guidance_id": "black_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "black_guidance_how_to_recognize_mismatch_0_gate3",
+      "evidence_claim_ids": [
+        "black_claim_0005"
+      ]
+    },
+    {
+      "guidance_id": "black_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "black_guidance_how_to_recognize_mismatch_1_gate3",
+      "evidence_claim_ids": [
+        "black_claim_0005"
+      ]
+    },
+    {
+      "guidance_id": "black_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "black_guidance_how_to_recognize_mismatch_2_gate3",
+      "evidence_claim_ids": [
+        "black_claim_0005",
+        "black_claim_0006"
+      ]
+    },
+    {
+      "guidance_id": "black_guidance_how_to_recognize_mismatch_3_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "black_guidance_how_to_recognize_mismatch_3_gate3",
+      "evidence_claim_ids": [
+        "black_claim_0005"
+      ]
+    },
+    {
+      "guidance_id": "black_guidance_how_to_recognize_mismatch_4_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/4",
+      "canonical_id": "black_guidance_how_to_recognize_mismatch_4_gate3",
+      "evidence_claim_ids": [
+        "black_claim_0007"
+      ]
+    }
+  ]
 }

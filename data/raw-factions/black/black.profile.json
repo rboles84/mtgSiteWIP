@@ -9,24 +9,22 @@
   ],
   "color_pair_or_group": "Mono Black",
   "plane_or_setting": "The Color Pie",
-  "last_updated": "2026-06-13",
+  "last_updated": "2026-07-18",
   "source_review_date": "2026-06-13",
-  "last_full_review": "2026-06-13",
+  "last_full_review": "2026-07-18",
   "core_identity": {
     "short_form": "Black seeks power by facing the world as it is and using every available resource.",
     "summary": "Black is the mono-color expression of agency under harsh conditions: it looks at fear, death, ambition, cost, and opportunity without flinching.",
     "philosophy": "Black asks who benefits when you pretend the world is fair. It believes survival and thriving require self-advocacy, resource conversion, and freedom from inherited taboos.",
     "central_tension": "Black can be brutally honest about power, but the tools that free it can also consume it.",
     "claim_ids": [
-      "black_claim_0001",
       "black_claim_0002",
       "black_claim_0003",
       "black_claim_0004",
       "black_claim_0005",
-      "black_claim_0006",
-      "black_claim_0007",
-      "black_claim_0008"
-    ]
+      "black_claim_0006"
+    ],
+    "id": "black_core_identity_gate3"
   },
   "structure": {
     "identity_class": "mono_color",
@@ -62,12 +60,13 @@
     "summary": "Black commonly plays by converting life, creatures, cards, death, and risk into advantage.",
     "claim_ids": [
       "black_claim_0007"
-    ]
+    ],
+    "id": "black_mechanics_gate3"
   },
   "site_surface": {
     "display_name": "Black",
     "short_summary": "Black faces power, cost, death, and ambition directly, then asks what can be made from them.",
-    "one_sentence_identity": "Black is the hand reaching into the dark because the prize is still there.",
+    "one_sentence_identity": "Black is the choice to count the cost and still claim the agency.",
     "tagline": "Pay the cost. Take the power.",
     "primary_tags": [
       "power",
@@ -82,6 +81,13 @@
       "reanimation",
       "lifegain drain",
       "graveyard"
+    ],
+    "id": "black_site_surface_gate3",
+    "claim_ids": [
+      "black_claim_0002",
+      "black_claim_0003",
+      "black_claim_0004",
+      "black_claim_0006"
     ]
   },
   "data_quality": {
@@ -90,13 +96,14 @@
     "placement_eligible": true,
     "preview_eligible": true,
     "commander_candidate_status": "current_scryfall_verified_support_only_2026-06-13",
-    "notes": "Three native mono-black commander rows are retained only after current Scryfall verification on 2026-06-13. Deck links remain intentionally empty; these rows do not prove color philosophy or Vox Mana placement axes."
+    "notes": "Three native mono-black commander rows are retained only after current Scryfall verification on 2026-06-13. Deck links remain intentionally empty; these rows do not prove color philosophy, Vox Mana placement axes, public copy, recruiter guidance, fixtures, semantic readiness, or canonical provenance chains."
   },
   "research_limitations": [
     "Do not moralize Black as objective evil.",
     "Do not treat Vox Mana placement axes as official Wizards scores.",
     "Do not promote candidate commanders without current card/legal verification.",
-    "Do not use generated runtime files as claim evidence."
+    "Do not use generated runtime files as claim evidence.",
+    "Do not use the Commander format overview in place of CR 903.3/903.4 for exact eligibility or color-identity boundaries."
   ],
   "profile": {
     "overview": "Black is the color of power, opportunity, self-interest, death, and resource conversion.",
@@ -104,15 +111,14 @@
     "core_tension": "Black's clarity about cost can become self-consuming risk or total instrumentalization.",
     "mechanics_and_play_pattern": "Black commonly expresses itself through removal, discard, sacrifice, graveyard recursion, life payments, drain, and reanimation.",
     "claim_ids": [
-      "black_claim_0001",
       "black_claim_0002",
       "black_claim_0003",
       "black_claim_0004",
       "black_claim_0005",
       "black_claim_0006",
-      "black_claim_0007",
-      "black_claim_0008"
-    ]
+      "black_claim_0007"
+    ],
+    "id": "black_profile_gate3"
   },
   "deck_links": [],
   "research_links": {
@@ -156,7 +162,13 @@
       "supporting_source_ids": [
         "RULES-CR",
         "SCRYFALL-B-2026-06-13"
-      ]
+      ],
+      "evidence_use": "auxiliary_support",
+      "claim_ids": [
+        "black_claim_0008"
+      ],
+      "auxiliary_support_boundary": "Commander/card verification is auxiliary support only; it cannot independently prove Black identity, placement, recruiter guidance, semantic readiness, public copy, fixtures, or canonical provenance chains.",
+      "id": "black_commander_compass_identity_basis_support_gate3"
     },
     "native_fit_commanders": [
       {
@@ -185,7 +197,8 @@
         ],
         "source_basis": "SCRYFALL-B-2026-06-13; RULES-CR; black_claim_0008",
         "confidence": "Current Scryfall verification on 2026-06-13; support-only",
-        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence.",
+        "auxiliary_support_boundary": "Current Scryfall and Commander-rules support only; not color philosophy, profile-axis, public-copy, recruiter-guidance, fixture, or semantic-readiness proof."
       },
       {
         "exact_card_name": "Ayara, First of Locthwain",
@@ -213,7 +226,8 @@
         ],
         "source_basis": "SCRYFALL-B-2026-06-13; RULES-CR; black_claim_0008",
         "confidence": "Current Scryfall verification on 2026-06-13; support-only",
-        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence.",
+        "auxiliary_support_boundary": "Current Scryfall and Commander-rules support only; not color philosophy, profile-axis, public-copy, recruiter-guidance, fixture, or semantic-readiness proof."
       },
       {
         "exact_card_name": "Chainer, Dementia Master",
@@ -241,7 +255,8 @@
         ],
         "source_basis": "SCRYFALL-B-2026-06-13; RULES-CR; black_claim_0008",
         "confidence": "Current Scryfall verification on 2026-06-13; support-only",
-        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence.",
+        "auxiliary_support_boundary": "Current Scryfall and Commander-rules support only; not color philosophy, profile-axis, public-copy, recruiter-guidance, fixture, or semantic-readiness proof."
       }
     ],
     "weird_stretch_commanders": [],

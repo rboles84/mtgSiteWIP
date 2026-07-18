@@ -544,7 +544,7 @@ export const FACTION_CONTEXT = {
       "natural destiny over personal ambition",
       "emotion-first action without calculation",
       "improvement for its own sake without concrete power",
-      "candidate commander names treated as verified evidence",
+      "card names, creature types, or mechanics treated as Black philosophy proof",
       "risk-taking that ignores whether it actually serves the goal"
     ],
     "lateral_inhibition_targets": [
@@ -607,17 +607,16 @@ export const FACTION_CONTEXT = {
       },
       {
         "id": "black_disc_004",
-        "prompt": "Are removal, discard, sacrifice, or reanimation being used as Black texture rather than Commander legality proof?",
-        "purpose": "Keeps mechanical and Commander support source-bound.",
-        "supports": "Supports Black when mechanics are treated as dated color-pie texture and commander examples remain unpromoted.",
-        "weakens": "Weakens Black when candidate commanders or stale deck notes are treated as verified Layer 2 support.",
+        "prompt": "Are removal, discard, sacrifice, reanimation, life payment, drain, or creature-type cues being used as Black texture rather than Black identity proof?",
+        "purpose": "Keeps mechanical examples source-bound and prevents mechanics or Commander rows from becoming Black philosophy.",
+        "supports": "Supports Black only when mechanics are treated as dated color-pie texture tied to cost, resource conversion, life, death, or leverage.",
+        "weakens": "Weakens Black when card names, Commander support rows, or mechanics are treated as philosophy or placement-axis evidence.",
         "collision_targets": [
           "WUBRG",
           "COLORLESS"
         ],
         "evidence_claim_ids": [
-          "black_claim_0007",
-          "black_claim_0008"
+          "black_claim_0007"
         ],
         "confidence": "High",
         "lateral_inhibition": false
@@ -639,7 +638,7 @@ export const FACTION_CONTEXT = {
         "natural destiny over personal ambition",
         "emotion-first action without calculation",
         "improvement for its own sake without concrete power",
-        "candidate commander names treated as verified evidence"
+        "card names, creature types, or mechanics treated as Black philosophy proof"
       ],
       "calibration_note": "Black should rise only when ambition, self-advocacy, cost, and power are materially important.",
       "never_claim_as_canon": [
