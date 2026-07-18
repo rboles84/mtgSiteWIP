@@ -1,13 +1,14 @@
 # VM-518 Blue Semantic Recovery
 
-Status: Gate 1+2 complete. Remediation authorized.
+Status: Gate 5 candidate created. Awaiting independent review.
 
 Identity: Blue / U
 Contract: CRIT-001 semantic-readiness Contract v1.1
 Program base: `9d250a7a76d219fdb961915cbf989a10a575c757`
 Drift-control governance: `bb424a64787977baa45c67f1459babab64b1d3c7`
 Drift preflight commit: `d1375ef71fe5740453e698596ef772890ac0aa0f`
-Gate 1+2 governance commit: `PENDING_VM518_GATE_1_2_SHA`
+Gate 1+2 governance commit: `428128505a194293feb915c929072e23dc9f0ace`
+Gate 5 candidate commit: `ac774e2eac207cc7fe2d744beac1f11788908159`
 
 This record is the read-only Gate 1+2 audit and evidence confirmation for Blue. No Blue raw semantic data, generated consumers, provenance, recruiter context, fixtures, tests, validators, builders, schemas, runtime, scoring, calibration, VM-519 files, original-main files, Excel tracker, or Table Talk files were modified by this gate.
 
@@ -203,3 +204,124 @@ REMEDIATION AUTHORIZED
 Rationale: Blue has sufficient local official source evidence to remediate, but it is not Contract v1.1-ready because all claims lack semantic roles and bounded evidence locations, support/governance/rules/Scryfall rows enter canonical proof chains, U provenance has null canonical IDs and duplicate null keys, chatbot mismatch guidance lacks evidence mapping, and the required Blue semantic fixture is absent.
 
 Gate 3+4 must preserve frozen fields and the object-with-`pairs` collision-guidance shape while assigning roles, adding evidence scopes, isolating support records, rebuilding generated artifacts, creating fixtures from generated truth, and validating exact chain/candidate-scope behavior.
+
+## 12. Gate 3+4 Remediation Summary
+
+Gate 3+4 completed on 2026-07-18. The final candidate is `ac774e2eac207cc7fe2d744beac1f11788908159`.
+
+Authoritative changes:
+
+- `blue_claim_0002` through `blue_claim_0007` are now `substantive_claim` with bounded `evidence_locations` and Contract v1.1 `evidence_scope`.
+- `blue_claim_0001` and `blue_claim_0008` are now `support_record` with explicit non-authoritative use restrictions.
+- `data/raw-factions/blue/blue.profile.json#/core_identity` now uses only source-backed identity claims `blue_claim_0002` through `blue_claim_0006`.
+- `#/mechanics` retains `blue_claim_0007` as mechanic-specific texture and receives a stable canonical ID.
+- `#/site_surface` receives a stable canonical ID and a bounded substantive claim chain.
+- Commander Compass support retains current Scryfall/rules metadata and `blue_claim_0008` only as auxiliary support, not semantic proof.
+- `data/raw-factions/blue/blue.placement.json#/placement_summary` is now a canonical object with stable ID, source-backed claim chain, and mechanic-specific evidence claim.
+- Discriminator question 4 now uses `blue_claim_0007` only and treats card draw/counters/bounce/artifacts/evasion as Blue texture rather than identity proof.
+- Chatbot mismatch guidance receives explicit `semantic_guidance_evidence` mappings.
+
+Generated changes:
+
+- `npm.cmd run build:factions` regenerated `data/factions.json`, `data/placement-model.json`, `data/semantic-readiness-provenance.json`, and `supabase/functions/guild-recruiter/faction-context.ts`.
+- `data/identity-layers.json` and `data/placement-model.schema.json` did not change.
+- Blue semantic fixtures were added at `research/fixtures/semantic-readiness/blue.semantic-fixtures.json`.
+
+No builder, validator, schema, scoring, Hall, Crucible, scheduling, global recruiter behavior, VM-519, original-main, Excel, or Table Talk content changed.
+
+## 13. Final Role, Provenance, and Exact-Chain Proof
+
+Final Blue claim roles:
+
+- Total claims: 8.
+- `substantive_claim`: 6.
+- `discovery_record`: 0.
+- `support_record`: 2.
+- `unclassified`: 0.
+
+Final U provenance:
+
+- Total U provenance entries: 25.
+- Required null canonical IDs: 0.
+- Required null canonical content hashes: 0.
+- Unresolved claim/source pointers: 0.
+- Duplicate canonical entries: 0.
+- Discovery/support records in authoritative chains: 0.
+
+Fixture/provenance parity:
+
+| Locator | Generated count | Fixture count | Exact ordered equality | Duplicates | Missing | Extra |
+|---|---:|---:|---|---|---|---|
+| `data/raw-factions/blue/blue.profile.json#/core_identity` | 5 | 5 | PASS | none | none | none |
+| `data/raw-factions/blue/blue.placement.json#/placement_summary` | 6 | 6 | PASS | none | none | none |
+
+`/core_identity` claim order: `blue_claim_0002`, `blue_claim_0003`, `blue_claim_0004`, `blue_claim_0005`, `blue_claim_0006`.
+
+`/placement_summary` claim order: `blue_claim_0002`, `blue_claim_0003`, `blue_claim_0004`, `blue_claim_0005`, `blue_claim_0006`, `blue_claim_0007`.
+
+## 14. Frozen and Scope Proof
+
+Frozen placement and scope controls passed:
+
+- Placement summary text preserved.
+- Required positive terms preserved: `knowledge`, `learning`, `tools`, `improvement`, `optimization`, `control`, `deliberation`.
+- Minimum hits preserved: 2.
+- Broad penalty preserved: 0.13.
+- Strengthen/suppress lists preserved.
+- Lateral targets preserved: `WU`, `UB`, `UR`, `UG`.
+- Raw collision guidance remains object-with-`pairs`; pair order preserved: `R`, `G`.
+- Explicit generic collision target remains absent in raw and generated placement data.
+- Native question, axis, collision, profile, and placement IDs remain stable or are added only where required to eliminate null canonical IDs.
+- Generated/public/recruiter stale-risk hits were manually classified as bounded Commander gameplay support, mechanics-as-texture prompts, or negative guardrails.
+- Candidate-scope validation passed for `428128505a194293feb915c929072e23dc9f0ace..ac774e2eac207cc7fe2d744beac1f11788908159`.
+
+## 15. Validation Evidence
+
+Validation run for the candidate:
+
+- JSON parse checks for Blue raw files, changed generated JSON, and Blue fixture: PASS.
+- Explicit role/evidence/provenance/frozen-field control script: PASS after correcting checker assumptions for provenance wrapper/schema fields.
+- Blue-only stale generated/public/recruiter scan: PASS after path-aware classification; every hit is bounded support/texture or a negative guardrail.
+- `npm.cmd run build:factions`: PASS; repeated generation did not widen the changed file set.
+- `node research/audit-semantic-readiness.mjs --targets=U`: PASS; reports 8 claims, 6 substantive, 0 discovery, 2 support, 0 unclassified.
+- `node research/validate-semantic-readiness.mjs --targets=U`: PASS.
+- `node research/semantic-candidate-scope-tests.js`: PASS.
+- `npm.cmd run test:semantic-readiness`: PASS; verified 1813 semantic provenance entries.
+- `npm.cmd run test:placement`: PASS; 37 factions, 37 golden paths.
+- `npm.cmd run test:faction-context-isolation`: PASS.
+- `npm.cmd run test:source-generated`: PASS with known unrelated JESKAI/MARDU model-owned inhibitor warnings only.
+- `npm.cmd test`: PASS; 226 parser cases, 6 builder cases, 22 syntax translation cases, 12 mode cases, 12 leakage cases, and supporting contract/maze/search tests passed.
+- `git diff --check`: PASS; line-ending warnings only.
+- `git diff --cached --check`: PASS before candidate commit.
+- Candidate scope: `node research/validate-semantic-candidate-scope.mjs --base=428128505a194293feb915c929072e23dc9f0ace --target=ac774e2eac207cc7fe2d744beac1f11788908159 --identity=U`: PASS.
+
+Known validation notes:
+
+- Two early ad hoc manual-check scripts failed because they assumed the provenance file was a top-level array and then assumed the wrong placement calibration path. The corrected script used `entries`, `identity_key`, `canonical_pointer`, fixture `fixture_id`, and `calibration_tuning`, then passed.
+- An intentionally broad stale-term scan across all factions failed because it included unrelated non-Blue surfaces. The Blue-scoped, path-aware scan passed.
+- `npm.cmd run test:source-generated` retains unrelated JESKAI/MARDU warnings already tracked by the guardrail suite.
+
+## 16. Gate 5 Candidate
+
+Candidate commit: `ac774e2eac207cc7fe2d744beac1f11788908159`
+
+Commit subject: `VM-518 remediate Blue semantic readiness candidate`
+
+Candidate files:
+
+- `data/raw-factions/blue/blue.claims.json`
+- `data/raw-factions/blue/blue.profile.json`
+- `data/raw-factions/blue/blue.placement.json`
+- `data/factions.json`
+- `data/placement-model.json`
+- `data/semantic-readiness-provenance.json`
+- `supabase/functions/guild-recruiter/faction-context.ts`
+- `research/fixtures/semantic-readiness/blue.semantic-fixtures.json`
+
+No superseded Blue candidate exists in this Gate 5 run. This exact SHA is the object awaiting independent review.
+
+## 17. Workflow State
+
+Status: candidate created / awaiting independent review.
+
+Blue is not certified and is not semantically_ready. No independent review was performed in this window, no approval or rejection decision was issued, no certification occurred, and VM-519 was not started. Program base remains the White certification SHA `9d250a7a76d219fdb961915cbf989a10a575c757`. The allowed Table Talk baseline remains preserved and uncommitted.

@@ -45,15 +45,15 @@
       "current_identity_hold": {
         "identity": "U",
         "card": "VM-518",
-        "state": "gate_1_2_complete_remediation_authorized",
+        "state": "candidate_created_awaiting_independent_review",
         "branch": "codex/vm-518-blue-semantic-recovery",
         "prior_identity_certified": "W",
         "prior_identity_certification": "PENDING_VM517_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "Proceed to VM-518 Gate 3+4 remediation only under the recorded Gate 1+2 source, evidence-scope, support-isolation, exact-chain, frozen-field, and candidate-scope constraints.",
-        "required_next_milestone": "Run Blue Gate 3+4 remediation, generation, validation, then create a separate Gate 5 candidate only if all controls pass.",
+        "authorized_next_scope": "Await independent review of exact Blue candidate SHA only. Do not certify, start VM-519, advance program base, or update semantic/generated files unless a future review requests changes.",
+        "required_next_milestone": "Run independent review of exact Blue candidate ac774e2eac207cc7fe2d744beac1f11788908159.",
         "drift_preflight_started": true,
         "gate_1_2_status": "complete",
-        "candidate_created": false,
+        "candidate_created": true,
         "independent_review": {
           "performed": false
         },
@@ -67,9 +67,10 @@
         "drift_preflight_record": "docs/incidents/recoveries/VM-518-blue-drift-preflight.md",
         "drift_preflight_commit": "d1375ef71fe5740453e698596ef772890ac0aa0f",
         "gate_1_2_report": "docs/incidents/recoveries/VM-518-blue-semantic-recovery.md",
-        "gate_1_2_commit": "PENDING_VM518_GATE_1_2_SHA",
+        "gate_1_2_commit": "428128505a194293feb915c929072e23dc9f0ace",
         "remediation_authorized": true,
-        "updated_at": "2026-07-18T10:24:00-06:00"
+        "updated_at": "2026-07-18T10:50:00-06:00",
+        "candidate_sha": "ac774e2eac207cc7fe2d744beac1f11788908159"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -2732,13 +2733,14 @@
       "computed": {
         "structural_fingerprint": [
           "low-volume-pattern",
-          "template-cohort-pattern"
+          "mixed-role-pattern",
+          "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 6,
           "discovery_record": 0,
-          "support_record": 0,
-          "unclassified": 8
+          "support_record": 2,
+          "unclassified": 0
         },
         "source_count": 7,
         "source_role_counts": {
@@ -2752,7 +2754,7 @@
         },
         "claim_bearing_source_count": 0,
         "claim_bearing_source_rate": 0,
-        "reference_site_count": 12,
+        "reference_site_count": 20,
         "missing_references": [],
         "potential_role_invalid_support_links": [],
         "raw_question_count": 4,
@@ -2762,35 +2764,33 @@
           "blue_claim_0004",
           "blue_claim_0005",
           "blue_claim_0006",
-          "blue_claim_0007",
-          "blue_claim_0008"
+          "blue_claim_0007"
         ],
         "neighbor_references": [
           "G",
           "R"
         ],
-        "recruiter_context_size": 7599,
+        "recruiter_context_size": 7695,
         "creation_commit": "9322e58c2218b9a8f3c687f70fe0b82b376016ef",
         "readiness_mentions": [],
         "provisional_risk_indicators": {
           "coverage": [
-            "low-record-volume",
-            "no-explicit-substantive-role"
+            "low-record-volume"
           ],
           "neighbors": []
         },
-        "template_cohort_pattern": true,
-        "inventory_updated_at": "2026-07-11T18:42:33.624Z"
+        "template_cohort_pattern": false,
+        "inventory_updated_at": "2026-07-18T10:50:00-06:00"
       },
       "workflow": {
-        "current_gate": "gate_1_2_complete",
-        "status": "remediation_authorized",
+        "current_gate": "candidate_created",
+        "status": "awaiting_independent_review",
         "started_at": "2026-07-18T09:42:09-06:00",
-        "gate_entered_at": "2026-07-18T10:04:00-06:00",
+        "gate_entered_at": "2026-07-18T10:50:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "B",
-        "primary_disposition": "VM-518 Blue Gate 1+2 read-only audit completed with REMEDIATION AUTHORIZED. Gate 3+4 must assign roles, add evidence scopes, isolate support rows, repair U provenance null IDs/duplicate null keys, create fixtures, preserve frozen fields, and validate before any Gate 5 candidate. No Blue semantic/generated files changed in Gate 1+2."
+        "primary_disposition": "VM-518 Blue Gate 3+4 remediation and Gate 5 candidate completed. Exact candidate ac774e2eac207cc7fe2d744beac1f11788908159 awaits independent review. Blue is not certified and VM-519 is not started."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -2825,26 +2825,64 @@
         "drift_preflight_decision": "PASS - BLUE GATE 1+2 AUTHORIZED",
         "drift_preflight_completed_at": "2026-07-18T10:04:00-06:00",
         "gate_1_2_status": "complete",
-        "gate_1_2_commit": "PENDING_VM518_GATE_1_2_SHA",
+        "gate_1_2_commit": "428128505a194293feb915c929072e23dc9f0ace",
         "remediation_authorized": true,
-        "candidate_created": false,
+        "candidate_created": true,
         "validation_notes": [
-          "node research/semantic-candidate-scope-tests.js passed.",
-          "Same-SHA U candidate-scope control exited 1 with deliberate unclassified-proof contamination diagnostics and no validator crash.",
-          "Same-SHA WG array-shaped control exited 0.",
-          "node research/audit-semantic-readiness.mjs --targets=U exited 0 and confirmed 8 unclassified claims.",
-          "node research/validate-semantic-readiness.mjs --targets=U exited 1 with expected pre-remediation semantic-readiness failures, not an infrastructure crash.",
-          "Gate 1+2 read-only audit found sufficient local official source evidence for remediation.",
-          "Gate 1+2 role disposition: 6 substantive claims, 0 discovery records, 2 support records, 0 unclassified after remediation if Gate 3+4 follows the report.",
-          "Gate 3+4 must add bounded evidence_locations with evidence_scope to all six substantive claims and isolate support-only governance/rules/Scryfall rows from authoritative proof chains."
+          "Gate 1+2 governance SHA: 428128505a194293feb915c929072e23dc9f0ace.",
+          "Gate 3+4 assigned 6 substantive claims and 2 support records, added bounded evidence_scope to all substantive claims, and isolated support-only governance/rules/Scryfall rows.",
+          "U provenance has 25 entries, 0 required null canonical IDs, 0 null hashes, 0 unresolved pointers, and 0 duplicate canonical entries.",
+          "Blue fixture/provenance exact-chain parity passed for /core_identity and /placement_summary.",
+          "Frozen placement summary, required terms, minimum hits, broad penalty, strengthen/suppress lists, lateral targets WU/UB/UR/UG, raw object-with-pairs collision guidance, R/G pair order, and absent generic collision target were preserved.",
+          "npm.cmd run build:factions, audit, semantic readiness validation, semantic-candidate-scope tests, npm semantic/placement/context/source-generated/full suites, stale Blue surface scan, and diff checks passed.",
+          "Exact candidate-scope validation passed for 428128505a194293feb915c929072e23dc9f0ace..ac774e2eac207cc7fe2d744beac1f11788908159.",
+          "Blue is awaiting independent review; no approval, certification, semantically_ready transition, VM-519 work, program-base advancement, original-main modification, Excel update, or Table Talk content commit occurred."
         ],
-        "drift_preflight_report": "docs/incidents/recoveries/VM-518-blue-drift-preflight.md"
+        "drift_preflight_report": "docs/incidents/recoveries/VM-518-blue-drift-preflight.md",
+        "gate_3_4_status": "complete",
+        "candidate_sha": "ac774e2eac207cc7fe2d744beac1f11788908159",
+        "candidate_status": "awaiting_independent_review",
+        "final_claim_role_counts": {
+          "substantive_claim": 6,
+          "discovery_record": 0,
+          "support_record": 2,
+          "unclassified": 0
+        },
+        "final_provenance": {
+          "identity_key": "U",
+          "entry_count": 25,
+          "required_null_canonical_ids": 0,
+          "required_null_canonical_content_hashes": 0,
+          "unresolved_pointers": 0,
+          "duplicate_canonical_entries": 0,
+          "authoritative_support_or_discovery_chains": 0
+        },
+        "exact_chain": [
+          {
+            "canonical_locator": "data/raw-factions/blue/blue.profile.json#/core_identity",
+            "generated_count": 5,
+            "fixture_count": 5,
+            "exact_ordered_equality": true,
+            "duplicate_ids": [],
+            "missing_ids": [],
+            "extra_ids": []
+          },
+          {
+            "canonical_locator": "data/raw-factions/blue/blue.placement.json#/placement_summary",
+            "generated_count": 6,
+            "fixture_count": 6,
+            "exact_ordered_equality": true,
+            "duplicate_ids": [],
+            "missing_ids": [],
+            "extra_ids": []
+          }
+        ]
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "ac774e2eac207cc7fe2d744beac1f11788908159",
+        "recovery_commit": "ac774e2eac207cc7fe2d744beac1f11788908159",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,

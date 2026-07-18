@@ -1,28 +1,30 @@
 # VM-518 — Blue Semantic Recovery
 
 ID: VM-518
-Status: Gate 1+2 Complete - Remediation Authorized
+Status: Candidate Created - Awaiting Independent Review
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: U
 Raw packet: `data/raw-factions/blue/`
 Cohort: mono
-Contract: CRIT-001 Contract v1.1 drift preflight passed; Gate 1+2 read-only audit complete; remediation authorized
+Contract: CRIT-001 Contract v1.1 drift preflight passed; Gate 1+2 read-only audit complete; remediation authorized; Gate 3+4 remediation and Gate 5 candidate created
 
 ## Objective
 
 Recover Blue end to end under CRIT-001: audit the existing packet, bound readiness blockers, gather only sufficient evidence, repair canonical data, rebuild generated artifacts, validate semantic fixtures and regressions, obtain independent review of an immutable candidate SHA, and certify that exact recovery.
 
-Current state: drift preflight passed after VM-517 White certification, and Gate 1+2 read-only audit is complete with `REMEDIATION AUTHORIZED`. Blue remediation may proceed in Gate 3+4 under the recorded source, evidence-scope, support-isolation, exact-chain, frozen-field, and candidate-scope constraints. Candidate, review, certification, and VM-519 remain not started.
+Current state: drift preflight passed after VM-517 White certification, Gate 1+2 read-only audit completed with `REMEDIATION AUTHORIZED`, and Gate 3+4 remediation/generated validation produced exact candidate `ac774e2eac207cc7fe2d744beac1f11788908159`. Blue is awaiting independent review. Certification, semantically_ready transition, VM-519, external tracker update, push, PR, and merge remain not started.
 
 ## Gates
 
 - [x] Drift preflight - Passed; Gate 1+2 authorized.
 - [x] Gate 1 - Packet audit and bounded disposition.
 - [x] Gate 2 - Sufficient evidence completion.
-- [ ] Gate 3 - Canonical remediation.
-- [ ] Gate 4 - Generation and validation.
-- [ ] Gate 5 - Independent certification.
+- [x] Gate 3 - Canonical remediation.
+- [x] Gate 4 - Generation and validation.
+- [x] Gate 5 - Candidate creation.
+- [ ] Independent review of exact candidate SHA.
+- [ ] Certification of exact approved candidate SHA.
 
 ## Scope Rules
 
@@ -38,7 +40,7 @@ Current state: drift preflight passed after VM-517 White certification, and Gate
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-518-blue-semantic-recovery.md`
 - Drift preflight record: `docs/incidents/recoveries/VM-518-blue-drift-preflight.md`
-- Candidate recovery SHA: pending
+- Candidate recovery SHA: `ac774e2eac207cc7fe2d744beac1f11788908159`
 - Independent reviewer: pending
 - Certification commit: pending
 
@@ -56,10 +58,21 @@ Current state: drift preflight passed after VM-517 White certification, and Gate
 ## Gate 1+2 - 2026-07-18
 
 - Decision: `REMEDIATION AUTHORIZED`.
-- Gate 1+2 governance SHA: `PENDING_VM518_GATE_1_2_SHA`.
+- Gate 1+2 governance SHA: `428128505a194293feb915c929072e23dc9f0ace`.
 - Source sufficiency: local listed official sources are sufficient; no online source intake is required if Gate 3+4 stays inside the recorded locators.
 - Role disposition for Gate 3+4: `blue_claim_0002` through `blue_claim_0007` should become `substantive_claim`; `blue_claim_0001` and `blue_claim_0008` should become `support_record`; expected final role count is 6 substantive, 0 discovery, 2 support, 0 unclassified.
 - Evidence scope requirement: all six substantive claims require bounded Contract v1.1 `evidence_locations` with `evidence_scope`; support records stay metadata/history or auxiliary support only.
 - Current blockers to remediate: unclassified claims in profile/placement/recruiter/provenance proof chains, support/governance/rules/Scryfall leakage, 3 null U provenance canonical IDs, 2 duplicate null canonical-entry keys, absent Blue fixtures, no placement-summary native canonical object, and missing chatbot guidance evidence mapping.
 - Frozen constraints: preserve placement/calibration fields, lateral targets `WU`, `UB`, `UR`, `UG`, raw object-with-`pairs` collision guidance with `R` then `G`, absent explicit `GENERIC_U_OVERFIT` collision target, native IDs, and preview source-to-embedded equality unless a documented candidate-scope exception is required.
 - Gate 3+4 may proceed; Gate 5 candidate, independent review, certification, semantically_ready transition, VM-519, original main, Excel, and Table Talk changes remain excluded.
+
+## Gate 3+4 / Gate 5 Candidate - 2026-07-18
+
+- Candidate SHA: `ac774e2eac207cc7fe2d744beac1f11788908159`.
+- Candidate subject: `VM-518 remediate Blue semantic readiness candidate`.
+- Final role count: 8 total claims; 6 substantive, 0 discovery, 2 support, 0 unclassified.
+- Final U provenance: 25 entries; 0 required null canonical IDs; 0 null content hashes; 0 unresolved pointers; 0 duplicate canonical entries.
+- Exact-chain parity: `/core_identity` generated/fixture 5 entries; `/placement_summary` generated/fixture 6 entries; both exact ordered equality, no duplicates, missing, or extra IDs.
+- Frozen scope: placement summary text, required terms, minimum hits, broad penalty, strengthen/suppress lists, lateral targets `WU`, `UB`, `UR`, `UG`, raw object-with-`pairs` collision guidance, pair order `R`, `G`, and absent generic collision target preserved.
+- Validation: build, audit, semantic readiness validation, candidate-scope tests, fixture/provenance exact-chain checks, stale Blue surface scan, npm semantic/placement/context/source-generated/full suites, candidate-scope validation, and diff checks passed. Source-generated warnings remain known unrelated JESKAI/MARDU model-owned inhibitor warnings.
+- Status: awaiting independent review. Not approved, not certified, not semantically_ready. VM-519 not started.
