@@ -1,28 +1,28 @@
 # VM-519 - Black Semantic Recovery
 
 ID: VM-519
-Status: Gate 1+2 Complete - Remediation Authorized
+Status: Gate 5 Candidate Created - Awaiting Independent Review
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: B
 Raw packet: `data/raw-factions/black/`
 Cohort: mono
-Contract: CRIT-001 Contract v1.1 after separate drift preflight; Gate 1+2 read-only audit complete; remediation authorized
+Contract: CRIT-001 Contract v1.1 after separate drift preflight; Gate 1+2 read-only audit complete; Gate 5 candidate created
 
 ## Objective
 
 Recover Black end to end under CRIT-001 after VM-518 Blue certification. The separate committed VM-519 drift-preflight control record has passed with no `FAIL` or `UNKNOWN` results.
 
-Current state: drift preflight passed and Gate 1+2 read-only audit is complete with `REMEDIATION AUTHORIZED`. Black remediation may proceed in Gate 3+4 under the recorded source, evidence-scope, support-isolation, exact-chain, frozen-field, preview, object-with-pairs, and candidate-scope constraints. Candidate, independent review, certification, external tracker update, push, PR, merge, and VM-520 remain not started.
+Current state: Black Gate 5 candidate `5bffc3465786c18950d32dcb6f056504b3b8e668` has been created after Gate 3+4 remediation, generation, exact-chain proof, frozen-field proof, stale-copy scan, and validation. The candidate awaits independent review. Certification, external tracker update, push, PR, merge, semantically_ready transition, and VM-520 remain not started.
 
 ## Gates
 
 - [x] Drift preflight - Passed in `docs/incidents/recoveries/VM-519-black-drift-preflight.md`; Gate 1+2 authorized but not started.
 - [x] Gate 1 - Packet audit and bounded disposition.
 - [x] Gate 2 - Sufficient evidence completion.
-- [ ] Gate 3 - Canonical remediation.
-- [ ] Gate 4 - Generation and validation.
-- [ ] Gate 5 - Candidate creation.
+- [x] Gate 3 - Canonical remediation.
+- [x] Gate 4 - Generation and validation.
+- [x] Gate 5 - Candidate creation.
 - [ ] Independent review of exact candidate SHA.
 - [ ] Certification of exact approved candidate SHA.
 
@@ -41,7 +41,7 @@ Current state: drift preflight passed and Gate 1+2 read-only audit is complete w
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-519-black-semantic-recovery.md`
 - Drift preflight record: `docs/incidents/recoveries/VM-519-black-drift-preflight.md`
-- Candidate recovery SHA: pending
+- Candidate recovery SHA: `5bffc3465786c18950d32dcb6f056504b3b8e668`
 - Independent reviewer: pending
 - Certification commit: pending
 
@@ -59,3 +59,14 @@ VM-519 Black / B passed drift preflight from the VM-518 Blue certification progr
 - Current blockers to remediate: unclassified claims in profile/placement/recruiter/provenance proof chains, governance/rules/Scryfall Commander support leakage, mechanics/changelog over-breadth risk, 3 null B provenance canonical IDs, absent Black fixtures, no placement-summary native canonical object, and missing chatbot guidance evidence mapping.
 - Frozen constraints: preserve placement/calibration fields, false-positive guardrail, lateral targets `UB`, `BR`, `BG`, `WB`, raw object-with-`pairs` collision guidance with `W` then `G`, absent explicit `GENERIC_B_OVERFIT` collision target, absent top-level confidence, absent Black-local scoring/golden-path fields, native IDs, and preview source-to-embedded equality unless a documented candidate-scope exception is required.
 - Gate 3+4 may proceed; Gate 5 candidate, independent review, certification, semantically_ready transition, VM-520, original main, Excel, and Table Talk changes remain excluded.
+
+## Gate 3+4 + Gate 5 - 2026-07-18
+
+- Candidate SHA: `5bffc3465786c18950d32dcb6f056504b3b8e668`.
+- Candidate subject: `VM-519 remediate Black semantic readiness candidate`.
+- Final role counts: 8 total; 6 substantive, 0 discovery, 2 support, 0 unclassified.
+- B provenance: 25 entries; 0 required null canonical IDs; 0 required null canonical content hashes; 0 unresolved pointers; 0 duplicate canonical entries.
+- Exact-chain fixtures: `/core_identity` 5/5 exact; `/placement_summary` 6/6 exact; no duplicate, missing, or extra claim IDs.
+- Candidate scope: `node research/validate-semantic-candidate-scope.mjs --base=604a19696d3dfb0d43d6b96676c0c6605628eb33 --target=5bffc3465786c18950d32dcb6f056504b3b8e668 --identity=B` passed.
+- Validation: audit, semantic readiness, candidate-scope tests, placement, faction-context isolation, source-generated, full `npm.cmd test`, and `git diff --check` passed. `test:source-generated` retained known unrelated JESKAI/MARDU warnings.
+- Status: awaiting independent review; not approved, not certified, not `semantically_ready`; VM-520 not started.

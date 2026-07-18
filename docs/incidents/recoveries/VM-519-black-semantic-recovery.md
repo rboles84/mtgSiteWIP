@@ -213,3 +213,49 @@ REMEDIATION AUTHORIZED
 Rationale: Black has sufficient local official source evidence to remediate, but it is not Contract v1.1-ready because all claims lack semantic roles and bounded evidence locations, support/governance/rules/Scryfall rows enter canonical proof chains, B provenance has null canonical IDs, chatbot mismatch guidance lacks evidence mapping, and the required Black semantic fixture is absent.
 
 Gate 3+4 must preserve frozen fields, preview equality, optional-field absences, and the object-with-`pairs` collision-guidance shape while assigning roles, adding evidence scopes, isolating support records, rebuilding generated artifacts, creating fixtures from generated truth, validating exact chain/candidate-scope behavior, and avoiding generic/villain/mechanics overfit.
+
+## 12. Gate 3+4 Remediation And Generation
+
+Status: complete.
+
+- Gate 1+2 governance SHA: `604a19696d3dfb0d43d6b96676c0c6605628eb33`.
+- Candidate SHA: `5bffc3465786c18950d32dcb6f056504b3b8e668`.
+- Final claim roles: 8 total; 6 `substantive_claim`; 0 `discovery_record`; 2 `support_record`; 0 unclassified.
+- Substantive evidence scopes: complete for `black_claim_0002` through `black_claim_0007`.
+- Support isolation: `black_claim_0001` and `black_claim_0008` retained as support/history only; Commander Compass evidence is explicitly `auxiliary_support`.
+- Generated B provenance: 25 entries; 0 required null canonical IDs; 0 required null content hashes; 0 unresolved pointers; 0 duplicate canonical entries.
+- Fixture: `research/fixtures/semantic-readiness/black.semantic-fixtures.json` created with all required neighbor exclusions and provenance fixtures.
+- Preview: `data/identity-layers.json#/expressions/B/preview_text` and `data/factions.json#/identity_layers/expressions/B/preview_text` remain equal and unchanged: "Black values ambition, self-definition, pragmatism, and survival. It asks what you are willing to do to claim agency."
+- Stale-copy handling: exact preview scan has no hits. Generated placement/public high-risk terms remain only as source-bounded philosophy/mechanic texture or negative guardrails, not independent Black proof.
+- Frozen fields preserved: placement summary text; absent top-level confidence; discriminator confidences; required terms; minimum hits; broad penalty; strengthen/suppress lists; false-positive guardrail; raw object-with-`pairs`; W/G collision pair order; generated lateral targets `UB`, `BR`, `BG`, `WB`; absent explicit `GENERIC_B_OVERFIT`; absent Black-local scoring/golden paths; native IDs.
+
+## 13. Exact-Chain Proof
+
+| Locator | Generated Count | Fixture Count | Exact Ordered Equality | Duplicates | Missing IDs | Extra IDs |
+|---|---:|---:|---|---|---|---|
+| `data/raw-factions/black/black.profile.json#/core_identity` | 5 | 5 | PASS: `black_claim_0002`, `black_claim_0003`, `black_claim_0004`, `black_claim_0005`, `black_claim_0006` | none | none | none |
+| `data/raw-factions/black/black.placement.json#/placement_summary` | 6 | 6 | PASS: `black_claim_0002`, `black_claim_0003`, `black_claim_0004`, `black_claim_0005`, `black_claim_0006`, `black_claim_0007` | none | none | none |
+
+## 14. Validation Evidence
+
+All commands below passed after the candidate commit unless noted:
+
+- `npm.cmd run build:factions` - PASS; run twice before candidate commit; deterministic generated output.
+- JSON parse checks for Black raw files, generated JSON, and fixture - PASS.
+- Explicit role/evidence/provenance/frozen-field/stale-copy script - PASS; counts and exact chains recorded above.
+- `node research/audit-semantic-readiness.mjs --targets=B` - PASS; 6 substantive, 0 discovery, 2 support, 0 unclassified.
+- `node research/validate-semantic-readiness.mjs --targets=B` - PASS.
+- `node research/semantic-candidate-scope-tests.js` - PASS.
+- `npm.cmd run test:semantic-readiness` - PASS; 1826 semantic provenance entries verified.
+- `npm.cmd run test:placement` - PASS; 37 factions, 37 golden paths.
+- `npm.cmd run test:faction-context-isolation` - PASS.
+- `npm.cmd run test:source-generated` - PASS with known unrelated JESKAI/MARDU model-owned inhibitor warnings.
+- `npm.cmd test` - PASS; full parser, maze, semantic, placement, and snapshot suite.
+- `git diff --check` - PASS; line-ending warnings only.
+- `node research/validate-semantic-candidate-scope.mjs --base=604a19696d3dfb0d43d6b96676c0c6605628eb33 --target=5bffc3465786c18950d32dcb6f056504b3b8e668 --identity=B` - PASS.
+
+## 15. Gate 5 Workflow Status
+
+Candidate `5bffc3465786c18950d32dcb6f056504b3b8e668` is the exact Black Gate 5 candidate awaiting independent review.
+
+Black is not certified and is not `semantically_ready`. No approval decision was issued. No independent review was performed in this window. VM-520 was not started. Program base remains `04547ecfc52d1c96537b6375e9d5c4b8f3690a32`.

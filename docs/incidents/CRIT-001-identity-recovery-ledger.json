@@ -2986,14 +2986,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_1_2_complete",
-        "status": "remediation_authorized",
+        "current_gate": "candidate_created",
+        "status": "awaiting_independent_review",
         "started_at": "2026-07-18T12:47:00-06:00",
-        "gate_entered_at": "2026-07-18T13:34:00-06:00",
+        "gate_entered_at": "2026-07-18T13:54:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "R",
-        "primary_disposition": "VM-519 Black Gate 1+2 read-only audit completed with REMEDIATION AUTHORIZED. Gate 3+4 must assign roles, add evidence scopes, isolate support and mechanics-only proof leakage, repair B provenance null IDs, create fixtures, preserve frozen fields and preview equality, and validate before any Gate 5 candidate. No Black semantic/generated files changed in Gate 1+2.",
+        "primary_disposition": "VM-519 Black Gate 5 candidate 5bffc3465786c18950d32dcb6f056504b3b8e668 created after Gate 3+4 remediation, generation, exact-chain proof, frozen-field proof, preview equality check, stale-copy scan, and validation. Awaiting independent review; not certified or semantically_ready; VM-520 not started.",
         "drift_preflight": {
           "record": "docs/incidents/recoveries/VM-519-black-drift-preflight.md",
           "commit": "PENDING_VM519_DRIFT_PREFLIGHT_SHA",
@@ -3002,7 +3002,7 @@
           "gate_1_2_authorized": true,
           "gate_1_2_started": true,
           "remediation_authorized": true,
-          "candidate_created": false,
+          "candidate_created": true,
           "review_performed": false,
           "certified": false
         }
@@ -3031,44 +3031,133 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-519-black-semantic-recovery.md",
         "residual_findings": [
-          "As-is Black packet has 8 total claims with 0 substantive, 0 discovery, 0 support, and 8 unclassified explicit roles.",
-          "All 8 claims currently lack bounded evidence_locations; no substantive evidence_scope entries exist because no claim is currently substantive.",
-          "Profile, placement, generated placement, recruiter, and provenance proof chains currently reference unclassified Black claims.",
-          "B provenance currently has 12 entries, 3 null canonical IDs, 0 null hashes, 0 unresolved pointers, 0 duplicate canonical entries, and no Black fixture.",
-          "Black raw collision_guidance uses object-with-pairs shape and generated placement flattens to array; approved validator supports both shapes.",
-          "Identity-layer preview source and embedded factions consumer are equal and must remain explicitly checked under DRIFT-015.",
-          "Gate 3+4 must avoid generic Black, villain-coded, mechanics-first, and neighbor-collapsed copy."
+          "Black awaits independent review of exact candidate SHA 5bffc3465786c18950d32dcb6f056504b3b8e668.",
+          "Black is not certified and not semantically_ready.",
+          "VM-520 has not started."
         ],
-        "decision": "REMEDIATION AUTHORIZED",
+        "decision": "CANDIDATE CREATED - AWAITING INDEPENDENT REVIEW",
         "drift_preflight_commit": "741ed6a81edb567d51a2699cbe7d0ec70e9b5e61",
         "drift_preflight_decision": "PASS - BLACK GATE 1+2 AUTHORIZED",
         "drift_preflight_completed_at": "2026-07-18T13:06:00-06:00",
         "drift_preflight_report": "docs/incidents/recoveries/VM-519-black-drift-preflight.md",
         "gate_1_2_status": "complete",
-        "gate_1_2_commit": "PENDING_VM519_GATE_1_2_SHA",
+        "gate_1_2_commit": "604a19696d3dfb0d43d6b96676c0c6605628eb33",
         "remediation_authorized": true,
-        "candidate_created": false,
+        "candidate_created": true,
         "validation_notes": [
-          "Approved monocolor validator candidate aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2 remains unchanged.",
-          "node research/audit-semantic-readiness.mjs --targets=B exited 0 and confirmed 8 unclassified claims.",
-          "node research/validate-semantic-readiness.mjs --targets=B exited 1 with expected pre-remediation semantic-readiness failures, not an infrastructure crash.",
-          "Gate 1+2 read-only audit found sufficient local official source evidence for remediation.",
-          "Gate 1+2 role disposition: 6 substantive claims, 0 discovery records, 2 support records, 0 unclassified after remediation if Gate 3+4 follows the report.",
-          "Gate 3+4 must add bounded evidence_locations with evidence_scope to all six substantive claims and isolate support-only governance/rules/Scryfall rows and mechanics/changelog-only material from broad philosophical proof chains.",
-          "Gate 3+4 must preserve placement summary, required terms, minimum hits, broad penalty, strengthen/suppress, false-positive guardrail, lateral targets UB/BR/BG/WB, raw object-with-pairs collision guidance, W/G pair order, absent generic collision target, absent top-level confidence, absent Black-local scoring/golden path, native IDs, and preview equality."
-        ]
+          "npm.cmd run build:factions passed twice before candidate commit; deterministic generated output.",
+          "JSON parse checks passed for Black raw files, generated JSON, and fixture.",
+          "Manual role/evidence/provenance/frozen-field/stale-copy script passed.",
+          "node research/audit-semantic-readiness.mjs --targets=B passed after candidate commit with 6 substantive, 0 discovery, 2 support, 0 unclassified.",
+          "node research/validate-semantic-readiness.mjs --targets=B passed after candidate commit.",
+          "node research/semantic-candidate-scope-tests.js passed after candidate commit.",
+          "npm.cmd run test:semantic-readiness passed; 1826 semantic provenance entries verified.",
+          "npm.cmd run test:placement passed; 37 factions and 37 golden paths.",
+          "npm.cmd run test:faction-context-isolation passed.",
+          "npm.cmd run test:source-generated passed with known unrelated JESKAI/MARDU model-owned inhibitor warnings.",
+          "npm.cmd test passed after candidate commit.",
+          "git diff --check passed with line-ending warnings only.",
+          "Black preview source and embedded consumer remained equal and unchanged; exact preview stale scan had no hits."
+        ],
+        "candidate_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668",
+        "review_status": "pending_independent_review",
+        "final_claim_role_counts": {
+          "total": 8,
+          "substantive_claim": 6,
+          "discovery_record": 0,
+          "support_record": 2,
+          "unclassified": 0
+        },
+        "final_provenance": {
+          "entries": 25,
+          "required_null_canonical_ids": 0,
+          "required_null_canonical_content_hashes": 0,
+          "unresolved_pointers": 0,
+          "duplicate_canonical_entries": 0
+        },
+        "exact_chain_proof": [
+          {
+            "canonical_locator": "data/raw-factions/black/black.profile.json#/core_identity",
+            "generated_count": 5,
+            "fixture_count": 5,
+            "ordered_claim_ids": [
+              "black_claim_0002",
+              "black_claim_0003",
+              "black_claim_0004",
+              "black_claim_0005",
+              "black_claim_0006"
+            ],
+            "exact_ordered_equality": true,
+            "duplicates": [],
+            "missing_ids": [],
+            "extra_ids": []
+          },
+          {
+            "canonical_locator": "data/raw-factions/black/black.placement.json#/placement_summary",
+            "generated_count": 6,
+            "fixture_count": 6,
+            "ordered_claim_ids": [
+              "black_claim_0002",
+              "black_claim_0003",
+              "black_claim_0004",
+              "black_claim_0005",
+              "black_claim_0006",
+              "black_claim_0007"
+            ],
+            "exact_ordered_equality": true,
+            "duplicates": [],
+            "missing_ids": [],
+            "extra_ids": []
+          }
+        ],
+        "frozen_scope_result": {
+          "placement_summary_text_preserved": true,
+          "top_level_confidence_absent": true,
+          "required_terms_preserved": true,
+          "minimum_hits_preserved": true,
+          "broad_penalty_preserved": true,
+          "strengthen_suppress_preserved": true,
+          "lateral_targets_preserved": [
+            "UB",
+            "BR",
+            "BG",
+            "WB"
+          ],
+          "raw_collision_pairs_preserved": [
+            "W",
+            "G"
+          ],
+          "generic_collision_target_absent": true,
+          "black_local_scoring_absent": true,
+          "preview_source_embedded_equal": true
+        },
+        "candidate_scope": {
+          "command": "node research/validate-semantic-candidate-scope.mjs --base=604a19696d3dfb0d43d6b96676c0c6605628eb33 --target=5bffc3465786c18950d32dcb6f056504b3b8e668 --identity=B",
+          "result": "PASS"
+        }
       },
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668",
+        "recovery_commit": "5bffc3465786c18950d32dcb6f056504b3b8e668",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
         "approval_date": null,
-        "certified_at": null
-      }
+        "certified_at": null,
+        "status": "not_certified_awaiting_independent_review"
+      },
+      "gate": "candidate_created",
+      "status": "awaiting_independent_review",
+      "structural_fingerprint": [
+        "low-volume-pattern",
+        "mixed-role-pattern",
+        "support-heavy-pattern"
+      ],
+      "contract": "v1.1",
+      "recovery": "5bffc3465786c18950d32dcb6f056504b3b8e668",
+      "certification_status": "not_certified"
     },
     {
       "identity": {
