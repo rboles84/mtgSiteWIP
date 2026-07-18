@@ -1,19 +1,19 @@
 # VM-519 - Black Semantic Recovery
 
 ID: VM-519
-Status: Gate 5 Candidate Created - Awaiting Independent Review
+Status: Independent Review Returned REQUEST CHANGES - Awaiting Replacement Candidate
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: B
 Raw packet: `data/raw-factions/black/`
 Cohort: mono
-Contract: CRIT-001 Contract v1.1 after separate drift preflight; Gate 1+2 read-only audit complete; Gate 5 candidate created
+Contract: CRIT-001 Contract v1.1 after separate drift preflight; Gate 1+2 read-only audit complete; first Gate 5 candidate rejected by independent review
 
 ## Objective
 
 Recover Black end to end under CRIT-001 after VM-518 Blue certification. The separate committed VM-519 drift-preflight control record has passed with no `FAIL` or `UNKNOWN` results.
 
-Current state: Black Gate 5 candidate `5bffc3465786c18950d32dcb6f056504b3b8e668` has been created after Gate 3+4 remediation, generation, exact-chain proof, frozen-field proof, stale-copy scan, and validation. The candidate awaits independent review. Certification, external tracker update, push, PR, merge, semantically_ready transition, and VM-520 remain not started.
+Current state: Black Gate 5 candidate `5bffc3465786c18950d32dcb6f056504b3b8e668` received independent review decision `REQUEST CHANGES`. The approval-blocking finding is stale/generic Black preview copy retained in `data/identity-layers.json#/expressions/B/preview_text` and embedded `data/factions.json#/identity_layers/expressions/B/preview_text`. Certification, external tracker update, push, PR, merge, semantically_ready transition, and VM-520 remain not started.
 
 ## Gates
 
@@ -23,7 +23,9 @@ Current state: Black Gate 5 candidate `5bffc3465786c18950d32dcb6f056504b3b8e668`
 - [x] Gate 3 - Canonical remediation.
 - [x] Gate 4 - Generation and validation.
 - [x] Gate 5 - Candidate creation.
-- [ ] Independent review of exact candidate SHA.
+- [x] Independent review of exact candidate SHA - REQUEST CHANGES.
+- [ ] Replacement candidate for preview-surface finding.
+- [ ] Independent review of replacement exact candidate SHA.
 - [ ] Certification of exact approved candidate SHA.
 
 ## Scope Rules
@@ -42,7 +44,7 @@ Current state: Black Gate 5 candidate `5bffc3465786c18950d32dcb6f056504b3b8e668`
 - Audit/recovery report: `docs/incidents/recoveries/VM-519-black-semantic-recovery.md`
 - Drift preflight record: `docs/incidents/recoveries/VM-519-black-drift-preflight.md`
 - Candidate recovery SHA: `5bffc3465786c18950d32dcb6f056504b3b8e668`
-- Independent reviewer: pending
+- Independent reviewer: `REQUEST CHANGES` in `docs/incidents/recoveries/VM-519-black-independent-review.md`
 - Certification commit: pending
 
 ## Setup Boundary
@@ -70,3 +72,13 @@ VM-519 Black / B passed drift preflight from the VM-518 Blue certification progr
 - Candidate scope: `node research/validate-semantic-candidate-scope.mjs --base=604a19696d3dfb0d43d6b96676c0c6605628eb33 --target=5bffc3465786c18950d32dcb6f056504b3b8e668 --identity=B` passed.
 - Validation: audit, semantic readiness, candidate-scope tests, placement, faction-context isolation, source-generated, full `npm.cmd test`, and `git diff --check` passed. `test:source-generated` retained known unrelated JESKAI/MARDU warnings.
 - Status: awaiting independent review; not approved, not certified, not `semantically_ready`; VM-520 not started.
+
+## Independent Review - 2026-07-18
+
+- Exact candidate reviewed: `5bffc3465786c18950d32dcb6f056504b3b8e668`.
+- Review record: `docs/incidents/recoveries/VM-519-black-independent-review.md`.
+- Review-record SHA: `PENDING_VM519_BLACK_REVIEW_RECORD_SHA`.
+- Decision: `REQUEST CHANGES`.
+- Blocker: `data/identity-layers.json#/expressions/B/preview_text` and `data/factions.json#/identity_layers/expressions/B/preview_text` retain stale generic Black copy: `Black values ambition, self-definition, pragmatism, and survival. It asks what you are willing to do to claim agency.`
+- Required next step: create a later replacement candidate that updates the source-owned B preview and regenerated embedded preview consumer without unrelated identity drift, then submit the replacement exact SHA for fresh independent review.
+- Status: not approved, not certified, not `semantically_ready`; VM-520 not started.

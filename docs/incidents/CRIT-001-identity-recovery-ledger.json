@@ -45,12 +45,12 @@
       "current_identity_hold": {
         "identity": "B",
         "card": "VM-519",
-        "state": "candidate_created_awaiting_independent_review",
+        "state": "review_changes_requested_awaiting_replacement_candidate",
         "branch": "codex/vm-519-black-semantic-recovery",
         "prior_identity_certified": "U",
         "prior_identity_certification": "PENDING_VM518_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "Independent review of exact Black candidate SHA is the next CRIT-001 step. Do not certify, mark semantically_ready, advance program base, or start VM-520 before independent review and exact approval.",
-        "required_next_milestone": "Run independent review of VM-519 Black exact candidate SHA 5bffc3465786c18950d32dcb6f056504b3b8e668.",
+        "authorized_next_scope": "Create a later VM-519 Black replacement candidate only for the independent-review preview finding. Do not certify, mark semantically_ready, advance program base, or start VM-520 before a fresh independent review and exact approval.",
+        "required_next_milestone": "Remediate stale B preview copy in a replacement candidate, regenerate owned consumers, validate, and submit the replacement exact SHA for fresh independent review.",
         "drift_preflight_started": true,
         "drift_preflight_completed": true,
         "drift_preflight_record": "docs/incidents/recoveries/VM-519-black-drift-preflight.md",
@@ -59,8 +59,15 @@
         "gate_1_2_status": "complete",
         "candidate_created": true,
         "independent_review": {
-          "performed": false,
-          "status": "pending"
+          "performed": true,
+          "status": "request_changes",
+          "decision": "REQUEST CHANGES",
+          "candidate_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668",
+          "review_report": "docs/incidents/recoveries/VM-519-black-independent-review.md",
+          "review_record_sha": "PENDING_VM519_BLACK_REVIEW_RECORD_SHA",
+          "blocking_findings": [
+            "DRIFT-015 preview failure: data/identity-layers.json#/expressions/B/preview_text and data/factions.json#/identity_layers/expressions/B/preview_text retain generic ambition/self-definition/pragmatism/survival/claim-agency copy."
+          ]
         },
         "certification": {
           "performed": false,
@@ -68,7 +75,7 @@
           "certification_sha": null
         },
         "program_base": "04547ecfc52d1c96537b6375e9d5c4b8f3690a32",
-        "updated_at": "2026-07-18T13:58:00-06:00",
+        "updated_at": "2026-07-18T14:49:00-06:00",
         "gate_1_2_report": "docs/incidents/recoveries/VM-519-black-semantic-recovery.md",
         "gate_1_2_commit": "604a19696d3dfb0d43d6b96676c0c6605628eb33",
         "remediation_authorized": true,
@@ -2988,14 +2995,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "candidate_created",
-        "status": "awaiting_independent_review",
+        "current_gate": "independent_review",
+        "status": "changes_requested_awaiting_replacement_candidate",
         "started_at": "2026-07-18T12:47:00-06:00",
         "gate_entered_at": "2026-07-18T13:54:00-06:00",
-        "blocked_at": null,
-        "blocked_reason": null,
+        "blocked_at": "2026-07-18T14:49:00-06:00",
+        "blocked_reason": "Independent review returned REQUEST CHANGES because B identity-layer preview copy remains stale/generic and under-bounded.",
         "next_identity": "R",
-        "primary_disposition": "VM-519 Black Gate 5 candidate 5bffc3465786c18950d32dcb6f056504b3b8e668 created after Gate 3+4 remediation, generation, exact-chain proof, frozen-field proof, preview equality check, stale-copy scan, and validation. Awaiting independent review; not certified or semantically_ready; VM-520 not started.",
+        "primary_disposition": "VM-519 Black exact candidate 5bffc3465786c18950d32dcb6f056504b3b8e668 received independent review decision REQUEST CHANGES. The blocker is stale/generic preview copy retained in data/identity-layers.json#/expressions/B/preview_text and data/factions.json#/identity_layers/expressions/B/preview_text. Black is not approved, not certified, and not semantically_ready; VM-520 not started.",
         "drift_preflight": {
           "record": "docs/incidents/recoveries/VM-519-black-drift-preflight.md",
           "commit": "PENDING_VM519_DRIFT_PREFLIGHT_SHA",
@@ -3005,7 +3012,7 @@
           "gate_1_2_started": true,
           "remediation_authorized": true,
           "candidate_created": true,
-          "review_performed": false,
+          "review_performed": true,
           "certified": false
         }
       },
@@ -3033,11 +3040,12 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-519-black-semantic-recovery.md",
         "residual_findings": [
-          "Black awaits independent review of exact candidate SHA 5bffc3465786c18950d32dcb6f056504b3b8e668.",
-          "Black is not certified and not semantically_ready.",
+          "Independent review returned REQUEST CHANGES for exact candidate SHA 5bffc3465786c18950d32dcb6f056504b3b8e668.",
+          "Blocker: data/identity-layers.json#/expressions/B/preview_text and data/factions.json#/identity_layers/expressions/B/preview_text retain generic ambition/self-definition/pragmatism/survival/claim-agency copy without the candidate's cost, leverage, opportunity, consequence, or resource-conversion boundaries.",
+          "Black is not approved, not certified, and not semantically_ready.",
           "VM-520 has not started."
         ],
-        "decision": "CANDIDATE CREATED - AWAITING INDEPENDENT REVIEW",
+        "decision": "REQUEST CHANGES",
         "drift_preflight_commit": "741ed6a81edb567d51a2699cbe7d0ec70e9b5e61",
         "drift_preflight_decision": "PASS - BLACK GATE 1+2 AUTHORIZED",
         "drift_preflight_completed_at": "2026-07-18T13:06:00-06:00",
@@ -3062,7 +3070,9 @@
           "Black preview source and embedded consumer remained equal and unchanged; exact preview stale scan had no hits."
         ],
         "candidate_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668",
-        "review_status": "pending_independent_review",
+        "review_status": "request_changes",
+        "review_record": "docs/incidents/recoveries/VM-519-black-independent-review.md",
+        "review_record_sha": "PENDING_VM519_BLACK_REVIEW_RECORD_SHA",
         "final_claim_role_counts": {
           "total": 8,
           "substantive_claim": 6,
@@ -3140,18 +3150,18 @@
       },
       "certification": {
         "contract_version": "v1.1",
-        "contract_revalidation_required": false,
+        "contract_revalidation_required": true,
         "candidate_recovery_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668",
         "recovery_commit": "5bffc3465786c18950d32dcb6f056504b3b8e668",
         "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
+        "reviewer": "independent_review",
+        "review_cycles": 1,
         "approval_date": null,
         "certified_at": null,
-        "status": "not_certified_awaiting_independent_review"
+        "status": "not_certified_request_changes"
       },
-      "gate": "candidate_created",
-      "status": "awaiting_independent_review",
+      "gate": "independent_review",
+      "status": "changes_requested_awaiting_replacement_candidate",
       "structural_fingerprint": [
         "low-volume-pattern",
         "mixed-role-pattern",

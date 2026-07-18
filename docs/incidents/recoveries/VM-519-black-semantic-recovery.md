@@ -259,3 +259,30 @@ All commands below passed after the candidate commit unless noted:
 Candidate `5bffc3465786c18950d32dcb6f056504b3b8e668` is the exact Black Gate 5 candidate awaiting independent review.
 
 Black is not certified and is not `semantically_ready`. No approval decision was issued. No independent review was performed in this window. VM-520 was not started. Program base remains `04547ecfc52d1c96537b6375e9d5c4b8f3690a32`.
+
+## 16. Independent Review Result - 2026-07-18
+
+Independent review report: `docs/incidents/recoveries/VM-519-black-independent-review.md`.
+
+Review-record SHA: `PENDING_VM519_BLACK_REVIEW_RECORD_SHA`.
+
+Decision:
+
+REQUEST CHANGES
+
+Exact candidate reviewed:
+
+`5bffc3465786c18950d32dcb6f056504b3b8e668`
+
+The independent review verified that candidate scope, claim roles, evidence scopes, support isolation, provenance IDs/hashes, fixture/provenance exact-chain parity, frozen placement fields, object-with-`pairs` collision guidance, deterministic generation, and required validation passed. The review found one approval-blocking DRIFT-015 consumed-preview issue:
+
+- `data/identity-layers.json#/expressions/B/preview_text`
+- `data/factions.json#/identity_layers/expressions/B/preview_text`
+
+Both retain unchanged pre-remediation preview copy:
+
+`Black values ambition, self-definition, pragmatism, and survival. It asks what you are willing to do to claim agency.`
+
+The review concluded that equality between source and embedded preview is true but insufficient. The line remains a generic Black autonomy/ambition/survival summary and does not include the candidate's source-backed cost, leverage, opportunity, resource-conversion, consequence, or internal-tension boundaries.
+
+Black remains not approved, not certified, and not `semantically_ready`. VM-520 was not started. A later replacement candidate is required.
