@@ -36,16 +36,19 @@
       "current_identity_hold": {
         "identity": "UG",
         "card": "VM-516",
-        "state": "gate_1_2_complete",
+        "state": "candidate_created",
         "preflight_record": "docs/incidents/recoveries/VM-516-simic-drift-preflight.md",
-        "preflight_commit": "PENDING_VM516_DRIFT_PREFLIGHT_COMMIT_SHA",
-        "decision": "PASS — SIMIC GATE 1+2 AUTHORIZED",
-        "authorized_next_scope": "Gate 3+4 canonical remediation, generation, fixtures, provenance cleanup, and validation",
+        "preflight_commit": "851f4b604459073bd739ec10d3f278f90f4069c3",
+        "decision": "PASS - SIMIC GATE 1+2 AUTHORIZED",
+        "authorized_next_scope": "Independent Gate 5 review of exact final candidate SHA",
         "remediation_authorized": true,
-        "required_next_milestone": "Gate 3+4 remediation and validation before Gate 5 candidate creation",
+        "required_next_milestone": "Independent review of exact final Simic candidate SHA",
         "gate_1_2_status": "complete",
         "gate_1_2_report": "docs/incidents/recoveries/VM-516-simic-semantic-recovery.md",
-        "gate_1_2_commit": "PENDING_VM516_GATE_1_2_COMMIT_SHA"
+        "gate_1_2_commit": "06f140a1e78a24d6c549943d6beb471f4e714302",
+        "candidate_created": true,
+        "final_candidate_sha": "cbca9f596a090e924d532e7cb657c27c79ccb9de",
+        "status": "awaiting_independent_review"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -2245,10 +2248,10 @@
           "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 23,
           "discovery_record": 10,
           "support_record": 0,
-          "unclassified": 7
+          "unclassified": 0
         },
         "source_count": 13,
         "source_role_counts": {
@@ -2258,207 +2261,59 @@
         },
         "claim_bearing_source_count": 2,
         "claim_bearing_source_rate": 0.1538,
-        "reference_site_count": 42,
+        "reference_site_count": 64,
         "missing_references": [],
-        "potential_role_invalid_support_links": [
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.profile.json#/core_identity",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.profile.json#/site_surface",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.profile.json#/structure",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.profile.json#/great_tension",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.profile.json#/key_figures/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.profile.json#/key_figures/1",
-            "roles": [
-              "unclassified",
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.profile.json#/key_figures/2",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.profile.json#/key_figures/3",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.profile.json#/canonical_flavor_text/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.profile.json#/mechanics",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.profile.json#/data_quality/corpus_upgrade",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.placement.json#/placement_summary",
-            "roles": [
-              "discovery_record",
-              "unclassified"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.placement.json#/placement_axes/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.placement.json#/moral_and_psychological_profile",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.placement.json#/core_values/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.placement.json#/core_values/1",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.placement.json#/core_values/2",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.placement.json#/core_values/3",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.placement.json#/core_values/4",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.placement.json#/core_values/5",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.placement.json#/core_values/6",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.placement.json#/core_values/7",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.placement.json#/core_values/8",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.placement.json#/core_values/9",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.placement.json#/behavioral_signals/0",
-            "roles": [
-              "discovery_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/simic_combine/simic_combine.placement.json#/inhibitor_traits/0",
-            "roles": [
-              "discovery_record"
-            ]
-          }
-        ],
+        "potential_role_invalid_support_links": [],
         "raw_question_count": 4,
         "unique_question_claim_ids": [
-          "simic_combine_claim_001",
-          "simic_combine_claim_002",
-          "simic_combine_claim_003"
+          "simic_combine_claim_0018",
+          "simic_combine_claim_0019",
+          "simic_combine_claim_0020",
+          "simic_combine_claim_003",
+          "simic_combine_claim_006",
+          "simic_combine_claim_0028",
+          "simic_combine_claim_0029"
         ],
         "neighbor_references": [
-          "quandrix",
-          "witherbloom"
+          "BANT",
+          "BG",
+          "G",
+          "GENERIC_UG_OVERFIT",
+          "QUANDRIX",
+          "RG",
+          "SULTAI",
+          "TEMUR",
+          "U",
+          "UB",
+          "UR",
+          "WG",
+          "WITHERBLOOM"
         ],
-        "recruiter_context_size": 7951,
+        "recruiter_context_size": 8577,
         "creation_commit": "f6a1dd4644849ffb3bad6f1bba82f7cd55fa549a",
         "readiness_mentions": [
           "docs/reference/ravnica-guild-source-readiness-matrix.md:36"
         ],
         "provisional_risk_indicators": {
-          "coverage": [
-            "low-record-volume",
-            "discovery-record-majority",
-            "no-explicit-substantive-role"
-          ],
+          "coverage": [],
           "neighbors": []
         },
         "template_cohort_pattern": false,
-        "inventory_updated_at": "2026-07-11T18:42:33.624Z"
+        "inventory_updated_at": "2026-07-17T18:35:00-06:00"
       },
       "workflow": {
-        "current_gate": "gate_1_2_complete",
-        "status": "gate_3_4_authorized",
+        "current_gate": "gate_5_candidate_created",
+        "status": "awaiting_independent_review",
         "started_at": null,
-        "gate_entered_at": "2026-07-17T17:52:00-06:00",
+        "gate_entered_at": "2026-07-17T18:35:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "W",
-        "primary_disposition": "Gate 1+2 read-only audit complete with decision REMEDIATION AUTHORIZED. Existing listed/local Simic sources are sufficient for bounded Gate 3+4 remediation. Candidate creation, independent review, certification, semantically_ready transition, program-base advancement, and VM-517 work remain unauthorized and not started. Program base remains fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3.",
+        "primary_disposition": "Final scope-passing Simic candidate cbca9f596a090e924d532e7cb657c27c79ccb9de created after two superseded candidate-scope failures. Awaiting independent review. Not certified, not semantically_ready, program base remains fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3, and VM-517 has not started.",
         "drift_preflight": {
           "record": "docs/incidents/recoveries/VM-516-simic-drift-preflight.md",
-          "commit": "PENDING_VM516_DRIFT_PREFLIGHT_COMMIT_SHA",
-          "decision": "PASS — SIMIC GATE 1+2 AUTHORIZED",
+          "commit": "851f4b604459073bd739ec10d3f278f90f4069c3",
+          "decision": "PASS - SIMIC GATE 1+2 AUTHORIZED",
           "authorized_scope": "Gate 1+2 read-only audit only",
           "remediation_authorized": false,
           "semantic_edits": false,
@@ -2470,7 +2325,7 @@
         },
         "gate_1_2": {
           "record": "docs/incidents/recoveries/VM-516-simic-semantic-recovery.md",
-          "commit": "PENDING_VM516_GATE_1_2_COMMIT_SHA",
+          "commit": "06f140a1e78a24d6c549943d6beb471f4e714302",
           "decision": "REMEDIATION AUTHORIZED",
           "semantic_edits": false,
           "generated_edits": false,
@@ -2478,6 +2333,37 @@
           "candidate_created": false,
           "review_performed": false,
           "certified": false
+        },
+        "gate_3_4": {
+          "record": "docs/incidents/recoveries/VM-516-simic-semantic-recovery.md",
+          "decision": "REMEDIATION COMPLETE",
+          "semantic_edits": true,
+          "generated_edits": true,
+          "fixtures_created": true,
+          "provenance_cleaned": true,
+          "validation_passed": true,
+          "candidate_created": true,
+          "review_performed": false,
+          "certified": false
+        },
+        "gate_5": {
+          "status": "candidate_created_awaiting_independent_review",
+          "final_candidate_sha": "cbca9f596a090e924d532e7cb657c27c79ccb9de",
+          "superseded_candidates": [
+            {
+              "sha": "f4afb9d5d769c72e1c86df189729423a380629af",
+              "reason": "Post-commit candidate-scope validation rejected added confidence fields under behavioral_signals and inhibitor_traits."
+            },
+            {
+              "sha": "204cf9e6be15f2c3ac59a36c3977efea9a9945ce",
+              "reason": "Post-commit candidate-scope validation rejected core_values confidence drift."
+            }
+          ],
+          "workflow_record_commit": "PENDING_VM516_WORKFLOW_RECORD_COMMIT_SHA",
+          "independent_review": "pending",
+          "certified": false,
+          "semantically_ready": false,
+          "vm_517_started": false
         }
       },
       "semantic_review": {
@@ -2503,8 +2389,8 @@
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "cbca9f596a090e924d532e7cb657c27c79ccb9de",
+        "recovery_commit": "cbca9f596a090e924d532e7cb657c27c79ccb9de",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,

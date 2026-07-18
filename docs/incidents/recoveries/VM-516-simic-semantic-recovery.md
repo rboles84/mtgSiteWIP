@@ -208,3 +208,124 @@ Remediation is authorized under CRIT-001 Contract v1.1 using existing listed/loc
 - Do not change Contract v1.1, schemas, builders, validators, Hall, Crucible, scoring, confidence behavior, calibration, scheduling, tie-order, or global recruiter behavior.
 - Preserve confidence, calibration, lateral targets, and absent generic collision target.
 - Preserve the active Table Talk baseline and exclude it from every VM-516 commit.
+
+## Gate 3+4 Remediation And Validation - 2026-07-17
+
+Decision: `REMEDIATION COMPLETE`
+
+Gate 3+4 remediated Simic by making the authoritative packet explicit under Contract v1.1 and then regenerating the consumed surfaces.
+
+Changed implementation files:
+
+- `data/raw-factions/simic_combine/simic_combine.claims.json`
+- `data/raw-factions/simic_combine/simic_combine.profile.json`
+- `data/raw-factions/simic_combine/simic_combine.placement.json`
+- `data/factions.json`
+- `data/placement-model.json`
+- `data/semantic-readiness-provenance.json`
+- `supabase/functions/guild-recruiter/faction-context.ts`
+- `research/fixtures/semantic-readiness/simic_combine.semantic-fixtures.json`
+
+Final claim-role counts:
+
+- 33 total claims.
+- 23 `substantive_claim`.
+- 10 `discovery_record`.
+- 0 `support_record`.
+- 0 unclassified.
+
+Role and evidence changes:
+
+- Claims `simic_combine_claim_001` through `simic_combine_claim_007` were made substantive with bounded evidence locations and `evidence_scope`.
+- Claims `simic_combine_claim_0008` through `simic_combine_claim_0017` were isolated as discovery records with no authoritative semantic use.
+- New claims `simic_combine_claim_0018` through `simic_combine_claim_0033` cover bounded placement, pressure behavior, required-neighbor boundaries, generic-UG overfit, and Momir Vig history where official local sources support them.
+- Discovery IDs are retained only as raw discovery metadata under `profile.data_quality.corpus_upgrade`; they do not prove identity, placement, public copy, recruiter guidance, fixtures, or generated provenance.
+- Commander Compass source bases now use substantive official-source claim IDs only and state their auxiliary/non-authoritative boundary.
+
+Generated-consumed changes:
+
+- `data/factions.json` Simic public copy was narrowed away from stale generic UG/mechanic-first/high-heat wording and away from discovery-backed key figures.
+- `data/placement-model.json` preserves frozen confidence, calibration, lateral targets, and absent generic collision target while adding source-bounded Simic guidance.
+- `supabase/functions/guild-recruiter/faction-context.ts` regenerated with bounded UG recruiter context.
+- `data/semantic-readiness-provenance.json` now has 72 UG entries, 0 required null canonical IDs, 0 null canonical content hashes, 0 unresolved pointers, and 0 duplicate canonical entries.
+
+Exact-chain proof:
+
+| Locator | Generated count | Fixture count | Exact ordered equality | Duplicates | Missing IDs | Extra IDs |
+|---|---:|---:|---|---|---|---|
+| `data/raw-factions/simic_combine/simic_combine.profile.json#/core_identity` | 8 | 8 | PASS | none | none | none |
+| `data/raw-factions/simic_combine/simic_combine.placement.json#/placement_summary` | 10 | 10 | PASS | none | none | none |
+
+Frozen-field proof:
+
+- `placement_quality.overall_confidence`: `Medium`, unchanged.
+- Required positive terms, minimum hits, broad penalty, strengthen list, suppress list, calibrated primary read, and calibrated false-positive guardrail: unchanged.
+- Generated lateral targets remain `QUANDRIX`, `UR`, `WITHERBLOOM`, `TEMUR`, `SULTAI`.
+- Generated generic collision target remains absent.
+- Native IDs for faction, characters, questions, axis, and pre-existing collision rows were retained.
+- Added `lateral_inhibition: false` rows remain non-inhibiting and did not feed generated lateral targets.
+
+Validation evidence:
+
+- JSON parse checks for changed JSON files: PASS.
+- Explicit role/evidence-scope check: PASS, no substantive claim lacks `evidence_scope`.
+- Discovery/support isolation check: PASS, no non-substantive claim ID appears in authoritative generated proof chains.
+- Null ID/hash/unresolved/duplicate provenance checks: PASS.
+- Exact fixture/provenance comparison: PASS.
+- Stale public/recruiter-copy scan: PASS; remaining high-risk terms appear only in bounded/negative guardrail contexts.
+- Frozen-field and native-ID comparisons: PASS.
+- Deterministic generation: PASS, repeated `npm.cmd run build:factions` produced stable hashes.
+- `node research/audit-semantic-readiness.mjs --targets=UG`: PASS.
+- `node research/validate-semantic-readiness.mjs --targets=UG`: PASS.
+- `node research/semantic-candidate-scope-tests.js`: PASS.
+- `npm.cmd run test:semantic-readiness`: PASS.
+- `npm.cmd run test:placement`: PASS.
+- `npm.cmd run test:faction-context-isolation`: PASS.
+- `npm.cmd run test:source-generated`: PASS with known unrelated JESKAI/MARDU model-owned inhibitor warnings.
+- `npm.cmd test`: PASS.
+- `git diff --check`: PASS; line-ending warnings only.
+
+## Gate 5 Candidate Workflow - 2026-07-17
+
+Final status: `awaiting independent review`
+
+Gate 5 candidate history:
+
+| Candidate SHA | Status | Reason |
+|---|---|---|
+| `f4afb9d5d769c72e1c86df189729423a380629af` | superseded | Post-commit candidate-scope validation rejected added confidence fields under behavioral signals and inhibitor traits. |
+| `204cf9e6be15f2c3ac59a36c3977efea9a9945ce` | superseded | Post-commit candidate-scope validation rejected core-values confidence drift. |
+| `cbca9f596a090e924d532e7cb657c27c79ccb9de` | final candidate awaiting independent review | Exact candidate-scope validation passed. |
+
+Candidate-scope command:
+
+`node research/validate-semantic-candidate-scope.mjs --base=06f140a1e78a24d6c549943d6beb471f4e714302 --target=cbca9f596a090e924d532e7cb657c27c79ccb9de --identity=UG`
+
+Result:
+
+`Semantic candidate scope passed for UG: 06f140a1e78a24d6c549943d6beb471f4e714302..cbca9f596a090e924d532e7cb657c27c79ccb9de`
+
+Candidate scorecard:
+
+| Control | Result |
+|---|---|
+| Roles complete | PASS |
+| Evidence scopes complete | PASS |
+| Discovery/support isolated | PASS |
+| IDs and hashes valid | PASS |
+| Exact fixture/provenance parity | PASS |
+| Confidence unchanged | PASS |
+| Native IDs unchanged | PASS |
+| Required terms/minimum hits/penalty unchanged | PASS |
+| Strengthen/suppress unchanged | PASS |
+| Lateral targets unchanged | PASS |
+| Generic collision target still absent | PASS |
+| Calibration unchanged | PASS |
+| Canonical-only proof chains | PASS |
+| Public/recruiter alignment | PASS |
+| No unrelated identity drift | PASS |
+| Deterministic generation | PASS |
+| Full validation | PASS |
+| Table Talk excluded | PASS |
+
+No independent review was performed. No approval decision was issued. Simic is not certified, not semantically_ready, the CRIT-001 program base remains `fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3`, VM-517 has not started, and the external tracker was not modified.
