@@ -12,7 +12,7 @@
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
       "next_cohort": "Wave 3 monocolors",
-      "current_program_base": "PENDING_VM516_CERTIFICATION_COMMIT_SHA"
+      "current_program_base": "272337004aa63cfd33da5f1a859c33d211c8ca74"
     },
     "wip_limit": 1,
     "active_prerequisite": null,
@@ -43,21 +43,21 @@
       "current_identity_hold": {
         "identity": "W",
         "card": "VM-517",
-        "state": "setup_only_drift_preflight_pending",
-        "preflight_record": null,
-        "preflight_commit": null,
-        "decision": "PENDING - VM-517 drift preflight not started",
-        "authorized_next_scope": "Governance-only VM-517 drift preflight only",
+        "state": "governance_hold_drift_preflight_failed",
+        "preflight_record": "docs/incidents/recoveries/VM-517-white-drift-preflight.md",
+        "preflight_commit": "PENDING_VM517_DRIFT_PREFLIGHT_COMMIT_SHA",
+        "decision": "STOP - WHITE GATE 1+2 NOT AUTHORIZED",
+        "authorized_next_scope": "None - White Gate 1+2 is blocked until a separately authorized setup/governance window resolves monocolor candidate-scope compatibility and records a passing preflight.",
         "remediation_authorized": false,
-        "required_next_milestone": "Committed VM-517 drift preflight control record before White Gate 1+2",
-        "gate_1_2_status": "not_started",
+        "required_next_milestone": "Resolve VM-517 monocolor candidate-scope validator incompatibility and rerun drift preflight before White Gate 1+2",
+        "gate_1_2_status": "not_authorized",
         "gate_1_2_report": null,
         "gate_1_2_commit": null,
         "candidate_created": false,
         "final_candidate_sha": null,
-        "status": "setup_only",
+        "status": "governance_hold",
         "prior_identity_certified": "UG",
-        "prior_identity_certification": "PENDING_VM516_CERTIFICATION_COMMIT_SHA"
+        "prior_identity_certification": "272337004aa63cfd33da5f1a859c33d211c8ca74"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -2524,8 +2524,7 @@
       },
       "computed": {
         "structural_fingerprint": [
-          "low-volume-pattern",
-          "template-cohort-pattern"
+          "low-volume-pattern"
         ],
         "semantic_role_counts": {
           "substantive_claim": 0,
@@ -2574,23 +2573,44 @@
           ],
           "neighbors": []
         },
-        "template_cohort_pattern": true,
+        "template_cohort_pattern": false,
+        "template_cohort_change_explanation": "VM-517 drift preflight reran the repository audit for --targets=W; live audit output reports low-volume-pattern and template_cohort_pattern false. This governance record does not alter White semantic data.",
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
         "current_gate": "setup_only",
-        "status": "drift_preflight_pending",
+        "status": "governance_hold_drift_preflight_failed",
         "started_at": null,
         "gate_entered_at": "2026-07-17T22:32:49-06:00",
-        "blocked_at": null,
-        "blocked_reason": null,
+        "blocked_at": "2026-07-17T23:31:00-06:00",
+        "blocked_reason": "VM-517 drift preflight STOP: node research/validate-semantic-candidate-scope.mjs --base=272337004aa63cfd33da5f1a859c33d211c8ca74 --target=272337004aa63cfd33da5f1a859c33d211c8ca74 --identity=W exits 1 with TypeError because White raw collision_guidance is object-with-pairs while the validator assumes an array.",
         "next_identity": "U",
-        "primary_disposition": "Branch setup only after VM-516 Simic certification. VM-517 White drift preflight is pending; no White source inspection, Gate 1+2 audit, remediation, candidate, review, certification, or VM-518 work has started."
+        "primary_disposition": "Governance-only drift preflight recorded STOP - WHITE GATE 1+2 NOT AUTHORIZED. White remains setup-only on governance hold; no White source inspection, Gate 1+2 audit, remediation, generation, candidate, review, certification, VM-518 work, original-main modification, or Excel update occurred."
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "GENERIC_W_OVERFIT",
+          "WU",
+          "WR",
+          "WB",
+          "WG",
+          "SILVERQUILL",
+          "LOREHOLD",
+          "BANT",
+          "ESPER",
+          "MARDU",
+          "NAYA",
+          "ABZAN",
+          "U",
+          "B",
+          "R",
+          "G"
+        ],
+        "audit_report": "docs/incidents/recoveries/VM-517-white-drift-preflight.md",
+        "residual_findings": [
+          "Preflight STOP: monocolor candidate-scope validation is not process-ready for W because the validator crashes on White raw collision_guidance object-with-pairs shape.",
+          "White Gate 1+2 is not authorized; remediation remains unauthorized."
+        ]
       },
       "certification": {
         "contract_version": null,

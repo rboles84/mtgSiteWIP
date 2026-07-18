@@ -1,7 +1,7 @@
 # VM-517 — White Semantic Recovery
 
 ID: VM-517
-Status: Setup Only - Drift Preflight Pending
+Status: Governance Hold - Drift Preflight Failed
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: W
@@ -38,12 +38,18 @@ Recover White end to end under CRIT-001: audit the existing packet, bound readin
 - Independent reviewer: pending
 - Certification commit: pending
 
-## Setup State
+## Drift Preflight State
 
 VM-517 White / W is setup only after VM-516 Simic certification.
 
 Starting branch: `codex/vm-517-white-semantic-recovery`.
 
-Program base after Simic certification: `PENDING_VM516_CERTIFICATION_COMMIT_SHA`.
+Program base after Simic certification: `272337004aa63cfd33da5f1a859c33d211c8ca74`.
 
-The next allowed VM-517 action is a separate governance-only drift-preflight control record. White Gate 1+2, source inspection, semantic audit, remediation, generation, candidate creation, review, certification, and VM-518 work have not started.
+Drift preflight record: `docs/incidents/recoveries/VM-517-white-drift-preflight.md`.
+
+Preflight decision: `STOP - WHITE GATE 1+2 NOT AUTHORIZED`.
+
+Reason: Wave 3 monocolor compatibility is not process-ready. The exact candidate-scope probe `node research/validate-semantic-candidate-scope.mjs --base=272337004aa63cfd33da5f1a859c33d211c8ca74 --target=272337004aa63cfd33da5f1a859c33d211c8ca74 --identity=W` exits 1 with a TypeError because the validator assumes raw `collision_guidance` is an array while White stores `collision_guidance` as an object with `pairs`.
+
+White Gate 1+2, source inspection, semantic audit, remediation, generation, candidate creation, review, certification, and VM-518 work remain not started and unauthorized.
