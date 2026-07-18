@@ -1,7 +1,7 @@
 # VM-517 — White Semantic Recovery
 
 ID: VM-517
-Status: Governance Hold - Infrastructure Candidate Awaiting Review
+Status: Governance Hold - Infrastructure Candidate Approved; Preflight Rerun Required
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: W
@@ -62,8 +62,12 @@ Workflow record: `docs/incidents/recoveries/VM-517-monocolor-validator-candidate
 
 Drift register entry: `DRIFT-016`.
 
-Candidate status: awaiting independent exact-SHA review.
+Candidate status: independently approved by exact-SHA review.
+
+Infrastructure review record: `docs/incidents/recoveries/VM-517-monocolor-validator-independent-review.md`.
+
+Infrastructure review decision: `APPROVE EXACT SHA aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2`.
 
 Scope: validator/test infrastructure only. The candidate normalizes documented array and object-with-`pairs` collision-guidance shapes for candidate-scope validation and fails closed on unsupported shapes with explicit diagnostics.
 
-White status remains blocked. The infrastructure candidate does not authorize White Gate 1+2, source inspection, semantic audit, remediation, generated rebuild, candidate creation, independent review, certification, VM-518 work, program-base advancement, or external tracker updates. After exact infrastructure approval, the VM-517 drift preflight must be rerun in a separate authorized window before Gate 1+2 can be reconsidered.
+White status remains blocked. The infrastructure approval does not authorize White Gate 1+2, source inspection, semantic audit, remediation, generated rebuild, candidate creation, independent review, certification, VM-518 work, program-base advancement, or external tracker updates. The VM-517 drift preflight must be rerun in a separate authorized window before Gate 1+2 can be reconsidered.

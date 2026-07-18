@@ -1,10 +1,12 @@
 # VM-517 - Monocolor Validator Infrastructure Candidate Workflow
 
-Status: Infrastructure candidate awaiting independent exact-SHA review.
+Status: Infrastructure candidate independently approved. White Gate 1+2 remains not authorized pending a separate drift-preflight rerun.
 
 Implementation candidate SHA: `aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2`
 Implementation subject: `CRIT-001 support monocolor collision guidance validation`
 Workflow-record SHA: `PENDING_VM517_MONOCOLOR_VALIDATOR_WORKFLOW_RECORD_SHA`
+Independent review record: `docs/incidents/recoveries/VM-517-monocolor-validator-independent-review.md`
+Independent review decision: `APPROVE EXACT SHA aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2`
 White preflight SHA: `06627929eb0e048a8c0c20612970e779098a982c`
 Program base: `272337004aa63cfd33da5f1a859c33d211c8ca74`
 Certified identity count: 15
@@ -114,6 +116,6 @@ All infrastructure candidate checkpoint rows are PASS or N/A:
 
 ## Required Next Step
 
-Run an independent exact-SHA review of `aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2`.
+Rerun the VM-517 White drift preflight in a separate authorized window.
 
-If and only if that review approves the exact infrastructure SHA, rerun the VM-517 White drift preflight in a separate authorized window. Until then, White Gate 1+2 remains unauthorized.
+The independent review approved exact infrastructure SHA `aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2`, but this does not authorize White Gate 1+2. Until the rerun drift preflight records no `FAIL` or `UNKNOWN` controls, White Gate 1+2 remains unauthorized.

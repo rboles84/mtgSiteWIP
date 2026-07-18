@@ -43,13 +43,13 @@
       "current_identity_hold": {
         "identity": "W",
         "card": "VM-517",
-        "state": "governance_hold_drift_preflight_failed",
+        "state": "governance_hold_infrastructure_candidate_approved",
         "preflight_record": "docs/incidents/recoveries/VM-517-white-drift-preflight.md",
         "preflight_commit": "PENDING_VM517_DRIFT_PREFLIGHT_COMMIT_SHA",
         "decision": "STOP - WHITE GATE 1+2 NOT AUTHORIZED",
-        "authorized_next_scope": "None - White Gate 1+2 remains blocked. Shared infrastructure candidate aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2 awaits independent exact-SHA review; after approval, White drift preflight must be rerun before Gate 1+2 can be reconsidered.",
+        "authorized_next_scope": "Rerun VM-517 White drift preflight only in a separate authorized window. White Gate 1+2 remains blocked until that preflight records no FAIL or UNKNOWN controls.",
         "remediation_authorized": false,
-        "required_next_milestone": "Independent exact-SHA review of infrastructure candidate aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2, then rerun VM-517 drift preflight if approved",
+        "required_next_milestone": "Rerun VM-517 White drift preflight after independent approval of infrastructure candidate aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2",
         "gate_1_2_status": "not_authorized",
         "gate_1_2_report": null,
         "gate_1_2_commit": null,
@@ -59,7 +59,10 @@
           "sha": "aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2",
           "subject": "CRIT-001 support monocolor collision guidance validation",
           "workflow_record": "docs/incidents/recoveries/VM-517-monocolor-validator-candidate-workflow.md",
-          "status": "awaiting_independent_review",
+          "review_record": "docs/incidents/recoveries/VM-517-monocolor-validator-independent-review.md",
+          "review_decision": "APPROVE EXACT SHA aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2",
+          "review_record_commit": "PENDING_VM517_MONOCOLOR_VALIDATOR_REVIEW_RECORD_SHA",
+          "status": "approved_exact_sha",
           "white_preflight_rerun_required_after_approval": true,
           "drift_register_entry": "DRIFT-016"
         },
@@ -2587,13 +2590,13 @@
       },
       "workflow": {
         "current_gate": "setup_only",
-        "status": "governance_hold_drift_preflight_failed",
+        "status": "governance_hold_infrastructure_candidate_approved",
         "started_at": null,
         "gate_entered_at": "2026-07-17T22:32:49-06:00",
         "blocked_at": "2026-07-17T23:31:00-06:00",
-        "blocked_reason": "VM-517 drift preflight STOP: node research/validate-semantic-candidate-scope.mjs --base=272337004aa63cfd33da5f1a859c33d211c8ca74 --target=272337004aa63cfd33da5f1a859c33d211c8ca74 --identity=W originally exited 1 with TypeError because White raw collision_guidance is object-with-pairs while the validator assumed an array. Infrastructure candidate aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2 now awaits independent exact-SHA review; White remains blocked pending approval and a rerun drift preflight.",
+        "blocked_reason": "VM-517 drift preflight STOP: node research/validate-semantic-candidate-scope.mjs --base=272337004aa63cfd33da5f1a859c33d211c8ca74 --target=272337004aa63cfd33da5f1a859c33d211c8ca74 --identity=W originally exited 1 with TypeError because White raw collision_guidance is object-with-pairs while the validator assumed an array. Infrastructure candidate aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2 is independently approved; White remains blocked pending a separate rerun drift preflight.",
         "next_identity": "U",
-        "primary_disposition": "Governance-only drift preflight recorded STOP - WHITE GATE 1+2 NOT AUTHORIZED. Shared infrastructure candidate aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2 repairs candidate-scope collision_guidance object-with-pairs compatibility and awaits independent exact-SHA review. White remains setup-only on governance hold; no White source inspection, Gate 1+2 audit, remediation, generation, candidate, review, certification, VM-518 work, original-main modification, or Excel update occurred."
+        "primary_disposition": "Governance-only drift preflight recorded STOP - WHITE GATE 1+2 NOT AUTHORIZED. Shared infrastructure candidate aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2 repairs candidate-scope collision_guidance object-with-pairs compatibility and was independently approved by exact-SHA review. White remains setup-only on governance hold pending a separate rerun drift preflight; no White source inspection, Gate 1+2 audit, remediation, generation, White semantic candidate, White review, certification, VM-518 work, original-main modification, or Excel update occurred."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -2616,8 +2619,9 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-517-white-drift-preflight.md",
         "residual_findings": [
-          "Preflight STOP: monocolor candidate-scope validation is not process-ready for W because the validator crashes on White raw collision_guidance object-with-pairs shape.",
-          "White Gate 1+2 is not authorized; remediation remains unauthorized."
+          "Preflight STOP remains controlling until rerun: original monocolor candidate-scope validation was not process-ready for W because the validator crashed on White raw collision_guidance object-with-pairs shape.",
+          "Shared infrastructure candidate aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2 is independently approved; White Gate 1+2 is still not authorized until a separate rerun preflight passes.",
+          "White remediation remains unauthorized."
         ]
       },
       "certification": {
