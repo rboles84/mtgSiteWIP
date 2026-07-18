@@ -45,14 +45,14 @@
       "current_identity_hold": {
         "identity": "U",
         "card": "VM-518",
-        "state": "drift_preflight_passed_gate_1_2_authorized_not_started",
+        "state": "gate_1_2_complete_remediation_authorized",
         "branch": "codex/vm-518-blue-semantic-recovery",
         "prior_identity_certified": "W",
         "prior_identity_certification": "PENDING_VM517_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "Create VM-518 setup branch only. A separate committed Blue drift-preflight control record is required before Gate 1+2 or semantic work may begin.",
-        "required_next_milestone": "Run VM-518 Blue drift preflight in a separate authorized window.",
+        "authorized_next_scope": "Proceed to VM-518 Gate 3+4 remediation only under the recorded Gate 1+2 source, evidence-scope, support-isolation, exact-chain, frozen-field, and candidate-scope constraints.",
+        "required_next_milestone": "Run Blue Gate 3+4 remediation, generation, validation, then create a separate Gate 5 candidate only if all controls pass.",
         "drift_preflight_started": true,
-        "gate_1_2_status": "authorized_not_started",
+        "gate_1_2_status": "complete",
         "candidate_created": false,
         "independent_review": {
           "performed": false
@@ -65,9 +65,11 @@
         "program_base": "9d250a7a76d219fdb961915cbf989a10a575c757",
         "drift_preflight_decision": "PASS - BLUE GATE 1+2 AUTHORIZED",
         "drift_preflight_record": "docs/incidents/recoveries/VM-518-blue-drift-preflight.md",
-        "drift_preflight_commit": "PENDING_VM518_DRIFT_PREFLIGHT_SHA",
-        "remediation_authorized": false,
-        "updated_at": "2026-07-18T10:04:00-06:00"
+        "drift_preflight_commit": "d1375ef71fe5740453e698596ef772890ac0aa0f",
+        "gate_1_2_report": "docs/incidents/recoveries/VM-518-blue-semantic-recovery.md",
+        "gate_1_2_commit": "PENDING_VM518_GATE_1_2_SHA",
+        "remediation_authorized": true,
+        "updated_at": "2026-07-18T10:24:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -2781,14 +2783,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "drift_preflight_passed",
-        "status": "gate_1_2_authorized_not_started",
+        "current_gate": "gate_1_2_complete",
+        "status": "remediation_authorized",
         "started_at": "2026-07-18T09:42:09-06:00",
         "gate_entered_at": "2026-07-18T10:04:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "B",
-        "primary_disposition": "VM-518 Blue drift preflight passed with no FAIL or UNKNOWN controls. Gate 1+2 read-only audit is authorized but not started; remediation is not authorized; no Blue semantic, generated, fixture, provenance, recruiter, preview, test, schema, validator, builder, scoring, calibration, or runtime files changed."
+        "primary_disposition": "VM-518 Blue Gate 1+2 read-only audit completed with REMEDIATION AUTHORIZED. Gate 3+4 must assign roles, add evidence scopes, isolate support rows, repair U provenance null IDs/duplicate null keys, create fixtures, preserve frozen fields, and validate before any Gate 5 candidate. No Blue semantic/generated files changed in Gate 1+2."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -2809,7 +2811,7 @@
           "R",
           "G"
         ],
-        "audit_report": null,
+        "audit_report": "docs/incidents/recoveries/VM-518-blue-semantic-recovery.md",
         "residual_findings": [
           "As-is Blue packet has 8 total claims with 0 substantive, 0 discovery, 0 support, and 8 unclassified explicit roles.",
           "All 8 claims currently lack bounded evidence_locations; no substantive evidence_scope entries exist because no claim is currently substantive.",
@@ -2818,19 +2820,23 @@
           "Blue raw collision_guidance uses object-with-pairs shape and generated placement flattens to array; approved validator supports both shapes.",
           "Identity-layer preview source and embedded factions consumer are equal and must remain explicitly checked under DRIFT-015."
         ],
-        "decision": "Drift preflight passed; Gate 1+2 authorized but not started",
-        "drift_preflight_commit": "PENDING_VM518_DRIFT_PREFLIGHT_SHA",
+        "decision": "REMEDIATION AUTHORIZED",
+        "drift_preflight_commit": "d1375ef71fe5740453e698596ef772890ac0aa0f",
         "drift_preflight_decision": "PASS - BLUE GATE 1+2 AUTHORIZED",
         "drift_preflight_completed_at": "2026-07-18T10:04:00-06:00",
-        "gate_1_2_status": "authorized_not_started",
-        "remediation_authorized": false,
+        "gate_1_2_status": "complete",
+        "gate_1_2_commit": "PENDING_VM518_GATE_1_2_SHA",
+        "remediation_authorized": true,
         "candidate_created": false,
         "validation_notes": [
           "node research/semantic-candidate-scope-tests.js passed.",
           "Same-SHA U candidate-scope control exited 1 with deliberate unclassified-proof contamination diagnostics and no validator crash.",
           "Same-SHA WG array-shaped control exited 0.",
           "node research/audit-semantic-readiness.mjs --targets=U exited 0 and confirmed 8 unclassified claims.",
-          "node research/validate-semantic-readiness.mjs --targets=U exited 1 with expected pre-remediation semantic-readiness failures, not an infrastructure crash."
+          "node research/validate-semantic-readiness.mjs --targets=U exited 1 with expected pre-remediation semantic-readiness failures, not an infrastructure crash.",
+          "Gate 1+2 read-only audit found sufficient local official source evidence for remediation.",
+          "Gate 1+2 role disposition: 6 substantive claims, 0 discovery records, 2 support records, 0 unclassified after remediation if Gate 3+4 follows the report.",
+          "Gate 3+4 must add bounded evidence_locations with evidence_scope to all six substantive claims and isolate support-only governance/rules/Scryfall rows from authoritative proof chains."
         ],
         "drift_preflight_report": "docs/incidents/recoveries/VM-518-blue-drift-preflight.md"
       },
