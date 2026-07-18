@@ -563,4 +563,161 @@ No automated regression test was added because the existing candidate-scope vali
 
 ### Status
 
-Replacement candidate `bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e` is created and awaits fresh independent review. It is not approved, not certified, and not `semantically_ready`. The program base remains `fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3`. VM-517 has not started.
+Replacement candidate `bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e` was created for fresh independent review. It was not certified by the replacement-remediation workflow and did not mark Simic `semantically_ready`. The program base remained `fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3`. VM-517 was not started.
+
+## Fresh Independent Replacement Review - 2026-07-17
+
+### Scope
+
+- Reviewer: Codex fresh independent review window.
+- Program base: `fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3`.
+- Drift-control governance: `bb424a64787977baa45c67f1459babab64b1d3c7`.
+- Drift preflight: `851f4b604459073bd739ec10d3f278f90f4069c3`.
+- Gate 1+2: `06f140a1e78a24d6c549943d6beb471f4e714302`.
+- Superseded candidates: `f4afb9d5d769c72e1c86df189729423a380629af`, `204cf9e6be15f2c3ac59a36c3977efea9a9945ce`.
+- Rejected candidate: `cbca9f596a090e924d532e7cb657c27c79ccb9de`.
+- Original candidate workflow: `04510577b7f3e1c4bacc5f2a88018b461760a80a`.
+- Rejection review: `4da00dc997162ad609e84a77f6817c2ad0726dbc`.
+- Exact replacement candidate reviewed: `bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e`.
+- Replacement workflow record: `4db93dcf9d957ad89e5b5e3bfeedcbd6f564aa46`.
+
+This review did not repair findings, create another candidate, certify Simic, mark Simic `semantically_ready`, advance the CRIT-001 program base, start VM-517, modify original main, or modify Excel.
+
+### Preflight and Candidate Isolation
+
+- Worktree: `C:\dev\mtgSiteWIP-crit001`.
+- Branch: `codex/vm-516-simic-semantic-recovery`.
+- Starting HEAD: `4db93dcf9d957ad89e5b5e3bfeedcbd6f564aa46`.
+- Required Git objects: all listed objects exist as commits.
+- Ancestry: program base is an ancestor of HEAD; replacement candidate is an ancestor of the replacement workflow record.
+- Dirty baseline: only allowed Table Talk baseline remained dirty: modified `docs/handoffs/HANDOFF_INDEX.md` plus untracked Table Talk handoffs.
+- Original main: read-only status showed docs/workflow dirtiness only; no semantic, generated, raw, fixture, provenance, runtime, schema, test, validator, builder, scoring, or data changes were observed or touched.
+- Replacement implementation diff `4da00dc997162ad609e84a77f6817c2ad0726dbc..bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e`: only `data/identity-layers.json` and `data/factions.json`, one UG preview line each.
+- Replacement workflow diff `bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e..4db93dcf9d957ad89e5b5e3bfeedcbd6f564aa46`: governance-only files.
+- Rejected-to-replacement comparison: only the UG source preview and embedded generated preview changed; no unrelated identity-layer or faction content changed.
+
+### Preview Ownership and Semantics
+
+- Authoritative runtime/display preview source: `data/identity-layers.json#/expressions/UG/preview_text`.
+- Embedded generated consumer: `data/factions.json#/identity_layers/expressions/UG/preview_text`.
+- Propagation path: `npm.cmd run build:factions`, through `research/build-faction-artifacts.mjs`, reads `data/identity-layers.json` and embeds active expressions into `data/factions.json`.
+- `data/identity-layers.json` is authoritative for display wording, not canonical claim evidence.
+- Replacement text reviewed: `Simic studies life as living systems to heal, adapt, and improve through biology, clades, and public health.`
+- Source support: `simic_combine_claim_001`, `simic_combine_claim_003`, `simic_combine_claim_004`, `simic_combine_claim_0018`, and `simic_combine_claim_0020`; official source pages inspected for Simic guide and Adapt mechanics support.
+- Phrase result: "studies life as living systems", "heal", "adapt", "improve", "biology", "clades", and "public health" are supported without requiring a stronger composite than the claims allow.
+- Semantic conclusion: the preview is bounded to Simic living-system biology and public-health/clade context; it does not imply universal benevolence, universal ethics, generic UG, Izzet invention, Quandrix abstraction, Selesnya preservation, Witherbloom life/death craft, Golgari decay, Gruul wildness, Dimir secrecy, Bant virtue, Temur wild scale, or Sultai exploitation.
+
+### Consumed-Surface Review
+
+- Exact stale-text search over `data`, `supabase`, and `research`: no matches.
+- Partial/equivalent preview search: no UG preview uses rejected "Green growth with Blue knowledge", mutation/research/guided-evolution/optimization/becoming, counters, mechanics, or generic-UG shortcut framing.
+- Source-to-embedded equality: PASS; the two preview values are exactly equal.
+- Runtime/public surfaces inspected: `data/identity-layers.json`, `data/factions.json`, `data/placement-model.json`, Simic raw profile/placement/claims, recruiter context, generated identity-layer records, fixtures, and relevant source-generated paths.
+- Historical governance quotations: retained only as rejection evidence in docs/handoffs/recovery/card/ledger records; not runtime/public sources.
+- Unrelated identity result: no unrelated identity content changed in the replacement candidate.
+
+### Candidate-Scope Exception
+
+Exact command:
+
+```powershell
+node research/validate-semantic-candidate-scope.mjs --base=06f140a1e78a24d6c549943d6beb471f4e714302 --target=bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e --identity=UG
+```
+
+Exit code: `1`.
+
+Full relevant output:
+
+```text
+- identity candidate modified non-identity path data/identity-layers.json
+- unrelated or global data/factions.json content changed
+```
+
+Validator/contract rule: the validator is strict and does not special-case `data/identity-layers.json`; `withoutIdentity()` also treats top-level `data/factions.json#/identity_layers` as global. The operating playbook explicitly allows documented target-scoped display-source exceptions when they are strictly target-scoped, necessary to remove stale preserved public copy or preserve generated target coverage, source-supported, free of non-target semantic drift, and free of builder/runtime behavior changes.
+
+Allowed-path analysis: after removing only `expressions.UG.preview_text` from `data/identity-layers.json` and only `identity_layers.expressions.UG.preview_text` from `data/factions.json`, parsed JSON equality passes. The exception is limited to UG preview source plus expected generated consumer. Non-zero is compatible with approval under the documented playbook exception.
+
+Final control result: PASS with documented target-scoped display-source exception.
+
+### Permanent Drift Control
+
+- DRIFT-015: PASS; records rejected SHA, stale identity-layer preview, independent consumed-surface detection, why prior checks missed it, replacement source/consumer path, and permanent controls.
+- Template-control result: PASS; requires preview ownership, source-to-generated equality, embedded-consumer equality, exact stale-text search, semantic-equivalent review, and manual public-surface inspection.
+- Automated-regression decision: PASS; no shared automated regression was added because shared `research/` and test/validator paths are frozen for identity candidates, and changing them would be scope drift. The manual control is explicit and enforceable.
+
+### Preserved State
+
+- Claims: 33 total; 23 substantive; 10 discovery; 0 support; 0 unclassified.
+- Provenance: 72 UG entries; 0 required null canonical IDs; 0 null hashes; 0 unresolved pointers; 0 duplicate canonical entries; 0 discovery-backed authoritative chains.
+- Fixture chains: `/core_identity` generated 8 / fixture 8, exact ordered equality; `/placement_summary` generated 10 / fixture 10, exact ordered equality.
+- Frozen fields: confidence Medium; native IDs unchanged; required terms unchanged; minimum hits 2; broad penalty 0.1; strengthen/suppress lists unchanged; lateral targets `QUANDRIX`, `UR`, `WITHERBLOOM`, `TEMUR`, `SULTAI`; generic collision target absent; calibration unchanged; proof chains canonical-only.
+- Determinism: two `npm.cmd run build:factions` runs left no generated diff.
+
+### Validation
+
+- `data/identity-layers.json` and `data/factions.json` JSON parse: PASS.
+- Exact candidate file-scope check: PASS, only two candidate files.
+- Exact rejected-text search over consumed `data`, `supabase`, `research`: PASS, no matches.
+- Partial/equivalent stale-preview search: PASS for UG preview consumers; broad optimization hits are neighbor/control language or other identities, not stale UG preview.
+- Preview source-to-embedded equality: PASS.
+- Claim-role count/evidence-scope/discovery-isolation/null-ID/hash/unresolved-pointer/duplicate scans: PASS.
+- Fixture/provenance exact comparisons and frozen-field comparisons: PASS.
+- `npm.cmd run build:factions`: PASS.
+- second `npm.cmd run build:factions`: PASS.
+- `node research/audit-semantic-readiness.mjs --targets=UG`: PASS.
+- `node research/validate-semantic-readiness.mjs --targets=UG`: PASS.
+- `node research/semantic-candidate-scope-tests.js`: PASS.
+- `npm.cmd run test:semantic-readiness`: PASS; verified 1787 semantic provenance entries.
+- `npm.cmd run test:placement`: PASS; 37 factions, 37 golden paths.
+- `npm.cmd run test:faction-context-isolation`: PASS.
+- `npm.cmd run test:source-generated`: PASS with unchanged unrelated JESKAI/MARDU model-owned inhibitor warnings only.
+- `npm.cmd test`: PASS.
+- `git diff --check`: PASS with line-ending warnings only.
+- Exact candidate-scope command: exit code 1 with only the documented display-source exception, adjudicated PASS above.
+
+### Drift Scorecard
+
+| Control | Result |
+|---|---|
+| Correct branch and HEAD | PASS |
+| Correct program base | PASS |
+| Exact replacement candidate isolated | PASS |
+| Rejected candidate preserved | PASS |
+| Replacement candidate and workflow separated | PASS |
+| Candidate limited to two expected files | PASS |
+| Preview ownership established | PASS |
+| Replacement preview fully source-supported | PASS |
+| Replacement preview avoids generic UG overfit | PASS |
+| Source and embedded preview values equal | PASS |
+| No stale runtime/public copy remains | PASS |
+| No unrelated identity changed | PASS |
+| DRIFT-015 accurate | PASS |
+| Permanent preview controls mandatory and enforceable | PASS |
+| Claims/evidence/provenance/fixtures/frozen fields unchanged | PASS |
+| Generation deterministic | PASS |
+| Candidate-scope exception explicitly allowed and documented | PASS |
+| Candidate-scope exception limited to UG and expected paths | PASS |
+| No FAIL or UNKNOWN | PASS |
+| Table Talk excluded | PASS |
+| VM-517 untouched | PASS |
+
+### Findings
+
+No blocker findings.
+No high findings.
+No medium findings.
+No low findings.
+
+Non-blocking observations:
+
+- `npm.cmd run test:source-generated` retains unrelated JESKAI/MARDU model-owned inhibitor warnings; approval impact: none.
+- `git diff --check` reports line-ending warnings only; approval impact: none.
+- The exact candidate-scope command exits non-zero, but only for the documented display-source exception explicitly allowed by the operating playbook and verified as UG-limited; approval impact: none.
+
+### Final Replacement Review Decision
+
+`APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e`
+
+Review-record SHA: `PENDING_VM516_REPLACEMENT_REVIEW_RECORD_COMMIT_SHA`.
+
+Certification was not performed. Simic was not marked `semantically_ready`. The program base was not advanced. VM-517 did not start. Original main and Excel were not modified.

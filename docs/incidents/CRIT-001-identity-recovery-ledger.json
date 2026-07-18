@@ -36,19 +36,22 @@
       "current_identity_hold": {
         "identity": "UG",
         "card": "VM-516",
-        "state": "candidate_created",
+        "state": "replacement_candidate_approved",
         "preflight_record": "docs/incidents/recoveries/VM-516-simic-drift-preflight.md",
         "preflight_commit": "851f4b604459073bd739ec10d3f278f90f4069c3",
         "decision": "PASS - SIMIC GATE 1+2 AUTHORIZED",
-        "authorized_next_scope": "Independent Gate 5 review of exact final candidate SHA",
+        "authorized_next_scope": "Governance-only certification of exact approved replacement candidate SHA",
         "remediation_authorized": true,
-        "required_next_milestone": "Independent review of exact final Simic candidate SHA",
+        "required_next_milestone": "Certification of exact approved replacement candidate SHA",
         "gate_1_2_status": "complete",
         "gate_1_2_report": "docs/incidents/recoveries/VM-516-simic-semantic-recovery.md",
         "gate_1_2_commit": "06f140a1e78a24d6c549943d6beb471f4e714302",
         "candidate_created": true,
-        "final_candidate_sha": "cbca9f596a090e924d532e7cb657c27c79ccb9de",
-        "status": "awaiting_independent_review"
+        "final_candidate_sha": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
+        "status": "approved_awaiting_certification",
+        "replacement_workflow_record": "4db93dcf9d957ad89e5b5e3bfeedcbd6f564aa46",
+        "fresh_review_decision": "APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
+        "fresh_review_record": "PENDING_VM516_REPLACEMENT_REVIEW_RECORD_COMMIT_SHA"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -2301,15 +2304,15 @@
         "template_cohort_pattern": false,
         "inventory_updated_at": "2026-07-17T20:36:00-06:00"
       },
-      "workflow": {
-        "current_gate": "gate_5_replacement_candidate_created",
-        "status": "replacement_candidate_awaiting_independent_review",
+    "workflow": {
+      "current_gate": "gate_5_replacement_review_approved",
+      "status": "approved_awaiting_certification",
         "started_at": null,
         "gate_entered_at": "2026-07-17T19:31:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "W",
-        "primary_disposition": "Replacement candidate bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e remediates the stale identity-layer preview blocker from rejected candidate cbca9f596a090e924d532e7cb657c27c79ccb9de and awaits fresh independent review. Simic is not approved, not certified, not semantically_ready; program base remains fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3; VM-517 has not started.",
+      "primary_disposition": "Replacement candidate bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e remediates the stale identity-layer preview blocker from rejected candidate cbca9f596a090e924d532e7cb657c27c79ccb9de and received fresh independent review decision APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e. Simic is approved but not certified, not semantically_ready; program base remains fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3; VM-517 has not started.",
         "drift_preflight": {
           "record": "docs/incidents/recoveries/VM-516-simic-drift-preflight.md",
           "commit": "851f4b604459073bd739ec10d3f278f90f4069c3",
@@ -2347,7 +2350,7 @@
           "certified": false
         },
         "gate_5": {
-          "status": "replacement_candidate_awaiting_fresh_independent_review",
+      "status": "replacement_candidate_approved_awaiting_certification",
           "final_candidate_sha": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
           "superseded_candidates": [
             {
@@ -2359,7 +2362,7 @@
               "reason": "Post-commit candidate-scope validation rejected core_values confidence drift."
             }
           ],
-          "workflow_record_commit": "PENDING_VM516_WORKFLOW_RECORD_COMMIT_SHA",
+      "workflow_record_commit": "04510577b7f3e1c4bacc5f2a88018b461760a80a",
           "independent_review": {
             "reviewer": "Codex independent review window",
             "review_date": "2026-07-17",
@@ -2378,25 +2381,41 @@
           "semantically_ready": false,
           "vm_517_started": false,
           "rejected_candidate_sha": "cbca9f596a090e924d532e7cb657c27c79ccb9de",
-          "replacement_candidate": {
-            "sha": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
-            "subject": "VM-516 replace Simic stale preview candidate",
-            "workflow_record_commit": "PENDING_VM516_REPLACEMENT_WORKFLOW_RECORD_COMMIT_SHA",
-            "remediation": "Replaced source-owned UG identity-layer preview text and regenerated embedded data/factions.json identity-layer preview.",
-            "awaits_independent_review": true,
-            "approved": false,
-            "certified": false,
-            "semantically_ready": false,
-            "vm_517_started": false,
+      "replacement_candidate": {
+        "sha": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
+        "subject": "VM-516 replace Simic stale preview candidate",
+        "workflow_record_commit": "4db93dcf9d957ad89e5b5e3bfeedcbd6f564aa46",
+        "remediation": "Replaced source-owned UG identity-layer preview text and regenerated embedded data/factions.json identity-layer preview.",
+        "awaits_independent_review": false,
+        "approved": true,
+        "certified": false,
+        "semantically_ready": false,
+        "vm_517_started": false,
             "candidate_scope": {
               "command": "node research/validate-semantic-candidate-scope.mjs --base=06f140a1e78a24d6c549943d6beb471f4e714302 --target=bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e --identity=UG",
               "result": "nonzero_documented_target_scoped_display_source_exception",
               "findings": [
                 "identity candidate modified non-identity path data/identity-layers.json",
-                "unrelated or global data/factions.json content changed"
-              ]
-            }
-          }
+            "unrelated or global data/factions.json content changed"
+          ]
+        }
+      },
+      "fresh_independent_review": {
+        "reviewer": "Codex fresh independent review window",
+        "review_date": "2026-07-17",
+        "review_record": "PENDING_VM516_REPLACEMENT_REVIEW_RECORD_COMMIT_SHA",
+        "decision": "APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
+        "exact_candidate_reviewed": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
+        "replacement_workflow_record": "4db93dcf9d957ad89e5b5e3bfeedcbd6f564aa46",
+        "candidate_scope_result": "nonzero_documented_target_scoped_display_source_exception_adjudicated_pass",
+        "blocking_findings": [],
+        "high_findings": [],
+        "medium_findings": [],
+        "low_findings": [],
+        "certified": false,
+        "semantically_ready": false,
+        "vm_517_started": false
+      }
         }
       },
       "semantic_review": {
@@ -2417,9 +2436,9 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-516-simic-semantic-recovery.md",
         "drift_preflight_report": "docs/incidents/recoveries/VM-516-simic-drift-preflight.md",
-        "residual_findings": [
-          "Replacement candidate bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e awaits fresh independent review; no blocker/high/medium/low findings were introduced by remediation validation."
-        ],
+    "residual_findings": [
+      "Fresh independent review approved replacement candidate bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e; no blocker, high, medium, or low findings remain. Certification remains separate and has not been performed."
+    ],
         "validation_summary": [
           "Replacement candidate changes only data/identity-layers.json UG preview source and regenerated data/factions.json embedded identity-layer preview.",
           "Preview source-to-embedded equality passed with replacement text: Simic studies life as living systems to heal, adapt, and improve through biology, clades, and public health.",
@@ -2444,7 +2463,7 @@
             "204cf9e6be15f2c3ac59a36c3977efea9a9945ce",
             "cbca9f596a090e924d532e7cb657c27c79ccb9de"
           ],
-          "review_decision": "awaiting_fresh_independent_review",
+      "review_decision": "APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
           "blocking_findings": []
         }
       },
@@ -2454,13 +2473,13 @@
         "candidate_recovery_sha": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
         "recovery_commit": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
         "certification_commit": null,
-        "reviewer": "Awaiting fresh independent review",
-        "review_cycles": 1,
-        "approval_date": null,
+    "reviewer": "Codex fresh independent replacement review",
+    "review_cycles": 2,
+    "approval_date": "2026-07-17",
         "certified_at": null,
-        "review_result": "awaiting_fresh_independent_review",
-        "final_state": "replacement_candidate_awaiting_independent_review",
-        "independent_review_decision": null,
+    "review_result": "approved_exact_sha",
+    "final_state": "approved_awaiting_certification",
+    "independent_review_decision": "APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
         "remaining_findings": {
           "blocker": [],
           "high": [],
@@ -2475,7 +2494,8 @@
         "candidate_workflow_record": "04510577b7f3e1c4bacc5f2a88018b461760a80a",
         "request_changes_review_record": "4da00dc997162ad609e84a77f6817c2ad0726dbc",
         "replacement_candidate_sha": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
-        "replacement_workflow_record": "PENDING_VM516_REPLACEMENT_WORKFLOW_RECORD_COMMIT_SHA"
+    "replacement_workflow_record": "4db93dcf9d957ad89e5b5e3bfeedcbd6f564aa46",
+    "replacement_review_record": "PENDING_VM516_REPLACEMENT_REVIEW_RECORD_COMMIT_SHA"
       }
     },
     {

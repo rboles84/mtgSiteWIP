@@ -1,7 +1,7 @@
 # VM-516 — Simic Semantic Recovery
 
 ID: VM-516
-Status: Replacement Candidate Created - Awaiting Fresh Independent Review
+Status: Replacement Candidate Approved - Awaiting Certification
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: UG
@@ -22,7 +22,7 @@ Recover Simic end to end under CRIT-001: audit the existing packet, bound readin
 - [x] Gate 5 candidate - Candidate created for independent review.
 - [x] Gate 5 review - Independent review returned REQUEST CHANGES.
 - [x] Review remediation - Replacement candidate created.
-- [ ] Fresh independent review - Replacement candidate.
+- [x] Fresh independent review - Replacement candidate.
 - [ ] Gate 5 certification - Independent certification.
 
 ## Scope Rules
@@ -43,7 +43,8 @@ Recover Simic end to end under CRIT-001: audit the existing packet, bound readin
 - Independent reviewer: Codex independent review returned `REQUEST CHANGES`
 - Independent review record: `4da00dc997162ad609e84a77f6817c2ad0726dbc`
 - Replacement candidate SHA: `bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e`
-- Replacement workflow record: `PENDING_VM516_REPLACEMENT_WORKFLOW_RECORD_COMMIT_SHA`
+- Replacement workflow record: `4db93dcf9d957ad89e5b5e3bfeedcbd6f564aa46`
+- Fresh replacement review record: `PENDING_VM516_REPLACEMENT_REVIEW_RECORD_COMMIT_SHA`
 - Certification commit: pending
 
 ## Setup State
@@ -100,4 +101,6 @@ The replacement preserves the previously passing Simic semantic state: 33 claims
 
 Exact candidate-scope command returned only the documented target-scoped display-source exception for `data/identity-layers.json` and embedded `data/factions.json` identity-layer content. Full validation otherwise passed.
 
-Simic is awaiting fresh independent review of exact replacement candidate `bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e`. Simic is not approved, not certified, not `semantically_ready`, and VM-517 has not started.
+Fresh independent review approved exact replacement candidate `bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e` with decision `APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e`. The review adjudicated the candidate-scope non-zero result as the documented UG-limited display-source exception permitted by the operating playbook. No blocker, high, medium, or low findings remain.
+
+Simic is approved but not certified, not `semantically_ready`, and VM-517 has not started. Certification remains a separate governance-only gate.
