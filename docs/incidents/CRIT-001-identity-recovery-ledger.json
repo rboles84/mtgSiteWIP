@@ -5,14 +5,16 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "W",
-    "next_identity": "W",
-    "certified_identity_count": 15,
+    "active_identity": "U",
+    "next_identity": "U",
+    "certified_identity_count": 16,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
       "next_cohort": "Wave 3 monocolors",
-      "current_program_base": "272337004aa63cfd33da5f1a859c33d211c8ca74"
+      "current_program_base": "PENDING_VM517_CERTIFICATION_COMMIT_SHA",
+      "wave_3_monocolors": "active",
+      "wave_3_monocolors_certified": "1 of 5"
     },
     "wip_limit": 1,
     "active_prerequisite": null,
@@ -41,161 +43,24 @@
       "installed_after_program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
       "governance_commit": "PENDING_CRIT001_DRIFT_CONTROL_GOVERNANCE_SHA",
       "current_identity_hold": {
-        "identity": "W",
-        "card": "VM-517",
-        "state": "approved_awaiting_certification",
-        "preflight_record": "docs/incidents/recoveries/VM-517-white-drift-preflight.md",
-        "preflight_commit": "PENDING_VM517_DRIFT_PREFLIGHT_COMMIT_SHA",
-        "preflight_rerun_record": "docs/incidents/recoveries/VM-517-white-drift-preflight-rerun.md",
-        "preflight_rerun_commit": "PENDING_VM517_DRIFT_PREFLIGHT_RERUN_SHA",
-        "original_preflight_decision": "STOP - WHITE GATE 1+2 NOT AUTHORIZED",
-        "decision": "APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95",
-        "authorized_next_scope": "Certification of exact approved White candidate SHA may proceed in a separate certification window. semantically_ready transition, program-base advancement, and Excel updates remain unauthorized until certification; VM-518 work remains unauthorized/not started.",
-        "remediation_authorized": true,
-        "required_next_milestone": "Run certification for exact approved VM-517 White candidate SHA",
-        "gate_1_2_status": "complete_remediation_authorized",
-        "gate_1_2_report": "docs/incidents/recoveries/VM-517-white-semantic-recovery.md",
-        "gate_1_2_commit": "307b93d56b4314405011f21f7d7616ac4b7ed16f",
-        "candidate_created": true,
-        "final_candidate_sha": "89535e5f73598a5b518e31e11598b05087274a95",
-        "infrastructure_candidate": {
-          "sha": "aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2",
-          "subject": "CRIT-001 support monocolor collision guidance validation",
-          "workflow_record": "docs/incidents/recoveries/VM-517-monocolor-validator-candidate-workflow.md",
-          "review_record": "docs/incidents/recoveries/VM-517-monocolor-validator-independent-review.md",
-          "review_decision": "APPROVE EXACT SHA aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2",
-          "review_record_commit": "PENDING_VM517_MONOCOLOR_VALIDATOR_REVIEW_RECORD_SHA",
-          "status": "approved_exact_sha",
-          "white_preflight_rerun_required_after_approval": false,
-          "white_preflight_rerun_decision": "PASS - WHITE GATE 1+2 AUTHORIZED",
-          "drift_register_entry": "DRIFT-016"
-        },
-        "status": "approved_awaiting_certification",
-        "prior_identity_certified": "UG",
-        "prior_identity_certification": "272337004aa63cfd33da5f1a859c33d211c8ca74",
-        "gate_1_2_findings": {
-          "initial_claim_counts": {
-            "total": 8,
-            "substantive_claim": 0,
-            "discovery_record": 0,
-            "support_record": 0,
-            "unclassified": 8
-          },
-          "target_role_disposition": {
-            "substantive_claim": 6,
-            "discovery_record": 0,
-            "support_record": 2,
-            "unclassified": 0
-          },
-          "substantive_claim_ids": [
-            "white_claim_0002",
-            "white_claim_0003",
-            "white_claim_0004",
-            "white_claim_0005",
-            "white_claim_0006",
-            "white_claim_0007"
-          ],
-          "support_record_ids": [
-            "white_claim_0001",
-            "white_claim_0008"
-          ],
-          "remediation_blockers": [
-            "All eight current White claims lack explicit semantic_role.",
-            "Substantive White claims need bounded evidence_locations and Contract v1.1 evidence_scope.",
-            "Support/governance/rules/Scryfall rows currently enter profile or placement proof chains.",
-            "W provenance has 3 null canonical IDs and no White semantic fixture exists.",
-            "Placement chatbot mismatch guidance lacks evidence mapping."
-          ],
-          "frozen_fields_to_preserve": [
-            "object-with-pairs collision_guidance shape",
-            "lateral targets WU/WB/WG/WR",
-            "collision targets B/R",
-            "absent explicit GENERIC_W_OVERFIT raw collision target",
-            "required positive terms/min hits/broad penalty/strengthen/suppress lists/native IDs/calibration/preview equality"
-          ]
-        },
-        "candidate_commit_subject": "VM-517 remediate White semantic readiness candidate plus replacement scope fix",
-        "superseded_candidates": [
-          {
-            "sha": "8d6014950e5ca45ef85a90855cf283d80fd18e0d",
-            "subject": "VM-517 remediate White semantic readiness candidate",
-            "reason": "Post-commit candidate-scope validation rejected added placement_summary calibrated_primary_read and calibrated_false_positive_guardrail fields."
-          }
-        ],
-        "replacement_candidate_sha": "89535e5f73598a5b518e31e11598b05087274a95",
-        "candidate_scope": {
-          "command": "node research/validate-semantic-candidate-scope.mjs --base=307b93d56b4314405011f21f7d7616ac4b7ed16f --target=89535e5f73598a5b518e31e11598b05087274a95 --identity=W",
-          "result": "PASS",
-          "output": "Semantic candidate scope passed for W: 307b93d56b4314405011f21f7d7616ac4b7ed16f..89535e5f73598a5b518e31e11598b05087274a95"
-        },
-        "gate_3_4_results": {
-          "final_claim_counts": {
-            "total": 8,
-            "substantive_claim": 6,
-            "discovery_record": 0,
-            "support_record": 2,
-            "unclassified": 0
-          },
-          "provenance_count": 25,
-          "null_canonical_ids": 0,
-          "null_canonical_hashes": 0,
-          "unresolved_pointers": 0,
-          "duplicate_canonical_pointers": 0,
-          "exact_chain_pairs": [
-            {
-              "locator": "data/raw-factions/white/white.profile.json#/core_identity",
-              "generated_count": 5,
-              "fixture_count": 5,
-              "exact_ordered_equality": true
-            },
-            {
-              "locator": "data/raw-factions/white/white.placement.json#/placement_summary",
-              "generated_count": 6,
-              "fixture_count": 6,
-              "exact_ordered_equality": true
-            }
-          ],
-          "support_isolation": "white_claim_0001 removed from generated/authoritative proof; white_claim_0008 retained only as auxiliary Commander Compass support metadata with evidence_use auxiliary_support",
-          "frozen_fields": "Placement summary text, required terms, minimum hits, broad penalty, strengthen/suppress lists, lateral targets WU/WB/WG/WR, collision targets B/R, object-with-pairs raw collision shape, absent generic collision target, and preview equality preserved."
-        },
-        "validation": {
-          "build_factions": "PASS twice before candidate; PASS again before replacement candidate",
-          "audit_semantic_readiness": "PASS W: 8 total, 6 substantive, 0 discovery, 2 support, 0 unclassified",
-          "validate_semantic_readiness": "PASS W",
-          "semantic_candidate_scope_tests": "PASS",
-          "test_semantic_readiness": "PASS; verified 1800 semantic provenance entries",
-          "test_placement": "PASS; 37 factions, 37 golden paths",
-          "test_faction_context_isolation": "PASS",
-          "test_source_generated": "PASS with known unrelated JESKAI/MARDU warnings",
-          "npm_test": "PASS",
-          "git_diff_check": "PASS with line-ending warnings only"
-        },
+        "identity": "U",
+        "card": "VM-518",
+        "state": "setup_only_drift_preflight_pending",
+        "branch": "codex/vm-518-blue-semantic-recovery",
+        "prior_identity_certified": "W",
+        "prior_identity_certification": "PENDING_VM517_CERTIFICATION_COMMIT_SHA",
+        "authorized_next_scope": "Create VM-518 setup branch only. A separate committed Blue drift-preflight control record is required before Gate 1+2 or semantic work may begin.",
+        "required_next_milestone": "Run VM-518 Blue drift preflight in a separate authorized window.",
+        "drift_preflight_started": false,
+        "gate_1_2_status": "not_started",
+        "candidate_created": false,
         "independent_review": {
-          "performed": true,
-          "decision": "APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95",
-          "review_record": "docs/incidents/recoveries/VM-517-white-independent-review.md",
-          "review_record_commit": "PENDING_VM517_WHITE_REVIEW_RECORD_SHA",
-          "reviewed_candidate_sha": "89535e5f73598a5b518e31e11598b05087274a95",
-          "reviewed_provenance_count": 25,
-          "findings": {
-            "blocker": [],
-            "high": [],
-            "medium": [],
-            "low": [],
-            "non_blocking_observations": [
-              "git diff --check emitted line-ending warnings only and exited 0.",
-              "test:source-generated retained known unrelated JESKAI/MARDU model-owned inhibitor warnings; no W, JESKAI, or MARDU candidate defect was found."
-            ]
-          }
+          "performed": false
         },
         "certification": {
           "performed": false,
-          "status": "not_certified",
+          "status": "not_started",
           "certification_sha": null
-        },
-        "next_identity": {
-          "card": "VM-518",
-          "state": "not_started"
         }
       },
       "pre_simic_sequence": [
@@ -205,7 +70,16 @@
         "Commit a VM-516 drift-preflight control record before Gate 1+2.",
         "Update the external tracker with the drift-preflight SHA.",
         "Begin Simic Goal mode only after the drift preflight reports no FAIL or UNKNOWN controls."
-      ]
+      ],
+      "last_certification": {
+        "identity": "W",
+        "card": "VM-517",
+        "candidate_sha": "89535e5f73598a5b518e31e11598b05087274a95",
+        "review_decision": "APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95",
+        "certification_commit": "PENDING_VM517_CERTIFICATION_COMMIT_SHA",
+        "certified_at": "2026-07-18T09:42:09-06:00",
+        "final_state": "semantically_ready"
+      }
     },
     "rejected_prerequisite_candidates": [
       {
@@ -2717,14 +2591,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_3_remediation_authorized",
-        "status": "remediation_authorized",
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": "2026-07-18",
-        "gate_entered_at": "2026-07-17T22:32:49-06:00",
+        "gate_entered_at": "2026-07-18T09:42:09-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "U",
-        "primary_disposition": "Gate 1+2 read-only audit completed in docs/incidents/recoveries/VM-517-white-semantic-recovery.md and records REMEDIATION AUTHORIZED. Source sufficiency exists from local official White philosophy/mechanical/governance records; Gate 3+4 must assign roles, add bounded evidence scopes, isolate support records, repair provenance canonical IDs, create fixtures, preserve frozen placement/collision/preview fields, and validate before a Gate 5 candidate."
+        "primary_disposition": "Certified semantically_ready from exact approved candidate 89535e5f73598a5b518e31e11598b05087274a95 after independent review decision APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95. Superseded candidate 8d6014950e5ca45ef85a90855cf283d80fd18e0d remains unapproved as a candidate-scope failure. Wave 3 monocolors are 1 of 5 certified, total certified identities 16, and VM-518 Blue is setup-only pending a separate drift preflight."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -2771,7 +2645,7 @@
           "discovery_record": [],
           "unclassified": []
         },
-        "status": "approved_awaiting_certification",
+        "status": "certified",
         "candidate_recovery_sha": "89535e5f73598a5b518e31e11598b05087274a95",
         "final_candidate_sha": "89535e5f73598a5b518e31e11598b05087274a95",
         "superseded_candidate_shas": [
@@ -2791,8 +2665,8 @@
         "review_cycles": 1,
         "review_record": "docs/incidents/recoveries/VM-517-white-independent-review.md",
         "review_record_commit": "PENDING_VM517_WHITE_REVIEW_RECORD_SHA",
-        "certification_commit": null,
-        "certification_status": "not_certified",
+        "certification_commit": "PENDING_VM517_CERTIFICATION_COMMIT_SHA",
+        "certification_status": "certified",
         "validation_passed": true,
         "candidate_scope": {
           "command": "node research/validate-semantic-candidate-scope.mjs --base=307b93d56b4314405011f21f7d7616ac4b7ed16f --target=89535e5f73598a5b518e31e11598b05087274a95 --identity=W",
@@ -2811,19 +2685,30 @@
         "notes": [
           "Gate 3+4 assigned six substantive claims and two support records, added evidence_scope to all substantive evidence locations, isolated support rows, repaired W provenance canonical IDs, created White fixtures, and preserved object-with-pairs collision guidance.",
           "Superseded candidate 8d6014950e5ca45ef85a90855cf283d80fd18e0d remains unapproved after candidate-scope rejected added calibrated placement_summary fields.",
-          "Final candidate 89535e5f73598a5b518e31e11598b05087274a95 passes exact candidate-scope and awaits independent review. No approval, certification, semantically_ready transition, or VM-518 work occurred."
-        ]
+          "Final candidate 89535e5f73598a5b518e31e11598b05087274a95 passed exact candidate-scope and received independent review decision APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95. Certification governance used placeholder PENDING_VM517_CERTIFICATION_COMMIT_SHA; exact certification SHA is reported in final task output."
+        ],
+        "certified_at": "2026-07-18T09:42:09-06:00"
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
-        "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
-        "certified_at": null
+        "candidate_recovery_sha": "89535e5f73598a5b518e31e11598b05087274a95",
+        "recovery_commit": "89535e5f73598a5b518e31e11598b05087274a95",
+        "certification_commit": "PENDING_VM517_CERTIFICATION_COMMIT_SHA",
+        "reviewer": "Codex independent review window",
+        "review_result": "approved_exact_sha",
+        "review_cycles": 1,
+        "approval_date": "2026-07-18",
+        "certified_at": "2026-07-18T09:42:09-06:00",
+        "final_state": "semantically_ready",
+        "superseded_candidate_shas": [
+          "8d6014950e5ca45ef85a90855cf283d80fd18e0d"
+        ],
+        "reviewed_provenance_count": 25,
+        "known_unchanged_warnings": [
+          "git diff --check may emit line-ending warnings only and exits 0.",
+          "npm.cmd run test:source-generated retains known unrelated JESKAI/MARDU model-owned inhibitor warnings and exits 0."
+        ]
       },
       "status": "approved_awaiting_certification",
       "primary_disposition": "Final White candidate 89535e5f73598a5b518e31e11598b05087274a95 received independent review decision APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95. Superseded candidate 8d6014950e5ca45ef85a90855cf283d80fd18e0d remains recorded as candidate-scope failure. White is not certified and not semantically_ready; VM-518 not started."
@@ -2890,14 +2775,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "setup_only",
+        "status": "setup_only_drift_preflight_pending",
+        "started_at": "2026-07-18T09:42:09-06:00",
+        "gate_entered_at": "2026-07-18T09:42:09-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "B",
-        "primary_disposition": null
+        "primary_disposition": "Setup-only after VM-517 White certification. No Blue drift preflight, Gate 1+2 semantic audit, remediation, generated rebuild, candidate, review, or certification has started."
       },
       "semantic_review": {
         "required_neighbors": [],

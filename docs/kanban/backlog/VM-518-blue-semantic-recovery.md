@@ -1,17 +1,19 @@
 # VM-518 — Blue Semantic Recovery
 
 ID: VM-518
-Status: Backlog
+Status: Setup Only - Drift Preflight Pending
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: U
 Raw packet: `data/raw-factions/blue/`
 Cohort: mono
-Contract: pending Contract v1
+Contract: pending CRIT-001 Contract v1.1 drift preflight
 
 ## Objective
 
 Recover Blue end to end under CRIT-001: audit the existing packet, bound readiness blockers, gather only sufficient evidence, repair canonical data, rebuild generated artifacts, validate semantic fixtures and regressions, obtain independent review of an immutable candidate SHA, and certify that exact recovery.
+
+Current state: setup only after VM-517 White certification. Branch `codex/vm-518-blue-semantic-recovery` is authorized only for setup. A separate committed VM-518 drift-preflight control record is required before Gate 1+2 or any Blue semantic work may begin.
 
 ## Gates
 

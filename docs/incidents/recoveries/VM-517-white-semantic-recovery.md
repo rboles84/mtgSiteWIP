@@ -1,10 +1,11 @@
 # VM-517 White Semantic Recovery
 
-Status: Independent review approved exact candidate. Awaiting certification. Not certified. Not semantically_ready.
+Status: Certified. White is semantically_ready.
 
 Identity: White / W
 Contract: CRIT-001 semantic-readiness Contract v1.1
-Program base: `272337004aa63cfd33da5f1a859c33d211c8ca74`
+Prior program base: `272337004aa63cfd33da5f1a859c33d211c8ca74`
+Certification/program base: `PENDING_VM517_CERTIFICATION_COMMIT_SHA`
 Starting HEAD for this Gate 1+2 audit: `2bec073daa70c56a251f9086f034370e4abe22db`
 Original STOP preflight: `06627929eb0e048a8c0c20612970e779098a982c`
 Approved monocolor validator candidate: `aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2`
@@ -12,11 +13,12 @@ Validator approval review: `af3d8c6c563b3743f65c2dc8478519707f4785c8`
 Passing preflight rerun: `2bec073daa70c56a251f9086f034370e4abe22db`
 Gate 1+2 governance commit: `307b93d56b4314405011f21f7d7616ac4b7ed16f`
 Superseded candidate: `8d6014950e5ca45ef85a90855cf283d80fd18e0d`
-Final candidate awaiting review: `89535e5f73598a5b518e31e11598b05087274a95`
+Final approved candidate: `89535e5f73598a5b518e31e11598b05087274a95`
 Independent review decision: `APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95`
 Independent review record: `docs/incidents/recoveries/VM-517-white-independent-review.md`
+Certification commit: `PENDING_VM517_CERTIFICATION_COMMIT_SHA`
 
-This record began as the read-only Gate 1+2 audit and evidence confirmation for White, then was extended by the Gate 5 workflow record after candidate creation. It does not perform independent review, does not certify White, does not mark White semantically_ready, does not advance the program base, does not start VM-518, and does not modify the external Excel tracker.
+This record began as the read-only Gate 1+2 audit and evidence confirmation for White, then was extended by the Gate 5 workflow record after candidate creation and the certification record after exact-SHA approval. Certification is governance-only: it does not modify White semantic/generated/runtime files, does not create another candidate, does not start Blue semantic work, and does not modify the external Excel tracker.
 
 ## 1. Preflight Reverification
 
@@ -260,7 +262,7 @@ Candidate-scope command:
 
 Result: PASS, `Semantic candidate scope passed for W: 307b93d56b4314405011f21f7d7616ac4b7ed16f..89535e5f73598a5b518e31e11598b05087274a95`.
 
-White candidate review completed in `docs/incidents/recoveries/VM-517-white-independent-review.md` with decision `APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95`. White is not certified, not semantically_ready, the program base remains `272337004aa63cfd33da5f1a859c33d211c8ca74`, and VM-518 has not started.
+White candidate review completed in `docs/incidents/recoveries/VM-517-white-independent-review.md` with decision `APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95`. At the review checkpoint, White was not yet certified, not yet semantically_ready, the program base remained `272337004aa63cfd33da5f1a859c33d211c8ca74`, and VM-518 had not started.
 
 ## 16. Independent Review Record
 
@@ -283,4 +285,35 @@ Reviewed truth:
 - Candidate-scope validation passed for the exact SHA.
 - No blocker, high, medium, or low findings remain.
 
-Certification was not performed, White was not marked semantically_ready, the program base was not advanced, VM-518 was not started, original main was not modified, and the external Excel tracker was not modified.
+## 17. Certification Record
+
+Certification decision: CERTIFY exact approved candidate `89535e5f73598a5b518e31e11598b05087274a95`.
+
+Certification commit: `PENDING_VM517_CERTIFICATION_COMMIT_SHA`.
+
+Certified state:
+
+- White / W is `semantically_ready`.
+- CRIT-001 certified identity count advances from 15 to 16.
+- Wave 3 monocolors advance to 1 of 5 certified.
+- Current program base advances from `272337004aa63cfd33da5f1a859c33d211c8ca74` to `PENDING_VM517_CERTIFICATION_COMMIT_SHA`.
+- VM-518 Blue / U is setup-only on branch `codex/vm-518-blue-semantic-recovery`; Blue drift preflight and Gate 1+2 semantic work are not started.
+
+Certification guards:
+
+- Current branch before certification: `codex/vm-517-white-semantic-recovery`.
+- Current HEAD before certification: `42bbb32e005bd2fbfd8ce9c2c86d2bb4709b9085`.
+- Required objects and ancestry passed from program base through original STOP preflight, validator candidate/review, passing preflight rerun, Gate 1+2, superseded candidate, exact final candidate, candidate workflow, and independent review/current HEAD.
+- Exact review decision confirmed: `APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95`.
+- Candidate semantic/generated/fixture/recruiter files have no post-candidate drift.
+- Exact candidate-scope command passed: `node research/validate-semantic-candidate-scope.mjs --base=307b93d56b4314405011f21f7d7616ac4b7ed16f --target=89535e5f73598a5b518e31e11598b05087274a95 --identity=W`.
+- Certification drift assertions passed for claim roles, source roles, evidence scopes, provenance, exact fixture/provenance parity, frozen fields, public/recruiter/preview alignment, object-with-`pairs` collision guidance, absent `GENERIC_W_OVERFIT` target, and support isolation.
+- Deterministic build check passed: `npm.cmd run build:factions` completed and generated files had no content diff.
+- Regression commands passed: `node research/audit-semantic-readiness.mjs --targets=W`, `node research/validate-semantic-readiness.mjs --targets=W`, `node research/semantic-candidate-scope-tests.js`, `npm.cmd run test:semantic-readiness`, `npm.cmd run test:placement`, `npm.cmd run test:faction-context-isolation`, and `npm.cmd run test:source-generated`.
+
+Warnings and limitations:
+
+- `npm.cmd run test:source-generated` retains known unrelated JESKAI/MARDU model-owned inhibitor warnings and exits 0.
+- Git may emit line-ending warnings for generated files; content diffs remained empty after build.
+- The external Excel tracker was not modified.
+- Blue semantic data was not inspected or changed.
