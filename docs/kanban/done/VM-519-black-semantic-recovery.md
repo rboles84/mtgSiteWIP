@@ -1,7 +1,7 @@
 # VM-519 - Black Semantic Recovery
 
 ID: VM-519
-Status: Replacement Candidate Approved - Awaiting Certification
+Status: Done - Certified Semantically Ready
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: B
@@ -13,7 +13,7 @@ Contract: CRIT-001 Contract v1.1 after separate drift preflight; Gate 1+2 read-o
 
 Recover Black end to end under CRIT-001 after VM-518 Blue certification. The separate committed VM-519 drift-preflight control record has passed with no `FAIL` or `UNKNOWN` results.
 
-Current state: Black Gate 5 candidate `5bffc3465786c18950d32dcb6f056504b3b8e668` received independent review decision `REQUEST CHANGES` in review record `118facf42dd5b613d3aa946de6b3968b24e9455a`. Replacement candidate `0bfe8b3d46d163de6e20064f5de9717075ca02c8` remediates only the stale/generic Black preview copy in `data/identity-layers.json#/expressions/B/preview_text` and embedded `data/factions.json#/identity_layers/expressions/B/preview_text`; fresh independent review approved the exact replacement candidate. Certification, external tracker update, push, PR, merge, semantically_ready transition, and VM-520 remain not started.
+Current state: Black / B is certified `semantically_ready` under CRIT-001 Contract v1.1 from exact approved replacement candidate `0bfe8b3d46d163de6e20064f5de9717075ca02c8`. Initial candidate `5bffc3465786c18950d32dcb6f056504b3b8e668` remains preserved and unapproved after independent review decision `REQUEST CHANGES` in review record `118facf42dd5b613d3aa946de6b3968b24e9455a`. Certification used `PENDING_VM519_CERTIFICATION_COMMIT_SHA` inside governance; actual SHA is reported in final task output. VM-520 Red / R is setup-only with drift preflight pending.
 
 ## Gates
 
@@ -26,7 +26,7 @@ Current state: Black Gate 5 candidate `5bffc3465786c18950d32dcb6f056504b3b8e668`
 - [x] Independent review of exact candidate SHA - REQUEST CHANGES.
 - [x] Replacement candidate for preview-surface finding.
 - [x] Independent review of replacement exact candidate SHA.
-- [ ] Certification of exact approved candidate SHA.
+- [x] Certification of exact approved candidate SHA.
 
 ## Scope Rules
 
@@ -46,8 +46,8 @@ Current state: Black Gate 5 candidate `5bffc3465786c18950d32dcb6f056504b3b8e668`
 - Rejected candidate recovery SHA: `5bffc3465786c18950d32dcb6f056504b3b8e668`
 - Rejection reviewer: `REQUEST CHANGES` in `docs/incidents/recoveries/VM-519-black-independent-review.md` at `118facf42dd5b613d3aa946de6b3968b24e9455a`
 - Replacement candidate SHA: `0bfe8b3d46d163de6e20064f5de9717075ca02c8`
-- Replacement review: `APPROVE EXACT SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8` in `docs/incidents/recoveries/VM-519-black-replacement-independent-review.md` at `PENDING_VM519_BLACK_REPLACEMENT_REVIEW_RECORD_SHA`
-- Certification commit: pending
+- Replacement review: `APPROVE EXACT SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8` in `docs/incidents/recoveries/VM-519-black-replacement-independent-review.md` at `8aac2c23ff13986790950a63b093d9787ae7bf1d`
+- Certification commit: `PENDING_VM519_CERTIFICATION_COMMIT_SHA`
 
 ## Setup Boundary
 
@@ -101,8 +101,22 @@ VM-519 Black / B passed drift preflight from the VM-518 Blue certification progr
 
 - Exact replacement candidate reviewed: `0bfe8b3d46d163de6e20064f5de9717075ca02c8`.
 - Review record: `docs/incidents/recoveries/VM-519-black-replacement-independent-review.md`.
-- Review-record SHA: `PENDING_VM519_BLACK_REPLACEMENT_REVIEW_RECORD_SHA`.
+- Review-record SHA: `8aac2c23ff13986790950a63b093d9787ae7bf1d`.
 - Decision: `APPROVE EXACT SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8`.
 - Findings: no blocker, high, medium, or low findings.
 - Non-blocking observation: exact candidate-scope validation exits 1 only for the documented B display-source exception limited to the two preview paths.
-- Status: approved awaiting certification; not certified, not `semantically_ready`; program base unchanged; certified count remains 17; VM-520 not started.
+- Status: approved for certification; not certified in the review window; program base unchanged at review time.
+
+## Certification - 2026-07-18
+
+- Decision: `CERTIFIED SEMANTICALLY_READY`.
+- Exact approved candidate certified: `0bfe8b3d46d163de6e20064f5de9717075ca02c8`.
+- Rejected candidate preserved and unapproved: `5bffc3465786c18950d32dcb6f056504b3b8e668`.
+- Certification commit placeholder: `PENDING_VM519_CERTIFICATION_COMMIT_SHA`.
+- Final claim roles: 8 total; 6 substantive (`black_claim_0002` through `black_claim_0007`), 0 discovery, 2 support (`black_claim_0001`, `black_claim_0008`), 0 unclassified.
+- B provenance: 25 entries; 0 null canonical IDs; 0 null canonical content hashes; 0 unresolved pointers; 0 duplicate canonical entries; 0 duplicate null canonical-entry keys; 0 support/discovery/non-philosophical-backed authoritative chains.
+- Exact-chain fixtures: `/core_identity` 5/5 exact (`black_claim_0002` through `black_claim_0006`) and `/placement_summary` 6/6 exact (`black_claim_0002` through `black_claim_0007`).
+- Preview certified: `Black claims agency by turning costs, risks, and resources into leverage. Its power is deliberate, consequential, and not cruelty for its own sake.`
+- Candidate-scope certification result: `PASS - approved documented B display-source exception`; command exited 1 only for `data/identity-layers.json#/expressions/B/preview_text` and `data/factions.json#/identity_layers/expressions/B/preview_text`.
+- Validation passed: Black reconciliation script, audit, semantic readiness validation, semantic candidate-scope tests, exact candidate-scope exception check, deterministic `build:factions` with no content diff, semantic-readiness tests, placement tests, faction-context isolation tests, source-generated guardrails with known unrelated JESKAI/MARDU warnings only, full `npm.cmd test`, and `git diff --check` with line-ending warnings only.
+- Program status after certification: 18 certified identities; Wave 3 monocolors 3 of 5 certified; VM-520 Red / R setup-only with drift preflight pending.

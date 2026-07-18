@@ -5,16 +5,16 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "B",
-    "next_identity": "B",
-    "certified_identity_count": 17,
+    "active_identity": "R",
+    "next_identity": "R",
+    "certified_identity_count": 18,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
       "next_cohort": "Wave 3 monocolors",
-      "current_program_base": "04547ecfc52d1c96537b6375e9d5c4b8f3690a32",
+      "current_program_base": "PENDING_VM519_CERTIFICATION_COMMIT_SHA",
       "wave_3_monocolors": "active",
-      "wave_3_monocolors_certified": "2 of 5"
+      "wave_3_monocolors_certified": "3 of 5"
     },
     "wip_limit": 1,
     "active_prerequisite": null,
@@ -43,80 +43,31 @@
       "installed_after_program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
       "governance_commit": "PENDING_CRIT001_DRIFT_CONTROL_GOVERNANCE_SHA",
       "current_identity_hold": {
-        "identity": "B",
-        "card": "VM-519",
-        "state": "approved_awaiting_certification",
-        "branch": "codex/vm-519-black-semantic-recovery",
-        "prior_identity_certified": "U",
-        "prior_identity_certification": "PENDING_VM518_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "Certify exact approved VM-519 Black replacement candidate SHA only. Do not mark semantically_ready, advance program base, or start VM-520 outside a separate certification window.",
-        "required_next_milestone": "Certification of exact approved replacement candidate SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8.",
-        "drift_preflight_started": true,
-        "drift_preflight_completed": true,
-        "drift_preflight_record": "docs/incidents/recoveries/VM-519-black-drift-preflight.md",
-        "drift_preflight_commit": "PENDING_VM519_DRIFT_PREFLIGHT_SHA",
-        "drift_preflight_decision": "PASS - BLACK GATE 1+2 AUTHORIZED",
-        "gate_1_2_status": "complete",
-        "candidate_created": true,
+        "identity": "R",
+        "card": "VM-520",
+        "state": "setup_only_drift_preflight_pending",
+        "branch": "codex/vm-520-red-semantic-recovery",
+        "prior_identity_certified": "B",
+        "prior_identity_certification": "PENDING_VM519_CERTIFICATION_COMMIT_SHA",
+        "authorized_next_scope": "Setup-only VM-520 Red branch/card. A separate committed Red drift-preflight record is required before Gate 1+2 semantic work.",
+        "required_next_milestone": "Run VM-520 Red drift preflight control record only; do not begin Red Gate 1+2 before that record passes with no FAIL or UNKNOWN controls.",
+        "drift_preflight_started": false,
+        "drift_preflight_completed": false,
+        "drift_preflight_record": null,
+        "drift_preflight_commit": null,
+        "gate_1_2_status": "not_started",
+        "candidate_created": false,
         "independent_review": {
-          "performed": true,
-          "status": "request_changes",
-          "decision": "REQUEST CHANGES",
-          "candidate_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668",
-          "review_report": "docs/incidents/recoveries/VM-519-black-independent-review.md",
-          "review_record_sha": "118facf42dd5b613d3aa946de6b3968b24e9455a",
-          "blocking_findings": [
-            "DRIFT-015 preview failure: data/identity-layers.json#/expressions/B/preview_text and data/factions.json#/identity_layers/expressions/B/preview_text retain generic ambition/self-definition/pragmatism/survival/claim-agency copy."
-          ]
+          "performed": false,
+          "status": "not_started"
         },
         "certification": {
           "performed": false,
-          "status": "not_certified_awaiting_certification",
+          "status": "not_started",
           "certification_sha": null
         },
-        "program_base": "04547ecfc52d1c96537b6375e9d5c4b8f3690a32",
-        "updated_at": "2026-07-18T15:55:00-06:00",
-        "gate_1_2_report": "docs/incidents/recoveries/VM-519-black-semantic-recovery.md",
-        "gate_1_2_commit": "604a19696d3dfb0d43d6b96676c0c6605628eb33",
-        "remediation_authorized": true,
-        "candidate_sha": "0bfe8b3d46d163de6e20064f5de9717075ca02c8",
-        "replacement_candidate": {
-          "created": true,
-          "candidate_sha": "0bfe8b3d46d163de6e20064f5de9717075ca02c8",
-          "subject": "VM-519 replace stale Black preview candidate",
-          "status": "approved_awaiting_certification",
-          "files": [
-            "data/identity-layers.json",
-            "data/factions.json"
-          ],
-          "supersedes_rejected_candidate_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668",
-          "old_preview": "Black values ambition, self-definition, pragmatism, and survival. It asks what you are willing to do to claim agency.",
-          "replacement_preview": "Black claims agency by turning costs, risks, and resources into leverage. Its power is deliberate, consequential, and not cruelty for its own sake.",
-          "candidate_scope_result": "Exit 1 documented DRIFT-015 display-source exception limited to data/identity-layers.json#/expressions/B/preview_text and data/factions.json#/identity_layers/expressions/B/preview_text; source and embedded values exactly equal; no other frozen or candidate-scope-sensitive field changed.",
-          "review_decision": "APPROVE EXACT SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8",
-          "review_report": "docs/incidents/recoveries/VM-519-black-replacement-independent-review.md",
-          "review_record_sha": "PENDING_VM519_BLACK_REPLACEMENT_REVIEW_RECORD_SHA"
-        },
-        "rejected_candidate_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668",
-        "replacement_independent_review": {
-          "performed": true,
-          "status": "approved_exact_sha",
-          "decision": "APPROVE EXACT SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8",
-          "candidate_sha": "0bfe8b3d46d163de6e20064f5de9717075ca02c8",
-          "rejected_candidate_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668",
-          "review_report": "docs/incidents/recoveries/VM-519-black-replacement-independent-review.md",
-          "review_record_sha": "PENDING_VM519_BLACK_REPLACEMENT_REVIEW_RECORD_SHA",
-          "findings": {
-            "blockers": [],
-            "high": [],
-            "medium": [],
-            "low": [],
-            "non_blocking_observations": [
-              "Exact candidate-scope validation exits 1 only for the documented B display-source exception limited to data/identity-layers.json#/expressions/B/preview_text and data/factions.json#/identity_layers/expressions/B/preview_text."
-            ]
-          },
-          "approval_date": "2026-07-18"
-        }
+        "program_base": "PENDING_VM519_CERTIFICATION_COMMIT_SHA",
+        "updated_at": "2026-07-18T16:24:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -127,15 +78,46 @@
         "Begin Simic Goal mode only after the drift preflight reports no FAIL or UNKNOWN controls."
       ],
       "last_certification": {
-        "identity": "U",
-        "card": "VM-518",
-        "candidate_sha": "ac774e2eac207cc7fe2d744beac1f11788908159",
-        "review_decision": "APPROVE EXACT SHA ac774e2eac207cc7fe2d744beac1f11788908159",
-        "certification_commit": "PENDING_VM518_CERTIFICATION_COMMIT_SHA",
-        "certified_at": "2026-07-18T12:47:00-06:00",
+        "identity": "B",
+        "card": "VM-519",
+        "candidate_sha": "0bfe8b3d46d163de6e20064f5de9717075ca02c8",
+        "rejected_candidate_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668",
+        "rejected_candidate_review_decision": "REQUEST CHANGES",
+        "rejected_candidate_review_sha": "118facf42dd5b613d3aa946de6b3968b24e9455a",
+        "replacement_workflow_sha": "02974fec8242544ceb47e0d8c6b0f776593d9e03",
+        "review_decision": "APPROVE EXACT SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8",
+        "approval_review_sha": "8aac2c23ff13986790950a63b093d9787ae7bf1d",
+        "certification_commit": "PENDING_VM519_CERTIFICATION_COMMIT_SHA",
+        "certified_at": "2026-07-18T16:24:00-06:00",
         "final_state": "semantically_ready",
         "reviewed_provenance_count": 25,
-        "superseded_candidate_shas": []
+        "claim_role_counts": {
+          "total": 8,
+          "substantive_claim": 6,
+          "discovery_record": 0,
+          "support_record": 2,
+          "unclassified": 0
+        },
+        "substantive_claim_ids": [
+          "black_claim_0002",
+          "black_claim_0003",
+          "black_claim_0004",
+          "black_claim_0005",
+          "black_claim_0006",
+          "black_claim_0007"
+        ],
+        "support_claim_ids": [
+          "black_claim_0001",
+          "black_claim_0008"
+        ],
+        "candidate_scope_result": "PASS - approved documented B display-source exception",
+        "display_source_exception_paths": [
+          "data/identity-layers.json#/expressions/B/preview_text",
+          "data/factions.json#/identity_layers/expressions/B/preview_text"
+        ],
+        "superseded_candidate_shas": [
+          "5bffc3465786c18950d32dcb6f056504b3b8e668"
+        ]
       }
     },
     "rejected_prerequisite_candidates": [
@@ -2981,13 +2963,14 @@
       "computed": {
         "structural_fingerprint": [
           "low-volume-pattern",
-          "template-cohort-pattern"
+          "mixed-role-pattern",
+          "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 6,
           "discovery_record": 0,
-          "support_record": 0,
-          "unclassified": 8
+          "support_record": 2,
+          "unclassified": 0
         },
         "source_count": 7,
         "source_role_counts": {
@@ -3032,14 +3015,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "independent_review",
-        "status": "approved_awaiting_certification",
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": "2026-07-18T12:47:00-06:00",
-        "gate_entered_at": "2026-07-18T13:54:00-06:00",
+        "gate_entered_at": "2026-07-18T16:24:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "R",
-        "primary_disposition": "VM-519 Black exact replacement candidate 0bfe8b3d46d163de6e20064f5de9717075ca02c8 received independent review decision APPROVE EXACT SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8. The rejected candidate 5bffc3465786c18950d32dcb6f056504b3b8e668 remains unapproved. Black is approved awaiting certification, not certified, and not semantically_ready; VM-520 not started.",
+        "primary_disposition": "VM-519 Black is certified semantically_ready from exact approved replacement candidate 0bfe8b3d46d163de6e20064f5de9717075ca02c8. Rejected candidate 5bffc3465786c18950d32dcb6f056504b3b8e668 remains unapproved after REQUEST CHANGES review 118facf42dd5b613d3aa946de6b3968b24e9455a. Candidate-scope certification result is PASS - approved documented B display-source exception limited to the two Black preview paths. VM-520 Red is setup-only with drift preflight pending.",
         "drift_preflight": {
           "record": "docs/incidents/recoveries/VM-519-black-drift-preflight.md",
           "commit": "PENDING_VM519_DRIFT_PREFLIGHT_SHA",
@@ -3050,8 +3033,9 @@
           "remediation_authorized": true,
           "candidate_created": true,
           "review_performed": true,
-          "certified": false,
-          "status": "approved_awaiting_certification"
+          "certified": true,
+          "status": "certified",
+          "certification_commit": "PENDING_VM519_CERTIFICATION_COMMIT_SHA"
         }
       },
       "semantic_review": {
@@ -3085,7 +3069,7 @@
           "Black is approved awaiting certification, not certified, and not semantically_ready.",
           "VM-520 has not started."
         ],
-        "decision": "APPROVE EXACT SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8",
+        "decision": "CERTIFIED EXACT SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8",
         "drift_preflight_commit": "741ed6a81edb567d51a2699cbe7d0ec70e9b5e61",
         "drift_preflight_decision": "PASS - BLACK GATE 1+2 AUTHORIZED",
         "drift_preflight_completed_at": "2026-07-18T13:06:00-06:00",
@@ -3109,12 +3093,13 @@
           "npm.cmd run test:source-generated passed with known unchanged unrelated JESKAI/MARDU model-owned inhibitor warnings.",
           "npm.cmd test passed.",
           "git diff --check passed with line-ending warnings only.",
-          "node research/validate-semantic-candidate-scope.mjs --base=604a19696d3dfb0d43d6b96676c0c6605628eb33 --target=0bfe8b3d46d163de6e20064f5de9717075ca02c8 --identity=B exited 1 only for the documented B display-source exception."
+          "node research/validate-semantic-candidate-scope.mjs --base=604a19696d3dfb0d43d6b96676c0c6605628eb33 --target=0bfe8b3d46d163de6e20064f5de9717075ca02c8 --identity=B exited 1 only for the documented B display-source exception.",
+          "Certification reran Black reconciliation, build, targeted tests, full npm.cmd test, and diff checks; all passed with only known unrelated source-generated and line-ending warnings."
         ],
         "candidate_sha": "0bfe8b3d46d163de6e20064f5de9717075ca02c8",
-        "review_status": "approved_awaiting_certification",
+        "review_status": "certified",
         "review_record": "docs/incidents/recoveries/VM-519-black-replacement-independent-review.md",
-        "review_record_sha": "PENDING_VM519_BLACK_REPLACEMENT_REVIEW_RECORD_SHA",
+        "review_record_sha": "8aac2c23ff13986790950a63b093d9787ae7bf1d",
         "final_claim_role_counts": {
           "total": 8,
           "substantive_claim": 6,
@@ -3187,20 +3172,21 @@
         },
         "candidate_scope": {
           "command": "node research/validate-semantic-candidate-scope.mjs --base=604a19696d3dfb0d43d6b96676c0c6605628eb33 --target=0bfe8b3d46d163de6e20064f5de9717075ca02c8 --identity=B",
-          "result": "EXIT 1 - approved documented DRIFT-015 display-source exception only",
+          "result": "PASS - approved documented B display-source exception",
           "exception_paths": [
             "data/identity-layers.json#/expressions/B/preview_text",
             "data/factions.json#/identity_layers/expressions/B/preview_text"
-          ]
+          ],
+          "certification_result": "PASS - approved documented B display-source exception"
         },
         "rejected_candidate_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668",
         "replacement_candidate_sha": "0bfe8b3d46d163de6e20064f5de9717075ca02c8",
         "replacement_preview": "Black claims agency by turning costs, risks, and resources into leverage. Its power is deliberate, consequential, and not cruelty for its own sake.",
-        "approval_review_sha": "PENDING_VM519_BLACK_REPLACEMENT_REVIEW_RECORD_SHA",
+        "approval_review_sha": "8aac2c23ff13986790950a63b093d9787ae7bf1d",
         "replacement_review": {
           "decision": "APPROVE EXACT SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8",
           "review_record": "docs/incidents/recoveries/VM-519-black-replacement-independent-review.md",
-          "review_record_sha": "PENDING_VM519_BLACK_REPLACEMENT_REVIEW_RECORD_SHA",
+          "review_record_sha": "8aac2c23ff13986790950a63b093d9787ae7bf1d",
           "blocker_findings": [],
           "high_findings": [],
           "medium_findings": [],
@@ -3208,25 +3194,34 @@
           "non_blocking_observations": [
             "Candidate-scope validation exits 1 only for the documented two-preview-path display-source exception."
           ]
-        }
+        },
+        "certification_commit": "PENDING_VM519_CERTIFICATION_COMMIT_SHA",
+        "certified_at": "2026-07-18T16:24:00-06:00"
       },
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "0bfe8b3d46d163de6e20064f5de9717075ca02c8",
         "recovery_commit": "0bfe8b3d46d163de6e20064f5de9717075ca02c8",
-        "certification_commit": null,
+        "certification_commit": "PENDING_VM519_CERTIFICATION_COMMIT_SHA",
         "reviewer": "independent_replacement_review",
         "review_cycles": 2,
         "approval_date": "2026-07-18",
-        "certified_at": null,
-        "status": "not_certified_awaiting_certification",
+        "certified_at": "2026-07-18T16:24:00-06:00",
+        "status": "semantically_ready",
         "rejected_candidate_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668",
         "review_result": "approved_exact_sha",
-        "approval_review_sha": "PENDING_VM519_BLACK_REPLACEMENT_REVIEW_RECORD_SHA"
+        "approval_review_sha": "8aac2c23ff13986790950a63b093d9787ae7bf1d",
+        "candidate_scope_certification_result": "PASS - approved documented B display-source exception",
+        "display_source_exception_paths": [
+          "data/identity-layers.json#/expressions/B/preview_text",
+          "data/factions.json#/identity_layers/expressions/B/preview_text"
+        ],
+        "reviewed_provenance_count": 25,
+        "final_state": "semantically_ready"
       },
-      "gate": "independent_review",
-      "status": "approved_awaiting_certification",
+      "gate": "certified",
+      "status": "semantically_ready",
       "structural_fingerprint": [
         "low-volume-pattern",
         "mixed-role-pattern",
@@ -3234,7 +3229,8 @@
       ],
       "contract": "v1.1",
       "recovery": "0bfe8b3d46d163de6e20064f5de9717075ca02c8",
-      "certification_status": "not_certified_awaiting_certification"
+      "certification_status": "certified",
+      "certification_commit": "PENDING_VM519_CERTIFICATION_COMMIT_SHA"
     },
     {
       "identity": {
@@ -3307,19 +3303,29 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
+        "current_gate": "setup",
+        "status": "setup_only_drift_preflight_pending",
+        "started_at": "2026-07-18T16:24:00-06:00",
         "gate_entered_at": null,
         "blocked_at": null,
         "blocked_reason": null,
-        "next_identity": "G",
-        "primary_disposition": null
+        "next_identity": "R",
+        "primary_disposition": "Setup-only after VM-519 Black certification. Red drift preflight is pending; Gate 1+2 semantic work, remediation, candidate, review, certification, original-main modification, and Excel update are not started.",
+        "drift_preflight": {
+          "status": "pending",
+          "required_before_gate_1_2": true,
+          "record": null,
+          "commit": null,
+          "started": false,
+          "completed": false
+        }
       },
       "semantic_review": {
         "required_neighbors": [],
         "audit_report": null,
-        "residual_findings": []
+        "residual_findings": [
+          "Setup-only; Red semantic data not inspected in VM-519 certification window."
+        ]
       },
       "certification": {
         "contract_version": null,
@@ -3331,7 +3337,9 @@
         "review_cycles": 0,
         "approval_date": null,
         "certified_at": null
-      }
+      },
+      "gate": "setup",
+      "status": "setup_only_drift_preflight_pending"
     },
     {
       "identity": {

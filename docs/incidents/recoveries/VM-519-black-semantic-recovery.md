@@ -409,7 +409,7 @@ Current state:
 
 Independent replacement review report: `docs/incidents/recoveries/VM-519-black-replacement-independent-review.md`.
 
-Review-record SHA: `PENDING_VM519_BLACK_REPLACEMENT_REVIEW_RECORD_SHA`.
+Review-record SHA: `8aac2c23ff13986790950a63b093d9787ae7bf1d`.
 
 Decision:
 
@@ -439,3 +439,49 @@ Review findings:
 The review also reverified the accepted Black packet: 8 total claims; 6 substantive, 0 discovery, 2 support, 0 unclassified; 25 B provenance entries; 0 required null canonical IDs; 0 null hashes; 0 unresolved pointers; exact fixture/provenance parity for `/core_identity` and `/placement_summary`; frozen fields unchanged; no stale active Black preview copy; deterministic generation; and full validation passed.
 
 Black is approved for certification review, but is not certified and not `semantically_ready`. Program base remains `04547ecfc52d1c96537b6375e9d5c4b8f3690a32`. Certified identity count remains 17. VM-520 was not started. Original main and external Excel tracker were not modified. Table Talk baseline remains preserved and excluded.
+
+## 19. Certification - 2026-07-18
+
+Status: certified `semantically_ready`.
+
+- Certification commit: `PENDING_VM519_CERTIFICATION_COMMIT_SHA`.
+- Exact approved replacement candidate certified: `0bfe8b3d46d163de6e20064f5de9717075ca02c8`.
+- Rejected candidate preserved and unapproved: `5bffc3465786c18950d32dcb6f056504b3b8e668`.
+- Replacement approval review: `APPROVE EXACT SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8`.
+- Final claim roles: 8 total; 6 substantive (`black_claim_0002` through `black_claim_0007`), 0 discovery, 2 support (`black_claim_0001`, `black_claim_0008`), 0 unclassified.
+- B provenance: 25 entries; 0 null canonical IDs; 0 null canonical content hashes; 0 unresolved pointers; 0 duplicate canonical entries; 0 duplicate null canonical-entry keys; 0 support/discovery/non-philosophical-backed authoritative chains.
+- Exact fixture/provenance parity: `data/raw-factions/black/black.profile.json#/core_identity` is 5/5 exact with `black_claim_0002` through `black_claim_0006`; `data/raw-factions/black/black.placement.json#/placement_summary` is 6/6 exact with `black_claim_0002` through `black_claim_0007`.
+- Certified preview source: `data/identity-layers.json#/expressions/B/preview_text`.
+- Certified embedded preview: `data/factions.json#/identity_layers/expressions/B/preview_text`.
+- Certified preview text: `Black claims agency by turning costs, risks, and resources into leverage. Its power is deliberate, consequential, and not cruelty for its own sake.`
+- Candidate-scope certification result: `PASS - approved documented B display-source exception`. The exact command exited 1 only for the documented preview display-source exception paths: `data/identity-layers.json#/expressions/B/preview_text` and `data/factions.json#/identity_layers/expressions/B/preview_text`.
+- Frozen fields preserved at certification: placement summary text, top-level confidence absence, required terms, minimum hits 2, broad penalty 0.13, strengthen/suppress lists, false-positive guardrail, lateral targets `UB`, `BR`, `BG`, `WB`, raw collision object-with-`pairs`, raw pair order `black_vs_white` then `black_vs_green`, generated W/G collision order, generic collision target absence, Black-local scoring/golden-path absence, native IDs, calibration, and proof-chain fields.
+
+Certification validation:
+
+| Command or check | Result |
+|---|---|
+| Preflight branch/HEAD/object/ancestry checks | PASS |
+| Approved validator diff check | PASS; no drift in `research/validate-semantic-candidate-scope.mjs` or `research/semantic-candidate-scope-tests.js` |
+| Black certification reconciliation Node script | PASS |
+| `node research/audit-semantic-readiness.mjs --targets=B` | PASS |
+| `node research/validate-semantic-readiness.mjs --targets=B` | PASS |
+| `node research/semantic-candidate-scope-tests.js` | PASS |
+| `node research/validate-semantic-candidate-scope.mjs --base=604a19696d3dfb0d43d6b96676c0c6605628eb33 --target=0bfe8b3d46d163de6e20064f5de9717075ca02c8 --identity=B` | Exit 1; PASS as approved documented B display-source exception only |
+| Replacement diff pointer check | PASS; only the two B preview pointers changed in the replacement candidate |
+| `npm.cmd run build:factions` | PASS; no generated content diff remained |
+| `npm.cmd run test:semantic-readiness` | PASS; 1826 semantic provenance entries verified |
+| `npm.cmd run test:placement` | PASS; 37 factions, 37 golden paths |
+| `npm.cmd run test:faction-context-isolation` | PASS |
+| `npm.cmd run test:source-generated` | PASS with known unrelated JESKAI/MARDU model-owned inhibitor warnings only |
+| `npm.cmd test` | PASS |
+| `git diff --check` | PASS with line-ending warnings only |
+
+Program state after certification:
+
+- Certified identity count: 18.
+- Wave 3 monocolors: 3 of 5 certified.
+- Current program base: `PENDING_VM519_CERTIFICATION_COMMIT_SHA`.
+- VM-520 Red / R: setup-only with drift preflight pending; no Red semantic data was inspected or changed in this certification window.
+- Original main and external Excel tracker were not modified.
+- Table Talk baseline remained preserved and excluded from staged certification scope.
