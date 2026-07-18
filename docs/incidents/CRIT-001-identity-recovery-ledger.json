@@ -45,12 +45,12 @@
       "current_identity_hold": {
         "identity": "B",
         "card": "VM-519",
-        "state": "replacement_candidate_awaiting_independent_review",
+        "state": "approved_awaiting_certification",
         "branch": "codex/vm-519-black-semantic-recovery",
         "prior_identity_certified": "U",
         "prior_identity_certification": "PENDING_VM518_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "Submit exact VM-519 Black replacement candidate SHA for fresh independent review only. Do not approve, certify, mark semantically_ready, advance program base, or start VM-520 before fresh exact approval.",
-        "required_next_milestone": "Fresh independent review of exact replacement candidate SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8.",
+        "authorized_next_scope": "Certify exact approved VM-519 Black replacement candidate SHA only. Do not mark semantically_ready, advance program base, or start VM-520 outside a separate certification window.",
+        "required_next_milestone": "Certification of exact approved replacement candidate SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8.",
         "drift_preflight_started": true,
         "drift_preflight_completed": true,
         "drift_preflight_record": "docs/incidents/recoveries/VM-519-black-drift-preflight.md",
@@ -71,11 +71,11 @@
         },
         "certification": {
           "performed": false,
-          "status": "not_certified",
+          "status": "not_certified_awaiting_certification",
           "certification_sha": null
         },
         "program_base": "04547ecfc52d1c96537b6375e9d5c4b8f3690a32",
-        "updated_at": "2026-07-18T15:15:00-06:00",
+        "updated_at": "2026-07-18T15:55:00-06:00",
         "gate_1_2_report": "docs/incidents/recoveries/VM-519-black-semantic-recovery.md",
         "gate_1_2_commit": "604a19696d3dfb0d43d6b96676c0c6605628eb33",
         "remediation_authorized": true,
@@ -84,7 +84,7 @@
           "created": true,
           "candidate_sha": "0bfe8b3d46d163de6e20064f5de9717075ca02c8",
           "subject": "VM-519 replace stale Black preview candidate",
-          "status": "awaiting_new_independent_review",
+          "status": "approved_awaiting_certification",
           "files": [
             "data/identity-layers.json",
             "data/factions.json"
@@ -92,9 +92,31 @@
           "supersedes_rejected_candidate_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668",
           "old_preview": "Black values ambition, self-definition, pragmatism, and survival. It asks what you are willing to do to claim agency.",
           "replacement_preview": "Black claims agency by turning costs, risks, and resources into leverage. Its power is deliberate, consequential, and not cruelty for its own sake.",
-          "candidate_scope_result": "Exit 1 documented DRIFT-015 display-source exception limited to data/identity-layers.json#/expressions/B/preview_text and data/factions.json#/identity_layers/expressions/B/preview_text; source and embedded values exactly equal; no other frozen or candidate-scope-sensitive field changed."
+          "candidate_scope_result": "Exit 1 documented DRIFT-015 display-source exception limited to data/identity-layers.json#/expressions/B/preview_text and data/factions.json#/identity_layers/expressions/B/preview_text; source and embedded values exactly equal; no other frozen or candidate-scope-sensitive field changed.",
+          "review_decision": "APPROVE EXACT SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8",
+          "review_report": "docs/incidents/recoveries/VM-519-black-replacement-independent-review.md",
+          "review_record_sha": "PENDING_VM519_BLACK_REPLACEMENT_REVIEW_RECORD_SHA"
         },
-        "rejected_candidate_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668"
+        "rejected_candidate_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668",
+        "replacement_independent_review": {
+          "performed": true,
+          "status": "approved_exact_sha",
+          "decision": "APPROVE EXACT SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8",
+          "candidate_sha": "0bfe8b3d46d163de6e20064f5de9717075ca02c8",
+          "rejected_candidate_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668",
+          "review_report": "docs/incidents/recoveries/VM-519-black-replacement-independent-review.md",
+          "review_record_sha": "PENDING_VM519_BLACK_REPLACEMENT_REVIEW_RECORD_SHA",
+          "findings": {
+            "blockers": [],
+            "high": [],
+            "medium": [],
+            "low": [],
+            "non_blocking_observations": [
+              "Exact candidate-scope validation exits 1 only for the documented B display-source exception limited to data/identity-layers.json#/expressions/B/preview_text and data/factions.json#/identity_layers/expressions/B/preview_text."
+            ]
+          },
+          "approval_date": "2026-07-18"
+        }
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -3010,14 +3032,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "replacement_candidate",
-        "status": "replacement_candidate_awaiting_independent_review",
+        "current_gate": "independent_review",
+        "status": "approved_awaiting_certification",
         "started_at": "2026-07-18T12:47:00-06:00",
         "gate_entered_at": "2026-07-18T13:54:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "R",
-        "primary_disposition": "VM-519 Black replacement candidate 0bfe8b3d46d163de6e20064f5de9717075ca02c8 remediates only the DRIFT-015 preview blocker from rejected candidate 5bffc3465786c18950d32dcb6f056504b3b8e668. Fresh independent review is required; Black is not approved, not certified, and not semantically_ready; VM-520 not started.",
+        "primary_disposition": "VM-519 Black exact replacement candidate 0bfe8b3d46d163de6e20064f5de9717075ca02c8 received independent review decision APPROVE EXACT SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8. The rejected candidate 5bffc3465786c18950d32dcb6f056504b3b8e668 remains unapproved. Black is approved awaiting certification, not certified, and not semantically_ready; VM-520 not started.",
         "drift_preflight": {
           "record": "docs/incidents/recoveries/VM-519-black-drift-preflight.md",
           "commit": "PENDING_VM519_DRIFT_PREFLIGHT_SHA",
@@ -3029,7 +3051,7 @@
           "candidate_created": true,
           "review_performed": true,
           "certified": false,
-          "status": "replacement_candidate_awaiting_independent_review"
+          "status": "approved_awaiting_certification"
         }
       },
       "semantic_review": {
@@ -3059,10 +3081,11 @@
           "Rejected candidate 5bffc3465786c18950d32dcb6f056504b3b8e668 remains unapproved after REQUEST CHANGES review 118facf42dd5b613d3aa946de6b3968b24e9455a.",
           "Replacement candidate 0bfe8b3d46d163de6e20064f5de9717075ca02c8 changes only the source-owned Black preview and regenerated embedded preview consumer.",
           "Candidate-scope exits 1 only for the documented DRIFT-015 display-source exception paths: data/identity-layers.json#/expressions/B/preview_text and data/factions.json#/identity_layers/expressions/B/preview_text.",
-          "Black is not approved, not certified, and not semantically_ready.",
+          "Fresh independent review found no blocker, high, medium, or low findings.",
+          "Black is approved awaiting certification, not certified, and not semantically_ready.",
           "VM-520 has not started."
         ],
-        "decision": "AWAITING NEW INDEPENDENT REVIEW",
+        "decision": "APPROVE EXACT SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8",
         "drift_preflight_commit": "741ed6a81edb567d51a2699cbe7d0ec70e9b5e61",
         "drift_preflight_decision": "PASS - BLACK GATE 1+2 AUTHORIZED",
         "drift_preflight_completed_at": "2026-07-18T13:06:00-06:00",
@@ -3072,24 +3095,26 @@
         "remediation_authorized": true,
         "candidate_created": true,
         "validation_notes": [
-          "npm.cmd run build:factions passed twice before candidate commit; deterministic generated output.",
-          "JSON parse checks passed for Black raw files, generated JSON, and fixture.",
-          "Manual role/evidence/provenance/frozen-field/stale-copy script passed.",
-          "node research/audit-semantic-readiness.mjs --targets=B passed after candidate commit with 6 substantive, 0 discovery, 2 support, 0 unclassified.",
-          "node research/validate-semantic-readiness.mjs --targets=B passed after candidate commit.",
-          "node research/semantic-candidate-scope-tests.js passed after candidate commit.",
+          "JSON parse checks passed for changed and Black semantic JSON.",
+          "Read-only Node regression script passed for preview equality, claim roles, evidence scopes, provenance, fixture chains, frozen fields, and rejected-to-replacement file scope.",
+          "Exact rejected-preview search in active data, supabase, and research surfaces returned no hits.",
+          "Fragment and semantic-equivalent stale searches found no active Black stale preview; one unrelated Bant Private self-definition label remains unrelated.",
+          "npm.cmd run build:factions passed twice; no generated content diff remained.",
+          "node research/audit-semantic-readiness.mjs --targets=B passed with 8 claims, 6 substantive, 0 discovery, 2 support, 0 unclassified.",
+          "node research/validate-semantic-readiness.mjs --targets=B passed.",
+          "node research/semantic-candidate-scope-tests.js passed.",
           "npm.cmd run test:semantic-readiness passed; 1826 semantic provenance entries verified.",
           "npm.cmd run test:placement passed; 37 factions and 37 golden paths.",
           "npm.cmd run test:faction-context-isolation passed.",
-          "npm.cmd run test:source-generated passed with known unrelated JESKAI/MARDU model-owned inhibitor warnings.",
-          "npm.cmd test passed after candidate commit.",
+          "npm.cmd run test:source-generated passed with known unchanged unrelated JESKAI/MARDU model-owned inhibitor warnings.",
+          "npm.cmd test passed.",
           "git diff --check passed with line-ending warnings only.",
-          "Black preview source and embedded consumer remained equal and unchanged; exact preview stale scan had no hits."
+          "node research/validate-semantic-candidate-scope.mjs --base=604a19696d3dfb0d43d6b96676c0c6605628eb33 --target=0bfe8b3d46d163de6e20064f5de9717075ca02c8 --identity=B exited 1 only for the documented B display-source exception."
         ],
         "candidate_sha": "0bfe8b3d46d163de6e20064f5de9717075ca02c8",
-        "review_status": "awaiting_new_independent_review",
-        "review_record": "docs/incidents/recoveries/VM-519-black-independent-review.md",
-        "review_record_sha": "118facf42dd5b613d3aa946de6b3968b24e9455a",
+        "review_status": "approved_awaiting_certification",
+        "review_record": "docs/incidents/recoveries/VM-519-black-replacement-independent-review.md",
+        "review_record_sha": "PENDING_VM519_BLACK_REPLACEMENT_REVIEW_RECORD_SHA",
         "final_claim_role_counts": {
           "total": 8,
           "substantive_claim": 6,
@@ -3162,7 +3187,7 @@
         },
         "candidate_scope": {
           "command": "node research/validate-semantic-candidate-scope.mjs --base=604a19696d3dfb0d43d6b96676c0c6605628eb33 --target=0bfe8b3d46d163de6e20064f5de9717075ca02c8 --identity=B",
-          "result": "EXIT 1 - documented DRIFT-015 display-source exception only",
+          "result": "EXIT 1 - approved documented DRIFT-015 display-source exception only",
           "exception_paths": [
             "data/identity-layers.json#/expressions/B/preview_text",
             "data/factions.json#/identity_layers/expressions/B/preview_text"
@@ -3170,31 +3195,46 @@
         },
         "rejected_candidate_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668",
         "replacement_candidate_sha": "0bfe8b3d46d163de6e20064f5de9717075ca02c8",
-        "replacement_preview": "Black claims agency by turning costs, risks, and resources into leverage. Its power is deliberate, consequential, and not cruelty for its own sake."
+        "replacement_preview": "Black claims agency by turning costs, risks, and resources into leverage. Its power is deliberate, consequential, and not cruelty for its own sake.",
+        "approval_review_sha": "PENDING_VM519_BLACK_REPLACEMENT_REVIEW_RECORD_SHA",
+        "replacement_review": {
+          "decision": "APPROVE EXACT SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8",
+          "review_record": "docs/incidents/recoveries/VM-519-black-replacement-independent-review.md",
+          "review_record_sha": "PENDING_VM519_BLACK_REPLACEMENT_REVIEW_RECORD_SHA",
+          "blocker_findings": [],
+          "high_findings": [],
+          "medium_findings": [],
+          "low_findings": [],
+          "non_blocking_observations": [
+            "Candidate-scope validation exits 1 only for the documented two-preview-path display-source exception."
+          ]
+        }
       },
       "certification": {
         "contract_version": "v1.1",
-        "contract_revalidation_required": true,
+        "contract_revalidation_required": false,
         "candidate_recovery_sha": "0bfe8b3d46d163de6e20064f5de9717075ca02c8",
         "recovery_commit": "0bfe8b3d46d163de6e20064f5de9717075ca02c8",
         "certification_commit": null,
-        "reviewer": "independent_review",
-        "review_cycles": 1,
-        "approval_date": null,
+        "reviewer": "independent_replacement_review",
+        "review_cycles": 2,
+        "approval_date": "2026-07-18",
         "certified_at": null,
-        "status": "not_certified_awaiting_replacement_review",
-        "rejected_candidate_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668"
+        "status": "not_certified_awaiting_certification",
+        "rejected_candidate_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668",
+        "review_result": "approved_exact_sha",
+        "approval_review_sha": "PENDING_VM519_BLACK_REPLACEMENT_REVIEW_RECORD_SHA"
       },
       "gate": "independent_review",
-      "status": "replacement_candidate_awaiting_independent_review",
+      "status": "approved_awaiting_certification",
       "structural_fingerprint": [
         "low-volume-pattern",
         "mixed-role-pattern",
         "support-heavy-pattern"
       ],
       "contract": "v1.1",
-      "recovery": "5bffc3465786c18950d32dcb6f056504b3b8e668",
-      "certification_status": "not_certified"
+      "recovery": "0bfe8b3d46d163de6e20064f5de9717075ca02c8",
+      "certification_status": "not_certified_awaiting_certification"
     },
     {
       "identity": {

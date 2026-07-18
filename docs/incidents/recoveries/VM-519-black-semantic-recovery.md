@@ -1,6 +1,6 @@
 # VM-519 Black Semantic Recovery
 
-Status: Replacement candidate awaiting new independent review.
+Status: Replacement candidate approved. Awaiting certification.
 
 Identity: Black / B
 Contract: CRIT-001 semantic-readiness Contract v1.1
@@ -404,3 +404,38 @@ Current state:
 - VM-520 is not started.
 - Original main and external Excel tracker were not modified.
 - Table Talk baseline remains preserved and excluded.
+
+## 18. Replacement Independent Review - 2026-07-18
+
+Independent replacement review report: `docs/incidents/recoveries/VM-519-black-replacement-independent-review.md`.
+
+Review-record SHA: `PENDING_VM519_BLACK_REPLACEMENT_REVIEW_RECORD_SHA`.
+
+Decision:
+
+APPROVE EXACT SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8
+
+Exact replacement candidate reviewed:
+
+`0bfe8b3d46d163de6e20064f5de9717075ca02c8`
+
+The independent replacement review verified that the prior DRIFT-015 preview blocker is resolved:
+
+- `data/identity-layers.json#/expressions/B/preview_text`
+- `data/factions.json#/identity_layers/expressions/B/preview_text`
+
+Both now contain:
+
+`Black claims agency by turning costs, risks, and resources into leverage. Its power is deliberate, consequential, and not cruelty for its own sake.`
+
+Review findings:
+
+- No blocker findings.
+- No high findings.
+- No medium findings.
+- No low findings.
+- Non-blocking observation: exact candidate-scope validation exits 1 only for the documented B display-source exception limited to the two preview files; manual diff review confirmed only the two preview JSON pointers changed.
+
+The review also reverified the accepted Black packet: 8 total claims; 6 substantive, 0 discovery, 2 support, 0 unclassified; 25 B provenance entries; 0 required null canonical IDs; 0 null hashes; 0 unresolved pointers; exact fixture/provenance parity for `/core_identity` and `/placement_summary`; frozen fields unchanged; no stale active Black preview copy; deterministic generation; and full validation passed.
+
+Black is approved for certification review, but is not certified and not `semantically_ready`. Program base remains `04547ecfc52d1c96537b6375e9d5c4b8f3690a32`. Certified identity count remains 17. VM-520 was not started. Original main and external Excel tracker were not modified. Table Talk baseline remains preserved and excluded.
