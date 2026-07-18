@@ -5,11 +5,28 @@
   "based_on_profile_version": "1.0.0",
   "faction_id": "red",
   "faction_name": "Red",
-  "last_updated": "2026-06-13",
+  "last_updated": "2026-07-18",
   "color_identity": [
     "R"
   ],
-  "placement_summary": "Red is a strong fit when a user wants freedom, emotional truth, immediacy, and action that makes life vivid rather than over-managed.",
+  "placement_summary": {
+    "id": "red_placement_summary_gate3",
+    "text": "Red is a strong fit when a user wants freedom, emotional truth, immediacy, and action that makes life vivid rather than over-managed.",
+    "short_description": "Red placement is source-bounded by freedom through felt action, lived experience, loyalty, and consequence pressure rather than generic chaos, anger, authenticity, or speed.",
+    "best_fit_summary": "wants feeling to become action before the moment goes cold, while keeping freedom attached to lived experience, loyalty, and learning from outcomes",
+    "poor_fit_summary": "wants chaos, anger, damage, rebellion, authenticity, speed, mechanics, Commander card names, or spectacle without Red's source-backed emotion, action, attachment, and consequence tension",
+    "interpretation_warning": "Placement data is Vox Mana interpretation and should be treated as a matching heuristic, not direct Wizards canon or a license to treat every feeling as final.",
+    "claim_ids": [
+      "red_claim_0002",
+      "red_claim_0003",
+      "red_claim_0004",
+      "red_claim_0005",
+      "red_claim_0006"
+    ],
+    "evidence_claim_ids": [
+      "red_claim_0007"
+    ]
+  },
   "moral_and_psychological_profile": {
     "primary_drive": "Live fully by trusting feeling enough to act before fear, rules, or analysis drain the moment.",
     "ethical_pressure": "Freedom can become careless harm when action refuses to look at consequences.",
@@ -172,8 +189,7 @@
         "COLORLESS"
       ],
       "claim_ids": [
-        "red_claim_0007",
-        "red_claim_0008"
+        "red_claim_0007"
       ],
       "confidence": "High",
       "lateral_inhibition": false
@@ -252,7 +268,7 @@
       "deliberation so heavy that action never starts",
       "power calculus with no emotional center",
       "natural destiny over immediate desire",
-      "candidate commander names treated as verified evidence"
+      "card names, creature types, or mechanics treated as Red philosophy proof"
     ],
     "calibration_note": "Red should rise only when feeling, action, freedom, or vivid experience drive the answer.",
     "never_claim_as_canon": [
@@ -260,5 +276,48 @@
       "Vox Mana placement axes are official Wizards color-pie scores.",
       "A candidate mono-red commander is Layer 2 support without current verification."
     ]
-  }
+  },
+  "semantic_guidance_evidence": [
+    {
+      "guidance_id": "red_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "red_guidance_how_to_recognize_mismatch_0_gate3",
+      "evidence_claim_ids": [
+        "red_claim_0005"
+      ]
+    },
+    {
+      "guidance_id": "red_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "red_guidance_how_to_recognize_mismatch_1_gate3",
+      "evidence_claim_ids": [
+        "red_claim_0005",
+        "red_claim_0006"
+      ]
+    },
+    {
+      "guidance_id": "red_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "red_guidance_how_to_recognize_mismatch_2_gate3",
+      "evidence_claim_ids": [
+        "red_claim_0005"
+      ]
+    },
+    {
+      "guidance_id": "red_guidance_how_to_recognize_mismatch_3_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "red_guidance_how_to_recognize_mismatch_3_gate3",
+      "evidence_claim_ids": [
+        "red_claim_0005"
+      ]
+    },
+    {
+      "guidance_id": "red_guidance_how_to_recognize_mismatch_4_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/4",
+      "canonical_id": "red_guidance_how_to_recognize_mismatch_4_gate3",
+      "evidence_claim_ids": [
+        "red_claim_0007"
+      ]
+    }
+  ]
 }

@@ -11,22 +11,20 @@
   "plane_or_setting": "The Color Pie",
   "last_updated": "2026-06-13",
   "source_review_date": "2026-06-13",
-  "last_full_review": "2026-06-13",
+  "last_full_review": "2026-07-18",
   "core_identity": {
     "short_form": "Red seeks freedom through emotion, action, and vivid life.",
     "summary": "Red is the mono-color expression of unblocked feeling: it listens to desire, acts before life hardens into regret, and treats experience as the teacher no plan can replace.",
     "philosophy": "Red asks what your heart already knows and what you are willing to do now. Its promise is aliveness; its danger is letting the spark spend tomorrow before it arrives.",
     "central_tension": "Red can break stasis with honest action, but it can become short-sighted, volatile, or unwilling to pause for consequences.",
     "claim_ids": [
-      "red_claim_0001",
       "red_claim_0002",
       "red_claim_0003",
       "red_claim_0004",
       "red_claim_0005",
-      "red_claim_0006",
-      "red_claim_0007",
-      "red_claim_0008"
-    ]
+      "red_claim_0006"
+    ],
+    "id": "red_core_identity_gate3"
   },
   "structure": {
     "identity_class": "mono_color",
@@ -64,7 +62,8 @@
     "summary": "Red commonly plays through speed, damage, temporary resource bursts, impulse-driven card access, and breaking obstacles.",
     "claim_ids": [
       "red_claim_0007"
-    ]
+    ],
+    "id": "red_mechanics_gate3"
   },
   "site_surface": {
     "display_name": "Red",
@@ -84,6 +83,13 @@
       "impulsive draw",
       "treasure",
       "artifact destruction"
+    ],
+    "id": "red_site_surface_gate3",
+    "claim_ids": [
+      "red_claim_0002",
+      "red_claim_0003",
+      "red_claim_0004",
+      "red_claim_0006"
     ]
   },
   "data_quality": {
@@ -92,13 +98,14 @@
     "placement_eligible": true,
     "preview_eligible": true,
     "commander_candidate_status": "current_scryfall_verified_support_only_2026-06-13",
-    "notes": "Three native mono-red commander rows are retained only after current Scryfall verification on 2026-06-13. Deck links remain intentionally empty; these rows do not prove color philosophy or Vox Mana placement axes."
+    "notes": "Three native mono-red commander rows are retained only after current Scryfall verification on 2026-06-13. Deck links remain intentionally empty; these rows do not prove color philosophy, Vox Mana placement axes, public copy, recruiter guidance, fixtures, semantic readiness, or canonical provenance chains."
   },
   "research_limitations": [
     "Do not reduce Red to anger or chaos alone.",
     "Do not treat Vox Mana placement axes as official Wizards scores.",
     "Do not promote candidate commanders without current card/legal verification.",
-    "Do not use generated runtime files as claim evidence."
+    "Do not use generated runtime files as claim evidence.",
+    "Do not use the Commander format overview in place of CR 903.3/903.4 for exact eligibility or color-identity boundaries."
   ],
   "profile": {
     "overview": "Red is the color of freedom, emotion, action, passion, spontaneity, and lived experience.",
@@ -106,15 +113,14 @@
     "core_tension": "Red's honesty and speed can become short-sightedness or avoidable fallout.",
     "mechanics_and_play_pattern": "Red commonly expresses itself through damage, haste, artifact destruction, temporary mana, impulsive draw, Treasure, and explosive turns.",
     "claim_ids": [
-      "red_claim_0001",
       "red_claim_0002",
       "red_claim_0003",
       "red_claim_0004",
       "red_claim_0005",
       "red_claim_0006",
-      "red_claim_0007",
-      "red_claim_0008"
-    ]
+      "red_claim_0007"
+    ],
+    "id": "red_profile_gate3"
   },
   "deck_links": [],
   "research_links": {
@@ -160,7 +166,13 @@
       "supporting_source_ids": [
         "RULES-CR",
         "SCRYFALL-R-2026-06-13"
-      ]
+      ],
+      "evidence_use": "auxiliary_support",
+      "claim_ids": [
+        "red_claim_0008"
+      ],
+      "auxiliary_support_boundary": "Commander/card verification is auxiliary support only; it cannot independently prove Red identity, placement, recruiter guidance, semantic readiness, public copy, fixtures, or canonical provenance chains.",
+      "id": "red_commander_compass_identity_basis_support_gate3"
     },
     "native_fit_commanders": [
       {
@@ -191,7 +203,8 @@
         ],
         "source_basis": "SCRYFALL-R-2026-06-13; RULES-CR; red_claim_0008",
         "confidence": "Current Scryfall verification on 2026-06-13; support-only",
-        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence.",
+        "auxiliary_support_boundary": "Current Scryfall and Commander-rules support only; not color philosophy, profile-axis, public-copy, recruiter-guidance, fixture, or semantic-readiness proof."
       },
       {
         "exact_card_name": "Krenko, Mob Boss",
@@ -221,7 +234,8 @@
         ],
         "source_basis": "SCRYFALL-R-2026-06-13; RULES-CR; red_claim_0008",
         "confidence": "Current Scryfall verification on 2026-06-13; support-only",
-        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence.",
+        "auxiliary_support_boundary": "Current Scryfall and Commander-rules support only; not color philosophy, profile-axis, public-copy, recruiter-guidance, fixture, or semantic-readiness proof."
       },
       {
         "exact_card_name": "Magda, Brazen Outlaw",
@@ -251,7 +265,8 @@
         ],
         "source_basis": "SCRYFALL-R-2026-06-13; RULES-CR; red_claim_0008",
         "confidence": "Current Scryfall verification on 2026-06-13; support-only",
-        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence.",
+        "auxiliary_support_boundary": "Current Scryfall and Commander-rules support only; not color philosophy, profile-axis, public-copy, recruiter-guidance, fixture, or semantic-readiness proof."
       }
     ],
     "weird_stretch_commanders": [],

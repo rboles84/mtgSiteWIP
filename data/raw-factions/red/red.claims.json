@@ -17,7 +17,9 @@
       "evidence_rows": [
         "red_evid_0013"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "support_record",
+      "evidence_use_restriction": "Project governance/source-intake boundary only. Retain as metadata/history; do not use as authoritative proof for Red identity, placement, recruiter guidance, semantic readiness, public copy, fixtures, or provenance chains."
     },
     {
       "claim_id": "red_claim_0002",
@@ -39,7 +41,26 @@
         "R2025-b",
         "R2025-c"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-R-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/13_red.md#R2015-Q1",
+          "bounded_paraphrase": "The 2015 official Red article frames Red's end goal as freedom through listening to emotion, acting from the heart, living in the moment, spontaneity, adventure, and close bonds such as passion, loyalty, and camaraderie.",
+          "evidence_scope": "canonical identity",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-R-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/13_red.md#R2025-a;R2025-b;R2025-c",
+          "bounded_paraphrase": "The 2025 Red voice keeps finite life, felt bodily and emotional signals, and willingness to act on desire at the center while warning against inaction and suppression.",
+          "evidence_scope": "canonical identity",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "red_claim_0003",
@@ -61,7 +82,26 @@
         "R2025-c",
         "R2025-e"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-R-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/13_red.md#R2015-Q2",
+          "bounded_paraphrase": "The 2015 article identifies Red's means as action, emotional attunement, speed, destruction of barriers, emotional influence, mischief, and relentlessness in moving toward what it wants.",
+          "evidence_scope": "preferred method",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-R-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/13_red.md#R2025-b;R2025-c;R2025-e",
+          "bounded_paraphrase": "The 2025 Red voice supports listening to body and emotion, acting on those messages, learning through mistakes, and using lived feedback rather than waiting for perfect knowledge.",
+          "evidence_scope": "preferred method",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "red_claim_0004",
@@ -82,7 +122,26 @@
         "R2015-Q4",
         "R2025-g"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-R-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/13_red.md#R2015-Q3;R2015-Q4",
+          "bounded_paraphrase": "The 2015 article bounds Red's thematic field around freely expressed emotion, impulse, spontaneity, humor, romance, fighting, destruction, and frustration or boredom as pressure points.",
+          "evidence_scope": "thematic boundary",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-R-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/13_red.md#R2025-g",
+          "bounded_paraphrase": "The 2025 Red voice explicitly corrects anger-only readings by treating anger as one emotion among love, happiness, sadness, fear, and other impulses.",
+          "evidence_scope": "thematic boundary",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "red_claim_0005",
@@ -106,7 +165,26 @@
         "R2025-f",
         "R2025-h"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-R-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/13_red.md#R2015-Q5;R2015-Q5b",
+          "bounded_paraphrase": "The 2015 article defines Red's allied and enemy relationships through Black action/freedom/destruction, Green instinct/wildness, White rules as loss of freedom, and Blue's opposition to feeling and action.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-R-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/13_red.md#R2025-d;R2025-e;R2025-f;R2025-h",
+          "bounded_paraphrase": "The 2025 Red voice distinguishes Red from White rules, Blue overthinking, Black selfishness without loyalty, and Green's web-of-life spirituality while preserving Red's own desire, action, risk, destruction, and loyalty.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "red_claim_0006",
@@ -126,7 +204,26 @@
         "R2015-Q6",
         "R2025-i"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-R-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/13_red.md#R2015-Q6",
+          "bounded_paraphrase": "The 2015 article names Red's strength as knowing what it wants, passion, clarity, speed, and action, and its weakness as short-sightedness and poor long-term advice-taking.",
+          "evidence_scope": "pressure behavior",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-R-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/13_red.md#R2025-i",
+          "bounded_paraphrase": "The 2025 Red voice repeats speed, aggression, and destruction as strength while identifying short-sightedness and dealing with consequences later as Red's own weakness.",
+          "evidence_scope": "pressure behavior",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "red_claim_0007",
@@ -152,7 +249,26 @@
         "COC-gaps"
       ],
       "confidence": "Medium-High",
-      "notes": "Mechanical Color Pie 2021 is a dated snapshot and must be overridden by later verified sources where needed."
+      "notes": "Mechanical Color Pie 2021 is a dated snapshot and must be overridden by later verified sources where needed.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MECH-CP-2021",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/20_mechanical_color_pie_2021.md#MECH-removal;MECH-carddraw;MECH-antiflying;MECH-artifact-friendly",
+          "bounded_paraphrase": "The mechanical color pie digest bounds Red's mechanical texture around damage-based removal, impulsive card access, anti-flying damage, artifact interaction, temporary mana, haste, extra attacks, rummaging, spell copying, and Treasure-like temporary resources.",
+          "evidence_scope": "mechanic-specific",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "GOV-COC-2024",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/22_council_of_colors.md#COC-shift-commander;COC-gaps",
+          "bounded_paraphrase": "The Council of Colors digest supports Red's Commander-context impulsive draw and ongoing search for new red mechanical space as color-pie process context, not broad philosophy proof.",
+          "evidence_scope": "mechanic/process-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "red_claim_0008",
@@ -174,7 +290,9 @@
         "CR-903.3",
         "CR-903.4"
       ],
-      "confidence": "High for current Scryfall support status; not evidence for popularity, price, metagame, deck quality, philosophy, or profile axes"
+      "confidence": "High for current Scryfall support status; not evidence for popularity, price, metagame, deck quality, philosophy, or profile axes",
+      "semantic_role": "support_record",
+      "evidence_use_restriction": "Commander rules, project governance, and Scryfall verification support navigation only. Retain for Commander Compass metadata; do not use as authoritative proof for Red identity, placement, recruiter guidance, semantic readiness, public copy, fixtures, or canonical provenance chains."
     }
   ]
 }

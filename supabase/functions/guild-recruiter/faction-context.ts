@@ -761,7 +761,7 @@ export const FACTION_CONTEXT = {
       "deliberation so heavy that action never starts",
       "power calculus with no emotional center",
       "natural destiny over immediate desire",
-      "candidate commander names treated as verified evidence",
+      "card names, creature types, or mechanics treated as Red philosophy proof",
       "chaos, damage, or anger without feeling or freedom"
     ],
     "lateral_inhibition_targets": [
@@ -833,8 +833,7 @@ export const FACTION_CONTEXT = {
           "COLORLESS"
         ],
         "evidence_claim_ids": [
-          "red_claim_0007",
-          "red_claim_0008"
+          "red_claim_0007"
         ],
         "confidence": "High",
         "lateral_inhibition": false
@@ -856,7 +855,7 @@ export const FACTION_CONTEXT = {
         "deliberation so heavy that action never starts",
         "power calculus with no emotional center",
         "natural destiny over immediate desire",
-        "candidate commander names treated as verified evidence"
+        "card names, creature types, or mechanics treated as Red philosophy proof"
       ],
       "calibration_note": "Red should rise only when feeling, action, freedom, or vivid experience drive the answer.",
       "never_claim_as_canon": [

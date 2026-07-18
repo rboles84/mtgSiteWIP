@@ -18539,6 +18539,117 @@
     {
       "identity_key": "R",
       "canonical_file": "data/raw-factions/red/red.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "red_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_content_hash": "sha256:a6bd8b5abad155b8062c6c948925604ea9f810600aee84f81ab06852a9a8d6c9",
+      "evidence_claim_ids": [
+        "red_claim_0005"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/R",
+        "data/placement-model.json#/factions/R",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/R"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "R",
+      "canonical_file": "data/raw-factions/red/red.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "red_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_content_hash": "sha256:c091189cdeba1e622b738410a589601eeb9587c0c8d5db8ee38f4bc2ac39e94d",
+      "evidence_claim_ids": [
+        "red_claim_0005",
+        "red_claim_0006"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/R",
+        "data/placement-model.json#/factions/R",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/R"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "R",
+      "canonical_file": "data/raw-factions/red/red.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "red_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_content_hash": "sha256:a6772dd54d7a02f13f28ed4c6d22a7ee3d0a5d03c5ec94c8ef7646c714d9abb7",
+      "evidence_claim_ids": [
+        "red_claim_0005"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/R",
+        "data/placement-model.json#/factions/R",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/R"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "R",
+      "canonical_file": "data/raw-factions/red/red.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "red_guidance_how_to_recognize_mismatch_3_gate3",
+      "canonical_content_hash": "sha256:162b4b14c7a50a5b87d91675d49fa26629987681273be7cf4f66316aac157ad2",
+      "evidence_claim_ids": [
+        "red_claim_0005"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/R",
+        "data/placement-model.json#/factions/R",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/R"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "R",
+      "canonical_file": "data/raw-factions/red/red.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/4",
+      "canonical_id": "red_guidance_how_to_recognize_mismatch_4_gate3",
+      "canonical_content_hash": "sha256:03225119ee3639a20cd3f43143c86175a9aefbca2236a3efedc9b96c09358dbb",
+      "evidence_claim_ids": [
+        "red_claim_0007"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "GOV-COC-2024",
+        "MECH-CP-2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/R",
+        "data/placement-model.json#/factions/R",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/R"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "R",
+      "canonical_file": "data/raw-factions/red/red.placement.json",
       "canonical_pointer": "/collision_guidance/pairs/0",
       "canonical_id": "red_vs_white",
       "canonical_content_hash": "sha256:bea0381c4f5440b584703bfcc8ab6da0bb8f6787868ed62e8351d9a9c6bc000c",
@@ -18647,15 +18758,11 @@
       "canonical_id": "red_disc_004",
       "canonical_content_hash": "sha256:93b1ed75841ca1e11e71b0a6c2fc1f1c5a318f3081fc079eff1772cc8ca99395",
       "evidence_claim_ids": [
-        "red_claim_0007",
-        "red_claim_0008"
+        "red_claim_0007"
       ],
       "evidence_source_ids": [
         "GOV-COC-2024",
-        "MECH-CP-2021",
-        "RULES-CR",
-        "SCRYFALL-R-2026-06-13",
-        "VM-377"
+        "MECH-CP-2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/R",
@@ -18728,25 +18835,143 @@
     },
     {
       "identity_key": "R",
-      "canonical_file": "data/raw-factions/red/red.profile.json",
-      "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:6383c7997225aeefc8e28ccda255bdcb73a9f93fd07a23e605b7b49b787ae8cf",
+      "canonical_file": "data/raw-factions/red/red.placement.json",
+      "canonical_pointer": "/placement_summary",
+      "canonical_id": "red_placement_summary_gate3",
+      "canonical_content_hash": "sha256:7b66037c5408bafc25ce88153b35e1322a219cca4193baee9057685853d1d0d4",
       "evidence_claim_ids": [
-        "red_claim_0001",
         "red_claim_0002",
         "red_claim_0003",
         "red_claim_0004",
         "red_claim_0005",
         "red_claim_0006",
-        "red_claim_0007",
-        "red_claim_0008"
+        "red_claim_0007"
       ],
       "evidence_source_ids": [
         "GOV-COC-2024",
         "MECH-CP-2021",
         "MONO-R-2015",
-        "MONO-R-2025",
+        "MONO-R-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/R",
+        "data/placement-model.json#/factions/R",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/R"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "R",
+      "canonical_file": "data/raw-factions/red/red.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "red_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_content_hash": "sha256:b6f9618e16178c27e44ce6d15940bd7cdb7d1f523f79b9dca8c0f3a8a415e587",
+      "evidence_claim_ids": [
+        "red_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/R",
+        "data/placement-model.json#/factions/R",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/R"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "R",
+      "canonical_file": "data/raw-factions/red/red.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "red_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_content_hash": "sha256:ecdffa7b3a2b094885fff36d6ce8fc95889919e51cf5828ab9c798169a4b0524",
+      "evidence_claim_ids": [
+        "red_claim_0005",
+        "red_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/R",
+        "data/placement-model.json#/factions/R",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/R"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "R",
+      "canonical_file": "data/raw-factions/red/red.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "red_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_content_hash": "sha256:fb896f166963f6200c30b34824d21d429ae13551d89d8e069f0b5e09cdaf1cda",
+      "evidence_claim_ids": [
+        "red_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/R",
+        "data/placement-model.json#/factions/R",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/R"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "R",
+      "canonical_file": "data/raw-factions/red/red.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "red_guidance_how_to_recognize_mismatch_3_gate3",
+      "canonical_content_hash": "sha256:ff62cd34cd8dd24f7b63d09eb3c0cdd1262defcb8581b8e74bc685fa39fef0db",
+      "evidence_claim_ids": [
+        "red_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/R",
+        "data/placement-model.json#/factions/R",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/R"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "R",
+      "canonical_file": "data/raw-factions/red/red.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "red_guidance_how_to_recognize_mismatch_4_gate3",
+      "canonical_content_hash": "sha256:625519fd799aa5017993be56c9adf286607d94a55f23afa05db5a160db5f0dd4",
+      "evidence_claim_ids": [
+        "red_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "GOV-COC-2024",
+        "MECH-CP-2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/R",
+        "data/placement-model.json#/factions/R",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/R"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "R",
+      "canonical_file": "data/raw-factions/red/red.profile.json",
+      "canonical_pointer": "/commander_compass/identity_basis",
+      "canonical_id": "red_commander_compass_identity_basis_support_gate3",
+      "canonical_content_hash": "sha256:72094f2c0c6af3fc06dbf0273a08d579f0bffb0bf6b47b6db3d3b91a2c907675",
+      "evidence_claim_ids": [
+        "red_claim_0008"
+      ],
+      "evidence_use": "auxiliary_support",
+      "evidence_source_ids": [
         "RULES-CR",
         "SCRYFALL-R-2026-06-13",
         "VM-377"
@@ -18761,9 +18986,33 @@
     {
       "identity_key": "R",
       "canonical_file": "data/raw-factions/red/red.profile.json",
+      "canonical_pointer": "/core_identity",
+      "canonical_id": "red_core_identity_gate3",
+      "canonical_content_hash": "sha256:56a15a4395f776bdd561260165411528fce72a10701607df6060d5c0b0047c3d",
+      "evidence_claim_ids": [
+        "red_claim_0002",
+        "red_claim_0003",
+        "red_claim_0004",
+        "red_claim_0005",
+        "red_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/R",
+        "data/placement-model.json#/factions/R",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/R"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "R",
+      "canonical_file": "data/raw-factions/red/red.profile.json",
       "canonical_pointer": "/mechanics",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:22972b749163e2b4222b5483cdbc499d290087a607a4aa602f54616e387bbcaa",
+      "canonical_id": "red_mechanics_gate3",
+      "canonical_content_hash": "sha256:ba9706764d85ee83ddd7e814d3d23e4b5724022bb154866a81ee9c7fe74ac3e1",
       "evidence_claim_ids": [
         "red_claim_0007"
       ],
@@ -18782,26 +19031,44 @@
       "identity_key": "R",
       "canonical_file": "data/raw-factions/red/red.profile.json",
       "canonical_pointer": "/profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:a68f887cf8dc0173f94d41455ec2742b1a4575e94afa4e711ae5e888ab50ec8f",
+      "canonical_id": "red_profile_gate3",
+      "canonical_content_hash": "sha256:7348503de01b4aaf65f3522aa6a3344f56098793c1c1286b2b2a2ca728ce20fc",
       "evidence_claim_ids": [
-        "red_claim_0001",
         "red_claim_0002",
         "red_claim_0003",
         "red_claim_0004",
         "red_claim_0005",
         "red_claim_0006",
-        "red_claim_0007",
-        "red_claim_0008"
+        "red_claim_0007"
       ],
       "evidence_source_ids": [
         "GOV-COC-2024",
         "MECH-CP-2021",
         "MONO-R-2015",
-        "MONO-R-2025",
-        "RULES-CR",
-        "SCRYFALL-R-2026-06-13",
-        "VM-377"
+        "MONO-R-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/R",
+        "data/placement-model.json#/factions/R",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/R"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "R",
+      "canonical_file": "data/raw-factions/red/red.profile.json",
+      "canonical_pointer": "/site_surface",
+      "canonical_id": "red_site_surface_gate3",
+      "canonical_content_hash": "sha256:7406b3c81f6877f8f58f17e5dcc24a18de9ab4a1e4522e4847779397958c4985",
+      "evidence_claim_ids": [
+        "red_claim_0002",
+        "red_claim_0003",
+        "red_claim_0004",
+        "red_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/R",

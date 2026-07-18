@@ -1,0 +1,452 @@
+{
+  "identity_key": "R",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "red_core_feeling_action_identity",
+      "fixture_type": "core_inclusion",
+      "scenario": "A clear Red case wants felt desire to become action now, with freedom, vivid experience, loyalty, and learning through outcomes all present.",
+      "intended_interpretation": "Red inclusion requires source-bounded freedom through emotion and action, not generic passion, authenticity, chaos, or speed alone.",
+      "evidence_claim_ids": [
+        "red_claim_0002",
+        "red_claim_0003",
+        "red_claim_0004",
+        "red_claim_0005",
+        "red_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Use Red when feeling, desire, freedom, action, lived experience, and consequence-aware aliveness lead together.",
+      "unsupported_certainty_to_avoid": "Do not certify Red from anger, rebellion, authenticity, fire, haste, damage, or mechanics without source-bounded emotion-to-action logic."
+    },
+    {
+      "fixture_id": "red_pressure_consequence_and_attachment",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "A mature Red reading asks whether the spark is honest motion or whether short-sighted action is spending tomorrow before it arrives.",
+      "intended_interpretation": "Red pressure behavior preserves speed, passion, and clarity while testing consequence, attachment, loyalty, and after-the-fact fallout.",
+      "evidence_claim_ids": [
+        "red_claim_0002",
+        "red_claim_0005",
+        "red_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Ask what wants to move now, who or what the feeling is attached to, and what consequence the action must answer for.",
+      "unsupported_certainty_to_avoid": "Do not flatten Red into permission for every impulse or freedom without cost."
+    },
+    {
+      "fixture_id": "red_nearest_collision_feeling_action",
+      "fixture_type": "nearest_collision_ambiguity",
+      "scenario": "The answer names freedom, impulse, passion, danger, speed, directness, creativity, or release and could be mono-Red, a Red guild, a college, a shard, a wedge, or generic Red overfit.",
+      "intended_interpretation": "Resolve ambiguity by asking whether mono-Red feeling-to-action leads rather than a neighbor-specific duty, experiment, spectacle, wild belonging, art method, history frame, or broader color identity.",
+      "evidence_claim_ids": [
+        "red_claim_0002",
+        "red_claim_0003",
+        "red_claim_0005",
+        "red_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Keep Red adjacent until the answer ties freedom to felt action and lived experience instead of a guild, school, shard, wedge, or mechanic package.",
+      "unsupported_certainty_to_avoid": "Do not choose Red only because a neighbor also uses urgency, passion, fire, rebellion, destruction, or speed."
+    },
+    {
+      "fixture_id": "red_exclude_generic_r_overfit",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_R_OVERFIT",
+      "scenario": "Generic Red overfit uses emotion, passion, authenticity, rebellion, anger, chaos, speed, damage, burn, impulse, expression, or freedom as enough by themselves.",
+      "intended_interpretation": "Exclude or keep Red adjacent for GENERIC_R_OVERFIT unless source-bounded freedom through felt action, lived experience, loyalty, and consequence tension lead.",
+      "evidence_claim_ids": [
+        "red_claim_0002",
+        "red_claim_0003",
+        "red_claim_0004",
+        "red_claim_0006",
+        "red_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "GOV-COC-2024",
+        "MECH-CP-2021",
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Require source-bounded emotion-to-action and consequence pressure, not Red-coded vocabulary, mechanics, or aesthetics alone.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient Red proof."
+    },
+    {
+      "fixture_id": "red_exclude_w",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "W",
+      "scenario": "Mono-white-like readings center peace, shared duty, law, group safety, or restraint over desire.",
+      "intended_interpretation": "Exclude or keep Red adjacent for W unless Red freedom and felt action lead over group-first obligation.",
+      "evidence_claim_ids": [
+        "red_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red freedom from White shared rules and protection.",
+      "unsupported_certainty_to_avoid": "Do not choose Red only because the answer resents one rule."
+    },
+    {
+      "fixture_id": "red_exclude_u",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "U",
+      "scenario": "Mono-blue-like readings center study, planning, optimization, self-improvement, tools, or control before action.",
+      "intended_interpretation": "Exclude or keep Red adjacent for U unless Red lived experience and felt action lead over optimization.",
+      "evidence_claim_ids": [
+        "red_claim_0005",
+        "red_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red learning by doing from Blue learning before acting.",
+      "unsupported_certainty_to_avoid": "Do not choose Red only because the answer dislikes delay."
+    },
+    {
+      "fixture_id": "red_exclude_b",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "B",
+      "scenario": "Mono-black-like readings center calculated self-interest, leverage, opportunity, power, or cost accounting more than Red's felt motion.",
+      "intended_interpretation": "Exclude or keep Red adjacent for B unless emotion, desire, and action lead over Black calculation.",
+      "evidence_claim_ids": [
+        "red_claim_0005",
+        "red_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red risk and loyalty from Black self-interest and leverage.",
+      "unsupported_certainty_to_avoid": "Do not choose Red merely for danger or self-directed desire."
+    },
+    {
+      "fixture_id": "red_exclude_g",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "G",
+      "scenario": "Mono-green-like readings center instinct, natural order, destiny, role acceptance, bodily wildness, or the web of life.",
+      "intended_interpretation": "Exclude or keep Red adjacent for G unless Red emotional freedom and immediate action lead over Green acceptance or natural belonging.",
+      "evidence_claim_ids": [
+        "red_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red impulse from Green instinct, destiny, and natural role.",
+      "unsupported_certainty_to_avoid": "Do not choose Red only for wildness, creature combat, or anti-civilized tone."
+    },
+    {
+      "fixture_id": "red_exclude_wr",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WR",
+      "scenario": "Boros-like readings center protective intervention, justice, martial solidarity, duty, or conviction on behalf of others.",
+      "intended_interpretation": "Exclude or keep Red adjacent for WR unless mono-Red felt action leads without White duty or protection as the active method.",
+      "evidence_claim_ids": [
+        "red_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red urgency from Boros duty-backed intervention.",
+      "unsupported_certainty_to_avoid": "Do not choose Red merely for courage, battle, or fast action."
+    },
+    {
+      "fixture_id": "red_exclude_br",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BR",
+      "scenario": "Rakdos-like or generic BR readings center spectacle, appetite, transgression, cruelty, indulgence, pain, or public rupture.",
+      "intended_interpretation": "Exclude or keep Red adjacent for BR unless Red freedom and emotion lead without Black-Red appetite or spectacle.",
+      "evidence_claim_ids": [
+        "red_claim_0004",
+        "red_claim_0005",
+        "red_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red release from Rakdos spectacle, appetite, and transgressive performance.",
+      "unsupported_certainty_to_avoid": "Do not choose Red merely for violence, indulgence, or shock."
+    },
+    {
+      "fixture_id": "red_exclude_rg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "RG",
+      "scenario": "Gruul-like readings center wild belonging, instinct, bodily force, clan pressure, terrain, or anti-civilization more than felt present action.",
+      "intended_interpretation": "Exclude or keep Red adjacent for RG unless mono-Red emotion and immediate action lead without Green-Red wildness as the identity center.",
+      "evidence_claim_ids": [
+        "red_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red present-tense freedom from Gruul wild belonging and embodied instinct.",
+      "unsupported_certainty_to_avoid": "Do not choose Red merely for rage against civilization or raw force."
+    },
+    {
+      "fixture_id": "red_exclude_ur",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UR",
+      "scenario": "Izzet-like readings center experiment, prototype, technical curiosity, spellcraft, or engineered iteration more than Red's feeling-led motion.",
+      "intended_interpretation": "Exclude or keep Red adjacent for UR unless Red action from feeling leads without Blue-Red experimentation as method.",
+      "evidence_claim_ids": [
+        "red_claim_0003",
+        "red_claim_0005",
+        "red_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red learning by doing from Izzet learning by experiment and technique.",
+      "unsupported_certainty_to_avoid": "Do not choose Red merely for creativity, spells, volatility, or a desire to try something."
+    },
+    {
+      "fixture_id": "red_exclude_prismari",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "PRISMARI",
+      "scenario": "Prismari-like readings center artistic medium, performance craft, elemental expression, or spectacle as art.",
+      "intended_interpretation": "Exclude or keep Red adjacent for PRISMARI unless mono-Red felt action leads without a school-specific art or elemental method.",
+      "evidence_claim_ids": [
+        "red_claim_0003",
+        "red_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red expression from Prismari artistic method and performance craft.",
+      "unsupported_certainty_to_avoid": "Do not choose Red merely for expression, creativity, spectacle, or intensity."
+    },
+    {
+      "fixture_id": "red_exclude_lorehold",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "LOREHOLD",
+      "scenario": "Lorehold-like readings center history, tradition, archaeology, old evidence, inherited passion, or living memory.",
+      "intended_interpretation": "Exclude or keep Red adjacent for LOREHOLD unless mono-Red present-tense feeling and action lead without a past-facing method.",
+      "evidence_claim_ids": [
+        "red_claim_0003",
+        "red_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red immediacy from Lorehold history and tradition as action sources.",
+      "unsupported_certainty_to_avoid": "Do not choose Red merely for inherited passion or emotional attachment to the past."
+    },
+    {
+      "fixture_id": "red_exclude_quandrix",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "QUANDRIX",
+      "scenario": "Quandrix-like readings center abstract systems, pattern theory, scale, numbers, models, or reality as a formal structure.",
+      "intended_interpretation": "Exclude or keep Red adjacent for QUANDRIX unless Red felt action leads without Blue-Green abstraction.",
+      "evidence_claim_ids": [
+        "red_claim_0003",
+        "red_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red learning through lived feedback from Quandrix modeling.",
+      "unsupported_certainty_to_avoid": "Do not choose Red merely because the answer rejects analysis."
+    },
+    {
+      "fixture_id": "red_exclude_silverquill",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SILVERQUILL",
+      "scenario": "Silverquill-like readings center rhetoric, reputation, social pressure, words, status, or public language as the active method.",
+      "intended_interpretation": "Exclude or keep Red adjacent for SILVERQUILL unless Red emotion and action lead without a school-specific language/status method.",
+      "evidence_claim_ids": [
+        "red_claim_0004",
+        "red_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red expression from Silverquill rhetoric and reputation pressure.",
+      "unsupported_certainty_to_avoid": "Do not choose Red merely for sharp expression, public feeling, or defiance."
+    },
+    {
+      "fixture_id": "red_exclude_witherbloom",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WITHERBLOOM",
+      "scenario": "Witherbloom-like readings center life/death craft, vitality exchange, essence, potion work, pests, or body-as-material study.",
+      "intended_interpretation": "Exclude or keep Red adjacent for WITHERBLOOM unless Red felt action leads without Green-Black life/death craft.",
+      "evidence_claim_ids": [
+        "red_claim_0004",
+        "red_claim_0005",
+        "red_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "GOV-COC-2024",
+        "MECH-CP-2021",
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red appetite and action from Witherbloom material exchange and life/death practice.",
+      "unsupported_certainty_to_avoid": "Do not choose Red solely for impulse, bodily need, damage, or sacrifice-like mechanics."
+    },
+    {
+      "fixture_id": "red_exclude_esper",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ESPER",
+      "scenario": "Esper-like readings center controlled hierarchy, perfection, white-blue-black management, artifice, law, or system design.",
+      "intended_interpretation": "Exclude or keep Red adjacent for ESPER unless mono-Red feeling and immediacy lead without Esper control or managed order.",
+      "evidence_claim_ids": [
+        "red_claim_0002",
+        "red_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Require mono-Red present-tense freedom rather than Esper perfected structure.",
+      "unsupported_certainty_to_avoid": "Do not use opposition to control as sufficient Red proof."
+    },
+    {
+      "fixture_id": "red_exclude_grixis",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GRIXIS",
+      "scenario": "Grixis-like readings center manipulation, domination, survival strategy, cruelty, or blue-black-red destructive control beyond mono-Red.",
+      "intended_interpretation": "Exclude or keep Red adjacent for GRIXIS unless source-bounded mono-Red freedom and action lead without Grixis manipulation or domination.",
+      "evidence_claim_ids": [
+        "red_claim_0003",
+        "red_claim_0005",
+        "red_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red destructive texture from Grixis control, manipulation, and survival strategy.",
+      "unsupported_certainty_to_avoid": "Do not choose Red merely for destruction, cruelty, or intensity."
+    },
+    {
+      "fixture_id": "red_exclude_mardu",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "MARDU",
+      "scenario": "Mardu-like readings center conquest, raid logic, martial loyalty, oath, hierarchy, or red-white-black action under a code.",
+      "intended_interpretation": "Exclude or keep Red adjacent for MARDU unless Red felt action leads without Mardu martial structure.",
+      "evidence_claim_ids": [
+        "red_claim_0003",
+        "red_claim_0005",
+        "red_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red speed and loyalty from Mardu conquest and oathbound action.",
+      "unsupported_certainty_to_avoid": "Do not choose Red merely for speed, aggression, honor, or battle."
+    },
+    {
+      "fixture_id": "red_exclude_temur",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "TEMUR",
+      "scenario": "Temur-like readings center terrain, survival, elemental memory, bodily instinct, or blue-red-green attunement beyond mono-Red.",
+      "intended_interpretation": "Exclude or keep Red adjacent for TEMUR unless mono-Red feeling-to-action leads without a Green-Blue terrain or memory frame.",
+      "evidence_claim_ids": [
+        "red_claim_0003",
+        "red_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red present action from Temur elemental survival and attunement.",
+      "unsupported_certainty_to_avoid": "Do not choose Red merely for instinct, elements, or survival urgency."
+    },
+    {
+      "fixture_id": "red_exclude_wubrg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WUBRG",
+      "scenario": "Five-color or Commander-style readings use color identity, all-color access, deck breadth, or card legality as if they proved Red philosophy.",
+      "intended_interpretation": "Exclude or keep Red adjacent for WUBRG unless Red evidence comes from source-bounded identity claims, not Commander legality or all-color deck access.",
+      "evidence_claim_ids": [
+        "red_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "GOV-COC-2024",
+        "MECH-CP-2021"
+      ],
+      "defensible_guidance": "Keep mechanics and deck identity as texture only; do not use Commander rows as Red semantic proof.",
+      "unsupported_certainty_to_avoid": "Do not choose Red from Commander legality, card names, or five-color access."
+    },
+    {
+      "fixture_id": "red_exclude_colorless",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "COLORLESS",
+      "scenario": "Colorless or artifact-like readings use generic mana, artifacts, temporary resources, damage engines, or card names without Red's color-philosophy center.",
+      "intended_interpretation": "Exclude or keep Red adjacent for COLORLESS unless Red source-bounded freedom, emotion, and action lead beyond mechanics.",
+      "evidence_claim_ids": [
+        "red_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "GOV-COC-2024",
+        "MECH-CP-2021"
+      ],
+      "defensible_guidance": "Separate Red mechanic texture from colorless engines, artifacts, or generic resource conversion.",
+      "unsupported_certainty_to_avoid": "Do not choose Red merely for damage, artifacts, mana bursts, or colorless-style engines."
+    },
+    {
+      "fixture_id": "red_core_identity_provenance",
+      "fixture_type": "provenance",
+      "scenario": "",
+      "intended_interpretation": "Generated provenance for Red core identity must point to source-bounded substantive philosophy claims only.",
+      "evidence_claim_ids": [
+        "red_claim_0002",
+        "red_claim_0003",
+        "red_claim_0004",
+        "red_claim_0005",
+        "red_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Generated consumers must preserve source-bounded Red core identity provenance.",
+      "unsupported_certainty_to_avoid": "Do not use support/governance/Commander rows or mechanics-only rows as Red core identity proof.",
+      "canonical_file": "data/raw-factions/red/red.profile.json",
+      "canonical_pointer": "/core_identity"
+    },
+    {
+      "fixture_id": "red_placement_summary_provenance",
+      "fixture_type": "provenance",
+      "scenario": "",
+      "intended_interpretation": "Generated provenance for Red placement summary must preserve philosophy, relationship, pressure, and bounded mechanic/process texture claims without support leakage.",
+      "evidence_claim_ids": [
+        "red_claim_0002",
+        "red_claim_0003",
+        "red_claim_0004",
+        "red_claim_0005",
+        "red_claim_0006",
+        "red_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "GOV-COC-2024",
+        "MECH-CP-2021",
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Generated consumers must preserve claim/source provenance for Red placement summary guidance.",
+      "unsupported_certainty_to_avoid": "Do not expose support rows, card verification, generic Red emotion, or mechanics alone as placement proof.",
+      "canonical_file": "data/raw-factions/red/red.placement.json",
+      "canonical_pointer": "/placement_summary"
+    }
+  ]
+}

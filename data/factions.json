@@ -10943,7 +10943,13 @@
           "supporting_source_ids": [
             "RULES-CR",
             "SCRYFALL-R-2026-06-13"
-          ]
+          ],
+          "evidence_use": "auxiliary_support",
+          "claim_ids": [
+            "red_claim_0008"
+          ],
+          "auxiliary_support_boundary": "Commander/card verification is auxiliary support only; it cannot independently prove Red identity, placement, recruiter guidance, semantic readiness, public copy, fixtures, or canonical provenance chains.",
+          "id": "red_commander_compass_identity_basis_support_gate3"
         },
         "native_fit_commanders": [
           {
@@ -24819,7 +24825,7 @@
         "preview_order": 3,
         "preview_label": "Red",
         "preview_title": "Red — Freedom through Action",
-        "preview_text": "Red values emotion, impulse, authenticity, passion, and expression. It asks what is true when you stop pretending.",
+        "preview_text": "Red turns feeling into action before life hardens into regret. Its freedom stays vivid, loyal, and answerable for the sparks it throws.",
         "preview_hex": "#ff6b55",
         "preview_scores": {
           "order": 36,
