@@ -9,11 +9,13 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 **CRIT-001 is open.** Faction-foundation authoring, readiness approvals, canonical semantic guidance outside an active recovery card, Hall/Crucible authoring, and placement calibration are frozen. VM-501 owns shared recovery infrastructure; VM-502 through VM-538 recover the 37 identities one at a time. See the [incident](../incidents/CRIT-001-faction-semantic-readiness-integrity.md) and [authoritative recovery ledger](../incidents/CRIT-001-identity-recovery-ledger.json).
 
-**VM-502 Prismari, VM-506 Lorehold, VM-503 Quandrix, VM-504 Silverquill, VM-505 Witherbloom, VM-507 Izzet, VM-508 Azorius, VM-509 Boros, VM-510 Rakdos, VM-511 Golgari, VM-512 Gruul, VM-513 Dimir, VM-514 Orzhov, VM-515 Selesnya, VM-516 Simic, and VM-517 White are certified semantically ready under CRIT-001 Contract v1.1.** White exact candidate `89535e5f73598a5b518e31e11598b05087274a95` is certified after independent review decision `APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95`; superseded candidate `8d6014950e5ca45ef85a90855cf283d80fd18e0d` remains unapproved and recorded as a candidate-scope failure. Wave 2 Ravnica is complete: 10 of 10 guild identities certified. Wave 3 monocolors are 1 of 5 certified, total certified identities 16. Current program base is the VM-517 White certification SHA `9d250a7a76d219fdb961915cbf989a10a575c757`. VM-518 Blue / U exact candidate `ac774e2eac207cc7fe2d744beac1f11788908159` received independent review decision `APPROVE EXACT SHA ac774e2eac207cc7fe2d744beac1f11788908159`; Blue awaits certification, is not certified, is not semantically_ready, and VM-519 remains not started.
+**VM-502 Prismari, VM-506 Lorehold, VM-503 Quandrix, VM-504 Silverquill, VM-505 Witherbloom, VM-507 Izzet, VM-508 Azorius, VM-509 Boros, VM-510 Rakdos, VM-511 Golgari, VM-512 Gruul, VM-513 Dimir, VM-514 Orzhov, VM-515 Selesnya, VM-516 Simic, VM-517 White, and VM-518 Blue are certified semantically ready under CRIT-001 Contract v1.1.** Blue exact candidate `ac774e2eac207cc7fe2d744beac1f11788908159` is certified after independent review decision `APPROVE EXACT SHA ac774e2eac207cc7fe2d744beac1f11788908159`; no superseded Blue candidate exists. Wave 2 Ravnica is complete: 10 of 10 guild identities certified. Wave 3 monocolors are 2 of 5 certified, total certified identities 17. Current program base is the VM-518 Blue certification SHA `PENDING_VM518_CERTIFICATION_COMMIT_SHA`. VM-519 Black / B is setup-only on branch `codex/vm-519-black-semantic-recovery`; drift preflight is pending, Gate 1+2 has not started, and Black semantic data has not been inspected.
 
 ## Backlog
 
 - [VM-502 through VM-538 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Identity Semantic Recovery](../incidents/CRIT-001-identity-recovery-ledger.md) - standardized one-card-per-identity recovery queue; execution order and status live in the CRIT-001 ledger.
+
+- [VM-519 - Black Semantic Recovery](backlog/VM-519-black-semantic-recovery.md) - setup only after VM-518 Blue certification; drift preflight pending; Gate 1+2 and Black semantic inspection not started.
 
 - [VM-422 - Account Deck Links And Community Deck Ledger](backlog/VM-422-account-deck-links-community-deck-ledger.md) - deferred enhancement; deck saving remains wanted later, but the active Archscry surface is hidden until higher-priority readiness work is complete.
 - [VM-446 - VM-422 Live Private Deck-Link RLS Proof](backlog/VM-446-vm422-live-private-deck-link-rls-proof.md) - conditional security gate required only before shipping private account-backed deck-link saving.
@@ -38,7 +40,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-518 - Blue Semantic Recovery](backlog/VM-518-blue-semantic-recovery.md) - Exact candidate `ac774e2eac207cc7fe2d744beac1f11788908159` approved by independent review. Awaiting certification; not certified, not semantically_ready; VM-519 and external tracker updates remain not started.
+- No cards currently in progress.
 
 ## Blocked
 
@@ -71,6 +73,8 @@ VM-429 Section 14 ID reconciliation, 2026-06-30: the early readiness plan expect
 - [VM-516 - Simic Semantic Recovery](done/VM-516-simic-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1; approved replacement candidate SHA `bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e`; review-rejected candidate `cbca9f596a090e924d532e7cb657c27c79ccb9de` and superseded candidates `f4afb9d5d769c72e1c86df189729423a380629af`, `204cf9e6be15f2c3ac59a36c3977efea9a9945ce` remain unapproved; certified with documented UG display-source exception; Wave 2 Ravnica complete.
 
 - [VM-517 - White Semantic Recovery](done/VM-517-white-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1 from exact approved candidate `89535e5f73598a5b518e31e11598b05087274a95`; superseded candidate `8d6014950e5ca45ef85a90855cf283d80fd18e0d` remains unapproved; certification commit recorded by this acceptance commit.
+
+- [VM-518 - Blue Semantic Recovery](done/VM-518-blue-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1 from exact approved candidate `ac774e2eac207cc7fe2d744beac1f11788908159`; no superseded Blue candidate exists; reviewed U provenance count 25; certification commit recorded by this acceptance commit. VM-519 Black remains setup-only with drift preflight pending.
 
 - [VM-503 - Quandrix Semantic Recovery](done/VM-503-quandrix-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1; approved recovery SHA `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe`; certification commit `cb495e11ba875f1801cbd8f8cb8e7204c27f5840`.
 - [VM-502 - Prismari Semantic Recovery](done/VM-502-prismari-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1; approved recovery SHA `19800da6322100b28fa6325fef91321e147b6f69`; certification commit `492598f13df24d0f74f5869e249d860ff661a3aa`.

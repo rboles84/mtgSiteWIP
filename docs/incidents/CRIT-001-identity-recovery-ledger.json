@@ -5,16 +5,16 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "U",
-    "next_identity": "U",
-    "certified_identity_count": 16,
+    "active_identity": "B",
+    "next_identity": "B",
+    "certified_identity_count": 17,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
       "next_cohort": "Wave 3 monocolors",
-      "current_program_base": "PENDING_VM517_CERTIFICATION_COMMIT_SHA",
+      "current_program_base": "PENDING_VM518_CERTIFICATION_COMMIT_SHA",
       "wave_3_monocolors": "active",
-      "wave_3_monocolors_certified": "1 of 5"
+      "wave_3_monocolors_certified": "2 of 5"
     },
     "wip_limit": 1,
     "active_prerequisite": null,
@@ -43,39 +43,27 @@
       "installed_after_program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
       "governance_commit": "PENDING_CRIT001_DRIFT_CONTROL_GOVERNANCE_SHA",
       "current_identity_hold": {
-        "identity": "U",
-        "card": "VM-518",
-        "state": "approved_awaiting_certification",
-        "branch": "codex/vm-518-blue-semantic-recovery",
-        "prior_identity_certified": "W",
-        "prior_identity_certification": "PENDING_VM517_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "Certify exact approved Blue candidate SHA only in a separate certification window. Do not start VM-519, advance program base, or update semantic/generated files before certification.",
-        "required_next_milestone": "Run certification for exact Blue candidate ac774e2eac207cc7fe2d744beac1f11788908159.",
-        "drift_preflight_started": true,
-        "gate_1_2_status": "complete",
-        "candidate_created": true,
+        "identity": "B",
+        "card": "VM-519",
+        "state": "setup_only_drift_preflight_pending",
+        "branch": "codex/vm-519-black-semantic-recovery",
+        "prior_identity_certified": "U",
+        "prior_identity_certification": "PENDING_VM518_CERTIFICATION_COMMIT_SHA",
+        "authorized_next_scope": "Setup only. Run a separate committed VM-519 Black drift preflight before Gate 1+2. Do not inspect Black semantic source/data or begin Gate 1+2 in the VM-518 certification window.",
+        "required_next_milestone": "Run VM-519 Black drift preflight in a separate window before any Black semantic audit.",
+        "drift_preflight_started": false,
+        "gate_1_2_status": "not_started",
+        "candidate_created": false,
         "independent_review": {
-          "performed": true,
-          "decision": "APPROVE EXACT SHA ac774e2eac207cc7fe2d744beac1f11788908159",
-          "reviewed_candidate_sha": "ac774e2eac207cc7fe2d744beac1f11788908159",
-          "review_record": "docs/incidents/recoveries/VM-518-blue-independent-review.md",
-          "review_record_commit": "PENDING_VM518_BLUE_REVIEW_RECORD_SHA",
-          "reviewed_at": "2026-07-18T12:18:00-06:00"
+          "performed": false
         },
         "certification": {
           "performed": false,
-          "status": "awaiting_certification",
+          "status": "not_started",
           "certification_sha": null
         },
-        "program_base": "9d250a7a76d219fdb961915cbf989a10a575c757",
-        "drift_preflight_decision": "PASS - BLUE GATE 1+2 AUTHORIZED",
-        "drift_preflight_record": "docs/incidents/recoveries/VM-518-blue-drift-preflight.md",
-        "drift_preflight_commit": "d1375ef71fe5740453e698596ef772890ac0aa0f",
-        "gate_1_2_report": "docs/incidents/recoveries/VM-518-blue-semantic-recovery.md",
-        "gate_1_2_commit": "428128505a194293feb915c929072e23dc9f0ace",
-        "remediation_authorized": true,
-        "updated_at": "2026-07-18T12:18:00-06:00",
-        "candidate_sha": "ac774e2eac207cc7fe2d744beac1f11788908159"
+        "program_base": "PENDING_VM518_CERTIFICATION_COMMIT_SHA",
+        "updated_at": "2026-07-18T12:47:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -86,13 +74,15 @@
         "Begin Simic Goal mode only after the drift preflight reports no FAIL or UNKNOWN controls."
       ],
       "last_certification": {
-        "identity": "W",
-        "card": "VM-517",
-        "candidate_sha": "89535e5f73598a5b518e31e11598b05087274a95",
-        "review_decision": "APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95",
-        "certification_commit": "PENDING_VM517_CERTIFICATION_COMMIT_SHA",
-        "certified_at": "2026-07-18T09:42:09-06:00",
-        "final_state": "semantically_ready"
+        "identity": "U",
+        "card": "VM-518",
+        "candidate_sha": "ac774e2eac207cc7fe2d744beac1f11788908159",
+        "review_decision": "APPROVE EXACT SHA ac774e2eac207cc7fe2d744beac1f11788908159",
+        "certification_commit": "PENDING_VM518_CERTIFICATION_COMMIT_SHA",
+        "certified_at": "2026-07-18T12:47:00-06:00",
+        "final_state": "semantically_ready",
+        "reviewed_provenance_count": 25,
+        "superseded_candidate_shas": []
       }
     },
     "rejected_prerequisite_candidates": [
@@ -2788,14 +2778,14 @@
         "inventory_updated_at": "2026-07-18T10:50:00-06:00"
       },
       "workflow": {
-        "current_gate": "approved",
-        "status": "awaiting_certification",
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": "2026-07-18T09:42:09-06:00",
-        "gate_entered_at": "2026-07-18T10:50:00-06:00",
+        "gate_entered_at": "2026-07-18T12:47:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "B",
-        "primary_disposition": "VM-518 Blue exact candidate ac774e2eac207cc7fe2d744beac1f11788908159 received independent review decision APPROVE EXACT SHA ac774e2eac207cc7fe2d744beac1f11788908159. Blue awaits certification, is not semantically_ready, and VM-519 is not started."
+        "primary_disposition": "Certified semantically_ready from exact approved candidate ac774e2eac207cc7fe2d744beac1f11788908159 after independent review decision APPROVE EXACT SHA ac774e2eac207cc7fe2d744beac1f11788908159. No superseded Blue candidate exists. Reviewed U provenance count is 25. Wave 3 monocolors are 2 of 5 certified, total certified identities 17, and VM-519 Black is setup-only with drift preflight pending."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -2841,12 +2831,14 @@
           "Frozen placement summary, required terms, minimum hits, broad penalty, strengthen/suppress lists, lateral targets WU/UB/UR/UG, raw object-with-pairs collision guidance, R/G pair order, and absent generic collision target were preserved.",
           "npm.cmd run build:factions, audit, semantic readiness validation, semantic-candidate-scope tests, npm semantic/placement/context/source-generated/full suites, stale Blue surface scan, and diff checks passed.",
           "Exact candidate-scope validation passed for 428128505a194293feb915c929072e23dc9f0ace..ac774e2eac207cc7fe2d744beac1f11788908159.",
-          "Blue is awaiting independent review; no approval, certification, semantically_ready transition, VM-519 work, program-base advancement, original-main modification, Excel update, or Table Talk content commit occurred."
+          "Blue is awaiting independent review; no approval, certification, semantically_ready transition, VM-519 work, program-base advancement, original-main modification, Excel update, or Table Talk content commit occurred.",
+          "Certification guards passed on 2026-07-18: JSON parse, Blue reconciliation, audit, semantic readiness validation, candidate-scope tests, exact candidate-scope guard, build:factions with no generated diff, semantic-readiness suite, placement suite, faction-context isolation, source-generated guardrails, full npm test, and diff checks.",
+          "Certification recorded exact approved candidate ac774e2eac207cc7fe2d744beac1f11788908159, no superseded Blue candidate, reviewed U provenance count 25, certified count 17, Wave 3 2 of 5, and VM-519 setup-only state."
         ],
         "drift_preflight_report": "docs/incidents/recoveries/VM-518-blue-drift-preflight.md",
         "gate_3_4_status": "complete",
         "candidate_sha": "ac774e2eac207cc7fe2d744beac1f11788908159",
-        "candidate_status": "approved_awaiting_certification",
+        "candidate_status": "certified",
         "independent_review": {
           "performed": true,
           "decision": "APPROVE EXACT SHA ac774e2eac207cc7fe2d744beac1f11788908159",
@@ -2894,19 +2886,35 @@
             "missing_ids": [],
             "extra_ids": []
           }
-        ]
+        ],
+        "status": "certified",
+        "certification_commit": "PENDING_VM518_CERTIFICATION_COMMIT_SHA",
+        "certification_status": "certified",
+        "certified_at": "2026-07-18T12:47:00-06:00",
+        "validation_passed": true
       },
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "ac774e2eac207cc7fe2d744beac1f11788908159",
         "recovery_commit": "ac774e2eac207cc7fe2d744beac1f11788908159",
-        "certification_commit": null,
+        "certification_commit": "PENDING_VM518_CERTIFICATION_COMMIT_SHA",
         "reviewer": "Codex independent review window",
         "review_result": "approved_exact_sha",
         "review_cycles": 1,
         "approval_date": "2026-07-18",
-        "certified_at": null
+        "certified_at": "2026-07-18T12:47:00-06:00",
+        "final_state": "semantically_ready",
+        "independent_review_decision": "APPROVE EXACT SHA ac774e2eac207cc7fe2d744beac1f11788908159",
+        "approval_review_record": "7a000a6c8919b45238810b0a30020da74e050a7f",
+        "candidate_workflow_record": "0e8663e77017c1b21b1d65caa1cf963e3d956dc6",
+        "reviewed_provenance_count": 25,
+        "superseded_candidate_shas": [],
+        "known_unchanged_warnings": [
+          "git diff --check emitted line-ending warnings only and exited 0.",
+          "npm.cmd run test:source-generated retains known unrelated JESKAI/MARDU model-owned inhibitor warnings and exits 0."
+        ],
+        "next_identity_setup": "VM-519 Black setup only on codex/vm-519-black-semantic-recovery; drift preflight pending; Gate 1+2 not started"
       }
     },
     {
@@ -2971,14 +2979,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
+        "current_gate": "setup_only",
+        "status": "drift_preflight_pending",
+        "started_at": "2026-07-18T12:47:00-06:00",
         "gate_entered_at": null,
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "R",
-        "primary_disposition": null
+        "primary_disposition": "Setup-only branch/card state after VM-518 Blue certification. Black drift preflight is pending and Gate 1+2 has not started. No Black source, claim, profile, placement, generated, fixture, provenance, preview, recruiter, recommendation, remediation, candidate, review, or certification work occurred in the VM-518 certification window."
       },
       "semantic_review": {
         "required_neighbors": [],
@@ -2986,7 +2994,7 @@
         "residual_findings": []
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": null,
         "recovery_commit": null,

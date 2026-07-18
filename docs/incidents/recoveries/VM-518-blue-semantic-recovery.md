@@ -1,6 +1,6 @@
 # VM-518 Blue Semantic Recovery
 
-Status: Independent review approved exact candidate. Awaiting certification.
+Status: Certified semantically_ready.
 
 Identity: Blue / U
 Contract: CRIT-001 semantic-readiness Contract v1.1
@@ -12,7 +12,7 @@ Gate 5 candidate commit: `ac774e2eac207cc7fe2d744beac1f11788908159`
 Independent review decision: `APPROVE EXACT SHA ac774e2eac207cc7fe2d744beac1f11788908159`
 Independent review record: `docs/incidents/recoveries/VM-518-blue-independent-review.md`
 
-This record is the read-only Gate 1+2 audit and evidence confirmation for Blue. No Blue raw semantic data, generated consumers, provenance, recruiter context, fixtures, tests, validators, builders, schemas, runtime, scoring, calibration, VM-519 files, original-main files, Excel tracker, or Table Talk files were modified by this gate.
+This record is the CRIT-001 recovery and certification record for Blue. Certification is governance-only and certifies exact approved candidate `ac774e2eac207cc7fe2d744beac1f11788908159`.
 
 ## 1. Preflight Reverification
 
@@ -354,4 +354,36 @@ Review verified:
 
 No blocker, high, medium, or low findings remain.
 
-Certification is still pending; Blue is not `semantically_ready`, program base has not advanced, and VM-519 has not started.
+## 19. Certification Record
+
+Certification decision: CERTIFY exact approved candidate `ac774e2eac207cc7fe2d744beac1f11788908159`.
+
+Certification commit: `PENDING_VM518_CERTIFICATION_COMMIT_SHA`.
+
+Certified state:
+
+- Blue / U is `semantically_ready`.
+- CRIT-001 certified identity count advances from 16 to 17.
+- Wave 3 monocolors advance from 1 of 5 to 2 of 5 certified.
+- Current program base advances from `9d250a7a76d219fdb961915cbf989a10a575c757` to `PENDING_VM518_CERTIFICATION_COMMIT_SHA`.
+- VM-519 Black / B is setup-only on branch `codex/vm-519-black-semantic-recovery`; drift preflight is pending and Gate 1+2 has not started.
+
+Certification guards:
+
+- Current branch before certification: `codex/vm-518-blue-semantic-recovery`.
+- Current HEAD before certification: `7a000a6c8919b45238810b0a30020da74e050a7f`.
+- Required objects and ancestry passed from program base through approved monocolor validator candidate/review, Blue drift preflight, Gate 1+2, exact candidate, candidate workflow, and independent review/current HEAD.
+- Exact review decision confirmed: `APPROVE EXACT SHA ac774e2eac207cc7fe2d744beac1f11788908159`.
+- No superseded Blue candidate exists.
+- Candidate semantic/generated/fixture/recruiter/provenance/runtime/test/schema/validator/builder/scoring/calibration files have no post-candidate drift.
+- Exact candidate-scope command passed: `node research/validate-semantic-candidate-scope.mjs --base=428128505a194293feb915c929072e23dc9f0ace --target=ac774e2eac207cc7fe2d744beac1f11788908159 --identity=U`.
+- Certification drift assertions passed for claim roles, evidence scopes, source hierarchy, support isolation, U provenance, exact fixture/provenance parity, frozen fields, public/recruiter/preview alignment, raw object-with-`pairs` collision guidance, generated collision array semantics, and absent explicit generic collision target.
+- Deterministic build check passed: `npm.cmd run build:factions` completed and generated files had no content diff.
+- Regression commands passed: `node research/audit-semantic-readiness.mjs --targets=U`, `node research/validate-semantic-readiness.mjs --targets=U`, `node research/semantic-candidate-scope-tests.js`, `npm.cmd run test:semantic-readiness`, `npm.cmd run test:placement`, `npm.cmd run test:faction-context-isolation`, `npm.cmd run test:source-generated`, and `npm.cmd test`.
+
+Warnings and limitations:
+
+- `npm.cmd run test:source-generated` retains known unrelated JESKAI/MARDU model-owned inhibitor warnings and exits 0.
+- `git diff --check` emitted line-ending warnings only and exited 0.
+- The external Excel tracker was not modified.
+- VM-519 Black semantic data was not inspected or changed.
