@@ -329,3 +329,128 @@ Candidate scorecard:
 | Table Talk excluded | PASS |
 
 No independent review was performed. No approval decision was issued. Simic is not certified, not semantically_ready, the CRIT-001 program base remains `fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3`, VM-517 has not started, and the external tracker was not modified.
+
+## Independent Review - 2026-07-17
+
+- Reviewer: Codex independent review window.
+- Program base: `fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3`
+- Drift-control governance: `bb424a64787977baa45c67f1459babab64b1d3c7`
+- Drift-preflight commit: `851f4b604459073bd739ec10d3f278f90f4069c3`
+- Review base: `06f140a1e78a24d6c549943d6beb471f4e714302`
+- Superseded candidates: `f4afb9d5d769c72e1c86df189729423a380629af`, `204cf9e6be15f2c3ac59a36c3977efea9a9945ce`
+- Exact final candidate reviewed: `cbca9f596a090e924d532e7cb657c27c79ccb9de`
+- Workflow-record commit checked: `04510577b7f3e1c4bacc5f2a88018b461760a80a`
+- Decision: `REQUEST CHANGES`
+- Certification: not performed.
+- `semantically_ready`: not set.
+- Program base: not advanced.
+- VM-517: not started.
+
+### Review Finding
+
+#### BLOCKER - Approval Blocking
+
+Stale preview-eligible Simic public copy remains in the identity-layer display surfaces.
+
+Evidence:
+
+- `data/identity-layers.json#/expressions/UG/preview_text` remains: `Simic blends Green growth with Blue knowledge. It values mutation, research, guided evolution, optimization, and becoming.`
+- `data/factions.json#/identity_layers/expressions/UG/preview_text` duplicates the same text.
+- The exact candidate did not change `data/identity-layers.json`, and `data/factions.json` preserved the embedded identity-layer preview text even while the main `factions.UG` copy was narrowed.
+- Repository precedent treats `data/identity-layers.json` as a runtime/display authority for preview surfaces, and prior CRIT-001 recoveries corrected target-scoped identity-layer stale public copy as display-source exceptions.
+
+Contract and drift-control impact:
+
+- The public/generated Simic preview still overfits generic UG mutation, research, guided evolution, optimization, and becoming language without the source-bounded living-system, clade, medicine, public-health, or adaptation context used in the corrected raw profile, placement model, and recruiter context.
+- This fails the drift-control `Public/recruiter copy aligned` checkpoint and the prompt requirement to inspect `data/identity-layers.json`, even if unchanged, to confirm no stale Simic representation remains.
+- Automated candidate-scope and semantic-readiness validators passed, but those passes do not override the manual public-surface drift control.
+
+Required remediation:
+
+- Narrow or replace the UG identity-layer preview copy in the display source so it aligns with source-bounded Simic semantics.
+- Regenerate or otherwise ensure the embedded `data/factions.json` identity-layer preview matches the corrected display source.
+- Record any target-scoped display-source exception if candidate-scope requires it.
+- Re-run deterministic generation, exact candidate-scope validation, stale-copy scans, and the required CRIT-001 validation suite in a replacement candidate sequence.
+
+### Review Evidence
+
+- Preflight matched expected worktree, branch, current HEAD, candidate SHA, workflow-record SHA, drift-control SHA, drift-preflight SHA, Gate 1+2 SHA, program base SHA, and ancestry.
+- Active worktree contained only the allowed Table Talk baseline before review.
+- Candidate file scope was Simic raw/generated/recruiter/fixture only; workflow-record diff was governance-only and excluded from semantic review.
+- Superseded candidate 1 reproduced added confidence fields under behavioral signals and inhibitor traits; final candidate removed those fields.
+- Superseded candidate 2 reproduced missing core-values confidence fields; final candidate restored the Gate 1+2 confidence path baseline.
+- Initial Gate 1+2 raw stored claims: 17 total, all unassigned. Final candidate claims: 33 total, 23 `substantive_claim`, 10 `discovery_record`, 0 `support_record`, 0 unclassified.
+- Source hierarchy verified: two claim-bearing official sources, one support-only mechanics source, and ten discovery-only story/archive records.
+- Every substantive claim has bounded evidence locations with `evidence_scope`; evidence-location source sets exactly match declared claim `source_ids`.
+- Discovery-story IDs appear only in the explicit `/data_quality/corpus_upgrade` `discovery_metadata` row with authoritative-use restriction; no discovery/support records appear in default semantic profile, placement, fixture, generated public-copy, or recruiter proof chains.
+- UG provenance verified: 72 entries, zero required null canonical IDs, zero null canonical content hashes, zero unresolved pointers, zero duplicate canonical entries.
+- Fixture/provenance exact-chain checks passed for `profile.json#/core_identity` and `placement.json#/placement_summary`.
+- Frozen confidence/calibration/native-ID checks passed: confidence remains `Medium`, required terms/minimum hits/broad penalty/strengthen/suppress lists are unchanged, lateral targets remain `QUANDRIX`, `UR`, `WITHERBLOOM`, `TEMUR`, `SULTAI`, and generated generic collision target remains absent.
+- Required-neighbor guidance is present and testable for `GENERIC_UG_OVERFIT`, `U`, `G`, `UR`, `BG`, `WG`, `RG`, `UB`, `QUANDRIX`, `WITHERBLOOM`, `BANT`, `TEMUR`, and `SULTAI`.
+- Main generated public/recruiter surfaces were narrowed appropriately, but the identity-layer preview surface remains stale and blocks approval.
+
+### Review Validation
+
+- JSON parse checks for changed JSON files - passed.
+- Explicit final claim-role count - passed: 33 total, 23 substantive, 10 discovery, 0 support, 0 unclassified.
+- Explicit substantive evidence-scope and source-ID equality check - passed.
+- Discovery/support isolation check - passed for authoritative/default semantic chains; discovery metadata row is non-authoritative and explicitly marked `discovery_metadata`.
+- Null canonical-ID/hash, unresolved-pointer, and duplicate canonical-entry checks - passed for 72 UG provenance entries.
+- Exact fixture/provenance comparison - passed for `/core_identity` and `/placement_summary`.
+- Stale public/recruiter-copy scan - failed for preview-eligible identity-layer display copy at `data/identity-layers.json#/expressions/UG/preview_text` and embedded `data/factions.json#/identity_layers/expressions/UG/preview_text`.
+- Frozen-field comparisons - passed.
+- Native-ID review - passed; Vorel remains retained native metadata only, not authoritative key-figure proof.
+- `npm.cmd run build:factions` - passed twice with no generated diff.
+- `node research/audit-semantic-readiness.mjs --targets=UG` - passed; reported 33 claims, 23 substantive, 10 discovery, 0 support, 0 unclassified.
+- `node research/validate-semantic-readiness.mjs --targets=UG` - passed.
+- `node research/semantic-candidate-scope-tests.js` - passed.
+- `npm.cmd run test:semantic-readiness` - passed; verified 1787 semantic provenance entries.
+- `npm.cmd run test:placement` - passed for 37 factions and 37 golden paths.
+- `npm.cmd run test:faction-context-isolation` - passed.
+- `npm.cmd run test:source-generated` - passed with unchanged unrelated JESKAI/MARDU model-owned inhibitor warnings only.
+- `npm.cmd test` - passed.
+- `node research/validate-semantic-candidate-scope.mjs --base=06f140a1e78a24d6c549943d6beb471f4e714302 --target=cbca9f596a090e924d532e7cb657c27c79ccb9de --identity=UG` - passed.
+- `git diff --check` - passed with line-ending warning for the shared handoff index only.
+
+### Drift Scorecard
+
+| Control | Result | Evidence |
+|---|---|---|
+| Correct branch and HEAD | PASS | `codex/vm-516-simic-semantic-recovery`, `04510577b7f3e1c4bacc5f2a88018b461760a80a` |
+| Correct program base | PASS | `fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3` |
+| Exact candidate isolated | PASS | Reviewed only `cbca9f596a090e924d532e7cb657c27c79ccb9de` |
+| Superseded candidates excluded | PASS | Both superseded candidates inspected and not approved |
+| Candidate and workflow commits separated | PASS | Candidate-to-workflow diff governance-only |
+| Candidate file scope justified | PASS | Simic raw/generated/recruiter/fixture only |
+| Source hierarchy verified | PASS | Official claim-bearing, support-only, and discovery-only roles confirmed |
+| Claim-role counts verified | PASS | 33 / 23 / 10 / 0 / 0 |
+| Evidence scopes verified | PASS | No substantive claim missing `evidence_scope` |
+| Discovery/support isolated | PASS | Discovery row limited to `discovery_metadata` data-quality container |
+| Canonical IDs and hashes valid | PASS | 72 UG entries, zero null IDs/hashes |
+| Proof chains canonical-only | PASS | Default semantic chains use substantive claims only |
+| Fixture/provenance exact equality | PASS | `/core_identity` and `/placement_summary` match exactly |
+| Confidence unchanged | PASS | Final candidate confidence paths match Gate 1+2 |
+| Native IDs unchanged | PASS | Retained native metadata preserved where not authoritative |
+| Required terms unchanged | PASS | Required positive terms match Gate 1+2 |
+| Minimum hits unchanged | PASS | `2` |
+| Penalty unchanged | PASS | `0.1` |
+| Strengthen/suppress unchanged | PASS | Lists match Gate 1+2 |
+| Lateral targets unchanged | PASS | `QUANDRIX`, `UR`, `WITHERBLOOM`, `TEMUR`, `SULTAI` |
+| Generic collision target remains absent | PASS | No generated generic collision target |
+| Calibration unchanged | PASS | Calibration tuning matches Gate 1+2 |
+| Public/recruiter copy aligned | FAIL | Identity-layer preview public copy remains stale |
+| Required neighbors distinguished | PASS | Testable boundaries present |
+| Deterministic generation | PASS | Two `build:factions` runs left no diff |
+| Candidate-scope command passes | PASS | Exact command passed |
+| No unrelated identity drift | PASS | No Jeskai/Mardu candidate changes; warnings unchanged |
+| Table Talk baseline excluded | PASS | Baseline preserved and uncommitted |
+| Reviewed truth reconciled with implementation summary | FAIL | Implementation stale-copy scan reported PASS, but review found stale identity-layer preview copy |
+| No VM-517 work | PASS | Not started |
+
+Because the scorecard contains `FAIL`, approval is blocked.
+
+### Final Review Decision
+
+`REQUEST CHANGES`
+
+Simic is not approved, not certified, not `semantically_ready`, and VM-517 has not started.

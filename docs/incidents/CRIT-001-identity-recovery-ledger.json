@@ -2302,14 +2302,14 @@
         "inventory_updated_at": "2026-07-17T18:35:00-06:00"
       },
       "workflow": {
-        "current_gate": "gate_5_candidate_created",
-        "status": "awaiting_independent_review",
+        "current_gate": "gate_5_independent_review_request_changes",
+        "status": "changes_requested_awaiting_remediation",
         "started_at": null,
-        "gate_entered_at": "2026-07-17T18:35:00-06:00",
-        "blocked_at": null,
-        "blocked_reason": null,
+        "gate_entered_at": "2026-07-17T19:31:00-06:00",
+        "blocked_at": "2026-07-17T19:31:00-06:00",
+        "blocked_reason": "Independent review requested changes: stale preview-eligible Simic public copy remains in identity-layer display surfaces.",
         "next_identity": "W",
-        "primary_disposition": "Final scope-passing Simic candidate cbca9f596a090e924d532e7cb657c27c79ccb9de created after two superseded candidate-scope failures. Awaiting independent review. Not certified, not semantically_ready, program base remains fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3, and VM-517 has not started.",
+        "primary_disposition": "Independent review returned REQUEST CHANGES for exact candidate cbca9f596a090e924d532e7cb657c27c79ccb9de because stale preview-eligible Simic public copy remains in data/identity-layers.json and embedded data/factions.json identity-layer preview text. Candidate is not approved, not certified, not semantically_ready; program base remains fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3; VM-517 has not started.",
         "drift_preflight": {
           "record": "docs/incidents/recoveries/VM-516-simic-drift-preflight.md",
           "commit": "851f4b604459073bd739ec10d3f278f90f4069c3",
@@ -2347,7 +2347,7 @@
           "certified": false
         },
         "gate_5": {
-          "status": "candidate_created_awaiting_independent_review",
+          "status": "independent_review_request_changes_awaiting_remediation",
           "final_candidate_sha": "cbca9f596a090e924d532e7cb657c27c79ccb9de",
           "superseded_candidates": [
             {
@@ -2360,7 +2360,20 @@
             }
           ],
           "workflow_record_commit": "PENDING_VM516_WORKFLOW_RECORD_COMMIT_SHA",
-          "independent_review": "pending",
+          "independent_review": {
+            "reviewer": "Codex independent review window",
+            "review_date": "2026-07-17",
+            "review_record": "PENDING_VM516_REVIEW_RECORD_COMMIT_SHA",
+            "decision": "REQUEST CHANGES",
+            "exact_candidate_reviewed": "cbca9f596a090e924d532e7cb657c27c79ccb9de",
+            "workflow_record_commit": "04510577b7f3e1c4bacc5f2a88018b461760a80a",
+            "blocking_findings": [
+              "BLOCKER: Stale preview-eligible Simic public copy remains in data/identity-layers.json#/expressions/UG/preview_text and duplicated data/factions.json#/identity_layers/expressions/UG/preview_text: generic mutation/research/guided-evolution/optimization wording is not narrowed to source-bounded living-system, clade, medicine, public-health, or adaptation context."
+            ],
+            "certified": false,
+            "semantically_ready": false,
+            "vm_517_started": false
+          },
           "certified": false,
           "semantically_ready": false,
           "vm_517_started": false
@@ -2384,7 +2397,34 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-516-simic-semantic-recovery.md",
         "drift_preflight_report": "docs/incidents/recoveries/VM-516-simic-drift-preflight.md",
-        "residual_findings": []
+        "residual_findings": [
+          "BLOCKER: Stale preview-eligible Simic public copy remains in data/identity-layers.json#/expressions/UG/preview_text and duplicated data/factions.json#/identity_layers/expressions/UG/preview_text: generic mutation/research/guided-evolution/optimization wording is not narrowed to source-bounded living-system, clade, medicine, public-health, or adaptation context."
+        ],
+        "validation_summary": [
+          "Preflight matched expected worktree, branch, current HEAD, candidate SHA, workflow-record SHA, drift-control SHA, drift-preflight SHA, Gate 1+2 SHA, program base SHA, and ancestry; active worktree had only the allowed Table Talk baseline.",
+          "Candidate file scope was Simic raw/generated/recruiter/fixture only; workflow-record diff was governance-only and excluded from semantic review.",
+          "Final claim-role counts verified: 33 total, 23 substantive_claim, 10 discovery_record, 0 support_record, 0 unclassified.",
+          "Substantive evidence locations contain required evidence_scope, locator, source_id, bounded_paraphrase, and interpretation_level fields; evidence location source_id sets exactly match declared claim source_ids and resolve in the source inventory.",
+          "Discovery records appear only in the explicit data_quality/corpus_upgrade discovery_metadata row with authoritative-use restriction; no discovery/support records appear in default semantic profile, placement, fixture, generated public-copy, or recruiter proof chains.",
+          "UG provenance verified: 72 entries, zero required null canonical IDs, zero null canonical content hashes, zero unresolved canonical pointers, zero duplicate canonical entries.",
+          "Fixture/provenance exact-chain checks passed for profile /core_identity and placement /placement_summary; both match generated provenance by locator, order, count, membership, duplicates, missing IDs, and extra IDs.",
+          "Frozen confidence/calibration/native-ID checks passed; final candidate removes the superseded candidates confidence drift and preserves required terms, minimum hits, broad penalty, strengthen/suppress lists, lateral targets, and absent generic collision target.",
+          "Automated validation passed: build:factions twice, audit/validate semantic readiness, semantic-candidate-scope tests, focused npm tests, full npm.cmd test, exact candidate-scope command, and git diff --check with line-ending warning only.",
+          "Approval remains blocked because preview-eligible public Simic copy in data/identity-layers.json and embedded data/factions.json still overfits generic UG mutation/research/guided-evolution/optimization language without source-bounded living-system context."
+        ],
+        "candidate_scope": {
+          "base": "06f140a1e78a24d6c549943d6beb471f4e714302",
+          "target": "cbca9f596a090e924d532e7cb657c27c79ccb9de",
+          "result": "passed_automation_but_review_request_changes",
+          "superseded_candidates": [
+            "f4afb9d5d769c72e1c86df189729423a380629af",
+            "204cf9e6be15f2c3ac59a36c3977efea9a9945ce"
+          ],
+          "review_decision": "REQUEST CHANGES",
+          "blocking_findings": [
+            "BLOCKER: Stale preview-eligible Simic public copy remains in data/identity-layers.json#/expressions/UG/preview_text and duplicated data/factions.json#/identity_layers/expressions/UG/preview_text: generic mutation/research/guided-evolution/optimization wording is not narrowed to source-bounded living-system, clade, medicine, public-health, or adaptation context."
+          ]
+        }
       },
       "certification": {
         "contract_version": "v1.1",
@@ -2392,10 +2432,27 @@
         "candidate_recovery_sha": "cbca9f596a090e924d532e7cb657c27c79ccb9de",
         "recovery_commit": "cbca9f596a090e924d532e7cb657c27c79ccb9de",
         "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
+        "reviewer": "Codex independent review window - REQUEST CHANGES",
+        "review_cycles": 1,
         "approval_date": null,
-        "certified_at": null
+        "certified_at": null,
+        "review_result": "request_changes",
+        "final_state": "changes_requested_awaiting_remediation",
+        "independent_review_decision": "REQUEST CHANGES",
+        "remaining_findings": {
+          "blocker": [
+            "BLOCKER: Stale preview-eligible Simic public copy remains in data/identity-layers.json#/expressions/UG/preview_text and duplicated data/factions.json#/identity_layers/expressions/UG/preview_text: generic mutation/research/guided-evolution/optimization wording is not narrowed to source-bounded living-system, clade, medicine, public-health, or adaptation context."
+          ],
+          "high": [],
+          "medium": [],
+          "low": []
+        },
+        "known_unchanged_warnings": [
+          "JESKAI and MARDU source/generated model-owned inhibitor warnings remain unchanged and unrelated to UG.",
+          "git diff --check reported a line-ending warning for the shared handoff index only."
+        ],
+        "candidate_workflow_record": "04510577b7f3e1c4bacc5f2a88018b461760a80a",
+        "request_changes_review_record": "PENDING_VM516_REVIEW_RECORD_COMMIT_SHA"
       }
     },
     {
