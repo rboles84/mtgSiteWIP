@@ -45,21 +45,26 @@
       "current_identity_hold": {
         "identity": "U",
         "card": "VM-518",
-        "state": "candidate_created_awaiting_independent_review",
+        "state": "approved_awaiting_certification",
         "branch": "codex/vm-518-blue-semantic-recovery",
         "prior_identity_certified": "W",
         "prior_identity_certification": "PENDING_VM517_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "Await independent review of exact Blue candidate SHA only. Do not certify, start VM-519, advance program base, or update semantic/generated files unless a future review requests changes.",
-        "required_next_milestone": "Run independent review of exact Blue candidate ac774e2eac207cc7fe2d744beac1f11788908159.",
+        "authorized_next_scope": "Certify exact approved Blue candidate SHA only in a separate certification window. Do not start VM-519, advance program base, or update semantic/generated files before certification.",
+        "required_next_milestone": "Run certification for exact Blue candidate ac774e2eac207cc7fe2d744beac1f11788908159.",
         "drift_preflight_started": true,
         "gate_1_2_status": "complete",
         "candidate_created": true,
         "independent_review": {
-          "performed": false
+          "performed": true,
+          "decision": "APPROVE EXACT SHA ac774e2eac207cc7fe2d744beac1f11788908159",
+          "reviewed_candidate_sha": "ac774e2eac207cc7fe2d744beac1f11788908159",
+          "review_record": "docs/incidents/recoveries/VM-518-blue-independent-review.md",
+          "review_record_commit": "PENDING_VM518_BLUE_REVIEW_RECORD_SHA",
+          "reviewed_at": "2026-07-18T12:18:00-06:00"
         },
         "certification": {
           "performed": false,
-          "status": "not_started",
+          "status": "awaiting_certification",
           "certification_sha": null
         },
         "program_base": "9d250a7a76d219fdb961915cbf989a10a575c757",
@@ -69,7 +74,7 @@
         "gate_1_2_report": "docs/incidents/recoveries/VM-518-blue-semantic-recovery.md",
         "gate_1_2_commit": "428128505a194293feb915c929072e23dc9f0ace",
         "remediation_authorized": true,
-        "updated_at": "2026-07-18T10:50:00-06:00",
+        "updated_at": "2026-07-18T12:18:00-06:00",
         "candidate_sha": "ac774e2eac207cc7fe2d744beac1f11788908159"
       },
       "pre_simic_sequence": [
@@ -2783,14 +2788,14 @@
         "inventory_updated_at": "2026-07-18T10:50:00-06:00"
       },
       "workflow": {
-        "current_gate": "candidate_created",
-        "status": "awaiting_independent_review",
+        "current_gate": "approved",
+        "status": "awaiting_certification",
         "started_at": "2026-07-18T09:42:09-06:00",
         "gate_entered_at": "2026-07-18T10:50:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "B",
-        "primary_disposition": "VM-518 Blue Gate 3+4 remediation and Gate 5 candidate completed. Exact candidate ac774e2eac207cc7fe2d744beac1f11788908159 awaits independent review. Blue is not certified and VM-519 is not started."
+        "primary_disposition": "VM-518 Blue exact candidate ac774e2eac207cc7fe2d744beac1f11788908159 received independent review decision APPROVE EXACT SHA ac774e2eac207cc7fe2d744beac1f11788908159. Blue awaits certification, is not semantically_ready, and VM-519 is not started."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -2841,7 +2846,20 @@
         "drift_preflight_report": "docs/incidents/recoveries/VM-518-blue-drift-preflight.md",
         "gate_3_4_status": "complete",
         "candidate_sha": "ac774e2eac207cc7fe2d744beac1f11788908159",
-        "candidate_status": "awaiting_independent_review",
+        "candidate_status": "approved_awaiting_certification",
+        "independent_review": {
+          "performed": true,
+          "decision": "APPROVE EXACT SHA ac774e2eac207cc7fe2d744beac1f11788908159",
+          "review_record": "docs/incidents/recoveries/VM-518-blue-independent-review.md",
+          "review_record_commit": "PENDING_VM518_BLUE_REVIEW_RECORD_SHA",
+          "reviewed_at": "2026-07-18T12:18:00-06:00",
+          "findings": {
+            "blocker": 0,
+            "high": 0,
+            "medium": 0,
+            "low": 0
+          }
+        },
         "final_claim_role_counts": {
           "substantive_claim": 6,
           "discovery_record": 0,
@@ -2884,9 +2902,10 @@
         "candidate_recovery_sha": "ac774e2eac207cc7fe2d744beac1f11788908159",
         "recovery_commit": "ac774e2eac207cc7fe2d744beac1f11788908159",
         "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
+        "reviewer": "Codex independent review window",
+        "review_result": "approved_exact_sha",
+        "review_cycles": 1,
+        "approval_date": "2026-07-18",
         "certified_at": null
       }
     },

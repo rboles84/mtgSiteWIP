@@ -1,19 +1,19 @@
 # VM-518 — Blue Semantic Recovery
 
 ID: VM-518
-Status: Candidate Created - Awaiting Independent Review
+Status: Approved Exact Candidate - Awaiting Certification
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: U
 Raw packet: `data/raw-factions/blue/`
 Cohort: mono
-Contract: CRIT-001 Contract v1.1 drift preflight passed; Gate 1+2 read-only audit complete; remediation authorized; Gate 3+4 remediation and Gate 5 candidate created
+Contract: CRIT-001 Contract v1.1 drift preflight passed; Gate 1+2 read-only audit complete; remediation authorized; Gate 3+4 remediation and Gate 5 candidate created; independent review approved exact candidate
 
 ## Objective
 
 Recover Blue end to end under CRIT-001: audit the existing packet, bound readiness blockers, gather only sufficient evidence, repair canonical data, rebuild generated artifacts, validate semantic fixtures and regressions, obtain independent review of an immutable candidate SHA, and certify that exact recovery.
 
-Current state: drift preflight passed after VM-517 White certification, Gate 1+2 read-only audit completed with `REMEDIATION AUTHORIZED`, and Gate 3+4 remediation/generated validation produced exact candidate `ac774e2eac207cc7fe2d744beac1f11788908159`. Blue is awaiting independent review. Certification, semantically_ready transition, VM-519, external tracker update, push, PR, and merge remain not started.
+Current state: drift preflight passed after VM-517 White certification, Gate 1+2 read-only audit completed with `REMEDIATION AUTHORIZED`, Gate 3+4 remediation/generated validation produced exact candidate `ac774e2eac207cc7fe2d744beac1f11788908159`, and independent review approved that exact SHA. Certification, semantically_ready transition, VM-519, external tracker update, push, PR, and merge remain not started.
 
 ## Gates
 
@@ -23,7 +23,7 @@ Current state: drift preflight passed after VM-517 White certification, Gate 1+2
 - [x] Gate 3 - Canonical remediation.
 - [x] Gate 4 - Generation and validation.
 - [x] Gate 5 - Candidate creation.
-- [ ] Independent review of exact candidate SHA.
+- [x] Independent review of exact candidate SHA.
 - [ ] Certification of exact approved candidate SHA.
 
 ## Scope Rules
@@ -41,7 +41,7 @@ Current state: drift preflight passed after VM-517 White certification, Gate 1+2
 - Audit/recovery report: `docs/incidents/recoveries/VM-518-blue-semantic-recovery.md`
 - Drift preflight record: `docs/incidents/recoveries/VM-518-blue-drift-preflight.md`
 - Candidate recovery SHA: `ac774e2eac207cc7fe2d744beac1f11788908159`
-- Independent reviewer: pending
+- Independent reviewer: Codex independent review window; `APPROVE EXACT SHA ac774e2eac207cc7fe2d744beac1f11788908159`
 - Certification commit: pending
 
 ## Drift Preflight - 2026-07-18
@@ -75,4 +75,13 @@ Current state: drift preflight passed after VM-517 White certification, Gate 1+2
 - Exact-chain parity: `/core_identity` generated/fixture 5 entries; `/placement_summary` generated/fixture 6 entries; both exact ordered equality, no duplicates, missing, or extra IDs.
 - Frozen scope: placement summary text, required terms, minimum hits, broad penalty, strengthen/suppress lists, lateral targets `WU`, `UB`, `UR`, `UG`, raw object-with-`pairs` collision guidance, pair order `R`, `G`, and absent generic collision target preserved.
 - Validation: build, audit, semantic readiness validation, candidate-scope tests, fixture/provenance exact-chain checks, stale Blue surface scan, npm semantic/placement/context/source-generated/full suites, candidate-scope validation, and diff checks passed. Source-generated warnings remain known unrelated JESKAI/MARDU model-owned inhibitor warnings.
-- Status: awaiting independent review. Not approved, not certified, not semantically_ready. VM-519 not started.
+- Status: approved by independent review. Not certified, not semantically_ready. VM-519 not started.
+
+## Independent Review - 2026-07-18
+
+- Decision: `APPROVE EXACT SHA ac774e2eac207cc7fe2d744beac1f11788908159`.
+- Review report: `docs/incidents/recoveries/VM-518-blue-independent-review.md`.
+- Review-record commit: `PENDING_VM518_BLUE_REVIEW_RECORD_SHA`.
+- Review verified Contract v1.1 role assignment, bounded evidence scopes, support isolation, 25-entry U provenance with no null IDs/hashes/unresolved pointers/duplicate canonical entries, exact fixture/provenance equality for `/core_identity` and `/placement_summary`, generated public/recruiter alignment, required-neighbor boundaries, frozen field preservation, deterministic generation, exact candidate-scope PASS, semantic readiness validation, placement tests, faction-context isolation, source-generated tests, and full `npm.cmd test`.
+- No blocker, high, medium, or low findings remain.
+- Certification remains pending; Blue is not semantically_ready, program base remains `9d250a7a76d219fdb961915cbf989a10a575c757`, and VM-519 has not started.

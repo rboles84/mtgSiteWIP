@@ -1,6 +1,6 @@
 # VM-518 Blue Semantic Recovery
 
-Status: Gate 5 candidate created. Awaiting independent review.
+Status: Independent review approved exact candidate. Awaiting certification.
 
 Identity: Blue / U
 Contract: CRIT-001 semantic-readiness Contract v1.1
@@ -9,6 +9,8 @@ Drift-control governance: `bb424a64787977baa45c67f1459babab64b1d3c7`
 Drift preflight commit: `d1375ef71fe5740453e698596ef772890ac0aa0f`
 Gate 1+2 governance commit: `428128505a194293feb915c929072e23dc9f0ace`
 Gate 5 candidate commit: `ac774e2eac207cc7fe2d744beac1f11788908159`
+Independent review decision: `APPROVE EXACT SHA ac774e2eac207cc7fe2d744beac1f11788908159`
+Independent review record: `docs/incidents/recoveries/VM-518-blue-independent-review.md`
 
 This record is the read-only Gate 1+2 audit and evidence confirmation for Blue. No Blue raw semantic data, generated consumers, provenance, recruiter context, fixtures, tests, validators, builders, schemas, runtime, scoring, calibration, VM-519 files, original-main files, Excel tracker, or Table Talk files were modified by this gate.
 
@@ -322,6 +324,34 @@ No superseded Blue candidate exists in this Gate 5 run. This exact SHA is the ob
 
 ## 17. Workflow State
 
-Status: candidate created / awaiting independent review.
+Status: exact candidate approved / awaiting certification.
 
-Blue is not certified and is not semantically_ready. No independent review was performed in this window, no approval or rejection decision was issued, no certification occurred, and VM-519 was not started. Program base remains the White certification SHA `9d250a7a76d219fdb961915cbf989a10a575c757`. The allowed Table Talk baseline remains preserved and uncommitted.
+Blue is not certified and is not semantically_ready. Independent review approved exact candidate `ac774e2eac207cc7fe2d744beac1f11788908159`; no certification occurred, and VM-519 was not started. Program base remains the White certification SHA `9d250a7a76d219fdb961915cbf989a10a575c757`. The allowed Table Talk baseline remains preserved and uncommitted.
+
+## 18. Independent Review Record
+
+Independent review completed on 2026-07-18 in a separate review window.
+
+Decision: `APPROVE EXACT SHA ac774e2eac207cc7fe2d744beac1f11788908159`
+
+Review report: `docs/incidents/recoveries/VM-518-blue-independent-review.md`
+
+Review-record commit: `PENDING_VM518_BLUE_REVIEW_RECORD_SHA`
+
+Review verified:
+
+- Exact candidate ancestry and isolation from workflow-only governance files.
+- Candidate scope limited to Blue raw/generated/recruiter/fixture/provenance surfaces.
+- Final role counts: 8 total claims, 6 substantive, 0 discovery, 2 support, 0 unclassified.
+- All substantive claims include bounded Contract v1.1 `evidence_scope`.
+- Support-only governance/rules/Scryfall Commander records are isolated from authoritative proof chains.
+- U provenance has 25 entries, 0 required null canonical IDs, 0 null content hashes, 0 unresolved pointers, 0 duplicate canonical entries, and 0 support/discovery-backed authoritative chains.
+- Fixture/provenance exact ordered equality for `/core_identity` and `/placement_summary`.
+- Public, recruiter, placement, provenance, and identity-layer preview surfaces align with source-bounded Blue semantics.
+- Frozen placement, collision, preview, native-ID, and calibration controls remain unchanged.
+- Required-neighbor boundaries are testable and source-bounded.
+- Deterministic generation, exact candidate-scope validation, semantic-readiness validation, placement tests, faction-context isolation, source-generated tests, and full `npm.cmd test` passed.
+
+No blocker, high, medium, or low findings remain.
+
+Certification is still pending; Blue is not `semantically_ready`, program base has not advanced, and VM-519 has not started.
