@@ -61,6 +61,7 @@ Workflow-record commit:
 - Created the Black semantic fixture with all required neighbor exclusions and exact provenance fixtures.
 - Created candidate `5bffc3465786c18950d32dcb6f056504b3b8e668`.
 - Updated governance to show the candidate awaits independent review.
+- Corrected `program.drift_control.current_identity_hold` to the same candidate-awaiting-review state after final ledger sanity check.
 
 ## Why It Changed
 

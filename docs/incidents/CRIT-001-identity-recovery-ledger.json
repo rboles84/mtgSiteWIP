@@ -45,32 +45,34 @@
       "current_identity_hold": {
         "identity": "B",
         "card": "VM-519",
-        "state": "gate_1_2_complete_remediation_authorized",
+        "state": "candidate_created_awaiting_independent_review",
         "branch": "codex/vm-519-black-semantic-recovery",
         "prior_identity_certified": "U",
         "prior_identity_certification": "PENDING_VM518_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "Proceed to VM-519 Gate 3+4 remediation only under the recorded Gate 1+2 source, evidence-scope, support-isolation, exact-chain, frozen-field, preview, object-with-pairs, and candidate-scope constraints.",
-        "required_next_milestone": "Run Black Gate 3+4 remediation, generation, validation, then create a separate Gate 5 candidate only if all controls pass.",
+        "authorized_next_scope": "Independent review of exact Black candidate SHA is the next CRIT-001 step. Do not certify, mark semantically_ready, advance program base, or start VM-520 before independent review and exact approval.",
+        "required_next_milestone": "Run independent review of VM-519 Black exact candidate SHA 5bffc3465786c18950d32dcb6f056504b3b8e668.",
         "drift_preflight_started": true,
         "drift_preflight_completed": true,
         "drift_preflight_record": "docs/incidents/recoveries/VM-519-black-drift-preflight.md",
         "drift_preflight_commit": "PENDING_VM519_DRIFT_PREFLIGHT_SHA",
         "drift_preflight_decision": "PASS - BLACK GATE 1+2 AUTHORIZED",
         "gate_1_2_status": "complete",
-        "candidate_created": false,
+        "candidate_created": true,
         "independent_review": {
-          "performed": false
+          "performed": false,
+          "status": "pending"
         },
         "certification": {
           "performed": false,
-          "status": "not_started",
+          "status": "not_certified",
           "certification_sha": null
         },
         "program_base": "04547ecfc52d1c96537b6375e9d5c4b8f3690a32",
-        "updated_at": "2026-07-18T13:34:00-06:00",
+        "updated_at": "2026-07-18T13:58:00-06:00",
         "gate_1_2_report": "docs/incidents/recoveries/VM-519-black-semantic-recovery.md",
-        "gate_1_2_commit": "PENDING_VM519_GATE_1_2_SHA",
-        "remediation_authorized": true
+        "gate_1_2_commit": "604a19696d3dfb0d43d6b96676c0c6605628eb33",
+        "remediation_authorized": true,
+        "candidate_sha": "5bffc3465786c18950d32dcb6f056504b3b8e668"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
