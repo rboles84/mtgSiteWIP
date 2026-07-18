@@ -9,24 +9,22 @@
   ],
   "color_pair_or_group": "Mono Blue",
   "plane_or_setting": "The Color Pie",
-  "last_updated": "2026-06-13",
+  "last_updated": "2026-07-18",
   "source_review_date": "2026-06-13",
-  "last_full_review": "2026-06-13",
+  "last_full_review": "2026-07-18",
   "core_identity": {
     "short_form": "Blue seeks perfection through knowledge, tools, and deliberate transformation.",
     "summary": "Blue is the mono-color expression of becoming: it treats identity as editable, knowledge as leverage, and time as the price of choosing well.",
     "philosophy": "Blue asks what a person, system, or world could become if it paused long enough to learn, model, test, and improve.",
     "central_tension": "Blue can make possibility precise, but it can stall in passivity, over-planning, or control that delays action.",
     "claim_ids": [
-      "blue_claim_0001",
       "blue_claim_0002",
       "blue_claim_0003",
       "blue_claim_0004",
       "blue_claim_0005",
-      "blue_claim_0006",
-      "blue_claim_0007",
-      "blue_claim_0008"
-    ]
+      "blue_claim_0006"
+    ],
+    "id": "blue_core_identity_gate3"
   },
   "structure": {
     "identity_class": "mono_color",
@@ -61,7 +59,8 @@
     "summary": "Blue commonly plays through information advantage, reactive control, evasion, manipulation, and turning time into better options.",
     "claim_ids": [
       "blue_claim_0007"
-    ]
+    ],
+    "id": "blue_mechanics_gate3"
   },
   "site_surface": {
     "display_name": "Blue",
@@ -81,6 +80,13 @@
       "artifacts",
       "flying",
       "bounce"
+    ],
+    "id": "blue_site_surface_gate3",
+    "claim_ids": [
+      "blue_claim_0002",
+      "blue_claim_0003",
+      "blue_claim_0004",
+      "blue_claim_0006"
     ]
   },
   "data_quality": {
@@ -89,7 +95,7 @@
     "placement_eligible": true,
     "preview_eligible": true,
     "commander_candidate_status": "current_scryfall_verified_support_only_2026-06-13",
-    "notes": "Three native mono-blue commander rows are retained only after current Scryfall verification on 2026-06-13. Deck links remain intentionally empty; these rows do not prove color philosophy or Vox Mana placement axes."
+    "notes": "Three native mono-blue Commander rows are retained only after current Scryfall verification on 2026-06-13. Deck links remain intentionally empty; these rows do not prove color philosophy, Vox Mana placement axes, public copy, recruiter guidance, fixtures, semantic readiness, or canonical provenance chains."
   },
   "research_limitations": [
     "Do not treat Vox Mana placement axes as official Wizards scores.",
@@ -103,15 +109,14 @@
     "core_tension": "Blue's foresight and control can become passivity or over-optimization.",
     "mechanics_and_play_pattern": "Blue commonly expresses itself through card draw, counterspells, evasion, copying, bounce, artifacts, and reactive control.",
     "claim_ids": [
-      "blue_claim_0001",
       "blue_claim_0002",
       "blue_claim_0003",
       "blue_claim_0004",
       "blue_claim_0005",
       "blue_claim_0006",
-      "blue_claim_0007",
-      "blue_claim_0008"
-    ]
+      "blue_claim_0007"
+    ],
+    "id": "blue_profile_gate3"
   },
   "deck_links": [],
   "research_links": {
@@ -155,7 +160,13 @@
       "supporting_source_ids": [
         "RULES-CR",
         "SCRYFALL-U-2026-06-13"
-      ]
+      ],
+      "evidence_use": "auxiliary_support",
+      "claim_ids": [
+        "blue_claim_0008"
+      ],
+      "auxiliary_support_boundary": "Commander/card verification is auxiliary support only; it cannot independently prove Blue identity, placement, recruiter guidance, semantic readiness, public copy, fixtures, or canonical provenance chains.",
+      "id": "blue_commander_compass_identity_basis_support_gate3"
     },
     "native_fit_commanders": [
       {
@@ -184,7 +195,8 @@
         ],
         "source_basis": "SCRYFALL-U-2026-06-13; RULES-CR; blue_claim_0008",
         "confidence": "Current Scryfall verification on 2026-06-13; support-only",
-        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence.",
+        "auxiliary_support_boundary": "Current Scryfall and Commander-rules support only; not color philosophy, profile-axis, public-copy, recruiter-guidance, fixture, or semantic-readiness proof."
       },
       {
         "exact_card_name": "Azami, Lady of Scrolls",
@@ -212,7 +224,8 @@
         ],
         "source_basis": "SCRYFALL-U-2026-06-13; RULES-CR; blue_claim_0008",
         "confidence": "Current Scryfall verification on 2026-06-13; support-only",
-        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence.",
+        "auxiliary_support_boundary": "Current Scryfall and Commander-rules support only; not color philosophy, profile-axis, public-copy, recruiter-guidance, fixture, or semantic-readiness proof."
       },
       {
         "exact_card_name": "Minn, Wily Illusionist",
@@ -240,7 +253,8 @@
         ],
         "source_basis": "SCRYFALL-U-2026-06-13; RULES-CR; blue_claim_0008",
         "confidence": "Current Scryfall verification on 2026-06-13; support-only",
-        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence.",
+        "auxiliary_support_boundary": "Current Scryfall and Commander-rules support only; not color philosophy, profile-axis, public-copy, recruiter-guidance, fixture, or semantic-readiness proof."
       }
     ],
     "weird_stretch_commanders": [],

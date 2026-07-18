@@ -25357,6 +25357,116 @@
     {
       "identity_key": "U",
       "canonical_file": "data/raw-factions/blue/blue.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "blue_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_content_hash": "sha256:efe2a62e9e16f658f23790a04d79caa80acb8771ee1ebf4398179d535c21291b",
+      "evidence_claim_ids": [
+        "blue_claim_0005"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/U",
+        "data/placement-model.json#/factions/U",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/U"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "U",
+      "canonical_file": "data/raw-factions/blue/blue.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "blue_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_content_hash": "sha256:c0f51e41ce90366ded03e49c39276f5376a9fe6839a73e7e2d569f860268e75c",
+      "evidence_claim_ids": [
+        "blue_claim_0005"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/U",
+        "data/placement-model.json#/factions/U",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/U"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "U",
+      "canonical_file": "data/raw-factions/blue/blue.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "blue_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_content_hash": "sha256:aa92e2d92b0522131b8d1066d9cafd6371284b5da4781b621c5bbf5ca774a254",
+      "evidence_claim_ids": [
+        "blue_claim_0005"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/U",
+        "data/placement-model.json#/factions/U",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/U"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "U",
+      "canonical_file": "data/raw-factions/blue/blue.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "blue_guidance_how_to_recognize_mismatch_3_gate3",
+      "canonical_content_hash": "sha256:ba68c4eab0ebd50d007e88414ec2421bdcd72d0624d38534a5fcc973649db77e",
+      "evidence_claim_ids": [
+        "blue_claim_0005"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/U",
+        "data/placement-model.json#/factions/U",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/U"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "U",
+      "canonical_file": "data/raw-factions/blue/blue.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/4",
+      "canonical_id": "blue_guidance_how_to_recognize_mismatch_4_gate3",
+      "canonical_content_hash": "sha256:2785eec757d36a7c00e3bd74258054b0ea899b6a513642b8d71c9504633c85b9",
+      "evidence_claim_ids": [
+        "blue_claim_0007"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "GOV-COC-2024",
+        "MECH-CP-2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/U",
+        "data/placement-model.json#/factions/U",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/U"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "U",
+      "canonical_file": "data/raw-factions/blue/blue.placement.json",
       "canonical_pointer": "/collision_guidance/pairs/0",
       "canonical_id": "blue_vs_red",
       "canonical_content_hash": "sha256:aa2141deea07df17f5be99337db60236e7460e1f7b181f02ccdb08ddab3b8a31",
@@ -25461,17 +25571,13 @@
       "canonical_file": "data/raw-factions/blue/blue.placement.json",
       "canonical_pointer": "/discriminator_questions/3",
       "canonical_id": "blue_disc_004",
-      "canonical_content_hash": "sha256:315b97ed003f7f5c0fac1f7d707306b982b41f655460eb026a945446cf1894a4",
+      "canonical_content_hash": "sha256:79394ad945c437a57849fe5ea1642e20860a0a15a63c2cc20c9f0aa501a32eb2",
       "evidence_claim_ids": [
-        "blue_claim_0007",
-        "blue_claim_0008"
+        "blue_claim_0007"
       ],
       "evidence_source_ids": [
         "GOV-COC-2024",
-        "MECH-CP-2021",
-        "RULES-CR",
-        "SCRYFALL-U-2026-06-13",
-        "VM-377"
+        "MECH-CP-2021"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/U",
@@ -25544,25 +25650,142 @@
     },
     {
       "identity_key": "U",
-      "canonical_file": "data/raw-factions/blue/blue.profile.json",
-      "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:67d75e4dcf2466236ffa255dca6854f8ab80d693bcff73027eb4e07ce1014f46",
+      "canonical_file": "data/raw-factions/blue/blue.placement.json",
+      "canonical_pointer": "/placement_summary",
+      "canonical_id": "blue_placement_summary_gate3",
+      "canonical_content_hash": "sha256:b3f299806a8d5930ea531c1b4bc29ba569dc0e237672186f57eb59edfc030396",
       "evidence_claim_ids": [
-        "blue_claim_0001",
         "blue_claim_0002",
         "blue_claim_0003",
         "blue_claim_0004",
         "blue_claim_0005",
         "blue_claim_0006",
-        "blue_claim_0007",
-        "blue_claim_0008"
+        "blue_claim_0007"
       ],
       "evidence_source_ids": [
         "GOV-COC-2024",
         "MECH-CP-2021",
         "MONO-U-2015",
-        "MONO-U-2025",
+        "MONO-U-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/U",
+        "data/placement-model.json#/factions/U",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/U"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "U",
+      "canonical_file": "data/raw-factions/blue/blue.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "blue_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_content_hash": "sha256:259c1e7a15ffbcd58b5cf8fb792a88059b3e7083a1e1acd5611fcf580f9de982",
+      "evidence_claim_ids": [
+        "blue_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/U",
+        "data/placement-model.json#/factions/U",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/U"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "U",
+      "canonical_file": "data/raw-factions/blue/blue.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "blue_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_content_hash": "sha256:36aeb31da0071accb0abd3a72fb552932ea89a879713bc0901bdb331f098da90",
+      "evidence_claim_ids": [
+        "blue_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/U",
+        "data/placement-model.json#/factions/U",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/U"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "U",
+      "canonical_file": "data/raw-factions/blue/blue.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "blue_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_content_hash": "sha256:654ce17312683433d6e60360fdb436a02593ae7c917564d9f44b5334e7a46752",
+      "evidence_claim_ids": [
+        "blue_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/U",
+        "data/placement-model.json#/factions/U",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/U"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "U",
+      "canonical_file": "data/raw-factions/blue/blue.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "blue_guidance_how_to_recognize_mismatch_3_gate3",
+      "canonical_content_hash": "sha256:081466f2fb2b67d0b66bbddd38b6f9078dd8e2803c12f3e4b50f138e31f7537f",
+      "evidence_claim_ids": [
+        "blue_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/U",
+        "data/placement-model.json#/factions/U",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/U"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "U",
+      "canonical_file": "data/raw-factions/blue/blue.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "blue_guidance_how_to_recognize_mismatch_4_gate3",
+      "canonical_content_hash": "sha256:83db52928c22366083143688a6b2d44ad94318fbf2c48c8b2e304254c9cd418d",
+      "evidence_claim_ids": [
+        "blue_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "GOV-COC-2024",
+        "MECH-CP-2021"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/U",
+        "data/placement-model.json#/factions/U",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/U"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "U",
+      "canonical_file": "data/raw-factions/blue/blue.profile.json",
+      "canonical_pointer": "/commander_compass/identity_basis",
+      "canonical_id": "blue_commander_compass_identity_basis_support_gate3",
+      "canonical_content_hash": "sha256:985d7d7ac50ed451fa5a5dcfdb73126228a3e61d9fe66933046ca6d11870b22d",
+      "evidence_claim_ids": [
+        "blue_claim_0008"
+      ],
+      "evidence_use": "auxiliary_support",
+      "evidence_source_ids": [
         "RULES-CR",
         "SCRYFALL-U-2026-06-13",
         "VM-377"
@@ -25577,9 +25800,33 @@
     {
       "identity_key": "U",
       "canonical_file": "data/raw-factions/blue/blue.profile.json",
+      "canonical_pointer": "/core_identity",
+      "canonical_id": "blue_core_identity_gate3",
+      "canonical_content_hash": "sha256:d43a65719d21d1b94155657c007c6c8ba90dafe9a325447070c85969555c3059",
+      "evidence_claim_ids": [
+        "blue_claim_0002",
+        "blue_claim_0003",
+        "blue_claim_0004",
+        "blue_claim_0005",
+        "blue_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/U",
+        "data/placement-model.json#/factions/U",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/U"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "U",
+      "canonical_file": "data/raw-factions/blue/blue.profile.json",
       "canonical_pointer": "/mechanics",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:ed9ea6b7d651013d9040ec497c2000779998081f104195ce67d7d628001b3f64",
+      "canonical_id": "blue_mechanics_gate3",
+      "canonical_content_hash": "sha256:f233d76bf718245ff88c298685f57d03070bf68b34d09b702d13b7549cac1f63",
       "evidence_claim_ids": [
         "blue_claim_0007"
       ],
@@ -25598,26 +25845,44 @@
       "identity_key": "U",
       "canonical_file": "data/raw-factions/blue/blue.profile.json",
       "canonical_pointer": "/profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:de11b416b056b8ff2fbddb9d6d7d4301f48f5e92608d1476081a8cea9ae8943e",
+      "canonical_id": "blue_profile_gate3",
+      "canonical_content_hash": "sha256:c691f9f1b512bc56dc5b65579ebf24c90c4da472498b046d860a8aa9d73d6078",
       "evidence_claim_ids": [
-        "blue_claim_0001",
         "blue_claim_0002",
         "blue_claim_0003",
         "blue_claim_0004",
         "blue_claim_0005",
         "blue_claim_0006",
-        "blue_claim_0007",
-        "blue_claim_0008"
+        "blue_claim_0007"
       ],
       "evidence_source_ids": [
         "GOV-COC-2024",
         "MECH-CP-2021",
         "MONO-U-2015",
-        "MONO-U-2025",
-        "RULES-CR",
-        "SCRYFALL-U-2026-06-13",
-        "VM-377"
+        "MONO-U-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/U",
+        "data/placement-model.json#/factions/U",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/U"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "U",
+      "canonical_file": "data/raw-factions/blue/blue.profile.json",
+      "canonical_pointer": "/site_surface",
+      "canonical_id": "blue_site_surface_gate3",
+      "canonical_content_hash": "sha256:024ed2db7e3395c55b711c4929eff24688fabd86d000ff22cd9bccf74292af6b",
+      "evidence_claim_ids": [
+        "blue_claim_0002",
+        "blue_claim_0003",
+        "blue_claim_0004",
+        "blue_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/U",

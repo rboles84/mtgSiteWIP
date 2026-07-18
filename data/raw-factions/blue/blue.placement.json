@@ -5,11 +5,28 @@
   "based_on_profile_version": "1.0.0",
   "faction_id": "blue",
   "faction_name": "Blue",
-  "last_updated": "2026-06-13",
+  "last_updated": "2026-07-18",
   "color_identity": [
     "U"
   ],
-  "placement_summary": "Blue is a strong fit when a user wants to understand, optimize, control, and improve through knowledge, tools, patience, and deliberate choice.",
+  "placement_summary": {
+    "id": "blue_placement_summary_gate3",
+    "text": "Blue is a strong fit when a user wants to understand, optimize, control, and improve through knowledge, tools, patience, and deliberate choice.",
+    "short_description": "Blue placement is source-bounded by self-directed improvement, knowledge, tools, careful decisions, control, and the pressure of passivity or over-planning.",
+    "best_fit_summary": "wants possibility, self-improvement, and better choices made practical through knowledge, tools, information, education, and deliberate planning",
+    "poor_fit_summary": "wants generic cleverness, mechanics, delay, secrecy, experiment, institutional procedure, or natural destiny without Blue self-directed becoming through knowledge",
+    "interpretation_warning": "Placement data is Vox Mana interpretation and should be treated as a matching heuristic, not direct Wizards canon.",
+    "claim_ids": [
+      "blue_claim_0002",
+      "blue_claim_0003",
+      "blue_claim_0004",
+      "blue_claim_0005",
+      "blue_claim_0006"
+    ],
+    "evidence_claim_ids": [
+      "blue_claim_0007"
+    ]
+  },
   "moral_and_psychological_profile": {
     "primary_drive": "Become more than the present self by learning, modeling, experimenting, and choosing with care.",
     "ethical_pressure": "Preparation can become avoidance, and control can become distrust of life before it is fully understood.",
@@ -162,17 +179,16 @@
     },
     {
       "question_id": "blue_disc_004",
-      "question": "Are card draw, counters, bounce, or artifacts being used as Blue texture rather than Commander legality proof?",
-      "purpose": "Keeps mechanical and Commander support source-bound.",
-      "answer_pattern_that_supports_this_faction": "Supports Blue when mechanics are treated as dated color-pie texture and commander examples remain unpromoted.",
-      "answer_pattern_that_weakens_this_faction": "Weakens Blue when candidate commanders or stale deck notes are treated as verified Layer 2 support.",
+      "question": "Are card draw, counters, bounce, artifacts, or evasive tools being used as Blue texture rather than Blue identity proof?",
+      "purpose": "Keeps mechanical examples source-bound and prevents mechanics or Commander rows from becoming Blue philosophy.",
+      "answer_pattern_that_supports_this_faction": "Supports Blue only when mechanics are treated as dated color-pie texture tied to information, options, tools, timing, and control.",
+      "answer_pattern_that_weakens_this_faction": "Weakens Blue when card names, Commander support rows, or mechanics are treated as philosophy or placement-axis evidence.",
       "collision_targets": [
         "WUBRG",
         "COLORLESS"
       ],
       "claim_ids": [
-        "blue_claim_0007",
-        "blue_claim_0008"
+        "blue_claim_0007"
       ],
       "confidence": "High",
       "lateral_inhibition": false
@@ -251,7 +267,7 @@
       "natural destiny over self-authorship",
       "group harmony over individual optimization",
       "calculated power without curiosity",
-      "candidate commander names treated as verified evidence"
+      "card names or mechanics treated as Blue philosophy proof"
     ],
     "calibration_note": "Blue should rise only when knowledge, tools, deliberate choice, or improvement drive the answer.",
     "never_claim_as_canon": [
@@ -259,5 +275,47 @@
       "Vox Mana placement axes are official Wizards color-pie scores.",
       "A candidate mono-blue commander is Layer 2 support without current verification."
     ]
-  }
+  },
+  "semantic_guidance_evidence": [
+    {
+      "guidance_id": "blue_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "blue_guidance_how_to_recognize_mismatch_0_gate3",
+      "evidence_claim_ids": [
+        "blue_claim_0005"
+      ]
+    },
+    {
+      "guidance_id": "blue_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "blue_guidance_how_to_recognize_mismatch_1_gate3",
+      "evidence_claim_ids": [
+        "blue_claim_0005"
+      ]
+    },
+    {
+      "guidance_id": "blue_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "blue_guidance_how_to_recognize_mismatch_2_gate3",
+      "evidence_claim_ids": [
+        "blue_claim_0005"
+      ]
+    },
+    {
+      "guidance_id": "blue_guidance_how_to_recognize_mismatch_3_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "blue_guidance_how_to_recognize_mismatch_3_gate3",
+      "evidence_claim_ids": [
+        "blue_claim_0005"
+      ]
+    },
+    {
+      "guidance_id": "blue_guidance_how_to_recognize_mismatch_4_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/4",
+      "canonical_id": "blue_guidance_how_to_recognize_mismatch_4_gate3",
+      "evidence_claim_ids": [
+        "blue_claim_0007"
+      ]
+    }
+  ]
 }

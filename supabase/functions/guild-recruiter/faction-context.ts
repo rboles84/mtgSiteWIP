@@ -328,7 +328,7 @@ export const FACTION_CONTEXT = {
       "natural destiny over self-authorship",
       "group harmony over individual optimization",
       "calculated power without curiosity",
-      "candidate commander names treated as verified evidence",
+      "card names or mechanics treated as Blue philosophy proof",
       "knowledge gathered without ever acting"
     ],
     "lateral_inhibition_targets": [
@@ -390,17 +390,16 @@ export const FACTION_CONTEXT = {
       },
       {
         "id": "blue_disc_004",
-        "prompt": "Are card draw, counters, bounce, or artifacts being used as Blue texture rather than Commander legality proof?",
-        "purpose": "Keeps mechanical and Commander support source-bound.",
-        "supports": "Supports Blue when mechanics are treated as dated color-pie texture and commander examples remain unpromoted.",
-        "weakens": "Weakens Blue when candidate commanders or stale deck notes are treated as verified Layer 2 support.",
+        "prompt": "Are card draw, counters, bounce, artifacts, or evasive tools being used as Blue texture rather than Blue identity proof?",
+        "purpose": "Keeps mechanical examples source-bound and prevents mechanics or Commander rows from becoming Blue philosophy.",
+        "supports": "Supports Blue only when mechanics are treated as dated color-pie texture tied to information, options, tools, timing, and control.",
+        "weakens": "Weakens Blue when card names, Commander support rows, or mechanics are treated as philosophy or placement-axis evidence.",
         "collision_targets": [
           "WUBRG",
           "COLORLESS"
         ],
         "evidence_claim_ids": [
-          "blue_claim_0007",
-          "blue_claim_0008"
+          "blue_claim_0007"
         ],
         "confidence": "High",
         "lateral_inhibition": false
@@ -422,7 +421,7 @@ export const FACTION_CONTEXT = {
         "natural destiny over self-authorship",
         "group harmony over individual optimization",
         "calculated power without curiosity",
-        "candidate commander names treated as verified evidence"
+        "card names or mechanics treated as Blue philosophy proof"
       ],
       "calibration_note": "Blue should rise only when knowledge, tools, deliberate choice, or improvement drive the answer.",
       "never_claim_as_canon": [

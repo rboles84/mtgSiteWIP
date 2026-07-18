@@ -17,7 +17,9 @@
       "evidence_rows": [
         "blue_evid_0013"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "support_record",
+      "evidence_use_restriction": "Project governance/source-intake boundary only. Retain as metadata/history; do not use as authoritative proof for Blue identity, placement, recruiter guidance, semantic readiness, public copy, fixtures, or provenance chains."
     },
     {
       "claim_id": "blue_claim_0002",
@@ -39,7 +41,26 @@
         "U2025-a",
         "U2025-e"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-U-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/11_blue.md#U2015-Q1;U2015-Q1b",
+          "bounded_paraphrase": "The 2015 official Blue article frames Blue around blank-slate potential, never-finished self-improvement, education, experience, tools, deliberate choice, and improving the world through technology.",
+          "evidence_scope": "canonical identity",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-U-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/11_blue.md#U2025-a;U2025-e",
+          "bounded_paraphrase": "The 2025 Blue voice restates the blank-slate belief, self-authored becoming, optimization beyond the individual, and preference for efficiency and intellect over expediency and emotion.",
+          "evidence_scope": "canonical identity",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "blue_claim_0003",
@@ -61,7 +82,26 @@
         "U2025-c",
         "U2025-d"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-U-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/11_blue.md#U2015-Q2",
+          "bounded_paraphrase": "The 2015 article identifies knowledge and information as Blue's ultimate tools for improvement, control, access, protection, and mastery through structured repositories and systems.",
+          "evidence_scope": "preferred method",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-U-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/11_blue.md#U2025-b;U2025-c;U2025-d",
+          "bounded_paraphrase": "The 2025 Blue voice ties knowledge, education, careful decision-making, experience, tools, technology, and knowledge-sharing structures to better long-term outcomes.",
+          "evidence_scope": "preferred method",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "blue_claim_0004",
@@ -83,7 +123,26 @@
         "U2025-h",
         "U2025-i"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-U-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/11_blue.md#U2015-Q3;U2015-Q4",
+          "bounded_paraphrase": "The 2015 article bounds Blue cares to mind, memory, control, subtlety, complexity, technology, artifice, illusion, passivity, and related elements, and names impulse, instinct, tradition, and ceremony as threats to progress.",
+          "evidence_scope": "thematic boundary",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-U-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/11_blue.md#U2025-h;U2025-i",
+          "bounded_paraphrase": "The 2025 Blue voice contrasts Blue against Red's emotion/snap decisions and Green's nature-over-nurture frame while preserving a narrow overlap around studying evolution.",
+          "evidence_scope": "thematic boundary",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "blue_claim_0005",
@@ -107,7 +166,26 @@
         "U2025-h",
         "U2025-i"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-U-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/11_blue.md#U2015-Q5;U2015-Q5b",
+          "bounded_paraphrase": "The 2015 article bounds Blue's White and Black alliances through planning, rules, pragmatism, education, and tools, and its Red and Green conflicts through emotion, impulse, nature, and destiny.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-U-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/11_blue.md#U2025-f;U2025-g;U2025-h;U2025-i",
+          "bounded_paraphrase": "The 2025 Blue voice distinguishes White group optimization, Black role/power focus, Red short-term emotion, and Green nature/destiny from Blue's individual self-authored becoming.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "blue_claim_0006",
@@ -127,7 +205,26 @@
         "U2015-Q6",
         "U2025-j"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-U-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/11_blue.md#U2015-Q6",
+          "bounded_paraphrase": "The 2015 article identifies Blue's strength as knowledge, foresight, control, and carefulness, and its weakness as passivity, reactivity, slowness, and vulnerability to fast or indirect pressure.",
+          "evidence_scope": "pressure behavior",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-U-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/11_blue.md#U2025-j",
+          "bounded_paraphrase": "The 2025 Blue voice repeats knowledge, systems, answers with enough time, and control as strengths while naming time-to-process and indirect attacks as weaknesses.",
+          "evidence_scope": "pressure behavior",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "blue_claim_0007",
@@ -153,7 +250,26 @@
         "COC-mandate"
       ],
       "confidence": "Medium-High",
-      "notes": "Mechanical Color Pie 2021 is a dated snapshot and must be overridden by later verified sources where needed."
+      "notes": "Mechanical Color Pie 2021 is a dated snapshot and must be overridden by later verified sources where needed.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MECH-CP-2021",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/20_mechanical_color_pie_2021.md#MECH-carddraw;MECH-counters;MECH-flying;MECH-removal;MECH-artifact-friendly",
+          "bounded_paraphrase": "The mechanical color pie digest bounds Blue's mechanical texture around unrestricted card draw, near-mono-blue counterspells, primary flying, artifact friendliness, and limits on direct creature destruction.",
+          "evidence_scope": "mechanic-specific",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "GOV-COC-2024",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/22_council_of_colors.md#COC-mandate",
+          "bounded_paraphrase": "The Council of Colors digest establishes the review authority for color-pie mechanical boundaries and long-term color-pie health.",
+          "evidence_scope": "mechanic-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "blue_claim_0008",
@@ -175,7 +291,9 @@
         "CR-903.3",
         "CR-903.4"
       ],
-      "confidence": "High for current Scryfall support status; not evidence for popularity, price, metagame, deck quality, philosophy, or profile axes"
+      "confidence": "High for current Scryfall support status; not evidence for popularity, price, metagame, deck quality, philosophy, or profile axes",
+      "semantic_role": "support_record",
+      "evidence_use_restriction": "Commander rules, project governance, and Scryfall verification support navigation only. Retain for Commander Compass metadata; do not use as authoritative proof for Blue identity, placement, recruiter guidance, semantic readiness, public copy, fixtures, or canonical provenance chains."
     }
   ]
 }

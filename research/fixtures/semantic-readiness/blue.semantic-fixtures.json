@@ -1,0 +1,386 @@
+{
+  "identity_key": "U",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "blue_core_knowledge_becoming_identity",
+      "fixture_type": "core_inclusion",
+      "scenario": "A clear Blue case wants self-directed possibility made practical through learning, knowledge, tools, careful choice, and improvement rather than generic cleverness.",
+      "intended_interpretation": "Blue inclusion requires becoming through knowledge and deliberate self-authorship, with the time/passivity pressure still visible.",
+      "evidence_claim_ids": [
+        "blue_claim_0002",
+        "blue_claim_0003",
+        "blue_claim_0004",
+        "blue_claim_0005",
+        "blue_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Use Blue when knowledge, tools, education, deliberate choice, and improvement lead together.",
+      "unsupported_certainty_to_avoid": "Do not certify Blue from generic intelligence, caution, control, science, planning, or mechanics without improvement-through-knowledge."
+    },
+    {
+      "fixture_id": "blue_pressure_reactivity_and_over_planning",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "A mature Blue reading asks whether planning creates better timing and options or has become passivity, delay, or control that prevents action.",
+      "intended_interpretation": "Blue pressure behavior is the tension between knowledge-driven foresight and the risk of slowness, reactivity, or over-planning.",
+      "evidence_claim_ids": [
+        "blue_claim_0003",
+        "blue_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Ask whether knowledge and tools are creating better choices or replacing engagement with endless preparation.",
+      "unsupported_certainty_to_avoid": "Do not flatten Blue into permanent indecision, omniscience, or objective superiority."
+    },
+    {
+      "fixture_id": "blue_nearest_collision_knowledge_control_possibility",
+      "fixture_type": "nearest_collision_ambiguity",
+      "scenario": "The answer names knowledge, systems, planning, control, artifice, secrecy, experiment, or adaptation and could be Blue, Azorius, Dimir, Izzet, Simic, Quandrix, Prismari, Esper, or another broader identity.",
+      "intended_interpretation": "Resolve ambiguity by asking whether the center is mono-Blue self-directed becoming through knowledge and tools rather than a neighbor-specific institution, secrecy, experiment, organism, art, proof, or broader color identity.",
+      "evidence_claim_ids": [
+        "blue_claim_0002",
+        "blue_claim_0003",
+        "blue_claim_0005",
+        "blue_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Keep Blue adjacent until the answer ties knowledge to self-authored improvement and deliberate choice instead of a guild, college, shard, or wedge expression.",
+      "unsupported_certainty_to_avoid": "Do not choose Blue just because a neighbor also uses knowledge, planning, science, control, or technology."
+    },
+    {
+      "fixture_id": "blue_exclude_generic_u_overfit",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_U_OVERFIT",
+      "scenario": "Generic Blue overfit uses intelligence, research, patience, control, science, card draw, counterspells, tempo, copies, artifacts, or wizards as enough by themselves.",
+      "intended_interpretation": "Exclude or keep Blue adjacent for GENERIC_U_OVERFIT unless source-bounded mono-Blue becoming through knowledge, tools, and deliberate choice leads.",
+      "evidence_claim_ids": [
+        "blue_claim_0002",
+        "blue_claim_0003",
+        "blue_claim_0004",
+        "blue_claim_0006",
+        "blue_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "GOV-COC-2024",
+        "MECH-CP-2021",
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Require knowledge and tools serving self-directed improvement, not Blue-coded vocabulary or mechanics alone.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient Blue proof."
+    },
+    {
+      "fixture_id": "blue_exclude_wu",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WU",
+      "scenario": "Azorius-like readings center formal procedure, law, bureaucracy, surveillance, precedent, or institutional legitimacy more than mono-Blue self-directed becoming.",
+      "intended_interpretation": "Exclude or keep Blue adjacent for WU unless source-bounded mono-Blue knowledge, tools, and individual improvement lead.",
+      "evidence_claim_ids": [
+        "blue_claim_0003",
+        "blue_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Separate Blue understanding and possibility from Azorius procedure and institutional order.",
+      "unsupported_certainty_to_avoid": "Do not use shared planning, rules, or control vocabulary as sufficient Blue proof."
+    },
+    {
+      "fixture_id": "blue_exclude_ur",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UR",
+      "scenario": "Izzet-like readings center experiment, invention, velocity, spark, or volatile creative risk more than Blue deliberate study.",
+      "intended_interpretation": "Exclude or keep Blue adjacent for UR unless source-bounded mono-Blue knowledge and careful choice lead.",
+      "evidence_claim_ids": [
+        "blue_claim_0003",
+        "blue_claim_0005",
+        "blue_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Separate Blue modeling and controlled timing from Izzet red-blue experimentation and risk.",
+      "unsupported_certainty_to_avoid": "Do not choose Blue only because both value knowledge or technology."
+    },
+    {
+      "fixture_id": "blue_exclude_ub",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UB",
+      "scenario": "Dimir-like readings center secrecy, leverage, hidden information, covert power, or strategic concealment more than Blue's open-ended improvement.",
+      "intended_interpretation": "Exclude or keep Blue adjacent for UB unless source-bounded mono-Blue self-authored becoming through knowledge leads.",
+      "evidence_claim_ids": [
+        "blue_claim_0003",
+        "blue_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Separate Blue knowledge as improvement from Dimir information as covert leverage.",
+      "unsupported_certainty_to_avoid": "Do not choose Blue merely for secrecy, manipulation, or control."
+    },
+    {
+      "fixture_id": "blue_exclude_ug",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UG",
+      "scenario": "Simic-like readings center living adaptation, biomancy, organism optimization, mutation, or biological improvement more than mono-Blue knowledge and tools.",
+      "intended_interpretation": "Exclude or keep Blue adjacent for UG unless source-bounded mono-Blue self-directed improvement leads without requiring living adaptation.",
+      "evidence_claim_ids": [
+        "blue_claim_0002",
+        "blue_claim_0004",
+        "blue_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Separate Blue becoming through knowledge from Simic green-blue biological adaptation.",
+      "unsupported_certainty_to_avoid": "Do not choose Blue only because Simic also uses improvement or research language."
+    },
+    {
+      "fixture_id": "blue_exclude_prismari",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "PRISMARI",
+      "scenario": "Prismari-like readings center performance, expressive mastery, elemental art, spectacle, or emotion carried through technique.",
+      "intended_interpretation": "Exclude or keep Blue adjacent for PRISMARI unless source-bounded mono-Blue deliberate improvement leads.",
+      "evidence_claim_ids": [
+        "blue_claim_0003",
+        "blue_claim_0005",
+        "blue_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "GOV-COC-2024",
+        "MECH-CP-2021",
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Separate Blue technique and tools from Prismari expressive performance.",
+      "unsupported_certainty_to_avoid": "Do not choose Blue just because a Prismari-like answer names skill or mastery."
+    },
+    {
+      "fixture_id": "blue_exclude_quandrix",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "QUANDRIX",
+      "scenario": "Quandrix-like readings center mathematical proof, ratio, theory, abstract patterning, or equation-first growth rather than Blue self-authorship.",
+      "intended_interpretation": "Exclude or keep Blue adjacent for QUANDRIX unless source-bounded mono-Blue knowledge and self-improvement lead without needing math-college abstraction.",
+      "evidence_claim_ids": [
+        "blue_claim_0002",
+        "blue_claim_0003"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Separate Blue learning and tools from Quandrix math/proof identity.",
+      "unsupported_certainty_to_avoid": "Do not choose Blue only because the answer says pattern, theory, or model."
+    },
+    {
+      "fixture_id": "blue_exclude_esper",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ESPER",
+      "scenario": "Esper-like readings center controlled perfection, artifice, hierarchy, or white-blue-black management beyond mono-Blue.",
+      "intended_interpretation": "Exclude or keep Blue adjacent for ESPER unless source-bounded mono-Blue becoming through knowledge leads.",
+      "evidence_claim_ids": [
+        "blue_claim_0002",
+        "blue_claim_0003",
+        "blue_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Require mono-Blue self-authored improvement rather than Esper optimized hierarchy or artifice.",
+      "unsupported_certainty_to_avoid": "Do not use perfection, artifice, or control as sufficient Blue proof."
+    },
+    {
+      "fixture_id": "blue_exclude_bant",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BANT",
+      "scenario": "Bant-like readings center noble community, exalted order, hierarchy, or three-color ordered cooperation beyond mono-Blue.",
+      "intended_interpretation": "Exclude or keep Blue adjacent for BANT unless source-bounded mono-Blue knowledge and individual becoming lead.",
+      "evidence_claim_ids": [
+        "blue_claim_0002",
+        "blue_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Keep Blue mono when the proof does not require white-green community order.",
+      "unsupported_certainty_to_avoid": "Do not use shared planning or improvement language as sufficient Blue proof."
+    },
+    {
+      "fixture_id": "blue_exclude_grixis",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GRIXIS",
+      "scenario": "Grixis-like readings center ambition, cruelty, predatory manipulation, or blue-black-red control more than Blue's improvement project.",
+      "intended_interpretation": "Exclude or keep Blue adjacent for GRIXIS unless source-bounded mono-Blue knowledge and deliberate choice lead.",
+      "evidence_claim_ids": [
+        "blue_claim_0003",
+        "blue_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Separate Blue control as preparation from Grixis predatory or destructive control.",
+      "unsupported_certainty_to_avoid": "Do not choose Blue merely for manipulation, power, or hidden answers."
+    },
+    {
+      "fixture_id": "blue_exclude_temur",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "TEMUR",
+      "scenario": "Temur-like readings center wild force, embodied discovery, instinct, elemental vitality, or red-green-blue immediacy.",
+      "intended_interpretation": "Exclude or keep Blue adjacent for TEMUR unless source-bounded mono-Blue deliberation and tools lead.",
+      "evidence_claim_ids": [
+        "blue_claim_0004",
+        "blue_claim_0005",
+        "blue_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Separate Blue careful study from Temur instinct, force, and wild discovery.",
+      "unsupported_certainty_to_avoid": "Do not choose Blue merely because a Temur-like answer learns by doing."
+    },
+    {
+      "fixture_id": "blue_exclude_sultai",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SULTAI",
+      "scenario": "Sultai-like readings center exploitation, recursion, resource leverage, long-game domination, or blue-black-green survival strategy.",
+      "intended_interpretation": "Exclude or keep Blue adjacent for SULTAI unless source-bounded mono-Blue knowledge and self-authored improvement lead.",
+      "evidence_claim_ids": [
+        "blue_claim_0002",
+        "blue_claim_0003",
+        "blue_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Separate Blue improvement from Sultai resource exploitation and survival leverage.",
+      "unsupported_certainty_to_avoid": "Do not choose Blue merely for patience, long games, or resource planning."
+    },
+    {
+      "fixture_id": "blue_exclude_w",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "W",
+      "scenario": "Mono-white-like readings center group needs, peace, duty, shared order, or collective safety over individual self-authored becoming.",
+      "intended_interpretation": "Exclude or keep Blue adjacent for W unless source-bounded mono-Blue individual improvement through knowledge leads.",
+      "evidence_claim_ids": [
+        "blue_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Separate Blue raising the individual ceiling from White raising the group floor.",
+      "unsupported_certainty_to_avoid": "Do not choose Blue only because the answer uses planning or rules."
+    },
+    {
+      "fixture_id": "blue_exclude_b",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "B",
+      "scenario": "Mono-black-like readings center ambition, power, role, self-interest, or pragmatic advantage rather than identity-level becoming.",
+      "intended_interpretation": "Exclude or keep Blue adjacent for B unless source-bounded mono-Blue knowledge, tools, and identity self-authorship lead.",
+      "evidence_claim_ids": [
+        "blue_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Use Blue only when the answer centers who one can become through learning rather than what power one can secure.",
+      "unsupported_certainty_to_avoid": "Do not choose Blue merely for pragmatism, leverage, or ambition."
+    },
+    {
+      "fixture_id": "blue_exclude_r",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "R",
+      "scenario": "Mono-red-like readings center emotion, impulse, freedom, immediate action, or short-term expression as the good.",
+      "intended_interpretation": "Exclude or keep Blue adjacent for R unless source-bounded mono-Blue deliberation and knowledge-led timing lead.",
+      "evidence_claim_ids": [
+        "blue_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Use Blue only when study and deliberate choice lead over impulse.",
+      "unsupported_certainty_to_avoid": "Do not use shared creativity or clever play as sufficient Blue proof."
+    },
+    {
+      "fixture_id": "blue_exclude_g",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "G",
+      "scenario": "Mono-green-like readings center nature, destiny, instinct, inborn role, or acceptance over learned self-authorship.",
+      "intended_interpretation": "Exclude or keep Blue adjacent for G unless source-bounded mono-Blue learning and choice lead over destiny or natural role.",
+      "evidence_claim_ids": [
+        "blue_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Use Blue only when the answer treats the self and future as improvable through knowledge and choice.",
+      "unsupported_certainty_to_avoid": "Do not choose Blue for generic growth, nature study, or acceptance."
+    },
+    {
+      "fixture_id": "blue_core_identity_provenance",
+      "fixture_type": "provenance",
+      "scenario": "",
+      "intended_interpretation": "Generated provenance for Blue core identity must point to source-bounded substantive claims only.",
+      "evidence_claim_ids": [
+        "blue_claim_0002",
+        "blue_claim_0003",
+        "blue_claim_0004",
+        "blue_claim_0005",
+        "blue_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Generated consumers must preserve source-bounded Blue core identity provenance.",
+      "unsupported_certainty_to_avoid": "Do not use support/governance/Commander rows or mechanics-only rows as Blue core identity proof.",
+      "canonical_file": "data/raw-factions/blue/blue.profile.json",
+      "canonical_pointer": "/core_identity"
+    },
+    {
+      "fixture_id": "blue_placement_summary_provenance",
+      "fixture_type": "provenance",
+      "scenario": "",
+      "intended_interpretation": "Generated provenance for Blue placement summary must preserve philosophy, relationship, pressure, and bounded mechanic texture claims without support leakage.",
+      "evidence_claim_ids": [
+        "blue_claim_0002",
+        "blue_claim_0003",
+        "blue_claim_0004",
+        "blue_claim_0005",
+        "blue_claim_0006",
+        "blue_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "GOV-COC-2024",
+        "MECH-CP-2021",
+        "MONO-U-2015",
+        "MONO-U-2025"
+      ],
+      "defensible_guidance": "Generated consumers must preserve claim/source provenance for Blue placement summary guidance.",
+      "unsupported_certainty_to_avoid": "Do not expose support rows, card verification, or generic Blue mechanics as placement proof.",
+      "canonical_file": "data/raw-factions/blue/blue.placement.json",
+      "canonical_pointer": "/placement_summary"
+    }
+  ]
+}
