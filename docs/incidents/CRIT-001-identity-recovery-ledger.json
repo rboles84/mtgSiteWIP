@@ -36,14 +36,16 @@
       "current_identity_hold": {
         "identity": "UG",
         "card": "VM-516",
-        "state": "drift_preflight_passed",
+        "state": "gate_1_2_complete",
         "preflight_record": "docs/incidents/recoveries/VM-516-simic-drift-preflight.md",
         "preflight_commit": "PENDING_VM516_DRIFT_PREFLIGHT_COMMIT_SHA",
         "decision": "PASS — SIMIC GATE 1+2 AUTHORIZED",
-        "authorized_next_scope": "Gate 1+2 read-only audit only",
-        "remediation_authorized": false,
-        "required_next_milestone": "Gate 1+2 read-only audit governance/report commit",
-        "gate_1_2_status": "authorized_but_not_started"
+        "authorized_next_scope": "Gate 3+4 canonical remediation, generation, fixtures, provenance cleanup, and validation",
+        "remediation_authorized": true,
+        "required_next_milestone": "Gate 3+4 remediation and validation before Gate 5 candidate creation",
+        "gate_1_2_status": "complete",
+        "gate_1_2_report": "docs/incidents/recoveries/VM-516-simic-semantic-recovery.md",
+        "gate_1_2_commit": "PENDING_VM516_GATE_1_2_COMMIT_SHA"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -2445,14 +2447,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "drift_preflight_passed",
-        "status": "gate_1_2_authorized_not_started",
+        "current_gate": "gate_1_2_complete",
+        "status": "gate_3_4_authorized",
         "started_at": null,
-        "gate_entered_at": "2026-07-17T17:25:00-06:00",
+        "gate_entered_at": "2026-07-17T17:52:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "W",
-        "primary_disposition": "VM-516 drift preflight passed with no FAIL or UNKNOWN controls. Gate 1+2 read-only audit is authorized but not started. Remediation, generation, candidate creation, independent review, certification, semantically_ready transition, and VM-517 work remain unauthorized and not started. Program base remains fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3.",
+        "primary_disposition": "Gate 1+2 read-only audit complete with decision REMEDIATION AUTHORIZED. Existing listed/local Simic sources are sufficient for bounded Gate 3+4 remediation. Candidate creation, independent review, certification, semantically_ready transition, program-base advancement, and VM-517 work remain unauthorized and not started. Program base remains fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3.",
         "drift_preflight": {
           "record": "docs/incidents/recoveries/VM-516-simic-drift-preflight.md",
           "commit": "PENDING_VM516_DRIFT_PREFLIGHT_COMMIT_SHA",
@@ -2465,6 +2467,17 @@
           "certified": false,
           "program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
           "drift_control_governance": "bb424a64787977baa45c67f1459babab64b1d3c7"
+        },
+        "gate_1_2": {
+          "record": "docs/incidents/recoveries/VM-516-simic-semantic-recovery.md",
+          "commit": "PENDING_VM516_GATE_1_2_COMMIT_SHA",
+          "decision": "REMEDIATION AUTHORIZED",
+          "semantic_edits": false,
+          "generated_edits": false,
+          "remediation_authorized": true,
+          "candidate_created": false,
+          "review_performed": false,
+          "certified": false
         }
       },
       "semantic_review": {
@@ -2483,7 +2496,7 @@
           "TEMUR",
           "SULTAI"
         ],
-        "audit_report": null,
+        "audit_report": "docs/incidents/recoveries/VM-516-simic-semantic-recovery.md",
         "drift_preflight_report": "docs/incidents/recoveries/VM-516-simic-drift-preflight.md",
         "residual_findings": []
       },
