@@ -45,14 +45,14 @@
       "current_identity_hold": {
         "identity": "U",
         "card": "VM-518",
-        "state": "setup_only_drift_preflight_pending",
+        "state": "drift_preflight_passed_gate_1_2_authorized_not_started",
         "branch": "codex/vm-518-blue-semantic-recovery",
         "prior_identity_certified": "W",
         "prior_identity_certification": "PENDING_VM517_CERTIFICATION_COMMIT_SHA",
         "authorized_next_scope": "Create VM-518 setup branch only. A separate committed Blue drift-preflight control record is required before Gate 1+2 or semantic work may begin.",
         "required_next_milestone": "Run VM-518 Blue drift preflight in a separate authorized window.",
-        "drift_preflight_started": false,
-        "gate_1_2_status": "not_started",
+        "drift_preflight_started": true,
+        "gate_1_2_status": "authorized_not_started",
         "candidate_created": false,
         "independent_review": {
           "performed": false
@@ -61,7 +61,13 @@
           "performed": false,
           "status": "not_started",
           "certification_sha": null
-        }
+        },
+        "program_base": "9d250a7a76d219fdb961915cbf989a10a575c757",
+        "drift_preflight_decision": "PASS - BLUE GATE 1+2 AUTHORIZED",
+        "drift_preflight_record": "docs/incidents/recoveries/VM-518-blue-drift-preflight.md",
+        "drift_preflight_commit": "PENDING_VM518_DRIFT_PREFLIGHT_SHA",
+        "remediation_authorized": false,
+        "updated_at": "2026-07-18T10:04:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -2775,19 +2781,58 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "setup_only",
-        "status": "setup_only_drift_preflight_pending",
+        "current_gate": "drift_preflight_passed",
+        "status": "gate_1_2_authorized_not_started",
         "started_at": "2026-07-18T09:42:09-06:00",
-        "gate_entered_at": "2026-07-18T09:42:09-06:00",
+        "gate_entered_at": "2026-07-18T10:04:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "B",
-        "primary_disposition": "Setup-only after VM-517 White certification. No Blue drift preflight, Gate 1+2 semantic audit, remediation, generated rebuild, candidate, review, or certification has started."
+        "primary_disposition": "VM-518 Blue drift preflight passed with no FAIL or UNKNOWN controls. Gate 1+2 read-only audit is authorized but not started; remediation is not authorized; no Blue semantic, generated, fixture, provenance, recruiter, preview, test, schema, validator, builder, scoring, calibration, or runtime files changed."
       },
       "semantic_review": {
-        "required_neighbors": [],
+        "required_neighbors": [
+          "GENERIC_U_OVERFIT",
+          "WU",
+          "UR",
+          "UB",
+          "UG",
+          "PRISMARI",
+          "QUANDRIX",
+          "ESPER",
+          "BANT",
+          "GRIXIS",
+          "TEMUR",
+          "SULTAI",
+          "W",
+          "B",
+          "R",
+          "G"
+        ],
         "audit_report": null,
-        "residual_findings": []
+        "residual_findings": [
+          "As-is Blue packet has 8 total claims with 0 substantive, 0 discovery, 0 support, and 8 unclassified explicit roles.",
+          "All 8 claims currently lack bounded evidence_locations; no substantive evidence_scope entries exist because no claim is currently substantive.",
+          "Profile, placement, generated placement, recruiter, and provenance proof chains currently reference unclassified Blue claims.",
+          "U provenance currently has 12 entries, 3 null canonical IDs, 0 null hashes, 0 unresolved pointers, and duplicate null canonical-entry keys; Blue fixture is absent.",
+          "Blue raw collision_guidance uses object-with-pairs shape and generated placement flattens to array; approved validator supports both shapes.",
+          "Identity-layer preview source and embedded factions consumer are equal and must remain explicitly checked under DRIFT-015."
+        ],
+        "decision": "Drift preflight passed; Gate 1+2 authorized but not started",
+        "drift_preflight_commit": "PENDING_VM518_DRIFT_PREFLIGHT_SHA",
+        "drift_preflight_decision": "PASS - BLUE GATE 1+2 AUTHORIZED",
+        "drift_preflight_completed_at": "2026-07-18T10:04:00-06:00",
+        "gate_1_2_status": "authorized_not_started",
+        "remediation_authorized": false,
+        "candidate_created": false,
+        "validation_notes": [
+          "node research/semantic-candidate-scope-tests.js passed.",
+          "Same-SHA U candidate-scope control exited 1 with deliberate unclassified-proof contamination diagnostics and no validator crash.",
+          "Same-SHA WG array-shaped control exited 0.",
+          "node research/audit-semantic-readiness.mjs --targets=U exited 0 and confirmed 8 unclassified claims.",
+          "node research/validate-semantic-readiness.mjs --targets=U exited 1 with expected pre-remediation semantic-readiness failures, not an infrastructure crash."
+        ],
+        "drift_preflight_report": "docs/incidents/recoveries/VM-518-blue-drift-preflight.md"
       },
       "certification": {
         "contract_version": null,
