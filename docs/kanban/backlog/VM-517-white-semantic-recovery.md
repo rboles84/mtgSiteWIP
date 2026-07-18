@@ -1,7 +1,7 @@
 # VM-517 — White Semantic Recovery
 
 ID: VM-517
-Status: Candidate Created - Awaiting Independent Review
+Status: Approved - Awaiting Certification
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: W
@@ -20,7 +20,7 @@ Recover White end to end under CRIT-001: audit the existing packet, bound readin
 - [x] Gate 3 - Canonical remediation.
 - [x] Gate 4 - Generation and validation.
 - [x] Gate 5 - Candidate creation.
-- [ ] Independent review.
+- [x] Independent review.
 - [ ] Certification.
 
 ## Scope Rules
@@ -37,7 +37,7 @@ Recover White end to end under CRIT-001: audit the existing packet, bound readin
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-517-white-semantic-recovery.md`
 - Candidate recovery SHA: `89535e5f73598a5b518e31e11598b05087274a95`
-- Independent reviewer: pending
+- Independent reviewer: Codex independent review window
 - Certification commit: pending
 
 ## Drift Preflight State
@@ -116,4 +116,8 @@ Candidate-scope result: PASS.
 
 Final validation passed: `npm.cmd run build:factions`, `node research/audit-semantic-readiness.mjs --targets=W`, `node research/validate-semantic-readiness.mjs --targets=W`, `node research/semantic-candidate-scope-tests.js`, `npm.cmd run test:semantic-readiness`, `npm.cmd run test:placement`, `npm.cmd run test:faction-context-isolation`, `npm.cmd run test:source-generated`, `npm.cmd test`, and `git diff --check`.
 
-White candidate review is now authorized in a separate independent-review window. Certification, `semantically_ready`, program-base advancement, VM-518 work, and external tracker updates remain unauthorized/not started.
+White independent review approved exact candidate `89535e5f73598a5b518e31e11598b05087274a95` in `docs/incidents/recoveries/VM-517-white-independent-review.md`.
+
+Review decision: `APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95`.
+
+Certification, `semantically_ready`, program-base advancement, VM-518 work, and external tracker updates remain unauthorized/not started.

@@ -1,6 +1,6 @@
 # VM-517 White Semantic Recovery
 
-Status: Candidate created. Awaiting independent review. Not reviewed. Not certified. Not semantically_ready.
+Status: Independent review approved exact candidate. Awaiting certification. Not certified. Not semantically_ready.
 
 Identity: White / W
 Contract: CRIT-001 semantic-readiness Contract v1.1
@@ -13,6 +13,8 @@ Passing preflight rerun: `2bec073daa70c56a251f9086f034370e4abe22db`
 Gate 1+2 governance commit: `307b93d56b4314405011f21f7d7616ac4b7ed16f`
 Superseded candidate: `8d6014950e5ca45ef85a90855cf283d80fd18e0d`
 Final candidate awaiting review: `89535e5f73598a5b518e31e11598b05087274a95`
+Independent review decision: `APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95`
+Independent review record: `docs/incidents/recoveries/VM-517-white-independent-review.md`
 
 This record began as the read-only Gate 1+2 audit and evidence confirmation for White, then was extended by the Gate 5 workflow record after candidate creation. It does not perform independent review, does not certify White, does not mark White semantically_ready, does not advance the program base, does not start VM-518, and does not modify the external Excel tracker.
 
@@ -258,4 +260,27 @@ Candidate-scope command:
 
 Result: PASS, `Semantic candidate scope passed for W: 307b93d56b4314405011f21f7d7616ac4b7ed16f..89535e5f73598a5b518e31e11598b05087274a95`.
 
-White is awaiting independent review. No independent review was performed in this window. No approval decision was issued. White is not certified, not semantically_ready, the program base remains `272337004aa63cfd33da5f1a859c33d211c8ca74`, and VM-518 has not started.
+White candidate review completed in `docs/incidents/recoveries/VM-517-white-independent-review.md` with decision `APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95`. White is not certified, not semantically_ready, the program base remains `272337004aa63cfd33da5f1a859c33d211c8ca74`, and VM-518 has not started.
+
+## 16. Independent Review Record
+
+Independent review record: `docs/incidents/recoveries/VM-517-white-independent-review.md`.
+
+Review decision: `APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95`.
+
+Review-record commit: `PENDING_VM517_WHITE_REVIEW_RECORD_SHA`.
+
+Reviewed truth:
+
+- Exact candidate reviewed: `89535e5f73598a5b518e31e11598b05087274a95`.
+- Superseded candidate excluded: `8d6014950e5ca45ef85a90855cf283d80fd18e0d`.
+- Workflow record excluded from semantic approval: `fce31bd9c5b7d89c343674037efe13c10278d38d`.
+- Final W claim counts: 8 total, 6 substantive, 0 discovery, 2 support, 0 unclassified.
+- W provenance count: 25 entries; 0 required null canonical IDs, 0 null hashes, 0 unresolved pointers, 0 duplicate canonical pointers, 0 support-backed authoritative chains.
+- Exact fixture/provenance parity: PASS for `/core_identity` and `/placement_summary`.
+- Frozen placement summary text, required terms, minimum hits, broad penalty, strengthen/suppress lists, lateral targets, collision targets, native IDs, calibration, absent generic collision target, preview equality, and object-with-`pairs` collision guidance are preserved.
+- Public, recruiter, chatbot, and preview surfaces align with bounded White claims.
+- Candidate-scope validation passed for the exact SHA.
+- No blocker, high, medium, or low findings remain.
+
+Certification was not performed, White was not marked semantically_ready, the program base was not advanced, VM-518 was not started, original main was not modified, and the external Excel tracker was not modified.

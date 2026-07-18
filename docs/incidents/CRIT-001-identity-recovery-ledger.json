@@ -43,16 +43,16 @@
       "current_identity_hold": {
         "identity": "W",
         "card": "VM-517",
-        "state": "candidate_created_awaiting_independent_review",
+        "state": "approved_awaiting_certification",
         "preflight_record": "docs/incidents/recoveries/VM-517-white-drift-preflight.md",
         "preflight_commit": "PENDING_VM517_DRIFT_PREFLIGHT_COMMIT_SHA",
         "preflight_rerun_record": "docs/incidents/recoveries/VM-517-white-drift-preflight-rerun.md",
         "preflight_rerun_commit": "PENDING_VM517_DRIFT_PREFLIGHT_RERUN_SHA",
         "original_preflight_decision": "STOP - WHITE GATE 1+2 NOT AUTHORIZED",
-        "decision": "CANDIDATE CREATED - AWAITING INDEPENDENT REVIEW",
-        "authorized_next_scope": "Independent review of exact final White candidate SHA may proceed in a separate review window. Certification, semantically_ready transition, VM-518 work, program-base advancement, and Excel updates remain unauthorized.",
+        "decision": "APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95",
+        "authorized_next_scope": "Certification of exact approved White candidate SHA may proceed in a separate certification window. semantically_ready transition, program-base advancement, and Excel updates remain unauthorized until certification; VM-518 work remains unauthorized/not started.",
         "remediation_authorized": true,
-        "required_next_milestone": "Run independent review of exact VM-517 White candidate SHA",
+        "required_next_milestone": "Run certification for exact approved VM-517 White candidate SHA",
         "gate_1_2_status": "complete_remediation_authorized",
         "gate_1_2_report": "docs/incidents/recoveries/VM-517-white-semantic-recovery.md",
         "gate_1_2_commit": "307b93d56b4314405011f21f7d7616ac4b7ed16f",
@@ -70,7 +70,7 @@
           "white_preflight_rerun_decision": "PASS - WHITE GATE 1+2 AUTHORIZED",
           "drift_register_entry": "DRIFT-016"
         },
-        "status": "candidate_created_awaiting_independent_review",
+        "status": "approved_awaiting_certification",
         "prior_identity_certified": "UG",
         "prior_identity_certification": "272337004aa63cfd33da5f1a859c33d211c8ca74",
         "gate_1_2_findings": {
@@ -171,9 +171,22 @@
           "git_diff_check": "PASS with line-ending warnings only"
         },
         "independent_review": {
-          "performed": false,
-          "decision": null,
-          "review_record": null
+          "performed": true,
+          "decision": "APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95",
+          "review_record": "docs/incidents/recoveries/VM-517-white-independent-review.md",
+          "review_record_commit": "PENDING_VM517_WHITE_REVIEW_RECORD_SHA",
+          "reviewed_candidate_sha": "89535e5f73598a5b518e31e11598b05087274a95",
+          "reviewed_provenance_count": 25,
+          "findings": {
+            "blocker": [],
+            "high": [],
+            "medium": [],
+            "low": [],
+            "non_blocking_observations": [
+              "git diff --check emitted line-ending warnings only and exited 0.",
+              "test:source-generated retained known unrelated JESKAI/MARDU model-owned inhibitor warnings; no W, JESKAI, or MARDU candidate defect was found."
+            ]
+          }
         },
         "certification": {
           "performed": false,
@@ -2758,7 +2771,7 @@
           "discovery_record": [],
           "unclassified": []
         },
-        "status": "candidate_created_awaiting_independent_review",
+        "status": "approved_awaiting_certification",
         "candidate_recovery_sha": "89535e5f73598a5b518e31e11598b05087274a95",
         "final_candidate_sha": "89535e5f73598a5b518e31e11598b05087274a95",
         "superseded_candidate_shas": [
@@ -2771,11 +2784,13 @@
           }
         ],
         "candidate_created": true,
-        "awaits_independent_review": true,
-        "review_performed": false,
-        "review_result": null,
-        "reviewer": null,
-        "review_cycles": 0,
+        "awaits_independent_review": false,
+        "review_performed": true,
+        "review_result": "APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95",
+        "reviewer": "Codex independent review window",
+        "review_cycles": 1,
+        "review_record": "docs/incidents/recoveries/VM-517-white-independent-review.md",
+        "review_record_commit": "PENDING_VM517_WHITE_REVIEW_RECORD_SHA",
         "certification_commit": null,
         "certification_status": "not_certified",
         "validation_passed": true,
@@ -2810,8 +2825,8 @@
         "approval_date": null,
         "certified_at": null
       },
-      "status": "candidate_created_awaiting_independent_review",
-      "primary_disposition": "Final White candidate 89535e5f73598a5b518e31e11598b05087274a95 created and awaiting independent review. Superseded candidate 8d6014950e5ca45ef85a90855cf283d80fd18e0d remains recorded as candidate-scope failure. White is not certified and not semantically_ready; VM-518 not started."
+      "status": "approved_awaiting_certification",
+      "primary_disposition": "Final White candidate 89535e5f73598a5b518e31e11598b05087274a95 received independent review decision APPROVE EXACT SHA 89535e5f73598a5b518e31e11598b05087274a95. Superseded candidate 8d6014950e5ca45ef85a90855cf283d80fd18e0d remains recorded as candidate-scope failure. White is not certified and not semantically_ready; VM-518 not started."
     },
     {
       "identity": {
