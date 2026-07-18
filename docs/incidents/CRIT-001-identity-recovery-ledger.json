@@ -12,7 +12,7 @@
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
       "next_cohort": "Wave 3 monocolors",
-      "current_program_base": "PENDING_VM519_CERTIFICATION_COMMIT_SHA",
+      "current_program_base": "1116786785dc4c5c8c1447dcad79c89e527657eb",
       "wave_3_monocolors": "active",
       "wave_3_monocolors_certified": "3 of 5"
     },
@@ -45,17 +45,17 @@
       "current_identity_hold": {
         "identity": "R",
         "card": "VM-520",
-        "state": "setup_only_drift_preflight_pending",
+      "state": "gate_1_2_authorized_not_started",
         "branch": "codex/vm-520-red-semantic-recovery",
         "prior_identity_certified": "B",
-        "prior_identity_certification": "PENDING_VM519_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "Setup-only VM-520 Red branch/card. A separate committed Red drift-preflight record is required before Gate 1+2 semantic work.",
-        "required_next_milestone": "Run VM-520 Red drift preflight control record only; do not begin Red Gate 1+2 before that record passes with no FAIL or UNKNOWN controls.",
-        "drift_preflight_started": false,
-        "drift_preflight_completed": false,
-        "drift_preflight_record": null,
-        "drift_preflight_commit": null,
-        "gate_1_2_status": "not_started",
+      "prior_identity_certification": "1116786785dc4c5c8c1447dcad79c89e527657eb",
+      "authorized_next_scope": "VM-520 Red Gate 1+2 read-only audit is authorized by the committed drift preflight. Remediation, generation, candidate creation, review, certification, VM-521 work, original-main modification, and Excel update remain unauthorized.",
+      "required_next_milestone": "Run VM-520 Red Gate 1+2 read-only audit under the frozen preflight baseline; do not begin remediation unless Gate 1+2 later records REMEDIATION AUTHORIZED.",
+      "drift_preflight_started": true,
+      "drift_preflight_completed": true,
+      "drift_preflight_record": "docs/incidents/recoveries/VM-520-red-drift-preflight.md",
+      "drift_preflight_commit": "PENDING_VM520_DRIFT_PREFLIGHT_SHA",
+      "gate_1_2_status": "authorized_not_started",
         "candidate_created": false,
         "independent_review": {
           "performed": false,
@@ -66,8 +66,8 @@
           "status": "not_started",
           "certification_sha": null
         },
-        "program_base": "PENDING_VM519_CERTIFICATION_COMMIT_SHA",
-        "updated_at": "2026-07-18T16:24:00-06:00"
+      "program_base": "1116786785dc4c5c8c1447dcad79c89e527657eb",
+      "updated_at": "2026-07-18T16:40:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -87,7 +87,7 @@
         "replacement_workflow_sha": "02974fec8242544ceb47e0d8c6b0f776593d9e03",
         "review_decision": "APPROVE EXACT SHA 0bfe8b3d46d163de6e20064f5de9717075ca02c8",
         "approval_review_sha": "8aac2c23ff13986790950a63b093d9787ae7bf1d",
-        "certification_commit": "PENDING_VM519_CERTIFICATION_COMMIT_SHA",
+      "certification_commit": "1116786785dc4c5c8c1447dcad79c89e527657eb",
         "certified_at": "2026-07-18T16:24:00-06:00",
         "final_state": "semantically_ready",
         "reviewed_provenance_count": 25,
@@ -3302,31 +3302,56 @@
         "template_cohort_pattern": true,
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
-      "workflow": {
-        "current_gate": "setup",
-        "status": "setup_only_drift_preflight_pending",
+    "workflow": {
+      "current_gate": "drift_preflight",
+      "status": "gate_1_2_authorized_not_started",
         "started_at": "2026-07-18T16:24:00-06:00",
         "gate_entered_at": null,
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "R",
-        "primary_disposition": "Setup-only after VM-519 Black certification. Red drift preflight is pending; Gate 1+2 semantic work, remediation, candidate, review, certification, original-main modification, and Excel update are not started.",
-        "drift_preflight": {
-          "status": "pending",
-          "required_before_gate_1_2": true,
-          "record": null,
-          "commit": null,
-          "started": false,
-          "completed": false
-        }
+      "primary_disposition": "VM-520 Red drift preflight passed from program base 1116786785dc4c5c8c1447dcad79c89e527657eb. Gate 1+2 read-only audit is authorized but not started; remediation, candidate, review, certification, VM-521 work, original-main modification, and Excel update remain not started.",
+      "drift_preflight": {
+        "status": "passed",
+        "required_before_gate_1_2": true,
+        "record": "docs/incidents/recoveries/VM-520-red-drift-preflight.md",
+        "commit": "PENDING_VM520_DRIFT_PREFLIGHT_SHA",
+        "started": true,
+        "completed": true,
+        "decision": "PASS - RED GATE 1+2 AUTHORIZED",
+        "authorized_scope": "Gate 1+2 read-only audit only; remediation remains unauthorized."
+      }
       },
-      "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": [
-          "Setup-only; Red semantic data not inspected in VM-519 certification window."
-        ]
-      },
+  "semantic_review": {
+    "required_neighbors": [
+      "GENERIC_R_OVERFIT",
+      "W",
+      "U",
+      "B",
+      "G",
+      "WR",
+      "BR",
+      "RG",
+      "UR",
+      "PRISMARI",
+      "LOREHOLD",
+      "QUANDRIX",
+      "SILVERQUILL",
+      "WITHERBLOOM",
+      "ESPER",
+      "GRIXIS",
+      "MARDU",
+      "TEMUR",
+      "WUBRG",
+      "COLORLESS"
+    ],
+    "audit_report": null,
+    "residual_findings": [
+      "Drift preflight only; Red Gate 1+2 semantic audit is authorized but not started.",
+      "Current Red baseline has 8 unclassified claims, 12 provenance rows, missing Red semantic fixtures, and pre-remediation validation failures.",
+      "DRIFT-015/017 preview semantic-alignment review is mandatory in Gate 1+2 and later candidate/review/certification gates."
+    ]
+  },
       "certification": {
         "contract_version": null,
         "contract_revalidation_required": false,
@@ -3338,8 +3363,8 @@
         "approval_date": null,
         "certified_at": null
       },
-      "gate": "setup",
-      "status": "setup_only_drift_preflight_pending"
+    "gate": "drift_preflight",
+    "status": "gate_1_2_authorized_not_started"
     },
     {
       "identity": {
