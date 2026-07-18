@@ -1,7 +1,7 @@
 # VM-517 — White Semantic Recovery
 
 ID: VM-517
-Status: Gate 1+2 Complete - Remediation Authorized
+Status: Candidate Created - Awaiting Independent Review
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: W
@@ -17,9 +17,11 @@ Recover White end to end under CRIT-001: audit the existing packet, bound readin
 
 - [x] Gate 1 — Packet audit and bounded disposition.
 - [x] Gate 2 — Sufficient evidence completion.
-- [ ] Gate 3 — Canonical remediation.
-- [ ] Gate 4 — Generation and validation.
-- [ ] Gate 5 — Independent certification.
+- [x] Gate 3 - Canonical remediation.
+- [x] Gate 4 - Generation and validation.
+- [x] Gate 5 - Candidate creation.
+- [ ] Independent review.
+- [ ] Certification.
 
 ## Scope Rules
 
@@ -34,7 +36,7 @@ Recover White end to end under CRIT-001: audit the existing packet, bound readin
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-517-white-semantic-recovery.md`
-- Candidate recovery SHA: pending
+- Candidate recovery SHA: `89535e5f73598a5b518e31e11598b05087274a95`
 - Independent reviewer: pending
 - Certification commit: pending
 
@@ -88,7 +90,7 @@ Gate 1+2 has now completed in `docs/incidents/recoveries/VM-517-white-semantic-r
 
 Gate 1+2 report: `docs/incidents/recoveries/VM-517-white-semantic-recovery.md`.
 
-Gate 1+2 governance commit: `PENDING_VM517_GATE_1_2_COMMIT_SHA`.
+Gate 1+2 governance commit: `307b93d56b4314405011f21f7d7616ac4b7ed16f`.
 
 Decision: `REMEDIATION AUTHORIZED`.
 
@@ -100,4 +102,18 @@ Primary blockers to remediate: missing claim-level semantic roles, missing bound
 
 Frozen fields to preserve: object-with-`pairs` collision guidance; lateral targets `WU`, `WB`, `WG`, `WR`; collision targets `B`, `R`; absent explicit `GENERIC_W_OVERFIT`; required terms, minimum hits, broad penalty, strengthen/suppress lists, native IDs, calibration, and preview source-to-embedded equality.
 
-White remediation, generation, and candidate creation are authorized only within the Gate 3+4/Gate 5 scope recorded in the report. Independent review, certification, `semantically_ready`, program-base advancement, VM-518 work, and external tracker updates remain unauthorized/not started.
+## Gate 5 Candidate State
+
+Superseded candidate: `8d6014950e5ca45ef85a90855cf283d80fd18e0d`.
+
+Supersession reason: post-commit candidate-scope validation rejected added `placement_summary/calibrated_primary_read` and `placement_summary/calibrated_false_positive_guardrail` fields.
+
+Final candidate awaiting independent review: `89535e5f73598a5b518e31e11598b05087274a95`.
+
+Candidate-scope command: `node research/validate-semantic-candidate-scope.mjs --base=307b93d56b4314405011f21f7d7616ac4b7ed16f --target=89535e5f73598a5b518e31e11598b05087274a95 --identity=W`.
+
+Candidate-scope result: PASS.
+
+Final validation passed: `npm.cmd run build:factions`, `node research/audit-semantic-readiness.mjs --targets=W`, `node research/validate-semantic-readiness.mjs --targets=W`, `node research/semantic-candidate-scope-tests.js`, `npm.cmd run test:semantic-readiness`, `npm.cmd run test:placement`, `npm.cmd run test:faction-context-isolation`, `npm.cmd run test:source-generated`, `npm.cmd test`, and `git diff --check`.
+
+White candidate review is now authorized in a separate independent-review window. Certification, `semantically_ready`, program-base advancement, VM-518 work, and external tracker updates remain unauthorized/not started.

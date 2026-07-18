@@ -1,6 +1,6 @@
 # VM-517 White Semantic Recovery
 
-Status: Gate 1+2 complete. Remediation authorized. Not a candidate. Not reviewed. Not certified.
+Status: Candidate created. Awaiting independent review. Not reviewed. Not certified. Not semantically_ready.
 
 Identity: White / W
 Contract: CRIT-001 semantic-readiness Contract v1.1
@@ -10,9 +10,11 @@ Original STOP preflight: `06627929eb0e048a8c0c20612970e779098a982c`
 Approved monocolor validator candidate: `aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2`
 Validator approval review: `af3d8c6c563b3743f65c2dc8478519707f4785c8`
 Passing preflight rerun: `2bec073daa70c56a251f9086f034370e4abe22db`
-Gate 1+2 governance commit: `PENDING_VM517_GATE_1_2_COMMIT_SHA`
+Gate 1+2 governance commit: `307b93d56b4314405011f21f7d7616ac4b7ed16f`
+Superseded candidate: `8d6014950e5ca45ef85a90855cf283d80fd18e0d`
+Final candidate awaiting review: `89535e5f73598a5b518e31e11598b05087274a95`
 
-This record is the read-only Gate 1+2 audit and evidence confirmation for White. It authorizes only Gate 3+4 remediation. It does not create a candidate, does not perform independent review, does not certify White, does not mark White semantically_ready, does not advance the program base, does not start VM-518, and does not modify the external Excel tracker.
+This record began as the read-only Gate 1+2 audit and evidence confirmation for White, then was extended by the Gate 5 workflow record after candidate creation. It does not perform independent review, does not certify White, does not mark White semantically_ready, does not advance the program base, does not start VM-518, and does not modify the external Excel tracker.
 
 ## 1. Preflight Reverification
 
@@ -203,3 +205,57 @@ REMEDIATION AUTHORIZED
 Rationale: White has sufficient local/official source evidence to remediate, but it is not Contract v1.1-ready because all claims lack semantic roles and bounded evidence locations, profile/placement proof chains use non-authoritative support rows, generated provenance has null canonical IDs, guidance lacks evidence mappings, and the required semantic fixture is absent.
 
 Gate 3+4 must preserve frozen fields and the object-with-`pairs` collision-guidance shape while assigning roles, adding evidence scopes, isolating support records, rebuilding generated artifacts, creating fixtures, and validating exact chain/candidate-scope behavior.
+
+## 12. Gate 3+4 Remediation Summary
+
+White remediation assigned `semantic_role` to all 8 claims: 6 `substantive_claim`, 0 `discovery_record`, 2 `support_record`, and 0 `unclassified`. Claims `white_claim_0002` through `white_claim_0007` now carry bounded Contract v1.1 `evidence_locations` with `evidence_scope`; `white_claim_0001` and `white_claim_0008` remain support/history metadata and are excluded from authoritative proof chains.
+
+Authoritative proof chains were narrowed so profile core/site/profile, placement axes, placement summary, discriminator questions, generated public surfaces, recruiter context, semantic-readiness provenance, and fixtures no longer use governance/rules/Scryfall support rows as White semantic proof. `white_claim_0008` remains only in Commander Compass auxiliary support metadata with `evidence_use: auxiliary_support`.
+
+Generated outputs were rebuilt through `npm.cmd run build:factions`. W provenance now has 25 entries, 0 required null canonical IDs, 0 required null canonical content hashes, 0 unresolved pointers, and 0 duplicate canonical locator entries. The new White fixture file covers core inclusion, pressure behavior, required-neighbor exclusions, and exact provenance pairs.
+
+Frozen fields were preserved: placement summary text, required terms, minimum hits, broad penalty, strengthen/suppress lists, lateral targets `WU`, `WB`, `WG`, `WR`, collision targets `B`, `R`, object-with-`pairs` raw collision guidance, absent explicit `GENERIC_W_OVERFIT` generated collision target, native IDs, and preview source-to-embedded equality.
+
+## 13. Exact-Chain Proof
+
+| Canonical locator | Generated count | Fixture count | Exact ordered equality | Duplicate IDs | Missing IDs | Extra IDs |
+|---|---:|---:|---|---|---|---|
+| `data/raw-factions/white/white.profile.json#/core_identity` | 5 | 5 | PASS | none | none | none |
+| `data/raw-factions/white/white.placement.json#/placement_summary` | 6 | 6 | PASS | none | none | none |
+
+Core identity claim order: `white_claim_0002`, `white_claim_0003`, `white_claim_0004`, `white_claim_0005`, `white_claim_0006`.
+
+Placement summary claim order: `white_claim_0002`, `white_claim_0003`, `white_claim_0004`, `white_claim_0005`, `white_claim_0006`, `white_claim_0007`.
+
+## 14. Validation Results
+
+Validation passed for the final candidate:
+
+- JSON parse checks for changed White JSON and fixture files: PASS.
+- Manual drift controls: PASS for roles, evidence scopes, support isolation, null ID/hash scan, unresolved-pointer scan, duplicate canonical locator scan, exact fixture/provenance parity, frozen-field comparison, and W public/recruiter stale-copy scan.
+- `npm.cmd run build:factions`: PASS; deterministic generation verified by repeated run.
+- `node research/audit-semantic-readiness.mjs --targets=W`: PASS; 8 total claims, 6 substantive, 0 discovery, 2 support, 0 unclassified.
+- `node research/validate-semantic-readiness.mjs --targets=W`: PASS.
+- `node research/semantic-candidate-scope-tests.js`: PASS.
+- `npm.cmd run test:semantic-readiness`: PASS; verified 1800 semantic provenance entries.
+- `npm.cmd run test:placement`: PASS; 37 factions, 37 golden paths.
+- `npm.cmd run test:faction-context-isolation`: PASS.
+- `npm.cmd run test:source-generated`: PASS with known unrelated JESKAI/MARDU model-owned inhibitor warnings.
+- `npm.cmd test`: PASS.
+- `git diff --check`: PASS with line-ending warnings only.
+
+## 15. Gate 5 Candidate Record
+
+First candidate: `8d6014950e5ca45ef85a90855cf283d80fd18e0d` (`VM-517 remediate White semantic readiness candidate`).
+
+Supersession reason: post-commit candidate-scope validation rejected added `placement_summary/calibrated_primary_read` and `placement_summary/calibrated_false_positive_guardrail` fields. The commit remains preserved and unapproved.
+
+Final candidate awaiting independent review: `89535e5f73598a5b518e31e11598b05087274a95` (`VM-517 remediate White candidate scope replacement`).
+
+Candidate-scope command:
+
+`node research/validate-semantic-candidate-scope.mjs --base=307b93d56b4314405011f21f7d7616ac4b7ed16f --target=89535e5f73598a5b518e31e11598b05087274a95 --identity=W`
+
+Result: PASS, `Semantic candidate scope passed for W: 307b93d56b4314405011f21f7d7616ac4b7ed16f..89535e5f73598a5b518e31e11598b05087274a95`.
+
+White is awaiting independent review. No independent review was performed in this window. No approval decision was issued. White is not certified, not semantically_ready, the program base remains `272337004aa63cfd33da5f1a859c33d211c8ca74`, and VM-518 has not started.

@@ -43,21 +43,21 @@
       "current_identity_hold": {
         "identity": "W",
         "card": "VM-517",
-        "state": "gate_1_2_complete_remediation_authorized",
+        "state": "candidate_created_awaiting_independent_review",
         "preflight_record": "docs/incidents/recoveries/VM-517-white-drift-preflight.md",
         "preflight_commit": "PENDING_VM517_DRIFT_PREFLIGHT_COMMIT_SHA",
         "preflight_rerun_record": "docs/incidents/recoveries/VM-517-white-drift-preflight-rerun.md",
         "preflight_rerun_commit": "PENDING_VM517_DRIFT_PREFLIGHT_RERUN_SHA",
         "original_preflight_decision": "STOP - WHITE GATE 1+2 NOT AUTHORIZED",
-        "decision": "REMEDIATION AUTHORIZED",
-        "authorized_next_scope": "White Gate 3+4 canonical remediation, generation, fixture/provenance work, and validation may proceed under the Gate 1+2 constraints. Candidate review, certification, semantically_ready, VM-518 work, program-base advancement, and Excel updates remain unauthorized.",
+        "decision": "CANDIDATE CREATED - AWAITING INDEPENDENT REVIEW",
+        "authorized_next_scope": "Independent review of exact final White candidate SHA may proceed in a separate review window. Certification, semantically_ready transition, VM-518 work, program-base advancement, and Excel updates remain unauthorized.",
         "remediation_authorized": true,
-        "required_next_milestone": "Complete VM-517 White Gate 3+4 remediation and validation, then create an exact Gate 5 candidate in a separate implementation commit",
+        "required_next_milestone": "Run independent review of exact VM-517 White candidate SHA",
         "gate_1_2_status": "complete_remediation_authorized",
         "gate_1_2_report": "docs/incidents/recoveries/VM-517-white-semantic-recovery.md",
-        "gate_1_2_commit": "PENDING_VM517_GATE_1_2_COMMIT_SHA",
-        "candidate_created": false,
-        "final_candidate_sha": null,
+        "gate_1_2_commit": "307b93d56b4314405011f21f7d7616ac4b7ed16f",
+        "candidate_created": true,
+        "final_candidate_sha": "89535e5f73598a5b518e31e11598b05087274a95",
         "infrastructure_candidate": {
           "sha": "aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2",
           "subject": "CRIT-001 support monocolor collision guidance validation",
@@ -70,7 +70,7 @@
           "white_preflight_rerun_decision": "PASS - WHITE GATE 1+2 AUTHORIZED",
           "drift_register_entry": "DRIFT-016"
         },
-        "status": "gate_1_2_complete",
+        "status": "candidate_created_awaiting_independent_review",
         "prior_identity_certified": "UG",
         "prior_identity_certification": "272337004aa63cfd33da5f1a859c33d211c8ca74",
         "gate_1_2_findings": {
@@ -113,6 +113,76 @@
             "absent explicit GENERIC_W_OVERFIT raw collision target",
             "required positive terms/min hits/broad penalty/strengthen/suppress lists/native IDs/calibration/preview equality"
           ]
+        },
+        "candidate_commit_subject": "VM-517 remediate White semantic readiness candidate plus replacement scope fix",
+        "superseded_candidates": [
+          {
+            "sha": "8d6014950e5ca45ef85a90855cf283d80fd18e0d",
+            "subject": "VM-517 remediate White semantic readiness candidate",
+            "reason": "Post-commit candidate-scope validation rejected added placement_summary calibrated_primary_read and calibrated_false_positive_guardrail fields."
+          }
+        ],
+        "replacement_candidate_sha": "89535e5f73598a5b518e31e11598b05087274a95",
+        "candidate_scope": {
+          "command": "node research/validate-semantic-candidate-scope.mjs --base=307b93d56b4314405011f21f7d7616ac4b7ed16f --target=89535e5f73598a5b518e31e11598b05087274a95 --identity=W",
+          "result": "PASS",
+          "output": "Semantic candidate scope passed for W: 307b93d56b4314405011f21f7d7616ac4b7ed16f..89535e5f73598a5b518e31e11598b05087274a95"
+        },
+        "gate_3_4_results": {
+          "final_claim_counts": {
+            "total": 8,
+            "substantive_claim": 6,
+            "discovery_record": 0,
+            "support_record": 2,
+            "unclassified": 0
+          },
+          "provenance_count": 25,
+          "null_canonical_ids": 0,
+          "null_canonical_hashes": 0,
+          "unresolved_pointers": 0,
+          "duplicate_canonical_pointers": 0,
+          "exact_chain_pairs": [
+            {
+              "locator": "data/raw-factions/white/white.profile.json#/core_identity",
+              "generated_count": 5,
+              "fixture_count": 5,
+              "exact_ordered_equality": true
+            },
+            {
+              "locator": "data/raw-factions/white/white.placement.json#/placement_summary",
+              "generated_count": 6,
+              "fixture_count": 6,
+              "exact_ordered_equality": true
+            }
+          ],
+          "support_isolation": "white_claim_0001 removed from generated/authoritative proof; white_claim_0008 retained only as auxiliary Commander Compass support metadata with evidence_use auxiliary_support",
+          "frozen_fields": "Placement summary text, required terms, minimum hits, broad penalty, strengthen/suppress lists, lateral targets WU/WB/WG/WR, collision targets B/R, object-with-pairs raw collision shape, absent generic collision target, and preview equality preserved."
+        },
+        "validation": {
+          "build_factions": "PASS twice before candidate; PASS again before replacement candidate",
+          "audit_semantic_readiness": "PASS W: 8 total, 6 substantive, 0 discovery, 2 support, 0 unclassified",
+          "validate_semantic_readiness": "PASS W",
+          "semantic_candidate_scope_tests": "PASS",
+          "test_semantic_readiness": "PASS; verified 1800 semantic provenance entries",
+          "test_placement": "PASS; 37 factions, 37 golden paths",
+          "test_faction_context_isolation": "PASS",
+          "test_source_generated": "PASS with known unrelated JESKAI/MARDU warnings",
+          "npm_test": "PASS",
+          "git_diff_check": "PASS with line-ending warnings only"
+        },
+        "independent_review": {
+          "performed": false,
+          "decision": null,
+          "review_record": null
+        },
+        "certification": {
+          "performed": false,
+          "status": "not_certified",
+          "certification_sha": null
+        },
+        "next_identity": {
+          "card": "VM-518",
+          "state": "not_started"
         }
       },
       "pre_simic_sequence": [
@@ -2670,7 +2740,7 @@
           "Profile/provenance chains currently include support rows and W provenance has 3 null canonical IDs; White fixture is absent.",
           "Object-with-pairs collision guidance, frozen placement fields, absent GENERIC_W_OVERFIT collision target, native IDs, and preview source-to-embedded equality must be preserved."
         ],
-        "gate_1_2_commit": "PENDING_VM517_GATE_1_2_COMMIT_SHA",
+        "gate_1_2_commit": "307b93d56b4314405011f21f7d7616ac4b7ed16f",
         "decision": "REMEDIATION AUTHORIZED",
         "target_role_disposition": {
           "substantive_claim": [
@@ -2687,7 +2757,47 @@
           ],
           "discovery_record": [],
           "unclassified": []
-        }
+        },
+        "status": "candidate_created_awaiting_independent_review",
+        "candidate_recovery_sha": "89535e5f73598a5b518e31e11598b05087274a95",
+        "final_candidate_sha": "89535e5f73598a5b518e31e11598b05087274a95",
+        "superseded_candidate_shas": [
+          "8d6014950e5ca45ef85a90855cf283d80fd18e0d"
+        ],
+        "superseded_candidates": [
+          {
+            "sha": "8d6014950e5ca45ef85a90855cf283d80fd18e0d",
+            "reason": "Post-commit candidate-scope validation rejected added placement_summary calibrated fields."
+          }
+        ],
+        "candidate_created": true,
+        "awaits_independent_review": true,
+        "review_performed": false,
+        "review_result": null,
+        "reviewer": null,
+        "review_cycles": 0,
+        "certification_commit": null,
+        "certification_status": "not_certified",
+        "validation_passed": true,
+        "candidate_scope": {
+          "command": "node research/validate-semantic-candidate-scope.mjs --base=307b93d56b4314405011f21f7d7616ac4b7ed16f --target=89535e5f73598a5b518e31e11598b05087274a95 --identity=W",
+          "result": "PASS"
+        },
+        "final_counts": {
+          "total": 8,
+          "substantive_claim": 6,
+          "discovery_record": 0,
+          "support_record": 2,
+          "unclassified": 0
+        },
+        "provenance_count": 25,
+        "exact_chain_result": "PASS for core_identity (5) and placement_summary (6)",
+        "frozen_field_result": "PASS; forbidden calibrated placement_summary fields removed in replacement candidate",
+        "notes": [
+          "Gate 3+4 assigned six substantive claims and two support records, added evidence_scope to all substantive evidence locations, isolated support rows, repaired W provenance canonical IDs, created White fixtures, and preserved object-with-pairs collision guidance.",
+          "Superseded candidate 8d6014950e5ca45ef85a90855cf283d80fd18e0d remains unapproved after candidate-scope rejected added calibrated placement_summary fields.",
+          "Final candidate 89535e5f73598a5b518e31e11598b05087274a95 passes exact candidate-scope and awaits independent review. No approval, certification, semantically_ready transition, or VM-518 work occurred."
+        ]
       },
       "certification": {
         "contract_version": null,
@@ -2699,7 +2809,9 @@
         "review_cycles": 0,
         "approval_date": null,
         "certified_at": null
-      }
+      },
+      "status": "candidate_created_awaiting_independent_review",
+      "primary_disposition": "Final White candidate 89535e5f73598a5b518e31e11598b05087274a95 created and awaiting independent review. Superseded candidate 8d6014950e5ca45ef85a90855cf283d80fd18e0d remains recorded as candidate-scope failure. White is not certified and not semantically_ready; VM-518 not started."
     },
     {
       "identity": {
