@@ -45,18 +45,18 @@
       "current_identity_hold": {
         "identity": "B",
         "card": "VM-519",
-        "state": "drift_preflight_passed_gate_1_2_authorized_not_started",
+        "state": "gate_1_2_complete_remediation_authorized",
         "branch": "codex/vm-519-black-semantic-recovery",
         "prior_identity_certified": "U",
         "prior_identity_certification": "PENDING_VM518_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "Gate 1+2 read-only semantic audit is authorized in a later separate window. Remediation remains unauthorized. Do not create a Black candidate, review, certification, or VM-520 work from this preflight window.",
-        "required_next_milestone": "Run VM-519 Black Gate 1+2 read-only audit in a separate window before any remediation.",
+        "authorized_next_scope": "Proceed to VM-519 Gate 3+4 remediation only under the recorded Gate 1+2 source, evidence-scope, support-isolation, exact-chain, frozen-field, preview, object-with-pairs, and candidate-scope constraints.",
+        "required_next_milestone": "Run Black Gate 3+4 remediation, generation, validation, then create a separate Gate 5 candidate only if all controls pass.",
         "drift_preflight_started": true,
         "drift_preflight_completed": true,
         "drift_preflight_record": "docs/incidents/recoveries/VM-519-black-drift-preflight.md",
         "drift_preflight_commit": "PENDING_VM519_DRIFT_PREFLIGHT_SHA",
         "drift_preflight_decision": "PASS - BLACK GATE 1+2 AUTHORIZED",
-        "gate_1_2_status": "authorized_not_started",
+        "gate_1_2_status": "complete",
         "candidate_created": false,
         "independent_review": {
           "performed": false
@@ -67,7 +67,10 @@
           "certification_sha": null
         },
         "program_base": "04547ecfc52d1c96537b6375e9d5c4b8f3690a32",
-        "updated_at": "2026-07-18T13:06:00-06:00"
+        "updated_at": "2026-07-18T13:34:00-06:00",
+        "gate_1_2_report": "docs/incidents/recoveries/VM-519-black-semantic-recovery.md",
+        "gate_1_2_commit": "PENDING_VM519_GATE_1_2_SHA",
+        "remediation_authorized": true
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -2983,22 +2986,22 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "drift_preflight_passed",
-        "status": "gate_1_2_authorized_not_started",
+        "current_gate": "gate_1_2_complete",
+        "status": "remediation_authorized",
         "started_at": "2026-07-18T12:47:00-06:00",
-        "gate_entered_at": null,
+        "gate_entered_at": "2026-07-18T13:34:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "R",
-        "primary_disposition": "Drift preflight passed in docs/incidents/recoveries/VM-519-black-drift-preflight.md with decision PASS - BLACK GATE 1+2 AUTHORIZED. Gate 1+2 is authorized but not started. Remediation, generation, candidate creation, independent review, certification, VM-520 work, original-main modification, and Excel update remain not started.",
+        "primary_disposition": "VM-519 Black Gate 1+2 read-only audit completed with REMEDIATION AUTHORIZED. Gate 3+4 must assign roles, add evidence scopes, isolate support and mechanics-only proof leakage, repair B provenance null IDs, create fixtures, preserve frozen fields and preview equality, and validate before any Gate 5 candidate. No Black semantic/generated files changed in Gate 1+2.",
         "drift_preflight": {
           "record": "docs/incidents/recoveries/VM-519-black-drift-preflight.md",
           "commit": "PENDING_VM519_DRIFT_PREFLIGHT_SHA",
           "decision": "PASS - BLACK GATE 1+2 AUTHORIZED",
           "program_base": "04547ecfc52d1c96537b6375e9d5c4b8f3690a32",
           "gate_1_2_authorized": true,
-          "gate_1_2_started": false,
-          "remediation_authorized": false,
+          "gate_1_2_started": true,
+          "remediation_authorized": true,
           "candidate_created": false,
           "review_performed": false,
           "certified": false
@@ -3026,8 +3029,34 @@
           "WUBRG",
           "COLORLESS"
         ],
-        "audit_report": "docs/incidents/recoveries/VM-519-black-drift-preflight.md",
-        "residual_findings": []
+        "audit_report": "docs/incidents/recoveries/VM-519-black-semantic-recovery.md",
+        "residual_findings": [
+          "As-is Black packet has 8 total claims with 0 substantive, 0 discovery, 0 support, and 8 unclassified explicit roles.",
+          "All 8 claims currently lack bounded evidence_locations; no substantive evidence_scope entries exist because no claim is currently substantive.",
+          "Profile, placement, generated placement, recruiter, and provenance proof chains currently reference unclassified Black claims.",
+          "B provenance currently has 12 entries, 3 null canonical IDs, 0 null hashes, 0 unresolved pointers, 0 duplicate canonical entries, and no Black fixture.",
+          "Black raw collision_guidance uses object-with-pairs shape and generated placement flattens to array; approved validator supports both shapes.",
+          "Identity-layer preview source and embedded factions consumer are equal and must remain explicitly checked under DRIFT-015.",
+          "Gate 3+4 must avoid generic Black, villain-coded, mechanics-first, and neighbor-collapsed copy."
+        ],
+        "decision": "REMEDIATION AUTHORIZED",
+        "drift_preflight_commit": "741ed6a81edb567d51a2699cbe7d0ec70e9b5e61",
+        "drift_preflight_decision": "PASS - BLACK GATE 1+2 AUTHORIZED",
+        "drift_preflight_completed_at": "2026-07-18T13:06:00-06:00",
+        "drift_preflight_report": "docs/incidents/recoveries/VM-519-black-drift-preflight.md",
+        "gate_1_2_status": "complete",
+        "gate_1_2_commit": "PENDING_VM519_GATE_1_2_SHA",
+        "remediation_authorized": true,
+        "candidate_created": false,
+        "validation_notes": [
+          "Approved monocolor validator candidate aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2 remains unchanged.",
+          "node research/audit-semantic-readiness.mjs --targets=B exited 0 and confirmed 8 unclassified claims.",
+          "node research/validate-semantic-readiness.mjs --targets=B exited 1 with expected pre-remediation semantic-readiness failures, not an infrastructure crash.",
+          "Gate 1+2 read-only audit found sufficient local official source evidence for remediation.",
+          "Gate 1+2 role disposition: 6 substantive claims, 0 discovery records, 2 support records, 0 unclassified after remediation if Gate 3+4 follows the report.",
+          "Gate 3+4 must add bounded evidence_locations with evidence_scope to all six substantive claims and isolate support-only governance/rules/Scryfall rows and mechanics/changelog-only material from broad philosophical proof chains.",
+          "Gate 3+4 must preserve placement summary, required terms, minimum hits, broad penalty, strengthen/suppress, false-positive guardrail, lateral targets UB/BR/BG/WB, raw object-with-pairs collision guidance, W/G pair order, absent generic collision target, absent top-level confidence, absent Black-local scoring/golden path, native IDs, and preview equality."
+        ]
       },
       "certification": {
         "contract_version": "v1.1",
