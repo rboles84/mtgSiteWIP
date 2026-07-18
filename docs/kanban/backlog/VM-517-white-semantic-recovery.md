@@ -1,7 +1,7 @@
 # VM-517 — White Semantic Recovery
 
 ID: VM-517
-Status: Governance Hold - Infrastructure Candidate Approved; Preflight Rerun Required
+Status: Drift Preflight Passed - Gate 1+2 Authorized Not Started
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: W
@@ -52,7 +52,7 @@ Preflight decision: `STOP - WHITE GATE 1+2 NOT AUTHORIZED`.
 
 Reason: Wave 3 monocolor compatibility is not process-ready. The exact candidate-scope probe `node research/validate-semantic-candidate-scope.mjs --base=272337004aa63cfd33da5f1a859c33d211c8ca74 --target=272337004aa63cfd33da5f1a859c33d211c8ca74 --identity=W` exits 1 with a TypeError because the validator assumes raw `collision_guidance` is an array while White stores `collision_guidance` as an object with `pairs`.
 
-White Gate 1+2, source inspection, semantic audit, remediation, generation, candidate creation, review, certification, and VM-518 work remain not started and unauthorized.
+The original STOP decision remains preserved and historical.
 
 ## Infrastructure Candidate State
 
@@ -70,4 +70,16 @@ Infrastructure review decision: `APPROVE EXACT SHA aa1f5cd174a09c7c99e17e3ecf882
 
 Scope: validator/test infrastructure only. The candidate normalizes documented array and object-with-`pairs` collision-guidance shapes for candidate-scope validation and fails closed on unsupported shapes with explicit diagnostics.
 
-White status remains blocked. The infrastructure approval does not authorize White Gate 1+2, source inspection, semantic audit, remediation, generated rebuild, candidate creation, independent review, certification, VM-518 work, program-base advancement, or external tracker updates. The VM-517 drift preflight must be rerun in a separate authorized window before Gate 1+2 can be reconsidered.
+The infrastructure approval did not by itself authorize White Gate 1+2, source inspection, semantic audit, remediation, generated rebuild, candidate creation, independent review, certification, VM-518 work, program-base advancement, or external tracker updates.
+
+## Drift Preflight Rerun State
+
+Rerun record: `docs/incidents/recoveries/VM-517-white-drift-preflight-rerun.md`.
+
+Rerun starting HEAD: `af3d8c6c563b3743f65c2dc8478519707f4785c8`.
+
+Rerun decision: `PASS - WHITE GATE 1+2 AUTHORIZED`.
+
+Reason: The independently approved validator candidate `aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2` remains unchanged in the current tree, and the complete rerun found no `FAIL` or `UNKNOWN` controls. White and Blue object-with-`pairs` candidate-scope probes no longer crash; White reaches deliberate pre-remediation proof-chain findings, while representative array behavior remains intact.
+
+Gate 1+2 is authorized but not started. This authorization permits only a later read-only audit. White remediation, generation, candidate creation, independent semantic review, certification, VM-518 work, program-base advancement, and external tracker updates remain unauthorized.
