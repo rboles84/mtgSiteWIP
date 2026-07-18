@@ -43,19 +43,19 @@
       "current_identity_hold": {
         "identity": "W",
         "card": "VM-517",
-        "state": "drift_preflight_passed_gate_1_2_authorized",
+        "state": "gate_1_2_complete_remediation_authorized",
         "preflight_record": "docs/incidents/recoveries/VM-517-white-drift-preflight.md",
         "preflight_commit": "PENDING_VM517_DRIFT_PREFLIGHT_COMMIT_SHA",
         "preflight_rerun_record": "docs/incidents/recoveries/VM-517-white-drift-preflight-rerun.md",
         "preflight_rerun_commit": "PENDING_VM517_DRIFT_PREFLIGHT_RERUN_SHA",
         "original_preflight_decision": "STOP - WHITE GATE 1+2 NOT AUTHORIZED",
-        "decision": "PASS - WHITE GATE 1+2 AUTHORIZED",
-        "authorized_next_scope": "White Gate 1+2 read-only audit may begin in a later authorized window. Gate 1+2 is authorized but not started; remediation remains unauthorized.",
-        "remediation_authorized": false,
-        "required_next_milestone": "Begin VM-517 White Gate 1+2 read-only audit in a separate authorized window",
-        "gate_1_2_status": "authorized_not_started",
-        "gate_1_2_report": null,
-        "gate_1_2_commit": null,
+        "decision": "REMEDIATION AUTHORIZED",
+        "authorized_next_scope": "White Gate 3+4 canonical remediation, generation, fixture/provenance work, and validation may proceed under the Gate 1+2 constraints. Candidate review, certification, semantically_ready, VM-518 work, program-base advancement, and Excel updates remain unauthorized.",
+        "remediation_authorized": true,
+        "required_next_milestone": "Complete VM-517 White Gate 3+4 remediation and validation, then create an exact Gate 5 candidate in a separate implementation commit",
+        "gate_1_2_status": "complete_remediation_authorized",
+        "gate_1_2_report": "docs/incidents/recoveries/VM-517-white-semantic-recovery.md",
+        "gate_1_2_commit": "PENDING_VM517_GATE_1_2_COMMIT_SHA",
         "candidate_created": false,
         "final_candidate_sha": null,
         "infrastructure_candidate": {
@@ -70,9 +70,50 @@
           "white_preflight_rerun_decision": "PASS - WHITE GATE 1+2 AUTHORIZED",
           "drift_register_entry": "DRIFT-016"
         },
-        "status": "drift_preflight_passed",
+        "status": "gate_1_2_complete",
         "prior_identity_certified": "UG",
-        "prior_identity_certification": "272337004aa63cfd33da5f1a859c33d211c8ca74"
+        "prior_identity_certification": "272337004aa63cfd33da5f1a859c33d211c8ca74",
+        "gate_1_2_findings": {
+          "initial_claim_counts": {
+            "total": 8,
+            "substantive_claim": 0,
+            "discovery_record": 0,
+            "support_record": 0,
+            "unclassified": 8
+          },
+          "target_role_disposition": {
+            "substantive_claim": 6,
+            "discovery_record": 0,
+            "support_record": 2,
+            "unclassified": 0
+          },
+          "substantive_claim_ids": [
+            "white_claim_0002",
+            "white_claim_0003",
+            "white_claim_0004",
+            "white_claim_0005",
+            "white_claim_0006",
+            "white_claim_0007"
+          ],
+          "support_record_ids": [
+            "white_claim_0001",
+            "white_claim_0008"
+          ],
+          "remediation_blockers": [
+            "All eight current White claims lack explicit semantic_role.",
+            "Substantive White claims need bounded evidence_locations and Contract v1.1 evidence_scope.",
+            "Support/governance/rules/Scryfall rows currently enter profile or placement proof chains.",
+            "W provenance has 3 null canonical IDs and no White semantic fixture exists.",
+            "Placement chatbot mismatch guidance lacks evidence mapping."
+          ],
+          "frozen_fields_to_preserve": [
+            "object-with-pairs collision_guidance shape",
+            "lateral targets WU/WB/WG/WR",
+            "collision targets B/R",
+            "absent explicit GENERIC_W_OVERFIT raw collision target",
+            "required positive terms/min hits/broad penalty/strengthen/suppress lists/native IDs/calibration/preview equality"
+          ]
+        }
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -2325,15 +2366,15 @@
         "template_cohort_pattern": false,
         "inventory_updated_at": "2026-07-17T20:36:00-06:00"
       },
-    "workflow": {
-      "current_gate": "certified",
-      "status": "semantically_ready",
+      "workflow": {
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": null,
         "gate_entered_at": "2026-07-17T22:32:49-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "W",
-      "primary_disposition": "Certified semantically_ready from exact approved replacement candidate bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e after fresh independent review APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e. Candidate-scope exit 1 is recorded as PASS - approved documented UG display-source exception for data/identity-layers.json#/expressions/UG/preview_text and data/factions.json#/identity_layers/expressions/UG/preview_text. Wave 2 Ravnica is complete, 10 of 10 guild identities certified, and VM-517 White is setup only with drift preflight pending.",
+        "primary_disposition": "Certified semantically_ready from exact approved replacement candidate bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e after fresh independent review APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e. Candidate-scope exit 1 is recorded as PASS - approved documented UG display-source exception for data/identity-layers.json#/expressions/UG/preview_text and data/factions.json#/identity_layers/expressions/UG/preview_text. Wave 2 Ravnica is complete, 10 of 10 guild identities certified, and VM-517 White is setup only with drift preflight pending.",
         "drift_preflight": {
           "record": "docs/incidents/recoveries/VM-516-simic-drift-preflight.md",
           "commit": "851f4b604459073bd739ec10d3f278f90f4069c3",
@@ -2371,7 +2412,7 @@
           "certified": false
         },
         "gate_5": {
-      "status": "certified",
+          "status": "certified",
           "final_candidate_sha": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
           "superseded_candidates": [
             {
@@ -2383,7 +2424,7 @@
               "reason": "Post-commit candidate-scope validation rejected core_values confidence drift."
             }
           ],
-      "workflow_record_commit": "04510577b7f3e1c4bacc5f2a88018b461760a80a",
+          "workflow_record_commit": "04510577b7f3e1c4bacc5f2a88018b461760a80a",
           "independent_review": {
             "reviewer": "Codex independent review window",
             "review_date": "2026-07-17",
@@ -2402,41 +2443,41 @@
           "semantically_ready": true,
           "vm_517_started": false,
           "rejected_candidate_sha": "cbca9f596a090e924d532e7cb657c27c79ccb9de",
-      "replacement_candidate": {
-        "sha": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
-        "subject": "VM-516 replace Simic stale preview candidate",
-        "workflow_record_commit": "4db93dcf9d957ad89e5b5e3bfeedcbd6f564aa46",
-        "remediation": "Replaced source-owned UG identity-layer preview text and regenerated embedded data/factions.json identity-layer preview.",
-        "awaits_independent_review": false,
-        "approved": true,
-        "certified": true,
-        "semantically_ready": true,
-        "vm_517_started": false,
+          "replacement_candidate": {
+            "sha": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
+            "subject": "VM-516 replace Simic stale preview candidate",
+            "workflow_record_commit": "4db93dcf9d957ad89e5b5e3bfeedcbd6f564aa46",
+            "remediation": "Replaced source-owned UG identity-layer preview text and regenerated embedded data/factions.json identity-layer preview.",
+            "awaits_independent_review": false,
+            "approved": true,
+            "certified": true,
+            "semantically_ready": true,
+            "vm_517_started": false,
             "candidate_scope": {
               "command": "node research/validate-semantic-candidate-scope.mjs --base=06f140a1e78a24d6c549943d6beb471f4e714302 --target=bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e --identity=UG",
               "result": "nonzero_documented_target_scoped_display_source_exception",
               "findings": [
                 "identity candidate modified non-identity path data/identity-layers.json",
-            "unrelated or global data/factions.json content changed"
-          ]
-        }
-      },
-      "fresh_independent_review": {
-        "reviewer": "Codex fresh independent review window",
-        "review_date": "2026-07-17",
-        "review_record": "214ed8182207521bb6750e35f57f67d41325b438",
-        "decision": "APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
-        "exact_candidate_reviewed": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
-        "replacement_workflow_record": "4db93dcf9d957ad89e5b5e3bfeedcbd6f564aa46",
-        "candidate_scope_result": "nonzero_documented_target_scoped_display_source_exception_adjudicated_pass",
-        "blocking_findings": [],
-        "high_findings": [],
-        "medium_findings": [],
-        "low_findings": [],
-        "certified": false,
-        "semantically_ready": false,
-        "vm_517_started": false
-      }
+                "unrelated or global data/factions.json content changed"
+              ]
+            }
+          },
+          "fresh_independent_review": {
+            "reviewer": "Codex fresh independent review window",
+            "review_date": "2026-07-17",
+            "review_record": "214ed8182207521bb6750e35f57f67d41325b438",
+            "decision": "APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
+            "exact_candidate_reviewed": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
+            "replacement_workflow_record": "4db93dcf9d957ad89e5b5e3bfeedcbd6f564aa46",
+            "candidate_scope_result": "nonzero_documented_target_scoped_display_source_exception_adjudicated_pass",
+            "blocking_findings": [],
+            "high_findings": [],
+            "medium_findings": [],
+            "low_findings": [],
+            "certified": false,
+            "semantically_ready": false,
+            "vm_517_started": false
+          }
         }
       },
       "semantic_review": {
@@ -2457,9 +2498,9 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-516-simic-semantic-recovery.md",
         "drift_preflight_report": "docs/incidents/recoveries/VM-516-simic-drift-preflight.md",
-    "residual_findings": [
-      "Fresh independent review approved replacement candidate bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e; no blocker, high, medium, or low findings remain. Certification remains separate and has not been performed."
-    ],
+        "residual_findings": [
+          "Fresh independent review approved replacement candidate bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e; no blocker, high, medium, or low findings remain. Certification remains separate and has not been performed."
+        ],
         "validation_summary": [
           "Replacement candidate changes only data/identity-layers.json UG preview source and regenerated data/factions.json embedded identity-layer preview.",
           "Preview source-to-embedded equality passed with replacement text: Simic studies life as living systems to heal, adapt, and improve through biology, clades, and public health.",
@@ -2484,7 +2525,7 @@
             "204cf9e6be15f2c3ac59a36c3977efea9a9945ce",
             "cbca9f596a090e924d532e7cb657c27c79ccb9de"
           ],
-      "review_decision": "APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
+          "review_decision": "APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
           "blocking_findings": []
         }
       },
@@ -2494,13 +2535,13 @@
         "candidate_recovery_sha": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
         "recovery_commit": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
         "certification_commit": "PENDING_VM516_CERTIFICATION_COMMIT_SHA",
-    "reviewer": "Codex fresh independent replacement review record 214ed8182207521bb6750e35f57f67d41325b438",
-    "review_cycles": 2,
-    "approval_date": "2026-07-17",
+        "reviewer": "Codex fresh independent replacement review record 214ed8182207521bb6750e35f57f67d41325b438",
+        "review_cycles": 2,
+        "approval_date": "2026-07-17",
         "certified_at": "2026-07-17T22:32:49-06:00",
-    "review_result": "approved_exact_sha",
-    "final_state": "semantically_ready",
-    "independent_review_decision": "APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
+        "review_result": "approved_exact_sha",
+        "final_state": "semantically_ready",
+        "independent_review_decision": "APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
         "remaining_findings": {
           "blocker": [],
           "high": [],
@@ -2515,18 +2556,18 @@
         "candidate_workflow_record": "04510577b7f3e1c4bacc5f2a88018b461760a80a",
         "request_changes_review_record": "4da00dc997162ad609e84a77f6817c2ad0726dbc",
         "replacement_candidate_sha": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
-    "replacement_workflow_record": "4db93dcf9d957ad89e5b5e3bfeedcbd6f564aa46",
-    "replacement_review_record": "214ed8182207521bb6750e35f57f67d41325b438",
-    "approval_review_record": "214ed8182207521bb6750e35f57f67d41325b438",
-    "candidate_scope_validator_exit": 1,
-    "candidate_scope_certification_result": "PASS - approved documented UG display-source exception",
-    "display_source_exception_paths": [
-      "data/identity-layers.json#/expressions/UG/preview_text",
-      "data/factions.json#/identity_layers/expressions/UG/preview_text"
-    ],
-    "reviewed_provenance_count": 72,
-    "wave_2_completion": "10 of 10 Ravnica identities certified",
-    "next_identity_setup": "VM-517 White setup only; drift preflight pending; Gate 1+2 not started"
+        "replacement_workflow_record": "4db93dcf9d957ad89e5b5e3bfeedcbd6f564aa46",
+        "replacement_review_record": "214ed8182207521bb6750e35f57f67d41325b438",
+        "approval_review_record": "214ed8182207521bb6750e35f57f67d41325b438",
+        "candidate_scope_validator_exit": 1,
+        "candidate_scope_certification_result": "PASS - approved documented UG display-source exception",
+        "display_source_exception_paths": [
+          "data/identity-layers.json#/expressions/UG/preview_text",
+          "data/factions.json#/identity_layers/expressions/UG/preview_text"
+        ],
+        "reviewed_provenance_count": 72,
+        "wave_2_completion": "10 of 10 Ravnica identities certified",
+        "next_identity_setup": "VM-517 White setup only; drift preflight pending; Gate 1+2 not started"
       }
     },
     {
@@ -2593,14 +2634,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_1_2_authorized_not_started",
-        "status": "drift_preflight_passed",
-        "started_at": null,
+        "current_gate": "gate_3_remediation_authorized",
+        "status": "remediation_authorized",
+        "started_at": "2026-07-18",
         "gate_entered_at": "2026-07-17T22:32:49-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "U",
-        "primary_disposition": "Governance-only drift preflight rerun recorded PASS - WHITE GATE 1+2 AUTHORIZED after exact approved validator candidate aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2 removed the former monocolor object-with-pairs candidate-scope crash. White Gate 1+2 is authorized but not started; remediation, generation, White semantic candidate, White review, certification, VM-518 work, program-base advancement, original-main modification, and Excel update remain unauthorized/not started."
+        "primary_disposition": "Gate 1+2 read-only audit completed in docs/incidents/recoveries/VM-517-white-semantic-recovery.md and records REMEDIATION AUTHORIZED. Source sufficiency exists from local official White philosophy/mechanical/governance records; Gate 3+4 must assign roles, add bounded evidence scopes, isolate support records, repair provenance canonical IDs, create fixtures, preserve frozen placement/collision/preview fields, and validate before a Gate 5 candidate."
       },
       "semantic_review": {
         "required_neighbors": [
@@ -2621,12 +2662,32 @@
           "R",
           "G"
         ],
-        "audit_report": "docs/incidents/recoveries/VM-517-white-drift-preflight-rerun.md",
+        "audit_report": "docs/incidents/recoveries/VM-517-white-semantic-recovery.md",
         "residual_findings": [
-          "Original preflight STOP remains preserved at docs/incidents/recoveries/VM-517-white-drift-preflight.md and SHA 06627929eb0e048a8c0c20612970e779098a982c.",
-          "Rerun preflight passed after exact approved validator candidate aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2 resolved the monocolor object-with-pairs structural crash.",
-          "White Gate 1+2 is authorized but not started; White remediation remains unauthorized."
-        ]
+          "Gate 1+2 confirms local official source sufficiency; no online source intake is required for remediation.",
+          "Initial state remains 8 unclassified claims with no claim-level evidence_locations; Gate 3+4 must assign Contract v1.1 roles and evidence_scope.",
+          "white_claim_0001 and white_claim_0008 are support-only and must be isolated from authoritative profile, placement, public, recruiter, fixture, semantic-readiness, and provenance proof chains.",
+          "Profile/provenance chains currently include support rows and W provenance has 3 null canonical IDs; White fixture is absent.",
+          "Object-with-pairs collision guidance, frozen placement fields, absent GENERIC_W_OVERFIT collision target, native IDs, and preview source-to-embedded equality must be preserved."
+        ],
+        "gate_1_2_commit": "PENDING_VM517_GATE_1_2_COMMIT_SHA",
+        "decision": "REMEDIATION AUTHORIZED",
+        "target_role_disposition": {
+          "substantive_claim": [
+            "white_claim_0002",
+            "white_claim_0003",
+            "white_claim_0004",
+            "white_claim_0005",
+            "white_claim_0006",
+            "white_claim_0007"
+          ],
+          "support_record": [
+            "white_claim_0001",
+            "white_claim_0008"
+          ],
+          "discovery_record": [],
+          "unclassified": []
+        }
       },
       "certification": {
         "contract_version": null,
