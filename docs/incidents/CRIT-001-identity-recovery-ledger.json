@@ -12,7 +12,7 @@
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
       "next_cohort": "Wave 3 monocolors",
-      "current_program_base": "PENDING_VM518_CERTIFICATION_COMMIT_SHA",
+      "current_program_base": "04547ecfc52d1c96537b6375e9d5c4b8f3690a32",
       "wave_3_monocolors": "active",
       "wave_3_monocolors_certified": "2 of 5"
     },
@@ -45,14 +45,18 @@
       "current_identity_hold": {
         "identity": "B",
         "card": "VM-519",
-        "state": "setup_only_drift_preflight_pending",
+        "state": "drift_preflight_passed_gate_1_2_authorized_not_started",
         "branch": "codex/vm-519-black-semantic-recovery",
         "prior_identity_certified": "U",
         "prior_identity_certification": "PENDING_VM518_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "Setup only. Run a separate committed VM-519 Black drift preflight before Gate 1+2. Do not inspect Black semantic source/data or begin Gate 1+2 in the VM-518 certification window.",
-        "required_next_milestone": "Run VM-519 Black drift preflight in a separate window before any Black semantic audit.",
-        "drift_preflight_started": false,
-        "gate_1_2_status": "not_started",
+        "authorized_next_scope": "Gate 1+2 read-only semantic audit is authorized in a later separate window. Remediation remains unauthorized. Do not create a Black candidate, review, certification, or VM-520 work from this preflight window.",
+        "required_next_milestone": "Run VM-519 Black Gate 1+2 read-only audit in a separate window before any remediation.",
+        "drift_preflight_started": true,
+        "drift_preflight_completed": true,
+        "drift_preflight_record": "docs/incidents/recoveries/VM-519-black-drift-preflight.md",
+        "drift_preflight_commit": "PENDING_VM519_DRIFT_PREFLIGHT_SHA",
+        "drift_preflight_decision": "PASS - BLACK GATE 1+2 AUTHORIZED",
+        "gate_1_2_status": "authorized_not_started",
         "candidate_created": false,
         "independent_review": {
           "performed": false
@@ -62,8 +66,8 @@
           "status": "not_started",
           "certification_sha": null
         },
-        "program_base": "PENDING_VM518_CERTIFICATION_COMMIT_SHA",
-        "updated_at": "2026-07-18T12:47:00-06:00"
+        "program_base": "04547ecfc52d1c96537b6375e9d5c4b8f3690a32",
+        "updated_at": "2026-07-18T13:06:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -2979,18 +2983,50 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "setup_only",
-        "status": "drift_preflight_pending",
+        "current_gate": "drift_preflight_passed",
+        "status": "gate_1_2_authorized_not_started",
         "started_at": "2026-07-18T12:47:00-06:00",
         "gate_entered_at": null,
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "R",
-        "primary_disposition": "Setup-only branch/card state after VM-518 Blue certification. Black drift preflight is pending and Gate 1+2 has not started. No Black source, claim, profile, placement, generated, fixture, provenance, preview, recruiter, recommendation, remediation, candidate, review, or certification work occurred in the VM-518 certification window."
+        "primary_disposition": "Drift preflight passed in docs/incidents/recoveries/VM-519-black-drift-preflight.md with decision PASS - BLACK GATE 1+2 AUTHORIZED. Gate 1+2 is authorized but not started. Remediation, generation, candidate creation, independent review, certification, VM-520 work, original-main modification, and Excel update remain not started.",
+        "drift_preflight": {
+          "record": "docs/incidents/recoveries/VM-519-black-drift-preflight.md",
+          "commit": "PENDING_VM519_DRIFT_PREFLIGHT_SHA",
+          "decision": "PASS - BLACK GATE 1+2 AUTHORIZED",
+          "program_base": "04547ecfc52d1c96537b6375e9d5c4b8f3690a32",
+          "gate_1_2_authorized": true,
+          "gate_1_2_started": false,
+          "remediation_authorized": false,
+          "candidate_created": false,
+          "review_performed": false,
+          "certified": false
+        }
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
+        "required_neighbors": [
+          "GENERIC_B_OVERFIT",
+          "WB",
+          "UB",
+          "BR",
+          "BG",
+          "SILVERQUILL",
+          "WITHERBLOOM",
+          "ESPER",
+          "GRIXIS",
+          "JUND",
+          "MARDU",
+          "SULTAI",
+          "ABZAN",
+          "W",
+          "U",
+          "R",
+          "G",
+          "WUBRG",
+          "COLORLESS"
+        ],
+        "audit_report": "docs/incidents/recoveries/VM-519-black-drift-preflight.md",
         "residual_findings": []
       },
       "certification": {
