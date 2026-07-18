@@ -5,8 +5,15 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "SIMIC",
-    "next_identity": "SIMIC",
+    "active_identity": "W",
+    "next_identity": "W",
+    "certified_identity_count": 15,
+    "wave_status": {
+      "ravnica_wave_2": "complete",
+      "ravnica_wave_2_certified": "10 of 10",
+      "next_cohort": "Wave 3 monocolors",
+      "current_program_base": "PENDING_VM516_CERTIFICATION_COMMIT_SHA"
+    },
     "wip_limit": 1,
     "active_prerequisite": null,
     "prerequisite_candidate_sha": "6e53acd5691c85caf3328d3bd301ac18d07879e1",
@@ -34,24 +41,23 @@
       "installed_after_program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
       "governance_commit": "PENDING_CRIT001_DRIFT_CONTROL_GOVERNANCE_SHA",
       "current_identity_hold": {
-        "identity": "UG",
-        "card": "VM-516",
-        "state": "replacement_candidate_approved",
-        "preflight_record": "docs/incidents/recoveries/VM-516-simic-drift-preflight.md",
-        "preflight_commit": "851f4b604459073bd739ec10d3f278f90f4069c3",
-        "decision": "PASS - SIMIC GATE 1+2 AUTHORIZED",
-        "authorized_next_scope": "Governance-only certification of exact approved replacement candidate SHA",
-        "remediation_authorized": true,
-        "required_next_milestone": "Certification of exact approved replacement candidate SHA",
-        "gate_1_2_status": "complete",
-        "gate_1_2_report": "docs/incidents/recoveries/VM-516-simic-semantic-recovery.md",
-        "gate_1_2_commit": "06f140a1e78a24d6c549943d6beb471f4e714302",
-        "candidate_created": true,
-        "final_candidate_sha": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
-        "status": "approved_awaiting_certification",
-        "replacement_workflow_record": "4db93dcf9d957ad89e5b5e3bfeedcbd6f564aa46",
-        "fresh_review_decision": "APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
-        "fresh_review_record": "PENDING_VM516_REPLACEMENT_REVIEW_RECORD_COMMIT_SHA"
+        "identity": "W",
+        "card": "VM-517",
+        "state": "setup_only_drift_preflight_pending",
+        "preflight_record": null,
+        "preflight_commit": null,
+        "decision": "PENDING - VM-517 drift preflight not started",
+        "authorized_next_scope": "Governance-only VM-517 drift preflight only",
+        "remediation_authorized": false,
+        "required_next_milestone": "Committed VM-517 drift preflight control record before White Gate 1+2",
+        "gate_1_2_status": "not_started",
+        "gate_1_2_report": null,
+        "gate_1_2_commit": null,
+        "candidate_created": false,
+        "final_candidate_sha": null,
+        "status": "setup_only",
+        "prior_identity_certified": "UG",
+        "prior_identity_certification": "PENDING_VM516_CERTIFICATION_COMMIT_SHA"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -2305,14 +2311,14 @@
         "inventory_updated_at": "2026-07-17T20:36:00-06:00"
       },
     "workflow": {
-      "current_gate": "gate_5_replacement_review_approved",
-      "status": "approved_awaiting_certification",
+      "current_gate": "certified",
+      "status": "semantically_ready",
         "started_at": null,
-        "gate_entered_at": "2026-07-17T19:31:00-06:00",
+        "gate_entered_at": "2026-07-17T22:32:49-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "W",
-      "primary_disposition": "Replacement candidate bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e remediates the stale identity-layer preview blocker from rejected candidate cbca9f596a090e924d532e7cb657c27c79ccb9de and received fresh independent review decision APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e. Simic is approved but not certified, not semantically_ready; program base remains fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3; VM-517 has not started.",
+      "primary_disposition": "Certified semantically_ready from exact approved replacement candidate bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e after fresh independent review APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e. Candidate-scope exit 1 is recorded as PASS - approved documented UG display-source exception for data/identity-layers.json#/expressions/UG/preview_text and data/factions.json#/identity_layers/expressions/UG/preview_text. Wave 2 Ravnica is complete, 10 of 10 guild identities certified, and VM-517 White is setup only with drift preflight pending.",
         "drift_preflight": {
           "record": "docs/incidents/recoveries/VM-516-simic-drift-preflight.md",
           "commit": "851f4b604459073bd739ec10d3f278f90f4069c3",
@@ -2350,7 +2356,7 @@
           "certified": false
         },
         "gate_5": {
-      "status": "replacement_candidate_approved_awaiting_certification",
+      "status": "certified",
           "final_candidate_sha": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
           "superseded_candidates": [
             {
@@ -2377,8 +2383,8 @@
             "semantically_ready": false,
             "vm_517_started": false
           },
-          "certified": false,
-          "semantically_ready": false,
+          "certified": true,
+          "semantically_ready": true,
           "vm_517_started": false,
           "rejected_candidate_sha": "cbca9f596a090e924d532e7cb657c27c79ccb9de",
       "replacement_candidate": {
@@ -2388,8 +2394,8 @@
         "remediation": "Replaced source-owned UG identity-layer preview text and regenerated embedded data/factions.json identity-layer preview.",
         "awaits_independent_review": false,
         "approved": true,
-        "certified": false,
-        "semantically_ready": false,
+        "certified": true,
+        "semantically_ready": true,
         "vm_517_started": false,
             "candidate_scope": {
               "command": "node research/validate-semantic-candidate-scope.mjs --base=06f140a1e78a24d6c549943d6beb471f4e714302 --target=bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e --identity=UG",
@@ -2403,7 +2409,7 @@
       "fresh_independent_review": {
         "reviewer": "Codex fresh independent review window",
         "review_date": "2026-07-17",
-        "review_record": "PENDING_VM516_REPLACEMENT_REVIEW_RECORD_COMMIT_SHA",
+        "review_record": "214ed8182207521bb6750e35f57f67d41325b438",
         "decision": "APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
         "exact_candidate_reviewed": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
         "replacement_workflow_record": "4db93dcf9d957ad89e5b5e3bfeedcbd6f564aa46",
@@ -2472,13 +2478,13 @@
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
         "recovery_commit": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
-        "certification_commit": null,
-    "reviewer": "Codex fresh independent replacement review",
+        "certification_commit": "PENDING_VM516_CERTIFICATION_COMMIT_SHA",
+    "reviewer": "Codex fresh independent replacement review record 214ed8182207521bb6750e35f57f67d41325b438",
     "review_cycles": 2,
     "approval_date": "2026-07-17",
-        "certified_at": null,
+        "certified_at": "2026-07-17T22:32:49-06:00",
     "review_result": "approved_exact_sha",
-    "final_state": "approved_awaiting_certification",
+    "final_state": "semantically_ready",
     "independent_review_decision": "APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
         "remaining_findings": {
           "blocker": [],
@@ -2495,7 +2501,17 @@
         "request_changes_review_record": "4da00dc997162ad609e84a77f6817c2ad0726dbc",
         "replacement_candidate_sha": "bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e",
     "replacement_workflow_record": "4db93dcf9d957ad89e5b5e3bfeedcbd6f564aa46",
-    "replacement_review_record": "PENDING_VM516_REPLACEMENT_REVIEW_RECORD_COMMIT_SHA"
+    "replacement_review_record": "214ed8182207521bb6750e35f57f67d41325b438",
+    "approval_review_record": "214ed8182207521bb6750e35f57f67d41325b438",
+    "candidate_scope_validator_exit": 1,
+    "candidate_scope_certification_result": "PASS - approved documented UG display-source exception",
+    "display_source_exception_paths": [
+      "data/identity-layers.json#/expressions/UG/preview_text",
+      "data/factions.json#/identity_layers/expressions/UG/preview_text"
+    ],
+    "reviewed_provenance_count": 72,
+    "wave_2_completion": "10 of 10 Ravnica identities certified",
+    "next_identity_setup": "VM-517 White setup only; drift preflight pending; Gate 1+2 not started"
       }
     },
     {
@@ -2562,14 +2578,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
+        "current_gate": "setup_only",
+        "status": "drift_preflight_pending",
         "started_at": null,
-        "gate_entered_at": null,
+        "gate_entered_at": "2026-07-17T22:32:49-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "U",
-        "primary_disposition": null
+        "primary_disposition": "Branch setup only after VM-516 Simic certification. VM-517 White drift preflight is pending; no White source inspection, Gate 1+2 audit, remediation, candidate, review, certification, or VM-518 work has started."
       },
       "semantic_review": {
         "required_neighbors": [],

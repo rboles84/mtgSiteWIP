@@ -1,13 +1,13 @@
 # VM-517 — White Semantic Recovery
 
 ID: VM-517
-Status: Backlog
+Status: Setup Only - Drift Preflight Pending
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: W
 Raw packet: `data/raw-factions/white/`
 Cohort: mono
-Contract: pending Contract v1
+Contract: CRIT-001 Contract v1.1
 
 ## Objective
 
@@ -37,3 +37,13 @@ Recover White end to end under CRIT-001: audit the existing packet, bound readin
 - Candidate recovery SHA: pending
 - Independent reviewer: pending
 - Certification commit: pending
+
+## Setup State
+
+VM-517 White / W is setup only after VM-516 Simic certification.
+
+Starting branch: `codex/vm-517-white-semantic-recovery`.
+
+Program base after Simic certification: `PENDING_VM516_CERTIFICATION_COMMIT_SHA`.
+
+The next allowed VM-517 action is a separate governance-only drift-preflight control record. White Gate 1+2, source inspection, semantic audit, remediation, generation, candidate creation, review, certification, and VM-518 work have not started.

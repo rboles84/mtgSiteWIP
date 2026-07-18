@@ -718,6 +718,97 @@ Non-blocking observations:
 
 `APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e`
 
-Review-record SHA: `PENDING_VM516_REPLACEMENT_REVIEW_RECORD_COMMIT_SHA`.
+Review-record SHA: `214ed8182207521bb6750e35f57f67d41325b438`.
 
 Certification was not performed. Simic was not marked `semantically_ready`. The program base was not advanced. VM-517 did not start. Original main and Excel were not modified.
+
+## Certification - 2026-07-17
+
+### Decision
+
+Simic / UG is certified `semantically_ready` under CRIT-001 Contract v1.1 from exact approved replacement candidate `bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e`.
+
+Certification is governance-only. No approved raw, claim, profile, placement, identity-layer, generated, fixture, provenance, recruiter, source, test, schema, validator, builder, scoring, or runtime file was modified during certification.
+
+### Certification Inputs
+
+- Drift-control governance: `bb424a64787977baa45c67f1459babab64b1d3c7`.
+- Drift preflight: `851f4b604459073bd739ec10d3f278f90f4069c3`.
+- Gate 1+2: `06f140a1e78a24d6c549943d6beb471f4e714302`.
+- Superseded candidates: `f4afb9d5d769c72e1c86df189729423a380629af`, `204cf9e6be15f2c3ac59a36c3977efea9a9945ce`.
+- Review-rejected candidate: `cbca9f596a090e924d532e7cb657c27c79ccb9de`.
+- Original candidate workflow: `04510577b7f3e1c4bacc5f2a88018b461760a80a`.
+- Rejection review: `4da00dc997162ad609e84a77f6817c2ad0726dbc`.
+- Approved replacement candidate: `bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e`.
+- Replacement workflow: `4db93dcf9d957ad89e5b5e3bfeedcbd6f564aa46`.
+- Approval review: `214ed8182207521bb6750e35f57f67d41325b438`.
+- Approval decision: `APPROVE EXACT SHA bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e`.
+- Certification commit: `PENDING_VM516_CERTIFICATION_COMMIT_SHA`.
+
+The earlier candidates remain superseded or rejected and unapproved. Only `bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e` is certified.
+
+### Display-Source Exception
+
+Exact candidate-scope command:
+
+```powershell
+node research/validate-semantic-candidate-scope.mjs --base=06f140a1e78a24d6c549943d6beb471f4e714302 --target=bcc12c170e3d09fecd5b15c6ade07cef94ce7e1e --identity=UG
+```
+
+Candidate-scope validator exit: `1`.
+
+Reported paths:
+
+- `data/identity-layers.json`
+- Embedded identity-layer content in `data/factions.json`
+
+Approved exception paths:
+
+- `data/identity-layers.json#/expressions/UG/preview_text`
+- `data/factions.json#/identity_layers/expressions/UG/preview_text`
+
+Certification guard result: `PASS - approved documented UG display-source exception`.
+
+The operating playbook permits a documented, target-scoped display-source exception when it is necessary to remove stale public copy, source-supported, free of non-target semantic drift, and free of builder/runtime behavior changes. Certification rechecked that the change is UG-only and that source preview and embedded consumer are equal:
+
+`Simic studies life as living systems to heal, adapt, and improve through biology, clades, and public health.`
+
+### Certification Guard Results
+
+- Claim-role state: 33 total; 23 substantive; 10 discovery; 0 support; 0 unclassified.
+- Evidence scopes: every substantive evidence location retains `evidence_scope`.
+- Discovery isolation: 0 discovery-backed authoritative chains; one discovery metadata provenance row remains in the allowed `/data_quality/corpus_upgrade` container.
+- UG provenance: 72 entries; 0 required null canonical IDs; 0 null canonical content hashes; 0 unresolved pointers; 0 duplicate canonical entries.
+- Exact fixture chains: `/core_identity` generated count 8, fixture count 8, exact ordered equality; `/placement_summary` generated count 10, fixture count 10, exact ordered equality.
+- Frozen fields: confidence remains `Medium`; native IDs, required terms, minimum hits `2`, broad penalty `0.1`, strengthen/suppress lists, lateral targets `QUANDRIX`, `UR`, `WITHERBLOOM`, `TEMUR`, `SULTAI`, absent generic collision target, calibration, and proof-chain-sensitive fields remain unchanged.
+- Preview equality: source and embedded UG preview are equal to the approved replacement text.
+- Stale-copy result: exact rejected preview text is absent from consumed `data`, `supabase`, and `research` surfaces; historical governance quotations remain only as rejection evidence.
+- Candidate-tree integrity: no candidate implementation file differs from the approved replacement SHA through certification.
+- Known warnings: `npm.cmd run test:source-generated` retains unrelated JESKAI/MARDU model-owned inhibitor warnings; `git diff --check` reports a line-ending warning for the shared handoff index only.
+
+### Certification Validation
+
+- Governance and approved replacement candidate JSON parse checks: PASS.
+- Explicit claim-role/evidence-scope/discovery-isolation/null-ID/hash/unresolved-pointer/duplicate/fixture/frozen/preview/candidate-tree check: PASS.
+- `rg -n "Simic blends Green growth with Blue knowledge\. It values mutation, research, guided evolution, optimization, and becoming\." data supabase research`: no matches.
+- Partial/equivalent stale-preview scan across active UG consumed surfaces: PASS.
+- `node research/audit-semantic-readiness.mjs --targets=UG`: PASS.
+- `node research/validate-semantic-readiness.mjs --targets=UG`: PASS.
+- `node research/semantic-candidate-scope-tests.js`: PASS.
+- `npm.cmd run test:semantic-readiness`: PASS; verified 1787 semantic provenance entries.
+- `npm.cmd run test:placement`: PASS; 37 factions and 37 golden paths.
+- `npm.cmd run test:faction-context-isolation`: PASS.
+- `npm.cmd run test:source-generated`: PASS with known unrelated JESKAI/MARDU warnings only.
+- Exact candidate-scope command: exit code 1 with only the approved documented UG display-source exception; certification guard adjudication PASS.
+- `git diff --check`: PASS with line-ending warning for the shared handoff index only.
+
+### Final Governance State
+
+- Final Simic status: `semantically_ready`.
+- Certified identity count: 15.
+- Wave 2 Ravnica status: 10 of 10 certified / complete.
+- Next cohort: Wave 3 monocolors.
+- VM-517 White status: setup only / drift preflight pending / Gate 1+2 not started.
+- Program base after certification: `PENDING_VM516_CERTIFICATION_COMMIT_SHA`.
+
+No independent review was performed in this certification window. No approval decision was issued. VM-517 was not inspected, audited, remediated, reviewed, or certified. VM-518 did not start. Original main and Excel were not modified.
