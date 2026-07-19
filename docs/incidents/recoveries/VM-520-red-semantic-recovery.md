@@ -517,3 +517,54 @@ Review verified:
 No blocker, high, medium, or low findings remain.
 
 Certification did not occur. Red is not `semantically_ready`. Program base remains `1116786785dc4c5c8c1447dcad79c89e527657eb`; certified count remains 18; Wave 3 remains 3 of 5; VM-521 has not started.
+
+## 24. Certification - 2026-07-18
+
+Decision: `CERTIFIED SEMANTICALLY_READY`
+
+Exact approved replacement candidate certified: `6aefb2090ff20a361f7f3cd80515445036323158`
+
+Rejected candidate preserved and unapproved: `deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870`
+
+Replacement approval review: `20f18e0a0a02728f3474c9e8d2b32e36525cbfe9`
+
+Certification commit placeholder: `PENDING_VM520_CERTIFICATION_COMMIT_SHA`
+
+Certification reconciliation:
+
+- Final claim roles remain 8 total, 6 substantive (`red_claim_0002` through `red_claim_0007`), 0 discovery, 2 support (`red_claim_0001`, `red_claim_0008`), 0 unclassified.
+- Source hierarchy remains bounded: `MONO-R-2015` and `MONO-R-2025` are the philosophy proof sources; `MECH-CP-2021` and `GOV-COC-2024` remain bounded to mechanics/process; `RULES-CR`, `VM-377`, and `SCRYFALL-R-2026-06-13` remain support-only or auxiliary.
+- R provenance remains 25 entries with no null canonical IDs, null canonical content hashes, unresolved pointers, duplicate canonical entries, support-backed authoritative chains, discovery-backed authoritative chains, or non-philosophical-source-backed broad identity proof.
+- Exact-chain fixtures remain equal to generated provenance: `/core_identity` 5/5 exact with `red_claim_0002` through `red_claim_0006`; `/placement_summary` 6/6 exact with `red_claim_0002` through `red_claim_0007`.
+- Required `JESKAI`, `JUND`, and `NAYA` coverage is verified across raw Red placement, generated Red placement, Red semantic fixtures, and Red recruiter context. Each fixture is backed by substantive Red claims `red_claim_0003`, `red_claim_0005`, and `red_claim_0006` with sources `MONO-R-2015` and `MONO-R-2025`; no support-only claim serves as philosophical proof.
+- Preview remains exactly `Red turns feeling into action before life hardens into regret. Its freedom stays vivid, loyal, and answerable for the sparks it throws.` Source and embedded consumer are equal at `data/identity-layers.json#/expressions/R/preview_text` and `data/factions.json#/identity_layers/expressions/R/preview_text`.
+- Frozen placement controls remain preserved: placement-summary text, top-level confidence absence, required terms, minimum hits 2, broad penalty 0.13, strengthen/suppress lists, false-positive guardrail, lateral targets `WR`, `UR`, `BR`, `RG`, W/U collision order, explicit `GENERIC_R_OVERFIT` absence, optional-field absences, native IDs, calibration, and Red-local scoring/golden-path absence.
+- Raw `collision_guidance` remains object-with-`pairs`; generated collision guidance remains array-shaped with W then U semantics. `JESKAI`, `JUND`, and `NAYA` were not added as frozen collision targets.
+- Candidate-scope certification result is `PASS - approved documented R display-source exception`; exact command exited 1 only for file-level diagnostics `data/identity-layers.json` and `data/factions.json`, manually limited to `data/identity-layers.json#/expressions/R/preview_text` and `data/factions.json#/identity_layers/expressions/R/preview_text`.
+
+Certification guard commands:
+
+| Command | Exit | Result |
+|---|---:|---|
+| Governance and Red candidate JSON parse checks | 0 | Parsed CRIT ledger and approved Red candidate JSON files. |
+| Red reconciliation script | 0 | Verified claim roles, source hierarchy, evidence scopes, R provenance count 25, exact fixture chains, frozen fields, preview equality, and `JESKAI`/`JUND`/`NAYA` coverage. |
+| `node research/audit-semantic-readiness.mjs --targets=R` | 0 | 8 claims; 6 substantive, 0 discovery, 2 support, 0 unclassified; 7 sources; recruiter context size 8103. |
+| `node research/validate-semantic-readiness.mjs --targets=R` | 0 | Semantic readiness validation passed for R. |
+| `node research/semantic-candidate-scope-tests.js` | 0 | Semantic candidate scope tests passed. |
+| `node research/validate-semantic-candidate-scope.mjs --base=6c2b6dfc3e9e838f9e75801517a81258b675923d --target=6aefb2090ff20a361f7f3cd80515445036323158 --identity=R` | 1 | PASS - approved documented R display-source exception; no validator crash, no third diagnostic, no new Red/Jeskai/Jund/Naya, frozen-field, target, optional-field, runtime, scoring, or unrelated-identity diagnostic. |
+| `npm.cmd run build:factions` | 0 | Built 37 faction placement records and left no content diff; line-ending warnings only on generated files during diff inspection. |
+| `npm.cmd run test:semantic-readiness` | 0 | Semantic readiness, candidate-scope, fixture, and provenance checks passed; 1839 semantic provenance entries verified. |
+| `npm.cmd run test:placement` | 0 | PASS adaptive placement tests: 37 factions, 37 golden paths. |
+| `npm.cmd run test:faction-context-isolation` | 0 | Faction context isolation helper tests passed. |
+| `npm.cmd run test:source-generated` | 0 | Source/generated guardrail validation passed with known unrelated JESKAI/MARDU model-owned inhibitor warnings only; no R warning. |
+| `npm.cmd test` | 0 | Full suite passed; parser, builder, semantic readiness, Maze contract, and presentation snapshot tests passed. |
+| `git diff --check` | 0 | No whitespace errors; known line-ending warning only for dirty `docs/handoffs/HANDOFF_INDEX.md`. |
+
+Program status after certification:
+
+- Red is `semantically_ready`.
+- Certified count is 19.
+- Wave 3 monocolors are 4 of 5 certified.
+- Current program base is `PENDING_VM520_CERTIFICATION_COMMIT_SHA` inside tracked governance; actual SHA is reported in final task output.
+- VM-521 Green / G is setup-only with drift preflight pending; no Green semantic inspection, drift preflight, Gate 1+2, remediation, candidate, review, or certification occurred.
+- Original main and external Excel were not modified.
