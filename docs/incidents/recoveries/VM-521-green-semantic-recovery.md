@@ -1,6 +1,6 @@
 # VM-521 Green Semantic Recovery
 
-Status: Gate 1+2 complete; remediation authorized.
+Status: Independent review returned REQUEST CHANGES; remediation required.
 
 Identity: Green / G
 Contract: CRIT-001 semantic-readiness Contract v1.1
@@ -300,6 +300,22 @@ Commands run after final candidate creation:
 
 ## 16. Current Decision
 
-CANDIDATE CREATED - AWAITING INDEPENDENT REVIEW
+REQUEST CHANGES - REPLACEMENT CANDIDATE REQUIRED
 
-Green / G is not approved, not certified, and not semantically_ready. Only exact candidate SHA `45e323cde853ee5058b71c819f080ab4025597ce` may proceed to independent review.
+Green / G is not approved, not certified, and not semantically_ready. Exact candidate SHA `45e323cde853ee5058b71c819f080ab4025597ce` received independent review decision `REQUEST CHANGES`.
+
+## 17. Independent Review Record
+
+Review record: `docs/incidents/recoveries/VM-521-green-independent-review.md`
+Review-record SHA: `PENDING_VM521_GREEN_REVIEW_RECORD_SHA`
+Decision: `REQUEST CHANGES`
+
+Approval blocker:
+
+- Active consumed-surface preview copies still retain the stale Gate 1+2 text `Green values nature, instinct, tradition, interdependence, and belonging. It asks what you already are beneath the noise.` in:
+  - `assets/js/newindex-color-matrix.js`
+  - `assets/js/color-matrix-radar.js`
+  - `outputs/mtgdata-v3-enhanced/MTGDataV3_Enhanced_identity_fix.xlsx.inspect.ndjson`
+  - `outputs/mtgdata-v3-enhanced/MTGDataV3_Enhanced.xlsx.inspect.ndjson`
+
+The review verified that the final candidate corrected the superseded calibration-note drift, preserved frozen fields, established 6 substantive and 2 support claims, produced 25 G provenance entries with no null IDs/hashes, and kept the two explicit provenance fixtures exact. Approval remains blocked by DRIFT-015/017 consumed-surface preview propagation. A later replacement candidate is required; do not amend `45e323cde853ee5058b71c819f080ab4025597ce`.

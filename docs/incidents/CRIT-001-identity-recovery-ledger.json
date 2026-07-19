@@ -45,12 +45,12 @@
       "current_identity_hold": {
         "identity": "G",
         "card": "VM-521",
-        "state": "candidate_awaiting_independent_review",
+        "state": "request_changes_remediation_required",
         "branch": "codex/vm-521-green-semantic-recovery",
         "prior_identity_certified": "R",
         "prior_identity_certification": "9f0a076a369cba23dc9bc19231b0efcddd21afe5",
-        "authorized_next_scope": "VM-521 Green final candidate is created and awaiting independent review. Only exact candidate SHA 45e323cde853ee5058b71c819f080ab4025597ce may be reviewed. Review, approval, certification, semantically_ready status, program-base advancement, VM-522 work, original-main modification, Excel update, push, PR, and merge remain unauthorized.",
-        "required_next_milestone": "Run independent review of exact VM-521 Green candidate SHA 45e323cde853ee5058b71c819f080ab4025597ce; do not certify unless that exact SHA is approved.",
+        "authorized_next_scope": "VM-521 Green exact candidate 45e323cde853ee5058b71c819f080ab4025597ce received independent review decision REQUEST CHANGES. Only a later replacement candidate that remediates stale active Green preview consumers is authorized. Approval, certification, semantically_ready status, program-base advancement, VM-522 work, original-main modification, Excel update, push, PR, and merge remain unauthorized.",
+        "required_next_milestone": "Create a later VM-521 Green replacement candidate for stale active preview consumers and submit that exact SHA for fresh independent review; do not amend rejected candidate 45e323cde853ee5058b71c819f080ab4025597ce and do not certify.",
         "drift_preflight_started": true,
         "drift_preflight_completed": true,
         "drift_preflight_record": "docs/incidents/recoveries/VM-521-green-drift-preflight.md",
@@ -62,12 +62,12 @@
         "candidate_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
         "certification": {
           "performed": false,
-          "status": "not_started",
+          "status": "not_certified_request_changes",
           "certification_sha": null
         },
-        "green_semantic_data_inspected": "gate_3_4_remediated_candidate_created",
+        "green_semantic_data_inspected": "independent_review_request_changes",
         "program_base": "9f0a076a369cba23dc9bc19231b0efcddd21afe5",
-        "updated_at": "2026-07-18T21:47:00-06:00",
+        "updated_at": "2026-07-18T22:21:00-06:00",
         "superseded_candidate_shas": [
           "83123037f619472a4d2834e124311df691281a53"
         ],
@@ -75,7 +75,15 @@
         "display_source_exception_paths": [
           "data/identity-layers.json#/expressions/G/preview_text",
           "data/factions.json#/identity_layers/expressions/G/preview_text"
-        ]
+        ],
+        "independent_review": {
+          "status": "complete",
+          "decision": "REQUEST CHANGES",
+          "record": "docs/incidents/recoveries/VM-521-green-independent-review.md",
+          "review_record_sha": "PENDING_VM521_GREEN_REVIEW_RECORD_SHA",
+          "reviewed_candidate_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
+          "blocker": "Stale Gate 1+2 Green preview remains in active JS/export consumed surfaces."
+        }
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -3663,14 +3671,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_5_candidate_created",
-        "status": "candidate_awaiting_independent_review",
+        "current_gate": "independent_review_complete",
+        "status": "request_changes_remediation_required",
         "started_at": "2026-07-18T20:02:41-06:00",
         "gate_entered_at": "2026-07-18T21:47:00-06:00",
-        "blocked_at": null,
-        "blocked_reason": null,
+        "blocked_at": "2026-07-18T22:21:00-06:00",
+        "blocked_reason": "Independent review found stale Gate 1+2 Green preview text in active JS/export consumed surfaces.",
         "next_identity": "G",
-        "primary_disposition": "VM-521 Green Gate 3+4 remediation and Gate 5 candidate creation are complete. Final candidate 45e323cde853ee5058b71c819f080ab4025597ce awaits independent review; superseded candidate 83123037f619472a4d2834e124311df691281a53 remains preserved after candidate-scope calibration-note finding. Not approved, not certified, not semantically_ready.",
+        "primary_disposition": "VM-521 Green exact candidate 45e323cde853ee5058b71c819f080ab4025597ce received independent review decision REQUEST CHANGES. Approval is blocked because stale Gate 1+2 Green preview text remains in active JS/export consumed surfaces. Superseded candidate 83123037f619472a4d2834e124311df691281a53 remains preserved after candidate-scope calibration-note finding. Not approved, not certified, not semantically_ready.",
         "drift_preflight": {
           "status": "passed",
           "required_before_gate_1_2": true,
@@ -3736,7 +3744,7 @@
           "validation_summary": "audit/validate semantic readiness passed; semantic-readiness, placement, faction-context-isolation, source-generated, full npm test, git diff --check, and build idempotence passed"
         },
         "gate_5": {
-          "status": "candidate_created_awaiting_independent_review",
+          "status": "independent_review_request_changes",
           "candidate_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
           "superseded_candidate_shas": [
             "83123037f619472a4d2834e124311df691281a53"
@@ -3747,7 +3755,11 @@
             "identity candidate modified non-identity path data/identity-layers.json",
             "unrelated or global data/factions.json content changed"
           ],
-          "review_status": "not_started",
+          "review_status": "request_changes",
+          "review_record": "docs/incidents/recoveries/VM-521-green-independent-review.md",
+          "review_record_sha": "PENDING_VM521_GREEN_REVIEW_RECORD_SHA",
+          "review_decision": "REQUEST CHANGES",
+          "review_blocker": "Stale Gate 1+2 Green preview remains in active JS/export consumed surfaces.",
           "certification_status": "not_started"
         }
       },
@@ -3775,9 +3787,10 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-521-green-semantic-recovery.md",
         "residual_findings": [
-          "Candidate created and awaiting independent review; not approved, not certified, not semantically_ready.",
+          "Independent review returned REQUEST CHANGES; not approved, not certified, not semantically_ready.",
           "Candidate-scope exits 1 only for documented G display-source exception paths in data/identity-layers.json and generated data/factions.json.",
-          "Superseded candidate 83123037f619472a4d2834e124311df691281a53 remains preserved after frozen calibration-note scope failure."
+          "Superseded candidate 83123037f619472a4d2834e124311df691281a53 remains preserved after frozen calibration-note scope failure.",
+          "Approval blocker: stale Gate 1+2 Green preview remains in assets/js/newindex-color-matrix.js, assets/js/color-matrix-radar.js, and two outputs/mtgdata-v3-enhanced inspect NDJSON consumed surfaces."
         ]
       },
       "certification": {
@@ -3786,19 +3799,22 @@
         "candidate_recovery_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
         "recovery_commit": "45e323cde853ee5058b71c819f080ab4025597ce",
         "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
+        "reviewer": "independent Codex review",
+        "review_cycles": 1,
         "approval_date": null,
         "certified_at": null,
-        "review_result": "not_started",
+        "review_result": "REQUEST CHANGES",
+        "review_record": "docs/incidents/recoveries/VM-521-green-independent-review.md",
+        "review_record_sha": "PENDING_VM521_GREEN_REVIEW_RECORD_SHA",
+        "review_blocker": "Stale Gate 1+2 Green preview remains in active JS/export consumed surfaces.",
         "superseded_candidate_shas": [
           "83123037f619472a4d2834e124311df691281a53"
         ]
       },
-      "gate": "gate_1_2",
-      "status": "gate_1_2_complete_remediation_authorized",
+      "gate": "independent_review",
+      "status": "request_changes_remediation_required",
       "contract": "v1.1 after drift preflight",
-      "certification_status": "not_started_setup_only"
+      "certification_status": "not_certified_request_changes"
     },
     {
       "identity": {

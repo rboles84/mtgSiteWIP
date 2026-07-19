@@ -1,7 +1,7 @@
 # VM-521 - Green Semantic Recovery
 
 ID: VM-521
-Status: Gate 5 Candidate Created - Awaiting Independent Review
+Status: Independent Review Returned REQUEST CHANGES
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: G
@@ -11,9 +11,9 @@ Contract: CRIT-001 Contract v1.1 after committed drift preflight
 
 ## Objective
 
-Prepare the next CRIT-001 identity slot for Green / G after VM-520 Red certification. The VM-521 drift preflight passed, Gate 1+2 authorized scoped remediation, and Gate 3+4 remediation plus Gate 5 candidate creation are complete.
+Prepare the next CRIT-001 identity slot for Green / G after VM-520 Red certification. The VM-521 drift preflight passed, Gate 1+2 authorized scoped remediation, Gate 3+4 remediation plus Gate 5 candidate creation are complete, and independent review returned `REQUEST CHANGES`.
 
-Current state: VM-521 Green / G has final candidate `45e323cde853ee5058b71c819f080ab4025597ce` awaiting independent review. Superseded candidate `83123037f619472a4d2834e124311df691281a53` is preserved after a candidate-scope calibration-note finding. No independent review, approval, certification, semantically_ready status, external tracker update, push, PR, merge, VM-522 work, original-main modification, or Excel update has occurred.
+Current state: VM-521 Green / G exact candidate `45e323cde853ee5058b71c819f080ab4025597ce` received independent review decision `REQUEST CHANGES`. The blocker is stale Gate 1+2 Green preview text still present in active JS/export consumed surfaces. Superseded candidate `83123037f619472a4d2834e124311df691281a53` is preserved after a candidate-scope calibration-note finding. No approval, certification, semantically_ready status, external tracker update, push, PR, merge, VM-522 work, original-main modification, or Excel update has occurred.
 
 ## Gates
 
@@ -23,7 +23,7 @@ Current state: VM-521 Green / G has final candidate `45e323cde853ee5058b71c819f0
 - [x] Gate 3 - Canonical remediation; complete in candidate `45e323cde853ee5058b71c819f080ab4025597ce`.
 - [x] Gate 4 - Generation and validation; complete in candidate `45e323cde853ee5058b71c819f080ab4025597ce`.
 - [x] Gate 5 - Candidate creation; final candidate `45e323cde853ee5058b71c819f080ab4025597ce` created after superseding `83123037f619472a4d2834e124311df691281a53`.
-- [ ] Gate 5 - Independent review of exact candidate SHA; not started.
+- [x] Gate 5 - Independent review of exact candidate SHA; returned `REQUEST CHANGES` in `docs/incidents/recoveries/VM-521-green-independent-review.md`.
 - [ ] Certification of exact approved candidate SHA; not started.
 
 ## Scope Rules
@@ -32,7 +32,7 @@ Current state: VM-521 Green / G has final candidate `45e323cde853ee5058b71c819f0
 - Reviewer corrections stay in this card.
 - Non-blocking enrichment is recorded, not ticketed.
 - Runtime scoring, Hall/Crucible behavior, inhibition, scheduling, and global recruiter tuning are excluded.
-- Green source, claim, profile, placement, generated data, fixtures, provenance, preview, recruiter, and recommendation data were remediated and generated in the final candidate. Review, approval, certification, VM-522 work, original-main modification, and Excel updates remain unauthorized.
+- Green source, claim, profile, placement, generated data, fixtures, provenance, preview, recruiter, and recommendation data were remediated and generated in the reviewed candidate. A later replacement candidate is required to resolve stale active preview consumers. Approval, certification, VM-522 work, original-main modification, and Excel updates remain unauthorized.
 
 ## Required Records
 
@@ -43,9 +43,10 @@ Current state: VM-521 Green / G has final candidate `45e323cde853ee5058b71c819f0
 - Audit/recovery report: `docs/incidents/recoveries/VM-521-green-semantic-recovery.md`
 - Candidate recovery SHA: `45e323cde853ee5058b71c819f080ab4025597ce`
 - Superseded candidate SHA: `83123037f619472a4d2834e124311df691281a53`
-- Independent reviewer: pending
+- Independent review record: `docs/incidents/recoveries/VM-521-green-independent-review.md`
+- Independent review decision: `REQUEST CHANGES`
 - Certification commit: pending
 
 ## Setup Boundary
 
-VM-521 Green / G was created only as the next active CRIT-001 identity slot after VM-520 Red certification. Current program base is the VM-520 Red certification SHA `9f0a076a369cba23dc9bc19231b0efcddd21afe5`. The separate drift-preflight record applied `docs/incidents/CRIT-001-drift-control-template.md` and returned `PASS - GREEN GATE 1+2 AUTHORIZED`. Gate 1+2 read-only audit later completed with `REMEDIATION AUTHORIZED`; Gate 3+4 remediation and Gate 5 candidate creation are now complete under frozen-field, exact-chain, preview, neighbor, Table Talk, candidate-scope, and VM-522 stop controls. Candidate-scope exits 1 only for the documented Green display-source exception: `data/identity-layers.json#/expressions/G/preview_text` and generated `data/factions.json#/identity_layers/expressions/G/preview_text`. Independent review, approval, certification, VM-522 work, original-main modification, and Excel updates remain not started.
+VM-521 Green / G was created only as the next active CRIT-001 identity slot after VM-520 Red certification. Current program base is the VM-520 Red certification SHA `9f0a076a369cba23dc9bc19231b0efcddd21afe5`. The separate drift-preflight record applied `docs/incidents/CRIT-001-drift-control-template.md` and returned `PASS - GREEN GATE 1+2 AUTHORIZED`. Gate 1+2 read-only audit later completed with `REMEDIATION AUTHORIZED`; Gate 3+4 remediation and Gate 5 candidate creation are complete under frozen-field, exact-chain, preview, neighbor, Table Talk, candidate-scope, and VM-522 stop controls. Candidate-scope exits 1 only for the documented Green display-source exception: `data/identity-layers.json#/expressions/G/preview_text` and generated `data/factions.json#/identity_layers/expressions/G/preview_text`. Independent review returned `REQUEST CHANGES` because active JS/export preview consumers still retain the stale Gate 1+2 Green preview. Certification, semantically_ready transition, VM-522 work, original-main modification, and Excel updates remain not started.
