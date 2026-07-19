@@ -80,6 +80,8 @@ VM-429 Section 14 ID reconciliation, 2026-06-30: the early readiness plan expect
 
 - [VM-520 - Red Semantic Recovery](done/VM-520-red-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1 from exact approved replacement candidate `6aefb2090ff20a361f7f3cd80515445036323158`; rejected candidate `deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870` remains unapproved; no superseded Red replacement candidate exists; reviewed R provenance count 25; `JESKAI`, `JUND`, and `NAYA` Red-local coverage is certified; certification commit recorded by this acceptance commit. VM-521 Green is setup-only with drift preflight pending.
 
+- [VM-541 - Certified Preview Consumer Audit](done/VM-541-certified-preview-consumer-audit.md) - read-only CRIT-001 audit from program base `9f0a076a369cba23dc9bc19231b0efcddd21afe5`; confirmed stale active preview consumers for Silverquill, Azorius, Gruul, Simic, Black, and Red; source JSON and embedded generated JSON pass for all 19 certified identities; recovery decision is STOP pending atomic certified-consumer propagation recovery.
+
 - [VM-503 - Quandrix Semantic Recovery](done/VM-503-quandrix-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1; approved recovery SHA `af3c2439f9c96fb4b199b4c47eea1f7c735dfebe`; certification commit `cb495e11ba875f1801cbd8f8cb8e7204c27f5840`.
 - [VM-502 - Prismari Semantic Recovery](done/VM-502-prismari-semantic-recovery.md) - certified semantically ready under CRIT-001 Contract v1.1; approved recovery SHA `19800da6322100b28fa6325fef91321e147b6f69`; certification commit `492598f13df24d0f74f5869e249d860ff661a3aa`.
 
