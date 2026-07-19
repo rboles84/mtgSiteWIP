@@ -1,6 +1,6 @@
 # VM-520 Red Semantic Recovery
 
-Status: Gate 5 candidate created. Awaiting independent review.
+Status: Independent review requested changes. Replacement candidate required.
 
 Identity: Red / R
 Contract: CRIT-001 semantic-readiness Contract v1.1
@@ -10,7 +10,9 @@ Approved monocolor validator candidate: `aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb
 Approved validator review: `af3d8c6c563b3743f65c2dc8478519707f4785c8`
 Gate 1+2 governance commit: `6c2b6dfc3e9e838f9e75801517a81258b675923d`
 Final candidate commit: `deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870`
-Workflow-record commit: pending until this governance update is committed.
+Workflow-record commit: `70358e1bbb65add714239b0d8621eda0a51e0ed4`
+Independent review decision: `REQUEST CHANGES`
+Independent review record: `docs/incidents/recoveries/VM-520-red-independent-review.md`
 
 This record is the read-only Gate 1+2 semantic and evidence audit for Red. No Red raw semantic data, generated consumers, provenance, recruiter context, fixtures, tests, validators, builders, schemas, runtime, scoring, calibration, VM-521 files, original-main files, Excel tracker, or Table Talk files were modified by this gate.
 
@@ -378,15 +380,15 @@ Candidate files:
 
 Candidate-scope result: acceptable pending independent review, with documented DRIFT-015 display-source exception limited to the source-owned Red preview and embedded generated preview consumer. The validator reports the exception at file level as `data/identity-layers.json` and `data/factions.json`; inspection confirms the global `data/factions.json` change outside `factions.R` is the embedded R preview consumer.
 
-Status: exact candidate awaits independent review. It is not approved, not certified, and not `semantically_ready`.
+Status: exact candidate received `REQUEST CHANGES`. It is not approved, not certified, and not `semantically_ready`.
 
 ## 20. Final State Before Workflow Record Commit
 
 - Branch: `codex/vm-520-red-semantic-recovery`.
 - Program base: `1116786785dc4c5c8c1447dcad79c89e527657eb`.
 - Candidate and workflow-record commits are separate.
-- Independent review did not occur.
-- No approval decision was issued.
+- Independent review occurred in `docs/incidents/recoveries/VM-520-red-independent-review.md`.
+- Review decision: `REQUEST CHANGES`.
 - Certification did not occur.
 - Red is not `semantically_ready`.
 - Certified count remains 18.
@@ -395,3 +397,31 @@ Status: exact candidate awaits independent review. It is not approved, not certi
 - Original main was not modified.
 - Excel was not modified.
 - Table Talk baseline remains excluded.
+
+## 21. Independent Review
+
+Independent review target: `deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870`
+
+Review record: `docs/incidents/recoveries/VM-520-red-independent-review.md`
+
+Decision: `REQUEST CHANGES`
+
+Blocking finding:
+
+- `research/fixtures/semantic-readiness/red.semantic-fixtures.json`, `data/raw-factions/red/red.placement.json#/collision_guidance`, generated `data/placement-model.json#/factions/R/collision_guidance`, and `supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT.R` do not provide Red-local testable boundaries for prompt-required Red-adjacent neighbors `JESKAI`, `JUND`, and `NAYA`.
+
+Controls that remained passing in review:
+
+- Contract v1.1 claim roles, evidence scopes, and support isolation.
+- Source authority and non-philosophical source isolation.
+- R provenance count 25 with no required null IDs, null hashes, unresolved pointers, duplicate canonical entries, duplicate null keys, support/discovery-backed authoritative chains, or non-philosophical-source-backed broad identity proof.
+- Exact fixture/provenance parity for `/core_identity` and `/placement_summary`.
+- Frozen placement, native ID, collision-order, optional-field, and calibration controls.
+- DRIFT-015 preview source-to-embedded equality and semantic alignment.
+- Deterministic generation and validation suite.
+
+Required remediation:
+
+- Create a later replacement Red candidate that adds source-bounded, Red-local neighbor discrimination for `JESKAI`, `JUND`, and `NAYA` without changing frozen placement/scoring/calibration fields or regressing the Contract, provenance, fixture, preview, public, and recruiter surfaces that already passed.
+
+No approval, certification, `semantically_ready` transition, program-base advancement, VM-521 work, original-main modification, Excel update, or Table Talk commit occurred.
