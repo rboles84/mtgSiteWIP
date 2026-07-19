@@ -42,6 +42,37 @@
       "register": "docs/incidents/CRIT-001-drift-register.md",
       "installed_after_program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
       "governance_commit": "PENDING_CRIT001_DRIFT_CONTROL_GOVERNANCE_SHA",
+      "ndjson_provenance_audit": {
+        "card": "VM-542",
+        "status": "resolved",
+        "audit_report": "docs/incidents/CRIT-001-ndjson-provenance-audit.md",
+        "audit_commit": "PENDING_NDJSON_PROVENANCE_AUDIT_SHA",
+        "decision": "PASS - NDJSON provenance and dependency resolved",
+        "base_commit": "e5a7af86fe912ff45cb8001659d310506377848c",
+        "runtime_preview_defect_count": 0,
+        "build_input_preview_defect_count": 0,
+        "test_fixture_preview_defect_count": 0,
+        "debug_inspection_stale_cell_count": 12,
+        "historical_archive_stale_cell_count": 12,
+        "classifications": {
+          "outputs/mtgdata-v3-enhanced/MTGDataV3_Enhanced_identity_fix.xlsx.inspect.ndjson": "DEBUG_INSPECTION_ARTIFACT",
+          "outputs/mtgdata-v3-enhanced/MTGDataV3_Enhanced.xlsx.inspect.ndjson": "DEBUG_INSPECTION_ARTIFACT",
+          "assets/js/newindex-color-matrix.js": "HISTORICAL_ARCHIVE",
+          "assets/js/color-matrix-radar.js": "HISTORICAL_ARCHIVE"
+        },
+        "not_touched": [
+          "runtime code",
+          "source data",
+          "generated data",
+          "workbook binaries",
+          "workbook inspect NDJSON",
+          "validator prototype files",
+          "Green / VM-521",
+          "VM-522",
+          "external tracker"
+        ],
+        "updated_at": "2026-07-19T08:57:00-06:00"
+      },
       "current_identity_hold": {
         "identity": "G",
         "card": "VM-521",
