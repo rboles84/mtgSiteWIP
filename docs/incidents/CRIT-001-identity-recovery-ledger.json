@@ -45,29 +45,37 @@
       "current_identity_hold": {
         "identity": "G",
         "card": "VM-521",
-        "state": "gate_1_2_complete_remediation_authorized",
+        "state": "candidate_awaiting_independent_review",
         "branch": "codex/vm-521-green-semantic-recovery",
         "prior_identity_certified": "R",
         "prior_identity_certification": "9f0a076a369cba23dc9bc19231b0efcddd21afe5",
-        "authorized_next_scope": "VM-521 Green Gate 1+2 read-only audit is complete and records REMEDIATION AUTHORIZED. Scoped Green remediation and repository-supported generation may proceed under frozen-field, exact-chain, preview, neighbor, candidate-scope, Table Talk, and VM-522 stop controls. Candidate creation, review, certification, VM-522 work, original-main modification, and Excel update remain unauthorized until their later gates.",
-        "required_next_milestone": "Run VM-521 Green Gate 3+4 scoped remediation under the Gate 1+2 constraints; do not create a candidate until candidate-stage drift controls pass.",
+        "authorized_next_scope": "VM-521 Green final candidate is created and awaiting independent review. Only exact candidate SHA 45e323cde853ee5058b71c819f080ab4025597ce may be reviewed. Review, approval, certification, semantically_ready status, program-base advancement, VM-522 work, original-main modification, Excel update, push, PR, and merge remain unauthorized.",
+        "required_next_milestone": "Run independent review of exact VM-521 Green candidate SHA 45e323cde853ee5058b71c819f080ab4025597ce; do not certify unless that exact SHA is approved.",
         "drift_preflight_started": true,
         "drift_preflight_completed": true,
         "drift_preflight_record": "docs/incidents/recoveries/VM-521-green-drift-preflight.md",
         "drift_preflight_commit": "PENDING_VM521_DRIFT_PREFLIGHT_SHA",
         "gate_1_2_status": "complete",
         "gate_1_2_record": "docs/incidents/recoveries/VM-521-green-semantic-recovery.md",
-        "gate_1_2_commit": "PENDING_VM521_GATE_1_2_SHA",
-        "candidate_created": false,
-        "candidate_sha": null,
+        "gate_1_2_commit": "332ab81ffcfa461df1109e89709d47907e7c0032",
+        "candidate_created": true,
+        "candidate_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
         "certification": {
           "performed": false,
           "status": "not_started",
           "certification_sha": null
         },
-        "green_semantic_data_inspected": "gate_1_2_read_only_audit_complete",
+        "green_semantic_data_inspected": "gate_3_4_remediated_candidate_created",
         "program_base": "9f0a076a369cba23dc9bc19231b0efcddd21afe5",
-        "updated_at": "2026-07-18T21:21:00-06:00"
+        "updated_at": "2026-07-18T21:47:00-06:00",
+        "superseded_candidate_shas": [
+          "83123037f619472a4d2834e124311df691281a53"
+        ],
+        "candidate_scope_result": "EXIT 1 - documented G display-source exception only",
+        "display_source_exception_paths": [
+          "data/identity-layers.json#/expressions/G/preview_text",
+          "data/factions.json#/identity_layers/expressions/G/preview_text"
+        ]
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -3654,93 +3662,142 @@
         "template_cohort_pattern": true,
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
-    "workflow": {
-      "current_gate": "drift_preflight",
-      "status": "gate_1_2_complete_remediation_authorized",
+      "workflow": {
+        "current_gate": "gate_5_candidate_created",
+        "status": "candidate_awaiting_independent_review",
         "started_at": "2026-07-18T20:02:41-06:00",
-        "gate_entered_at": null,
+        "gate_entered_at": "2026-07-18T21:47:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "G",
-      "primary_disposition": "VM-521 Green Gate 1+2 read-only audit is complete from drift-preflight SHA 76fd0eb8bf702bf889857537c636b3404c4bdba4 and program base 9f0a076a369cba23dc9bc19231b0efcddd21afe5. Decision: REMEDIATION AUTHORIZED. Scoped remediation may proceed; candidate, review, certification, VM-522 work, original-main modification, and Excel update remain not started.",
-      "drift_preflight": {
-        "status": "passed",
-        "required_before_gate_1_2": true,
-        "record": "docs/incidents/recoveries/VM-521-green-drift-preflight.md",
-        "commit": "PENDING_VM521_DRIFT_PREFLIGHT_SHA",
-        "started": true,
-        "completed": true,
-        "decision": "PASS - GREEN GATE 1+2 AUTHORIZED",
-        "authorized_scope": "Gate 1+2 read-only audit only; remediation required the separate Gate 1+2 decision and is now authorized by the Gate 1+2 record."
+        "primary_disposition": "VM-521 Green Gate 3+4 remediation and Gate 5 candidate creation are complete. Final candidate 45e323cde853ee5058b71c819f080ab4025597ce awaits independent review; superseded candidate 83123037f619472a4d2834e124311df691281a53 remains preserved after candidate-scope calibration-note finding. Not approved, not certified, not semantically_ready.",
+        "drift_preflight": {
+          "status": "passed",
+          "required_before_gate_1_2": true,
+          "record": "docs/incidents/recoveries/VM-521-green-drift-preflight.md",
+          "commit": "PENDING_VM521_DRIFT_PREFLIGHT_SHA",
+          "started": true,
+          "completed": true,
+          "decision": "PASS - GREEN GATE 1+2 AUTHORIZED",
+          "authorized_scope": "Gate 1+2 read-only audit only; remediation required the separate Gate 1+2 decision and is now authorized by the Gate 1+2 record."
+        },
+        "gate_1_2": {
+          "status": "complete",
+          "record": "docs/incidents/recoveries/VM-521-green-semantic-recovery.md",
+          "commit": "332ab81ffcfa461df1109e89709d47907e7c0032",
+          "decision": "REMEDIATION AUTHORIZED",
+          "initial_role_counts": {
+            "total": 8,
+            "substantive_claim": 0,
+            "discovery_record": 0,
+            "support_record": 0,
+            "unclassified": 8
+          },
+          "expected_role_counts_after_remediation": {
+            "total": 8,
+            "substantive_claim": 6,
+            "discovery_record": 0,
+            "support_record": 2,
+            "unclassified": 0
+          },
+          "source_hierarchy_result": "MONO-G-2015 and MONO-G-2025 may support Green philosophy; MECH-CP-2021 and MECH-CP-2021-CHG are mechanic-specific only; RULES-CR, VM-377, and SCRYFALL-G-2026-06-13 are support/governance only. VM-377 stored locator is stale and must be repaired to the current done-card path.",
+          "remediation_constraints": "Preserve placement summary, confidence absence, required terms, threshold, broad penalty, strengthen/suppress lists, false-positive guardrail, lateral targets WG/UG/BG/RG, raw U/B object-with-pairs collision structure/order, generated U/B collision order, native IDs, optional absences, scoring/golden-path absence, Table Talk exclusion, and VM-522 stop controls."
+        },
+        "gate_3_4": {
+          "status": "complete",
+          "candidate_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
+          "superseded_candidate_shas": [
+            "83123037f619472a4d2834e124311df691281a53"
+          ],
+          "role_counts": {
+            "total": 8,
+            "substantive_claim": 6,
+            "discovery_record": 0,
+            "support_record": 2,
+            "unclassified": 0
+          },
+          "substantive_claim_ids": [
+            "green_claim_0002",
+            "green_claim_0003",
+            "green_claim_0004",
+            "green_claim_0005",
+            "green_claim_0006",
+            "green_claim_0007"
+          ],
+          "support_claim_ids": [
+            "green_claim_0001",
+            "green_claim_0008"
+          ],
+          "fixture": "research/fixtures/semantic-readiness/green.semantic-fixtures.json",
+          "display_source_exception_paths": [
+            "data/identity-layers.json#/expressions/G/preview_text",
+            "data/factions.json#/identity_layers/expressions/G/preview_text"
+          ],
+          "validation_summary": "audit/validate semantic readiness passed; semantic-readiness, placement, faction-context-isolation, source-generated, full npm test, git diff --check, and build idempotence passed"
+        },
+        "gate_5": {
+          "status": "candidate_created_awaiting_independent_review",
+          "candidate_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
+          "superseded_candidate_shas": [
+            "83123037f619472a4d2834e124311df691281a53"
+          ],
+          "candidate_parent_base": "332ab81ffcfa461df1109e89709d47907e7c0032",
+          "candidate_scope_result": "EXIT 1 - documented G display-source exception only",
+          "scope_errors": [
+            "identity candidate modified non-identity path data/identity-layers.json",
+            "unrelated or global data/factions.json content changed"
+          ],
+          "review_status": "not_started",
+          "certification_status": "not_started"
+        }
       },
-      "gate_1_2": {
-        "status": "complete",
-        "record": "docs/incidents/recoveries/VM-521-green-semantic-recovery.md",
-        "commit": "PENDING_VM521_GATE_1_2_SHA",
-        "decision": "REMEDIATION AUTHORIZED",
-        "initial_role_counts": {
-          "total": 8,
-          "substantive_claim": 0,
-          "discovery_record": 0,
-          "support_record": 0,
-          "unclassified": 8
-        },
-        "expected_role_counts_after_remediation": {
-          "total": 8,
-          "substantive_claim": 6,
-          "discovery_record": 0,
-          "support_record": 2,
-          "unclassified": 0
-        },
-        "source_hierarchy_result": "MONO-G-2015 and MONO-G-2025 may support Green philosophy; MECH-CP-2021 and MECH-CP-2021-CHG are mechanic-specific only; RULES-CR, VM-377, and SCRYFALL-G-2026-06-13 are support/governance only. VM-377 stored locator is stale and must be repaired to the current done-card path.",
-        "remediation_constraints": "Preserve placement summary, confidence absence, required terms, threshold, broad penalty, strengthen/suppress lists, false-positive guardrail, lateral targets WG/UG/BG/RG, raw U/B object-with-pairs collision structure/order, generated U/B collision order, native IDs, optional absences, scoring/golden-path absence, Table Talk exclusion, and VM-522 stop controls."
-      }
-    },
-    "semantic_review": {
-      "required_neighbors": [
-        "GENERIC_G_OVERFIT",
-        "WG",
-        "BG",
-        "UG",
-        "RG",
-        "WITHERBLOOM",
-        "QUANDRIX",
-        "BANT",
-        "JUND",
-        "NAYA",
-        "TEMUR",
-        "SULTAI",
-        "ABZAN",
-        "W",
-        "U",
-        "B",
-        "R",
-        "WUBRG",
-        "COLORLESS"
-      ],
-      "audit_report": "docs/incidents/recoveries/VM-521-green-semantic-recovery.md",
-      "residual_findings": [
-        "Gate 1+2 completed read-only and records REMEDIATION AUTHORIZED.",
-        "Current Green baseline has 8 unclassified claims, 12 provenance rows, 3 null canonical IDs, missing Green semantic fixtures, and pre-remediation validation failures.",
-        "Gate 3+4 must isolate governance/rules/Scryfall Commander support and mechanics/changelog-only material from broad philosophical proof chains.",
-        "DRIFT-015/017 preview semantic-alignment review found current source-owned Green preview semantically generic; Gate 3+4 must remediate or prove alignment with bounded evidence.",
-        "DRIFT-018 prompt-required neighbor coverage reconciliation is mandatory before any Green candidate approval."
-      ]
+      "semantic_review": {
+        "required_neighbors": [
+          "GENERIC_G_OVERFIT",
+          "WG",
+          "BG",
+          "UG",
+          "RG",
+          "WITHERBLOOM",
+          "QUANDRIX",
+          "BANT",
+          "JUND",
+          "NAYA",
+          "TEMUR",
+          "SULTAI",
+          "ABZAN",
+          "W",
+          "U",
+          "B",
+          "R",
+          "WUBRG",
+          "COLORLESS"
+        ],
+        "audit_report": "docs/incidents/recoveries/VM-521-green-semantic-recovery.md",
+        "residual_findings": [
+          "Candidate created and awaiting independent review; not approved, not certified, not semantically_ready.",
+          "Candidate-scope exits 1 only for documented G display-source exception paths in data/identity-layers.json and generated data/factions.json.",
+          "Superseded candidate 83123037f619472a4d2834e124311df691281a53 remains preserved after frozen calibration-note scope failure."
+        ]
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
+        "recovery_commit": "45e323cde853ee5058b71c819f080ab4025597ce",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
         "approval_date": null,
-        "certified_at": null
+        "certified_at": null,
+        "review_result": "not_started",
+        "superseded_candidate_shas": [
+          "83123037f619472a4d2834e124311df691281a53"
+        ]
       },
-    "gate": "gate_1_2",
-    "status": "gate_1_2_complete_remediation_authorized",
-    "contract": "v1.1 after drift preflight",
+      "gate": "gate_1_2",
+      "status": "gate_1_2_complete_remediation_authorized",
+      "contract": "v1.1 after drift preflight",
       "certification_status": "not_started_setup_only"
     },
     {

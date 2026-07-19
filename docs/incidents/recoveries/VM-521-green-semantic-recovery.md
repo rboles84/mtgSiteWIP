@@ -235,3 +235,71 @@ REMEDIATION AUTHORIZED
 Rationale: Green has sufficient local official source evidence to remediate, but it is not Contract v1.1-ready because all claims lack semantic roles and bounded evidence locations, support/governance/rules/Scryfall rows enter canonical proof chains, G provenance has null canonical IDs, chatbot mismatch guidance lacks evidence mapping, VM-377 stores a stale repository locator, preview copy is semantically generic, mechanics/support material contaminates active proof chains, and the required Green semantic fixture is absent.
 
 Gate 3+4 must preserve frozen fields, optional-field absences, native IDs, raw U/B collision object-with-`pairs` structure/order, generated U/B collision order, lateral targets, calibration, scoring/golden-path absences, and Table Talk exclusion while assigning roles, adding evidence scopes, isolating support records, repairing stable canonical IDs and stale locators, rebuilding generated artifacts, creating fixtures from generated truth, validating exact chain/candidate-scope behavior, and avoiding generic/nature/mechanics/neighbor overfit.
+
+## 13. Gate 3+4 Remediation Record
+
+Status: COMPLETE
+
+Implementation commits:
+
+- Superseded candidate: `83123037f619472a4d2834e124311df691281a53`
+- Final candidate: `45e323cde853ee5058b71c819f080ab4025597ce`
+
+What changed:
+
+- Assigned Green semantic roles: `green_claim_0002` through `green_claim_0007` are `substantive_claim`; `green_claim_0001` and `green_claim_0008` are `support_record`.
+- Added bounded evidence locations, evidence scopes, local digest anchors, and direct-source paraphrases for all substantive claims.
+- Isolated governance, rules, Scryfall, and Commander support so they do not prove Green identity, placement, public copy, recruiter guidance, fixtures, or semantic provenance.
+- Repaired the stale VM-377 source locator to `docs/kanban/done/VM-377-mono-gold-source-intake-planning.md`.
+- Remediated Green profile, placement, support boundaries, mismatch evidence mappings, and generated artifacts.
+- Added `research/fixtures/semantic-readiness/green.semantic-fixtures.json` with core, pressure, nearest-collision, required-neighbor, and provenance fixtures.
+- Updated Green preview source and embedded generated consumer to: `Green accepts a role within the web of life and lets inherent nature unfold. Its growth is patient, purposeful, and wary of mistaking every change for wisdom.`
+
+Frozen-field reconciliation:
+
+- Placement summary text, confidence absence, required positive terms, minimum hits, broad match penalty, strengthen/suppress lists, false-positive guardrail, lateral targets, raw object-with-`pairs` collision shape, raw/generated U then B collision order, native IDs, scoring/golden-path absence, and calibration note are preserved.
+- First candidate `83123037f619472a4d2834e124311df691281a53` is superseded because candidate-scope correctly flagged `data/raw-factions/green/green.placement.json#/chatbot_guidance/calibration_note` as a forbidden calibration-field change.
+- Replacement candidate `45e323cde853ee5058b71c819f080ab4025597ce` restores the frozen calibration note and regenerates the affected consumers.
+
+## 14. Gate 5 Candidate Record
+
+Candidate SHA: `45e323cde853ee5058b71c819f080ab4025597ce`
+
+Candidate parent chain:
+
+- Gate 1+2 governance base: `332ab81ffcfa461df1109e89709d47907e7c0032`
+- Superseded candidate: `83123037f619472a4d2834e124311df691281a53`
+- Replacement candidate: `45e323cde853ee5058b71c819f080ab4025597ce`
+
+Candidate scope result:
+
+- `node research/validate-semantic-candidate-scope.mjs --base=332ab81ffcfa461df1109e89709d47907e7c0032 --target=HEAD --identity=G` exited 1 with only the documented Green display-source exception:
+  - `identity candidate modified non-identity path data/identity-layers.json`
+  - `unrelated or global data/factions.json content changed`
+- Manual reconciliation confirms the changed source path is `data/identity-layers.json#/expressions/G/preview_text` and the generated embedded consumer is `data/factions.json#/identity_layers/expressions/G/preview_text`; both contain the exact same remediated Green preview text above.
+
+Gate 5 is candidate-created only. No independent review, approval, certification, semantically_ready status, program-base advancement, Excel update, original-main modification, VM-522 work, push, PR, or merge occurred.
+
+## 15. Post-Candidate Validation
+
+Commands run after final candidate creation:
+
+| Command | Exit | Result |
+|---|---:|---|
+| `npm.cmd run build:factions` | 0 | Built 37 placement records and regenerated placement model, provenance, and recruiter context. |
+| Build idempotence file-hash check after rerun | 0 | `build idempotence ok`. |
+| Green drift invariant script | 0 | Role counts, locators, support isolation, frozen calibration, collision order, fixtures, provenance, preview equality, and recruiter context passed. |
+| `node research/audit-semantic-readiness.mjs --targets=G` | 0 | 8 claims; 6 substantive, 2 support, 0 unclassified; 20 reference sites; 0 missing references. |
+| `node research/validate-semantic-readiness.mjs --targets=G` | 0 | Semantic readiness validation passed for G. |
+| `npm.cmd run test:semantic-readiness` | 0 | Contract, candidate-scope unit tests, fixture validation, and provenance check passed. |
+| `npm.cmd run test:placement` | 0 | 37 factions, 37 golden paths passed. |
+| `npm.cmd run test:faction-context-isolation` | 0 | Faction context isolation helper tests passed. |
+| `npm.cmd run test:source-generated` | 0 | Passed with existing JESKAI and MARDU model-owned inhibitor warnings. |
+| `npm.cmd test` | 0 | Full project test suite passed; 226 parser cases and supporting suites passed. |
+| `git diff --check` | 0 | No whitespace errors. |
+
+## 16. Current Decision
+
+CANDIDATE CREATED - AWAITING INDEPENDENT REVIEW
+
+Green / G is not approved, not certified, and not semantically_ready. Only exact candidate SHA `45e323cde853ee5058b71c819f080ab4025597ce` may proceed to independent review.
