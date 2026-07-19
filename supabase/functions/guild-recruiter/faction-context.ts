@@ -753,6 +753,9 @@ export const FACTION_CONTEXT = {
       "deliberation so heavy that action never starts",
       "power calculus with no emotional center",
       "natural destiny over immediate desire",
+      "Jeskai-like technique, discipline, deliberation, or principles driving expression more than Red feeling-to-action",
+      "Jund-like instinct, appetite, survival, or strength replacing Red freedom, loyalty, and consequence pressure",
+      "Naya-like communal vitality, nature, or creature reverence replacing Red immediate lived feeling",
       "chaos, damage, or anger without feeling or freedom"
     ],
     "inhibitor_traps": [
@@ -762,6 +765,9 @@ export const FACTION_CONTEXT = {
       "power calculus with no emotional center",
       "natural destiny over immediate desire",
       "card names, creature types, or mechanics treated as Red philosophy proof",
+      "Jeskai-like technique, discipline, deliberation, or principles driving expression more than Red feeling-to-action",
+      "Jund-like instinct, appetite, survival, or strength replacing Red freedom, loyalty, and consequence pressure",
+      "Naya-like communal vitality, nature, or creature reverence replacing Red immediate lived feeling",
       "chaos, damage, or anger without feeling or freedom"
     ],
     "lateral_inhibition_targets": [

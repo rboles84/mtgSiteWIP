@@ -372,6 +372,60 @@
       "unsupported_certainty_to_avoid": "Do not choose Red merely for instinct, elements, or survival urgency."
     },
     {
+      "fixture_id": "red_exclude_jeskai",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "JESKAI",
+      "scenario": "Jeskai-like readings share Red action, passion, freedom, or expression but resolve through technique, discipline, deliberation, principles, or purpose before motion.",
+      "intended_interpretation": "Exclude or keep Red adjacent for JESKAI unless mono-Red feeling-to-action leads without Jeskai's technique, principle, or deliberative method.",
+      "evidence_claim_ids": [
+        "red_claim_0003",
+        "red_claim_0005",
+        "red_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red action and expression from Jeskai disciplined technique, thought, deliberation, and principle-bound purpose.",
+      "unsupported_certainty_to_avoid": "Do not choose Red merely for passion, expression, spellslinger texture, or a plan that includes action."
+    },
+    {
+      "fixture_id": "red_exclude_jund",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "JUND",
+      "scenario": "Jund-like readings share Red instinct, appetite, action, strength, conflict, or embodied response but resolve through survival pressure or predatory hierarchy.",
+      "intended_interpretation": "Exclude or keep Red adjacent for JUND unless mono-Red freedom, loyalty, and consequence-aware lived feeling lead without Jund survival or strength as the center.",
+      "evidence_claim_ids": [
+        "red_claim_0003",
+        "red_claim_0005",
+        "red_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red impulse and action from Jund survival, appetite, predation, hierarchy, and strength-first conflict.",
+      "unsupported_certainty_to_avoid": "Do not choose Red merely for creatures, combat, raw instinct, appetite, survival urgency, or force."
+    },
+    {
+      "fixture_id": "red_exclude_naya",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "NAYA",
+      "scenario": "Naya-like readings share Red vitality, joy, feeling, attachment, loyalty, freedom, or embodied life but center community, nature, wonder, or creature reverence.",
+      "intended_interpretation": "Exclude or keep Red adjacent for NAYA unless mono-Red immediate felt action leads without Naya communal vitality, natural grandeur, or creature-centered reverence.",
+      "evidence_claim_ids": [
+        "red_claim_0003",
+        "red_claim_0005",
+        "red_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025"
+      ],
+      "defensible_guidance": "Separate Red loyalty, joy, and lived feeling from Naya community, nature, shared vitality, and creature reverence.",
+      "unsupported_certainty_to_avoid": "Do not choose Red merely for vitality, nature, creatures, joy, attachment, or community warmth."
+    },
+    {
       "fixture_id": "red_exclude_wubrg",
       "fixture_type": "required_neighbor_exclusion",
       "neighbor": "WUBRG",
