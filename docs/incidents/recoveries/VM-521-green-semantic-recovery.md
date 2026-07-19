@@ -1,6 +1,6 @@
 # VM-521 Green Semantic Recovery
 
-Status: Independent review returned REQUEST CHANGES; remediation required.
+Status: Fresh provenance re-review approved exact candidate; certification not started.
 
 Identity: Green / G
 Contract: CRIT-001 semantic-readiness Contract v1.1
@@ -318,4 +318,14 @@ Approval blocker:
   - `outputs/mtgdata-v3-enhanced/MTGDataV3_Enhanced_identity_fix.xlsx.inspect.ndjson`
   - `outputs/mtgdata-v3-enhanced/MTGDataV3_Enhanced.xlsx.inspect.ndjson`
 
-The review verified that the final candidate corrected the superseded calibration-note drift, preserved frozen fields, established 6 substantive and 2 support claims, produced 25 G provenance entries with no null IDs/hashes, and kept the two explicit provenance fixtures exact. Approval remains blocked by DRIFT-015/017 consumed-surface preview propagation. A later replacement candidate is required; do not amend `45e323cde853ee5058b71c819f080ab4025597ce`.
+The review verified that the final candidate corrected the superseded calibration-note drift, preserved frozen fields, established 6 substantive and 2 support claims, produced 25 G provenance entries with no null IDs/hashes, and kept the two explicit provenance fixtures exact. Approval was blocked at the time by the then-current active-consumer classification. The review remains preserved and is not overwritten.
+
+## 18. Fresh Provenance Re-Review Record
+
+Re-review record: `docs/incidents/recoveries/VM-521-green-provenance-rereview.md`
+Re-review-record SHA: `PENDING_VM521_GREEN_PROVENANCE_REREVIEW_SHA`
+Decision: `APPROVE EXACT SHA 45e323cde853ee5058b71c819f080ab4025597ce`
+
+The original rejection review at `2f776d8ac488a349db0975094b5948a9c3183674` remains preserved as a valid decision under the evidence available at that time. The later provenance/dependency audit `aa62ac329c53c00016dcce749b5fea73b145d4ac` independently established that the two top-level workbook inspect NDJSON files are `DEBUG_INSPECTION_ARTIFACT` and the two audited matrix JS files are `HISTORICAL_ARCHIVE`, with active runtime/build/test preview defect count 0 for those four files.
+
+Fresh re-review reran Green Contract v1.1, provenance, fixture, frozen-field, calibration, neighbor, preview, active-consumer, candidate-scope, and validation controls. No blocker/high/medium/low findings remain. Green is approved for exact candidate `45e323cde853ee5058b71c819f080ab4025597ce` but is not certified, not `semantically_ready`, program base remains `9f0a076a369cba23dc9bc19231b0efcddd21afe5`, certified count remains 19, Wave 3 remains 4 of 5, VM-522 remains untouched, and Excel remains untouched.

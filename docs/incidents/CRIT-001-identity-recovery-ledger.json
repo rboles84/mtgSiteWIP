@@ -45,12 +45,12 @@
       "current_identity_hold": {
         "identity": "G",
         "card": "VM-521",
-        "state": "request_changes_remediation_required",
+        "state": "approved_awaiting_certification",
         "branch": "codex/vm-521-green-semantic-recovery",
         "prior_identity_certified": "R",
         "prior_identity_certification": "9f0a076a369cba23dc9bc19231b0efcddd21afe5",
-        "authorized_next_scope": "VM-521 Green exact candidate 45e323cde853ee5058b71c819f080ab4025597ce received independent review decision REQUEST CHANGES. Only a later replacement candidate that remediates stale active Green preview consumers is authorized. Approval, certification, semantically_ready status, program-base advancement, VM-522 work, original-main modification, Excel update, push, PR, and merge remain unauthorized.",
-        "required_next_milestone": "Create a later VM-521 Green replacement candidate for stale active preview consumers and submit that exact SHA for fresh independent review; do not amend rejected candidate 45e323cde853ee5058b71c819f080ab4025597ce and do not certify.",
+        "authorized_next_scope": "VM-521 Green exact candidate 45e323cde853ee5058b71c819f080ab4025597ce received fresh provenance re-review decision APPROVE EXACT SHA 45e323cde853ee5058b71c819f080ab4025597ce after audit aa62ac329c53c00016dcce749b5fea73b145d4ac resolved the prior active-consumer classification. Only a later certification window for the exact approved candidate is authorized. Semantically_ready status, program-base advancement, VM-522 work, original-main modification, Excel update, push, PR, and merge remain unauthorized here.",
+        "required_next_milestone": "Certify exact approved Green candidate 45e323cde853ee5058b71c819f080ab4025597ce in a separate certification workflow; do not amend the candidate, do not reuse failed repair attempt ba2845a6ce6958f11de9c1d4935221c0fdda0ab0, and do not start VM-522.",
         "drift_preflight_started": true,
         "drift_preflight_completed": true,
         "drift_preflight_record": "docs/incidents/recoveries/VM-521-green-drift-preflight.md",
@@ -62,12 +62,12 @@
         "candidate_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
         "certification": {
           "performed": false,
-          "status": "not_certified_request_changes",
+          "status": "not_started_approved_awaiting_certification",
           "certification_sha": null
         },
-        "green_semantic_data_inspected": "independent_review_request_changes",
+        "green_semantic_data_inspected": "fresh_provenance_rereview_approved",
         "program_base": "9f0a076a369cba23dc9bc19231b0efcddd21afe5",
-        "updated_at": "2026-07-18T22:21:00-06:00",
+        "updated_at": "2026-07-19T09:17:00-06:00",
         "superseded_candidate_shas": [
           "83123037f619472a4d2834e124311df691281a53"
         ],
@@ -82,7 +82,23 @@
           "record": "docs/incidents/recoveries/VM-521-green-independent-review.md",
           "review_record_sha": "PENDING_VM521_GREEN_REVIEW_RECORD_SHA",
           "reviewed_candidate_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
-          "blocker": "Stale Gate 1+2 Green preview remains in active JS/export consumed surfaces."
+          "blocker": "Stale Gate 1+2 Green preview was treated as active JS/export consumed-surface drift under the evidence available to the original review."
+        },
+        "provenance_rereview": {
+          "status": "complete",
+          "decision": "APPROVE EXACT SHA 45e323cde853ee5058b71c819f080ab4025597ce",
+          "record": "docs/incidents/recoveries/VM-521-green-provenance-rereview.md",
+          "review_record_sha": "PENDING_VM521_GREEN_PROVENANCE_REREVIEW_SHA",
+          "reviewed_candidate_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
+          "governing_audit_sha": "aa62ac329c53c00016dcce749b5fea73b145d4ac",
+          "active_runtime_build_test_defect_count": 0,
+          "disputed_file_classifications": {
+            "outputs/mtgdata-v3-enhanced/MTGDataV3_Enhanced_identity_fix.xlsx.inspect.ndjson": "DEBUG_INSPECTION_ARTIFACT",
+            "outputs/mtgdata-v3-enhanced/MTGDataV3_Enhanced.xlsx.inspect.ndjson": "DEBUG_INSPECTION_ARTIFACT",
+            "assets/js/newindex-color-matrix.js": "HISTORICAL_ARCHIVE",
+            "assets/js/color-matrix-radar.js": "HISTORICAL_ARCHIVE"
+          },
+          "findings": "No blocker/high/medium/low findings remain; stale disputed-file strings are non-blocking repository-hygiene debt."
         }
       },
       "pre_simic_sequence": [
