@@ -38,7 +38,7 @@
       key: "G",
       name: "Green",
       title: "Green - Growth through Acceptance",
-      text: "Green values nature, instinct, tradition, interdependence, and belonging. It asks what you already are beneath the noise.",
+      text: "Green accepts a role within the web of life and lets inherent nature unfold. Its growth is patient, purposeful, and wary of mistaking every change for wisdom.",
       hex: "#63e58d",
       data: [62, 48, 38, 58, 98]
     }
