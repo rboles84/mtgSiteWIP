@@ -7383,6 +7383,116 @@
     {
       "identity_key": "G",
       "canonical_file": "data/raw-factions/green/green.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "green_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_content_hash": "sha256:b97806c9c9eee2cfa2f821b3aaa2ed8f4bfdd953a2d588bc1e781db0f6110416",
+      "evidence_claim_ids": [
+        "green_claim_0005"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/G",
+        "data/placement-model.json#/factions/G",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/G"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "G",
+      "canonical_file": "data/raw-factions/green/green.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "green_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_content_hash": "sha256:84d8fb4c658787d0f2ecd6b7a9e8667cdbad39e6163ff058d2ae5bec087e4531",
+      "evidence_claim_ids": [
+        "green_claim_0005"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/G",
+        "data/placement-model.json#/factions/G",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/G"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "G",
+      "canonical_file": "data/raw-factions/green/green.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "green_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_content_hash": "sha256:96bedf59f9fe17f4d218b28bc12a135686d8dc1790e3e2c33c4a73aaa58a6a16",
+      "evidence_claim_ids": [
+        "green_claim_0005"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/G",
+        "data/placement-model.json#/factions/G",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/G"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "G",
+      "canonical_file": "data/raw-factions/green/green.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "green_guidance_how_to_recognize_mismatch_3_gate3",
+      "canonical_content_hash": "sha256:6e989a129fbb75a89503339ab3d5277c66ff7b2f1014ef3f714a6926a89ef44d",
+      "evidence_claim_ids": [
+        "green_claim_0005"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/G",
+        "data/placement-model.json#/factions/G",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/G"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "G",
+      "canonical_file": "data/raw-factions/green/green.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/4",
+      "canonical_id": "green_guidance_how_to_recognize_mismatch_4_gate3",
+      "canonical_content_hash": "sha256:3744a117e6a943a5569317b445e5df879165c735b8e64506b4cdd7caa2e5e477",
+      "evidence_claim_ids": [
+        "green_claim_0007"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "MECH-CP-2021",
+        "MECH-CP-2021-CHG"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/G",
+        "data/placement-model.json#/factions/G",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/G"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "G",
+      "canonical_file": "data/raw-factions/green/green.placement.json",
       "canonical_pointer": "/collision_guidance/pairs/0",
       "canonical_id": "green_vs_blue",
       "canonical_content_hash": "sha256:301dc1883a563cf06c3fd454d083c47fc6dc41e383ba7917dc0504f104958058",
@@ -7450,12 +7560,9 @@
       "canonical_content_hash": "sha256:4a4c6021007185fdcfd8a75c53e4da300a06286486e3e291f19b0840932378bf",
       "evidence_claim_ids": [
         "green_claim_0003",
-        "green_claim_0004",
-        "green_claim_0007"
+        "green_claim_0004"
       ],
       "evidence_source_ids": [
-        "MECH-CP-2021",
-        "MECH-CP-2021-CHG",
         "MONO-G-2015",
         "MONO-G-2025"
       ],
@@ -7493,15 +7600,11 @@
       "canonical_id": "green_disc_004",
       "canonical_content_hash": "sha256:92804ebdded3d2aac03cd3a0ccd27dc5f0ea565ba2eaa26659439a7edfc957b6",
       "evidence_claim_ids": [
-        "green_claim_0007",
-        "green_claim_0008"
+        "green_claim_0007"
       ],
       "evidence_source_ids": [
         "MECH-CP-2021",
-        "MECH-CP-2021-CHG",
-        "RULES-CR",
-        "SCRYFALL-G-2026-06-13",
-        "VM-377"
+        "MECH-CP-2021-CHG"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/G",
@@ -7574,25 +7677,142 @@
     },
     {
       "identity_key": "G",
-      "canonical_file": "data/raw-factions/green/green.profile.json",
-      "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:6b466d466499913108bb5c5704001d49bcfa1b4c8b36dd6d99bb603c69af4107",
+      "canonical_file": "data/raw-factions/green/green.placement.json",
+      "canonical_pointer": "/placement_summary",
+      "canonical_id": "green_placement_summary_gate3",
+      "canonical_content_hash": "sha256:41091210c62882257a227b485dca26fb13a5a75961030edac2498312e69d02c4",
       "evidence_claim_ids": [
-        "green_claim_0001",
         "green_claim_0002",
         "green_claim_0003",
         "green_claim_0004",
         "green_claim_0005",
         "green_claim_0006",
-        "green_claim_0007",
-        "green_claim_0008"
+        "green_claim_0007"
       ],
       "evidence_source_ids": [
         "MECH-CP-2021",
         "MECH-CP-2021-CHG",
         "MONO-G-2015",
-        "MONO-G-2025",
+        "MONO-G-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/G",
+        "data/placement-model.json#/factions/G",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/G"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "G",
+      "canonical_file": "data/raw-factions/green/green.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "green_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_content_hash": "sha256:74f2a6ddd59d4adf1341422177f5f97e054a62eee08e61f242a3f68325c05cb2",
+      "evidence_claim_ids": [
+        "green_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/G",
+        "data/placement-model.json#/factions/G",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/G"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "G",
+      "canonical_file": "data/raw-factions/green/green.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "green_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_content_hash": "sha256:8b6f0251d28713fcc70c24d3419239db64dd90055c968887003693761de05e8e",
+      "evidence_claim_ids": [
+        "green_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/G",
+        "data/placement-model.json#/factions/G",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/G"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "G",
+      "canonical_file": "data/raw-factions/green/green.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "green_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_content_hash": "sha256:1bc701e029072174d9dbc034a826e40410b0e633a84ef92f28b132ff5deed48e",
+      "evidence_claim_ids": [
+        "green_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/G",
+        "data/placement-model.json#/factions/G",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/G"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "G",
+      "canonical_file": "data/raw-factions/green/green.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "green_guidance_how_to_recognize_mismatch_3_gate3",
+      "canonical_content_hash": "sha256:dc1ad632ebe54d8843cbe59635a99991f5e854f6a3de1d26e5b6db5c07ee891e",
+      "evidence_claim_ids": [
+        "green_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/G",
+        "data/placement-model.json#/factions/G",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/G"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "G",
+      "canonical_file": "data/raw-factions/green/green.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "green_guidance_how_to_recognize_mismatch_4_gate3",
+      "canonical_content_hash": "sha256:d36f2b4fa91c66dfaf256b97501fae51314128525531e369fedf5f0bfea14f19",
+      "evidence_claim_ids": [
+        "green_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "MECH-CP-2021",
+        "MECH-CP-2021-CHG"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/G",
+        "data/placement-model.json#/factions/G",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/G"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "G",
+      "canonical_file": "data/raw-factions/green/green.profile.json",
+      "canonical_pointer": "/commander_compass/identity_basis",
+      "canonical_id": "green_commander_compass_identity_basis_support_gate3",
+      "canonical_content_hash": "sha256:b346081ccdb8363d7816300e40f50c2657c208e6453bc4defd76b59050e1cbf4",
+      "evidence_claim_ids": [
+        "green_claim_0008"
+      ],
+      "evidence_use": "auxiliary_support",
+      "evidence_source_ids": [
         "RULES-CR",
         "SCRYFALL-G-2026-06-13",
         "VM-377"
@@ -7607,9 +7827,33 @@
     {
       "identity_key": "G",
       "canonical_file": "data/raw-factions/green/green.profile.json",
+      "canonical_pointer": "/core_identity",
+      "canonical_id": "green_core_identity_gate3",
+      "canonical_content_hash": "sha256:3dc922f097d0dfa2e8bb0b77b0899ac6c7d5750fadd82551de5414563e9875ab",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0003",
+        "green_claim_0004",
+        "green_claim_0005",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/G",
+        "data/placement-model.json#/factions/G",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/G"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "G",
+      "canonical_file": "data/raw-factions/green/green.profile.json",
       "canonical_pointer": "/mechanics",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:687079735faa6c6a5b37ed6bb182b26892bfe3328f33b349da190e79b4c50416",
+      "canonical_id": "green_mechanics_gate3",
+      "canonical_content_hash": "sha256:9f9b8db40125da2a22f5095451374d00b0ef09b541f90f09e1e81ea251ab2b1d",
       "evidence_claim_ids": [
         "green_claim_0007"
       ],
@@ -7628,26 +7872,44 @@
       "identity_key": "G",
       "canonical_file": "data/raw-factions/green/green.profile.json",
       "canonical_pointer": "/profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:01fa1d23547af8c2c65d88036842cab8dca41783353c527e2efc7b104409ad08",
+      "canonical_id": "green_profile_gate3",
+      "canonical_content_hash": "sha256:cb1ce07d88c8b965e8d990020359826fb1644ebb8cc1713bfa819d6473349157",
       "evidence_claim_ids": [
-        "green_claim_0001",
         "green_claim_0002",
         "green_claim_0003",
         "green_claim_0004",
         "green_claim_0005",
         "green_claim_0006",
-        "green_claim_0007",
-        "green_claim_0008"
+        "green_claim_0007"
       ],
       "evidence_source_ids": [
         "MECH-CP-2021",
         "MECH-CP-2021-CHG",
         "MONO-G-2015",
-        "MONO-G-2025",
-        "RULES-CR",
-        "SCRYFALL-G-2026-06-13",
-        "VM-377"
+        "MONO-G-2025"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/G",
+        "data/placement-model.json#/factions/G",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/G"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "G",
+      "canonical_file": "data/raw-factions/green/green.profile.json",
+      "canonical_pointer": "/site_surface",
+      "canonical_id": "green_site_surface_gate3",
+      "canonical_content_hash": "sha256:e2560eb49432ff2bfd2e2f5fa4e41c443dadb9dad7f6883b1d545e0bbcf2eb9b",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0003",
+        "green_claim_0004",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/G",

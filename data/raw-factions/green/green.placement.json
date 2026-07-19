@@ -5,11 +5,28 @@
   "based_on_profile_version": "1.0.0",
   "faction_id": "green",
   "faction_name": "Green",
-  "last_updated": "2026-06-13",
+  "last_updated": "2026-07-18",
   "color_identity": [
     "G"
   ],
-  "placement_summary": "Green is a strong fit when a user wants nature, instinct, belonging, growth, tradition, interdependence, and acceptance of an innate role in a larger living system.",
+  "placement_summary": {
+    "id": "green_placement_summary_gate3",
+    "text": "Green is a strong fit when a user wants nature, instinct, belonging, growth, tradition, interdependence, and acceptance of an innate role in a larger living system.",
+    "short_description": "Green placement is source-bounded by acceptance of natural role, web-of-life responsibility, instinct, tradition, and slow purposeful evolution rather than generic nature, growth, destiny, harmony, or mechanics.",
+    "best_fit_summary": "wants to discover a place in the living web, trust innate capacities, and let growth unfold from natural role rather than blank-slate reinvention",
+    "poor_fit_summary": "wants generic nature, life, growth, healing, harmony, creature/ramp mechanics, or destiny language without Green's source-backed acceptance, role, web, and over-reliance tension",
+    "interpretation_warning": "Placement data is Vox Mana interpretation and should be treated as a matching heuristic, not direct Wizards canon or a claim that nature is automatically morally correct.",
+    "claim_ids": [
+      "green_claim_0002",
+      "green_claim_0003",
+      "green_claim_0004",
+      "green_claim_0005",
+      "green_claim_0006"
+    ],
+    "evidence_claim_ids": [
+      "green_claim_0007"
+    ]
+  },
   "moral_and_psychological_profile": {
     "primary_drive": "Discover and fulfill the role that already belongs to the self within nature's larger web.",
     "ethical_pressure": "Acceptance can become complacency when the existing system is mistaken for the only possible truth.",
@@ -86,7 +103,8 @@
     "The answer says Green because it mentions growth but has no nature, role, or interdependence.",
     "The answer treats Green as anti-change in every form rather than slow natural evolution.",
     "The answer trusts instinct only as impulse, not as place in a larger system.",
-    "The answer rejects every tool as unnatural even when adaptation is needed."
+    "The answer rejects every tool as unnatural even when adaptation is needed.",
+    "Selesnya order, Golgari decay economy, Simic optimization, Gruul revolt, Witherbloom harvesting, Quandrix formal pattern, or shard/wedge community/survival/control explains the answer better than mono-Green natural role."
   ],
   "good_fit_indicators": [
     "acceptance of role or innate nature",
@@ -107,7 +125,11 @@
     "self-interest and power over responsibility",
     "law as imposed order over natural relation",
     "emotion-first action without rootedness",
-    "growth used as generic positivity without nature or role"
+    "growth used as generic positivity without nature or role",
+    "Selesnya-like ordered community, collective obligation, or institutional harmony replacing Green natural role",
+    "Golgari/Witherbloom-like decay, harvesting, or resource conversion replacing Green living web responsibility",
+    "Simic/Quandrix-like directed improvement, engineering, proof, or formal pattern replacing Green acceptance of inherent nature",
+    "Gruul/Jund/Naya/Temur/Sultai/Abzan-like wild revolt, predation, communal vitality, wilderness clan method, exploitation, or family institution replacing mono-Green role and interdependence"
   ],
   "discriminator_questions": [
     {
@@ -139,8 +161,7 @@
       ],
       "claim_ids": [
         "green_claim_0003",
-        "green_claim_0004",
-        "green_claim_0007"
+        "green_claim_0004"
       ],
       "confidence": "High",
       "lateral_inhibition": false
@@ -172,8 +193,7 @@
         "COLORLESS"
       ],
       "claim_ids": [
-        "green_claim_0007",
-        "green_claim_0008"
+        "green_claim_0007"
       ],
       "confidence": "High",
       "lateral_inhibition": false
@@ -183,7 +203,13 @@
     "rule": "Green is acceptance, nature, instinct, role, and interdependence, not generic growth or life gain alone.",
     "review_triggers": [
       "generic growth",
+      "nature-knows-best or destiny slogans",
       "anti-change oversimplification",
+      "Selesnya overlap where belonging is ordered community, unity, shared purpose, or collective obligation rather than natural role",
+      "Golgari or Witherbloom overlap where death, decay, harvesting, or resource conversion replaces Green living interdependence",
+      "Simic or Quandrix overlap where adaptation, optimization, experiment, proof, or formal pattern replaces Green acceptance of inherent nature",
+      "Gruul overlap where instinct becomes anti-civilization rage or embodied revolt rather than rooted belonging",
+      "Bant, Jund, Naya, Temur, Sultai, or Abzan overlap where hierarchy, predation, communal vitality, clan survival, exploitation, or family institution explains the answer better than mono-Green",
       "candidate commander claims",
       "rules language used as exact legality without CR verification"
     ],
@@ -254,13 +280,55 @@
       "self-interest and power over responsibility",
       "law as imposed order over natural relation",
       "emotion-first action without rootedness",
-      "candidate commander names treated as verified evidence"
+      "card names, creature types, lands, ramp, or mechanics treated as Green philosophy proof"
     ],
-    "calibration_note": "Green should rise only when nature, instinct, role, interdependence, or natural growth drive the answer.",
+    "calibration_note": "Green should rise only when nature, instinct, role, interdependence, natural growth, tradition, or web-of-life responsibility drive the answer.",
     "never_claim_as_canon": [
       "Green opposes every kind of change.",
       "Vox Mana placement axes are official Wizards color-pie scores.",
       "A candidate mono-green commander is Layer 2 support without current verification."
     ]
-  }
+  },
+  "semantic_guidance_evidence": [
+    {
+      "guidance_id": "green_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "green_guidance_how_to_recognize_mismatch_0_gate3",
+      "evidence_claim_ids": [
+        "green_claim_0005"
+      ]
+    },
+    {
+      "guidance_id": "green_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "green_guidance_how_to_recognize_mismatch_1_gate3",
+      "evidence_claim_ids": [
+        "green_claim_0005"
+      ]
+    },
+    {
+      "guidance_id": "green_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "green_guidance_how_to_recognize_mismatch_2_gate3",
+      "evidence_claim_ids": [
+        "green_claim_0005"
+      ]
+    },
+    {
+      "guidance_id": "green_guidance_how_to_recognize_mismatch_3_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "green_guidance_how_to_recognize_mismatch_3_gate3",
+      "evidence_claim_ids": [
+        "green_claim_0005"
+      ]
+    },
+    {
+      "guidance_id": "green_guidance_how_to_recognize_mismatch_4_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/4",
+      "canonical_id": "green_guidance_how_to_recognize_mismatch_4_gate3",
+      "evidence_claim_ids": [
+        "green_claim_0007"
+      ]
+    }
+  ]
 }

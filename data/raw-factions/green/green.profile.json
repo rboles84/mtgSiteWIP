@@ -11,29 +11,27 @@
   "plane_or_setting": "The Color Pie",
   "last_updated": "2026-06-13",
   "source_review_date": "2026-06-13",
-  "last_full_review": "2026-06-13",
+  "last_full_review": "2026-07-18",
   "core_identity": {
-    "short_form": "Green seeks acceptance through nature, instinct, growth, and belonging.",
-    "summary": "Green is the mono-color expression of the living web: it trusts that the world already has shape, that beings have innate roles, and that strength comes from growing into what is natural.",
-    "philosophy": "Green asks what is already true beneath ambition, artifice, and fear. It does not reject change, but it prefers change that unfolds from nature's own pattern.",
-    "central_tension": "Green can offer deep belonging and primal power, but it can over-trust the existing system or become helpless when its chosen creatures and natural tools fail.",
+    "short_form": "Green seeks acceptance through natural role, interdependence, and slow purposeful becoming.",
+    "summary": "Green is the mono-color expression of the living web: it trusts that the world already has shape, that beings are born with roles and capacities, and that strength comes from growing into what is natural rather than redesigning the self from nothing.",
+    "philosophy": "Green asks what is already true beneath ambition, artifice, and fear. It does not reject every change, but it trusts change that unfolds from nature's own pattern over forced reinvention.",
+    "central_tension": "Green can offer deep belonging and primal power, but it can over-trust the existing system or mistake what is familiar for what is natural.",
     "claim_ids": [
-      "green_claim_0001",
       "green_claim_0002",
       "green_claim_0003",
       "green_claim_0004",
       "green_claim_0005",
-      "green_claim_0006",
-      "green_claim_0007",
-      "green_claim_0008"
-    ]
+      "green_claim_0006"
+    ],
+    "id": "green_core_identity_gate3"
   },
   "structure": {
     "identity_class": "mono_color",
     "present_colors": [
       "G"
     ],
-    "primary_anchor": "acceptance through nature and interdependence",
+    "primary_anchor": "acceptance through natural role and interdependence",
     "support_texture": [
       "creatures",
       "lands and mana",
@@ -47,7 +45,7 @@
   },
   "great_tension": {
     "gift": "Green remembers that life already belongs to something larger than itself.",
-    "shadow": "Green can call a system natural when it is only familiar.",
+    "shadow": "Green can call a familiar system natural when it is only familiar.",
     "boundary": "This is Vox Mana synthesis from official color philosophy, not official psychometrics."
   },
   "mechanics": {
@@ -63,19 +61,20 @@
     "summary": "Green commonly plays through creatures, mana, lands, growth, combat through bodies, and natural answers to artificial or airborne threats.",
     "claim_ids": [
       "green_claim_0007"
-    ]
+    ],
+    "id": "green_mechanics_gate3"
   },
   "site_surface": {
     "display_name": "Green",
-    "short_summary": "Green trusts nature, instinct, growth, and the web of life to reveal what each being already is.",
-    "one_sentence_identity": "Green is the root that knows the forest before the map is drawn.",
-    "tagline": "Become what you already are.",
+    "short_summary": "Green trusts natural role, instinct, interdependence, and patient growth within the web of life.",
+    "one_sentence_identity": "Green is the root that finds its strength by belonging to the living web.",
+    "tagline": "Become what the seed already knows.",
     "primary_tags": [
       "nature",
       "acceptance",
-      "growth",
+      "role",
       "instinct",
-      "belonging"
+      "interdependence"
     ],
     "secondary_tags": [
       "creatures",
@@ -83,6 +82,13 @@
       "mana",
       "trample",
       "fight"
+    ],
+    "id": "green_site_surface_gate3",
+    "claim_ids": [
+      "green_claim_0002",
+      "green_claim_0003",
+      "green_claim_0004",
+      "green_claim_0006"
     ]
   },
   "data_quality": {
@@ -91,29 +97,29 @@
     "placement_eligible": true,
     "preview_eligible": true,
     "commander_candidate_status": "current_scryfall_verified_support_only_2026-06-13",
-    "notes": "Three native mono-green commander rows are retained only after current Scryfall verification on 2026-06-13. Deck links remain intentionally empty; these rows do not prove color philosophy or Vox Mana placement axes."
+    "notes": "Three native mono-green commander rows are retained only after current Scryfall verification on 2026-06-13. Deck links remain intentionally empty; these rows do not prove color philosophy, Vox Mana placement axes, public copy, recruiter guidance, fixtures, semantic readiness, or canonical provenance chains."
   },
   "research_limitations": [
     "Do not treat Green as anti-change in an absolute sense; sources frame Green as accepting slow, purposeful natural evolution.",
     "Do not treat Vox Mana placement axes as official Wizards scores.",
     "Do not promote candidate commanders without current card/legal verification.",
-    "Do not use generated runtime files as claim evidence."
+    "Do not use generated runtime files as claim evidence.",
+    "Do not use the Commander format overview in place of CR 903.3/903.4 for exact eligibility or color-identity boundaries."
   ],
   "profile": {
-    "overview": "Green is the color of acceptance, nature, growth, instinct, interdependence, tradition, and belonging.",
-    "philosophy": "Green believes the world is already a living system and that peace comes from discovering and fulfilling one's place in it.",
-    "core_tension": "Green's certainty in the natural order can become over-reliance on familiar systems or resistance to needed change.",
+    "overview": "Green is the color of acceptance, natural role, interdependence, instinct, tradition, and patient growth.",
+    "philosophy": "Green believes the world is already a living system and that fulfillment comes from discovering and inhabiting one's place within it.",
+    "core_tension": "Green's certainty in the natural order can become over-reliance on familiar systems or resistance to needed adaptation.",
     "mechanics_and_play_pattern": "Green commonly expresses itself through creatures, lands, mana, counters, Fight/Bite, reach, trample, and natural answers to artifacts, enchantments, and fliers.",
     "claim_ids": [
-      "green_claim_0001",
       "green_claim_0002",
       "green_claim_0003",
       "green_claim_0004",
       "green_claim_0005",
       "green_claim_0006",
-      "green_claim_0007",
-      "green_claim_0008"
-    ]
+      "green_claim_0007"
+    ],
+    "id": "green_profile_gate3"
   },
   "deck_links": [],
   "research_links": {
@@ -157,7 +163,13 @@
       "supporting_source_ids": [
         "RULES-CR",
         "SCRYFALL-G-2026-06-13"
-      ]
+      ],
+      "evidence_use": "auxiliary_support",
+      "claim_ids": [
+        "green_claim_0008"
+      ],
+      "auxiliary_support_boundary": "Commander/card verification is auxiliary support only; it cannot independently prove Green identity, placement, recruiter guidance, semantic readiness, public copy, fixtures, or canonical provenance chains.",
+      "id": "green_commander_compass_identity_basis_support_gate3"
     },
     "native_fit_commanders": [
       {
@@ -186,7 +198,8 @@
         ],
         "source_basis": "SCRYFALL-G-2026-06-13; RULES-CR; green_claim_0008",
         "confidence": "Current Scryfall verification on 2026-06-13; support-only",
-        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence.",
+        "auxiliary_support_boundary": "Current Scryfall and Commander-rules support only; not color philosophy, profile-axis, public-copy, recruiter-guidance, fixture, or semantic-readiness proof."
       },
       {
         "exact_card_name": "Selvala, Heart of the Wilds",
@@ -214,7 +227,8 @@
         ],
         "source_basis": "SCRYFALL-G-2026-06-13; RULES-CR; green_claim_0008",
         "confidence": "Current Scryfall verification on 2026-06-13; support-only",
-        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence.",
+        "auxiliary_support_boundary": "Current Scryfall and Commander-rules support only; not color philosophy, profile-axis, public-copy, recruiter-guidance, fixture, or semantic-readiness proof."
       },
       {
         "exact_card_name": "Goreclaw, Terror of Qal Sisma",
@@ -242,7 +256,8 @@
         ],
         "source_basis": "SCRYFALL-G-2026-06-13; RULES-CR; green_claim_0008",
         "confidence": "Current Scryfall verification on 2026-06-13; support-only",
-        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence."
+        "caution_notes": "Verified for name, mono-color identity, legendary creature type line, and Commander legality in Scryfall on 2026-06-13. This is support/navigation, not color philosophy evidence.",
+        "auxiliary_support_boundary": "Current Scryfall and Commander-rules support only; not color philosophy, profile-axis, public-copy, recruiter-guidance, fixture, or semantic-readiness proof."
       }
     ],
     "weird_stretch_commanders": [],

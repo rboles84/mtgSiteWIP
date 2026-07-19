@@ -17,13 +17,15 @@
       "evidence_rows": [
         "green_evid_0013"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "support_record",
+      "evidence_use_restriction": "Project governance/source-intake boundary only. Retain as metadata/history; do not use as authoritative proof for Green identity, placement, recruiter guidance, semantic readiness, public copy, fixtures, or provenance chains."
     },
     {
       "claim_id": "green_claim_0002",
       "faction_id": "green",
       "claim_type": "philosophy_goal",
-      "statement": "Green seeks acceptance of the natural order, believing the world already contains the answers and each being has an innate role.",
+      "statement": "Green seeks acceptance of what is: the natural order, the web of life, and the innate role each being is born to discover and fulfill.",
       "canon_status": "Official color philosophy, paraphrased",
       "source_ids": [
         "MONO-G-2015",
@@ -39,13 +41,32 @@
         "G2025-a",
         "G2025-b"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-G-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/14_green.md#G2015-Q1;G2015-Q1b",
+          "bounded_paraphrase": "The 2015 official Green article frames Green's end goal as acceptance of the natural order, recognizing the role one was born into, and learning how the self fits inside nature's interconnected web.",
+          "evidence_scope": "canonical identity",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-G-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/14_green.md#G2025-a;G2025-b",
+          "bounded_paraphrase": "The 2025 Green voice centers accepting what is, treating nature as an elegant system, and understanding each being's role in the web of life.",
+          "evidence_scope": "canonical identity",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "green_claim_0003",
       "faction_id": "green",
       "claim_type": "philosophy_means",
-      "statement": "Green's means are nature itself: creatures, land, growth, life, interdependence, instinct, and slow purposeful evolution rather than artificial reinvention.",
+      "statement": "Green's means are participation in nature's interconnected system: discovering innate skills, finding a role through lived trial and error, helping others find theirs, and trusting slow purposeful evolution rather than blank-slate reinvention.",
       "canon_status": "Official color philosophy, paraphrased",
       "source_ids": [
         "MONO-G-2015",
@@ -60,13 +81,32 @@
         "G2025-c",
         "G2025-d"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-G-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/14_green.md#G2015-Q2",
+          "bounded_paraphrase": "The 2015 article identifies Green's means as nature itself, including bonds with creatures, ties to land, life, rejuvenation, and growth, while staying grounded in natural systems rather than artificial reinvention.",
+          "evidence_scope": "preferred method",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-G-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/14_green.md#G2025-c;G2025-d",
+          "bounded_paraphrase": "The 2025 Green voice supports observing nature, recognizing function and interdependence, accepting slow purposeful evolution, discovering innate skills, finding one's role, and helping others find theirs.",
+          "evidence_scope": "preferred method",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "green_claim_0004",
       "faction_id": "green",
       "claim_type": "cares_and_threats",
-      "statement": "Green centers life, growth, nature, truth, community, interdependence, the past, wisdom, ancestry, tradition, instinct, animals, and plants; it despises unnatural change and artificial disruption.",
+      "statement": "Green centers life, growth, nature, reality, community, interdependence, past wisdom, ancestry, tradition, instinct, animals, and plants; it resists unnatural change that creates what was not meant to exist or disrupts ecosystems, while allowing slow purposeful evolution.",
       "canon_status": "Official color philosophy, paraphrased",
       "source_ids": [
         "MONO-G-2015",
@@ -81,13 +121,32 @@
         "G2015-Q4",
         "G2025-c"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-G-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/14_green.md#G2015-Q3;G2015-Q4",
+          "bounded_paraphrase": "The 2015 article bounds Green's cares around life, growth, nature, truth, community, interdependence, past wisdom, ancestry, tradition, instinct, animals, and plants, and bounds its hatred of change to unnatural creation and inorganic ecosystem disruption.",
+          "evidence_scope": "thematic boundary",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-G-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/14_green.md#G2025-c",
+          "bounded_paraphrase": "The 2025 Green voice explicitly says Green is not anti-change, but treats change as slow, purposeful evolution measured over lifetimes.",
+          "evidence_scope": "thematic boundary",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "green_claim_0005",
       "faction_id": "green",
       "claim_type": "relationships",
-      "statement": "Green is allied with White through community and with Red through instinct and wild action; it opposes Blue's nurture/artifice/future obsession and Black's self-interest/free-will assertion against natural responsibility.",
+      "statement": "Green is allied with White through community and faith in the group and with Red through instinct and the wild side; it opposes Blue's blank-slate artifice and future-facing proof demands and Black's self-interest/free-will assertion against responsibility and purpose within the web.",
       "canon_status": "Official color philosophy, paraphrased",
       "source_ids": [
         "MONO-G-2015",
@@ -105,13 +164,32 @@
         "G2025-g",
         "G2025-h"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-G-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/14_green.md#G2015-Q5;G2015-Q5b",
+          "bounded_paraphrase": "The 2015 article defines Green's allied and enemy relationships through White community, Red instinct and wildness, Blue nurture/artifice/future orientation, and Black power, free will, and ecosystem harm.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-G-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/14_green.md#G2025-e;G2025-f;G2025-g;G2025-h",
+          "bounded_paraphrase": "The 2025 Green voice distinguishes Green from Blue's proof and blank-slate model, Black's rejection of responsibility and purpose, Red's impulse, and White's rules and equal treatment while preserving community, spirituality, instinct, and unique natural roles.",
+          "evidence_scope": "required-neighbor boundary",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "green_claim_0006",
       "faction_id": "green",
       "claim_type": "strength_weakness",
-      "statement": "Green's strength is certainty in the natural system, interconnection, primal power, mana, and creatures; its weakness is over-reliance on that system, especially when creatures are not the answer.",
+      "statement": "Green's strength is certainty in the natural system, interconnection, primal power, mana, and efficient creatures; its weakness is over-reliance on what it cares about, especially when creatures or familiar natural systems are not the answer.",
       "canon_status": "Official color philosophy, paraphrased",
       "source_ids": [
         "MONO-G-2015",
@@ -125,7 +203,26 @@
         "G2015-Q6",
         "G2025-i"
       ],
-      "confidence": "High"
+      "confidence": "High",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MONO-G-2015",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/14_green.md#G2015-Q6",
+          "bounded_paraphrase": "The 2015 article identifies Green's strength as unwavering belief in the natural system, primal power, and large creatures, and its weakness as over-reliance on that system, especially creatures.",
+          "evidence_scope": "pressure behavior",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MONO-G-2025",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/14_green.md#G2025-i",
+          "bounded_paraphrase": "The 2025 Green voice repeats certainty, focus, mana, and efficient creatures as strength while identifying over-reliance on cared-about tools, especially creatures, as weakness.",
+          "evidence_scope": "pressure behavior",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "green_claim_0007",
@@ -150,7 +247,26 @@
         "CHG-cardfilter"
       ],
       "confidence": "Medium-High",
-      "notes": "Mechanical Color Pie 2021 is a dated snapshot and must be overridden by later verified sources where needed."
+      "notes": "Mechanical Color Pie 2021 is a dated snapshot and must be overridden by later verified sources where needed.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "MECH-CP-2021",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/20_mechanical_color_pie_2021.md#MECH-removal;MECH-carddraw;MECH-antiflying",
+          "bounded_paraphrase": "The mechanical color pie digest bounds Green's mechanical texture around creature-mediated removal such as Fight/Bite and anti-flying tools, creature-tied card draw/filtering, lands, mana, counters, trample, reach, and artifact/enchantment answers.",
+          "evidence_scope": "mechanic-specific",
+          "interpretation_level": "direct-source-support"
+        },
+        {
+          "source_id": "MECH-CP-2021-CHG",
+          "locator_type": "local-digest-anchor",
+          "locator": "docs/research/mono_upgrade/21_mechanical_color_pie_2021_changes.md#CHG-carddraw;CHG-cardfilter;CHG-counter-ability",
+          "bounded_paraphrase": "The 2021 changes digest records Green card draw moving to creature-tied only, Green card filtering becoming primary for lands/creatures, and Green counter-ability access moving to tertiary mostly against artifacts.",
+          "evidence_scope": "mechanic-specific",
+          "interpretation_level": "direct-source-support"
+        }
+      ]
     },
     {
       "claim_id": "green_claim_0008",
@@ -172,7 +288,9 @@
         "CR-903.3",
         "CR-903.4"
       ],
-      "confidence": "High for current Scryfall support status; not evidence for popularity, price, metagame, deck quality, philosophy, or profile axes"
+      "confidence": "High for current Scryfall support status; not evidence for popularity, price, metagame, deck quality, philosophy, or profile axes",
+      "semantic_role": "support_record",
+      "evidence_use_restriction": "Commander rules, project governance, and Scryfall verification support navigation only. Retain for Commander Compass metadata; do not use as authoritative proof for Green identity, placement, recruiter guidance, semantic readiness, public copy, fixtures, or canonical provenance chains."
     }
   ]
 }

@@ -1,0 +1,459 @@
+{
+  "identity_key": "G",
+  "contract_version": "v1.1",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "green_core_role_web_identity",
+      "fixture_type": "core_inclusion",
+      "scenario": "A clear Green case wants nature, instinct, belonging, growth, tradition, interdependence, and acceptance of an innate role in a larger living system.",
+      "intended_interpretation": "Green inclusion requires acceptance of inherent nature and place within a living whole, with growth unfolding through interdependence rather than self-invention alone.",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0003",
+        "green_claim_0004",
+        "green_claim_0005",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Use Green when nature, acceptance, instinct, role, tradition, growth, and interdependence lead together.",
+      "unsupported_certainty_to_avoid": "Do not certify Green from nature words, land cards, creature growth, tradition, or community aesthetics without source-bounded role-web acceptance logic."
+    },
+    {
+      "fixture_id": "green_pressure_overreliance_and_adaptation",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "A mature Green reading asks whether trust in nature and tradition is wise belonging or whether it is refusing needed adaptation.",
+      "intended_interpretation": "Green pressure behavior preserves acceptance, instinct, and continuity while testing overreliance on inherited roles, slow adaptation, and refusal to over-control life.",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0003",
+        "green_claim_0004",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Ask what role is already present, how growth should unfold, and whether resistance to change is source-bounded continuity or unsupported stagnation.",
+      "unsupported_certainty_to_avoid": "Do not flatten Green into anti-change certainty or into every kind of growth, improvement, adaptation, or biological theme."
+    },
+    {
+      "fixture_id": "green_nearest_collision_role_web",
+      "fixture_type": "nearest_collision_ambiguity",
+      "scenario": "The answer names nature, growth, land, instinct, tradition, belonging, community, biology, survival, or creatures and could be mono-Green, a Green pair, a Strixhaven college, a shard, a wedge, five-color, colorless, or generic Green overfit.",
+      "intended_interpretation": "Resolve ambiguity by asking whether mono-Green acceptance of innate role within the web of life leads rather than a neighbor-specific institution, experimentation, appetite, emotion, duty, optimization, or broader color identity.",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0003",
+        "green_claim_0005",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Keep Green adjacent until the answer ties growth and nature to acceptance, role, interdependence, and tradition rather than shared Green vocabulary or mechanics.",
+      "unsupported_certainty_to_avoid": "Do not choose Green only because a neighbor also uses nature, land, life, growth, creatures, graveyards, biology, clan instinct, or community."
+    },
+    {
+      "fixture_id": "green_exclude_generic_g_overfit",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_G_OVERFIT",
+      "scenario": "Generic Green overfit uses nature, growth, land, creatures, ramp, +1/+1 counters, biology, ecology, harmony, or tradition as enough by themselves.",
+      "intended_interpretation": "Exclude or keep Green adjacent for GENERIC_G_OVERFIT unless source-bounded acceptance, inherent role, instinct, interdependence, and slow purposeful growth lead.",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0003",
+        "green_claim_0004",
+        "green_claim_0006",
+        "green_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "MECH-CP-2021",
+        "MECH-CP-2021-CHG",
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Require source-bounded role-web logic, not Green-coded vocabulary, mechanics, or aesthetics alone.",
+      "unsupported_certainty_to_avoid": "Do not use shared vocabulary or mechanics as sufficient Green proof."
+    },
+    {
+      "fixture_id": "green_exclude_w",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "W",
+      "scenario": "Mono-white-like readings center peace, law, shared duty, protection, civic order, or group safety more than acceptance of natural role.",
+      "intended_interpretation": "Exclude or keep Green adjacent for W unless Green role, instinct, and living interdependence lead over White structure or duty.",
+      "evidence_claim_ids": [
+        "green_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Separate Green belonging in the living web from White obligation to a shared order.",
+      "unsupported_certainty_to_avoid": "Do not choose Green only because the answer mentions community or harmony."
+    },
+    {
+      "fixture_id": "green_exclude_u",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "U",
+      "scenario": "Mono-blue-like readings center planning, study, possibility, self-improvement, technology, optimization, or control of outcomes before acceptance.",
+      "intended_interpretation": "Exclude or keep Green adjacent for U unless Green acceptance of what already is leads over Blue perfectibility and self-invention.",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0003",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Separate Green trust in inherent nature from Blue improvement through knowledge and planning.",
+      "unsupported_certainty_to_avoid": "Do not choose Green merely because the answer studies nature, patterns, or living systems."
+    },
+    {
+      "fixture_id": "green_exclude_b",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "B",
+      "scenario": "Mono-black-like readings center self-interest, ambition, leverage, survival, resource conversion, or cost accounting over belonging to a natural role.",
+      "intended_interpretation": "Exclude or keep Green adjacent for B unless Green acceptance and interdependence lead over Black agency and exploitation of resources.",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0005",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Separate Green natural belonging from Black self-directed power and opportunism.",
+      "unsupported_certainty_to_avoid": "Do not choose Green only because the answer mentions survival, death, hunger, or resources."
+    },
+    {
+      "fixture_id": "green_exclude_r",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "R",
+      "scenario": "Mono-red-like readings center emotion, impulse, speed, freedom, anger, expression, or immediate action more than patient natural unfolding.",
+      "intended_interpretation": "Exclude or keep Green adjacent for R unless Green instinct and growth are grounded in natural role rather than Red feeling-to-action freedom.",
+      "evidence_claim_ids": [
+        "green_claim_0003",
+        "green_claim_0004",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Separate Green instinctive belonging from Red immediacy and emotional release.",
+      "unsupported_certainty_to_avoid": "Do not choose Green solely because the answer uses instinct or wildness."
+    },
+    {
+      "fixture_id": "green_exclude_wg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WG",
+      "scenario": "Selesnya-like readings center organized harmony, collective purpose, stewardship, and shared civic life as much as nature.",
+      "intended_interpretation": "Exclude or keep mono-Green adjacent for WG unless natural role and acceptance lead without White-style order, duty, or collective institution becoming central.",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Separate mono-Green living interdependence from Selesnya communal order and coordinated stewardship.",
+      "unsupported_certainty_to_avoid": "Do not choose mono-Green only because Selesnya also uses growth, life, harmony, and belonging."
+    },
+    {
+      "fixture_id": "green_exclude_bg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BG",
+      "scenario": "Golgari-like readings center death, decay, grave-soil, hunger, recycling bodies, survival economics, or life-death resource loops.",
+      "intended_interpretation": "Exclude or keep mono-Green adjacent for BG unless acceptance and natural role lead without Black appetite, leverage, or death-as-resource becoming central.",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0005",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Separate Green life-web acceptance from Golgari survival, decay, and resource conversion.",
+      "unsupported_certainty_to_avoid": "Do not choose mono-Green solely for graveyard ecology, death renewal, pests, rot, or survival resource loops."
+    },
+    {
+      "fixture_id": "green_exclude_ug",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UG",
+      "scenario": "Simic-like readings center biology as design space, adaptation, experiment, public health, optimization, or improvement through knowledge.",
+      "intended_interpretation": "Exclude or keep mono-Green adjacent for UG unless Green acceptance of inherent nature leads without Blue experimentation and directed improvement taking over.",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0003",
+        "green_claim_0004",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Separate Green growth as natural unfolding from Simic or Quandrix improvement through knowledge, pattern, and method.",
+      "unsupported_certainty_to_avoid": "Do not choose mono-Green only because the answer involves biology, adaptation, math in nature, or living systems."
+    },
+    {
+      "fixture_id": "green_exclude_rg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "RG",
+      "scenario": "Gruul-like readings center wild anger, clan territory, direct action, resistance to civilization, or emotional attachment to lost wilds.",
+      "intended_interpretation": "Exclude or keep mono-Green adjacent for RG unless Green acceptance and tradition lead without Red immediacy, anger, or freedom becoming equal drivers.",
+      "evidence_claim_ids": [
+        "green_claim_0003",
+        "green_claim_0005",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Separate Green instinctive belonging from Gruul wild motion and Red-Green territorial action.",
+      "unsupported_certainty_to_avoid": "Do not choose mono-Green solely for wilderness, clans, rage against cities, or creature aggression."
+    },
+    {
+      "fixture_id": "green_exclude_witherbloom",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WITHERBLOOM",
+      "scenario": "Witherbloom-like readings center life-death craft, medicine, decay, pests, nourishment, harvesting, and resource exchange.",
+      "intended_interpretation": "Exclude or keep Green adjacent for WITHERBLOOM unless mono-Green role-web acceptance leads without Black-Green life-death craft and resource exchange taking over.",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0005",
+        "green_claim_0006",
+        "green_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "MECH-CP-2021",
+        "MECH-CP-2021-CHG",
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Separate mono-Green nature from Witherbloom medicinal, pest, decay, and exchange motifs.",
+      "unsupported_certainty_to_avoid": "Do not choose mono-Green only because the case uses plants, pests, healing, decay, or life force."
+    },
+    {
+      "fixture_id": "green_exclude_quandrix",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "QUANDRIX",
+      "scenario": "Quandrix-like readings center mathematics, pattern, scale, equations, and impossible geometry applied to nature.",
+      "intended_interpretation": "Exclude or keep Green adjacent for QUANDRIX unless mono-Green acceptance leads without Blue-Green mathematical method or reality modeling becoming central.",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0003",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Separate Green trust in inherent nature from Quandrix nature-as-equation framing.",
+      "unsupported_certainty_to_avoid": "Do not choose mono-Green only because the answer loves patterns in nature, scale, or biological systems."
+    },
+    {
+      "fixture_id": "green_exclude_bant",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BANT",
+      "scenario": "Bant-like readings combine community, honor, public trust, discipline, and excellence answerable to the whole.",
+      "intended_interpretation": "Exclude or keep Green adjacent for BANT unless mono-Green role and interdependence lead without White-Blue public trust and disciplined excellence defining the reading.",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Separate Green natural belonging from Bant civic trust, discipline, and championed excellence.",
+      "unsupported_certainty_to_avoid": "Do not choose mono-Green only because the case includes honorable community or a living whole."
+    },
+    {
+      "fixture_id": "green_exclude_jund",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "JUND",
+      "scenario": "Jund-like readings combine appetite, survival, feeling, threat response, death, and instinct stripped of overthinking.",
+      "intended_interpretation": "Exclude or keep Green adjacent for JUND unless mono-Green acceptance leads without Black appetite and Red feeling/action sharing the center.",
+      "evidence_claim_ids": [
+        "green_claim_0003",
+        "green_claim_0005",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Separate Green instinct from Jund survival appetite and immediate action under pressure.",
+      "unsupported_certainty_to_avoid": "Do not choose mono-Green solely for predation, appetite, survival, or instinctive combat."
+    },
+    {
+      "fixture_id": "green_exclude_naya",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "NAYA",
+      "scenario": "Naya-like readings combine Green life and place with White care for the whole and Red immediate loyalty or instinct.",
+      "intended_interpretation": "Exclude or keep Green adjacent for NAYA unless mono-Green acceptance and role lead without White care and Red immediacy becoming equal drivers.",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0005",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Separate mono-Green natural role from Naya larger-life belonging shaped by care and loyal immediacy.",
+      "unsupported_certainty_to_avoid": "Do not choose mono-Green only because the answer loves big life, family, wilderness, or creature-centered loyalty."
+    },
+    {
+      "fixture_id": "green_exclude_temur",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "TEMUR",
+      "scenario": "Temur-like readings combine terrain, instinct, memory, mental fortitude, cold survival, and action when the signal becomes clear.",
+      "intended_interpretation": "Exclude or keep Green adjacent for TEMUR unless mono-Green role-web acceptance leads without Blue pattern-listening and Red action sharing the center.",
+      "evidence_claim_ids": [
+        "green_claim_0003",
+        "green_claim_0005",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Separate Green instinct and place from Temur terrain-tested signal, fortitude, and action.",
+      "unsupported_certainty_to_avoid": "Do not choose mono-Green only because the answer invokes wilderness survival, terrain, memory, or earned strength."
+    },
+    {
+      "fixture_id": "green_exclude_sultai",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SULTAI",
+      "scenario": "Sultai-like readings combine opportunity, power, bodies, death, land, poison, renewal, secrecy, and planned conversion.",
+      "intended_interpretation": "Exclude or keep Green adjacent for SULTAI unless mono-Green acceptance leads without Black opportunity and Blue selective planning converting nature into power.",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0005",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Separate Green life-web belonging from Sultai using bodies, death, land, and renewal as power materials.",
+      "unsupported_certainty_to_avoid": "Do not choose mono-Green solely for land, bodies, poison, renewal, or dead usefulness."
+    },
+    {
+      "fixture_id": "green_exclude_abzan",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ABZAN",
+      "scenario": "Abzan-like readings combine endurance, family, ancestor memory, house duty, survival cost, and continuity through roots, bodies, and time.",
+      "intended_interpretation": "Exclude or keep Green adjacent for ABZAN unless mono-Green natural role leads without White duty and Black survival cost becoming central.",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0005",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Separate Green continuity from Abzan family duty, ancestor memory, and costly endurance.",
+      "unsupported_certainty_to_avoid": "Do not choose mono-Green only because the case names roots, ancestors, endurance, or family tradition."
+    },
+    {
+      "fixture_id": "green_exclude_wubrg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WUBRG",
+      "scenario": "Five-color readings let every color speak and treat Green belonging as one voice among structure, knowledge, ambition, motion, and life.",
+      "intended_interpretation": "Exclude or keep Green adjacent for WUBRG unless mono-Green role-web acceptance is the leading grammar rather than a full five-color negotiation.",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0003",
+        "green_claim_0004",
+        "green_claim_0005",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Separate mono-Green identity from WUBRG plural negotiation among all five colors.",
+      "unsupported_certainty_to_avoid": "Do not choose mono-Green only because Green is present in a broader five-color answer."
+    },
+    {
+      "fixture_id": "green_exclude_colorless",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "COLORLESS",
+      "scenario": "Colorless readings center artifact detachment, void, Wastes, or action outside colored appetite and colored identity grammar.",
+      "intended_interpretation": "Exclude or keep Green adjacent for COLORLESS unless living nature, role, instinct, growth, and interdependence actually lead.",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0003",
+        "green_claim_0004",
+        "green_claim_0006",
+        "green_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "MECH-CP-2021",
+        "MECH-CP-2021-CHG",
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "defensible_guidance": "Separate Green living-system belonging from colorless detachment, artifact identity, void, or color-stripped logic.",
+      "unsupported_certainty_to_avoid": "Do not choose Green solely because a colorless deck contains lands, large creatures, or generic growth language."
+    },
+    {
+      "fixture_id": "green_core_identity_provenance",
+      "fixture_type": "provenance",
+      "canonical_file": "data/raw-factions/green/green.profile.json",
+      "canonical_pointer": "/core_identity",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0003",
+        "green_claim_0004",
+        "green_claim_0005",
+        "green_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "scenario": "The Green profile core_identity field is generated from source-bounded Green philosophy claims only.",
+      "intended_interpretation": "Generated provenance must exactly chain Green core identity to substantive philosophy claims and their authoritative philosophy sources.",
+      "defensible_guidance": "Keep core_identity supported by MONO-G-2015 and MONO-G-2025 through green_claim_0002 through green_claim_0006.",
+      "unsupported_certainty_to_avoid": "Do not allow support-only, Commander-rule, Scryfall, or mechanic-only evidence to prove the core identity."
+    },
+    {
+      "fixture_id": "green_placement_summary_provenance",
+      "fixture_type": "provenance",
+      "canonical_file": "data/raw-factions/green/green.placement.json",
+      "canonical_pointer": "/placement_summary",
+      "evidence_claim_ids": [
+        "green_claim_0002",
+        "green_claim_0003",
+        "green_claim_0004",
+        "green_claim_0005",
+        "green_claim_0006",
+        "green_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "MECH-CP-2021",
+        "MECH-CP-2021-CHG",
+        "MONO-G-2015",
+        "MONO-G-2025"
+      ],
+      "scenario": "The Green placement_summary field is generated from source-bounded philosophy claims with mechanics used only as auxiliary evidence.",
+      "intended_interpretation": "Generated provenance must exactly chain Green placement summary to substantive philosophy claims plus the bounded mechanics claim where mechanics evidence is explicitly auxiliary.",
+      "defensible_guidance": "Keep placement_summary supported by green_claim_0002 through green_claim_0007 with mechanics isolated to evidence_claim_ids or auxiliary proof.",
+      "unsupported_certainty_to_avoid": "Do not let mechanics, rules, Scryfall, or Commander legality replace philosophical Green evidence."
+    }
+  ]
+}

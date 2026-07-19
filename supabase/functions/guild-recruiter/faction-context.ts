@@ -978,7 +978,11 @@ export const FACTION_CONTEXT = {
       "self-interest and power over responsibility",
       "law as imposed order over natural relation",
       "emotion-first action without rootedness",
-      "growth used as generic positivity without nature or role"
+      "growth used as generic positivity without nature or role",
+      "Selesnya-like ordered community, collective obligation, or institutional harmony replacing Green natural role",
+      "Golgari/Witherbloom-like decay, harvesting, or resource conversion replacing Green living web responsibility",
+      "Simic/Quandrix-like directed improvement, engineering, proof, or formal pattern replacing Green acceptance of inherent nature",
+      "Gruul/Jund/Naya/Temur/Sultai/Abzan-like wild revolt, predation, communal vitality, wilderness clan method, exploitation, or family institution replacing mono-Green role and interdependence"
     ],
     "inhibitor_traps": [
       "Rejects natural limits, inherited strengths, or patient growth unless life can be redesigned into a preferred shape.",
@@ -986,8 +990,12 @@ export const FACTION_CONTEXT = {
       "self-interest and power over responsibility",
       "law as imposed order over natural relation",
       "emotion-first action without rootedness",
-      "candidate commander names treated as verified evidence",
-      "growth used as generic positivity without nature or role"
+      "card names, creature types, lands, ramp, or mechanics treated as Green philosophy proof",
+      "growth used as generic positivity without nature or role",
+      "Selesnya-like ordered community, collective obligation, or institutional harmony replacing Green natural role",
+      "Golgari/Witherbloom-like decay, harvesting, or resource conversion replacing Green living web responsibility",
+      "Simic/Quandrix-like directed improvement, engineering, proof, or formal pattern replacing Green acceptance of inherent nature",
+      "Gruul/Jund/Naya/Temur/Sultai/Abzan-like wild revolt, predation, communal vitality, wilderness clan method, exploitation, or family institution replacing mono-Green role and interdependence"
     ],
     "lateral_inhibition_targets": [
       "WG",
@@ -1025,8 +1033,7 @@ export const FACTION_CONTEXT = {
         ],
         "evidence_claim_ids": [
           "green_claim_0003",
-          "green_claim_0004",
-          "green_claim_0007"
+          "green_claim_0004"
         ],
         "confidence": "High",
         "lateral_inhibition": false
@@ -1058,8 +1065,7 @@ export const FACTION_CONTEXT = {
           "COLORLESS"
         ],
         "evidence_claim_ids": [
-          "green_claim_0007",
-          "green_claim_0008"
+          "green_claim_0007"
         ],
         "confidence": "High",
         "lateral_inhibition": false
@@ -1081,9 +1087,9 @@ export const FACTION_CONTEXT = {
         "self-interest and power over responsibility",
         "law as imposed order over natural relation",
         "emotion-first action without rootedness",
-        "candidate commander names treated as verified evidence"
+        "card names, creature types, lands, ramp, or mechanics treated as Green philosophy proof"
       ],
-      "calibration_note": "Green should rise only when nature, instinct, role, interdependence, or natural growth drive the answer.",
+      "calibration_note": "Green should rise only when nature, instinct, role, interdependence, natural growth, tradition, or web-of-life responsibility drive the answer.",
       "never_claim_as_canon": [
         "Green opposes every kind of change.",
         "Vox Mana placement axes are official Wizards color-pie scores.",

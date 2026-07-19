@@ -11230,7 +11230,13 @@
           "supporting_source_ids": [
             "RULES-CR",
             "SCRYFALL-G-2026-06-13"
-          ]
+          ],
+          "evidence_use": "auxiliary_support",
+          "claim_ids": [
+            "green_claim_0008"
+          ],
+          "auxiliary_support_boundary": "Commander/card verification is auxiliary support only; it cannot independently prove Green identity, placement, recruiter guidance, semantic readiness, public copy, fixtures, or canonical provenance chains.",
+          "id": "green_commander_compass_identity_basis_support_gate3"
         },
         "native_fit_commanders": [
           {
@@ -25227,7 +25233,7 @@
         "preview_order": 4,
         "preview_label": "Green",
         "preview_title": "Green — Growth through Acceptance",
-        "preview_text": "Green values nature, instinct, tradition, interdependence, and belonging. It asks what you already are beneath the noise.",
+        "preview_text": "Green accepts a role within the web of life and lets inherent nature unfold. Its growth is patient, purposeful, and wary of mistaking every change for wisdom.",
         "preview_hex": "#63e58d",
         "preview_scores": {
           "order": 62,

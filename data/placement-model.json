@@ -1072,10 +1072,10 @@
         "G"
       ],
       "identity": {
-        "summary": "Green is the mono-color expression of the living web: it trusts that the world already has shape, that beings have innate roles, and that strength comes from growing into what is natural.",
-        "philosophy": "Green asks what is already true beneath ambition, artifice, and fear. It does not reject change, but it prefers change that unfolds from nature's own pattern.",
-        "central_tension": "Green can offer deep belonging and primal power, but it can over-trust the existing system or become helpless when its chosen creatures and natural tools fail.",
-        "display_tagline": "Become what you already are.",
+        "summary": "Green is the mono-color expression of the living web: it trusts that the world already has shape, that beings are born with roles and capacities, and that strength comes from growing into what is natural rather than redesigning the self from nothing.",
+        "philosophy": "Green asks what is already true beneath ambition, artifice, and fear. It does not reject every change, but it trusts change that unfolds from nature's own pattern over forced reinvention.",
+        "central_tension": "Green can offer deep belonging and primal power, but it can over-trust the existing system or mistake what is familiar for what is natural.",
+        "display_tagline": "Become what the seed already knows.",
         "mechanics": "Green commonly plays through creatures, mana, lands, growth, combat through bodies, and natural answers to artificial or airborne threats."
       },
       "layered_identity": {
@@ -1140,7 +1140,11 @@
         "self-interest and power over responsibility",
         "law as imposed order over natural relation",
         "emotion-first action without rootedness",
-        "growth used as generic positivity without nature or role"
+        "growth used as generic positivity without nature or role",
+        "Selesnya-like ordered community, collective obligation, or institutional harmony replacing Green natural role",
+        "Golgari/Witherbloom-like decay, harvesting, or resource conversion replacing Green living web responsibility",
+        "Simic/Quandrix-like directed improvement, engineering, proof, or formal pattern replacing Green acceptance of inherent nature",
+        "Gruul/Jund/Naya/Temur/Sultai/Abzan-like wild revolt, predation, communal vitality, wilderness clan method, exploitation, or family institution replacing mono-Green role and interdependence"
       ],
       "inhibitor_traps": [
         "Rejects natural limits, inherited strengths, or patient growth unless life can be redesigned into a preferred shape.",
@@ -1148,8 +1152,12 @@
         "self-interest and power over responsibility",
         "law as imposed order over natural relation",
         "emotion-first action without rootedness",
-        "candidate commander names treated as verified evidence",
-        "growth used as generic positivity without nature or role"
+        "card names, creature types, lands, ramp, or mechanics treated as Green philosophy proof",
+        "growth used as generic positivity without nature or role",
+        "Selesnya-like ordered community, collective obligation, or institutional harmony replacing Green natural role",
+        "Golgari/Witherbloom-like decay, harvesting, or resource conversion replacing Green living web responsibility",
+        "Simic/Quandrix-like directed improvement, engineering, proof, or formal pattern replacing Green acceptance of inherent nature",
+        "Gruul/Jund/Naya/Temur/Sultai/Abzan-like wild revolt, predation, communal vitality, wilderness clan method, exploitation, or family institution replacing mono-Green role and interdependence"
       ],
       "discriminator_questions": [
         {
@@ -1181,8 +1189,7 @@
           ],
           "evidence_claim_ids": [
             "green_claim_0003",
-            "green_claim_0004",
-            "green_claim_0007"
+            "green_claim_0004"
           ],
           "confidence": "High",
           "lateral_inhibition": false
@@ -1214,8 +1221,7 @@
             "COLORLESS"
           ],
           "evidence_claim_ids": [
-            "green_claim_0007",
-            "green_claim_0008"
+            "green_claim_0007"
           ],
           "confidence": "High",
           "lateral_inhibition": false
@@ -1231,7 +1237,13 @@
         {
           "review_triggers": [
             "generic growth",
+            "nature-knows-best or destiny slogans",
             "anti-change oversimplification",
+            "Selesnya overlap where belonging is ordered community, unity, shared purpose, or collective obligation rather than natural role",
+            "Golgari or Witherbloom overlap where death, decay, harvesting, or resource conversion replaces Green living interdependence",
+            "Simic or Quandrix overlap where adaptation, optimization, experiment, proof, or formal pattern replaces Green acceptance of inherent nature",
+            "Gruul overlap where instinct becomes anti-civilization rage or embodied revolt rather than rooted belonging",
+            "Bant, Jund, Naya, Temur, Sultai, or Abzan overlap where hierarchy, predation, communal vitality, clan survival, exploitation, or family institution explains the answer better than mono-Green",
             "candidate commander claims",
             "rules language used as exact legality without CR verification"
           ],
@@ -1248,7 +1260,13 @@
         {
           "review_triggers": [
             "generic growth",
+            "nature-knows-best or destiny slogans",
             "anti-change oversimplification",
+            "Selesnya overlap where belonging is ordered community, unity, shared purpose, or collective obligation rather than natural role",
+            "Golgari or Witherbloom overlap where death, decay, harvesting, or resource conversion replaces Green living interdependence",
+            "Simic or Quandrix overlap where adaptation, optimization, experiment, proof, or formal pattern replaces Green acceptance of inherent nature",
+            "Gruul overlap where instinct becomes anti-civilization rage or embodied revolt rather than rooted belonging",
+            "Bant, Jund, Naya, Temur, Sultai, or Abzan overlap where hierarchy, predation, communal vitality, clan survival, exploitation, or family institution explains the answer better than mono-Green",
             "candidate commander claims",
             "rules language used as exact legality without CR verification"
           ],
@@ -1279,9 +1297,9 @@
           "self-interest and power over responsibility",
           "law as imposed order over natural relation",
           "emotion-first action without rootedness",
-          "candidate commander names treated as verified evidence"
+          "card names, creature types, lands, ramp, or mechanics treated as Green philosophy proof"
         ],
-        "calibration_note": "Green should rise only when nature, instinct, role, interdependence, or natural growth drive the answer.",
+        "calibration_note": "Green should rise only when nature, instinct, role, interdependence, natural growth, tradition, or web-of-life responsibility drive the answer.",
         "never_claim_as_canon": [
           "Green opposes every kind of change.",
           "Vox Mana placement axes are official Wizards color-pie scores.",
@@ -1299,7 +1317,7 @@
         "profile_version": "1.0.0",
         "placement_model_version": "1.0.0",
         "source_review_date": "2026-06-13",
-        "claim_count": 8
+        "claim_count": 6
       }
     },
     "WU": {
