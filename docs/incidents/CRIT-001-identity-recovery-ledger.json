@@ -45,12 +45,12 @@
       "current_identity_hold": {
         "identity": "R",
         "card": "VM-520",
-      "state": "replacement_candidate_awaiting_independent_review",
+      "state": "approved_awaiting_certification",
         "branch": "codex/vm-520-red-semantic-recovery",
         "prior_identity_certified": "B",
       "prior_identity_certification": "1116786785dc4c5c8c1447dcad79c89e527657eb",
-      "authorized_next_scope": "VM-520 Red replacement candidate 6aefb2090ff20a361f7f3cd80515445036323158 remediates the prior REQUEST CHANGES blocker for missing JESKAI, JUND, and NAYA Red-local neighbor coverage. The only authorized next scope is fresh independent review of exact replacement candidate 6aefb2090ff20a361f7f3cd80515445036323158. Certification, semantically_ready transition, program-base advancement, VM-521 work, original-main modification, and Excel update remain unauthorized.",
-      "required_next_milestone": "Independent review of exact Red replacement candidate 6aefb2090ff20a361f7f3cd80515445036323158; do not certify or start VM-521 in this hold.",
+      "authorized_next_scope": "VM-520 Red replacement candidate 6aefb2090ff20a361f7f3cd80515445036323158 received independent review decision APPROVE EXACT SHA 6aefb2090ff20a361f7f3cd80515445036323158. The only authorized next scope is certification of that exact approved replacement candidate in a separate certification task. Program-base advancement, semantically_ready transition, VM-521 work, original-main modification, and Excel update remain unauthorized until certification.",
+      "required_next_milestone": "Certification of exact approved Red replacement candidate 6aefb2090ff20a361f7f3cd80515445036323158; do not start VM-521 in this hold.",
       "drift_preflight_started": true,
       "drift_preflight_completed": true,
       "drift_preflight_record": "docs/incidents/recoveries/VM-520-red-drift-preflight.md",
@@ -62,7 +62,7 @@
         "candidate_sha": "6aefb2090ff20a361f7f3cd80515445036323158",
         "rejected_candidate_sha": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
         "replacement_candidate_sha": "6aefb2090ff20a361f7f3cd80515445036323158",
-        "candidate_scope_result": "PASS - documented R display-source exception pending independent review",
+        "candidate_scope_result": "PASS - approved documented R display-source exception",
         "candidate_scope_exception_paths": [
           "data/identity-layers.json#/expressions/R/preview_text",
           "data/factions.json#/identity_layers/expressions/R/preview_text"
@@ -77,13 +77,25 @@
             "Missing Red-local testable neighbor coverage for prompt-required JESKAI, JUND, and NAYA in fixtures/collision/recruiter guidance."
           ]
         },
+        "replacement_independent_review": {
+          "performed": true,
+          "status": "approved_exact_sha",
+          "decision": "APPROVE EXACT SHA 6aefb2090ff20a361f7f3cd80515445036323158",
+          "review_record": "docs/incidents/recoveries/VM-520-red-replacement-independent-review.md",
+          "review_record_commit": "PENDING_VM520_RED_REPLACEMENT_REVIEW_RECORD_SHA",
+          "findings": [],
+          "non_blocking_observations": [
+            "Exact candidate-scope exits 1 only for the inherited documented R display-source exception at data/identity-layers.json and data/factions.json.",
+            "Known unrelated JESKAI/MARDU source-generated warnings remain unchanged."
+          ]
+        },
         "certification": {
           "performed": false,
           "status": "not_started",
           "certification_sha": null
         },
       "program_base": "1116786785dc4c5c8c1447dcad79c89e527657eb",
-      "updated_at": "2026-07-18T18:24:00-06:00"
+      "updated_at": "2026-07-18T18:57:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -3319,13 +3331,13 @@
       },
     "workflow": {
       "current_gate": "gate_5",
-      "status": "replacement_candidate_awaiting_independent_review",
+      "status": "approved_awaiting_certification",
         "started_at": "2026-07-18T16:24:00-06:00",
         "gate_entered_at": null,
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "R",
-      "primary_disposition": "VM-520 Red replacement candidate 6aefb2090ff20a361f7f3cd80515445036323158 remediates the prior REQUEST CHANGES blocker by adding Red-local JESKAI, JUND, and NAYA neighbor boundaries. Contract/provenance/fixture/frozen-field/preview controls remain preserved; candidate-scope exits 1 only for the documented R display-source exception. Red awaits fresh independent review and is not approved, not certified, and not semantically_ready. Program base remains 1116786785dc4c5c8c1447dcad79c89e527657eb.",
+      "primary_disposition": "VM-520 Red replacement candidate 6aefb2090ff20a361f7f3cd80515445036323158 remediates the prior REQUEST CHANGES blocker by adding Red-local JESKAI, JUND, and NAYA neighbor boundaries. Fresh independent review returned APPROVE EXACT SHA 6aefb2090ff20a361f7f3cd80515445036323158. Contract/provenance/fixture/frozen-field/preview controls remain preserved; candidate-scope exits 1 only for the documented R display-source exception. Red is approved but not certified and not semantically_ready. Program base remains 1116786785dc4c5c8c1447dcad79c89e527657eb.",
       "drift_preflight": {
         "status": "passed",
         "required_before_gate_1_2": true,
@@ -3376,7 +3388,7 @@
         "certified": false
       },
       "gate_5": {
-        "status": "replacement_candidate_awaiting_independent_review",
+        "status": "approved_awaiting_certification",
         "final_candidate_sha": "6aefb2090ff20a361f7f3cd80515445036323158",
         "rejected_candidate_sha": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
         "replacement_candidate_sha": "6aefb2090ff20a361f7f3cd80515445036323158",
@@ -3386,7 +3398,7 @@
         "candidate_scope": {
           "command": "node research/validate-semantic-candidate-scope.mjs --base=6c2b6dfc3e9e838f9e75801517a81258b675923d --target=6aefb2090ff20a361f7f3cd80515445036323158 --identity=R",
           "exit_code": 1,
-          "result": "PASS - documented R display-source exception pending independent review",
+          "result": "PASS - approved documented R display-source exception",
           "diagnostics": [
             "identity candidate modified non-identity path data/identity-layers.json",
             "unrelated or global data/factions.json content changed"
@@ -3397,9 +3409,12 @@
           ]
         },
         "review_performed": true,
-        "review_decision": "REQUEST CHANGES for rejected candidate deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870; replacement candidate 6aefb2090ff20a361f7f3cd80515445036323158 awaits fresh independent review",
+        "review_decision": "REQUEST CHANGES for rejected candidate deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870; APPROVE EXACT SHA 6aefb2090ff20a361f7f3cd80515445036323158 for replacement candidate",
         "review_record": "docs/incidents/recoveries/VM-520-red-independent-review.md",
         "review_record_commit": "PENDING_VM520_RED_REVIEW_RECORD_SHA",
+        "replacement_review_record": "docs/incidents/recoveries/VM-520-red-replacement-independent-review.md",
+        "replacement_review_record_commit": "PENDING_VM520_RED_REPLACEMENT_REVIEW_RECORD_SHA",
+        "replacement_review_decision": "APPROVE EXACT SHA 6aefb2090ff20a361f7f3cd80515445036323158",
         "review_findings": [
           {
             "severity": "blocker",
@@ -3453,9 +3468,9 @@
       "Candidate-scope exits 1 only for the documented R display-source exception diagnostics at data/identity-layers.json and global data/factions.json, limited by inspection to data/identity-layers.json#/expressions/R/preview_text and data/factions.json#/identity_layers/expressions/R/preview_text.",
       "Independent review returned REQUEST CHANGES for candidate deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870 because Red-local required-neighbor surfaces omitted prompt-required JESKAI, JUND, and NAYA boundaries.",
       "Replacement candidate 6aefb2090ff20a361f7f3cd80515445036323158 adds Red-local JESKAI, JUND, and NAYA boundaries in placement, generated placement, recruiter context, and fixtures while preserving provenance, preview, frozen collision order, and lateral targets.",
-      "Red awaits fresh independent review and is not approved, not certified, and not semantically_ready; VM-521 has not started."
+      "Fresh independent replacement review returned APPROVE EXACT SHA 6aefb2090ff20a361f7f3cd80515445036323158; Red is approved but not certified and not semantically_ready; VM-521 has not started."
     ],
-    "decision": "REPLACEMENT CANDIDATE AWAITING INDEPENDENT REVIEW",
+    "decision": "APPROVE EXACT SHA 6aefb2090ff20a361f7f3cd80515445036323158",
     "drift_preflight_commit": "PENDING_VM520_DRIFT_PREFLIGHT_SHA",
     "drift_preflight_decision": "PASS - RED GATE 1+2 AUTHORIZED",
     "gate_1_2_status": "complete",
@@ -3465,9 +3480,12 @@
     "candidate_sha": "6aefb2090ff20a361f7f3cd80515445036323158",
     "rejected_candidate_sha": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
     "replacement_candidate_sha": "6aefb2090ff20a361f7f3cd80515445036323158",
-    "review_status": "replacement_candidate_awaiting_independent_review",
+    "review_status": "approved_exact_sha",
     "review_record": "docs/incidents/recoveries/VM-520-red-independent-review.md",
     "review_record_commit": "PENDING_VM520_RED_REVIEW_RECORD_SHA",
+    "replacement_review_record": "docs/incidents/recoveries/VM-520-red-replacement-independent-review.md",
+    "replacement_review_record_commit": "PENDING_VM520_RED_REPLACEMENT_REVIEW_RECORD_SHA",
+    "replacement_review_decision": "APPROVE EXACT SHA 6aefb2090ff20a361f7f3cd80515445036323158",
     "review_findings": [
       {
         "severity": "blocker",
@@ -3475,6 +3493,7 @@
         "approval_blocking": true
       }
     ],
+    "replacement_review_findings": [],
     "final_claim_role_counts": {
       "total": 8,
       "substantive_claim": 6,
@@ -3547,7 +3566,7 @@
     },
     "candidate_scope": {
       "command": "node research/validate-semantic-candidate-scope.mjs --base=6c2b6dfc3e9e838f9e75801517a81258b675923d --target=6aefb2090ff20a361f7f3cd80515445036323158 --identity=R",
-      "result": "PASS - documented R display-source exception pending independent review",
+      "result": "PASS - approved documented R display-source exception",
       "exit_code": 1,
       "exception_paths": [
         "data/identity-layers.json#/expressions/R/preview_text",
@@ -3560,14 +3579,15 @@
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "6aefb2090ff20a361f7f3cd80515445036323158",
         "recovery_commit": "6aefb2090ff20a361f7f3cd80515445036323158",
-        "certification_commit": null,
-        "reviewer": "Codex independent review",
-        "review_cycles": 1,
-        "approval_date": null,
-        "certified_at": null
-      },
+    "certification_commit": null,
+    "reviewer": "Codex independent review",
+    "review_result": "approved_exact_sha",
+    "review_cycles": 2,
+    "approval_date": "2026-07-18",
+    "certified_at": null
+  },
     "gate": "gate_5",
-    "status": "replacement_candidate_awaiting_independent_review",
+    "status": "approved_awaiting_certification",
     "structural_fingerprint": [
       "low-volume-pattern",
       "mixed-role-pattern",
@@ -3575,7 +3595,7 @@
     ],
     "contract": "v1.1",
     "recovery": "6aefb2090ff20a361f7f3cd80515445036323158",
-    "certification_status": "not_certified_replacement_candidate_awaiting_independent_review"
+    "certification_status": "not_certified_approved_awaiting_certification"
     },
     {
       "identity": {

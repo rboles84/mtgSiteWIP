@@ -1,7 +1,7 @@
 # VM-520 - Red Semantic Recovery
 
 ID: VM-520
-Status: Replacement Candidate Awaiting Independent Review
+Status: Replacement Candidate Approved - Awaiting Certification
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: R
@@ -11,7 +11,7 @@ Contract: CRIT-001 Contract v1.1 after committed drift preflight
 
 ## Objective
 
-Prepare the next CRIT-001 identity slot for Red / R after VM-519 Black certification. The VM-520 drift preflight passed, Gate 1+2 read-only audit completed with `REMEDIATION AUTHORIZED`, and Gate 3+4 remediation produced exact candidate `deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870`. Independent review returned `REQUEST CHANGES`. Replacement candidate `6aefb2090ff20a361f7f3cd80515445036323158` remediates the missing `JESKAI`, `JUND`, and `NAYA` Red-local neighbor boundaries and awaits fresh independent review before approval, certification, external tracker update, push, PR, merge, or VM-521 work.
+Prepare the next CRIT-001 identity slot for Red / R after VM-519 Black certification. The VM-520 drift preflight passed, Gate 1+2 read-only audit completed with `REMEDIATION AUTHORIZED`, and Gate 3+4 remediation produced exact candidate `deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870`. Independent review returned `REQUEST CHANGES`. Replacement candidate `6aefb2090ff20a361f7f3cd80515445036323158` remediated the missing `JESKAI`, `JUND`, and `NAYA` Red-local neighbor boundaries and received fresh independent review decision `APPROVE EXACT SHA 6aefb2090ff20a361f7f3cd80515445036323158`. Red awaits certification; external tracker update, push, PR, merge, and VM-521 work remain not started.
 
 ## Gates
 
@@ -23,7 +23,7 @@ Prepare the next CRIT-001 identity slot for Red / R after VM-519 Black certifica
 - [x] Gate 5 - Candidate creation; exact candidate `deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870` received independent review decision `REQUEST CHANGES`.
 - [x] Independent review of exact candidate SHA - `REQUEST CHANGES` in `docs/incidents/recoveries/VM-520-red-independent-review.md`.
 - [x] Replacement candidate for required-neighbor coverage finding - exact candidate `6aefb2090ff20a361f7f3cd80515445036323158` awaits fresh independent review.
-- [ ] Independent review of exact replacement candidate SHA.
+- [x] Independent review of exact replacement candidate SHA - `APPROVE EXACT SHA 6aefb2090ff20a361f7f3cd80515445036323158` in `docs/incidents/recoveries/VM-520-red-replacement-independent-review.md`.
 - [ ] Certification of exact approved candidate SHA.
 
 ## Scope Rules
@@ -44,8 +44,9 @@ Prepare the next CRIT-001 identity slot for Red / R after VM-519 Black certifica
 - Rejected candidate recovery SHA: `deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870`
 - Replacement candidate recovery SHA: `6aefb2090ff20a361f7f3cd80515445036323158`
 - Independent reviewer: Codex independent review record `docs/incidents/recoveries/VM-520-red-independent-review.md`
+- Replacement independent reviewer: Codex independent review record `docs/incidents/recoveries/VM-520-red-replacement-independent-review.md`
 - Certification commit: pending
 
 ## Setup Boundary
 
-VM-520 Red / R was created only as the next active CRIT-001 identity slot after VM-519 Black certification. The separate drift-preflight record applied `docs/incidents/CRIT-001-drift-control-template.md` and returned `PASS - RED GATE 1+2 AUTHORIZED`. Gate 1+2 completed read-only and recorded `REMEDIATION AUTHORIZED`; Gate 3+4 remediation and Gate 5 candidate creation are complete. Exact candidate `deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870` received independent review decision `REQUEST CHANGES` because Red-local required-neighbor guidance did not cover prompt-required `JESKAI`, `JUND`, and `NAYA`. Replacement candidate `6aefb2090ff20a361f7f3cd80515445036323158` adds those Red-local boundaries and awaits fresh independent review. Red is not approved, not certified, and not `semantically_ready`; VM-521 has not started.
+VM-520 Red / R was created only as the next active CRIT-001 identity slot after VM-519 Black certification. The separate drift-preflight record applied `docs/incidents/CRIT-001-drift-control-template.md` and returned `PASS - RED GATE 1+2 AUTHORIZED`. Gate 1+2 completed read-only and recorded `REMEDIATION AUTHORIZED`; Gate 3+4 remediation and Gate 5 candidate creation are complete. Exact candidate `deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870` received independent review decision `REQUEST CHANGES` because Red-local required-neighbor guidance did not cover prompt-required `JESKAI`, `JUND`, and `NAYA`. Replacement candidate `6aefb2090ff20a361f7f3cd80515445036323158` added those Red-local boundaries and is independently approved. Red is not certified and not `semantically_ready`; VM-521 has not started.

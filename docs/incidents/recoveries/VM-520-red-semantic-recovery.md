@@ -1,6 +1,6 @@
 # VM-520 Red Semantic Recovery
 
-Status: Replacement candidate awaiting independent review.
+Status: Replacement candidate approved; awaiting certification.
 
 Identity: Red / R
 Contract: CRIT-001 semantic-readiness Contract v1.1
@@ -11,6 +11,8 @@ Approved validator review: `af3d8c6c563b3743f65c2dc8478519707f4785c8`
 Gate 1+2 governance commit: `6c2b6dfc3e9e838f9e75801517a81258b675923d`
 Rejected candidate commit: `deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870`
 Replacement candidate commit: `6aefb2090ff20a361f7f3cd80515445036323158`
+Replacement independent review decision: `APPROVE EXACT SHA 6aefb2090ff20a361f7f3cd80515445036323158`
+Replacement independent review record: `docs/incidents/recoveries/VM-520-red-replacement-independent-review.md`
 Workflow-record commit: `70358e1bbb65add714239b0d8621eda0a51e0ed4`
 Independent review decision: `REQUEST CHANGES`
 Independent review record: `docs/incidents/recoveries/VM-520-red-independent-review.md`
@@ -482,11 +484,36 @@ Validation:
 
 Status:
 
-- Replacement candidate `6aefb2090ff20a361f7f3cd80515445036323158` awaits fresh independent review.
-- Red is not approved.
+- Replacement candidate `6aefb2090ff20a361f7f3cd80515445036323158` received fresh independent review decision `APPROVE EXACT SHA 6aefb2090ff20a361f7f3cd80515445036323158`.
+- Red is approved for exact replacement candidate `6aefb2090ff20a361f7f3cd80515445036323158`.
 - Red is not certified.
 - Red is not `semantically_ready`.
 - Program base remains `1116786785dc4c5c8c1447dcad79c89e527657eb`.
 - Certified count remains 18; Wave 3 remains 3 of 5.
 - VM-521 has not started.
 - Original main and external Excel were not modified.
+
+## 23. Replacement Independent Review
+
+Replacement independent review record: `docs/incidents/recoveries/VM-520-red-replacement-independent-review.md`
+
+Replacement independent review decision:
+
+`APPROVE EXACT SHA 6aefb2090ff20a361f7f3cd80515445036323158`
+
+Review verified:
+
+- Replacement-only diff is limited to `data/raw-factions/red/red.placement.json`, `data/placement-model.json`, `research/fixtures/semantic-readiness/red.semantic-fixtures.json`, and `supabase/functions/guild-recruiter/faction-context.ts`.
+- Candidate-to-workflow diff is governance-only.
+- The original `REQUEST CHANGES` blocker is remediated: Red-local `JESKAI`, `JUND`, and `NAYA` fixture/collision/recruiter boundaries now exist and are backed by substantive Red claims `red_claim_0003`, `red_claim_0005`, and `red_claim_0006` with sources `MONO-R-2015` and `MONO-R-2025`.
+- Final role counts remain 8 total, 6 substantive, 0 discovery, 2 support, 0 unclassified.
+- R provenance remains 25 entries with no required null canonical IDs, null hashes, unresolved pointers, duplicate canonical entries, duplicate null keys, or support/discovery-backed authoritative chains.
+- Exact fixture/provenance parity remains true for `/core_identity` and `/placement_summary`.
+- Frozen placement fields, confidence absence, terms, threshold, broad penalty, strengthen/suppress lists, guardrail, lateral targets, W/U collision order, explicit `GENERIC_R_OVERFIT` absence, native IDs, and Red-local scoring/golden-path absence are preserved from the rejected candidate.
+- Preview source and embedded consumer remain equal and unchanged.
+- Exact candidate-scope exits 1 only for the already documented R display-source exception inherited from the Gate 1+2-to-candidate range; manual inspection limits it to `data/identity-layers.json#/expressions/R/preview_text` and `data/factions.json#/identity_layers/expressions/R/preview_text`.
+- Required validation passed, including two deterministic `npm.cmd run build:factions` runs, Red audit/validator, semantic-candidate-scope tests, semantic-readiness, placement, recruiter isolation, source-generated, full `npm.cmd test`, and `git diff --check` with only known line-ending warnings.
+
+No blocker, high, medium, or low findings remain.
+
+Certification did not occur. Red is not `semantically_ready`. Program base remains `1116786785dc4c5c8c1447dcad79c89e527657eb`; certified count remains 18; Wave 3 remains 3 of 5; VM-521 has not started.
