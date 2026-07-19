@@ -2,7 +2,7 @@
 
 Status: APPROVE EXACT SHA `45e323cde853ee5058b71c819f080ab4025597ce`
 
-Re-review-record SHA: `PENDING_VM521_GREEN_PROVENANCE_REREVIEW_SHA`
+Re-review-record SHA: `ec148486ff2442ff2e3145dd9d45a6d993179766`
 
 ## Scope
 
@@ -201,14 +201,18 @@ APPROVE EXACT SHA 45e323cde853ee5058b71c819f080ab4025597ce
 
 ## Final State
 
-- Green candidate: approved by re-review, not certified.
-- Green status: not `semantically_ready`.
-- Program base: `9f0a076a369cba23dc9bc19231b0efcddd21afe5`.
-- Certified count: 19.
-- Wave 3: 4 of 5 certified.
-- VM-522: untouched.
+- Green candidate: approved by re-review and certified by later governance-only certification.
+- Green status: `semantically_ready`.
+- Program base: `PENDING_VM521_CERTIFICATION_COMMIT_SHA` inside governance; actual SHA reported externally after commit.
+- Certified count: 20.
+- Wave 3: 5 of 5 certified / complete.
+- VM-522: not started.
 - Original main: untouched.
 - External Excel: untouched.
 - Candidate files: unmodified.
 - Historical/debug cleanup: not performed.
 - Validator prototype: not changed.
+
+## Certification Compatibility - 2026-07-19
+
+The certification window reran the approved-candidate guards and found no new evidence invalidating this re-review. The provenance-audit classification remains compatible with certification: top-level inspect NDJSON files are `DEBUG_INSPECTION_ARTIFACT`, audited matrix JS files are `HISTORICAL_ARCHIVE`, active runtime/build/test defect count remains 0, and residual stale strings remain VM-542/DRIFT-019 repository-hygiene debt only. Green certification uses `PENDING_VM521_CERTIFICATION_COMMIT_SHA` internally and reports the actual certification SHA externally.

@@ -5,16 +5,30 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "G",
-    "next_identity": "G",
-    "certified_identity_count": 19,
+    "active_identity": null,
+    "next_identity": "BANT",
+    "certified_identity_count": 20,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 3 monocolors",
-      "current_program_base": "9f0a076a369cba23dc9bc19231b0efcddd21afe5",
-      "wave_3_monocolors": "active",
-      "wave_3_monocolors_certified": "4 of 5"
+      "next_cohort": "Wave 4 shards - not started",
+      "current_program_base": "PENDING_VM521_CERTIFICATION_COMMIT_SHA",
+      "wave_3_monocolors": "complete",
+      "wave_3_monocolors_certified": "5 of 5",
+      "wave_3_completion": {
+        "status": "complete",
+        "certified": "5 of 5",
+        "identities": [
+          "W",
+          "U",
+          "B",
+          "R",
+          "G"
+        ],
+        "completed_by": "PENDING_VM521_CERTIFICATION_COMMIT_SHA",
+        "completed_at": "2026-07-19T09:43:00-06:00",
+        "next_wave_status": "VM-522/Wave 4 not started"
+      }
     },
     "wip_limit": 1,
     "active_prerequisite": null,
@@ -43,63 +57,20 @@
       "installed_after_program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
       "governance_commit": "PENDING_CRIT001_DRIFT_CONTROL_GOVERNANCE_SHA",
       "current_identity_hold": {
-        "identity": "G",
-        "card": "VM-521",
-        "state": "approved_awaiting_certification",
-        "branch": "codex/vm-521-green-semantic-recovery",
-        "prior_identity_certified": "R",
-        "prior_identity_certification": "9f0a076a369cba23dc9bc19231b0efcddd21afe5",
-        "authorized_next_scope": "VM-521 Green exact candidate 45e323cde853ee5058b71c819f080ab4025597ce received fresh provenance re-review decision APPROVE EXACT SHA 45e323cde853ee5058b71c819f080ab4025597ce after audit aa62ac329c53c00016dcce749b5fea73b145d4ac resolved the prior active-consumer classification. Only a later certification window for the exact approved candidate is authorized. Semantically_ready status, program-base advancement, VM-522 work, original-main modification, Excel update, push, PR, and merge remain unauthorized here.",
-        "required_next_milestone": "Certify exact approved Green candidate 45e323cde853ee5058b71c819f080ab4025597ce in a separate certification workflow; do not amend the candidate, do not reuse failed repair attempt ba2845a6ce6958f11de9c1d4935221c0fdda0ab0, and do not start VM-522.",
-        "drift_preflight_started": true,
-        "drift_preflight_completed": true,
-        "drift_preflight_record": "docs/incidents/recoveries/VM-521-green-drift-preflight.md",
-        "drift_preflight_commit": "PENDING_VM521_DRIFT_PREFLIGHT_SHA",
-        "gate_1_2_status": "complete",
-        "gate_1_2_record": "docs/incidents/recoveries/VM-521-green-semantic-recovery.md",
-        "gate_1_2_commit": "332ab81ffcfa461df1109e89709d47907e7c0032",
-        "candidate_created": true,
-        "candidate_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
-        "certification": {
-          "performed": false,
-          "status": "not_started_approved_awaiting_certification",
-          "certification_sha": null
-        },
-        "green_semantic_data_inspected": "fresh_provenance_rereview_approved",
-        "program_base": "9f0a076a369cba23dc9bc19231b0efcddd21afe5",
-        "updated_at": "2026-07-19T09:17:00-06:00",
-        "superseded_candidate_shas": [
-          "83123037f619472a4d2834e124311df691281a53"
-        ],
-        "candidate_scope_result": "EXIT 1 - documented G display-source exception only",
-        "display_source_exception_paths": [
-          "data/identity-layers.json#/expressions/G/preview_text",
-          "data/factions.json#/identity_layers/expressions/G/preview_text"
-        ],
-        "independent_review": {
-          "status": "complete",
-          "decision": "REQUEST CHANGES",
-          "record": "docs/incidents/recoveries/VM-521-green-independent-review.md",
-          "review_record_sha": "PENDING_VM521_GREEN_REVIEW_RECORD_SHA",
-          "reviewed_candidate_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
-          "blocker": "Stale Gate 1+2 Green preview was treated as active JS/export consumed-surface drift under the evidence available to the original review."
-        },
-        "provenance_rereview": {
-          "status": "complete",
-          "decision": "APPROVE EXACT SHA 45e323cde853ee5058b71c819f080ab4025597ce",
-          "record": "docs/incidents/recoveries/VM-521-green-provenance-rereview.md",
-          "review_record_sha": "PENDING_VM521_GREEN_PROVENANCE_REREVIEW_SHA",
-          "reviewed_candidate_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
-          "governing_audit_sha": "aa62ac329c53c00016dcce749b5fea73b145d4ac",
-          "active_runtime_build_test_defect_count": 0,
-          "disputed_file_classifications": {
-            "outputs/mtgdata-v3-enhanced/MTGDataV3_Enhanced_identity_fix.xlsx.inspect.ndjson": "DEBUG_INSPECTION_ARTIFACT",
-            "outputs/mtgdata-v3-enhanced/MTGDataV3_Enhanced.xlsx.inspect.ndjson": "DEBUG_INSPECTION_ARTIFACT",
-            "assets/js/newindex-color-matrix.js": "HISTORICAL_ARCHIVE",
-            "assets/js/color-matrix-radar.js": "HISTORICAL_ARCHIVE"
-          },
-          "findings": "No blocker/high/medium/low findings remain; stale disputed-file strings are non-blocking repository-hygiene debt."
-        }
+        "identity": "BANT",
+        "card": "VM-522",
+        "state": "not_started_after_wave_3_completion",
+        "branch": null,
+        "prior_identity_certified": "G",
+        "prior_identity_certification": "PENDING_VM521_CERTIFICATION_COMMIT_SHA",
+        "authorized_next_scope": "No VM-522 or Wave 4 work is authorized by VM-521 certification. A separate future window must explicitly start VM-522 and complete its drift preflight before any semantic work.",
+        "required_next_milestone": "Await explicit VM-522 start authorization; VM-522 remains not started in this certification commit.",
+        "drift_preflight_started": false,
+        "drift_preflight_completed": false,
+        "drift_preflight_record": null,
+        "drift_preflight_commit": null,
+        "program_base": "PENDING_VM521_CERTIFICATION_COMMIT_SHA",
+        "updated_at": "2026-07-19T09:43:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -110,17 +81,23 @@
         "Begin Simic Goal mode only after the drift preflight reports no FAIL or UNKNOWN controls."
       ],
       "last_certification": {
-        "identity": "R",
-        "card": "VM-520",
-        "candidate_sha": "6aefb2090ff20a361f7f3cd80515445036323158",
-        "rejected_candidate_sha": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
-        "rejected_candidate_review_decision": "REQUEST CHANGES",
-        "rejected_candidate_review_sha": "7bb7b0830dffc718ec3a2546fd489d0cb9ec0359",
-        "replacement_workflow_sha": "bf3285b77b27e696625c45d073160882ffacdd75",
-        "review_decision": "APPROVE EXACT SHA 6aefb2090ff20a361f7f3cd80515445036323158",
-        "approval_review_sha": "20f18e0a0a02728f3474c9e8d2b32e36525cbfe9",
-        "certification_commit": "9f0a076a369cba23dc9bc19231b0efcddd21afe5",
-        "certified_at": "2026-07-18T20:02:41-06:00",
+        "identity": "G",
+        "card": "VM-521",
+        "candidate_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
+        "superseded_candidate_sha": "83123037f619472a4d2834e124311df691281a53",
+        "superseded_candidate_reason": "Frozen calibration-note scope finding in candidate-scope validation.",
+        "original_workflow_sha": "e86f011063b2434f49d1e447f87d7087532142cd",
+        "original_rejection_review_sha": "2f776d8ac488a349db0975094b5948a9c3183674",
+        "original_rejection_review_decision": "REQUEST CHANGES",
+        "failed_historical_repair_sha": "ba2845a6ce6958f11de9c1d4935221c0fdda0ab0",
+        "failed_historical_repair_status": "failed/superseded and unapproved",
+        "stop_line_sha": "542015ab4dee8158002eb96dca65ef03fa81904d",
+        "provenance_audit_sha": "aa62ac329c53c00016dcce749b5fea73b145d4ac",
+        "provenance_decision": "PASS - NDJSON PROVENANCE AND DEPENDENCY RESOLVED",
+        "review_decision": "APPROVE EXACT SHA 45e323cde853ee5058b71c819f080ab4025597ce",
+        "approval_review_sha": "ec148486ff2442ff2e3145dd9d45a6d993179766",
+        "certification_commit": "PENDING_VM521_CERTIFICATION_COMMIT_SHA",
+        "certified_at": "2026-07-19T09:43:00-06:00",
         "final_state": "semantically_ready",
         "reviewed_provenance_count": 25,
         "claim_role_counts": {
@@ -131,41 +108,26 @@
           "unclassified": 0
         },
         "substantive_claim_ids": [
-          "red_claim_0002",
-          "red_claim_0003",
-          "red_claim_0004",
-          "red_claim_0005",
-          "red_claim_0006",
-          "red_claim_0007"
+          "green_claim_0002",
+          "green_claim_0003",
+          "green_claim_0004",
+          "green_claim_0005",
+          "green_claim_0006",
+          "green_claim_0007"
         ],
         "support_claim_ids": [
-          "red_claim_0001",
-          "red_claim_0008"
+          "green_claim_0001",
+          "green_claim_0008"
         ],
-        "candidate_scope_result": "PASS - approved documented R display-source exception",
+        "candidate_scope_result": "PASS - approved documented G display-source exception",
         "display_source_exception_paths": [
-          "data/identity-layers.json#/expressions/R/preview_text",
-          "data/factions.json#/identity_layers/expressions/R/preview_text"
+          "data/identity-layers.json#/expressions/G/preview_text",
+          "data/factions.json#/identity_layers/expressions/G/preview_text"
         ],
-        "required_neighbor_coverage": [
-          "JESKAI",
-          "JUND",
-          "NAYA"
-        ],
-        "neighbor_coverage_claim_ids": [
-          "red_claim_0003",
-          "red_claim_0005",
-          "red_claim_0006"
-        ],
-        "neighbor_coverage_source_ids": [
-          "MONO-R-2015",
-          "MONO-R-2025"
-        ],
-        "superseded_candidate_shas": [
-          "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870"
-        ],
-        "superseded_replacement_candidate_shas": [],
-        "next_identity_hold": "VM-521 Green setup-only; drift preflight pending; Gate 1+2 not started; semantic data not inspected."
+        "reviewed_preview_text": "Green accepts a role within the web of life and lets inherent nature unfold. Its growth is patient, purposeful, and wary of mistaking every change for wisdom.",
+        "provenance_count": 25,
+        "historical_debug_debt": "Two workbook inspect NDJSON files remain DEBUG_INSPECTION_ARTIFACT and two matrix JS files remain HISTORICAL_ARCHIVE under VM-542/DRIFT-019; no cleanup performed.",
+        "next_identity_hold": "VM-522 Bant not started; no Wave 4 branch, card change, drift preflight, semantic work, Excel update, push, PR, or merge occurred."
       }
     },
     "rejected_prerequisite_candidates": [
@@ -3687,14 +3649,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "independent_review_complete",
-        "status": "request_changes_remediation_required",
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": "2026-07-18T20:02:41-06:00",
         "gate_entered_at": "2026-07-18T21:47:00-06:00",
-        "blocked_at": "2026-07-18T22:21:00-06:00",
-        "blocked_reason": "Independent review found stale Gate 1+2 Green preview text in active JS/export consumed surfaces.",
-        "next_identity": "G",
-        "primary_disposition": "VM-521 Green exact candidate 45e323cde853ee5058b71c819f080ab4025597ce received independent review decision REQUEST CHANGES. Approval is blocked because stale Gate 1+2 Green preview text remains in active JS/export consumed surfaces. Superseded candidate 83123037f619472a4d2834e124311df691281a53 remains preserved after candidate-scope calibration-note finding. Not approved, not certified, not semantically_ready.",
+        "blocked_at": null,
+        "blocked_reason": null,
+        "next_identity": "BANT",
+        "primary_disposition": "VM-521 Green is certified semantically_ready from exact approved candidate 45e323cde853ee5058b71c819f080ab4025597ce. Original REQUEST CHANGES review 2f776d8ac488a349db0975094b5948a9c3183674 remains preserved as historical under then-current evidence; fresh provenance re-review ec148486ff2442ff2e3145dd9d45a6d993179766 approved the exact candidate after audit aa62ac329c53c00016dcce749b5fea73b145d4ac resolved the active-consumer classification. Superseded candidate 83123037f619472a4d2834e124311df691281a53 and failed repair ba2845a6ce6958f11de9c1d4935221c0fdda0ab0 remain unapproved. Candidate-scope certification result is PASS - approved documented G display-source exception limited to the two Green preview paths. Wave 3 monocolors are complete: 5 of 5 certified. VM-522 is not started.",
         "drift_preflight": {
           "status": "passed",
           "required_before_gate_1_2": true,
@@ -3760,7 +3722,7 @@
           "validation_summary": "audit/validate semantic readiness passed; semantic-readiness, placement, faction-context-isolation, source-generated, full npm test, git diff --check, and build idempotence passed"
         },
         "gate_5": {
-          "status": "independent_review_request_changes",
+          "status": "certified_after_provenance_rereview",
           "candidate_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
           "superseded_candidate_shas": [
             "83123037f619472a4d2834e124311df691281a53"
@@ -3771,12 +3733,27 @@
             "identity candidate modified non-identity path data/identity-layers.json",
             "unrelated or global data/factions.json content changed"
           ],
-          "review_status": "request_changes",
+          "review_status": "approved_by_fresh_provenance_rereview",
           "review_record": "docs/incidents/recoveries/VM-521-green-independent-review.md",
           "review_record_sha": "PENDING_VM521_GREEN_REVIEW_RECORD_SHA",
           "review_decision": "REQUEST CHANGES",
           "review_blocker": "Stale Gate 1+2 Green preview remains in active JS/export consumed surfaces.",
-          "certification_status": "not_started"
+          "certification_status": "certified",
+          "provenance_rereview_record": "docs/incidents/recoveries/VM-521-green-provenance-rereview.md",
+          "provenance_rereview_sha": "ec148486ff2442ff2e3145dd9d45a6d993179766",
+          "provenance_rereview_decision": "APPROVE EXACT SHA 45e323cde853ee5058b71c819f080ab4025597ce",
+          "certification_commit": "PENDING_VM521_CERTIFICATION_COMMIT_SHA"
+        },
+        "certification": {
+          "status": "certified",
+          "commit": "PENDING_VM521_CERTIFICATION_COMMIT_SHA",
+          "candidate_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
+          "approval_review_sha": "ec148486ff2442ff2e3145dd9d45a6d993179766",
+          "certified_at": "2026-07-19T09:43:00-06:00",
+          "final_state": "semantically_ready",
+          "certified_identity_count": 20,
+          "wave_3_status": "complete - 5 of 5 monocolors certified",
+          "vm_522_status": "not_started"
         }
       },
       "semantic_review": {
@@ -3803,10 +3780,11 @@
         ],
         "audit_report": "docs/incidents/recoveries/VM-521-green-semantic-recovery.md",
         "residual_findings": [
-          "Independent review returned REQUEST CHANGES; not approved, not certified, not semantically_ready.",
+          "Original independent review returned REQUEST CHANGES under then-current active-consumer classification; preserved at review record 2f776d8ac488a349db0975094b5948a9c3183674.",
+          "Fresh provenance re-review ec148486ff2442ff2e3145dd9d45a6d993179766 approved exact candidate 45e323cde853ee5058b71c819f080ab4025597ce after audit aa62ac329c53c00016dcce749b5fea73b145d4ac classified disputed NDJSON files as DEBUG_INSPECTION_ARTIFACT and matrix JS files as HISTORICAL_ARCHIVE.",
           "Candidate-scope exits 1 only for documented G display-source exception paths in data/identity-layers.json and generated data/factions.json.",
-          "Superseded candidate 83123037f619472a4d2834e124311df691281a53 remains preserved after frozen calibration-note scope failure.",
-          "Approval blocker: stale Gate 1+2 Green preview remains in assets/js/newindex-color-matrix.js, assets/js/color-matrix-radar.js, and two outputs/mtgdata-v3-enhanced inspect NDJSON consumed surfaces."
+          "Superseded candidate 83123037f619472a4d2834e124311df691281a53 and failed historical repair ba2845a6ce6958f11de9c1d4935221c0fdda0ab0 remain preserved and unapproved.",
+          "Residual stale historical/debug strings remain non-blocking repository-hygiene debt under VM-542/DRIFT-019."
         ]
       },
       "certification": {
@@ -3814,17 +3792,37 @@
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
         "recovery_commit": "45e323cde853ee5058b71c819f080ab4025597ce",
-        "certification_commit": null,
-        "reviewer": "independent Codex review",
-        "review_cycles": 1,
-        "approval_date": null,
-        "certified_at": null,
-        "review_result": "REQUEST CHANGES",
-        "review_record": "docs/incidents/recoveries/VM-521-green-independent-review.md",
-        "review_record_sha": "PENDING_VM521_GREEN_REVIEW_RECORD_SHA",
+        "certification_commit": "PENDING_VM521_CERTIFICATION_COMMIT_SHA",
+        "reviewer": "Codex fresh provenance re-review",
+        "review_cycles": 2,
+        "approval_date": "2026-07-19",
+        "certified_at": "2026-07-19T09:43:00-06:00",
+        "review_result": "approved_exact_sha_after_provenance_rereview",
+        "review_record": "docs/incidents/recoveries/VM-521-green-provenance-rereview.md",
+        "review_record_sha": "ec148486ff2442ff2e3145dd9d45a6d993179766",
         "review_blocker": "Stale Gate 1+2 Green preview remains in active JS/export consumed surfaces.",
         "superseded_candidate_shas": [
           "83123037f619472a4d2834e124311df691281a53"
+        ],
+        "original_rejection_review": "docs/incidents/recoveries/VM-521-green-independent-review.md",
+        "original_rejection_review_sha": "2f776d8ac488a349db0975094b5948a9c3183674",
+        "original_rejection_decision": "REQUEST CHANGES",
+        "provenance_audit_sha": "aa62ac329c53c00016dcce749b5fea73b145d4ac",
+        "provenance_decision": "PASS - NDJSON PROVENANCE AND DEPENDENCY RESOLVED",
+        "failed_historical_repair_sha": "ba2845a6ce6958f11de9c1d4935221c0fdda0ab0",
+        "failed_historical_repair_status": "unapproved",
+        "green_stop_line_sha": "542015ab4dee8158002eb96dca65ef03fa81904d",
+        "final_state": "semantically_ready",
+        "provenance_count": 25,
+        "candidate_scope_result": "PASS - approved documented G display-source exception",
+        "display_source_exception_paths": [
+          "data/identity-layers.json#/expressions/G/preview_text",
+          "data/factions.json#/identity_layers/expressions/G/preview_text"
+        ],
+        "known_unchanged_warnings": [
+          "test:source-generated retains known unrelated JESKAI/MARDU model-owned inhibitor warnings only",
+          "line-ending warnings may appear when build/test rewrites generated artifacts in this Windows worktree",
+          "historical/debug copied Green preview strings remain non-blocking VM-542/DRIFT-019 repository-hygiene debt"
         ]
       },
       "gate": "independent_review",

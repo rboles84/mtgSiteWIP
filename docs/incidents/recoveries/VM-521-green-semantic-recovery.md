@@ -1,10 +1,11 @@
 # VM-521 Green Semantic Recovery
 
-Status: Fresh provenance re-review approved exact candidate; certification not started.
+Status: Done - Certified Semantically Ready.
 
 Identity: Green / G
 Contract: CRIT-001 semantic-readiness Contract v1.1
-Program base: `9f0a076a369cba23dc9bc19231b0efcddd21afe5`
+Program base before certification: `9f0a076a369cba23dc9bc19231b0efcddd21afe5`
+Certification/program base placeholder: `PENDING_VM521_CERTIFICATION_COMMIT_SHA`
 Green drift-preflight/current starting HEAD: `76fd0eb8bf702bf889857537c636b3404c4bdba4`
 Approved monocolor validator candidate: `aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2`
 Approved validator review: `af3d8c6c563b3743f65c2dc8478519707f4785c8`
@@ -329,3 +330,24 @@ Decision: `APPROVE EXACT SHA 45e323cde853ee5058b71c819f080ab4025597ce`
 The original rejection review at `2f776d8ac488a349db0975094b5948a9c3183674` remains preserved as a valid decision under the evidence available at that time. The later provenance/dependency audit `aa62ac329c53c00016dcce749b5fea73b145d4ac` independently established that the two top-level workbook inspect NDJSON files are `DEBUG_INSPECTION_ARTIFACT` and the two audited matrix JS files are `HISTORICAL_ARCHIVE`, with active runtime/build/test preview defect count 0 for those four files.
 
 Fresh re-review reran Green Contract v1.1, provenance, fixture, frozen-field, calibration, neighbor, preview, active-consumer, candidate-scope, and validation controls. No blocker/high/medium/low findings remain. Green is approved for exact candidate `45e323cde853ee5058b71c819f080ab4025597ce` but is not certified, not `semantically_ready`, program base remains `9f0a076a369cba23dc9bc19231b0efcddd21afe5`, certified count remains 19, Wave 3 remains 4 of 5, VM-522 remains untouched, and Excel remains untouched.
+
+## 19. Certification - 2026-07-19
+
+- Decision: `CERTIFIED SEMANTICALLY_READY`.
+- Exact approved Green candidate certified: `45e323cde853ee5058b71c819f080ab4025597ce`.
+- Fresh approval review: `ec148486ff2442ff2e3145dd9d45a6d993179766`; decision `APPROVE EXACT SHA 45e323cde853ee5058b71c819f080ab4025597ce`.
+- Original rejection review preserved: `2f776d8ac488a349db0975094b5948a9c3183674`; decision `REQUEST CHANGES` under then-current active-consumer evidence.
+- Superseded candidate preserved and unapproved: `83123037f619472a4d2834e124311df691281a53`; reason: frozen calibration-note scope finding.
+- Failed historical repair attempt preserved and unapproved: `ba2845a6ce6958f11de9c1d4935221c0fdda0ab0`; Green stop-line `542015ab4dee8158002eb96dca65ef03fa81904d`.
+- Provenance audit: `aa62ac329c53c00016dcce749b5fea73b145d4ac`; decision `PASS - NDJSON PROVENANCE AND DEPENDENCY RESOLVED`.
+- Certification commit placeholder: `PENDING_VM521_CERTIFICATION_COMMIT_SHA`.
+- Final claim roles: 8 total; 6 substantive (`green_claim_0002` through `green_claim_0007`), 0 discovery, 2 support (`green_claim_0001`, `green_claim_0008`), 0 unclassified.
+- G provenance: 25 entries; 0 required null canonical IDs; 0 null canonical content hashes; 0 unresolved pointers; 0 duplicate canonical entries; 0 duplicate null canonical-entry keys; 0 non-substantive authoritative chains.
+- Exact-chain fixtures: `/core_identity` 5/5 exact (`green_claim_0002` through `green_claim_0006`) and `/placement_summary` 6/6 exact (`green_claim_0002` through `green_claim_0007`).
+- All 12 proof-chain locators were rechecked: `green_vs_blue`, `green_vs_black`, `green_disc_001` through `green_disc_004`, `axis_natural_belonging`, `axis_instinct_over_artifice`, `axis_overreliance_shadow`, `/core_identity`, `/mechanics`, and `/profile`.
+- Preview certified: `Green accepts a role within the web of life and lets inherent nature unfold. Its growth is patient, purposeful, and wary of mistaking every change for wisdom.` Source and embedded generated preview remain exactly equal.
+- Candidate-scope certification result: `PASS - approved documented G display-source exception`; command exited 1 only for `data/identity-layers.json#/expressions/G/preview_text` and `data/factions.json#/identity_layers/expressions/G/preview_text`; no calibration, frozen-field, target, optional-field, runtime, or unrelated-identity diagnostic appeared.
+- Required Green neighbor coverage certified for `GENERIC_G_OVERFIT`, `WG`, `BG`, `UG`, `RG`, `WITHERBLOOM`, `QUANDRIX`, `BANT`, `JUND`, `NAYA`, `TEMUR`, `SULTAI`, `ABZAN`, `W`, `U`, `B`, `R`, `WUBRG`, and `COLORLESS`.
+- Historical/debug stale strings remain non-blocking repository-hygiene debt: the two top-level inspect NDJSON files are `DEBUG_INSPECTION_ARTIFACT`; the two matrix JS files are `HISTORICAL_ARCHIVE`; no cleanup occurred.
+- Validation passed: JSON parse checks, Green reconciliation script, audit, semantic readiness validation, semantic candidate-scope tests, exact candidate-scope exception check, deterministic `build:factions` with content-empty line-ending/stat warnings only, semantic-readiness tests, placement tests, faction-context isolation tests, source-generated guardrails with known unrelated JESKAI/MARDU warnings only, full `npm.cmd test`, and `git diff --check`.
+- Program status after certification: 20 certified identities; Wave 3 monocolors 5 of 5 certified / complete; VM-522 not started; external Excel untouched.
