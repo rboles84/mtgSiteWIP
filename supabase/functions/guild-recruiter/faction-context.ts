@@ -1089,7 +1089,7 @@ export const FACTION_CONTEXT = {
         "emotion-first action without rootedness",
         "card names, creature types, lands, ramp, or mechanics treated as Green philosophy proof"
       ],
-      "calibration_note": "Green should rise only when nature, instinct, role, interdependence, natural growth, tradition, or web-of-life responsibility drive the answer.",
+      "calibration_note": "Green should rise only when nature, instinct, role, interdependence, or natural growth drive the answer.",
       "never_claim_as_canon": [
         "Green opposes every kind of change.",
         "Vox Mana placement axes are official Wizards color-pie scores.",
