@@ -21,7 +21,11 @@ Mandatory drift preflight completed setup-only and returned:
 
 `STOP - BANT GATE 1+2 NOT AUTHORIZED`
 
-Gate 1+2 may not begin until a separate governance unblock addresses or explicitly resolves the preflight blockers under the CRIT-001 drift-control template.
+The 2026-07-19 stop-line resolution rerun also returned:
+
+`STOP - BANT GATE 1+2 NOT AUTHORIZED`
+
+Read-only dependency tracing resolved active-consumer classification for Home, Archscry, recruiter, tests, and CI, and retained DRIFT-019 historical/debug exclusions. Gate 1+2 may not begin until a separate governance unblock addresses or explicitly resolves the remaining Class C blockers under the CRIT-001 drift-control template.
 
 ## Blocking Evidence
 
@@ -31,6 +35,10 @@ Gate 1+2 may not begin until a separate governance unblock addresses or explicit
 - Fixtures: `research/fixtures/semantic-readiness/bant.semantic-fixtures.json` is missing.
 - Collision guidance: raw order/targets do not match generated placement guidance; raw Naya/Jund entries are absent from generated collisions and generated lateral targets add ABZAN/TEMUR/SULTAI.
 - Role classification: all 21 Bant claims have no stored semantic role fields.
+- Rerun-only provenance freshness blocker: `node research/build-semantic-readiness-provenance.mjs --check` reports stale generated provenance.
+- Remaining control IDs: VM522-BLOCK-001 through VM522-BLOCK-010 and VM522-RERUN-001 in `docs/handoffs/2026-07-19-1118-codex-vm522-bant-preflight-rerun-stop.md`.
+- Required owner/campaign: separate VM-522 governance unblock for Gate 1+2 read-only audit, followed only later by authorized VM-522 remediation for claim roles, evidence scopes, fixtures, provenance canonical IDs, candidate-scope proof chains, collision guidance, and required-neighbor coverage.
+- No remediation authorized. No candidate exists.
 
 ## Gates
 
@@ -56,6 +64,7 @@ Gate 1+2 may not begin until a separate governance unblock addresses or explicit
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Drift-control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - Preflight stop report: `docs/handoffs/2026-07-19-1034-codex-vm522-bant-drift-preflight-stop.md`
+- Preflight rerun stop report: `docs/handoffs/2026-07-19-1118-codex-vm522-bant-preflight-rerun-stop.md`
 - Candidate recovery SHA: not authorized
 - Independent reviewer: not authorized
 - Certification commit: not authorized
