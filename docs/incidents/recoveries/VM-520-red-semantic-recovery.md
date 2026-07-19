@@ -1,6 +1,6 @@
 # VM-520 Red Semantic Recovery
 
-Status: Independent review requested changes. Replacement candidate required.
+Status: Replacement candidate awaiting independent review.
 
 Identity: Red / R
 Contract: CRIT-001 semantic-readiness Contract v1.1
@@ -9,7 +9,8 @@ Red drift preflight/current starting HEAD: `94a33b70fdac83b350195a3eed7f34118f99
 Approved monocolor validator candidate: `aa1f5cd174a09c7c99e17e3ecf882bf4e03dbdb2`
 Approved validator review: `af3d8c6c563b3743f65c2dc8478519707f4785c8`
 Gate 1+2 governance commit: `6c2b6dfc3e9e838f9e75801517a81258b675923d`
-Final candidate commit: `deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870`
+Rejected candidate commit: `deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870`
+Replacement candidate commit: `6aefb2090ff20a361f7f3cd80515445036323158`
 Workflow-record commit: `70358e1bbb65add714239b0d8621eda0a51e0ed4`
 Independent review decision: `REQUEST CHANGES`
 Independent review record: `docs/incidents/recoveries/VM-520-red-independent-review.md`
@@ -425,3 +426,67 @@ Required remediation:
 - Create a later replacement Red candidate that adds source-bounded, Red-local neighbor discrimination for `JESKAI`, `JUND`, and `NAYA` without changing frozen placement/scoring/calibration fields or regressing the Contract, provenance, fixture, preview, public, and recruiter surfaces that already passed.
 
 No approval, certification, `semantically_ready` transition, program-base advancement, VM-521 work, original-main modification, Excel update, or Table Talk commit occurred.
+
+## 22. Replacement Candidate For Required Neighbor Boundaries
+
+Replacement candidate SHA: `6aefb2090ff20a361f7f3cd80515445036323158`
+
+Rejected candidate preserved: `deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870`
+
+Replacement candidate subject: `VM-520 add required Red neighbor boundaries candidate`
+
+Blocking finding remediated:
+
+- The rejected candidate lacked prompt-required Red-local boundaries for `JESKAI`, `JUND`, and `NAYA`.
+
+Replacement implementation files:
+
+- `data/raw-factions/red/red.placement.json`
+- `data/placement-model.json`
+- `research/fixtures/semantic-readiness/red.semantic-fixtures.json`
+- `supabase/functions/guild-recruiter/faction-context.ts`
+
+What changed:
+
+- Added Red-local collision review triggers for Jeskai technique/discipline/principle overlap, Jund survival/appetite/strength overlap, and Naya communal vitality/nature/creature-reverence overlap without adding raw collision pairs or changing W/U pair order.
+- Added Red placement poor-fit and inhibitor guidance that flows into the generated recruiter context.
+- Added Red semantic fixtures `red_exclude_jeskai`, `red_exclude_jund`, and `red_exclude_naya`, each backed by substantive Red claims `red_claim_0003`, `red_claim_0005`, and `red_claim_0006` and sources `MONO-R-2015` and `MONO-R-2025`.
+- Rebuilt generated placement and recruiter context with `npm.cmd run build:factions`.
+
+Preserved controls:
+
+- Claim counts remain 8 total, 6 substantive, 0 discovery, 2 support, 0 unclassified.
+- R provenance remains 25 entries; `data/semantic-readiness-provenance.json` has no diff.
+- Exact fixture/provenance chains for `/core_identity` and `/placement_summary` remain unchanged.
+- Placement summary text, top-level confidence absence, required terms, minimum hits, broad penalty, strengthen/suppress lists, false-positive guardrail, lateral targets `WR`, `UR`, `BR`, `RG`, raw collision pair order `W`, `U`, generated collision order `W`, `U`, explicit `GENERIC_R_OVERFIT` absence, Red-local scoring/golden-path absence, and native IDs are preserved.
+- Preview source and embedded consumer remain equal at `Red turns feeling into action before life hardens into regret. Its freedom stays vivid, loyal, and answerable for the sparks it throws.`
+- Table Talk baseline remains excluded.
+- VM-521 remains not started.
+
+Validation:
+
+| Command | Exit | Result |
+|---|---:|---|
+| `node research/validate-semantic-readiness.mjs --targets=R` | 0 | Semantic readiness validation passed for R. |
+| `node research/audit-semantic-readiness.mjs --targets=R` | 0 | 8 claims; 6 substantive, 0 discovery, 2 support, 0 unclassified; recruiter context size 8103. |
+| `node research/semantic-candidate-scope-tests.js` | 0 | Semantic candidate scope tests passed. |
+| custom Red invariant script | 0 | R provenance 25; required neighbors present; fixture chains exact; preview equal; W/U pairs and lateral targets preserved. |
+| `npm.cmd run test:semantic-readiness` | 0 | Semantic readiness, candidate-scope, fixture, and provenance checks passed; 1839 semantic provenance entries verified. |
+| `npm.cmd run test:placement` | 0 | PASS adaptive placement tests: 37 factions, 37 golden paths. |
+| `npm.cmd run test:faction-context-isolation` | 0 | Faction context isolation helper tests passed. |
+| `npm.cmd run test:source-generated` | 0 | Source/generated guardrail validation passed for JESKAI and MARDU with unchanged unrelated model-owned inhibitor warnings. |
+| `npm.cmd test` | 0 | Full suite passed; 226 parser cases, 6 builder cases, semantic readiness, Maze contracts, and presentation snapshots passed. |
+| `git diff --check` | 0 | No whitespace errors; line-ending warnings only. |
+| `npm.cmd run build:factions` | 0 | Repeat build completed with expected scoped diff. |
+| `node research/validate-semantic-candidate-scope.mjs --base=6c2b6dfc3e9e838f9e75801517a81258b675923d --target=6aefb2090ff20a361f7f3cd80515445036323158 --identity=R` | 1 | Accepted pending independent review only for documented DRIFT-015 display-source diagnostics at `data/identity-layers.json` and global `data/factions.json`; no third diagnostic. |
+
+Status:
+
+- Replacement candidate `6aefb2090ff20a361f7f3cd80515445036323158` awaits fresh independent review.
+- Red is not approved.
+- Red is not certified.
+- Red is not `semantically_ready`.
+- Program base remains `1116786785dc4c5c8c1447dcad79c89e527657eb`.
+- Certified count remains 18; Wave 3 remains 3 of 5.
+- VM-521 has not started.
+- Original main and external Excel were not modified.

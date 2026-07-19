@@ -45,12 +45,12 @@
       "current_identity_hold": {
         "identity": "R",
         "card": "VM-520",
-      "state": "review_requested_changes",
+      "state": "replacement_candidate_awaiting_independent_review",
         "branch": "codex/vm-520-red-semantic-recovery",
         "prior_identity_certified": "B",
       "prior_identity_certification": "1116786785dc4c5c8c1447dcad79c89e527657eb",
-      "authorized_next_scope": "VM-520 Red exact candidate deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870 received independent review decision REQUEST CHANGES. The only authorized next scope is scoped remediation and a replacement candidate for missing JESKAI, JUND, and NAYA Red-local neighbor coverage. Certification, semantically_ready transition, program-base advancement, VM-521 work, original-main modification, and Excel update remain unauthorized.",
-      "required_next_milestone": "Create a replacement Red candidate that adds source-bounded JESKAI, JUND, and NAYA neighbor discrimination without frozen-field drift; do not certify or start VM-521 in this hold.",
+      "authorized_next_scope": "VM-520 Red replacement candidate 6aefb2090ff20a361f7f3cd80515445036323158 remediates the prior REQUEST CHANGES blocker for missing JESKAI, JUND, and NAYA Red-local neighbor coverage. The only authorized next scope is fresh independent review of exact replacement candidate 6aefb2090ff20a361f7f3cd80515445036323158. Certification, semantically_ready transition, program-base advancement, VM-521 work, original-main modification, and Excel update remain unauthorized.",
+      "required_next_milestone": "Independent review of exact Red replacement candidate 6aefb2090ff20a361f7f3cd80515445036323158; do not certify or start VM-521 in this hold.",
       "drift_preflight_started": true,
       "drift_preflight_completed": true,
       "drift_preflight_record": "docs/incidents/recoveries/VM-520-red-drift-preflight.md",
@@ -59,7 +59,9 @@
       "gate_1_2_record": "docs/incidents/recoveries/VM-520-red-semantic-recovery.md",
       "gate_1_2_commit": "6c2b6dfc3e9e838f9e75801517a81258b675923d",
         "candidate_created": true,
-        "candidate_sha": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
+        "candidate_sha": "6aefb2090ff20a361f7f3cd80515445036323158",
+        "rejected_candidate_sha": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
+        "replacement_candidate_sha": "6aefb2090ff20a361f7f3cd80515445036323158",
         "candidate_scope_result": "PASS - documented R display-source exception pending independent review",
         "candidate_scope_exception_paths": [
           "data/identity-layers.json#/expressions/R/preview_text",
@@ -81,7 +83,7 @@
           "certification_sha": null
         },
       "program_base": "1116786785dc4c5c8c1447dcad79c89e527657eb",
-      "updated_at": "2026-07-18T17:40:00-06:00"
+      "updated_at": "2026-07-18T18:24:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -3317,13 +3319,13 @@
       },
     "workflow": {
       "current_gate": "gate_5",
-      "status": "review_requested_changes",
+      "status": "replacement_candidate_awaiting_independent_review",
         "started_at": "2026-07-18T16:24:00-06:00",
         "gate_entered_at": null,
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "R",
-      "primary_disposition": "VM-520 Red exact candidate deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870 received independent review decision REQUEST CHANGES. Contract/provenance/fixture/frozen-field/preview controls passed, but approval is blocked because Red-local fixtures/collision/recruiter guidance do not cover prompt-required JESKAI, JUND, and NAYA neighbor boundaries. Red is not approved, not certified, and not semantically_ready. Program base remains 1116786785dc4c5c8c1447dcad79c89e527657eb.",
+      "primary_disposition": "VM-520 Red replacement candidate 6aefb2090ff20a361f7f3cd80515445036323158 remediates the prior REQUEST CHANGES blocker by adding Red-local JESKAI, JUND, and NAYA neighbor boundaries. Contract/provenance/fixture/frozen-field/preview controls remain preserved; candidate-scope exits 1 only for the documented R display-source exception. Red awaits fresh independent review and is not approved, not certified, and not semantically_ready. Program base remains 1116786785dc4c5c8c1447dcad79c89e527657eb.",
       "drift_preflight": {
         "status": "passed",
         "required_before_gate_1_2": true,
@@ -3374,11 +3376,15 @@
         "certified": false
       },
       "gate_5": {
-        "status": "review_requested_changes",
-        "final_candidate_sha": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
-        "superseded_candidates": [],
+        "status": "replacement_candidate_awaiting_independent_review",
+        "final_candidate_sha": "6aefb2090ff20a361f7f3cd80515445036323158",
+        "rejected_candidate_sha": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
+        "replacement_candidate_sha": "6aefb2090ff20a361f7f3cd80515445036323158",
+        "superseded_candidates": [
+          "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870"
+        ],
         "candidate_scope": {
-          "command": "node research/validate-semantic-candidate-scope.mjs --base=6c2b6dfc3e9e838f9e75801517a81258b675923d --target=deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870 --identity=R",
+          "command": "node research/validate-semantic-candidate-scope.mjs --base=6c2b6dfc3e9e838f9e75801517a81258b675923d --target=6aefb2090ff20a361f7f3cd80515445036323158 --identity=R",
           "exit_code": 1,
           "result": "PASS - documented R display-source exception pending independent review",
           "diagnostics": [
@@ -3391,7 +3397,7 @@
           ]
         },
         "review_performed": true,
-        "review_decision": "REQUEST CHANGES",
+        "review_decision": "REQUEST CHANGES for rejected candidate deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870; replacement candidate 6aefb2090ff20a361f7f3cd80515445036323158 awaits fresh independent review",
         "review_record": "docs/incidents/recoveries/VM-520-red-independent-review.md",
         "review_record_commit": "PENDING_VM520_RED_REVIEW_RECORD_SHA",
         "review_findings": [
@@ -3445,18 +3451,21 @@
       "Exact fixture/provenance parity is true for /core_identity and /placement_summary.",
       "DRIFT-015 preview remediation replaced generic Red preview copy with source-bounded feeling/action, loyalty, and consequence language; source and embedded preview values are equal and stale exact Red preview is absent.",
       "Candidate-scope exits 1 only for the documented R display-source exception diagnostics at data/identity-layers.json and global data/factions.json, limited by inspection to data/identity-layers.json#/expressions/R/preview_text and data/factions.json#/identity_layers/expressions/R/preview_text.",
-      "Independent review returned REQUEST CHANGES because Red-local required-neighbor surfaces omit prompt-required JESKAI, JUND, and NAYA boundaries.",
-      "Red is not approved, not certified, and not semantically_ready; VM-521 has not started."
+      "Independent review returned REQUEST CHANGES for candidate deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870 because Red-local required-neighbor surfaces omitted prompt-required JESKAI, JUND, and NAYA boundaries.",
+      "Replacement candidate 6aefb2090ff20a361f7f3cd80515445036323158 adds Red-local JESKAI, JUND, and NAYA boundaries in placement, generated placement, recruiter context, and fixtures while preserving provenance, preview, frozen collision order, and lateral targets.",
+      "Red awaits fresh independent review and is not approved, not certified, and not semantically_ready; VM-521 has not started."
     ],
-    "decision": "REQUEST CHANGES",
+    "decision": "REPLACEMENT CANDIDATE AWAITING INDEPENDENT REVIEW",
     "drift_preflight_commit": "PENDING_VM520_DRIFT_PREFLIGHT_SHA",
     "drift_preflight_decision": "PASS - RED GATE 1+2 AUTHORIZED",
     "gate_1_2_status": "complete",
     "gate_1_2_commit": "6c2b6dfc3e9e838f9e75801517a81258b675923d",
     "remediation_authorized": true,
     "candidate_created": true,
-    "candidate_sha": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
-    "review_status": "request_changes",
+    "candidate_sha": "6aefb2090ff20a361f7f3cd80515445036323158",
+    "rejected_candidate_sha": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
+    "replacement_candidate_sha": "6aefb2090ff20a361f7f3cd80515445036323158",
+    "review_status": "replacement_candidate_awaiting_independent_review",
     "review_record": "docs/incidents/recoveries/VM-520-red-independent-review.md",
     "review_record_commit": "PENDING_VM520_RED_REVIEW_RECORD_SHA",
     "review_findings": [
@@ -3537,7 +3546,7 @@
       "preview_source_embedded_equal": true
     },
     "candidate_scope": {
-      "command": "node research/validate-semantic-candidate-scope.mjs --base=6c2b6dfc3e9e838f9e75801517a81258b675923d --target=deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870 --identity=R",
+      "command": "node research/validate-semantic-candidate-scope.mjs --base=6c2b6dfc3e9e838f9e75801517a81258b675923d --target=6aefb2090ff20a361f7f3cd80515445036323158 --identity=R",
       "result": "PASS - documented R display-source exception pending independent review",
       "exit_code": 1,
       "exception_paths": [
@@ -3549,8 +3558,8 @@
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
-        "recovery_commit": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
+        "candidate_recovery_sha": "6aefb2090ff20a361f7f3cd80515445036323158",
+        "recovery_commit": "6aefb2090ff20a361f7f3cd80515445036323158",
         "certification_commit": null,
         "reviewer": "Codex independent review",
         "review_cycles": 1,
@@ -3558,15 +3567,15 @@
         "certified_at": null
       },
     "gate": "gate_5",
-    "status": "review_requested_changes",
+    "status": "replacement_candidate_awaiting_independent_review",
     "structural_fingerprint": [
       "low-volume-pattern",
       "mixed-role-pattern",
       "support-heavy-pattern"
     ],
     "contract": "v1.1",
-    "recovery": "deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870",
-    "certification_status": "not_certified_request_changes"
+    "recovery": "6aefb2090ff20a361f7f3cd80515445036323158",
+    "certification_status": "not_certified_replacement_candidate_awaiting_independent_review"
     },
     {
       "identity": {
