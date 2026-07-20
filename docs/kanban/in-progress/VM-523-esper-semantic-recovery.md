@@ -19,7 +19,7 @@ Recover Esper end to end under CRIT-001: audit the existing packet, bound readin
 - [x] Gate 1 - Packet audit and bounded disposition complete: `docs/handoffs/2026-07-20-1023-codex-vm523-esper-gate1-gate2.md`.
 - [x] Gate 2 - Sufficient evidence completion complete: `docs/handoffs/2026-07-20-1023-codex-vm523-esper-gate1-gate2.md`.
 - [x] Gate 3 - Canonical remediation complete: `docs/handoffs/2026-07-20-1219-codex-vm523-esper-gate3-gate4.md`; implementation commits `0365560` and `6467f70fa4de13173172e20277e0fd56ebaf0b80`.
-- [x] Gate 4 - Generation and validation complete: exact candidate-scope capability passed for `a7ea41cbf57cc87f1948fdd254f0295816c5919d..${implementationSha}`; no candidate created.
+- [x] Gate 4 - Generation and validation complete: exact candidate-scope capability passed for `a7ea41cbf57cc87f1948fdd254f0295816c5919d..6467f70fa4de13173172e20277e0fd56ebaf0b80`; exact-tree `npm.cmd test` passed from exported implementation tree; no candidate created.
 - [ ] Gate 5 - Independent certification.
 
 ## Scope Rules
@@ -59,6 +59,6 @@ No Esper semantic or implementation data changed. No candidate exists. No review
 
 PASS - ESPER GATE 5 CANDIDATE CREATION AUTHORIZED
 
-Gate 3+4 remediation completed in implementation commits `0365560` and `6467f70fa4de13173172e20277e0fd56ebaf0b80`, then governance recorded at `docs/handoffs/2026-07-20-1219-codex-vm523-esper-gate3-gate4.md`. The final implementation preserves 9 claims with role counts 7 substantive, 2 support, 0 discovery, 0 unclassified; removes support records from generated semantic proof chains; repairs all Esper provenance null IDs; creates the Esper fixture; expands required-neighbor/generic collision controls; keeps preview owner and embedded preview equal; preserves frozen placement/calibration/native-ID/lateral fields; and passes exact candidate-scope for `a7ea41cbf57cc87f1948fdd254f0295816c5919d..${implementationSha}`.
+Gate 3+4 remediation completed in implementation commits `0365560` and `6467f70fa4de13173172e20277e0fd56ebaf0b80`, then governance recorded at `docs/handoffs/2026-07-20-1219-codex-vm523-esper-gate3-gate4.md`. The final implementation preserves 9 claims with role counts 7 substantive, 2 support, 0 discovery, 0 unclassified; removes support records from generated semantic proof chains; repairs all Esper provenance null IDs; creates the Esper fixture; expands required-neighbor/generic collision controls; keeps preview owner and embedded preview equal; preserves frozen placement/calibration/native-ID/lateral fields; passes exact candidate-scope for `a7ea41cbf57cc87f1948fdd254f0295816c5919d..6467f70fa4de13173172e20277e0fd56ebaf0b80`; and passes exact-tree `npm.cmd test` from `C:\Users\obake\.codex\visualizations\2026\07\20\019f8007-b187-7610-b572-effbe389229d\vm523-exact-6467f70-1219` with non-repository `node_modules` and Scryfall raw corpus inputs supplied.
 
 No Gate 5 candidate workflow record, independent review, certification, certified-count increment, program-base advancement, Excel edit, VM-524 work, original-main edit, protected-worktree edit, DRIFT-017 edit, historical/debug/archive cleanup, or Table Talk change occurred.

@@ -89,11 +89,11 @@ Gate 1+2 authorized remediation only after proving sufficient local authority an
 | `node research/audit-semantic-readiness.mjs --targets=ESPER` | PASS | 9 claims; role counts 7 substantive, 2 support, 0 discovery, 0 unclassified; no missing references or role-invalid support links. |
 | `node research/validate-semantic-candidate-scope.mjs --identity=ESPER --base=a7ea41cbf57cc87f1948fdd254f0295816c5919d --target=6467f70` | PASS | Exact candidate-scope capability passed for implementation SHA `6467f70fa4de13173172e20277e0fd56ebaf0b80`. |
 | `node research/validate-semantic-candidate-scope.mjs --identity=WUB --base=a7ea41cbf57cc87f1948fdd254f0295816c5919d --target=6467f70` | PASS guard | Exits 1 with `Unknown identity WUB`, preserving the invalid-alias guard. |
-| `npm.cmd test` | PARTIAL / environment gap | Ran through placement, gate-bias, parser, builder, semantic, Maze, syntax, mode, and metadata checks, then failed because local package `xlsx` is not installed for `research/import-precon-mechanics-validation.mjs`. The generated gate-bias audit report files were restored and not committed. |
+| `npm.cmd test` in exact exported implementation tree | PASS | Ran from `C:\Users\obake\.codex\visualizations\2026\07\20\019f8007-b187-7610-b572-effbe389229d\vm523-exact-6467f70-1219` exported from `6467f70fa4de13173172e20277e0fd56ebaf0b80`; supplied `node_modules` by junction to `C:\dev\mtgSiteWIP\node_modules` and supplied known untracked Scryfall raw corpus by hardlink to `C:\dev\mtgSiteWIP\data\scryfall\raw\oracle-cards.json`; exit 0. |
 
 ## Risks / Uncertainties
 
-- Full `npm.cmd test` is blocked by missing local `xlsx`; this appears environmental/package-setup related and was not changed because VM-523 does not authorize package or shared dependency edits.
+- Exact-tree `npm.cmd test` required two non-repository inputs: existing local `node_modules` via junction and the known untracked Scryfall raw corpus via hardlink. No package, lockfile, shared dependency, or repository test fixture was changed.
 - Esper remains low-volume/source-bound by design. Detailed society, geography, figures, chronology, etherium/material lore, mechanics-as-canon, and exact card-text claims remain out of scope.
 - Gate 5 candidate workflow, independent review, and certification are still pending and must be separate exact-SHA governance steps.
 
@@ -108,7 +108,7 @@ Gate 1+2 authorized remediation only after proving sufficient local authority an
 - Next separate window may create a Gate 5 candidate workflow record for exact SHA `6467f70fa4de13173172e20277e0fd56ebaf0b80` if the user authorizes candidate creation.
 - Independent review must rerun source authority, role counts, support isolation, evidence locators/scopes, fixture/provenance exact chains, preview/consumer parity, frozen fields, and exact candidate-scope against the candidate SHA.
 - Certification must not occur until exact candidate approval exists.
-- Separately address the repo-level missing `xlsx` dependency if full `npm.cmd test` green is required outside VM-523.
+- Preserve the exact-tree dependency disclosure if this SHA is promoted to Gate 5 candidate workflow.
 
 ## Next Suggested Agent
 
@@ -121,6 +121,14 @@ Gate 5 Candidate Workflow agent, only after explicit separate authorization.
 - Preflight: `docs/handoffs/2026-07-20-0902-codex-vm523-esper-drift-preflight.md`
 
 ## Decision
+
+Exact implementation-tree export path: `C:\Users\obake\.codex\visualizations\2026\07\20\019f8007-b187-7610-b572-effbe389229d\vm523-exact-6467f70-1219`.
+
+Export dependencies supplied: `node_modules` junction to `C:\dev\mtgSiteWIP\node_modules`; `data/scryfall/raw/oracle-cards.json` hardlink to `C:\dev\mtgSiteWIP\data\scryfall\raw\oracle-cards.json`.
+
+Line-ending reproducibility: campaign worktree content and Git blob hashes were clean after committing; generated gate-bias report changes in the export were not committed; no CRLF/LF provenance mismatch remained.
+
+Gate 3+4 scorecard: Total 24; PASS 24; FAIL 0; UNKNOWN 0; N/A 0.
 
 Gate 3+4 remediation is complete. Exact implementation SHA `6467f70fa4de13173172e20277e0fd56ebaf0b80` passes required Gate 3+4 validation and exact candidate-scope capability checks. Gate 5 candidate creation is authorized for a later separate window only; no Gate 5 candidate was created here.
 
