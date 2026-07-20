@@ -1,7 +1,7 @@
 # VM-522 - Bant Semantic Recovery
 
 ID: VM-522
-Status: Ready - Awaiting Fresh Replacement Exact-SHA Review
+Status: Ready - Replacement Exact-SHA Review Approved; Certification-Only Window Required
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: BANT
@@ -17,7 +17,7 @@ Recover Bant end to end under CRIT-001: audit the existing packet, repair canoni
 
 ## Current Governance State
 
-VM-522 completed drift preflight, stage-ownership adjudication, Gate 1+2 audit, Gate 3+4 remediation, original Gate 5 candidate workflow recording, independent review rejection, bounded rejection remediation, and replacement-candidate workflow recording.
+VM-522 completed drift preflight, stage-ownership adjudication, Gate 1+2 audit, Gate 3+4 remediation, original Gate 5 candidate workflow recording, independent review rejection, bounded rejection remediation, replacement-candidate workflow recording, and fresh independent exact-SHA review of the replacement candidate.
 
 Rejected exact candidate:
 
@@ -57,9 +57,17 @@ Replacement-candidate workflow record:
 
 `docs/handoffs/2026-07-19-2320-codex-vm522-bant-replacement-candidate-workflow.md`
 
-Fresh independent exact-SHA review is required next. The prior rejection review applies only to rejected candidate `b466cddb4618b1e2d7c897c15f7513a6d2db08b0`; it is evidence for the replacement review, not a review decision on `5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8`.
+Replacement independent exact-SHA review record:
 
-Certification remains prohibited until a separate review returns exactly `APPROVE EXACT SHA 5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8`. Bant is not certified and is not `semantically_ready`. Certified count remains 20 of 37. Program base remains `fa58e572b6303ba98b7e3015bcfa20e6d251ee6e`.
+`docs/handoffs/2026-07-20-0013-codex-vm522-bant-replacement-independent-review.md`
+
+Replacement independent review decision:
+
+`APPROVE EXACT SHA 5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8`
+
+The prior rejection review applies only to rejected candidate `b466cddb4618b1e2d7c897c15f7513a6d2db08b0`; it was independently reproduced as evidence for the replacement review, not used as approval for `5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8`.
+
+Certification-only work is required next. Bant is not certified and is not `semantically_ready`. Certified count remains 20 of 37. Program base remains `fa58e572b6303ba98b7e3015bcfa20e6d251ee6e`.
 
 ## Replacement Closure Summary
 
@@ -67,9 +75,10 @@ Certification remains prohibited until a separate review returns exactly `APPROV
 - Provenance closure: 87 Bant-linked entries, 0 required null canonical IDs, 0 null hashes, 0 unresolved pointers, 0 duplicate canonical/null keys observed, 0 non-substantive authoritative chains.
 - Claim counts: 21 total; 16 `substantive_claim`, 5 `support_record`, 0 `discovery_record`, 0 unclassified.
 - Candidate-scope: PASS for BANT; invalid WUG alias rejects as expected.
-- Semantic readiness, fixture validation, provenance freshness, parser, semantic-readiness tests, faction-context isolation, placement, and source/generated guardrail passed.
-- Source/generated guardrail retains only documented unrelated JESKAI/MARDU model-owned warnings.
-- Closure scorecard: 20 PASS, 0 FAIL, 0 UNKNOWN, 0 N/A.
+- Semantic readiness, fixture validation, parser, placement, faction-context isolation, source/generated guardrail, candidate-scope, and exact-export full tests passed.
+- Provenance generator output exactly matched the committed Git blob; review-worktree `--check` reported only a CRLF checkout expansion mismatch, classified as informational.
+- Source/generated guardrail retains only non-blocking model-owned inhibitor warnings already allowed or independently classified.
+- Replacement review matrix: 36 PASS, 0 FAIL, 0 UNKNOWN, 0 N/A; 0 approval-blocking findings.
 
 ## Preserved Records
 
@@ -92,8 +101,8 @@ Certification remains prohibited until a separate review returns exactly `APPROV
 - [x] Gate 5 - Candidate workflow recorded for rejected exact candidate `b466cddb4618b1e2d7c897c15f7513a6d2db08b0`.
 - [x] Gate 5 - Independent review rejected exact candidate `b466cddb4618b1e2d7c897c15f7513a6d2db08b0`.
 - [x] Gate 5 - Replacement candidate workflow recorded for exact candidate `5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8`.
-- [ ] Gate 5 - Fresh independent review of replacement exact candidate SHA required next.
-- [ ] Certification of exact approved replacement candidate SHA not authorized.
+- [x] Gate 5 - Fresh independent review approved replacement exact candidate `5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8`.
+- [ ] Certification of exact approved replacement candidate SHA required next.
 
 ## Scope Rules
 
@@ -102,3 +111,4 @@ Certification remains prohibited until a separate review returns exactly `APPROV
 - VM-523 and later identities may remain setup-only before Bant certification, but may not receive semantic work.
 - The rejected candidate and rejection review must remain visibly rejected and preserved; do not amend, squash, replace, or erase them.
 - The replacement workflow commit must never be substituted for exact replacement candidate SHA `5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8`.
+- Certification may certify only exact approved candidate SHA `5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8`.
