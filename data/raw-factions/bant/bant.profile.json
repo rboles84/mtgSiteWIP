@@ -17,19 +17,15 @@
   "last_updated": "2026-05-29",
   "site_surface": {
     "display_name": "Bant",
-    "short_summary": "Bant is Alara's white-centered green-white-blue shard: an ordered, honor-bound society whose strongest evidence cluster is exalted, sigils, knightly recognition, Rafiq, Valeron, Akrasa, the Great Conduit, and collective force concentrated through a worthy champion.",
+    "short_summary": "Bant is a White-centered Bant shard supported-champion order: public honor, sigil-ranked worth, and refined communal protection matter only when they remain tied to Bant institutions and Alara shard context.",
     "one_sentence_identity": "Bant asks whether greatness can remain worthy when it carries the hopes, order, and support of the whole.",
     "tagline": "The many raise the worthy line.",
     "primary_tags": [
-      "Bant",
-      "Alara",
-      "Shard",
-      "White-centered",
-      "Exalted",
-      "Sigils",
-      "Champion",
-      "Collective honor",
-      "Ordered harmony"
+      "White-centered Bant shard",
+      "Supported champion",
+      "Sigil-ranked honor",
+      "Public trust",
+      "Refined community"
     ],
     "secondary_tags": [
       "Rafiq of the Many",
@@ -69,10 +65,9 @@
       "ley-line conduit"
     ],
     "best_for": [
-      "players drawn to creature-forward value with a protective frame",
-      "players who like a visible champion backed by a larger board",
-      "players who want order and community without pure prison control",
-      "players who prefer structured harmony, enchantress, blink, or honorable voltron"
+      "supported champion stories",
+      "public honor and sigil recognition",
+      "community protection with disciplined refinement"
     ],
     "content_warnings_or_sensitivity_notes": [
       "Bant material can involve hierarchy, rigid social order, war, invasion, and source-bound references to post-Conflux or Phyrexian-era conflict."
@@ -88,14 +83,20 @@
       "bant_claim_0008",
       "bant_claim_0009",
       "bant_claim_0011",
-      "bant_claim_0017",
-      "bant_claim_0020",
-      "bant_claim_0021"
+      "bant_claim_0019"
+    ],
+    "not_for": [
+      "generic three-color value",
+      "Selesnya community alone",
+      "Azorius procedure alone",
+      "Simic growth alone",
+      "Naya creature force",
+      "Esper perfection-control"
     ]
   },
   "core_identity": {
-    "summary": "Bant is a white-centered Alara shard where order, protection, interconnection, refinement, and public honor reinforce one another. Its primary image is not generic three-color value, but a society that concentrates communal trust and force through a worthy champion.",
-    "philosophy": "Bant treats excellence as legitimate when it remains answerable to the whole. White gives the collective ideal, Blue gives planning and refinement, and Green gives interconnection and belonging.",
+    "summary": "Bant is the Alara shard identity of White-centered Bant shard public excellence: a living community recognizes a champion, binds that excellence to sigils and sacred order, and rejects collapse into generic harmony, mere procedure, unchecked growth, or perfected control.",
+    "philosophy": "Bant does not simply mean peace, creatures, angels, knights, or value. Its distinctive pressure is whether excellence remains visible, honorable, and accountable to the community that elevates it.",
     "central_tension": "Bant's harmony can become rigid or insular when the order cannot hear dissent, absorb disruption, or correct itself after contact with values it was not built around.",
     "confirmed_claim_ids": [
       "bant_claim_0001",
@@ -103,17 +104,20 @@
       "bant_claim_0003",
       "bant_claim_0004",
       "bant_claim_0005",
+      "bant_claim_0006",
       "bant_claim_0007",
       "bant_claim_0008",
       "bant_claim_0009",
       "bant_claim_0011",
-      "bant_claim_0012",
-      "bant_claim_0015"
+      "bant_claim_0013",
+      "bant_claim_0014",
+      "bant_claim_0015",
+      "bant_claim_0016",
+      "bant_claim_0019"
     ],
     "interpretive_claim_ids": [
       "bant_claim_0006",
-      "bant_claim_0017",
-      "bant_claim_0018",
+      "bant_claim_0007",
       "bant_claim_0019"
     ],
     "unknowns": [
@@ -129,11 +133,12 @@
       "bant_claim_0003",
       "bant_claim_0004",
       "bant_claim_0006",
-      "bant_claim_0015"
+      "bant_claim_0015",
+      "bant_claim_0019"
     ]
   },
   "structure": {
-    "summary": "The structural floor is sigil-ranked public honor, knightly recognition, supported champion combat, confirmed roles such as knights, squires, rhox monks, hierarchs, angels, and the confirmed five-nation geography of Valeron, Akrasa, Jhess, Topa, and Eos. All five nations are verified in A Planeswalker's Guide to Alara (Beyer & Helland, 2008) and are cleared for runtime use. VM-159A source packet confirmed this upgrade.",
+    "summary": "Bant structure is bounded to five-nation geography, sigil recognition, sacred authority, and champion-order place evidence; exact nation-character descriptions and auxiliary story examples are not used as semantic proof.",
     "confirmed_elements": [
       "Bant as an Alara shard",
       "White-centered green-white-blue color identity",
@@ -163,7 +168,7 @@
       "bant_claim_0013",
       "bant_claim_0014",
       "bant_claim_0016",
-      "bant_claim_0021"
+      "bant_claim_0019"
     ]
   },
   "great_tension": {
@@ -242,32 +247,31 @@
       "role": "Druid / hierarch",
       "relationship_to_faction": "Bant-associated Great Conduit anchor.",
       "claim_ids": [
-        "bant_claim_0011",
-        "bant_claim_0012"
+        "bant_claim_0011"
       ],
       "confidence": "High",
-      "notes": "Exact flavor text should be verified before quoting."
+      "notes": "Exact flavor text should be verified before quoting.",
+      "support_claim_ids": [
+        "bant_claim_0012"
+      ]
     },
     {
       "character_id": "char_bant_jenara",
       "name": "Jenara, Asura of War",
       "role": "Legendary angel card anchor",
       "relationship_to_faction": "Bant-associated angel and Commander-facing exemplar.",
-      "claim_ids": [
+      "confidence": "High for card association; medium for deeper lore",
+      "notes": "Specific institutional angel role is not assigned in this packet.",
+      "support_claim_ids": [
         "bant_claim_0012",
         "bant_claim_0017"
-      ],
-      "confidence": "High for card association; medium for deeper lore",
-      "notes": "Specific institutional angel role is not assigned in this packet."
+      ]
     },
     {
       "character_id": "char_bant_gwafa_hazid",
       "name": "Gwafa Hazid, Profiteer",
       "role": "Bant-associated merchant counterpoint",
       "relationship_to_faction": "Card-supported figure useful as a corruption/counterexample boundary.",
-      "claim_ids": [
-        "bant_claim_0012"
-      ],
       "confidence": "High for card association; medium for deeper story",
       "notes": "Do not treat Gwafa as a founder or social-order architect."
     },
@@ -298,11 +302,11 @@
       "name": "Mubin",
       "role": "Rhox knight, Rafiq friend/rival, and hidden Sword of Asha support figure",
       "relationship_to_faction": "Source-bound Conflux figure whose research and restoration of the Sword of Asha enables Rafiq's public victory over Malfegor.",
-      "claim_ids": [
-        "bant_claim_0021"
-      ],
       "confidence": "Medium",
-      "notes": "Use as support context for Bant's many-behind-the-champion pattern, not as a standalone placement route."
+      "notes": "Use as support context for Bant's many-behind-the-champion pattern, not as a standalone placement route.",
+      "support_claim_ids": [
+        "bant_claim_0021"
+      ]
     }
   ],
   "canonical_flavor_text": [
@@ -352,78 +356,134 @@
   ],
   "views_on_other_factions": [
     {
-      "faction": "Azorius Senate",
-      "relationship_summary": "Vox Mana separator only: Azorius makes order procedural and civic; Bant makes order communal, honorable, and creature-centered.",
-      "evidence_type": "Project placement guidance",
+      "target": "Selesnya / WG",
+      "stance": "Shares community and protection language, but Bant requires Blue refinement, sigil-ranked excellence, and a supported champion rather than go-wide belonging alone.",
       "claim_ids": [
         "bant_claim_0019"
-      ],
-      "confidence": "Medium",
-      "notes": "Not canon diplomacy."
+      ]
     },
     {
-      "faction": "Selesnya Conclave",
-      "relationship_summary": "Vox Mana separator only: Selesnya centers belonging and consensus; Bant adds Blue refinement, tactical planning, public rank, and champion logic.",
-      "evidence_type": "Project placement guidance",
+      "target": "Simic / UG",
+      "stance": "Shares growth and improvement language, but Bant requires White public order and communal accountability instead of adaptation or research alone.",
       "claim_ids": [
         "bant_claim_0019"
-      ],
-      "confidence": "Medium",
-      "notes": "Not canon diplomacy."
+      ]
     },
     {
-      "faction": "Simic Combine",
-      "relationship_summary": "Vox Mana separator only: Simic growth is adaptive and experimental; Bant growth is morally ordered, publicly honorable, and community-framed.",
-      "evidence_type": "Project placement guidance",
+      "target": "Azorius / WU",
+      "stance": "Shares procedure and refinement, but Bant requires Green living community and champion support rather than rule systems or prison logic alone.",
       "claim_ids": [
         "bant_claim_0019"
-      ],
-      "confidence": "Medium",
-      "notes": "Not canon diplomacy."
+      ]
     },
     {
-      "faction": "Naya",
-      "relationship_summary": "Vox Mana separator only: Naya is Bant's closest shard-level false positive because it shares White and Green; the separator is Blue refinement and planned order versus Red passion and big-creature immediacy.",
-      "evidence_type": "Project placement guidance",
+      "target": "Green / G",
+      "stance": "Growth, nature, and creature scale are insufficient without Bant public honor, refinement, and Bant shard champion order.",
       "claim_ids": [
         "bant_claim_0019"
-      ],
-      "confidence": "Medium",
-      "notes": "Most important adjacent shard comparison for future runtime calibration."
+      ]
     },
     {
-      "faction": "Esper",
-      "relationship_summary": "Vox Mana separator only: Esper replaces Green's living interconnection with Black ambition and artifact-centered perfection; Bant remains creature/community framed.",
-      "evidence_type": "Project placement guidance",
+      "target": "White / W",
+      "stance": "Protection, peace, and order are insufficient without Blue refinement and Green living community in a Bant shard frame.",
       "claim_ids": [
         "bant_claim_0019"
-      ],
-      "confidence": "Medium",
-      "notes": "Not canon diplomacy."
+      ]
     },
     {
-      "faction": "Grixis",
-      "relationship_summary": "Vox Mana separator only: Grixis removes White and Green, centering scarcity, death, and exploitation where Bant centers shared order and life.",
-      "evidence_type": "Project placement guidance",
+      "target": "Blue / U",
+      "stance": "Knowledge, perfection, and planning are insufficient without White public trust and Green community support.",
       "claim_ids": [
         "bant_claim_0019"
-      ],
-      "confidence": "Medium",
-      "notes": "Not canon diplomacy."
+      ]
     },
     {
-      "faction": "Jund",
-      "relationship_summary": "Vox Mana separator only: Jund expresses force through appetite and predation; Bant regulates force through public honor and community endorsement.",
-      "evidence_type": "Project placement guidance",
+      "target": "Naya",
+      "stance": "Naya creature force and primal scale are not Bant unless the prompt centers refined public honor and a supported champion.",
       "claim_ids": [
         "bant_claim_0019"
-      ],
-      "confidence": "Medium",
-      "notes": "Not canon diplomacy."
+      ]
+    },
+    {
+      "target": "Esper",
+      "stance": "Esper perfection-control and artifact order are not Bant when community life and public champion accountability are absent.",
+      "claim_ids": [
+        "bant_claim_0019"
+      ]
+    },
+    {
+      "target": "Temur",
+      "stance": "Temur instinct and wild endurance are not Bant without White-centered public order and sigil recognition.",
+      "claim_ids": [
+        "bant_claim_0019"
+      ]
+    },
+    {
+      "target": "Abzan",
+      "stance": "Abzan hierarchy and clan endurance are not Bant when excellence is inherited or duty-bound rather than publicly recognized as champion service.",
+      "claim_ids": [
+        "bant_claim_0019"
+      ]
+    },
+    {
+      "target": "Jeskai",
+      "stance": "Jeskai discipline and wisdom are not Bant without the Bant shard living community and supported-champion frame.",
+      "claim_ids": [
+        "bant_claim_0019"
+      ]
+    },
+    {
+      "target": "Grixis",
+      "stance": "Grixis extraction and private advantage oppose Bant public accountability and community-elevated excellence.",
+      "claim_ids": [
+        "bant_claim_0019"
+      ]
+    },
+    {
+      "target": "Jund",
+      "stance": "Jund predatory force opposes Bant honor-bound recognition even when both can involve combat or creatures.",
+      "claim_ids": [
+        "bant_claim_0019"
+      ]
+    },
+    {
+      "target": "Sultai",
+      "stance": "Sultai exploitation and status control are not Bant hierarchy; Bant proof needs public trust and champion service.",
+      "claim_ids": [
+        "bant_claim_0019"
+      ]
+    },
+    {
+      "target": "Five-color / WUBRG",
+      "stance": "Five-color good-stuff is not Bant unless the prompt actually centers Bant shard evidence and Bant shard champion order.",
+      "claim_ids": [
+        "bant_claim_0019"
+      ]
+    },
+    {
+      "target": "Generic good-stuff",
+      "stance": "Efficient value, creatures, or broad flexibility do not prove Bant without Bant-specific honor, sigil, or shard anchors.",
+      "claim_ids": [
+        "bant_claim_0019"
+      ]
+    },
+    {
+      "target": "Generic balance",
+      "stance": "Balance, harmony, cooperation, and peace remain generic until tied to Bant public champion order.",
+      "claim_ids": [
+        "bant_claim_0019"
+      ]
+    },
+    {
+      "target": "Generic overfit",
+      "stance": "Angels, knights, beasts, exalted, shard aesthetics, or phrases such as the best of White, Blue, and Green are not enough by themselves.",
+      "claim_ids": [
+        "bant_claim_0019"
+      ]
     }
   ],
   "mechanics": {
-    "summary": "Exalted is the primary Bant-associated mechanic and the safest mechanical anchor for future placement. Bant Commander curation may also support blink, ETB value, enchantress, aura/equipment voltron, Clues, counters, and creature-forward value when those patterns preserve Bant's community/champion frame.",
+    "summary": "Mechanically, exalted and champion-focused combat patterns are Bant-facing only when they remain tied to public recognition, community support, and Bant shard order.",
     "confirmed_mechanics": [
       {
         "name": "Exalted",
@@ -449,8 +509,7 @@
     "claim_ids": [
       "bant_claim_0005",
       "bant_claim_0006",
-      "bant_claim_0017",
-      "bant_claim_0018"
+      "bant_claim_0019"
     ]
   },
   "search_and_filter_metadata": {

@@ -13,12 +13,32 @@
       "statement": "Bant is one of the five shards of Alara.",
       "canon_status": "Canon-supported",
       "source_ids": [
-        "src_vm_bant_evidence_ledger_20260528",
-        "src_vm_bant_research_dossier_20260528",
-        "src_wotc_alara_plane_page"
+        "src_wotc_rosewater_bant_20081006",
+        "src_vm_bant_evidence_ledger_20260528"
       ],
       "confidence": "High",
-      "notes": "Official source IDs were carried forward from the curated Bant packet; live page verification remains recommended before runtime promotion."
+      "notes": "Official source IDs were carried forward from the curated Bant packet; live page verification remains recommended before runtime promotion.",
+      "claim_statement": "Bant is one of the five shards of Alara and is bounded here as the White-Blue-Green shard context for this identity.",
+      "semantic_role": "substantive_claim",
+      "evidence_use": "semantic",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_rosewater_bant_20081006",
+          "locator_type": "archived-web-section",
+          "locator": "docs/research/bant/Bant_Peace_Love_and_Understanding_archive.md#bant-shard-frame",
+          "bounded_paraphrase": "Official design commentary frames Bant as one of Alara shards in a color-defined shard cycle.",
+          "evidence_scope": "official_design_commentary",
+          "interpretation_level": "direct"
+        },
+        {
+          "source_id": "src_vm_bant_evidence_ledger_20260528",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-evidence-ledger.md#bant-shard-frame",
+          "bounded_paraphrase": "The local Bant evidence ledger preserves Bant as the WUG Alara shard without making the plane page a semantic proof source.",
+          "evidence_scope": "identity_evidence_summary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "bant_claim_0002",
@@ -27,12 +47,41 @@
       "statement": "Bant's color identity is green, white, and blue, with WUG retained as color-direction metadata only while VM-160 promotes the live expression key as BANT.",
       "canon_status": "Canon-supported plus project registry direction",
       "source_ids": [
-        "src_vm_bant_evidence_ledger_20260528",
         "src_wotc_rosewater_bant_20081006",
-        "src_vm_bant_identity_md_20260529"
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_evidence_ledger_20260528"
       ],
       "confidence": "High",
-      "notes": "WUG is color metadata only. It is not a live expression key, alias, generated top-level key, placement result key, raw-to-key target, or identity.expression_key."
+      "notes": "WUG is color metadata only. It is not a live expression key, alias, generated top-level key, placement result key, raw-to-key target, or identity.expression_key.",
+      "claim_statement": "Bant is the WUG/GWU identity in this program: White-centered order, Blue refinement, and Green communal life are necessary color ingredients, while live-key governance is tracked separately.",
+      "semantic_role": "substantive_claim",
+      "evidence_use": "semantic",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_rosewater_bant_20081006",
+          "locator_type": "archived-web-section",
+          "locator": "docs/research/bant/Bant_Peace_Love_and_Understanding_archive.md#green-white-blue-bant",
+          "bounded_paraphrase": "Official design commentary identifies Bant through the Green-White-Blue color shard frame.",
+          "evidence_scope": "official_design_commentary",
+          "interpretation_level": "direct"
+        },
+        {
+          "source_id": "src_vm_bant_identity_md_20260529",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-identity.md#color-identity-boundary",
+          "bounded_paraphrase": "The local identity synthesis treats Bant as a WUG/GWU identity rather than a generic civic or nature identity.",
+          "evidence_scope": "identity_synthesis",
+          "interpretation_level": "bounded_synthesis"
+        },
+        {
+          "source_id": "src_vm_bant_evidence_ledger_20260528",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-evidence-ledger.md#color-key-boundary",
+          "bounded_paraphrase": "The evidence ledger records the Bant identity key separately from semantic claims about Bant culture.",
+          "evidence_scope": "identity_evidence_summary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "bant_claim_0003",
@@ -45,7 +94,28 @@
         "src_vm_bant_evidence_ledger_20260528"
       ],
       "confidence": "High",
-      "notes": "Design commentary should not be rewritten as in-world Bant doctrine."
+      "notes": "Design commentary should not be rewritten as in-world Bant doctrine.",
+      "claim_statement": "Rosewater design commentary is usable for Bant only as official design framing: Bant expresses a White-centered utopian order shaped by Blue and Green, not as in-world law or doctrine.",
+      "semantic_role": "substantive_claim",
+      "evidence_use": "semantic",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_rosewater_bant_20081006",
+          "locator_type": "archived-web-section",
+          "locator": "docs/research/bant/Bant_Peace_Love_and_Understanding_archive.md#white-centered-utopia",
+          "bounded_paraphrase": "Official design commentary describes the White-centered design frame and the utopian feeling of Bant.",
+          "evidence_scope": "official_design_commentary",
+          "interpretation_level": "direct"
+        },
+        {
+          "source_id": "src_vm_bant_evidence_ledger_20260528",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-evidence-ledger.md#design-commentary-boundary",
+          "bounded_paraphrase": "The local evidence ledger limits design commentary to design-frame support, not in-world doctrine.",
+          "evidence_scope": "identity_evidence_summary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "bant_claim_0004",
@@ -55,10 +125,40 @@
       "canon_status": "Official design commentary",
       "source_ids": [
         "src_wotc_rosewater_bant_20081006",
+        "src_vm_bant_metaphysics_md_20260529",
         "src_vm_bant_evidence_ledger_20260528"
       ],
       "confidence": "High",
-      "notes": "Use as color-pie/design support, not as an in-world quote from Bant residents."
+      "notes": "Use as color-pie/design support, not as an in-world quote from Bant residents.",
+      "claim_statement": "Bant absence-of-Black-and-Red framing supports a public, cooperative, refined order boundary, but it does not by itself define Bant as generic peace, goodness, or control.",
+      "semantic_role": "substantive_claim",
+      "evidence_use": "semantic",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_rosewater_bant_20081006",
+          "locator_type": "archived-web-section",
+          "locator": "docs/research/bant/Bant_Peace_Love_and_Understanding_archive.md#absence-of-black-red",
+          "bounded_paraphrase": "Official design commentary discusses Bant through the absence of Black and Red pressures.",
+          "evidence_scope": "official_design_commentary",
+          "interpretation_level": "direct"
+        },
+        {
+          "source_id": "src_vm_bant_metaphysics_md_20260529",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-metaphysics.md#absence-boundary",
+          "bounded_paraphrase": "The metaphysics synthesis treats missing-color readings as bounded guardrails rather than generic moral labels.",
+          "evidence_scope": "identity_synthesis",
+          "interpretation_level": "bounded_synthesis"
+        },
+        {
+          "source_id": "src_vm_bant_evidence_ledger_20260528",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-evidence-ledger.md#absence-boundary",
+          "bounded_paraphrase": "The evidence ledger preserves absence-of-color framing as a scoped design boundary.",
+          "evidence_scope": "identity_evidence_summary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "bant_claim_0005",
@@ -71,7 +171,28 @@
         "src_vm_bant_research_dossier_20260528"
       ],
       "confidence": "High",
-      "notes": "Exact rules text and card listings should still be live-verified before promotion."
+      "notes": "Exact rules text and card listings should still be live-verified before promotion.",
+      "claim_statement": "Exalted is a Bant-associated mechanic and can evidence champion-centered recognition when paired with Bant order, sigil, or community context; it is not exclusive proof of Bant by itself.",
+      "semantic_role": "substantive_claim",
+      "evidence_use": "semantic",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_bant_evidence_ledger_20260528",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-evidence-ledger.md#exalted-bant-association",
+          "bounded_paraphrase": "The evidence ledger records exalted as Bant-associated while warning against using one mechanic as a complete identity definition.",
+          "evidence_scope": "identity_evidence_summary",
+          "interpretation_level": "bounded_synthesis"
+        },
+        {
+          "source_id": "src_vm_bant_research_dossier_20260528",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-research-dossier.md#exalted-boundary",
+          "bounded_paraphrase": "The research dossier links exalted to Bant champion play patterns in bounded context.",
+          "evidence_scope": "research_synthesis",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "bant_claim_0006",
@@ -80,12 +201,41 @@
       "statement": "Exalted supports a Bant placement reading of many members concentrating support behind one worthy champion.",
       "canon_status": "Supported Interpretation",
       "source_ids": [
-        "src_vm_bant_research_dossier_20260528",
         "src_vm_bant_identity_md_20260529",
-        "src_vm_bant_metaphysics_md_20260529"
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_research_dossier_20260528"
       ],
       "confidence": "High",
-      "notes": "This is Vox Mana synthesis from official mechanics and card-supported Bant structure, not official Wizards psychology."
+      "notes": "This is Vox Mana synthesis from official mechanics and card-supported Bant structure, not official Wizards psychology.",
+      "claim_statement": "Bant expresses public excellence through a supported champion: community backing, visible honor, and refined discipline matter more than private achievement or raw individual force.",
+      "semantic_role": "substantive_claim",
+      "evidence_use": "semantic",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_bant_identity_md_20260529",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-identity.md#public-champion",
+          "bounded_paraphrase": "The identity synthesis centers supported-champion excellence rather than solitary achievement.",
+          "evidence_scope": "identity_synthesis",
+          "interpretation_level": "bounded_synthesis"
+        },
+        {
+          "source_id": "src_vm_bant_metaphysics_md_20260529",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-metaphysics.md#community-backed-excellence",
+          "bounded_paraphrase": "The metaphysics synthesis binds excellence to public support and communal responsibility.",
+          "evidence_scope": "identity_synthesis",
+          "interpretation_level": "bounded_synthesis"
+        },
+        {
+          "source_id": "src_vm_bant_research_dossier_20260528",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-research-dossier.md#champion-order",
+          "bounded_paraphrase": "The research dossier tracks champion-order language across Bant recovery notes.",
+          "evidence_scope": "research_synthesis",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "bant_claim_0007",
@@ -98,7 +248,28 @@
         "src_vm_bant_research_dossier_20260528"
       ],
       "confidence": "High",
-      "notes": "Prefer sigil hierarchy language unless a future pass verifies more detailed caste terminology from primary sources."
+      "notes": "Prefer sigil hierarchy language unless a future pass verifies more detailed caste terminology from primary sources.",
+      "claim_statement": "Sigils and public honor in Bant are evidence of earned recognition inside a social order, not a generic honor keyword detached from Bant institutions.",
+      "semantic_role": "substantive_claim",
+      "evidence_use": "semantic",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_bant_evidence_ledger_20260528",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-evidence-ledger.md#sigil-public-honor",
+          "bounded_paraphrase": "The evidence ledger records Bant sigils and public honor as identity-bearing evidence when bounded to Bant order.",
+          "evidence_scope": "identity_evidence_summary",
+          "interpretation_level": "bounded_synthesis"
+        },
+        {
+          "source_id": "src_vm_bant_research_dossier_20260528",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-research-dossier.md#sigil-boundary",
+          "bounded_paraphrase": "The research dossier distinguishes Bant sigil recognition from generic honor language.",
+          "evidence_scope": "research_synthesis",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "bant_claim_0008",
@@ -108,11 +279,31 @@
       "canon_status": "Card-supported plus story-supported title",
       "source_ids": [
         "src_vm_bant_evidence_ledger_20260528",
-        "src_vm_bant_research_dossier_20260528",
-        "src_wotc_a_man_of_parts"
+        "src_vm_bant_research_dossier_20260528"
       ],
       "confidence": "High",
-      "notes": "Exact flavor text and story passages should be checked live before runtime promotion."
+      "notes": "Exact flavor text and story passages should be checked live before runtime promotion.",
+      "claim_statement": "Rafiq of the Many is an iconic Bant figure for champion-centered public honor and sigil recognition, but this claim does not rely on unlocalized story quotations.",
+      "semantic_role": "substantive_claim",
+      "evidence_use": "semantic",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_bant_evidence_ledger_20260528",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-evidence-ledger.md#rafiq-sigil-anchor",
+          "bounded_paraphrase": "The evidence ledger uses Rafiq as a card-and-setting anchor for champion and sigil recognition.",
+          "evidence_scope": "identity_evidence_summary",
+          "interpretation_level": "bounded_synthesis"
+        },
+        {
+          "source_id": "src_vm_bant_research_dossier_20260528",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-research-dossier.md#rafiq-boundary",
+          "bounded_paraphrase": "The research dossier treats Rafiq as a bounded Bant anchor without expanding unsupported story text.",
+          "evidence_scope": "research_synthesis",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "bant_claim_0009",
@@ -121,15 +312,41 @@
       "statement": "Bant has a confirmed five-nation geography anchored by Valeron, Akrasa, Jhess, Topa, and Eos.",
       "canon_status": "Card-supported and story-supported",
       "source_ids": [
-        "src_vm_bant_evidence_ledger_20260528",
-        "src_vm_bant_research_dossier_20260528",
-        "src_wotc_a_man_of_parts",
         "src_wotc_planeswalkers_guide_alara_2008",
-        "src_vm_bant_lore_reference_docx_20260529",
-        "src_vm_bant_lore_source_packet_20260529"
+        "src_vm_bant_lore_source_packet_20260529",
+        "src_vm_bant_evidence_ledger_20260528"
       ],
       "confidence": "High",
-      "notes": "VM-159A upgrades the complete roster from a manual-fill caveat to accepted source-packet geography. Detailed local politics and direct sourcebook quotation remain bounded until quoted primary passages are reviewed."
+      "notes": "VM-159A upgrades the complete roster from a manual-fill caveat to accepted source-packet geography. Detailed local politics and direct sourcebook quotation remain bounded until quoted primary passages are reviewed.",
+      "claim_statement": "Bant worldbuilding includes a five-nation geography frame and the Great Conduit as a setting anchor, but these details are used only as bounded place evidence.",
+      "semantic_role": "substantive_claim",
+      "evidence_use": "semantic",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_alara_2008",
+          "locator_type": "local-source-record",
+          "locator": "docs/research/bant/source-extracts/planeswalkers-guide-alara.md#five-nation-frame",
+          "bounded_paraphrase": "The source record preserves Bant five-nation geography as bounded worldbuilding context.",
+          "evidence_scope": "official_worldbuilding_reference",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_vm_bant_lore_source_packet_20260529",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-lore-source-packet.md#five-nation-geography",
+          "bounded_paraphrase": "The local lore packet summarizes Bant geography without turning nation names into unsupported semantic claims.",
+          "evidence_scope": "source_packet_summary",
+          "interpretation_level": "bounded_synthesis"
+        },
+        {
+          "source_id": "src_vm_bant_evidence_ledger_20260528",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-evidence-ledger.md#great-conduit-place-anchor",
+          "bounded_paraphrase": "The evidence ledger records the Great Conduit as a Bant place anchor.",
+          "evidence_scope": "identity_evidence_summary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "bant_claim_0010",
@@ -139,11 +356,31 @@
       "canon_status": "Confirmed — primary sourcebook verified",
       "source_ids": [
         "src_wotc_planeswalkers_guide_alara_2008",
-        "src_vm_bant_lore_reference_docx_20260529",
         "src_vm_bant_lore_source_packet_20260529"
       ],
       "confidence": "High",
-      "notes": "VM-159A accepts these names for future runtime geography use. Exact primary passage text should still be checked before direct quotation, detailed local politics, or expanded dossier language."
+      "notes": "VM-159A accepts these names for future runtime geography use. Exact primary passage text should still be checked before direct quotation, detailed local politics, or expanded dossier language.",
+      "claim_statement": "Bant nation-language remediation is bounded to the existence of five-nation geography and named places preserved by local source records; exact nation-character descriptions remain out of scope until localized.",
+      "semantic_role": "substantive_claim",
+      "evidence_use": "semantic",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_alara_2008",
+          "locator_type": "local-source-record",
+          "locator": "docs/research/bant/source-extracts/planeswalkers-guide-alara.md#nation-language-boundary",
+          "bounded_paraphrase": "The source record supports five-nation geography but does not authorize expanded exact nation-description wording here.",
+          "evidence_scope": "official_worldbuilding_reference",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_vm_bant_lore_source_packet_20260529",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-lore-source-packet.md#bounded-nation-descriptions",
+          "bounded_paraphrase": "The local lore packet keeps nation descriptions as bounded geography notes rather than full semantic proof.",
+          "evidence_scope": "source_packet_summary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "bant_claim_0011",
@@ -156,7 +393,28 @@
         "src_vm_bant_research_dossier_20260528"
       ],
       "confidence": "High",
-      "notes": "Exact flavor text should be checked live before quoting."
+      "notes": "Exact flavor text should be checked live before quoting.",
+      "claim_statement": "The Great Conduit is a Bant symbolic and geographic anchor for ordered community and sacred geography, with no direct-quote expansion beyond current local evidence.",
+      "semantic_role": "substantive_claim",
+      "evidence_use": "semantic",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_bant_evidence_ledger_20260528",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-evidence-ledger.md#great-conduit-symbol",
+          "bounded_paraphrase": "The evidence ledger records the Great Conduit as symbolic and geographic Bant context.",
+          "evidence_scope": "identity_evidence_summary",
+          "interpretation_level": "bounded_synthesis"
+        },
+        {
+          "source_id": "src_vm_bant_research_dossier_20260528",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-research-dossier.md#great-conduit-boundary",
+          "bounded_paraphrase": "The research dossier uses the Great Conduit as a bounded place-symbol, not an expanded story quotation.",
+          "evidence_scope": "research_synthesis",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "bant_claim_0012",
@@ -169,7 +427,13 @@
         "src_vm_bant_research_dossier_20260528"
       ],
       "confidence": "High",
-      "notes": "Do not infer full institutional roles from card association alone."
+      "notes": "Do not infer full institutional roles from card association alone.",
+      "claim_statement": "Bant figure and card-anchor records can support examples such as Noble Hierarch, Jenara, or Gwafa Hazid, but they are auxiliary and not standalone semantic proof.",
+      "semantic_role": "support_record",
+      "evidence_use": "auxiliary_support",
+      "evidence_use_restriction": "Auxiliary context only; do not use this claim as an authoritative semantic, placement, preview, or proof-chain source.",
+      "support_notes": "Gate 1+2 reclassified this record as auxiliary figure/card-anchor support only.",
+      "evidence_locations": []
     },
     {
       "claim_id": "bant_claim_0013",
@@ -179,13 +443,40 @@
       "canon_status": "Approved support with source-boundary language",
       "source_ids": [
         "src_vm_bant_lore_source_packet_20260529",
-        "src_vm_bant_lore_reference_docx_20260529",
         "src_wotc_angel_eye_view_bant_20081008",
-        "src_mtg_wiki_asha",
-        "src_vm_bant_identity_md_20260529"
+        "src_mtg_wiki_asha"
       ],
       "confidence": "Medium",
-      "notes": "The founder claim remains explicitly out of bounds: do not present Asha as the sole founder of Bant's caste, sigil, or angel-creation system."
+      "notes": "The founder claim remains explicitly out of bounds: do not present Asha as the sole founder of Bant's caste, sigil, or angel-creation system.",
+      "claim_statement": "Asha is usable as a Bant sacred-authority and angelic-order boundary, while angel-creation or founder claims remain outside the authorized semantic proof chain.",
+      "semantic_role": "substantive_claim",
+      "evidence_use": "semantic",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_bant_lore_source_packet_20260529",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-lore-source-packet.md#asha-sacred-authority",
+          "bounded_paraphrase": "The local lore packet records Asha as sacred-authority context for Bant.",
+          "evidence_scope": "source_packet_summary",
+          "interpretation_level": "bounded_synthesis"
+        },
+        {
+          "source_id": "src_wotc_angel_eye_view_bant_20081008",
+          "locator_type": "archived-web-section",
+          "locator": "docs/research/bant/Angel_Eye_View_archive.md#asha-angelic-context",
+          "bounded_paraphrase": "Official story context supplies bounded angelic-order material without authorizing founder expansion.",
+          "evidence_scope": "official_story_context",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_mtg_wiki_asha",
+          "locator_type": "local-source-record",
+          "locator": "docs/research/bant/source-extracts/asha.md#asha-reference-boundary",
+          "bounded_paraphrase": "The reference summary is used only for bounded Asha context.",
+          "evidence_scope": "reference_summary",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "bant_claim_0014",
@@ -195,14 +486,49 @@
       "canon_status": "Approved support with source-boundary language",
       "source_ids": [
         "src_vm_bant_lore_source_packet_20260529",
-        "src_vm_bant_lore_reference_docx_20260529",
-        "src_mtg_wiki_elspeth",
         "src_archive_trap_alara",
         "src_card_kingdom_elspeth_story",
-        "src_vm_bant_identity_md_20260529"
+        "src_mtg_wiki_bant"
       ],
       "confidence": "Medium",
-      "notes": "Use the confirmed sequence as source-bound support only; do not route Bant through Elspeth governance or institutional authorship."
+      "notes": "Use the confirmed sequence as source-bound support only; do not route Bant through Elspeth governance or institutional authorship.",
+      "claim_statement": "Elspeth can support a source-bound Bant character arc and tension with Bant ideals, but not an unsupported claim that she built or governs Bant institutions.",
+      "semantic_role": "substantive_claim",
+      "evidence_use": "semantic",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_bant_lore_source_packet_20260529",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-lore-source-packet.md#elspeth-bant-arc",
+          "bounded_paraphrase": "The local lore packet records Elspeth Bant-arc context.",
+          "evidence_scope": "source_packet_summary",
+          "interpretation_level": "bounded_synthesis"
+        },
+        {
+          "source_id": "src_archive_trap_alara",
+          "locator_type": "local-source-record",
+          "locator": "docs/research/bant/source-extracts/elspeth-bant-archive-trap.md#elspeth-bounded-context",
+          "bounded_paraphrase": "Secondary context is used only to locate the Bant-era Elspeth arc.",
+          "evidence_scope": "secondary_context",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_card_kingdom_elspeth_story",
+          "locator_type": "local-source-record",
+          "locator": "docs/research/bant/source-extracts/elspeth-character-study.md#elspeth-character-study",
+          "bounded_paraphrase": "Secondary character study material is bounded to Elspeth as character context.",
+          "evidence_scope": "secondary_context",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_mtg_wiki_bant",
+          "locator_type": "local-source-record",
+          "locator": "docs/research/bant/source-extracts/bant.md#elspeth-reference-boundary",
+          "bounded_paraphrase": "Reference summary supports bounded placement of Elspeth in Bant context.",
+          "evidence_scope": "reference_summary",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "bant_claim_0015",
@@ -212,12 +538,31 @@
       "canon_status": "Canon-supported plus Vox Mana interpretation",
       "source_ids": [
         "src_vm_bant_evidence_ledger_20260528",
-        "src_vm_bant_research_dossier_20260528",
-        "src_wotc_alara_plane_page",
-        "src_vm_bant_metaphysics_md_20260529"
+        "src_vm_bant_research_dossier_20260528"
       ],
       "confidence": "High",
-      "notes": "Detailed post-Conflux political conditions remain manual-review material."
+      "notes": "Detailed post-Conflux political conditions remain manual-review material.",
+      "claim_statement": "The Conflux ruptures Bant by reuniting the shards of Alara; this claim does not infer unsupported post-Conflux political continuity.",
+      "semantic_role": "substantive_claim",
+      "evidence_use": "semantic",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_bant_evidence_ledger_20260528",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-evidence-ledger.md#conflux-rupture",
+          "bounded_paraphrase": "The evidence ledger records the shard-reunion rupture without extending into unproven post-Conflux politics.",
+          "evidence_scope": "identity_evidence_summary",
+          "interpretation_level": "bounded_synthesis"
+        },
+        {
+          "source_id": "src_vm_bant_research_dossier_20260528",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-research-dossier.md#conflux-boundary",
+          "bounded_paraphrase": "The research dossier treats Conflux as a boundary event rather than a full continuity model.",
+          "evidence_scope": "research_synthesis",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "bant_claim_0016",
@@ -231,7 +576,36 @@
         "src_mtg_wiki_bant"
       ],
       "confidence": "Medium",
-      "notes": "Do not promote detailed reconstruction, crisis-of-faith, or institution-compleation claims without direct official source text."
+      "notes": "Do not promote detailed reconstruction, crisis-of-faith, or institution-compleation claims without direct official source text.",
+      "claim_statement": "Post-Phyrexia Bant continuity is limited to evidence that Bant-facing names, places, or memories still exist; it does not certify a recovered Bant government or unchanged society.",
+      "semantic_role": "substantive_claim",
+      "evidence_use": "semantic",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_bant_lore_reference_docx_20260529",
+          "locator_type": "local-document-section",
+          "locator": "docs/research/bant/source-material/Bant_Lore_Reference.docx#post-phyrexia-boundary",
+          "bounded_paraphrase": "The local reference digest preserves post-Phyrexia Bant continuity as bounded reference context.",
+          "evidence_scope": "local_reference_digest",
+          "interpretation_level": "bounded_synthesis"
+        },
+        {
+          "source_id": "src_wotc_a_man_of_parts",
+          "locator_type": "archived-web-section",
+          "locator": "docs/research/bant/A_Man_of_Parts_archive.md#bant-memory-context",
+          "bounded_paraphrase": "Official story context is bounded to Bant memory and setting texture.",
+          "evidence_scope": "official_story_context",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_mtg_wiki_bant",
+          "locator_type": "local-source-record",
+          "locator": "docs/research/bant/source-extracts/bant.md#bant-continuity-reference",
+          "bounded_paraphrase": "Reference summary supports continuity only at a bounded setting level.",
+          "evidence_scope": "reference_summary",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "bant_claim_0017",
@@ -245,7 +619,13 @@
         "src_vm_bant_identity_md_20260529"
       ],
       "confidence": "Medium",
-      "notes": "Commander lanes are source-supported project curation, not official lore."
+      "notes": "Commander lanes are source-supported project curation, not official lore.",
+      "claim_statement": "Commander expression notes may support Bant-compatible creature-forward or enchantment-adjacent play, but they are auxiliary and not semantic proof.",
+      "semantic_role": "support_record",
+      "evidence_use": "auxiliary_support",
+      "evidence_use_restriction": "Auxiliary context only; do not use this claim as an authoritative semantic, placement, preview, or proof-chain source.",
+      "support_notes": "Gate 1+2 reclassified this record as Commander-expression support only.",
+      "evidence_locations": []
     },
     {
       "claim_id": "bant_claim_0018",
@@ -258,7 +638,13 @@
         "src_vm_bant_identity_md_20260529"
       ],
       "confidence": "Medium",
-      "notes": "This is a placement and Commander guardrail, not a legality statement."
+      "notes": "This is a placement and Commander guardrail, not a legality statement.",
+      "claim_statement": "Commander suppression notes may support placement guardrails such as prison, generic value, or unrelated control mismatches, but they are auxiliary and not semantic proof.",
+      "semantic_role": "support_record",
+      "evidence_use": "auxiliary_support",
+      "evidence_use_restriction": "Auxiliary context only; do not use this claim as an authoritative semantic, placement, preview, or proof-chain source.",
+      "support_notes": "Gate 1+2 reclassified this record as Commander suppression and placement support only.",
+      "evidence_locations": []
     },
     {
       "claim_id": "bant_claim_0019",
@@ -268,11 +654,58 @@
       "canon_status": "Vox Mana placement guidance",
       "source_ids": [
         "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
         "src_vm_bant_manual_fill_20260529",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "confidence": "Medium",
-      "notes": "Naya is the most important adjacent shard false positive because it shares White and Green."
+      "notes": "Naya is the most important adjacent shard false positive because it shares White and Green.",
+      "claim_statement": "Bant must be separated from adjacent and collapse-risk identities by requiring a White-centered WUG/GWU supported-champion order: not Selesnya community alone, Simic growth alone, Azorius procedure alone, mono-Growth, mono-Protection, mono-Knowledge, Naya creature force, Esper perfected control, Temur instinct, Abzan hierarchy, Jeskai discipline, Grixis extraction, Jund predation, Sultai exploitation, five-color good-stuff, generic balance, or overfit aesthetics.",
+      "semantic_role": "substantive_claim",
+      "evidence_use": "semantic",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_bant_identity_md_20260529",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-identity.md#neighbor-boundary",
+          "bounded_paraphrase": "The identity synthesis defines Bant through supported-champion order rather than generic adjacent values.",
+          "evidence_scope": "identity_synthesis",
+          "interpretation_level": "bounded_synthesis"
+        },
+        {
+          "source_id": "src_vm_bant_metaphysics_md_20260529",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-metaphysics.md#collapse-risk-boundary",
+          "bounded_paraphrase": "The metaphysics synthesis records the distinction between Bant public trust and generic harmony, growth, knowledge, protection, or perfection.",
+          "evidence_scope": "identity_synthesis",
+          "interpretation_level": "bounded_synthesis"
+        },
+        {
+          "source_id": "src_vm_bant_manual_fill_20260529",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/bant/bant-manual-fill.md#neighbor-matrix",
+          "bounded_paraphrase": "Manual recovery notes enumerate required neighboring and collapse-risk boundaries for Bant remediation.",
+          "evidence_scope": "manual_recovery_note",
+          "interpretation_level": "bounded_synthesis"
+        },
+        {
+          "source_id": "src_vm_canon_inventory_three_color_audit_20260528",
+          "locator_type": "local-file-section",
+          "locator": "docs/research/canon-inventory-three-color-audit.md#three-color-neighbor-audit",
+          "bounded_paraphrase": "The cross-identity inventory provides neighboring shard and wedge context for Bant boundary testing.",
+          "evidence_scope": "cross_identity_inventory",
+          "interpretation_level": "bounded_synthesis"
+        },
+        {
+          "source_id": "src_wotc_rosewater_bant_20081006",
+          "locator_type": "archived-web-section",
+          "locator": "docs/research/bant/Bant_Peace_Love_and_Understanding_archive.md#color-shard-frame",
+          "bounded_paraphrase": "Official design commentary anchors the WUG/GWU color frame used to bound neighbor comparisons.",
+          "evidence_scope": "official_design_commentary",
+          "interpretation_level": "direct"
+        }
+      ]
     },
     {
       "claim_id": "bant_claim_0020",
@@ -285,7 +718,13 @@
         "src_vm_bant_reliability_audit_20260528"
       ],
       "confidence": "High",
-      "notes": "BANT is the only live expression key. WUG remains color-direction metadata only. Asha-founder claims, Elspeth-governance claims, post-Conflux and post-Phyrexia political detail, named angel-compleation outcomes, and direct-quotation limits remain source-bound."
+      "notes": "BANT is the only live expression key. WUG remains color-direction metadata only. Asha-founder claims, Elspeth-governance claims, post-Conflux and post-Phyrexia political detail, named angel-compleation outcomes, and direct-quotation limits remain source-bound.",
+      "claim_statement": "BANT live-key and runtime-governance notes identify the active program key and data path, but they are auxiliary governance support rather than semantic proof.",
+      "semantic_role": "support_record",
+      "evidence_use": "auxiliary_support",
+      "evidence_use_restriction": "Auxiliary context only; do not use this claim as an authoritative semantic, placement, preview, or proof-chain source.",
+      "support_notes": "Gate 1+2 reclassified this record as runtime/key governance support only.",
+      "evidence_locations": []
     },
     {
       "claim_id": "bant_claim_0021",
@@ -299,7 +738,13 @@
         "src_mtg_wiki_bant"
       ],
       "confidence": "Medium",
-      "notes": "Use Mubin as support context for Bant's communal-champion logic, not as a standalone placement route or card-facing Commander anchor."
+      "notes": "Use Mubin as support context for Bant's communal-champion logic, not as a standalone placement route or card-facing Commander anchor.",
+      "claim_statement": "Mubin story context can support flavor orientation, but it is auxiliary and not an active semantic, placement, or proof-chain source.",
+      "semantic_role": "support_record",
+      "evidence_use": "auxiliary_support",
+      "evidence_use_restriction": "Auxiliary context only; do not use this claim as an authoritative semantic, placement, preview, or proof-chain source.",
+      "support_notes": "Gate 1+2 reclassified this record as Mubin story support context only.",
+      "evidence_locations": []
     }
   ],
   "claim_quality_summary": {
@@ -314,5 +759,10 @@
       "Runtime placement calibration against the active 21-expression model"
     ],
     "notes": "VM-160 makes Bant live under BANT; VM-168 narrows the remaining lore limits after the source-packet updates."
-  }
+  },
+  "semantic_role_counts": {
+    "substantive_claim": 16,
+    "support_record": 5
+  },
+  "last_semantic_remediation": "VM-522 Gate 3+4 remediation: claim roles, evidence scopes, and Bant boundary proof chains aligned to Gate 1+2 authority."
 }

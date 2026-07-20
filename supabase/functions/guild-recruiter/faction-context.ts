@@ -1449,10 +1449,10 @@ export const FACTION_CONTEXT = {
     ],
     "inhibitor_traps": [
       "Treats excellence as private self-authorization, raw instinct, or abstract optimization rather than accountable power carried for a living community.",
-      "Down-rank Bant when the answer is generic three-color goodstuff with no Bant-specific surface.",
-      "Down-rank Bant when the primary strategy is hard-lock stax, prison enchantments, or resource denial.",
-      "Down-rank Bant when the main appeal is Simic adaptation, Selesnya belonging, Naya big creatures, Esper artifacts/mill, or Grixis/Jund survival pressure.",
-      "Down-rank Bant when the answer needs Asha-founder claims, Elspeth-governance claims, named angel-compleation outcomes, or detailed post-Conflux/post-Phyrexia politics beyond the source packet.",
+      "Do not select Bant from color identity, peace, balance, harmony, order, community, nature, knowledge, growth, protection, or cooperation alone.",
+      "Suppress Bant when the prompt centers hard-lock prison, private extraction, artifact perfection, predatory force, inherited hierarchy, or five-color good-stuff.",
+      "Separate Bant from Selesnya, Simic, Azorius, Naya, Esper, Temur, Abzan, Jeskai, Grixis, Jund, Sultai, mono-color ideals, and generic overfit aesthetics.",
+      "Do not treat angels, knights, beasts, exalted, creature mechanics, shard aesthetics, or the best of White, Blue, and Green as standalone Bant proof.",
       "The answer wants control through denial more than community protection.",
       "The answer is mainly ramp, landfall, evolve, or adaptation without White structure.",
       "The answer is mainly go-wide belonging without Blue refinement.",
@@ -1491,7 +1491,7 @@ export const FACTION_CONTEXT = {
       },
       {
         "id": "q_bant_0002",
-        "prompt": "When order is needed, should it protect the community, enforce the procedure, grow naturally, or stop everyone else from acting?",
+        "prompt": "Is the order a living community elevating a champion, or mostly law, prison, hierarchy, or perfected control?",
         "purpose": "Separates Bant protection from Azorius procedure, Selesnya harmony, and prison control.",
         "supports": "The answer uses order to protect a living community and keep excellence accountable.",
         "weakens": "The answer wants procedure for its own sake or hard denial as the main form of safety.",
@@ -1500,15 +1500,16 @@ export const FACTION_CONTEXT = {
           "WG"
         ],
         "evidence_claim_ids": [
-          "bant_claim_0017",
-          "bant_claim_0018",
+          "bant_claim_0003",
+          "bant_claim_0004",
+          "bant_claim_0006",
           "bant_claim_0019"
         ],
         "confidence": "Medium"
       },
       {
         "id": "q_bant_0003",
-        "prompt": "Does a perfect board feel like one huge creature, one protected champion, a flexible value engine, or a table where opponents cannot act?",
+        "prompt": "Are creatures, exalted, angels, knights, or shard aesthetics carrying Bant-specific honor and sigil evidence, or only generic fantasy texture?",
         "purpose": "Separates Naya, Bant, Simic/Bant value, and Azorius-prison drift.",
         "supports": "The answer centers a protected champion or creature/community value engine with visible support.",
         "weakens": "The answer centers largest-threat aggression, pure optimization, or hard locks.",
@@ -1518,8 +1519,9 @@ export const FACTION_CONTEXT = {
           "WU"
         ],
         "evidence_claim_ids": [
-          "bant_claim_0017",
-          "bant_claim_0018",
+          "bant_claim_0005",
+          "bant_claim_0006",
+          "bant_claim_0007",
           "bant_claim_0019"
         ],
         "confidence": "Medium"
@@ -1527,21 +1529,21 @@ export const FACTION_CONTEXT = {
     ],
     "chatbot_guidance": {
       "how_to_recognize_match": [
-        "Look for a cluster of champion support, sigils, exalted, public honor, disciplined protection, and white-blue-green refinement serving a living community.",
-        "Give extra weight when the user wants one worthy line of action backed by the whole rather than many independent threats.",
-        "Treat creature-forward value, enchantress, blink, Clues, counters, and voltron as Bant-facing only when they preserve community/champion framing.",
-        "Recognize Naya as the main shard-level false positive and test for Blue planning versus Red immediacy."
+        "Look for a White-centered Bant shard frame where community publicly elevates a champion through honor, sigils, and refined discipline.",
+        "Treat exalted, Rafiq, Valeron, Akrasa, the Great Conduit, and five-nation geography as Bant evidence only when they remain tied to Bant shard context.",
+        "Creature-forward value can be Bant-facing when it centers supported excellence and communal protection rather than raw scale or generic efficiency.",
+        "Prefer Bant when a prompt repeatedly joins public trust, champion service, sigil-ranked worth, and living community accountability."
       ],
       "how_to_recognize_mismatch": [
-        "Down-rank Bant when the answer is generic three-color goodstuff with no Bant-specific surface.",
-        "Down-rank Bant when the primary strategy is hard-lock stax, prison enchantments, or resource denial.",
-        "Down-rank Bant when the main appeal is Simic adaptation, Selesnya belonging, Naya big creatures, Esper artifacts/mill, or Grixis/Jund survival pressure.",
-        "Down-rank Bant when the answer needs Asha-founder claims, Elspeth-governance claims, named angel-compleation outcomes, or detailed post-Conflux/post-Phyrexia politics beyond the source packet."
+        "Do not select Bant from color identity, peace, balance, harmony, order, community, nature, knowledge, growth, protection, or cooperation alone.",
+        "Suppress Bant when the prompt centers hard-lock prison, private extraction, artifact perfection, predatory force, inherited hierarchy, or five-color good-stuff.",
+        "Separate Bant from Selesnya, Simic, Azorius, Naya, Esper, Temur, Abzan, Jeskai, Grixis, Jund, Sultai, mono-color ideals, and generic overfit aesthetics.",
+        "Do not treat angels, knights, beasts, exalted, creature mechanics, shard aesthetics, or the best of White, Blue, and Green as standalone Bant proof."
       ],
       "questions_to_ask_when_uncertain": [
-        "Is the main joy being the biggest force, the cleanest system, the best-supported champion, or the broadest community?",
-        "When a deck protects itself, is it protecting a living plan or preventing the table from playing?",
-        "Does the Bant-colored shell feel like Bant specifically, or only like efficient value in those colors?"
+        "Is a champion being publicly supported by a community, or is the prompt mostly about generic value, growth, law, or harmony?",
+        "Which Bant-specific anchors are present: sigils, Rafiq, Valeron, Akrasa, Great Conduit, five-nation geography, Asha, or Conflux-era shard context?",
+        "What adjacent identity would this become if public honor, refinement, and living community accountability were removed?"
       ],
       "do_not_overweight": [
         "Do not award Bant from color identity alone.",

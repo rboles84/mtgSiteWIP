@@ -1266,15 +1266,12 @@
       "canonical_id": "signal_bant_0001",
       "canonical_content_hash": "sha256:c061212c51e2449340eec5bd9ae78d6fc3cd12659ba9152b75c4627f007f3840",
       "evidence_claim_ids": [
-        "bant_claim_0006",
-        "bant_claim_0017"
+        "bant_claim_0006"
       ],
       "evidence_source_ids": [
         "src_vm_bant_identity_md_20260529",
-        "src_vm_bant_manual_fill_20260529",
         "src_vm_bant_metaphysics_md_20260529",
-        "src_vm_bant_research_dossier_20260528",
-        "src_vm_commander_workbook_20260529"
+        "src_vm_bant_research_dossier_20260528"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -1290,13 +1287,11 @@
       "canonical_id": "signal_bant_0002",
       "canonical_content_hash": "sha256:2543ee07c29c3269a702c82e2882e271594173e4fcef44d9a4105169de028140",
       "evidence_claim_ids": [
-        "bant_claim_0004",
-        "bant_claim_0018"
+        "bant_claim_0004"
       ],
       "evidence_source_ids": [
         "src_vm_bant_evidence_ledger_20260528",
-        "src_vm_bant_identity_md_20260529",
-        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
         "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
@@ -1318,8 +1313,326 @@
       ],
       "evidence_source_ids": [
         "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_research_dossier_20260528"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "bant_guidance_how_to_recognize_match_00",
+      "canonical_content_hash": "sha256:aed1a6727d860316ef80e2684f2f163287f84ea1e5e517dbbec84b3df365bdc6",
+      "evidence_claim_ids": [
+        "bant_claim_0002",
+        "bant_claim_0003",
+        "bant_claim_0006",
+        "bant_claim_0007",
+        "bant_claim_0019"
+      ],
+      "declared_content_hash": "sha256:aed1a6727d860316ef80e2684f2f163287f84ea1e5e517dbbec84b3df365bdc6",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
         "src_vm_bant_research_dossier_20260528",
-        "src_wotc_a_man_of_parts"
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "bant_guidance_how_to_recognize_match_01",
+      "canonical_content_hash": "sha256:635edad49ba29f6abb10d793d6e50d909b76d785b6136f25d84affc0ca361bc1",
+      "evidence_claim_ids": [
+        "bant_claim_0001",
+        "bant_claim_0005",
+        "bant_claim_0008",
+        "bant_claim_0009",
+        "bant_claim_0011",
+        "bant_claim_0019"
+      ],
+      "declared_content_hash": "sha256:635edad49ba29f6abb10d793d6e50d909b76d785b6136f25d84affc0ca361bc1",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_lore_source_packet_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_research_dossier_20260528",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_planeswalkers_guide_alara_2008",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "bant_guidance_how_to_recognize_match_02",
+      "canonical_content_hash": "sha256:535e54b58f86b79972b002c1a11abca978cd1fa1ce4cdca59eda1e5ede4a5d43",
+      "evidence_claim_ids": [
+        "bant_claim_0005",
+        "bant_claim_0006",
+        "bant_claim_0019"
+      ],
+      "declared_content_hash": "sha256:535e54b58f86b79972b002c1a11abca978cd1fa1ce4cdca59eda1e5ede4a5d43",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_research_dossier_20260528",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/3",
+      "canonical_id": "bant_guidance_how_to_recognize_match_03",
+      "canonical_content_hash": "sha256:4f09e4616ec0cbe69491ce631875da0fa7744bf83e1fd32e34e8f48d2f5895ee",
+      "evidence_claim_ids": [
+        "bant_claim_0006",
+        "bant_claim_0007",
+        "bant_claim_0019"
+      ],
+      "declared_content_hash": "sha256:4f09e4616ec0cbe69491ce631875da0fa7744bf83e1fd32e34e8f48d2f5895ee",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_research_dossier_20260528",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "bant_guidance_how_to_recognize_mismatch_00",
+      "canonical_content_hash": "sha256:65c57d024bf41d8f621c77b9a5d2d171fa06ae07af9cea3262436e234016847a",
+      "evidence_claim_ids": [
+        "bant_claim_0002",
+        "bant_claim_0004",
+        "bant_claim_0019"
+      ],
+      "declared_content_hash": "sha256:65c57d024bf41d8f621c77b9a5d2d171fa06ae07af9cea3262436e234016847a",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "bant_guidance_how_to_recognize_mismatch_01",
+      "canonical_content_hash": "sha256:3e237216ebf23dcb213dddcc98362111887c6497b7c177d10b1846be116e20d6",
+      "evidence_claim_ids": [
+        "bant_claim_0004",
+        "bant_claim_0019"
+      ],
+      "declared_content_hash": "sha256:3e237216ebf23dcb213dddcc98362111887c6497b7c177d10b1846be116e20d6",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "bant_guidance_how_to_recognize_mismatch_02",
+      "canonical_content_hash": "sha256:2ec562e472614b58a46349bb3e6156a6e813cc2375f057d3e763c8a5a6304b73",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "declared_content_hash": "sha256:2ec562e472614b58a46349bb3e6156a6e813cc2375f057d3e763c8a5a6304b73",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "bant_guidance_how_to_recognize_mismatch_03",
+      "canonical_content_hash": "sha256:a574b1a3cb5a38b5b304efc8b6550d80220e8c6793ffe083e8c5fecd677cb44a",
+      "evidence_claim_ids": [
+        "bant_claim_0005",
+        "bant_claim_0019"
+      ],
+      "declared_content_hash": "sha256:a574b1a3cb5a38b5b304efc8b6550d80220e8c6793ffe083e8c5fecd677cb44a",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_research_dossier_20260528",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_id": "bant_guidance_questions_to_ask_when_uncertain_00",
+      "canonical_content_hash": "sha256:aba67b1d2911a4c1dad157c7058e53554b5ca3e8e8d040b3390e9ec68b806fbc",
+      "evidence_claim_ids": [
+        "bant_claim_0006",
+        "bant_claim_0019"
+      ],
+      "declared_content_hash": "sha256:aba67b1d2911a4c1dad157c7058e53554b5ca3e8e8d040b3390e9ec68b806fbc",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_research_dossier_20260528",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_id": "bant_guidance_questions_to_ask_when_uncertain_01",
+      "canonical_content_hash": "sha256:fe8c7ac8a8677c8f96f3405df49cf8ead2e1393f4942ea5acc3a8c0b4e2b31e3",
+      "evidence_claim_ids": [
+        "bant_claim_0001",
+        "bant_claim_0007",
+        "bant_claim_0008",
+        "bant_claim_0009",
+        "bant_claim_0011",
+        "bant_claim_0013",
+        "bant_claim_0015"
+      ],
+      "declared_content_hash": "sha256:fe8c7ac8a8677c8f96f3405df49cf8ead2e1393f4942ea5acc3a8c0b4e2b31e3",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_mtg_wiki_asha",
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_lore_source_packet_20260529",
+        "src_vm_bant_research_dossier_20260528",
+        "src_wotc_angel_eye_view_bant_20081008",
+        "src_wotc_planeswalkers_guide_alara_2008",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/2",
+      "canonical_id": "bant_guidance_questions_to_ask_when_uncertain_02",
+      "canonical_content_hash": "sha256:4399774d394a17cb9611f5a6caf4ceb19950d669991348154756c3be9acb1111",
+      "evidence_claim_ids": [
+        "bant_claim_0003",
+        "bant_claim_0004",
+        "bant_claim_0019"
+      ],
+      "declared_content_hash": "sha256:4399774d394a17cb9611f5a6caf4ceb19950d669991348154756c3be9acb1111",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -1333,14 +1646,16 @@
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
       "canonical_pointer": "/collision_guidance/0",
       "canonical_id": "collision_bant_azorius_draft",
-      "canonical_content_hash": "sha256:4fb6b13e7b8c4676daaa9a9287536ac8dff2c5aefc8cb3cc6060fd8b18ebde2e",
+      "canonical_content_hash": "sha256:5c7c29845479f3c14e33dcc15297460712532fa523ba9a1f81f51e258e8fb156",
       "evidence_claim_ids": [
         "bant_claim_0019"
       ],
       "evidence_source_ids": [
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -1354,14 +1669,131 @@
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
       "canonical_pointer": "/collision_guidance/1",
       "canonical_id": "collision_bant_selesnya_draft",
-      "canonical_content_hash": "sha256:617f54a585fcb9f76e2ba9c087cb132d5bbfc18af0d769e8eec2ff6cd25ab1af",
+      "canonical_content_hash": "sha256:db2789536ae1d8ef4367fbbaff6c8fe7ab43b504e3c3a3f487cfcede2080697d",
       "evidence_claim_ids": [
         "bant_claim_0019"
       ],
       "evidence_source_ids": [
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/collision_guidance/10",
+      "canonical_id": "collision_bant_jeskai_gate3",
+      "canonical_content_hash": "sha256:4e1ce37334c8641ec837f30da9e370357eb8fd3698b9c323ee4fe51193ba2515",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/collision_guidance/11",
+      "canonical_id": "collision_bant_white_gate3",
+      "canonical_content_hash": "sha256:e5c8a6d7a722b751db919652798f1283f0fec4e16156960725de987ebf39a865",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/collision_guidance/12",
+      "canonical_id": "collision_bant_blue_gate3",
+      "canonical_content_hash": "sha256:939a92ca737861221c2d1ee9a32fe7e3e0bea083e8d34b7f20e515edeef3ef18",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/collision_guidance/13",
+      "canonical_id": "collision_bant_green_gate3",
+      "canonical_content_hash": "sha256:e3eefb0804c6509198be4248c07193fe2fbb39a97ff5d38d9dcf11635f0085ce",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/collision_guidance/14",
+      "canonical_id": "collision_bant_wubrg_gate3",
+      "canonical_content_hash": "sha256:8bca0a9ee41d037c90b56fff89a843a2215bf7b1f5fcfdee93de6b4a287ece54",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -1375,14 +1807,16 @@
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
       "canonical_pointer": "/collision_guidance/2",
       "canonical_id": "collision_bant_simic_draft",
-      "canonical_content_hash": "sha256:fa2de80b67dd7c25d3bcc096dd77ce5bc986a7fb50f284547dc2f23f93afed54",
+      "canonical_content_hash": "sha256:71bfac5091bb9b6d7194f247a322c40d21df4a405421bc2fa7af3eefd7dc9225",
       "evidence_claim_ids": [
         "bant_claim_0019"
       ],
       "evidence_source_ids": [
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -1395,15 +1829,17 @@
       "identity_key": "BANT",
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
       "canonical_pointer": "/collision_guidance/3",
-      "canonical_id": "collision_bant_naya_draft",
-      "canonical_content_hash": "sha256:44d9e32d104a5b2cb1ba994943a02c4e795345c05e955973e548f0f7b082bfaf",
+      "canonical_id": "collision_bant_naya_gate3",
+      "canonical_content_hash": "sha256:14fd0cd079d223b9eaa38501e1199967cfaee89fe42aeba61e5d051ddbbc22b9",
       "evidence_claim_ids": [
         "bant_claim_0019"
       ],
       "evidence_source_ids": [
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -1417,14 +1853,16 @@
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
       "canonical_pointer": "/collision_guidance/4",
       "canonical_id": "collision_bant_esper_draft",
-      "canonical_content_hash": "sha256:a5064504100844a8a6ca76127ffd6cb21e138d476852212ebf836de1e13c6fbd",
+      "canonical_content_hash": "sha256:5db485d707fb7d27b33b046b2c641760e4673f34fc7221fe05aa9721a1797e78",
       "evidence_claim_ids": [
         "bant_claim_0019"
       ],
       "evidence_source_ids": [
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -1438,14 +1876,16 @@
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
       "canonical_pointer": "/collision_guidance/5",
       "canonical_id": "collision_bant_grixis_draft",
-      "canonical_content_hash": "sha256:f0e194c8ab72c452fdf63290e68485ffde5967141cf501b170b50b888c030494",
+      "canonical_content_hash": "sha256:5e09583df0ea7a7b173e772f15bda7c54e9052305e0116e1cd53c22798808a45",
       "evidence_claim_ids": [
         "bant_claim_0019"
       ],
       "evidence_source_ids": [
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -1458,15 +1898,86 @@
       "identity_key": "BANT",
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
       "canonical_pointer": "/collision_guidance/6",
-      "canonical_id": "collision_bant_jund_draft",
-      "canonical_content_hash": "sha256:64675ad9e54fa6a177a1f124f7568cc0bfa199d2aefd59c9ab58da22d438e14b",
+      "canonical_id": "collision_bant_jund_gate3",
+      "canonical_content_hash": "sha256:a93468f23d00d41b8bd18fc3c1a8b1423a347307ed1e9d2ec2cf1d91f700c139",
       "evidence_claim_ids": [
         "bant_claim_0019"
       ],
       "evidence_source_ids": [
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/collision_guidance/7",
+      "canonical_id": "collision_bant_abzan_gate3",
+      "canonical_content_hash": "sha256:b61f713dfddf380c479601af35c3c513793c0cb63fce940fa3b90efb64c2872f",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/collision_guidance/8",
+      "canonical_id": "collision_bant_temur_gate3",
+      "canonical_content_hash": "sha256:f6753829992605ef7cd58edd18eee26f8e19ef3b509dedcab649f53a7ae7b380",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/collision_guidance/9",
+      "canonical_id": "collision_bant_sultai_gate3",
+      "canonical_content_hash": "sha256:a1d30d7e20e69bfb24bf780e898a229eb49e74df7b66433a0bfef95a07977d88",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -1510,6 +2021,7 @@
       ],
       "evidence_source_ids": [
         "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_metaphysics_md_20260529",
         "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
@@ -1533,6 +2045,7 @@
         "src_vm_bant_evidence_ledger_20260528",
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
         "src_vm_canon_inventory_three_color_audit_20260528",
         "src_wotc_rosewater_bant_20081006"
       ],
@@ -1560,7 +2073,8 @@
         "src_vm_bant_manual_fill_20260529",
         "src_vm_bant_metaphysics_md_20260529",
         "src_vm_bant_research_dossier_20260528",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -1574,17 +2088,21 @@
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
       "canonical_pointer": "/discriminator_questions/1",
       "canonical_id": "q_bant_0002",
-      "canonical_content_hash": "sha256:b296db58d18252ad42732072de66359a2d1fa01d616c93de74dffeae61de8eba",
+      "canonical_content_hash": "sha256:5ad0c7377c08a04a5ad1f7d45ba37866946c675216ea4a5760372da31482f695",
       "evidence_claim_ids": [
-        "bant_claim_0017",
-        "bant_claim_0018",
+        "bant_claim_0003",
+        "bant_claim_0004",
+        "bant_claim_0006",
         "bant_claim_0019"
       ],
       "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_research_dossier_20260528",
         "src_vm_canon_inventory_three_color_audit_20260528",
-        "src_vm_commander_workbook_20260529"
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -1598,17 +2116,21 @@
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
       "canonical_pointer": "/discriminator_questions/2",
       "canonical_id": "q_bant_0003",
-      "canonical_content_hash": "sha256:67738cefe247b77e5542f2b00055c6c4ce67b0f4fcab89bfd8dbfe1758127cec",
+      "canonical_content_hash": "sha256:0a1a891c6927ef7e34da205d63cc32430592756521339778ef24145bc4e7a1fd",
       "evidence_claim_ids": [
-        "bant_claim_0017",
-        "bant_claim_0018",
+        "bant_claim_0005",
+        "bant_claim_0006",
+        "bant_claim_0007",
         "bant_claim_0019"
       ],
       "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_research_dossier_20260528",
         "src_vm_canon_inventory_three_color_audit_20260528",
-        "src_vm_commander_workbook_20260529"
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -1622,12 +2144,13 @@
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
       "canonical_pointer": "/moral_and_psychological_profile",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:eaba03e3f2cd40fb957c4163b707c1fd4c7ed9ffda733b91124114ef6c490439",
+      "canonical_content_hash": "sha256:868fcae2abfc71585273ef6660371e2e466673d5277e5534c5478e66b8d909c9",
       "evidence_claim_ids": [
+        "bant_claim_0002",
         "bant_claim_0003",
         "bant_claim_0004",
         "bant_claim_0006",
-        "bant_claim_0017",
+        "bant_claim_0007",
         "bant_claim_0019"
       ],
       "evidence_source_ids": [
@@ -1637,7 +2160,6 @@
         "src_vm_bant_metaphysics_md_20260529",
         "src_vm_bant_research_dossier_20260528",
         "src_vm_canon_inventory_three_color_audit_20260528",
-        "src_vm_commander_workbook_20260529",
         "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
@@ -1664,7 +2186,6 @@
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_metaphysics_md_20260529",
         "src_vm_bant_research_dossier_20260528",
-        "src_wotc_a_man_of_parts",
         "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
@@ -1692,7 +2213,8 @@
         "src_vm_bant_manual_fill_20260529",
         "src_vm_bant_metaphysics_md_20260529",
         "src_vm_bant_research_dossier_20260528",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -1716,6 +2238,7 @@
         "src_vm_bant_evidence_ledger_20260528",
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
         "src_vm_canon_inventory_three_color_audit_20260528",
         "src_wotc_rosewater_bant_20081006"
       ],
@@ -1731,17 +2254,20 @@
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
       "canonical_pointer": "/placement_axes/3",
       "canonical_id": "axis_protection_vs_prison",
-      "canonical_content_hash": "sha256:e4c5234dcc0bdba22a350124d7e747542c0393774836ab11303f5c8110257b98",
+      "canonical_content_hash": "sha256:076f6212063e0775b08b802297e760419dae1ca328ddebb16da35e986a67965a",
       "evidence_claim_ids": [
-        "bant_claim_0017",
-        "bant_claim_0018",
+        "bant_claim_0004",
+        "bant_claim_0006",
         "bant_claim_0019"
       ],
       "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_research_dossier_20260528",
         "src_vm_canon_inventory_three_color_audit_20260528",
-        "src_vm_commander_workbook_20260529"
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -1764,7 +2290,305 @@
         "src_vm_bant_evidence_ledger_20260528",
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
         "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "bant_guidance_how_to_recognize_match_00",
+      "canonical_content_hash": "sha256:b7e7cd4d459058a41c6c3570462c24a5588b6dc1f8ef719237d25d41d41977f4",
+      "evidence_claim_ids": [
+        "bant_claim_0002",
+        "bant_claim_0003",
+        "bant_claim_0006",
+        "bant_claim_0007",
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_research_dossier_20260528",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "bant_guidance_how_to_recognize_match_01",
+      "canonical_content_hash": "sha256:bb05a5e75ad19b34320f3a766220e44f61275003f9e52b93a247f62bff93fcaf",
+      "evidence_claim_ids": [
+        "bant_claim_0001",
+        "bant_claim_0005",
+        "bant_claim_0008",
+        "bant_claim_0009",
+        "bant_claim_0011",
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_lore_source_packet_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_research_dossier_20260528",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_planeswalkers_guide_alara_2008",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/10",
+      "canonical_id": "bant_guidance_questions_to_ask_when_uncertain_02",
+      "canonical_content_hash": "sha256:21fe07776a881dd45bbccc49168ab32add519bbcb61501ee76edb59cbdfc8d89",
+      "evidence_claim_ids": [
+        "bant_claim_0003",
+        "bant_claim_0004",
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "bant_guidance_how_to_recognize_match_02",
+      "canonical_content_hash": "sha256:bce2cb21a1a3e4b3affaa5f017d0e75b25e1a1ac79e786c1fdbcc41e21449e57",
+      "evidence_claim_ids": [
+        "bant_claim_0005",
+        "bant_claim_0006",
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_research_dossier_20260528",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "bant_guidance_how_to_recognize_match_03",
+      "canonical_content_hash": "sha256:3a21746846697086fa5c1a0c901bd503a0ea2319ee35332993b645232d0e2794",
+      "evidence_claim_ids": [
+        "bant_claim_0006",
+        "bant_claim_0007",
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_research_dossier_20260528",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "bant_guidance_how_to_recognize_mismatch_00",
+      "canonical_content_hash": "sha256:823129bd83748e6a666dfd4a56a3f996f300d7028fe9807ebe004d063c67522e",
+      "evidence_claim_ids": [
+        "bant_claim_0002",
+        "bant_claim_0004",
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": "bant_guidance_how_to_recognize_mismatch_01",
+      "canonical_content_hash": "sha256:46260f903e4d3d2011adc3e40e26a5e9e9b36d71a42daa6b74d9fc27979cb99f",
+      "evidence_claim_ids": [
+        "bant_claim_0004",
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": "bant_guidance_how_to_recognize_mismatch_02",
+      "canonical_content_hash": "sha256:ad9fd2171999b86933fb449ea9b3b3bc1bc2a28e9c328426957f2d619a1867a1",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/7",
+      "canonical_id": "bant_guidance_how_to_recognize_mismatch_03",
+      "canonical_content_hash": "sha256:28aa87e5e830e37657eda1b577c8e3bc88c23c0950ad0478519655357dda7fa1",
+      "evidence_claim_ids": [
+        "bant_claim_0005",
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_research_dossier_20260528",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/8",
+      "canonical_id": "bant_guidance_questions_to_ask_when_uncertain_00",
+      "canonical_content_hash": "sha256:b3bd4564e72207c9469d7ccd023fa543511931b07c173fc978434abaf8677de2",
+      "evidence_claim_ids": [
+        "bant_claim_0006",
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_research_dossier_20260528",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/9",
+      "canonical_id": "bant_guidance_questions_to_ask_when_uncertain_01",
+      "canonical_content_hash": "sha256:0de0b0c8ec41e2a184b63a7a1bd0102644a2db80ca8b35f689d3213fb89ea164",
+      "evidence_claim_ids": [
+        "bant_claim_0001",
+        "bant_claim_0007",
+        "bant_claim_0008",
+        "bant_claim_0009",
+        "bant_claim_0011",
+        "bant_claim_0013",
+        "bant_claim_0015"
+      ],
+      "evidence_source_ids": [
+        "src_mtg_wiki_asha",
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_lore_source_packet_20260529",
+        "src_vm_bant_research_dossier_20260528",
+        "src_wotc_angel_eye_view_bant_20081008",
+        "src_wotc_planeswalkers_guide_alara_2008",
         "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
@@ -1786,10 +2610,8 @@
       ],
       "evidence_source_ids": [
         "src_vm_bant_evidence_ledger_20260528",
-        "src_vm_bant_lore_reference_docx_20260529",
         "src_vm_bant_lore_source_packet_20260529",
         "src_vm_bant_research_dossier_20260528",
-        "src_wotc_a_man_of_parts",
         "src_wotc_planeswalkers_guide_alara_2008"
       ],
       "generated_consumers": [
@@ -1830,10 +2652,7 @@
       ],
       "evidence_source_ids": [
         "src_vm_bant_evidence_ledger_20260528",
-        "src_vm_bant_lore_reference_docx_20260529",
         "src_vm_bant_lore_source_packet_20260529",
-        "src_vm_bant_research_dossier_20260528",
-        "src_wotc_a_man_of_parts",
         "src_wotc_planeswalkers_guide_alara_2008"
       ],
       "generated_consumers": [
@@ -1848,21 +2667,23 @@
       "canonical_file": "data/raw-factions/bant/bant.profile.json",
       "canonical_pointer": "/core_identity",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:5b0a70372917769a8fa5a579cb5b38e697c8603f5b8692c464eb5148bf26f572",
+      "canonical_content_hash": "sha256:29ab9e873cfda179e06487b0432692b7e4eb037db1be82550bc70a0800c2ea6f",
       "evidence_claim_ids": [
         "bant_claim_0001",
         "bant_claim_0002",
         "bant_claim_0003",
         "bant_claim_0004",
         "bant_claim_0006",
-        "bant_claim_0015"
+        "bant_claim_0015",
+        "bant_claim_0019"
       ],
       "evidence_source_ids": [
         "src_vm_bant_evidence_ledger_20260528",
         "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
         "src_vm_bant_metaphysics_md_20260529",
         "src_vm_bant_research_dossier_20260528",
-        "src_wotc_alara_plane_page",
+        "src_vm_canon_inventory_three_color_audit_20260528",
         "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
@@ -1891,7 +2712,6 @@
         "src_vm_bant_metaphysics_md_20260529",
         "src_vm_bant_research_dossier_20260528",
         "src_vm_canon_inventory_three_color_audit_20260528",
-        "src_wotc_alara_plane_page",
         "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
@@ -1915,8 +2735,7 @@
       "evidence_source_ids": [
         "src_vm_bant_evidence_ledger_20260528",
         "src_vm_bant_identity_md_20260529",
-        "src_vm_bant_research_dossier_20260528",
-        "src_wotc_alara_plane_page",
+        "src_vm_bant_metaphysics_md_20260529",
         "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
@@ -1939,8 +2758,7 @@
       ],
       "evidence_source_ids": [
         "src_vm_bant_evidence_ledger_20260528",
-        "src_vm_bant_research_dossier_20260528",
-        "src_wotc_a_man_of_parts"
+        "src_vm_bant_research_dossier_20260528"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -1960,9 +2778,7 @@
       ],
       "evidence_source_ids": [
         "src_vm_bant_evidence_ledger_20260528",
-        "src_vm_bant_metaphysics_md_20260529",
-        "src_vm_bant_research_dossier_20260528",
-        "src_wotc_alara_plane_page"
+        "src_vm_bant_research_dossier_20260528"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -2004,10 +2820,8 @@
       ],
       "evidence_source_ids": [
         "src_vm_bant_evidence_ledger_20260528",
-        "src_vm_bant_lore_reference_docx_20260529",
         "src_vm_bant_lore_source_packet_20260529",
         "src_vm_bant_research_dossier_20260528",
-        "src_wotc_a_man_of_parts",
         "src_wotc_planeswalkers_guide_alara_2008"
       ],
       "generated_consumers": [
@@ -2022,54 +2836,9 @@
       "canonical_file": "data/raw-factions/bant/bant.profile.json",
       "canonical_pointer": "/key_figures/1",
       "canonical_id": "char_bant_noble_hierarch",
-      "canonical_content_hash": "sha256:f351b09569fb4291e04247fe6f80e809b65ac2c63fbecb06bec13d246499a893",
+      "canonical_content_hash": "sha256:67700ccdcc07d7cfb8cdf44143d014219ecf4b93513d80c1e1b686e55520f196",
       "evidence_claim_ids": [
-        "bant_claim_0011",
-        "bant_claim_0012"
-      ],
-      "evidence_source_ids": [
-        "src_vm_bant_evidence_ledger_20260528",
-        "src_vm_bant_research_dossier_20260528"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/BANT",
-        "data/placement-model.json#/factions/BANT",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "BANT",
-      "canonical_file": "data/raw-factions/bant/bant.profile.json",
-      "canonical_pointer": "/key_figures/2",
-      "canonical_id": "char_bant_jenara",
-      "canonical_content_hash": "sha256:0d72e02b8fed9ad6ef80f0248f0e97a6ac5b213f784f50b27af5a7d2fd2453f6",
-      "evidence_claim_ids": [
-        "bant_claim_0012",
-        "bant_claim_0017"
-      ],
-      "evidence_source_ids": [
-        "src_vm_bant_evidence_ledger_20260528",
-        "src_vm_bant_identity_md_20260529",
-        "src_vm_bant_manual_fill_20260529",
-        "src_vm_bant_research_dossier_20260528",
-        "src_vm_commander_workbook_20260529"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/BANT",
-        "data/placement-model.json#/factions/BANT",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "BANT",
-      "canonical_file": "data/raw-factions/bant/bant.profile.json",
-      "canonical_pointer": "/key_figures/3",
-      "canonical_id": "char_bant_gwafa_hazid",
-      "canonical_content_hash": "sha256:2a8238fed16a927fcf4a79f5fb2cc01b755cb0b2dd1d20f218c40244ea7580dd",
-      "evidence_claim_ids": [
-        "bant_claim_0012"
+        "bant_claim_0011"
       ],
       "evidence_source_ids": [
         "src_vm_bant_evidence_ledger_20260528",
@@ -2093,8 +2862,6 @@
       ],
       "evidence_source_ids": [
         "src_mtg_wiki_asha",
-        "src_vm_bant_identity_md_20260529",
-        "src_vm_bant_lore_reference_docx_20260529",
         "src_vm_bant_lore_source_packet_20260529",
         "src_wotc_angel_eye_view_bant_20081008"
       ],
@@ -2117,29 +2884,6 @@
       "evidence_source_ids": [
         "src_archive_trap_alara",
         "src_card_kingdom_elspeth_story",
-        "src_mtg_wiki_elspeth",
-        "src_vm_bant_identity_md_20260529",
-        "src_vm_bant_lore_reference_docx_20260529",
-        "src_vm_bant_lore_source_packet_20260529"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/BANT",
-        "data/placement-model.json#/factions/BANT",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "BANT",
-      "canonical_file": "data/raw-factions/bant/bant.profile.json",
-      "canonical_pointer": "/key_figures/6",
-      "canonical_id": "char_bant_mubin",
-      "canonical_content_hash": "sha256:e871accff5709e03473875edf0f0d8906d6f335ffc493ec40e6ea42fe272b440",
-      "evidence_claim_ids": [
-        "bant_claim_0021"
-      ],
-      "evidence_source_ids": [
-        "src_archive_trap_alara",
         "src_mtg_wiki_bant",
         "src_vm_bant_lore_source_packet_20260529"
       ],
@@ -2155,12 +2899,11 @@
       "canonical_file": "data/raw-factions/bant/bant.profile.json",
       "canonical_pointer": "/mechanics",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:0ef73c5dab92ff5fd3939a3895a3e18d699a8c15cc5c71124c44ec2d4f250985",
+      "canonical_content_hash": "sha256:da5d6a8b90b6ba79c783159a97aa0f3d44a7a0089b4a48bb7f2e01d4eeac261a",
       "evidence_claim_ids": [
         "bant_claim_0005",
         "bant_claim_0006",
-        "bant_claim_0017",
-        "bant_claim_0018"
+        "bant_claim_0019"
       ],
       "evidence_source_ids": [
         "src_vm_bant_evidence_ledger_20260528",
@@ -2168,7 +2911,8 @@
         "src_vm_bant_manual_fill_20260529",
         "src_vm_bant_metaphysics_md_20260529",
         "src_vm_bant_research_dossier_20260528",
-        "src_vm_commander_workbook_20260529"
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -2205,7 +2949,7 @@
       "canonical_file": "data/raw-factions/bant/bant.profile.json",
       "canonical_pointer": "/site_surface",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:978cb6ae545bd4e8ebe2d4cbd22ee261ff37521547e8928def3c62730a77e8e4",
+      "canonical_content_hash": "sha256:e9620d25c8aa7548add0ed89d31f63c9fcfcb909fdac44f12f024c0cf87ae96f",
       "evidence_claim_ids": [
         "bant_claim_0001",
         "bant_claim_0002",
@@ -2217,24 +2961,16 @@
         "bant_claim_0008",
         "bant_claim_0009",
         "bant_claim_0011",
-        "bant_claim_0017",
-        "bant_claim_0020",
-        "bant_claim_0021"
+        "bant_claim_0019"
       ],
       "evidence_source_ids": [
-        "src_archive_trap_alara",
-        "src_mtg_wiki_bant",
         "src_vm_bant_evidence_ledger_20260528",
         "src_vm_bant_identity_md_20260529",
-        "src_vm_bant_lore_reference_docx_20260529",
         "src_vm_bant_lore_source_packet_20260529",
         "src_vm_bant_manual_fill_20260529",
         "src_vm_bant_metaphysics_md_20260529",
-        "src_vm_bant_reliability_audit_20260528",
         "src_vm_bant_research_dossier_20260528",
-        "src_vm_commander_workbook_20260529",
-        "src_wotc_a_man_of_parts",
-        "src_wotc_alara_plane_page",
+        "src_vm_canon_inventory_three_color_audit_20260528",
         "src_wotc_planeswalkers_guide_alara_2008",
         "src_wotc_rosewater_bant_20081006"
       ],
@@ -2250,7 +2986,7 @@
       "canonical_file": "data/raw-factions/bant/bant.profile.json",
       "canonical_pointer": "/structure",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:3a6f4b838e5fe2f1f7ac60d836d5bc7d3028c9d013157252812be01abc74e097",
+      "canonical_content_hash": "sha256:2d456284d3033076dcc89d054c29e4100d02a865ceda674d9096945a64409ae0",
       "evidence_claim_ids": [
         "bant_claim_0007",
         "bant_claim_0008",
@@ -2260,22 +2996,25 @@
         "bant_claim_0013",
         "bant_claim_0014",
         "bant_claim_0016",
-        "bant_claim_0021"
+        "bant_claim_0019"
       ],
       "evidence_source_ids": [
         "src_archive_trap_alara",
         "src_card_kingdom_elspeth_story",
         "src_mtg_wiki_asha",
         "src_mtg_wiki_bant",
-        "src_mtg_wiki_elspeth",
         "src_vm_bant_evidence_ledger_20260528",
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_lore_reference_docx_20260529",
         "src_vm_bant_lore_source_packet_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
         "src_vm_bant_research_dossier_20260528",
+        "src_vm_canon_inventory_three_color_audit_20260528",
         "src_wotc_a_man_of_parts",
         "src_wotc_angel_eye_view_bant_20081008",
-        "src_wotc_planeswalkers_guide_alara_2008"
+        "src_wotc_planeswalkers_guide_alara_2008",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -2289,14 +3028,16 @@
       "canonical_file": "data/raw-factions/bant/bant.profile.json",
       "canonical_pointer": "/views_on_other_factions/0",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:91a82896832b54c3aed94966a1a1ed18747a1d1545bdeefcc664d09e6aaec03a",
+      "canonical_content_hash": "sha256:a3cefbcb6333a8ad0a61f77a9c56999636668cd0a8527b2487de3768d2f2c9ee",
       "evidence_claim_ids": [
         "bant_claim_0019"
       ],
       "evidence_source_ids": [
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -2310,14 +3051,200 @@
       "canonical_file": "data/raw-factions/bant/bant.profile.json",
       "canonical_pointer": "/views_on_other_factions/1",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:ecd1fe129308d40c8f347c80ebdc143936666f84a3e2879ba04a69cccfb3411d",
+      "canonical_content_hash": "sha256:b3f9320f5ed7db225f249855125724d4f4b6588da71ed5cf7caff3e4dc05e32b",
       "evidence_claim_ids": [
         "bant_claim_0019"
       ],
       "evidence_source_ids": [
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.profile.json",
+      "canonical_pointer": "/views_on_other_factions/10",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:76550e3aa5a08504cd4fe2bf6f81dc389f8aeab00836d6102c0b563d862230fa",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.profile.json",
+      "canonical_pointer": "/views_on_other_factions/11",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:3f69a414c34d2710fad1599589d514cdbaf47c752d6bbc97b74f9c8b71f8c99d",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.profile.json",
+      "canonical_pointer": "/views_on_other_factions/12",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:0ceb7a8a1bca29e874550f7ed6d1b5c743c0380e7ed19036ebdbcdecdd3cfe75",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.profile.json",
+      "canonical_pointer": "/views_on_other_factions/13",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:2e90648e00fb251a851debca340eeb0d15a4dfda10c8e35018ec4940272ee239",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.profile.json",
+      "canonical_pointer": "/views_on_other_factions/14",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:d27e5298ce955f61d8e90e5383970ca5222af9802c8466d28623d3852149d59c",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.profile.json",
+      "canonical_pointer": "/views_on_other_factions/15",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:756c2f8c3e4ce128943f177227efcb7f69bd8b369344f282864a54ba5bc04268",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.profile.json",
+      "canonical_pointer": "/views_on_other_factions/16",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:79d61b8ab8ebcdb0b63adb611901eeb09edabf8e43abd9c00fd3745d3afe28f5",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.profile.json",
+      "canonical_pointer": "/views_on_other_factions/17",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:1587571d882936981cec1fd144f5efbca096267f4802d9cf69b392c78a3160cf",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -2331,14 +3258,16 @@
       "canonical_file": "data/raw-factions/bant/bant.profile.json",
       "canonical_pointer": "/views_on_other_factions/2",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:17e5cea8efece38900100f33d9b85939d8109b8584c6ba2ec5da0679173da2ab",
+      "canonical_content_hash": "sha256:df6a15e33b45bdbc4f90656f328cb120971a70f514b8541b9d5f045cc3008de2",
       "evidence_claim_ids": [
         "bant_claim_0019"
       ],
       "evidence_source_ids": [
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -2352,14 +3281,16 @@
       "canonical_file": "data/raw-factions/bant/bant.profile.json",
       "canonical_pointer": "/views_on_other_factions/3",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:ba6a3b424d779aaa3d7ad70255fa7128e7a89a449b34b6bf0cf62d23c27025a1",
+      "canonical_content_hash": "sha256:968207b1101e02b55abaa761b59c6ad9514213eeaf57db2817181600dafeb483",
       "evidence_claim_ids": [
         "bant_claim_0019"
       ],
       "evidence_source_ids": [
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -2373,14 +3304,16 @@
       "canonical_file": "data/raw-factions/bant/bant.profile.json",
       "canonical_pointer": "/views_on_other_factions/4",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:e6892c956767c6b2d847ee98d57a7e223e0d738d8ddb5ca6949d9816f879d375",
+      "canonical_content_hash": "sha256:6426e2f0cab0b4b6703b941ce972386d17cb7f34a2e8e7e55e2ea076d19ac9dd",
       "evidence_claim_ids": [
         "bant_claim_0019"
       ],
       "evidence_source_ids": [
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -2394,14 +3327,16 @@
       "canonical_file": "data/raw-factions/bant/bant.profile.json",
       "canonical_pointer": "/views_on_other_factions/5",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:3caa16f8be53ba828459454867a9f3c89ba6ec00304309f9c5f90ebf8b116f5a",
+      "canonical_content_hash": "sha256:b87d0c5d33f7d0291d5709e19c8fc757f21a71b171f3f82bd309b695b5302328",
       "evidence_claim_ids": [
         "bant_claim_0019"
       ],
       "evidence_source_ids": [
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",
@@ -2415,14 +3350,85 @@
       "canonical_file": "data/raw-factions/bant/bant.profile.json",
       "canonical_pointer": "/views_on_other_factions/6",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:236b283224a1c9c4a8476d01f367fdc0ad11e23bc393f0dbce61939336a912e0",
+      "canonical_content_hash": "sha256:a77e94b5b4d3034766bde046b2f847f9ab88cfd30ce9cd187dc11c19faab0a44",
       "evidence_claim_ids": [
         "bant_claim_0019"
       ],
       "evidence_source_ids": [
         "src_vm_bant_identity_md_20260529",
         "src_vm_bant_manual_fill_20260529",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.profile.json",
+      "canonical_pointer": "/views_on_other_factions/7",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:aa286934ef5602d039c974306df3ae5337c0bf657701c6a1e1b5f04bf4d3e3da",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.profile.json",
+      "canonical_pointer": "/views_on_other_factions/8",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:0588b9ecd9008ec574e355ef4fefda9346acc5aabe1ac5f6c83511f851415b36",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.profile.json",
+      "canonical_pointer": "/views_on_other_factions/9",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:462403b47f7105c2a776006b117d54092dda5122f545dbf1070d57d06fb102f3",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/BANT",

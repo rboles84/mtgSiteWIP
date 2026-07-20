@@ -1617,11 +1617,11 @@
         "G"
       ],
       "identity": {
-        "summary": "Bant is a white-centered Alara shard where order, protection, interconnection, refinement, and public honor reinforce one another. Its primary image is not generic three-color value, but a society that concentrates communal trust and force through a worthy champion.",
-        "philosophy": "Bant treats excellence as legitimate when it remains answerable to the whole. White gives the collective ideal, Blue gives planning and refinement, and Green gives interconnection and belonging.",
+        "summary": "Bant is the Alara shard identity of White-centered Bant shard public excellence: a living community recognizes a champion, binds that excellence to sigils and sacred order, and rejects collapse into generic harmony, mere procedure, unchecked growth, or perfected control.",
+        "philosophy": "Bant does not simply mean peace, creatures, angels, knights, or value. Its distinctive pressure is whether excellence remains visible, honorable, and accountable to the community that elevates it.",
         "central_tension": "Bant's harmony can become rigid or insular when the order cannot hear dissent, absorb disruption, or correct itself after contact with values it was not built around.",
         "display_tagline": "The many raise the worthy line.",
-        "mechanics": "Exalted is the primary Bant-associated mechanic and the safest mechanical anchor for future placement. Bant Commander curation may also support blink, ETB value, enchantress, aura/equipment voltron, Clues, counters, and creature-forward value when those patterns preserve Bant's community/champion frame."
+        "mechanics": "Mechanically, exalted and champion-focused combat patterns are Bant-facing only when they remain tied to public recognition, community support, and Bant shard order."
       },
       "layered_identity": {
         "core_color": "W",
@@ -1701,10 +1701,10 @@
       ],
       "inhibitor_traps": [
         "Treats excellence as private self-authorization, raw instinct, or abstract optimization rather than accountable power carried for a living community.",
-        "Down-rank Bant when the answer is generic three-color goodstuff with no Bant-specific surface.",
-        "Down-rank Bant when the primary strategy is hard-lock stax, prison enchantments, or resource denial.",
-        "Down-rank Bant when the main appeal is Simic adaptation, Selesnya belonging, Naya big creatures, Esper artifacts/mill, or Grixis/Jund survival pressure.",
-        "Down-rank Bant when the answer needs Asha-founder claims, Elspeth-governance claims, named angel-compleation outcomes, or detailed post-Conflux/post-Phyrexia politics beyond the source packet.",
+        "Do not select Bant from color identity, peace, balance, harmony, order, community, nature, knowledge, growth, protection, or cooperation alone.",
+        "Suppress Bant when the prompt centers hard-lock prison, private extraction, artifact perfection, predatory force, inherited hierarchy, or five-color good-stuff.",
+        "Separate Bant from Selesnya, Simic, Azorius, Naya, Esper, Temur, Abzan, Jeskai, Grixis, Jund, Sultai, mono-color ideals, and generic overfit aesthetics.",
+        "Do not treat angels, knights, beasts, exalted, creature mechanics, shard aesthetics, or the best of White, Blue, and Green as standalone Bant proof.",
         "The answer wants control through denial more than community protection.",
         "The answer is mainly ramp, landfall, evolve, or adaptation without White structure.",
         "The answer is mainly go-wide belonging without Blue refinement.",
@@ -1733,7 +1733,7 @@
         },
         {
           "id": "q_bant_0002",
-          "prompt": "When order is needed, should it protect the community, enforce the procedure, grow naturally, or stop everyone else from acting?",
+          "prompt": "Is the order a living community elevating a champion, or mostly law, prison, hierarchy, or perfected control?",
           "purpose": "Separates Bant protection from Azorius procedure, Selesnya harmony, and prison control.",
           "supports": "The answer uses order to protect a living community and keep excellence accountable.",
           "weakens": "The answer wants procedure for its own sake or hard denial as the main form of safety.",
@@ -1742,15 +1742,16 @@
             "WG"
           ],
           "evidence_claim_ids": [
-            "bant_claim_0017",
-            "bant_claim_0018",
+            "bant_claim_0003",
+            "bant_claim_0004",
+            "bant_claim_0006",
             "bant_claim_0019"
           ],
           "confidence": "Medium"
         },
         {
           "id": "q_bant_0003",
-          "prompt": "Does a perfect board feel like one huge creature, one protected champion, a flexible value engine, or a table where opponents cannot act?",
+          "prompt": "Are creatures, exalted, angels, knights, or shard aesthetics carrying Bant-specific honor and sigil evidence, or only generic fantasy texture?",
           "purpose": "Separates Naya, Bant, Simic/Bant value, and Azorius-prison drift.",
           "supports": "The answer centers a protected champion or creature/community value engine with visible support.",
           "weakens": "The answer centers largest-threat aggression, pure optimization, or hard locks.",
@@ -1760,8 +1761,9 @@
             "WU"
           ],
           "evidence_claim_ids": [
-            "bant_claim_0017",
-            "bant_claim_0018",
+            "bant_claim_0005",
+            "bant_claim_0006",
+            "bant_claim_0007",
             "bant_claim_0019"
           ],
           "confidence": "Medium"
@@ -1781,71 +1783,203 @@
         {
           "collision_id": "collision_bant_azorius_draft",
           "against": "WU",
-          "separator": "Bant protects a living community through public honor and supported champions; Azorius prioritizes civic procedure, law, and enforceable systems.",
-          "ask": "Is the first instinct to refine the procedure, or to protect the worthy line the community can stand behind?",
+          "guidance": "Azorius procedure and prison-control are not Bant unless Green living community and supported-champion honor are present.",
+          "discriminator": "Azorius procedure and prison-control are not Bant unless Green living community and supported-champion honor are present.",
           "claim_ids": [
             "bant_claim_0019"
           ],
-          "confidence": "Medium"
+          "lateral_inhibition": false,
+          "separator": "",
+          "ask": ""
         },
         {
           "collision_id": "collision_bant_selesnya_draft",
           "against": "WG",
-          "separator": "Bant adds Blue refinement, tactical planning, and champion logic to communal harmony; Selesnya centers belonging and consensus.",
-          "ask": "Does the answer want everyone moving together, or one publicly supported champion carrying the whole?",
+          "guidance": "Selesnya go-wide belonging and community protection are not Bant without Blue refinement and champion-ranked public excellence.",
+          "discriminator": "Selesnya go-wide belonging and community protection are not Bant without Blue refinement and champion-ranked public excellence.",
           "claim_ids": [
             "bant_claim_0019"
           ],
-          "confidence": "Medium"
+          "lateral_inhibition": false,
+          "separator": "",
+          "ask": ""
         },
         {
           "collision_id": "collision_bant_simic_draft",
           "against": "UG",
-          "separator": "Bant improves a living social order; Simic improves living systems through adaptation and experimentation.",
-          "ask": "Is improvement answerable to communal honor, or is adaptation itself the point?",
+          "guidance": "Simic adaptation, growth, and research are not Bant without White public order and community-elevated honor.",
+          "discriminator": "Simic adaptation, growth, and research are not Bant without White public order and community-elevated honor.",
           "claim_ids": [
             "bant_claim_0019"
           ],
-          "confidence": "Medium"
+          "lateral_inhibition": false,
+          "separator": "",
+          "ask": ""
+        },
+        {
+          "collision_id": "collision_bant_naya_gate3",
+          "against": "NAYA",
+          "guidance": "Naya creature scale and instinctive force are not Bant without refined public honor and supported champion accountability.",
+          "discriminator": "Naya creature scale and instinctive force are not Bant without refined public honor and supported champion accountability.",
+          "claim_ids": [
+            "bant_claim_0019"
+          ],
+          "lateral_inhibition": false,
+          "legacy_collision_id": "collision_bant_naya_draft",
+          "separator": "",
+          "ask": ""
         },
         {
           "collision_id": "collision_bant_esper_draft",
           "against": "ESPER",
-          "separator": "Bant's order is living, communal, and creature-framed; Esper's order trends artifact-centered, engineered, and ambition-driven.",
-          "ask": "Is the ideal a protected community or an engineered perfection?",
+          "guidance": "Esper perfection-control and artifact order are not Bant when living community and champion service are absent.",
+          "discriminator": "Esper perfection-control and artifact order are not Bant when living community and champion service are absent.",
           "claim_ids": [
             "bant_claim_0019"
           ],
-          "confidence": "Medium"
+          "lateral_inhibition": false,
+          "separator": "",
+          "ask": ""
         },
         {
           "collision_id": "collision_bant_grixis_draft",
           "against": "GRIXIS",
-          "separator": "Bant treats order and life as shared goods; Grixis centers scarcity, death, and private extraction.",
-          "ask": "Does knowledge coordinate the community, or does it become leverage in a hostile world?",
+          "guidance": "Grixis private extraction and advantage-seeking oppose Bant public trust and supported excellence.",
+          "discriminator": "Grixis private extraction and advantage-seeking oppose Bant public trust and supported excellence.",
           "claim_ids": [
             "bant_claim_0019"
           ],
-          "confidence": "Medium"
+          "lateral_inhibition": false,
+          "separator": "",
+          "ask": ""
+        },
+        {
+          "collision_id": "collision_bant_jund_gate3",
+          "against": "JUND",
+          "guidance": "Jund predatory force and survival combat are not Bant even when both involve creatures or battle.",
+          "discriminator": "Jund predatory force and survival combat are not Bant even when both involve creatures or battle.",
+          "claim_ids": [
+            "bant_claim_0019"
+          ],
+          "lateral_inhibition": false,
+          "legacy_collision_id": "collision_bant_jund_draft",
+          "separator": "",
+          "ask": ""
+        },
+        {
+          "collision_id": "collision_bant_abzan_gate3",
+          "against": "ABZAN",
+          "guidance": "Abzan endurance and inherited hierarchy are not Bant unless public honor and supported champion service are central.",
+          "discriminator": "Abzan endurance and inherited hierarchy are not Bant unless public honor and supported champion service are central.",
+          "claim_ids": [
+            "bant_claim_0019"
+          ],
+          "lateral_inhibition": false,
+          "separator": "",
+          "ask": ""
+        },
+        {
+          "collision_id": "collision_bant_temur_gate3",
+          "against": "TEMUR",
+          "guidance": "Temur instinct and wild endurance are not Bant without White-centered public order and sigil recognition.",
+          "discriminator": "Temur instinct and wild endurance are not Bant without White-centered public order and sigil recognition.",
+          "claim_ids": [
+            "bant_claim_0019"
+          ],
+          "lateral_inhibition": false,
+          "separator": "",
+          "ask": ""
+        },
+        {
+          "collision_id": "collision_bant_sultai_gate3",
+          "against": "SULTAI",
+          "guidance": "Sultai exploitation and status manipulation are not Bant hierarchy or community protection.",
+          "discriminator": "Sultai exploitation and status manipulation are not Bant hierarchy or community protection.",
+          "claim_ids": [
+            "bant_claim_0019"
+          ],
+          "lateral_inhibition": false,
+          "separator": "",
+          "ask": ""
+        },
+        {
+          "collision_id": "collision_bant_jeskai_gate3",
+          "against": "JESKAI",
+          "guidance": "Jeskai discipline, wisdom, and technique are not Bant without the living Bant shard community and champion frame.",
+          "discriminator": "Jeskai discipline, wisdom, and technique are not Bant without the living Bant shard community and champion frame.",
+          "claim_ids": [
+            "bant_claim_0019"
+          ],
+          "lateral_inhibition": false,
+          "separator": "",
+          "ask": ""
+        },
+        {
+          "collision_id": "collision_bant_white_gate3",
+          "against": "W",
+          "guidance": "Mono-White protection, peace, and order are not Bant without Blue refinement and Green living community.",
+          "discriminator": "Mono-White protection, peace, and order are not Bant without Blue refinement and Green living community.",
+          "claim_ids": [
+            "bant_claim_0019"
+          ],
+          "lateral_inhibition": false,
+          "separator": "",
+          "ask": ""
+        },
+        {
+          "collision_id": "collision_bant_blue_gate3",
+          "against": "U",
+          "guidance": "Mono-Blue knowledge, planning, and perfection are not Bant without public trust and community support.",
+          "discriminator": "Mono-Blue knowledge, planning, and perfection are not Bant without public trust and community support.",
+          "claim_ids": [
+            "bant_claim_0019"
+          ],
+          "lateral_inhibition": false,
+          "separator": "",
+          "ask": ""
+        },
+        {
+          "collision_id": "collision_bant_green_gate3",
+          "against": "G",
+          "guidance": "Mono-Green growth, nature, and creature scale are not Bant without refinement and public honor.",
+          "discriminator": "Mono-Green growth, nature, and creature scale are not Bant without refinement and public honor.",
+          "claim_ids": [
+            "bant_claim_0019"
+          ],
+          "lateral_inhibition": false,
+          "separator": "",
+          "ask": ""
+        },
+        {
+          "collision_id": "collision_bant_wubrg_gate3",
+          "against": "WUBRG",
+          "guidance": "Five-color good-stuff is not Bant unless Bant shard anchors and Bant shard supported-champion order dominate.",
+          "discriminator": "Five-color good-stuff is not Bant unless Bant shard anchors and Bant shard supported-champion order dominate.",
+          "claim_ids": [
+            "bant_claim_0019"
+          ],
+          "lateral_inhibition": false,
+          "separator": "",
+          "ask": ""
         }
       ],
       "chatbot_guidance": {
         "how_to_recognize_match": [
-          "Look for a cluster of champion support, sigils, exalted, public honor, disciplined protection, and white-blue-green refinement serving a living community.",
-          "Give extra weight when the user wants one worthy line of action backed by the whole rather than many independent threats.",
-          "Treat creature-forward value, enchantress, blink, Clues, counters, and voltron as Bant-facing only when they preserve community/champion framing.",
-          "Recognize Naya as the main shard-level false positive and test for Blue planning versus Red immediacy."
+          "Look for a White-centered Bant shard frame where community publicly elevates a champion through honor, sigils, and refined discipline.",
+          "Treat exalted, Rafiq, Valeron, Akrasa, the Great Conduit, and five-nation geography as Bant evidence only when they remain tied to Bant shard context.",
+          "Creature-forward value can be Bant-facing when it centers supported excellence and communal protection rather than raw scale or generic efficiency.",
+          "Prefer Bant when a prompt repeatedly joins public trust, champion service, sigil-ranked worth, and living community accountability."
         ],
         "how_to_recognize_mismatch": [
-          "Down-rank Bant when the answer is generic three-color goodstuff with no Bant-specific surface.",
-          "Down-rank Bant when the primary strategy is hard-lock stax, prison enchantments, or resource denial.",
-          "Down-rank Bant when the main appeal is Simic adaptation, Selesnya belonging, Naya big creatures, Esper artifacts/mill, or Grixis/Jund survival pressure.",
-          "Down-rank Bant when the answer needs Asha-founder claims, Elspeth-governance claims, named angel-compleation outcomes, or detailed post-Conflux/post-Phyrexia politics beyond the source packet."
+          "Do not select Bant from color identity, peace, balance, harmony, order, community, nature, knowledge, growth, protection, or cooperation alone.",
+          "Suppress Bant when the prompt centers hard-lock prison, private extraction, artifact perfection, predatory force, inherited hierarchy, or five-color good-stuff.",
+          "Separate Bant from Selesnya, Simic, Azorius, Naya, Esper, Temur, Abzan, Jeskai, Grixis, Jund, Sultai, mono-color ideals, and generic overfit aesthetics.",
+          "Do not treat angels, knights, beasts, exalted, creature mechanics, shard aesthetics, or the best of White, Blue, and Green as standalone Bant proof."
         ],
         "questions_to_ask_when_uncertain": [
-          "Is the main joy being the biggest force, the cleanest system, the best-supported champion, or the broadest community?",
-          "When a deck protects itself, is it protecting a living plan or preventing the table from playing?",
-          "Does the Bant-colored shell feel like Bant specifically, or only like efficient value in those colors?"
+          "Is a champion being publicly supported by a community, or is the prompt mostly about generic value, growth, law, or harmony?",
+          "Which Bant-specific anchors are present: sigils, Rafiq, Valeron, Akrasa, Great Conduit, five-nation geography, Asha, or Conflux-era shard context?",
+          "What adjacent identity would this become if public honor, refinement, and living community accountability were removed?"
         ],
         "do_not_overweight": [
           "Do not award Bant from color identity alone.",

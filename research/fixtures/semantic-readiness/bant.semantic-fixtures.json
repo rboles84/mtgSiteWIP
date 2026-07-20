@@ -1,0 +1,405 @@
+{
+  "identity_key": "BANT",
+  "contract_version": "v1.1",
+  "generated_by": "VM-522 Gate 3+4 semantic remediation",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "bant_core_supported_champion_order",
+      "fixture_type": "core_inclusion",
+      "prompt": "A Bant shard community publicly elevates a sigil-ranked champion whose excellence is refined and accountable to the people they protect.",
+      "expected": "BANT_INCLUDE",
+      "evidence_claim_ids": [
+        "bant_claim_0002",
+        "bant_claim_0003",
+        "bant_claim_0006",
+        "bant_claim_0007",
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_research_dossier_20260528",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "boundary": "Bant proof requires the supported-champion order cluster, not color identity alone.",
+      "scenario": "A Bant shard community publicly elevates a sigil-ranked champion whose excellence is refined and accountable to the people they protect."
+    },
+    {
+      "fixture_id": "bant_pressure_honor_vs_prison",
+      "fixture_type": "mature_or_pressure_behavior",
+      "prompt": "A player wants honorable protection and disciplined community support, but rejects hard-lock prison and private control.",
+      "expected": "BANT_INCLUDE_WITH_PRESSURE_BOUNDARY",
+      "evidence_claim_ids": [
+        "bant_claim_0004",
+        "bant_claim_0006",
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_research_dossier_20260528",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "boundary": "Protection must remain public trust and living community, not prison control.",
+      "scenario": "A player wants honorable protection and disciplined community support, but rejects hard-lock prison and private control."
+    },
+    {
+      "fixture_id": "bant_neighbor_selesnya_wg",
+      "fixture_type": "nearest_collision_ambiguity",
+      "prompt": "The prompt centers community and protection without Blue refinement or champion-ranked public excellence.",
+      "expected": "BANT_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "neighbor": "Selesnya / WG",
+      "scenario": "The prompt centers community and protection without Blue refinement or champion-ranked public excellence."
+    },
+    {
+      "fixture_id": "bant_neighbor_simic_ug",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers growth and adaptation without White public trust or sigil order.",
+      "expected": "BANT_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "neighbor": "Simic / UG",
+      "scenario": "The prompt centers growth and adaptation without White public trust or sigil order."
+    },
+    {
+      "fixture_id": "bant_neighbor_azorius_wu",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers procedure and law without Green living community or supported champion.",
+      "expected": "BANT_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "neighbor": "Azorius / WU",
+      "scenario": "The prompt centers procedure and law without Green living community or supported champion."
+    },
+    {
+      "fixture_id": "bant_neighbor_green_g",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers nature, growth, and creature scale without refinement or public honor.",
+      "expected": "BANT_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "neighbor": "Green / G",
+      "scenario": "The prompt centers nature, growth, and creature scale without refinement or public honor."
+    },
+    {
+      "fixture_id": "bant_neighbor_white_w",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers peace, protection, and order without Bant shard shard context.",
+      "expected": "BANT_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "neighbor": "White / W",
+      "scenario": "The prompt centers peace, protection, and order without Bant shard shard context."
+    },
+    {
+      "fixture_id": "bant_neighbor_blue_u",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers knowledge and perfection without community accountability.",
+      "expected": "BANT_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "neighbor": "Blue / U",
+      "scenario": "The prompt centers knowledge and perfection without community accountability."
+    },
+    {
+      "fixture_id": "bant_neighbor_naya",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers big creatures and primal force without refined public honor.",
+      "expected": "BANT_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "neighbor": "Naya",
+      "scenario": "The prompt centers big creatures and primal force without refined public honor."
+    },
+    {
+      "fixture_id": "bant_neighbor_esper",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers artifact perfection and control without living community.",
+      "expected": "BANT_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "neighbor": "Esper",
+      "scenario": "The prompt centers artifact perfection and control without living community."
+    },
+    {
+      "fixture_id": "bant_neighbor_temur",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers instinct and endurance without White-centered public order.",
+      "expected": "BANT_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "neighbor": "Temur",
+      "scenario": "The prompt centers instinct and endurance without White-centered public order."
+    },
+    {
+      "fixture_id": "bant_neighbor_abzan",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers hierarchy and endurance without public champion service.",
+      "expected": "BANT_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "neighbor": "Abzan",
+      "scenario": "The prompt centers hierarchy and endurance without public champion service."
+    },
+    {
+      "fixture_id": "bant_neighbor_jeskai",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers discipline and wisdom without Bant living community.",
+      "expected": "BANT_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "neighbor": "Jeskai",
+      "scenario": "The prompt centers discipline and wisdom without Bant living community."
+    },
+    {
+      "fixture_id": "bant_neighbor_grixis",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers private extraction and advantage.",
+      "expected": "BANT_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "neighbor": "Grixis",
+      "scenario": "The prompt centers private extraction and advantage."
+    },
+    {
+      "fixture_id": "bant_neighbor_jund",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers predatory force and survival combat.",
+      "expected": "BANT_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "neighbor": "Jund",
+      "scenario": "The prompt centers predatory force and survival combat."
+    },
+    {
+      "fixture_id": "bant_neighbor_sultai",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers exploitation and status manipulation.",
+      "expected": "BANT_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "neighbor": "Sultai",
+      "scenario": "The prompt centers exploitation and status manipulation."
+    },
+    {
+      "fixture_id": "bant_neighbor_five_color_wubrg",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers five-color good-stuff without Bant shard anchors.",
+      "expected": "BANT_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "neighbor": "Five-color / WUBRG",
+      "scenario": "The prompt centers five-color good-stuff without Bant shard anchors."
+    },
+    {
+      "fixture_id": "bant_neighbor_generic_good_stuff",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers efficient value and broad flexibility without Bant-specific proof.",
+      "expected": "BANT_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "neighbor": "Generic good-stuff",
+      "scenario": "The prompt centers efficient value and broad flexibility without Bant-specific proof."
+    },
+    {
+      "fixture_id": "bant_neighbor_generic_balance",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers balance, harmony, cooperation, and peace without sigil-ranked champion order.",
+      "expected": "BANT_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "neighbor": "Generic balance",
+      "scenario": "The prompt centers balance, harmony, cooperation, and peace without sigil-ranked champion order."
+    },
+    {
+      "fixture_id": "bant_neighbor_generic_overfit",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers angels, knights, beasts, exalted, shard aesthetics, and the best of White, Blue, and Green as standalone cues.",
+      "expected": "BANT_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "neighbor": "Generic overfit",
+      "scenario": "The prompt centers angels, knights, beasts, exalted, shard aesthetics, and the best of White, Blue, and Green as standalone cues."
+    },
+    {
+      "fixture_id": "bant_provenance_core_identity",
+      "fixture_type": "provenance",
+      "prompt": "The canonical profile core identity is traceable to substantive Bant claims and source evidence.",
+      "expected": "PROVENANCE_MATCH",
+      "evidence_claim_ids": [
+        "bant_claim_0001",
+        "bant_claim_0002",
+        "bant_claim_0003",
+        "bant_claim_0004",
+        "bant_claim_0006",
+        "bant_claim_0015",
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_bant_research_dossier_20260528",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "canonical_file": "data/raw-factions/bant/bant.profile.json",
+      "canonical_pointer": "/core_identity",
+      "scenario": "The canonical profile core identity is traceable to substantive Bant claims and source evidence."
+    }
+  ]
+}
