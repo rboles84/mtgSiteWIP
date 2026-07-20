@@ -7854,6 +7854,233 @@
     {
       "identity_key": "ESPER",
       "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "esper_guidance_how_to_recognize_match_0_gate3",
+      "canonical_content_hash": "sha256:537098ddbbc9f014a2149759a72b8cdc105c66087be369ed9f3fac1f4cd1152b",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "declared_content_hash": "sha256:537098ddbbc9f014a2149759a72b8cdc105c66087be369ed9f3fac1f4cd1152b",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "esper_guidance_how_to_recognize_match_1_gate3",
+      "canonical_content_hash": "sha256:c3ad876238c47748518d924332f7f9e41334c88ef7a4e2b476a4c03fbfcda1a0",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0008"
+      ],
+      "declared_content_hash": "sha256:c3ad876238c47748518d924332f7f9e41334c88ef7a4e2b476a4c03fbfcda1a0",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "esper_guidance_how_to_recognize_match_2_gate3",
+      "canonical_content_hash": "sha256:257f09179adf0f0df152ecc863994ef15ed24f9d4b740758d9e55ce40da184f5",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0008",
+        "esper_claim_0009"
+      ],
+      "declared_content_hash": "sha256:257f09179adf0f0df152ecc863994ef15ed24f9d4b740758d9e55ce40da184f5",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "esper_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_content_hash": "sha256:67e83ca7e1ea8f121cde78abfcec15403002e041c904f664af14ae2586e57853",
+      "evidence_claim_ids": [
+        "esper_claim_0001",
+        "esper_claim_0002",
+        "esper_claim_0003"
+      ],
+      "declared_content_hash": "sha256:67e83ca7e1ea8f121cde78abfcec15403002e041c904f664af14ae2586e57853",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "esper_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_content_hash": "sha256:8cbf30a6defce02f0cd4c81e6239bbcb691a7836794f464a096cfa443d16a3bb",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0004",
+        "esper_claim_0007"
+      ],
+      "declared_content_hash": "sha256:8cbf30a6defce02f0cd4c81e6239bbcb691a7836794f464a096cfa443d16a3bb",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "esper_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_content_hash": "sha256:67e3aec3497149f4c98efa063372fb5725a8cdf7206d26f14f4ad2429db0ea92",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0008",
+        "esper_claim_0009"
+      ],
+      "declared_content_hash": "sha256:67e3aec3497149f4c98efa063372fb5725a8cdf7206d26f14f4ad2429db0ea92",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "esper_guidance_how_to_recognize_mismatch_3_gate3",
+      "canonical_content_hash": "sha256:b11300f04bfc02c8c351f53ac0c4882784ef4f5ec9384134fa789ac03012a47b",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "declared_content_hash": "sha256:b11300f04bfc02c8c351f53ac0c4882784ef4f5ec9384134fa789ac03012a47b",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/4",
+      "canonical_id": "esper_guidance_how_to_recognize_mismatch_4_gate3",
+      "canonical_content_hash": "sha256:35e0a24dfd857bfa1da89fb328f5a0e5b617a95ec3caed80d9fa8a7f2280b1ab",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "declared_content_hash": "sha256:35e0a24dfd857bfa1da89fb328f5a0e5b617a95ec3caed80d9fa8a7f2280b1ab",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/5",
+      "canonical_id": "esper_guidance_how_to_recognize_mismatch_5_gate3",
+      "canonical_content_hash": "sha256:0fedf329eaf4eca9f986eda1e228452e3ee32aad43a5b91fc2fd6caf5f376c03",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0004",
+        "esper_claim_0007"
+      ],
+      "declared_content_hash": "sha256:0fedf329eaf4eca9f986eda1e228452e3ee32aad43a5b91fc2fd6caf5f376c03",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
       "canonical_pointer": "/collision_guidance/0",
       "canonical_id": "collision_esper_azorius_live",
       "canonical_content_hash": "sha256:f22818889b0123e9884488d9c67c03f63af642f8f0724b5bb24efb30c794e35e",
@@ -7885,6 +8112,147 @@
         "esper_claim_0006"
       ],
       "evidence_source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/collision_guidance/10",
+      "canonical_id": "collision_esper_temur_boundary",
+      "canonical_content_hash": "sha256:655531ef8158f7fe7eb5699da2cb084c5d7b4e727327f7541ca8ea8f5ac63b00",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/collision_guidance/11",
+      "canonical_id": "collision_esper_jund_boundary",
+      "canonical_content_hash": "sha256:b4623a196cb7b108a6a1fbec614cabb3ff397f4c3cf68ca21bcce1a7284f5413",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007",
+        "esper_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/collision_guidance/12",
+      "canonical_id": "collision_esper_white_boundary",
+      "canonical_content_hash": "sha256:14cdfc8b380107d11ab2e99e932c3a7d0910186f72ddb5d007bdfd9133cefe8d",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/collision_guidance/13",
+      "canonical_id": "collision_esper_blue_boundary",
+      "canonical_content_hash": "sha256:f4e43341f527b7eed7aa8f9ab7d2fc5e9e1033cf64c81989aca0d5b9dee4835b",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/collision_guidance/14",
+      "canonical_id": "collision_esper_black_boundary",
+      "canonical_content_hash": "sha256:051eb951927b6e56ca0c1cdcb4a4fcff49ab6e1f2840101c03514fb5b9d8c196",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/collision_guidance/15",
+      "canonical_id": "collision_esper_wubrg_boundary",
+      "canonical_content_hash": "sha256:5699320813d4e1a9ec3b911d7549b10cdf22da0327a2331c54213ba473e9b04d",
+      "evidence_claim_ids": [
+        "esper_claim_0001",
+        "esper_claim_0002",
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_esper_evidence_ledger_20260529",
         "src_wotc_rosewater_esper_striving_for_perfection"
       ],
@@ -7930,6 +8298,154 @@
         "esper_claim_0009"
       ],
       "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/collision_guidance/4",
+      "canonical_id": "collision_esper_grixis_live",
+      "canonical_content_hash": "sha256:08989be11470dcaeb4b699a827182493f8e99e3e48b5f572c0a8ecde7cef4d91",
+      "evidence_claim_ids": [
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007",
+        "esper_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/collision_guidance/5",
+      "canonical_id": "collision_esper_abzan_boundary",
+      "canonical_content_hash": "sha256:3e35e11ec55040886c7e1270c12c7baeebc974733c6ef54757d6cb9a824a2372",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/collision_guidance/6",
+      "canonical_id": "collision_esper_jeskai_boundary",
+      "canonical_content_hash": "sha256:3c16ae53bfc0934ea8a913ae881372a1fa364f2c4ca197e9057e7a9acc700c49",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/collision_guidance/7",
+      "canonical_id": "collision_esper_mardu_boundary",
+      "canonical_content_hash": "sha256:0486968f0cc9b9be50afbae68980f3e7e4bb7c7ae9cb86210c1bd0f16bf611c9",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/collision_guidance/8",
+      "canonical_id": "collision_esper_sultai_boundary",
+      "canonical_content_hash": "sha256:8ebcd38c3c40ebabfdf8a69a4919f0e1431837ce491aa73ab149f0ecfe623867",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/collision_guidance/9",
+      "canonical_id": "collision_esper_naya_boundary",
+      "canonical_content_hash": "sha256:00474ed398bbecce9d19ac42a014b8a3cdc2716b0ac2da69c4d4a6409a65ce95",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007",
+        "esper_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
         "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_esper_evidence_ledger_20260529",
         "src_wotc_rosewater_esper_striving_for_perfection"
@@ -8015,6 +8531,7 @@
         "esper_claim_0007"
       ],
       "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
         "src_vm_esper_evidence_ledger_20260529",
         "src_wotc_rosewater_esper_striving_for_perfection"
       ],
@@ -8073,8 +8590,8 @@
       "identity_key": "ESPER",
       "canonical_file": "data/raw-factions/esper/esper.placement.json",
       "canonical_pointer": "/moral_and_psychological_profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:d2e862810f7ca768cd1237b8718ef36cdadf2853f78be98aba0749ef77411c4c",
+      "canonical_id": "esper_moral_and_psychological_profile_gate3",
+      "canonical_content_hash": "sha256:2a1783d139e1c17ea55c44a6357867c9b866aa5927aa0f919952489d9c51e0ad",
       "evidence_claim_ids": [
         "esper_claim_0003",
         "esper_claim_0004",
@@ -8083,6 +8600,216 @@
         "esper_claim_0007"
       ],
       "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "esper_guidance_how_to_recognize_match_0_gate3",
+      "canonical_content_hash": "sha256:eb0618eb714094261f710ae065e0db57d42a6fc490a5e2f5c7bd7b675fb78549",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "esper_guidance_how_to_recognize_match_1_gate3",
+      "canonical_content_hash": "sha256:a4a83c01a4826c776fc45962e13a5725ab051a118fe7295f17fa49b23480f173",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "esper_guidance_how_to_recognize_match_2_gate3",
+      "canonical_content_hash": "sha256:22dfd00656f1ad4301d2ad2fadf27fb35d115d3e56d10becf20a8fa21e06c0c7",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0008",
+        "esper_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "esper_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_content_hash": "sha256:145851455b4b11dfa64862ad07c1c9e8c655c9bdd9f19585bc2ebedbc34da2e9",
+      "evidence_claim_ids": [
+        "esper_claim_0001",
+        "esper_claim_0002",
+        "esper_claim_0003"
+      ],
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "esper_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_content_hash": "sha256:f75a92e44fb301436dc1b4c2e58db422bc9f645a117e9522cae2c517f8a04ffe",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0004",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": "esper_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_content_hash": "sha256:9b2226e42f73e2498f738d594e475b0c9739b5fc7b2a5c608098dfd076291947",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0008",
+        "esper_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": "esper_guidance_how_to_recognize_mismatch_3_gate3",
+      "canonical_content_hash": "sha256:72b8fb4ad2f45708477a8ecd0c65c6969877f671e249ffe6de1dd39564189d0e",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/7",
+      "canonical_id": "esper_guidance_how_to_recognize_mismatch_4_gate3",
+      "canonical_content_hash": "sha256:649b8ffb44f4545a213d97713f83d3f3299ded3c822d415fa5166f169ed07bf2",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ESPER",
+        "data/placement-model.json#/factions/ESPER",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ESPER"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/8",
+      "canonical_id": "esper_guidance_how_to_recognize_mismatch_5_gate3",
+      "canonical_content_hash": "sha256:be3331844e58d99c9f3746b18faec4e9c18372a08dccb398ac4144b067cec94a",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0004",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
         "src_vm_esper_evidence_ledger_20260529",
         "src_wotc_rosewater_esper_striving_for_perfection"
       ],
@@ -8097,8 +8824,8 @@
       "identity_key": "ESPER",
       "canonical_file": "data/raw-factions/esper/esper.profile.json",
       "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:ff0c4dd9f134a5daf3e0dbe75fa37bc7ca92340c69b656aa494a1eccb0ac16d5",
+      "canonical_id": "esper_core_identity_gate3",
+      "canonical_content_hash": "sha256:7f8db3ed1273d90f51e12f6b164add290b47a8c470bfed8ddc65e264673d7b80",
       "evidence_claim_ids": [
         "esper_claim_0001",
         "esper_claim_0002",
@@ -8109,6 +8836,8 @@
         "esper_claim_0007"
       ],
       "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_esper_evidence_ledger_20260529",
         "src_wotc_rosewater_esper_striving_for_perfection"
       ],
@@ -8123,8 +8852,8 @@
       "identity_key": "ESPER",
       "canonical_file": "data/raw-factions/esper/esper.profile.json",
       "canonical_pointer": "/great_tension",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:01546ba74977150af65e7fa705619313566fca4b10444e8fdc0d861d84f953d6",
+      "canonical_id": "esper_great_tension_gate3",
+      "canonical_content_hash": "sha256:10b5f94fb11f1f58c038d60fbba1fb8777328f0e29ad9a6fd09f2e724e105645",
       "evidence_claim_ids": [
         "esper_claim_0003",
         "esper_claim_0004",
@@ -8133,6 +8862,7 @@
         "esper_claim_0007"
       ],
       "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
         "src_vm_esper_evidence_ledger_20260529",
         "src_wotc_rosewater_esper_striving_for_perfection"
       ],
@@ -8154,6 +8884,7 @@
         "esper_claim_0009"
       ],
       "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
         "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_esper_evidence_ledger_20260529",
         "src_wotc_rosewater_esper_striving_for_perfection"
@@ -8169,8 +8900,8 @@
       "identity_key": "ESPER",
       "canonical_file": "data/raw-factions/esper/esper.profile.json",
       "canonical_pointer": "/site_surface",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:faac241dd84c78d96712c09ef4146ed975243c461fde16b965230548234eee77",
+      "canonical_id": "esper_site_surface_gate3",
+      "canonical_content_hash": "sha256:0dc97cb129a6483cd977c9484d2ee777f3c0ec5f74045d71feba8ed4fc1113c7",
       "evidence_claim_ids": [
         "esper_claim_0001",
         "esper_claim_0002",
@@ -8183,6 +8914,7 @@
         "esper_claim_0009"
       ],
       "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
         "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_esper_evidence_ledger_20260529",
         "src_wotc_rosewater_esper_striving_for_perfection"
@@ -8198,8 +8930,8 @@
       "identity_key": "ESPER",
       "canonical_file": "data/raw-factions/esper/esper.profile.json",
       "canonical_pointer": "/structure",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:d06e6667d9099a49f3c81e47337d600aef94afd63585e01a94ef3c907ee5bfab",
+      "canonical_id": "esper_structure_gate3",
+      "canonical_content_hash": "sha256:28a09553c12b162a38417a8217c8fe366e5410f6436ede24847c746baa402e4e",
       "evidence_claim_ids": [
         "esper_claim_0001",
         "esper_claim_0002",
@@ -8211,6 +8943,7 @@
         "esper_claim_0009"
       ],
       "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
         "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_esper_evidence_ledger_20260529",
         "src_wotc_rosewater_esper_striving_for_perfection"
@@ -8226,8 +8959,8 @@
       "identity_key": "ESPER",
       "canonical_file": "data/raw-factions/esper/esper.profile.json",
       "canonical_pointer": "/views_on_other_factions/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:7cd0dfaeedd424e87c109d7504be885935dac684ed5f98a28a195728d110f319",
+      "canonical_id": "rel_esper_azorius_gate3",
+      "canonical_content_hash": "sha256:855c5ac6ec745e703d62510fa470021bb682f5b80e0a787819f5743e88b123ef",
       "evidence_claim_ids": [
         "esper_claim_0003",
         "esper_claim_0005",
@@ -8248,8 +8981,8 @@
       "identity_key": "ESPER",
       "canonical_file": "data/raw-factions/esper/esper.profile.json",
       "canonical_pointer": "/views_on_other_factions/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:ed4949d51ead6b4222c49f5ca7af2ef98c7f4d2535151fb3b76fb75e5a8f1d18",
+      "canonical_id": "rel_esper_dimir_gate3",
+      "canonical_content_hash": "sha256:5710b7706d2770c4a1fc1ba129d935577253d064333f8be96beecba2622675e6",
       "evidence_claim_ids": [
         "esper_claim_0003",
         "esper_claim_0005",
@@ -8270,8 +9003,8 @@
       "identity_key": "ESPER",
       "canonical_file": "data/raw-factions/esper/esper.profile.json",
       "canonical_pointer": "/views_on_other_factions/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:019d264ca084a4b972e13b768d25dabee24fc15788fa47aa06f8761347ba5528",
+      "canonical_id": "rel_esper_orzhov_gate3",
+      "canonical_content_hash": "sha256:3d1746d79bb5f909315aacbaeabf4d084e61a7f6591eed9eb61533ec75f3a67f",
       "evidence_claim_ids": [
         "esper_claim_0003",
         "esper_claim_0005",
@@ -8292,8 +9025,8 @@
       "identity_key": "ESPER",
       "canonical_file": "data/raw-factions/esper/esper.profile.json",
       "canonical_pointer": "/views_on_other_factions/3",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:155b063b6b8d1fbdbdbc79133d389a43955c4e233e2e96940533af31c5023a5a",
+      "canonical_id": "rel_esper_bant_gate3",
+      "canonical_content_hash": "sha256:fc9c902606070adab27bb78296dd753dff5dc8d2e2933595e0d5e57444f2e1e4",
       "evidence_claim_ids": [
         "esper_claim_0002",
         "esper_claim_0006",
@@ -8301,6 +9034,7 @@
         "esper_claim_0009"
       ],
       "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
         "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_esper_evidence_ledger_20260529",
         "src_wotc_rosewater_esper_striving_for_perfection"
@@ -8316,8 +9050,8 @@
       "identity_key": "ESPER",
       "canonical_file": "data/raw-factions/esper/esper.profile.json",
       "canonical_pointer": "/views_on_other_factions/4",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:022799f729fdf1164a7f88810df9ffe51e117ad6bb6098a590891b9818d55631",
+      "canonical_id": "rel_esper_grixis_gate3",
+      "canonical_content_hash": "sha256:18008be8d4a0089784536442263120d897208193c8d1ce4fffad0d136d095a69",
       "evidence_claim_ids": [
         "esper_claim_0005",
         "esper_claim_0006",
@@ -8325,6 +9059,7 @@
         "esper_claim_0009"
       ],
       "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
         "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_esper_evidence_ledger_20260529",
         "src_wotc_rosewater_esper_striving_for_perfection"
@@ -8340,8 +9075,8 @@
       "identity_key": "ESPER",
       "canonical_file": "data/raw-factions/esper/esper.profile.json",
       "canonical_pointer": "/views_on_other_factions/5",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:69d207b66527fc28025983d9da329445b1ac6aaa5573b01e8d20f2051a6e53a4",
+      "canonical_id": "rel_esper_jund_gate3",
+      "canonical_content_hash": "sha256:98826d83a699207a226e1608b944d55841482010ee4b2c312fcc9993d5b8deb4",
       "evidence_claim_ids": [
         "esper_claim_0003",
         "esper_claim_0005",
@@ -8350,6 +9085,7 @@
         "esper_claim_0009"
       ],
       "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
         "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_esper_evidence_ledger_20260529",
         "src_wotc_rosewater_esper_striving_for_perfection"
@@ -8365,8 +9101,8 @@
       "identity_key": "ESPER",
       "canonical_file": "data/raw-factions/esper/esper.profile.json",
       "canonical_pointer": "/views_on_other_factions/6",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:d91122d8a0225ba761c9375e9aaa5b1988cbf01079d85ede9682092fbede8f16",
+      "canonical_id": "rel_esper_naya_gate3",
+      "canonical_content_hash": "sha256:778ac1e81d89021d9c08ea1a065c2a8dff2af860e68852672e3cfa60498b4de1",
       "evidence_claim_ids": [
         "esper_claim_0003",
         "esper_claim_0005",
@@ -8375,6 +9111,7 @@
         "esper_claim_0009"
       ],
       "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
         "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_esper_evidence_ledger_20260529",
         "src_wotc_rosewater_esper_striving_for_perfection"

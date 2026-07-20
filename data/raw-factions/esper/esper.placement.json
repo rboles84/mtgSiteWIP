@@ -16,7 +16,8 @@
       "esper_claim_0007"
     ],
     "confidence": "Medium",
-    "notes": "Psychological language is Vox Mana interpretation, not official Wizards canon."
+    "notes": "Psychological language is Vox Mana interpretation, not official Wizards canon.",
+    "profile_id": "esper_moral_and_psychological_profile_gate3"
   },
   "placement_axes": [],
   "core_values": [
@@ -163,7 +164,9 @@
       "Do not match Esper from WUB color identity alone.",
       "Do not match Esper from artifacts alone.",
       "Do not match Esper from detailed lore claims that VM-163 left in manual fill.",
-      "Do not route to Esper from WUB color identity, artifacts, or control language alone."
+      "Do not route to Esper from WUB color identity, artifacts, or control language alone.",
+      "Do not match Esper from generic good-stuff, balance, optimization, technocracy, transhumanism, or best-of-WUB language unless Blue-centered perfectibility, White ordered improvement, and Black focused control are all present.",
+      "Do not match Esper from artifact aesthetics, filigree, colored-artifact mechanics, or perfection imagery without the evidence-backed WUB design-control thesis."
     ],
     "questions_to_ask_when_uncertain": [],
     "do_not_overweight": [
@@ -318,6 +321,255 @@
         "esper_claim_0009"
       ],
       "confidence": "Medium"
+    },
+    {
+      "collision_id": "collision_esper_grixis_live",
+      "against": "grixis",
+      "separator": "From Esper's side only: Esper shares Blue-Black control with Grixis but rejects Red urgency through White ordered improvement.",
+      "ask": "Is information being used for designed improvement, or for survival leverage before the opening closes?",
+      "claim_ids": [
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007",
+        "esper_claim_0009"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_esper_abzan_boundary",
+      "against": "abzan",
+      "separator": "From Esper's side only: Esper redesigns systems through Blue knowledge rather than preserving endurance through ancestry, family, or defensive patience.",
+      "ask": "Is the structure an improvement design, or a continuity-and-ancestor obligation?",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_esper_jeskai_boundary",
+      "against": "jeskai",
+      "separator": "From Esper's side only: Esper makes design control primary rather than training insight for disciplined action and accountability.",
+      "ask": "Is perfection implemented as controlled system design, or as disciplined action held in restraint?",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_esper_mardu_boundary",
+      "against": "mardu",
+      "separator": "From Esper's side only: Esper plans before action rather than making speed, war-code, and the immediate opening central.",
+      "ask": "Is the decisive value prior design, or fast action under martial pressure?",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_esper_sultai_boundary",
+      "against": "sultai",
+      "separator": "From Esper's side only: Esper uses White coordinated improvement rather than Green-Black resource conversion and ruthless opportunity.",
+      "ask": "Is ambition aimed through ordered improvement, or through converting every resource into advantage?",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_esper_naya_boundary",
+      "against": "naya",
+      "separator": "From Esper's side only: Esper's designed control contrasts with Naya's natural awe, growth, and Red-Green immediacy.",
+      "ask": "Is the desired system engineered into exactness, or joined through natural scale and instinctive belonging?",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007",
+        "esper_claim_0009"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_esper_temur_boundary",
+      "against": "temur",
+      "separator": "From Esper's side only: Esper plans alteration through information rather than trusting instinctive force, terrain, and embodied knowledge.",
+      "ask": "Is the answer about planned control, or about earned instinct in relation with the living world?",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_esper_jund_boundary",
+      "against": "jund",
+      "separator": "From Esper's side only: Esper keeps Black tied to Blue planning and White coordination rather than appetite, survival, and natural force.",
+      "ask": "Is Black ambition constrained by designed improvement, or released through appetite and survival pressure?",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007",
+        "esper_claim_0009"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_esper_white_boundary",
+      "against": "white",
+      "separator": "From Esper's side only: White order and social improvement are only one ally contribution; Esper requires Blue center and Black focused control.",
+      "ask": "Is the answer only peace, order, or community, or the full WUB design-control thesis?",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_esper_blue_boundary",
+      "against": "blue",
+      "separator": "From Esper's side only: Blue potential and knowledge are the center, but Esper also requires White coordination and Black implementation pressure.",
+      "ask": "Is the answer knowledge and becoming alone, or knowledge applied through ordered improvement and focused control?",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_esper_black_boundary",
+      "against": "black",
+      "separator": "From Esper's side only: Black control is bounded by Blue perfectibility and White structure, not power or agency alone.",
+      "ask": "Is control serving a designed improvement project, or agency and power on their own terms?",
+      "claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_esper_wubrg_boundary",
+      "against": "wubrg",
+      "separator": "From Esper's side only: Esper is the exact WUB thesis, not full-spectrum five-color synthesis or good-stuff coalition.",
+      "ask": "Does the answer require all five colors, or the Blue-centered WUB design-control engine?",
+      "claim_ids": [
+        "esper_claim_0001",
+        "esper_claim_0002",
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "lateral_inhibition": false
+    }
+  ],
+  "semantic_guidance_evidence": [
+    {
+      "canonical_id": "esper_guidance_how_to_recognize_match_0_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_content_hash": "sha256:537098ddbbc9f014a2149759a72b8cdc105c66087be369ed9f3fac1f4cd1152b",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ]
+    },
+    {
+      "canonical_id": "esper_guidance_how_to_recognize_match_1_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_content_hash": "sha256:c3ad876238c47748518d924332f7f9e41334c88ef7a4e2b476a4c03fbfcda1a0",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0008"
+      ]
+    },
+    {
+      "canonical_id": "esper_guidance_how_to_recognize_match_2_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_content_hash": "sha256:257f09179adf0f0df152ecc863994ef15ed24f9d4b740758d9e55ce40da184f5",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0008",
+        "esper_claim_0009"
+      ]
+    },
+    {
+      "canonical_id": "esper_guidance_how_to_recognize_mismatch_0_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_content_hash": "sha256:67e83ca7e1ea8f121cde78abfcec15403002e041c904f664af14ae2586e57853",
+      "evidence_claim_ids": [
+        "esper_claim_0001",
+        "esper_claim_0002",
+        "esper_claim_0003"
+      ]
+    },
+    {
+      "canonical_id": "esper_guidance_how_to_recognize_mismatch_1_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_content_hash": "sha256:8cbf30a6defce02f0cd4c81e6239bbcb691a7836794f464a096cfa443d16a3bb",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0004",
+        "esper_claim_0007"
+      ]
+    },
+    {
+      "canonical_id": "esper_guidance_how_to_recognize_mismatch_2_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_content_hash": "sha256:67e3aec3497149f4c98efa063372fb5725a8cdf7206d26f14f4ad2429db0ea92",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0008",
+        "esper_claim_0009"
+      ]
+    },
+    {
+      "canonical_id": "esper_guidance_how_to_recognize_mismatch_3_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_content_hash": "sha256:b11300f04bfc02c8c351f53ac0c4882784ef4f5ec9384134fa789ac03012a47b",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ]
+    },
+    {
+      "canonical_id": "esper_guidance_how_to_recognize_mismatch_4_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/4",
+      "canonical_content_hash": "sha256:35e0a24dfd857bfa1da89fb328f5a0e5b617a95ec3caed80d9fa8a7f2280b1ab",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ]
+    },
+    {
+      "canonical_id": "esper_guidance_how_to_recognize_mismatch_5_gate3",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/5",
+      "canonical_content_hash": "sha256:0fedf329eaf4eca9f986eda1e228452e3ee32aad43a5b91fc2fd6caf5f376c03",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0004",
+        "esper_claim_0007"
+      ]
     }
   ]
 }

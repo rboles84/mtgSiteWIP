@@ -2140,6 +2140,8 @@ export const FACTION_CONTEXT = {
       "Do not match Esper from artifacts alone.",
       "Do not match Esper from detailed lore claims that VM-163 left in manual fill.",
       "Do not route to Esper from WUB color identity, artifacts, or control language alone.",
+      "Do not match Esper from generic good-stuff, balance, optimization, technocracy, transhumanism, or best-of-WUB language unless Blue-centered perfectibility, White ordered improvement, and Black focused control are all present.",
+      "Do not match Esper from artifact aesthetics, filigree, colored-artifact mechanics, or perfection imagery without the evidence-backed WUB design-control thesis.",
       "The answer depends on detailed Esper geography, society, figures, material lore, chronology, or exact card text.",
       "The answer is mainly civic procedure, secrecy, debt, generic WUB, or generic artifact value.",
       "The answer centers impulse, natural acceptance, big-creature immediacy, predatory appetite, or spontaneous passion."
@@ -2212,7 +2214,9 @@ export const FACTION_CONTEXT = {
         "Do not match Esper from WUB color identity alone.",
         "Do not match Esper from artifacts alone.",
         "Do not match Esper from detailed lore claims that VM-163 left in manual fill.",
-        "Do not route to Esper from WUB color identity, artifacts, or control language alone."
+        "Do not route to Esper from WUB color identity, artifacts, or control language alone.",
+        "Do not match Esper from generic good-stuff, balance, optimization, technocracy, transhumanism, or best-of-WUB language unless Blue-centered perfectibility, White ordered improvement, and Black focused control are all present.",
+        "Do not match Esper from artifact aesthetics, filigree, colored-artifact mechanics, or perfection imagery without the evidence-backed WUB design-control thesis."
       ],
       "questions_to_ask_when_uncertain": [],
       "do_not_overweight": [

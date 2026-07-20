@@ -20,7 +20,26 @@
         "ESPER-001"
       ],
       "confidence": "High",
-      "notes": "Use for the base shard identity only; it does not prove detailed geography, society, figures, material lore, or chronology."
+      "notes": "Use for the base shard identity only; it does not prove detailed geography, society, figures, material lore, or chronology.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_esper_evidence_ledger_20260529",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/esper/esper-evidence-ledger.md#ESPER-001",
+          "bounded_paraphrase": "Ledger row ESPER-001 records the narrow Esper identity fact.",
+          "evidence_scope": "identity_fact",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_wotc_rosewater_esper_striving_for_perfection",
+          "locator_type": "article_section",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Esper_Striving For Perfection _ Magic_ The Gathering.md#intro",
+          "bounded_paraphrase": "Rosewater introduces Esper Week as the white-blue-black shard article frame.",
+          "evidence_scope": "identity_fact",
+          "interpretation_level": "bounded_semantic"
+        }
+      ]
     },
     {
       "claim_id": "esper_claim_0002",
@@ -30,13 +49,41 @@
       "canon_status": "Source-supported design metadata",
       "source_ids": [
         "src_vm_esper_evidence_ledger_20260529",
-        "src_wotc_rosewater_esper_striving_for_perfection"
+        "src_wotc_rosewater_esper_striving_for_perfection",
+        "src_vm_canon_inventory_three_color_audit_20260528"
       ],
       "evidence_rows": [
         "ESPER-002"
       ],
       "confidence": "High",
-      "notes": "WUB is metadata only. This packet does not create WUB or ESPER as runtime, registry, placement, generated, alias, or raw-to-key data."
+      "notes": "WUB is metadata only. This packet does not create WUB or ESPER as runtime, registry, placement, generated, alias, or raw-to-key data.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_esper_evidence_ledger_20260529",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/esper/esper-evidence-ledger.md#ESPER-002",
+          "bounded_paraphrase": "Ledger row ESPER-002 records WUB as color-direction metadata and Blue as design lens.",
+          "evidence_scope": "identity_metadata",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_wotc_rosewater_esper_striving_for_perfection",
+          "locator_type": "article_section",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Esper_Striving For Perfection _ Magic_ The Gathering.md#blue-frame",
+          "bounded_paraphrase": "The Rosewater article frames Esper from Blue's point of view.",
+          "evidence_scope": "identity_metadata",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_vm_canon_inventory_three_color_audit_20260528",
+          "locator_type": "canon_inventory_row",
+          "locator": "docs/analysis/canon-inventory-three-color-reference-audit.md#esper",
+          "bounded_paraphrase": "The canon inventory classifies the Esper Rosewater file as the primary identity source.",
+          "evidence_scope": "identity_metadata",
+          "interpretation_level": "bounded_semantic"
+        }
+      ]
     },
     {
       "claim_id": "esper_claim_0003",
@@ -52,7 +99,26 @@
         "ESPER-003"
       ],
       "confidence": "High",
-      "notes": "This supports identity and design-philosophy language. Do not rewrite it as an in-world social doctrine."
+      "notes": "This supports identity and design-philosophy language. Do not rewrite it as an in-world social doctrine.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_esper_evidence_ledger_20260529",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/esper/esper-evidence-ledger.md#ESPER-003",
+          "bounded_paraphrase": "Ledger row ESPER-003 captures the Blue-centered potential, knowledge, planning, and applied-information frame.",
+          "evidence_scope": "core_identity_philosophy",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_wotc_rosewater_esper_striving_for_perfection",
+          "locator_type": "article_section",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Esper_Striving For Perfection _ Magic_ The Gathering.md#potential-knowledge-change",
+          "bounded_paraphrase": "Rosewater ties Blue to potential, knowledge, deliberate change, details, deployment, science, and technology.",
+          "evidence_scope": "core_identity_philosophy",
+          "interpretation_level": "bounded_semantic"
+        }
+      ]
     },
     {
       "claim_id": "esper_claim_0004",
@@ -68,7 +134,26 @@
         "ESPER-004"
       ],
       "confidence": "High",
-      "notes": "Use as color-pie/design support, not as direct in-world narration."
+      "notes": "Use as color-pie/design support, not as direct in-world narration.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_esper_evidence_ledger_20260529",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/esper/esper-evidence-ledger.md#ESPER-004",
+          "bounded_paraphrase": "Ledger row ESPER-004 records the design-commentary-only perfection/order claim.",
+          "evidence_scope": "design_commentary_only",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_wotc_rosewater_esper_striving_for_perfection",
+          "locator_type": "article_section",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Esper_Striving For Perfection _ Magic_ The Gathering.md#pinnacle-order-perfection",
+          "bounded_paraphrase": "Rosewater describes Esper as Blue's pinnacle of order and perfection, including mastered weather, politics, and biology.",
+          "evidence_scope": "design_commentary_only",
+          "interpretation_level": "bounded_semantic"
+        }
+      ]
     },
     {
       "claim_id": "esper_claim_0005",
@@ -84,7 +169,26 @@
         "ESPER-005"
       ],
       "confidence": "High",
-      "notes": "This does not support unpromoted claims about Esper law, classes, institutions, or factions."
+      "notes": "This does not support unpromoted claims about Esper law, classes, institutions, or factions.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_esper_evidence_ledger_20260529",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/esper/esper-evidence-ledger.md#ESPER-005",
+          "bounded_paraphrase": "Ledger row ESPER-005 records White's bounded contribution to Esper.",
+          "evidence_scope": "color_contribution_white",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_wotc_rosewater_esper_striving_for_perfection",
+          "locator_type": "article_section",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Esper_Striving For Perfection _ Magic_ The Gathering.md#white-ally",
+          "bounded_paraphrase": "Rosewater's White ally section supports social improvement, technology serving people, long-term planning, and strategy.",
+          "evidence_scope": "color_contribution_white",
+          "interpretation_level": "bounded_semantic"
+        }
+      ]
     },
     {
       "claim_id": "esper_claim_0006",
@@ -100,7 +204,26 @@
         "ESPER-006"
       ],
       "confidence": "High",
-      "notes": "This does not support unpromoted claims about named figures, rulers, conflicts, or contested story material."
+      "notes": "This does not support unpromoted claims about named figures, rulers, conflicts, or contested story material.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_esper_evidence_ledger_20260529",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/esper/esper-evidence-ledger.md#ESPER-006",
+          "bounded_paraphrase": "Ledger row ESPER-006 records Black's bounded contribution and risk pressure.",
+          "evidence_scope": "color_contribution_black_and_risk",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_wotc_rosewater_esper_striving_for_perfection",
+          "locator_type": "article_section",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Esper_Striving For Perfection _ Magic_ The Gathering.md#black-ally",
+          "bounded_paraphrase": "Rosewater's Black ally section supports control, information value, focus, vision, scruples pressure, and personal-gain risk.",
+          "evidence_scope": "color_contribution_black_and_risk",
+          "interpretation_level": "bounded_semantic"
+        }
+      ]
     },
     {
       "claim_id": "esper_claim_0007",
@@ -110,13 +233,41 @@
       "canon_status": "Design commentary with source boundary",
       "source_ids": [
         "src_vm_esper_evidence_ledger_20260529",
-        "src_wotc_rosewater_esper_striving_for_perfection"
+        "src_wotc_rosewater_esper_striving_for_perfection",
+        "src_alara_shards_lore_dossier_protocol_rtf"
       ],
       "evidence_rows": [
         "ESPER-007"
       ],
       "confidence": "High",
-      "notes": "Keep this at the design-philosophy level unless later evidence promotes detailed Alara lore."
+      "notes": "Keep this at the design-philosophy level unless later evidence promotes detailed Alara lore.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_esper_evidence_ledger_20260529",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/esper/esper-evidence-ledger.md#ESPER-007",
+          "bounded_paraphrase": "Ledger row ESPER-007 records Red and Green as missing enemy-color pressures.",
+          "evidence_scope": "enemy_pressure_boundary",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_wotc_rosewater_esper_striving_for_perfection",
+          "locator_type": "article_section",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Esper_Striving For Perfection _ Magic_ The Gathering.md#red-and-green-enemies",
+          "bounded_paraphrase": "Rosewater's Red and Green sections bound the missing-color pressure at design-philosophy level.",
+          "evidence_scope": "enemy_pressure_boundary",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_alara_shards_lore_dossier_protocol_rtf",
+          "locator_type": "support_packet",
+          "locator": "docs/research/canon/guild_research/Alara Shards Lore Dossier Protocol.rtf#alara-shards",
+          "bounded_paraphrase": "The Alara protocol supports shard-frame context only, not detailed Esper lore.",
+          "evidence_scope": "enemy_pressure_boundary",
+          "interpretation_level": "bounded_semantic"
+        }
+      ]
     },
     {
       "claim_id": "esper_claim_0008",
@@ -132,7 +283,27 @@
         "ESPER-008"
       ],
       "confidence": "High",
-      "notes": "Use to preserve source hierarchy and reference paths, not as standalone lore proof."
+      "notes": "Use to preserve source hierarchy and reference paths, not as standalone lore proof.",
+      "semantic_role": "support_record",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_esper_evidence_ledger_20260529",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/esper/esper-evidence-ledger.md#ESPER-008",
+          "bounded_paraphrase": "Ledger row ESPER-008 records source classification support.",
+          "evidence_scope": "source_classification_support",
+          "interpretation_level": "support_only"
+        },
+        {
+          "source_id": "src_vm_canon_inventory_three_color_audit_20260528",
+          "locator_type": "canon_inventory_row",
+          "locator": "docs/analysis/canon-inventory-three-color-reference-audit.md#esper",
+          "bounded_paraphrase": "The canon inventory classifies the Rosewater and Alara source rows for audit/provenance use.",
+          "evidence_scope": "source_classification_support",
+          "interpretation_level": "support_only"
+        }
+      ],
+      "evidence_use_restriction": "Source/provenance support only. Do not use as standalone proof for Esper identity, placement, public copy, recruiter guidance, or candidate approval."
     },
     {
       "claim_id": "esper_claim_0009",
@@ -142,13 +313,42 @@
       "canon_status": "Repository shard-context support",
       "source_ids": [
         "src_vm_esper_evidence_ledger_20260529",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_alara_shards_lore_dossier_protocol_rtf"
       ],
       "evidence_rows": [
         "ESPER-009"
       ],
       "confidence": "High",
-      "notes": "This supports basic Alara shard context only. It does not establish doctrine for other shards."
+      "notes": "This supports basic Alara shard context only. It does not establish doctrine for other shards.",
+      "semantic_role": "support_record",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_esper_evidence_ledger_20260529",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/esper/esper-evidence-ledger.md#ESPER-009",
+          "bounded_paraphrase": "Ledger row ESPER-009 records Alara shard setting context.",
+          "evidence_scope": "setting_context_support",
+          "interpretation_level": "support_only"
+        },
+        {
+          "source_id": "src_vm_canon_inventory_three_color_audit_20260528",
+          "locator_type": "canon_inventory_row",
+          "locator": "docs/analysis/canon-inventory-three-color-reference-audit.md#alara-shards",
+          "bounded_paraphrase": "The canon inventory records shard corpus rows as setting-context support.",
+          "evidence_scope": "setting_context_support",
+          "interpretation_level": "support_only"
+        },
+        {
+          "source_id": "src_alara_shards_lore_dossier_protocol_rtf",
+          "locator_type": "support_packet",
+          "locator": "docs/research/canon/guild_research/Alara Shards Lore Dossier Protocol.rtf#alara-shards",
+          "bounded_paraphrase": "The Alara protocol supports shard context only and does not define other shards from Esper's side.",
+          "evidence_scope": "setting_context_support",
+          "interpretation_level": "support_only"
+        }
+      ],
+      "evidence_use_restriction": "Setting-context support only. Do not use as standalone proof for Esper identity or as authority for other shard meanings."
     }
   ],
   "claim_quality_summary": {
@@ -164,6 +364,13 @@
       "Conflux, post-Conflux, and post-Phyrexian chronology",
       "Card-text-derived claims and exact flavor text"
     ],
-    "notes": "VM-166 is source-authored and review-gated. It does not make Esper live or placement-eligible."
+    "notes": "VM-166 is source-authored and review-gated. It does not make Esper live or placement-eligible.",
+    "semantic_role_counts": {
+      "substantive_claim": 7,
+      "support_record": 2,
+      "discovery_record": 0,
+      "unclassified": 0
+    },
+    "gate3_contract": "VM-523 Gate 3+4 implements the Gate 1+2 role/evidence contract without splitting, merging, or removing claims."
   }
 }

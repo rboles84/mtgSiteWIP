@@ -1,0 +1,430 @@
+{
+  "identity_key": "ESPER",
+  "contract_version": "v1.1",
+  "generated_by": "VM-523 Gate 3+4 semantic remediation",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "esper_core_blue_centered_perfectibility",
+      "fixture_type": "core_inclusion",
+      "prompt": "A user wants to study a system, plan its improvement, coordinate the change, and turn information into controlled outcomes.",
+      "expected": "ESPER_INCLUDE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "boundary": "Esper inclusion requires Blue-centered perfectibility, White ordered improvement, and Black focused control together.",
+      "scenario": "A user wants to study a system, plan its improvement, coordinate the change, and turn information into controlled outcomes."
+    },
+    {
+      "fixture_id": "esper_pressure_over_control",
+      "fixture_type": "mature_or_pressure_behavior",
+      "prompt": "A user wants improvement so exact that unoptimized life starts to look like a defect, while still describing the project as knowledge-led and ordered.",
+      "expected": "ESPER_INCLUDE_WITH_PRESSURE_BOUNDARY",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0004",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "boundary": "The failure mode is over-control within the WUB design thesis, not generic cruelty or mechanics-first artifice.",
+      "scenario": "A user wants improvement so exact that unoptimized life starts to look like a defect, while still describing the project as knowledge-led and ordered."
+    },
+    {
+      "fixture_id": "esper_nearest_azorius_procedure",
+      "fixture_type": "nearest_collision_ambiguity",
+      "prompt": "The prompt centers law, procedure, civic fairness, and public process without Black-supported focused control.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "Azorius / WU",
+      "scenario": "The prompt centers law, procedure, civic fairness, and public process without Black-supported focused control."
+    },
+    {
+      "fixture_id": "esper_neighbor_dimir_hidden_leverage",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers hidden information, secrecy, and private leverage without White ordered improvement.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "Dimir / UB",
+      "scenario": "The prompt centers hidden information, secrecy, and private leverage without White ordered improvement."
+    },
+    {
+      "fixture_id": "esper_neighbor_orzhov_debt_hierarchy",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers obligation, debt, hierarchy, and extraction without Blue planning and perfectibility.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "Orzhov / WB",
+      "scenario": "The prompt centers obligation, debt, hierarchy, and extraction without Blue planning and perfectibility."
+    },
+    {
+      "fixture_id": "esper_neighbor_white_order_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers peace, order, and community without Blue center or Black focused control.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "White / W",
+      "scenario": "The prompt centers peace, order, and community without Blue center or Black focused control."
+    },
+    {
+      "fixture_id": "esper_neighbor_blue_knowledge_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers knowledge and becoming without White coordination or Black implementation pressure.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "Blue / U",
+      "scenario": "The prompt centers knowledge and becoming without White coordination or Black implementation pressure."
+    },
+    {
+      "fixture_id": "esper_neighbor_black_power_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers agency, power, cost, and control without Blue perfectibility and White structure.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "Black / B",
+      "scenario": "The prompt centers agency, power, cost, and control without Blue perfectibility and White structure."
+    },
+    {
+      "fixture_id": "esper_neighbor_bant_living_order",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers living communal honor, public champions, and Green acceptance rather than designed control.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "Bant / BANT",
+      "scenario": "The prompt centers living communal honor, public champions, and Green acceptance rather than designed control."
+    },
+    {
+      "fixture_id": "esper_neighbor_grixis_survival_leverage",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers survival leverage, volatility, and urgent openings rather than ordered improvement.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "Grixis / GRIXIS",
+      "scenario": "The prompt centers survival leverage, volatility, and urgent openings rather than ordered improvement."
+    },
+    {
+      "fixture_id": "esper_neighbor_abzan_endurance",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers family continuity, ancestry, endurance, and defensive patience rather than redesign.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "Abzan / ABZAN",
+      "scenario": "The prompt centers family continuity, ancestry, endurance, and defensive patience rather than redesign."
+    },
+    {
+      "fixture_id": "esper_neighbor_jeskai_disciplined_action",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers disciplined action, training, and restraint rather than information-led system control.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "Jeskai / JESKAI",
+      "scenario": "The prompt centers disciplined action, training, and restraint rather than information-led system control."
+    },
+    {
+      "fixture_id": "esper_neighbor_mardu_speed_code",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers speed, attack, war-code, and immediate action rather than prior design.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "Mardu / MARDU",
+      "scenario": "The prompt centers speed, attack, war-code, and immediate action rather than prior design."
+    },
+    {
+      "fixture_id": "esper_neighbor_sultai_resource_conversion",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers ruthless opportunity and resource conversion rather than White coordinated improvement.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "Sultai / SULTAI",
+      "scenario": "The prompt centers ruthless opportunity and resource conversion rather than White coordinated improvement."
+    },
+    {
+      "fixture_id": "esper_neighbor_naya_natural_awe",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers natural awe, large life, growth, and Red-Green immediacy rather than engineered exactness.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "Naya / NAYA",
+      "scenario": "The prompt centers natural awe, large life, growth, and Red-Green immediacy rather than engineered exactness."
+    },
+    {
+      "fixture_id": "esper_neighbor_temur_instinct_force",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers instinctive force, terrain, ferocity, and embodied knowledge rather than planned alteration.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "Temur / TEMUR",
+      "scenario": "The prompt centers instinctive force, terrain, ferocity, and embodied knowledge rather than planned alteration."
+    },
+    {
+      "fixture_id": "esper_neighbor_jund_appetite_survival",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers appetite, survival, and natural force rather than information-led control.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "Jund / JUND",
+      "scenario": "The prompt centers appetite, survival, and natural force rather than information-led control."
+    },
+    {
+      "fixture_id": "esper_neighbor_wubrg_full_spectrum",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt needs complete five-color synthesis, full-spectrum access, or good-stuff coalition logic.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0001",
+        "esper_claim_0002",
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "Five-color / WUBRG",
+      "scenario": "The prompt needs complete five-color synthesis, full-spectrum access, or good-stuff coalition logic."
+    },
+    {
+      "fixture_id": "esper_generic_goodstuff",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt says good-stuff or best of WUB but does not state the Blue/White/Black interaction.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "Generic good-stuff / WUB overfit",
+      "scenario": "The prompt says good-stuff or best of WUB but does not state the Blue/White/Black interaction."
+    },
+    {
+      "fixture_id": "esper_generic_control",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt says control, optimization, or balance without evidence-backed perfectibility, ordered improvement, and focused control together.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "Generic control/balance/optimization",
+      "scenario": "The prompt says control, optimization, or balance without evidence-backed perfectibility, ordered improvement, and focused control together."
+    },
+    {
+      "fixture_id": "esper_generic_technocracy",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt says technocracy, transhumanism, artifacts, filigree, or perfection aesthetics without the WUB design philosophy.",
+      "expected": "ESPER_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0004",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "neighbor": "Generic technocracy/transhumanism/artifacts-only/aesthetics-only",
+      "scenario": "The prompt says technocracy, transhumanism, artifacts, filigree, or perfection aesthetics without the WUB design philosophy."
+    },
+    {
+      "fixture_id": "esper_provenance_core_identity",
+      "fixture_type": "provenance",
+      "expected": "PROVENANCE_CHAIN_MATCH",
+      "canonical_file": "data/raw-factions/esper/esper.profile.json",
+      "canonical_pointer": "/core_identity",
+      "evidence_claim_ids": [
+        "esper_claim_0001",
+        "esper_claim_0002",
+        "esper_claim_0003",
+        "esper_claim_0004",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ]
+    },
+    {
+      "fixture_id": "esper_provenance_guidance_match",
+      "fixture_type": "provenance",
+      "expected": "PROVENANCE_CHAIN_MATCH",
+      "canonical_file": "data/raw-factions/esper/esper.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "evidence_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0005",
+        "esper_claim_0006",
+        "esper_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ]
+    }
+  ]
+}

@@ -83,7 +83,8 @@
       "esper_claim_0007",
       "esper_claim_0008",
       "esper_claim_0009"
-    ]
+    ],
+    "surface_id": "esper_site_surface_gate3"
   },
   "core_identity": {
     "summary": "Esper is the Blue-centered white-blue-black Alara shard in which perfectibility is modeled through knowledge, planning, applied information, ordered improvement, and focused control.",
@@ -117,7 +118,8 @@
       "esper_claim_0005",
       "esper_claim_0006",
       "esper_claim_0007"
-    ]
+    ],
+    "identity_id": "esper_core_identity_gate3"
   },
   "structure": {
     "summary": "The safe structural floor is deliberately narrow: Esper is an Alara shard with WUB color-direction metadata, Blue as center/design lens, and White/Black ally roles defined through official design commentary.",
@@ -150,7 +152,8 @@
       "esper_claim_0006",
       "esper_claim_0007",
       "esper_claim_0009"
-    ]
+    ],
+    "structure_id": "esper_structure_gate3"
   },
   "great_tension": {
     "summary": "Vox Mana models Esper's great tension as perfectibility becoming over-control: a design project that can forget the difference between improving a system and treating life as a defect.",
@@ -162,7 +165,8 @@
       "esper_claim_0005",
       "esper_claim_0006",
       "esper_claim_0007"
-    ]
+    ],
+    "tension_id": "esper_great_tension_gate3"
   },
   "historical_timeline": [
     {
@@ -190,7 +194,8 @@
         "esper_claim_0006"
       ],
       "confidence": "Medium",
-      "notes": "Not canon diplomacy and not independent scoring data."
+      "notes": "Not canon diplomacy and not independent scoring data.",
+      "relationship_id": "rel_esper_azorius_gate3"
     },
     {
       "faction": "Dimir",
@@ -202,7 +207,8 @@
         "esper_claim_0006"
       ],
       "confidence": "Medium",
-      "notes": "Not canon diplomacy and not independent scoring data."
+      "notes": "Not canon diplomacy and not independent scoring data.",
+      "relationship_id": "rel_esper_dimir_gate3"
     },
     {
       "faction": "Orzhov Syndicate",
@@ -214,7 +220,8 @@
         "esper_claim_0006"
       ],
       "confidence": "Medium",
-      "notes": "Not canon diplomacy and not independent scoring data."
+      "notes": "Not canon diplomacy and not independent scoring data.",
+      "relationship_id": "rel_esper_orzhov_gate3"
     },
     {
       "faction": "Bant",
@@ -227,7 +234,8 @@
         "esper_claim_0009"
       ],
       "confidence": "Medium",
-      "notes": "Contrast from Esper's evidence floor only."
+      "notes": "Contrast from Esper's evidence floor only.",
+      "relationship_id": "rel_esper_bant_gate3"
     },
     {
       "faction": "Grixis",
@@ -240,7 +248,8 @@
         "esper_claim_0009"
       ],
       "confidence": "Medium",
-      "notes": "Contrast from Esper's evidence floor only."
+      "notes": "Contrast from Esper's evidence floor only.",
+      "relationship_id": "rel_esper_grixis_gate3"
     },
     {
       "faction": "Jund",
@@ -254,7 +263,8 @@
         "esper_claim_0009"
       ],
       "confidence": "Medium",
-      "notes": "Contrast from Esper's evidence floor only."
+      "notes": "Contrast from Esper's evidence floor only.",
+      "relationship_id": "rel_esper_jund_gate3"
     },
     {
       "faction": "Naya",
@@ -268,7 +278,8 @@
         "esper_claim_0009"
       ],
       "confidence": "Medium",
-      "notes": "Contrast from Esper's evidence floor only."
+      "notes": "Contrast from Esper's evidence floor only.",
+      "relationship_id": "rel_esper_naya_gate3"
     }
   ],
   "mechanics": {
