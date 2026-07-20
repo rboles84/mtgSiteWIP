@@ -1,7 +1,7 @@
-# VM-523 — Esper Semantic Recovery
+# VM-523 - Esper Semantic Recovery
 
 ID: VM-523
-Status: Active - Pre-Identity Drift Preflight Complete; Gate 1+2 Read-Only Audit Authorized
+Status: Active - Gate 1+2 Read-Only Audit Complete; Gate 3+4 Remediation Authorized
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: ESPER
@@ -16,11 +16,11 @@ Recover Esper end to end under CRIT-001: audit the existing packet, bound readin
 ## Gates
 
 - [x] Pre-identity drift preflight complete: `docs/handoffs/2026-07-20-0902-codex-vm523-esper-drift-preflight.md`.
-- [ ] Gate 1 — Packet audit and bounded disposition. Authorized for a later separate read-only audit only.
-- [ ] Gate 2 — Sufficient evidence completion. Authorized for a later separate read-only audit only.
-- [ ] Gate 3 — Canonical remediation.
-- [ ] Gate 4 — Generation and validation.
-- [ ] Gate 5 — Independent certification.
+- [x] Gate 1 - Packet audit and bounded disposition complete: `docs/handoffs/2026-07-20-1023-codex-vm523-esper-gate1-gate2.md`.
+- [x] Gate 2 - Sufficient evidence completion complete: `docs/handoffs/2026-07-20-1023-codex-vm523-esper-gate1-gate2.md`.
+- [ ] Gate 3 - Canonical remediation. Authorized for a later separate remediation window only.
+- [ ] Gate 4 - Generation and validation. Authorized for a later separate remediation window only.
+- [ ] Gate 5 - Independent certification.
 
 ## Scope Rules
 
@@ -35,13 +35,21 @@ Recover Esper end to end under CRIT-001: audit the existing packet, bound readin
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Preflight handoff: `docs/handoffs/2026-07-20-0902-codex-vm523-esper-drift-preflight.md`
-- Audit/recovery report: pending; Gate 1+2 read-only audit authorized but not started
+- Gate 1+2 audit report: `docs/handoffs/2026-07-20-1023-codex-vm523-esper-gate1-gate2.md`
 - Candidate recovery SHA: pending
 - Independent reviewer: pending
 - Certification commit: pending
 
 ## Preflight Decision
 
-PASS — ESPER GATE 1+2 AUTHORIZED
+PASS - ESPER GATE 1+2 AUTHORIZED
 
-The preflight created branch `codex/vm-523-esper-semantic-recovery` and dedicated worktree `C:\dev\mtgSiteWIP-crit001-vm523-esper` from exact program base `a7ea41cbf57cc87f1948fdd254f0295816c5919d`. It inventoried the current Esper packet read-only and found no genuine preflight blockers. All semantic-readiness defects remain unresolved obligations for later gates. No remediation, candidate, review, certification, source acquisition, Excel update, program-base advancement, or VM-524 work is authorized.
+The preflight created branch `codex/vm-523-esper-semantic-recovery` and dedicated worktree `C:\dev\mtgSiteWIP-crit001-vm523-esper` from exact program base `a7ea41cbf57cc87f1948fdd254f0295816c5919d`. It inventoried the current Esper packet read-only and found no genuine preflight blockers. All semantic-readiness defects remained unresolved obligations for later gates. No remediation, candidate, review, certification, source acquisition, Excel update, program-base advancement, or VM-524 work was authorized by preflight.
+
+## Gate 1+2 Decision
+
+PASS - ESPER GATE 3+4 REMEDIATION AUTHORIZED
+
+The Gate 1+2 audit completed read-only at `docs/handoffs/2026-07-20-1023-codex-vm523-esper-gate1-gate2.md`. It adjudicated all 9 current claims, setting the intended final role counts to 7 substantive claims and 2 support records; defined exact evidence-locator and evidence-scope contracts; established the evidence-backed Esper thesis as Blue-centered WUB perfectibility through designed control; completed required-neighbor, generic-language, mechanical/aesthetic, provenance, fixture, collision, preview, active-consumer, DRIFT-015/016/017, frozen-field, and Gate 3+4 remediation contracts; and converted all current readiness failures into exact later remediation obligations.
+
+No Esper semantic or implementation data changed. No candidate exists. No review or certification occurred. Program base remains `a7ea41cbf57cc87f1948fdd254f0295816c5919d`. Excel and VM-524 remain untouched.
