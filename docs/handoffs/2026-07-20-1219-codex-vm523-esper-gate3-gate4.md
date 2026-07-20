@@ -132,4 +132,4 @@ Gate 3+4 scorecard: Total 24; PASS 24; FAIL 0; UNKNOWN 0; N/A 0.
 
 Gate 3+4 remediation is complete. Exact implementation SHA `6467f70fa4de13173172e20277e0fd56ebaf0b80` passes required Gate 3+4 validation and exact candidate-scope capability checks. Gate 5 candidate creation is authorized for a later separate window only; no Gate 5 candidate was created here.
 
-PASS - ESPER GATE 5 CANDIDATE CREATION AUTHORIZED
+PASS — ESPER GATE 5 CANDIDATE CREATION AUTHORIZED
