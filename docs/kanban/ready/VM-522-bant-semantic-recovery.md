@@ -37,28 +37,33 @@ The 2026-07-19 Gate 1+2 read-only semantic audit returned:
 
 `PASS - BANT GATE 3+4 REMEDIATION AUTHORIZED`
 
-Gate 1+2 is complete. Gate 3+4 remediation is authorized under the exact bounded contract in `docs/handoffs/2026-07-19-1944-codex-vm522-bant-gate1-gate2.md`.
+Gate 1+2 is complete. Gate 3+4 remediation completed under the exact bounded contract in `docs/handoffs/2026-07-19-1944-codex-vm522-bant-gate1-gate2.md`.
 
-No Bant remediation has occurred. No candidate exists. Independent review and certification remain unauthorized.
+The 2026-07-19 Gate 3+4 remediation handoff returned:
+
+`PASS - BANT GATE 5 CANDIDATE CREATION AUTHORIZED`
+
+Implementation commits: `765f0a9c154e3c49a9d973e75994a0867eb18652`, `799627ec0d1ebbc927b84f63ce5634c633125e24`, and `b466cddb4618b1e2d7c897c15f7513a6d2db08b0`.
+
+Gate 5 candidate creation is authorized as a later separate workflow. No candidate exists. Independent review and certification remain unauthorized.
 
 ## Gate 1+2 Audit Disposition
 
-- Current raw state: 21 Bant claims, all unclassified, 0 evidence locations.
-- Intended final claim-role counts for Gate 3+4: 21 total; 16 `substantive_claim`, 5 `support_record`, 0 `discovery_record`, 0 unclassified.
-- Gate 3+4 must rewrite/narrow `bant_claim_0002`, `bant_claim_0010`, and `bant_claim_0019`.
-- Gate 3+4 must reclassify `bant_claim_0012`, `bant_claim_0017`, `bant_claim_0018`, `bant_claim_0020`, and `bant_claim_0021` as support records.
-- Gate 3+4 must add evidence scopes, evidence locations, fixture locators, provenance canonical IDs/pointers/hashes, generated consumers, and raw/generated collision reconciliation.
-- Gate 3+4 must cover the full required neighbor/collapse-risk set: Selesnya/WG, Simic/UG, Azorius/WU, Green/G, White/W, Blue/U, Naya, Esper, Temur, Abzan, Jeskai, Grixis, Jund, Sultai, Five-color/WUBRG, generic good-stuff, generic balance, and generic overfit.
-- Gate 3+4 must not use support-only or discovery-only sources as authoritative semantic proof.
+- Final raw state: 21 Bant claims; 16 `substantive_claim`, 5 `support_record`, 0 `discovery_record`, 0 unclassified.
+- `bant_claim_0002`, `bant_claim_0010`, and `bant_claim_0019` were rewritten/narrowed under the Gate 1+2 contract.
+- `bant_claim_0012`, `bant_claim_0017`, `bant_claim_0018`, `bant_claim_0020`, and `bant_claim_0021` are support records and excluded from semantic proof chains.
+- Evidence scopes, evidence locations, fixture assertions, provenance canonical IDs/pointers/hashes, generated consumers, and raw/generated collision reconciliation are complete.
+- Required neighbor/collapse-risk coverage is implemented for Selesnya/WG, Simic/UG, Azorius/WU, Green/G, White/W, Blue/U, Naya, Esper, Temur, Abzan, Jeskai, Grixis, Jund, Sultai, Five-color/WUBRG, generic good-stuff, generic balance, and generic overfit.
+- Approved validations pass at remediation HEAD `b466cddb4618b1e2d7c897c15f7513a6d2db08b0`, including candidate-scope, semantic-readiness, provenance freshness, candidate-scope tests, `npm.cmd test`, and `npm.cmd run test:parser`.
 
 ## Gates
 
 - [x] Gate 0 - Branch/setup-only drift preflight.
 - [x] Gate 1 - Packet audit and bounded disposition.
 - [x] Gate 2 - Sufficient evidence completion.
-- [ ] Gate 3 - Canonical remediation. Authorized, not started.
-- [ ] Gate 4 - Generation and validation. Authorized after bounded canonical remediation, not started.
-- [ ] Gate 5 - Independent certification. Not authorized.
+- [x] Gate 3 - Canonical remediation.
+- [x] Gate 4 - Generation and validation.
+- [ ] Gate 5 - Candidate creation authorized as a later separate workflow; independent review and certification not authorized.
 
 ## Scope Rules
 
@@ -79,6 +84,7 @@ No Bant remediation has occurred. No candidate exists. Independent review and ce
 - Preflight rerun stop report: `docs/handoffs/2026-07-19-1118-codex-vm522-bant-preflight-rerun-stop.md`
 - Stage-ownership adjudication report: `docs/handoffs/2026-07-19-1426-codex-vm522-bant-stage-ownership-adjudication.md`
 - Gate 1+2 audit report: `docs/handoffs/2026-07-19-1944-codex-vm522-bant-gate1-gate2.md`
+- Gate 3+4 remediation report: `docs/handoffs/2026-07-19-2048-codex-vm522-bant-gate3-gate4.md`
 - Candidate recovery SHA: not created
 - Independent reviewer: not authorized
 - Certification commit: not authorized
