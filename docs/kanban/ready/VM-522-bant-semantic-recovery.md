@@ -1,7 +1,7 @@
 # VM-522 - Bant Semantic Recovery
 
 ID: VM-522
-Status: Ready
+Status: Ready - Awaiting Independent Exact-SHA Review
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: BANT
@@ -45,7 +45,9 @@ The 2026-07-19 Gate 3+4 remediation handoff returned:
 
 Implementation commits: `765f0a9c154e3c49a9d973e75994a0867eb18652`, `799627ec0d1ebbc927b84f63ce5634c633125e24`, and `b466cddb4618b1e2d7c897c15f7513a6d2db08b0`.
 
-Gate 5 candidate creation is authorized as a later separate workflow. No candidate exists. Independent review and certification remain unauthorized.
+Gate 5 candidate workflow is recorded for exact semantic candidate `b466cddb4618b1e2d7c897c15f7513a6d2db08b0`. This workflow-record governance commit is separate from the semantic candidate and must never be substituted for the candidate SHA.
+
+Independent exact-SHA review is required next. No review decision exists. Certification remains prohibited until a separate review returns exactly `APPROVE EXACT SHA b466cddb4618b1e2d7c897c15f7513a6d2db08b0`. Bant is not certified and is not `semantically_ready`. Certified count remains 20 of 37. Program base remains `fa58e572b6303ba98b7e3015bcfa20e6d251ee6e`.
 
 ## Gate 1+2 Audit Disposition
 
@@ -54,7 +56,7 @@ Gate 5 candidate creation is authorized as a later separate workflow. No candida
 - `bant_claim_0012`, `bant_claim_0017`, `bant_claim_0018`, `bant_claim_0020`, and `bant_claim_0021` are support records and excluded from semantic proof chains.
 - Evidence scopes, evidence locations, fixture assertions, provenance canonical IDs/pointers/hashes, generated consumers, and raw/generated collision reconciliation are complete.
 - Required neighbor/collapse-risk coverage is implemented for Selesnya/WG, Simic/UG, Azorius/WU, Green/G, White/W, Blue/U, Naya, Esper, Temur, Abzan, Jeskai, Grixis, Jund, Sultai, Five-color/WUBRG, generic good-stuff, generic balance, and generic overfit.
-- Approved validations pass at remediation HEAD `b466cddb4618b1e2d7c897c15f7513a6d2db08b0`, including candidate-scope, semantic-readiness, provenance freshness, candidate-scope tests, `npm.cmd test`, and `npm.cmd run test:parser`.
+- Approved validations pass at exact candidate `b466cddb4618b1e2d7c897c15f7513a6d2db08b0`, including candidate-scope, semantic-readiness, fixture validation, provenance freshness, candidate-scope tests, `npm.cmd test`, and `npm.cmd run test:parser`.
 
 ## Gates
 
@@ -63,7 +65,9 @@ Gate 5 candidate creation is authorized as a later separate workflow. No candida
 - [x] Gate 2 - Sufficient evidence completion.
 - [x] Gate 3 - Canonical remediation.
 - [x] Gate 4 - Generation and validation.
-- [ ] Gate 5 - Candidate creation authorized as a later separate workflow; independent review and certification not authorized.
+- [x] Gate 5 - Candidate workflow recorded for exact candidate `b466cddb4618b1e2d7c897c15f7513a6d2db08b0`.
+- [ ] Gate 5 - Independent review of exact candidate SHA required next.
+- [ ] Certification of exact approved candidate SHA not authorized.
 
 ## Scope Rules
 
@@ -85,6 +89,9 @@ Gate 5 candidate creation is authorized as a later separate workflow. No candida
 - Stage-ownership adjudication report: `docs/handoffs/2026-07-19-1426-codex-vm522-bant-stage-ownership-adjudication.md`
 - Gate 1+2 audit report: `docs/handoffs/2026-07-19-1944-codex-vm522-bant-gate1-gate2.md`
 - Gate 3+4 remediation report: `docs/handoffs/2026-07-19-2048-codex-vm522-bant-gate3-gate4.md`
-- Candidate recovery SHA: not created
-- Independent reviewer: not authorized
+- Candidate workflow record: `docs/handoffs/2026-07-19-2119-codex-vm522-bant-candidate-workflow.md`
+- Candidate recovery SHA: `b466cddb4618b1e2d7c897c15f7513a6d2db08b0`
+- Candidate workflow-record commit: `PENDING_VM522_CANDIDATE_WORKFLOW_RECORD_COMMIT_SHA`
+- Independent reviewer: required next, not yet performed
+- Review decision: not recorded
 - Certification commit: not authorized
