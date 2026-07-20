@@ -6,13 +6,13 @@
   "program": {
     "status": "active",
     "active_identity": null,
-    "next_identity": "BANT",
-    "certified_identity_count": 20,
+    "next_identity": "ESPER",
+    "certified_identity_count": 21,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 4 shards - not started",
-      "current_program_base": "PENDING_VM521_CERTIFICATION_COMMIT_SHA",
+      "next_cohort": "Wave 4 shards - active; VM-523 Esper not started",
+      "current_program_base": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -28,6 +28,19 @@
         "completed_by": "PENDING_VM521_CERTIFICATION_COMMIT_SHA",
         "completed_at": "2026-07-19T09:43:00-06:00",
         "next_wave_status": "VM-522/Wave 4 not started"
+      },
+      "wave_4_shards": "active",
+      "wave_4_shards_certified": "1 of 10",
+      "wave_4_status": {
+        "status": "active",
+        "certified": "1 of 10",
+        "identities_certified": [
+          "BANT"
+        ],
+        "started_by": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
+        "started_at": "2026-07-20T08:27:00-06:00",
+        "next_identity": "ESPER",
+        "next_identity_status": "not_started"
       }
     },
     "wip_limit": 1,
@@ -57,20 +70,20 @@
       "installed_after_program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
       "governance_commit": "PENDING_CRIT001_DRIFT_CONTROL_GOVERNANCE_SHA",
       "current_identity_hold": {
-        "identity": "BANT",
-        "card": "VM-522",
-        "state": "not_started_after_wave_3_completion",
+        "identity": "ESPER",
+        "card": "VM-523",
+        "state": "not_started_after_bant_certification",
         "branch": null,
-        "prior_identity_certified": "G",
-        "prior_identity_certification": "PENDING_VM521_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "No VM-522 or Wave 4 work is authorized by VM-521 certification. A separate future window must explicitly start VM-522 and complete its drift preflight before any semantic work.",
-        "required_next_milestone": "Await explicit VM-522 start authorization; VM-522 remains not started in this certification commit.",
+        "prior_identity_certified": "BANT",
+        "prior_identity_certification": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
+        "authorized_next_scope": "No VM-523 / Esper semantic work is authorized by VM-522 certification. A separate future window must explicitly start VM-523 and complete drift preflight before any semantic work.",
+        "required_next_milestone": "Await explicit VM-523 start authorization; VM-523 remains not started in this certification commit.",
         "drift_preflight_started": false,
         "drift_preflight_completed": false,
         "drift_preflight_record": null,
         "drift_preflight_commit": null,
-        "program_base": "PENDING_VM521_CERTIFICATION_COMMIT_SHA",
-        "updated_at": "2026-07-19T09:43:00-06:00"
+        "program_base": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
+        "updated_at": "2026-07-20T08:27:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -81,53 +94,36 @@
         "Begin Simic Goal mode only after the drift preflight reports no FAIL or UNKNOWN controls."
       ],
       "last_certification": {
-        "identity": "G",
-        "card": "VM-521",
-        "candidate_sha": "45e323cde853ee5058b71c819f080ab4025597ce",
-        "superseded_candidate_sha": "83123037f619472a4d2834e124311df691281a53",
-        "superseded_candidate_reason": "Frozen calibration-note scope finding in candidate-scope validation.",
-        "original_workflow_sha": "e86f011063b2434f49d1e447f87d7087532142cd",
-        "original_rejection_review_sha": "2f776d8ac488a349db0975094b5948a9c3183674",
-        "original_rejection_review_decision": "REQUEST CHANGES",
-        "failed_historical_repair_sha": "ba2845a6ce6958f11de9c1d4935221c0fdda0ab0",
-        "failed_historical_repair_status": "failed/superseded and unapproved",
-        "stop_line_sha": "542015ab4dee8158002eb96dca65ef03fa81904d",
-        "provenance_audit_sha": "aa62ac329c53c00016dcce749b5fea73b145d4ac",
-        "provenance_decision": "PASS - NDJSON PROVENANCE AND DEPENDENCY RESOLVED",
-        "review_decision": "APPROVE EXACT SHA 45e323cde853ee5058b71c819f080ab4025597ce",
-        "approval_review_sha": "ec148486ff2442ff2e3145dd9d45a6d993179766",
-        "certification_commit": "PENDING_VM521_CERTIFICATION_COMMIT_SHA",
-        "certified_at": "2026-07-19T09:43:00-06:00",
+        "identity": "BANT",
+        "card": "VM-522",
+        "candidate_sha": "5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8",
+        "replacement_workflow_sha": "7618da75c59034e4fa5e62e696de9a2f8b4d3b56",
+        "approval_review_sha": "66f0f4bfbde0260910a73b797ede17eaa25d5a76",
+        "review_decision": "APPROVE EXACT SHA 5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8",
+        "rejected_candidate_sha": "b466cddb4618b1e2d7c897c15f7513a6d2db08b0",
+        "rejection_review_sha": "82b92666ab33904e254c5c3807b8d62f47c53496",
+        "rejection_review_decision": "REJECT EXACT SHA b466cddb4618b1e2d7c897c15f7513a6d2db08b0",
+        "certification_commit": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
+        "certified_at": "2026-07-20T08:27:00-06:00",
         "final_state": "semantically_ready",
-        "reviewed_provenance_count": 25,
+        "contract_version": "v1.1",
+        "reviewed_provenance_count": 87,
+        "evidence_locator_count": 43,
         "claim_role_counts": {
-          "total": 8,
-          "substantive_claim": 6,
+          "total": 21,
+          "substantive_claim": 16,
           "discovery_record": 0,
-          "support_record": 2,
+          "support_record": 5,
           "unclassified": 0
         },
-        "substantive_claim_ids": [
-          "green_claim_0002",
-          "green_claim_0003",
-          "green_claim_0004",
-          "green_claim_0005",
-          "green_claim_0006",
-          "green_claim_0007"
-        ],
-        "support_claim_ids": [
-          "green_claim_0001",
-          "green_claim_0008"
-        ],
-        "candidate_scope_result": "PASS - approved documented G display-source exception",
-        "display_source_exception_paths": [
-          "data/identity-layers.json#/expressions/G/preview_text",
-          "data/factions.json#/identity_layers/expressions/G/preview_text"
-        ],
-        "reviewed_preview_text": "Green accepts a role within the web of life and lets inherent nature unfold. Its growth is patient, purposeful, and wary of mistaking every change for wisdom.",
-        "provenance_count": 25,
-        "historical_debug_debt": "Two workbook inspect NDJSON files remain DEBUG_INSPECTION_ARTIFACT and two matrix JS files remain HISTORICAL_ARCHIVE under VM-542/DRIFT-019; no cleanup performed.",
-        "next_identity_hold": "VM-522 Bant not started; no Wave 4 branch, card change, drift preflight, semantic work, Excel update, push, PR, or merge occurred."
+        "candidate_scope_result": "PASS",
+        "invalid_alias_result": "WUG rejected with Unknown identity WUG",
+        "fixture_count": 21,
+        "wave_4_certified": "1 of 10",
+        "total_certified": 21,
+        "next_identity": "ESPER",
+        "next_identity_status": "not_started",
+        "prior_program_base": "fa58e572b6303ba98b7e3015bcfa20e6d251ee6e"
       }
     },
     "rejected_prerequisite_candidates": [
@@ -3840,13 +3836,14 @@
       },
       "computed": {
         "structural_fingerprint": [
+          "mixed-role-pattern",
           "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 16,
           "discovery_record": 0,
-          "support_record": 0,
-          "unclassified": 21
+          "support_record": 5,
+          "unclassified": 0
         },
         "source_count": 21,
         "source_role_counts": {
@@ -3857,7 +3854,7 @@
         },
         "claim_bearing_source_count": 3,
         "claim_bearing_source_rate": 0.1429,
-        "reference_site_count": 49,
+        "reference_site_count": 76,
         "missing_references": [],
         "potential_role_invalid_support_links": [],
         "raw_question_count": 3,
@@ -3865,59 +3862,73 @@
           "bant_claim_0006",
           "bant_claim_0007",
           "bant_claim_0019",
-          "bant_claim_0017",
-          "bant_claim_0018"
+          "bant_claim_0003",
+          "bant_claim_0004",
+          "bant_claim_0005"
         ],
         "neighbor_references": [
           "Azorius Senate",
           "Naya",
           "Selesnya Conclave",
           "Simic Combine",
+          "abzan",
           "azorius_senate",
+          "blue",
           "esper",
+          "green",
           "grixis",
+          "jeskai",
           "jund",
           "naya",
           "selesnya_conclave",
-          "simic_combine"
+          "simic_combine",
+          "sultai",
+          "temur",
+          "white",
+          "wubrg"
         ],
-        "recruiter_context_size": 10683,
+        "recruiter_context_size": 10948,
         "creation_commit": "b1de24277d1a63bfaa9c8b090341f1f2a763643a",
         "readiness_mentions": [],
         "provisional_risk_indicators": {
-          "coverage": [
-            "no-explicit-substantive-role"
-          ],
+          "coverage": [],
           "neighbors": []
         },
         "template_cohort_pattern": false,
-        "inventory_updated_at": "2026-07-11T18:42:33.624Z"
+        "inventory_updated_at": "2026-07-11T18:42:33.624Z",
+        "certification_updated_at": "2026-07-20T08:27:00-06:00"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "certified",
+        "status": "semantically_ready",
+        "started_at": "2026-07-19T10:34:00-06:00",
+        "gate_entered_at": "2026-07-20T08:27:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "ESPER",
-        "primary_disposition": null
+        "primary_disposition": "certified from exact approved replacement candidate"
       },
       "semantic_review": {
         "required_neighbors": [],
-        "audit_report": null,
+        "audit_report": "docs/handoffs/2026-07-20-0013-codex-vm522-bant-replacement-independent-review.md",
         "residual_findings": []
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
-        "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
-        "certified_at": null
+        "candidate_recovery_sha": "5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8",
+        "recovery_commit": "5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8",
+        "replacement_workflow_record": "7618da75c59034e4fa5e62e696de9a2f8b4d3b56",
+        "approval_review_record": "66f0f4bfbde0260910a73b797ede17eaa25d5a76",
+        "approval_decision": "APPROVE EXACT SHA 5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8",
+        "rejected_candidate_sha": "b466cddb4618b1e2d7c897c15f7513a6d2db08b0",
+        "rejection_review_record": "82b92666ab33904e254c5c3807b8d62f47c53496",
+        "certification_commit": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
+        "reviewer": "Independent replacement exact-SHA review",
+        "review_cycles": 2,
+        "approval_date": "2026-07-20",
+        "certified_at": "2026-07-20T08:27:00-06:00",
+        "certification_handoff": "docs/handoffs/2026-07-20-0827-codex-vm522-bant-certification.md"
       }
     },
     {

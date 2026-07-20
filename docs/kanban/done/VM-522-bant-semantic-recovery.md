@@ -1,7 +1,7 @@
 # VM-522 - Bant Semantic Recovery
 
 ID: VM-522
-Status: Ready - Replacement Exact-SHA Review Approved; Certification-Only Window Required
+Status: Done - Certified Semantically Ready
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: BANT
@@ -67,7 +67,7 @@ Replacement independent review decision:
 
 The prior rejection review applies only to rejected candidate `b466cddb4618b1e2d7c897c15f7513a6d2db08b0`; it was independently reproduced as evidence for the replacement review, not used as approval for `5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8`.
 
-Certification-only work is required next. Bant is not certified and is not `semantically_ready`. Certified count remains 20 of 37. Program base remains `fa58e572b6303ba98b7e3015bcfa20e6d251ee6e`.
+Bant is certified `semantically_ready` from exact approved replacement candidate `5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8`. Certified count is 21 of 37. Wave 4 shards are 1 of 10 certified. Program base advances externally to the VM-522 certification commit; tracked self-referential governance uses `PENDING_VM522_CERTIFICATION_COMMIT_SHA`.
 
 ## Replacement Closure Summary
 
@@ -102,7 +102,7 @@ Certification-only work is required next. Bant is not certified and is not `sema
 - [x] Gate 5 - Independent review rejected exact candidate `b466cddb4618b1e2d7c897c15f7513a6d2db08b0`.
 - [x] Gate 5 - Replacement candidate workflow recorded for exact candidate `5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8`.
 - [x] Gate 5 - Fresh independent review approved replacement exact candidate `5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8`.
-- [ ] Certification of exact approved replacement candidate SHA required next.
+- [x] Certification of exact approved replacement candidate SHA complete.
 
 ## Scope Rules
 
@@ -112,3 +112,26 @@ Certification-only work is required next. Bant is not certified and is not `sema
 - The rejected candidate and rejection review must remain visibly rejected and preserved; do not amend, squash, replace, or erase them.
 - The replacement workflow commit must never be substituted for exact replacement candidate SHA `5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8`.
 - Certification may certify only exact approved candidate SHA `5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8`.
+
+
+## Certification - 2026-07-20
+
+- Decision: `CERTIFIED SEMANTICALLY_READY`.
+- Exact approved replacement candidate: `5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8`.
+- Replacement workflow record: `7618da75c59034e4fa5e62e696de9a2f8b4d3b56`.
+- Independent approval review: `66f0f4bfbde0260910a73b797ede17eaa25d5a76`.
+- Exact approval line: `APPROVE EXACT SHA 5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8`.
+- Prior rejected candidate: `b466cddb4618b1e2d7c897c15f7513a6d2db08b0`, preserved and rejected.
+- Prior rejection review: `82b92666ab33904e254c5c3807b8d62f47c53496`, preserved.
+- Contract: CRIT-001 Contract v1.1.
+- Certification placeholder: `PENDING_VM522_CERTIFICATION_COMMIT_SHA`.
+- Claim counts: 21 total; 16 substantive; 5 support; 0 discovery; 0 unclassified.
+- Evidence locators: 43 substantive evidence locators; 0 missing.
+- Provenance: 87 BANT entries; 0 required null canonical IDs; 0 null hashes; 0 unresolved pointers; 0 duplicate canonical/null keys; 0 non-substantive authoritative chains.
+- Fixture/collision/preview/consumer controls: PASS.
+- DRIFT-015, DRIFT-016, DRIFT-017: PASS.
+- Frozen-field and non-Bant integrity: PASS.
+- Candidate-scope: PASS for BANT; WUG remains invalid and rejected.
+- Program status: 21 certified identities; Wave 4 shards 1 of 10 certified.
+- VM-523 / Esper: not started.
+- External Excel tracker: untouched.

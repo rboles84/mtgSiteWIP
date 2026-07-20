@@ -4,11 +4,11 @@ Generated from `CRIT-001-identity-recovery-ledger.json`. The JSON file is author
 
 - Contract: `v1.1`
 - Active identity: `none`
-- Next identity: `BANT`
+- Next identity: `ESPER`
 - WIP limit: 1
-- Certified identity count: 20
-- Wave 2 Ravnica status: 10 of 10 guild identities certified / complete. Wave 3 monocolors are complete with 5 of 5 certified. VM-522 / Wave 4 remains not started.
-- Current program base: `PENDING_VM521_CERTIFICATION_COMMIT_SHA`
+- Certified identity count: 21
+- Wave 2 Ravnica status: 10 of 10 guild identities certified / complete. Wave 3 monocolors are complete with 5 of 5 certified. Wave 4 shards are active with 1 of 10 certified; VM-523 / Esper remains not started.
+- Current program base: `PENDING_VM522_CERTIFICATION_COMMIT_SHA`
 - Gate 0 hardening: VM-540 accepted; Operating Playbook v2 at `docs/incidents/CRIT-001-operating-playbook.md`
 - VM-510 certification note: Rakdos / BR is certified semantically_ready from approved replacement candidate `c929a12a4f7be15cb563b2a6b050b33c32b39b7a`; replacement workflow-record `515103b051ffc7cc1e43b9e2b94b2af404a14103` is recorded; rejected candidate `c96ceea602370fd146cdad5393d17e4cf68f8aa3` and workflow `175414aa8daba7ca6f713b93a2d3d32a9953dfd3` remain rejected; independent review decision was `APPROVE EXACT SHA c929a12a4f7be15cb563b2a6b050b33c32b39b7a`; no remaining blocker/high/medium/low findings; certification commit recorded as `PENDING_VM510_CERTIFICATION_COMMIT_SHA` inside tracked governance and exact SHA is reported in final task output.
 - VM-511 certification note: Golgari / BG is certified semantically_ready from approved replacement candidate `bb0105f3f2d91a7696aefc004254fc52dc37cd85`; replacement workflow-record `42fc49a08e4c52c326be8538c13f3d505bcb8fec` is recorded; rejected candidate `a649c306f19d0be3c9f09f549163200761ce9e15` and workflow `c35fa9b59a34182c83539ed2c002f94115ae54fe` remain rejected; independent review decision was `APPROVE EXACT SHA bb0105f3f2d91a7696aefc004254fc52dc37cd85`; no remaining blocker/high/medium/low findings; certification commit recorded as `PENDING_VM511_CERTIFICATION_COMMIT_SHA` inside tracked governance and exact SHA is reported in final task output.
@@ -65,7 +65,7 @@ Generated from `CRIT-001-identity-recovery-ledger.json`. The JSON file is author
 | VM-519 | B - Black | mono | certified | semantically_ready | low-volume-pattern, mixed-role-pattern, support-heavy-pattern | v1.1 | `0bfe8b3d46d163de6e20064f5de9717075ca02c8` | `PENDING_VM519_CERTIFICATION_COMMIT_SHA`; rejected `5bffc3465786c18950d32dcb6f056504b3b8e668`; B display-source exception certified |
 | VM-520 | R - Red | mono | certified | semantically_ready | low-volume-pattern, mixed-role-pattern, support-heavy-pattern | v1.1 | `6aefb2090ff20a361f7f3cd80515445036323158` | `PENDING_VM520_CERTIFICATION_COMMIT_SHA`; rejected `deaf7a0bbaf9f2c91d2d00d302a38bef7f07b870`; R display-source exception and `JESKAI`/`JUND`/`NAYA` coverage certified |
 | VM-521 | G - Green | mono | certified | semantically_ready | low-volume-pattern, mixed-role-pattern, support-heavy-pattern | v1.1 | `45e323cde853ee5058b71c819f080ab4025597ce`; superseded `83123037f619472a4d2834e124311df691281a53` | `PENDING_VM521_CERTIFICATION_COMMIT_SHA`; approval review `ec148486ff2442ff2e3145dd9d45a6d993179766`; G display-source exception certified; provenance count 25; Wave 3 complete |
-| VM-522 | BANT Ã¢â‚¬â€ Bant | shard | not_started | backlog | support-heavy-pattern | Ã¢â‚¬â€ | Ã¢â‚¬â€ | Ã¢â‚¬â€ |
+| VM-522 | BANT - Bant | shard | certified | semantically_ready | mixed-role-pattern, support-heavy-pattern | v1.1 | `5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8`; rejected `b466cddb4618b1e2d7c897c15f7513a6d2db08b0` preserved | `PENDING_VM522_CERTIFICATION_COMMIT_SHA`; approval review `66f0f4bfbde0260910a73b797ede17eaa25d5a76`; provenance count 87; Wave 4 1 of 10 |
 | VM-523 | ESPER Ã¢â‚¬â€ Esper | shard | not_started | backlog | low-volume-pattern, support-heavy-pattern | Ã¢â‚¬â€ | Ã¢â‚¬â€ | Ã¢â‚¬â€ |
 | VM-524 | GRIXIS Ã¢â‚¬â€ Grixis | shard | not_started | backlog | low-volume-pattern, support-heavy-pattern | Ã¢â‚¬â€ | Ã¢â‚¬â€ | Ã¢â‚¬â€ |
 | VM-525 | JUND Ã¢â‚¬â€ Jund | shard | not_started | backlog | low-volume-pattern, support-heavy-pattern | Ã¢â‚¬â€ | Ã¢â‚¬â€ | Ã¢â‚¬â€ |
