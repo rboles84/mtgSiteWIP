@@ -1,7 +1,7 @@
 # VM-522 - Bant Semantic Recovery
 
 ID: VM-522
-Status: Blocked
+Status: Backlog
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: BANT
@@ -15,7 +15,7 @@ Setup base: `fa58e572b6303ba98b7e3015bcfa20e6d251ee6e`
 
 Recover Bant end to end under CRIT-001: audit the existing packet, bound readiness blockers, gather only sufficient evidence, repair canonical data, rebuild generated artifacts, validate semantic fixtures and regressions, obtain independent review of an immutable candidate SHA, and certify that exact recovery.
 
-## Current Stop
+## Current Governance State
 
 Mandatory drift preflight completed setup-only and returned:
 
@@ -25,7 +25,13 @@ The 2026-07-19 stop-line resolution rerun also returned:
 
 `STOP - BANT GATE 1+2 NOT AUTHORIZED`
 
-Read-only dependency tracing resolved active-consumer classification for Home, Archscry, recruiter, tests, and CI, and retained DRIFT-019 historical/debug exclusions. Gate 1+2 may not begin until a separate governance unblock addresses or explicitly resolves the remaining Class C blockers under the CRIT-001 drift-control template.
+Read-only dependency tracing resolved active-consumer classification for Home, Archscry, recruiter, tests, and CI, and retained DRIFT-019 historical/debug exclusions.
+
+The 2026-07-19 stage-ownership adjudication returned:
+
+`PASS - BANT GATE 1+2 AUTHORIZED`
+
+This supersedes only the authorization conclusion of the two preserved STOP records. It does not resolve any Bant semantic, fixture, provenance, collision, required-neighbor, preview, stale-provenance, or candidate-readiness defect. It authorizes only a later Gate 1+2 read-only audit.
 
 ## Blocking Evidence
 
@@ -37,14 +43,14 @@ Read-only dependency tracing resolved active-consumer classification for Home, A
 - Role classification: all 21 Bant claims have no stored semantic role fields.
 - Rerun-only provenance freshness blocker: `node research/build-semantic-readiness-provenance.mjs --check` reports stale generated provenance.
 - Remaining control IDs: VM522-BLOCK-001 through VM522-BLOCK-010 and VM522-RERUN-001 in `docs/handoffs/2026-07-19-1118-codex-vm522-bant-preflight-rerun-stop.md`.
-- Required owner/campaign: separate VM-522 governance unblock for Gate 1+2 read-only audit, followed only later by authorized VM-522 remediation for claim roles, evidence scopes, fixtures, provenance canonical IDs, candidate-scope proof chains, collision guidance, and required-neighbor coverage.
+- Stage-ownership adjudication: claim roles, evidence scopes, preview semantic alignment, consumed-surface semantic alignment, and required-neighbor sufficiency belong to Gate 1+2 audit; canonical/provenance IDs, fixtures, raw/generated collision reconciliation, generated provenance freshness, and generated propagation belong to Gate 3+4 after authorization; exact candidate-scope validation belongs to Gate 5; independent review and certification remain later separate stages.
 - No remediation authorized. No candidate exists.
 
 ## Gates
 
 - [x] Gate 0 - Branch/setup-only drift preflight.
-- [ ] Gate 1 - Packet audit and bounded disposition. Blocked.
-- [ ] Gate 2 - Sufficient evidence completion. Blocked.
+- [ ] Gate 1 - Packet audit and bounded disposition. Authorized, not started.
+- [ ] Gate 2 - Sufficient evidence completion. Authorized, not started.
 - [ ] Gate 3 - Canonical remediation. Not authorized.
 - [ ] Gate 4 - Generation and validation. Not authorized.
 - [ ] Gate 5 - Independent certification. Not authorized.
@@ -65,6 +71,7 @@ Read-only dependency tracing resolved active-consumer classification for Home, A
 - Drift-control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - Preflight stop report: `docs/handoffs/2026-07-19-1034-codex-vm522-bant-drift-preflight-stop.md`
 - Preflight rerun stop report: `docs/handoffs/2026-07-19-1118-codex-vm522-bant-preflight-rerun-stop.md`
+- Stage-ownership adjudication report: `docs/handoffs/2026-07-19-1426-codex-vm522-bant-stage-ownership-adjudication.md`
 - Candidate recovery SHA: not authorized
 - Independent reviewer: not authorized
 - Certification commit: not authorized
