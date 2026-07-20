@@ -375,6 +375,7 @@
       "claim_ids": [
         "bant_claim_0019"
       ],
+      "confidence": "Medium",
       "lateral_inhibition": false
     },
     {
@@ -385,6 +386,7 @@
       "claim_ids": [
         "bant_claim_0019"
       ],
+      "confidence": "Medium",
       "lateral_inhibition": false
     },
     {
@@ -395,18 +397,17 @@
       "claim_ids": [
         "bant_claim_0019"
       ],
+      "confidence": "Medium",
       "lateral_inhibition": false
     },
     {
-      "collision_id": "collision_bant_naya_gate3",
+      "collision_id": "collision_bant_naya_draft",
       "against": "naya",
       "guidance": "Naya creature scale and instinctive force are not Bant without refined public honor and supported champion accountability.",
       "discriminator": "Naya creature scale and instinctive force are not Bant without refined public honor and supported champion accountability.",
-      "claim_ids": [
-        "bant_claim_0019"
-      ],
+      "confidence": "Medium",
       "lateral_inhibition": false,
-      "legacy_collision_id": "collision_bant_naya_draft"
+      "retention_status": "dormant native-id retention; active generated collision uses collision_bant_naya_gate3"
     },
     {
       "collision_id": "collision_bant_esper_draft",
@@ -416,6 +417,7 @@
       "claim_ids": [
         "bant_claim_0019"
       ],
+      "confidence": "Medium",
       "lateral_inhibition": false
     },
     {
@@ -426,6 +428,27 @@
       "claim_ids": [
         "bant_claim_0019"
       ],
+      "confidence": "Medium",
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_bant_jund_draft",
+      "against": "jund",
+      "guidance": "Jund predatory force and survival combat are not Bant even when both involve creatures or battle.",
+      "discriminator": "Jund predatory force and survival combat are not Bant even when both involve creatures or battle.",
+      "confidence": "Medium",
+      "lateral_inhibition": false,
+      "retention_status": "dormant native-id retention; active generated collision uses collision_bant_jund_gate3"
+    },
+    {
+      "collision_id": "collision_bant_naya_gate3",
+      "against": "naya",
+      "guidance": "Naya creature scale and instinctive force are not Bant without refined public honor and supported champion accountability.",
+      "discriminator": "Naya creature scale and instinctive force are not Bant without refined public honor and supported champion accountability.",
+      "claim_ids": [
+        "bant_claim_0019"
+      ],
+      "confidence": "Medium",
       "lateral_inhibition": false
     },
     {
@@ -436,8 +459,8 @@
       "claim_ids": [
         "bant_claim_0019"
       ],
-      "lateral_inhibition": false,
-      "legacy_collision_id": "collision_bant_jund_draft"
+      "confidence": "Medium",
+      "lateral_inhibition": false
     },
     {
       "collision_id": "collision_bant_abzan_gate3",
@@ -447,6 +470,7 @@
       "claim_ids": [
         "bant_claim_0019"
       ],
+      "confidence": "Medium",
       "lateral_inhibition": false
     },
     {
@@ -457,6 +481,7 @@
       "claim_ids": [
         "bant_claim_0019"
       ],
+      "confidence": "Medium",
       "lateral_inhibition": false
     },
     {
@@ -467,6 +492,7 @@
       "claim_ids": [
         "bant_claim_0019"
       ],
+      "confidence": "Medium",
       "lateral_inhibition": false
     },
     {
@@ -477,6 +503,7 @@
       "claim_ids": [
         "bant_claim_0019"
       ],
+      "confidence": "Medium",
       "lateral_inhibition": false
     },
     {
@@ -487,6 +514,7 @@
       "claim_ids": [
         "bant_claim_0019"
       ],
+      "confidence": "Medium",
       "lateral_inhibition": false
     },
     {
@@ -497,6 +525,7 @@
       "claim_ids": [
         "bant_claim_0019"
       ],
+      "confidence": "Medium",
       "lateral_inhibition": false
     },
     {
@@ -507,6 +536,7 @@
       "claim_ids": [
         "bant_claim_0019"
       ],
+      "confidence": "Medium",
       "lateral_inhibition": false
     },
     {
@@ -517,6 +547,7 @@
       "claim_ids": [
         "bant_claim_0019"
       ],
+      "confidence": "Medium",
       "lateral_inhibition": false
     }
   ],

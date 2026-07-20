@@ -1691,6 +1691,52 @@
       "identity_key": "BANT",
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
       "canonical_pointer": "/collision_guidance/10",
+      "canonical_id": "collision_bant_temur_gate3",
+      "canonical_content_hash": "sha256:f6753829992605ef7cd58edd18eee26f8e19ef3b509dedcab649f53a7ae7b380",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/collision_guidance/11",
+      "canonical_id": "collision_bant_sultai_gate3",
+      "canonical_content_hash": "sha256:a1d30d7e20e69bfb24bf780e898a229eb49e74df7b66433a0bfef95a07977d88",
+      "evidence_claim_ids": [
+        "bant_claim_0019"
+      ],
+      "evidence_source_ids": [
+        "src_vm_bant_identity_md_20260529",
+        "src_vm_bant_manual_fill_20260529",
+        "src_vm_bant_metaphysics_md_20260529",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_wotc_rosewater_bant_20081006"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/BANT",
+        "data/placement-model.json#/factions/BANT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_file": "data/raw-factions/bant/bant.placement.json",
+      "canonical_pointer": "/collision_guidance/12",
       "canonical_id": "collision_bant_jeskai_gate3",
       "canonical_content_hash": "sha256:4e1ce37334c8641ec837f30da9e370357eb8fd3698b9c323ee4fe51193ba2515",
       "evidence_claim_ids": [
@@ -1713,7 +1759,7 @@
     {
       "identity_key": "BANT",
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
-      "canonical_pointer": "/collision_guidance/11",
+      "canonical_pointer": "/collision_guidance/13",
       "canonical_id": "collision_bant_white_gate3",
       "canonical_content_hash": "sha256:e5c8a6d7a722b751db919652798f1283f0fec4e16156960725de987ebf39a865",
       "evidence_claim_ids": [
@@ -1736,7 +1782,7 @@
     {
       "identity_key": "BANT",
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
-      "canonical_pointer": "/collision_guidance/12",
+      "canonical_pointer": "/collision_guidance/14",
       "canonical_id": "collision_bant_blue_gate3",
       "canonical_content_hash": "sha256:939a92ca737861221c2d1ee9a32fe7e3e0bea083e8d34b7f20e515edeef3ef18",
       "evidence_claim_ids": [
@@ -1759,7 +1805,7 @@
     {
       "identity_key": "BANT",
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
-      "canonical_pointer": "/collision_guidance/13",
+      "canonical_pointer": "/collision_guidance/15",
       "canonical_id": "collision_bant_green_gate3",
       "canonical_content_hash": "sha256:e3eefb0804c6509198be4248c07193fe2fbb39a97ff5d38d9dcf11635f0085ce",
       "evidence_claim_ids": [
@@ -1782,7 +1828,7 @@
     {
       "identity_key": "BANT",
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
-      "canonical_pointer": "/collision_guidance/14",
+      "canonical_pointer": "/collision_guidance/16",
       "canonical_id": "collision_bant_wubrg_gate3",
       "canonical_content_hash": "sha256:8bca0a9ee41d037c90b56fff89a843a2215bf7b1f5fcfdee93de6b4a287ece54",
       "evidence_claim_ids": [
@@ -1808,29 +1854,6 @@
       "canonical_pointer": "/collision_guidance/2",
       "canonical_id": "collision_bant_simic_draft",
       "canonical_content_hash": "sha256:71bfac5091bb9b6d7194f247a322c40d21df4a405421bc2fa7af3eefd7dc9225",
-      "evidence_claim_ids": [
-        "bant_claim_0019"
-      ],
-      "evidence_source_ids": [
-        "src_vm_bant_identity_md_20260529",
-        "src_vm_bant_manual_fill_20260529",
-        "src_vm_bant_metaphysics_md_20260529",
-        "src_vm_canon_inventory_three_color_audit_20260528",
-        "src_wotc_rosewater_bant_20081006"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/BANT",
-        "data/placement-model.json#/factions/BANT",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "BANT",
-      "canonical_file": "data/raw-factions/bant/bant.placement.json",
-      "canonical_pointer": "/collision_guidance/3",
-      "canonical_id": "collision_bant_naya_gate3",
-      "canonical_content_hash": "sha256:14fd0cd079d223b9eaa38501e1199967cfaee89fe42aeba61e5d051ddbbc22b9",
       "evidence_claim_ids": [
         "bant_claim_0019"
       ],
@@ -1897,32 +1920,9 @@
     {
       "identity_key": "BANT",
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
-      "canonical_pointer": "/collision_guidance/6",
-      "canonical_id": "collision_bant_jund_gate3",
-      "canonical_content_hash": "sha256:a93468f23d00d41b8bd18fc3c1a8b1423a347307ed1e9d2ec2cf1d91f700c139",
-      "evidence_claim_ids": [
-        "bant_claim_0019"
-      ],
-      "evidence_source_ids": [
-        "src_vm_bant_identity_md_20260529",
-        "src_vm_bant_manual_fill_20260529",
-        "src_vm_bant_metaphysics_md_20260529",
-        "src_vm_canon_inventory_three_color_audit_20260528",
-        "src_wotc_rosewater_bant_20081006"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/BANT",
-        "data/placement-model.json#/factions/BANT",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/BANT"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "BANT",
-      "canonical_file": "data/raw-factions/bant/bant.placement.json",
       "canonical_pointer": "/collision_guidance/7",
-      "canonical_id": "collision_bant_abzan_gate3",
-      "canonical_content_hash": "sha256:b61f713dfddf380c479601af35c3c513793c0cb63fce940fa3b90efb64c2872f",
+      "canonical_id": "collision_bant_naya_gate3",
+      "canonical_content_hash": "sha256:ec1f6bb3aecee1c6894ace746d5491f0a1896e90d48b5e6364d7b71578bf9288",
       "evidence_claim_ids": [
         "bant_claim_0019"
       ],
@@ -1944,8 +1944,8 @@
       "identity_key": "BANT",
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
       "canonical_pointer": "/collision_guidance/8",
-      "canonical_id": "collision_bant_temur_gate3",
-      "canonical_content_hash": "sha256:f6753829992605ef7cd58edd18eee26f8e19ef3b509dedcab649f53a7ae7b380",
+      "canonical_id": "collision_bant_jund_gate3",
+      "canonical_content_hash": "sha256:49791c83103d3d517acde019fca6f491873722a089ec83a01f3512d14bd745d6",
       "evidence_claim_ids": [
         "bant_claim_0019"
       ],
@@ -1967,8 +1967,8 @@
       "identity_key": "BANT",
       "canonical_file": "data/raw-factions/bant/bant.placement.json",
       "canonical_pointer": "/collision_guidance/9",
-      "canonical_id": "collision_bant_sultai_gate3",
-      "canonical_content_hash": "sha256:a1d30d7e20e69bfb24bf780e898a229eb49e74df7b66433a0bfef95a07977d88",
+      "canonical_id": "collision_bant_abzan_gate3",
+      "canonical_content_hash": "sha256:b61f713dfddf380c479601af35c3c513793c0cb63fce940fa3b90efb64c2872f",
       "evidence_claim_ids": [
         "bant_claim_0019"
       ],
