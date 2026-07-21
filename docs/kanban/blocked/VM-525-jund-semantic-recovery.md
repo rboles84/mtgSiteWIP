@@ -1,7 +1,7 @@
 # VM-525 - Jund Semantic Recovery
 
 ID: VM-525
-Status: Active - Gate 1+2 read-only semantic audit complete; Gate 3+4 remediation authorized
+Status: Blocked - Gate 3+4 stopped; Gate 5 candidate creation not authorized
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: JUND
@@ -15,6 +15,8 @@ Preflight decision: `PASS - JUND GATE 1+2 AUTHORIZED`
 Preflight handoff: `docs/handoffs/2026-07-21-1229-codex-vm525-jund-drift-preflight.md`
 Gate 1+2 decision: `PASS - JUND GATE 3+4 REMEDIATION AUTHORIZED`
 Gate 1+2 handoff: `docs/handoffs/2026-07-21-1457-codex-vm525-jund-gate1-gate2.md`
+Gate 3+4 decision: `STOP - JUND GATE 5 CANDIDATE CREATION NOT AUTHORIZED`
+Gate 3+4 handoff: `docs/handoffs/2026-07-21-1710-codex-vm525-jund-gate3-gate4-stop.md`
 
 ## Objective
 
@@ -25,8 +27,8 @@ Recover Jund end to end under CRIT-001: audit the existing packet, bound readine
 - [x] Pre-identity drift preflight - complete; Gate 1+2 read-only audit authorized.
 - [x] Gate 1 - Packet audit and bounded disposition complete.
 - [x] Gate 2 - Sufficient evidence completion complete; Gate 3+4 remediation authorized.
-- [ ] Gate 3 - Canonical remediation.
-- [ ] Gate 4 - Generation and validation.
+- [ ] Gate 3 - Canonical remediation stopped before semantic edits.
+- [ ] Gate 4 - Generation and validation not authorized until the Gate 3+4 stop condition is resolved.
 - [ ] Gate 5 - Independent certification.
 
 ## Scope Rules
@@ -37,6 +39,7 @@ Recover Jund end to end under CRIT-001: audit the existing packet, bound readine
 - Runtime scoring, Hall/Crucible behavior, inhibition, scheduling, and global recruiter tuning are excluded.
 - No remediation, source acquisition, candidate creation, independent review, certification, program-base advancement, VM-526 work, Excel edit, or original-main edit occurred during preflight or Gate 1+2.
 - Gate 3+4 remediation is authorized only by the completed Gate 1+2 audit handoff; candidate creation, independent review, certification, program-base advancement, VM-526 work, Excel edit, and original-main edit remain unauthorized.
+- Gate 3+4 stopped because the required authoritative preview edit at `data/identity-layers.json#/expressions/JUND/preview_text` is not currently allowed by exact candidate-scope path rules; shared validator/schema/package/CI changes are not authorized inside VM-525.
 
 ## Required Records
 
@@ -45,6 +48,7 @@ Recover Jund end to end under CRIT-001: audit the existing packet, bound readine
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Preflight handoff: `docs/handoffs/2026-07-21-1229-codex-vm525-jund-drift-preflight.md`
 - Audit/recovery report: `docs/handoffs/2026-07-21-1457-codex-vm525-jund-gate1-gate2.md`
+- Gate 3+4 stop handoff: `docs/handoffs/2026-07-21-1710-codex-vm525-jund-gate3-gate4-stop.md`
 - Candidate recovery SHA: pending
 - Independent reviewer: pending
 - Certification commit: pending
