@@ -1,7 +1,7 @@
 # VM-523 - Esper Semantic Recovery
 
 ID: VM-523
-Status: Ready - Independent Exact-SHA Review Approved
+Status: Done - Certified Semantically Ready
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: ESPER
@@ -22,7 +22,7 @@ Recover Esper end to end under CRIT-001: audit the existing packet, bound readin
 - [x] Gate 4 - Generation and validation complete: exact candidate-scope capability passed for `a7ea41cbf57cc87f1948fdd254f0295816c5919d..6467f70fa4de13173172e20277e0fd56ebaf0b80`; exact-tree `npm.cmd test` passed from exported implementation tree.
 - [x] Gate 5 - Exact candidate workflow recorded: `docs/handoffs/2026-07-20-1641-codex-vm523-esper-candidate-workflow.md`.
 - [x] Independent exact-SHA review: `docs/handoffs/2026-07-20-1914-codex-vm523-esper-independent-review.md`; `APPROVE EXACT SHA 6467f70fa4de13173172e20277e0fd56ebaf0b80`.
-- [ ] Certification.
+- [x] Certification: `docs/handoffs/2026-07-20-2123-codex-vm523-esper-certification.md`; tracked governance uses `PENDING_VM523_CERTIFICATION_COMMIT_SHA` for the self-referential certification commit.
 
 ## Scope Rules
 
@@ -42,7 +42,7 @@ Recover Esper end to end under CRIT-001: audit the existing packet, bound readin
 - Candidate workflow record: `docs/handoffs/2026-07-20-1641-codex-vm523-esper-candidate-workflow.md`
 - Candidate recovery SHA: `6467f70fa4de13173172e20277e0fd56ebaf0b80`
 - Independent reviewer: approved exact candidate `6467f70fa4de13173172e20277e0fd56ebaf0b80` in `docs/handoffs/2026-07-20-1914-codex-vm523-esper-independent-review.md`
-- Certification commit: pending
+- Certification commit: `PENDING_VM523_CERTIFICATION_COMMIT_SHA` in tracked governance; actual SHA reported after commit creation.
 
 ## Preflight Decision
 
@@ -90,3 +90,13 @@ The independent exact-SHA review completed in branch `codex/vm-523-esper-indepen
 The review independently passed source authority, all 7 substantive claims, both support records, support proof-chain isolation, evidence locators/scopes, canonical IDs, 56 Esper provenance entries, 23 fixtures, required-neighbor/generic/mechanical/aesthetic boundaries, collision ordering, lateral targets, native IDs, preview parity, active consumed surfaces, DRIFT-015, DRIFT-016, DRIFT-017, frozen fields, non-Esper integrity, exact candidate-scope, invalid `WUB` guard, parser/placement/recruiter/source-generated validations, and exact-candidate export `npm.cmd test`.
 
 Certification-only window is required next. Esper is not `semantically_ready`; certified count remains 21 of 37; Wave 4 remains 1 of 10; program base remains `a7ea41cbf57cc87f1948fdd254f0295816c5919d`. No certification, certified-count increment, program-base advancement, Excel edit, VM-524 work, candidate change, source/evidence/provenance/fixture/collision/preview/generated/recruiter/runtime/test/validator/generator/schema/package/CI change, original-main edit, VM-522 edit, DRIFT-017 edit, historical/debug/archive cleanup, or Table Talk change occurred.
+
+## Certification Decision
+
+PASS - ESPER CERTIFIED SEMANTICALLY_READY
+
+Esper / WUB is certified `semantically_ready` from exact approved candidate `6467f70fa4de13173172e20277e0fd56ebaf0b80`. Certification records candidate workflow `841154f80a786ae41fa59c5835ec9370e40cb05e`, approval review `995e4c018af1097d92ffe61b710eb069ec82e6d8`, and exact approval line `APPROVE EXACT SHA 6467f70fa4de13173172e20277e0fd56ebaf0b80`. The certification commit is self-referential, so tracked governance uses `PENDING_VM523_CERTIFICATION_COMMIT_SHA`; the actual certification SHA is reported after commit creation and becomes the new program base.
+
+Certification preserves 9 claims with 7 substantive and 2 support records; 21 evidence locators with 0 missing; 56 Esper provenance entries with 0 null canonical IDs, 0 null hashes, 0 duplicate keys, and 0 support records in authoritative chains; 23 fixtures; generated collision order `WU`, `UB`, `WB`, `BANT`, `GRIXIS`, `ABZAN`, `JESKAI`, `MARDU`, `SULTAI`, `NAYA`, `TEMUR`, `JUND`, `W`, `U`, `B`, `WUBRG`; recruiter lateral targets `WU`, `UB`, `WB`, `BANT`, `GRIXIS`; and source/embedded preview equality.
+
+Certified count is now 22 of 37 and Wave 4 shards are 2 of 10 certified. VM-524 / Grixis remains not started and untouched. No source/evidence/provenance/fixture/collision/preview/generated/recruiter/runtime/test/validator/generator/schema/package/CI file, Excel tracker, original main, VM-522 worktree, DRIFT-017 prototype, historical/debug/archive debt, or Table Talk file was changed by certification.

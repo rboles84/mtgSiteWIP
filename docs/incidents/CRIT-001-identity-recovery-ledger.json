@@ -6,13 +6,13 @@
   "program": {
     "status": "active",
     "active_identity": null,
-    "next_identity": "ESPER",
-    "certified_identity_count": 21,
+    "next_identity": "GRIXIS",
+    "certified_identity_count": 22,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 4 shards - active; VM-523 Esper not started",
-      "current_program_base": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
+      "next_cohort": "Wave 4 shards - active; VM-524 Grixis not started",
+      "current_program_base": "PENDING_VM523_CERTIFICATION_COMMIT_SHA",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -30,16 +30,19 @@
         "next_wave_status": "VM-522/Wave 4 not started"
       },
       "wave_4_shards": "active",
-      "wave_4_shards_certified": "1 of 10",
+      "wave_4_shards_certified": "2 of 10",
       "wave_4_status": {
         "status": "active",
-        "certified": "1 of 10",
+        "certified": "2 of 10",
         "identities_certified": [
-          "BANT"
+          "BANT",
+          "ESPER"
         ],
         "started_by": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
         "started_at": "2026-07-20T08:27:00-06:00",
-        "next_identity": "ESPER",
+        "latest_certification": "PENDING_VM523_CERTIFICATION_COMMIT_SHA",
+        "latest_certified_identity": "ESPER",
+        "next_identity": "GRIXIS",
         "next_identity_status": "not_started"
       }
     },
@@ -70,20 +73,20 @@
       "installed_after_program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
       "governance_commit": "PENDING_CRIT001_DRIFT_CONTROL_GOVERNANCE_SHA",
       "current_identity_hold": {
-        "identity": "ESPER",
-        "card": "VM-523",
-        "state": "not_started_after_bant_certification",
+        "identity": "GRIXIS",
+        "card": "VM-524",
+        "state": "not_started_after_esper_certification",
         "branch": null,
-        "prior_identity_certified": "BANT",
-        "prior_identity_certification": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "No VM-523 / Esper semantic work is authorized by VM-522 certification. A separate future window must explicitly start VM-523 and complete drift preflight before any semantic work.",
-        "required_next_milestone": "Await explicit VM-523 start authorization; VM-523 remains not started in this certification commit.",
+        "prior_identity_certified": "ESPER",
+        "prior_identity_certification": "PENDING_VM523_CERTIFICATION_COMMIT_SHA",
+        "authorized_next_scope": "No VM-524 / Grixis semantic work is authorized by VM-523 certification. A separate future window must explicitly start VM-524 and complete drift preflight before any semantic work.",
+        "required_next_milestone": "Await explicit VM-524 start authorization; VM-524 remains not started in this certification commit.",
         "drift_preflight_started": false,
         "drift_preflight_completed": false,
         "drift_preflight_record": null,
         "drift_preflight_commit": null,
-        "program_base": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
-        "updated_at": "2026-07-20T08:27:00-06:00"
+        "program_base": "PENDING_VM523_CERTIFICATION_COMMIT_SHA",
+        "updated_at": "2026-07-20T21:23:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -94,36 +97,33 @@
         "Begin Simic Goal mode only after the drift preflight reports no FAIL or UNKNOWN controls."
       ],
       "last_certification": {
-        "identity": "BANT",
-        "card": "VM-522",
-        "candidate_sha": "5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8",
-        "replacement_workflow_sha": "7618da75c59034e4fa5e62e696de9a2f8b4d3b56",
-        "approval_review_sha": "66f0f4bfbde0260910a73b797ede17eaa25d5a76",
-        "review_decision": "APPROVE EXACT SHA 5522e8494a0d1a61b6aa85b0c5edf1ddb9c015d8",
-        "rejected_candidate_sha": "b466cddb4618b1e2d7c897c15f7513a6d2db08b0",
-        "rejection_review_sha": "82b92666ab33904e254c5c3807b8d62f47c53496",
-        "rejection_review_decision": "REJECT EXACT SHA b466cddb4618b1e2d7c897c15f7513a6d2db08b0",
-        "certification_commit": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
-        "certified_at": "2026-07-20T08:27:00-06:00",
+        "identity": "ESPER",
+        "card": "VM-523",
+        "candidate_sha": "6467f70fa4de13173172e20277e0fd56ebaf0b80",
+        "candidate_workflow_sha": "841154f80a786ae41fa59c5835ec9370e40cb05e",
+        "approval_review_sha": "995e4c018af1097d92ffe61b710eb069ec82e6d8",
+        "review_decision": "APPROVE EXACT SHA 6467f70fa4de13173172e20277e0fd56ebaf0b80",
+        "certification_commit": "PENDING_VM523_CERTIFICATION_COMMIT_SHA",
+        "certified_at": "2026-07-20T21:23:00-06:00",
         "final_state": "semantically_ready",
         "contract_version": "v1.1",
-        "reviewed_provenance_count": 87,
-        "evidence_locator_count": 43,
+        "reviewed_provenance_count": 56,
+        "evidence_locator_count": 21,
         "claim_role_counts": {
-          "total": 21,
-          "substantive_claim": 16,
+          "total": 9,
+          "substantive_claim": 7,
           "discovery_record": 0,
-          "support_record": 5,
+          "support_record": 2,
           "unclassified": 0
         },
         "candidate_scope_result": "PASS",
-        "invalid_alias_result": "WUG rejected with Unknown identity WUG",
-        "fixture_count": 21,
-        "wave_4_certified": "1 of 10",
-        "total_certified": 21,
-        "next_identity": "ESPER",
+        "invalid_alias_result": "WUB rejected with Unknown identity WUB",
+        "fixture_count": 23,
+        "wave_4_certified": "2 of 10",
+        "total_certified": 22,
+        "next_identity": "GRIXIS",
         "next_identity_status": "not_started",
-        "prior_program_base": "fa58e572b6303ba98b7e3015bcfa20e6d251ee6e"
+        "prior_program_base": "a7ea41cbf57cc87f1948fdd254f0295816c5919d"
       }
     },
     "rejected_prerequisite_candidates": [
@@ -3942,13 +3942,14 @@
       "computed": {
         "structural_fingerprint": [
           "low-volume-pattern",
+          "mixed-role-pattern",
           "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 7,
           "discovery_record": 0,
-          "support_record": 0,
-          "unclassified": 9
+          "support_record": 2,
+          "unclassified": 0
         },
         "source_count": 13,
         "source_role_counts": {
@@ -3958,7 +3959,7 @@
         },
         "claim_bearing_source_count": 2,
         "claim_bearing_source_rate": 0.1538,
-        "reference_site_count": 26,
+        "reference_site_count": 47,
         "missing_references": [],
         "potential_role_invalid_support_links": [],
         "raw_question_count": 3,
@@ -3970,51 +3971,67 @@
           "esper_claim_0004"
         ],
         "neighbor_references": [
+          "abzan",
           "azorius_senate",
           "bant",
+          "black",
+          "blue",
+          "grixis",
           "house_dimir",
-          "orzhov_syndicate"
+          "jeskai",
+          "jund",
+          "mardu",
+          "naya",
+          "orzhov_syndicate",
+          "sultai",
+          "temur",
+          "white",
+          "wubrg"
         ],
-        "recruiter_context_size": 8837,
+        "recruiter_context_size": 9617,
         "creation_commit": "38393e10864230dbf43bb3d80d43933d80c17666",
         "readiness_mentions": [
           "docs/reference/shard-clan-source-readiness-matrix.md:71"
         ],
         "provisional_risk_indicators": {
           "coverage": [
-            "low-record-volume",
-            "no-explicit-substantive-role"
+            "low-record-volume"
           ],
           "neighbors": []
         },
         "template_cohort_pattern": false,
-        "inventory_updated_at": "2026-07-11T18:42:33.624Z"
+        "inventory_updated_at": "2026-07-11T18:42:33.624Z",
+        "certification_updated_at": "2026-07-20T21:23:00-06:00"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "certified",
+        "status": "semantically_ready",
+        "started_at": "2026-07-20T09:02:00-06:00",
+        "gate_entered_at": "2026-07-20T21:23:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "GRIXIS",
-        "primary_disposition": null
+        "primary_disposition": "certified from exact approved candidate"
       },
       "semantic_review": {
         "required_neighbors": [],
-        "audit_report": null,
+        "audit_report": "docs/handoffs/2026-07-20-1914-codex-vm523-esper-independent-review.md",
         "residual_findings": []
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
-        "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
-        "certified_at": null
+        "candidate_recovery_sha": "6467f70fa4de13173172e20277e0fd56ebaf0b80",
+        "recovery_commit": "6467f70fa4de13173172e20277e0fd56ebaf0b80",
+        "candidate_workflow_record": "841154f80a786ae41fa59c5835ec9370e40cb05e",
+        "approval_review_record": "995e4c018af1097d92ffe61b710eb069ec82e6d8",
+        "approval_decision": "APPROVE EXACT SHA 6467f70fa4de13173172e20277e0fd56ebaf0b80",
+        "certification_commit": "PENDING_VM523_CERTIFICATION_COMMIT_SHA",
+        "reviewer": "Independent exact-SHA review",
+        "review_cycles": 1,
+        "approval_date": "2026-07-20",
+        "certified_at": "2026-07-20T21:23:00-06:00",
+        "certification_handoff": "docs/handoffs/2026-07-20-2123-codex-vm523-esper-certification.md"
       }
     },
     {
