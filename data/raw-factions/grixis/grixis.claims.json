@@ -3,14 +3,14 @@
   "faction_id": "grixis",
   "faction_name": "Grixis",
   "source_review_date": "2026-05-30",
-  "last_updated": "2026-06-13",
+  "last_updated": "2026-07-20",
   "claim_count": 11,
   "claims": [
     {
       "claim_id": "grixis_claim_0001",
       "faction_id": "grixis",
       "claim_type": "identity",
-      "statement": "Grixis is the blue-black-red shard discussed in the local official Grixis design article.",
+      "statement": "Grixis is the blue-black-red Alara shard discussed in the official local Grixis design article.",
       "canon_status": "Source-supported identity",
       "source_ids": [
         "src_vm_grixis_evidence_ledger_20260530",
@@ -20,13 +20,32 @@
         "GRIXIS-001"
       ],
       "confidence": "High",
-      "notes": "Use for base shard identity only. It does not prove detailed geography, society, figures, metaphysical physiology, or chronology."
+      "notes": "Use for base shard identity only. It does not prove detailed geography, society, figures, metaphysical physiology, or chronology.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_grixis_evidence_ledger_20260530",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/grixis/grixis-evidence-ledger.md:24#GRIXIS-001",
+          "bounded_paraphrase": "Ledger row GRIXIS-001 records the narrow Grixis identity fact.",
+          "evidence_scope": "identity_fact",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_wotc_rosewater_grixis_looking_out_for_number_one",
+          "locator_type": "local_line_range",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Grixis_Looking Out For Number One _ MAGIC_ THE GATHERING.md:7",
+          "bounded_paraphrase": "Rosewater introduces Grixis Week as the blue-black-red shard article frame.",
+          "evidence_scope": "identity_fact",
+          "interpretation_level": "bounded_semantic"
+        }
+      ]
     },
     {
       "claim_id": "grixis_claim_0002",
       "faction_id": "grixis",
       "claim_type": "identity_metadata",
-      "statement": "Grixis's color direction is UBR, with Black as the center/design lens.",
+      "statement": "Grixis's color direction is UBR, with Black as the center/design lens; UBR remains metadata while GRIXIS is the repository identity key.",
       "canon_status": "Source-supported design metadata",
       "source_ids": [
         "src_vm_grixis_evidence_ledger_20260530",
@@ -37,13 +56,40 @@
         "GRIXIS-002"
       ],
       "confidence": "High",
-      "notes": "UBR is metadata only. This packet does not create UBR or GRIXIS as generated, registry, placement, alias, or raw-to-key data."
+      "notes": "UBR is metadata only. This packet does not create UBR or GRIXIS as generated, registry, placement, alias, or raw-to-key data.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_grixis_evidence_ledger_20260530",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/grixis/grixis-evidence-ledger.md:25#GRIXIS-002",
+          "bounded_paraphrase": "Ledger row GRIXIS-002 records UBR color direction and Black as center/design lens.",
+          "evidence_scope": "identity_metadata",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_wotc_rosewater_grixis_looking_out_for_number_one",
+          "locator_type": "article_section",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Grixis_Looking Out For Number One _ MAGIC_ THE GATHERING.md:7-16",
+          "bounded_paraphrase": "The local official article frames Grixis as blue-black-red and presents the article from Black's point of view.",
+          "evidence_scope": "identity_metadata",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_vm_canon_inventory_three_color_audit_20260528",
+          "locator_type": "canon_inventory_row",
+          "locator": "docs/analysis/canon-inventory-three-color-reference-audit.md:40",
+          "bounded_paraphrase": "The canon inventory classifies the Grixis Rosewater capture as the primary identity source for Grixis.",
+          "evidence_scope": "identity_metadata",
+          "interpretation_level": "bounded_semantic"
+        }
+      ]
     },
     {
       "claim_id": "grixis_claim_0003",
       "faction_id": "grixis",
       "claim_type": "design_identity",
-      "statement": "Black's Grixis framing centers survival, self-advocacy, agency, and adapting to the world as it is.",
+      "statement": "Black's Grixis framing centers survival, self-advocacy, agency, and adapting to reality as it is.",
       "canon_status": "Official design commentary",
       "source_ids": [
         "src_vm_grixis_evidence_ledger_20260530",
@@ -53,13 +99,32 @@
         "GRIXIS-003"
       ],
       "confidence": "High",
-      "notes": "This supports identity and design-philosophy language. Do not rewrite it as detailed in-world social doctrine."
+      "notes": "This supports identity and design-philosophy language. Do not rewrite it as detailed in-world social doctrine.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_grixis_evidence_ledger_20260530",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/grixis/grixis-evidence-ledger.md:26#GRIXIS-003",
+          "bounded_paraphrase": "Ledger row GRIXIS-003 records Black survival, self-advocacy, agency, and adaptation.",
+          "evidence_scope": "core_identity_black_survival",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_wotc_rosewater_grixis_looking_out_for_number_one",
+          "locator_type": "article_section",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Grixis_Looking Out For Number One _ MAGIC_ THE GATHERING.md:29-104",
+          "bounded_paraphrase": "The article frames Black around survival, initiative, agency, self-advocacy, and adapting to the world rather than imposed White morality.",
+          "evidence_scope": "core_identity_black_survival",
+          "interpretation_level": "bounded_semantic"
+        }
+      ]
     },
     {
       "claim_id": "grixis_claim_0004",
       "faction_id": "grixis",
       "claim_type": "design_identity",
-      "statement": "Blue contributes subtle problem-solving, study, planning, weakness analysis, and exploitation of information in Black's Grixis frame.",
+      "statement": "Blue contributes subtle problem-solving, study, planning, weakness analysis, and information leverage inside Black's Grixis frame.",
       "canon_status": "Official design commentary",
       "source_ids": [
         "src_vm_grixis_evidence_ledger_20260530",
@@ -69,13 +134,32 @@
         "GRIXIS-004"
       ],
       "confidence": "High",
-      "notes": "This supports intelligent and tactical Grixis language. It does not prove named institutions, hierarchy, or society."
+      "notes": "This supports intelligent and tactical Grixis language. It does not prove named institutions, hierarchy, or society.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_grixis_evidence_ledger_20260530",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/grixis/grixis-evidence-ledger.md:27#GRIXIS-004",
+          "bounded_paraphrase": "Ledger row GRIXIS-004 records Blue problem-solving, study, planning, weakness analysis, and information exploitation.",
+          "evidence_scope": "color_contribution_blue",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_wotc_rosewater_grixis_looking_out_for_number_one",
+          "locator_type": "article_section",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Grixis_Looking Out For Number One _ MAGIC_ THE GATHERING.md:141-149",
+          "bounded_paraphrase": "Rosewater's Blue ally section supports subtle problem-solving, study, weakness analysis, and exploitation of information.",
+          "evidence_scope": "color_contribution_blue",
+          "interpretation_level": "bounded_semantic"
+        }
+      ]
     },
     {
       "claim_id": "grixis_claim_0005",
       "faction_id": "grixis",
       "claim_type": "design_identity",
-      "statement": "Red contributes immediacy, zeal, individual priority, action, willingness to get its hands dirty, and volatility/tension in Black's Grixis frame.",
+      "statement": "Red contributes immediacy, zeal, individual priority, willingness to act, and volatility/recklessness tension inside Black's Grixis frame.",
       "canon_status": "Official design commentary",
       "source_ids": [
         "src_vm_grixis_evidence_ledger_20260530",
@@ -85,13 +169,32 @@
         "GRIXIS-005"
       ],
       "confidence": "High",
-      "notes": "This supports urgency and volatility language while preserving Black as center and Blue as calculation."
+      "notes": "This supports urgency and volatility language while preserving Black as center and Blue as calculation.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_grixis_evidence_ledger_20260530",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/grixis/grixis-evidence-ledger.md:28#GRIXIS-005",
+          "bounded_paraphrase": "Ledger row GRIXIS-005 records Red immediacy, zeal, individual priority, action, and recklessness tension.",
+          "evidence_scope": "color_contribution_red",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_wotc_rosewater_grixis_looking_out_for_number_one",
+          "locator_type": "article_section",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Grixis_Looking Out For Number One _ MAGIC_ THE GATHERING.md:130-140",
+          "bounded_paraphrase": "Rosewater's Red ally section supports individual priority, willingness to act, zeal, and recklessness/destruction tension.",
+          "evidence_scope": "color_contribution_red",
+          "interpretation_level": "bounded_semantic"
+        }
+      ]
     },
     {
       "claim_id": "grixis_claim_0006",
       "faction_id": "grixis",
       "claim_type": "design_synthesis",
-      "statement": "The UBR synthesis can be described as Black using Red's zeal and Blue's manipulation to create an actively conniving survival world.",
+      "statement": "The UBR synthesis is Black mixing Red zeal with Blue manipulation and smarts into an actively conniving survival world.",
       "canon_status": "Official design commentary",
       "source_ids": [
         "src_vm_grixis_evidence_ledger_20260530",
@@ -101,30 +204,67 @@
         "GRIXIS-006"
       ],
       "confidence": "High",
-      "notes": "Use as design synthesis only, not as permission to invent geography, figures, events, or institutions."
+      "notes": "Use as design synthesis only, not as permission to invent geography, figures, events, or institutions.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_grixis_evidence_ledger_20260530",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/grixis/grixis-evidence-ledger.md:29#GRIXIS-006",
+          "bounded_paraphrase": "Ledger row GRIXIS-006 records the Black/Red/Blue synthesis as zeal plus manipulation in a survival world.",
+          "evidence_scope": "three_color_synthesis",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_wotc_rosewater_grixis_looking_out_for_number_one",
+          "locator_type": "article_section",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Grixis_Looking Out For Number One _ MAGIC_ THE GATHERING.md:151-155",
+          "bounded_paraphrase": "Rosewater describes working with Red and Blue as mixing Red zeal with Blue manipulation/smarts into an actively conniving world that takes survival to the nth degree.",
+          "evidence_scope": "three_color_synthesis",
+          "interpretation_level": "bounded_semantic"
+        }
+      ]
     },
     {
       "claim_id": "grixis_claim_0007",
       "faction_id": "grixis",
       "claim_type": "design_boundary",
-      "statement": "White and Green are the missing enemy-color pressures in the Grixis shard frame; VM-166 may treat moral/order constraint and life/renewal pressure as absent only at this design level.",
+      "statement": "White and Green are missing Grixis enemy-color pressures at the design level, supporting absence of White moral/order constraint and Green life/renewal pressure without claiming Grixis lacks intelligence, structure, or social logic.",
       "canon_status": "Design commentary with source boundary",
       "source_ids": [
         "src_vm_grixis_evidence_ledger_20260530",
-        "src_wotc_rosewater_grixis_looking_out_for_number_one",
-        "src_alara_shards_lore_dossier_protocol_rtf"
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
       ],
       "evidence_rows": [
         "GRIXIS-007"
       ],
       "confidence": "High",
-      "notes": "Do not expand this into claims that Grixis lacks intelligence, structure, systems, or social logic."
+      "notes": "Do not expand this into claims that Grixis lacks intelligence, structure, systems, or social logic.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_grixis_evidence_ledger_20260530",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/grixis/grixis-evidence-ledger.md:30#GRIXIS-007",
+          "bounded_paraphrase": "Ledger row GRIXIS-007 records White and Green as missing enemy-color pressures with design-level limits.",
+          "evidence_scope": "enemy_pressure_boundary",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_wotc_rosewater_grixis_looking_out_for_number_one",
+          "locator_type": "article_section",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Grixis_Looking Out For Number One _ MAGIC_ THE GATHERING.md:88-128",
+          "bounded_paraphrase": "Rosewater's White and Green sections provide the design-level enemy-pressure boundary without proving absence of intelligence, structure, or social logic.",
+          "evidence_scope": "enemy_pressure_boundary",
+          "interpretation_level": "bounded_semantic"
+        }
+      ]
     },
     {
       "claim_id": "grixis_claim_0008",
       "faction_id": "grixis",
       "claim_type": "design_boundary",
-      "statement": "Grixis should not be reduced to evil UBR; the source frame is Black explaining its own philosophy and pushing back on the evil label.",
+      "statement": "Grixis should not be reduced to evil UBR; the source frame is Black explaining its philosophy and pushing back on the evil label.",
       "canon_status": "Promoted boundary",
       "source_ids": [
         "src_vm_grixis_evidence_ledger_20260530",
@@ -134,7 +274,26 @@
         "GRIXIS-008"
       ],
       "confidence": "High",
-      "notes": "Use this as a false-positive guardrail against generic villain coding, not as a new lore claim."
+      "notes": "Use this as a false-positive guardrail against generic villain coding, not as a new lore claim.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_grixis_evidence_ledger_20260530",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/grixis/grixis-evidence-ledger.md:31#GRIXIS-008",
+          "bounded_paraphrase": "Ledger row GRIXIS-008 records the anti-simple-evil boundary.",
+          "evidence_scope": "anti_generic_villainy_boundary",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_wotc_rosewater_grixis_looking_out_for_number_one",
+          "locator_type": "article_section",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Grixis_Looking Out For Number One _ MAGIC_ THE GATHERING.md:20-86",
+          "bounded_paraphrase": "Rosewater frames Black as pushing back on the evil label and explaining its own philosophy.",
+          "evidence_scope": "anti_generic_villainy_boundary",
+          "interpretation_level": "bounded_semantic"
+        }
+      ]
     },
     {
       "claim_id": "grixis_claim_0009",
@@ -143,14 +302,33 @@
       "statement": "The official Alara plane overview describes Grixis as an undead-infested hellscape among the five formerly separated shards.",
       "canon_status": "Official story-facing plane overview",
       "source_ids": [
-        "src_vm_grixis_lore_source_packet_20260530",
+        "src_vm_grixis_evidence_ledger_20260530",
         "src_wotc_alara_plane_overview_20260530"
       ],
       "evidence_rows": [
         "GRIXIS-031"
       ],
       "confidence": "High",
-      "notes": "Broad texture only. Does not promote detailed geography, society, Vithia, Sedraxis, vis economy, or figure biographies."
+      "notes": "Broad texture only. Does not promote detailed geography, society, Vithia, Sedraxis, vis economy, or figure biographies.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_grixis_evidence_ledger_20260530",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/grixis/grixis-evidence-ledger.md:40#GRIXIS-031",
+          "bounded_paraphrase": "Ledger row GRIXIS-031 records the official undead-hellscape texture and its limits.",
+          "evidence_scope": "bounded_story_texture",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_wotc_alara_plane_overview_20260530",
+          "locator_type": "local_line_range",
+          "locator": "docs/research/canon/source-material/alara/alara-plane-overview.md:203",
+          "bounded_paraphrase": "The official Alara overview describes Grixis as an undead-infested hellscape among the five shards.",
+          "evidence_scope": "bounded_story_texture",
+          "interpretation_level": "bounded_semantic"
+        }
+      ]
     },
     {
       "claim_id": "grixis_claim_0010",
@@ -159,30 +337,68 @@
       "statement": "All the Cairns of Jund says necromancy was unknown on Jund before the Conflux and was the sole province of the hellish shard of Grixis.",
       "canon_status": "Official story capture",
       "source_ids": [
-        "src_vm_grixis_lore_source_packet_20260530",
+        "src_vm_grixis_evidence_ledger_20260530",
         "src_wotc_all_cairns_of_jund_20151104"
       ],
       "evidence_rows": [
         "GRIXIS-030"
       ],
       "confidence": "High",
-      "notes": "Supports a narrow pre-Conflux necromancy dimension only. Do not expand into a full vis/unearth metaphysics without stronger sources."
+      "notes": "Supports a narrow pre-Conflux necromancy dimension only. Do not expand into a full vis/unearth metaphysics without stronger sources.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_grixis_evidence_ledger_20260530",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/grixis/grixis-evidence-ledger.md:39#GRIXIS-030",
+          "bounded_paraphrase": "Ledger row GRIXIS-030 records the narrow pre-Conflux necromancy dimension and its limits.",
+          "evidence_scope": "bounded_story_magic",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_wotc_all_cairns_of_jund_20151104",
+          "locator_type": "local_line_range",
+          "locator": "docs/research/canon/source-material/alara/story-all-cairns-of-jund.md:211-213",
+          "bounded_paraphrase": "The official story says necromancy was unknown on Jund before the Conflux and came from hellish Grixis.",
+          "evidence_scope": "bounded_story_magic",
+          "interpretation_level": "bounded_semantic"
+        }
+      ]
     },
     {
       "claim_id": "grixis_claim_0011",
       "faction_id": "grixis",
       "claim_type": "story_world_event",
-      "statement": "The official Alara plane overview says that after the shards converged, hordes of Grixis undead assaulted other shards to maim, enslave, and drain life energy.",
+      "statement": "The official Alara plane overview says post-Conflux Grixis undead assaulted other shards to maim, enslave, and drain life energy.",
       "canon_status": "Official story-facing plane overview",
       "source_ids": [
-        "src_vm_grixis_lore_source_packet_20260530",
+        "src_vm_grixis_evidence_ledger_20260530",
         "src_wotc_alara_plane_overview_20260530"
       ],
       "evidence_rows": [
         "GRIXIS-032"
       ],
       "confidence": "High",
-      "notes": "Supports a broad post-Conflux assault/life-drain dimension. More granular geography, refugee movement, and campaign chronology remain source-intake-needed."
+      "notes": "Supports a broad post-Conflux assault/life-drain dimension. More granular geography, refugee movement, and campaign chronology remain source-intake-needed.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_grixis_evidence_ledger_20260530",
+          "locator_type": "local_evidence_ledger",
+          "locator": "docs/research/grixis/grixis-evidence-ledger.md:41#GRIXIS-032",
+          "bounded_paraphrase": "Ledger row GRIXIS-032 records the broad post-Conflux assault/life-drain event and its limits.",
+          "evidence_scope": "bounded_story_event",
+          "interpretation_level": "bounded_semantic"
+        },
+        {
+          "source_id": "src_wotc_alara_plane_overview_20260530",
+          "locator_type": "local_line_range",
+          "locator": "docs/research/canon/source-material/alara/alara-plane-overview.md:209",
+          "bounded_paraphrase": "The official Alara overview says Grixis undead assaulted other shards to maim, enslave, and drain life energy.",
+          "evidence_scope": "bounded_story_event",
+          "interpretation_level": "bounded_semantic"
+        }
+      ]
     }
   ],
   "claim_quality_summary": {
@@ -203,6 +419,13 @@
     "raw_claim_id_policy": "Raw claims use grixis_claim_0001-style IDs. VM-164 GRIXIS row IDs remain evidence references only.",
     "claim_floor": "Promoted/evidence-bound VM-164 identity and design rows only.",
     "row_scope_note": "Rows GRIXIS-030 through GRIXIS-032 were promoted in VM-379 from local official captures. Vithia/Sedraxis, full vis economy, Bolas staging, Nefarox cults, and detailed figure biographies remain source-intake-needed.",
-    "overall_confidence": "High for narrow color-philosophy and design-center claims; not sufficient for detailed lore."
+    "overall_confidence": "High for narrow color-philosophy and design-center claims; not sufficient for detailed lore.",
+    "final_gate3_role_counts": {
+      "substantive_claim": 11,
+      "support_record": 0,
+      "discovery_record": 0,
+      "unclassified": 0
+    },
+    "gate3_scope_note": "VM-524 Gate 3+4 assigns all retained Grixis claims to substantive_claim with bounded tracked evidence and removes support-only source records from authoritative claim source chains."
   }
 }

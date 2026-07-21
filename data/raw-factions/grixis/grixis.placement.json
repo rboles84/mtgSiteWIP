@@ -4,10 +4,10 @@
   "faction_id": "grixis",
   "faction_name": "Grixis",
   "based_on_profile_version": "0.1.0",
-  "last_updated": "2026-06-12",
+  "last_updated": "2026-07-20",
   "placement_summary": "Grixis is a VM-168 live-pilot placement packet for the GRIXIS shard expression. Its strongest source-bound signals are Black-centered survival, Blue calculation, Red immediacy, volatility, and the boundary against simple evil UBR framing.",
   "moral_and_psychological_profile": {
-    "summary": "Vox Mana models Grixis as survival through exploitation, calculation, and volatility. This is project interpretation from VM-164/VM-165, not official canon; VM-168 enables it as a bounded live pilot.",
+    "summary": "Vox Mana models Grixis as Black-centered survival under hostile reality: self-advocacy and adaptation first, Blue weakness analysis as leverage, and Red urgency before the opening closes.",
     "claim_ids": [
       "grixis_claim_0003",
       "grixis_claim_0004",
@@ -16,7 +16,8 @@
       "grixis_claim_0008"
     ],
     "confidence": "Medium",
-    "notes": "Psychological language is Vox Mana interpretation. Support-only rows do not raise confidence."
+    "notes": "Psychological language is Vox Mana interpretation from bounded Grixis evidence. It must not collapse into generic evil, nihilism, cruelty, chaos, ambition, mechanics, characters, or aesthetics.",
+    "profile_id": "grixis_moral_and_psychological_profile_gate3"
   },
   "placement_axes": [],
   "core_values": [
@@ -88,9 +89,9 @@
   ],
   "good_fit_indicators": [
     "survival and self-advocacy are the main way the answer frames identity",
-    "calculation and weakness analysis are tied to action",
+    "calculation and weakness analysis are tied to leverage and action",
     "urgency and volatility appear under Black-centered survival rather than as pure impulse",
-    "the answer resists simple evil UBR framing"
+    "the answer resists simple evil, nihilism, cruelty, chaos, ambition-only, power-at-any-cost, or generic UBR framing"
   ],
   "ideal_fit_indicators": [
     "The answer combines Black-centered survival, Blue calculation, and Red immediacy while keeping detailed lore out of the claim basis.",
@@ -98,8 +99,8 @@
     "The answer treats Maestros, unearth, vis, and named figures as support/manual-fill topics rather than evidence foundations."
   ],
   "poor_fit_indicators": [
-    "The answer depends on detailed geography, figure biography, vis physiology, or Conflux chronology.",
-    "The answer is mainly generic UBR, generic villain coding, generic spells, or Maestros styling.",
+    "The answer depends on detailed geography, named figure biography, vis physiology, chronology, card text, deck archetypes, creature types, mechanics, or aesthetics.",
+    "The answer is mainly generic UBR, generic villain coding, nihilism, cruelty, chaos, ambition, self-interest, generic spells, Bolas/Sedris material, or Maestros styling.",
     "The answer centers public honor, communal order, life-renewal, pure curiosity, or pure appetite without the Black-centered Grixis frame."
   ],
   "discriminator_questions": [
@@ -159,30 +160,30 @@
   ],
   "chatbot_guidance": {
     "how_to_recognize_match": [
-      "Review-only guidance: Grixis language should combine Black-centered survival with Blue calculation and Red immediacy.",
-      "Use support-only mechanics and operator patterns as vocabulary only, not as canon evidence.",
-      "Keep manual-fill topics out of the match basis."
+      "Treat Grixis as a match only when the answer combines Black-centered survival, Blue weakness analysis, and Red urgent action.",
+      "Use control, manipulation, ambition, and self-interest only when they serve source-backed survival leverage rather than generic villainy.",
+      "Keep mechanics, characters, creature types, deck archetypes, Alara aesthetics, Maestros, Bolas, Sedris, vis, and manual-fill topics out of the match basis."
     ],
     "how_to_recognize_mismatch": [
       "Do not match Grixis from UBR color identity alone.",
-      "Do not match Grixis from generic villainy alone.",
-      "Do not match Grixis from Maestros/New Capenna material.",
-      "Do not match Grixis from unearth, Bolas, Sedris, or vis claims that VM-164 left deferred."
+      "Do not match Grixis from generic villainy, nihilism, cruelty, chaos, ambition, self-interest, or power-at-any-cost language alone.",
+      "Do not match Grixis from Maestros/New Capenna material, Nicol Bolas characterization, named figures, creature types, mechanics, deck archetypes, or Alara aesthetics.",
+      "Do not match Grixis when information lacks Red urgency, urgency lacks Blue analysis, or self-interest lacks Black survival pressure."
     ],
     "questions_to_ask_when_uncertain": [],
     "do_not_overweight": [
       "Do not award Grixis from generic UBR language.",
       "Do not award Grixis from support-only Commander/operator rows.",
-      "Do not award Grixis from support-only mechanics.",
-      "Do not award Grixis from manual-fill topics."
+      "Do not award Grixis from support-only mechanics, creature types, deck archetypes, or aesthetics.",
+      "Do not award Grixis from manual-fill topics, named figures, Bolas, Sedris, or Maestros material."
     ],
     "never_claim_as_canon": [
       "Never claim Vox Mana placement planning is official Wizards canon.",
       "Never claim UBR is a live expression key.",
-      "Never claim Grixis is enabled in the live placement model.",
+      "Never claim support-only card, Commander, mechanics, character, or aesthetics material proves the Grixis thesis.",
       "Never claim detailed geography, vis, figure, chronology, or exact card-text-derived lore from VM-166."
     ],
-    "review_note": "VM-166 is a source-authored review packet only. It does not add builder wiring, generated placement data, or live app behavior."
+    "review_note": "VM-524 Gate 3+4 remediates Grixis as a source-bound live pilot. GRIXIS is the exact identity key; UBR remains metadata/query vocabulary."
   },
   "placement_quality": {
     "overall_confidence": "Medium source-authored confidence for narrow identity/design evidence; low for detailed lore until future evidence promotion.",
@@ -295,6 +296,279 @@
         "grixis_claim_0004"
       ],
       "confidence": "Medium"
+    },
+    {
+      "collision_id": "collision_grixis_dimir_gate3",
+      "against": "house_dimir",
+      "separator": "Grixis differs from Dimir because hidden leverage must be joined by Red urgency and hostile-reality survival pressure.",
+      "ask": "Does the answer act before the opening closes, or stay in secrecy and leverage alone?",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "confidence": "Medium",
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_grixis_izzet_gate3",
+      "against": "izzet_league",
+      "separator": "Grixis differs from Izzet because experiment and action must serve Black-centered survival rather than discovery or expression alone.",
+      "ask": "Is the experiment about discovery, or about surviving by exploiting a mapped weakness?",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "confidence": "Medium",
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_grixis_rakdos_gate3",
+      "against": "cult_of_rakdos",
+      "separator": "Grixis differs from Rakdos because appetite and pressure must be bounded by Blue weakness analysis.",
+      "ask": "Is the pressure calculated survival leverage, or spectacle and appetite without analysis?",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "confidence": "Medium",
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_grixis_blue_gate3",
+      "against": "blue",
+      "separator": "Grixis differs from Blue because study must become survival leverage under Black center and Red urgency.",
+      "ask": "Is knowledge being pursued for improvement, or converted into self-preserving action?",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005"
+      ],
+      "confidence": "Medium",
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_grixis_black_gate3",
+      "against": "black",
+      "separator": "Grixis differs from Black alone because self-advocacy must be sharpened by Blue weakness analysis and Red urgent action.",
+      "ask": "Is self-interest alone present, or the full survival-analysis-urgency synthesis?",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005"
+      ],
+      "confidence": "Medium",
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_grixis_red_gate3",
+      "against": "red",
+      "separator": "Grixis differs from Red alone because urgency must serve Black survival and Blue-mapped leverage.",
+      "ask": "Is action expressive impulse, or a survival opening identified by analysis?",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005"
+      ],
+      "confidence": "Medium",
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_grixis_sultai_gate3",
+      "against": "sultai",
+      "separator": "Grixis differs from Sultai because its leverage excludes Green endurance and adds Red urgent volatility.",
+      "ask": "Does the answer rest in endurance and accumulation, or strike through urgent survival leverage?",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "confidence": "Medium",
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_grixis_temur_gate3",
+      "against": "temur",
+      "separator": "Grixis differs from Temur because it lacks Green embodied acceptance and centers Black survival pressure.",
+      "ask": "Is vitality and instinct leading, or hostile-reality survival leverage?",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "confidence": "Medium",
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_grixis_jeskai_gate3",
+      "against": "jeskai",
+      "separator": "Grixis differs from Jeskai because disciplined action and insight do not substitute for Black-centered survival pressure.",
+      "ask": "Is action disciplined by a code, or driven by survival leverage?",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "confidence": "Medium",
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_grixis_mardu_gate3",
+      "against": "mardu",
+      "separator": "Grixis differs from Mardu because speed and attack must include Blue weakness analysis rather than White-Black-Red war order.",
+      "ask": "Is speed serving a war code, or a mapped survival opening?",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "confidence": "Medium",
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_grixis_bant_gate3",
+      "against": "bant",
+      "separator": "Grixis differs from Bant because public honor and communal order are missing pressures, not Grixis proof.",
+      "ask": "Is the answer asking for collective order, or self-advocating survival under pressure?",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "confidence": "Medium",
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_grixis_abzan_gate3",
+      "against": "abzan",
+      "separator": "Grixis differs from Abzan because endurance and kinship do not replace Blue analysis plus Red urgency.",
+      "ask": "Is the pressure ancestral endurance, or urgent survival leverage?",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "confidence": "Medium",
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_grixis_naya_gate3",
+      "against": "naya",
+      "separator": "Grixis differs from Naya because awe, community, and life-scale are outside the Black-centered survival synthesis.",
+      "ask": "Is the answer about communal life-scale, or survival through weakness and opening?",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "confidence": "Medium",
+      "lateral_inhibition": false
+    },
+    {
+      "collision_id": "collision_grixis_wubrg_gate3",
+      "against": "wubrg",
+      "separator": "Grixis differs from five-color breadth because color access or good-stuff flexibility is not a source-backed Grixis thesis.",
+      "ask": "Is this the exact Grixis synthesis, or broad access to everything?",
+      "claim_ids": [
+        "grixis_claim_0001",
+        "grixis_claim_0002",
+        "grixis_claim_0003",
+        "grixis_claim_0006",
+        "grixis_claim_0008"
+      ],
+      "confidence": "Medium",
+      "lateral_inhibition": false
+    }
+  ],
+  "semantic_guidance_evidence": [
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "grixis_chatbot_match_0001",
+      "canonical_content_hash": "sha256:b92c78cef78129f8c62732241fa2f9a19745e66bfc2380eef8d2eca930f54134",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0006"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "grixis_chatbot_match_0002",
+      "canonical_content_hash": "sha256:43be78376bc2292d9283cdb74fb44c3d0bdd7072d330cd816d049ddd580eb3d3",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0008"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "grixis_chatbot_match_0003",
+      "canonical_content_hash": "sha256:436a5e41dd6442ae887d9fa06863478fd0e9ff2596db0f94c952409f08f762a1",
+      "evidence_claim_ids": [
+        "grixis_claim_0002",
+        "grixis_claim_0007",
+        "grixis_claim_0008",
+        "grixis_claim_0009",
+        "grixis_claim_0010"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "grixis_chatbot_mismatch_0001",
+      "canonical_content_hash": "sha256:77cbc3d64cc0beac841e37b7652c5180818f88999059615229dc278ee01efedb",
+      "evidence_claim_ids": [
+        "grixis_claim_0001",
+        "grixis_claim_0002",
+        "grixis_claim_0003",
+        "grixis_claim_0008"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "grixis_chatbot_mismatch_0002",
+      "canonical_content_hash": "sha256:8c5af45c4bad8d79e859b3019fba3f9f753ac210b7290456ca84c4e99ca54add",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0006",
+        "grixis_claim_0008"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "grixis_chatbot_mismatch_0003",
+      "canonical_content_hash": "sha256:456c554f079be43d38e2226b29f0d03c62951c348871c763bcd8e75cfbc0ba47",
+      "evidence_claim_ids": [
+        "grixis_claim_0002",
+        "grixis_claim_0007",
+        "grixis_claim_0008",
+        "grixis_claim_0009",
+        "grixis_claim_0010"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "grixis_chatbot_mismatch_0004",
+      "canonical_content_hash": "sha256:97057d7b7840d08d01a243517716c72e6f5bc10818495aae48408fe468c784f8",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0006"
+      ]
     }
   ]
 }

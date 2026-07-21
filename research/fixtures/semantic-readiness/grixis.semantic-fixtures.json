@@ -1,0 +1,417 @@
+{
+  "identity_key": "GRIXIS",
+  "contract_version": "v1.1",
+  "generated_by": "VM-524 Gate 3+4 semantic remediation",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "grixis_core_black_centered_survival",
+      "fixture_type": "core_inclusion",
+      "prompt": "A user describes surviving a hostile system by advocating for themself, studying the weak point, and acting before the opening closes.",
+      "expected": "GRIXIS_INCLUDE",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0006"
+      ],
+      "boundary": "Grixis inclusion requires Black-centered survival, Blue weakness analysis, and Red urgent action together.",
+      "scenario": "A user describes surviving a hostile system by advocating for themself, studying the weak point, and acting before the opening closes.",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_pressure_survival_to_exploitation",
+      "fixture_type": "mature_or_pressure_behavior",
+      "prompt": "A user values clear-eyed adaptation, but under pressure every weakness starts looking like something to exploit immediately.",
+      "expected": "GRIXIS_INCLUDE_WITH_PRESSURE_BOUNDARY",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0006",
+        "grixis_claim_0008"
+      ],
+      "boundary": "The pressure mode is survival leverage risking exploitation, not generic cruelty, nihilism, chaos, or villain coding.",
+      "scenario": "A user values clear-eyed adaptation, but under pressure every weakness starts looking like something to exploit immediately.",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_nearest_dimir_hidden_leverage",
+      "fixture_type": "nearest_collision_ambiguity",
+      "prompt": "The prompt centers secrecy, information control, and private leverage without Red urgency or hostile-reality survival pressure.",
+      "expected": "GRIXIS_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "neighbor": "Dimir / UB",
+      "scenario": "The prompt centers secrecy, information control, and private leverage without Red urgency or hostile-reality survival pressure.",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_neighbor_izzet_experiment",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers invention, curiosity, improvisation, and experiment without Black-centered survival pressure.",
+      "expected": "GRIXIS_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005"
+      ],
+      "neighbor": "Izzet / UR",
+      "scenario": "The prompt centers invention, curiosity, improvisation, and experiment without Black-centered survival pressure.",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_neighbor_rakdos_appetite",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers appetite, spectacle, pleasure, or violence without Blue weakness analysis.",
+      "expected": "GRIXIS_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "neighbor": "Rakdos / BR",
+      "scenario": "The prompt centers appetite, spectacle, pleasure, or violence without Blue weakness analysis.",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_neighbor_blue_analysis_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers study, knowledge, and improvement without Black self-advocacy or Red urgency.",
+      "expected": "GRIXIS_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005"
+      ],
+      "neighbor": "Blue / U",
+      "scenario": "The prompt centers study, knowledge, and improvement without Black self-advocacy or Red urgency.",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_neighbor_black_ambition_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers ambition, self-interest, or agency without Blue weakness analysis and Red urgent action.",
+      "expected": "GRIXIS_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "neighbor": "Black / B",
+      "scenario": "The prompt centers ambition, self-interest, or agency without Blue weakness analysis and Red urgent action.",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_neighbor_red_impulse_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers impulse, speed, emotion, or zeal without Black survival pressure and Blue mapping.",
+      "expected": "GRIXIS_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005"
+      ],
+      "neighbor": "Red / R",
+      "scenario": "The prompt centers impulse, speed, emotion, or zeal without Black survival pressure and Blue mapping.",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_neighbor_esper_perfectibility",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers designed perfectibility, ordered improvement, and system optimization rather than survival leverage.",
+      "expected": "GRIXIS_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "neighbor": "Esper / WUB",
+      "scenario": "The prompt centers designed perfectibility, ordered improvement, and system optimization rather than survival leverage.",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_neighbor_sultai_endurance",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers patient accumulation, Green endurance, or decadent inevitability instead of Red urgent action.",
+      "expected": "GRIXIS_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "neighbor": "Sultai / UBG",
+      "scenario": "The prompt centers patient accumulation, Green endurance, or decadent inevitability instead of Red urgent action.",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_neighbor_temur_vitality",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers embodied vitality, instinct, wilderness, or Green acceptance rather than Black-centered survival.",
+      "expected": "GRIXIS_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "neighbor": "Temur / URG",
+      "scenario": "The prompt centers embodied vitality, instinct, wilderness, or Green acceptance rather than Black-centered survival.",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_neighbor_jeskai_discipline",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers discipline, training, and principled action rather than hostile-reality self-advocacy.",
+      "expected": "GRIXIS_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "neighbor": "Jeskai / WUR",
+      "scenario": "The prompt centers discipline, training, and principled action rather than hostile-reality self-advocacy.",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_neighbor_jund_instinct",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers appetite, instinct, consequence, and embodied dominance without Blue weakness analysis.",
+      "expected": "GRIXIS_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "neighbor": "Jund / BRG",
+      "scenario": "The prompt centers appetite, instinct, consequence, and embodied dominance without Blue weakness analysis.",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_neighbor_mardu_war_code",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers speed, attack, hierarchy, or martial code without Blue weakness mapping.",
+      "expected": "GRIXIS_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "neighbor": "Mardu / WBR",
+      "scenario": "The prompt centers speed, attack, hierarchy, or martial code without Blue weakness mapping.",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_neighbor_bant_order",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers public honor, communal order, and collective structure rather than self-preserving leverage.",
+      "expected": "GRIXIS_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "neighbor": "Bant / GWU",
+      "scenario": "The prompt centers public honor, communal order, and collective structure rather than self-preserving leverage.",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_neighbor_abzan_kinship",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers family continuity, ancestry, defensive patience, and endurance without Red urgent opening logic.",
+      "expected": "GRIXIS_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "neighbor": "Abzan / WBG",
+      "scenario": "The prompt centers family continuity, ancestry, defensive patience, and endurance without Red urgent opening logic.",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_neighbor_naya_awe",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers communal awe, life-scale, and embodied growth rather than hostile-reality survival leverage.",
+      "expected": "GRIXIS_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "neighbor": "Naya / WRG",
+      "scenario": "The prompt centers communal awe, life-scale, and embodied growth rather than hostile-reality survival leverage.",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_neighbor_five_color_goodstuff",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers five-color breadth, access to everything, or good-stuff flexibility rather than exact Grixis survival synthesis.",
+      "expected": "GRIXIS_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "grixis_claim_0001",
+        "grixis_claim_0002",
+        "grixis_claim_0003",
+        "grixis_claim_0006",
+        "grixis_claim_0008"
+      ],
+      "neighbor": "WUBRG / five-color / good-stuff",
+      "scenario": "The prompt centers five-color breadth, access to everything, or good-stuff flexibility rather than exact Grixis survival synthesis.",
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_generic_control_not_enough",
+      "fixture_type": "generic_false_positive_exclusion",
+      "prompt": "The prompt says control, manipulation, ambition, or self-interest in generic terms without hostile-reality survival, Blue weakness analysis, and Red urgency together.",
+      "expected": "GRIXIS_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "boundary": "Generic control, ambition, self-interest, UBR, villainy, nihilism, cruelty, chaos, and power-at-any-cost are not sufficient.",
+      "scenario": "The prompt says control, manipulation, ambition, or self-interest in generic terms without hostile-reality survival, Blue weakness analysis, and Red urgency together.",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_mechanics_aesthetics_not_enough",
+      "fixture_type": "generic_false_positive_exclusion",
+      "prompt": "The prompt only references unearth, Zombies, Demons, graveyard decks, card mechanics, creature types, Alara horror aesthetics, Bolas, Sedris, or Maestros style.",
+      "expected": "GRIXIS_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "grixis_claim_0002",
+        "grixis_claim_0007",
+        "grixis_claim_0008",
+        "grixis_claim_0009",
+        "grixis_claim_0010"
+      ],
+      "boundary": "Support-only card, mechanics, creature, character, deck, and aesthetics material cannot prove the Grixis semantic thesis.",
+      "scenario": "The prompt only references unearth, Zombies, Demons, graveyard decks, card mechanics, creature types, Alara horror aesthetics, Bolas, Sedris, or Maestros style.",
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_alara_plane_overview_20260530",
+        "src_wotc_all_cairns_of_jund_20151104",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_generated_preview_identity",
+      "fixture_type": "generated_consumer_assertion",
+      "prompt": "Generated previews should expose GRIXIS as the identity key and summarize the Black-centered survival thesis without using UBR as the live expression key.",
+      "expected": "GRIXIS_GENERATED_PREVIEW_MATCHES_SOURCE_BOUND_THESIS",
+      "evidence_claim_ids": [
+        "grixis_claim_0001",
+        "grixis_claim_0002",
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0006",
+        "grixis_claim_0008"
+      ],
+      "boundary": "Generated data may use UBR as metadata/query vocabulary only; GRIXIS remains the identity key.",
+      "scenario": "Generated previews should expose GRIXIS as the identity key and summarize the Black-centered survival thesis without using UBR as the live expression key.",
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    },
+    {
+      "fixture_id": "grixis_provenance_core_identity",
+      "fixture_type": "provenance",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/core_identity",
+      "expected": "PROVENANCE_ENTRY_PRESENT",
+      "evidence_claim_ids": [
+        "grixis_claim_0001",
+        "grixis_claim_0002",
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0006",
+        "grixis_claim_0007",
+        "grixis_claim_0008"
+      ],
+      "boundary": "The core profile provenance entry must resolve to the complete substantive claim chain for the Grixis thesis.",
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ]
+    }
+  ]
+}

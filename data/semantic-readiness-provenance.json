@@ -9908,6 +9908,188 @@
     {
       "identity_key": "GRIXIS",
       "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "grixis_chatbot_match_0001",
+      "canonical_content_hash": "sha256:b92c78cef78129f8c62732241fa2f9a19745e66bfc2380eef8d2eca930f54134",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0006"
+      ],
+      "declared_content_hash": "sha256:b92c78cef78129f8c62732241fa2f9a19745e66bfc2380eef8d2eca930f54134",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "grixis_chatbot_match_0002",
+      "canonical_content_hash": "sha256:43be78376bc2292d9283cdb74fb44c3d0bdd7072d330cd816d049ddd580eb3d3",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0008"
+      ],
+      "declared_content_hash": "sha256:43be78376bc2292d9283cdb74fb44c3d0bdd7072d330cd816d049ddd580eb3d3",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "grixis_chatbot_match_0003",
+      "canonical_content_hash": "sha256:436a5e41dd6442ae887d9fa06863478fd0e9ff2596db0f94c952409f08f762a1",
+      "evidence_claim_ids": [
+        "grixis_claim_0002",
+        "grixis_claim_0007",
+        "grixis_claim_0008",
+        "grixis_claim_0009",
+        "grixis_claim_0010"
+      ],
+      "declared_content_hash": "sha256:436a5e41dd6442ae887d9fa06863478fd0e9ff2596db0f94c952409f08f762a1",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_alara_plane_overview_20260530",
+        "src_wotc_all_cairns_of_jund_20151104",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "grixis_chatbot_mismatch_0001",
+      "canonical_content_hash": "sha256:77cbc3d64cc0beac841e37b7652c5180818f88999059615229dc278ee01efedb",
+      "evidence_claim_ids": [
+        "grixis_claim_0001",
+        "grixis_claim_0002",
+        "grixis_claim_0003",
+        "grixis_claim_0008"
+      ],
+      "declared_content_hash": "sha256:77cbc3d64cc0beac841e37b7652c5180818f88999059615229dc278ee01efedb",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "grixis_chatbot_mismatch_0002",
+      "canonical_content_hash": "sha256:8c5af45c4bad8d79e859b3019fba3f9f753ac210b7290456ca84c4e99ca54add",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0006",
+        "grixis_claim_0008"
+      ],
+      "declared_content_hash": "sha256:8c5af45c4bad8d79e859b3019fba3f9f753ac210b7290456ca84c4e99ca54add",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "grixis_chatbot_mismatch_0003",
+      "canonical_content_hash": "sha256:456c554f079be43d38e2226b29f0d03c62951c348871c763bcd8e75cfbc0ba47",
+      "evidence_claim_ids": [
+        "grixis_claim_0002",
+        "grixis_claim_0007",
+        "grixis_claim_0008",
+        "grixis_claim_0009",
+        "grixis_claim_0010"
+      ],
+      "declared_content_hash": "sha256:456c554f079be43d38e2226b29f0d03c62951c348871c763bcd8e75cfbc0ba47",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_alara_plane_overview_20260530",
+        "src_wotc_all_cairns_of_jund_20151104",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "grixis_chatbot_mismatch_0004",
+      "canonical_content_hash": "sha256:97057d7b7840d08d01a243517716c72e6f5bc10818495aae48408fe468c784f8",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0006"
+      ],
+      "declared_content_hash": "sha256:97057d7b7840d08d01a243517716c72e6f5bc10818495aae48408fe468c784f8",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
       "canonical_pointer": "/collision_guidance/0",
       "canonical_id": "collision_grixis_esper_live",
       "canonical_content_hash": "sha256:9daae868b3434ce0649a34482cfdaf3da44fcb768931a986088d119b51e7ebe6",
@@ -9940,6 +10122,327 @@
       ],
       "evidence_source_ids": [
         "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/collision_guidance/10",
+      "canonical_id": "collision_grixis_jeskai_gate3",
+      "canonical_content_hash": "sha256:36b2cf9ed2f33ada9ed3e1f53f9c3d04d4e4a8127012c38a53f3a3e5a6af0fd0",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/collision_guidance/11",
+      "canonical_id": "collision_grixis_mardu_gate3",
+      "canonical_content_hash": "sha256:3a054d81279c6705451b2fa1f25110201b3da88ad2b511b204d420108a102ef3",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/collision_guidance/12",
+      "canonical_id": "collision_grixis_bant_gate3",
+      "canonical_content_hash": "sha256:8156ee339a9ce6efc7a717c675900462b0dc327ed8642af27d50eeb1645476b6",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/collision_guidance/13",
+      "canonical_id": "collision_grixis_abzan_gate3",
+      "canonical_content_hash": "sha256:f243b8e679a3a5014ca88b31143ea2cca45eb9b71f77c588dda2800e1e6bbde7",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/collision_guidance/14",
+      "canonical_id": "collision_grixis_naya_gate3",
+      "canonical_content_hash": "sha256:a37085c4aee04dd70071e3f270cb5ac0dd50eb4a0c97b3b08d65fb2ec53ec4cf",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/collision_guidance/15",
+      "canonical_id": "collision_grixis_wubrg_gate3",
+      "canonical_content_hash": "sha256:b4e19bd09d5afa5acc7e2e896843cd076f7ead0f7a9621e2f31c80c0497e00f8",
+      "evidence_claim_ids": [
+        "grixis_claim_0001",
+        "grixis_claim_0002",
+        "grixis_claim_0003",
+        "grixis_claim_0006",
+        "grixis_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/collision_guidance/2",
+      "canonical_id": "collision_grixis_dimir_gate3",
+      "canonical_content_hash": "sha256:00ef2489c89ecaa5633c54b2e1c7bfe521fa9abbcb7f37fe00ab52e85ce219ce",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/collision_guidance/3",
+      "canonical_id": "collision_grixis_izzet_gate3",
+      "canonical_content_hash": "sha256:02b285c4c3663540aa89318070a381938fc948ba0036f6eca37932607bb0449c",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/collision_guidance/4",
+      "canonical_id": "collision_grixis_rakdos_gate3",
+      "canonical_content_hash": "sha256:c7ca2d95efdd85c4d5cbc61b606b8e8d037d470c885f0295b9cccc4ddaeea165",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/collision_guidance/5",
+      "canonical_id": "collision_grixis_blue_gate3",
+      "canonical_content_hash": "sha256:662e03cbbe549c4b4ea26407de202637b4881d5036b7441637c7d78dfa257f95",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/collision_guidance/6",
+      "canonical_id": "collision_grixis_black_gate3",
+      "canonical_content_hash": "sha256:3ec8c80f48bab245bb6f0efd57791d849517b5e3d0b1c7093ecdc5b519e2cfb2",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/collision_guidance/7",
+      "canonical_id": "collision_grixis_red_gate3",
+      "canonical_content_hash": "sha256:cc698c57a07e274430c7ff3767a77d8376e6301f7565cf731587c7e458cfdbb7",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/collision_guidance/8",
+      "canonical_id": "collision_grixis_sultai_gate3",
+      "canonical_content_hash": "sha256:3ee003fed090e2f677844b561a5b4800f9ac5bad09b8b0712a7477fcb8c1e966",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/collision_guidance/9",
+      "canonical_id": "collision_grixis_temur_gate3",
+      "canonical_content_hash": "sha256:527df97b28393f66f0a5cf6c6a2c6d5ea779dea356546249a3a541aee0e6de2f",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "evidence_source_ids": [
         "src_vm_grixis_evidence_ledger_20260530",
         "src_wotc_rosewater_grixis_looking_out_for_number_one"
       ],
@@ -10086,8 +10589,8 @@
       "identity_key": "GRIXIS",
       "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
       "canonical_pointer": "/moral_and_psychological_profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:291f316f1cd18be739fbcd5019cd5b703e8b3bd3d846f4191f2b89bd7bbbdece",
+      "canonical_id": "grixis_moral_and_psychological_profile_gate3",
+      "canonical_content_hash": "sha256:818ac12881489b765a65bc25a372ae3cbbee8fbcfc1cb99bc93545efc51c90ca",
       "evidence_claim_ids": [
         "grixis_claim_0003",
         "grixis_claim_0004",
@@ -10108,18 +10611,68 @@
     },
     {
       "identity_key": "GRIXIS",
-      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
-      "canonical_pointer": "/canonical_flavor_text/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:5f0d705c432dc9910dc0ff1b76f6c339b888098ce29c0c25893d62a82b68090e",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "grixis_chatbot_match_0001",
+      "canonical_content_hash": "sha256:7b1d2d25499e59daf0df9e038586ed77852fc0b1036e3f04c837d5e4186859e4",
       "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "grixis_chatbot_match_0002",
+      "canonical_content_hash": "sha256:a876fca3af93e3b8357a323d0e1999d47f2843f1edff878f3025835cae10ee00",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "grixis_chatbot_match_0003",
+      "canonical_content_hash": "sha256:f358e976157383271d8629c0f33d8ea72b02184d905c2e0905c65658f7a24d41",
+      "evidence_claim_ids": [
+        "grixis_claim_0002",
+        "grixis_claim_0007",
+        "grixis_claim_0008",
         "grixis_claim_0009",
         "grixis_claim_0010"
       ],
       "evidence_source_ids": [
-        "src_vm_grixis_lore_source_packet_20260530",
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_grixis_evidence_ledger_20260530",
         "src_wotc_alara_plane_overview_20260530",
-        "src_wotc_all_cairns_of_jund_20151104"
+        "src_wotc_all_cairns_of_jund_20151104",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/GRIXIS",
@@ -10130,16 +10683,69 @@
     },
     {
       "identity_key": "GRIXIS",
-      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
-      "canonical_pointer": "/canonical_flavor_text/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:b3ca4a59b11f275deb6f37cba49d6e57d28779cdb6118d404614a109c5f91e54",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "grixis_chatbot_mismatch_0001",
+      "canonical_content_hash": "sha256:f314128f0403f642d07b1f91709890cfdd634b972629737f042fcd60d18764ef",
       "evidence_claim_ids": [
+        "grixis_claim_0001",
+        "grixis_claim_0002",
+        "grixis_claim_0003",
+        "grixis_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "grixis_chatbot_mismatch_0002",
+      "canonical_content_hash": "sha256:34d8985863a704391bd1950314871a87393ddb2e4879a05e685808b0be5cb873",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0006",
+        "grixis_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": "grixis_chatbot_mismatch_0003",
+      "canonical_content_hash": "sha256:d1c4acc4f9742fa50390299221c0b01094facb62052c47c7b9da9b980ee4a658",
+      "evidence_claim_ids": [
+        "grixis_claim_0002",
+        "grixis_claim_0007",
+        "grixis_claim_0008",
+        "grixis_claim_0009",
         "grixis_claim_0010"
       ],
       "evidence_source_ids": [
-        "src_vm_grixis_lore_source_packet_20260530",
-        "src_wotc_all_cairns_of_jund_20151104"
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_alara_plane_overview_20260530",
+        "src_wotc_all_cairns_of_jund_20151104",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/GRIXIS",
@@ -10150,31 +10756,14 @@
     },
     {
       "identity_key": "GRIXIS",
-      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
-      "canonical_pointer": "/canonical_flavor_text/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:da71bab5d67db6027e225519e2d44d3a42820ab0768e1d59ca4d65f6f0074f93",
+      "canonical_file": "data/raw-factions/grixis/grixis.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": "grixis_chatbot_mismatch_0004",
+      "canonical_content_hash": "sha256:49f48a786ea830ea629be048921916860aef29b2deb6af9be6e5fa64bbeb900a",
       "evidence_claim_ids": [
-        "grixis_claim_0010"
-      ],
-      "evidence_source_ids": [
-        "src_vm_grixis_lore_source_packet_20260530",
-        "src_wotc_all_cairns_of_jund_20151104"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/GRIXIS",
-        "data/placement-model.json#/factions/GRIXIS",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "GRIXIS",
-      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
-      "canonical_pointer": "/canonical_flavor_text/3",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:ee280979367f2ea41669f6fd7e8ad709106c6e681c8bd52f789e70a0e295c7ac",
-      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
         "grixis_claim_0006"
       ],
       "evidence_source_ids": [
@@ -10191,9 +10780,95 @@
     {
       "identity_key": "GRIXIS",
       "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/canonical_flavor_text/0",
+      "canonical_id": "grixis_flavor_grixis_battlemage_gate3",
+      "canonical_content_hash": "sha256:f82e8160818a8e572be6b94ad1e6a56641c4f49efc279401e3bef741766675f5",
+      "evidence_claim_ids": [
+        "grixis_claim_0009",
+        "grixis_claim_0010"
+      ],
+      "evidence_use": "auxiliary_support",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_alara_plane_overview_20260530",
+        "src_wotc_all_cairns_of_jund_20151104"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/canonical_flavor_text/1",
+      "canonical_id": "grixis_flavor_sedris_gate3",
+      "canonical_content_hash": "sha256:2061c33f641973840dbad1661e2328b8e9e8e9e452bee56a5ac986c7954e0fc5",
+      "evidence_claim_ids": [
+        "grixis_claim_0010"
+      ],
+      "evidence_use": "auxiliary_support",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_all_cairns_of_jund_20151104"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/canonical_flavor_text/2",
+      "canonical_id": "grixis_flavor_thraximundar_gate3",
+      "canonical_content_hash": "sha256:ad550e073f80f4fbc04ac4d4eb04c8b9ed3a148a59bd4a31640a64e9a13d413d",
+      "evidence_claim_ids": [
+        "grixis_claim_0010"
+      ],
+      "evidence_use": "auxiliary_support",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_all_cairns_of_jund_20151104"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/canonical_flavor_text/3",
+      "canonical_id": "grixis_flavor_malfegor_gate3",
+      "canonical_content_hash": "sha256:e67bfb835fa32af81e365682a65279ca5a27a978f2fcc62551d7393c94f42f9a",
+      "evidence_claim_ids": [
+        "grixis_claim_0006"
+      ],
+      "evidence_use": "auxiliary_support",
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
       "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:2bb73500db5b7613edaee315398867ecad61876a3550e45ecc7a29d097a22745",
+      "canonical_id": "grixis_core_identity_gate3",
+      "canonical_content_hash": "sha256:c68515f31b44a02cc72bb43033289f034ea622aaca18c8fcb3fbb8876d40f53a",
       "evidence_claim_ids": [
         "grixis_claim_0001",
         "grixis_claim_0002",
@@ -10205,7 +10880,6 @@
         "grixis_claim_0008"
       ],
       "evidence_source_ids": [
-        "src_alara_shards_lore_dossier_protocol_rtf",
         "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_grixis_evidence_ledger_20260530",
         "src_wotc_rosewater_grixis_looking_out_for_number_one"
@@ -10221,8 +10895,8 @@
       "identity_key": "GRIXIS",
       "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
       "canonical_pointer": "/data_quality",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:404a2f630c0abc3ac31fc1ccf2f101c0ef3777fcdea5af82201f036c4b161f22",
+      "canonical_id": "grixis_data_quality_gate3",
+      "canonical_content_hash": "sha256:2014967ec0049f92d71883ee539c2bcad6d4bf2c05a6010e1c5e0a87ff4941b9",
       "evidence_claim_ids": [
         "grixis_claim_0001",
         "grixis_claim_0002",
@@ -10237,10 +10911,8 @@
         "grixis_claim_0011"
       ],
       "evidence_source_ids": [
-        "src_alara_shards_lore_dossier_protocol_rtf",
         "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_grixis_evidence_ledger_20260530",
-        "src_vm_grixis_lore_source_packet_20260530",
         "src_wotc_alara_plane_overview_20260530",
         "src_wotc_all_cairns_of_jund_20151104",
         "src_wotc_rosewater_grixis_looking_out_for_number_one"
@@ -10256,8 +10928,8 @@
       "identity_key": "GRIXIS",
       "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
       "canonical_pointer": "/great_tension",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:d53538e7db547112dc4edc76d7346dcfb3d90c275c05b6b9b60920fdeac45ec6",
+      "canonical_id": "grixis_great_tension_gate3",
+      "canonical_content_hash": "sha256:03d7b3dd3087c31f3a8f874abc1151e19a64a0e0b51b0506bfdf071d6233d308",
       "evidence_claim_ids": [
         "grixis_claim_0003",
         "grixis_claim_0004",
@@ -10308,7 +10980,7 @@
         "grixis_claim_0009"
       ],
       "evidence_source_ids": [
-        "src_vm_grixis_lore_source_packet_20260530",
+        "src_vm_grixis_evidence_ledger_20260530",
         "src_wotc_alara_plane_overview_20260530"
       ],
       "generated_consumers": [
@@ -10328,7 +11000,7 @@
         "grixis_claim_0010"
       ],
       "evidence_source_ids": [
-        "src_vm_grixis_lore_source_packet_20260530",
+        "src_vm_grixis_evidence_ledger_20260530",
         "src_wotc_all_cairns_of_jund_20151104"
       ],
       "generated_consumers": [
@@ -10348,7 +11020,7 @@
         "grixis_claim_0011"
       ],
       "evidence_source_ids": [
-        "src_vm_grixis_lore_source_packet_20260530",
+        "src_vm_grixis_evidence_ledger_20260530",
         "src_wotc_alara_plane_overview_20260530"
       ],
       "generated_consumers": [
@@ -10361,69 +11033,9 @@
     {
       "identity_key": "GRIXIS",
       "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
-      "canonical_pointer": "/key_figures/0",
-      "canonical_id": "card_sedris_the_traitor_king",
-      "canonical_content_hash": "sha256:e15c7e52c0c838820ee2c67768ff7528929aa1abb38415f08ecb087961b7548d",
-      "evidence_claim_ids": [
-        "grixis_claim_0010"
-      ],
-      "evidence_source_ids": [
-        "src_vm_grixis_lore_source_packet_20260530",
-        "src_wotc_all_cairns_of_jund_20151104"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/GRIXIS",
-        "data/placement-model.json#/factions/GRIXIS",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "GRIXIS",
-      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
-      "canonical_pointer": "/key_figures/1",
-      "canonical_id": "card_thraximundar",
-      "canonical_content_hash": "sha256:1a97f0e23bf1f22f300e0e8fefa4a365f506b87d222ce86061f013a6c52223bf",
-      "evidence_claim_ids": [
-        "grixis_claim_0010"
-      ],
-      "evidence_source_ids": [
-        "src_vm_grixis_lore_source_packet_20260530",
-        "src_wotc_all_cairns_of_jund_20151104"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/GRIXIS",
-        "data/placement-model.json#/factions/GRIXIS",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "GRIXIS",
-      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
-      "canonical_pointer": "/key_figures/2",
-      "canonical_id": "card_malfegor",
-      "canonical_content_hash": "sha256:5c425af415e14effcfe30ac496ad03889fd2ff0d1fd003059b69021e9edefa0f",
-      "evidence_claim_ids": [
-        "grixis_claim_0006"
-      ],
-      "evidence_source_ids": [
-        "src_vm_grixis_evidence_ledger_20260530",
-        "src_wotc_rosewater_grixis_looking_out_for_number_one"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/GRIXIS",
-        "data/placement-model.json#/factions/GRIXIS",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "GRIXIS",
-      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
       "canonical_pointer": "/site_surface",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:59d1d913cf6db147841a3768f40835cb1338ee3736dfafda7c4e67ae8e28dfa6",
+      "canonical_id": "grixis_site_surface_gate3",
+      "canonical_content_hash": "sha256:ca3740f22280a77ae2d7a2917d70772d000e6352b2ed029ef6527484bfcbe6d8",
       "evidence_claim_ids": [
         "grixis_claim_0001",
         "grixis_claim_0002",
@@ -10435,7 +11047,6 @@
         "grixis_claim_0008"
       ],
       "evidence_source_ids": [
-        "src_alara_shards_lore_dossier_protocol_rtf",
         "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_grixis_evidence_ledger_20260530",
         "src_wotc_rosewater_grixis_looking_out_for_number_one"
@@ -10451,8 +11062,8 @@
       "identity_key": "GRIXIS",
       "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
       "canonical_pointer": "/structure",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:6a15776fd152d84e1d81982b324ce6ed00c73fe2e63ae9c7285d1f4b0d1b8db8",
+      "canonical_id": "grixis_structure_gate3",
+      "canonical_content_hash": "sha256:935b1ba4fbfe23a5529ca75e3f22c8c0674760583eed1dc08dc195bb2f0279fa",
       "evidence_claim_ids": [
         "grixis_claim_0001",
         "grixis_claim_0002",
@@ -10464,7 +11075,6 @@
         "grixis_claim_0008"
       ],
       "evidence_source_ids": [
-        "src_alara_shards_lore_dossier_protocol_rtf",
         "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_grixis_evidence_ledger_20260530",
         "src_wotc_rosewater_grixis_looking_out_for_number_one"
@@ -10480,8 +11090,8 @@
       "identity_key": "GRIXIS",
       "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
       "canonical_pointer": "/views_on_other_factions/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:8a4d4cd639e8954a40e0d5f2b876f9553b05b3815f205fe4cc3706c9e8dbb925",
+      "canonical_id": "rel_grixis_maestros_gate3",
+      "canonical_content_hash": "sha256:6317a10ca97b5a60c7c0d79f034dd356bccfb4679d4dcd7859492a4b6d913937",
       "evidence_claim_ids": [
         "grixis_claim_0001",
         "grixis_claim_0002",
@@ -10503,8 +11113,31 @@
       "identity_key": "GRIXIS",
       "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
       "canonical_pointer": "/views_on_other_factions/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:18c00f9b4cd4540be20cf1a17241baf5dc57f5ee46eaa3e85fc7aaac968cd56e",
+      "canonical_id": "rel_grixis_dimir_gate3",
+      "canonical_content_hash": "sha256:fa40ad8d5f2e239112d805fd417754f30445df61939c701c63e84442d7e12b05",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/views_on_other_factions/10",
+      "canonical_id": "rel_grixis_jeskai_gate3",
+      "canonical_content_hash": "sha256:a6f23fa11e767a51deef39c1ac9098cd50dd86c99307a08246fa3bca2bc48644",
       "evidence_claim_ids": [
         "grixis_claim_0003",
         "grixis_claim_0004",
@@ -10512,7 +11145,398 @@
         "grixis_claim_0007"
       ],
       "evidence_source_ids": [
-        "src_alara_shards_lore_dossier_protocol_rtf",
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/views_on_other_factions/11",
+      "canonical_id": "rel_grixis_jund_gate3",
+      "canonical_content_hash": "sha256:98c8672298f6a1fec8c3a54456c6cf827eff75598eca37c95f832b1a6ae06bf8",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/views_on_other_factions/12",
+      "canonical_id": "rel_grixis_mardu_gate3",
+      "canonical_content_hash": "sha256:3461af651824608b5a408adab2c32cbc37ff76b2c4c34314633af49273efc782",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/views_on_other_factions/13",
+      "canonical_id": "rel_grixis_bant_gate3",
+      "canonical_content_hash": "sha256:30fcac87d2931f74bc27952da070d3b7ed42b103a169297a4b0873c9cf2ee268",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/views_on_other_factions/14",
+      "canonical_id": "rel_grixis_abzan_gate3",
+      "canonical_content_hash": "sha256:d29943fbbf1095520c79ff2790f0676793cd3d40c5b56017d615b6033ccf10ad",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/views_on_other_factions/15",
+      "canonical_id": "rel_grixis_naya_gate3",
+      "canonical_content_hash": "sha256:f428f71727992003ce0177f3bd776287e7e1785305514230b548957188cfbb2f",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/views_on_other_factions/16",
+      "canonical_id": "rel_grixis_wubrg_gate3",
+      "canonical_content_hash": "sha256:294e2da1e848b7689da30dfe22158b0fd1ad83cef42cf17548f2d8854ac7ea86",
+      "evidence_claim_ids": [
+        "grixis_claim_0001",
+        "grixis_claim_0002",
+        "grixis_claim_0003",
+        "grixis_claim_0006",
+        "grixis_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/views_on_other_factions/17",
+      "canonical_id": "rel_grixis_generic_control_gate3",
+      "canonical_content_hash": "sha256:1fd536d0080b164702da1c1b7fcec74cc268b7e803981e8171194e1a035ef32f",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/views_on_other_factions/18",
+      "canonical_id": "rel_grixis_generic_villainy_gate3",
+      "canonical_content_hash": "sha256:692387fe38617bc0928e793c5caaedc7ff8c8a2018ab1b01b0c82b16d2cae6d6",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0006",
+        "grixis_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/views_on_other_factions/19",
+      "canonical_id": "rel_grixis_generic_ambition_gate3",
+      "canonical_content_hash": "sha256:4dc7ec0889af0fdab2741a9ec000f16d6fa7dc5d94e3ce1b719ff3f35b96efba",
+      "evidence_claim_ids": [
+        "grixis_claim_0002",
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/views_on_other_factions/2",
+      "canonical_id": "rel_grixis_izzet_gate3",
+      "canonical_content_hash": "sha256:9ecddeb0de52e7a02ad3beabfe752e282c5f5715effd104855ae94b6537297d8",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/views_on_other_factions/3",
+      "canonical_id": "rel_grixis_rakdos_gate3",
+      "canonical_content_hash": "sha256:75aa03c304894596663595fb0162aad2b1265f3ba6723b9738576ae8d8268364",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/views_on_other_factions/4",
+      "canonical_id": "rel_grixis_blue_gate3",
+      "canonical_content_hash": "sha256:66558b1006bcac6925c3ced4fc10e7dce15aea5a4b7778df7623f9a7ee3e8b68",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/views_on_other_factions/5",
+      "canonical_id": "rel_grixis_black_gate3",
+      "canonical_content_hash": "sha256:7759d3bfe2e0f522cd758ba06d76b3a05d45c4c11e6fef90a789c74e5001d103",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/views_on_other_factions/6",
+      "canonical_id": "rel_grixis_red_gate3",
+      "canonical_content_hash": "sha256:85782120902ad5757c30f07cbf8a3789d6aa2478e49f9d7c49740588ca5e5352",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/views_on_other_factions/7",
+      "canonical_id": "rel_grixis_esper_gate3",
+      "canonical_content_hash": "sha256:ff159a303a36a5de4aec0298b314bedcc03aef3178628780448bc53e812207be",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/views_on_other_factions/8",
+      "canonical_id": "rel_grixis_sultai_gate3",
+      "canonical_content_hash": "sha256:eb6ac0cfdfdebc3887f780aa1d9b20e54e25e3fae3691fc0ebd251642b71a244",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GRIXIS",
+        "data/placement-model.json#/factions/GRIXIS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GRIXIS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_file": "data/raw-factions/grixis/grixis.profile.json",
+      "canonical_pointer": "/views_on_other_factions/9",
+      "canonical_id": "rel_grixis_temur_gate3",
+      "canonical_content_hash": "sha256:086092a7186eb37d093b5e21f4b2350d9baf21cb2f9d3734df28e764ff211250",
+      "evidence_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "evidence_source_ids": [
         "src_vm_grixis_evidence_ledger_20260530",
         "src_wotc_rosewater_grixis_looking_out_for_number_one"
       ],

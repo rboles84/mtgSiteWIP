@@ -2349,23 +2349,23 @@ export const FACTION_CONTEXT = {
     },
     "good_fit_indicators": [
       "survival and self-advocacy are the main way the answer frames identity",
-      "calculation and weakness analysis are tied to action",
+      "calculation and weakness analysis are tied to leverage and action",
       "urgency and volatility appear under Black-centered survival rather than as pure impulse",
-      "the answer resists simple evil UBR framing"
+      "the answer resists simple evil, nihilism, cruelty, chaos, ambition-only, power-at-any-cost, or generic UBR framing"
     ],
     "poor_fit_indicators": [
-      "The answer depends on detailed geography, figure biography, vis physiology, or Conflux chronology.",
-      "The answer is mainly generic UBR, generic villain coding, generic spells, or Maestros styling.",
+      "The answer depends on detailed geography, named figure biography, vis physiology, chronology, card text, deck archetypes, creature types, mechanics, or aesthetics.",
+      "The answer is mainly generic UBR, generic villain coding, nihilism, cruelty, chaos, ambition, self-interest, generic spells, Bolas/Sedris material, or Maestros styling.",
       "The answer centers public honor, communal order, life-renewal, pure curiosity, or pure appetite without the Black-centered Grixis frame."
     ],
     "inhibitor_traps": [
       "Outsources survival to systems, permission, or shared order when immediate calculated self-advocacy is required.",
       "Do not match Grixis from UBR color identity alone.",
-      "Do not match Grixis from generic villainy alone.",
-      "Do not match Grixis from Maestros/New Capenna material.",
-      "Do not match Grixis from unearth, Bolas, Sedris, or vis claims that VM-164 left deferred.",
-      "The answer depends on detailed geography, figure biography, vis physiology, or Conflux chronology.",
-      "The answer is mainly generic UBR, generic villain coding, generic spells, or Maestros styling.",
+      "Do not match Grixis from generic villainy, nihilism, cruelty, chaos, ambition, self-interest, or power-at-any-cost language alone.",
+      "Do not match Grixis from Maestros/New Capenna material, Nicol Bolas characterization, named figures, creature types, mechanics, deck archetypes, or Alara aesthetics.",
+      "Do not match Grixis when information lacks Red urgency, urgency lacks Blue analysis, or self-interest lacks Black survival pressure.",
+      "The answer depends on detailed geography, named figure biography, vis physiology, chronology, card text, deck archetypes, creature types, mechanics, or aesthetics.",
+      "The answer is mainly generic UBR, generic villain coding, nihilism, cruelty, chaos, ambition, self-interest, generic spells, Bolas/Sedris material, or Maestros styling.",
       "The answer centers public honor, communal order, life-renewal, pure curiosity, or pure appetite without the Black-centered Grixis frame."
     ],
     "lateral_inhibition_targets": [
@@ -2435,36 +2435,36 @@ export const FACTION_CONTEXT = {
     ],
     "chatbot_guidance": {
       "how_to_recognize_match": [
-        "Review-only guidance: Grixis language should combine Black-centered survival with Blue calculation and Red immediacy.",
-        "Use support-only mechanics and operator patterns as vocabulary only, not as canon evidence.",
-        "Keep manual-fill topics out of the match basis."
+        "Treat Grixis as a match only when the answer combines Black-centered survival, Blue weakness analysis, and Red urgent action.",
+        "Use control, manipulation, ambition, and self-interest only when they serve source-backed survival leverage rather than generic villainy.",
+        "Keep mechanics, characters, creature types, deck archetypes, Alara aesthetics, Maestros, Bolas, Sedris, vis, and manual-fill topics out of the match basis."
       ],
       "how_to_recognize_mismatch": [
         "Do not match Grixis from UBR color identity alone.",
-        "Do not match Grixis from generic villainy alone.",
-        "Do not match Grixis from Maestros/New Capenna material.",
-        "Do not match Grixis from unearth, Bolas, Sedris, or vis claims that VM-164 left deferred."
+        "Do not match Grixis from generic villainy, nihilism, cruelty, chaos, ambition, self-interest, or power-at-any-cost language alone.",
+        "Do not match Grixis from Maestros/New Capenna material, Nicol Bolas characterization, named figures, creature types, mechanics, deck archetypes, or Alara aesthetics.",
+        "Do not match Grixis when information lacks Red urgency, urgency lacks Blue analysis, or self-interest lacks Black survival pressure."
       ],
       "questions_to_ask_when_uncertain": [],
       "do_not_overweight": [
         "Do not award Grixis from generic UBR language.",
         "Do not award Grixis from support-only Commander/operator rows.",
-        "Do not award Grixis from support-only mechanics.",
-        "Do not award Grixis from manual-fill topics."
+        "Do not award Grixis from support-only mechanics, creature types, deck archetypes, or aesthetics.",
+        "Do not award Grixis from manual-fill topics, named figures, Bolas, Sedris, or Maestros material."
       ],
       "never_claim_as_canon": [
         "Never claim Vox Mana placement planning is official Wizards canon.",
         "Never claim UBR is a live expression key.",
-        "Never claim Grixis is enabled in the live placement model.",
+        "Never claim support-only card, Commander, mechanics, character, or aesthetics material proves the Grixis thesis.",
         "Never claim detailed geography, vis, figure, chronology, or exact card-text-derived lore from VM-166."
       ],
-      "review_note": "VM-166 is a source-authored review packet only. It does not add builder wiring, generated placement data, or live app behavior."
+      "review_note": "VM-524 Gate 3+4 remediates Grixis as a source-bound live pilot. GRIXIS is the exact identity key; UBR remains metadata/query vocabulary."
     },
     "canon_guardrails": {
       "never_claim_as_canon": [
         "Never claim Vox Mana placement planning is official Wizards canon.",
         "Never claim UBR is a live expression key.",
-        "Never claim Grixis is enabled in the live placement model.",
+        "Never claim support-only card, Commander, mechanics, character, or aesthetics material proves the Grixis thesis.",
         "Never claim detailed geography, vis, figure, chronology, or exact card-text-derived lore from VM-166."
       ]
     }

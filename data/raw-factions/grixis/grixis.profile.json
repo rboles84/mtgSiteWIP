@@ -14,11 +14,11 @@
   "source_review_date": "2026-06-13",
   "last_full_review": "2026-05-30",
   "last_incremental_review": "2026-06-13",
-  "last_updated": "2026-06-13",
+  "last_updated": "2026-07-20",
   "site_surface": {
     "display_name": "Grixis",
-    "short_summary": "Grixis is a VM-168 live-pilot Alara shard expression for Black-centered UBR survival through self-advocacy, Blue calculation, Red immediacy, and source-bound volatility.",
-    "one_sentence_identity": "Grixis asks what a self becomes when survival is the first law and every weakness becomes an opening.",
+    "short_summary": "Grixis is a live-pilot Alara shard expression for Black-centered survival through self-advocacy, Blue weakness analysis, Red urgency, and source-bound volatility.",
+    "one_sentence_identity": "Grixis asks what a self does when survival is first law, weakness is information, and the opening may close if action waits.",
     "tagline": "Survive first. Find the weakness. Take the opening.",
     "primary_tags": [
       "Grixis",
@@ -83,12 +83,13 @@
       "grixis_claim_0006",
       "grixis_claim_0007",
       "grixis_claim_0008"
-    ]
+    ],
+    "surface_id": "grixis_site_surface_gate3"
   },
   "core_identity": {
-    "summary": "Grixis is the Black-centered blue-black-red Alara shard expression whose safe evidence floor is survival, self-advocacy, adaptation, Blue calculation, Red immediacy and zeal, and a boundary against simple evil framing.",
-    "philosophy": "Black supplies the center: survival, agency, self-interest, and adaptation to reality. Blue gives weakness analysis and information leverage. Red gives action, urgency, zeal, and volatility.",
-    "central_tension": "Vox Mana models Grixis's tension as survival logic becoming exploitative pressure: the opening matters because delay can mean loss, but taking every opening can make the self ruthless before it notices.",
+    "summary": "Grixis is Black-centered survival under hostile reality: Black names self-advocacy and adaptation as first law, Blue turns study into weakness-mapping leverage, and Red acts with urgent zeal before the opening closes.",
+    "philosophy": "Grixis treats the world as dangerous and unreliable. It studies weakness and converts openings into self-preserving advantage rather than seeking permission, public order, natural harmony, perfected systems, or villainy for its own sake.",
+    "central_tension": "The self must advocate for itself because no system, nature, or morality reliably will; the risk is turning every weakness into something to exploit before survival discipline notices what it has become.",
     "supported_claim_ids": [
       "grixis_claim_0001",
       "grixis_claim_0002",
@@ -119,10 +120,11 @@
       "grixis_claim_0006",
       "grixis_claim_0007",
       "grixis_claim_0008"
-    ]
+    ],
+    "identity_id": "grixis_core_identity_gate3"
   },
   "structure": {
-    "summary": "The safe structural floor is narrow: Grixis is an Alara shard with UBR color-direction metadata, Black as center/design lens, Blue calculation, Red immediacy, and missing White/Green pressures defined at the design level.",
+    "summary": "Grixis is an Alara shard with UBR color-direction metadata, Black center/design lens, Blue weakness analysis, Red urgent action, and missing White/Green pressures at design level. That boundary does not imply lack of intelligence, structure, or social logic.",
     "supported_elements": [
       "Grixis as a blue-black-red Alara shard",
       "UBR as color-direction metadata only",
@@ -155,10 +157,11 @@
       "grixis_claim_0006",
       "grixis_claim_0007",
       "grixis_claim_0008"
-    ]
+    ],
+    "structure_id": "grixis_structure_gate3"
   },
   "great_tension": {
-    "summary": "Vox Mana models Grixis's great tension as survival becoming exploitation: the world is treated as hostile enough that weakness, delay, and moral hesitation all become costs.",
+    "summary": "Grixis's great tension is survival leverage becoming exploitation: clear-eyed adaptation can preserve agency, but constant hostile-pressure logic can turn opportunity into ruthlessness, nihilism, or cruelty if Blue analysis and Black survival discipline stop bounding Red urgency.",
     "placement_relevance": "VM-168 live-pilot placement note. Use only with the VM-164 boundaries and without converting support-only lore into evidence.",
     "not_canon_doctrine": true,
     "claim_ids": [
@@ -167,7 +170,8 @@
       "grixis_claim_0005",
       "grixis_claim_0006",
       "grixis_claim_0008"
-    ]
+    ],
+    "tension_id": "grixis_great_tension_gate3"
   },
   "historical_timeline": [
     {
@@ -227,9 +231,6 @@
       "name": "Sedris, the Traitor King",
       "role": "UBR legendary Zombie Warrior card-data anchor with unearth-granting text.",
       "relationship_to_faction": "Support-only card-data anchor for Grixis texture; biography, Vithia, Sedraxis, and rulership claims remain source-intake-needed.",
-      "claim_ids": [
-        "grixis_claim_0010"
-      ],
       "evidence_rows": [
         "GRIXIS-012",
         "GRIXIS-MF-003"
@@ -238,16 +239,14 @@
         "src_scryfall_oracle_cards_local_grixis_20260613"
       ],
       "confidence": "High for card facts; not lore proof.",
-      "notes": "Do not claim Sedris was king of Vithia or ruler of Sedraxis without future official capture."
+      "notes": "Do not claim Sedris was king of Vithia or ruler of Sedraxis without future official capture.",
+      "semantic_proof_status": "auxiliary_card_support_only_not_authoritative_identity_proof"
     },
     {
       "character_id": "card_thraximundar",
       "name": "Thraximundar",
       "role": "UBR legendary Zombie Assassin card-data anchor with haste and sacrifice-pressure text.",
       "relationship_to_faction": "Support-only card-data anchor for Grixis texture; biography, mount, and political role remain source-intake-needed.",
-      "claim_ids": [
-        "grixis_claim_0010"
-      ],
       "evidence_rows": [
         "GRIXIS-013",
         "GRIXIS-MF-007"
@@ -256,16 +255,14 @@
         "src_scryfall_oracle_cards_local_grixis_20260613"
       ],
       "confidence": "High for card facts; not lore proof.",
-      "notes": "Do not promote precise biography or in-world office from local card data alone."
+      "notes": "Do not promote precise biography or in-world office from local card data alone.",
+      "semantic_proof_status": "auxiliary_card_support_only_not_authoritative_identity_proof"
     },
     {
       "character_id": "card_malfegor",
       "name": "Malfegor",
       "role": "Demon Dragon card-data/support anchor in Grixis-colored attrition-resource-loss review material.",
       "relationship_to_faction": "Support-only card-data anchor; Asha, Bolas generalship, Bant invasion, and death claims remain source-intake-needed.",
-      "claim_ids": [
-        "grixis_claim_0006"
-      ],
       "evidence_rows": [
         "GRIXIS-014",
         "GRIXIS-MF-005"
@@ -274,7 +271,8 @@
         "src_scryfall_oracle_cards_local_grixis_20260613"
       ],
       "confidence": "Medium-High for card facts; not lore proof.",
-      "notes": "Do not promote Malfegor story biography without official source capture."
+      "notes": "Do not promote Malfegor story biography without official source capture.",
+      "semantic_proof_status": "auxiliary_card_support_only_not_authoritative_identity_proof"
     }
   ],
   "canonical_flavor_text": [
@@ -292,7 +290,10 @@
       "source_ids": [
         "src_scryfall_oracle_cards_local_grixis_20260613"
       ],
-      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+      "flavor_id": "grixis_flavor_grixis_battlemage_gate3",
+      "evidence_use": "auxiliary_support",
+      "semantic_proof_status": "auxiliary_card_flavor_support_only_not_authoritative_identity_proof"
     },
     {
       "card_name": "Sedris, the Traitor King",
@@ -307,7 +308,10 @@
       "source_ids": [
         "src_scryfall_oracle_cards_local_grixis_20260613"
       ],
-      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+      "flavor_id": "grixis_flavor_sedris_gate3",
+      "evidence_use": "auxiliary_support",
+      "semantic_proof_status": "auxiliary_card_flavor_support_only_not_authoritative_identity_proof"
     },
     {
       "card_name": "Thraximundar",
@@ -322,7 +326,10 @@
       "source_ids": [
         "src_scryfall_oracle_cards_local_grixis_20260613"
       ],
-      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+      "flavor_id": "grixis_flavor_thraximundar_gate3",
+      "evidence_use": "auxiliary_support",
+      "semantic_proof_status": "auxiliary_card_flavor_support_only_not_authoritative_identity_proof"
     },
     {
       "card_name": "Malfegor",
@@ -337,26 +344,113 @@
       "source_ids": [
         "src_scryfall_oracle_cards_local_grixis_20260613"
       ],
-      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces."
+      "notes": "VM-378/379 card-flavor anchor verified through local Scryfall data; summary only, no long flavor text copied into public/generated surfaces.",
+      "flavor_id": "grixis_flavor_malfegor_gate3",
+      "evidence_use": "auxiliary_support",
+      "semantic_proof_status": "auxiliary_card_flavor_support_only_not_authoritative_identity_proof"
     }
   ],
   "views_on_other_factions": [
     {
+      "relationship_id": "rel_grixis_maestros_gate3",
       "faction": "Maestros",
-      "relationship_summary": "Comparator boundary only: Maestros and Grixis share UBR direction but Maestros material is not evidence for Alaran Grixis lore, social logic, or aesthetics.",
-      "evidence_type": "VM-164 process boundary",
+      "relationship_summary": "Maestros and Grixis share UBR direction, but Maestros/New Capenna material is not evidence for Alaran Grixis lore, social logic, aesthetics, or identity proof.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
       "claim_ids": [
         "grixis_claim_0001",
         "grixis_claim_0002",
         "grixis_claim_0008"
       ],
       "confidence": "Medium",
-      "notes": "Not canon diplomacy and not a raw claim expansion."
+      "notes": "Comparator-only boundary; not canon diplomacy and not a raw claim expansion."
     },
     {
-      "faction": "Bant",
-      "relationship_summary": "Vox Mana separator only: Bant centers public order, honor, and collective structure where Grixis centers survival, calculation, and urgent action.",
-      "evidence_type": "Project comparison from Grixis evidence floor",
+      "relationship_id": "rel_grixis_dimir_gate3",
+      "faction": "Dimir / UB",
+      "relationship_summary": "Dimir can share hidden leverage and Blue-Black planning, but Grixis requires Red urgency and hostile-reality survival pressure.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "confidence": "Medium",
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
+    },
+    {
+      "relationship_id": "rel_grixis_izzet_gate3",
+      "faction": "Izzet / UR",
+      "relationship_summary": "Izzet can share Blue-Red experimentation and action, but Grixis requires Black-centered self-advocacy, adaptation, and survival leverage.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "confidence": "Medium",
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
+    },
+    {
+      "relationship_id": "rel_grixis_rakdos_gate3",
+      "faction": "Rakdos / BR",
+      "relationship_summary": "Rakdos can share appetite, pressure, and spectacle, but Grixis requires Blue weakness analysis and information leverage.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "confidence": "Medium",
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
+    },
+    {
+      "relationship_id": "rel_grixis_blue_gate3",
+      "faction": "Blue / U",
+      "relationship_summary": "Blue-only curiosity, improvement, or analysis is not Grixis unless it is bound to Black survival and Red urgent action.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005"
+      ],
+      "confidence": "Medium",
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
+    },
+    {
+      "relationship_id": "rel_grixis_black_gate3",
+      "faction": "Black / B",
+      "relationship_summary": "Black self-interest or ambition alone is not Grixis unless it is expressed through Blue weakness analysis and Red urgency under hostile reality.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "confidence": "Medium",
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
+    },
+    {
+      "relationship_id": "rel_grixis_red_gate3",
+      "faction": "Red / R",
+      "relationship_summary": "Red impulse or zeal alone is not Grixis unless it serves Black-centered survival and Blue-mapped leverage.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005"
+      ],
+      "confidence": "Medium",
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
+    },
+    {
+      "relationship_id": "rel_grixis_esper_gate3",
+      "faction": "Esper / WUB",
+      "relationship_summary": "Esper turns information toward designed perfectibility and ordered improvement; Grixis turns information toward survival leverage before the opening closes.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
       "claim_ids": [
         "grixis_claim_0003",
         "grixis_claim_0004",
@@ -364,7 +458,176 @@
         "grixis_claim_0007"
       ],
       "confidence": "Medium",
-      "notes": "Do not use this as story-world relationship evidence."
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
+    },
+    {
+      "relationship_id": "rel_grixis_sultai_gate3",
+      "faction": "Sultai / UBG",
+      "relationship_summary": "Sultai can share Blue-Black leverage, but Grixis replaces Green endurance or decadence with Red urgency and volatility.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "confidence": "Medium",
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
+    },
+    {
+      "relationship_id": "rel_grixis_temur_gate3",
+      "faction": "Temur / URG",
+      "relationship_summary": "Temur can share Blue-Red motion, but Grixis lacks Green acceptance and centers Black survival rather than embodied vitality.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "confidence": "Medium",
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
+    },
+    {
+      "relationship_id": "rel_grixis_jeskai_gate3",
+      "faction": "Jeskai / WUR",
+      "relationship_summary": "Jeskai can share disciplined action and insight, but Grixis lacks White order and centers self-advocating survival leverage.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "confidence": "Medium",
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
+    },
+    {
+      "relationship_id": "rel_grixis_jund_gate3",
+      "faction": "Jund / BRG",
+      "relationship_summary": "Jund centers instinct, appetite, and Green-Red embodiment; Grixis centers calculated survival leverage with Blue analysis.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "confidence": "Medium",
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
+    },
+    {
+      "relationship_id": "rel_grixis_mardu_gate3",
+      "faction": "Mardu / WBR",
+      "relationship_summary": "Mardu can share speed and pressure, but Grixis lacks White martial order and requires Blue weakness analysis.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "confidence": "Medium",
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
+    },
+    {
+      "relationship_id": "rel_grixis_bant_gate3",
+      "faction": "Bant / GWU",
+      "relationship_summary": "Bant centers public order, honor, and collective structure where Grixis centers survival, weakness analysis, and urgent action.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "confidence": "Medium",
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
+    },
+    {
+      "relationship_id": "rel_grixis_abzan_gate3",
+      "faction": "Abzan / WBG",
+      "relationship_summary": "Abzan endurance and kinship should not be treated as Grixis unless Black survival is joined by Blue analysis and Red urgency.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "confidence": "Medium",
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
+    },
+    {
+      "relationship_id": "rel_grixis_naya_gate3",
+      "faction": "Naya / WRG",
+      "relationship_summary": "Naya embodied awe, community, and life-scale are outside Grixis unless the answer shifts to Black survival, Blue leverage, and Red urgency.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0007"
+      ],
+      "confidence": "Medium",
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
+    },
+    {
+      "relationship_id": "rel_grixis_wubrg_gate3",
+      "faction": "WUBRG / five-color / good-stuff",
+      "relationship_summary": "Five-color breadth or good-stuff flexibility is not Grixis; Grixis needs the specific Black-centered UBR survival synthesis.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
+      "claim_ids": [
+        "grixis_claim_0001",
+        "grixis_claim_0002",
+        "grixis_claim_0003",
+        "grixis_claim_0006",
+        "grixis_claim_0008"
+      ],
+      "confidence": "Medium",
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
+    },
+    {
+      "relationship_id": "rel_grixis_generic_control_gate3",
+      "faction": "Generic control",
+      "relationship_summary": "Control language is not Grixis unless it serves source-backed survival leverage through Black center, Blue weakness analysis, and Red urgency.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "confidence": "Medium",
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
+    },
+    {
+      "relationship_id": "rel_grixis_generic_villainy_gate3",
+      "faction": "Generic villainy / nihilism / cruelty / chaos",
+      "relationship_summary": "Villainy, nihilism, cruelty, chaos, or power-at-any-cost language alone must be rejected as Grixis proof.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
+      "claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0006",
+        "grixis_claim_0008"
+      ],
+      "confidence": "Medium",
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
+    },
+    {
+      "relationship_id": "rel_grixis_generic_ambition_gate3",
+      "faction": "Generic ambition / self-interest / UBR",
+      "relationship_summary": "Ambition, self-interest, or UBR color naming alone is not enough; Grixis requires hostile-reality survival plus Blue analysis plus Red urgency.",
+      "evidence_type": "VM-524 Gate 3 semantic comparison from Grixis source-bound claim floor",
+      "claim_ids": [
+        "grixis_claim_0002",
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0005",
+        "grixis_claim_0008"
+      ],
+      "confidence": "Medium",
+      "notes": "Semantic separator only; do not use this as story-world relationship evidence."
     }
   ],
   "mechanics": {
@@ -440,7 +703,7 @@
     "generation_status": "wired_through_approved_builder_path",
     "claim_count": 11,
     "claim_basis": "VM-164 promoted design rows plus VM-379 local official Alara captures for broad Grixis story texture.",
-    "support_material_policy": "Support-only, manual-fill, discovery-only, and comparator-only material may appear only in bounded review notes.",
+    "support_material_policy": "Support-only, manual-fill, discovery-only, comparator-only, Scryfall, Commander, mechanics, character, and aesthetics material may appear only in bounded review notes and must not be used as authoritative Grixis identity proof.",
     "known_limitations": [
       "Detailed story-world lore remains deferred.",
       "Support-only mechanics and Commander/operator material are not raw claims.",
@@ -478,7 +741,8 @@
         "official post-Conflux undead assault/life-drain dimension"
       ],
       "deferred_claims": "Vithia/Sedraxis, full vis economy, Bolas staging, Nefarox cults, and detailed Sedris/Malfegor/Thraximundar biographies remain source-intake-needed."
-    }
+    },
+    "data_quality_id": "grixis_data_quality_gate3"
   },
   "research_limitations": {
     "manual_fill_required": [
