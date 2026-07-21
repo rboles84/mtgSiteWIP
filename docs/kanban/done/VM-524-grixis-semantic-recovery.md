@@ -1,7 +1,7 @@
 # VM-524 - Grixis Semantic Recovery
 
 ID: VM-524
-Status: Ready - Independent exact-SHA review approved; certification-only window required next
+Status: Done - Certified semantically_ready
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: GRIXIS
@@ -28,7 +28,7 @@ Recover Grixis end to end under CRIT-001: audit the existing packet, bound readi
 - [x] Gate 4 - Generation and validation complete; exact candidate qualified.
 - [x] Gate 5 - Exact candidate workflow recorded for `64a5bfffd646b292c7481f91c9ccb6def42fb552`.
 - [x] Independent exact-SHA review - approved exact candidate `64a5bfffd646b292c7481f91c9ccb6def42fb552`.
-- [ ] Certification - pending; separate certification-only window required.
+- [x] Certification - complete; exact approved candidate certified.
 
 ## Scope Rules
 
@@ -48,15 +48,26 @@ Recover Grixis end to end under CRIT-001: audit the existing packet, bound readi
 - Candidate workflow record: `docs/handoffs/2026-07-21-0753-codex-vm524-grixis-candidate-workflow.md`
 - Candidate recovery SHA: `64a5bfffd646b292c7481f91c9ccb6def42fb552`
 - Independent reviewer: approved exact SHA `64a5bfffd646b292c7481f91c9ccb6def42fb552` in `docs/handoffs/2026-07-21-0825-codex-vm524-grixis-independent-review.md`
-- Certification commit: pending and not authorized
+- Certification commit: PENDING_VM524_CERTIFICATION_COMMIT_SHA
 
 ## Current Status
 
-PASS - Grixis exact semantic candidate `64a5bfffd646b292c7481f91c9ccb6def42fb552` is independently approved in `docs/handoffs/2026-07-21-0825-codex-vm524-grixis-independent-review.md`. The semantic candidate remains the final Gate 3+4 implementation commit, not the Gate 3+4 governance commit `bc2d1ec5f77c88f2afd2e4d0693e3249a172bcc7`, not the workflow-record commit, and not the independent-review governance commit. VM-524 is ready only for a separate certification-only window.
+PASS - Grixis exact semantic candidate `64a5bfffd646b292c7481f91c9ccb6def42fb552` is certified `semantically_ready` after independent approval in `docs/handoffs/2026-07-21-0825-codex-vm524-grixis-independent-review.md`. The semantic candidate remains distinct from Gate 3+4 governance `bc2d1ec5f77c88f2afd2e4d0693e3249a172bcc7`, workflow-record commit `d72c1cac9b94e4e4a2c6dbeb7137b1dcc8d6595d`, independent-review governance commit `2029610126f6742241db96ff148eaf1e67ee1dc2`, and certification commit placeholder `PENDING_VM524_CERTIFICATION_COMMIT_SHA`.
 
-Required review decision is exactly one of:
+## Certification - 2026-07-21
 
-- `APPROVE EXACT SHA 64a5bfffd646b292c7481f91c9ccb6def42fb552`
-- `REJECT EXACT SHA 64a5bfffd646b292c7481f91c9ccb6def42fb552`
+- Certified status: `semantically_ready`.
+- Exact approved recovery candidate: `64a5bfffd646b292c7481f91c9ccb6def42fb552`.
+- Candidate workflow record: `d72c1cac9b94e4e4a2c6dbeb7137b1dcc8d6595d`.
+- Independent approval review: `2029610126f6742241db96ff148eaf1e67ee1dc2`.
+- Exact approval line: `APPROVE EXACT SHA 64a5bfffd646b292c7481f91c9ccb6def42fb552`.
+- Certification placeholder: `PENDING_VM524_CERTIFICATION_COMMIT_SHA`.
+- Certified count: 23 of 37.
+- Wave 4 count: 3 of 10.
+- Evidence locators: 23.
+- Provenance count: 73 GRIXIS entries.
+- Fixture count: 22.
+- VM-525 / Jund: not started and untouched.
+- Excel tracker: untouched.
 
-Independent approval has occurred for exact candidate `64a5bfffd646b292c7481f91c9ccb6def42fb552`; certification remains prohibited until a separate certification-only window. No certification, semantically_ready transition, certified-count increment, Wave 4 count change, program-base advancement, Excel edit, VM-525 work, CRIT ledger edit, original-main edit, protected-worktree edit, DRIFT-017 edit, historical/debug/archive cleanup, or Table Talk change has occurred. Certified count remains 22 of 37; Wave 4 remains 2 of 10; program base remains `0a2d22e2ba0b16c15e30fa6ba2f3ce7d83313c0a`.
+No source, claim, evidence, provenance ownership, fixture, collision, preview, generated semantic, recruiter, runtime, test, validator, generator, schema, package, CI, historical/debug/archive, DRIFT-017 prototype, VM-542/DRIFT-019 residual, original-main, protected-worktree, or Table Talk change occurred in certification.
