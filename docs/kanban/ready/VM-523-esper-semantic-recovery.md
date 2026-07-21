@@ -1,7 +1,7 @@
 # VM-523 - Esper Semantic Recovery
 
 ID: VM-523
-Status: Ready - Candidate Awaiting Independent Exact-SHA Review
+Status: Ready - Independent Exact-SHA Review Approved
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: ESPER
@@ -21,7 +21,7 @@ Recover Esper end to end under CRIT-001: audit the existing packet, bound readin
 - [x] Gate 3 - Canonical remediation complete: `docs/handoffs/2026-07-20-1219-codex-vm523-esper-gate3-gate4.md`; implementation commits `0365560e41914df51938a1d903b28d21be978173` and `6467f70fa4de13173172e20277e0fd56ebaf0b80`.
 - [x] Gate 4 - Generation and validation complete: exact candidate-scope capability passed for `a7ea41cbf57cc87f1948fdd254f0295816c5919d..6467f70fa4de13173172e20277e0fd56ebaf0b80`; exact-tree `npm.cmd test` passed from exported implementation tree.
 - [x] Gate 5 - Exact candidate workflow recorded: `docs/handoffs/2026-07-20-1641-codex-vm523-esper-candidate-workflow.md`.
-- [ ] Independent exact-SHA review.
+- [x] Independent exact-SHA review: `docs/handoffs/2026-07-20-1914-codex-vm523-esper-independent-review.md`; `APPROVE EXACT SHA 6467f70fa4de13173172e20277e0fd56ebaf0b80`.
 - [ ] Certification.
 
 ## Scope Rules
@@ -41,7 +41,7 @@ Recover Esper end to end under CRIT-001: audit the existing packet, bound readin
 - Gate 3+4 remediation report: `docs/handoffs/2026-07-20-1219-codex-vm523-esper-gate3-gate4.md`
 - Candidate workflow record: `docs/handoffs/2026-07-20-1641-codex-vm523-esper-candidate-workflow.md`
 - Candidate recovery SHA: `6467f70fa4de13173172e20277e0fd56ebaf0b80`
-- Independent reviewer: pending
+- Independent reviewer: approved exact candidate `6467f70fa4de13173172e20277e0fd56ebaf0b80` in `docs/handoffs/2026-07-20-1914-codex-vm523-esper-independent-review.md`
 - Certification commit: pending
 
 ## Preflight Decision
@@ -80,3 +80,13 @@ Required future review decision is exactly one of:
 - `REJECT EXACT SHA 6467f70fa4de13173172e20277e0fd56ebaf0b80`
 
 No independent review, approval, rejection, certification, semantically-ready transition, certified-count increment, Wave 4 count change, program-base advancement, Excel edit, VM-524 work, original-main edit, VM-522 edit, DRIFT-017 edit, historical/debug/archive cleanup, or Table Talk change occurred.
+
+## Independent Review Decision
+
+APPROVE EXACT SHA `6467f70fa4de13173172e20277e0fd56ebaf0b80`
+
+The independent exact-SHA review completed in branch `codex/vm-523-esper-independent-review` and worktree `C:\dev\mtgSiteWIP-crit001-vm523-independent-review`, starting from workflow commit `841154f80a786ae41fa59c5835ec9370e40cb05e`. It reviewed only exact candidate `6467f70fa4de13173172e20277e0fd56ebaf0b80` against exact program base `a7ea41cbf57cc87f1948fdd254f0295816c5919d`.
+
+The review independently passed source authority, all 7 substantive claims, both support records, support proof-chain isolation, evidence locators/scopes, canonical IDs, 56 Esper provenance entries, 23 fixtures, required-neighbor/generic/mechanical/aesthetic boundaries, collision ordering, lateral targets, native IDs, preview parity, active consumed surfaces, DRIFT-015, DRIFT-016, DRIFT-017, frozen fields, non-Esper integrity, exact candidate-scope, invalid `WUB` guard, parser/placement/recruiter/source-generated validations, and exact-candidate export `npm.cmd test`.
+
+Certification-only window is required next. Esper is not `semantically_ready`; certified count remains 21 of 37; Wave 4 remains 1 of 10; program base remains `a7ea41cbf57cc87f1948fdd254f0295816c5919d`. No certification, certified-count increment, program-base advancement, Excel edit, VM-524 work, candidate change, source/evidence/provenance/fixture/collision/preview/generated/recruiter/runtime/test/validator/generator/schema/package/CI change, original-main edit, VM-522 edit, DRIFT-017 edit, historical/debug/archive cleanup, or Table Talk change occurred.
