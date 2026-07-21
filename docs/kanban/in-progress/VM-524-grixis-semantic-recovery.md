@@ -1,13 +1,15 @@
 # VM-524 — Grixis Semantic Recovery
 
 ID: VM-524
-Status: Backlog
+Status: Active - Pre-identity drift preflight complete; Gate 1+2 read-only audit authorized
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: GRIXIS
 Raw packet: `data/raw-factions/grixis/`
+Program base: `0a2d22e2ba0b16c15e30fa6ba2f3ce7d83313c0a`
+Preflight record: `docs/handoffs/2026-07-20-2155-codex-vm524-grixis-drift-preflight.md`
 Cohort: shard
-Contract: pending Contract v1
+Contract: CRIT-001 Contract v1.1
 
 ## Objective
 
@@ -15,6 +17,7 @@ Recover Grixis end to end under CRIT-001: audit the existing packet, bound readi
 
 ## Gates
 
+- [x] Pre-identity drift preflight - complete; Gate 1+2 read-only audit authorized.
 - [ ] Gate 1 — Packet audit and bounded disposition.
 - [ ] Gate 2 — Sufficient evidence completion.
 - [ ] Gate 3 — Canonical remediation.
@@ -37,3 +40,7 @@ Recover Grixis end to end under CRIT-001: audit the existing packet, bound readi
 - Candidate recovery SHA: pending
 - Independent reviewer: pending
 - Certification commit: pending
+
+## Preflight Status
+
+PASS - Gate 1+2 read-only audit is authorized in a later separate prompt. All inventoried semantic and candidate-readiness defects remain unresolved. No remediation is authorized. No candidate exists. Program base remains `0a2d22e2ba0b16c15e30fa6ba2f3ce7d83313c0a`.
