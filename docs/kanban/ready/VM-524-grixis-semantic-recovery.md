@@ -1,7 +1,7 @@
 # VM-524 - Grixis Semantic Recovery
 
 ID: VM-524
-Status: Ready - Exact semantic candidate awaiting independent exact-SHA review
+Status: Ready - Independent exact-SHA review approved; certification-only window required next
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: GRIXIS
@@ -11,6 +11,7 @@ Preflight record: `docs/handoffs/2026-07-20-2155-codex-vm524-grixis-drift-prefli
 Gate 1+2 record: `docs/handoffs/2026-07-20-2239-codex-vm524-grixis-gate1-gate2.md`
 Gate 3+4 record: `docs/handoffs/2026-07-20-2358-codex-vm524-grixis-gate3-gate4.md`
 Candidate workflow record: `docs/handoffs/2026-07-21-0753-codex-vm524-grixis-candidate-workflow.md`
+Independent review record: `docs/handoffs/2026-07-21-0825-codex-vm524-grixis-independent-review.md`
 Cohort: shard
 Contract: CRIT-001 Contract v1.1
 
@@ -26,8 +27,8 @@ Recover Grixis end to end under CRIT-001: audit the existing packet, bound readi
 - [x] Gate 3 - Canonical remediation complete in implementation commits `a6115285e859fbd46f0cd0726429b7e5ddd28e0a` and `64a5bfffd646b292c7481f91c9ccb6def42fb552`.
 - [x] Gate 4 - Generation and validation complete; exact candidate qualified.
 - [x] Gate 5 - Exact candidate workflow recorded for `64a5bfffd646b292c7481f91c9ccb6def42fb552`.
-- [ ] Independent exact-SHA review - required next.
-- [ ] Certification - prohibited until exact approval.
+- [x] Independent exact-SHA review - approved exact candidate `64a5bfffd646b292c7481f91c9ccb6def42fb552`.
+- [ ] Certification - pending; separate certification-only window required.
 
 ## Scope Rules
 
@@ -46,16 +47,16 @@ Recover Grixis end to end under CRIT-001: audit the existing packet, bound readi
 - Gate 3+4 remediation report: `docs/handoffs/2026-07-20-2358-codex-vm524-grixis-gate3-gate4.md`
 - Candidate workflow record: `docs/handoffs/2026-07-21-0753-codex-vm524-grixis-candidate-workflow.md`
 - Candidate recovery SHA: `64a5bfffd646b292c7481f91c9ccb6def42fb552`
-- Independent reviewer: pending; must review exact SHA `64a5bfffd646b292c7481f91c9ccb6def42fb552`
+- Independent reviewer: approved exact SHA `64a5bfffd646b292c7481f91c9ccb6def42fb552` in `docs/handoffs/2026-07-21-0825-codex-vm524-grixis-independent-review.md`
 - Certification commit: pending and not authorized
 
 ## Current Status
 
-PASS - Grixis exact semantic candidate workflow is recorded for `64a5bfffd646b292c7481f91c9ccb6def42fb552`. The semantic candidate remains the final Gate 3+4 implementation commit, not the Gate 3+4 governance commit `bc2d1ec5f77c88f2afd2e4d0693e3249a172bcc7` and not this workflow-record commit. VM-524 is ready for a fresh independent exact-SHA review in a separate window, branch, and worktree.
+PASS - Grixis exact semantic candidate `64a5bfffd646b292c7481f91c9ccb6def42fb552` is independently approved in `docs/handoffs/2026-07-21-0825-codex-vm524-grixis-independent-review.md`. The semantic candidate remains the final Gate 3+4 implementation commit, not the Gate 3+4 governance commit `bc2d1ec5f77c88f2afd2e4d0693e3249a172bcc7`, not the workflow-record commit, and not the independent-review governance commit. VM-524 is ready only for a separate certification-only window.
 
 Required review decision is exactly one of:
 
 - `APPROVE EXACT SHA 64a5bfffd646b292c7481f91c9ccb6def42fb552`
 - `REJECT EXACT SHA 64a5bfffd646b292c7481f91c9ccb6def42fb552`
 
-No independent review, approval, rejection, certification, semantically_ready transition, certified-count increment, Wave 4 count change, program-base advancement, Excel edit, VM-525 work, CRIT ledger edit, original-main edit, protected-worktree edit, DRIFT-017 edit, historical/debug/archive cleanup, or Table Talk change has occurred. Certified count remains 22 of 37; Wave 4 remains 2 of 10; program base remains `0a2d22e2ba0b16c15e30fa6ba2f3ce7d83313c0a`.
+Independent approval has occurred for exact candidate `64a5bfffd646b292c7481f91c9ccb6def42fb552`; certification remains prohibited until a separate certification-only window. No certification, semantically_ready transition, certified-count increment, Wave 4 count change, program-base advancement, Excel edit, VM-525 work, CRIT ledger edit, original-main edit, protected-worktree edit, DRIFT-017 edit, historical/debug/archive cleanup, or Table Talk change has occurred. Certified count remains 22 of 37; Wave 4 remains 2 of 10; program base remains `0a2d22e2ba0b16c15e30fa6ba2f3ce7d83313c0a`.
