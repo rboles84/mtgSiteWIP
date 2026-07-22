@@ -1,7 +1,7 @@
 # DRIFT-020 - Jund Preview Candidate-Scope Resolution
 
 ID: DRIFT-020
-Status: In Progress - exact infrastructure candidate qualified; awaiting independent review and certification
+Status: Ready - candidate workflow recorded; awaiting independent exact-SHA review
 Type: CRIT-001 Shared Infrastructure Candidate
 Priority: CRIT-001
 Identity context: JUND / VM-525
@@ -10,7 +10,8 @@ Worktree: `C:\dev\mtgSiteWIP-crit001-drift020-jund-preview-scope`
 Program base: `16528f3a24a7f3d7f4475bdde56fbfee09becd98`
 Jund STOP base: `460dd7186dc76658797beac74a4330cc699a52d6`
 Implementation candidate: `399ba34243f5b421da4d3a0c251a37bcbc4bd5fa`
-Governance handoff: `docs/handoffs/2026-07-21-1829-codex-drift020-jund-preview-candidate-scope.md`
+Qualification governance handoff: `docs/handoffs/2026-07-21-1829-codex-drift020-jund-preview-candidate-scope.md`
+Workflow handoff: `docs/handoffs/2026-07-21-1920-codex-drift020-preview-candidate-workflow.md`
 
 ## Objective
 
@@ -24,9 +25,9 @@ Resolve the shared validator scope blocker from VM-525 without touching Jund sem
 
 ## Current Status
 
-PASS - DRIFT-020 implementation candidate `399ba34243f5b421da4d3a0c251a37bcbc4bd5fa` is qualified from Jund STOP commit `460dd7186dc76658797beac74a4330cc699a52d6`.
+PASS - DRIFT-020 implementation candidate `399ba34243f5b421da4d3a0c251a37bcbc4bd5fa` is workflow-recorded from Jund STOP commit `460dd7186dc76658797beac74a4330cc699a52d6`.
 
-The remaining obligations are a separate candidate-workflow/review sequence, independent exact-SHA review, and certification before VM-525 may resume Gate 3+4 semantic remediation.
+The remaining obligations are independent exact-SHA review, approval by exact SHA, and certification before VM-525 may resume Gate 3+4 semantic remediation.
 
 ## Validation Summary
 
@@ -45,4 +46,5 @@ The remaining obligations are a separate candidate-workflow/review sequence, ind
 - VM-525 Gate 1+2 handoff: `docs/handoffs/2026-07-21-1457-codex-vm525-jund-gate1-gate2.md`
 - VM-525 Gate 3+4 STOP handoff: `docs/handoffs/2026-07-21-1710-codex-vm525-jund-gate3-gate4-stop.md`
 - DRIFT-020 governance handoff: `docs/handoffs/2026-07-21-1829-codex-drift020-jund-preview-candidate-scope.md`
+- DRIFT-020 workflow handoff: `docs/handoffs/2026-07-21-1920-codex-drift020-preview-candidate-workflow.md`
 - Drift register: `docs/incidents/CRIT-001-drift-register.md`
