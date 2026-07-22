@@ -6,13 +6,13 @@
   "program": {
     "status": "active",
     "active_identity": null,
-    "next_identity": "JUND",
-    "certified_identity_count": 23,
+    "next_identity": "NAYA",
+    "certified_identity_count": 24,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 4 shards - active; VM-525 Jund not started",
-      "current_program_base": "PENDING_VM524_CERTIFICATION_COMMIT_SHA",
+      "next_cohort": "Wave 4 shards - active; VM-526 Naya not started",
+      "current_program_base": "PENDING_VM525_CERTIFICATION_COMMIT_SHA",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -30,20 +30,21 @@
         "next_wave_status": "VM-522/Wave 4 not started"
       },
       "wave_4_shards": "active",
-      "wave_4_shards_certified": "3 of 10",
+      "wave_4_shards_certified": "4 of 10",
       "wave_4_status": {
         "status": "active",
-        "certified": "3 of 10",
+        "certified": "4 of 10",
         "identities_certified": [
           "BANT",
           "ESPER",
-          "GRIXIS"
+          "GRIXIS",
+          "JUND"
         ],
         "started_by": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
         "started_at": "2026-07-20T08:27:00-06:00",
-        "latest_certification": "PENDING_VM524_CERTIFICATION_COMMIT_SHA",
-        "latest_certified_identity": "GRIXIS",
-        "next_identity": "JUND",
+        "latest_certification": "PENDING_VM525_CERTIFICATION_COMMIT_SHA",
+        "latest_certified_identity": "JUND",
+        "next_identity": "NAYA",
         "next_identity_status": "not_started"
       }
     },
@@ -74,20 +75,20 @@
       "installed_after_program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
       "governance_commit": "PENDING_CRIT001_DRIFT_CONTROL_GOVERNANCE_SHA",
       "current_identity_hold": {
-        "identity": "JUND",
-        "card": "VM-525",
-        "state": "not_started_after_grixis_certification",
+        "identity": "NAYA",
+        "card": "VM-526",
+        "state": "not_started_after_jund_certification",
         "branch": null,
-        "prior_identity_certified": "GRIXIS",
-        "prior_identity_certification": "PENDING_VM524_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "No VM-525 / Jund semantic work is authorized by VM-524 certification. A separate future window must explicitly start VM-525 and complete drift preflight before any semantic work.",
-        "required_next_milestone": "Await explicit VM-525 start authorization; VM-525 remains not started in this certification commit.",
+        "prior_identity_certified": "JUND",
+        "prior_identity_certification": "PENDING_VM525_CERTIFICATION_COMMIT_SHA",
+        "authorized_next_scope": "No VM-526 / Naya semantic work is authorized by VM-525 certification. A separate future window must explicitly start VM-526 and complete drift preflight before any semantic work.",
+        "required_next_milestone": "Await explicit VM-526 start authorization; VM-526 remains not started in this certification commit.",
         "drift_preflight_started": false,
         "drift_preflight_completed": false,
         "drift_preflight_record": null,
         "drift_preflight_commit": null,
-        "program_base": "PENDING_VM524_CERTIFICATION_COMMIT_SHA",
-        "updated_at": "2026-07-21T09:42:00-06:00"
+        "program_base": "PENDING_VM525_CERTIFICATION_COMMIT_SHA",
+        "updated_at": "2026-07-21T23:00:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -98,33 +99,33 @@
         "Begin Simic Goal mode only after the drift preflight reports no FAIL or UNKNOWN controls."
       ],
       "last_certification": {
-        "identity": "GRIXIS",
-        "card": "VM-524",
-        "candidate_sha": "64a5bfffd646b292c7481f91c9ccb6def42fb552",
-        "candidate_workflow_sha": "d72c1cac9b94e4e4a2c6dbeb7137b1dcc8d6595d",
-        "approval_review_sha": "2029610126f6742241db96ff148eaf1e67ee1dc2",
-        "review_decision": "APPROVE EXACT SHA 64a5bfffd646b292c7481f91c9ccb6def42fb552",
-        "certification_commit": "PENDING_VM524_CERTIFICATION_COMMIT_SHA",
-        "certified_at": "2026-07-21T09:42:00-06:00",
+        "identity": "JUND",
+        "card": "VM-525",
+        "candidate_sha": "b275fc62aca3ed67bcdc624ea59b3ee15cdeae04",
+        "candidate_workflow_sha": "461ff5c389a93c6c5e5fc7317bbc5413d214a960",
+        "approval_review_sha": "dee26b0246713a9b7d687c9fd2dfb96db2cfd9d2",
+        "review_decision": "APPROVE EXACT SHA b275fc62aca3ed67bcdc624ea59b3ee15cdeae04",
+        "certification_commit": "PENDING_VM525_CERTIFICATION_COMMIT_SHA",
+        "certified_at": "2026-07-21T23:00:00-06:00",
         "final_state": "semantically_ready",
         "contract_version": "v1.1",
-        "reviewed_provenance_count": 73,
-        "evidence_locator_count": 23,
+        "reviewed_provenance_count": 46,
+        "evidence_locator_count": 30,
         "claim_role_counts": {
-          "total": 11,
-          "substantive_claim": 11,
+          "total": 13,
+          "substantive_claim": 12,
           "discovery_record": 0,
-          "support_record": 0,
+          "support_record": 1,
           "unclassified": 0
         },
         "candidate_scope_result": "PASS",
-        "invalid_alias_result": "UBR rejected with Unknown identity UBR",
-        "fixture_count": 22,
-        "wave_4_certified": "3 of 10",
-        "total_certified": 23,
-        "next_identity": "JUND",
+        "invalid_alias_result": "BRG rejected with Unknown identity BRG",
+        "fixture_count": 14,
+        "wave_4_certified": "4 of 10",
+        "total_certified": 24,
+        "next_identity": "NAYA",
         "next_identity_status": "not_started",
-        "prior_program_base": "0a2d22e2ba0b16c15e30fa6ba2f3ce7d83313c0a"
+        "prior_program_base": "665d2b128f3aab8daf5d48d4fdab244a9fb33c2e"
       }
     },
     "rejected_prerequisite_candidates": [
@@ -4151,77 +4152,90 @@
           "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 12,
           "discovery_record": 0,
-          "support_record": 0,
-          "unclassified": 10
+          "support_record": 1,
+          "unclassified": 0
         },
-        "source_count": 15,
+        "source_count": 18,
         "source_role_counts": {
-          "claim-bearing": 3,
+          "claim-bearing": 5,
           "shaping-only": 6,
-          "support-only": 6
+          "support-only": 7
         },
-        "claim_bearing_source_count": 3,
-        "claim_bearing_source_rate": 0.2,
-        "reference_site_count": 22,
+        "claim_bearing_source_count": 5,
+        "claim_bearing_source_rate": 0.2778,
+        "reference_site_count": 37,
         "missing_references": [],
         "potential_role_invalid_support_links": [],
         "raw_question_count": 3,
         "unique_question_claim_ids": [
+          "jund_claim_0002",
           "jund_claim_0003",
           "jund_claim_0004",
           "jund_claim_0005",
-          "jund_claim_0010",
           "jund_claim_0006",
-          "jund_claim_0007"
+          "jund_claim_0008",
+          "jund_claim_0009",
+          "jund_claim_0010",
+          "jund_claim_0012"
         ],
         "neighbor_references": [
+          "cult_of_rakdos",
+          "golgari_swarm",
           "grixis",
           "gruul_clans",
+          "mardu",
           "naya",
-          "witherbloom"
+          "sultai",
+          "temur",
+          "witherbloom",
+          "wubrg"
         ],
-        "recruiter_context_size": 9713,
+        "recruiter_context_size": 10136,
         "creation_commit": "38393e10864230dbf43bb3d80d43933d80c17666",
         "readiness_mentions": [
           "docs/reference/shard-clan-source-readiness-matrix.md:71"
         ],
         "provisional_risk_indicators": {
           "coverage": [
-            "low-record-volume",
-            "no-explicit-substantive-role"
+            "low-record-volume"
           ],
           "neighbors": []
         },
         "template_cohort_pattern": false,
-        "inventory_updated_at": "2026-07-11T18:42:33.624Z"
+        "inventory_updated_at": "2026-07-11T18:42:33.624Z",
+        "certification_updated_at": "2026-07-21T23:00:00-06:00"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "certified",
+        "status": "semantically_ready",
+        "started_at": "2026-07-21T12:29:00-06:00",
+        "gate_entered_at": "2026-07-21T23:00:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "NAYA",
-        "primary_disposition": null
+        "primary_disposition": "certified from exact approved candidate"
       },
       "semantic_review": {
         "required_neighbors": [],
-        "audit_report": null,
+        "audit_report": "docs/handoffs/2026-07-21-2233-codex-vm525-jund-independent-review.md",
         "residual_findings": []
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
-        "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
-        "certified_at": null
+        "candidate_recovery_sha": "b275fc62aca3ed67bcdc624ea59b3ee15cdeae04",
+        "recovery_commit": "b275fc62aca3ed67bcdc624ea59b3ee15cdeae04",
+        "candidate_workflow_record": "461ff5c389a93c6c5e5fc7317bbc5413d214a960",
+        "approval_review_record": "dee26b0246713a9b7d687c9fd2dfb96db2cfd9d2",
+        "approval_decision": "APPROVE EXACT SHA b275fc62aca3ed67bcdc624ea59b3ee15cdeae04",
+        "certification_commit": "PENDING_VM525_CERTIFICATION_COMMIT_SHA",
+        "reviewer": "Independent exact-SHA review",
+        "review_cycles": 1,
+        "approval_date": "2026-07-21",
+        "certified_at": "2026-07-21T23:00:00-06:00",
+        "certification_handoff": "docs/handoffs/2026-07-21-2300-codex-vm525-jund-certification.md"
       }
     },
     {

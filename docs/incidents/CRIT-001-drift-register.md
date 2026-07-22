@@ -37,6 +37,16 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - Certification scope: governance-only; candidate implementation, candidate tests, generated semantic data, Jund semantic data, Jund candidate creation, VM-526, original main, Excel, DRIFT-017, and Table Talk baseline were untouched.
 - Program base: `PENDING_DRIFT020_CERTIFICATION_COMMIT_SHA`; certified identity count remains 23 of 37 because DRIFT-020 is a shared-infrastructure control.
 
+## VM-525 Certification Update - 2026-07-21
+
+- DRIFT-014: VM-525 certification preserved candidate/workflow/review/certification object separation; only exact approved candidate `b275fc62aca3ed67bcdc624ea59b3ee15cdeae04` was certified, while workflow `461ff5c389a93c6c5e5fc7317bbc5413d214a960` and approval review `dee26b0246713a9b7d687c9fd2dfb96db2cfd9d2` remain distinct.
+- DRIFT-015: Jund preview ownership and source/embedded equality passed under the DRIFT-020 object-level preview-source control; no preview semantic change was introduced during certification.
+- DRIFT-016: Jund array-shape candidate-scope validation passed for `JUND`; invalid `BRG` alias and a synthetic unknown identity were rejected as unknown identities.
+- DRIFT-017: Active Home, Archscry, recruiter, tests, and CI consumer classifications were preserved; historical/debug/archive exclusions and VM-542 / DRIFT-019 residuals were untouched.
+- DRIFT-020: Certification reconciled Jund from the DRIFT-020 certification/program-base SHA `665d2b128f3aab8daf5d48d4fdab244a9fb33c2e`; stopped-range candidate-scope failure remains preserved for `16528f3a24a7f3d7f4475bdde56fbfee09becd98..460dd7186dc76658797beac74a4330cc699a52d6`.
+- Certification scope: governance-only; source, generated semantic data, fixture, runtime, validator/test implementation, package, CI, Excel, original main, DRIFT-017 prototype, Table Talk baseline, and VM-526 were untouched.
+- Program base: `PENDING_VM525_CERTIFICATION_COMMIT_SHA`; certified identity count advances to 24 of 37 and Wave 4 shards advance to 4 of 10.
+
 ## VM-524 Certification Update - 2026-07-21
 
 - DRIFT-014: VM-524 certification preserved candidate/workflow/review/certification object separation; only exact approved candidate `64a5bfffd646b292c7481f91c9ccb6def42fb552` was certified, while workflow `d72c1cac9b94e4e4a2c6dbeb7137b1dcc8d6595d` and approval review `2029610126f6742241db96ff148eaf1e67ee1dc2` remain distinct.
