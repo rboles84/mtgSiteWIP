@@ -29455,6 +29455,171 @@
     {
       "identity_key": "TEMUR",
       "canonical_file": "data/raw-factions/temur/temur.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "guidance_temur_0001_gate3",
+      "canonical_content_hash": "sha256:fcf66a06275f916cf71ed54ae74b3501fe0b26697c14384a6e84ccdc123db19b",
+      "evidence_claim_ids": [
+        "temur_claim_0001",
+        "temur_claim_0002",
+        "temur_claim_0003",
+        "temur_claim_0004",
+        "temur_claim_0005",
+        "temur_claim_0009"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you",
+        "src_wotc_tarkir_dragons_pg_part_2",
+        "src_wotc_tarkir_dragonstorm_pg_part_2",
+        "src_wotc_tarkir_khans_pg_part_2",
+        "src_wotc_tarkir_story_awakening_the_bear"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/TEMUR",
+        "data/placement-model.json#/factions/TEMUR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/TEMUR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "TEMUR",
+      "canonical_file": "data/raw-factions/temur/temur.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "guidance_temur_0002_gate3",
+      "canonical_content_hash": "sha256:69aabd8f1c3a0ffd7cd4105a444f20bc149e2d4e6e485337944aa0a4b29d1042",
+      "evidence_claim_ids": [
+        "temur_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/TEMUR",
+        "data/placement-model.json#/factions/TEMUR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/TEMUR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "TEMUR",
+      "canonical_file": "data/raw-factions/temur/temur.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "guidance_temur_0003_gate3",
+      "canonical_content_hash": "sha256:257f09179adf0f0df152ecc863994ef15ed24f9d4b740758d9e55ce40da184f5",
+      "evidence_claim_ids": [
+        "temur_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/TEMUR",
+        "data/placement-model.json#/factions/TEMUR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/TEMUR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "TEMUR",
+      "canonical_file": "data/raw-factions/temur/temur.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "guidance_temur_0004_gate3",
+      "canonical_content_hash": "sha256:4b4bb56276209b447095678b259cee9e5a76620e156629b3f6dbc8a4b3b745ff",
+      "evidence_claim_ids": [
+        "temur_claim_0001",
+        "temur_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/TEMUR",
+        "data/placement-model.json#/factions/TEMUR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/TEMUR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "TEMUR",
+      "canonical_file": "data/raw-factions/temur/temur.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "guidance_temur_0005_gate3",
+      "canonical_content_hash": "sha256:57f347cf9427439ef9869e9207f062f9be3f87e4a2225b1ef125b331304d2182",
+      "evidence_claim_ids": [
+        "temur_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/TEMUR",
+        "data/placement-model.json#/factions/TEMUR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/TEMUR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "TEMUR",
+      "canonical_file": "data/raw-factions/temur/temur.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "guidance_temur_0006_gate3",
+      "canonical_content_hash": "sha256:33cbbce504396ebcd789b0eefa0c6dcd75af42f41216b7c39ecb3d012bb218b8",
+      "evidence_claim_ids": [
+        "temur_claim_0007",
+        "temur_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_dragons_pg_part_2"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/TEMUR",
+        "data/placement-model.json#/factions/TEMUR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/TEMUR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "TEMUR",
+      "canonical_file": "data/raw-factions/temur/temur.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "guidance_temur_0007_gate3",
+      "canonical_content_hash": "sha256:648f13087f66f3eb2e908981fccfb68559254d2dce3dc184916d1dcf48579991",
+      "evidence_claim_ids": [
+        "temur_claim_0008",
+        "temur_claim_0009",
+        "temur_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/TEMUR",
+        "data/placement-model.json#/factions/TEMUR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/TEMUR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "TEMUR",
+      "canonical_file": "data/raw-factions/temur/temur.placement.json",
       "canonical_pointer": "/collision_guidance/0",
       "canonical_id": "collision_temur_sultai_live",
       "canonical_content_hash": "sha256:2a88b71c5912d4d86369adafa6304d8b05b293342e85fdd4bc26192bb70d2564",
@@ -29671,8 +29836,8 @@
       "identity_key": "TEMUR",
       "canonical_file": "data/raw-factions/temur/temur.placement.json",
       "canonical_pointer": "/moral_and_psychological_profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:1747416857c8eddbf4c6ee65111b32c7aa761f2dc255cab6ff37a14f3b0c02e0",
+      "canonical_id": "temur_moral_and_psychological_profile_gate3",
+      "canonical_content_hash": "sha256:a7ec36d11a9c62f47b2c7e89be40284a6413e6320f4153ef7e58cb43773bbcc6",
       "evidence_claim_ids": [
         "temur_claim_0001",
         "temur_claim_0002",
@@ -29697,13 +29862,165 @@
     },
     {
       "identity_key": "TEMUR",
+      "canonical_file": "data/raw-factions/temur/temur.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "guidance_temur_0001_gate3",
+      "canonical_content_hash": "sha256:be1d94815e59e47623c78e71821d8b910dcaf008c9a954955c9312a337de0be2",
+      "evidence_claim_ids": [
+        "temur_claim_0001",
+        "temur_claim_0002",
+        "temur_claim_0003",
+        "temur_claim_0004",
+        "temur_claim_0005",
+        "temur_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you",
+        "src_wotc_tarkir_dragons_pg_part_2",
+        "src_wotc_tarkir_dragonstorm_pg_part_2",
+        "src_wotc_tarkir_khans_pg_part_2",
+        "src_wotc_tarkir_story_awakening_the_bear"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/TEMUR",
+        "data/placement-model.json#/factions/TEMUR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/TEMUR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "TEMUR",
+      "canonical_file": "data/raw-factions/temur/temur.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "guidance_temur_0002_gate3",
+      "canonical_content_hash": "sha256:6adf8fa41be2c74221ed56e9f4d258b3caaad14a86b2ced2adc4ef4d78cb594f",
+      "evidence_claim_ids": [
+        "temur_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/TEMUR",
+        "data/placement-model.json#/factions/TEMUR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/TEMUR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "TEMUR",
+      "canonical_file": "data/raw-factions/temur/temur.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "guidance_temur_0003_gate3",
+      "canonical_content_hash": "sha256:e81f99cf257b73f00789ccb983ed24b4176eb0b34d4062c7ca6dce9ad0214a9b",
+      "evidence_claim_ids": [
+        "temur_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/TEMUR",
+        "data/placement-model.json#/factions/TEMUR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/TEMUR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "TEMUR",
+      "canonical_file": "data/raw-factions/temur/temur.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "guidance_temur_0004_gate3",
+      "canonical_content_hash": "sha256:9973dfbc7940c3976bac95e27373086bc79918cb7841af953ede10e90de2f5eb",
+      "evidence_claim_ids": [
+        "temur_claim_0001",
+        "temur_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/TEMUR",
+        "data/placement-model.json#/factions/TEMUR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/TEMUR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "TEMUR",
+      "canonical_file": "data/raw-factions/temur/temur.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "guidance_temur_0005_gate3",
+      "canonical_content_hash": "sha256:e4426362fc49f7ec2129af0924fac5ca4b61f5de7a99e55f8974cc394cc0ab94",
+      "evidence_claim_ids": [
+        "temur_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/TEMUR",
+        "data/placement-model.json#/factions/TEMUR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/TEMUR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "TEMUR",
+      "canonical_file": "data/raw-factions/temur/temur.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": "guidance_temur_0006_gate3",
+      "canonical_content_hash": "sha256:1e8c64dc2fb77eda724ce624f3b6e58aba2d4f817f8c0e845768e820030e5d50",
+      "evidence_claim_ids": [
+        "temur_claim_0007",
+        "temur_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_dragons_pg_part_2"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/TEMUR",
+        "data/placement-model.json#/factions/TEMUR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/TEMUR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "TEMUR",
+      "canonical_file": "data/raw-factions/temur/temur.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": "guidance_temur_0007_gate3",
+      "canonical_content_hash": "sha256:ecc00a929c556400347a7987dd0238005d42ee8278a893258b806515a835fc5d",
+      "evidence_claim_ids": [
+        "temur_claim_0008",
+        "temur_claim_0009",
+        "temur_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/TEMUR",
+        "data/placement-model.json#/factions/TEMUR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/TEMUR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "TEMUR",
       "canonical_file": "data/raw-factions/temur/temur.profile.json",
       "canonical_pointer": "/commander_compass/native_fit_commanders/0/source_basis",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:2da8730314844f10e2b7b7112fbfc67e0d8a66b61230e0496618f90d4654d3d9",
+      "canonical_id": "temur_commander_support_eshki_temur_s_roar_gate3",
+      "canonical_content_hash": "sha256:b566b72c79070e284cd8b40498fc433a26bdfa38081e93c7392bcf83ca0f15aa",
       "evidence_claim_ids": [
         "temur_claim_0011"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
       ],
@@ -29718,11 +30035,12 @@
       "identity_key": "TEMUR",
       "canonical_file": "data/raw-factions/temur/temur.profile.json",
       "canonical_pointer": "/commander_compass/native_fit_commanders/1/source_basis",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:2da8730314844f10e2b7b7112fbfc67e0d8a66b61230e0496618f90d4654d3d9",
+      "canonical_id": "temur_commander_support_ureni_of_the_unwritten_gate3",
+      "canonical_content_hash": "sha256:6f366b91273ee2ac10225ea63160163491f77696f905591380e6e34a890b4d97",
       "evidence_claim_ids": [
         "temur_claim_0011"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
       ],
@@ -29737,8 +30055,8 @@
       "identity_key": "TEMUR",
       "canonical_file": "data/raw-factions/temur/temur.profile.json",
       "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:4bc9a7c9719051c34d14cf11bf5a7148685285061dba0b0fce8136929e354b54",
+      "canonical_id": "temur_core_identity_gate3",
+      "canonical_content_hash": "sha256:ee815f1c01ff7915974d9089880753b0875d2b39f64cd285f3c90fd24e10c58d",
       "evidence_claim_ids": [
         "temur_claim_0001",
         "temur_claim_0002",
@@ -29767,8 +30085,8 @@
       "identity_key": "TEMUR",
       "canonical_file": "data/raw-factions/temur/temur.profile.json",
       "canonical_pointer": "/data_quality",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:76030e619c5681fbe2dd4d6f373ed6516ae7875f4b62c8236261197d745b4367",
+      "canonical_id": "temur_data_quality_gate3",
+      "canonical_content_hash": "sha256:1facc37b4eeee6c6e3f84c63e1402849bba32ac840a3a9fc90716bc92c772aa4",
       "evidence_claim_ids": [
         "temur_claim_0001",
         "temur_claim_0002",
@@ -29803,8 +30121,8 @@
       "identity_key": "TEMUR",
       "canonical_file": "data/raw-factions/temur/temur.profile.json",
       "canonical_pointer": "/great_tension",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:fff48220de6ba266753fca5040fb41c9d15e91f8c25257b5e071550dea0e78e4",
+      "canonical_id": "temur_great_tension_gate3",
+      "canonical_content_hash": "sha256:b09238859a24b8a4fe0ca7169070686710c17e0212fc8f8c57020c0f82563713",
       "evidence_claim_ids": [
         "temur_claim_0002",
         "temur_claim_0004",
@@ -29901,8 +30219,8 @@
       "identity_key": "TEMUR",
       "canonical_file": "data/raw-factions/temur/temur.profile.json",
       "canonical_pointer": "/key_figures/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:ea8a45ba2a093841115820d143793721ae83cb70b38ed1f9574b3a13909ba11c",
+      "canonical_id": "temur_key_figure_0001_gate3",
+      "canonical_content_hash": "sha256:e0dd04b1f4a4dbdd2b1d1eff4bfe01a16fd2f910a8983aee99346ba4d7821cfc",
       "evidence_claim_ids": [
         "temur_claim_0004"
       ],
@@ -29922,8 +30240,8 @@
       "identity_key": "TEMUR",
       "canonical_file": "data/raw-factions/temur/temur.profile.json",
       "canonical_pointer": "/key_figures/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:cdc914cd408842ccb94014cec9b36f1c0d2f13328a7f92d0b1eaa3d30e2514a1",
+      "canonical_id": "temur_key_figure_0002_gate3",
+      "canonical_content_hash": "sha256:76c5b4ecfaf8032573a4faf033890320105bfeda2bf7d89073716ed0007f0b1f",
       "evidence_claim_ids": [
         "temur_claim_0006"
       ],
@@ -29943,8 +30261,8 @@
       "identity_key": "TEMUR",
       "canonical_file": "data/raw-factions/temur/temur.profile.json",
       "canonical_pointer": "/key_figures/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:28d73394d434480a3ad79a46cd70f0e52bf30d49ec992ad193b39e2363c8b92d",
+      "canonical_id": "temur_key_figure_0003_gate3",
+      "canonical_content_hash": "sha256:05545b04fa6c6daf5d8ab1df67cc56fe25f453d067a5bc07611fefd70713d6a7",
       "evidence_claim_ids": [
         "temur_claim_0004",
         "temur_claim_0008"
@@ -29966,8 +30284,8 @@
       "identity_key": "TEMUR",
       "canonical_file": "data/raw-factions/temur/temur.profile.json",
       "canonical_pointer": "/key_figures/3",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:bcf58ae35db6ebb71985c4e4ae4e43b3caf3fca61b5a5a59b84c3c7afabc78be",
+      "canonical_id": "temur_key_figure_0004_gate3",
+      "canonical_content_hash": "sha256:901417841e6e26744af58b1e8c25b657851251d0bd131fb35b19dfc6533a6814",
       "evidence_claim_ids": [
         "temur_claim_0004",
         "temur_claim_0008"
@@ -29989,8 +30307,8 @@
       "identity_key": "TEMUR",
       "canonical_file": "data/raw-factions/temur/temur.profile.json",
       "canonical_pointer": "/key_figures/4",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:5b77ff9c6171cd61f0f63efebb35557edf0897ff11b540f82fb45eb28648a026",
+      "canonical_id": "temur_key_figure_0005_gate3",
+      "canonical_content_hash": "sha256:2d879544a50639fdf3e40cb7e0c33acd84dd7e15b1a31d6344a98839f4c65d2f",
       "evidence_claim_ids": [
         "temur_claim_0005",
         "temur_claim_0008",
@@ -30013,8 +30331,8 @@
       "identity_key": "TEMUR",
       "canonical_file": "data/raw-factions/temur/temur.profile.json",
       "canonical_pointer": "/site_surface",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:5e4e338d50d43a97c606aa4da8034dd033c137aea11356106d47b0a25bf91895",
+      "canonical_id": "temur_site_surface_gate3",
+      "canonical_content_hash": "sha256:1fc51db8beed14081b2759c6f3545253dc31b64c35ba55858d22c46e0b9b0213",
       "evidence_claim_ids": [
         "temur_claim_0001",
         "temur_claim_0002",
@@ -30049,8 +30367,8 @@
       "identity_key": "TEMUR",
       "canonical_file": "data/raw-factions/temur/temur.profile.json",
       "canonical_pointer": "/structure",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:989b534dede93a56d847a509027f84bdc70162da512a54938f688f130369c47f",
+      "canonical_id": "temur_structure_gate3",
+      "canonical_content_hash": "sha256:b9a7dd0a5dfeb30aeb2c882785f13be20cd0f538f509dd4049d8ecf23071a172",
       "evidence_claim_ids": [
         "temur_claim_0001",
         "temur_claim_0002",
@@ -30085,8 +30403,8 @@
       "identity_key": "TEMUR",
       "canonical_file": "data/raw-factions/temur/temur.profile.json",
       "canonical_pointer": "/views_on_other_factions/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:36ee8a8b59a2a3f06161253518fde38cf3112e3100373bcadd3e2c815de9b7e5",
+      "canonical_id": "temur_relationship_0001_gate3",
+      "canonical_content_hash": "sha256:d07cdda7b1a9967554066c6f692ac215c581843b1c7185f0cab7aff52a9fa71e",
       "evidence_claim_ids": [
         "temur_claim_0007",
         "temur_claim_0010"
@@ -30107,8 +30425,8 @@
       "identity_key": "TEMUR",
       "canonical_file": "data/raw-factions/temur/temur.profile.json",
       "canonical_pointer": "/views_on_other_factions/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:b9f2772f057efb4abeefadbf324ef4629933303177658fd653d0c251a060b5f0",
+      "canonical_id": "temur_relationship_0002_gate3",
+      "canonical_content_hash": "sha256:6a9b56a65739a7e0b3e62d0cd4112783f8cf5d1fc9451dc8a0682a674e7002dd",
       "evidence_claim_ids": [
         "temur_claim_0001",
         "temur_claim_0002",

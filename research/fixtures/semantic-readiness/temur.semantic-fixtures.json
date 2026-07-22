@@ -1,0 +1,450 @@
+{
+  "identity_key": "TEMUR",
+  "contract_version": "v1.1",
+  "generated_by": "VM-528 Gate 3/4 Temur semantic remediation",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "temur_core_attuned_survival",
+      "fixture_type": "core_inclusion",
+      "prompt": "A user wants a commander identity where survival comes from listening to terrain, instinct, ancestors, and elemental memory before acting.",
+      "scenario": "A user wants a commander identity where survival comes from listening to terrain, instinct, ancestors, and elemental memory before acting.",
+      "expected": "TEMUR_INCLUDE",
+      "evidence_claim_ids": [
+        "temur_claim_0001",
+        "temur_claim_0002",
+        "temur_claim_0003",
+        "temur_claim_0004",
+        "temur_claim_0005"
+      ],
+      "boundary": "Temur inclusion requires Green-centered identity plus survival, instinct, mental fortitude, and living-world attunement.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you",
+        "src_wotc_tarkir_dragons_pg_part_2",
+        "src_wotc_tarkir_khans_pg_part_2",
+        "src_wotc_tarkir_story_awakening_the_bear"
+      ]
+    },
+    {
+      "fixture_id": "temur_pressure_qal_sisma_endurance",
+      "fixture_type": "mature_or_pressure_behavior",
+      "prompt": "The prompt values harsh-terrain endurance, Qal Sisma self-sufficiency, and strength that waits for the wild signal before striking.",
+      "scenario": "The prompt values harsh-terrain endurance, Qal Sisma self-sufficiency, and strength that waits for the wild signal before striking.",
+      "expected": "TEMUR_INCLUDE_WITH_PRESSURE_BOUNDARY",
+      "evidence_claim_ids": [
+        "temur_claim_0002",
+        "temur_claim_0004",
+        "temur_claim_0005",
+        "temur_claim_0007"
+      ],
+      "boundary": "Pressure supports Temur only when it stays tied to attunement and timeline-bound source evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_dragons_pg_part_2",
+        "src_wotc_tarkir_khans_pg_part_2",
+        "src_wotc_tarkir_story_awakening_the_bear"
+      ]
+    },
+    {
+      "fixture_id": "temur_nearest_sultai_conversion",
+      "fixture_type": "nearest_collision_ambiguity",
+      "prompt": "The prompt treats terrain, memory, death, and opportunity mostly as resources to convert into advantage.",
+      "scenario": "The prompt treats terrain, memory, death, and opportunity mostly as resources to convert into advantage.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0004",
+        "temur_claim_0005",
+        "temur_claim_0010"
+      ],
+      "boundary": "Sultai-facing conversion is not Temur survival through relationship with the living wild.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragons_pg_part_2",
+        "src_wotc_tarkir_khans_pg_part_2",
+        "src_wotc_tarkir_story_awakening_the_bear"
+      ]
+    },
+    {
+      "fixture_id": "temur_neighbor_sultai",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy converts death, secrets, and opportunity into advantage instead of listening to the living wild.",
+      "scenario": "The fantasy converts death, secrets, and opportunity into advantage instead of listening to the living wild.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0004",
+        "temur_claim_0005",
+        "temur_claim_0010"
+      ],
+      "boundary": "SULTAI cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragons_pg_part_2",
+        "src_wotc_tarkir_khans_pg_part_2",
+        "src_wotc_tarkir_story_awakening_the_bear"
+      ],
+      "neighbor": "SULTAI"
+    },
+    {
+      "fixture_id": "temur_neighbor_mardu",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is speed, warband charge, and commitment before the opening closes.",
+      "scenario": "The fantasy is speed, warband charge, and commitment before the opening closes.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0002",
+        "temur_claim_0003",
+        "temur_claim_0004"
+      ],
+      "boundary": "MARDU cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you",
+        "src_wotc_tarkir_khans_pg_part_2",
+        "src_wotc_tarkir_story_awakening_the_bear"
+      ],
+      "neighbor": "MARDU"
+    },
+    {
+      "fixture_id": "temur_neighbor_jeskai",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is disciplined monastery insight and prepared martial practice rather than survival attunement.",
+      "scenario": "The fantasy is disciplined monastery insight and prepared martial practice rather than survival attunement.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0002",
+        "temur_claim_0003",
+        "temur_claim_0005",
+        "temur_claim_0010"
+      ],
+      "boundary": "JESKAI cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you",
+        "src_wotc_tarkir_dragons_pg_part_2",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "neighbor": "JESKAI"
+    },
+    {
+      "fixture_id": "temur_neighbor_naya",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is abundance, belonging, and celebratory growth without Temur mental fortitude or Qal Sisma pressure.",
+      "scenario": "The fantasy is abundance, belonging, and celebratory growth without Temur mental fortitude or Qal Sisma pressure.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0001",
+        "temur_claim_0002",
+        "temur_claim_0010"
+      ],
+      "boundary": "NAYA cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you"
+      ],
+      "neighbor": "NAYA"
+    },
+    {
+      "fixture_id": "temur_neighbor_bant",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is public honor, hierarchy, and refined order instead of weathered survival instinct.",
+      "scenario": "The fantasy is public honor, hierarchy, and refined order instead of weathered survival instinct.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0003",
+        "temur_claim_0010"
+      ],
+      "boundary": "BANT cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you"
+      ],
+      "neighbor": "BANT"
+    },
+    {
+      "fixture_id": "temur_neighbor_grixis",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is ambition, death, and extraction without Green living-world attunement.",
+      "scenario": "The fantasy is ambition, death, and extraction without Green living-world attunement.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0001",
+        "temur_claim_0003",
+        "temur_claim_0010"
+      ],
+      "boundary": "GRIXIS cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you"
+      ],
+      "neighbor": "GRIXIS"
+    },
+    {
+      "fixture_id": "temur_neighbor_jund",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is appetite, predation, and dominance before listening, memory, or mental fortitude.",
+      "scenario": "The fantasy is appetite, predation, and dominance before listening, memory, or mental fortitude.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0002",
+        "temur_claim_0004",
+        "temur_claim_0010"
+      ],
+      "boundary": "JUND cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you",
+        "src_wotc_tarkir_khans_pg_part_2",
+        "src_wotc_tarkir_story_awakening_the_bear"
+      ],
+      "neighbor": "JUND"
+    },
+    {
+      "fixture_id": "temur_neighbor_abzan",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is family duty, house endurance, and ancestor obligation instead of wild attunement.",
+      "scenario": "The fantasy is family duty, house endurance, and ancestor obligation instead of wild attunement.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0004",
+        "temur_claim_0005",
+        "temur_claim_0010"
+      ],
+      "boundary": "ABZAN cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragons_pg_part_2",
+        "src_wotc_tarkir_khans_pg_part_2",
+        "src_wotc_tarkir_story_awakening_the_bear"
+      ],
+      "neighbor": "ABZAN"
+    },
+    {
+      "fixture_id": "temur_neighbor_rg",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is only Red-Green ferocity or combat instinct without Blue mental fortitude.",
+      "scenario": "The fantasy is only Red-Green ferocity or combat instinct without Blue mental fortitude.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0002",
+        "temur_claim_0003",
+        "temur_claim_0010"
+      ],
+      "boundary": "RG cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you"
+      ],
+      "neighbor": "RG"
+    },
+    {
+      "fixture_id": "temur_neighbor_ug",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is only Blue-Green adaptation or knowledge without Red action and impulse.",
+      "scenario": "The fantasy is only Blue-Green adaptation or knowledge without Red action and impulse.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0003",
+        "temur_claim_0005",
+        "temur_claim_0010"
+      ],
+      "boundary": "UG cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you",
+        "src_wotc_tarkir_dragons_pg_part_2",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "neighbor": "UG"
+    },
+    {
+      "fixture_id": "temur_neighbor_ur",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is only Blue-Red spells, copying, or clever action without Green survival.",
+      "scenario": "The fantasy is only Blue-Red spells, copying, or clever action without Green survival.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0003",
+        "temur_claim_0010"
+      ],
+      "boundary": "UR cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you"
+      ],
+      "neighbor": "UR"
+    },
+    {
+      "fixture_id": "temur_neighbor_generic_gur",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt is only GUR color identity without Temur Frontier evidence.",
+      "scenario": "The prompt is only GUR color identity without Temur Frontier evidence.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0001",
+        "temur_claim_0010"
+      ],
+      "boundary": "GENERIC_GUR cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you"
+      ],
+      "neighbor": "GENERIC_GUR"
+    },
+    {
+      "fixture_id": "temur_neighbor_generic_ramp",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers ramp as gameplay texture without Temur survival, memory, or Qal Sisma evidence.",
+      "scenario": "The prompt centers ramp as gameplay texture without Temur survival, memory, or Qal Sisma evidence.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0010"
+      ],
+      "boundary": "GENERIC_RAMP cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531"
+      ],
+      "neighbor": "GENERIC_RAMP"
+    },
+    {
+      "fixture_id": "temur_neighbor_generic_large_creatures",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers large creatures without Temur source-bound instinct and living-world listening.",
+      "scenario": "The prompt centers large creatures without Temur source-bound instinct and living-world listening.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0010"
+      ],
+      "boundary": "GENERIC_LARGE_CREATURES cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531"
+      ],
+      "neighbor": "GENERIC_LARGE_CREATURES"
+    },
+    {
+      "fixture_id": "temur_neighbor_generic_combat",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers combat and force without Temur mental fortitude or elemental memory.",
+      "scenario": "The prompt centers combat and force without Temur mental fortitude or elemental memory.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0002",
+        "temur_claim_0010"
+      ],
+      "boundary": "GENERIC_COMBAT cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you"
+      ],
+      "neighbor": "GENERIC_COMBAT"
+    },
+    {
+      "fixture_id": "temur_neighbor_generic_spells",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers spells, copies, energy, or artifacts without Temur identity evidence.",
+      "scenario": "The prompt centers spells, copies, energy, or artifacts without Temur identity evidence.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0010"
+      ],
+      "boundary": "GENERIC_SPELLS cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531"
+      ],
+      "neighbor": "GENERIC_SPELLS"
+    },
+    {
+      "fixture_id": "temur_neighbor_generic_commander",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt uses commander recommendation vocabulary without Tarkir Temur proof.",
+      "scenario": "The prompt uses commander recommendation vocabulary without Tarkir Temur proof.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0010"
+      ],
+      "boundary": "GENERIC_COMMANDER cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531"
+      ],
+      "neighbor": "GENERIC_COMMANDER"
+    },
+    {
+      "fixture_id": "temur_neighbor_atarka_clan",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt treats Atarka Clan hunger and dragonlord suppression as Temur Frontier continuity.",
+      "scenario": "The prompt treats Atarka Clan hunger and dragonlord suppression as Temur Frontier continuity.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0007",
+        "temur_claim_0010"
+      ],
+      "boundary": "ATARKA_CLAN cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_dragons_pg_part_2"
+      ],
+      "neighbor": "ATARKA_CLAN"
+    },
+    {
+      "fixture_id": "temur_neighbor_dragonstorm_backfill",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt backfills modern Dragonstorm details into Khans-era Temur without direct evidence.",
+      "scenario": "The prompt backfills modern Dragonstorm details into Khans-era Temur without direct evidence.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0008",
+        "temur_claim_0009",
+        "temur_claim_0010"
+      ],
+      "boundary": "DRAGONSTORM_BACKFILL cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "neighbor": "DRAGONSTORM_BACKFILL"
+    },
+    {
+      "fixture_id": "temur_neighbor_commander_product",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The only evidence is Temur Roar, Eshki, Ureni, or Commander deck/product navigation.",
+      "scenario": "The only evidence is Temur Roar, Eshki, Ureni, or Commander deck/product navigation.",
+      "expected": "TEMUR_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "temur_claim_0010"
+      ],
+      "boundary": "COMMANDER_PRODUCT cannot substitute for positive, source-bound Temur evidence.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531"
+      ],
+      "neighbor": "COMMANDER_PRODUCT"
+    },
+    {
+      "fixture_id": "temur_provenance_core_identity",
+      "fixture_type": "provenance",
+      "expected": "TEMUR_PROVENANCE_CHAIN",
+      "evidence_claim_ids": [
+        "temur_claim_0001",
+        "temur_claim_0002",
+        "temur_claim_0003",
+        "temur_claim_0004",
+        "temur_claim_0005",
+        "temur_claim_0007",
+        "temur_claim_0010"
+      ],
+      "boundary": "Core identity provenance must use substantive Temur claims only.",
+      "evidence_source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_dragons_pg_part_2",
+        "src_wotc_tarkir_khans_pg_part_2",
+        "src_wotc_tarkir_story_awakening_the_bear"
+      ],
+      "canonical_file": "data/raw-factions/temur/temur.profile.json",
+      "canonical_pointer": "/core_identity"
+    }
+  ]
+}

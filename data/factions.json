@@ -15740,7 +15740,8 @@
               "src_wotc_tarkir_khans_pg_part_2",
               "src_wotc_tarkir_story_awakening_the_bear"
             ],
-            "limitations": "Keep to the captured guide and story floor; full biography, exact card facts, Commander reputation, and card text remain manual-fill material."
+            "limitations": "Keep to the captured guide and story floor; full biography, exact card facts, Commander reputation, and card text remain manual-fill material.",
+            "figure_id": "temur_key_figure_0001_gate3"
           },
           {
             "name": "Yasova Dragonclaw",
@@ -15757,7 +15758,8 @@
               "src_wotc_tarkir_fate_reforged_pg",
               "src_wotc_tarkir_story_khanfall"
             ],
-            "limitations": "Use as era-specific bridge evidence only; full Bolas-manipulation arc, regret narrative, exact card facts, and card text remain manual-fill material."
+            "limitations": "Use as era-specific bridge evidence only; full Bolas-manipulation arc, regret narrative, exact card facts, and card text remain manual-fill material.",
+            "figure_id": "temur_key_figure_0002_gate3"
           },
           {
             "name": "The Dragonclaw",
@@ -15775,7 +15777,8 @@
               "src_wotc_tarkir_khans_pg_part_2",
               "src_wotc_tarkir_dragonstorm_pg_part_2"
             ],
-            "limitations": "Treat as an institutional role, not a single continuous biography; do not collapse Khans-era, Fate Reforged, Atarka, and modern Dragonstorm timeline conditions."
+            "limitations": "Treat as an institutional role, not a single continuous biography; do not collapse Khans-era, Fate Reforged, Atarka, and modern Dragonstorm timeline conditions.",
+            "figure_id": "temur_key_figure_0003_gate3"
           },
           {
             "name": "The One Who Whispers Twice / Twice Whisperer",
@@ -15793,7 +15796,8 @@
               "src_wotc_tarkir_khans_pg_part_2",
               "src_wotc_tarkir_dragonstorm_pg_part_2"
             ],
-            "limitations": "Treat as an institutional role; individual officeholders and detailed governance remain manual-fill material."
+            "limitations": "Treat as an institutional role; individual officeholders and detailed governance remain manual-fill material.",
+            "figure_id": "temur_key_figure_0004_gate3"
           },
           {
             "name": "Whisperers and the Wide Whisper",
@@ -15814,7 +15818,8 @@
               "src_wotc_tarkir_dragons_pg_part_2",
               "src_wotc_tarkir_dragonstorm_pg_part_2"
             ],
-            "limitations": "Keep Khans-era Wide Whisper and modern Endless Song material timeline-labeled; exact Endless Song temporal mechanics remain manual-fill material."
+            "limitations": "Keep Khans-era Wide Whisper and modern Endless Song material timeline-labeled; exact Endless Song temporal mechanics remain manual-fill material.",
+            "figure_id": "temur_key_figure_0005_gate3"
           }
         ],
         "canonical_flavor_text": [],
@@ -15828,7 +15833,8 @@
               "temur_claim_0010"
             ],
             "confidence": "High",
-            "notes": "Not story-world diplomacy."
+            "notes": "Not story-world diplomacy.",
+            "relationship_id": "temur_relationship_0001_gate3"
           },
           {
             "faction": "Naya / Sultai / Jeskai / Mardu / Abzan",
@@ -15841,7 +15847,8 @@
               "temur_claim_0010"
             ],
             "confidence": "Medium",
-            "notes": "Not story-world diplomacy and not raw claim evidence about the comparator wedges."
+            "notes": "Not story-world diplomacy and not raw claim evidence about the comparator wedges.",
+            "relationship_id": "temur_relationship_0002_gate3"
           }
         ],
         "search_and_filter_metadata": {
@@ -15998,7 +16005,9 @@
                 "temur_claim_0011"
               ],
               "support_only": true,
-              "boundary": "Official product/card-data support only."
+              "boundary": "Official product/card-data support only.",
+              "support_id": "temur_commander_support_eshki_temur_s_roar_gate3",
+              "evidence_use": "auxiliary_support"
             },
             "confidence": "High for product/card identity; support-only for recommendation texture.",
             "caution_notes": [
@@ -16041,7 +16050,9 @@
                 "temur_claim_0011"
               ],
               "support_only": true,
-              "boundary": "Official product/card-data support only."
+              "boundary": "Official product/card-data support only.",
+              "support_id": "temur_commander_support_ureni_of_the_unwritten_gate3",
+              "evidence_use": "auxiliary_support"
             },
             "confidence": "High for product/card identity; support-only for recommendation texture.",
             "caution_notes": [

@@ -20,7 +20,26 @@
         "TEMUR-EVID-001"
       ],
       "confidence": "High",
-      "notes": "Use for base Temur Frontier identity only. GUR and color-order permutations remain metadata/query-only and do not become runtime aliases, navigation keys, generated keys, fixture keys, lookup keys, or public labels."
+      "notes": "Use for base Temur Frontier identity only. GUR and color-order permutations remain metadata/query-only and do not become runtime aliases, navigation keys, generated keys, fixture keys, lookup keys, or public labels.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_temur_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Temur Evidence Ledger; rows TEMUR-EVID-001",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0001 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_rosewater_temur_what_doesnt_kill_you",
+          "locator_type": "official_source_capture",
+          "locator": "Temur: What Doesn't Kill You Makes You Stronger; bounded local capture for temur_claim_0001",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0001 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "temur_claim_0002",
@@ -36,7 +55,26 @@
         "TEMUR-EVID-002"
       ],
       "confidence": "High",
-      "notes": "This supports design-level savagery, instinct, and endurance language. It does not prove exact mechanics, Commander legality, or card text."
+      "notes": "This supports design-level savagery, instinct, and endurance language. It does not prove exact mechanics, Commander legality, or card text.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_temur_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Temur Evidence Ledger; rows TEMUR-EVID-002",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0002 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_rosewater_temur_what_doesnt_kill_you",
+          "locator_type": "official_source_capture",
+          "locator": "Temur: What Doesn't Kill You Makes You Stronger; bounded local capture for temur_claim_0002",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0002 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "temur_claim_0003",
@@ -54,7 +92,26 @@
         "TEMUR-EVID-005"
       ],
       "confidence": "High",
-      "notes": "Use for Green, Blue, and Red role boundaries inside Temur only. Do not turn the pair overlaps into Gruul, Simic, or Izzet doctrine from this packet."
+      "notes": "Use for Green, Blue, and Red role boundaries inside Temur only. Do not turn the pair overlaps into Gruul, Simic, or Izzet doctrine from this packet.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_temur_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Temur Evidence Ledger; rows TEMUR-EVID-003, TEMUR-EVID-004, TEMUR-EVID-005",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0003 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_rosewater_temur_what_doesnt_kill_you",
+          "locator_type": "official_source_capture",
+          "locator": "Temur: What Doesn't Kill You Makes You Stronger; bounded local capture for temur_claim_0003",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0003 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "temur_claim_0004",
@@ -76,7 +133,34 @@
         "TEMUR-EVID-018"
       ],
       "confidence": "High",
-      "notes": "Use for Khans-era social, environmental, and named-anchor floor. Surrak story events remain story-specific support, not universal clan law."
+      "notes": "Use for Khans-era social, environmental, and named-anchor floor. Surrak story events remain story-specific support, not universal clan law.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_temur_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Temur Evidence Ledger; rows TEMUR-EVID-006, TEMUR-EVID-007, TEMUR-EVID-009, TEMUR-EVID-010, TEMUR-EVID-011, TEMUR-EVID-018",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0004 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_khans_pg_part_2",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Khans of Tarkir, Part 2; bounded local capture for temur_claim_0004",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0004 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_story_awakening_the_bear",
+          "locator_type": "official_source_capture",
+          "locator": "Awakening the Bear; bounded local capture for temur_claim_0004",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0004 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "temur_claim_0005",
@@ -94,7 +178,34 @@
         "TEMUR-EVID-017"
       ],
       "confidence": "High",
-      "notes": "Use for Temur magic and memory floor only. Exact Endless Song temporal mechanics remain deferred."
+      "notes": "Use for Temur magic and memory floor only. Exact Endless Song temporal mechanics remain deferred.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_temur_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Temur Evidence Ledger; rows TEMUR-EVID-008, TEMUR-EVID-017",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0005 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_khans_pg_part_2",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Khans of Tarkir, Part 2; bounded local capture for temur_claim_0005",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0005 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragons_pg_part_2",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Dragons of Tarkir, Part 2; bounded local capture for temur_claim_0005",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0005 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "temur_claim_0006",
@@ -113,7 +224,34 @@
         "TEMUR-EVID-014"
       ],
       "confidence": "High",
-      "notes": "Use as transition context only. Yasova's full biography and Bolas-manipulation arc remain manual-review material."
+      "notes": "Use as transition context only. Yasova's full biography and Bolas-manipulation arc remain manual-review material.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_temur_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Temur Evidence Ledger; rows TEMUR-EVID-012, TEMUR-EVID-013, TEMUR-EVID-014",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0006 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_fate_reforged_pg",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Fate Reforged; bounded local capture for temur_claim_0006",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0006 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_story_khanfall",
+          "locator_type": "official_source_capture",
+          "locator": "Khanfall; bounded local capture for temur_claim_0006",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0006 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "temur_claim_0007",
@@ -132,7 +270,34 @@
         "TEMUR-EVID-017"
       ],
       "confidence": "High",
-      "notes": "Use Atarka-era material as contrast, suppression, and hidden-preservation context only. Do not treat Atarka Clan as Temur Frontier continuity."
+      "notes": "Use Atarka-era material as contrast, suppression, and hidden-preservation context only. Do not treat Atarka Clan as Temur Frontier continuity.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_temur_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Temur Evidence Ledger; rows TEMUR-EVID-015, TEMUR-EVID-016, TEMUR-EVID-017",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0007 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragons_pg_part_1",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Dragons of Tarkir, Part 1; bounded local capture for temur_claim_0007",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0007 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragons_pg_part_2",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Dragons of Tarkir, Part 2; bounded local capture for temur_claim_0007",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0007 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "temur_claim_0008",
@@ -151,7 +316,26 @@
         "TEMUR-EVID-022"
       ],
       "confidence": "High",
-      "notes": "Modern Dragonstorm-era only. Do not backfill these details into Khans-era Temur Frontier identity without specific VM-203 evidence rows."
+      "notes": "Modern Dragonstorm-era only. Do not backfill these details into Khans-era Temur Frontier identity without specific VM-203 evidence rows.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_temur_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Temur Evidence Ledger; rows TEMUR-EVID-019, TEMUR-EVID-020, TEMUR-EVID-021, TEMUR-EVID-022",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0008 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragonstorm_pg_part_2",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Tarkir: Dragonstorm, Part 2; bounded local capture for temur_claim_0008",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0008 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "temur_claim_0009",
@@ -170,7 +354,26 @@
         "TEMUR-EVID-026"
       ],
       "confidence": "High",
-      "notes": "Modern Dragonstorm-era only. Exact Endless Song mechanism and detailed clan dragon diplomacy remain manual-review material."
+      "notes": "Modern Dragonstorm-era only. Exact Endless Song mechanism and detailed clan dragon diplomacy remain manual-review material.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_temur_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Temur Evidence Ledger; rows TEMUR-EVID-023, TEMUR-EVID-024, TEMUR-EVID-025, TEMUR-EVID-026",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0009 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragonstorm_pg_part_2",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Tarkir: Dragonstorm, Part 2; bounded local capture for temur_claim_0009",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0009 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "temur_claim_0010",
@@ -188,7 +391,18 @@
         "TEMUR-EVID-031"
       ],
       "confidence": "High",
-      "notes": "This is a false-positive and lifecycle guardrail. Commander/operator rows are excluded by source-role policy and are not cited as raw-claim evidence."
+      "notes": "This is a false-positive and lifecycle guardrail. Commander/operator rows are excluded by source-role policy and are not cited as raw-claim evidence.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_temur_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Temur Evidence Ledger; rows TEMUR-EVID-015, TEMUR-EVID-016, TEMUR-EVID-029, TEMUR-EVID-031",
+          "bounded_paraphrase": "Supports the bounded Temur statement for temur_claim_0010 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_temur_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "temur_claim_0011",
@@ -200,7 +414,18 @@
         "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
       ],
       "confidence": "High",
-      "notes": "Decklist support is product/navigation only. It is not Tarkir canon proof, popularity proof, metagame proof, legality proof, or placement evidence."
+      "notes": "Decklist support is product/navigation only. It is not Tarkir canon proof, popularity proof, metagame proof, legality proof, or placement evidence.",
+      "semantic_role": "support_record",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_tarkir_dragonstorm_commander_decklists_20250325",
+          "locator_type": "official_source_capture",
+          "locator": "Tarkir: Dragonstorm Commander Decklists; bounded local capture for temur_claim_0011",
+          "bounded_paraphrase": "Support-only product or operator source is limited to deck/navigation facts and cannot prove Temur canon, placement, legality, popularity, or metagame claims.",
+          "evidence_scope": "support_only_product_navigation",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     }
   ],
   "claim_quality_summary": {
