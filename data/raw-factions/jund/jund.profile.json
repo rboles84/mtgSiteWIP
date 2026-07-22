@@ -14,7 +14,7 @@
   "source_review_date": "2026-05-30",
   "last_full_review": "2026-05-30",
   "last_incremental_review": "2026-05-30",
-  "last_updated": "2026-05-30",
+  "last_updated": "2026-07-22",
   "site_surface": {
     "display_name": "Jund",
     "short_summary": "Jund is a VM-186 live-pilot Alara shard expression for Red-centered black-red-green freedom, instinct, appetite, and survival under consequence.",
@@ -78,18 +78,21 @@
     "claim_ids": [
       "jund_claim_0001",
       "jund_claim_0002",
-      "jund_claim_0003",
       "jund_claim_0004",
       "jund_claim_0005",
       "jund_claim_0006",
       "jund_claim_0007",
       "jund_claim_0008",
       "jund_claim_0009",
-      "jund_claim_0010"
-    ]
+      "jund_claim_0010",
+      "jund_claim_0011",
+      "jund_claim_0012"
+    ],
+    "surface_id": "jund_site_surface_gate3",
+    "summary": "Jund reads as instinct under consequence: Red follows feeling first, Black protects appetite and need, and Green turns that signal into embodied force. Setting danger may color the tone, but the identity must remain anchored in the BRG philosophy rather than generic savagery or Modern Jund shorthand."
   },
   "core_identity": {
-    "summary": "Jund is the Red-centered black-red-green Alara shard expression whose safe evidence floor is self-truth, gut instinct, emotion as guide, total freedom with consequences, Black self-interest, Green unrestrained instinct, and the design-level absence of White/Blue pressures.",
+    "summary": "Jund is the BRG expression of feeling acted on without White-Blue restraint. Its useful Commander signal is not anger alone, death magic, or efficient midrange play; it is appetite, gut truth, and instinct becoming force where the world answers back.",
     "philosophy": "Red supplies the center: being true to oneself, following gut instinct, and doing what feels right. Black supports appetite and self-advocacy. Green supports unrestrained instinct and embodied force.",
     "central_tension": "Vox Mana models Jund's tension as freedom through appetite and instinct drifting into flattening, overconsumption, or mistaking impulse for truth.",
     "supported_claim_ids": [
@@ -101,8 +104,8 @@
       "jund_claim_0006",
       "jund_claim_0007",
       "jund_claim_0008",
-      "jund_claim_0009",
-      "jund_claim_0010"
+      "jund_claim_0011",
+      "jund_claim_0012"
     ],
     "interpretive_note": "Central-tension and product-language compression are Vox Mana modeling from VM-176, VM-177, and VM-178. They are not official Wizards or MTG canon.",
     "unknowns": [
@@ -122,12 +125,14 @@
       "jund_claim_0006",
       "jund_claim_0007",
       "jund_claim_0008",
-      "jund_claim_0009",
-      "jund_claim_0010"
-    ]
+      "jund_claim_0011",
+      "jund_claim_0012"
+    ],
+    "identity_id": "jund_core_identity_gate3",
+    "philosophical_axis": "Red self-truth leads, Black defends need and appetite, and Green makes instinct physical under real consequence."
   },
   "structure": {
-    "summary": "The safe structural floor is narrow: Jund is an Alara shard with BRG color-direction metadata, Red as center/design lens, Black and Green as ally roles, and White/Blue as missing pressures at the design level.",
+    "summary": "The structure should keep Red as the interpretive center, use Black and Green as supporting pressures, and treat Alara story material as context only when it clarifies survival pressure or Grixis rupture boundaries.",
     "supported_elements": [
       "Jund as a black-red-green Alara shard",
       "BRG as color-direction metadata only",
@@ -160,25 +165,26 @@
       "jund_claim_0004",
       "jund_claim_0005",
       "jund_claim_0006",
-      "jund_claim_0007",
-      "jund_claim_0008",
       "jund_claim_0009",
-      "jund_claim_0010"
-    ]
+      "jund_claim_0011",
+      "jund_claim_0012"
+    ],
+    "structure_id": "jund_structure_gate3"
   },
   "great_tension": {
-    "summary": "Vox Mana models Jund's great tension as appetite and instinct becoming compass: the self gains honesty and motion, but the same pressure can flatten nuance or confuse immediacy with truth.",
+    "summary": "Jund must stay vivid without collapsing into cruelty, generic savagery, devour lore, or Modern Jund midrange. Its tension is whether instinct is trusted because it is true and embodied, or merely indulged because it is loud.",
     "placement_relevance": "VM-186 live-pilot placement note. Use only with VM-176 evidence boundaries and without converting support-only Commander, mechanics, or comparator material into claims.",
     "not_canon_doctrine": true,
     "claim_ids": [
       "jund_claim_0003",
-      "jund_claim_0004",
       "jund_claim_0005",
       "jund_claim_0006",
       "jund_claim_0007",
       "jund_claim_0008",
+      "jund_claim_0009",
       "jund_claim_0010"
-    ]
+    ],
+    "tension_id": "jund_great_tension_gate3"
   },
   "historical_timeline": [
     {
@@ -187,10 +193,12 @@
       "date_or_era": "Alara shard context",
       "claim_ids": [
         "jund_claim_0001",
-        "jund_claim_0002"
+        "jund_claim_0011",
+        "jund_claim_0012"
       ],
       "confidence": "High",
-      "notes": "Detailed chronology remains deferred."
+      "notes": "Detailed chronology remains deferred.",
+      "summary": "Alara's Jund context supplies survival pressure, dragon-world danger, and later Grixis death-magic rupture as bounded setting signals; it does not replace the Rosewater color-philosophy frame."
     }
   ],
   "key_figures": [],
@@ -201,28 +209,31 @@
       "relationship_summary": "Vox Mana separator only: Jund should not be replaced by Naya's Green-centered communal/behemoth ecology.",
       "evidence_type": "VM-176 boundary and VM-178 architecture separator",
       "claim_ids": [
-        "jund_claim_0002",
-        "jund_claim_0005",
+        "jund_claim_0004",
         "jund_claim_0006",
         "jund_claim_0007",
-        "jund_claim_0010"
+        "jund_claim_0009",
+        "jund_claim_0011"
       ],
       "confidence": "Medium",
-      "notes": "Not story-world diplomacy."
+      "notes": "Not story-world diplomacy.",
+      "relationship_id": "rel_jund_naya_gate3",
+      "summary": "Naya shares creature scale and bodily force, but it treats awe, community, and sacred life as central. Jund instead tests feeling through appetite, survival pressure, and consequence-bearing instinct."
     },
     {
       "faction": "Grixis",
       "relationship_summary": "Vox Mana separator only: Jund shares Black/Red danger but replaces Blue calculation with Green instinct and keeps Red as center.",
       "evidence_type": "VM-176 boundary and VM-178 architecture separator",
       "claim_ids": [
-        "jund_claim_0002",
-        "jund_claim_0003",
-        "jund_claim_0007",
+        "jund_claim_0005",
+        "jund_claim_0008",
         "jund_claim_0009",
-        "jund_claim_0010"
+        "jund_claim_0012"
       ],
       "confidence": "Medium",
-      "notes": "Not story-world diplomacy."
+      "notes": "Not story-world diplomacy.",
+      "relationship_id": "rel_jund_grixis_gate3",
+      "summary": "Grixis leans into death magic, decay, and extraction; Jund should treat necromancy as an outside rupture or comparator, not native identity proof."
     }
   ],
   "mechanics": {
@@ -288,7 +299,7 @@
     "architecture_review_status": "VM-177 and VM-178 reviewed and accepted as project architecture input only.",
     "raw_packet_status": "vm186_live_pilot_source_bound",
     "generation_status": "wired_through_approved_builder_path",
-    "claim_count": 10,
+    "claim_count": 13,
     "claim_basis": "VM-176 promoted/evidence-bound rows only.",
     "support_material_policy": "Support-only, manual-fill, discovery-only, Commander/operator, seed, generated HTML, and comparator-only material may appear only in bounded review notes.",
     "known_limitations": [
@@ -309,8 +320,14 @@
       "jund_claim_0007",
       "jund_claim_0008",
       "jund_claim_0009",
-      "jund_claim_0010"
-    ]
+      "jund_claim_0010",
+      "jund_claim_0011",
+      "jund_claim_0012"
+    ],
+    "data_quality_id": "jund_data_quality_gate3",
+    "substantive_claim_count": 12,
+    "support_record_count": 1,
+    "summary": "Gate 3/4 remediation classifies Jund claims, adds evidence locators, promotes only approved setting-pressure and Grixis-rupture capture evidence, and leaves character, dragon, clan, demon, devour, and Modern Jund material support-only."
   },
   "research_limitations": {
     "manual_review_required": true,

@@ -14095,10 +14095,12 @@
             "date_or_era": "Alara shard context",
             "claim_ids": [
               "jund_claim_0001",
-              "jund_claim_0002"
+              "jund_claim_0011",
+              "jund_claim_0012"
             ],
             "confidence": "High",
-            "notes": "Detailed chronology remains deferred."
+            "notes": "Detailed chronology remains deferred.",
+            "summary": "Alara's Jund context supplies survival pressure, dragon-world danger, and later Grixis death-magic rupture as bounded setting signals; it does not replace the Rosewater color-philosophy frame."
           }
         ],
         "key_figures": [],
@@ -14109,28 +14111,31 @@
             "relationship_summary": "Vox Mana separator only: Jund should not be replaced by Naya's Green-centered communal/behemoth ecology.",
             "evidence_type": "VM-176 boundary and VM-178 architecture separator",
             "claim_ids": [
-              "jund_claim_0002",
-              "jund_claim_0005",
+              "jund_claim_0004",
               "jund_claim_0006",
               "jund_claim_0007",
-              "jund_claim_0010"
+              "jund_claim_0009",
+              "jund_claim_0011"
             ],
             "confidence": "Medium",
-            "notes": "Not story-world diplomacy."
+            "notes": "Not story-world diplomacy.",
+            "relationship_id": "rel_jund_naya_gate3",
+            "summary": "Naya shares creature scale and bodily force, but it treats awe, community, and sacred life as central. Jund instead tests feeling through appetite, survival pressure, and consequence-bearing instinct."
           },
           {
             "faction": "Grixis",
             "relationship_summary": "Vox Mana separator only: Jund shares Black/Red danger but replaces Blue calculation with Green instinct and keeps Red as center.",
             "evidence_type": "VM-176 boundary and VM-178 architecture separator",
             "claim_ids": [
-              "jund_claim_0002",
-              "jund_claim_0003",
-              "jund_claim_0007",
+              "jund_claim_0005",
+              "jund_claim_0008",
               "jund_claim_0009",
-              "jund_claim_0010"
+              "jund_claim_0012"
             ],
             "confidence": "Medium",
-            "notes": "Not story-world diplomacy."
+            "notes": "Not story-world diplomacy.",
+            "relationship_id": "rel_jund_grixis_gate3",
+            "summary": "Grixis leans into death magic, decay, and extraction; Jund should treat necromancy as an outside rupture or comparator, not native identity proof."
           }
         ],
         "search_and_filter_metadata": {
@@ -21735,7 +21740,7 @@
         "preview_order": 23,
         "preview_label": "Jund",
         "preview_title": "Jund — Trust the feeling. Feed the hunger. Bear the consequence.",
-        "preview_text": "Jund treats feeling as a compass. Red supplies self-truth and action, Black honors appetite and self-interest, and Green strips away overthinking until instinct can move.",
+        "preview_text": "Jund trusts feeling as the first signal: Red moves from self-truth, Black protects appetite and need, and Green turns instinct into force under real consequence.",
         "preview_hex": "#c05f3f",
         "preview_scores": {
           "order": 43,

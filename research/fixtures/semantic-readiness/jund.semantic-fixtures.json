@@ -1,0 +1,295 @@
+{
+  "identity_key": "JUND",
+  "contract_version": "v1.1",
+  "generated_by": "VM-525 Gate 3/4 Jund semantic remediation post-DRIFT-020",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "jund_core_feeling_appetite_instinct",
+      "fixture_type": "core_inclusion",
+      "prompt": "A user wants a commander identity where gut feeling is treated as true, appetite is admitted, and embodied action accepts consequence.",
+      "expected": "JUND_INCLUDE",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0004",
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0008"
+      ],
+      "boundary": "Jund inclusion requires Red-led self-truth, Black appetite, and Green embodied instinct together.",
+      "scenario": "A user wants a commander identity where gut feeling is treated as true, appetite is admitted, and embodied action accepts consequence.",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ]
+    },
+    {
+      "fixture_id": "jund_pressure_survival_without_lore_overreach",
+      "fixture_type": "mature_or_pressure_behavior",
+      "prompt": "A user likes survival pressure and dangerous worlds when they make instinct feel embodied rather than just adding dragon flavor.",
+      "expected": "JUND_INCLUDE_WITH_PRESSURE_BOUNDARY",
+      "evidence_claim_ids": [
+        "jund_claim_0006",
+        "jund_claim_0007",
+        "jund_claim_0011"
+      ],
+      "boundary": "Setting pressure can support Jund only when it clarifies consequence-bearing instinct, not as standalone dragon or clan trivia.",
+      "scenario": "A user likes survival pressure and dangerous worlds when they make instinct feel embodied rather than just adding dragon flavor.",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
+      ]
+    },
+    {
+      "fixture_id": "jund_nearest_grixis_death_magic",
+      "fixture_type": "nearest_collision_ambiguity",
+      "prompt": "The prompt centers necromancy, death magic, extraction, and using corpses as the fantasy.",
+      "expected": "JUND_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jund_claim_0009",
+        "jund_claim_0012"
+      ],
+      "boundary": "Grixis death cues are comparator or rupture evidence, not native Jund identity proof.",
+      "scenario": "The prompt centers necromancy, death magic, extraction, and using corpses as the fantasy.",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_story_all_cairns_of_jund_20151105"
+      ],
+      "neighbor": "Grixis / UBR"
+    },
+    {
+      "fixture_id": "jund_neighbor_rakdos_spectacle",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt wants appetite and immediate action as a show, spectacle, and transgression for an audience.",
+      "expected": "JUND_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0005",
+        "jund_claim_0009"
+      ],
+      "boundary": "Rakdos spectacle lacks Green embodiment and consequence-facing instinct as the point.",
+      "scenario": "The prompt wants appetite and immediate action as a show, spectacle, and transgression for an audience.",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "neighbor": "Rakdos / BR"
+    },
+    {
+      "fixture_id": "jund_neighbor_golgari_decay",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is decay, resilience, life from rot, and slow endurance through the graveyard.",
+      "expected": "JUND_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0009"
+      ],
+      "boundary": "Golgari cycle and decay framing lacks Red feeling-first action.",
+      "scenario": "The fantasy is decay, resilience, life from rot, and slow endurance through the graveyard.",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "neighbor": "Golgari / BG"
+    },
+    {
+      "fixture_id": "jund_neighbor_gruul_wildness",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt wants embodied rage and wildness without ambition, appetite, or Black self-interest.",
+      "expected": "JUND_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0009"
+      ],
+      "boundary": "Gruul lacks the Black appetite and self-interested need that back Jund force.",
+      "scenario": "The prompt wants embodied rage and wildness without ambition, appetite, or Black self-interest.",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "neighbor": "Gruul / RG"
+    },
+    {
+      "fixture_id": "jund_neighbor_grixis_necromancy",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The center is death magic, extraction, and necromantic rupture rather than embodied instinct.",
+      "expected": "JUND_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jund_claim_0009",
+        "jund_claim_0012"
+      ],
+      "boundary": "Necromantic rupture points away from native Jund identity.",
+      "scenario": "The center is death magic, extraction, and necromantic rupture rather than embodied instinct.",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_story_all_cairns_of_jund_20151105"
+      ],
+      "neighbor": "Grixis / UBR"
+    },
+    {
+      "fixture_id": "jund_neighbor_sultai_calculation",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt wants appetite plus calculation, delayed advantage, hierarchy, and Blue planning.",
+      "expected": "JUND_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0003",
+        "jund_claim_0005",
+        "jund_claim_0009"
+      ],
+      "boundary": "Sultai calculation and hierarchy are not Red-led feeling-first action.",
+      "scenario": "The prompt wants appetite plus calculation, delayed advantage, hierarchy, and Blue planning.",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "neighbor": "Sultai / BGU"
+    },
+    {
+      "fixture_id": "jund_neighbor_mardu_order",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The appeal is conquest, discipline, oaths, and group order in a warband.",
+      "expected": "JUND_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0003",
+        "jund_claim_0005",
+        "jund_claim_0009"
+      ],
+      "boundary": "Mardu White order and discipline are outside the White-missing Jund pressure.",
+      "scenario": "The appeal is conquest, discipline, oaths, and group order in a warband.",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "neighbor": "Mardu / WBR"
+    },
+    {
+      "fixture_id": "jund_neighbor_temur_discovery",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is ferocity with curiosity, discovery, pattern reading, and adaptive knowledge.",
+      "expected": "JUND_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0003",
+        "jund_claim_0006",
+        "jund_claim_0009"
+      ],
+      "boundary": "Temur Blue curiosity and patterning are not Black appetite under consequence.",
+      "scenario": "The fantasy is ferocity with curiosity, discovery, pattern reading, and adaptive knowledge.",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "neighbor": "Temur / GUR"
+    },
+    {
+      "fixture_id": "jund_neighbor_witherbloom_exchange",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt wants life-force rituals, cost exchange, and resource transformation more than Red-led feeling.",
+      "expected": "JUND_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0009"
+      ],
+      "boundary": "Witherbloom exchange and ritual economy lack Jund Red immediacy as center.",
+      "scenario": "The prompt wants life-force rituals, cost exchange, and resource transformation more than Red-led feeling.",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "neighbor": "Witherbloom / BG"
+    },
+    {
+      "fixture_id": "jund_neighbor_naya_awe",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt wants sacred scale, communal life, awe, and huge creatures as a shared blessing.",
+      "expected": "JUND_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jund_claim_0006",
+        "jund_claim_0007",
+        "jund_claim_0009",
+        "jund_claim_0011"
+      ],
+      "boundary": "Naya awe and communal vitality are not appetite-led Jund consequence.",
+      "scenario": "The prompt wants sacred scale, communal life, awe, and huge creatures as a shared blessing.",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
+      ],
+      "neighbor": "Naya / RGW"
+    },
+    {
+      "fixture_id": "jund_neighbor_wubrg_broad_access",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt wants all five colors and broad access, with Jund just one of many tools.",
+      "expected": "JUND_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jund_claim_0001",
+        "jund_claim_0002",
+        "jund_claim_0009",
+        "jund_claim_0010"
+      ],
+      "boundary": "Five-color access is not Jund identity unless the Jund thesis remains primary.",
+      "scenario": "The prompt wants all five colors and broad access, with Jund just one of many tools.",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "neighbor": "WUBRG"
+    },
+    {
+      "fixture_id": "jund_provenance_moral_profile",
+      "fixture_type": "provenance",
+      "prompt": "The moral and psychological profile must trace only to substantive Jund claims and their source records.",
+      "expected": "PROVENANCE_ENTRY_PRESENT",
+      "evidence_claim_ids": [
+        "jund_claim_0001",
+        "jund_claim_0002",
+        "jund_claim_0003",
+        "jund_claim_0004",
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0007",
+        "jund_claim_0008",
+        "jund_claim_0009",
+        "jund_claim_0010",
+        "jund_claim_0011",
+        "jund_claim_0012"
+      ],
+      "boundary": "Profile provenance must resolve to the complete substantive claim chain and exclude the support-only story record.",
+      "scenario": "The moral and psychological profile must trace only to substantive Jund claims and their source records.",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
+      ],
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/moral_and_psychological_profile"
+    }
+  ]
+}

@@ -3,7 +3,7 @@
   "faction_id": "jund",
   "faction_name": "Jund",
   "source_review_date": "2026-05-30",
-  "last_updated": "2026-05-30",
+  "last_updated": "2026-07-22",
   "sources": [
     {
       "source_id": "src_vm_jund_source_ledger_20260530",
@@ -216,6 +216,44 @@
       "source_role": "support-only",
       "reliability": "Comparator support only",
       "notes": "Comparator rails only. These sources are not Jund evidence."
+    },
+    {
+      "source_id": "src_wotc_story_all_cairns_of_jund_20151105",
+      "title": "All the Cairns of Jund",
+      "author": "Wizards of the Coast story capture",
+      "source_type": "official_story_local_capture",
+      "source_role": "claim-bearing",
+      "canonical_path": "docs/research/canon/source-material/alara/story-all-cairns-of-jund.md",
+      "capture_status": "local_canon_capture",
+      "claim_bearing_evidence_rows": [
+        "JUND-GATE3-SETTING-PRESSURE",
+        "JUND-GATE3-GRIXIS-RUPTURE"
+      ],
+      "notes": "Used only for approved setting pressure and Grixis rupture boundaries; character and dragon details remain support-only unless promoted by a later review."
+    },
+    {
+      "source_id": "src_wotc_alara_plane_overview_local",
+      "title": "Alara Plane Overview",
+      "author": "Wizards of the Coast local capture",
+      "source_type": "official_plane_overview_local_capture",
+      "source_role": "claim-bearing",
+      "canonical_path": "docs/research/canon/source-material/alara/alara-plane-overview.md",
+      "capture_status": "local_canon_capture",
+      "claim_bearing_evidence_rows": [
+        "JUND-GATE3-SETTING-PRESSURE"
+      ],
+      "notes": "Used as corroborating setting-pressure evidence, not as standalone philosophy proof."
+    },
+    {
+      "source_id": "src_wotc_sarkhan_vol_biography_local",
+      "title": "Sarkhan Vol Planeswalker Biography",
+      "author": "Wizards of the Coast local capture",
+      "source_type": "official_character_biography_local_capture",
+      "source_role": "support-only",
+      "canonical_path": "docs/research/canon/source-material/alara/sarkhan-vol-biography.md",
+      "capture_status": "local_canon_capture",
+      "claim_bearing_evidence_rows": [],
+      "notes": "Support-only dragon-world flavor record; not used in substantive semantic proof chains."
     }
   ],
   "not_used_or_rejected_sources": [
@@ -239,5 +277,6 @@
       "source_name": "Detailed Jund lore without local official capture",
       "reason": "Deferred to Manual fill required until a later evidence-update card adds direct local support."
     }
-  ]
+  ],
+  "source_count": 18
 }
