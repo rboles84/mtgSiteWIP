@@ -3,7 +3,7 @@
   "faction_id": "naya",
   "faction_name": "Naya",
   "source_review_date": "2026-05-30",
-  "last_updated": "2026-05-30",
+  "last_updated": "2026-07-22",
   "claim_count": 10,
   "claims": [
     {
@@ -20,7 +20,28 @@
         "NAYA-EVID-001"
       ],
       "confidence": "High",
-      "notes": "Use for base shard identity only. It does not prove detailed geography, creature culture, society, figure biography, religion, or chronology."
+      "notes": "Use for base shard identity only. It does not prove detailed geography, creature culture, society, figure biography, religion, or chronology.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_naya_evidence_ledger_20260530",
+          "locator": "docs/research/naya/naya-evidence-ledger.md#L9",
+          "note": "Evidence row records Naya as the red-green-white Alara shard.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Evidence row records Naya as the red-green-white Alara shard.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_rosewater_naya_searching_within",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Naya_Searching Within _ MAGIC_ THE GATHERING.md#L7-L10",
+          "note": "Rosewater identifies Naya as the red-green-white shard and Green as its central lens.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Rosewater identifies Naya as the red-green-white shard and Green as its central lens.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "naya_claim_0002",
@@ -38,7 +59,37 @@
         "NAYA-EVID-003"
       ],
       "confidence": "High",
-      "notes": "RGW is metadata only. This packet does not create RGW, GRW, WRG, or NAYA as generated, registry, placement, alias, fixture, route, display label, or lookup data."
+      "notes": "RGW is metadata only. This packet does not create RGW, GRW, WRG, or NAYA as generated, registry, placement, alias, fixture, route, display label, or lookup data.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_naya_evidence_ledger_20260530",
+          "locator": "docs/research/naya/naya-evidence-ledger.md#L10-L11",
+          "note": "Evidence rows bind local RGW metadata and Green center to Naya.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Evidence rows bind local RGW metadata and Green center to Naya.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_rosewater_naya_searching_within",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Naya_Searching Within _ MAGIC_ THE GATHERING.md#L7-L10",
+          "note": "The official article presents Naya through the Green-centered shard frame.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "The official article presents Naya through the Green-centered shard frame.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_vm_canon_inventory_three_color_audit_20260528",
+          "locator": "docs/analysis/canon-inventory-three-color-reference-audit.md#L35-L44",
+          "note": "Canon inventory identifies the Naya article as the Green-centered official three-color source.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Canon inventory identifies the Naya article as the Green-centered official three-color source.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "naya_claim_0003",
@@ -54,7 +105,28 @@
         "NAYA-EVID-004"
       ],
       "confidence": "High",
-      "notes": "This supports design-level belonging language. Do not convert it into named social structures, polities, creature-culture hierarchy, or religion."
+      "notes": "This supports design-level belonging language. Do not convert it into named social structures, polities, creature-culture hierarchy, or religion.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_naya_evidence_ledger_20260530",
+          "locator": "docs/research/naya/naya-evidence-ledger.md#L12",
+          "note": "Evidence row permits life, ecosystem, role, place, and belonging as design-level Naya readings.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Evidence row permits life, ecosystem, role, place, and belonging as design-level Naya readings.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_rosewater_naya_searching_within",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Naya_Searching Within _ MAGIC_ THE GATHERING.md#L21-L33",
+          "note": "The article frames Green around the larger puzzle of life, ecosystem, place, and role.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "The article frames Green around the larger puzzle of life, ecosystem, place, and role.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "naya_claim_0004",
@@ -70,7 +142,28 @@
         "NAYA-EVID-005"
       ],
       "confidence": "High",
-      "notes": "This supports nature, growth, abundance, and scale at design scope. It is not a total doctrine of big creatures, power thresholds, or tokens."
+      "notes": "This supports nature, growth, abundance, and scale at design scope. It is not a total doctrine of big creatures, power thresholds, or tokens.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_naya_evidence_ledger_20260530",
+          "locator": "docs/research/naya/naya-evidence-ledger.md#L13",
+          "note": "Evidence row records nature and growth at center stage with growth pushed extreme.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Evidence row records nature and growth at center stage with growth pushed extreme.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_rosewater_naya_searching_within",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Naya_Searching Within _ MAGIC_ THE GATHERING.md#L171-L178",
+          "note": "The article describes Naya as nature centered and growth reaching full potential.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "The article describes Naya as nature centered and growth reaching full potential.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "naya_claim_0005",
@@ -86,7 +179,28 @@
         "NAYA-EVID-006"
       ],
       "confidence": "High",
-      "notes": "This supports White's ally role only. It does not prove institutions, laws, public hierarchy, or named groups."
+      "notes": "This supports White's ally role only. It does not prove institutions, laws, public hierarchy, or named groups.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_naya_evidence_ledger_20260530",
+          "locator": "docs/research/naya/naya-evidence-ledger.md#L14",
+          "note": "Evidence row records White larger-picture duty, life, creatures, and greater good as support.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Evidence row records White larger-picture duty, life, creatures, and greater good as support.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_rosewater_naya_searching_within",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Naya_Searching Within _ MAGIC_ THE GATHERING.md#L151-L160",
+          "note": "The article describes White as seeing the larger picture, life, creatures, and greater good.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "The article describes White as seeing the larger picture, life, creatures, and greater good.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "naya_claim_0006",
@@ -102,7 +216,28 @@
         "NAYA-EVID-007"
       ],
       "confidence": "High",
-      "notes": "This supports Red's ally role only. It does not prove named clans, hierarchy, biography, or story chronology."
+      "notes": "This supports Red's ally role only. It does not prove named clans, hierarchy, biography, or story chronology.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_naya_evidence_ledger_20260530",
+          "locator": "docs/research/naya/naya-evidence-ledger.md#L15",
+          "note": "Evidence row records Red feral instinct, immediacy, loyalty, and bond as support.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Evidence row records Red feral instinct, immediacy, loyalty, and bond as support.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_rosewater_naya_searching_within",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Naya_Searching Within _ MAGIC_ THE GATHERING.md#L161-L165",
+          "note": "The article describes Red as feral, instinctive, loyal, and bond-oriented in the Naya frame.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "The article describes Red as feral, instinctive, loyal, and bond-oriented in the Naya frame.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "naya_claim_0007",
@@ -118,7 +253,28 @@
         "NAYA-EVID-008"
       ],
       "confidence": "High",
-      "notes": "Use as a high-level design synthesis only. Do not convert it into story, society, religion, creature, place, or social-metaphysics claims."
+      "notes": "Use as a high-level design synthesis only. Do not convert it into story, society, religion, creature, place, or social-metaphysics claims.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_naya_evidence_ledger_20260530",
+          "locator": "docs/research/naya/naya-evidence-ledger.md#L16",
+          "note": "Evidence row records Naya balance as Green abundance moderated by Red and White.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Evidence row records Naya balance as Green abundance moderated by Red and White.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_rosewater_naya_searching_within",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Naya_Searching Within _ MAGIC_ THE GATHERING.md#L171-L175",
+          "note": "The article describes Naya balance as enough Red to avoid order and enough White to avoid chaos.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "The article describes Naya balance as enough Red to avoid order and enough White to avoid chaos.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "naya_claim_0008",
@@ -134,7 +290,28 @@
         "NAYA-EVID-009"
       ],
       "confidence": "High",
-      "notes": "Use as an absence-of-color boundary only. Do not expand it into claims that Naya has no knowledge, craft, agency, conflict, culture, or self-interest."
+      "notes": "Use as an absence-of-color boundary only. Do not expand it into claims that Naya has no knowledge, craft, agency, conflict, culture, or self-interest.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_naya_evidence_ledger_20260530",
+          "locator": "docs/research/naya/naya-evidence-ledger.md#L17",
+          "note": "Evidence row records Blue and Black absence as control and extraction boundaries.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Evidence row records Blue and Black absence as control and extraction boundaries.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_rosewater_naya_searching_within",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Naya_Searching Within _ MAGIC_ THE GATHERING.md#L107-L147",
+          "note": "The article contrasts Green/Naya with Black ecological self-interest and Blue controlling mastery.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "The article contrasts Green/Naya with Black ecological self-interest and Blue controlling mastery.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "naya_claim_0009",
@@ -149,7 +326,19 @@
         "NAYA-EVID-011"
       ],
       "confidence": "High",
-      "notes": "Use as a false-positive guardrail. It does not add detailed lore, mechanics, commander facts, or doctrine for comparator identities."
+      "notes": "Use as a false-positive guardrail. It does not add detailed lore, mechanics, commander facts, or doctrine for comparator identities.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_naya_evidence_ledger_20260530",
+          "locator": "docs/research/naya/naya-evidence-ledger.md#L19",
+          "note": "Evidence row records Naya anti-flattening boundaries against generic RGW, big creatures, tokens, Cabaretti, Bant, and Jund drift.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Evidence row records Naya anti-flattening boundaries against generic RGW, big creatures, tokens, Cabaretti, Bant, and Jund drift.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "naya_claim_0010",
@@ -165,7 +354,28 @@
         "NAYA-EVID-013"
       ],
       "confidence": "High",
-      "notes": "These color-code strings do not become expression keys, aliases, placement keys, public labels, route slugs, routes, generated labels, fixture keys, or lookup keys."
+      "notes": "These color-code strings do not become expression keys, aliases, placement keys, public labels, route slugs, routes, generated labels, fixture keys, or lookup keys.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_naya_evidence_ledger_20260530",
+          "locator": "docs/research/naya/naya-evidence-ledger.md#L21",
+          "note": "Evidence row keeps RGW, GRW, and WRG as metadata or validation terms only.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Evidence row keeps RGW, GRW, and WRG as metadata or validation terms only.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_vm_canon_inventory_three_color_audit_20260528",
+          "locator": "docs/analysis/canon-inventory-three-color-reference-audit.md#L8-L44",
+          "note": "Canon inventory records WRG as a three-color code while separately identifying Naya as the named Green-centered shard source.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Canon inventory records WRG as a three-color code while separately identifying Naya as the named Green-centered shard source.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     }
   ],
   "claim_quality_summary": {

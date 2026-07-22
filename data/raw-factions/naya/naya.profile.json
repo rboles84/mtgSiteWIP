@@ -14,7 +14,7 @@
   "source_review_date": "2026-05-30",
   "last_full_review": "2026-05-30",
   "last_incremental_review": "2026-05-30",
-  "last_updated": "2026-05-30",
+  "last_updated": "2026-07-22",
   "site_surface": {
     "display_name": "Naya",
     "short_summary": "Naya is a VM-188 live-pilot Alara shard expression for Green-centered red-green-white abundance, life, growth, belonging, instinct, and larger-picture care.",
@@ -86,7 +86,8 @@
       "naya_claim_0008",
       "naya_claim_0009",
       "naya_claim_0010"
-    ]
+    ],
+    "site_surface_id": "naya_site_surface_gate3"
   },
   "core_identity": {
     "summary": "Naya is the Green-centered red-green-white Alara shard expression whose safe evidence floor is life, nature, growth, ecosystem belonging, White larger-picture duty and life support, Red feral instinct and loyalty, and Blue/Black as missing control and extraction pressures.",
@@ -125,7 +126,8 @@
       "naya_claim_0008",
       "naya_claim_0009",
       "naya_claim_0010"
-    ]
+    ],
+    "core_identity_id": "naya_core_identity_gate3"
   },
   "structure": {
     "summary": "The safe structural floor is narrow: Naya is an Alara shard with RGW color-direction metadata, Green as center/design lens, White and Red as ally roles, and Blue/Black as missing pressures at design scope.",
@@ -166,7 +168,8 @@
       "naya_claim_0008",
       "naya_claim_0009",
       "naya_claim_0010"
-    ]
+    ],
+    "structure_id": "naya_structure_gate3"
   },
   "great_tension": {
     "summary": "Vox Mana models Naya's great tension as abundance becoming world: life grows into belonging, but growth can become overgrowth, scale can become the whole identity, and instinct can mistake immediacy for wisdom.",
@@ -180,7 +183,8 @@
       "naya_claim_0007",
       "naya_claim_0008",
       "naya_claim_0009"
-    ]
+    ],
+    "tension_id": "naya_great_tension_gate3"
   },
   "historical_timeline": [
     {
@@ -210,7 +214,8 @@
         "naya_claim_0009"
       ],
       "confidence": "Medium",
-      "notes": "Not story-world diplomacy."
+      "notes": "Not story-world diplomacy.",
+      "relationship_id": "rel_naya_jund_gate3"
     },
     {
       "faction": "Bant",
@@ -223,7 +228,8 @@
         "naya_claim_0009"
       ],
       "confidence": "Medium",
-      "notes": "Not story-world diplomacy."
+      "notes": "Not story-world diplomacy.",
+      "relationship_id": "rel_naya_bant_gate3"
     }
   ],
   "mechanics": {
@@ -313,7 +319,8 @@
       "naya_claim_0008",
       "naya_claim_0009",
       "naya_claim_0010"
-    ]
+    ],
+    "data_quality_id": "naya_data_quality_gate3"
   },
   "research_limitations": {
     "manual_review_required": true,

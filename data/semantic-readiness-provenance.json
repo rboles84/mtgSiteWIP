@@ -18259,6 +18259,167 @@
     {
       "identity_key": "NAYA",
       "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:0dfdbc9dbb9920be72b3285f7689f6ae0071b6095dc793260d5c6e16c004744c",
+      "evidence_claim_ids": [
+        "naya_claim_0002",
+        "naya_claim_0003",
+        "naya_claim_0004",
+        "naya_claim_0005",
+        "naya_claim_0006"
+      ],
+      "declared_content_hash": "sha256:0dfdbc9dbb9920be72b3285f7689f6ae0071b6095dc793260d5c6e16c004744c",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/NAYA",
+        "data/placement-model.json#/factions/NAYA",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/NAYA"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "NAYA",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:69aabd8f1c3a0ffd7cd4105a444f20bc149e2d4e6e485337944aa0a4b29d1042",
+      "evidence_claim_ids": [
+        "naya_claim_0009"
+      ],
+      "declared_content_hash": "sha256:69aabd8f1c3a0ffd7cd4105a444f20bc149e2d4e6e485337944aa0a4b29d1042",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/NAYA",
+        "data/placement-model.json#/factions/NAYA",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/NAYA"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "NAYA",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:257f09179adf0f0df152ecc863994ef15ed24f9d4b740758d9e55ce40da184f5",
+      "evidence_claim_ids": [
+        "naya_claim_0009"
+      ],
+      "declared_content_hash": "sha256:257f09179adf0f0df152ecc863994ef15ed24f9d4b740758d9e55ce40da184f5",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/NAYA",
+        "data/placement-model.json#/factions/NAYA",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/NAYA"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "NAYA",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:6e9b7fabd9d0fbe844c58e4159bbb3dcb0895be3791c16cab3fa7e3e81daccc2",
+      "evidence_claim_ids": [
+        "naya_claim_0010"
+      ],
+      "declared_content_hash": "sha256:6e9b7fabd9d0fbe844c58e4159bbb3dcb0895be3791c16cab3fa7e3e81daccc2",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_naya_evidence_ledger_20260530"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/NAYA",
+        "data/placement-model.json#/factions/NAYA",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/NAYA"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "NAYA",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:c5dceb6bdbc37a54837b3d86efcfe1b5c2e534fbe7e5958c43b528bc83b73536",
+      "evidence_claim_ids": [
+        "naya_claim_0004",
+        "naya_claim_0009"
+      ],
+      "declared_content_hash": "sha256:c5dceb6bdbc37a54837b3d86efcfe1b5c2e534fbe7e5958c43b528bc83b73536",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/NAYA",
+        "data/placement-model.json#/factions/NAYA",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/NAYA"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "NAYA",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:cedafbeed28a4715b3cac031cf685429081236c9ff5ac909972398b89d395aa9",
+      "evidence_claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0005",
+        "naya_claim_0006",
+        "naya_claim_0008",
+        "naya_claim_0009"
+      ],
+      "declared_content_hash": "sha256:cedafbeed28a4715b3cac031cf685429081236c9ff5ac909972398b89d395aa9",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/NAYA",
+        "data/placement-model.json#/factions/NAYA",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/NAYA"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "NAYA",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:9fb8b18ac391db0dbe0bbec9387e309187c9432dfa17098dc3a88d8ec3b66586",
+      "evidence_claim_ids": [
+        "naya_claim_0009"
+      ],
+      "declared_content_hash": "sha256:9fb8b18ac391db0dbe0bbec9387e309187c9432dfa17098dc3a88d8ec3b66586",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/NAYA",
+        "data/placement-model.json#/factions/NAYA",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/NAYA"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "NAYA",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
       "canonical_pointer": "/collision_guidance/0",
       "canonical_id": "collision_naya_jund_live",
       "canonical_content_hash": "sha256:f3725ed05c38ad8f3592dd015113da57589145ac89c9af4807ff9a3221be1338",
@@ -18440,8 +18601,8 @@
       "identity_key": "NAYA",
       "canonical_file": "data/raw-factions/naya/naya.placement.json",
       "canonical_pointer": "/moral_and_psychological_profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:ab286af82fc2e383e41124331ffb8985a87a2b8618d7a1f040490a76f29d238f",
+      "canonical_id": "naya_moral_and_psychological_profile_gate3",
+      "canonical_content_hash": "sha256:80765e91deeef785260304e8450418a9d92141409142d108168a091f4ad8eb5d",
       "evidence_claim_ids": [
         "naya_claim_0002",
         "naya_claim_0003",
@@ -18466,10 +18627,157 @@
     },
     {
       "identity_key": "NAYA",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "naya_chatbot_match_0001",
+      "canonical_content_hash": "sha256:ac7a6cee3edcc0bb9c93f6e61b0f235b8a1bb1ba7b0da5d0391b3dbc33bcceef",
+      "evidence_claim_ids": [
+        "naya_claim_0002",
+        "naya_claim_0003",
+        "naya_claim_0004",
+        "naya_claim_0005",
+        "naya_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/NAYA",
+        "data/placement-model.json#/factions/NAYA",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/NAYA"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "NAYA",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "naya_chatbot_match_0002",
+      "canonical_content_hash": "sha256:b036a10cec042bca72741e08610d4c753b853b173efa455e25494dd29d724ad3",
+      "evidence_claim_ids": [
+        "naya_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/NAYA",
+        "data/placement-model.json#/factions/NAYA",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/NAYA"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "NAYA",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "naya_chatbot_match_0003",
+      "canonical_content_hash": "sha256:761e9184cb0411f31539c3e69eb2e778ae8208177ea200df183371cfd8c35372",
+      "evidence_claim_ids": [
+        "naya_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/NAYA",
+        "data/placement-model.json#/factions/NAYA",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/NAYA"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "NAYA",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "naya_chatbot_mismatch_0001",
+      "canonical_content_hash": "sha256:86f601ccc7e84c75917d771409e97af78fe699549f5cc4003e6685717a791a42",
+      "evidence_claim_ids": [
+        "naya_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_naya_evidence_ledger_20260530"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/NAYA",
+        "data/placement-model.json#/factions/NAYA",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/NAYA"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "NAYA",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "naya_chatbot_mismatch_0002",
+      "canonical_content_hash": "sha256:11760518f6b3a82d0a8fb614563bd3fe51377ce7f2d6039d532b625c899283f2",
+      "evidence_claim_ids": [
+        "naya_claim_0004",
+        "naya_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/NAYA",
+        "data/placement-model.json#/factions/NAYA",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/NAYA"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "NAYA",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": "naya_chatbot_mismatch_0003",
+      "canonical_content_hash": "sha256:18c2ef5dc92c0707204a41dc4d7b9d3cc6d6aba0b5161ed4935a3cb3a7745a28",
+      "evidence_claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0005",
+        "naya_claim_0006",
+        "naya_claim_0008",
+        "naya_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/NAYA",
+        "data/placement-model.json#/factions/NAYA",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/NAYA"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "NAYA",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": "naya_chatbot_mismatch_0004",
+      "canonical_content_hash": "sha256:16bf7b85dd8f9bea195ee6baa5e974be061141a75f7aa9c592152f9402c049b2",
+      "evidence_claim_ids": [
+        "naya_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/NAYA",
+        "data/placement-model.json#/factions/NAYA",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/NAYA"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "NAYA",
       "canonical_file": "data/raw-factions/naya/naya.profile.json",
       "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:5e438de8047d3277ed264e1908d179f5e8327a613603aebbdace78165ce21633",
+      "canonical_id": "naya_core_identity_gate3",
+      "canonical_content_hash": "sha256:12cf3684f3a1e5cfd2b1721c70fbc13269fb22d22d2fe7d89af4ce999236e872",
       "evidence_claim_ids": [
         "naya_claim_0001",
         "naya_claim_0002",
@@ -18498,8 +18806,8 @@
       "identity_key": "NAYA",
       "canonical_file": "data/raw-factions/naya/naya.profile.json",
       "canonical_pointer": "/data_quality",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:e240e232d22d6973efb596af0af0ced3e077be545b59bbb21e540d8223b457cd",
+      "canonical_id": "naya_data_quality_gate3",
+      "canonical_content_hash": "sha256:6e61c4aa54df04aa7562ec172503f2933919c348f607fb386446e68c8cf3a813",
       "evidence_claim_ids": [
         "naya_claim_0001",
         "naya_claim_0002",
@@ -18528,8 +18836,8 @@
       "identity_key": "NAYA",
       "canonical_file": "data/raw-factions/naya/naya.profile.json",
       "canonical_pointer": "/great_tension",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:705c46330218eb6548b96b79eef03d7be77325a9f7aec5bbf00deae99bb4e957",
+      "canonical_id": "naya_great_tension_gate3",
+      "canonical_content_hash": "sha256:1f6936a1c56226eab42ec82d83251aca56e98595dda912260d142ddc74835939",
       "evidence_claim_ids": [
         "naya_claim_0003",
         "naya_claim_0004",
@@ -18576,8 +18884,8 @@
       "identity_key": "NAYA",
       "canonical_file": "data/raw-factions/naya/naya.profile.json",
       "canonical_pointer": "/site_surface",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:431087e134ab48140dea24c90dfe111c25d8cee63c61b4e212c7941484a8ad50",
+      "canonical_id": "naya_site_surface_gate3",
+      "canonical_content_hash": "sha256:8f7c8ef76943270a2aaf05923d6f6e20a62808b04feb985c0115a548f6a355ac",
       "evidence_claim_ids": [
         "naya_claim_0001",
         "naya_claim_0002",
@@ -18606,8 +18914,8 @@
       "identity_key": "NAYA",
       "canonical_file": "data/raw-factions/naya/naya.profile.json",
       "canonical_pointer": "/structure",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:42ade33949aad6e58286dde9c7ec7e42576fb088d425908d72fca89dd18467e6",
+      "canonical_id": "naya_structure_gate3",
+      "canonical_content_hash": "sha256:73000002d6f5b12609fa3abe41a3e4524dd76002a85f9249426a100cae330402",
       "evidence_claim_ids": [
         "naya_claim_0001",
         "naya_claim_0002",
@@ -18636,8 +18944,8 @@
       "identity_key": "NAYA",
       "canonical_file": "data/raw-factions/naya/naya.profile.json",
       "canonical_pointer": "/views_on_other_factions/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:8ad25a8e566fb3872b0cf219f46ae6a30c2b5cd01b8ec9d0e513d0282df118ae",
+      "canonical_id": "rel_naya_jund_gate3",
+      "canonical_content_hash": "sha256:f2121af2979b383b7b81fc786e6d4454b5bca2c014c68e3a8c56bd6ea097fd9a",
       "evidence_claim_ids": [
         "naya_claim_0002",
         "naya_claim_0003",
@@ -18661,8 +18969,8 @@
       "identity_key": "NAYA",
       "canonical_file": "data/raw-factions/naya/naya.profile.json",
       "canonical_pointer": "/views_on_other_factions/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:1020bb988a8eb0404881e041dad52b765adb38beac88f40468aeffcdb1190f0e",
+      "canonical_id": "rel_naya_bant_gate3",
+      "canonical_content_hash": "sha256:90fd9350038d444b548caa60f64f0128163a2617b9da272a69d0672fe0ae6425",
       "evidence_claim_ids": [
         "naya_claim_0003",
         "naya_claim_0005",

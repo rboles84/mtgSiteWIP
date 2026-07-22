@@ -4,7 +4,7 @@
   "faction_id": "naya",
   "faction_name": "Naya",
   "based_on_profile_version": "0.1.0",
-  "last_updated": "2026-06-12",
+  "last_updated": "2026-07-22",
   "placement_summary": "Naya is a VM-188 live-pilot placement packet for the NAYA shard expression. Its strongest source-bound signals are Green-centered life, nature, growth, ecosystem belonging, White larger-picture care, Red feral instinct and loyalty, Blue/Black absence, and anti-flattening boundaries.",
   "moral_and_psychological_profile": {
     "summary": "Vox Mana models Naya as abundance through living-world belonging, instinctive bond, and care for the larger natural whole. This is project interpretation from VM-181 through VM-183, not official canon; VM-188 enables it as a bounded live pilot.",
@@ -19,7 +19,8 @@
       "naya_claim_0009"
     ],
     "confidence": "Medium",
-    "notes": "Psychological language is Vox Mana interpretation. Support-only rows do not raise confidence."
+    "notes": "Psychological language is Vox Mana interpretation. Support-only rows do not raise confidence.",
+    "profile_id": "naya_moral_and_psychological_profile_gate3"
   },
   "placement_axes": [],
   "core_values": [
@@ -316,6 +317,106 @@
         "naya_claim_0008"
       ],
       "confidence": "Medium"
+    }
+  ],
+  "semantic_guidance_evidence": [
+    {
+      "guidance_id": "naya_chatbot_match_0001",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "evidence_claim_ids": [
+        "naya_claim_0002",
+        "naya_claim_0003",
+        "naya_claim_0004",
+        "naya_claim_0005",
+        "naya_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "canonical_content_hash": "sha256:0dfdbc9dbb9920be72b3285f7689f6ae0071b6095dc793260d5c6e16c004744c"
+    },
+    {
+      "guidance_id": "naya_chatbot_match_0002",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "evidence_claim_ids": [
+        "naya_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530"
+      ],
+      "canonical_content_hash": "sha256:69aabd8f1c3a0ffd7cd4105a444f20bc149e2d4e6e485337944aa0a4b29d1042"
+    },
+    {
+      "guidance_id": "naya_chatbot_match_0003",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "evidence_claim_ids": [
+        "naya_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530"
+      ],
+      "canonical_content_hash": "sha256:257f09179adf0f0df152ecc863994ef15ed24f9d4b740758d9e55ce40da184f5"
+    },
+    {
+      "guidance_id": "naya_chatbot_mismatch_0001",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "evidence_claim_ids": [
+        "naya_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_naya_evidence_ledger_20260530"
+      ],
+      "canonical_content_hash": "sha256:6e9b7fabd9d0fbe844c58e4159bbb3dcb0895be3791c16cab3fa7e3e81daccc2"
+    },
+    {
+      "guidance_id": "naya_chatbot_mismatch_0002",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "evidence_claim_ids": [
+        "naya_claim_0004",
+        "naya_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "canonical_content_hash": "sha256:c5dceb6bdbc37a54837b3d86efcfe1b5c2e534fbe7e5958c43b528bc83b73536"
+    },
+    {
+      "guidance_id": "naya_chatbot_mismatch_0003",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "evidence_claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0005",
+        "naya_claim_0006",
+        "naya_claim_0008",
+        "naya_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "canonical_content_hash": "sha256:cedafbeed28a4715b3cac031cf685429081236c9ff5ac909972398b89d395aa9"
+    },
+    {
+      "guidance_id": "naya_chatbot_mismatch_0004",
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "evidence_claim_ids": [
+        "naya_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530"
+      ],
+      "canonical_content_hash": "sha256:9fb8b18ac391db0dbe0bbec9387e309187c9432dfa17098dc3a88d8ec3b66586"
     }
   ]
 }

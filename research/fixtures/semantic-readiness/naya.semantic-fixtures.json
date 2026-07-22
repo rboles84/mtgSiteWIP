@@ -1,0 +1,253 @@
+{
+  "identity_key": "NAYA",
+  "contract_version": "v1.1",
+  "generated_by": "VM-526 Gate 3/4 Naya semantic remediation",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "naya_core_living_whole",
+      "fixture_type": "core_inclusion",
+      "prompt": "A user wants a commander identity where life belongs to a larger natural whole, growth feels generous, care protects the whole, and instinct moves immediately.",
+      "expected": "NAYA_INCLUDE",
+      "evidence_claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0004",
+        "naya_claim_0005",
+        "naya_claim_0006",
+        "naya_claim_0007"
+      ],
+      "boundary": "Naya inclusion requires Green-centered life and growth with White care and Red instinct together.",
+      "scenario": "A user wants a commander identity where life belongs to a larger natural whole, growth feels generous, care protects the whole, and instinct moves immediately.",
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ]
+    },
+    {
+      "fixture_id": "naya_scale_without_big_creature_flattening",
+      "fixture_type": "mature_or_pressure_behavior",
+      "prompt": "The prompt loves huge presence and visible growth, but only when scale expresses belonging and living abundance rather than battlecruiser shorthand.",
+      "expected": "NAYA_INCLUDE_WITH_SCALE_BOUNDARY",
+      "evidence_claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0004",
+        "naya_claim_0009"
+      ],
+      "boundary": "Scale can support Naya only when it remains tied to Green-centered abundance and not generic big-creature play.",
+      "scenario": "The prompt loves huge presence and visible growth, but only when scale expresses belonging and living abundance rather than battlecruiser shorthand.",
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ]
+    },
+    {
+      "fixture_id": "naya_nearest_jund_consumption",
+      "fixture_type": "nearest_collision_ambiguity",
+      "prompt": "The prompt centers appetite, consumption, survival pressure, and taking what the body needs before protecting a shared living whole.",
+      "expected": "NAYA_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0006",
+        "naya_claim_0009"
+      ],
+      "boundary": "Jund-facing appetite and consumption are the closest shard-level false positive, not the Naya center.",
+      "scenario": "The prompt centers appetite, consumption, survival pressure, and taking what the body needs before protecting a shared living whole.",
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "neighbor": "Jund / BRG"
+    },
+    {
+      "fixture_id": "naya_neighbor_selesnya_harmony",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt wants peaceful community, harmony, and creature care without Red instinct, immediacy, or feral motion.",
+      "expected": "NAYA_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0005",
+        "naya_claim_0006",
+        "naya_claim_0009"
+      ],
+      "boundary": "Selesnya-like care lacks the Red instinct that makes the Naya frame move.",
+      "scenario": "The prompt wants peaceful community, harmony, and creature care without Red instinct, immediacy, or feral motion.",
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "neighbor": "Selesnya / GW"
+    },
+    {
+      "fixture_id": "naya_neighbor_gruul_revolt",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is wild revolt, rage against civilization, and instinct without White larger-picture care.",
+      "expected": "NAYA_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "naya_claim_0005",
+        "naya_claim_0006",
+        "naya_claim_0007",
+        "naya_claim_0009"
+      ],
+      "boundary": "Gruul-like impulse lacks White care for the larger whole.",
+      "scenario": "The fantasy is wild revolt, rage against civilization, and instinct without White larger-picture care.",
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "neighbor": "Gruul / RG"
+    },
+    {
+      "fixture_id": "naya_neighbor_boros_order",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt wants loyalty, action, command, public order, and martial righteousness more than living abundance.",
+      "expected": "NAYA_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "naya_claim_0004",
+        "naya_claim_0005",
+        "naya_claim_0006",
+        "naya_claim_0009"
+      ],
+      "boundary": "Boros-like action and loyalty lack Green-centered life and growth as the center.",
+      "scenario": "The prompt wants loyalty, action, command, public order, and martial righteousness more than living abundance.",
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "neighbor": "Boros / RW"
+    },
+    {
+      "fixture_id": "naya_neighbor_bant_honor",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers hierarchy, public honor, ranks, and sanctioned excellence as the identity.",
+      "expected": "NAYA_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0005",
+        "naya_claim_0008",
+        "naya_claim_0009"
+      ],
+      "boundary": "Bant-facing order and public hierarchy are not Naya living abundance.",
+      "scenario": "The prompt centers hierarchy, public honor, ranks, and sanctioned excellence as the identity.",
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "neighbor": "Bant / WUG"
+    },
+    {
+      "fixture_id": "naya_neighbor_grixis_exploitation",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The center is death-world survival, exploitation, necromancy, and calculated leverage.",
+      "expected": "NAYA_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0008",
+        "naya_claim_0009"
+      ],
+      "boundary": "Grixis death and extraction cues are outside Naya and conflict with the Blue/Black absence boundary.",
+      "scenario": "The center is death-world survival, exploitation, necromancy, and calculated leverage.",
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "neighbor": "Grixis / UBR"
+    },
+    {
+      "fixture_id": "naya_neighbor_esper_artifice",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The player wants planned improvement, artifice, optimization, information control, and mastery over nature.",
+      "expected": "NAYA_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0004",
+        "naya_claim_0008"
+      ],
+      "boundary": "Esper-style control and redesign conflict with Naya life before mastery.",
+      "scenario": "The player wants planned improvement, artifice, optimization, information control, and mastery over nature.",
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "neighbor": "Esper / WUB"
+    },
+    {
+      "fixture_id": "naya_neighbor_abzan_lineage",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The appeal is endurance, ancestry, lineage, institutional duty, and grave-rooted continuity.",
+      "expected": "NAYA_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0005",
+        "naya_claim_0009"
+      ],
+      "boundary": "Abzan-like endurance and lineage are not Naya unless living abundance and Red motion remain primary.",
+      "scenario": "The appeal is endurance, ancestry, lineage, institutional duty, and grave-rooted continuity.",
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "neighbor": "Abzan / WBG"
+    },
+    {
+      "fixture_id": "naya_neighbor_temur_discovery",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is ferocity joined to curiosity, pattern reading, adaptive knowledge, and Blue-touched wilderness technique.",
+      "expected": "NAYA_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "naya_claim_0005",
+        "naya_claim_0006",
+        "naya_claim_0008",
+        "naya_claim_0009"
+      ],
+      "boundary": "Temur discovery and adaptive knowledge are not Naya without White larger-picture care.",
+      "scenario": "The fantasy is ferocity joined to curiosity, pattern reading, adaptive knowledge, and Blue-touched wilderness technique.",
+      "evidence_source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "neighbor": "Temur / GUR"
+    },
+    {
+      "fixture_id": "naya_generic_rgw_tokens",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The deck is RGW, makes tokens, and wants casual battlecruiser power, but no living whole, White care, or Red loyalty is present.",
+      "expected": "NAYA_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "naya_claim_0009",
+        "naya_claim_0010"
+      ],
+      "boundary": "Color composition, tokens, and big play patterns are insufficient by themselves.",
+      "scenario": "The deck is RGW, makes tokens, and wants casual battlecruiser power, but no living whole, White care, or Red loyalty is present.",
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_naya_evidence_ledger_20260530"
+      ],
+      "neighbor": "Generic RGW / Commander"
+    },
+    {
+      "fixture_id": "naya_provenance_moral_profile",
+      "fixture_type": "provenance",
+      "prompt": "The moral and psychological profile must trace only to substantive Naya claims and their source records.",
+      "expected": "PROVENANCE_ENTRY_PRESENT",
+      "evidence_claim_ids": [
+        "naya_claim_0002",
+        "naya_claim_0003",
+        "naya_claim_0004",
+        "naya_claim_0005",
+        "naya_claim_0006",
+        "naya_claim_0007",
+        "naya_claim_0008",
+        "naya_claim_0009"
+      ],
+      "boundary": "Profile provenance must resolve to the complete substantive Naya claim chain.",
+      "scenario": "The moral and psychological profile must trace only to substantive Naya claims and their source records.",
+      "evidence_source_ids": [
+        "src_vm_canon_inventory_three_color_audit_20260528",
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "canonical_file": "data/raw-factions/naya/naya.placement.json",
+      "canonical_pointer": "/moral_and_psychological_profile"
+    }
+  ]
+}
