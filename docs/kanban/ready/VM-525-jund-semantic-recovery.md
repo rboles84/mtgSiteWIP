@@ -1,7 +1,7 @@
 # VM-525 - Jund Semantic Recovery
 
 ID: VM-525
-Status: Ready - exact semantic candidate awaiting independent review
+Status: Ready - exact semantic candidate independently approved; awaiting certification-only window
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: JUND
@@ -37,7 +37,7 @@ Recover Jund end to end under CRIT-001: audit the existing packet, bound readine
 - [x] Gate 2 - Sufficient evidence completion complete; Gate 3+4 remediation authorized.
 - [x] Gate 3 - Canonical remediation complete from DRIFT-020 certification base.
 - [x] Gate 4 - Generation, validation, fixture/provenance checks, and exact candidate-scope complete for exact candidate `b275fc62aca3ed67bcdc624ea59b3ee15cdeae04`.
-- [ ] Gate 5 - Awaiting independent exact-SHA review; no approval, certification, semantically_ready transition, or VM-526 work has occurred.
+- [x] Gate 5 - Independent exact-SHA review approved exact candidate `b275fc62aca3ed67bcdc624ea59b3ee15cdeae04`; no certification, semantically_ready transition, certified-count change, or VM-526 work has occurred.
 
 ## Scope Rules
 
@@ -49,6 +49,7 @@ Recover Jund end to end under CRIT-001: audit the existing packet, bound readine
 - Gate 3+4 remediation is authorized only by the completed Gate 1+2 audit handoff and a future separate continuation window starting from the DRIFT-020 certification/program-base SHA; candidate creation, independent review, certification, VM-526 work, Excel edit, and original-main edit remain unauthorized until later gates explicitly allow them.
 - Gate 3+4 stopped at `460dd7186dc76658797beac74a4330cc699a52d6` because the required authoritative preview edit at `data/identity-layers.json#/expressions/JUND/preview_text` was not candidate-scope-allowed. DRIFT-020 certified exact infrastructure candidate `399ba34243f5b421da4d3a0c251a37bcbc4bd5fa`, clearing that shared-infrastructure blocker without performing Jund semantic remediation.
 - This candidate workflow created exact Jund semantic candidate `b275fc62aca3ed67bcdc624ea59b3ee15cdeae04` from DRIFT-020 certification base `665d2b128f3aab8daf5d48d4fdab244a9fb33c2e`; no independent review, approval, certification, semantically_ready transition, certified-count change, VM-526 work, Excel edit, push, PR, merge, or original-main edit occurred.
+- Independent review approved exact candidate `b275fc62aca3ed67bcdc624ea59b3ee15cdeae04` from dedicated review branch/worktree at workflow SHA `461ff5c389a93c6c5e5fc7317bbc5413d214a960`; no remediation, replacement candidate, certification, semantically_ready transition, certified-count change, VM-526 work, Excel edit, push, PR, merge, or original-main edit occurred.
 
 ## Required Records
 
@@ -61,5 +62,5 @@ Recover Jund end to end under CRIT-001: audit the existing packet, bound readine
 - DRIFT-020 certification handoff: `docs/handoffs/2026-07-21-2058-codex-drift020-certification.md`
 - Candidate recovery SHA: `b275fc62aca3ed67bcdc624ea59b3ee15cdeae04`
 - Superseded candidates: `ba606b702832ce84baf45055562808f9b971e897` failed exact candidate-scope due frozen collision confidence removal; `4a2c6462c4967f661bfa5357805fc155d2d5a746` failed exact candidate-scope due forbidden added collision confidence fields.
-- Independent reviewer: pending
+- Independent reviewer: Codex independent exact-SHA review approved exact candidate `b275fc62aca3ed67bcdc624ea59b3ee15cdeae04` in `docs/handoffs/2026-07-21-2233-codex-vm525-jund-independent-review.md`
 - Certification commit: pending
