@@ -1,7 +1,7 @@
-# VM-526 — Naya Semantic Recovery
+# VM-526 - Naya Semantic Recovery
 
 ID: VM-526
-Status: In Progress - Gate 1+2 complete; Gate 3+4 authorized
+Status: Ready - exact semantic candidate recorded; awaiting independent review
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: NAYA
@@ -15,11 +15,11 @@ Recover Naya end to end under CRIT-001: audit the existing packet, bound readine
 
 ## Gates
 
-- [x] Gate 1 — Packet audit and bounded disposition complete.
-- [x] Gate 2 — Sufficient evidence completion complete; Gate 3+4 remediation authorized.
-- [ ] Gate 3 — Canonical remediation.
-- [ ] Gate 4 — Generation and validation.
-- [ ] Gate 5 — Independent certification.
+- [x] Gate 1 - Packet audit and bounded disposition complete.
+- [x] Gate 2 - Sufficient evidence completion complete; Gate 3+4 remediation authorized.
+- [x] Gate 3 - Canonical remediation.
+- [x] Gate 4 - Generation and validation.
+- [ ] Gate 5 - Independent exact-SHA review and certification.
 
 ## Scope Rules
 
@@ -36,10 +36,12 @@ Recover Naya end to end under CRIT-001: audit the existing packet, bound readine
 - Drift preflight: `docs/handoffs/2026-07-21-2336-codex-vm526-naya-drift-preflight.md`
 - Gate 1+2 handoff: `docs/handoffs/2026-07-21-2346-codex-vm526-naya-gate1-gate2.md`
 - Audit/recovery report: `docs/handoffs/2026-07-21-2346-codex-vm526-naya-gate1-gate2.md`
-- Candidate recovery SHA: pending
+- Candidate workflow handoff: `docs/handoffs/2026-07-22-0007-codex-vm526-naya-candidate-workflow.md`
+- Candidate recovery SHA: `f3dda547eb91475cd3d00056463729d98a040e55`
+- Superseded candidate: `57ce7161c1ff8736a8b91a6564fa97129fe38383` (unapproved; replaced for null guidance provenance owners)
 - Independent reviewer: pending
 - Certification commit: pending
 
 ## Current Note
 
-Gate 1+2 passed from exact starting HEAD `813c42c63a56648029c7452d2619cdaf60432b5a`. `NAYA` is the canonical internal key; `WRG`, `RGW`, and `GRW` are display/color metadata or validation terms only. Gate 3+4 remediation is authorized for NAYA only: retain all 10 claims as substantive with bounded evidence locators, add semantic guidance evidence, fixtures, and provenance owner repairs, regenerate NAYA generated consumers, and prove exact candidate scope. Candidate creation is allowed only after Gate 3+4 validation passes; independent review, certification, VM-527 work, Excel, push, PR, merge, and original-main edits remain unauthorized.
+Exact Naya replacement candidate `f3dda547eb91475cd3d00056463729d98a040e55` is recorded for independent review. `NAYA` is the canonical internal key; `WRG`, `RGW`, and `GRW` are display/color metadata or invalid validation aliases only. The candidate keeps all 10 claims substantive with 20 bounded evidence locators, adds NAYA-owned semantic guidance evidence, fixtures, and provenance owner repairs, regenerates active NAYA generated consumers, and passes exact candidate scope. Independent review, certification, VM-527 work, Excel, push, PR, merge, and original-main edits remain unauthorized.
