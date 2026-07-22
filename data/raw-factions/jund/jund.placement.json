@@ -4,11 +4,12 @@
   "faction_id": "jund",
   "faction_name": "Jund",
   "based_on_profile_version": "0.1.0",
-  "last_updated": "2026-05-30",
-  "placement_summary": "Jund is a VM-186 live-pilot placement packet for the JUND shard expression. Its strongest source-bound signals are Red-centered self-truth, gut instinct, emotion as guide, Black appetite, Green unrestrained instinct, freedom with consequences, and anti-flattening boundaries.",
+  "last_updated": "2026-07-22",
+  "placement_summary": "Jund is a JUND shard placement packet for Red-led feeling, Black appetite, and Green embodied instinct under real consequence. Its safe match basis is source-bound color philosophy plus bounded Alara setting pressure, not generic violence, death magic, devour, dragons, or Modern Jund shorthand.",
   "moral_and_psychological_profile": {
-    "summary": "Vox Mana models Jund as freedom through appetite, instinct, survival pressure, and consequence-bearing action. This is project interpretation from VM-176 through VM-178, not official canon; VM-186 enables it as a bounded live pilot.",
+    "summary": "Jund players are drawn to action that feels honest before it feels approved: appetite is admitted, instinct is trusted, and force is allowed to answer consequence directly. The profile should stay separate from cruelty, spectacle, death-magic identity, or simple efficient midrange preference.",
     "claim_ids": [
+      "jund_claim_0001",
       "jund_claim_0002",
       "jund_claim_0003",
       "jund_claim_0004",
@@ -16,18 +17,23 @@
       "jund_claim_0006",
       "jund_claim_0007",
       "jund_claim_0008",
-      "jund_claim_0010"
+      "jund_claim_0009",
+      "jund_claim_0010",
+      "jund_claim_0011",
+      "jund_claim_0012"
     ],
     "confidence": "Medium",
-    "notes": "Psychological language is Vox Mana interpretation. Support-only rows do not raise confidence."
+    "notes": "Psychological language is Vox Mana interpretation. Support-only rows do not raise confidence.",
+    "profile_id": "jund_moral_and_psychological_profile_gate3"
   },
   "placement_axes": [],
   "core_values": [
     {
       "value_id": "value_jund_0001",
       "label": "Self-Truth Before Permission",
-      "description": "The self trusts gut instinct and emotional honesty before outside restraint defines the action.",
+      "description": "Trust the first honest feeling as a real signal, especially when delay would make the action less true.",
       "claim_ids": [
+        "jund_claim_0002",
         "jund_claim_0003",
         "jund_claim_0004"
       ],
@@ -36,21 +42,22 @@
     {
       "value_id": "value_jund_0002",
       "label": "Appetite As Self-Advocacy",
-      "description": "Personal need and contentment become a way to resist imposed constraint without reducing Jund to cruelty.",
+      "description": "Protect appetite, need, and personal drive without pretending they are neutral abstractions.",
       "claim_ids": [
-        "jund_claim_0006",
-        "jund_claim_0010"
+        "jund_claim_0004",
+        "jund_claim_0005",
+        "jund_claim_0008"
       ],
       "confidence": "Medium"
     },
     {
       "value_id": "value_jund_0003",
       "label": "Instinct Into Motion",
-      "description": "Green's unrestrained instinct and Red's action turn the feeling into embodied force under consequence.",
+      "description": "Let instinct become embodied force under pressure, while keeping that force distinct from generic savagery.",
       "claim_ids": [
-        "jund_claim_0005",
+        "jund_claim_0006",
         "jund_claim_0007",
-        "jund_claim_0008"
+        "jund_claim_0011"
       ],
       "confidence": "Medium"
     }
@@ -60,8 +67,9 @@
       "signal_id": "signal_jund_0001",
       "signal": "Look for self-truth, gut instinct, emotion, and doing what feels right as primary language.",
       "claim_ids": [
-        "jund_claim_0003",
-        "jund_claim_0004"
+        "jund_claim_0002",
+        "jund_claim_0004",
+        "jund_claim_0006"
       ],
       "confidence": "Medium"
     },
@@ -69,8 +77,9 @@
       "signal_id": "signal_jund_0002",
       "signal": "Look for appetite, personal need, and self-advocacy supporting a Red-centered action frame.",
       "claim_ids": [
-        "jund_claim_0002",
-        "jund_claim_0006"
+        "jund_claim_0005",
+        "jund_claim_0008",
+        "jund_claim_0011"
       ],
       "confidence": "Medium"
     },
@@ -78,9 +87,9 @@
       "signal_id": "signal_jund_0003",
       "signal": "Look for unrestrained instinct, less overthinking, and feral motion tied to consequence.",
       "claim_ids": [
-        "jund_claim_0005",
-        "jund_claim_0007",
-        "jund_claim_0008"
+        "jund_claim_0009",
+        "jund_claim_0010",
+        "jund_claim_0012"
       ],
       "confidence": "Medium"
     }
@@ -123,10 +132,9 @@
       "answer_pattern_that_supports_this_faction": "The answer treats instinct as worth feeding and accepts the cost as part of the action.",
       "answer_pattern_that_weakens_this_faction": "The answer centers civilization rejection, performance, cruelty, communal abundance, or size reverence as the main motive.",
       "claim_ids": [
+        "jund_claim_0002",
         "jund_claim_0003",
-        "jund_claim_0004",
-        "jund_claim_0005",
-        "jund_claim_0010"
+        "jund_claim_0004"
       ],
       "confidence": "Medium",
       "notes": "Draft placement question only; not a live question-bank addition."
@@ -140,8 +148,7 @@
       "claim_ids": [
         "jund_claim_0005",
         "jund_claim_0006",
-        "jund_claim_0007",
-        "jund_claim_0010"
+        "jund_claim_0008"
       ],
       "confidence": "Medium",
       "notes": "Commander/operator mechanics remain support-only vocabulary, not canon evidence."
@@ -153,10 +160,9 @@
       "answer_pattern_that_supports_this_faction": "The answer uses mechanics as echoes of Red-centered self-truth, Black appetite, Green instinct, and consequence.",
       "answer_pattern_that_weakens_this_faction": "The answer treats devour, Modern Jund, generic aristocrats, generic lands, or generic graveyard value as sufficient by itself.",
       "claim_ids": [
-        "jund_claim_0003",
-        "jund_claim_0006",
-        "jund_claim_0007",
-        "jund_claim_0010"
+        "jund_claim_0009",
+        "jund_claim_0010",
+        "jund_claim_0012"
       ],
       "confidence": "Medium",
       "notes": "Uses JUND-EVID-016 and JUND-EVID-017 only as support-only operator boundaries."
@@ -164,20 +170,19 @@
   ],
   "chatbot_guidance": {
     "how_to_recognize_match": [
-      "VM-186 live-pilot guidance: Jund language should combine Red-centered self-truth and emotion with Black appetite and Green instinct.",
-      "Use support-only Commander/operator patterns as vocabulary only, not as canon evidence.",
-      "Keep manual-fill topics out of the match basis."
+      "Look for players who describe a decision as right because it feels honest, immediate, embodied, and worth the consequence.",
+      "Treat Commander mechanics as vocabulary only when they express appetite, instinct, or force under pressure rather than merely efficient midrange value.",
+      "Use Jund when the player wants Red-led feeling supported by Black need and Green embodiment, not just any deck with sacrifice, combat, dragons, or graveyard pressure."
     ],
     "how_to_recognize_mismatch": [
-      "Do not match Jund from BRG color composition alone.",
-      "Do not match Jund from generic anger, generic savagery, or generic devour alone.",
-      "Do not match Jund from Naya, Grixis, Gruul, Rakdos, Golgari, Witherbloom, Riveteers, or Modern Jund false-positive material.",
-      "Do not match Jund from support-only Commander/operator rows."
+      "Do not match Jund for generic anger, cruelty, destruction, devour flavor, dragon trivia, or Modern Jund efficiency without the feeling-first BRG identity.",
+      "Prefer Rakdos when the center is spectacle or transgressive performance; prefer Golgari when the center is decay, cycles, and endurance; prefer Gruul when Black appetite is absent.",
+      "Prefer Grixis when death magic, extraction, or necromantic rupture is native to the fantasy; prefer Naya when awe, communal life, or sacred scale is the center."
     ],
     "questions_to_ask_when_uncertain": [
-      "Is the player choosing pressure because the instinct feels true, or because they simply want generic aggression?",
-      "Does appetite become consequence-bearing momentum, or does it drift into Rakdos spectacle, Witherbloom drain, or generic aristocrats?",
-      "Are graveyard, land, counter, token, and combat-pressure tools serving the Jund identity, or replacing it with a single mechanic?"
+      "Is the player trusting a gut-level feeling as truth, or are they mostly optimizing a known midrange shell?",
+      "Does the fantasy need Black appetite and need, or would Red-Green embodied force be enough?",
+      "Are death, graveyards, dragons, or big creatures acting as support imagery, or are they incorrectly being used as identity proof?"
     ],
     "do_not_overweight": [
       "Do not award Jund from color composition alone.",
@@ -292,13 +297,13 @@
       "separator": "Jund shares Red-Green force, but Jund feeds instinct through Black appetite and consequence; Gruul centers civilization rejection and boundary-breaking.",
       "ask": "Is the move about feeding an instinct with a cost, or breaking a boundary because the boundary itself is false?",
       "claim_ids": [
-        "jund_claim_0003",
+        "jund_claim_0002",
         "jund_claim_0005",
         "jund_claim_0006",
-        "jund_claim_0007",
-        "jund_claim_0010"
+        "jund_claim_0009"
       ],
-      "confidence": "Medium"
+      "confidence": "Medium",
+      "guidance": "Gruul shares RG instinct and embodied force, but it usually rejects civilization through rage or wildness. Jund needs Black appetite and self-interested need alongside Red-Green force."
     },
     {
       "collision_id": "collision_jund_grixis",
@@ -306,13 +311,13 @@
       "separator": "Jund shares Black-Red danger, but replaces Blue calculation with Green instinct and keeps Red self-truth as the center.",
       "ask": "Is the answer moving from bodily instinct and appetite, or from a calculated map of weakness?",
       "claim_ids": [
-        "jund_claim_0002",
-        "jund_claim_0003",
-        "jund_claim_0007",
+        "jund_claim_0005",
+        "jund_claim_0008",
         "jund_claim_0009",
-        "jund_claim_0010"
+        "jund_claim_0012"
       ],
-      "confidence": "Medium"
+      "confidence": "Medium",
+      "guidance": "Grixis shares Black-Red appetite and harsh consequence, but it leans toward Blue-Black manipulation, death magic, extraction, and necromantic rupture. Jund should not use Grixis death cues as native identity proof."
     },
     {
       "collision_id": "collision_jund_witherbloom",
@@ -320,11 +325,13 @@
       "separator": "Jund may use drain or sacrifice as support-only gameplay texture; Witherbloom centers life exchange, pest ecology, and metabolic loops.",
       "ask": "Is drain a consequence of appetite and pressure, or is life exchange itself the whole economy?",
       "claim_ids": [
+        "jund_claim_0002",
         "jund_claim_0005",
         "jund_claim_0006",
-        "jund_claim_0010"
+        "jund_claim_0009"
       ],
-      "confidence": "Medium"
+      "confidence": "Medium",
+      "guidance": "Witherbloom shares BG life-force, cost, and appetite themes, but it usually reads as ritual exchange and resource transformation. Jund requires Red immediacy and force under consequence."
     },
     {
       "collision_id": "collision_jund_naya_note_draft",
@@ -333,13 +340,237 @@
       "ask": "Is the pressure hungry and consequence-bearing, or is it protective awe for the living whole?",
       "claim_ids": [
         "jund_claim_0002",
-        "jund_claim_0005",
         "jund_claim_0006",
         "jund_claim_0007",
-        "jund_claim_0010"
+        "jund_claim_0009",
+        "jund_claim_0011"
       ],
       "confidence": "Medium",
-      "notes": "Draft separator note only; VM-191 does not add Naya as a Jund lateral inhibition target."
+      "notes": "Draft separator note only; VM-191 does not add Naya as a Jund lateral inhibition target.",
+      "guidance": "Naya shares creature scale and bodily force, but its center is awe, communal vitality, and sacred life. Jund should remain appetite-led, consequence-facing, and Red-centered."
+    },
+    {
+      "collision_id": "collision_jund_rakdos",
+      "against": "cult_of_rakdos",
+      "guidance": "Rakdos shares BR immediacy and appetite, but it tends toward theatrical indulgence, transgression, or audience-facing spectacle. Jund needs Green embodiment and consequence-bearing instinct, not performance as the point.",
+      "claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0004",
+        "jund_claim_0005",
+        "jund_claim_0009"
+      ]
+    },
+    {
+      "collision_id": "collision_jund_golgari",
+      "against": "golgari_swarm",
+      "guidance": "Golgari shares BG survival and appetite, but it centers cycles, decay, and undercity resilience. Jund needs Red self-truth and immediate feeling rather than endurance through rot and recurrence.",
+      "claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0009"
+      ]
+    },
+    {
+      "collision_id": "collision_jund_sultai",
+      "against": "sultai",
+      "guidance": "Sultai shares Black-Green appetite and ruthlessness, but it adds Blue calculation, hierarchy, and delayed advantage. Jund should keep Red feeling-first action at the center.",
+      "claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0003",
+        "jund_claim_0005",
+        "jund_claim_0009"
+      ]
+    },
+    {
+      "collision_id": "collision_jund_mardu",
+      "against": "mardu",
+      "guidance": "Mardu shares Red-Black action and conquest pressure, but White adds discipline, oath, and group order. Jund is missing that White restraint and should feel more appetite-led and instinctive.",
+      "claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0003",
+        "jund_claim_0005",
+        "jund_claim_0009"
+      ]
+    },
+    {
+      "collision_id": "collision_jund_temur",
+      "against": "temur",
+      "guidance": "Temur shares Red-Green embodied wilderness, but Blue adds curiosity, patterning, and adaptive knowledge. Jund should be appetite and instinct under consequence rather than discovery through ferocity.",
+      "claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0003",
+        "jund_claim_0006",
+        "jund_claim_0009"
+      ]
+    },
+    {
+      "collision_id": "collision_jund_wubrg_note_draft",
+      "against": "wubrg",
+      "guidance": "WUBRG can contain Jund gestures, but a five-color deck only belongs near Jund when feeling-first appetite and embodied consequence remain the primary identity rather than broad color access.",
+      "claim_ids": [
+        "jund_claim_0001",
+        "jund_claim_0002",
+        "jund_claim_0009",
+        "jund_claim_0010"
+      ],
+      "lateral_inhibition": false,
+      "notes": "Draft generic trap only; not a Jund lateral inhibition target."
+    }
+  ],
+  "semantic_guidance_evidence": [
+    {
+      "guidance_id": "jund_chatbot_match_0001",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0004",
+        "jund_claim_0006",
+        "jund_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "canonical_content_hash": "sha256:82c4f120b7f7f8a05009ac3c78814ffb39fa8d42ee8c429610a50ae71b9b5615"
+    },
+    {
+      "guidance_id": "jund_chatbot_match_0002",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "evidence_claim_ids": [
+        "jund_claim_0009",
+        "jund_claim_0010",
+        "jund_claim_0011"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
+      ],
+      "canonical_content_hash": "sha256:bb0a210c4cb48405b41c9e9f7ad67da76d82dd45a3601e8b440f879f6453a532"
+    },
+    {
+      "guidance_id": "jund_chatbot_match_0003",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "evidence_claim_ids": [
+        "jund_claim_0001",
+        "jund_claim_0002",
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "canonical_content_hash": "sha256:593772f93d79aec283c9aa0cbe1ef02a406e5b1bad89c3528e6e607d8db68583"
+    },
+    {
+      "guidance_id": "jund_chatbot_mismatch_0001",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "evidence_claim_ids": [
+        "jund_claim_0007",
+        "jund_claim_0008",
+        "jund_claim_0009",
+        "jund_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "canonical_content_hash": "sha256:18a07af2f9c5c9f6efae0140b0ec4221c22b51900e0ed0b490687df887950e09"
+    },
+    {
+      "guidance_id": "jund_chatbot_mismatch_0002",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "canonical_content_hash": "sha256:008e5bf806661e7328b3c5c65a6e5f3500a0ee5246d8e76d2e0d8298322ff0cb"
+    },
+    {
+      "guidance_id": "jund_chatbot_mismatch_0003",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "evidence_claim_ids": [
+        "jund_claim_0009",
+        "jund_claim_0011",
+        "jund_claim_0012"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_story_all_cairns_of_jund_20151105"
+      ],
+      "canonical_content_hash": "sha256:0d530661dca34da4aaeeb2837bf1a7a5695115dbc643591fb980e65d60644155"
+    },
+    {
+      "guidance_id": "jund_chatbot_uncertain_0001",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "canonical_content_hash": "sha256:218e993f8fdca63d33111089648d95f8006c119cdcf812b5ff2914ce506dfc38"
+    },
+    {
+      "guidance_id": "jund_chatbot_uncertain_0002",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "evidence_claim_ids": [
+        "jund_claim_0004",
+        "jund_claim_0005",
+        "jund_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "canonical_content_hash": "sha256:b76724b530050a1ca2fbe5b744d4eb3280047b8c2624574866a7dc9c6006dd1e"
+    },
+    {
+      "guidance_id": "jund_chatbot_uncertain_0003",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/2",
+      "evidence_claim_ids": [
+        "jund_claim_0009",
+        "jund_claim_0010",
+        "jund_claim_0011",
+        "jund_claim_0012"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
+      ],
+      "canonical_content_hash": "sha256:f813ebe45bb1b350469cae6325d3c6bf5eb626c222bc274fa28742a06e715b82"
     }
   ]
 }

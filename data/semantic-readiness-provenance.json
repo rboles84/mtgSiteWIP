@@ -12518,8 +12518,9 @@
       "canonical_id": "signal_jund_0001",
       "canonical_content_hash": "sha256:92b5438aa966badef46720e343f6788cf0b1a2f25c54d3419601b3a50854031a",
       "evidence_claim_ids": [
-        "jund_claim_0003",
-        "jund_claim_0004"
+        "jund_claim_0002",
+        "jund_claim_0004",
+        "jund_claim_0006"
       ],
       "evidence_source_ids": [
         "src_vm_jund_evidence_ledger_20260530",
@@ -12539,13 +12540,16 @@
       "canonical_id": "signal_jund_0002",
       "canonical_content_hash": "sha256:03ae89ca3fecdec06b3a6f09b80b6a23afc6edfbbdb40d62c2f43d96d9e395f4",
       "evidence_claim_ids": [
-        "jund_claim_0002",
-        "jund_claim_0006"
+        "jund_claim_0005",
+        "jund_claim_0008",
+        "jund_claim_0011"
       ],
       "evidence_source_ids": [
-        "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/JUND",
@@ -12561,10 +12565,218 @@
       "canonical_id": "signal_jund_0003",
       "canonical_content_hash": "sha256:c7b2ee0c0cdc82de91fbc0d39582f3b5cc49708e6ce9b39f64b03329ae3f69bf",
       "evidence_claim_ids": [
-        "jund_claim_0005",
-        "jund_claim_0007",
+        "jund_claim_0009",
+        "jund_claim_0010",
+        "jund_claim_0012"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:82c4f120b7f7f8a05009ac3c78814ffb39fa8d42ee8c429610a50ae71b9b5615",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0004",
+        "jund_claim_0006",
         "jund_claim_0008"
       ],
+      "declared_content_hash": "sha256:82c4f120b7f7f8a05009ac3c78814ffb39fa8d42ee8c429610a50ae71b9b5615",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:bb0a210c4cb48405b41c9e9f7ad67da76d82dd45a3601e8b440f879f6453a532",
+      "evidence_claim_ids": [
+        "jund_claim_0009",
+        "jund_claim_0010",
+        "jund_claim_0011"
+      ],
+      "declared_content_hash": "sha256:bb0a210c4cb48405b41c9e9f7ad67da76d82dd45a3601e8b440f879f6453a532",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:593772f93d79aec283c9aa0cbe1ef02a406e5b1bad89c3528e6e607d8db68583",
+      "evidence_claim_ids": [
+        "jund_claim_0001",
+        "jund_claim_0002",
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0009"
+      ],
+      "declared_content_hash": "sha256:593772f93d79aec283c9aa0cbe1ef02a406e5b1bad89c3528e6e607d8db68583",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:18a07af2f9c5c9f6efae0140b0ec4221c22b51900e0ed0b490687df887950e09",
+      "evidence_claim_ids": [
+        "jund_claim_0007",
+        "jund_claim_0008",
+        "jund_claim_0009",
+        "jund_claim_0010"
+      ],
+      "declared_content_hash": "sha256:18a07af2f9c5c9f6efae0140b0ec4221c22b51900e0ed0b490687df887950e09",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:008e5bf806661e7328b3c5c65a6e5f3500a0ee5246d8e76d2e0d8298322ff0cb",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0009"
+      ],
+      "declared_content_hash": "sha256:008e5bf806661e7328b3c5c65a6e5f3500a0ee5246d8e76d2e0d8298322ff0cb",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:0d530661dca34da4aaeeb2837bf1a7a5695115dbc643591fb980e65d60644155",
+      "evidence_claim_ids": [
+        "jund_claim_0009",
+        "jund_claim_0011",
+        "jund_claim_0012"
+      ],
+      "declared_content_hash": "sha256:0d530661dca34da4aaeeb2837bf1a7a5695115dbc643591fb980e65d60644155",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_story_all_cairns_of_jund_20151105"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:218e993f8fdca63d33111089648d95f8006c119cdcf812b5ff2914ce506dfc38",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0010"
+      ],
+      "declared_content_hash": "sha256:218e993f8fdca63d33111089648d95f8006c119cdcf812b5ff2914ce506dfc38",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/1",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:b76724b530050a1ca2fbe5b744d4eb3280047b8c2624574866a7dc9c6006dd1e",
+      "evidence_claim_ids": [
+        "jund_claim_0004",
+        "jund_claim_0005",
+        "jund_claim_0006"
+      ],
+      "declared_content_hash": "sha256:b76724b530050a1ca2fbe5b744d4eb3280047b8c2624574866a7dc9c6006dd1e",
+      "evidence_use": "semantic",
       "evidence_source_ids": [
         "src_vm_jund_evidence_ledger_20260530",
         "src_wotc_rosewater_jund_following_your_heart"
@@ -12579,18 +12791,46 @@
     {
       "identity_key": "JUND",
       "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/chatbot_guidance/questions_to_ask_when_uncertain/2",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:f813ebe45bb1b350469cae6325d3c6bf5eb626c222bc274fa28742a06e715b82",
+      "evidence_claim_ids": [
+        "jund_claim_0009",
+        "jund_claim_0010",
+        "jund_claim_0011",
+        "jund_claim_0012"
+      ],
+      "declared_content_hash": "sha256:f813ebe45bb1b350469cae6325d3c6bf5eb626c222bc274fa28742a06e715b82",
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
       "canonical_pointer": "/collision_guidance/0",
       "canonical_id": "collision_jund_gruul",
-      "canonical_content_hash": "sha256:ba164f7d6723b429d4a1bc4090fe6712413eee3a7b9845437cb61518a56016c4",
+      "canonical_content_hash": "sha256:ceadc88d3e9b2f2131fa92c4e2d91a70c5f8b66c72560dfc250b558b5a9515f4",
       "evidence_claim_ids": [
-        "jund_claim_0003",
+        "jund_claim_0002",
         "jund_claim_0005",
         "jund_claim_0006",
-        "jund_claim_0007",
-        "jund_claim_0010"
+        "jund_claim_0009"
       ],
       "evidence_source_ids": [
         "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
         "src_wotc_rosewater_jund_following_your_heart"
       ],
       "generated_consumers": [
@@ -12605,18 +12845,18 @@
       "canonical_file": "data/raw-factions/jund/jund.placement.json",
       "canonical_pointer": "/collision_guidance/1",
       "canonical_id": "collision_jund_grixis",
-      "canonical_content_hash": "sha256:f272a56b30eec79e5b8b754d82398e423c34ac07269b5d94e5a572b101d8ef34",
+      "canonical_content_hash": "sha256:a235bdb5dc7ccf6bb8ecf24ce35063cd96d3a97cbea6b2d1b466772b638b9809",
       "evidence_claim_ids": [
-        "jund_claim_0002",
-        "jund_claim_0003",
-        "jund_claim_0007",
+        "jund_claim_0005",
+        "jund_claim_0008",
         "jund_claim_0009",
-        "jund_claim_0010"
+        "jund_claim_0012"
       ],
       "evidence_source_ids": [
-        "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/JUND",
@@ -12630,14 +12870,16 @@
       "canonical_file": "data/raw-factions/jund/jund.placement.json",
       "canonical_pointer": "/collision_guidance/2",
       "canonical_id": "collision_jund_witherbloom",
-      "canonical_content_hash": "sha256:ec1619806e115400842531b8f3f55fbbccc00619bc8fc8027bab771628ffa88b",
+      "canonical_content_hash": "sha256:ed8d6c2b15e68f19aceeeb44645d838d4df407adb92102bc869859243cb43885",
       "evidence_claim_ids": [
+        "jund_claim_0002",
         "jund_claim_0005",
         "jund_claim_0006",
-        "jund_claim_0010"
+        "jund_claim_0009"
       ],
       "evidence_source_ids": [
         "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
         "src_wotc_rosewater_jund_following_your_heart"
       ],
       "generated_consumers": [
@@ -12652,17 +12894,163 @@
       "canonical_file": "data/raw-factions/jund/jund.placement.json",
       "canonical_pointer": "/collision_guidance/3",
       "canonical_id": "collision_jund_naya_note_draft",
-      "canonical_content_hash": "sha256:d9608eb72bf402e4b67ef2d092b77951b8cd856bdd0937ad3f4f1da1db7b0213",
+      "canonical_content_hash": "sha256:249ea802cc92069ccde9a203397cda3f5c4efe27e3383474a7c60adf858678d2",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0006",
+        "jund_claim_0007",
+        "jund_claim_0009",
+        "jund_claim_0011"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/collision_guidance/4",
+      "canonical_id": "collision_jund_rakdos",
+      "canonical_content_hash": "sha256:7dc4cc699510dd08e738a7732276211ee1f60a15aa797f25c52e2bc3b122d3db",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0004",
+        "jund_claim_0005",
+        "jund_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/collision_guidance/5",
+      "canonical_id": "collision_jund_golgari",
+      "canonical_content_hash": "sha256:f531c61199bc5066dfc87ed2f810d01d61c93f1d03425a50435de5d24906bc4b",
       "evidence_claim_ids": [
         "jund_claim_0002",
         "jund_claim_0005",
         "jund_claim_0006",
-        "jund_claim_0007",
+        "jund_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/collision_guidance/6",
+      "canonical_id": "collision_jund_sultai",
+      "canonical_content_hash": "sha256:e0f550d0e4fb0d07f06704eaf073169b3067e5d9d5a1905876ee6506a86df4b7",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0003",
+        "jund_claim_0005",
+        "jund_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/collision_guidance/7",
+      "canonical_id": "collision_jund_mardu",
+      "canonical_content_hash": "sha256:acd92be5025688eec53d918d2e43b65f85d34088e761834d4da83ba4b767da91",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0003",
+        "jund_claim_0005",
+        "jund_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/collision_guidance/8",
+      "canonical_id": "collision_jund_temur",
+      "canonical_content_hash": "sha256:b4632ceb3cbf6f8d3eb878d7aebf63c34b2b566a6a84058c6ff9a68a24c902c0",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0003",
+        "jund_claim_0006",
+        "jund_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/collision_guidance/9",
+      "canonical_id": "collision_jund_wubrg_note_draft",
+      "canonical_content_hash": "sha256:0e5e8ce9b733e5291fc7a4e1365445b6db55fcb27efc94d840ed1db46d0a362d",
+      "evidence_claim_ids": [
+        "jund_claim_0001",
+        "jund_claim_0002",
+        "jund_claim_0009",
         "jund_claim_0010"
       ],
       "evidence_source_ids": [
-        "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
         "src_wotc_rosewater_jund_following_your_heart"
       ],
       "generated_consumers": [
@@ -12677,8 +13065,9 @@
       "canonical_file": "data/raw-factions/jund/jund.placement.json",
       "canonical_pointer": "/core_values/0",
       "canonical_id": "value_jund_0001",
-      "canonical_content_hash": "sha256:458012febfdb63d1321676fb1ad78f8b0e823b8afbb517677ed6ed7ecf8206df",
+      "canonical_content_hash": "sha256:5434a68c208b5503efc8ebd6fa297fdfe91ec20eecb00494086eb570961b3d0a",
       "evidence_claim_ids": [
+        "jund_claim_0002",
         "jund_claim_0003",
         "jund_claim_0004"
       ],
@@ -12698,13 +13087,15 @@
       "canonical_file": "data/raw-factions/jund/jund.placement.json",
       "canonical_pointer": "/core_values/1",
       "canonical_id": "value_jund_0002",
-      "canonical_content_hash": "sha256:57ab33850555a6c4713933a412c074e82bf03f6eb601eef8b02afeccc56fe96e",
+      "canonical_content_hash": "sha256:b07f38ed308532c3d9dbe3d5a61020364107c0dcd3507a595b11d0e073507b86",
       "evidence_claim_ids": [
-        "jund_claim_0006",
-        "jund_claim_0010"
+        "jund_claim_0004",
+        "jund_claim_0005",
+        "jund_claim_0008"
       ],
       "evidence_source_ids": [
         "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
         "src_wotc_rosewater_jund_following_your_heart"
       ],
       "generated_consumers": [
@@ -12719,15 +13110,18 @@
       "canonical_file": "data/raw-factions/jund/jund.placement.json",
       "canonical_pointer": "/core_values/2",
       "canonical_id": "value_jund_0003",
-      "canonical_content_hash": "sha256:def88b5da580b69f1a416a4abea011ac7984218bc299860677a68965cf4d5fab",
+      "canonical_content_hash": "sha256:4cbc128d43a982217c5555c2fa9d33d6f9fd1d3713e176edf844c65e608b368d",
       "evidence_claim_ids": [
-        "jund_claim_0005",
+        "jund_claim_0006",
         "jund_claim_0007",
-        "jund_claim_0008"
+        "jund_claim_0011"
       ],
       "evidence_source_ids": [
         "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/JUND",
@@ -12743,10 +13137,9 @@
       "canonical_id": "q_jund_0001",
       "canonical_content_hash": "sha256:3d8b35b79ed47a569be4ca7ee50d4e345c02e2ba113305ce82d0227c2f59dfb3",
       "evidence_claim_ids": [
+        "jund_claim_0002",
         "jund_claim_0003",
-        "jund_claim_0004",
-        "jund_claim_0005",
-        "jund_claim_0010"
+        "jund_claim_0004"
       ],
       "evidence_source_ids": [
         "src_vm_jund_evidence_ledger_20260530",
@@ -12768,11 +13161,11 @@
       "evidence_claim_ids": [
         "jund_claim_0005",
         "jund_claim_0006",
-        "jund_claim_0007",
-        "jund_claim_0010"
+        "jund_claim_0008"
       ],
       "evidence_source_ids": [
         "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
         "src_wotc_rosewater_jund_following_your_heart"
       ],
       "generated_consumers": [
@@ -12789,10 +13182,235 @@
       "canonical_id": "q_jund_0003",
       "canonical_content_hash": "sha256:db2ee98623fc4d4af876b2eb48261920a9444076d09754bb8a91b5fe41fd8625",
       "evidence_claim_ids": [
+        "jund_claim_0009",
+        "jund_claim_0010",
+        "jund_claim_0012"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/moral_and_psychological_profile",
+      "canonical_id": "jund_moral_and_psychological_profile_gate3",
+      "canonical_content_hash": "sha256:66c871c0f4d4c2876fd57b96940d61942381f6b599ab6eafb51d4dc544283f0d",
+      "evidence_claim_ids": [
+        "jund_claim_0001",
+        "jund_claim_0002",
         "jund_claim_0003",
+        "jund_claim_0004",
+        "jund_claim_0005",
         "jund_claim_0006",
         "jund_claim_0007",
+        "jund_claim_0008",
+        "jund_claim_0009",
+        "jund_claim_0010",
+        "jund_claim_0011",
+        "jund_claim_0012"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "jund_chatbot_match_0001",
+      "canonical_content_hash": "sha256:a805585c4b9317172073e86292402b576d29e5ea7301be12bbb2adb88a3c3cb5",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0004",
+        "jund_claim_0006",
+        "jund_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "jund_chatbot_match_0002",
+      "canonical_content_hash": "sha256:4af8a13a01c2ec30c3d7f94e1843055117a329b434a5452ab015f7121d9453d1",
+      "evidence_claim_ids": [
+        "jund_claim_0009",
+        "jund_claim_0010",
+        "jund_claim_0011"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "jund_chatbot_match_0003",
+      "canonical_content_hash": "sha256:d0c4c37c3636dbeaf586863304f97f436ce2b3e817825e7c339851bd01043793",
+      "evidence_claim_ids": [
+        "jund_claim_0001",
+        "jund_claim_0002",
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "jund_chatbot_mismatch_0001",
+      "canonical_content_hash": "sha256:22d64875b13068c837c118a67307b395e93b8cf4535fc60904195c269ea2f2c2",
+      "evidence_claim_ids": [
+        "jund_claim_0007",
+        "jund_claim_0008",
+        "jund_claim_0009",
         "jund_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "jund_chatbot_mismatch_0002",
+      "canonical_content_hash": "sha256:dd530d700f3672b045baf627380c93d26b78dea416d90895bdb6f32baa7429c7",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0005",
+        "jund_claim_0006",
+        "jund_claim_0009"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": "jund_chatbot_mismatch_0003",
+      "canonical_content_hash": "sha256:4c409026cc70e2e058017edd406f1fe3aa8a3e3b0e6be968a5d603cff0971756",
+      "evidence_claim_ids": [
+        "jund_claim_0009",
+        "jund_claim_0011",
+        "jund_claim_0012"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_story_all_cairns_of_jund_20151105"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": "jund_chatbot_uncertain_0001",
+      "canonical_content_hash": "sha256:4cc0c1f9373a4baa71ce9898fbe720d00cddcb3fc781c76cf4f78df985e18c88",
+      "evidence_claim_ids": [
+        "jund_claim_0002",
+        "jund_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/JUND",
+        "data/placement-model.json#/factions/JUND",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/JUND"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_file": "data/raw-factions/jund/jund.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/7",
+      "canonical_id": "jund_chatbot_uncertain_0002",
+      "canonical_content_hash": "sha256:6e1accd761caea63654c2bd97931d0be08a67f67cd71da746b2b9c75435ad95c",
+      "evidence_claim_ids": [
+        "jund_claim_0004",
+        "jund_claim_0005",
+        "jund_claim_0006"
       ],
       "evidence_source_ids": [
         "src_vm_jund_evidence_ledger_20260530",
@@ -12808,23 +13426,21 @@
     {
       "identity_key": "JUND",
       "canonical_file": "data/raw-factions/jund/jund.placement.json",
-      "canonical_pointer": "/moral_and_psychological_profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:b71f89d9adc68b2f94a00b1732f9ebacd39f56282d1daaeeaf8673c8268ff69b",
+      "canonical_pointer": "/semantic_guidance_evidence/8",
+      "canonical_id": "jund_chatbot_uncertain_0003",
+      "canonical_content_hash": "sha256:edc7d65b12d8f383ba6ad3866430dae811ea328df9541d640d94b221d53c4efb",
       "evidence_claim_ids": [
-        "jund_claim_0002",
-        "jund_claim_0003",
-        "jund_claim_0004",
-        "jund_claim_0005",
-        "jund_claim_0006",
-        "jund_claim_0007",
-        "jund_claim_0008",
-        "jund_claim_0010"
+        "jund_claim_0009",
+        "jund_claim_0010",
+        "jund_claim_0011",
+        "jund_claim_0012"
       ],
       "evidence_source_ids": [
-        "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/JUND",
@@ -12837,8 +13453,8 @@
       "identity_key": "JUND",
       "canonical_file": "data/raw-factions/jund/jund.profile.json",
       "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:d7766c9a77b80938d1ef3b6acaadfc9dd219c10882aab55047d5c5cbf030dd1a",
+      "canonical_id": "jund_core_identity_gate3",
+      "canonical_content_hash": "sha256:ecbe5e2d38d9d4963363f67e7873d7f48603fe11d65b5a51a38d1816c14df13f",
       "evidence_claim_ids": [
         "jund_claim_0001",
         "jund_claim_0002",
@@ -12848,13 +13464,15 @@
         "jund_claim_0006",
         "jund_claim_0007",
         "jund_claim_0008",
-        "jund_claim_0009",
-        "jund_claim_0010"
+        "jund_claim_0011",
+        "jund_claim_0012"
       ],
       "evidence_source_ids": [
-        "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/JUND",
@@ -12867,8 +13485,8 @@
       "identity_key": "JUND",
       "canonical_file": "data/raw-factions/jund/jund.profile.json",
       "canonical_pointer": "/data_quality",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:22d463881a0fdc814b05c2389cd08c5d495012aa3ae1f5caddfbd14a24de8923",
+      "canonical_id": "jund_data_quality_gate3",
+      "canonical_content_hash": "sha256:04235caf2264ec86b9811aa76f39b40fecc52bb3af2e6b59cc03c733410e28dd",
       "evidence_claim_ids": [
         "jund_claim_0001",
         "jund_claim_0002",
@@ -12879,12 +13497,16 @@
         "jund_claim_0007",
         "jund_claim_0008",
         "jund_claim_0009",
-        "jund_claim_0010"
+        "jund_claim_0010",
+        "jund_claim_0011",
+        "jund_claim_0012"
       ],
       "evidence_source_ids": [
-        "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/JUND",
@@ -12897,19 +13519,20 @@
       "identity_key": "JUND",
       "canonical_file": "data/raw-factions/jund/jund.profile.json",
       "canonical_pointer": "/great_tension",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:3344a468f618d6396135271c66528bd4204c95a0947550651876d1cff85c507e",
+      "canonical_id": "jund_great_tension_gate3",
+      "canonical_content_hash": "sha256:3ce947da2e60e014ce022548a0113ec0017e0101eff08de77ef03b5789b22056",
       "evidence_claim_ids": [
         "jund_claim_0003",
-        "jund_claim_0004",
         "jund_claim_0005",
         "jund_claim_0006",
         "jund_claim_0007",
         "jund_claim_0008",
+        "jund_claim_0009",
         "jund_claim_0010"
       ],
       "evidence_source_ids": [
         "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530",
         "src_wotc_rosewater_jund_following_your_heart"
       ],
       "generated_consumers": [
@@ -12924,15 +13547,17 @@
       "canonical_file": "data/raw-factions/jund/jund.profile.json",
       "canonical_pointer": "/historical_timeline/0",
       "canonical_id": "event_jund_0001",
-      "canonical_content_hash": "sha256:15e1ee8af94f4d20e4bc14fb3af09413062c8c06165555f074cd3bf05dbb67df",
+      "canonical_content_hash": "sha256:c5d5409f837302ac7e8cba18e9b19c8462c53cd3985afb4a495057292c54152c",
       "evidence_claim_ids": [
         "jund_claim_0001",
-        "jund_claim_0002"
+        "jund_claim_0011",
+        "jund_claim_0012"
       ],
       "evidence_source_ids": [
-        "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/JUND",
@@ -12945,24 +13570,27 @@
       "identity_key": "JUND",
       "canonical_file": "data/raw-factions/jund/jund.profile.json",
       "canonical_pointer": "/site_surface",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:7cc5a916410a731b71621b532af3c53086efda599348317f298d4543b840b5db",
+      "canonical_id": "jund_site_surface_gate3",
+      "canonical_content_hash": "sha256:5c8b41dcfaa9adc7983c8652279ad348622e50710fb08d29cd5aea0fc56ccf30",
       "evidence_claim_ids": [
         "jund_claim_0001",
         "jund_claim_0002",
-        "jund_claim_0003",
         "jund_claim_0004",
         "jund_claim_0005",
         "jund_claim_0006",
         "jund_claim_0007",
         "jund_claim_0008",
         "jund_claim_0009",
-        "jund_claim_0010"
+        "jund_claim_0010",
+        "jund_claim_0011",
+        "jund_claim_0012"
       ],
       "evidence_source_ids": [
-        "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/JUND",
@@ -12975,8 +13603,8 @@
       "identity_key": "JUND",
       "canonical_file": "data/raw-factions/jund/jund.profile.json",
       "canonical_pointer": "/structure",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:c94e08ab48a3f720391d96791b184ae7dc97d613253b2bc5ed0cff0c07153a98",
+      "canonical_id": "jund_structure_gate3",
+      "canonical_content_hash": "sha256:519519fd4c48a76c0de6c06ab0b594dcc7b85dfdb497a5bb8286af8e0207e64d",
       "evidence_claim_ids": [
         "jund_claim_0001",
         "jund_claim_0002",
@@ -12984,15 +13612,16 @@
         "jund_claim_0004",
         "jund_claim_0005",
         "jund_claim_0006",
-        "jund_claim_0007",
-        "jund_claim_0008",
         "jund_claim_0009",
-        "jund_claim_0010"
+        "jund_claim_0011",
+        "jund_claim_0012"
       ],
       "evidence_source_ids": [
-        "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/JUND",
@@ -13005,19 +13634,21 @@
       "identity_key": "JUND",
       "canonical_file": "data/raw-factions/jund/jund.profile.json",
       "canonical_pointer": "/views_on_other_factions/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:7afe1593343a0a4657048ae0362dfa113c7e359b6227822cb8efc28246b18c17",
+      "canonical_id": "rel_jund_naya_gate3",
+      "canonical_content_hash": "sha256:3f9297da6198708f7fb016a008384428dc979db112bebd46156ffddfaab1c198",
       "evidence_claim_ids": [
-        "jund_claim_0002",
-        "jund_claim_0005",
+        "jund_claim_0004",
         "jund_claim_0006",
         "jund_claim_0007",
-        "jund_claim_0010"
+        "jund_claim_0009",
+        "jund_claim_0011"
       ],
       "evidence_source_ids": [
-        "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_alara_plane_overview_local",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/JUND",
@@ -13030,19 +13661,19 @@
       "identity_key": "JUND",
       "canonical_file": "data/raw-factions/jund/jund.profile.json",
       "canonical_pointer": "/views_on_other_factions/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:37bf9a79a4e296e4afb7139519b8bbfb78312d8970c8d870a22e3618a5d5cc0d",
+      "canonical_id": "rel_jund_grixis_gate3",
+      "canonical_content_hash": "sha256:3ef93f1dd90d6465435f6e6dd0dea833ac8f0df19d9ec0748edb9480c16edd04",
       "evidence_claim_ids": [
-        "jund_claim_0002",
-        "jund_claim_0003",
-        "jund_claim_0007",
+        "jund_claim_0005",
+        "jund_claim_0008",
         "jund_claim_0009",
-        "jund_claim_0010"
+        "jund_claim_0012"
       ],
       "evidence_source_ids": [
-        "src_vm_canon_inventory_three_color_audit_20260528",
         "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_vm_jund_reliability_audit_20260530",
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_wotc_story_all_cairns_of_jund_20151105"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/JUND",

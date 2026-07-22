@@ -2588,10 +2588,9 @@ export const FACTION_CONTEXT = {
     ],
     "inhibitor_traps": [
       "Waits for permission, abstract approval, or sterile control when survival asks for honest instinct and consequence-bearing action.",
-      "Do not match Jund from BRG color composition alone.",
-      "Do not match Jund from generic anger, generic savagery, or generic devour alone.",
-      "Do not match Jund from Naya, Grixis, Gruul, Rakdos, Golgari, Witherbloom, Riveteers, or Modern Jund false-positive material.",
-      "Do not match Jund from support-only Commander/operator rows.",
+      "Do not match Jund for generic anger, cruelty, destruction, devour flavor, dragon trivia, or Modern Jund efficiency without the feeling-first BRG identity.",
+      "Prefer Rakdos when the center is spectacle or transgressive performance; prefer Golgari when the center is decay, cycles, and endurance; prefer Gruul when Black appetite is absent.",
+      "Prefer Grixis when death magic, extraction, or necromantic rupture is native to the fantasy; prefer Naya when awe, communal life, or sacred scale is the center.",
       "The answer depends on detailed geography, figure biography, predator hierarchy, devour-as-total-identity, or Conflux chronology.",
       "The answer is mainly generic BRG, generic midrange, generic sacrifice value, or Riveteers/Witherbloom styling.",
       "The answer centers public honor, engineered perfection, death-world necromancy, civilization rejection, spectacle, lifecycle rot, or Green-centered behemoth community."
@@ -2616,10 +2615,9 @@ export const FACTION_CONTEXT = {
         "weakens": "The answer centers civilization rejection, performance, cruelty, communal abundance, or size reverence as the main motive.",
         "collision_targets": [],
         "evidence_claim_ids": [
+          "jund_claim_0002",
           "jund_claim_0003",
-          "jund_claim_0004",
-          "jund_claim_0005",
-          "jund_claim_0010"
+          "jund_claim_0004"
         ],
         "confidence": "Medium"
       },
@@ -2633,8 +2631,7 @@ export const FACTION_CONTEXT = {
         "evidence_claim_ids": [
           "jund_claim_0005",
           "jund_claim_0006",
-          "jund_claim_0007",
-          "jund_claim_0010"
+          "jund_claim_0008"
         ],
         "confidence": "Medium"
       },
@@ -2646,30 +2643,28 @@ export const FACTION_CONTEXT = {
         "weakens": "The answer treats devour, Modern Jund, generic aristocrats, generic lands, or generic graveyard value as sufficient by itself.",
         "collision_targets": [],
         "evidence_claim_ids": [
-          "jund_claim_0003",
-          "jund_claim_0006",
-          "jund_claim_0007",
-          "jund_claim_0010"
+          "jund_claim_0009",
+          "jund_claim_0010",
+          "jund_claim_0012"
         ],
         "confidence": "Medium"
       }
     ],
     "chatbot_guidance": {
       "how_to_recognize_match": [
-        "VM-186 live-pilot guidance: Jund language should combine Red-centered self-truth and emotion with Black appetite and Green instinct.",
-        "Use support-only Commander/operator patterns as vocabulary only, not as canon evidence.",
-        "Keep manual-fill topics out of the match basis."
+        "Look for players who describe a decision as right because it feels honest, immediate, embodied, and worth the consequence.",
+        "Treat Commander mechanics as vocabulary only when they express appetite, instinct, or force under pressure rather than merely efficient midrange value.",
+        "Use Jund when the player wants Red-led feeling supported by Black need and Green embodiment, not just any deck with sacrifice, combat, dragons, or graveyard pressure."
       ],
       "how_to_recognize_mismatch": [
-        "Do not match Jund from BRG color composition alone.",
-        "Do not match Jund from generic anger, generic savagery, or generic devour alone.",
-        "Do not match Jund from Naya, Grixis, Gruul, Rakdos, Golgari, Witherbloom, Riveteers, or Modern Jund false-positive material.",
-        "Do not match Jund from support-only Commander/operator rows."
+        "Do not match Jund for generic anger, cruelty, destruction, devour flavor, dragon trivia, or Modern Jund efficiency without the feeling-first BRG identity.",
+        "Prefer Rakdos when the center is spectacle or transgressive performance; prefer Golgari when the center is decay, cycles, and endurance; prefer Gruul when Black appetite is absent.",
+        "Prefer Grixis when death magic, extraction, or necromantic rupture is native to the fantasy; prefer Naya when awe, communal life, or sacred scale is the center."
       ],
       "questions_to_ask_when_uncertain": [
-        "Is the player choosing pressure because the instinct feels true, or because they simply want generic aggression?",
-        "Does appetite become consequence-bearing momentum, or does it drift into Rakdos spectacle, Witherbloom drain, or generic aristocrats?",
-        "Are graveyard, land, counter, token, and combat-pressure tools serving the Jund identity, or replacing it with a single mechanic?"
+        "Is the player trusting a gut-level feeling as truth, or are they mostly optimizing a known midrange shell?",
+        "Does the fantasy need Black appetite and need, or would Red-Green embodied force be enough?",
+        "Are death, graveyards, dragons, or big creatures acting as support imagery, or are they incorrectly being used as identity proof?"
       ],
       "do_not_overweight": [
         "Do not award Jund from color composition alone.",

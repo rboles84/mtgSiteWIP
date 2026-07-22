@@ -3519,7 +3519,7 @@
         "G"
       ],
       "identity": {
-        "summary": "Jund is the Red-centered black-red-green Alara shard expression whose safe evidence floor is self-truth, gut instinct, emotion as guide, total freedom with consequences, Black self-interest, Green unrestrained instinct, and the design-level absence of White/Blue pressures.",
+        "summary": "Jund is the BRG expression of feeling acted on without White-Blue restraint. Its useful Commander signal is not anger alone, death magic, or efficient midrange play; it is appetite, gut truth, and instinct becoming force where the world answers back.",
         "philosophy": "Red supplies the center: being true to oneself, following gut instinct, and doing what feels right. Black supports appetite and self-advocacy. Green supports unrestrained instinct and embodied force.",
         "central_tension": "Vox Mana models Jund's tension as freedom through appetite and instinct drifting into flattening, overconsumption, or mistaking impulse for truth.",
         "display_tagline": "Trust the feeling. Feed the hunger. Bear the consequence.",
@@ -3604,10 +3604,9 @@
       ],
       "inhibitor_traps": [
         "Waits for permission, abstract approval, or sterile control when survival asks for honest instinct and consequence-bearing action.",
-        "Do not match Jund from BRG color composition alone.",
-        "Do not match Jund from generic anger, generic savagery, or generic devour alone.",
-        "Do not match Jund from Naya, Grixis, Gruul, Rakdos, Golgari, Witherbloom, Riveteers, or Modern Jund false-positive material.",
-        "Do not match Jund from support-only Commander/operator rows.",
+        "Do not match Jund for generic anger, cruelty, destruction, devour flavor, dragon trivia, or Modern Jund efficiency without the feeling-first BRG identity.",
+        "Prefer Rakdos when the center is spectacle or transgressive performance; prefer Golgari when the center is decay, cycles, and endurance; prefer Gruul when Black appetite is absent.",
+        "Prefer Grixis when death magic, extraction, or necromantic rupture is native to the fantasy; prefer Naya when awe, communal life, or sacred scale is the center.",
         "The answer depends on detailed geography, figure biography, predator hierarchy, devour-as-total-identity, or Conflux chronology.",
         "The answer is mainly generic BRG, generic midrange, generic sacrifice value, or Riveteers/Witherbloom styling.",
         "The answer centers public honor, engineered perfection, death-world necromancy, civilization rejection, spectacle, lifecycle rot, or Green-centered behemoth community."
@@ -3621,10 +3620,9 @@
           "weakens": "The answer centers civilization rejection, performance, cruelty, communal abundance, or size reverence as the main motive.",
           "collision_targets": [],
           "evidence_claim_ids": [
+            "jund_claim_0002",
             "jund_claim_0003",
-            "jund_claim_0004",
-            "jund_claim_0005",
-            "jund_claim_0010"
+            "jund_claim_0004"
           ],
           "confidence": "Medium"
         },
@@ -3638,8 +3636,7 @@
           "evidence_claim_ids": [
             "jund_claim_0005",
             "jund_claim_0006",
-            "jund_claim_0007",
-            "jund_claim_0010"
+            "jund_claim_0008"
           ],
           "confidence": "Medium"
         },
@@ -3651,10 +3648,9 @@
           "weakens": "The answer treats devour, Modern Jund, generic aristocrats, generic lands, or generic graveyard value as sufficient by itself.",
           "collision_targets": [],
           "evidence_claim_ids": [
-            "jund_claim_0003",
-            "jund_claim_0006",
-            "jund_claim_0007",
-            "jund_claim_0010"
+            "jund_claim_0009",
+            "jund_claim_0010",
+            "jund_claim_0012"
           ],
           "confidence": "Medium"
         }
@@ -3677,13 +3673,13 @@
           "separator": "Jund shares Red-Green force, but Jund feeds instinct through Black appetite and consequence; Gruul centers civilization rejection and boundary-breaking.",
           "ask": "Is the move about feeding an instinct with a cost, or breaking a boundary because the boundary itself is false?",
           "claim_ids": [
-            "jund_claim_0003",
+            "jund_claim_0002",
             "jund_claim_0005",
             "jund_claim_0006",
-            "jund_claim_0007",
-            "jund_claim_0010"
+            "jund_claim_0009"
           ],
-          "confidence": "Medium"
+          "confidence": "Medium",
+          "guidance": "Gruul shares RG instinct and embodied force, but it usually rejects civilization through rage or wildness. Jund needs Black appetite and self-interested need alongside Red-Green force."
         },
         {
           "collision_id": "collision_jund_grixis",
@@ -3691,13 +3687,13 @@
           "separator": "Jund shares Black-Red danger, but replaces Blue calculation with Green instinct and keeps Red self-truth as the center.",
           "ask": "Is the answer moving from bodily instinct and appetite, or from a calculated map of weakness?",
           "claim_ids": [
-            "jund_claim_0002",
-            "jund_claim_0003",
-            "jund_claim_0007",
+            "jund_claim_0005",
+            "jund_claim_0008",
             "jund_claim_0009",
-            "jund_claim_0010"
+            "jund_claim_0012"
           ],
-          "confidence": "Medium"
+          "confidence": "Medium",
+          "guidance": "Grixis shares Black-Red appetite and harsh consequence, but it leans toward Blue-Black manipulation, death magic, extraction, and necromantic rupture. Jund should not use Grixis death cues as native identity proof."
         },
         {
           "collision_id": "collision_jund_witherbloom",
@@ -3705,29 +3701,95 @@
           "separator": "Jund may use drain or sacrifice as support-only gameplay texture; Witherbloom centers life exchange, pest ecology, and metabolic loops.",
           "ask": "Is drain a consequence of appetite and pressure, or is life exchange itself the whole economy?",
           "claim_ids": [
+            "jund_claim_0002",
             "jund_claim_0005",
             "jund_claim_0006",
-            "jund_claim_0010"
+            "jund_claim_0009"
           ],
-          "confidence": "Medium"
+          "confidence": "Medium",
+          "guidance": "Witherbloom shares BG life-force, cost, and appetite themes, but it usually reads as ritual exchange and resource transformation. Jund requires Red immediacy and force under consequence."
+        },
+        {
+          "collision_id": "collision_jund_rakdos",
+          "against": "BR",
+          "guidance": "Rakdos shares BR immediacy and appetite, but it tends toward theatrical indulgence, transgression, or audience-facing spectacle. Jund needs Green embodiment and consequence-bearing instinct, not performance as the point.",
+          "claim_ids": [
+            "jund_claim_0002",
+            "jund_claim_0004",
+            "jund_claim_0005",
+            "jund_claim_0009"
+          ],
+          "separator": "",
+          "ask": ""
+        },
+        {
+          "collision_id": "collision_jund_golgari",
+          "against": "BG",
+          "guidance": "Golgari shares BG survival and appetite, but it centers cycles, decay, and undercity resilience. Jund needs Red self-truth and immediate feeling rather than endurance through rot and recurrence.",
+          "claim_ids": [
+            "jund_claim_0002",
+            "jund_claim_0005",
+            "jund_claim_0006",
+            "jund_claim_0009"
+          ],
+          "separator": "",
+          "ask": ""
+        },
+        {
+          "collision_id": "collision_jund_sultai",
+          "against": "SULTAI",
+          "guidance": "Sultai shares Black-Green appetite and ruthlessness, but it adds Blue calculation, hierarchy, and delayed advantage. Jund should keep Red feeling-first action at the center.",
+          "claim_ids": [
+            "jund_claim_0002",
+            "jund_claim_0003",
+            "jund_claim_0005",
+            "jund_claim_0009"
+          ],
+          "separator": "",
+          "ask": ""
+        },
+        {
+          "collision_id": "collision_jund_mardu",
+          "against": "MARDU",
+          "guidance": "Mardu shares Red-Black action and conquest pressure, but White adds discipline, oath, and group order. Jund is missing that White restraint and should feel more appetite-led and instinctive.",
+          "claim_ids": [
+            "jund_claim_0002",
+            "jund_claim_0003",
+            "jund_claim_0005",
+            "jund_claim_0009"
+          ],
+          "separator": "",
+          "ask": ""
+        },
+        {
+          "collision_id": "collision_jund_temur",
+          "against": "TEMUR",
+          "guidance": "Temur shares Red-Green embodied wilderness, but Blue adds curiosity, patterning, and adaptive knowledge. Jund should be appetite and instinct under consequence rather than discovery through ferocity.",
+          "claim_ids": [
+            "jund_claim_0002",
+            "jund_claim_0003",
+            "jund_claim_0006",
+            "jund_claim_0009"
+          ],
+          "separator": "",
+          "ask": ""
         }
       ],
       "chatbot_guidance": {
         "how_to_recognize_match": [
-          "VM-186 live-pilot guidance: Jund language should combine Red-centered self-truth and emotion with Black appetite and Green instinct.",
-          "Use support-only Commander/operator patterns as vocabulary only, not as canon evidence.",
-          "Keep manual-fill topics out of the match basis."
+          "Look for players who describe a decision as right because it feels honest, immediate, embodied, and worth the consequence.",
+          "Treat Commander mechanics as vocabulary only when they express appetite, instinct, or force under pressure rather than merely efficient midrange value.",
+          "Use Jund when the player wants Red-led feeling supported by Black need and Green embodiment, not just any deck with sacrifice, combat, dragons, or graveyard pressure."
         ],
         "how_to_recognize_mismatch": [
-          "Do not match Jund from BRG color composition alone.",
-          "Do not match Jund from generic anger, generic savagery, or generic devour alone.",
-          "Do not match Jund from Naya, Grixis, Gruul, Rakdos, Golgari, Witherbloom, Riveteers, or Modern Jund false-positive material.",
-          "Do not match Jund from support-only Commander/operator rows."
+          "Do not match Jund for generic anger, cruelty, destruction, devour flavor, dragon trivia, or Modern Jund efficiency without the feeling-first BRG identity.",
+          "Prefer Rakdos when the center is spectacle or transgressive performance; prefer Golgari when the center is decay, cycles, and endurance; prefer Gruul when Black appetite is absent.",
+          "Prefer Grixis when death magic, extraction, or necromantic rupture is native to the fantasy; prefer Naya when awe, communal life, or sacred scale is the center."
         ],
         "questions_to_ask_when_uncertain": [
-          "Is the player choosing pressure because the instinct feels true, or because they simply want generic aggression?",
-          "Does appetite become consequence-bearing momentum, or does it drift into Rakdos spectacle, Witherbloom drain, or generic aristocrats?",
-          "Are graveyard, land, counter, token, and combat-pressure tools serving the Jund identity, or replacing it with a single mechanic?"
+          "Is the player trusting a gut-level feeling as truth, or are they mostly optimizing a known midrange shell?",
+          "Does the fantasy need Black appetite and need, or would Red-Green embodied force be enough?",
+          "Are death, graveyards, dragons, or big creatures acting as support imagery, or are they incorrectly being used as identity proof?"
         ],
         "do_not_overweight": [
           "Do not award Jund from color composition alone.",
