@@ -20,8 +20,8 @@ Recover Abzan end to end under CRIT-001 Contract v1.1: audit the existing packet
 ## Gates
 
 - [x] Drift preflight - PASS; Gate 1+2 authorized only.
-- [ ] Gate 1 - Packet audit and bounded disposition.
-- [ ] Gate 2 - Sufficient evidence completion.
+- [x] Gate 1 - Packet audit and bounded disposition.
+- [x] Gate 2 - Sufficient evidence completion.
 - [ ] Gate 3 - Canonical remediation.
 - [ ] Gate 4 - Generation and validation.
 - [ ] Gate 5 - Candidate workflow record for independent review.
@@ -40,6 +40,7 @@ Recover Abzan end to end under CRIT-001 Contract v1.1: audit the existing packet
 ## Required Records
 
 - Drift preflight: `docs/handoffs/2026-07-22-1014-codex-vm527-abzan-drift-preflight.md`
+- Gate 1+2 audit: `docs/handoffs/2026-07-22-1035-codex-vm527-abzan-gate1-gate2.md`
 - Canonical ledger: `docs/incidents/CRIT-001-identity-recovery-ledger.json`
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`

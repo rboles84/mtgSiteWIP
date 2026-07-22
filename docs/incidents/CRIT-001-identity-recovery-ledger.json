@@ -78,19 +78,20 @@
       "current_identity_hold": {
         "identity": "ABZAN",
         "card": "VM-527",
-        "state": "drift_preflight_recorded_gate_1_2_authorized",
+        "state": "gate_1_2_complete_gate_3_4_authorized",
         "branch": "codex/vm-527-abzan-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm527-abzan",
         "prior_identity_certified": "NAYA",
         "prior_identity_certification": "PENDING_VM526_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "VM-527 / Abzan Gate 1+2 read-only semantic audit is authorized. No semantic remediation, candidate creation, independent review, certification, VM-528 work, Excel edit, push, PR, or merge is authorized by this preflight.",
-        "required_next_milestone": "Complete VM-527 Gate 1+2 read-only semantic audit before any Gate 3+4 remediation.",
+        "authorized_next_scope": "VM-527 / Abzan Gate 3+4 semantic remediation is authorized from the exact Gate 1+2 contract. No candidate creation, independent review, certification, VM-528 work, Excel edit, push, PR, or merge is authorized until remediation validates cleanly.",
+        "required_next_milestone": "Complete VM-527 Gate 3+4 semantic remediation and validation before any Gate 5 candidate workflow record.",
         "drift_preflight_started": true,
         "drift_preflight_completed": true,
         "drift_preflight_record": "docs/handoffs/2026-07-22-1014-codex-vm527-abzan-drift-preflight.md",
         "drift_preflight_commit": "PENDING_VM527_DRIFT_PREFLIGHT_SHA",
         "program_base": "80b34dcda7db51d08f77f862f4eafb5cf3cabeaa",
-        "updated_at": "2026-07-22T10:14:00-06:00"
+        "gate_1_2_record": "docs/handoffs/2026-07-22-1035-codex-vm527-abzan-gate1-gate2.md",
+        "updated_at": "2026-07-22T10:35:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -4408,14 +4409,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "drift_preflight",
+        "current_gate": "gate_3_4_authorized",
         "status": "in_progress",
         "started_at": "2026-07-22T10:14:00-06:00",
         "gate_entered_at": "2026-07-22T10:14:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "TEMUR",
-        "primary_disposition": "drift_preflight_passed_gate_1_2_authorized"
+        "primary_disposition": "gate_1_2_passed_gate_3_4_remediation_authorized"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -4432,13 +4433,13 @@
           "JUND",
           "NAYA"
         ],
-        "audit_report": "docs/handoffs/2026-07-22-1014-codex-vm527-abzan-drift-preflight.md",
+        "audit_report": "docs/handoffs/2026-07-22-1035-codex-vm527-abzan-gate1-gate2.md",
         "residual_findings": [
-          "Gate 1+2 semantic audit has not yet been performed.",
-          "All 11 raw claims require Contract v1.1 role adjudication before remediation.",
-          "No Abzan semantic fixture exists at preflight.",
-          "Abzan-linked provenance has 15 null canonical IDs at preflight.",
-          "Generated and provenance proof chains cite unclassified Abzan claims at preflight."
+          "Gate 3+4 must assign substantive roles to abzan_claim_0001 through abzan_claim_0010 and support_record to abzan_claim_0011.",
+          "Gate 3+4 must add bounded evidence locations, evidence scopes, and recruiter guidance evidence mappings.",
+          "No Abzan semantic fixture exists before remediation.",
+          "Abzan semantic provenance has 15 null canonical IDs before remediation.",
+          "Generated and provenance proof chains cite unclassified Abzan claims before remediation, and support-only Commander product claim abzan_claim_0011 must be isolated from authoritative generated proof chains."
         ]
       },
       "certification": {
