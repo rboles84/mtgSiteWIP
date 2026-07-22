@@ -78,20 +78,22 @@
       "current_identity_hold": {
         "identity": "ABZAN",
         "card": "VM-527",
-        "state": "gate_1_2_complete_gate_3_4_authorized",
+        "state": "semantic_candidate_created_gate_5_authorized",
         "branch": "codex/vm-527-abzan-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm527-abzan",
         "prior_identity_certified": "NAYA",
         "prior_identity_certification": "PENDING_VM526_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "VM-527 / Abzan Gate 3+4 semantic remediation is authorized from the exact Gate 1+2 contract. No candidate creation, independent review, certification, VM-528 work, Excel edit, push, PR, or merge is authorized until remediation validates cleanly.",
-        "required_next_milestone": "Complete VM-527 Gate 3+4 semantic remediation and validation before any Gate 5 candidate workflow record.",
+        "authorized_next_scope": "VM-527 / Abzan Gate 5 candidate workflow record is authorized for exact semantic candidate 11c099b8beb9f23e23660787f00b97e89914d50b. No independent review, certification, VM-528 work, Excel edit, push, PR, or merge is authorized yet.",
+        "required_next_milestone": "Record VM-527 Gate 5 candidate workflow for exact SHA 11c099b8beb9f23e23660787f00b97e89914d50b before independent review.",
         "drift_preflight_started": true,
         "drift_preflight_completed": true,
         "drift_preflight_record": "docs/handoffs/2026-07-22-1014-codex-vm527-abzan-drift-preflight.md",
         "drift_preflight_commit": "PENDING_VM527_DRIFT_PREFLIGHT_SHA",
         "program_base": "80b34dcda7db51d08f77f862f4eafb5cf3cabeaa",
         "gate_1_2_record": "docs/handoffs/2026-07-22-1035-codex-vm527-abzan-gate1-gate2.md",
-        "updated_at": "2026-07-22T10:35:00-06:00"
+        "gate_3_4_record": "docs/handoffs/2026-07-22-1110-codex-vm527-abzan-gate3-gate4.md",
+        "semantic_candidate_sha": "11c099b8beb9f23e23660787f00b97e89914d50b",
+        "updated_at": "2026-07-22T11:10:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -4409,14 +4411,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_3_4_authorized",
+        "current_gate": "gate_5_authorized",
         "status": "in_progress",
         "started_at": "2026-07-22T10:14:00-06:00",
         "gate_entered_at": "2026-07-22T10:14:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "TEMUR",
-        "primary_disposition": "gate_1_2_passed_gate_3_4_remediation_authorized"
+        "primary_disposition": "gate_3_4_passed_gate_5_candidate_workflow_authorized"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -4440,13 +4442,19 @@
           "No Abzan semantic fixture exists before remediation.",
           "Abzan semantic provenance has 15 null canonical IDs before remediation.",
           "Generated and provenance proof chains cite unclassified Abzan claims before remediation, and support-only Commander product claim abzan_claim_0011 must be isolated from authoritative generated proof chains."
+        ],
+        "candidate_summary": [
+          "Exact candidate 11c099b8beb9f23e23660787f00b97e89914d50b remediates Abzan to 10 substantive claims and 1 support record.",
+          "Candidate has 43 ABZAN semantic-provenance rows with zero null canonical IDs and zero missing canonical content hashes.",
+          "Candidate adds 17 semantic fixtures and preserves WBG/BGW/GWB invalid alias rejection.",
+          "Candidate-scope passes for ABZAN from program base 80b34dcda7db51d08f77f862f4eafb5cf3cabeaa."
         ]
       },
       "certification": {
         "contract_version": null,
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "11c099b8beb9f23e23660787f00b97e89914d50b",
+        "recovery_commit": "11c099b8beb9f23e23660787f00b97e89914d50b",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
