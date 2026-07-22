@@ -1,7 +1,7 @@
 # VM-526 — Naya Semantic Recovery
 
 ID: VM-526
-Status: In Progress - preflight complete; Gate 1+2 authorized
+Status: In Progress - Gate 1+2 complete; Gate 3+4 authorized
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: NAYA
@@ -15,8 +15,8 @@ Recover Naya end to end under CRIT-001: audit the existing packet, bound readine
 
 ## Gates
 
-- [ ] Gate 1 — Packet audit and bounded disposition.
-- [ ] Gate 2 — Sufficient evidence completion.
+- [x] Gate 1 — Packet audit and bounded disposition complete.
+- [x] Gate 2 — Sufficient evidence completion complete; Gate 3+4 remediation authorized.
 - [ ] Gate 3 — Canonical remediation.
 - [ ] Gate 4 — Generation and validation.
 - [ ] Gate 5 — Independent certification.
@@ -34,11 +34,12 @@ Recover Naya end to end under CRIT-001: audit the existing packet, bound readine
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Drift preflight: `docs/handoffs/2026-07-21-2336-codex-vm526-naya-drift-preflight.md`
-- Audit/recovery report: pending
+- Gate 1+2 handoff: `docs/handoffs/2026-07-21-2346-codex-vm526-naya-gate1-gate2.md`
+- Audit/recovery report: `docs/handoffs/2026-07-21-2346-codex-vm526-naya-gate1-gate2.md`
 - Candidate recovery SHA: pending
 - Independent reviewer: pending
 - Certification commit: pending
 
 ## Current Note
 
-Preflight passed from exact program base `7964b93f531017e579f069e6941463f53eab4bd9`. `NAYA` is the canonical internal key; `WRG` is display/color notation only and is rejected by candidate-scope validation as an unknown identity. Gate 1+2 read-only semantic audit is authorized; remediation, candidate creation, independent review, certification, VM-527 work, Excel, push, PR, and merge remain unauthorized.
+Gate 1+2 passed from exact starting HEAD `813c42c63a56648029c7452d2619cdaf60432b5a`. `NAYA` is the canonical internal key; `WRG`, `RGW`, and `GRW` are display/color metadata or validation terms only. Gate 3+4 remediation is authorized for NAYA only: retain all 10 claims as substantive with bounded evidence locators, add semantic guidance evidence, fixtures, and provenance owner repairs, regenerate NAYA generated consumers, and prove exact candidate scope. Candidate creation is allowed only after Gate 3+4 validation passes; independent review, certification, VM-527 work, Excel, push, PR, merge, and original-main edits remain unauthorized.
