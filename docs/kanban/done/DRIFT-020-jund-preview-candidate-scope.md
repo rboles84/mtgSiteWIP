@@ -1,7 +1,7 @@
 # DRIFT-020 - Jund Preview Candidate-Scope Resolution
 
 ID: DRIFT-020
-Status: Ready - independent exact-SHA review approved; certification-only next
+Status: Done - exact shared-infrastructure candidate certified
 Type: CRIT-001 Shared Infrastructure Candidate
 Priority: CRIT-001
 Identity context: JUND / VM-525
@@ -14,6 +14,8 @@ Qualification governance handoff: `docs/handoffs/2026-07-21-1829-codex-drift020-
 Workflow handoff: `docs/handoffs/2026-07-21-1920-codex-drift020-preview-candidate-workflow.md`
 Independent review handoff: `docs/handoffs/2026-07-21-2004-codex-drift020-independent-review.md`
 Independent review decision: `APPROVE EXACT SHA 399ba34243f5b421da4d3a0c251a37bcbc4bd5fa`
+Certification handoff: `docs/handoffs/2026-07-21-2058-codex-drift020-certification.md`
+Certification commit: `PENDING_DRIFT020_CERTIFICATION_COMMIT_SHA`
 
 ## Objective
 
@@ -21,15 +23,15 @@ Resolve the shared validator scope blocker from VM-525 without touching Jund sem
 
 ## Scope Rules
 
-- No Jund semantic remediation, candidate creation, independent review, certification, or program-base advancement is part of this card.
+- No Jund semantic remediation, Jund candidate creation, or VM-526 work is part of this card.
 - No identity semantic data, preview text content, generated data, recruiter context, schemas, generators, package metadata, CI, Excel, original main, VM-526, protected worktrees, or DRIFT-017 prototype changes are allowed here.
 - The exact implementation candidate SHA is the only object eligible for independent infrastructure review: `399ba34243f5b421da4d3a0c251a37bcbc4bd5fa`.
 
 ## Current Status
 
-PASS - DRIFT-020 implementation candidate `399ba34243f5b421da4d3a0c251a37bcbc4bd5fa` is independently approved by exact SHA after workflow recording from Jund STOP commit `460dd7186dc76658797beac74a4330cc699a52d6`.
+PASS - DRIFT-020 implementation candidate `399ba34243f5b421da4d3a0c251a37bcbc4bd5fa` is independently approved and certified by exact SHA after workflow recording from Jund STOP commit `460dd7186dc76658797beac74a4330cc699a52d6`.
 
-The remaining obligation is certification before VM-525 may resume Gate 3+4 semantic remediation. Certification was not performed and the program base remains unchanged.
+The certification commit is the new CRIT-001 program base. DRIFT-020 is complete. VM-525 may resume Gate 3+4 semantic remediation only in a separate future window that starts from the DRIFT-020 certification/program-base SHA. No Jund semantic remediation or Jund candidate was created during this certification.
 
 ## Validation Summary
 
@@ -49,4 +51,6 @@ The remaining obligation is certification before VM-525 may resume Gate 3+4 sema
 - VM-525 Gate 3+4 STOP handoff: `docs/handoffs/2026-07-21-1710-codex-vm525-jund-gate3-gate4-stop.md`
 - DRIFT-020 governance handoff: `docs/handoffs/2026-07-21-1829-codex-drift020-jund-preview-candidate-scope.md`
 - DRIFT-020 workflow handoff: `docs/handoffs/2026-07-21-1920-codex-drift020-preview-candidate-workflow.md`
+- DRIFT-020 independent review handoff: `docs/handoffs/2026-07-21-2004-codex-drift020-independent-review.md`
+- DRIFT-020 certification handoff: `docs/handoffs/2026-07-21-2058-codex-drift020-certification.md`
 - Drift register: `docs/incidents/CRIT-001-drift-register.md`
