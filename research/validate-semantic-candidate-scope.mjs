@@ -42,6 +42,7 @@ export function isAllowedIdentityCandidatePath(file, rawId) {
   if (normalized === `research/fixtures/semantic-readiness/${rawId}.semantic-fixtures.json`) return true;
   if ([
     "data/factions.json",
+    "data/identity-layers.json",
     "data/placement-model.json",
     "data/semantic-readiness-provenance.json",
     "supabase/functions/guild-recruiter/faction-context.ts",
@@ -160,7 +161,7 @@ function withoutIdentity(document, identityKey) {
 
 export function validateUnrelatedGeneratedIsolation({ identityKey, beforeFactions, afterFactions, beforePlacement, afterPlacement, beforeContext, afterContext, beforeContextMeta, afterContextMeta, beforeProvenance, afterProvenance }) {
   const errors = [];
-  if (stableStringify(withoutIdentity(beforeFactions, identityKey)) !== stableStringify(withoutIdentity(afterFactions, identityKey))) errors.push("unrelated or global data/factions.json content changed");
+  if (stableStringify(withoutGeneratedIdentity(beforeFactions, identityKey)) !== stableStringify(withoutGeneratedIdentity(afterFactions, identityKey))) errors.push("unrelated or global data/factions.json content changed");
   if (stableStringify(withoutIdentity(beforePlacement, identityKey)) !== stableStringify(withoutIdentity(afterPlacement, identityKey))) errors.push("unrelated or global data/placement-model.json content changed");
   if (stableStringify(withoutIdentity(beforeContext, identityKey)) !== stableStringify(withoutIdentity(afterContext, identityKey)) || stableStringify(beforeContextMeta) !== stableStringify(afterContextMeta)) errors.push("unrelated or global recruiter context content changed");
   const beforeOtherProvenance = { ...beforeProvenance, entries: (beforeProvenance.entries || []).filter((entry) => entry.identity_key !== identityKey) };
@@ -198,6 +199,57 @@ function changedFiles(base, target) {
 
 function identityValue(document, key) {
   return document?.factions?.[key] ?? document?.[key];
+}
+
+function hasOwn(object, key) {
+  return Boolean(object && typeof object === "object" && Object.prototype.hasOwnProperty.call(object, key));
+}
+
+function withoutIdentityLayerPreview(document, identityKey) {
+  const copy = structuredClone(document);
+  if (hasOwn(copy?.expressions, identityKey) && hasOwn(copy.expressions[identityKey], "preview_text")) {
+    delete copy.expressions[identityKey].preview_text;
+  }
+  return copy;
+}
+
+function withoutGeneratedIdentity(document, identityKey) {
+  const copy = structuredClone(document);
+  if (copy?.factions && hasOwn(copy.factions, identityKey)) delete copy.factions[identityKey];
+  if (
+    hasOwn(copy?.identity_layers?.expressions, identityKey)
+    && hasOwn(copy.identity_layers.expressions[identityKey], "preview_text")
+  ) {
+    delete copy.identity_layers.expressions[identityKey].preview_text;
+  }
+  return copy;
+}
+
+export function validateIdentityLayerPreviewChange({ identityKey, beforeIdentityLayers, afterIdentityLayers }) {
+  const pointer = `data/identity-layers.json#/expressions/${identityKey}/preview_text`;
+  const beforeExpression = beforeIdentityLayers?.expressions?.[identityKey];
+  const afterExpression = afterIdentityLayers?.expressions?.[identityKey];
+  if (!hasOwn(beforeIdentityLayers, "expressions") || !hasOwn(afterIdentityLayers, "expressions")) {
+    return ["identity-layer preview scope cannot validate without root expressions object"];
+  }
+  if (!hasOwn(beforeIdentityLayers.expressions, identityKey) || !hasOwn(afterIdentityLayers.expressions, identityKey)) {
+    return [`identity-layer preview scope requires retained target expression ${identityKey}`];
+  }
+  if (!hasOwn(beforeExpression, "preview_text") || !hasOwn(afterExpression, "preview_text")) {
+    return [`identity-layer preview scope requires retained target preview ${pointer}`];
+  }
+
+  const errors = [];
+  if (typeof afterExpression.preview_text !== "string") {
+    errors.push(`identity-layer preview scope requires string target preview ${pointer}`);
+  }
+  if (
+    stableStringify(withoutIdentityLayerPreview(beforeIdentityLayers, identityKey))
+    !== stableStringify(withoutIdentityLayerPreview(afterIdentityLayers, identityKey))
+  ) {
+    errors.push(`identity-layer candidate changed outside ${pointer}`);
+  }
+  return errors;
 }
 
 function claimIdFor(claim) {
@@ -421,6 +473,13 @@ async function main() {
     if (file.startsWith("data/raw-factions/") && !file.startsWith(`data/raw-factions/${rawId}/`)) {
       errors.push(`identity candidate modified another raw packet or shared raw schema ${file}`);
     }
+  }
+  if (files.includes("data/identity-layers.json")) {
+    errors.push(...validateIdentityLayerPreviewChange({
+      identityKey: options.identity,
+      beforeIdentityLayers: gitJson(options.base, "data/identity-layers.json"),
+      afterIdentityLayers: gitJson(options.target, "data/identity-layers.json"),
+    }));
   }
 
   const placementFile = `data/raw-factions/${rawId}/${rawId}.placement.json`;

@@ -9,6 +9,7 @@ import {
   isAllowedIdentityCandidatePath,
   isFrozenSharedPath,
   normalizeCollisionGuidanceForCandidateScope,
+  validateIdentityLayerPreviewChange,
   validateCollisionGuidancePreservation,
   validateGeneratedConsumerCoverage,
   validateGeneratedKeyFigureProofChains,
@@ -26,6 +27,105 @@ assert.equal(isFrozenSharedPath("assets/js/adaptive-placement.js"), true, "brows
 assert.equal(isFrozenSharedPath("supabase/functions/guild-recruiter/index.ts"), true, "global recruiter runtime is frozen for identity candidates");
 assert.equal(isAllowedIdentityCandidatePath("data/raw-factions/prismari/prismari.profile.json", "prismari"), true, "active raw packet is allowed");
 assert.equal(isAllowedIdentityCandidatePath("data/raw-factions/lorehold/lorehold.profile.json", "prismari"), false, "another identity packet is forbidden");
+assert.equal(isAllowedIdentityCandidatePath("data/identity-layers.json", "jund"), true, "identity-layer source file is conditionally allowed after object-level preview validation");
+
+const baseIdentityLayers = {
+  version: 1,
+  expressions: {
+    JUND: {
+      preview_label: "Jund",
+      preview_title: "Jund - Feeling as First Signal",
+      preview_text: "Jund treats feeling as a compass.",
+      preview_scores: { impulse: 5 },
+    },
+    NAYA: {
+      preview_label: "Naya",
+      preview_text: "Naya gathers around abundance.",
+    },
+  },
+};
+assert.deepEqual(
+  validateIdentityLayerPreviewChange({
+    identityKey: "JUND",
+    beforeIdentityLayers: baseIdentityLayers,
+    afterIdentityLayers: {
+      ...baseIdentityLayers,
+      expressions: {
+        ...baseIdentityLayers.expressions,
+        JUND: {
+          ...baseIdentityLayers.expressions.JUND,
+          preview_text: "Jund trusts feeling as the first signal.",
+        },
+      },
+    },
+  }),
+  [],
+  "target identity preview_text is the only allowed identity-layer source change"
+);
+assert.deepEqual(
+  validateIdentityLayerPreviewChange({
+    identityKey: "JUND",
+    beforeIdentityLayers: baseIdentityLayers,
+    afterIdentityLayers: JSON.parse(JSON.stringify(baseIdentityLayers)),
+  }),
+  [],
+  "formatting-neutral identity-layer serialization must not create a false violation"
+);
+for (const [label, afterIdentityLayers] of [
+  ["another identity preview", {
+    ...baseIdentityLayers,
+    expressions: {
+      ...baseIdentityLayers.expressions,
+      NAYA: { ...baseIdentityLayers.expressions.NAYA, preview_text: "Naya changed." },
+    },
+  }],
+  ["two identity previews", {
+    ...baseIdentityLayers,
+    expressions: {
+      ...baseIdentityLayers.expressions,
+      JUND: { ...baseIdentityLayers.expressions.JUND, preview_text: "Jund changed." },
+      NAYA: { ...baseIdentityLayers.expressions.NAYA, preview_text: "Naya changed." },
+    },
+  }],
+  ["target non-preview field", {
+    ...baseIdentityLayers,
+    expressions: {
+      ...baseIdentityLayers.expressions,
+      JUND: { ...baseIdentityLayers.expressions.JUND, preview_title: "Changed title" },
+    },
+  }],
+  ["target added field", {
+    ...baseIdentityLayers,
+    expressions: {
+      ...baseIdentityLayers.expressions,
+      JUND: { ...baseIdentityLayers.expressions.JUND, preview_extra: "not allowed" },
+    },
+  }],
+  ["deleted target expression", {
+    ...baseIdentityLayers,
+    expressions: { NAYA: baseIdentityLayers.expressions.NAYA },
+  }],
+  ["replaced expressions object", {
+    ...baseIdentityLayers,
+    expressions: { JUND: { preview_text: "Jund changed." } },
+  }],
+  ["root metadata change", {
+    ...baseIdentityLayers,
+    version: 2,
+  }],
+  ["array structural mutation", {
+    ...baseIdentityLayers,
+    expressions: {
+      ...baseIdentityLayers.expressions,
+      JUND: { ...baseIdentityLayers.expressions.JUND, preview_scores: ["not", "an", "object"] },
+    },
+  }],
+]) {
+  assert.ok(
+    validateIdentityLayerPreviewChange({ identityKey: "JUND", beforeIdentityLayers: baseIdentityLayers, afterIdentityLayers }).length > 0,
+    `${label} must fail identity-layer preview scope`
+  );
+}
 
 assert.deepEqual(
   findForbiddenFieldChanges({ collision: { lateral_inhibition: false } }, { collision: { lateral_inhibition: true } }),
@@ -336,6 +436,15 @@ const isolationBase = {
   PRISMARI: { value: "before" },
   LOREHOLD: { value: "stable" },
 };
+const generatedPreviewBase = {
+  factions: isolationBase,
+  identity_layers: {
+    expressions: {
+      PRISMARI: { preview_text: "Prismari before.", preview_title: "Prismari" },
+      LOREHOLD: { preview_text: "Lorehold stable.", preview_title: "Lorehold" },
+    },
+  },
+};
 assert.deepEqual(
   validateUnrelatedGeneratedIsolation({
     identityKey: "PRISMARI",
@@ -352,6 +461,61 @@ assert.deepEqual(
   }),
   [],
   "selected identity generated changes may pass when global and unrelated content is identical"
+);
+assert.deepEqual(
+  validateUnrelatedGeneratedIsolation({
+    identityKey: "PRISMARI",
+    beforeFactions: generatedPreviewBase,
+    afterFactions: {
+      ...generatedPreviewBase,
+      identity_layers: {
+        expressions: {
+          ...generatedPreviewBase.identity_layers.expressions,
+          PRISMARI: {
+            ...generatedPreviewBase.identity_layers.expressions.PRISMARI,
+            preview_text: "Prismari after.",
+          },
+        },
+      },
+    },
+    beforePlacement: { factions: isolationBase },
+    afterPlacement: { factions: isolationBase },
+    beforeContext: isolationBase,
+    afterContext: isolationBase,
+    beforeContextMeta: { version: 1 },
+    afterContextMeta: { version: 1 },
+    beforeProvenance: { contract_version: "v1.1", entries: [] },
+    afterProvenance: { contract_version: "v1.1", entries: [] },
+  }),
+  [],
+  "target embedded identity-layer preview change in generated factions may pass"
+);
+assert.ok(
+  validateUnrelatedGeneratedIsolation({
+    identityKey: "PRISMARI",
+    beforeFactions: generatedPreviewBase,
+    afterFactions: {
+      ...generatedPreviewBase,
+      identity_layers: {
+        expressions: {
+          ...generatedPreviewBase.identity_layers.expressions,
+          LOREHOLD: {
+            ...generatedPreviewBase.identity_layers.expressions.LOREHOLD,
+            preview_text: "Lorehold drift.",
+          },
+        },
+      },
+    },
+    beforePlacement: { factions: isolationBase },
+    afterPlacement: { factions: isolationBase },
+    beforeContext: isolationBase,
+    afterContext: isolationBase,
+    beforeContextMeta: { version: 1 },
+    afterContextMeta: { version: 1 },
+    beforeProvenance: { contract_version: "v1.1", entries: [] },
+    afterProvenance: { contract_version: "v1.1", entries: [] },
+  }).some((error) => error.includes("data/factions")),
+  "another identity embedded identity-layer preview change must fail"
 );
 assert.ok(
   validateUnrelatedGeneratedIsolation({
