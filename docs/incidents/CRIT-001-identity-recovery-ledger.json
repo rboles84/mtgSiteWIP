@@ -6,13 +6,13 @@
   "program": {
     "status": "active",
     "active_identity": null,
-    "next_identity": "NAYA",
-    "certified_identity_count": 24,
+    "next_identity": "ABZAN",
+    "certified_identity_count": 25,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 4 shards - active; VM-526 Naya not started",
-      "current_program_base": "PENDING_VM525_CERTIFICATION_COMMIT_SHA",
+      "next_cohort": "Wave 4 shards - active; VM-527 Abzan not started",
+      "current_program_base": "PENDING_VM526_CERTIFICATION_COMMIT_SHA",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -30,21 +30,22 @@
         "next_wave_status": "VM-522/Wave 4 not started"
       },
       "wave_4_shards": "active",
-      "wave_4_shards_certified": "4 of 10",
+      "wave_4_shards_certified": "5 of 10",
       "wave_4_status": {
         "status": "active",
-        "certified": "4 of 10",
+        "certified": "5 of 10",
         "identities_certified": [
           "BANT",
           "ESPER",
           "GRIXIS",
-          "JUND"
+          "JUND",
+          "NAYA"
         ],
         "started_by": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
         "started_at": "2026-07-20T08:27:00-06:00",
-        "latest_certification": "PENDING_VM525_CERTIFICATION_COMMIT_SHA",
-        "latest_certified_identity": "JUND",
-        "next_identity": "NAYA",
+        "latest_certification": "PENDING_VM526_CERTIFICATION_COMMIT_SHA",
+        "latest_certified_identity": "NAYA",
+        "next_identity": "ABZAN",
         "next_identity_status": "not_started"
       }
     },
@@ -75,20 +76,20 @@
       "installed_after_program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
       "governance_commit": "PENDING_CRIT001_DRIFT_CONTROL_GOVERNANCE_SHA",
       "current_identity_hold": {
-        "identity": "NAYA",
-        "card": "VM-526",
-        "state": "not_started_after_jund_certification",
+        "identity": "ABZAN",
+        "card": "VM-527",
+        "state": "not_started_after_naya_certification",
         "branch": null,
-        "prior_identity_certified": "JUND",
-        "prior_identity_certification": "PENDING_VM525_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "No VM-526 / Naya semantic work is authorized by VM-525 certification. A separate future window must explicitly start VM-526 and complete drift preflight before any semantic work.",
-        "required_next_milestone": "Await explicit VM-526 start authorization; VM-526 remains not started in this certification commit.",
+        "prior_identity_certified": "NAYA",
+        "prior_identity_certification": "PENDING_VM526_CERTIFICATION_COMMIT_SHA",
+        "authorized_next_scope": "No VM-527 / Abzan semantic work is authorized by VM-526 certification. A separate future window must explicitly start VM-527 and complete drift preflight before any semantic work.",
+        "required_next_milestone": "Await explicit VM-527 start authorization; VM-527 remains not started in this certification commit.",
         "drift_preflight_started": false,
         "drift_preflight_completed": false,
         "drift_preflight_record": null,
         "drift_preflight_commit": null,
-        "program_base": "PENDING_VM525_CERTIFICATION_COMMIT_SHA",
-        "updated_at": "2026-07-21T23:00:00-06:00"
+        "program_base": "PENDING_VM526_CERTIFICATION_COMMIT_SHA",
+        "updated_at": "2026-07-22T08:51:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -99,33 +100,33 @@
         "Begin Simic Goal mode only after the drift preflight reports no FAIL or UNKNOWN controls."
       ],
       "last_certification": {
-        "identity": "JUND",
-        "card": "VM-525",
-        "candidate_sha": "b275fc62aca3ed67bcdc624ea59b3ee15cdeae04",
-        "candidate_workflow_sha": "461ff5c389a93c6c5e5fc7317bbc5413d214a960",
-        "approval_review_sha": "dee26b0246713a9b7d687c9fd2dfb96db2cfd9d2",
-        "review_decision": "APPROVE EXACT SHA b275fc62aca3ed67bcdc624ea59b3ee15cdeae04",
-        "certification_commit": "PENDING_VM525_CERTIFICATION_COMMIT_SHA",
-        "certified_at": "2026-07-21T23:00:00-06:00",
+        "identity": "NAYA",
+        "card": "VM-526",
+        "candidate_sha": "f3dda547eb91475cd3d00056463729d98a040e55",
+        "candidate_workflow_sha": "cdcd1b408a64dacb63e75865c519ca317ce0e08a",
+        "approval_review_sha": "8afaa199d774d56845a305c4f879d275ada94a47",
+        "review_decision": "APPROVE EXACT SHA f3dda547eb91475cd3d00056463729d98a040e55",
+        "certification_commit": "PENDING_VM526_CERTIFICATION_COMMIT_SHA",
+        "certified_at": "2026-07-22T08:51:00-06:00",
         "final_state": "semantically_ready",
         "contract_version": "v1.1",
-        "reviewed_provenance_count": 46,
-        "evidence_locator_count": 30,
+        "reviewed_provenance_count": 34,
+        "evidence_locator_count": 20,
         "claim_role_counts": {
-          "total": 13,
-          "substantive_claim": 12,
+          "total": 10,
+          "substantive_claim": 10,
           "discovery_record": 0,
-          "support_record": 1,
+          "support_record": 0,
           "unclassified": 0
         },
         "candidate_scope_result": "PASS",
-        "invalid_alias_result": "BRG rejected with Unknown identity BRG",
-        "fixture_count": 14,
-        "wave_4_certified": "4 of 10",
-        "total_certified": 24,
-        "next_identity": "NAYA",
+        "invalid_alias_result": "WRG, RGW, and GRW rejected with Unknown identity diagnostics",
+        "fixture_count": 13,
+        "wave_4_certified": "5 of 10",
+        "total_certified": 25,
+        "next_identity": "ABZAN",
         "next_identity_status": "not_started",
-        "prior_program_base": "665d2b128f3aab8daf5d48d4fdab244a9fb33c2e"
+        "prior_program_base": "7964b93f531017e579f069e6941463f53eab4bd9"
       }
     },
     "rejected_prerequisite_candidates": [
@@ -4252,10 +4253,10 @@
           "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 10,
           "discovery_record": 0,
           "support_record": 0,
-          "unclassified": 10
+          "unclassified": 0
         },
         "source_count": 16,
         "source_role_counts": {
@@ -4265,7 +4266,7 @@
         },
         "claim_bearing_source_count": 3,
         "claim_bearing_source_rate": 0.1875,
-        "reference_site_count": 20,
+        "reference_site_count": 27,
         "missing_references": [],
         "potential_role_invalid_support_links": [],
         "raw_question_count": 3,
@@ -4288,39 +4289,51 @@
         ],
         "provisional_risk_indicators": {
           "coverage": [
-            "low-record-volume",
-            "no-explicit-substantive-role"
+            "low-record-volume"
           ],
           "neighbors": []
         },
         "template_cohort_pattern": false,
-        "inventory_updated_at": "2026-07-11T18:42:33.624Z"
+        "inventory_updated_at": "2026-07-11T18:42:33.624Z",
+        "certification_updated_at": "2026-07-22T08:51:00-06:00"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "certified",
+        "status": "semantically_ready",
+        "started_at": "2026-07-21T23:36:00-06:00",
+        "gate_entered_at": "2026-07-22T08:51:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "ABZAN",
-        "primary_disposition": null
+        "primary_disposition": "certified from exact approved candidate"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
+        "required_neighbors": [
+          "BANT",
+          "JUND",
+          "GRUUL",
+          "SELESNYA",
+          "BOROS",
+          "generic WRG",
+          "Commander"
+        ],
+        "audit_report": "docs/handoffs/2026-07-22-0746-codex-vm526-naya-independent-review.md",
         "residual_findings": []
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
-        "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
-        "certified_at": null
+        "candidate_recovery_sha": "f3dda547eb91475cd3d00056463729d98a040e55",
+        "recovery_commit": "f3dda547eb91475cd3d00056463729d98a040e55",
+        "candidate_workflow_record": "cdcd1b408a64dacb63e75865c519ca317ce0e08a",
+        "approval_review_record": "8afaa199d774d56845a305c4f879d275ada94a47",
+        "approval_decision": "APPROVE EXACT SHA f3dda547eb91475cd3d00056463729d98a040e55",
+        "certification_commit": "PENDING_VM526_CERTIFICATION_COMMIT_SHA",
+        "reviewer": "Independent exact-SHA review",
+        "review_cycles": 1,
+        "approval_date": "2026-07-22",
+        "certified_at": "2026-07-22T08:51:00-06:00",
+        "certification_handoff": "docs/handoffs/2026-07-22-0851-codex-vm526-naya-certification.md"
       }
     },
     {

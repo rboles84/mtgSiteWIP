@@ -1,13 +1,21 @@
 # VM-526 - Naya Semantic Recovery
 
 ID: VM-526
-Status: Ready - independent exact-SHA review approved; certification-only next
+Status: Done - certified semantically_ready from exact approved candidate
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: NAYA
 Raw packet: `data/raw-factions/naya/`
 Cohort: shard
 Contract: CRIT-001 Contract v1.1
+Program base for candidate: `7964b93f531017e579f069e6941463f53eab4bd9`
+Prior program base: `7964b93f531017e579f069e6941463f53eab4bd9`
+Branch: `codex/vm-526-naya-semantic-recovery`
+Worktree: `C:\dev\mtgSiteWIP-crit001-vm526-naya`
+Independent review branch: `codex/vm-526-naya-semantic-recovery-independent-review`
+Independent review worktree: `C:\dev\mtgSiteWIP-crit001-vm526-naya-independent-review`
+Certification branch: `codex/vm-526-naya-semantic-recovery-certification`
+Certification worktree: `C:\dev\mtgSiteWIP-crit001-vm526-naya-certification`
 
 ## Objective
 
@@ -20,7 +28,7 @@ Recover Naya end to end under CRIT-001: audit the existing packet, bound readine
 - [x] Gate 3 - Canonical remediation.
 - [x] Gate 4 - Generation and validation.
 - [x] Gate 5a - Independent exact-SHA review approved.
-- [ ] Gate 5b - Certification pending.
+- [x] Gate 5b - Certification complete; exact approved candidate `f3dda547eb91475cd3d00056463729d98a040e55` certified `semantically_ready`; certified count advanced to 25 of 37 and Wave 4 advanced to 5 of 10.
 
 ## Scope Rules
 
@@ -42,8 +50,9 @@ Recover Naya end to end under CRIT-001: audit the existing packet, bound readine
 - Superseded candidate: `57ce7161c1ff8736a8b91a6564fa97129fe38383` (unapproved; replaced for null guidance provenance owners)
 - Independent review handoff: `docs/handoffs/2026-07-22-0746-codex-vm526-naya-independent-review.md`
 - Independent reviewer decision: `APPROVE EXACT SHA f3dda547eb91475cd3d00056463729d98a040e55`
-- Certification commit: pending
+- Certification handoff: `docs/handoffs/2026-07-22-0851-codex-vm526-naya-certification.md`
+- Certification commit: `PENDING_VM526_CERTIFICATION_COMMIT_SHA`
 
 ## Current Note
 
-Exact Naya replacement candidate `f3dda547eb91475cd3d00056463729d98a040e55` has independent exact-SHA approval recorded. `NAYA` is the canonical internal key; `WRG`, `RGW`, and `GRW` are display/color metadata or invalid validation aliases only. The candidate keeps all 10 claims substantive with 20 bounded evidence locators, adds NAYA-owned semantic guidance evidence, fixtures, and provenance owner repairs, regenerates active NAYA generated consumers, and passes exact candidate scope. Certification is the only authorized next VM-526 step; certification has not occurred, the program base is unchanged, certified count remains 24 of 37, and VM-527 work, Excel, push, PR, merge, and original-main edits remain unauthorized.
+Exact Naya replacement candidate `f3dda547eb91475cd3d00056463729d98a040e55` is certified `semantically_ready`. `NAYA` is the canonical internal key; `WRG`, `RGW`, and `GRW` are display/color metadata or invalid validation aliases only. The candidate keeps all 10 claims substantive with 20 bounded evidence locators, adds NAYA-owned semantic guidance evidence, fixtures, and provenance owner repairs, regenerates active NAYA generated consumers, and passes exact candidate scope. Certification was governance-only; no Naya source/generated/fixture/provenance/preview/runtime content changed during certification. VM-527 / Abzan remains backlog, not started, and untouched.
