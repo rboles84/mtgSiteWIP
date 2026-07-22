@@ -3,8 +3,8 @@
   "faction_id": "jund",
   "faction_name": "Jund",
   "source_review_date": "2026-05-30",
-  "last_updated": "2026-05-30",
-  "claim_count": 10,
+  "last_updated": "2026-07-22",
+  "claim_count": 13,
   "claims": [
     {
       "claim_id": "jund_claim_0001",
@@ -13,14 +13,35 @@
       "statement": "Jund is the black-red-green Alara shard discussed in the local official Jund design article.",
       "canon_status": "Source-supported identity",
       "source_ids": [
-        "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_vm_jund_evidence_ledger_20260530"
       ],
       "evidence_rows": [
         "JUND-EVID-001"
       ],
       "confidence": "High",
-      "notes": "Use for base shard identity only. It does not prove detailed geography, creature hierarchy, society, figure biography, or chronology."
+      "notes": "Use for base shard identity only. It does not prove detailed geography, creature hierarchy, society, figure biography, or chronology.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_rosewater_jund_following_your_heart",
+          "locator": "docs/research/jund/sources/Hungry-Like-the-Wolf.md#L8",
+          "note": "Rosewater identifies Jund as the black-red-green shard.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Rosewater identifies Jund as the black-red-green shard.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_vm_jund_evidence_ledger_20260530",
+          "locator": "docs/research/jund/jund-evidence-ledger.md#L24-L25",
+          "note": "Local ledger records Jund identity and BRG direction as approved evidence rows.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Local ledger records Jund identity and BRG direction as approved evidence rows.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "jund_claim_0002",
@@ -29,16 +50,36 @@
       "statement": "Jund's color-direction metadata is BRG, and VM-176 frames Red as the center/design lens.",
       "canon_status": "Source-supported design metadata",
       "source_ids": [
-        "src_vm_jund_evidence_ledger_20260530",
         "src_wotc_rosewater_jund_following_your_heart",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_jund_evidence_ledger_20260530"
       ],
       "evidence_rows": [
         "JUND-EVID-002",
         "JUND-EVID-003"
       ],
       "confidence": "High",
-      "notes": "BRG is metadata only. This packet does not create BRG or JUND as generated, registry, placement, alias, fixture, route, or lookup data."
+      "notes": "BRG is metadata only. This packet does not create BRG or JUND as generated, registry, placement, alias, fixture, route, or lookup data.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_rosewater_jund_following_your_heart",
+          "locator": "docs/research/jund/sources/Hungry-Like-the-Wolf.md#L36-L51",
+          "note": "Rosewater frames Red in Jund as being true to the self and letting emotion guide action.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Rosewater frames Red in Jund as being true to the self and letting emotion guide action.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_vm_jund_evidence_ledger_20260530",
+          "locator": "docs/research/jund/jund-evidence-ledger.md#L26-L28",
+          "note": "Evidence rows distinguish Red center, gut self-truth, and emotion as guide.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Evidence rows distinguish Red center, gut self-truth, and emotion as guide.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "jund_claim_0003",
@@ -47,14 +88,35 @@
       "statement": "Red's Jund frame centers being true to oneself, following gut instinct, and doing what feels right.",
       "canon_status": "Official design commentary",
       "source_ids": [
-        "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_vm_jund_evidence_ledger_20260530"
       ],
       "evidence_rows": [
         "JUND-EVID-004"
       ],
       "confidence": "High",
-      "notes": "This supports identity and design-philosophy language. Do not rewrite it as complete social doctrine or geography."
+      "notes": "This supports identity and design-philosophy language. Do not rewrite it as complete social doctrine or geography.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_rosewater_jund_following_your_heart",
+          "locator": "docs/research/jund/sources/Hungry-Like-the-Wolf.md#L84-L123",
+          "note": "White and Blue absences remove external moral constraint and analytic restraint from the shard frame.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "White and Blue absences remove external moral constraint and analytic restraint from the shard frame.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_vm_jund_evidence_ledger_20260530",
+          "locator": "docs/research/jund/jund-evidence-ledger.md#L33",
+          "note": "Ledger records the White and Blue absence pressures as identity evidence.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Ledger records the White and Blue absence pressures as identity evidence.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "jund_claim_0004",
@@ -63,14 +125,35 @@
       "statement": "Red's Jund frame treats emotion as a powerful primal guide rather than something to deny, repress, or over-rationalize.",
       "canon_status": "Official design commentary",
       "source_ids": [
-        "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_vm_jund_evidence_ledger_20260530"
       ],
       "evidence_rows": [
         "JUND-EVID-005"
       ],
       "confidence": "High",
-      "notes": "This supports emotion-as-signal language while preserving Red as center."
+      "notes": "This supports emotion-as-signal language while preserving Red as center.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_rosewater_jund_following_your_heart",
+          "locator": "docs/research/jund/sources/Hungry-Like-the-Wolf.md#L142-L156",
+          "note": "Black and Green build the Jund shard around freedom, needs, and rejection of White restraint.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Black and Green build the Jund shard around freedom, needs, and rejection of White restraint.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_vm_jund_evidence_ledger_20260530",
+          "locator": "docs/research/jund/jund-evidence-ledger.md#L29-L31",
+          "note": "Evidence rows bind Red, Black, and Green synthesis to appetite and unrestrained embodiment.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Evidence rows bind Red, Black, and Green synthesis to appetite and unrestrained embodiment.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "jund_claim_0005",
@@ -79,14 +162,35 @@
       "statement": "The Jund design frame describes a world of total freedom where action and survival carry consequences.",
       "canon_status": "Official design commentary",
       "source_ids": [
-        "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_vm_jund_evidence_ledger_20260530"
       ],
       "evidence_rows": [
         "JUND-EVID-006"
       ],
       "confidence": "High",
-      "notes": "Use as a design frame. Do not expand this into detailed geography, predator hierarchy, dragon rule, or social law."
+      "notes": "Use as a design frame. Do not expand this into detailed geography, predator hierarchy, dragon rule, or social law.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_rosewater_jund_following_your_heart",
+          "locator": "docs/research/jund/sources/Hungry-Like-the-Wolf.md#L150-L156",
+          "note": "Black supports Jund by foregrounding needs, appetite, and rejection of externally imposed limits.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Black supports Jund by foregrounding needs, appetite, and rejection of externally imposed limits.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_vm_jund_evidence_ledger_20260530",
+          "locator": "docs/research/jund/jund-evidence-ledger.md#L30",
+          "note": "Ledger row JUND-EVID-007 records Black appetite and needs as bounded evidence.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Ledger row JUND-EVID-007 records Black appetite and needs as bounded evidence.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "jund_claim_0006",
@@ -95,46 +199,129 @@
       "statement": "Black supports Red's Jund frame through self-interest, personal needs, contentment, and opposition to White's constraints.",
       "canon_status": "Official design commentary",
       "source_ids": [
-        "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_vm_jund_evidence_ledger_20260530"
       ],
       "evidence_rows": [
         "JUND-EVID-007"
       ],
       "confidence": "High",
-      "notes": "This supports appetite and self-advocacy language. It is not permission for generic cruelty or Rakdos spectacle."
+      "notes": "This supports appetite and self-advocacy language. It is not permission for generic cruelty or Rakdos spectacle.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_rosewater_jund_following_your_heart",
+          "locator": "docs/research/jund/sources/Hungry-Like-the-Wolf.md#L158-L165",
+          "note": "Green supports Jund by making instinct embodied, unrestrained, and less overthought.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Green supports Jund by making instinct embodied, unrestrained, and less overthought.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_vm_jund_evidence_ledger_20260530",
+          "locator": "docs/research/jund/jund-evidence-ledger.md#L31",
+          "note": "Ledger row JUND-EVID-008 records the Green unrestrained and feral component.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Ledger row JUND-EVID-008 records the Green unrestrained and feral component.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "jund_claim_0007",
       "faction_id": "jund",
       "claim_type": "design_identity",
-      "statement": "Green supports Red's Jund frame through being unrestrained, not overthinking, and a feral or rampaging side.",
+      "statement": "Green supports Red's Jund frame by making feeling embodied, unrestrained, and less overthought, turning instinct into force without becoming generic savage nature.",
       "canon_status": "Official design commentary",
       "source_ids": [
+        "src_wotc_rosewater_jund_following_your_heart",
         "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_vm_jund_reliability_audit_20260530"
       ],
       "evidence_rows": [
         "JUND-EVID-008"
       ],
       "confidence": "High",
-      "notes": "This supports instinct and embodied-force language. It is not a detailed ecology, species, or predator-hierarchy claim."
+      "notes": "This supports instinct and embodied-force language. It is not a detailed ecology, species, or predator-hierarchy claim.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_rosewater_jund_following_your_heart",
+          "locator": "docs/research/jund/sources/Hungry-Like-the-Wolf.md#L158-L165",
+          "note": "Rosewater grounds Green as instinctive, unrestrained support for Red rather than standalone nature violence.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Rosewater grounds Green as instinctive, unrestrained support for Red rather than standalone nature violence.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_vm_jund_evidence_ledger_20260530",
+          "locator": "docs/research/jund/jund-evidence-ledger.md#L31-L36",
+          "note": "Ledger rows preserve the feral evidence while rejecting savage/devour overreach.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Ledger rows preserve the feral evidence while rejecting savage/devour overreach.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_vm_jund_reliability_audit_20260530",
+          "locator": "docs/research/jund/jund-reliability-audit.md#L20-L30",
+          "note": "Reliability audit limits ecology and flavor claims unless separately supported by approved local captures.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Reliability audit limits ecology and flavor claims unless separately supported by approved local captures.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "jund_claim_0008",
       "faction_id": "jund",
       "claim_type": "design_synthesis",
-      "statement": "The Red/Black/Green Jund synthesis can support language about Black and Green backing Red's destructive side and letting loose, scoped to design and not generic cruelty.",
+      "statement": "Black and Green back Red's destructive and letting-loose side only inside the design-philosophy frame, so consequence-bearing action must not become generic cruelty or unbounded destruction.",
       "canon_status": "Official design commentary with source boundary",
       "source_ids": [
+        "src_wotc_rosewater_jund_following_your_heart",
         "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_vm_jund_reliability_audit_20260530"
       ],
       "evidence_rows": [
         "JUND-EVID-009"
       ],
       "confidence": "High",
-      "notes": "Use as design synthesis only. Do not convert it into story, creature, figure, or social-metaphysics claims."
+      "notes": "Use as design synthesis only. Do not convert it into story, creature, figure, or social-metaphysics claims.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_rosewater_jund_following_your_heart",
+          "locator": "docs/research/jund/sources/Hungry-Like-the-Wolf.md#L158-L165",
+          "note": "Rosewater allows destructive letting-loose only as part of the Red-centered shard argument.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Rosewater allows destructive letting-loose only as part of the Red-centered shard argument.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_vm_jund_evidence_ledger_20260530",
+          "locator": "docs/research/jund/jund-evidence-ledger.md#L29-L36",
+          "note": "Ledger rows bind R/B/G synthesis while rejecting generic violence and savage/devour overreach.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Ledger rows bind R/B/G synthesis while rejecting generic violence and savage/devour overreach.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_vm_jund_reliability_audit_20260530",
+          "locator": "docs/research/jund/jund-reliability-audit.md#L20-L30",
+          "note": "Reliability audit flags over-promoted story, devour, and ecology claims as unsafe identity proof.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Reliability audit flags over-promoted story, devour, and ecology claims as unsafe identity proof.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "jund_claim_0009",
@@ -144,14 +331,34 @@
       "canon_status": "Design commentary with source boundary",
       "source_ids": [
         "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart",
-        "src_vm_canon_inventory_three_color_audit_20260528"
+        "src_vm_jund_reliability_audit_20260530"
       ],
       "evidence_rows": [
         "JUND-EVID-010"
       ],
       "confidence": "High",
-      "notes": "Do not expand White/Blue absence into claims that Jund has no society, intelligence, memory, planning, or culture."
+      "notes": "Do not expand White/Blue absence into claims that Jund has no society, intelligence, memory, planning, or culture.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_jund_evidence_ledger_20260530",
+          "locator": "docs/research/jund/jund-evidence-ledger.md#L67-L76",
+          "note": "Neighbor distinction table separates Jund from BR, BG, RG, Grixis, Naya, Witherbloom, Abzan, Temur, Sultai, Mardu, and WUBRG traps.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Neighbor distinction table separates Jund from BR, BG, RG, Grixis, Naya, Witherbloom, Abzan, Temur, Sultai, Mardu, and WUBRG traps.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_vm_jund_reliability_audit_20260530",
+          "locator": "docs/research/jund/jund-reliability-audit.md#L68-L85",
+          "note": "Audit marks Modern Jund and generic midrange as excluded commander identity evidence.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Audit marks Modern Jund and generic midrange as excluded commander identity evidence.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "jund_claim_0010",
@@ -160,15 +367,141 @@
       "statement": "Jund must not flatten into generic Red violence, anger, savage nature, devour, or Modern Jund midrange.",
       "canon_status": "Source-supported boundary",
       "source_ids": [
+        "src_wotc_rosewater_jund_following_your_heart",
         "src_vm_jund_evidence_ledger_20260530",
-        "src_wotc_rosewater_jund_following_your_heart"
+        "src_vm_jund_reliability_audit_20260530"
       ],
       "evidence_rows": [
         "JUND-EVID-012",
         "JUND-EVID-013"
       ],
       "confidence": "High",
-      "notes": "Use as a false-positive guardrail. It does not add detailed lore or mechanics."
+      "notes": "Use as a false-positive guardrail. It does not add detailed lore or mechanics.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_rosewater_jund_following_your_heart",
+          "locator": "docs/research/jund/sources/Hungry-Like-the-Wolf.md#L8-L36",
+          "note": "Rosewater supports the color-identity frame, not a deck-archetype shortcut.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Rosewater supports the color-identity frame, not a deck-archetype shortcut.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_vm_jund_evidence_ledger_20260530",
+          "locator": "docs/research/jund/jund-evidence-ledger.md#L35-L36",
+          "note": "Ledger rows reject generic Red violence and savage/devour shortcuts.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Ledger rows reject generic Red violence and savage/devour shortcuts.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_vm_jund_reliability_audit_20260530",
+          "locator": "docs/research/jund/jund-reliability-audit.md#L68-L85",
+          "note": "Reliability audit excludes Modern Jund midrange as identity evidence.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Reliability audit excludes Modern Jund midrange as identity evidence.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
+    },
+    {
+      "claim_id": "jund_claim_0011",
+      "semantic_role": "substantive_claim",
+      "statement": "Official Alara captures may support Jund setting pressure, including hunting-ground conditions and dragon-dominated danger, but those details serve the identity only when tied to consequence-bearing instinct rather than as standalone lore trivia.",
+      "source_ids": [
+        "src_wotc_story_all_cairns_of_jund_20151105",
+        "src_wotc_alara_plane_overview_local"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_story_all_cairns_of_jund_20151105",
+          "locator": "docs/research/canon/source-material/alara/story-all-cairns-of-jund.md#L211-L215",
+          "note": "Local official capture describes Jund as a hostile dragon-worshiping shard with hunting-ground pressure.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Local official capture describes Jund as a hostile dragon-worshiping shard with hunting-ground pressure.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_alara_plane_overview_local",
+          "locator": "docs/research/canon/source-material/alara/alara-plane-overview.md#L203-L209",
+          "note": "Local official capture identifies Jund as a primordial hunting ground ruled by dragons and contrasted with other shards.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Local official capture identifies Jund as a primordial hunting ground ruled by dragons and contrasted with other shards.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
+    },
+    {
+      "claim_id": "jund_claim_0012",
+      "semantic_role": "substantive_claim",
+      "statement": "Jund should distinguish native survival pressure from Grixis-style death magic: necromancy is framed as unknown on pre-Conflux Jund and later appears as an outside rupture rather than Jund core identity.",
+      "source_ids": [
+        "src_wotc_story_all_cairns_of_jund_20151105"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_story_all_cairns_of_jund_20151105",
+          "locator": "docs/research/canon/source-material/alara/story-all-cairns-of-jund.md#L211-L213",
+          "note": "The story capture contrasts Jund survival ecology with necromancy as a Grixis province.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "The story capture contrasts Jund survival ecology with necromancy as a Grixis province.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_story_all_cairns_of_jund_20151105",
+          "locator": "docs/research/canon/source-material/alara/story-all-cairns-of-jund.md#L525-L537",
+          "note": "Post-Conflux deadlands and demons are treated as rupture context rather than native Jund philosophy.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Post-Conflux deadlands and demons are treated as rupture context rather than native Jund philosophy.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
+    },
+    {
+      "claim_id": "jund_claim_0013",
+      "semantic_role": "support_record",
+      "statement": "Story captures about Meren, Sarkhan, dragons, clans, demons, and deadlands are retained as support-only flavor records unless a later remediation ties a specific detail to approved substantive identity evidence.",
+      "source_ids": [
+        "src_wotc_story_all_cairns_of_jund_20151105",
+        "src_wotc_sarkhan_vol_biography_local"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_story_all_cairns_of_jund_20151105",
+          "locator": "docs/research/canon/source-material/alara/story-all-cairns-of-jund.md#L231-L243",
+          "note": "Meren and Clan Nel Toth details are story support and not independent color-identity proof.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Meren and Clan Nel Toth details are story support and not independent color-identity proof.",
+          "evidence_scope": "support-only",
+          "interpretation_level": "support-record"
+        },
+        {
+          "source_id": "src_wotc_story_all_cairns_of_jund_20151105",
+          "locator": "docs/research/canon/source-material/alara/story-all-cairns-of-jund.md#L563-L633",
+          "note": "Later story details remain support-only unless separately promoted.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Later story details remain support-only unless separately promoted.",
+          "evidence_scope": "support-only",
+          "interpretation_level": "support-record"
+        },
+        {
+          "source_id": "src_wotc_sarkhan_vol_biography_local",
+          "locator": "docs/research/canon/source-material/alara/sarkhan-vol-biography.md#L209",
+          "note": "Sarkhan on Jund supports dragon-world flavor without becoming identity proof by itself.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Sarkhan on Jund supports dragon-world flavor without becoming identity proof by itself.",
+          "evidence_scope": "support-only",
+          "interpretation_level": "support-record"
+        }
+      ]
     }
   ],
   "claim_quality_summary": {
