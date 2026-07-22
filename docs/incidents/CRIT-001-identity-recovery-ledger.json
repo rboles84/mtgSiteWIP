@@ -11,8 +11,8 @@
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 4 shards - active; VM-528 Temur backlog/not started after VM-527 Abzan certification",
-      "current_program_base": "PENDING_VM527_CERTIFICATION_COMMIT_SHA",
+      "next_cohort": "Wave 4 shards - active; VM-528 Temur drift preflight complete and Gate 1+2 authorized after VM-527 Abzan certification",
+      "current_program_base": "a1632337ebc91950b37d835ac404fba414f770c7",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -44,10 +44,10 @@
         ],
         "started_by": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
         "started_at": "2026-07-20T08:27:00-06:00",
-        "latest_certification": "PENDING_VM527_CERTIFICATION_COMMIT_SHA",
+        "latest_certification": "a1632337ebc91950b37d835ac404fba414f770c7",
         "latest_certified_identity": "ABZAN",
         "next_identity": "TEMUR",
-        "next_identity_status": "not_started"
+        "next_identity_status": "drift_preflight_complete_gate_1_2_authorized"
       }
     },
     "wip_limit": 1,
@@ -79,15 +79,16 @@
       "current_identity_hold": {
         "identity": "TEMUR",
         "card": "VM-528",
-        "state": "backlog_not_started",
-        "branch": null,
-        "worktree": null,
+        "state": "drift_preflight_complete_gate_1_2_authorized",
+        "branch": "codex/vm-528-temur-semantic-recovery",
+        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm528-temur",
         "prior_identity_certified": "ABZAN",
-        "prior_identity_certification": "PENDING_VM527_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "Separate VM-528 / Temur continuation from PENDING_VM527_CERTIFICATION_COMMIT_SHA only after external tracker reconciliation. No VM-528 branch, worktree, drift preflight, semantic audit, remediation, candidate, review, certification, Excel edit, push, PR, or merge occurred during VM-527 certification.",
-        "required_next_milestone": "A separate VM-528 drift-preflight control record must be committed before Gate 1+2 semantic work begins.",
-        "program_base": "PENDING_VM527_CERTIFICATION_COMMIT_SHA",
-        "updated_at": "2026-07-22T14:33:00-06:00"
+        "prior_identity_certification": "a1632337ebc91950b37d835ac404fba414f770c7",
+        "authorized_next_scope": "VM-528 / Temur Gate 1+2 read-only semantic audit from exact VM-527 certification base a1632337ebc91950b37d835ac404fba414f770c7. No Temur semantic remediation, candidate, review, certification, Excel edit, push, PR, merge, or VM-529 work occurred in this drift-preflight commit.",
+        "required_next_milestone": "Begin Gate 1+2 semantic work only after this separate VM-528 drift-preflight control record is committed.",
+        "program_base": "a1632337ebc91950b37d835ac404fba414f770c7",
+        "preflight_record": "docs/handoffs/2026-07-22-1529-codex-vm528-temur-drift-preflight.md",
+        "updated_at": "2026-07-22T15:29:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -124,7 +125,7 @@
         "wave_4_certified": "6 of 10",
         "total_certified": 26,
         "next_identity": "TEMUR",
-        "next_identity_status": "not_started",
+        "next_identity_status": "drift_preflight_complete_gate_1_2_authorized",
         "prior_program_base": "80b34dcda7db51d08f77f862f4eafb5cf3cabeaa",
         "candidate_sha_correction": "Corrected candidate is the only active authority; compacted-note typo was not treated as a Git candidate object."
       }
@@ -4557,14 +4558,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "gate_1_2_authorized",
+        "status": "in_progress",
+        "started_at": "2026-07-22T15:29:00-06:00",
+        "gate_entered_at": "2026-07-22T15:29:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "SULTAI",
-        "primary_disposition": null
+        "primary_disposition": "Drift preflight complete; Gate 1+2 read-only audit authorized but not started."
       },
       "semantic_review": {
         "required_neighbors": [],
