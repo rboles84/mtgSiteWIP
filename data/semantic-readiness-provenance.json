@@ -77,6 +77,167 @@
     {
       "identity_key": "ABZAN",
       "canonical_file": "data/raw-factions/abzan/abzan.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "guidance_abzan_0001_gate3",
+      "canonical_content_hash": "sha256:f28a9c637a5b7c697352b1176020bdbda1ad9960ca0b0d7ead7d761ff2dc3fac",
+      "evidence_claim_ids": [
+        "abzan_claim_0001",
+        "abzan_claim_0002",
+        "abzan_claim_0003",
+        "abzan_claim_0006",
+        "abzan_claim_0008"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_rosewater_abzan_we_will_survive",
+        "src_wotc_tarkir_dragonstorm_pg_part_1",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ABZAN",
+        "data/placement-model.json#/factions/ABZAN",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ABZAN"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ABZAN",
+      "canonical_file": "data/raw-factions/abzan/abzan.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "guidance_abzan_0002_gate3",
+      "canonical_content_hash": "sha256:69aabd8f1c3a0ffd7cd4105a444f20bc149e2d4e6e485337944aa0a4b29d1042",
+      "evidence_claim_ids": [
+        "abzan_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ABZAN",
+        "data/placement-model.json#/factions/ABZAN",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ABZAN"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ABZAN",
+      "canonical_file": "data/raw-factions/abzan/abzan.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "guidance_abzan_0003_gate3",
+      "canonical_content_hash": "sha256:257f09179adf0f0df152ecc863994ef15ed24f9d4b740758d9e55ce40da184f5",
+      "evidence_claim_ids": [
+        "abzan_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ABZAN",
+        "data/placement-model.json#/factions/ABZAN",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ABZAN"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ABZAN",
+      "canonical_file": "data/raw-factions/abzan/abzan.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "guidance_abzan_0004_gate3",
+      "canonical_content_hash": "sha256:cfcbdfbd2d63fc8073a842e6923d769ab0e09a7af63ee0d5b48ba1b00e140df6",
+      "evidence_claim_ids": [
+        "abzan_claim_0001",
+        "abzan_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_rosewater_abzan_we_will_survive"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ABZAN",
+        "data/placement-model.json#/factions/ABZAN",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ABZAN"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ABZAN",
+      "canonical_file": "data/raw-factions/abzan/abzan.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "guidance_abzan_0005_gate3",
+      "canonical_content_hash": "sha256:68fc0b464b66333ed2e71c38f77d260ab2465167c723b940df2f363ac8a9fd02",
+      "evidence_claim_ids": [
+        "abzan_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ABZAN",
+        "data/placement-model.json#/factions/ABZAN",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ABZAN"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ABZAN",
+      "canonical_file": "data/raw-factions/abzan/abzan.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "guidance_abzan_0006_gate3",
+      "canonical_content_hash": "sha256:6dcb7ee6203ee1d47a9d36a03e7b016f478bfe5764f1156a731aa846e69a20c8",
+      "evidence_claim_ids": [
+        "abzan_claim_0005",
+        "abzan_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_dragons_pg_part_2",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ABZAN",
+        "data/placement-model.json#/factions/ABZAN",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ABZAN"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ABZAN",
+      "canonical_file": "data/raw-factions/abzan/abzan.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "guidance_abzan_0007_gate3",
+      "canonical_content_hash": "sha256:e5f465934f9b48530043484c268d31b4df856825c59cc9ea157cff496f9b296d",
+      "evidence_claim_ids": [
+        "abzan_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ABZAN",
+        "data/placement-model.json#/factions/ABZAN",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ABZAN"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ABZAN",
+      "canonical_file": "data/raw-factions/abzan/abzan.placement.json",
       "canonical_pointer": "/collision_guidance/0",
       "canonical_id": "collision_abzan_mardu_live",
       "canonical_content_hash": "sha256:ca70dfe68e7a10df6696a3be6c672cf0dd1449d68ccc94118fcac1b8cd0fad61",
@@ -258,8 +419,8 @@
       "identity_key": "ABZAN",
       "canonical_file": "data/raw-factions/abzan/abzan.placement.json",
       "canonical_pointer": "/moral_and_psychological_profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:422e2768dd1caec71f6234529476d2506c57838759cfe99995bbacc8db1a77e5",
+      "canonical_id": "abzan_moral_and_psychological_profile_gate3",
+      "canonical_content_hash": "sha256:b3e8a0d87f0d743de0460233c207d25ede14aa73647142f4cfa782eaa8ebca38",
       "evidence_claim_ids": [
         "abzan_claim_0001",
         "abzan_claim_0002",
@@ -283,13 +444,161 @@
     },
     {
       "identity_key": "ABZAN",
+      "canonical_file": "data/raw-factions/abzan/abzan.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "guidance_abzan_0001_gate3",
+      "canonical_content_hash": "sha256:29ae8a532cb2ce3238b8487587c54dd3ed1931491b505b9b869481241ebd6139",
+      "evidence_claim_ids": [
+        "abzan_claim_0001",
+        "abzan_claim_0002",
+        "abzan_claim_0003",
+        "abzan_claim_0006",
+        "abzan_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_rosewater_abzan_we_will_survive",
+        "src_wotc_tarkir_dragonstorm_pg_part_1",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ABZAN",
+        "data/placement-model.json#/factions/ABZAN",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ABZAN"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ABZAN",
+      "canonical_file": "data/raw-factions/abzan/abzan.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "guidance_abzan_0002_gate3",
+      "canonical_content_hash": "sha256:744297902d7f983f347f420f213a8fc8ced50a0d16bf55f33c50df82a141462e",
+      "evidence_claim_ids": [
+        "abzan_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ABZAN",
+        "data/placement-model.json#/factions/ABZAN",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ABZAN"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ABZAN",
+      "canonical_file": "data/raw-factions/abzan/abzan.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "guidance_abzan_0003_gate3",
+      "canonical_content_hash": "sha256:e6e8b711468e9896a93a98755049f34b6f8520a6c457d8c26bf1d11286b9cd28",
+      "evidence_claim_ids": [
+        "abzan_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ABZAN",
+        "data/placement-model.json#/factions/ABZAN",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ABZAN"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ABZAN",
+      "canonical_file": "data/raw-factions/abzan/abzan.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "guidance_abzan_0004_gate3",
+      "canonical_content_hash": "sha256:0a0f0ab5e60d8ceb6d729fcaa71aa69781667b23dcb34a55b6b2f43ce1f6b2fd",
+      "evidence_claim_ids": [
+        "abzan_claim_0001",
+        "abzan_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_rosewater_abzan_we_will_survive"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ABZAN",
+        "data/placement-model.json#/factions/ABZAN",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ABZAN"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ABZAN",
+      "canonical_file": "data/raw-factions/abzan/abzan.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "guidance_abzan_0005_gate3",
+      "canonical_content_hash": "sha256:5f01d9f4e004a3ec62178f2aa35f8499c3c154d4e42eb2706b8ba5c2cb269ade",
+      "evidence_claim_ids": [
+        "abzan_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ABZAN",
+        "data/placement-model.json#/factions/ABZAN",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ABZAN"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ABZAN",
+      "canonical_file": "data/raw-factions/abzan/abzan.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": "guidance_abzan_0006_gate3",
+      "canonical_content_hash": "sha256:89435b500795325c004406756c44d720a39877e06abedcdf0a4fcce8f8e2963f",
+      "evidence_claim_ids": [
+        "abzan_claim_0005",
+        "abzan_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_dragons_pg_part_2",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ABZAN",
+        "data/placement-model.json#/factions/ABZAN",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ABZAN"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ABZAN",
+      "canonical_file": "data/raw-factions/abzan/abzan.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": "guidance_abzan_0007_gate3",
+      "canonical_content_hash": "sha256:eafaa711335b0e517748bc75338dee91ff9989297aa6ca80d7d693bb0350be8d",
+      "evidence_claim_ids": [
+        "abzan_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/ABZAN",
+        "data/placement-model.json#/factions/ABZAN",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/ABZAN"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "ABZAN",
       "canonical_file": "data/raw-factions/abzan/abzan.profile.json",
       "canonical_pointer": "/commander_compass/native_fit_commanders/0/source_basis",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:6d5d81f098290e4f54b87edf719872a2e0abe9a21be51b466afbee5fcd2de4b0",
+      "canonical_id": "support_abzan_felothar_the_steadfast_gate3",
+      "canonical_content_hash": "sha256:e94c3d61180416ba579c2acf3b47e4081797ec9c0125cd390e3a5e6866baffbe",
       "evidence_claim_ids": [
         "abzan_claim_0011"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
       ],
@@ -304,11 +613,12 @@
       "identity_key": "ABZAN",
       "canonical_file": "data/raw-factions/abzan/abzan.profile.json",
       "canonical_pointer": "/commander_compass/native_fit_commanders/1/source_basis",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:6d5d81f098290e4f54b87edf719872a2e0abe9a21be51b466afbee5fcd2de4b0",
+      "canonical_id": "support_abzan_betor_ancestor_s_voice_gate3",
+      "canonical_content_hash": "sha256:58612490f38e8f81503d69c221cf0b4bd6ad01686a973a9c0c4e6457432fc028",
       "evidence_claim_ids": [
         "abzan_claim_0011"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
       ],
@@ -323,8 +633,8 @@
       "identity_key": "ABZAN",
       "canonical_file": "data/raw-factions/abzan/abzan.profile.json",
       "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:8bb1326e63e89f13a89486cf1185ad86c9c51c65422e5a102c8f6f8dfe548345",
+      "canonical_id": "abzan_core_identity_gate3",
+      "canonical_content_hash": "sha256:f4222e9c1494cc0d40df08c074e0e7cc62c619543cfd5163b6377a075e4f2706",
       "evidence_claim_ids": [
         "abzan_claim_0001",
         "abzan_claim_0002",
@@ -355,8 +665,8 @@
       "identity_key": "ABZAN",
       "canonical_file": "data/raw-factions/abzan/abzan.profile.json",
       "canonical_pointer": "/data_quality",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:00751585700a52094f40d54eac14749ffcb1c59492fe69bef4a5b6d8c0f33156",
+      "canonical_id": "abzan_data_quality_gate3",
+      "canonical_content_hash": "sha256:fd4fd86eb033d4da512f2d6b1341d2ee90322c9582d5210d136ef2437e8e1adc",
       "evidence_claim_ids": [
         "abzan_claim_0001",
         "abzan_claim_0002",
@@ -391,8 +701,8 @@
       "identity_key": "ABZAN",
       "canonical_file": "data/raw-factions/abzan/abzan.profile.json",
       "canonical_pointer": "/great_tension",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:1b31e1cdcec93c05f47d94640908cd6ca827fb62a9cc9fc99a3ab90c26d95910",
+      "canonical_id": "abzan_great_tension_gate3",
+      "canonical_content_hash": "sha256:2de921d3a1d37ce018faf0d3594b57f548868b78faad36aec9eddd6b437696be",
       "evidence_claim_ids": [
         "abzan_claim_0003",
         "abzan_claim_0006",
@@ -485,8 +795,8 @@
       "identity_key": "ABZAN",
       "canonical_file": "data/raw-factions/abzan/abzan.profile.json",
       "canonical_pointer": "/key_figures/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:603516b0a9f0caa0c9ab174646fa1dd6ebdedb5ad6795b402fc061d82459e62c",
+      "canonical_id": "figure_abzan_anafenza_gate3",
+      "canonical_content_hash": "sha256:e16fff3b57117b81308d17ed2c219343cce005df3b91ddb364222d6d8fa786ed",
       "evidence_claim_ids": [
         "abzan_claim_0004",
         "abzan_claim_0005"
@@ -510,8 +820,8 @@
       "identity_key": "ABZAN",
       "canonical_file": "data/raw-factions/abzan/abzan.profile.json",
       "canonical_pointer": "/key_figures/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:2a862dc69a21b6df43dbd382f5c3931c685501a7d723ff0a4a5a4dce4c350588",
+      "canonical_id": "figure_abzan_gvar_barzeel_gate3",
+      "canonical_content_hash": "sha256:8eacaf75f52835c163e5602b312581c72f78b7aefcdb936c5c72af73c9b3a9ab",
       "evidence_claim_ids": [
         "abzan_claim_0004"
       ],
@@ -531,8 +841,8 @@
       "identity_key": "ABZAN",
       "canonical_file": "data/raw-factions/abzan/abzan.profile.json",
       "canonical_pointer": "/key_figures/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:89387d60ac1fbc6e77208c281d7efb425cfdb52a3a80c46b169972a5407c558b",
+      "canonical_id": "figure_abzan_daghatar_gate3",
+      "canonical_content_hash": "sha256:8b99aab05db4b2e157fe53e8c980f892d7fe32316de035093d923a0d737711d0",
       "evidence_claim_ids": [
         "abzan_claim_0004",
         "abzan_claim_0005"
@@ -556,8 +866,8 @@
       "identity_key": "ABZAN",
       "canonical_file": "data/raw-factions/abzan/abzan.profile.json",
       "canonical_pointer": "/key_figures/3",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:6941c14dea723aaf36fec31a0d99f73907a82a5e159d4da170b676f1181e0760",
+      "canonical_id": "figure_abzan_reyhan_gate3",
+      "canonical_content_hash": "sha256:c8c17bfc2855a4f9c4bfa6701039fa48a7ba1bf500a7d0c3f4efc3831da8c76c",
       "evidence_claim_ids": [
         "abzan_claim_0005"
       ],
@@ -579,8 +889,8 @@
       "identity_key": "ABZAN",
       "canonical_file": "data/raw-factions/abzan/abzan.profile.json",
       "canonical_pointer": "/key_figures/4",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:730efe46a4dc8cbd29c405c003b7e1763348d7edc3f33923c488ae14f92f5134",
+      "canonical_id": "figure_abzan_felothar_gate3",
+      "canonical_content_hash": "sha256:2bd249aff6fc9db598839e63d216fa3505dac2ab2817ce65e2279ac4c7325698",
       "evidence_claim_ids": [
         "abzan_claim_0006"
       ],
@@ -599,8 +909,8 @@
       "identity_key": "ABZAN",
       "canonical_file": "data/raw-factions/abzan/abzan.profile.json",
       "canonical_pointer": "/site_surface",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:deb4eb9f20d3e4b9d05abaabea3cdcd73149b17bcfc1d58de6a05e80b68f1c17",
+      "canonical_id": "abzan_site_surface_gate3",
+      "canonical_content_hash": "sha256:5d307a761c47d76e557d6b1c9f78872feb3c0bef4d6e24965ac1b7eef261debb",
       "evidence_claim_ids": [
         "abzan_claim_0001",
         "abzan_claim_0002",
@@ -635,8 +945,8 @@
       "identity_key": "ABZAN",
       "canonical_file": "data/raw-factions/abzan/abzan.profile.json",
       "canonical_pointer": "/structure",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:ee793704979229460d30ad74780ccd650d09b76543371fa7f79395499c661482",
+      "canonical_id": "abzan_structure_gate3",
+      "canonical_content_hash": "sha256:7e1154e87df02860c6ecab5f4c912bda38f5e0fba5200bb40c653e71aa62943d",
       "evidence_claim_ids": [
         "abzan_claim_0001",
         "abzan_claim_0002",
@@ -671,8 +981,8 @@
       "identity_key": "ABZAN",
       "canonical_file": "data/raw-factions/abzan/abzan.profile.json",
       "canonical_pointer": "/views_on_other_factions/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:50e07b5a401a3e165d512b3bea41e553e4476005f7ed718e8130aa275e7b1cbb",
+      "canonical_id": "rel_abzan_dromoka_brood_gate3",
+      "canonical_content_hash": "sha256:abf1e871521fe9075a558ca2713b37b7031aa2e2115d99aaca8856410efe2089",
       "evidence_claim_ids": [
         "abzan_claim_0005",
         "abzan_claim_0010"
@@ -695,8 +1005,8 @@
       "identity_key": "ABZAN",
       "canonical_file": "data/raw-factions/abzan/abzan.profile.json",
       "canonical_pointer": "/views_on_other_factions/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:71dcce55b438e4a7a6d888a41931508bc93243e29afd7308ce59d08218ef0836",
+      "canonical_id": "rel_abzan_wedge_neighbors_gate3",
+      "canonical_content_hash": "sha256:5fc49de6069f41698bf07db8991b3ea2ce334dc003f09f9af901e981d7cd09ef",
       "evidence_claim_ids": [
         "abzan_claim_0001",
         "abzan_claim_0002",

@@ -15226,7 +15226,8 @@
               "src_wotc_tarkir_khans_pg_part_1",
               "src_wotc_tarkir_dragons_pg_part_2"
             ],
-            "limitations": "Do not expand into full biography, exact card facts, or Dromoka continuity without manual-fill review."
+            "limitations": "Do not expand into full biography, exact card facts, or Dromoka continuity without manual-fill review.",
+            "character_id": "figure_abzan_anafenza_gate3"
           },
           {
             "name": "Gvar Barzeel",
@@ -15241,7 +15242,8 @@
             "source_ids": [
               "src_wotc_tarkir_khans_pg_part_1"
             ],
-            "limitations": "Keep to named-anchor status; detailed biography and card facts remain deferred."
+            "limitations": "Keep to named-anchor status; detailed biography and card facts remain deferred.",
+            "character_id": "figure_abzan_gvar_barzeel_gate3"
           },
           {
             "name": "Daghatar",
@@ -15259,7 +15261,8 @@
               "src_wotc_tarkir_fate_reforged_pg",
               "src_wotc_tarkir_story_khanfall"
             ],
-            "limitations": "Use as a transition-boundary figure only; do not make Dromoka's brood Abzan Houses continuity."
+            "limitations": "Use as a transition-boundary figure only; do not make Dromoka's brood Abzan Houses continuity.",
+            "character_id": "figure_abzan_daghatar_gate3"
           },
           {
             "name": "Reyhan",
@@ -15274,7 +15277,8 @@
             "source_ids": [
               "src_wotc_tarkir_story_khanfall"
             ],
-            "limitations": "Do not import Commander partner or card-product details into lore proof under this pass."
+            "limitations": "Do not import Commander partner or card-product details into lore proof under this pass.",
+            "character_id": "figure_abzan_reyhan_gate3"
           },
           {
             "name": "Felothar of House Zanhar",
@@ -15289,7 +15293,8 @@
             "source_ids": [
               "src_wotc_tarkir_dragonstorm_pg_part_1"
             ],
-            "limitations": "Keep to the captured guide row; individual biography beyond guide text remains manual-fill material."
+            "limitations": "Keep to the captured guide row; individual biography beyond guide text remains manual-fill material.",
+            "character_id": "figure_abzan_felothar_gate3"
           }
         ],
         "canonical_flavor_text": [],
@@ -15303,7 +15308,8 @@
               "abzan_claim_0010"
             ],
             "confidence": "High",
-            "notes": "Not story-world diplomacy."
+            "notes": "Not story-world diplomacy.",
+            "relationship_id": "rel_abzan_dromoka_brood_gate3"
           },
           {
             "faction": "Sultai / Mardu / Jeskai / Temur",
@@ -15316,7 +15322,8 @@
               "abzan_claim_0010"
             ],
             "confidence": "Medium",
-            "notes": "Not story-world diplomacy and not raw claim evidence about the comparator wedges."
+            "notes": "Not story-world diplomacy and not raw claim evidence about the comparator wedges.",
+            "relationship_id": "rel_abzan_wedge_neighbors_gate3"
           }
         ],
         "search_and_filter_metadata": {
@@ -15466,7 +15473,9 @@
                 "abzan_claim_0011"
               ],
               "support_only": true,
-              "boundary": "Official product/card-data support only."
+              "boundary": "Official product/card-data support only.",
+              "id": "support_abzan_felothar_the_steadfast_gate3",
+              "evidence_use": "auxiliary_support"
             },
             "confidence": "High for product/card identity; support-only for recommendation texture.",
             "caution_notes": [
@@ -15509,7 +15518,9 @@
                 "abzan_claim_0011"
               ],
               "support_only": true,
-              "boundary": "Official product/card-data support only."
+              "boundary": "Official product/card-data support only.",
+              "id": "support_abzan_betor_ancestor_s_voice_gate3",
+              "evidence_use": "auxiliary_support"
             },
             "confidence": "High for product/card identity; support-only for recommendation texture.",
             "caution_notes": [

@@ -17,7 +17,8 @@
       "abzan_claim_0010"
     ],
     "confidence": "Medium",
-    "notes": "Psychological language is Vox Mana synthesis. Support-only rows do not raise confidence."
+    "notes": "Psychological language is Vox Mana synthesis. Support-only rows do not raise confidence.",
+    "profile_id": "abzan_moral_and_psychological_profile_gate3"
   },
   "placement_axes": [],
   "core_values": [
@@ -299,6 +300,63 @@
         "abzan_claim_0008"
       ],
       "confidence": "Medium"
+    }
+  ],
+  "semantic_guidance_evidence": [
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "guidance_abzan_0001_gate3",
+      "evidence_claim_ids": [
+        "abzan_claim_0001",
+        "abzan_claim_0002",
+        "abzan_claim_0003",
+        "abzan_claim_0006",
+        "abzan_claim_0008"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "guidance_abzan_0002_gate3",
+      "evidence_claim_ids": [
+        "abzan_claim_0010"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "guidance_abzan_0003_gate3",
+      "evidence_claim_ids": [
+        "abzan_claim_0010"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "guidance_abzan_0004_gate3",
+      "evidence_claim_ids": [
+        "abzan_claim_0001",
+        "abzan_claim_0010"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "guidance_abzan_0005_gate3",
+      "evidence_claim_ids": [
+        "abzan_claim_0010"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "guidance_abzan_0006_gate3",
+      "evidence_claim_ids": [
+        "abzan_claim_0005",
+        "abzan_claim_0010"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "guidance_abzan_0007_gate3",
+      "evidence_claim_ids": [
+        "abzan_claim_0010"
+      ]
     }
   ]
 }

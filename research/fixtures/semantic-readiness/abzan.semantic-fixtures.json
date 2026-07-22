@@ -1,0 +1,323 @@
+{
+  "identity_key": "ABZAN",
+  "contract_version": "v1.1",
+  "generated_by": "VM-527 Gate 3/4 Abzan semantic remediation",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "abzan_core_family_perennation",
+      "fixture_type": "core_inclusion",
+      "prompt": "A user wants a commander identity where survival means keeping the house alive, honoring ancestors, and guarding future generations through patient defense.",
+      "scenario": "A user wants a commander identity where survival means keeping the house alive, honoring ancestors, and guarding future generations through patient defense.",
+      "expected": "ABZAN_INCLUDE",
+      "evidence_claim_ids": [
+        "abzan_claim_0001",
+        "abzan_claim_0002",
+        "abzan_claim_0003",
+        "abzan_claim_0008"
+      ],
+      "boundary": "Abzan inclusion requires White-centered house duty, family endurance, and perennation together.",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_rosewater_abzan_we_will_survive",
+        "src_wotc_tarkir_dragonstorm_pg_part_1",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ]
+    },
+    {
+      "fixture_id": "abzan_pressure_defensive_patience",
+      "fixture_type": "mature_or_pressure_behavior",
+      "prompt": "The prompt values pressure only when the answer is fortified refuge, defensive patience, and endurance for descendants rather than glory.",
+      "scenario": "The prompt values pressure only when the answer is fortified refuge, defensive patience, and endurance for descendants rather than glory.",
+      "expected": "ABZAN_INCLUDE_WITH_PRESSURE_BOUNDARY",
+      "evidence_claim_ids": [
+        "abzan_claim_0002",
+        "abzan_claim_0006",
+        "abzan_claim_0007",
+        "abzan_claim_0009"
+      ],
+      "boundary": "Defense and pressure support Abzan only when they stay tied to house continuity and survival.",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_rosewater_abzan_we_will_survive",
+        "src_wotc_tarkir_dragonstorm_pg_part_1",
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ]
+    },
+    {
+      "fixture_id": "abzan_nearest_sultai_resource_dead",
+      "fixture_type": "nearest_collision_ambiguity",
+      "prompt": "The prompt treats the dead, bodies, secrets, and costs as resources to convert into advantage.",
+      "scenario": "The prompt treats the dead, bodies, secrets, and costs as resources to convert into advantage.",
+      "expected": "ABZAN_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "abzan_claim_0008",
+        "abzan_claim_0010"
+      ],
+      "boundary": "Sultai-facing resource conversion is not Abzan ancestor obligation.",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_1"
+      ]
+    },
+    {
+      "fixture_id": "abzan_neighbor_mardu_speed",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is a decisive charge, warband speed, and commitment before the opening closes.",
+      "scenario": "The fantasy is a decisive charge, warband speed, and commitment before the opening closes.",
+      "expected": "ABZAN_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "abzan_claim_0002",
+        "abzan_claim_0003",
+        "abzan_claim_0010"
+      ],
+      "boundary": "Mardu speed and war commitment lack Abzan defensive patience and ancestor duty.",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_rosewater_abzan_we_will_survive",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "MARDU"
+    },
+    {
+      "fixture_id": "abzan_neighbor_sultai_resource",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy uses death, secrets, and bodies as material for ruthless opportunity.",
+      "scenario": "The fantasy uses death, secrets, and bodies as material for ruthless opportunity.",
+      "expected": "ABZAN_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "abzan_claim_0008",
+        "abzan_claim_0010"
+      ],
+      "boundary": "Sultai resource conversion lacks Abzan house obligation.",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_1"
+      ],
+      "neighbor": "SULTAI"
+    },
+    {
+      "fixture_id": "abzan_neighbor_dromoka_brood",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers Dromoka's dragon brood, WG continuity, and ancestor-magic suppression as the positive identity.",
+      "scenario": "The prompt centers Dromoka's dragon brood, WG continuity, and ancestor-magic suppression as the positive identity.",
+      "expected": "ABZAN_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "abzan_claim_0005",
+        "abzan_claim_0010"
+      ],
+      "boundary": "Dromoka material is suppression and contrast context, not Abzan Houses continuity.",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_dragons_pg_part_2",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "neighbor": "Dromoka brood"
+    },
+    {
+      "fixture_id": "abzan_neighbor_generic_wbg",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt is only WBG colors with generic resilience and no family, house, ancestor, or perennation evidence.",
+      "scenario": "The prompt is only WBG colors with generic resilience and no family, house, ancestor, or perennation evidence.",
+      "expected": "ABZAN_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "abzan_claim_0001",
+        "abzan_claim_0010"
+      ],
+      "boundary": "Color composition alone is metadata, not Abzan evidence.",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_rosewater_abzan_we_will_survive"
+      ],
+      "neighbor": "generic WBG"
+    },
+    {
+      "fixture_id": "abzan_neighbor_generic_mechanics",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt centers toughness, defenders, counters, tokens, graveyard recursion, lifegain, poison, or proliferate without Abzan house evidence.",
+      "scenario": "The prompt centers toughness, defenders, counters, tokens, graveyard recursion, lifegain, poison, or proliferate without Abzan house evidence.",
+      "expected": "ABZAN_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "abzan_claim_0010"
+      ],
+      "boundary": "Generic mechanics cannot substitute for Abzan identity evidence.",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531"
+      ],
+      "neighbor": "generic graveyard/toughness/defense mechanics"
+    },
+    {
+      "fixture_id": "abzan_neighbor_commander_product",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The prompt treats Abzan Armor, Felothar, or Betor as enough to prove Tarkir Abzan identity or placement.",
+      "scenario": "The prompt treats Abzan Armor, Felothar, or Betor as enough to prove Tarkir Abzan identity or placement.",
+      "expected": "ABZAN_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "abzan_claim_0010"
+      ],
+      "boundary": "Commander products are support-only navigation, not authoritative Abzan proof.",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531"
+      ],
+      "neighbor": "Commander product identity"
+    },
+    {
+      "fixture_id": "abzan_neighbor_orzhov_obligation",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is debt, hierarchy, and death-facing obligation without Green house continuity or Kin-Trees.",
+      "scenario": "The fantasy is debt, hierarchy, and death-facing obligation without Green house continuity or Kin-Trees.",
+      "expected": "ABZAN_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "abzan_claim_0001",
+        "abzan_claim_0003",
+        "abzan_claim_0008"
+      ],
+      "boundary": "Orzhov-like obligation lacks Abzan's Green-rooted house continuity.",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_rosewater_abzan_we_will_survive",
+        "src_wotc_tarkir_dragonstorm_pg_part_1",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "ORZHOV"
+    },
+    {
+      "fixture_id": "abzan_neighbor_golgari_cycle",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is rot, reclamation, graveyard lifecycle, and slow survival without White family duty.",
+      "scenario": "The fantasy is rot, reclamation, graveyard lifecycle, and slow survival without White family duty.",
+      "expected": "ABZAN_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "abzan_claim_0001",
+        "abzan_claim_0008",
+        "abzan_claim_0010"
+      ],
+      "boundary": "Golgari death/life cycles lack Abzan White-centered duty.",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_rosewater_abzan_we_will_survive",
+        "src_wotc_tarkir_dragonstorm_pg_part_1"
+      ],
+      "neighbor": "GOLGARI"
+    },
+    {
+      "fixture_id": "abzan_neighbor_selesnya_community",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is communal harmony and life care without Black cost, death-facing obligation, or ancestor pressure.",
+      "scenario": "The fantasy is communal harmony and life care without Black cost, death-facing obligation, or ancestor pressure.",
+      "expected": "ABZAN_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "abzan_claim_0001",
+        "abzan_claim_0003",
+        "abzan_claim_0008"
+      ],
+      "boundary": "Selesnya community lacks Abzan Black cost and ancestor obligation.",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_rosewater_abzan_we_will_survive",
+        "src_wotc_tarkir_dragonstorm_pg_part_1",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "SELESNYA"
+    },
+    {
+      "fixture_id": "abzan_neighbor_bant_honor",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is public honor, champion hierarchy, and refined order instead of family endurance.",
+      "scenario": "The fantasy is public honor, champion hierarchy, and refined order instead of family endurance.",
+      "expected": "ABZAN_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "abzan_claim_0003",
+        "abzan_claim_0010"
+      ],
+      "boundary": "Bant honor and hierarchy are not Abzan house endurance.",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "BANT"
+    },
+    {
+      "fixture_id": "abzan_neighbor_jund_appetite",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is appetite, instinct, and survival pressure before family duty.",
+      "scenario": "The fantasy is appetite, instinct, and survival pressure before family duty.",
+      "expected": "ABZAN_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "abzan_claim_0002",
+        "abzan_claim_0003",
+        "abzan_claim_0010"
+      ],
+      "boundary": "Jund survival pressure lacks Abzan White-centered house continuity.",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_rosewater_abzan_we_will_survive",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "JUND"
+    },
+    {
+      "fixture_id": "abzan_neighbor_naya_abundance",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is Green-centered abundance, belonging, growth, and instinctive care rather than ancestor-bound house duty.",
+      "scenario": "The fantasy is Green-centered abundance, belonging, growth, and instinctive care rather than ancestor-bound house duty.",
+      "expected": "ABZAN_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "abzan_claim_0001",
+        "abzan_claim_0002",
+        "abzan_claim_0008"
+      ],
+      "boundary": "Naya abundance and belonging are not Abzan perennation and obligation.",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_rosewater_abzan_we_will_survive",
+        "src_wotc_tarkir_dragonstorm_pg_part_1"
+      ],
+      "neighbor": "NAYA"
+    },
+    {
+      "fixture_id": "abzan_support_commander_isolation",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The only evidence is a Commander product decklist, face commander, featured commander, or product navigation row.",
+      "scenario": "The only evidence is a Commander product decklist, face commander, featured commander, or product navigation row.",
+      "expected": "ABZAN_EXCLUDE_OR_SUPPORT_ONLY",
+      "evidence_claim_ids": [
+        "abzan_claim_0010"
+      ],
+      "boundary": "Support-only Commander rows cannot become authoritative proof.",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531"
+      ],
+      "neighbor": "Commander product identity"
+    },
+    {
+      "fixture_id": "abzan_provenance_core_identity",
+      "fixture_type": "provenance",
+      "expected": "ABZAN_PROVENANCE_CHAIN",
+      "evidence_claim_ids": [
+        "abzan_claim_0001",
+        "abzan_claim_0002",
+        "abzan_claim_0003",
+        "abzan_claim_0005",
+        "abzan_claim_0006",
+        "abzan_claim_0008",
+        "abzan_claim_0010"
+      ],
+      "boundary": "Core identity provenance must use substantive Abzan claims only.",
+      "evidence_source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_rosewater_abzan_we_will_survive",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_dragons_pg_part_2",
+        "src_wotc_tarkir_dragonstorm_pg_part_1",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_khans_pg_part_1",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "canonical_file": "data/raw-factions/abzan/abzan.profile.json",
+      "canonical_pointer": "/core_identity"
+    }
+  ]
+}

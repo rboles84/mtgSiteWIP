@@ -20,7 +20,28 @@
         "ABZAN-EVID-001"
       ],
       "confidence": "High",
-      "notes": "Use for base Abzan Houses identity only. WBG and W/B/G permutations remain metadata/query-only and do not become runtime aliases, route keys, generated keys, fixture keys, or public labels."
+      "notes": "Use for base Abzan Houses identity only. WBG and W/B/G permutations remain metadata/query-only and do not become runtime aliases, route keys, generated keys, fixture keys, or public labels.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_abzan_evidence_ledger_20260531",
+          "locator": "docs/research/abzan/abzan-evidence-ledger.md#L9-L40",
+          "note": "Abzan is the White-centered White-Black-Green Tarkir wedge identity.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Abzan is the White-centered White-Black-Green Tarkir wedge identity.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_rosewater_abzan_we_will_survive",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Abzan_We Will Survive _ MAGIC_ THE GATHERING.md#L1-L90",
+          "note": "Abzan is the White-centered White-Black-Green Tarkir wedge identity.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Abzan is the White-centered White-Black-Green Tarkir wedge identity.",
+          "evidence_scope": "identity-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "abzan_claim_0002",
@@ -37,7 +58,28 @@
         "ABZAN-EVID-003"
       ],
       "confidence": "High",
-      "notes": "This supports design-level endurance and defense language. It does not prove specific deck mechanics, commander legality, or card text."
+      "notes": "This supports design-level endurance and defense language. It does not prove specific deck mechanics, commander legality, or card text.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_abzan_evidence_ledger_20260531",
+          "locator": "docs/research/abzan/abzan-evidence-ledger.md#L9-L40",
+          "note": "Abzan's source-bound design frame emphasizes endurance, active defense, long-game survival, and growth after pressure.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Abzan's source-bound design frame emphasizes endurance, active defense, long-game survival, and growth after pressure.",
+          "evidence_scope": "design-identity",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_rosewater_abzan_we_will_survive",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Abzan_We Will Survive _ MAGIC_ THE GATHERING.md#L1-L90",
+          "note": "Abzan's source-bound design frame emphasizes endurance, active defense, long-game survival, and growth after pressure.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Abzan's source-bound design frame emphasizes endurance, active defense, long-game survival, and growth after pressure.",
+          "evidence_scope": "design-identity",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "abzan_claim_0003",
@@ -55,7 +97,28 @@
         "ABZAN-EVID-006"
       ],
       "confidence": "High",
-      "notes": "Use for Khans-era social and ancestor-practice floor. Exact post-rebellion integration details remain manual-review material."
+      "notes": "Use for Khans-era social and ancestor-practice floor. Exact post-rebellion integration details remain manual-review material.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_abzan_evidence_ledger_20260531",
+          "locator": "docs/research/abzan/abzan-evidence-ledger.md#L9-L40",
+          "note": "Khans-era Abzan society is grounded in family, duty, kin-tree practice, ancestor spirits, and kinship categories.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Khans-era Abzan society is grounded in family, duty, kin-tree practice, ancestor spirits, and kinship categories.",
+          "evidence_scope": "khans-era-family-duty",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_tarkir_khans_pg_part_1",
+          "locator": "docs/research/canon/source-material/tarkir/planeswalkers-guide-khans-part-1.md#L1-L220",
+          "note": "Khans-era Abzan society is grounded in family, duty, kin-tree practice, ancestor spirits, and kinship categories.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Khans-era Abzan society is grounded in family, duty, kin-tree practice, ancestor spirits, and kinship categories.",
+          "evidence_scope": "khans-era-family-duty",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "abzan_claim_0004",
@@ -74,7 +137,37 @@
         "ABZAN-EVID-009"
       ],
       "confidence": "High",
-      "notes": "Named anchors are era-specific. This does not create broad biography, commander legality, or modern card-fact claims."
+      "notes": "Named anchors are era-specific. This does not create broad biography, commander legality, or modern card-fact claims.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_abzan_evidence_ledger_20260531",
+          "locator": "docs/research/abzan/abzan-evidence-ledger.md#L9-L40",
+          "note": "Khans and Fate Reforged evidence supports bounded roles, magic, named anchors, family bonds, lineage, and dragon-threat context.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Khans and Fate Reforged evidence supports bounded roles, magic, named anchors, family bonds, lineage, and dragon-threat context.",
+          "evidence_scope": "bounded-era-lore",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_tarkir_khans_pg_part_1",
+          "locator": "docs/research/canon/source-material/tarkir/planeswalkers-guide-khans-part-1.md#L1-L220",
+          "note": "Khans and Fate Reforged evidence supports bounded roles, magic, named anchors, family bonds, lineage, and dragon-threat context.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Khans and Fate Reforged evidence supports bounded roles, magic, named anchors, family bonds, lineage, and dragon-threat context.",
+          "evidence_scope": "bounded-era-lore",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_tarkir_fate_reforged_pg",
+          "locator": "docs/research/canon/source-material/tarkir/planeswalkers-guide-fate-reforged.md#L1-L220",
+          "note": "Khans and Fate Reforged evidence supports bounded roles, magic, named anchors, family bonds, lineage, and dragon-threat context.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Khans and Fate Reforged evidence supports bounded roles, magic, named anchors, family bonds, lineage, and dragon-threat context.",
+          "evidence_scope": "bounded-era-lore",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "abzan_claim_0005",
@@ -96,7 +189,55 @@
         "ABZAN-EVID-013"
       ],
       "confidence": "High",
-      "notes": "Use Dromoka-era material as contrast and suppression context only. Do not treat Dromoka's brood or generic WG dragon-clan identity as Abzan Houses."
+      "notes": "Use Dromoka-era material as contrast and suppression context only. Do not treat Dromoka's brood or generic WG dragon-clan identity as Abzan Houses.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_abzan_evidence_ledger_20260531",
+          "locator": "docs/research/abzan/abzan-evidence-ledger.md#L9-L40",
+          "note": "Khanfall and Dromoka-era sources establish transition, suppression, and Dromoka/Abzan separation boundaries.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Khanfall and Dromoka-era sources establish transition, suppression, and Dromoka/Abzan separation boundaries.",
+          "evidence_scope": "transition-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_tarkir_fate_reforged_pg",
+          "locator": "docs/research/canon/source-material/tarkir/planeswalkers-guide-fate-reforged.md#L1-L220",
+          "note": "Khanfall and Dromoka-era sources establish transition, suppression, and Dromoka/Abzan separation boundaries.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Khanfall and Dromoka-era sources establish transition, suppression, and Dromoka/Abzan separation boundaries.",
+          "evidence_scope": "transition-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragons_pg_part_1",
+          "locator": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragons-part-1.md#L1-L220",
+          "note": "Khanfall and Dromoka-era sources establish transition, suppression, and Dromoka/Abzan separation boundaries.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Khanfall and Dromoka-era sources establish transition, suppression, and Dromoka/Abzan separation boundaries.",
+          "evidence_scope": "transition-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragons_pg_part_2",
+          "locator": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragons-part-2.md#L1-L220",
+          "note": "Khanfall and Dromoka-era sources establish transition, suppression, and Dromoka/Abzan separation boundaries.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Khanfall and Dromoka-era sources establish transition, suppression, and Dromoka/Abzan separation boundaries.",
+          "evidence_scope": "transition-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_tarkir_story_khanfall",
+          "locator": "docs/research/canon/source-material/tarkir/story-khanfall.md#L1-L220",
+          "note": "Khanfall and Dromoka-era sources establish transition, suppression, and Dromoka/Abzan separation boundaries.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Khanfall and Dromoka-era sources establish transition, suppression, and Dromoka/Abzan separation boundaries.",
+          "evidence_scope": "transition-boundary",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "abzan_claim_0006",
@@ -116,7 +257,28 @@
         "ABZAN-EVID-019"
       ],
       "confidence": "High",
-      "notes": "Use for modern Abzan Houses identity, governance, house membership, and major-house floor. Detailed minor-house hierarchy and individual biography remain manual-review material."
+      "notes": "Use for modern Abzan Houses identity, governance, house membership, and major-house floor. Detailed minor-house hierarchy and individual biography remain manual-review material.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_abzan_evidence_ledger_20260531",
+          "locator": "docs/research/abzan/abzan-evidence-ledger.md#L9-L40",
+          "note": "Modern Dragonstorm Abzan are revived, loyal, enduring, council-led, and organized around extended house membership.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Modern Dragonstorm Abzan are revived, loyal, enduring, council-led, and organized around extended house membership.",
+          "evidence_scope": "modern-house-identity",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragonstorm_pg_part_1",
+          "locator": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragonstorm-part-1.md#L1-L260",
+          "note": "Modern Dragonstorm Abzan are revived, loyal, enduring, council-led, and organized around extended house membership.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Modern Dragonstorm Abzan are revived, loyal, enduring, council-led, and organized around extended house membership.",
+          "evidence_scope": "modern-house-identity",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "abzan_claim_0007",
@@ -134,7 +296,28 @@
         "ABZAN-EVID-021"
       ],
       "confidence": "High",
-      "notes": "Use for modern civic, defensive, and daily-life floor only. Do not infer exact campaign chronology, card text, or exhaustive military protocols."
+      "notes": "Use for modern civic, defensive, and daily-life floor only. Do not infer exact campaign chronology, card text, or exhaustive military protocols.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_abzan_evidence_ledger_20260531",
+          "locator": "docs/research/abzan/abzan-evidence-ledger.md#L9-L40",
+          "note": "Modern Abzan civic and military life supports trade, fortified refuge, patient defense, organized support, daily trades, and arts.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Modern Abzan civic and military life supports trade, fortified refuge, patient defense, organized support, daily trades, and arts.",
+          "evidence_scope": "modern-civic-military",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragonstorm_pg_part_1",
+          "locator": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragonstorm-part-1.md#L1-L260",
+          "note": "Modern Abzan civic and military life supports trade, fortified refuge, patient defense, organized support, daily trades, and arts.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Modern Abzan civic and military life supports trade, fortified refuge, patient defense, organized support, daily trades, and arts.",
+          "evidence_scope": "modern-civic-military",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "abzan_claim_0008",
@@ -151,7 +334,28 @@
         "ABZAN-EVID-023"
       ],
       "confidence": "High",
-      "notes": "Use for perennation, ancestor guidance, Kin-Tree, earth-magic, and spirit-summoning floor. Broader Vox Mana metaphysical prose must remain labeled as synthesis."
+      "notes": "Use for perennation, ancestor guidance, Kin-Tree, earth-magic, and spirit-summoning floor. Broader Vox Mana metaphysical prose must remain labeled as synthesis.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_abzan_evidence_ledger_20260531",
+          "locator": "docs/research/abzan/abzan-evidence-ledger.md#L9-L40",
+          "note": "Perennation binds life/death continuity, ancestor guidance, Kin-Tree bonding, earth manipulation, and spirit summoning.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Perennation binds life/death continuity, ancestor guidance, Kin-Tree bonding, earth manipulation, and spirit summoning.",
+          "evidence_scope": "perennation-metaphysics",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragonstorm_pg_part_1",
+          "locator": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragonstorm-part-1.md#L1-L260",
+          "note": "Perennation binds life/death continuity, ancestor guidance, Kin-Tree bonding, earth manipulation, and spirit summoning.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Perennation binds life/death continuity, ancestor guidance, Kin-Tree bonding, earth manipulation, and spirit summoning.",
+          "evidence_scope": "perennation-metaphysics",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "abzan_claim_0009",
@@ -169,7 +373,37 @@
         "ABZAN-EVID-025"
       ],
       "confidence": "High",
-      "notes": "Use for high-level dragonstorm and geography floor. Long-term dragonstorm ecology and exact wild-dragon protocols remain manual-review material."
+      "notes": "Use for high-level dragonstorm and geography floor. Long-term dragonstorm ecology and exact wild-dragon protocols remain manual-review material.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_abzan_evidence_ledger_20260531",
+          "locator": "docs/research/abzan/abzan-evidence-ledger.md#L9-L40",
+          "note": "Modern Abzan dragonstorm context is bounded to defensive dragon handling, house dragons, storm refuge, protective walls, and geography.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Modern Abzan dragonstorm context is bounded to defensive dragon handling, house dragons, storm refuge, protective walls, and geography.",
+          "evidence_scope": "modern-dragonstorm-context",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragonstorm_pg_part_1",
+          "locator": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragonstorm-part-1.md#L1-L260",
+          "note": "Modern Abzan dragonstorm context is bounded to defensive dragon handling, house dragons, storm refuge, protective walls, and geography.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Modern Abzan dragonstorm context is bounded to defensive dragon handling, house dragons, storm refuge, protective walls, and geography.",
+          "evidence_scope": "modern-dragonstorm-context",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragonstorm_pg_part_2",
+          "locator": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragonstorm-part-2.md#L1-L220",
+          "note": "Modern Abzan dragonstorm context is bounded to defensive dragon handling, house dragons, storm refuge, protective walls, and geography.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Modern Abzan dragonstorm context is bounded to defensive dragon handling, house dragons, storm refuge, protective walls, and geography.",
+          "evidence_scope": "modern-dragonstorm-context",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "abzan_claim_0010",
@@ -186,7 +420,19 @@
         "ABZAN-EVID-031"
       ],
       "confidence": "High",
-      "notes": "This is a false-positive and lifecycle guardrail. It does not make Abzan runtime-live, placement-eligible, or generated."
+      "notes": "This is a false-positive and lifecycle guardrail. It does not make Abzan runtime-live, placement-eligible, or generated.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_abzan_evidence_ledger_20260531",
+          "locator": "docs/research/abzan/abzan-evidence-ledger.md#L9-L40",
+          "note": "Generic WBG, generic mechanics, Dromoka's brood, Commander products, seed files, and non-live packet status are insufficient Abzan proof.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "Generic WBG, generic mechanics, Dromoka's brood, Commander products, seed files, and non-live packet status are insufficient Abzan proof.",
+          "evidence_scope": "metadata-and-false-positive-guardrail",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     },
     {
       "claim_id": "abzan_claim_0011",
@@ -198,7 +444,19 @@
         "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
       ],
       "confidence": "High",
-      "notes": "Decklist support is product/navigation only. It is not Tarkir canon proof, popularity proof, metagame proof, legality proof, or placement evidence."
+      "notes": "Decklist support is product/navigation only. It is not Tarkir canon proof, popularity proof, metagame proof, legality proof, or placement evidence.",
+      "semantic_role": "support_record",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_tarkir_dragonstorm_commander_decklists_20250325",
+          "locator": "docs/research/VM-378-379-380_source-intake.md#L1-L120",
+          "note": "The official decklist verifies Abzan Armor product facts only and does not prove Tarkir canon or placement semantics.",
+          "locator_type": "line_range",
+          "bounded_paraphrase": "The official decklist verifies Abzan Armor product facts only and does not prove Tarkir canon or placement semantics.",
+          "evidence_scope": "commander-product-support",
+          "interpretation_level": "direct-or-bounded-interpretation"
+        }
+      ]
     }
   ],
   "claim_quality_summary": {
