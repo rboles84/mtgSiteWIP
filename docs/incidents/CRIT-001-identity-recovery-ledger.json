@@ -11,7 +11,7 @@
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 4 shards - active; VM-527 Abzan drift preflight recorded",
+      "next_cohort": "Wave 4 shards - active; VM-527 Abzan awaiting independent exact-SHA review",
       "current_program_base": "PENDING_VM526_CERTIFICATION_COMMIT_SHA",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
@@ -78,13 +78,13 @@
       "current_identity_hold": {
         "identity": "ABZAN",
         "card": "VM-527",
-        "state": "semantic_candidate_created_gate_5_authorized",
+        "state": "awaiting_independent_review",
         "branch": "codex/vm-527-abzan-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm527-abzan",
         "prior_identity_certified": "NAYA",
         "prior_identity_certification": "PENDING_VM526_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "VM-527 / Abzan Gate 5 candidate workflow record is authorized for exact semantic candidate 11c099b8beb9f23e23660787f00b97e89914d50b. No independent review, certification, VM-528 work, Excel edit, push, PR, or merge is authorized yet.",
-        "required_next_milestone": "Record VM-527 Gate 5 candidate workflow for exact SHA 11c099b8beb9f23e23660787f00b97e89914d50b before independent review.",
+        "authorized_next_scope": "Independent exact-SHA review of VM-527 / Abzan candidate 11c099b8beb9f23e23660787f00b97e89914d50b is authorized. No certification, VM-528 work, Excel edit, push, PR, or merge is authorized yet.",
+        "required_next_milestone": "Independent review must rerun exact-chain, candidate-scope, semantic-readiness, provenance, fixture, and alias controls for exact SHA 11c099b8beb9f23e23660787f00b97e89914d50b before any certification.",
         "drift_preflight_started": true,
         "drift_preflight_completed": true,
         "drift_preflight_record": "docs/handoffs/2026-07-22-1014-codex-vm527-abzan-drift-preflight.md",
@@ -92,8 +92,10 @@
         "program_base": "80b34dcda7db51d08f77f862f4eafb5cf3cabeaa",
         "gate_1_2_record": "docs/handoffs/2026-07-22-1035-codex-vm527-abzan-gate1-gate2.md",
         "gate_3_4_record": "docs/handoffs/2026-07-22-1110-codex-vm527-abzan-gate3-gate4.md",
+        "candidate_workflow_record": "docs/handoffs/2026-07-22-1125-codex-vm527-abzan-candidate-workflow.md",
+        "candidate_workflow_commit": "PENDING_VM527_CANDIDATE_WORKFLOW_SHA",
         "semantic_candidate_sha": "11c099b8beb9f23e23660787f00b97e89914d50b",
-        "updated_at": "2026-07-22T11:10:00-06:00"
+        "updated_at": "2026-07-22T11:25:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -4411,14 +4413,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_5_authorized",
+        "current_gate": "awaiting_independent_review",
         "status": "in_progress",
         "started_at": "2026-07-22T10:14:00-06:00",
         "gate_entered_at": "2026-07-22T10:14:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "TEMUR",
-        "primary_disposition": "gate_3_4_passed_gate_5_candidate_workflow_authorized"
+        "primary_disposition": "candidate_workflow_recorded_awaiting_independent_review"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -4455,6 +4457,7 @@
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "11c099b8beb9f23e23660787f00b97e89914d50b",
         "recovery_commit": "11c099b8beb9f23e23660787f00b97e89914d50b",
+        "candidate_workflow_record": "PENDING_VM527_CANDIDATE_WORKFLOW_SHA",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
