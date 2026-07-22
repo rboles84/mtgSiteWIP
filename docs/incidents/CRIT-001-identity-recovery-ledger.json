@@ -11,7 +11,7 @@
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 4 shards - active; VM-527 Abzan awaiting independent exact-SHA review",
+      "next_cohort": "Wave 4 shards - active; VM-527 Abzan approved by independent exact-SHA review",
       "current_program_base": "PENDING_VM526_CERTIFICATION_COMMIT_SHA",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
@@ -78,13 +78,13 @@
       "current_identity_hold": {
         "identity": "ABZAN",
         "card": "VM-527",
-        "state": "awaiting_independent_review",
+        "state": "independent_review_approved_certification_only_next",
         "branch": "codex/vm-527-abzan-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm527-abzan",
         "prior_identity_certified": "NAYA",
         "prior_identity_certification": "PENDING_VM526_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "Independent exact-SHA review of VM-527 / Abzan candidate 11c099b8beb9f23e23660787f00b97e89914d50b is authorized. No certification, VM-528 work, Excel edit, push, PR, or merge is authorized yet.",
-        "required_next_milestone": "Independent review must rerun exact-chain, candidate-scope, semantic-readiness, provenance, fixture, and alias controls for exact SHA 11c099b8beb9f23e23660787f00b97e89914d50b before any certification.",
+        "authorized_next_scope": "Certification-only governance for VM-527 / Abzan exact approved candidate 11c099b8beb9f23e23660787f00b97e89914d50b is authorized next. No VM-528 work, Excel edit, push, PR, or merge is authorized yet.",
+        "required_next_milestone": "Certification must reconcile reviewed/generated truth and certify only exact approved SHA 11c099b8beb9f23e23660787f00b97e89914d50b.",
         "drift_preflight_started": true,
         "drift_preflight_completed": true,
         "drift_preflight_record": "docs/handoffs/2026-07-22-1014-codex-vm527-abzan-drift-preflight.md",
@@ -94,8 +94,11 @@
         "gate_3_4_record": "docs/handoffs/2026-07-22-1110-codex-vm527-abzan-gate3-gate4.md",
         "candidate_workflow_record": "docs/handoffs/2026-07-22-1125-codex-vm527-abzan-candidate-workflow.md",
         "candidate_workflow_commit": "PENDING_VM527_CANDIDATE_WORKFLOW_SHA",
+        "independent_review_record": "docs/handoffs/2026-07-22-1242-codex-vm527-abzan-independent-review.md",
+        "independent_review_commit": "PENDING_VM527_INDEPENDENT_REVIEW_SHA",
+        "independent_review_decision": "APPROVE EXACT SHA 11c099b8beb9f23e23660787f00b97e89914d50b",
         "semantic_candidate_sha": "11c099b8beb9f23e23660787f00b97e89914d50b",
-        "updated_at": "2026-07-22T11:25:00-06:00"
+        "updated_at": "2026-07-22T12:42:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -4413,14 +4416,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "awaiting_independent_review",
+        "current_gate": "independent_review_approved",
         "status": "in_progress",
         "started_at": "2026-07-22T10:14:00-06:00",
         "gate_entered_at": "2026-07-22T10:14:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "TEMUR",
-        "primary_disposition": "candidate_workflow_recorded_awaiting_independent_review"
+        "primary_disposition": "approved_exact_sha_certification_only_next"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -4450,18 +4453,23 @@
           "Candidate has 43 ABZAN semantic-provenance rows with zero null canonical IDs and zero missing canonical content hashes.",
           "Candidate adds 17 semantic fixtures and preserves WBG/BGW/GWB invalid alias rejection.",
           "Candidate-scope passes for ABZAN from program base 80b34dcda7db51d08f77f862f4eafb5cf3cabeaa."
-        ]
+        ],
+        "independent_review_record": "docs/handoffs/2026-07-22-1242-codex-vm527-abzan-independent-review.md",
+        "independent_review_decision": "APPROVE EXACT SHA 11c099b8beb9f23e23660787f00b97e89914d50b",
+        "approval_blocking_findings": 0
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "11c099b8beb9f23e23660787f00b97e89914d50b",
         "recovery_commit": "11c099b8beb9f23e23660787f00b97e89914d50b",
         "candidate_workflow_record": "PENDING_VM527_CANDIDATE_WORKFLOW_SHA",
         "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
+        "reviewer": "Codex independent exact-SHA review",
+        "review_cycles": 1,
+        "approval_date": "2026-07-22",
+        "approval_review_record": "PENDING_VM527_INDEPENDENT_REVIEW_SHA",
+        "approval_decision": "APPROVE EXACT SHA 11c099b8beb9f23e23660787f00b97e89914d50b",
         "certified_at": null
       }
     },

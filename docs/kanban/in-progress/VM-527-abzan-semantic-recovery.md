@@ -25,7 +25,7 @@ Recover Abzan end to end under CRIT-001 Contract v1.1: audit the existing packet
 - [x] Gate 3 - Canonical remediation.
 - [x] Gate 4 - Generation and validation.
 - [x] Gate 5 - Candidate workflow record for independent review.
-- [ ] Independent exact-SHA review.
+- [x] Independent exact-SHA review.
 - [ ] Certification-only governance commit.
 
 ## Scope Rules
@@ -43,11 +43,13 @@ Recover Abzan end to end under CRIT-001 Contract v1.1: audit the existing packet
 - Gate 1+2 audit: `docs/handoffs/2026-07-22-1035-codex-vm527-abzan-gate1-gate2.md`
 - Gate 3+4 remediation: `docs/handoffs/2026-07-22-1110-codex-vm527-abzan-gate3-gate4.md`
 - Gate 5 candidate workflow: `docs/handoffs/2026-07-22-1125-codex-vm527-abzan-candidate-workflow.md`
+- Independent exact-SHA review: `docs/handoffs/2026-07-22-1242-codex-vm527-abzan-independent-review.md`
 - Canonical ledger: `docs/incidents/CRIT-001-identity-recovery-ledger.json`
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: pending
 - Candidate recovery SHA: `11c099b8beb9f23e23660787f00b97e89914d50b`
 - Candidate workflow commit: `PENDING_VM527_CANDIDATE_WORKFLOW_SHA`
-- Independent reviewer: awaiting independent exact-SHA review
+- Independent reviewer: APPROVE EXACT SHA `11c099b8beb9f23e23660787f00b97e89914d50b`
+- Independent review commit: `PENDING_VM527_INDEPENDENT_REVIEW_SHA`
 - Certification commit: pending
