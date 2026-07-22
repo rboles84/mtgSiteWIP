@@ -5,13 +5,13 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": null,
+    "active_identity": "ABZAN",
     "next_identity": "ABZAN",
     "certified_identity_count": 25,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 4 shards - active; VM-527 Abzan not started",
+      "next_cohort": "Wave 4 shards - active; VM-527 Abzan drift preflight recorded",
       "current_program_base": "PENDING_VM526_CERTIFICATION_COMMIT_SHA",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
@@ -46,7 +46,7 @@
         "latest_certification": "PENDING_VM526_CERTIFICATION_COMMIT_SHA",
         "latest_certified_identity": "NAYA",
         "next_identity": "ABZAN",
-        "next_identity_status": "not_started"
+        "next_identity_status": "drift_preflight_recorded"
       }
     },
     "wip_limit": 1,
@@ -78,18 +78,19 @@
       "current_identity_hold": {
         "identity": "ABZAN",
         "card": "VM-527",
-        "state": "not_started_after_naya_certification",
-        "branch": null,
+        "state": "drift_preflight_recorded_gate_1_2_authorized",
+        "branch": "codex/vm-527-abzan-semantic-recovery",
+        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm527-abzan",
         "prior_identity_certified": "NAYA",
         "prior_identity_certification": "PENDING_VM526_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "No VM-527 / Abzan semantic work is authorized by VM-526 certification. A separate future window must explicitly start VM-527 and complete drift preflight before any semantic work.",
-        "required_next_milestone": "Await explicit VM-527 start authorization; VM-527 remains not started in this certification commit.",
-        "drift_preflight_started": false,
-        "drift_preflight_completed": false,
-        "drift_preflight_record": null,
-        "drift_preflight_commit": null,
-        "program_base": "PENDING_VM526_CERTIFICATION_COMMIT_SHA",
-        "updated_at": "2026-07-22T08:51:00-06:00"
+        "authorized_next_scope": "VM-527 / Abzan Gate 1+2 read-only semantic audit is authorized. No semantic remediation, candidate creation, independent review, certification, VM-528 work, Excel edit, push, PR, or merge is authorized by this preflight.",
+        "required_next_milestone": "Complete VM-527 Gate 1+2 read-only semantic audit before any Gate 3+4 remediation.",
+        "drift_preflight_started": true,
+        "drift_preflight_completed": true,
+        "drift_preflight_record": "docs/handoffs/2026-07-22-1014-codex-vm527-abzan-drift-preflight.md",
+        "drift_preflight_commit": "PENDING_VM527_DRIFT_PREFLIGHT_SHA",
+        "program_base": "80b34dcda7db51d08f77f862f4eafb5cf3cabeaa",
+        "updated_at": "2026-07-22T10:14:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -4407,19 +4408,38 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "drift_preflight",
+        "status": "in_progress",
+        "started_at": "2026-07-22T10:14:00-06:00",
+        "gate_entered_at": "2026-07-22T10:14:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "TEMUR",
-        "primary_disposition": null
+        "primary_disposition": "drift_preflight_passed_gate_1_2_authorized"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "MARDU",
+          "SULTAI",
+          "Dromoka brood",
+          "generic WBG",
+          "generic graveyard/toughness/defense mechanics",
+          "Commander product identity",
+          "ORZHOV",
+          "GOLGARI",
+          "SELESNYA",
+          "BANT",
+          "JUND",
+          "NAYA"
+        ],
+        "audit_report": "docs/handoffs/2026-07-22-1014-codex-vm527-abzan-drift-preflight.md",
+        "residual_findings": [
+          "Gate 1+2 semantic audit has not yet been performed.",
+          "All 11 raw claims require Contract v1.1 role adjudication before remediation.",
+          "No Abzan semantic fixture exists at preflight.",
+          "Abzan-linked provenance has 15 null canonical IDs at preflight.",
+          "Generated and provenance proof chains cite unclassified Abzan claims at preflight."
+        ]
       },
       "certification": {
         "contract_version": null,
