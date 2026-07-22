@@ -7,7 +7,7 @@ Priority: CRIT-001
 Identity key: TEMUR
 Raw packet: `data/raw-factions/temur/`
 Cohort: clan
-Contract: pending Contract v1.1 Gate 1+2 audit
+Contract: Contract v1.1 Gate 3+4 remediation authorized
 
 ## Objective
 
@@ -15,15 +15,15 @@ Recover Temur end to end under CRIT-001: audit the existing packet, bound readin
 
 ## Current State
 
-Drift preflight is complete from exact VM-527 certification/program base `a1632337ebc91950b37d835ac404fba414f770c7`.
+Drift preflight is complete from exact VM-527 certification/program base `a1632337ebc91950b37d835ac404fba414f770c7`. Gate 1+2 read-only semantic audit is complete at governance record `PENDING_VM528_GATE12_GOVERNANCE_SHA`.
 
-Gate 1+2 read-only semantic audit is authorized after the VM-528 drift-preflight commit. No Gate 1+2 audit, semantic remediation, generated rebuild, fixture creation, candidate, independent review, certification, Excel update, VM-529 work, push, PR, or merge has occurred.
+Gate 3+4 remediation is authorized for `TEMUR` only. No semantic remediation, generated rebuild, fixture creation, candidate, independent review, certification, Excel update, VM-529 work, push, PR, or merge has occurred.
 
 ## Gates
 
 - [x] Gate 0 - Drift preflight and branch/worktree control.
-- [ ] Gate 1 - Packet audit and bounded disposition.
-- [ ] Gate 2 - Sufficient evidence completion.
+- [x] Gate 1 - Packet audit and bounded disposition.
+- [x] Gate 2 - Sufficient evidence completion.
 - [ ] Gate 3 - Canonical remediation.
 - [ ] Gate 4 - Generation and validation.
 - [ ] Gate 5 - Independent certification.
@@ -42,6 +42,7 @@ Gate 1+2 read-only semantic audit is authorized after the VM-528 drift-preflight
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Drift preflight handoff: `docs/handoffs/2026-07-22-1529-codex-vm528-temur-drift-preflight.md`
+- Gate 1+2 audit handoff: `docs/handoffs/2026-07-22-1549-codex-vm528-temur-gate1-gate2.md`
 - Audit/recovery report: pending
 - Candidate recovery SHA: pending
 - Independent reviewer: pending
