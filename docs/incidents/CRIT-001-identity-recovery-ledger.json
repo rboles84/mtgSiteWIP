@@ -5,14 +5,14 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "TEMUR",
-    "next_identity": "TEMUR",
-    "certified_identity_count": 26,
+    "active_identity": "SULTAI",
+    "next_identity": "SULTAI",
+    "certified_identity_count": 27,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 4 shards - active; VM-528 Temur candidate independently approved and certification-only next",
-      "current_program_base": "a1632337ebc91950b37d835ac404fba414f770c7",
+      "next_cohort": "Wave 4 shards - active; VM-528 Temur certified and VM-529 Sultai backlog/not started",
+      "current_program_base": "PENDING_VM528_CERTIFICATION_COMMIT_SHA",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -30,24 +30,25 @@
         "next_wave_status": "VM-522/Wave 4 not started"
       },
       "wave_4_shards": "active",
-      "wave_4_shards_certified": "6 of 10",
+      "wave_4_shards_certified": "7 of 10",
       "wave_4_status": {
         "status": "active",
-        "certified": "6 of 10",
+        "certified": "7 of 10",
         "identities_certified": [
           "BANT",
           "ESPER",
           "GRIXIS",
           "JUND",
           "NAYA",
-          "ABZAN"
+          "ABZAN",
+          "TEMUR"
         ],
         "started_by": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
         "started_at": "2026-07-20T08:27:00-06:00",
-        "latest_certification": "a1632337ebc91950b37d835ac404fba414f770c7",
-        "latest_certified_identity": "ABZAN",
-        "next_identity": "TEMUR",
-        "next_identity_status": "independent_review_approved_certification_next"
+        "latest_certification": "PENDING_VM528_CERTIFICATION_COMMIT_SHA",
+        "latest_certified_identity": "TEMUR",
+        "next_identity": "SULTAI",
+        "next_identity_status": "backlog_not_started"
       }
     },
     "wip_limit": 1,
@@ -77,23 +78,23 @@
       "installed_after_program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
       "governance_commit": "PENDING_CRIT001_DRIFT_CONTROL_GOVERNANCE_SHA",
       "current_identity_hold": {
-        "identity": "TEMUR",
-        "card": "VM-528",
-        "state": "independent_review_approved_certification_next",
-        "branch": "codex/vm-528-temur-semantic-recovery",
-        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm528-temur",
-        "prior_identity_certified": "ABZAN",
-        "prior_identity_certification": "a1632337ebc91950b37d835ac404fba414f770c7",
-        "authorized_next_scope": "VM-528 / Temur certification-only for exact approved candidate 790fca923c504e32911e0be0eb44f7fdbcfb07dc. No semantic remediation, replacement candidate, Excel edit, push, PR, merge, or VM-529 work occurred in independent review.",
-        "required_next_milestone": "Certification-only task must certify exact approved candidate 790fca923c504e32911e0be0eb44f7fdbcfb07dc only; program base remains a1632337ebc91950b37d835ac404fba414f770c7 until certification commit exists.",
-        "program_base": "a1632337ebc91950b37d835ac404fba414f770c7",
-        "preflight_record": "docs/handoffs/2026-07-22-1529-codex-vm528-temur-drift-preflight.md",
-        "updated_at": "2026-07-22T19:11:00-06:00",
-        "gate_1_2_record": "docs/handoffs/2026-07-22-1549-codex-vm528-temur-gate1-gate2.md",
-        "gate_1_2_commit": "cc1eca1ac7ec3895f7d08a280bf9f13f9595356e",
-        "candidate_sha": "790fca923c504e32911e0be0eb44f7fdbcfb07dc",
-        "review_record": "docs/handoffs/2026-07-22-1911-codex-vm528-temur-independent-review.md",
-        "review_decision": "APPROVE EXACT SHA 790fca923c504e32911e0be0eb44f7fdbcfb07dc"
+        "identity": "SULTAI",
+        "card": "VM-529",
+        "state": "backlog_not_started",
+        "branch": null,
+        "worktree": null,
+        "prior_identity_certified": "TEMUR",
+        "prior_identity_certification": "PENDING_VM528_CERTIFICATION_COMMIT_SHA",
+        "authorized_next_scope": "VM-529 / Sultai may begin only in a separate future continuation from the VM-528 certification/program-base SHA. No Sultai semantic work occurred during VM-528 certification.",
+        "required_next_milestone": "Separate VM-529 drift-preflight control record before Gate 1+2 semantic work begins.",
+        "program_base": "PENDING_VM528_CERTIFICATION_COMMIT_SHA",
+        "preflight_record": null,
+        "updated_at": "2026-07-22T19:30:00-06:00",
+        "gate_1_2_record": null,
+        "gate_1_2_commit": null,
+        "candidate_sha": null,
+        "review_record": null,
+        "review_decision": null
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -104,19 +105,19 @@
         "Begin Simic Goal mode only after the drift preflight reports no FAIL or UNKNOWN controls."
       ],
       "last_certification": {
-        "identity": "ABZAN",
-        "card": "VM-527",
-        "candidate_sha": "11c099b8beb9f23e23660787f00b97e89914d50b",
-        "candidate_workflow_sha": "71bf962c653a7b03b48bb05fca8661cdc3af2daa",
-        "gate_3_4_workflow_sha": "a0e37d20edf43412d8e17d02104479a6fc0938c4",
-        "approval_review_sha": "70193840cf8ef55d98ef63552bcf0cf56d736d07",
-        "review_decision": "APPROVE EXACT SHA 11c099b8beb9f23e23660787f00b97e89914d50b",
-        "certification_commit": "PENDING_VM527_CERTIFICATION_COMMIT_SHA",
-        "certified_at": "2026-07-22T14:33:00-06:00",
+        "identity": "TEMUR",
+        "card": "VM-528",
+        "candidate_sha": "790fca923c504e32911e0be0eb44f7fdbcfb07dc",
+        "candidate_workflow_sha": "3e05170dde802a135182c80af641c72962ddcba8",
+        "gate_3_4_workflow_sha": null,
+        "approval_review_sha": "fc872d47d43f4338611a68f5dcc8b8293904af26",
+        "review_decision": "APPROVE EXACT SHA 790fca923c504e32911e0be0eb44f7fdbcfb07dc",
+        "certification_commit": "PENDING_VM528_CERTIFICATION_COMMIT_SHA",
+        "certified_at": "2026-07-22T19:30:00-06:00",
         "final_state": "semantically_ready",
         "contract_version": "v1.1",
-        "reviewed_provenance_count": 43,
-        "evidence_locator_count": 20,
+        "reviewed_provenance_count": 44,
+        "evidence_locator_count": "bounded evidence locations on all 10 substantive claims",
         "claim_role_counts": {
           "total": 11,
           "substantive_claim": 10,
@@ -125,14 +126,13 @@
           "unclassified": 0
         },
         "candidate_scope_result": "PASS",
-        "invalid_alias_result": "WBG, BGW, and GWB rejected with Unknown identity diagnostics",
-        "fixture_count": 17,
-        "wave_4_certified": "6 of 10",
-        "total_certified": 26,
-        "next_identity": "TEMUR",
-        "next_identity_status": "gate_3_4_authorized",
-        "prior_program_base": "80b34dcda7db51d08f77f862f4eafb5cf3cabeaa",
-        "candidate_sha_correction": "Corrected candidate is the only active authority; compacted-note typo was not treated as a Git candidate object."
+        "invalid_alias_result": "GUR, URG, and RGU rejected with Unknown identity diagnostics",
+        "fixture_count": 24,
+        "wave_4_certified": "7 of 10",
+        "total_certified": 27,
+        "next_identity": "SULTAI",
+        "next_identity_status": "backlog_not_started",
+        "prior_program_base": "a1632337ebc91950b37d835ac404fba414f770c7"
       }
     },
     "rejected_prerequisite_candidates": [
@@ -4563,14 +4563,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "independent_review_approved_certification_next",
-        "status": "in_progress",
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": "2026-07-22T15:29:00-06:00",
-        "gate_entered_at": "2026-07-22T19:11:00-06:00",
+        "gate_entered_at": "2026-07-22T19:30:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "SULTAI",
-        "primary_disposition": "APPROVE EXACT SHA 790fca923c504e32911e0be0eb44f7fdbcfb07dc; certification-only next"
+        "primary_disposition": "semantically_ready_certified"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -4595,29 +4595,32 @@
           "DRAGONSTORM_BACKFILL",
           "COMMANDER_PRODUCT"
         ],
-        "audit_report": "docs/handoffs/2026-07-22-1911-codex-vm528-temur-independent-review.md",
+        "audit_report": "docs/incidents/recoveries/VM-528-temur-semantic-recovery.md",
         "residual_findings": [
-          "No approval-blocking findings from independent exact-SHA review.",
-          "Certification pending; no semantically_ready transition has occurred.",
-          "Source/generated guardrails retain one known non-blocking model-owned inhibitor warning.",
-          "Exact-tree npm.cmd ci reports inherited audit vulnerabilities; candidate changed no dependency authority."
+          "No approval-blocking findings remain.",
+          "Known model-owned TEMUR inhibitor warning remains non-blocking and unchanged.",
+          "Exact-tree npm ci reports inherited audit vulnerabilities; candidate changed no dependency authority."
         ]
       },
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "790fca923c504e32911e0be0eb44f7fdbcfb07dc",
-        "recovery_commit": null,
-        "certification_commit": null,
+        "recovery_commit": "790fca923c504e32911e0be0eb44f7fdbcfb07dc",
+        "certification_commit": "PENDING_VM528_CERTIFICATION_COMMIT_SHA",
         "reviewer": "Codex independent exact-SHA review",
+        "review_result": "approved_exact_sha",
         "review_cycles": 1,
         "approval_date": "2026-07-22",
-        "certified_at": null,
-        "candidate_parent_sha": "cc1eca1ac7ec3895f7d08a280bf9f13f9595356e",
-        "candidate_workflow_record": "docs/handoffs/2026-07-22-1758-codex-vm528-temur-candidate-workflow.md",
-        "approval_decision": "APPROVE EXACT SHA 790fca923c504e32911e0be0eb44f7fdbcfb07dc",
         "approval_review_record": "docs/handoffs/2026-07-22-1911-codex-vm528-temur-independent-review.md",
-        "approval_review_commit": "PENDING_VM528_REVIEW_COMMIT_SHA"
+        "approval_review_commit": "fc872d47d43f4338611a68f5dcc8b8293904af26",
+        "certified_at": "2026-07-22T19:30:00-06:00",
+        "final_state": "semantically_ready",
+        "known_unchanged_warnings": [
+          "TEMUR model-owned inhibitor warning remains exit-0 non-blocking.",
+          "Windows line-ending/index artifacts disclosed and not committed.",
+          "npm ci reports inherited audit vulnerabilities; package and lockfile unchanged."
+        ]
       }
     },
     {

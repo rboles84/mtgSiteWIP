@@ -37,6 +37,17 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - Certification scope: governance-only; candidate implementation, candidate tests, generated semantic data, Jund semantic data, Jund candidate creation, VM-526, original main, Excel, DRIFT-017, and Table Talk baseline were untouched.
 - Program base: `PENDING_DRIFT020_CERTIFICATION_COMMIT_SHA`; certified identity count remains 23 of 37 because DRIFT-020 is a shared-infrastructure control.
 
+## VM-528 Certification Update - 2026-07-22
+
+- DRIFT-014: VM-528 certification preserved candidate/workflow/review/certification object separation; only exact approved candidate `790fca923c504e32911e0be0eb44f7fdbcfb07dc` was certified, while workflow `3e05170dde802a135182c80af641c72962ddcba8` and approval review `fc872d47d43f4338611a68f5dcc8b8293904af26` remain distinct.
+- DRIFT-015: No Temur preview edit entered certification; `data/identity-layers.json` remained outside the candidate and certification scope, and no display-source exception was introduced.
+- DRIFT-016: Temur array-shape candidate-scope validation passed for `TEMUR`; invalid `GUR`, `URG`, and `RGU` aliases and a synthetic unknown identity were rejected as unknown identities.
+- DRIFT-017: Active Home, Archscry, recruiter, tests, and CI consumer classifications were preserved; historical/debug/archive exclusions and VM-542 / DRIFT-019 residuals were untouched.
+- DRIFT-019: Copied-string debug/archive exclusions were not promoted into active Temur defects; historical/debug/archive files remained untouched.
+- DRIFT-020: Certification used the DRIFT-020-certified committed validator and preserved the Jund preview infrastructure authority without modifying validator/test implementation.
+- Certification scope: governance-only; Temur source, generated semantic data, fixtures, provenance, runtime, validator/test implementation, package, CI, Excel, original main, DRIFT-017 prototype, Table Talk baseline, and VM-529 were untouched.
+- Program base: `PENDING_VM528_CERTIFICATION_COMMIT_SHA`; certified identity count advances to 27 of 37 and Wave 4 shards advance to 7 of 10.
+
 ## VM-527 Certification Update - 2026-07-22
 
 - DRIFT-014: VM-527 certification preserved candidate/workflow/review/certification object separation; only exact approved candidate `11c099b8beb9f23e23660787f00b97e89914d50b` was certified, while Gate 3+4 workflow `a0e37d20edf43412d8e17d02104479a6fc0938c4`, Gate 5 workflow `71bf962c653a7b03b48bb05fca8661cdc3af2daa`, and approval review `70193840cf8ef55d98ef63552bcf0cf56d736d07` remain distinct.

@@ -1,13 +1,13 @@
 # VM-528 - Temur Semantic Recovery
 
 ID: VM-528
-Status: In Progress
+Status: Done
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: TEMUR
 Raw packet: `data/raw-factions/temur/`
 Cohort: clan
-Contract: Contract v1.1 independent exact-SHA review approved; certification-only next
+Contract: Contract v1.1 certified semantically_ready
 
 ## Objective
 
@@ -17,7 +17,7 @@ Recover Temur end to end under CRIT-001: audit the existing packet, bound readin
 
 Drift preflight is complete from exact VM-527 certification/program base `a1632337ebc91950b37d835ac404fba414f770c7`. Gate 1+2 read-only semantic audit is complete at governance record `cc1eca1ac7ec3895f7d08a280bf9f13f9595356e`.
 
-Gate 3+4 remediation is complete and exact semantic candidate `790fca923c504e32911e0be0eb44f7fdbcfb07dc` is independently approved by exact-SHA review. Certification-only work is next. No certification, Excel update, VM-529 work, push, PR, or merge has occurred.
+Gate 3+4 remediation is complete and exact semantic candidate `790fca923c504e32911e0be0eb44f7fdbcfb07dc` is independently approved by exact-SHA review and certified semantically ready. Certification commit is recorded as `PENDING_VM528_CERTIFICATION_COMMIT_SHA` inside tracked governance; actual SHA is reported in final task output. No Excel update, VM-529 work, push, PR, or merge has occurred.
 
 ## Gates
 
@@ -26,7 +26,7 @@ Gate 3+4 remediation is complete and exact semantic candidate `790fca923c504e329
 - [x] Gate 2 - Sufficient evidence completion.
 - [x] Gate 3 - Canonical remediation.
 - [x] Gate 4 - Generation and validation.
-- [ ] Gate 5 - Independent exact-SHA review approved; certification pending.
+- [x] Gate 5 - Certified exact approved recovery.
 
 ## Scope Rules
 
@@ -48,4 +48,4 @@ Gate 3+4 remediation is complete and exact semantic candidate `790fca923c504e329
 - Candidate recovery SHA: `790fca923c504e32911e0be0eb44f7fdbcfb07dc`
 - Independent reviewer: Codex independent review at `docs/handoffs/2026-07-22-1911-codex-vm528-temur-independent-review.md`
 - Review decision: `APPROVE EXACT SHA 790fca923c504e32911e0be0eb44f7fdbcfb07dc`
-- Certification commit: pending
+- Certification commit: `PENDING_VM528_CERTIFICATION_COMMIT_SHA`
