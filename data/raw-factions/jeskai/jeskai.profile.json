@@ -93,7 +93,8 @@
       "jeskai_claim_0008",
       "jeskai_claim_0009",
       "jeskai_claim_0010"
-    ]
+    ],
+    "surface_id": "jeskai_site_surface_gate3"
   },
   "profile": {
     "overview": "Jeskai Way is Vox Mana's live Tarkir wedge expression for Blue-centered disciplined cunning: knowledge, training, Red action, and White accountability moving together without collapsing into generic same-color spellslinger play.",
@@ -111,7 +112,8 @@
       "jeskai_claim_0008",
       "jeskai_claim_0009",
       "jeskai_claim_0010"
-    ]
+    ],
+    "profile_id": "jeskai_profile_gate3"
   },
   "core_identity": {
     "identity_statement": "Jeskai Way is Blue-centered cunning through disciplined action: Blue pursues perfection through knowledge and training, Red turns insight into action, and White gives that action shared form and restraint.",
@@ -122,7 +124,8 @@
       "jeskai_claim_0002",
       "jeskai_claim_0003"
     ],
-    "notes": "This is profile wording only. The raw claims remain tied to VM-229 evidence rows, and JESKAI is a future/planned expression name only."
+    "notes": "This is profile wording only. The raw claims remain tied to VM-229 evidence rows, and JESKAI is a future/planned expression name only.",
+    "core_identity_id": "jeskai_core_identity_gate3"
   },
   "structure": {
     "primary_structure": "Khans-era Jeskai Way is a monastery-centered clan of monks, sages, martial artists, mystics, and wandering warriors with discipline, enlightenment, honor, respect, strongholds, schools, elders, Annals, Rules of Reeds, and three major Ways.",
@@ -140,7 +143,8 @@
       "jeskai_claim_0007",
       "jeskai_claim_0008",
       "jeskai_claim_0009"
-    ]
+    ],
+    "structure_id": "jeskai_structure_gate3"
   },
   "great_tension": {
     "summary": "Jeskai's disciplined cunning can become brittle certainty if practice turns into doctrine without compassion, humility, or era boundaries.",
@@ -152,7 +156,8 @@
       "jeskai_claim_0008",
       "jeskai_claim_0010"
     ],
-    "confidence": "Medium"
+    "confidence": "Medium",
+    "tension_id": "jeskai_great_tension_gate3"
   },
   "historical_timeline": [
     {
@@ -198,7 +203,8 @@
       "claim_ids": [
         "jeskai_claim_0006"
       ],
-      "limitations": "Full Narset biography remains deferred."
+      "limitations": "Full Narset biography remains deferred.",
+      "figure_id": "jeskai_key_figure_0001_gate3"
     },
     {
       "name": "Shu Yun",
@@ -207,7 +213,8 @@
       "claim_ids": [
         "jeskai_claim_0007"
       ],
-      "limitations": "Full Shu Yun biography remains deferred."
+      "limitations": "Full Shu Yun biography remains deferred.",
+      "figure_id": "jeskai_key_figure_0002_gate3"
     },
     {
       "name": "Dragonlord Ojutai",
@@ -216,7 +223,8 @@
       "claim_ids": [
         "jeskai_claim_0008"
       ],
-      "limitations": "Use as timeline boundary only unless later evidence explicitly supports a bridge."
+      "limitations": "Use as timeline boundary only unless later evidence explicitly supports a bridge.",
+      "figure_id": "jeskai_key_figure_0003_gate3"
     }
   ],
   "canonical_flavor_text": {
@@ -251,7 +259,8 @@
       "jeskai_claim_0008",
       "jeskai_claim_0009",
       "jeskai_claim_0010"
-    ]
+    ],
+    "flavor_id": "jeskai_canonical_flavor_text_gate3"
   },
   "views_on_other_factions": {
     "pair_overlap_boundaries": [
@@ -272,7 +281,8 @@
       "jeskai_claim_0008",
       "jeskai_claim_0010"
     ],
-    "notes": "Pair and wedge language is shaping-only architecture guidance and does not create placement scoring."
+    "notes": "Pair and wedge language is shaping-only architecture guidance and does not create placement scoring.",
+    "guidance_id": "jeskai_views_on_other_factions_gate3"
   },
   "mechanics": {
     "summary": "Prowess-like spell interaction, protective tricks, tempo play, concealment magic, and trained martial timing can express Jeskai only when tied to disciplined cunning and Tarkir Way evidence; exact card mechanics remain manual-fill.",
@@ -301,7 +311,8 @@
       "jeskai_claim_0005",
       "jeskai_claim_0010"
     ],
-    "notes": "Mechanics remain broad design texture until later card-data validation."
+    "notes": "Mechanics remain broad design texture until later card-data validation.",
+    "mechanic_id": "jeskai_mechanics_gate3"
   },
   "search_and_filter_metadata": {
     "future_expression_name": "JESKAI",
@@ -329,7 +340,8 @@
     "claim_ids": [
       "jeskai_claim_0001",
       "jeskai_claim_0010"
-    ]
+    ],
+    "metadata_id": "jeskai_search_and_filter_metadata_gate3"
   },
   "data_quality": {
     "strongest_evidence_areas": [

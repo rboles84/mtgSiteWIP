@@ -1,0 +1,557 @@
+{
+  "identity_key": "JESKAI",
+  "raw_id": "jeskai",
+  "contract_version": "v1.1",
+  "generated_by": "VM-531 Gate 3/4 Jeskai semantic remediation",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "jeskai_core_disciplined_cunning",
+      "fixture_type": "core_inclusion",
+      "prompt": "A user wants a commander identity about trained insight, disciplined practice, Blue-centered cunning, Red action, and White restraint moving together.",
+      "scenario": "A user wants a commander identity about trained insight, disciplined practice, Blue-centered cunning, Red action, and White restraint moving together.",
+      "expected": "JESKAI_INCLUDE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0001",
+        "jeskai_claim_0002",
+        "jeskai_claim_0003",
+        "jeskai_claim_0004",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "Jeskai inclusion requires source-bound Jeskai identity, Blue-centered cunning, Khans-era discipline, and metadata boundary evidence.",
+      "evidence_source_ids": [
+        "src_vm234_jeskai_runtime_promotion_20260531",
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ]
+    },
+    {
+      "fixture_id": "jeskai_pressure_timeline_boundaries",
+      "fixture_type": "mature_or_pressure_behavior",
+      "prompt": "The prompt values disciplined action, Shu Yun transition context, Ojutai separation, and modern Dragonstorm material only when every era is clearly labeled.",
+      "scenario": "The prompt values disciplined action, Shu Yun transition context, Ojutai separation, and modern Dragonstorm material only when every era is clearly labeled.",
+      "expected": "JESKAI_INCLUDE_WITH_PRESSURE_BOUNDARY",
+      "evidence_claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0003",
+        "jeskai_claim_0006",
+        "jeskai_claim_0007",
+        "jeskai_claim_0008",
+        "jeskai_claim_0009",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "Pressure supports Jeskai only when it stays tied to source-bound Jeskai evidence and anti-backfill boundaries.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_dragonstorm_pg_part_1",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_khans_pg_part_1",
+        "src_wotc_tarkir_story_khanfall"
+      ]
+    },
+    {
+      "fixture_id": "jeskai_nearest_mardu_sultai_temur",
+      "fixture_type": "nearest_collision_ambiguity",
+      "prompt": "The prompt mentions decisiveness, resource conversion, and survival instinct, but the decisive signal is monastery discipline turning trained insight into careful action.",
+      "scenario": "The prompt mentions decisiveness, resource conversion, and survival instinct, but the decisive signal is monastery discipline turning trained insight into careful action.",
+      "expected": "JESKAI_INCLUDE_WITH_COLLISION_BOUNDARY",
+      "evidence_claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0003",
+        "jeskai_claim_0004",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "Adjacent shard language cannot replace Jeskai unless Blue-centered cunning, discipline, and Jeskai evidence remain primary.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ]
+    },
+    {
+      "fixture_id": "jeskai_neighbor_wu",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is Azorius-like White-Blue order, procedure, or restraint without Red action and Jeskai Way evidence.",
+      "scenario": "The input is Azorius-like White-Blue order, procedure, or restraint without Red action and Jeskai Way evidence.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0001",
+        "jeskai_claim_0002",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "WU cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm234_jeskai_runtime_promotion_20260531",
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "neighbor": "WU"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_ur",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is Izzet-like Blue-Red experiment, spark, or invention without White discipline and Jeskai Way evidence.",
+      "scenario": "The input is Izzet-like Blue-Red experiment, spark, or invention without White discipline and Jeskai Way evidence.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0001",
+        "jeskai_claim_0002",
+        "jeskai_claim_0003",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "UR cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm234_jeskai_runtime_promotion_20260531",
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "neighbor": "UR"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_wr",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is Boros-like Red-White combat, courage, or protection without Blue knowledge, technique, and Jeskai Way evidence.",
+      "scenario": "The input is Boros-like Red-White combat, courage, or protection without Blue knowledge, technique, and Jeskai Way evidence.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0001",
+        "jeskai_claim_0002",
+        "jeskai_claim_0004",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "WR cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm234_jeskai_runtime_promotion_20260531",
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "WR"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_azorius",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is civic procedure and institutional restraint rather than Jeskai trained insight released into action.",
+      "scenario": "The fantasy is civic procedure and institutional restraint rather than Jeskai trained insight released into action.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0003",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "AZORIUS cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "neighbor": "AZORIUS"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_izzet",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is experimentation, invention, and explosive curiosity rather than Jeskai monastery discipline and cunning.",
+      "scenario": "The fantasy is experimentation, invention, and explosive curiosity rather than Jeskai monastery discipline and cunning.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0003",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "IZZET cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "neighbor": "IZZET"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_boros",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is civic protection and battlefield righteousness rather than Jeskai discipline, knowledge, and restrained action.",
+      "scenario": "The fantasy is civic protection and battlefield righteousness rather than Jeskai discipline, knowledge, and restrained action.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0004",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "BOROS cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "BOROS"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_bant",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is communal honor and accountable excellence rather than Blue-centered cunning through disciplined action.",
+      "scenario": "The fantasy is communal honor and accountable excellence rather than Blue-centered cunning through disciplined action.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0004",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "BANT cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "BANT"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_esper",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is controlled perfection and system optimization rather than Jeskai embodied technique and action.",
+      "scenario": "The fantasy is controlled perfection and system optimization rather than Jeskai embodied technique and action.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0003",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "ESPER cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "neighbor": "ESPER"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_grixis",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is survival calculation and self-advocacy rather than Jeskai discipline, honor, and trained insight.",
+      "scenario": "The fantasy is survival calculation and self-advocacy rather than Jeskai discipline, honor, and trained insight.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0003",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "GRIXIS cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "neighbor": "GRIXIS"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_naya",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is creature-community momentum and celebratory life force without Jeskai technique, study, or monastery discipline.",
+      "scenario": "The fantasy is creature-community momentum and celebratory life force without Jeskai technique, study, or monastery discipline.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0004",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "NAYA cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "NAYA"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_temur",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy listens to terrain, instinct, and living-world memory instead of training insight into precise action.",
+      "scenario": "The fantasy listens to terrain, instinct, and living-world memory instead of training insight into precise action.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0003",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "TEMUR cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "neighbor": "TEMUR"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_mardu",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is immediate war-bound action and speed under a code rather than Jeskai disciplined cunning.",
+      "scenario": "The fantasy is immediate war-bound action and speed under a code rather than Jeskai disciplined cunning.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0003",
+        "jeskai_claim_0004",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "MARDU cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "MARDU"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_sultai",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy turns bodies, secrets, and costs into hidden advantage rather than Jeskai technique and restraint.",
+      "scenario": "The fantasy turns bodies, secrets, and costs into hidden advantage rather than Jeskai technique and restraint.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0003",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "SULTAI cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "neighbor": "SULTAI"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_generic_urw",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is only Blue-Red-White color composition without positive Jeskai Way evidence.",
+      "scenario": "The input is only Blue-Red-White color composition without positive Jeskai Way evidence.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0001",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "GENERIC_URW cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm234_jeskai_runtime_promotion_20260531",
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "neighbor": "GENERIC_URW"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_generic_wur",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is only White-Blue-Red color composition without positive Jeskai Way evidence.",
+      "scenario": "The input is only White-Blue-Red color composition without positive Jeskai Way evidence.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0001",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "GENERIC_WUR cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm234_jeskai_runtime_promotion_20260531",
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "neighbor": "GENERIC_WUR"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_generic_prowess",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is generic prowess or spell-count play without Jeskai source rows and timeline boundaries.",
+      "scenario": "The input is generic prowess or spell-count play without Jeskai source rows and timeline boundaries.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0003",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "GENERIC_PROWESS cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "neighbor": "GENERIC_PROWESS"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_generic_spellslinger",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is generic spellslinger play without Jeskai discipline, clan culture, and source-bound cunning.",
+      "scenario": "The input is generic spellslinger play without Jeskai discipline, clan culture, and source-bound cunning.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0003",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "GENERIC_SPELLSLINGER cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "neighbor": "GENERIC_SPELLSLINGER"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_generic_tempo",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is generic tempo or tricks without Jeskai Way evidence and anti-backfill boundaries.",
+      "scenario": "The input is generic tempo or tricks without Jeskai Way evidence and anti-backfill boundaries.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0003",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "GENERIC_TEMPO cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "neighbor": "GENERIC_TEMPO"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_generic_control",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is generic control or permission play without Jeskai martial/mystic discipline and source-bound identity.",
+      "scenario": "The input is generic control or permission play without Jeskai martial/mystic discipline and source-bound identity.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "GENERIC_CONTROL cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "neighbor": "GENERIC_CONTROL"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_generic_monks",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is generic monk or martial-arts imagery without Jeskai Way evidence and timeline labels.",
+      "scenario": "The input is generic monk or martial-arts imagery without Jeskai Way evidence and timeline labels.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0004",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "GENERIC_MONKS cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "GENERIC_MONKS"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_generic_commander",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is Commander texture, deck identity, or recommendation language without Tarkir Jeskai canon evidence.",
+      "scenario": "The input is Commander texture, deck identity, or recommendation language without Tarkir Jeskai canon evidence.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0010"
+      ],
+      "boundary": "GENERIC_COMMANDER cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531"
+      ],
+      "neighbor": "GENERIC_COMMANDER"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_ojutai_clan",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input treats Ojutai clan as direct Khans-era Jeskai continuity rather than a Dragons-era boundary.",
+      "scenario": "The input treats Ojutai clan as direct Khans-era Jeskai continuity rather than a Dragons-era boundary.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0008",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "OJUTAI_CLAN cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_dragonstorm_pg_part_1",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "neighbor": "OJUTAI_CLAN"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_dragonstorm_backfill",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input backfills modern Dragonstorm-era revived Jeskai doctrine or structure into Khans-era Jeskai Way proof.",
+      "scenario": "The input backfills modern Dragonstorm-era revived Jeskai doctrine or structure into Khans-era Jeskai Way proof.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0009",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "DRAGONSTORM_BACKFILL cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_1"
+      ],
+      "neighbor": "DRAGONSTORM_BACKFILL"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_commander_product",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input treats Jeskai Striker product rows as Tarkir canon, popularity, metagame, legality, or placement proof.",
+      "scenario": "The input treats Jeskai Striker product rows as Tarkir canon, popularity, metagame, legality, or placement proof.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0010"
+      ],
+      "boundary": "COMMANDER_PRODUCT cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531"
+      ],
+      "neighbor": "COMMANDER_PRODUCT"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_seed_file",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input relies on seed-file language rather than approved Jeskai evidence rows.",
+      "scenario": "The input relies on seed-file language rather than approved Jeskai evidence rows.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0010"
+      ],
+      "boundary": "SEED_FILE cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531"
+      ],
+      "neighbor": "SEED_FILE"
+    },
+    {
+      "fixture_id": "jeskai_neighbor_color_philosophy",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input uses color philosophy as Tarkir lore, clan chronology, figure, event, or mechanics proof.",
+      "scenario": "The input uses color philosophy as Tarkir lore, clan chronology, figure, event, or mechanics proof.",
+      "expected": "JESKAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0010"
+      ],
+      "boundary": "COLOR_PHILOSOPHY cannot substitute for positive, source-bound Jeskai evidence.",
+      "evidence_source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "neighbor": "COLOR_PHILOSOPHY"
+    },
+    {
+      "fixture_id": "jeskai_provenance_core_identity",
+      "fixture_type": "provenance",
+      "expected": "JESKAI_PROVENANCE_PRESENT",
+      "canonical_file": "data/raw-factions/jeskai/jeskai.profile.json",
+      "canonical_pointer": "/core_identity",
+      "evidence_claim_ids": [
+        "jeskai_claim_0001",
+        "jeskai_claim_0002",
+        "jeskai_claim_0003"
+      ],
+      "evidence_source_ids": [
+        "src_vm234_jeskai_runtime_promotion_20260531",
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking"
+      ],
+      "boundary": "Generated provenance for Jeskai core identity must preserve the exact substantive claim/source chain."
+    }
+  ]
+}

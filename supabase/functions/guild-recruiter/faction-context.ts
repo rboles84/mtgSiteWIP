@@ -4003,7 +4003,8 @@ export const FACTION_CONTEXT = {
         "jeskai_claim_0002",
         "jeskai_claim_0008",
         "jeskai_claim_0010"
-      ]
+      ],
+      "guidance_id": "jeskai_chatbot_guidance_gate3"
     },
     "canon_guardrails": {
       "never_claim_as_canon": [

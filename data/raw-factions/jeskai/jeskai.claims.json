@@ -22,7 +22,34 @@
         "JESKAI-EVID-022"
       ],
       "confidence": "High",
-      "notes": "VM-299 updates the lifecycle sentence after VM-234 while preserving the evidence floor and color-code boundary. URW/WUR/RWU/UWR/RUW/WRU remain metadata/query-only and are not aliases, route keys, fixture keys, Home preview keys, Maze keys, Supabase keys, schema keys, or public color-code interfaces."
+      "notes": "VM-299 updates the lifecycle sentence after VM-234 while preserving the evidence floor and color-code boundary. URW/WUR/RWU/UWR/RUW/WRU remain metadata/query-only and are not aliases, route keys, fixture keys, Home preview keys, Maze keys, Supabase keys, schema keys, or public color-code interfaces.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_jeskai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Jeskai Evidence Ledger; rows JESKAI-EVID-001, JESKAI-EVID-022",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0001 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_rosewater_jeskai_smart_thinking",
+          "locator_type": "official_source_capture",
+          "locator": "Jeskai: Smart Thinking; bounded local capture for jeskai_claim_0001",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0001 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_vm234_jeskai_runtime_promotion_20260531",
+          "locator_type": "project_lifecycle_decision",
+          "locator": "VM-234 - Jeskai Way Controlled Runtime Promotion; bounded local capture for jeskai_claim_0001",
+          "bounded_paraphrase": "Supports only the project lifecycle and generated-key boundary for jeskai_claim_0001; it is not Jeskai lore, card, Commander, or public-alias evidence.",
+          "evidence_scope": "lifecycle_boundary_not_lore_evidence",
+          "interpretation_level": "project_boundary"
+        }
+      ]
     },
     {
       "claim_id": "jeskai_claim_0002",
@@ -38,7 +65,26 @@
         "JESKAI-EVID-002"
       ],
       "confidence": "High",
-      "notes": "Use for high-level color design and identity framing only. It does not prove Tarkir-specific lore without the Tarkir rows."
+      "notes": "Use for high-level color design and identity framing only. It does not prove Tarkir-specific lore without the Tarkir rows.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_jeskai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Jeskai Evidence Ledger; rows JESKAI-EVID-002",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0002 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_rosewater_jeskai_smart_thinking",
+          "locator_type": "official_source_capture",
+          "locator": "Jeskai: Smart Thinking; bounded local capture for jeskai_claim_0002",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0002 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "jeskai_claim_0003",
@@ -54,7 +100,26 @@
         "JESKAI-EVID-003"
       ],
       "confidence": "High",
-      "notes": "Use for design-level cunning language. Exact prowess rules text, card prevalence, and specific mechanics remain deferred until later validation."
+      "notes": "Use for design-level cunning language. Exact prowess rules text, card prevalence, and specific mechanics remain deferred until later validation.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_jeskai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Jeskai Evidence Ledger; rows JESKAI-EVID-003",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0003 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_rosewater_jeskai_smart_thinking",
+          "locator_type": "official_source_capture",
+          "locator": "Jeskai: Smart Thinking; bounded local capture for jeskai_claim_0003",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0003 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "jeskai_claim_0004",
@@ -72,7 +137,26 @@
         "JESKAI-EVID-006"
       ],
       "confidence": "High",
-      "notes": "Use for Khans-era Jeskai Way society and value floor. Do not backfill Ojutai or modern Dragonstorm structure into this identity."
+      "notes": "Use for Khans-era Jeskai Way society and value floor. Do not backfill Ojutai or modern Dragonstorm structure into this identity.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_jeskai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Jeskai Evidence Ledger; rows JESKAI-EVID-004, JESKAI-EVID-005, JESKAI-EVID-006",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0004 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_khans_pg_part_1",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Khans of Tarkir, Part 1; bounded local capture for jeskai_claim_0004",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0004 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "jeskai_claim_0005",
@@ -89,7 +173,26 @@
         "JESKAI-EVID-008"
       ],
       "confidence": "Medium",
-      "notes": "Use as a Khans-era anchor only. Full six-fire doctrine, full three-Ways system, exact school hierarchy, and detailed mechanics remain deferred."
+      "notes": "Use as a Khans-era anchor only. Full six-fire doctrine, full three-Ways system, exact school hierarchy, and detailed mechanics remain deferred.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_jeskai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Jeskai Evidence Ledger; rows JESKAI-EVID-007, JESKAI-EVID-008",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0005 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_khans_pg_part_1",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Khans of Tarkir, Part 1; bounded local capture for jeskai_claim_0005",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0005 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "jeskai_claim_0006",
@@ -109,7 +212,42 @@
         "JESKAI-EVID-015"
       ],
       "confidence": "High",
-      "notes": "Use for strict Narset era separation. Do not expand into a full Narset biography."
+      "notes": "Use for strict Narset era separation. Do not expand into a full Narset biography.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_jeskai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Jeskai Evidence Ledger; rows JESKAI-EVID-009, JESKAI-EVID-014, JESKAI-EVID-015",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0006 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_khans_pg_part_1",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Khans of Tarkir, Part 1; bounded local capture for jeskai_claim_0006",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0006 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragons_pg_part_1",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Dragons of Tarkir, Part 1; bounded local capture for jeskai_claim_0006",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0006 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragonstorm_pg_part_1",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Tarkir: Dragonstorms, Part 1; bounded local capture for jeskai_claim_0006",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0006 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "jeskai_claim_0007",
@@ -128,7 +266,34 @@
         "JESKAI-EVID-012"
       ],
       "confidence": "High",
-      "notes": "Use as a transition bridge only. Do not expand into full Shu Yun biography or broad Ojutai doctrine without later evidence."
+      "notes": "Use as a transition bridge only. Do not expand into full Shu Yun biography or broad Ojutai doctrine without later evidence.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_jeskai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Jeskai Evidence Ledger; rows JESKAI-EVID-010, JESKAI-EVID-011, JESKAI-EVID-012",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0007 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_fate_reforged_pg",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Fate Reforged; bounded local capture for jeskai_claim_0007",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0007 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_story_khanfall",
+          "locator_type": "official_source_capture",
+          "locator": "Khanfall; bounded local capture for jeskai_claim_0007",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0007 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "jeskai_claim_0008",
@@ -149,7 +314,42 @@
         "JESKAI-EVID-018"
       ],
       "confidence": "High",
-      "notes": "Use as an anti-bleed boundary. Do not treat later Ojutai material as direct Jeskai evidence unless a source explicitly supports that bridge."
+      "notes": "Use as an anti-bleed boundary. Do not treat later Ojutai material as direct Jeskai evidence unless a source explicitly supports that bridge.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_jeskai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Jeskai Evidence Ledger; rows JESKAI-EVID-012, JESKAI-EVID-013, JESKAI-EVID-014, JESKAI-EVID-018",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0008 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_story_khanfall",
+          "locator_type": "official_source_capture",
+          "locator": "Khanfall; bounded local capture for jeskai_claim_0008",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0008 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragons_pg_part_1",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Dragons of Tarkir, Part 1; bounded local capture for jeskai_claim_0008",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0008 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragonstorm_pg_part_1",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Tarkir: Dragonstorms, Part 1; bounded local capture for jeskai_claim_0008",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0008 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "jeskai_claim_0009",
@@ -168,7 +368,26 @@
         "JESKAI-EVID-018"
       ],
       "confidence": "High",
-      "notes": "Modern Dragonstorm-era only. Do not backfill modern practices, monasteries, doctrine, or revived-clan structure into Khans-era Jeskai Way."
+      "notes": "Modern Dragonstorm-era only. Do not backfill modern practices, monasteries, doctrine, or revived-clan structure into Khans-era Jeskai Way.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_jeskai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Jeskai Evidence Ledger; rows JESKAI-EVID-015, JESKAI-EVID-016, JESKAI-EVID-017, JESKAI-EVID-018",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0009 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragonstorm_pg_part_1",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Tarkir: Dragonstorms, Part 1; bounded local capture for jeskai_claim_0009",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0009 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "jeskai_claim_0010",
@@ -187,7 +406,18 @@
         "JESKAI-EVID-022"
       ],
       "confidence": "High",
-      "notes": "This is a false-positive and lifecycle guardrail. Commander/operator rows, manual-fill rows, source rows, seed rows, and Vox Mana synthesis rows are excluded by source-role policy and are not cited as raw-claim evidence."
+      "notes": "This is a false-positive and lifecycle guardrail. Commander/operator rows, manual-fill rows, source rows, seed rows, and Vox Mana synthesis rows are excluded by source-role policy and are not cited as raw-claim evidence.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_jeskai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Jeskai Evidence Ledger; rows JESKAI-EVID-001, JESKAI-EVID-012, JESKAI-EVID-013, JESKAI-EVID-018, JESKAI-EVID-022",
+          "bounded_paraphrase": "Supports the bounded Jeskai statement for jeskai_claim_0010 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_jeskai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "jeskai_claim_0011",
@@ -199,7 +429,8 @@
         "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
       ],
       "confidence": "High",
-      "notes": "Decklist support is product/navigation only. It is not Tarkir canon proof, popularity proof, metagame proof, legality proof, or placement evidence."
+      "notes": "Decklist support is product/navigation only. It is not Tarkir canon proof, popularity proof, metagame proof, legality proof, or placement evidence.",
+      "semantic_role": "support_record"
     }
   ],
   "claim_quality_summary": {
