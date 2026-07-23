@@ -11,7 +11,7 @@
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 4 shards - active; VM-528 Temur exact semantic candidate ready for independent review after VM-527 Abzan certification",
+      "next_cohort": "Wave 4 shards - active; VM-528 Temur candidate independently approved and certification-only next",
       "current_program_base": "a1632337ebc91950b37d835ac404fba414f770c7",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
@@ -47,7 +47,7 @@
         "latest_certification": "a1632337ebc91950b37d835ac404fba414f770c7",
         "latest_certified_identity": "ABZAN",
         "next_identity": "TEMUR",
-        "next_identity_status": "candidate_ready_for_independent_review"
+        "next_identity_status": "independent_review_approved_certification_next"
       }
     },
     "wip_limit": 1,
@@ -79,19 +79,21 @@
       "current_identity_hold": {
         "identity": "TEMUR",
         "card": "VM-528",
-        "state": "candidate_ready_for_independent_review",
+        "state": "independent_review_approved_certification_next",
         "branch": "codex/vm-528-temur-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm528-temur",
         "prior_identity_certified": "ABZAN",
         "prior_identity_certification": "a1632337ebc91950b37d835ac404fba414f770c7",
-        "authorized_next_scope": "VM-528 / Temur independent exact-SHA review of candidate 790fca923c504e32911e0be0eb44f7fdbcfb07dc only. No certification, Excel edit, push, PR, merge, or VM-529 work occurred in candidate workflow.",
-        "required_next_milestone": "Independent reviewer must rerun CRIT-001 controls against exact SHA 790fca923c504e32911e0be0eb44f7fdbcfb07dc; only that SHA may be reviewed.",
+        "authorized_next_scope": "VM-528 / Temur certification-only for exact approved candidate 790fca923c504e32911e0be0eb44f7fdbcfb07dc. No semantic remediation, replacement candidate, Excel edit, push, PR, merge, or VM-529 work occurred in independent review.",
+        "required_next_milestone": "Certification-only task must certify exact approved candidate 790fca923c504e32911e0be0eb44f7fdbcfb07dc only; program base remains a1632337ebc91950b37d835ac404fba414f770c7 until certification commit exists.",
         "program_base": "a1632337ebc91950b37d835ac404fba414f770c7",
         "preflight_record": "docs/handoffs/2026-07-22-1529-codex-vm528-temur-drift-preflight.md",
-        "updated_at": "2026-07-22T17:58:00-06:00",
+        "updated_at": "2026-07-22T19:11:00-06:00",
         "gate_1_2_record": "docs/handoffs/2026-07-22-1549-codex-vm528-temur-gate1-gate2.md",
         "gate_1_2_commit": "cc1eca1ac7ec3895f7d08a280bf9f13f9595356e",
-        "candidate_sha": "790fca923c504e32911e0be0eb44f7fdbcfb07dc"
+        "candidate_sha": "790fca923c504e32911e0be0eb44f7fdbcfb07dc",
+        "review_record": "docs/handoffs/2026-07-22-1911-codex-vm528-temur-independent-review.md",
+        "review_decision": "APPROVE EXACT SHA 790fca923c504e32911e0be0eb44f7fdbcfb07dc"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -4561,14 +4563,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "candidate_ready_for_independent_review",
+        "current_gate": "independent_review_approved_certification_next",
         "status": "in_progress",
         "started_at": "2026-07-22T15:29:00-06:00",
-        "gate_entered_at": "2026-07-22T17:58:00-06:00",
+        "gate_entered_at": "2026-07-22T19:11:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "SULTAI",
-        "primary_disposition": "READY FOR INDEPENDENT REVIEW OF EXACT SHA 790fca923c504e32911e0be0eb44f7fdbcfb07dc"
+        "primary_disposition": "APPROVE EXACT SHA 790fca923c504e32911e0be0eb44f7fdbcfb07dc; certification-only next"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -4593,25 +4595,29 @@
           "DRAGONSTORM_BACKFILL",
           "COMMANDER_PRODUCT"
         ],
-        "audit_report": "docs/handoffs/2026-07-22-1758-codex-vm528-temur-candidate-workflow.md",
+        "audit_report": "docs/handoffs/2026-07-22-1911-codex-vm528-temur-independent-review.md",
         "residual_findings": [
-          "Independent review pending; no certification decision has been made.",
-          "npm.cmd test stops after multiple passing suites because optional xlsx dependency is missing for precon mechanics import validation.",
-          "Source/generated guardrails retain one known non-blocking model-owned inhibitor warning."
+          "No approval-blocking findings from independent exact-SHA review.",
+          "Certification pending; no semantically_ready transition has occurred.",
+          "Source/generated guardrails retain one known non-blocking model-owned inhibitor warning.",
+          "Exact-tree npm.cmd ci reports inherited audit vulnerabilities; candidate changed no dependency authority."
         ]
       },
       "certification": {
         "contract_version": "v1.1",
-        "contract_revalidation_required": true,
+        "contract_revalidation_required": false,
         "candidate_recovery_sha": "790fca923c504e32911e0be0eb44f7fdbcfb07dc",
         "recovery_commit": null,
         "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
+        "reviewer": "Codex independent exact-SHA review",
+        "review_cycles": 1,
+        "approval_date": "2026-07-22",
         "certified_at": null,
         "candidate_parent_sha": "cc1eca1ac7ec3895f7d08a280bf9f13f9595356e",
-        "candidate_workflow_record": "docs/handoffs/2026-07-22-1758-codex-vm528-temur-candidate-workflow.md"
+        "candidate_workflow_record": "docs/handoffs/2026-07-22-1758-codex-vm528-temur-candidate-workflow.md",
+        "approval_decision": "APPROVE EXACT SHA 790fca923c504e32911e0be0eb44f7fdbcfb07dc",
+        "approval_review_record": "docs/handoffs/2026-07-22-1911-codex-vm528-temur-independent-review.md",
+        "approval_review_commit": "PENDING_VM528_REVIEW_COMMIT_SHA"
       }
     },
     {
