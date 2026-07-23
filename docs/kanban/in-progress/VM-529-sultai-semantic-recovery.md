@@ -22,8 +22,8 @@ Recover Sultai end to end under CRIT-001: audit the existing packet, bound readi
 - Starting program base: `8e23ef467ec7f60daec746c14493173f96d9261c`.
 - Branch: `codex/vm-529-sultai-semantic-recovery`.
 - Worktree: `C:\dev\mtgSiteWIP-crit001-vm529-sultai`.
-- Next authorized action: independent exact-SHA review of `a92fb3f8a0ec4235d5148b20c4040bd717332ad6`.
-- Not started: independent review, certification, semantically_ready transition, program-base change, certified-count change, and VM-530.
+- Next authorized action: certification-only governance for exact approved candidate `a92fb3f8a0ec4235d5148b20c4040bd717332ad6`.
+- Not started: certification, semantically_ready transition, program-base change, certified-count change, and VM-530.
 
 ## Gates
 
@@ -50,5 +50,14 @@ Recover Sultai end to end under CRIT-001: audit the existing packet, bound readi
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/handoffs/2026-07-22-2054-codex-vm529-sultai-candidate-workflow.md`
 - Candidate recovery SHA: `a92fb3f8a0ec4235d5148b20c4040bd717332ad6`
-- Independent reviewer: pending
-- Certification commit: pending
+- Independent reviewer: Codex independent exact-SHA review, `docs/handoffs/2026-07-22-2123-codex-vm529-sultai-independent-review.md`, decision `APPROVE EXACT SHA a92fb3f8a0ec4235d5148b20c4040bd717332ad6`
+- Certification commit: pending; VM-529 is approved awaiting certification only
+
+## Independent Review
+
+- Review record: `docs/handoffs/2026-07-22-2123-codex-vm529-sultai-independent-review.md`
+- Review branch: `codex/vm-529-sultai-semantic-recovery-independent-review`
+- Review worktree: `C:\dev\mtgSiteWIP-crit001-vm529-sultai-independent-review`
+- Review decision: `APPROVE EXACT SHA a92fb3f8a0ec4235d5148b20c4040bd717332ad6`
+- Review commit: `PENDING_VM529_INDEPENDENT_REVIEW_SHA`
+- Authorized next action: certification-only governance for the exact approved candidate; VM-530 remains not started.
