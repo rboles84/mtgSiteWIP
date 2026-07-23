@@ -11,8 +11,8 @@
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 4 shards complete; VM-531 Jeskai certified, VM-532 Yore remains backlog/not started",
-      "current_program_base": "PENDING_VM531_CERTIFICATION_COMMIT_SHA",
+      "next_cohort": "Wave 5 four-color identities started; VM-532 Yore drift preflight complete, Gate 1+2 pending; VM-533 Glint remains backlog/not started",
+      "current_program_base": "4529f8615785743d074e3060e13f990941c1a458",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -48,12 +48,29 @@
         ],
         "started_by": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
         "started_at": "2026-07-20T08:27:00-06:00",
-        "latest_certification": "PENDING_VM531_CERTIFICATION_COMMIT_SHA",
+        "latest_certification": "4529f8615785743d074e3060e13f990941c1a458",
         "latest_certified_identity": "JESKAI",
         "next_identity": "YORE",
-        "next_identity_status": "backlog_not_started_shadow_audit_parked_non_authoritative",
-        "completed_by": "PENDING_VM531_CERTIFICATION_COMMIT_SHA",
+        "next_identity_status": "in_progress_drift_preflight_complete_gate_1_2_not_started",
+        "completed_by": "4529f8615785743d074e3060e13f990941c1a458",
         "completed_at": "2026-07-23T12:15:00-06:00"
+      },
+      "wave_5_four_color": {
+        "status": "in_progress",
+        "order": [
+          "YORE",
+          "GLINT",
+          "DUNE",
+          "INK",
+          "WITCH"
+        ],
+        "current_identity": "YORE",
+        "current_identity_status": "in_progress_drift_preflight_complete_gate_1_2_not_started",
+        "next_identity": "GLINT",
+        "next_identity_status": "backlog_not_started",
+        "certified": "0 of 5",
+        "started_by": "PENDING_VM532_DRIFT_PREFLIGHT_COMMIT_SHA",
+        "started_at": "2026-07-23T16:46:00-06:00"
       }
     },
     "wip_limit": 1,
@@ -83,18 +100,19 @@
       "installed_after_program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
       "governance_commit": "PENDING_CRIT001_DRIFT_CONTROL_GOVERNANCE_SHA",
       "current_identity_hold": {
-        "identity": "JESKAI",
-        "card": "VM-531",
-        "state": "in_progress_drift_preflight_complete",
-        "branch": "codex/vm-531-jeskai-semantic-recovery",
-        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm531-jeskai",
-        "prior_identity_certified": "MARDU",
-        "prior_identity_certification": "9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2",
-        "authorized_next_scope": "Resume the same VM-531 / Jeskai branch and worktree for Gate 1+2 read-only semantic audit. No Jeskai remediation, candidate, review, certification, Excel, push, PR, merge, Wave 5 implementation, or Yore semantic work is authorized by the drift preflight record.",
-        "required_next_milestone": "VM-531 Gate 1+2 read-only audit must be committed separately before any remediation or candidate creation.",
-        "program_base": "9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2",
-        "drift_preflight_commit": "PENDING_VM531_DRIFT_PREFLIGHT_COMMIT_SHA",
-        "updated_at": "2026-07-23T08:00:00-06:00"
+        "identity": "YORE",
+        "card": "VM-532",
+        "state": "in_progress_drift_preflight_complete_gate_1_2_not_started",
+        "branch": "codex/vm-532-yore-semantic-recovery",
+        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm532-yore",
+        "prior_identity_certified": "JESKAI",
+        "prior_identity_certification": "4529f8615785743d074e3060e13f990941c1a458",
+        "authorized_next_scope": "Resume the same VM-532 / Yore branch and worktree for Gate 1+2 read-only semantic audit using the revalidated preflight baseline. No Yore remediation, candidate, review, certification, Excel, push, PR, merge, VM-533 work, or cleanup is authorized by the drift preflight record.",
+        "required_next_milestone": "VM-532 Gate 1+2 read-only audit must be committed separately before any remediation or candidate creation.",
+        "program_base": "4529f8615785743d074e3060e13f990941c1a458",
+        "drift_preflight_commit": "PENDING_VM532_DRIFT_PREFLIGHT_COMMIT_SHA",
+        "shadow_revalidation_result": "confirmed old-base Yore shadow findings as non-authoritative preflight baseline; candidate-scope base updated to Jeskai certification SHA",
+        "updated_at": "2026-07-23T16:46:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -105,18 +123,18 @@
         "Begin Simic Goal mode only after the drift preflight reports no FAIL or UNKNOWN controls."
       ],
       "last_certification": {
-        "identity": "MARDU",
-        "card": "VM-530",
-        "candidate_sha": "96df085ff38d03da1e37de80b1e11705b1dfa47a",
-        "candidate_workflow_sha": "ab961e384ef72bd4c56dae07f60863016511adb0",
+        "identity": "JESKAI",
+        "card": "VM-531",
+        "candidate_sha": "9ac575a89eca55f8bc3522083e51689f29ebd262",
+        "candidate_workflow_sha": "999893c8efc4dbb71a08ba5a88700018cead6a1c",
         "gate_3_4_workflow_sha": null,
-        "approval_review_sha": "f3b360ec0d9df569f585299480db1f34ba72a01b",
-        "review_decision": "APPROVE EXACT SHA 96df085ff38d03da1e37de80b1e11705b1dfa47a",
-        "certification_commit": "9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2",
-        "certified_at": "2026-07-23T06:14:00-06:00",
+        "approval_review_sha": "64e0b84da8f09d31a08a3e57aa32e1e5325eb905",
+        "review_decision": "APPROVE EXACT SHA 9ac575a89eca55f8bc3522083e51689f29ebd262",
+        "certification_commit": "4529f8615785743d074e3060e13f990941c1a458",
+        "certified_at": "2026-07-23T12:15:00-06:00",
         "final_state": "semantically_ready",
         "contract_version": "v1.1",
-        "reviewed_provenance_count": 28,
+        "reviewed_provenance_count": 30,
         "evidence_locator_count": "bounded evidence locations on all 10 substantive claims",
         "claim_role_counts": {
           "total": 11,
@@ -126,13 +144,13 @@
           "unclassified": 0
         },
         "candidate_scope_result": "PASS",
-        "invalid_alias_result": "RWB, WBR, and BRW rejected with Unknown identity diagnostics",
+        "invalid_alias_result": "URW, WUR, RWU, UWR, RUW, and WRU rejected with Unknown identity diagnostics",
         "fixture_count": 30,
-        "wave_4_certified": "9 of 10",
-        "total_certified": 29,
-        "next_identity": "JESKAI",
+        "wave_4_certified": "10 of 10",
+        "total_certified": 30,
+        "next_identity": "YORE",
         "next_identity_status": "in_progress_drift_preflight_complete_gate_1_2_not_started",
-        "prior_program_base": "7970c14822ce006c0d88f95cc6ed01bb3c79b81f"
+        "prior_program_base": "9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2"
       }
     },
     "rejected_prerequisite_candidates": [
@@ -5151,19 +5169,33 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "drift_preflight_complete",
+        "status": "in_progress",
+        "started_at": "2026-07-23T16:46:00-06:00",
+        "gate_entered_at": "2026-07-23T16:46:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "GLINT",
-        "primary_disposition": null
+        "primary_disposition": "pending_gate_1_2_read_only_audit"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "GLINT",
+          "WITCH",
+          "JESKAI",
+          "ESPER",
+          "GRIXIS",
+          "MARDU",
+          "SULTAI"
+        ],
+        "audit_report": "docs/handoffs/2026-07-23-1646-codex-vm532-yore-drift-preflight.md",
+        "residual_findings": [
+          "Preflight only: 5 Yore claims remain unclassified with no evidence_scope fields.",
+          "No Yore semantic-readiness fixture exists.",
+          "9 Yore-owned provenance rows; 4 Yore profile rows have null canonical_id; zero missing canonical_content_hash values.",
+          "Generated identity-layer preview remains enabled while raw preview_eligible is false.",
+          "GLINT and WITCH collision references require official Gate 1+2 recheck."
+        ]
       },
       "certification": {
         "contract_version": null,
