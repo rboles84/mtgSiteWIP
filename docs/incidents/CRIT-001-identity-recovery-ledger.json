@@ -11,8 +11,8 @@
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 4 shards - active; VM-530 Mardu certified, and VM-531 Jeskai not started",
-      "current_program_base": "PENDING_VM530_CERTIFICATION_COMMIT_SHA",
+      "next_cohort": "Wave 4 shards - active; VM-530 Mardu certified, and VM-531 Jeskai drift preflight recorded",
+      "current_program_base": "9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -47,10 +47,10 @@
         ],
         "started_by": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
         "started_at": "2026-07-20T08:27:00-06:00",
-        "latest_certification": "PENDING_VM530_CERTIFICATION_COMMIT_SHA",
+        "latest_certification": "9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2",
         "latest_certified_identity": "MARDU",
         "next_identity": "JESKAI",
-        "next_identity_status": "backlog_not_started_pending_completed_worktree_cleanup_and_drift_preflight"
+        "next_identity_status": "in_progress_drift_preflight_complete_gate_1_2_not_started"
       }
     },
     "wip_limit": 1,
@@ -80,23 +80,18 @@
       "installed_after_program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
       "governance_commit": "PENDING_CRIT001_DRIFT_CONTROL_GOVERNANCE_SHA",
       "current_identity_hold": {
-        "identity": "MARDU",
-        "card": "VM-530",
-        "state": "certified_semantically_ready",
-        "branch": "codex/vm-530-mardu-semantic-recovery-certification",
-        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm530-mardu-certification",
-        "prior_identity_certified": "SULTAI",
-        "prior_identity_certification": "7970c14822ce006c0d88f95cc6ed01bb3c79b81f",
-        "authorized_next_scope": "Completed-worktree cleanup before VM-531 / Jeskai drift preflight. No VM-531 semantic audit, remediation, candidate, review, certification, Excel, push, PR, or merge is authorized by VM-530 certification.",
-        "required_next_milestone": "Clean up completed VM-530 worktrees, then start VM-531 only in a separate drift-preflight window from the VM-530 certification program base.",
-        "program_base": "PENDING_VM530_CERTIFICATION_COMMIT_SHA",
-        "drift_preflight_commit": "eb0b71846d1315ef9571cd3a99ec8b7a7279573e",
-        "gate_1_2_commit": "43a9e1aafaea445c39b6d8402101e86b05e0edef",
-        "candidate_commit": "96df085ff38d03da1e37de80b1e11705b1dfa47a",
-        "candidate_workflow_commit": "ab961e384ef72bd4c56dae07f60863016511adb0",
-        "approval_review_commit": "f3b360ec0d9df569f585299480db1f34ba72a01b",
-        "certification_commit": "PENDING_VM530_CERTIFICATION_COMMIT_SHA",
-        "updated_at": "2026-07-23T06:14:00-06:00"
+        "identity": "JESKAI",
+        "card": "VM-531",
+        "state": "in_progress_drift_preflight_complete",
+        "branch": "codex/vm-531-jeskai-semantic-recovery",
+        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm531-jeskai",
+        "prior_identity_certified": "MARDU",
+        "prior_identity_certification": "9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2",
+        "authorized_next_scope": "Resume the same VM-531 / Jeskai branch and worktree for Gate 1+2 read-only semantic audit. No Jeskai remediation, candidate, review, certification, Excel, push, PR, merge, Wave 5 implementation, or Yore semantic work is authorized by the drift preflight record.",
+        "required_next_milestone": "VM-531 Gate 1+2 read-only audit must be committed separately before any remediation or candidate creation.",
+        "program_base": "9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2",
+        "drift_preflight_commit": "PENDING_VM531_DRIFT_PREFLIGHT_COMMIT_SHA",
+        "updated_at": "2026-07-23T08:00:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -114,7 +109,7 @@
         "gate_3_4_workflow_sha": null,
         "approval_review_sha": "f3b360ec0d9df569f585299480db1f34ba72a01b",
         "review_decision": "APPROVE EXACT SHA 96df085ff38d03da1e37de80b1e11705b1dfa47a",
-        "certification_commit": "PENDING_VM530_CERTIFICATION_COMMIT_SHA",
+        "certification_commit": "9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2",
         "certified_at": "2026-07-23T06:14:00-06:00",
         "final_state": "semantically_ready",
         "contract_version": "v1.1",
@@ -133,7 +128,7 @@
         "wave_4_certified": "9 of 10",
         "total_certified": 29,
         "next_identity": "JESKAI",
-        "next_identity_status": "backlog_not_started_pending_completed_worktree_cleanup_and_drift_preflight",
+        "next_identity_status": "in_progress_drift_preflight_complete_gate_1_2_not_started",
         "prior_program_base": "7970c14822ce006c0d88f95cc6ed01bb3c79b81f"
       }
     },
@@ -4828,7 +4823,7 @@
         "primary_disposition": "CERTIFIED EXACT SHA 96df085ff38d03da1e37de80b1e11705b1dfa47a",
         "branch": "codex/vm-530-mardu-semantic-recovery-certification",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm530-mardu-certification",
-        "program_base": "PENDING_VM530_CERTIFICATION_COMMIT_SHA",
+        "program_base": "9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2",
         "drift_preflight_commit": "eb0b71846d1315ef9571cd3a99ec8b7a7279573e",
         "authorized_next_scope": "Completed-worktree cleanup before VM-531 / Jeskai drift preflight. No VM-531 semantic work is authorized by this certification.",
         "required_next_milestone": "Clean up completed worktrees, then run a separate committed VM-531 drift preflight before any Jeskai Gate 1+2 semantic audit.",
@@ -4837,7 +4832,7 @@
         "candidate_parent": "43a9e1aafaea445c39b6d8402101e86b05e0edef",
         "candidate_workflow_commit": "ab961e384ef72bd4c56dae07f60863016511adb0",
         "approval_review_commit": "f3b360ec0d9df569f585299480db1f34ba72a01b",
-        "certification_commit": "PENDING_VM530_CERTIFICATION_COMMIT_SHA"
+        "certification_commit": "9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -4882,7 +4877,7 @@
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "96df085ff38d03da1e37de80b1e11705b1dfa47a",
         "recovery_commit": "96df085ff38d03da1e37de80b1e11705b1dfa47a",
-        "certification_commit": "PENDING_VM530_CERTIFICATION_COMMIT_SHA",
+        "certification_commit": "9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2",
         "reviewer": "Codex independent exact-SHA review",
         "review_cycles": 1,
         "approval_date": "2026-07-22",
@@ -4976,14 +4971,18 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "drift_preflight_complete",
+        "status": "in_progress",
+        "started_at": "2026-07-23T08:00:00-06:00",
+        "gate_entered_at": "2026-07-23T08:00:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "YORE",
-        "primary_disposition": null
+        "primary_disposition": "drift_preflight_complete_gate_1_2_not_started",
+        "branch": "codex/vm-531-jeskai-semantic-recovery",
+        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm531-jeskai",
+        "program_base": "9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2",
+        "drift_preflight_commit": "PENDING_VM531_DRIFT_PREFLIGHT_COMMIT_SHA"
       },
       "semantic_review": {
         "required_neighbors": [],

@@ -1,13 +1,13 @@
 # VM-531 — Jeskai Semantic Recovery
 
 ID: VM-531
-Status: Backlog
+Status: In Progress
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: JESKAI
 Raw packet: `data/raw-factions/jeskai/`
 Cohort: clan
-Contract: pending Contract v1
+Contract: pending Contract v1.1
 
 ## Objective
 
