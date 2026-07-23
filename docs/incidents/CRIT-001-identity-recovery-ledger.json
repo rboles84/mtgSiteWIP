@@ -4813,23 +4813,59 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "drift_preflight_complete",
+        "current_gate": "gate_1_2_complete",
         "status": "in_progress",
         "started_at": "2026-07-22T21:57:00-06:00",
-        "gate_entered_at": "2026-07-22T21:57:00-06:00",
+        "gate_entered_at": "2026-07-22T22:13:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "JESKAI",
-        "primary_disposition": "drift_preflight_complete_gate_1_2_not_started",
+        "primary_disposition": "ready_for_gate_3_remediation",
         "branch": "codex/vm-530-mardu-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm530-mardu",
         "program_base": "7970c14822ce006c0d88f95cc6ed01bb3c79b81f",
-        "drift_preflight_commit": "PENDING_VM530_DRIFT_PREFLIGHT_COMMIT_SHA"
+        "drift_preflight_commit": "PENDING_VM530_DRIFT_PREFLIGHT_COMMIT_SHA",
+        "authorized_next_scope": "Gate 3+4 MARDU-only semantic remediation from the committed Gate 1+2 audit. No candidate, review, certification, VM-531, Excel, cleanup, push, PR, or merge is authorized by this audit record.",
+        "required_next_milestone": "VM-530 exact semantic candidate must be created separately after MARDU-only remediation, generation, validation, exact candidate-scope qualification, and exact-tree testing.",
+        "gate_1_2_commit": "PENDING_VM530_GATE_1_2_COMMIT_SHA"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "WR",
+          "WB",
+          "BR",
+          "BOROS",
+          "ORZHOV",
+          "RAKDOS",
+          "ABZAN",
+          "JESKAI",
+          "SULTAI",
+          "TEMUR",
+          "NAYA",
+          "JUND",
+          "GENERIC_RWB",
+          "GENERIC_WBR",
+          "GENERIC_AGGRO",
+          "GENERIC_COMBAT",
+          "GENERIC_SACRIFICE",
+          "GENERIC_TOKENS",
+          "GENERIC_ARISTOCRATS",
+          "GENERIC_REANIMATOR",
+          "GENERIC_COMMANDER",
+          "KOLAGHAN_CLAN",
+          "DRAGONSTORM_BACKFILL",
+          "COMMANDER_PRODUCT",
+          "SEED_FILE",
+          "COLOR_PHILOSOPHY"
+        ],
+        "audit_report": "docs/handoffs/2026-07-22-2213-codex-vm530-mardu-gate1-gate2.md",
+        "residual_findings": [
+          "Gate 1+2 found 11 current claims with intended final roles of 10 substantive and 1 support record; roles and bounded evidence locations are not yet remediated.",
+          "Pre-remediation MARDU semantic readiness fails because authoritative chains cite unclassified claims and fixtures are missing.",
+          "Pre-remediation MARDU provenance has 28 entries, 15 null canonical IDs, and zero null hashes.",
+          "RWB, WBR, and BRW remain display/query metadata only and must fail closed as validator identities.",
+          "Source/generated guardrails pass for MARDU with the inherited model-owned inhibitor warning only."
+        ]
       },
       "certification": {
         "contract_version": null,
