@@ -11,8 +11,8 @@
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 4 shards - active; VM-529 Sultai certified and VM-530 Mardu not started",
-      "current_program_base": "PENDING_VM529_CERTIFICATION_COMMIT_SHA",
+      "next_cohort": "Wave 4 shards - active; VM-529 Sultai certified, VM-530 Mardu drift preflight complete, and VM-531 Jeskai not started",
+      "current_program_base": "7970c14822ce006c0d88f95cc6ed01bb3c79b81f",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -46,10 +46,10 @@
         ],
         "started_by": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
         "started_at": "2026-07-20T08:27:00-06:00",
-        "latest_certification": "PENDING_VM529_CERTIFICATION_COMMIT_SHA",
+        "latest_certification": "7970c14822ce006c0d88f95cc6ed01bb3c79b81f",
         "latest_certified_identity": "SULTAI",
         "next_identity": "MARDU",
-        "next_identity_status": "backlog_not_started"
+        "next_identity_status": "drift_preflight_complete_gate_1_2_not_started"
       }
     },
     "wip_limit": 1,
@@ -81,15 +81,16 @@
       "current_identity_hold": {
         "identity": "MARDU",
         "card": "VM-530",
-        "state": "backlog_not_started",
-        "branch": null,
-        "worktree": null,
+        "state": "in_progress_drift_preflight_complete",
+        "branch": "codex/vm-530-mardu-semantic-recovery",
+        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm530-mardu",
         "prior_identity_certified": "SULTAI",
-        "prior_identity_certification": "PENDING_VM529_CERTIFICATION_COMMIT_SHA",
-        "authorized_next_scope": "Separate VM-530 / Mardu drift preflight only, from the VM-529 certification/program-base commit. No Mardu Gate 1+2 semantic audit, remediation, candidate, review, certification, Excel, push, PR, or merge is authorized by the VM-529 certification record.",
-        "required_next_milestone": "VM-530 drift preflight must be created and committed separately before Gate 1+2 semantic work begins.",
-        "program_base": "PENDING_VM529_CERTIFICATION_COMMIT_SHA",
-        "updated_at": "2026-07-22T21:44:00-06:00"
+        "prior_identity_certification": "7970c14822ce006c0d88f95cc6ed01bb3c79b81f",
+        "authorized_next_scope": "Resume the same VM-530 / Mardu branch and worktree for Gate 1+2 read-only semantic audit. No Mardu remediation, candidate, review, certification, Excel, push, PR, merge, or VM-531 semantic work is authorized by the drift preflight record.",
+        "required_next_milestone": "VM-530 Gate 1+2 read-only audit must be committed separately before any remediation or candidate creation.",
+        "program_base": "7970c14822ce006c0d88f95cc6ed01bb3c79b81f",
+        "drift_preflight_commit": "PENDING_VM530_DRIFT_PREFLIGHT_COMMIT_SHA",
+        "updated_at": "2026-07-22T21:57:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -107,7 +108,7 @@
         "gate_3_4_workflow_sha": null,
         "approval_review_sha": "2b469a61656bd2151f4c7e560421afc7c452887b",
         "review_decision": "APPROVE EXACT SHA a92fb3f8a0ec4235d5148b20c4040bd717332ad6",
-        "certification_commit": "PENDING_VM529_CERTIFICATION_COMMIT_SHA",
+        "certification_commit": "7970c14822ce006c0d88f95cc6ed01bb3c79b81f",
         "certified_at": "2026-07-22T21:44:00-06:00",
         "final_state": "semantically_ready",
         "contract_version": "v1.1",
@@ -126,7 +127,7 @@
         "wave_4_certified": "8 of 10",
         "total_certified": 28,
         "next_identity": "MARDU",
-        "next_identity_status": "backlog_not_started",
+        "next_identity_status": "drift_preflight_complete_gate_1_2_not_started",
         "prior_program_base": "8e23ef467ec7f60daec746c14493173f96d9261c"
       }
     },
@@ -4812,14 +4813,18 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "drift_preflight_complete",
+        "status": "in_progress",
+        "started_at": "2026-07-22T21:57:00-06:00",
+        "gate_entered_at": "2026-07-22T21:57:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "JESKAI",
-        "primary_disposition": null
+        "primary_disposition": "drift_preflight_complete_gate_1_2_not_started",
+        "branch": "codex/vm-530-mardu-semantic-recovery",
+        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm530-mardu",
+        "program_base": "7970c14822ce006c0d88f95cc6ed01bb3c79b81f",
+        "drift_preflight_commit": "PENDING_VM530_DRIFT_PREFLIGHT_COMMIT_SHA"
       },
       "semantic_review": {
         "required_neighbors": [],
