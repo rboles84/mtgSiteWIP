@@ -5,14 +5,14 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "JESKAI",
-    "next_identity": "JESKAI",
-    "certified_identity_count": 29,
+    "active_identity": "YORE",
+    "next_identity": "YORE",
+    "certified_identity_count": 30,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 4 shards - active; VM-530 Mardu certified, and VM-531 Jeskai drift preflight recorded",
-      "current_program_base": "9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2",
+      "next_cohort": "Wave 4 shards complete; VM-531 Jeskai certified, VM-532 Yore remains backlog/not started",
+      "current_program_base": "PENDING_VM531_CERTIFICATION_COMMIT_SHA",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -29,11 +29,11 @@
         "completed_at": "2026-07-19T09:43:00-06:00",
         "next_wave_status": "VM-522/Wave 4 not started"
       },
-      "wave_4_shards": "active",
-      "wave_4_shards_certified": "9 of 10",
+      "wave_4_shards": "complete",
+      "wave_4_shards_certified": "10 of 10",
       "wave_4_status": {
-        "status": "active",
-        "certified": "9 of 10",
+        "status": "complete",
+        "certified": "10 of 10",
         "identities_certified": [
           "BANT",
           "ESPER",
@@ -43,14 +43,17 @@
           "ABZAN",
           "TEMUR",
           "SULTAI",
-          "MARDU"
+          "MARDU",
+          "JESKAI"
         ],
         "started_by": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
         "started_at": "2026-07-20T08:27:00-06:00",
-        "latest_certification": "9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2",
-        "latest_certified_identity": "MARDU",
-        "next_identity": "JESKAI",
-        "next_identity_status": "in_progress_drift_preflight_complete_gate_1_2_not_started"
+        "latest_certification": "PENDING_VM531_CERTIFICATION_COMMIT_SHA",
+        "latest_certified_identity": "JESKAI",
+        "next_identity": "YORE",
+        "next_identity_status": "backlog_not_started_shadow_audit_parked_non_authoritative",
+        "completed_by": "PENDING_VM531_CERTIFICATION_COMMIT_SHA",
+        "completed_at": "2026-07-23T12:15:00-06:00"
       }
     },
     "wip_limit": 1,
@@ -4970,28 +4973,33 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "independent_review_approved",
-        "status": "certification_ready",
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": "2026-07-23T08:00:00-06:00",
-        "gate_entered_at": "2026-07-23T11:23:00-06:00",
+        "gate_entered_at": "2026-07-23T12:15:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "YORE",
-        "primary_disposition": "APPROVE EXACT SHA 9ac575a89eca55f8bc3522083e51689f29ebd262",
+        "primary_disposition": "CERTIFIED EXACT SHA 9ac575a89eca55f8bc3522083e51689f29ebd262",
         "branch": "codex/vm-531-jeskai-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm531-jeskai",
-        "program_base": "9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2",
-        "drift_preflight_commit": "PENDING_VM531_DRIFT_PREFLIGHT_COMMIT_SHA",
-        "authorized_next_scope": "Certification-only governance for exact approved candidate 9ac575a89eca55f8bc3522083e51689f29ebd262. No semantic remediation, replacement candidate, program-base movement, Wave 5, Excel, cleanup, push, PR, or merge is authorized by this review record.",
-        "required_next_milestone": "Certification may only certify exact approved candidate 9ac575a89eca55f8bc3522083e51689f29ebd262 after a separate certification-only task preserves this approval decision.",
-        "gate_1_2_commit": "PENDING_VM531_GATE_1_2_COMMIT_SHA",
+        "program_base": "PENDING_VM531_CERTIFICATION_COMMIT_SHA",
+        "drift_preflight_commit": "bd9e8b6ff1c24511085575451fefe78b31d9c13f",
+        "authorized_next_scope": "External tracker update, separate VM-532/Yore shadow-audit revalidation against the new program base, official VM-532 drift preflight, and separate read-only VM-533 Glint shadow audit if authorized. No further Jeskai remediation, replacement candidate, Excel update by Codex, cleanup, push, PR, or merge is authorized by this certification record.",
+        "required_next_milestone": "Atomically advance codex/crit001-program-base to the actual VM-531 certification commit, then return the exact SHA for external tracker reconciliation.",
+        "gate_1_2_commit": "2ffccb4ff2de65d9adb86321eca442db4edfea24",
         "candidate_commit": "9ac575a89eca55f8bc3522083e51689f29ebd262",
         "candidate_parent": "2ffccb4ff2de65d9adb86321eca442db4edfea24",
         "independent_review_branch": "codex/vm-531-jeskai-semantic-recovery-independent-review",
         "independent_review_worktree": "C:\\dev\\mtgSiteWIP-crit001-vm531-jeskai-independent-review",
         "independent_review_handoff": "docs/handoffs/2026-07-23-1123-codex-vm531-jeskai-independent-review.md",
-        "independent_review_commit": "PENDING_VM531_INDEPENDENT_REVIEW_SHA",
-        "approval_decision": "APPROVE EXACT SHA 9ac575a89eca55f8bc3522083e51689f29ebd262"
+        "independent_review_commit": "64e0b84da8f09d31a08a3e57aa32e1e5325eb905",
+        "approval_decision": "APPROVE EXACT SHA 9ac575a89eca55f8bc3522083e51689f29ebd262",
+        "candidate_workflow_commit": "999893c8efc4dbb71a08ba5a88700018cead6a1c",
+        "certification_branch": "codex/vm-531-jeskai-semantic-recovery-certification",
+        "certification_worktree": "C:\\dev\\mtgSiteWIP-crit001-vm531-jeskai-certification",
+        "certification_handoff": "docs/handoffs/2026-07-23-1215-codex-vm531-jeskai-certification.md",
+        "certification_commit": "PENDING_VM531_CERTIFICATION_COMMIT_SHA"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -5024,12 +5032,12 @@
         ],
         "audit_report": "docs/handoffs/2026-07-23-0825-codex-vm531-jeskai-gate1-gate2.md",
         "residual_findings": [
-          "Independent exact-SHA review approved candidate 9ac575a89eca55f8bc3522083e51689f29ebd262 with zero approval-blocking FAIL or UNKNOWN findings.",
+          "VM-531 certified exact approved candidate 9ac575a89eca55f8bc3522083e51689f29ebd262 with zero approval-blocking findings.",
           "Final candidate roles are 10 substantive claims and 1 support record with bounded evidence locations and source-ID parity.",
           "JESKAI provenance has 30 entries, zero missing canonical IDs, and zero missing canonical content hashes.",
           "URW, WUR, RWU, UWR, RUW, and WRU remain display/query metadata only and fail closed as validator identities.",
-          "JESKAI source/generated guardrails pass with one inherited exit-0 non-blocking model-owned inhibitor warning.",
-          "Exact-tree provenance byte check is CRLF-sensitive after checkout; CRLF-insensitive content diff is empty and check passes after LF normalization in disposable exact tree."
+          "JESKAI source/generated guardrails pass with one inherited exit-zero non-blocking model-owned inhibitor warning.",
+          "Exact-tree full tests passed; provenance byte staleness is CRLF/governance-age behavior with no CRLF-insensitive content delta."
         ]
       },
       "certification": {
@@ -5037,13 +5045,13 @@
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "9ac575a89eca55f8bc3522083e51689f29ebd262",
         "recovery_commit": "9ac575a89eca55f8bc3522083e51689f29ebd262",
-        "certification_commit": null,
+        "certification_commit": "PENDING_VM531_CERTIFICATION_COMMIT_SHA",
         "reviewer": "Codex independent exact-SHA review",
         "review_cycles": 1,
         "approval_date": "2026-07-23",
-        "certified_at": null,
+        "certified_at": "2026-07-23T12:15:00-06:00",
         "candidate_workflow_handoff": "docs/handoffs/2026-07-23-0937-codex-vm531-jeskai-candidate-workflow.md",
-        "candidate_workflow_record": "PENDING_VM531_CANDIDATE_WORKFLOW_SHA",
+        "candidate_workflow_record": "999893c8efc4dbb71a08ba5a88700018cead6a1c",
         "claim_role_counts": {
           "total": 11,
           "substantive_claim": 10,
@@ -5061,8 +5069,11 @@
         "review_result": "approved_exact_sha",
         "approval_decision": "APPROVE EXACT SHA 9ac575a89eca55f8bc3522083e51689f29ebd262",
         "approval_review_handoff": "docs/handoffs/2026-07-23-1123-codex-vm531-jeskai-independent-review.md",
-        "approval_review_record": "PENDING_VM531_INDEPENDENT_REVIEW_SHA",
-        "final_state": "certification_ready"
+        "approval_review_record": "64e0b84da8f09d31a08a3e57aa32e1e5325eb905",
+        "final_state": "semantically_ready",
+        "certification_handoff": "docs/handoffs/2026-07-23-1215-codex-vm531-jeskai-certification.md",
+        "wave_4_status": "10 of 10",
+        "total_certified": 30
       }
     },
     {
