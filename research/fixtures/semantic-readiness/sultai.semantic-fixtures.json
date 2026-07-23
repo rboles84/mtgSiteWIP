@@ -1,0 +1,524 @@
+{
+  "identity_key": "SULTAI",
+  "contract_version": "v1.1",
+  "generated_by": "VM-529 Gate 3/4 Sultai semantic remediation",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "sultai_core_resource_conversion",
+      "fixture_type": "core_inclusion",
+      "prompt": "A user wants a commander identity where every body, secret, cost, and opportunity can be converted into power before anyone else claims it.",
+      "scenario": "A user wants a commander identity where every body, secret, cost, and opportunity can be converted into power before anyone else claims it.",
+      "expected": "SULTAI_INCLUDE",
+      "evidence_claim_ids": [
+        "sultai_claim_0001",
+        "sultai_claim_0002",
+        "sultai_claim_0003",
+        "sultai_claim_0004",
+        "sultai_claim_0005",
+        "sultai_claim_0010"
+      ],
+      "boundary": "Sultai inclusion requires source-bound Sultai Brood identity plus ruthlessness, resource conversion, necromancy, and BGU metadata boundaries.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ]
+    },
+    {
+      "fixture_id": "sultai_pressure_necromantic_opportunity",
+      "fixture_type": "mature_or_pressure_behavior",
+      "prompt": "The prompt values calculated ambition, necromancy, spies, terrain knowledge, and opportunistic conversion while keeping Silumgar and modern Dragonstorm details era-labeled.",
+      "scenario": "The prompt values calculated ambition, necromancy, spies, terrain knowledge, and opportunistic conversion while keeping Silumgar and modern Dragonstorm details era-labeled.",
+      "expected": "SULTAI_INCLUDE_WITH_PRESSURE_BOUNDARY",
+      "evidence_claim_ids": [
+        "sultai_claim_0002",
+        "sultai_claim_0003",
+        "sultai_claim_0005",
+        "sultai_claim_0008",
+        "sultai_claim_0009",
+        "sultai_claim_0010"
+      ],
+      "boundary": "Pressure supports Sultai only when it stays tied to source-bound Sultai evidence and anti-backfill boundaries.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_dragonstorm_pg_part_2",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_khans_pg_part_1",
+        "src_wotc_tarkir_story_khanfall"
+      ]
+    },
+    {
+      "fixture_id": "sultai_nearest_temur_attunement",
+      "fixture_type": "nearest_collision_ambiguity",
+      "prompt": "The prompt mentions survival and terrain, but the decisive signal is converting bodies, secrets, and openings into advantage instead of listening to the living wild.",
+      "scenario": "The prompt mentions survival and terrain, but the decisive signal is converting bodies, secrets, and openings into advantage instead of listening to the living wild.",
+      "expected": "SULTAI_INCLUDE_WITH_COLLISION_BOUNDARY",
+      "evidence_claim_ids": [
+        "sultai_claim_0002",
+        "sultai_claim_0003",
+        "sultai_claim_0005",
+        "sultai_claim_0010"
+      ],
+      "boundary": "Temur-adjacent survival language cannot replace Sultai unless resource conversion and Sultai evidence remain primary.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ]
+    },
+    {
+      "fixture_id": "sultai_neighbor_abzan",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy preserves lineage, endurance, and ancestral duty rather than converting the dead and resources into power.",
+      "scenario": "The fantasy preserves lineage, endurance, and ancestral duty rather than converting the dead and resources into power.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0002",
+        "sultai_claim_0005",
+        "sultai_claim_0010"
+      ],
+      "boundary": "ABZAN cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "ABZAN"
+    },
+    {
+      "fixture_id": "sultai_neighbor_temur",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy listens to terrain, instinct, and living-world memory before action instead of privately converting every opening.",
+      "scenario": "The fantasy listens to terrain, instinct, and living-world memory before action instead of privately converting every opening.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0002",
+        "sultai_claim_0003",
+        "sultai_claim_0005",
+        "sultai_claim_0010"
+      ],
+      "boundary": "TEMUR cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "TEMUR"
+    },
+    {
+      "fixture_id": "sultai_neighbor_jeskai",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is disciplined monastery insight and prepared martial practice rather than ruthless resource conversion.",
+      "scenario": "The fantasy is disciplined monastery insight and prepared martial practice rather than ruthless resource conversion.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0002",
+        "sultai_claim_0003",
+        "sultai_claim_0010"
+      ],
+      "boundary": "JESKAI cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes"
+      ],
+      "neighbor": "JESKAI"
+    },
+    {
+      "fixture_id": "sultai_neighbor_mardu",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is speed, warband pressure, and public commitment before the opening closes.",
+      "scenario": "The fantasy is speed, warband pressure, and public commitment before the opening closes.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0002",
+        "sultai_claim_0004",
+        "sultai_claim_0010"
+      ],
+      "boundary": "MARDU cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "MARDU"
+    },
+    {
+      "fixture_id": "sultai_neighbor_bant",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is public order, honor, and refined hierarchy rather than hidden costs and necromantic advantage.",
+      "scenario": "The fantasy is public order, honor, and refined hierarchy rather than hidden costs and necromantic advantage.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0001",
+        "sultai_claim_0002",
+        "sultai_claim_0010"
+      ],
+      "boundary": "BANT cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes"
+      ],
+      "neighbor": "BANT"
+    },
+    {
+      "fixture_id": "sultai_neighbor_jund",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is appetite, predation, and violent consumption without Sultai secrecy, necromancy, or calculated BGU planning.",
+      "scenario": "The fantasy is appetite, predation, and violent consumption without Sultai secrecy, necromancy, or calculated BGU planning.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0002",
+        "sultai_claim_0005",
+        "sultai_claim_0010"
+      ],
+      "boundary": "JUND cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "JUND"
+    },
+    {
+      "fixture_id": "sultai_neighbor_grixis",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is death and extraction without Sultai Tarkir, Green life/death cycles, or source-bound Sultai boundaries.",
+      "scenario": "The fantasy is death and extraction without Sultai Tarkir, Green life/death cycles, or source-bound Sultai boundaries.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0002",
+        "sultai_claim_0005",
+        "sultai_claim_0010"
+      ],
+      "boundary": "GRIXIS cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "GRIXIS"
+    },
+    {
+      "fixture_id": "sultai_neighbor_esper",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is artifact order and curated control rather than Sultai Brood ruthlessness and living/dead resource conversion.",
+      "scenario": "The fantasy is artifact order and curated control rather than Sultai Brood ruthlessness and living/dead resource conversion.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0002",
+        "sultai_claim_0003",
+        "sultai_claim_0010"
+      ],
+      "boundary": "ESPER cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes"
+      ],
+      "neighbor": "ESPER"
+    },
+    {
+      "fixture_id": "sultai_neighbor_dimir",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is generic secrecy, theft, or information control without Sultai Tarkir and necromantic resource conversion.",
+      "scenario": "The fantasy is generic secrecy, theft, or information control without Sultai Tarkir and necromantic resource conversion.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0001",
+        "sultai_claim_0003",
+        "sultai_claim_0010"
+      ],
+      "boundary": "DIMIR cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes"
+      ],
+      "neighbor": "DIMIR"
+    },
+    {
+      "fixture_id": "sultai_neighbor_golgari",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is generic graveyard cycle and rot value without Sultai Brood, Sidisi-era ambition, or BGU calculation.",
+      "scenario": "The fantasy is generic graveyard cycle and rot value without Sultai Brood, Sidisi-era ambition, or BGU calculation.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0001",
+        "sultai_claim_0005",
+        "sultai_claim_0010"
+      ],
+      "boundary": "GOLGARI cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "GOLGARI"
+    },
+    {
+      "fixture_id": "sultai_neighbor_simic",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is adaptation, growth, or experiment without Sultai ruthlessness, necromancy, and Black-centered opportunity.",
+      "scenario": "The fantasy is adaptation, growth, or experiment without Sultai ruthlessness, necromancy, and Black-centered opportunity.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0001",
+        "sultai_claim_0003",
+        "sultai_claim_0010"
+      ],
+      "boundary": "SIMIC cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes"
+      ],
+      "neighbor": "SIMIC"
+    },
+    {
+      "fixture_id": "sultai_neighbor_generic_bgu",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is only Black-Green-Blue color composition without positive Sultai Brood evidence.",
+      "scenario": "The input is only Black-Green-Blue color composition without positive Sultai Brood evidence.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0001",
+        "sultai_claim_0010"
+      ],
+      "boundary": "GENERIC_BGU cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes"
+      ],
+      "neighbor": "GENERIC_BGU"
+    },
+    {
+      "fixture_id": "sultai_neighbor_generic_graveyard_value",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is generic graveyard value without Sultai source rows, necromantic floor, or timeline boundaries.",
+      "scenario": "The input is generic graveyard value without Sultai source rows, necromantic floor, or timeline boundaries.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0003",
+        "sultai_claim_0005",
+        "sultai_claim_0010"
+      ],
+      "boundary": "GENERIC_GRAVEYARD_VALUE cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "GENERIC_GRAVEYARD_VALUE"
+    },
+    {
+      "fixture_id": "sultai_neighbor_generic_ramp",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is generic ramp or land value without Sultai identity evidence.",
+      "scenario": "The input is generic ramp or land value without Sultai identity evidence.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0001",
+        "sultai_claim_0010"
+      ],
+      "boundary": "GENERIC_RAMP cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes"
+      ],
+      "neighbor": "GENERIC_RAMP"
+    },
+    {
+      "fixture_id": "sultai_neighbor_generic_card_advantage",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is generic card advantage, theft, or value without Sultai Brood proof.",
+      "scenario": "The input is generic card advantage, theft, or value without Sultai Brood proof.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0003",
+        "sultai_claim_0010"
+      ],
+      "boundary": "GENERIC_CARD_ADVANTAGE cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes"
+      ],
+      "neighbor": "GENERIC_CARD_ADVANTAGE"
+    },
+    {
+      "fixture_id": "sultai_neighbor_generic_sacrifice",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is generic sacrifice or death payoff without Sultai necromancy and Tarkir context.",
+      "scenario": "The input is generic sacrifice or death payoff without Sultai necromancy and Tarkir context.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0003",
+        "sultai_claim_0005",
+        "sultai_claim_0010"
+      ],
+      "boundary": "GENERIC_SACRIFICE cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "GENERIC_SACRIFICE"
+    },
+    {
+      "fixture_id": "sultai_neighbor_generic_control",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is generic control or denial without Sultai Brood evidence.",
+      "scenario": "The input is generic control or denial without Sultai Brood evidence.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0003",
+        "sultai_claim_0010"
+      ],
+      "boundary": "GENERIC_CONTROL cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes"
+      ],
+      "neighbor": "GENERIC_CONTROL"
+    },
+    {
+      "fixture_id": "sultai_neighbor_generic_recursion",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is generic recursion without era-labeled Sultai necromancy or honored-dead boundaries.",
+      "scenario": "The input is generic recursion without era-labeled Sultai necromancy or honored-dead boundaries.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0003",
+        "sultai_claim_0005",
+        "sultai_claim_0010"
+      ],
+      "boundary": "GENERIC_RECURSION cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "neighbor": "GENERIC_RECURSION"
+    },
+    {
+      "fixture_id": "sultai_neighbor_generic_commander",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is Commander product or deck texture without Tarkir Sultai canon evidence.",
+      "scenario": "The input is Commander product or deck texture without Tarkir Sultai canon evidence.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0010"
+      ],
+      "boundary": "GENERIC_COMMANDER cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531"
+      ],
+      "neighbor": "GENERIC_COMMANDER"
+    },
+    {
+      "fixture_id": "sultai_neighbor_silumgar_clan",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input treats Silumgar clan as Sultai Brood continuity rather than Dragons-era boundary and contrast.",
+      "scenario": "The input treats Silumgar clan as Sultai Brood continuity rather than Dragons-era boundary and contrast.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0008",
+        "sultai_claim_0010"
+      ],
+      "boundary": "SILUMGAR_CLAN cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "neighbor": "SILUMGAR_CLAN"
+    },
+    {
+      "fixture_id": "sultai_neighbor_dragonstorm_backfill",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input backfills modern Dragonstorm-era reforms into Khans-era Sultai Brood.",
+      "scenario": "The input backfills modern Dragonstorm-era reforms into Khans-era Sultai Brood.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0009",
+        "sultai_claim_0010"
+      ],
+      "boundary": "DRAGONSTORM_BACKFILL cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "neighbor": "DRAGONSTORM_BACKFILL"
+    },
+    {
+      "fixture_id": "sultai_neighbor_commander_product",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input treats Sultai Arisen product rows as Tarkir canon, popularity, metagame, legality, or placement proof.",
+      "scenario": "The input treats Sultai Arisen product rows as Tarkir canon, popularity, metagame, legality, or placement proof.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0010"
+      ],
+      "boundary": "COMMANDER_PRODUCT cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531"
+      ],
+      "neighbor": "COMMANDER_PRODUCT"
+    },
+    {
+      "fixture_id": "sultai_neighbor_seed_file",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input relies on seed-file language rather than approved Sultai evidence rows.",
+      "scenario": "The input relies on seed-file language rather than approved Sultai evidence rows.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0010"
+      ],
+      "boundary": "SEED_FILE cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531"
+      ],
+      "neighbor": "SEED_FILE"
+    },
+    {
+      "fixture_id": "sultai_neighbor_color_philosophy",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input uses color-pair philosophy as Tarkir lore or clan fact proof.",
+      "scenario": "The input uses color-pair philosophy as Tarkir lore or clan fact proof.",
+      "expected": "SULTAI_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "sultai_claim_0010"
+      ],
+      "boundary": "COLOR_PHILOSOPHY cannot substitute for positive, source-bound Sultai evidence.",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531"
+      ],
+      "neighbor": "COLOR_PHILOSOPHY"
+    },
+    {
+      "fixture_id": "sultai_provenance_core_identity",
+      "fixture_type": "provenance",
+      "expected": "SULTAI_PROVENANCE_PRESENT",
+      "canonical_file": "data/raw-factions/sultai/sultai.profile.json",
+      "canonical_pointer": "/core_identity",
+      "evidence_claim_ids": [
+        "sultai_claim_0001",
+        "sultai_claim_0002",
+        "sultai_claim_0003",
+        "sultai_claim_0004",
+        "sultai_claim_0005",
+        "sultai_claim_0008",
+        "sultai_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_khans_pg_part_1",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "boundary": "Generated provenance for Sultai core identity must preserve the exact substantive claim/source chain."
+    }
+  ]
+}

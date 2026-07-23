@@ -17,7 +17,8 @@
       "sultai_claim_0010"
     ],
     "confidence": "Medium",
-    "notes": "Psychological language is Vox Mana synthesis. Support-only rows do not raise confidence."
+    "notes": "Psychological language is Vox Mana synthesis. Support-only rows do not raise confidence.",
+    "profile_id": "sultai_moral_and_psychological_profile_gate3"
   },
   "placement_axes": [],
   "core_values": [
@@ -323,6 +324,70 @@
         "sultai_claim_0005"
       ],
       "confidence": "Medium"
+    }
+  ],
+  "semantic_guidance_evidence": [
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "guidance_sultai_0001_gate3",
+      "evidence_claim_ids": [
+        "sultai_claim_0001",
+        "sultai_claim_0002",
+        "sultai_claim_0003",
+        "sultai_claim_0004",
+        "sultai_claim_0005",
+        "sultai_claim_0006",
+        "sultai_claim_0008",
+        "sultai_claim_0009",
+        "sultai_claim_0010"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "guidance_sultai_0002_gate3",
+      "evidence_claim_ids": [
+        "sultai_claim_0010"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "guidance_sultai_0003_gate3",
+      "evidence_claim_ids": [
+        "sultai_claim_0010"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "guidance_sultai_0004_gate3",
+      "evidence_claim_ids": [
+        "sultai_claim_0001",
+        "sultai_claim_0010"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "guidance_sultai_0005_gate3",
+      "evidence_claim_ids": [
+        "sultai_claim_0003",
+        "sultai_claim_0005",
+        "sultai_claim_0010"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "guidance_sultai_0006_gate3",
+      "evidence_claim_ids": [
+        "sultai_claim_0008",
+        "sultai_claim_0010"
+      ]
+    },
+    {
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "guidance_sultai_0007_gate3",
+      "evidence_claim_ids": [
+        "sultai_claim_0009",
+        "sultai_claim_0010"
+      ]
     }
   ]
 }

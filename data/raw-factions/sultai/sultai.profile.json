@@ -92,7 +92,8 @@
       "sultai_claim_0008",
       "sultai_claim_0009",
       "sultai_claim_0010"
-    ]
+    ],
+    "surface_id": "sultai_site_surface_gate3"
   },
   "core_identity": {
     "summary": "Sultai Brood is the Black-centered BGU Tarkir wedge expression whose source-bound floor is ruthlessness, opportunity, graveyard/resource conversion, necromancy, wealth through exploitation, Sidisi-era ambition, and strict timeline separation from Silumgar clan and modern Dragonstorm-era Sultai.",
@@ -128,7 +129,8 @@
       "sultai_claim_0005",
       "sultai_claim_0008",
       "sultai_claim_0010"
-    ]
+    ],
+    "core_identity_id": "sultai_core_identity_gate3"
   },
   "structure": {
     "summary": "The safe structural floor is source-rich and non-live: Sultai is a Tarkir BGU wedge with Black center, Khans-era Sidisi and necromancy evidence, Fate Reforged and Khanfall transition context, Silumgar contrast, modern Dragonstorm-era material, and explicit VM-212 runtime boundaries.",
@@ -169,7 +171,8 @@
       "sultai_claim_0008",
       "sultai_claim_0009",
       "sultai_claim_0010"
-    ]
+    ],
+    "structure_id": "sultai_structure_gate3"
   },
   "great_tension": {
     "summary": "Vox Mana synthesis models Sultai's great tension as resource conversion under ambition: life, death, land, bodies, secrets, and costs can become power, but useful conversion can harden into domination.",
@@ -182,7 +185,8 @@
       "sultai_claim_0005",
       "sultai_claim_0008",
       "sultai_claim_0010"
-    ]
+    ],
+    "tension_id": "sultai_great_tension_gate3"
   },
   "historical_timeline": [
     {
@@ -235,7 +239,8 @@
       "source_ids": [
         "src_wotc_tarkir_khans_pg_part_1"
       ],
-      "limitations": "Keep to the captured guide-row floor; full Sidisi biography, later timeline forms, exact card facts, and card text remain deferred."
+      "limitations": "Keep to the captured guide-row floor; full Sidisi biography, later timeline forms, exact card facts, and card text remain deferred.",
+      "figure_id": "sultai_key_figure_0001_gate3"
     },
     {
       "name": "Tasigur",
@@ -252,7 +257,8 @@
         "src_wotc_tarkir_fate_reforged_pg",
         "src_wotc_tarkir_story_khanfall"
       ],
-      "limitations": "Use as transition-boundary evidence only; full biography, Shidiqi betrayal detail, Commander reputation, exact card facts, and card text remain deferred."
+      "limitations": "Use as transition-boundary evidence only; full biography, Shidiqi betrayal detail, Commander reputation, exact card facts, and card text remain deferred.",
+      "figure_id": "sultai_key_figure_0002_gate3"
     },
     {
       "name": "The Fangkeeper",
@@ -267,7 +273,8 @@
       "source_ids": [
         "src_wotc_tarkir_dragonstorm_pg_part_2"
       ],
-      "limitations": "Treat as an institutional office, not a fully biographied individual; Fangkeeper specifics remain manual-fill material."
+      "limitations": "Treat as an institutional office, not a fully biographied individual; Fangkeeper specifics remain manual-fill material.",
+      "figure_id": "sultai_key_figure_0003_gate3"
     },
     {
       "name": "The Lasyd",
@@ -282,7 +289,8 @@
       "source_ids": [
         "src_wotc_tarkir_dragonstorm_pg_part_2"
       ],
-      "limitations": "Treat as an institutional anchor; individual Lasyd leaders and biographies remain manual-fill material."
+      "limitations": "Treat as an institutional anchor; individual Lasyd leaders and biographies remain manual-fill material.",
+      "figure_id": "sultai_key_figure_0004_gate3"
     },
     {
       "name": "Sibsig and honored dead",
@@ -300,7 +308,8 @@
         "src_wotc_tarkir_khans_pg_part_1",
         "src_wotc_tarkir_dragonstorm_pg_part_2"
       ],
-      "limitations": "Do not collapse Khans-era undead labor into modern honored-dead practice or backfill modern reforms into Sidisi-era Sultai."
+      "limitations": "Do not collapse Khans-era undead labor into modern honored-dead practice or backfill modern reforms into Sidisi-era Sultai.",
+      "figure_id": "sultai_key_figure_0005_gate3"
     }
   ],
   "canonical_flavor_text": [],
@@ -314,7 +323,8 @@
         "sultai_claim_0010"
       ],
       "confidence": "High",
-      "notes": "Not story-world diplomacy."
+      "notes": "Not story-world diplomacy.",
+      "relationship_id": "sultai_relationship_0001_gate3"
     },
     {
       "faction": "Abzan / Temur / Jeskai / Mardu / Dimir / Golgari / Simic",
@@ -327,7 +337,8 @@
         "sultai_claim_0010"
       ],
       "confidence": "Medium",
-      "notes": "Not story-world diplomacy and not raw claim evidence about the comparator factions."
+      "notes": "Not story-world diplomacy and not raw claim evidence about the comparator factions.",
+      "relationship_id": "sultai_relationship_0002_gate3"
     }
   ],
   "mechanics": {
@@ -444,7 +455,8 @@
       "sultai_claim_0008",
       "sultai_claim_0009",
       "sultai_claim_0010"
-    ]
+    ],
+    "data_quality_id": "sultai_data_quality_gate3"
   },
   "research_limitations": {
     "manual_review_required": true,
@@ -562,7 +574,9 @@
             "sultai_claim_0011"
           ],
           "support_only": true,
-          "boundary": "Official product/card-data support only."
+          "boundary": "Official product/card-data support only.",
+          "source_basis_id": "sultai_commander_source_basis_0001_gate3",
+          "evidence_use": "auxiliary_support"
         },
         "confidence": "High for product/card identity; support-only for recommendation texture.",
         "caution_notes": [
@@ -605,7 +619,9 @@
             "sultai_claim_0011"
           ],
           "support_only": true,
-          "boundary": "Official product/card-data support only."
+          "boundary": "Official product/card-data support only.",
+          "source_basis_id": "sultai_commander_source_basis_0002_gate3",
+          "evidence_use": "auxiliary_support"
         },
         "confidence": "High for product/card identity; support-only for recommendation texture.",
         "caution_notes": [

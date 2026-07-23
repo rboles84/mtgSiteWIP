@@ -21,7 +21,26 @@
         "SULTAI-EVID-036"
       ],
       "confidence": "High",
-      "notes": "Use for base Sultai Brood identity only. BGU and color-order permutations remain metadata/query-only and do not become runtime aliases, navigation keys, generated keys, fixture keys, lookup keys, or public labels."
+      "notes": "Use for base Sultai Brood identity only. BGU and color-order permutations remain metadata/query-only and do not become runtime aliases, navigation keys, generated keys, fixture keys, lookup keys, or public labels.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_sultai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Sultai Evidence Ledger; rows SULTAI-EVID-001, SULTAI-EVID-036",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0001 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_rosewater_sultai_whatever_it_takes",
+          "locator_type": "official_source_capture",
+          "locator": "Sultai: Whatever It Takes; bounded local capture for sultai_claim_0001",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0001 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "sultai_claim_0002",
@@ -37,7 +56,26 @@
         "SULTAI-EVID-002"
       ],
       "confidence": "High",
-      "notes": "This supports design-level ruthlessness language. It does not prove exact mechanics, Commander legality, card text, or detailed story biography."
+      "notes": "This supports design-level ruthlessness language. It does not prove exact mechanics, Commander legality, card text, or detailed story biography.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_sultai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Sultai Evidence Ledger; rows SULTAI-EVID-002",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0002 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_rosewater_sultai_whatever_it_takes",
+          "locator_type": "official_source_capture",
+          "locator": "Sultai: Whatever It Takes; bounded local capture for sultai_claim_0002",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0002 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "sultai_claim_0003",
@@ -53,7 +91,26 @@
         "SULTAI-EVID-003"
       ],
       "confidence": "High",
-      "notes": "Use as design and mechanical texture only. Exact delve, exploit, card text, card prevalence, and legality remain manual-review material."
+      "notes": "Use as design and mechanical texture only. Exact delve, exploit, card text, card prevalence, and legality remain manual-review material.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_sultai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Sultai Evidence Ledger; rows SULTAI-EVID-003",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0003 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_rosewater_sultai_whatever_it_takes",
+          "locator_type": "official_source_capture",
+          "locator": "Sultai: Whatever It Takes; bounded local capture for sultai_claim_0003",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0003 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "sultai_claim_0004",
@@ -69,7 +126,26 @@
         "SULTAI-EVID-004"
       ],
       "confidence": "High",
-      "notes": "Use for Khans-era clan floor only. Do not backfill modern Dragonstorm reforms into this identity."
+      "notes": "Use for Khans-era clan floor only. Do not backfill modern Dragonstorm reforms into this identity.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_sultai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Sultai Evidence Ledger; rows SULTAI-EVID-004",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0004 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_khans_pg_part_1",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Khans of Tarkir, Part 1; bounded local capture for sultai_claim_0004",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0004 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "sultai_claim_0005",
@@ -88,7 +164,26 @@
         "SULTAI-EVID-008"
       ],
       "confidence": "High",
-      "notes": "Use for Khans-era social, magical, and necromantic floor. Exact mechanic rules and card-level details remain deferred."
+      "notes": "Use for Khans-era social, magical, and necromantic floor. Exact mechanic rules and card-level details remain deferred.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_sultai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Sultai Evidence Ledger; rows SULTAI-EVID-005, SULTAI-EVID-006, SULTAI-EVID-007, SULTAI-EVID-008",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0005 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_khans_pg_part_1",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Khans of Tarkir, Part 1; bounded local capture for sultai_claim_0005",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0005 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "sultai_claim_0006",
@@ -105,7 +200,26 @@
         "SULTAI-EVID-010"
       ],
       "confidence": "High",
-      "notes": "Use as narrow guide-row support only. Full Sidisi biography and exact map details remain manual-review material."
+      "notes": "Use as narrow guide-row support only. Full Sidisi biography and exact map details remain manual-review material.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_sultai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Sultai Evidence Ledger; rows SULTAI-EVID-009, SULTAI-EVID-010",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0006 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_khans_pg_part_1",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Khans of Tarkir, Part 1; bounded local capture for sultai_claim_0006",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0006 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "sultai_claim_0007",
@@ -125,7 +239,34 @@
         "SULTAI-EVID-019"
       ],
       "confidence": "High",
-      "notes": "Use as transition context only. Tasigur's full biography, Shidiqi betrayal details, and Khanfall consequences remain manual-review material."
+      "notes": "Use as transition context only. Tasigur's full biography, Shidiqi betrayal details, and Khanfall consequences remain manual-review material.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_sultai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Sultai Evidence Ledger; rows SULTAI-EVID-011, SULTAI-EVID-012, SULTAI-EVID-013, SULTAI-EVID-019",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0007 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_fate_reforged_pg",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Fate Reforged; bounded local capture for sultai_claim_0007",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0007 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_story_khanfall",
+          "locator_type": "official_source_capture",
+          "locator": "Khanfall; bounded local capture for sultai_claim_0007",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0007 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "sultai_claim_0008",
@@ -148,7 +289,42 @@
         "SULTAI-EVID-019"
       ],
       "confidence": "High",
-      "notes": "Use Silumgar material as boundary and contrast only. Do not treat Silumgar clan as Sultai Brood continuity."
+      "notes": "Use Silumgar material as boundary and contrast only. Do not treat Silumgar clan as Sultai Brood continuity.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_sultai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Sultai Evidence Ledger; rows SULTAI-EVID-014, SULTAI-EVID-015, SULTAI-EVID-016, SULTAI-EVID-017, SULTAI-EVID-018, SULTAI-EVID-019",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0008 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_fate_reforged_pg",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Fate Reforged; bounded local capture for sultai_claim_0008",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0008 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragons_pg_part_1",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Dragons of Tarkir, Part 1; bounded local capture for sultai_claim_0008",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0008 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_story_khanfall",
+          "locator_type": "official_source_capture",
+          "locator": "Khanfall; bounded local capture for sultai_claim_0008",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0008 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "sultai_claim_0009",
@@ -174,7 +350,26 @@
         "SULTAI-EVID-030"
       ],
       "confidence": "High",
-      "notes": "Modern Dragonstorm-era only. Do not backfill modern reforms, honored-dead practice, governance, or dragonstorm details into Khans-era Sultai Brood."
+      "notes": "Modern Dragonstorm-era only. Do not backfill modern reforms, honored-dead practice, governance, or dragonstorm details into Khans-era Sultai Brood.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_sultai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Sultai Evidence Ledger; rows SULTAI-EVID-020, SULTAI-EVID-021, SULTAI-EVID-022, SULTAI-EVID-023, SULTAI-EVID-024, SULTAI-EVID-025, SULTAI-EVID-026, SULTAI-EVID-027, SULTAI-EVID-028, SULTAI-EVID-029, SULTAI-EVID-030",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0009 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragonstorm_pg_part_2",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Tarkir: Dragonstorm, Part 2; bounded local capture for sultai_claim_0009",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0009 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "sultai_claim_0010",
@@ -193,7 +388,18 @@
         "SULTAI-EVID-036"
       ],
       "confidence": "High",
-      "notes": "This is a false-positive and lifecycle guardrail. Commander/operator rows are excluded by source-role policy and are not cited as raw-claim evidence."
+      "notes": "This is a false-positive and lifecycle guardrail. Commander/operator rows are excluded by source-role policy and are not cited as raw-claim evidence.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_sultai_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Sultai Evidence Ledger; rows SULTAI-EVID-001, SULTAI-EVID-030, SULTAI-EVID-033, SULTAI-EVID-034, SULTAI-EVID-036",
+          "bounded_paraphrase": "Supports the bounded Sultai statement for sultai_claim_0010 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_sultai_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "sultai_claim_0011",
@@ -205,7 +411,8 @@
         "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
       ],
       "confidence": "High",
-      "notes": "Decklist support is product/navigation only. It is not Tarkir canon proof, popularity proof, metagame proof, legality proof, or placement evidence."
+      "notes": "Decklist support is product/navigation only. It is not Tarkir canon proof, popularity proof, metagame proof, legality proof, or placement evidence.",
+      "semantic_role": "support_record"
     }
   ],
   "claim_quality_summary": {

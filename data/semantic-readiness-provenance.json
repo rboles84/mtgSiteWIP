@@ -28736,6 +28736,179 @@
     {
       "identity_key": "SULTAI",
       "canonical_file": "data/raw-factions/sultai/sultai.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/0",
+      "canonical_id": "guidance_sultai_0001_gate3",
+      "canonical_content_hash": "sha256:74bc0495f4101a73fe0d8136aaf1912e5e1de26dd11a032affd8a8ee0a8ea555",
+      "evidence_claim_ids": [
+        "sultai_claim_0001",
+        "sultai_claim_0002",
+        "sultai_claim_0003",
+        "sultai_claim_0004",
+        "sultai_claim_0005",
+        "sultai_claim_0006",
+        "sultai_claim_0008",
+        "sultai_claim_0009",
+        "sultai_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_dragonstorm_pg_part_2",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_khans_pg_part_1",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SULTAI",
+        "data/placement-model.json#/factions/SULTAI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SULTAI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SULTAI",
+      "canonical_file": "data/raw-factions/sultai/sultai.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/1",
+      "canonical_id": "guidance_sultai_0002_gate3",
+      "canonical_content_hash": "sha256:69aabd8f1c3a0ffd7cd4105a444f20bc149e2d4e6e485337944aa0a4b29d1042",
+      "evidence_claim_ids": [
+        "sultai_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SULTAI",
+        "data/placement-model.json#/factions/SULTAI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SULTAI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SULTAI",
+      "canonical_file": "data/raw-factions/sultai/sultai.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_match/2",
+      "canonical_id": "guidance_sultai_0003_gate3",
+      "canonical_content_hash": "sha256:257f09179adf0f0df152ecc863994ef15ed24f9d4b740758d9e55ce40da184f5",
+      "evidence_claim_ids": [
+        "sultai_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SULTAI",
+        "data/placement-model.json#/factions/SULTAI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SULTAI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SULTAI",
+      "canonical_file": "data/raw-factions/sultai/sultai.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "guidance_sultai_0004_gate3",
+      "canonical_content_hash": "sha256:9885fe1b05c14dc724edb9f21388dc18f9dc143d91ec94b2364b6ddbc3e8773e",
+      "evidence_claim_ids": [
+        "sultai_claim_0001",
+        "sultai_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SULTAI",
+        "data/placement-model.json#/factions/SULTAI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SULTAI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SULTAI",
+      "canonical_file": "data/raw-factions/sultai/sultai.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "guidance_sultai_0005_gate3",
+      "canonical_content_hash": "sha256:90b1452403a663543a3148943198ad81e8c2f8e64014514172b6fbf7674d5d57",
+      "evidence_claim_ids": [
+        "sultai_claim_0003",
+        "sultai_claim_0005",
+        "sultai_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SULTAI",
+        "data/placement-model.json#/factions/SULTAI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SULTAI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SULTAI",
+      "canonical_file": "data/raw-factions/sultai/sultai.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "guidance_sultai_0006_gate3",
+      "canonical_content_hash": "sha256:a0ff84a48464229835c62567953a6293c7de59576323bdaddc043b150f5c217b",
+      "evidence_claim_ids": [
+        "sultai_claim_0008",
+        "sultai_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SULTAI",
+        "data/placement-model.json#/factions/SULTAI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SULTAI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SULTAI",
+      "canonical_file": "data/raw-factions/sultai/sultai.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "guidance_sultai_0007_gate3",
+      "canonical_content_hash": "sha256:648f13087f66f3eb2e908981fccfb68559254d2dce3dc184916d1dcf48579991",
+      "evidence_claim_ids": [
+        "sultai_claim_0009",
+        "sultai_claim_0010"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SULTAI",
+        "data/placement-model.json#/factions/SULTAI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SULTAI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SULTAI",
+      "canonical_file": "data/raw-factions/sultai/sultai.placement.json",
       "canonical_pointer": "/collision_guidance/0",
       "canonical_id": "collision_sultai_abzan_live",
       "canonical_content_hash": "sha256:42724cd583d6794b8b4e1d11b7b2bbea15fb0539ee444347f8c6d62f71e77d1e",
@@ -28945,8 +29118,8 @@
       "identity_key": "SULTAI",
       "canonical_file": "data/raw-factions/sultai/sultai.placement.json",
       "canonical_pointer": "/moral_and_psychological_profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:5089bed3dd436302905f0593b9324489827c97b1557ca97d56601ebeb40cfdde",
+      "canonical_id": "sultai_moral_and_psychological_profile_gate3",
+      "canonical_content_hash": "sha256:0ad76399677bd053a206a06db57d2a7c49048b7d3a35cdf0d78b27f851350c37",
       "evidence_claim_ids": [
         "sultai_claim_0001",
         "sultai_claim_0002",
@@ -28969,13 +29142,173 @@
     },
     {
       "identity_key": "SULTAI",
+      "canonical_file": "data/raw-factions/sultai/sultai.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "guidance_sultai_0001_gate3",
+      "canonical_content_hash": "sha256:5f7b1ef93a1413e823c0d53611f62ea57607ece51f191914d8b92bee618c81f6",
+      "evidence_claim_ids": [
+        "sultai_claim_0001",
+        "sultai_claim_0002",
+        "sultai_claim_0003",
+        "sultai_claim_0004",
+        "sultai_claim_0005",
+        "sultai_claim_0006",
+        "sultai_claim_0008",
+        "sultai_claim_0009",
+        "sultai_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_dragonstorm_pg_part_2",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_khans_pg_part_1",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SULTAI",
+        "data/placement-model.json#/factions/SULTAI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SULTAI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SULTAI",
+      "canonical_file": "data/raw-factions/sultai/sultai.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "guidance_sultai_0002_gate3",
+      "canonical_content_hash": "sha256:2237ac64143d5b240c747d700df6237891a44b2d9278290ccd3c727b05c3b4f0",
+      "evidence_claim_ids": [
+        "sultai_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SULTAI",
+        "data/placement-model.json#/factions/SULTAI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SULTAI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SULTAI",
+      "canonical_file": "data/raw-factions/sultai/sultai.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "guidance_sultai_0003_gate3",
+      "canonical_content_hash": "sha256:e4d79b3f7764a9549020c0d20c42e880878fc07673ebc64ce42937522c1e6d4d",
+      "evidence_claim_ids": [
+        "sultai_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SULTAI",
+        "data/placement-model.json#/factions/SULTAI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SULTAI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SULTAI",
+      "canonical_file": "data/raw-factions/sultai/sultai.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "guidance_sultai_0004_gate3",
+      "canonical_content_hash": "sha256:d9c1516fc2b6f40e55460ca9111479e78ce383162e82688a94a031d77543a57d",
+      "evidence_claim_ids": [
+        "sultai_claim_0001",
+        "sultai_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SULTAI",
+        "data/placement-model.json#/factions/SULTAI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SULTAI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SULTAI",
+      "canonical_file": "data/raw-factions/sultai/sultai.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "guidance_sultai_0005_gate3",
+      "canonical_content_hash": "sha256:5260a632829f67dc701db239c19b6de10db9e01bab81bb72ccd10c94c30d8409",
+      "evidence_claim_ids": [
+        "sultai_claim_0003",
+        "sultai_claim_0005",
+        "sultai_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes",
+        "src_wotc_tarkir_khans_pg_part_1"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SULTAI",
+        "data/placement-model.json#/factions/SULTAI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SULTAI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SULTAI",
+      "canonical_file": "data/raw-factions/sultai/sultai.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": "guidance_sultai_0006_gate3",
+      "canonical_content_hash": "sha256:dab1807ce43c005b352b83321e2aaee00c538cfffa1482d51a49dfe759db7c81",
+      "evidence_claim_ids": [
+        "sultai_claim_0008",
+        "sultai_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragons_pg_part_1",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_story_khanfall"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SULTAI",
+        "data/placement-model.json#/factions/SULTAI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SULTAI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SULTAI",
+      "canonical_file": "data/raw-factions/sultai/sultai.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": "guidance_sultai_0007_gate3",
+      "canonical_content_hash": "sha256:dce16dd869bbc1b04ce7664d575c23cfd05a197f6bbd3e87d70b99278d37914f",
+      "evidence_claim_ids": [
+        "sultai_claim_0009",
+        "sultai_claim_0010"
+      ],
+      "evidence_source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/SULTAI",
+        "data/placement-model.json#/factions/SULTAI",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/SULTAI"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "SULTAI",
       "canonical_file": "data/raw-factions/sultai/sultai.profile.json",
       "canonical_pointer": "/commander_compass/native_fit_commanders/0/source_basis",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:23dcdd1dcd76b0d725403c9b2f43277572dca6d26f513f84db6e79e408faf0af",
+      "canonical_id": "sultai_commander_source_basis_0001_gate3",
+      "canonical_content_hash": "sha256:49fd5f458682ba48a92fb752366834e850adbbb9e2443563ea5504200d96041b",
       "evidence_claim_ids": [
         "sultai_claim_0011"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
       ],
@@ -28990,11 +29323,12 @@
       "identity_key": "SULTAI",
       "canonical_file": "data/raw-factions/sultai/sultai.profile.json",
       "canonical_pointer": "/commander_compass/native_fit_commanders/1/source_basis",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:23dcdd1dcd76b0d725403c9b2f43277572dca6d26f513f84db6e79e408faf0af",
+      "canonical_id": "sultai_commander_source_basis_0002_gate3",
+      "canonical_content_hash": "sha256:2418b65d835255e075a6eb41b288d8374f70c65bd72004422bcb571e378e505c",
       "evidence_claim_ids": [
         "sultai_claim_0011"
       ],
+      "evidence_use": "auxiliary_support",
       "evidence_source_ids": [
         "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
       ],
@@ -29009,8 +29343,8 @@
       "identity_key": "SULTAI",
       "canonical_file": "data/raw-factions/sultai/sultai.profile.json",
       "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:0d430a7360c757c2620d23399613e7ff965845395398a7cc229751e4553275c1",
+      "canonical_id": "sultai_core_identity_gate3",
+      "canonical_content_hash": "sha256:9ef122dbf12c989e0edfd36609df8475ea8bf73e406c70e63af47acda3bc76ec",
       "evidence_claim_ids": [
         "sultai_claim_0001",
         "sultai_claim_0002",
@@ -29039,8 +29373,8 @@
       "identity_key": "SULTAI",
       "canonical_file": "data/raw-factions/sultai/sultai.profile.json",
       "canonical_pointer": "/data_quality",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:4f28e06632404ea44ff98281bf6781ff1d99ebd2382038e46da7e5a1382bef8d",
+      "canonical_id": "sultai_data_quality_gate3",
+      "canonical_content_hash": "sha256:8e6222476c583a5cd2973bf4db243a85a8f9108701e5d77fa0f00ca7333e785b",
       "evidence_claim_ids": [
         "sultai_claim_0001",
         "sultai_claim_0002",
@@ -29073,8 +29407,8 @@
       "identity_key": "SULTAI",
       "canonical_file": "data/raw-factions/sultai/sultai.profile.json",
       "canonical_pointer": "/great_tension",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:e4db995d3b6bc7ec0a223ed171c9449335363cafbb9540d6a2e0ae4ebc948830",
+      "canonical_id": "sultai_great_tension_gate3",
+      "canonical_content_hash": "sha256:758d11b1fe623873d822116e8dbd0e7235a71ec60a0b9281f425a5ba966e9b35",
       "evidence_claim_ids": [
         "sultai_claim_0002",
         "sultai_claim_0003",
@@ -29169,8 +29503,8 @@
       "identity_key": "SULTAI",
       "canonical_file": "data/raw-factions/sultai/sultai.profile.json",
       "canonical_pointer": "/key_figures/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:70f09e853a9ddadc0409433f3311e37b18c339e791afaddbd4a040f0523fc00f",
+      "canonical_id": "sultai_key_figure_0001_gate3",
+      "canonical_content_hash": "sha256:c2e8aad8c4c7dab61a5d19b587564cfa74ef4e302ab5af2dde9c9dda6fc7b64a",
       "evidence_claim_ids": [
         "sultai_claim_0006"
       ],
@@ -29189,8 +29523,8 @@
       "identity_key": "SULTAI",
       "canonical_file": "data/raw-factions/sultai/sultai.profile.json",
       "canonical_pointer": "/key_figures/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:1eb49e8035bb168fad2c09218e249fa7446d5cb3dc8cc9e5ad48b1b19b9babed",
+      "canonical_id": "sultai_key_figure_0002_gate3",
+      "canonical_content_hash": "sha256:82424f91917982113a38c8f66c8567ab0a8876acd7ea65b5d56882b4392d5679",
       "evidence_claim_ids": [
         "sultai_claim_0007"
       ],
@@ -29210,8 +29544,8 @@
       "identity_key": "SULTAI",
       "canonical_file": "data/raw-factions/sultai/sultai.profile.json",
       "canonical_pointer": "/key_figures/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:27c351e27d5eb3fd3c22444462d87221e5ed125bee13b14cbdec35f96817c5d4",
+      "canonical_id": "sultai_key_figure_0003_gate3",
+      "canonical_content_hash": "sha256:e7bf334cb8af2644a3eebc6549ce825444010f3d92ed4870e815f372eed8ffb4",
       "evidence_claim_ids": [
         "sultai_claim_0009"
       ],
@@ -29230,8 +29564,8 @@
       "identity_key": "SULTAI",
       "canonical_file": "data/raw-factions/sultai/sultai.profile.json",
       "canonical_pointer": "/key_figures/3",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:2a91d63f808f67df5de278b13997f529268343fd75711b487f85010f4cf1a037",
+      "canonical_id": "sultai_key_figure_0004_gate3",
+      "canonical_content_hash": "sha256:777edbf28272e126436971ca9161e399f08af220065760314009835b942fe7e6",
       "evidence_claim_ids": [
         "sultai_claim_0009"
       ],
@@ -29250,8 +29584,8 @@
       "identity_key": "SULTAI",
       "canonical_file": "data/raw-factions/sultai/sultai.profile.json",
       "canonical_pointer": "/key_figures/4",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:98a857d039ff8a0e7c2d5a797eff611af0a0cca20bafa0841e526b158f1da272",
+      "canonical_id": "sultai_key_figure_0005_gate3",
+      "canonical_content_hash": "sha256:b77eafebb69bc0ecbb4f32aecc127d0eadda0c7dcb806789fc421fd36c3df04c",
       "evidence_claim_ids": [
         "sultai_claim_0005",
         "sultai_claim_0009"
@@ -29272,8 +29606,8 @@
       "identity_key": "SULTAI",
       "canonical_file": "data/raw-factions/sultai/sultai.profile.json",
       "canonical_pointer": "/site_surface",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:099ac15fe0527c13ee7f84a2698bafb311d4af78ccae5f9247ab97245d74918a",
+      "canonical_id": "sultai_site_surface_gate3",
+      "canonical_content_hash": "sha256:36daec80525a9c0b4d18d989156a987c0ec5b18946c58e704d2238eee27ca0c6",
       "evidence_claim_ids": [
         "sultai_claim_0001",
         "sultai_claim_0002",
@@ -29306,8 +29640,8 @@
       "identity_key": "SULTAI",
       "canonical_file": "data/raw-factions/sultai/sultai.profile.json",
       "canonical_pointer": "/structure",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:16b9a10d0f56237653d6ffeffb1658eaf9f3eeee5714ec94ef5a3cfbec09f0dc",
+      "canonical_id": "sultai_structure_gate3",
+      "canonical_content_hash": "sha256:406deeeade835cd7fb75090507f3d1f7f49d512da42e13c841edcc9fa5222a86",
       "evidence_claim_ids": [
         "sultai_claim_0001",
         "sultai_claim_0002",
@@ -29340,8 +29674,8 @@
       "identity_key": "SULTAI",
       "canonical_file": "data/raw-factions/sultai/sultai.profile.json",
       "canonical_pointer": "/views_on_other_factions/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:6a09f521d39c3074bd07f56acf2704acb65b3386ab3de2e55a8b96b441de57dc",
+      "canonical_id": "sultai_relationship_0001_gate3",
+      "canonical_content_hash": "sha256:5b178c815765ccf4d62e7b8c84238a8e66b809d12796f29f5191293dac3314cb",
       "evidence_claim_ids": [
         "sultai_claim_0008",
         "sultai_claim_0010"
@@ -29363,8 +29697,8 @@
       "identity_key": "SULTAI",
       "canonical_file": "data/raw-factions/sultai/sultai.profile.json",
       "canonical_pointer": "/views_on_other_factions/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:787026f7df10bf945c92ff1d25e17e386d15da01cc6a30962b3e9eb946694d7a",
+      "canonical_id": "sultai_relationship_0002_gate3",
+      "canonical_content_hash": "sha256:54c61708f06d72c681bd8eb9e2f30f3b9217c701f5793c853f4b231ab361b4c0",
       "evidence_claim_ids": [
         "sultai_claim_0001",
         "sultai_claim_0002",

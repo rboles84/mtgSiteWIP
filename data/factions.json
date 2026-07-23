@@ -16270,7 +16270,8 @@
             "source_ids": [
               "src_wotc_tarkir_khans_pg_part_1"
             ],
-            "limitations": "Keep to the captured guide-row floor; full Sidisi biography, later timeline forms, exact card facts, and card text remain deferred."
+            "limitations": "Keep to the captured guide-row floor; full Sidisi biography, later timeline forms, exact card facts, and card text remain deferred.",
+            "figure_id": "sultai_key_figure_0001_gate3"
           },
           {
             "name": "Tasigur",
@@ -16287,7 +16288,8 @@
               "src_wotc_tarkir_fate_reforged_pg",
               "src_wotc_tarkir_story_khanfall"
             ],
-            "limitations": "Use as transition-boundary evidence only; full biography, Shidiqi betrayal detail, Commander reputation, exact card facts, and card text remain deferred."
+            "limitations": "Use as transition-boundary evidence only; full biography, Shidiqi betrayal detail, Commander reputation, exact card facts, and card text remain deferred.",
+            "figure_id": "sultai_key_figure_0002_gate3"
           },
           {
             "name": "The Fangkeeper",
@@ -16302,7 +16304,8 @@
             "source_ids": [
               "src_wotc_tarkir_dragonstorm_pg_part_2"
             ],
-            "limitations": "Treat as an institutional office, not a fully biographied individual; Fangkeeper specifics remain manual-fill material."
+            "limitations": "Treat as an institutional office, not a fully biographied individual; Fangkeeper specifics remain manual-fill material.",
+            "figure_id": "sultai_key_figure_0003_gate3"
           },
           {
             "name": "The Lasyd",
@@ -16317,7 +16320,8 @@
             "source_ids": [
               "src_wotc_tarkir_dragonstorm_pg_part_2"
             ],
-            "limitations": "Treat as an institutional anchor; individual Lasyd leaders and biographies remain manual-fill material."
+            "limitations": "Treat as an institutional anchor; individual Lasyd leaders and biographies remain manual-fill material.",
+            "figure_id": "sultai_key_figure_0004_gate3"
           },
           {
             "name": "Sibsig and honored dead",
@@ -16335,7 +16339,8 @@
               "src_wotc_tarkir_khans_pg_part_1",
               "src_wotc_tarkir_dragonstorm_pg_part_2"
             ],
-            "limitations": "Do not collapse Khans-era undead labor into modern honored-dead practice or backfill modern reforms into Sidisi-era Sultai."
+            "limitations": "Do not collapse Khans-era undead labor into modern honored-dead practice or backfill modern reforms into Sidisi-era Sultai.",
+            "figure_id": "sultai_key_figure_0005_gate3"
           }
         ],
         "canonical_flavor_text": [],
@@ -16349,7 +16354,8 @@
               "sultai_claim_0010"
             ],
             "confidence": "High",
-            "notes": "Not story-world diplomacy."
+            "notes": "Not story-world diplomacy.",
+            "relationship_id": "sultai_relationship_0001_gate3"
           },
           {
             "faction": "Abzan / Temur / Jeskai / Mardu / Dimir / Golgari / Simic",
@@ -16362,7 +16368,8 @@
               "sultai_claim_0010"
             ],
             "confidence": "Medium",
-            "notes": "Not story-world diplomacy and not raw claim evidence about the comparator factions."
+            "notes": "Not story-world diplomacy and not raw claim evidence about the comparator factions.",
+            "relationship_id": "sultai_relationship_0002_gate3"
           }
         ],
         "search_and_filter_metadata": {
@@ -16524,7 +16531,9 @@
                 "sultai_claim_0011"
               ],
               "support_only": true,
-              "boundary": "Official product/card-data support only."
+              "boundary": "Official product/card-data support only.",
+              "source_basis_id": "sultai_commander_source_basis_0001_gate3",
+              "evidence_use": "auxiliary_support"
             },
             "confidence": "High for product/card identity; support-only for recommendation texture.",
             "caution_notes": [
@@ -16567,7 +16576,9 @@
                 "sultai_claim_0011"
               ],
               "support_only": true,
-              "boundary": "Official product/card-data support only."
+              "boundary": "Official product/card-data support only.",
+              "source_basis_id": "sultai_commander_source_basis_0002_gate3",
+              "evidence_use": "auxiliary_support"
             },
             "confidence": "High for product/card identity; support-only for recommendation texture.",
             "caution_notes": [
