@@ -1,0 +1,575 @@
+{
+  "identity_key": "MARDU",
+  "raw_id": "mardu",
+  "contract_version": "v1.1",
+  "generated_by": "VM-530 Gate 3/4 Mardu semantic remediation",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "mardu_core_speed_war_code",
+      "fixture_type": "core_inclusion",
+      "prompt": "A user wants a commander identity about acting before the opening closes, with speed shaped by martial code, earned names, and Red-centered total commitment.",
+      "scenario": "A user wants a commander identity about acting before the opening closes, with speed shaped by martial code, earned names, and Red-centered total commitment.",
+      "expected": "MARDU_INCLUDE",
+      "evidence_claim_ids": [
+        "mardu_claim_0001",
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0004",
+        "mardu_claim_0010"
+      ],
+      "boundary": "Mardu inclusion requires source-bound Mardu Horde identity, Red-centered speed, Khans-era war code, and metadata boundary evidence.",
+      "evidence_source_ids": [
+        "src_vm228_mardu_runtime_promotion_20260531",
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ]
+    },
+    {
+      "fixture_id": "mardu_pressure_timeline_boundaries",
+      "fixture_type": "mature_or_pressure_behavior",
+      "prompt": "The prompt values decisive pressure, Alesha bridge context, Kolaghan separation, and modern Dragonstorm material only when every era is clearly labeled.",
+      "scenario": "The prompt values decisive pressure, Alesha bridge context, Kolaghan separation, and modern Dragonstorm material only when every era is clearly labeled.",
+      "expected": "MARDU_INCLUDE_WITH_PRESSURE_BOUNDARY",
+      "evidence_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0005",
+        "mardu_claim_0006",
+        "mardu_claim_0007",
+        "mardu_claim_0008",
+        "mardu_claim_0010"
+      ],
+      "boundary": "Pressure supports Mardu only when it stays tied to source-bound Mardu evidence and anti-backfill boundaries.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_dragons_pg_part_2",
+        "src_wotc_tarkir_dragonstorm_pg_part_2",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_khans_pg_part_2",
+        "src_wotc_tarkir_story_khanfall",
+        "src_wotc_tarkir_story_truth_of_names"
+      ]
+    },
+    {
+      "fixture_id": "mardu_nearest_jeskai_abzan_sultai_temur",
+      "fixture_type": "nearest_collision_ambiguity",
+      "prompt": "The prompt mentions discipline, endurance, resource conversion, and survival, but the decisive signal is taking the war-bound opening before hesitation can answer.",
+      "scenario": "The prompt mentions discipline, endurance, resource conversion, and survival, but the decisive signal is taking the war-bound opening before hesitation can answer.",
+      "expected": "MARDU_INCLUDE_WITH_COLLISION_BOUNDARY",
+      "evidence_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0005",
+        "mardu_claim_0010"
+      ],
+      "boundary": "Adjacent shard language cannot replace Mardu unless Red-centered speed, code, and Mardu evidence remain primary.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_fate_reforged_pg",
+        "src_wotc_tarkir_khans_pg_part_2",
+        "src_wotc_tarkir_story_khanfall",
+        "src_wotc_tarkir_story_truth_of_names"
+      ]
+    },
+    {
+      "fixture_id": "mardu_neighbor_wr",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is Boros-like Red-White combat, courage, or protection without Black opportunity and Mardu Horde evidence.",
+      "scenario": "The input is Boros-like Red-White combat, courage, or protection without Black opportunity and Mardu Horde evidence.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0001",
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0010"
+      ],
+      "boundary": "WR cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm228_mardu_runtime_promotion_20260531",
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "neighbor": "WR"
+    },
+    {
+      "fixture_id": "mardu_neighbor_wb",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is White-Black obligation, hierarchy, debt, or order without Red speed and Mardu raid momentum.",
+      "scenario": "The input is White-Black obligation, hierarchy, debt, or order without Red speed and Mardu raid momentum.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0001",
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0010"
+      ],
+      "boundary": "WB cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm228_mardu_runtime_promotion_20260531",
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "neighbor": "WB"
+    },
+    {
+      "fixture_id": "mardu_neighbor_br",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is Red-Black appetite, spectacle, or impulse without White code, formation, and war-name discipline.",
+      "scenario": "The input is Red-Black appetite, spectacle, or impulse without White code, formation, and war-name discipline.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0001",
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0010"
+      ],
+      "boundary": "BR cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm228_mardu_runtime_promotion_20260531",
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "neighbor": "BR"
+    },
+    {
+      "fixture_id": "mardu_neighbor_boros",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is civic protection and battlefield righteousness rather than Mardu speed under a Horde war code.",
+      "scenario": "The fantasy is civic protection and battlefield righteousness rather than Mardu speed under a Horde war code.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0010"
+      ],
+      "boundary": "BOROS cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "neighbor": "BOROS"
+    },
+    {
+      "fixture_id": "mardu_neighbor_orzhov",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is institutional hierarchy, obligation, and debt rather than Red-centered decisive action.",
+      "scenario": "The fantasy is institutional hierarchy, obligation, and debt rather than Red-centered decisive action.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0010"
+      ],
+      "boundary": "ORZHOV cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "neighbor": "ORZHOV"
+    },
+    {
+      "fixture_id": "mardu_neighbor_rakdos",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is appetite, spectacle, or destructive revelry rather than Mardu commitment under Edicts and formation.",
+      "scenario": "The fantasy is appetite, spectacle, or destructive revelry rather than Mardu commitment under Edicts and formation.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0010"
+      ],
+      "boundary": "RAKDOS cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "neighbor": "RAKDOS"
+    },
+    {
+      "fixture_id": "mardu_neighbor_abzan",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy preserves endurance, family continuity, and patient survival instead of striking before the field closes.",
+      "scenario": "The fantasy preserves endurance, family continuity, and patient survival instead of striking before the field closes.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0010"
+      ],
+      "boundary": "ABZAN cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "neighbor": "ABZAN"
+    },
+    {
+      "fixture_id": "mardu_neighbor_jeskai",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is monastery discipline, careful technique, and institutional insight rather than immediate war-bound action.",
+      "scenario": "The fantasy is monastery discipline, careful technique, and institutional insight rather than immediate war-bound action.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0010"
+      ],
+      "boundary": "JESKAI cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "neighbor": "JESKAI"
+    },
+    {
+      "fixture_id": "mardu_neighbor_sultai",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy turns bodies, secrets, and costs into hidden advantage rather than public speed, code, and raid momentum.",
+      "scenario": "The fantasy turns bodies, secrets, and costs into hidden advantage rather than public speed, code, and raid momentum.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0010"
+      ],
+      "boundary": "SULTAI cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "neighbor": "SULTAI"
+    },
+    {
+      "fixture_id": "mardu_neighbor_temur",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy listens to terrain, instinct, and living-world memory instead of charging through a martial opening.",
+      "scenario": "The fantasy listens to terrain, instinct, and living-world memory instead of charging through a martial opening.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0010"
+      ],
+      "boundary": "TEMUR cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "neighbor": "TEMUR"
+    },
+    {
+      "fixture_id": "mardu_neighbor_naya",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is creature-community momentum and celebratory life force without Mardu war-name code or Black opportunity.",
+      "scenario": "The fantasy is creature-community momentum and celebratory life force without Mardu war-name code or Black opportunity.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0010"
+      ],
+      "boundary": "NAYA cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "neighbor": "NAYA"
+    },
+    {
+      "fixture_id": "mardu_neighbor_jund",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The fantasy is appetite, predation, and survival pressure without Mardu formation, Edicts, or earned names.",
+      "scenario": "The fantasy is appetite, predation, and survival pressure without Mardu formation, Edicts, or earned names.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0010"
+      ],
+      "boundary": "JUND cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "neighbor": "JUND"
+    },
+    {
+      "fixture_id": "mardu_neighbor_generic_rwb",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is only Red-White-Black color composition without positive Mardu Horde evidence.",
+      "scenario": "The input is only Red-White-Black color composition without positive Mardu Horde evidence.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0001",
+        "mardu_claim_0010"
+      ],
+      "boundary": "GENERIC_RWB cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm228_mardu_runtime_promotion_20260531",
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first"
+      ],
+      "neighbor": "GENERIC_RWB"
+    },
+    {
+      "fixture_id": "mardu_neighbor_generic_wbr",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is only White-Black-Red color composition without positive Mardu Horde evidence.",
+      "scenario": "The input is only White-Black-Red color composition without positive Mardu Horde evidence.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0001",
+        "mardu_claim_0010"
+      ],
+      "boundary": "GENERIC_WBR cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm228_mardu_runtime_promotion_20260531",
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first"
+      ],
+      "neighbor": "GENERIC_WBR"
+    },
+    {
+      "fixture_id": "mardu_neighbor_generic_aggro",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is generic aggression or early pressure without Mardu speed-as-doctrine and Tarkir Horde anchors.",
+      "scenario": "The input is generic aggression or early pressure without Mardu speed-as-doctrine and Tarkir Horde anchors.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0010"
+      ],
+      "boundary": "GENERIC_AGGRO cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "neighbor": "GENERIC_AGGRO"
+    },
+    {
+      "fixture_id": "mardu_neighbor_generic_combat",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is generic combat or attacking without Mardu Edicts, war names, or Horde evidence.",
+      "scenario": "The input is generic combat or attacking without Mardu Edicts, war names, or Horde evidence.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0003",
+        "mardu_claim_0010"
+      ],
+      "boundary": "GENERIC_COMBAT cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "neighbor": "GENERIC_COMBAT"
+    },
+    {
+      "fixture_id": "mardu_neighbor_generic_sacrifice",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is generic sacrifice or aristocrats value without Mardu speed, code, and positive source evidence.",
+      "scenario": "The input is generic sacrifice or aristocrats value without Mardu speed, code, and positive source evidence.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0009",
+        "mardu_claim_0010"
+      ],
+      "boundary": "GENERIC_SACRIFICE cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first"
+      ],
+      "neighbor": "GENERIC_SACRIFICE"
+    },
+    {
+      "fixture_id": "mardu_neighbor_generic_tokens",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is generic token pressure without Mardu Horde evidence and timeline boundaries.",
+      "scenario": "The input is generic token pressure without Mardu Horde evidence and timeline boundaries.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0009",
+        "mardu_claim_0010"
+      ],
+      "boundary": "GENERIC_TOKENS cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first"
+      ],
+      "neighbor": "GENERIC_TOKENS"
+    },
+    {
+      "fixture_id": "mardu_neighbor_generic_aristocrats",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is generic aristocrats play without a Mardu evidence cluster and strict Commander/support boundary.",
+      "scenario": "The input is generic aristocrats play without a Mardu evidence cluster and strict Commander/support boundary.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0009",
+        "mardu_claim_0010"
+      ],
+      "boundary": "GENERIC_ARISTOCRATS cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first"
+      ],
+      "neighbor": "GENERIC_ARISTOCRATS"
+    },
+    {
+      "fixture_id": "mardu_neighbor_generic_reanimator",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is generic reanimator or recursion without Mardu source rows, era labels, and support isolation.",
+      "scenario": "The input is generic reanimator or recursion without Mardu source rows, era labels, and support isolation.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0009",
+        "mardu_claim_0010"
+      ],
+      "boundary": "GENERIC_REANIMATOR cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first"
+      ],
+      "neighbor": "GENERIC_REANIMATOR"
+    },
+    {
+      "fixture_id": "mardu_neighbor_generic_commander",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input is Commander texture, deck identity, or recommendation language without Tarkir Mardu canon evidence.",
+      "scenario": "The input is Commander texture, deck identity, or recommendation language without Tarkir Mardu canon evidence.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0010"
+      ],
+      "boundary": "GENERIC_COMMANDER cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531"
+      ],
+      "neighbor": "GENERIC_COMMANDER"
+    },
+    {
+      "fixture_id": "mardu_neighbor_kolaghan_clan",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input treats Kolaghan clan as Khans-era Mardu continuity rather than a Dragons-era boundary.",
+      "scenario": "The input treats Kolaghan clan as Khans-era Mardu continuity rather than a Dragons-era boundary.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0006",
+        "mardu_claim_0010"
+      ],
+      "boundary": "KOLAGHAN_CLAN cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragons_pg_part_2"
+      ],
+      "neighbor": "KOLAGHAN_CLAN"
+    },
+    {
+      "fixture_id": "mardu_neighbor_dragonstorm_backfill",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input backfills modern Dragonstorm-era governance, law, magic, or geography into Khans-era Mardu Horde proof.",
+      "scenario": "The input backfills modern Dragonstorm-era governance, law, magic, or geography into Khans-era Mardu Horde proof.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0007",
+        "mardu_claim_0008",
+        "mardu_claim_0010"
+      ],
+      "boundary": "DRAGONSTORM_BACKFILL cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_tarkir_dragonstorm_pg_part_2"
+      ],
+      "neighbor": "DRAGONSTORM_BACKFILL"
+    },
+    {
+      "fixture_id": "mardu_neighbor_commander_product",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input treats Mardu Surge product rows as Tarkir canon, popularity, metagame, legality, or placement proof.",
+      "scenario": "The input treats Mardu Surge product rows as Tarkir canon, popularity, metagame, legality, or placement proof.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0010"
+      ],
+      "boundary": "COMMANDER_PRODUCT cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531"
+      ],
+      "neighbor": "COMMANDER_PRODUCT"
+    },
+    {
+      "fixture_id": "mardu_neighbor_seed_file",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input relies on seed-file language rather than approved Mardu evidence rows.",
+      "scenario": "The input relies on seed-file language rather than approved Mardu evidence rows.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0009",
+        "mardu_claim_0010"
+      ],
+      "boundary": "SEED_FILE cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531"
+      ],
+      "neighbor": "SEED_FILE"
+    },
+    {
+      "fixture_id": "mardu_neighbor_color_philosophy",
+      "fixture_type": "required_neighbor_exclusion",
+      "prompt": "The input uses color-pair philosophy as Tarkir lore, clan chronology, figure, event, or mechanics proof.",
+      "scenario": "The input uses color-pair philosophy as Tarkir lore, clan chronology, figure, event, or mechanics proof.",
+      "expected": "MARDU_EXCLUDE_OR_LOW_CONFIDENCE",
+      "evidence_claim_ids": [
+        "mardu_claim_0009",
+        "mardu_claim_0010"
+      ],
+      "boundary": "COLOR_PHILOSOPHY cannot substitute for positive, source-bound Mardu evidence.",
+      "evidence_source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531"
+      ],
+      "neighbor": "COLOR_PHILOSOPHY"
+    },
+    {
+      "fixture_id": "mardu_provenance_core_identity",
+      "fixture_type": "provenance",
+      "expected": "MARDU_PROVENANCE_PRESENT",
+      "canonical_file": "data/raw-factions/mardu/mardu.profile.json",
+      "canonical_pointer": "/core_identity",
+      "evidence_claim_ids": [
+        "mardu_claim_0001",
+        "mardu_claim_0002",
+        "mardu_claim_0003"
+      ],
+      "evidence_source_ids": [
+        "src_vm228_mardu_runtime_promotion_20260531",
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "boundary": "Generated provenance for Mardu core identity must preserve the exact substantive claim/source chain."
+    }
+  ]
+}

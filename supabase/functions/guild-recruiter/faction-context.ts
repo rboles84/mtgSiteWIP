@@ -3796,7 +3796,8 @@ export const FACTION_CONTEXT = {
         "mardu_claim_0002",
         "mardu_claim_0009",
         "mardu_claim_0010"
-      ]
+      ],
+      "guidance_id": "mardu_chatbot_guidance_gate3"
     },
     "canon_guardrails": {
       "never_claim_as_canon": [

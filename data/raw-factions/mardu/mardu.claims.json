@@ -22,7 +22,34 @@
         "MARDU-EVID-032"
       ],
       "confidence": "High",
-      "notes": "VM-299 updates the lifecycle sentence after VM-228 while preserving the evidence floor and color-code boundary. Use for base Mardu Horde identity only. RWB and WBR remain metadata/query-only and are not aliases, navigation keys, generated keys, fixture keys, lookup keys, or public labels."
+      "notes": "VM-299 updates the lifecycle sentence after VM-228 while preserving the evidence floor and color-code boundary. Use for base Mardu Horde identity only. RWB and WBR remain metadata/query-only and are not aliases, navigation keys, generated keys, fixture keys, lookup keys, or public labels.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_mardu_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Mardu Evidence Ledger; rows MARDU-EVID-001, MARDU-EVID-032",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0001 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_rosewater_mardu_finishing_first",
+          "locator_type": "official_source_capture",
+          "locator": "Mardu: Finishing First; bounded local capture for mardu_claim_0001",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0001 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_vm228_mardu_runtime_promotion_20260531",
+          "locator_type": "project_lifecycle_decision",
+          "locator": "VM-228 controlled runtime promotion; lifecycle/key boundary for mardu_claim_0001",
+          "bounded_paraphrase": "Supports only the project lifecycle and generated-key boundary; it is not Mardu lore, card, Commander, or public-alias evidence.",
+          "evidence_scope": "lifecycle_boundary_not_lore_evidence",
+          "interpretation_level": "project_boundary"
+        }
+      ]
     },
     {
       "claim_id": "mardu_claim_0002",
@@ -39,7 +66,26 @@
         "MARDU-EVID-003"
       ],
       "confidence": "High",
-      "notes": "Use for design-level speed and color-role language. Exact raid, dash, mobilize, card text, card prevalence, and Commander legality remain deferred."
+      "notes": "Use for design-level speed and color-role language. Exact raid, dash, mobilize, card text, card prevalence, and Commander legality remain deferred.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_mardu_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Mardu Evidence Ledger; rows MARDU-EVID-002, MARDU-EVID-003",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0002 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_rosewater_mardu_finishing_first",
+          "locator_type": "official_source_capture",
+          "locator": "Mardu: Finishing First; bounded local capture for mardu_claim_0002",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0002 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "mardu_claim_0003",
@@ -58,7 +104,26 @@
         "MARDU-EVID-008"
       ],
       "confidence": "High",
-      "notes": "Use for Khans-era Mardu Horde society and warrior-code floor. Do not backfill modern Dragonstorm reforms into this identity."
+      "notes": "Use for Khans-era Mardu Horde society and warrior-code floor. Do not backfill modern Dragonstorm reforms into this identity.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_mardu_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Mardu Evidence Ledger; rows MARDU-EVID-004, MARDU-EVID-005, MARDU-EVID-006, MARDU-EVID-008",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0003 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_khans_pg_part_2",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Khans of Tarkir, Part 2; bounded local capture for mardu_claim_0003",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0003 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "mardu_claim_0004",
@@ -78,7 +143,26 @@
         "MARDU-EVID-012"
       ],
       "confidence": "High",
-      "notes": "Use for Khans-era tactics, magic, roles, Zurgo-era figure floor, and geography. Full Zurgo biography and exact mechanic/card facts remain deferred."
+      "notes": "Use for Khans-era tactics, magic, roles, Zurgo-era figure floor, and geography. Full Zurgo biography and exact mechanic/card facts remain deferred.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_mardu_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Mardu Evidence Ledger; rows MARDU-EVID-007, MARDU-EVID-009, MARDU-EVID-010, MARDU-EVID-011, MARDU-EVID-012",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0004 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_khans_pg_part_2",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Khans of Tarkir, Part 2; bounded local capture for mardu_claim_0004",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0004 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "mardu_claim_0005",
@@ -100,7 +184,42 @@
         "MARDU-EVID-017"
       ],
       "confidence": "High",
-      "notes": "Use as an ancient bridge only. Do not expand into full Alesha biography, card-level claims, or broad political doctrine without later evidence capture."
+      "notes": "Use as an ancient bridge only. Do not expand into full Alesha biography, card-level claims, or broad political doctrine without later evidence capture.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_mardu_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Mardu Evidence Ledger; rows MARDU-EVID-013, MARDU-EVID-014, MARDU-EVID-015, MARDU-EVID-016, MARDU-EVID-017",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0005 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_fate_reforged_pg",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Fate Reforged; bounded local capture for mardu_claim_0005",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0005 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_story_truth_of_names",
+          "locator_type": "official_source_capture",
+          "locator": "The Truth of Names; bounded local capture for mardu_claim_0005",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0005 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_story_khanfall",
+          "locator_type": "official_source_capture",
+          "locator": "Khanfall; bounded local capture for mardu_claim_0005",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0005 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "mardu_claim_0006",
@@ -117,7 +236,26 @@
         "MARDU-EVID-019"
       ],
       "confidence": "High",
-      "notes": "Use as an anti-bleed boundary. Do not treat Kolaghan clan as Khans-era Mardu Horde identity."
+      "notes": "Use as an anti-bleed boundary. Do not treat Kolaghan clan as Khans-era Mardu Horde identity.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_mardu_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Mardu Evidence Ledger; rows MARDU-EVID-018, MARDU-EVID-019",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0006 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragons_pg_part_2",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Dragons of Tarkir, Part 2; bounded local capture for mardu_claim_0006",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0006 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "mardu_claim_0007",
@@ -137,7 +275,26 @@
         "MARDU-EVID-024"
       ],
       "confidence": "High",
-      "notes": "Modern Dragonstorm-era only. Do not backfill modern governance, law, or community survival texture into Khans-era Mardu Horde."
+      "notes": "Modern Dragonstorm-era only. Do not backfill modern governance, law, or community survival texture into Khans-era Mardu Horde.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_mardu_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Mardu Evidence Ledger; rows MARDU-EVID-020, MARDU-EVID-021, MARDU-EVID-022, MARDU-EVID-023, MARDU-EVID-024",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0007 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragonstorm_pg_part_2",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Tarkir: Dragonstorm, Part 2; bounded local capture for mardu_claim_0007",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0007 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "mardu_claim_0008",
@@ -154,7 +311,26 @@
         "MARDU-EVID-026"
       ],
       "confidence": "High",
-      "notes": "Modern Dragonstorm-era only. Exact modern story chronology and detailed named-figure biographies remain deferred."
+      "notes": "Modern Dragonstorm-era only. Exact modern story chronology and detailed named-figure biographies remain deferred.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_mardu_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Mardu Evidence Ledger; rows MARDU-EVID-025, MARDU-EVID-026",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0008 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragonstorm_pg_part_2",
+          "locator_type": "official_source_capture",
+          "locator": "Planeswalker's Guide to Tarkir: Dragonstorm, Part 2; bounded local capture for mardu_claim_0008",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0008 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "mardu_claim_0009",
@@ -170,7 +346,18 @@
         "MARDU-EVID-030"
       ],
       "confidence": "High",
-      "notes": "Use to block color-philosophy proof, seed-copy proof, and circular packet citation."
+      "notes": "Use to block color-philosophy proof, seed-copy proof, and circular packet citation.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_mardu_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Mardu Evidence Ledger; rows MARDU-EVID-029, MARDU-EVID-030",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0009 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "mardu_claim_0010",
@@ -189,7 +376,18 @@
         "MARDU-EVID-032"
       ],
       "confidence": "High",
-      "notes": "This is a false-positive and lifecycle guardrail. Commander/operator rows are excluded by source-role policy and are not cited as raw-claim evidence."
+      "notes": "This is a false-positive and lifecycle guardrail. Commander/operator rows are excluded by source-role policy and are not cited as raw-claim evidence.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_mardu_evidence_ledger_20260531",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "Mardu Evidence Ledger; rows MARDU-EVID-001, MARDU-EVID-018, MARDU-EVID-029, MARDU-EVID-030, MARDU-EVID-032",
+          "bounded_paraphrase": "Supports the bounded Mardu statement for mardu_claim_0010 without expanding beyond its declared source rows.",
+          "evidence_scope": "substantive_mardu_semantic_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     },
     {
       "claim_id": "mardu_claim_0011",
@@ -201,7 +399,8 @@
         "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
       ],
       "confidence": "High",
-      "notes": "Decklist support is product/navigation only. It is not Tarkir canon proof, popularity proof, metagame proof, legality proof, or placement evidence."
+      "notes": "Decklist support is product/navigation only. It is not Tarkir canon proof, popularity proof, metagame proof, legality proof, or placement evidence.",
+      "semantic_role": "support_record"
     }
   ],
   "claim_quality_summary": {
