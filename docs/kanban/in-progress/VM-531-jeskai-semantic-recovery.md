@@ -17,8 +17,8 @@ Recover Jeskai end to end under CRIT-001: audit the existing packet, bound readi
 
 - [x] Gate 1 — Packet audit and bounded disposition.
 - [x] Gate 2 — Sufficient evidence completion.
-- [ ] Gate 3 — Canonical remediation.
-- [ ] Gate 4 — Generation and validation.
+- [x] Gate 3 — Canonical remediation.
+- [x] Gate 4 — Generation and validation.
 - [ ] Gate 5 — Independent certification.
 
 ## Scope Rules
@@ -34,10 +34,14 @@ Recover Jeskai end to end under CRIT-001: audit the existing packet, bound readi
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/handoffs/2026-07-23-0825-codex-vm531-jeskai-gate1-gate2.md`
-- Candidate recovery SHA: pending; Gate 3+4 remediation authorized only after Gate 1+2 governance commit
+- Candidate recovery SHA: `9ac575a89eca55f8bc3522083e51689f29ebd262` - awaiting independent review
 - Independent reviewer: pending
 - Certification commit: pending
 
 ## Gate 1+2 Audit
 
 Gate 1+2 read-only audit completed on 2026-07-23. Disposition: READY FOR GATE 3 REMEDIATION. Intended final roles are 10 substantive claims (`jeskai_claim_0001` through `jeskai_claim_0010`) plus 1 support record (`jeskai_claim_0011`). Required remediation: bounded evidence locations, support isolation, 14 provenance owner-ID repairs, Jeskai semantic fixtures, source-owned generated rebuild, and exact candidate-scope validation. No candidate exists yet.
+
+## Candidate Workflow
+
+Exact semantic candidate `9ac575a89eca55f8bc3522083e51689f29ebd262` was created from Gate 1+2 parent `2ffccb4ff2de65d9adb86321eca442db4edfea24` and is awaiting independent review. Candidate-scope passed from program base `9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2`; invalid URW/WUR/RWU/UWR/RUW/WRU aliases fail closed; no certification or program-base advancement has occurred.

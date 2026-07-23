@@ -4971,21 +4971,23 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_1_2_complete",
-        "status": "in_progress",
+        "current_gate": "candidate_created",
+        "status": "awaiting_independent_review",
         "started_at": "2026-07-23T08:00:00-06:00",
-        "gate_entered_at": "2026-07-23T08:25:00-06:00",
+        "gate_entered_at": "2026-07-23T09:37:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "YORE",
-        "primary_disposition": "ready_for_gate_3_remediation",
+        "primary_disposition": "READY FOR INDEPENDENT REVIEW OF EXACT SHA 9ac575a89eca55f8bc3522083e51689f29ebd262",
         "branch": "codex/vm-531-jeskai-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm531-jeskai",
         "program_base": "9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2",
         "drift_preflight_commit": "PENDING_VM531_DRIFT_PREFLIGHT_COMMIT_SHA",
-        "authorized_next_scope": "Gate 3+4 JESKAI-only semantic remediation from the committed Gate 1+2 audit. No candidate, review, certification, Wave 5, Excel, cleanup, push, PR, or merge is authorized by this audit record.",
-        "required_next_milestone": "VM-531 exact semantic candidate must be created separately after JESKAI-only remediation, generation, validation, exact candidate-scope qualification, and exact-tree testing.",
-        "gate_1_2_commit": "PENDING_VM531_GATE_1_2_COMMIT_SHA"
+        "authorized_next_scope": "Independent exact-SHA review of candidate 9ac575a89eca55f8bc3522083e51689f29ebd262 only. No certification, semantically_ready transition, program-base change, Wave 5, Excel, cleanup, push, PR, or merge is authorized by this workflow record.",
+        "required_next_milestone": "Independent review must rerun drift controls and exact candidate-scope from program base 9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2 to candidate 9ac575a89eca55f8bc3522083e51689f29ebd262.",
+        "gate_1_2_commit": "PENDING_VM531_GATE_1_2_COMMIT_SHA",
+        "candidate_commit": "9ac575a89eca55f8bc3522083e51689f29ebd262",
+        "candidate_parent": "2ffccb4ff2de65d9adb86321eca442db4edfea24"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -5026,15 +5028,31 @@
         ]
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "9ac575a89eca55f8bc3522083e51689f29ebd262",
+        "recovery_commit": "9ac575a89eca55f8bc3522083e51689f29ebd262",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
         "approval_date": null,
-        "certified_at": null
+        "certified_at": null,
+        "candidate_workflow_handoff": "docs/handoffs/2026-07-23-0937-codex-vm531-jeskai-candidate-workflow.md",
+        "candidate_workflow_record": "PENDING_VM531_CANDIDATE_WORKFLOW_SHA",
+        "claim_role_counts": {
+          "total": 11,
+          "substantive_claim": 10,
+          "discovery_record": 0,
+          "support_record": 1,
+          "unclassified": 0
+        },
+        "reviewed_provenance_count": 30,
+        "fixture_count": 30,
+        "known_unchanged_warnings": [
+          "JESKAI model-owned inhibitor warning remains exit-0 non-blocking.",
+          "Exact-tree provenance check initially failed byte-strict CRLF comparison after checkout; normalized JSON content matched and --check passed after local LF rewrite in the disposable validation worktree.",
+          "npm ci reports inherited audit vulnerabilities; package and lockfile unchanged."
+        ]
       }
     },
     {
