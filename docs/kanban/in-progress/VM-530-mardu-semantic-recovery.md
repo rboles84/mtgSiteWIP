@@ -7,7 +7,7 @@ Priority: CRIT-001
 Identity key: MARDU
 Raw packet: `data/raw-factions/mardu/`
 Cohort: clan
-Contract: pending Contract v1.1 independent exact-SHA review
+Contract: Contract v1.1 independent exact-SHA review approved; pending certification
 Branch: `codex/vm-530-mardu-semantic-recovery`
 Worktree: `C:\dev\mtgSiteWIP-crit001-vm530-mardu`
 Starting program base: `7970c14822ce006c0d88f95cc6ed01bb3c79b81f`
@@ -22,10 +22,10 @@ Recover Mardu end to end under CRIT-001: audit the existing packet, bound readin
 - Gate 1+2 semantic audit: complete; `PENDING_VM530_GATE_1_2_COMMIT_SHA`
 - Evidence work: complete in exact candidate `96df085ff38d03da1e37de80b1e11705b1dfa47a`
 - Remediation: complete in exact candidate `96df085ff38d03da1e37de80b1e11705b1dfa47a`
-- Candidate: ready for independent exact-SHA review
-- Independent review: not performed
+- Candidate: independently approved exact SHA `96df085ff38d03da1e37de80b1e11705b1dfa47a`
+- Independent review: approved in `docs/handoffs/2026-07-22-2258-codex-vm530-mardu-independent-review.md`
 - Certification: not performed
-- Next authorized action: independent exact-SHA review of candidate `96df085ff38d03da1e37de80b1e11705b1dfa47a` only.
+- Next authorized action: certification-only governance for exact approved candidate `96df085ff38d03da1e37de80b1e11705b1dfa47a`.
 
 ## Gates
 
@@ -33,7 +33,8 @@ Recover Mardu end to end under CRIT-001: audit the existing packet, bound readin
 - [x] Gate 2 — Sufficient evidence completion.
 - [x] Gate 3 — Canonical remediation.
 - [x] Gate 4 — Generation and validation.
-- [ ] Gate 5 — Independent certification.
+- [x] Gate 5 — Independent exact-SHA review.
+- [ ] Certification — Governance-only certification of exact approved candidate.
 
 ## Scope Rules
 
@@ -51,5 +52,5 @@ Recover Mardu end to end under CRIT-001: audit the existing packet, bound readin
 - Drift preflight: `docs/handoffs/2026-07-22-2157-codex-vm530-mardu-drift-preflight.md`
 - Audit/recovery report: `docs/handoffs/2026-07-22-2213-codex-vm530-mardu-gate1-gate2.md`
 - Candidate recovery SHA: `96df085ff38d03da1e37de80b1e11705b1dfa47a`
-- Independent reviewer: pending
+- Independent reviewer: Codex independent review in `docs/handoffs/2026-07-22-2258-codex-vm530-mardu-independent-review.md`
 - Certification commit: pending
