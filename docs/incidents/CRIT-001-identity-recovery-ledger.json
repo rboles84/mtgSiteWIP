@@ -11,7 +11,7 @@
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 4 shards - active; VM-528 Temur Gate 1+2 complete and Gate 3+4 remediation authorized after VM-527 Abzan certification",
+      "next_cohort": "Wave 4 shards - active; VM-528 Temur exact semantic candidate ready for independent review after VM-527 Abzan certification",
       "current_program_base": "a1632337ebc91950b37d835ac404fba414f770c7",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
@@ -47,7 +47,7 @@
         "latest_certification": "a1632337ebc91950b37d835ac404fba414f770c7",
         "latest_certified_identity": "ABZAN",
         "next_identity": "TEMUR",
-        "next_identity_status": "gate_3_4_authorized"
+        "next_identity_status": "candidate_ready_for_independent_review"
       }
     },
     "wip_limit": 1,
@@ -79,17 +79,19 @@
       "current_identity_hold": {
         "identity": "TEMUR",
         "card": "VM-528",
-        "state": "gate_3_4_authorized",
+        "state": "candidate_ready_for_independent_review",
         "branch": "codex/vm-528-temur-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm528-temur",
         "prior_identity_certified": "ABZAN",
         "prior_identity_certification": "a1632337ebc91950b37d835ac404fba414f770c7",
-        "authorized_next_scope": "VM-528 / Temur Gate 3+4 semantic remediation from exact Gate 1+2 governance record PENDING_VM528_GATE12_GOVERNANCE_SHA. No Temur candidate, review, certification, Excel edit, push, PR, merge, or VM-529 work occurred in Gate 1+2.",
-        "required_next_milestone": "Apply TEMUR-owned semantic remediation exactly from docs/handoffs/2026-07-22-1549-codex-vm528-temur-gate1-gate2.md, then validate before any exact candidate commit.",
+        "authorized_next_scope": "VM-528 / Temur independent exact-SHA review of candidate 790fca923c504e32911e0be0eb44f7fdbcfb07dc only. No certification, Excel edit, push, PR, merge, or VM-529 work occurred in candidate workflow.",
+        "required_next_milestone": "Independent reviewer must rerun CRIT-001 controls against exact SHA 790fca923c504e32911e0be0eb44f7fdbcfb07dc; only that SHA may be reviewed.",
         "program_base": "a1632337ebc91950b37d835ac404fba414f770c7",
         "preflight_record": "docs/handoffs/2026-07-22-1529-codex-vm528-temur-drift-preflight.md",
-        "updated_at": "2026-07-22T15:49:00-06:00",
-        "gate_1_2_record": "docs/handoffs/2026-07-22-1549-codex-vm528-temur-gate1-gate2.md"
+        "updated_at": "2026-07-22T17:58:00-06:00",
+        "gate_1_2_record": "docs/handoffs/2026-07-22-1549-codex-vm528-temur-gate1-gate2.md",
+        "gate_1_2_commit": "cc1eca1ac7ec3895f7d08a280bf9f13f9595356e",
+        "candidate_sha": "790fca923c504e32911e0be0eb44f7fdbcfb07dc"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -4559,14 +4561,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_3_4_authorized",
+        "current_gate": "candidate_ready_for_independent_review",
         "status": "in_progress",
         "started_at": "2026-07-22T15:29:00-06:00",
-        "gate_entered_at": "2026-07-22T15:49:00-06:00",
+        "gate_entered_at": "2026-07-22T17:58:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "SULTAI",
-        "primary_disposition": "READY FOR GATE 3 REMEDIATION; Gate 1+2 read-only audit complete with 10 substantive claims plus 1 support record intended for remediation."
+        "primary_disposition": "READY FOR INDEPENDENT REVIEW OF EXACT SHA 790fca923c504e32911e0be0eb44f7fdbcfb07dc"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -4591,24 +4593,25 @@
           "DRAGONSTORM_BACKFILL",
           "COMMANDER_PRODUCT"
         ],
-        "audit_report": "docs/handoffs/2026-07-22-1549-codex-vm528-temur-gate1-gate2.md",
+        "audit_report": "docs/handoffs/2026-07-22-1758-codex-vm528-temur-candidate-workflow.md",
         "residual_findings": [
-          "Pre-remediation TEMUR generated/provenance proof chains cite unclassified claims until Gate 3+4 assigns roles and regenerates active consumers.",
-          "Temur semantic fixture is absent until Gate 3+4 creates research/fixtures/semantic-readiness/temur.semantic-fixtures.json.",
-          "Fifteen TEMUR provenance canonical IDs are null until Gate 3+4 assigns Temur-local owner IDs.",
-          "Commander/product and generic GUR rows must remain support/operator-only and outside authoritative semantic proof chains."
+          "Independent review pending; no certification decision has been made.",
+          "npm.cmd test stops after multiple passing suites because optional xlsx dependency is missing for precon mechanics import validation.",
+          "Source/generated guardrails retain one known non-blocking model-owned inhibitor warning."
         ]
       },
       "certification": {
-        "contract_version": null,
-        "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
+        "contract_version": "v1.1",
+        "contract_revalidation_required": true,
+        "candidate_recovery_sha": "790fca923c504e32911e0be0eb44f7fdbcfb07dc",
         "recovery_commit": null,
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
         "approval_date": null,
-        "certified_at": null
+        "certified_at": null,
+        "candidate_parent_sha": "cc1eca1ac7ec3895f7d08a280bf9f13f9595356e",
+        "candidate_workflow_record": "docs/handoffs/2026-07-22-1758-codex-vm528-temur-candidate-workflow.md"
       }
     },
     {

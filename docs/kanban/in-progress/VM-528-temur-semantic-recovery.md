@@ -7,7 +7,7 @@ Priority: CRIT-001
 Identity key: TEMUR
 Raw packet: `data/raw-factions/temur/`
 Cohort: clan
-Contract: Contract v1.1 Gate 3+4 remediation authorized
+Contract: Contract v1.1 candidate ready for independent exact-SHA review
 
 ## Objective
 
@@ -15,18 +15,18 @@ Recover Temur end to end under CRIT-001: audit the existing packet, bound readin
 
 ## Current State
 
-Drift preflight is complete from exact VM-527 certification/program base `a1632337ebc91950b37d835ac404fba414f770c7`. Gate 1+2 read-only semantic audit is complete at governance record `PENDING_VM528_GATE12_GOVERNANCE_SHA`.
+Drift preflight is complete from exact VM-527 certification/program base `a1632337ebc91950b37d835ac404fba414f770c7`. Gate 1+2 read-only semantic audit is complete at governance record `cc1eca1ac7ec3895f7d08a280bf9f13f9595356e`.
 
-Gate 3+4 remediation is authorized for `TEMUR` only. No semantic remediation, generated rebuild, fixture creation, candidate, independent review, certification, Excel update, VM-529 work, push, PR, or merge has occurred.
+Gate 3+4 remediation is complete and exact semantic candidate `790fca923c504e32911e0be0eb44f7fdbcfb07dc` is ready for independent review. No independent review, certification, Excel update, VM-529 work, push, PR, or merge has occurred.
 
 ## Gates
 
 - [x] Gate 0 - Drift preflight and branch/worktree control.
 - [x] Gate 1 - Packet audit and bounded disposition.
 - [x] Gate 2 - Sufficient evidence completion.
-- [ ] Gate 3 - Canonical remediation.
-- [ ] Gate 4 - Generation and validation.
-- [ ] Gate 5 - Independent certification.
+- [x] Gate 3 - Canonical remediation.
+- [x] Gate 4 - Generation and validation.
+- [ ] Gate 5 - Independent exact-SHA review and certification.
 
 ## Scope Rules
 
@@ -43,7 +43,8 @@ Gate 3+4 remediation is authorized for `TEMUR` only. No semantic remediation, ge
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Drift preflight handoff: `docs/handoffs/2026-07-22-1529-codex-vm528-temur-drift-preflight.md`
 - Gate 1+2 audit handoff: `docs/handoffs/2026-07-22-1549-codex-vm528-temur-gate1-gate2.md`
-- Audit/recovery report: pending
-- Candidate recovery SHA: pending
+- Candidate workflow handoff: `docs/handoffs/2026-07-22-1758-codex-vm528-temur-candidate-workflow.md`
+- Audit/recovery report: `docs/handoffs/2026-07-22-1758-codex-vm528-temur-candidate-workflow.md`
+- Candidate recovery SHA: `790fca923c504e32911e0be0eb44f7fdbcfb07dc`
 - Independent reviewer: pending
 - Certification commit: pending
