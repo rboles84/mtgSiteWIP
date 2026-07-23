@@ -11,7 +11,7 @@
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 4 shards - active; VM-528 Temur certified and VM-529 Sultai Gate 1+2 complete / remediation authorized",
+      "next_cohort": "Wave 4 shards - active; VM-528 Temur certified and VM-529 Sultai candidate ready / awaiting independent review",
       "current_program_base": "8e23ef467ec7f60daec746c14493173f96d9261c",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
@@ -48,7 +48,7 @@
         "latest_certification": "PENDING_VM528_CERTIFICATION_COMMIT_SHA",
         "latest_certified_identity": "TEMUR",
         "next_identity": "SULTAI",
-        "next_identity_status": "in_progress_gate_1_2_complete"
+        "next_identity_status": "awaiting_independent_review"
       }
     },
     "wip_limit": 1,
@@ -80,22 +80,24 @@
       "current_identity_hold": {
         "identity": "SULTAI",
         "card": "VM-529",
-        "state": "in_progress_gate_1_2_complete",
+        "state": "awaiting_independent_review",
         "branch": "codex/vm-529-sultai-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm529-sultai",
         "prior_identity_certified": "TEMUR",
         "prior_identity_certification": "8e23ef467ec7f60daec746c14493173f96d9261c",
-        "authorized_next_scope": "Resume the same branch/worktree for VM-529 / Sultai Gate 3+4 SULTAI-only remediation. No Sultai remediation, candidate, review, certification, or VM-530 work occurred during Gate 1+2 governance.",
-        "required_next_milestone": "VM-529 Gate 3+4 SULTAI-only remediation and validation before exact candidate creation.",
+        "authorized_next_scope": "Independent exact-SHA review of VM-529 / Sultai candidate a92fb3f8a0ec4235d5148b20c4040bd717332ad6 only. No certification, semantically_ready transition, program-base change, certified-count change, VM-530 work, Excel, push, PR, or merge is authorized by this workflow record.",
+        "required_next_milestone": "Independent review must rerun drift controls and exact candidate-scope against exact candidate SHA a92fb3f8a0ec4235d5148b20c4040bd717332ad6 before any certification work.",
         "program_base": "8e23ef467ec7f60daec746c14493173f96d9261c",
         "preflight_record": "docs/handoffs/2026-07-22-1950-codex-vm529-sultai-drift-preflight.md",
         "preflight_commit": "PENDING_VM529_DRIFT_PREFLIGHT_COMMIT_SHA",
-        "updated_at": "2026-07-22T20:39:00-06:00",
+        "updated_at": "2026-07-22T20:54:00-06:00",
         "gate_1_2_record": "docs/handoffs/2026-07-22-2039-codex-vm529-sultai-gate1-gate2.md",
         "gate_1_2_commit": "PENDING_VM529_GATE_1_2_COMMIT_SHA",
-        "candidate_sha": null,
+        "candidate_sha": "a92fb3f8a0ec4235d5148b20c4040bd717332ad6",
         "review_record": null,
-        "review_decision": null
+        "review_decision": null,
+        "candidate_workflow_record": "docs/handoffs/2026-07-22-2054-codex-vm529-sultai-candidate-workflow.md",
+        "candidate_workflow_commit": "PENDING_VM529_CANDIDATE_WORKFLOW_SHA"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -4639,10 +4641,10 @@
           "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 10,
           "discovery_record": 0,
           "support_record": 1,
-          "unclassified": 10
+          "unclassified": 0
         },
         "source_count": 18,
         "source_role_counts": {
@@ -4652,22 +4654,9 @@
         },
         "claim_bearing_source_count": 7,
         "claim_bearing_source_rate": 0.3889,
-        "reference_site_count": 30,
+        "reference_site_count": 44,
         "missing_references": [],
-        "potential_role_invalid_support_links": [
-          {
-            "pointer": "data/raw-factions/sultai/sultai.profile.json#/commander_compass/native_fit_commanders/0/source_basis",
-            "roles": [
-              "support_record"
-            ]
-          },
-          {
-            "pointer": "data/raw-factions/sultai/sultai.profile.json#/commander_compass/native_fit_commanders/1/source_basis",
-            "roles": [
-              "support_record"
-            ]
-          }
-        ],
+        "potential_role_invalid_support_links": [],
         "raw_question_count": 3,
         "unique_question_claim_ids": [
           "sultai_claim_0002",
@@ -4695,14 +4684,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_1_2_complete",
-        "status": "in_progress",
+        "current_gate": "candidate_ready",
+        "status": "awaiting_independent_review",
         "started_at": "2026-07-22T19:50:00-06:00",
-        "gate_entered_at": "2026-07-22T20:39:00-06:00",
+        "gate_entered_at": "2026-07-22T20:54:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "MARDU",
-        "primary_disposition": "READY_FOR_GATE_3_REMEDIATION"
+        "primary_disposition": "READY_FOR_INDEPENDENT_REVIEW_OF_EXACT_SHA_a92fb3f8a0ec4235d5148b20c4040bd717332ad6"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -4731,24 +4720,39 @@
           "SEED_FILE",
           "COLOR_PHILOSOPHY"
         ],
-        "audit_report": "docs/handoffs/2026-07-22-2039-codex-vm529-sultai-gate1-gate2.md",
+        "audit_report": "docs/handoffs/2026-07-22-2054-codex-vm529-sultai-candidate-workflow.md",
         "residual_findings": [
-          "Expected pre-remediation diagnostics remain until Gate 3+4 assigns 10 substantive SULTAI claims and 1 support record.",
-          "Gate 3+4 must add bounded evidence locations with source parity and recruiter guidance evidence mapping.",
-          "Gate 3+4 must isolate support-only Commander/product rows from authoritative Sultai proof chains.",
-          "Gate 3+4 must repair 15 SULTAI provenance owner IDs, add semantic fixtures, regenerate active consumers, and preserve frozen placement/preview fields."
+          "Candidate awaits independent exact-SHA review; no approval or certification has occurred.",
+          "SULTAI model-owned inhibitor warning remains exit-0 non-blocking and must be rechecked by review.",
+          "Exact-test worktree passed npm ci and npm test with ignored Scryfall corpus hardlink; inherited npm audit vulnerabilities remain package/lockfile unchanged."
         ]
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "a92fb3f8a0ec4235d5148b20c4040bd717332ad6",
+        "recovery_commit": "a92fb3f8a0ec4235d5148b20c4040bd717332ad6",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
         "approval_date": null,
-        "certified_at": null
+        "certified_at": null,
+        "candidate_workflow_handoff": "docs/handoffs/2026-07-22-2054-codex-vm529-sultai-candidate-workflow.md",
+        "candidate_workflow_record": "PENDING_VM529_CANDIDATE_WORKFLOW_SHA",
+        "claim_role_counts": {
+          "total": 11,
+          "substantive_claim": 10,
+          "discovery_record": 0,
+          "support_record": 1,
+          "unclassified": 0
+        },
+        "reviewed_provenance_count": 44,
+        "fixture_count": 28,
+        "known_unchanged_warnings": [
+          "SULTAI model-owned inhibitor warning remains exit-0 non-blocking.",
+          "Primary worktree npm test stopped on missing local xlsx dependency, while detached exact-candidate npm ci and npm test passed.",
+          "npm ci reports inherited audit vulnerabilities; package and lockfile unchanged."
+        ]
       }
     },
     {
