@@ -4768,10 +4768,10 @@
           "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 10,
           "discovery_record": 0,
           "support_record": 1,
-          "unclassified": 10
+          "unclassified": 0
         },
         "source_count": 19,
         "source_role_counts": {
@@ -4802,8 +4802,7 @@
         "readiness_mentions": [],
         "provisional_risk_indicators": {
           "coverage": [
-            "low-record-volume",
-            "no-explicit-substantive-role"
+            "low-record-volume"
           ],
           "neighbors": [
             "no-explicit-neighbor-reference"
@@ -4813,21 +4812,23 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_1_2_complete",
-        "status": "in_progress",
+        "current_gate": "candidate_created",
+        "status": "awaiting_independent_review",
         "started_at": "2026-07-22T21:57:00-06:00",
-        "gate_entered_at": "2026-07-22T22:13:00-06:00",
+        "gate_entered_at": "2026-07-22T22:35:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "JESKAI",
-        "primary_disposition": "ready_for_gate_3_remediation",
+        "primary_disposition": "READY FOR INDEPENDENT REVIEW OF EXACT SHA 96df085ff38d03da1e37de80b1e11705b1dfa47a",
         "branch": "codex/vm-530-mardu-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm530-mardu",
         "program_base": "7970c14822ce006c0d88f95cc6ed01bb3c79b81f",
         "drift_preflight_commit": "PENDING_VM530_DRIFT_PREFLIGHT_COMMIT_SHA",
-        "authorized_next_scope": "Gate 3+4 MARDU-only semantic remediation from the committed Gate 1+2 audit. No candidate, review, certification, VM-531, Excel, cleanup, push, PR, or merge is authorized by this audit record.",
-        "required_next_milestone": "VM-530 exact semantic candidate must be created separately after MARDU-only remediation, generation, validation, exact candidate-scope qualification, and exact-tree testing.",
-        "gate_1_2_commit": "PENDING_VM530_GATE_1_2_COMMIT_SHA"
+        "authorized_next_scope": "Independent exact-SHA review of candidate 96df085ff38d03da1e37de80b1e11705b1dfa47a only. No certification, semantically_ready transition, program-base change, VM-531, Excel, cleanup, push, PR, or merge is authorized by this workflow record.",
+        "required_next_milestone": "Independent review must rerun drift controls and exact candidate-scope from program base 7970c14822ce006c0d88f95cc6ed01bb3c79b81f to candidate 96df085ff38d03da1e37de80b1e11705b1dfa47a.",
+        "gate_1_2_commit": "PENDING_VM530_GATE_1_2_COMMIT_SHA",
+        "candidate_commit": "96df085ff38d03da1e37de80b1e11705b1dfa47a",
+        "candidate_parent": "43a9e1aafaea445c39b6d8402101e86b05e0edef"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -4858,25 +4859,41 @@
           "SEED_FILE",
           "COLOR_PHILOSOPHY"
         ],
-        "audit_report": "docs/handoffs/2026-07-22-2213-codex-vm530-mardu-gate1-gate2.md",
+        "audit_report": "docs/handoffs/2026-07-22-2235-codex-vm530-mardu-candidate-workflow.md",
         "residual_findings": [
-          "Gate 1+2 found 11 current claims with intended final roles of 10 substantive and 1 support record; roles and bounded evidence locations are not yet remediated.",
-          "Pre-remediation MARDU semantic readiness fails because authoritative chains cite unclassified claims and fixtures are missing.",
-          "Pre-remediation MARDU provenance has 28 entries, 15 null canonical IDs, and zero null hashes.",
-          "RWB, WBR, and BRW remain display/query metadata only and must fail closed as validator identities.",
+          "Candidate 96df085ff38d03da1e37de80b1e11705b1dfa47a is ready for independent exact-SHA review only; Mardu is not certified and not semantically_ready.",
+          "MARDU has 11 claims: 10 substantive claims, 1 support record, 0 unclassified.",
+          "MARDU provenance has 28 entries with zero null canonical IDs and zero null hashes; fixture count is 30 with all 26 required neighbor exclusions.",
+          "RWB, WBR, and BRW remain display/query metadata only and fail closed as validator identities.",
           "Source/generated guardrails pass for MARDU with the inherited model-owned inhibitor warning only."
         ]
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "96df085ff38d03da1e37de80b1e11705b1dfa47a",
+        "recovery_commit": "96df085ff38d03da1e37de80b1e11705b1dfa47a",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
         "approval_date": null,
-        "certified_at": null
+        "certified_at": null,
+        "candidate_workflow_handoff": "docs/handoffs/2026-07-22-2235-codex-vm530-mardu-candidate-workflow.md",
+        "candidate_workflow_record": "PENDING_VM530_CANDIDATE_WORKFLOW_SHA",
+        "claim_role_counts": {
+          "total": 11,
+          "substantive_claim": 10,
+          "discovery_record": 0,
+          "support_record": 1,
+          "unclassified": 0
+        },
+        "reviewed_provenance_count": 28,
+        "fixture_count": 30,
+        "known_unchanged_warnings": [
+          "MARDU model-owned inhibitor warning remains exit-0 non-blocking.",
+          "Exact-tree provenance check initially failed byte-strict CRLF comparison after checkout; normalized JSON content matched and --check passed after local LF rewrite in the disposable validation worktree.",
+          "npm ci reports inherited audit vulnerabilities; package and lockfile unchanged."
+        ]
       }
     },
     {

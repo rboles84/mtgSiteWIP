@@ -7,7 +7,7 @@ Priority: CRIT-001
 Identity key: MARDU
 Raw packet: `data/raw-factions/mardu/`
 Cohort: clan
-Contract: pending Contract v1.1 Gate 3+4 remediation
+Contract: pending Contract v1.1 independent exact-SHA review
 Branch: `codex/vm-530-mardu-semantic-recovery`
 Worktree: `C:\dev\mtgSiteWIP-crit001-vm530-mardu`
 Starting program base: `7970c14822ce006c0d88f95cc6ed01bb3c79b81f`
@@ -20,19 +20,19 @@ Recover Mardu end to end under CRIT-001: audit the existing packet, bound readin
 
 - Drift preflight complete: `PENDING_VM530_DRIFT_PREFLIGHT_COMMIT_SHA`
 - Gate 1+2 semantic audit: complete; `PENDING_VM530_GATE_1_2_COMMIT_SHA`
-- Evidence work: bounded remediation authorized
-- Remediation: not started
-- Candidate: does not exist
+- Evidence work: complete in exact candidate `96df085ff38d03da1e37de80b1e11705b1dfa47a`
+- Remediation: complete in exact candidate `96df085ff38d03da1e37de80b1e11705b1dfa47a`
+- Candidate: ready for independent exact-SHA review
 - Independent review: not performed
 - Certification: not performed
-- Next authorized action: Gate 3+4 MARDU-only semantic remediation from the committed Gate 1+2 contract.
+- Next authorized action: independent exact-SHA review of candidate `96df085ff38d03da1e37de80b1e11705b1dfa47a` only.
 
 ## Gates
 
 - [x] Gate 1 — Packet audit and bounded disposition.
 - [x] Gate 2 — Sufficient evidence completion.
-- [ ] Gate 3 — Canonical remediation.
-- [ ] Gate 4 — Generation and validation.
+- [x] Gate 3 — Canonical remediation.
+- [x] Gate 4 — Generation and validation.
 - [ ] Gate 5 — Independent certification.
 
 ## Scope Rules
@@ -50,6 +50,6 @@ Recover Mardu end to end under CRIT-001: audit the existing packet, bound readin
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Drift preflight: `docs/handoffs/2026-07-22-2157-codex-vm530-mardu-drift-preflight.md`
 - Audit/recovery report: `docs/handoffs/2026-07-22-2213-codex-vm530-mardu-gate1-gate2.md`
-- Candidate recovery SHA: pending
+- Candidate recovery SHA: `96df085ff38d03da1e37de80b1e11705b1dfa47a`
 - Independent reviewer: pending
 - Certification commit: pending
