@@ -16,16 +16,17 @@ Recover Sultai end to end under CRIT-001: audit the existing packet, bound readi
 ## Current State
 
 - Drift preflight: complete, pending commit `PENDING_VM529_DRIFT_PREFLIGHT_COMMIT_SHA`.
+- Gate 1+2 audit: complete, pending commit `PENDING_VM529_GATE_1_2_COMMIT_SHA`.
 - Starting program base: `8e23ef467ec7f60daec746c14493173f96d9261c`.
 - Branch: `codex/vm-529-sultai-semantic-recovery`.
 - Worktree: `C:\dev\mtgSiteWIP-crit001-vm529-sultai`.
-- Next authorized action: Gate 1+2 read-only semantic audit in this same branch/worktree.
-- Not started: semantic audit, evidence work, remediation, candidate creation, independent review, certification, and VM-530.
+- Next authorized action: Gate 3+4 SULTAI-only semantic remediation in this same branch/worktree.
+- Not started: remediation implementation, candidate creation, independent review, certification, and VM-530.
 
 ## Gates
 
-- [ ] Gate 1 - Packet audit and bounded disposition.
-- [ ] Gate 2 - Sufficient evidence completion.
+- [x] Gate 1 - Packet audit and bounded disposition.
+- [x] Gate 2 - Sufficient evidence completion.
 - [ ] Gate 3 - Canonical remediation.
 - [ ] Gate 4 - Generation and validation.
 - [ ] Gate 5 - Independent certification.
@@ -40,6 +41,7 @@ Recover Sultai end to end under CRIT-001: audit the existing packet, bound readi
 ## Required Records
 
 - Drift-preflight handoff: `docs/handoffs/2026-07-22-1950-codex-vm529-sultai-drift-preflight.md`
+- Gate 1+2 handoff: `docs/handoffs/2026-07-22-2039-codex-vm529-sultai-gate1-gate2.md`
 - Canonical ledger: `docs/incidents/CRIT-001-identity-recovery-ledger.json`
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`

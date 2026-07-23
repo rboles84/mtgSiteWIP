@@ -11,7 +11,7 @@
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 4 shards - active; VM-528 Temur certified and VM-529 Sultai drift preflight complete / in progress",
+      "next_cohort": "Wave 4 shards - active; VM-528 Temur certified and VM-529 Sultai Gate 1+2 complete / remediation authorized",
       "current_program_base": "8e23ef467ec7f60daec746c14493173f96d9261c",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
@@ -48,7 +48,7 @@
         "latest_certification": "PENDING_VM528_CERTIFICATION_COMMIT_SHA",
         "latest_certified_identity": "TEMUR",
         "next_identity": "SULTAI",
-        "next_identity_status": "in_progress_drift_preflight_complete"
+        "next_identity_status": "in_progress_gate_1_2_complete"
       }
     },
     "wip_limit": 1,
@@ -80,19 +80,19 @@
       "current_identity_hold": {
         "identity": "SULTAI",
         "card": "VM-529",
-        "state": "in_progress_drift_preflight_complete",
+        "state": "in_progress_gate_1_2_complete",
         "branch": "codex/vm-529-sultai-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm529-sultai",
         "prior_identity_certified": "TEMUR",
         "prior_identity_certification": "8e23ef467ec7f60daec746c14493173f96d9261c",
-        "authorized_next_scope": "Resume the same branch/worktree for VM-529 / Sultai Gate 1+2 read-only semantic audit. No Sultai semantic audit, evidence work, remediation, candidate, review, certification, or VM-530 work occurred during drift preflight.",
-        "required_next_milestone": "VM-529 Gate 1+2 read-only semantic audit after the separate drift-preflight commit.",
+        "authorized_next_scope": "Resume the same branch/worktree for VM-529 / Sultai Gate 3+4 SULTAI-only remediation. No Sultai remediation, candidate, review, certification, or VM-530 work occurred during Gate 1+2 governance.",
+        "required_next_milestone": "VM-529 Gate 3+4 SULTAI-only remediation and validation before exact candidate creation.",
         "program_base": "8e23ef467ec7f60daec746c14493173f96d9261c",
         "preflight_record": "docs/handoffs/2026-07-22-1950-codex-vm529-sultai-drift-preflight.md",
         "preflight_commit": "PENDING_VM529_DRIFT_PREFLIGHT_COMMIT_SHA",
-        "updated_at": "2026-07-22T19:50:00-06:00",
-        "gate_1_2_record": null,
-        "gate_1_2_commit": null,
+        "updated_at": "2026-07-22T20:39:00-06:00",
+        "gate_1_2_record": "docs/handoffs/2026-07-22-2039-codex-vm529-sultai-gate1-gate2.md",
+        "gate_1_2_commit": "PENDING_VM529_GATE_1_2_COMMIT_SHA",
         "candidate_sha": null,
         "review_record": null,
         "review_decision": null
@@ -4695,19 +4695,49 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "drift_preflight_complete",
+        "current_gate": "gate_1_2_complete",
         "status": "in_progress",
         "started_at": "2026-07-22T19:50:00-06:00",
-        "gate_entered_at": null,
+        "gate_entered_at": "2026-07-22T20:39:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "MARDU",
-        "primary_disposition": null
+        "primary_disposition": "READY_FOR_GATE_3_REMEDIATION"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "ABZAN",
+          "TEMUR",
+          "JESKAI",
+          "MARDU",
+          "BANT",
+          "JUND",
+          "GRIXIS",
+          "ESPER",
+          "DIMIR",
+          "GOLGARI",
+          "SIMIC",
+          "GENERIC_BGU",
+          "GENERIC_GRAVEYARD_VALUE",
+          "GENERIC_RAMP",
+          "GENERIC_CARD_ADVANTAGE",
+          "GENERIC_SACRIFICE",
+          "GENERIC_CONTROL",
+          "GENERIC_RECURSION",
+          "GENERIC_COMMANDER",
+          "SILUMGAR_CLAN",
+          "DRAGONSTORM_BACKFILL",
+          "COMMANDER_PRODUCT",
+          "SEED_FILE",
+          "COLOR_PHILOSOPHY"
+        ],
+        "audit_report": "docs/handoffs/2026-07-22-2039-codex-vm529-sultai-gate1-gate2.md",
+        "residual_findings": [
+          "Expected pre-remediation diagnostics remain until Gate 3+4 assigns 10 substantive SULTAI claims and 1 support record.",
+          "Gate 3+4 must add bounded evidence locations with source parity and recruiter guidance evidence mapping.",
+          "Gate 3+4 must isolate support-only Commander/product rows from authoritative Sultai proof chains.",
+          "Gate 3+4 must repair 15 SULTAI provenance owner IDs, add semantic fixtures, regenerate active consumers, and preserve frozen placement/preview fields."
+        ]
       },
       "certification": {
         "contract_version": null,
