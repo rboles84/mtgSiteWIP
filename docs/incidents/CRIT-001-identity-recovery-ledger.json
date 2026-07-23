@@ -5,14 +5,14 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "MARDU",
-    "next_identity": "MARDU",
-    "certified_identity_count": 28,
+    "active_identity": "JESKAI",
+    "next_identity": "JESKAI",
+    "certified_identity_count": 29,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 4 shards - active; VM-529 Sultai certified, VM-530 Mardu drift preflight complete, and VM-531 Jeskai not started",
-      "current_program_base": "7970c14822ce006c0d88f95cc6ed01bb3c79b81f",
+      "next_cohort": "Wave 4 shards - active; VM-530 Mardu certified, and VM-531 Jeskai not started",
+      "current_program_base": "PENDING_VM530_CERTIFICATION_COMMIT_SHA",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -30,10 +30,10 @@
         "next_wave_status": "VM-522/Wave 4 not started"
       },
       "wave_4_shards": "active",
-      "wave_4_shards_certified": "8 of 10",
+      "wave_4_shards_certified": "9 of 10",
       "wave_4_status": {
         "status": "active",
-        "certified": "8 of 10",
+        "certified": "9 of 10",
         "identities_certified": [
           "BANT",
           "ESPER",
@@ -42,14 +42,15 @@
           "NAYA",
           "ABZAN",
           "TEMUR",
-          "SULTAI"
+          "SULTAI",
+          "MARDU"
         ],
         "started_by": "PENDING_VM522_CERTIFICATION_COMMIT_SHA",
         "started_at": "2026-07-20T08:27:00-06:00",
-        "latest_certification": "7970c14822ce006c0d88f95cc6ed01bb3c79b81f",
-        "latest_certified_identity": "SULTAI",
-        "next_identity": "MARDU",
-        "next_identity_status": "drift_preflight_complete_gate_1_2_not_started"
+        "latest_certification": "PENDING_VM530_CERTIFICATION_COMMIT_SHA",
+        "latest_certified_identity": "MARDU",
+        "next_identity": "JESKAI",
+        "next_identity_status": "backlog_not_started_pending_completed_worktree_cleanup_and_drift_preflight"
       }
     },
     "wip_limit": 1,
@@ -81,16 +82,21 @@
       "current_identity_hold": {
         "identity": "MARDU",
         "card": "VM-530",
-        "state": "in_progress_drift_preflight_complete",
-        "branch": "codex/vm-530-mardu-semantic-recovery",
-        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm530-mardu",
+        "state": "certified_semantically_ready",
+        "branch": "codex/vm-530-mardu-semantic-recovery-certification",
+        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm530-mardu-certification",
         "prior_identity_certified": "SULTAI",
         "prior_identity_certification": "7970c14822ce006c0d88f95cc6ed01bb3c79b81f",
-        "authorized_next_scope": "Resume the same VM-530 / Mardu branch and worktree for Gate 1+2 read-only semantic audit. No Mardu remediation, candidate, review, certification, Excel, push, PR, merge, or VM-531 semantic work is authorized by the drift preflight record.",
-        "required_next_milestone": "VM-530 Gate 1+2 read-only audit must be committed separately before any remediation or candidate creation.",
-        "program_base": "7970c14822ce006c0d88f95cc6ed01bb3c79b81f",
-        "drift_preflight_commit": "PENDING_VM530_DRIFT_PREFLIGHT_COMMIT_SHA",
-        "updated_at": "2026-07-22T21:57:00-06:00"
+        "authorized_next_scope": "Completed-worktree cleanup before VM-531 / Jeskai drift preflight. No VM-531 semantic audit, remediation, candidate, review, certification, Excel, push, PR, or merge is authorized by VM-530 certification.",
+        "required_next_milestone": "Clean up completed VM-530 worktrees, then start VM-531 only in a separate drift-preflight window from the VM-530 certification program base.",
+        "program_base": "PENDING_VM530_CERTIFICATION_COMMIT_SHA",
+        "drift_preflight_commit": "eb0b71846d1315ef9571cd3a99ec8b7a7279573e",
+        "gate_1_2_commit": "43a9e1aafaea445c39b6d8402101e86b05e0edef",
+        "candidate_commit": "96df085ff38d03da1e37de80b1e11705b1dfa47a",
+        "candidate_workflow_commit": "ab961e384ef72bd4c56dae07f60863016511adb0",
+        "approval_review_commit": "f3b360ec0d9df569f585299480db1f34ba72a01b",
+        "certification_commit": "PENDING_VM530_CERTIFICATION_COMMIT_SHA",
+        "updated_at": "2026-07-23T06:14:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -101,18 +107,18 @@
         "Begin Simic Goal mode only after the drift preflight reports no FAIL or UNKNOWN controls."
       ],
       "last_certification": {
-        "identity": "SULTAI",
-        "card": "VM-529",
-        "candidate_sha": "a92fb3f8a0ec4235d5148b20c4040bd717332ad6",
-        "candidate_workflow_sha": "18c4273abd798e4c3365fb6ce32bdf2a884a1cfc",
+        "identity": "MARDU",
+        "card": "VM-530",
+        "candidate_sha": "96df085ff38d03da1e37de80b1e11705b1dfa47a",
+        "candidate_workflow_sha": "ab961e384ef72bd4c56dae07f60863016511adb0",
         "gate_3_4_workflow_sha": null,
-        "approval_review_sha": "2b469a61656bd2151f4c7e560421afc7c452887b",
-        "review_decision": "APPROVE EXACT SHA a92fb3f8a0ec4235d5148b20c4040bd717332ad6",
-        "certification_commit": "7970c14822ce006c0d88f95cc6ed01bb3c79b81f",
-        "certified_at": "2026-07-22T21:44:00-06:00",
+        "approval_review_sha": "f3b360ec0d9df569f585299480db1f34ba72a01b",
+        "review_decision": "APPROVE EXACT SHA 96df085ff38d03da1e37de80b1e11705b1dfa47a",
+        "certification_commit": "PENDING_VM530_CERTIFICATION_COMMIT_SHA",
+        "certified_at": "2026-07-23T06:14:00-06:00",
         "final_state": "semantically_ready",
         "contract_version": "v1.1",
-        "reviewed_provenance_count": 44,
+        "reviewed_provenance_count": 28,
         "evidence_locator_count": "bounded evidence locations on all 10 substantive claims",
         "claim_role_counts": {
           "total": 11,
@@ -122,13 +128,13 @@
           "unclassified": 0
         },
         "candidate_scope_result": "PASS",
-        "invalid_alias_result": "BGU, GUB, and UBG rejected with Unknown identity diagnostics",
-        "fixture_count": 28,
-        "wave_4_certified": "8 of 10",
-        "total_certified": 28,
-        "next_identity": "MARDU",
-        "next_identity_status": "drift_preflight_complete_gate_1_2_not_started",
-        "prior_program_base": "8e23ef467ec7f60daec746c14493173f96d9261c"
+        "invalid_alias_result": "RWB, WBR, and BRW rejected with Unknown identity diagnostics",
+        "fixture_count": 30,
+        "wave_4_certified": "9 of 10",
+        "total_certified": 29,
+        "next_identity": "JESKAI",
+        "next_identity_status": "backlog_not_started_pending_completed_worktree_cleanup_and_drift_preflight",
+        "prior_program_base": "7970c14822ce006c0d88f95cc6ed01bb3c79b81f"
       }
     },
     "rejected_prerequisite_candidates": [
@@ -4812,23 +4818,26 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "independent_review_complete",
-        "status": "awaiting_certification",
+        "current_gate": "certified",
+        "status": "semantically_ready",
         "started_at": "2026-07-22T21:57:00-06:00",
-        "gate_entered_at": "2026-07-22T22:58:00-06:00",
+        "gate_entered_at": "2026-07-23T06:14:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "JESKAI",
-        "primary_disposition": "APPROVE EXACT SHA 96df085ff38d03da1e37de80b1e11705b1dfa47a",
-        "branch": "codex/vm-530-mardu-semantic-recovery",
-        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm530-mardu",
-        "program_base": "7970c14822ce006c0d88f95cc6ed01bb3c79b81f",
-        "drift_preflight_commit": "PENDING_VM530_DRIFT_PREFLIGHT_COMMIT_SHA",
-        "authorized_next_scope": "Certification-only governance for exact approved candidate 96df085ff38d03da1e37de80b1e11705b1dfa47a. No semantic remediation, replacement candidate, program-base change before certification, VM-531, Excel, cleanup, push, PR, or merge is authorized by this review record.",
-        "required_next_milestone": "Certification must certify only exact approved candidate 96df085ff38d03da1e37de80b1e11705b1dfa47a after reconciling reviewed truth from docs/handoffs/2026-07-22-2258-codex-vm530-mardu-independent-review.md.",
-        "gate_1_2_commit": "PENDING_VM530_GATE_1_2_COMMIT_SHA",
+        "primary_disposition": "CERTIFIED EXACT SHA 96df085ff38d03da1e37de80b1e11705b1dfa47a",
+        "branch": "codex/vm-530-mardu-semantic-recovery-certification",
+        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm530-mardu-certification",
+        "program_base": "PENDING_VM530_CERTIFICATION_COMMIT_SHA",
+        "drift_preflight_commit": "eb0b71846d1315ef9571cd3a99ec8b7a7279573e",
+        "authorized_next_scope": "Completed-worktree cleanup before VM-531 / Jeskai drift preflight. No VM-531 semantic work is authorized by this certification.",
+        "required_next_milestone": "Clean up completed worktrees, then run a separate committed VM-531 drift preflight before any Jeskai Gate 1+2 semantic audit.",
+        "gate_1_2_commit": "43a9e1aafaea445c39b6d8402101e86b05e0edef",
         "candidate_commit": "96df085ff38d03da1e37de80b1e11705b1dfa47a",
-        "candidate_parent": "43a9e1aafaea445c39b6d8402101e86b05e0edef"
+        "candidate_parent": "43a9e1aafaea445c39b6d8402101e86b05e0edef",
+        "candidate_workflow_commit": "ab961e384ef72bd4c56dae07f60863016511adb0",
+        "approval_review_commit": "f3b360ec0d9df569f585299480db1f34ba72a01b",
+        "certification_commit": "PENDING_VM530_CERTIFICATION_COMMIT_SHA"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -4859,9 +4868,9 @@
           "SEED_FILE",
           "COLOR_PHILOSOPHY"
         ],
-        "audit_report": "docs/handoffs/2026-07-22-2235-codex-vm530-mardu-candidate-workflow.md",
+        "audit_report": "docs/incidents/recoveries/VM-530-mardu-semantic-recovery.md",
         "residual_findings": [
-          "Independent review approved exact candidate 96df085ff38d03da1e37de80b1e11705b1dfa47a with decision APPROVE EXACT SHA 96df085ff38d03da1e37de80b1e11705b1dfa47a; Mardu is not certified and not semantically_ready.",
+          "Certified exact approved candidate 96df085ff38d03da1e37de80b1e11705b1dfa47a after independent review decision APPROVE EXACT SHA 96df085ff38d03da1e37de80b1e11705b1dfa47a.",
           "MARDU has 11 claims: 10 substantive claims, 1 support record, 0 unclassified.",
           "MARDU provenance has 28 entries with zero null canonical IDs and zero null hashes; fixture count is 30 with all 26 required neighbor exclusions.",
           "RWB, WBR, and BRW remain display/query metadata only and fail closed as validator identities.",
@@ -4873,17 +4882,17 @@
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "96df085ff38d03da1e37de80b1e11705b1dfa47a",
         "recovery_commit": "96df085ff38d03da1e37de80b1e11705b1dfa47a",
-        "certification_commit": null,
+        "certification_commit": "PENDING_VM530_CERTIFICATION_COMMIT_SHA",
         "reviewer": "Codex independent exact-SHA review",
         "review_cycles": 1,
         "approval_date": "2026-07-22",
-        "certified_at": null,
+        "certified_at": "2026-07-23T06:14:00-06:00",
         "review_result": "approved_exact_sha",
         "approval_decision": "APPROVE EXACT SHA 96df085ff38d03da1e37de80b1e11705b1dfa47a",
         "approval_review_handoff": "docs/handoffs/2026-07-22-2258-codex-vm530-mardu-independent-review.md",
-        "approval_review_record": "PENDING_VM530_INDEPENDENT_REVIEW_SHA",
+        "approval_review_record": "f3b360ec0d9df569f585299480db1f34ba72a01b",
         "candidate_workflow_handoff": "docs/handoffs/2026-07-22-2235-codex-vm530-mardu-candidate-workflow.md",
-        "candidate_workflow_record": "PENDING_VM530_CANDIDATE_WORKFLOW_SHA",
+        "candidate_workflow_record": "ab961e384ef72bd4c56dae07f60863016511adb0",
         "claim_role_counts": {
           "total": 11,
           "substantive_claim": 10,
@@ -4897,7 +4906,11 @@
           "MARDU model-owned inhibitor warning remains exit-0 non-blocking.",
           "Exact-tree provenance check initially failed byte-strict CRLF comparison after checkout; normalized JSON content matched and --check passed after local LF rewrite in the disposable validation worktree.",
           "npm ci reports inherited audit vulnerabilities; package and lockfile unchanged."
-        ]
+        ],
+        "final_state": "semantically_ready",
+        "certification_handoff": "docs/handoffs/2026-07-23-0614-codex-vm530-mardu-certification.md",
+        "wave_4_status": "9 of 10",
+        "total_certified": 29
       }
     },
     {
