@@ -33,7 +33,8 @@
       "witch_claim_0003",
       "witch_claim_0004",
       "witch_claim_0005"
-    ]
+    ],
+    "semantic_readiness_gate": "VM-536 Gate 3 candidate: all Witch claims classified as substantive with bounded locators and source-id parity."
   },
   "claims": [
     {
@@ -52,7 +53,26 @@
         "WITCH-EVID-010"
       ],
       "confidence": "High",
-      "notes": "Use only to preserve the non-live raw packet boundary. WITCH is the Vox Mana expression/research label, Growth is support/display framing only, and this claim does not authorize review approval or promotion."
+      "notes": "Use only to preserve the non-live raw packet boundary. WITCH is the Vox Mana expression/research label, Growth is support/display framing only, and this claim does not authorize review approval or promotion.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_witch_evidence_ledger_20260604",
+          "locator_type": "ledger_rows",
+          "locator": "docs/research/witch/witch-evidence-ledger.md#WITCH-EVID-001-WITCH-EVID-002-WITCH-EVID-010",
+          "bounded_paraphrase": "The Witch evidence ledger records the source-packet lifecycle boundary, the WITCH project label, and GWUB/permutation metadata-only restrictions.",
+          "evidence_scope": "project_identity_and_alias_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_witch_vm264_scope_card_20260604",
+          "locator_type": "kanban_card",
+          "locator": "docs/kanban/done/VM-264-witch-source-packet-and-evidence-ledger.md#scope-completed",
+          "bounded_paraphrase": "The VM-264 scope card authorizes the Witch source packet and evidence ledger while excluding runtime aliases, generated promotion, and unrelated identity work.",
+          "evidence_scope": "program_lifecycle_boundary",
+          "interpretation_level": "direct_project_record"
+        }
+      ]
     },
     {
       "claim_id": "witch_claim_0002",
@@ -69,7 +89,26 @@
         "WITCH-EVID-010"
       ],
       "confidence": "High",
-      "notes": "Do not create public aliases from this naming policy. GWUB and same-color permutations remain metadata/query-only; WUBG appears only when echoing support-source order."
+      "notes": "Do not create public aliases from this naming policy. GWUB and same-color permutations remain metadata/query-only; WUBG appears only when echoing support-source order.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_witch_evidence_ledger_20260604",
+          "locator_type": "ledger_rows",
+          "locator": "docs/research/witch/witch-evidence-ledger.md#WITCH-EVID-002-WITCH-EVID-010",
+          "bounded_paraphrase": "The evidence ledger distinguishes WITCH as the Vox Mana expression label and Growth as Commander 2016 support/display framing, not official universal naming.",
+          "evidence_scope": "official_name_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260604",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#gwub-growth-witch",
+          "bounded_paraphrase": "The four-color reference audit maps the GWUB slot to Witch / Growth while framing those labels as project/reference terms rather than official universal names.",
+          "evidence_scope": "four_color_reference_boundary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "witch_claim_0003",
@@ -85,7 +124,26 @@
         "WITCH-EVID-003"
       ],
       "confidence": "High",
-      "notes": "Missing-color framing is identity structure, not a canon faction claim or placement authorization."
+      "notes": "Missing-color framing is identity structure, not a canon faction claim or placement authorization.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_witch_evidence_ledger_20260604",
+          "locator_type": "ledger_row",
+          "locator": "docs/research/witch/witch-evidence-ledger.md#WITCH-EVID-003",
+          "bounded_paraphrase": "The evidence ledger records that the Witch/GWUB lane is defined by excluding Red.",
+          "evidence_scope": "missing_red_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260604",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#gwub-growth-witch",
+          "bounded_paraphrase": "The four-color audit describes the GWUB Growth/Witch slot as the four-color combination excluding Red.",
+          "evidence_scope": "color_order_boundary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "witch_claim_0004",
@@ -101,7 +159,26 @@
         "WITCH-EVID-004"
       ],
       "confidence": "Medium",
-      "notes": "Exact official Witch-Maw card facts remain Manual fill required before deeper raw or public copy. Witch-Maw may help identify the historical card-anchor boundary, but it does not authorize routing, scoring, or placement eligibility."
+      "notes": "Exact official Witch-Maw card facts remain Manual fill required before deeper raw or public copy. Witch-Maw may help identify the historical card-anchor boundary, but it does not authorize routing, scoring, or placement eligibility.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_witch_evidence_ledger_20260604",
+          "locator_type": "ledger_row",
+          "locator": "docs/research/witch/witch-evidence-ledger.md#WITCH-EVID-004",
+          "bounded_paraphrase": "The evidence ledger permits Witch-Maw Nephilim as a bounded card anchor while rejecting Nephilim as a faction, institution, doctrine, civilization, naming authority, or placement authority.",
+          "evidence_scope": "card_anchor_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260604",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#gwub-growth-witch",
+          "bounded_paraphrase": "The four-color audit uses Witch-Maw Nephilim as the reference anchor for the GWUB slot, not as standalone institutional proof.",
+          "evidence_scope": "card_anchor_boundary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "witch_claim_0005",
@@ -118,7 +195,26 @@
         "WITCH-EVID-007"
       ],
       "confidence": "Medium",
-      "notes": "Use as high-level identity and Commander texture framing only. Keep long-form metaphysics, public symbolic language, placement logic, rankings, legality, and Commander culture claims conservative and explicitly bounded."
+      "notes": "Use as high-level identity and Commander texture framing only. Keep long-form metaphysics, public symbolic language, placement logic, rankings, legality, and Commander culture claims conservative and explicitly bounded.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_witch_evidence_ledger_20260604",
+          "locator_type": "ledger_rows",
+          "locator": "docs/research/witch/witch-evidence-ledger.md#WITCH-EVID-005-WITCH-EVID-007",
+          "bounded_paraphrase": "The evidence ledger permits bounded patient-growth, calculated expansion, proliferate/counter scaling, Atraxa texture, and Breed Lethality texture while keeping those supports from becoming standalone lore, naming, placement, or Commander proof.",
+          "evidence_scope": "patient_growth_support_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260604",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#gwub-growth-witch",
+          "bounded_paraphrase": "The four-color audit supports the high-level Growth/Witch framing and its overclaim boundaries without promoting Commander, product, or Phyrexia-only texture into proof.",
+          "evidence_scope": "bounded_growth_texture",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     }
   ]
 }

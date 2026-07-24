@@ -1,0 +1,650 @@
+{
+  "identity_key": "WITCH",
+  "raw_id": "witch",
+  "display_name": "Witch / Growth",
+  "display_color_order": "GWUB",
+  "accepted_aliases": [
+    "WITCH"
+  ],
+  "metadata_only_color_orders": [
+    "GWUB",
+    "GWBU",
+    "GUWB",
+    "GUBW",
+    "GBWU",
+    "GBUW",
+    "WGUB",
+    "WGBU",
+    "WUGB",
+    "WUBG",
+    "WBGU",
+    "WBUG",
+    "UGWB",
+    "UGBW",
+    "UWGB",
+    "UWBG",
+    "UBGW",
+    "UBWG",
+    "BGWU",
+    "BGUW",
+    "BWGU",
+    "BWUG",
+    "BUGW",
+    "BUWG"
+  ],
+  "contract_version": "v1.1",
+  "generated_by": "VM-536 Gate 3 semantic remediation",
+  "runtime_assertions": false,
+  "fixture_count": 37,
+  "fixtures": [
+    {
+      "fixture_id": "witch_core_inclusion_missing_red_identity",
+      "fixture_type": "core_inclusion",
+      "scenario": "A user asks what Witch means in Vox Mana and gives GWUB, missing-Red, patient cultivation, protected growth, structure, calculation, and disciplined ambition while rejecting color-code aliases.",
+      "expected_identity": "WITCH",
+      "expected_decision": "accept",
+      "evidence_claim_ids": [
+        "witch_claim_0001",
+        "witch_claim_0002",
+        "witch_claim_0003",
+        "witch_claim_0004",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_witch_vm264_scope_card_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_mature_pressure_behavior_patient_inevitability",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "A user centers small protected investments becoming overwhelming over time, with structure and calculation turning patient growth into inevitability.",
+      "expected_identity": "WITCH",
+      "expected_decision": "accept",
+      "evidence_claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_nearest_collision_ink_yore_ring",
+      "fixture_type": "nearest_collision_ambiguity",
+      "scenario": "A four-color answer mentions protected resources, patient accumulation, constructed progress, and missing-color language without clearly choosing whether the center is cultivated inevitability, a guarded commons, or constructed agency.",
+      "expected_identity": "WITCH",
+      "expected_decision": "ask_boundary_question",
+      "evidence_claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_provenance_core_identity",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the Witch core identity chain.",
+      "expected_identity": "WITCH",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/witch/witch.profile.json",
+      "canonical_pointer": "/core_identity",
+      "evidence_claim_ids": [
+        "witch_claim_0001",
+        "witch_claim_0002",
+        "witch_claim_0003",
+        "witch_claim_0004",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_witch_vm264_scope_card_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_provenance_profile",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the Witch generated profile chain.",
+      "expected_identity": "WITCH",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/witch/witch.profile.json",
+      "canonical_pointer": "/profile",
+      "evidence_claim_ids": [
+        "witch_claim_0001",
+        "witch_claim_0002",
+        "witch_claim_0003",
+        "witch_claim_0004",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_witch_vm264_scope_card_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_provenance_search_metadata",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the Witch metadata and alias boundary chain.",
+      "expected_identity": "WITCH",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/witch/witch.profile.json",
+      "canonical_pointer": "/search_and_filter_metadata",
+      "evidence_claim_ids": [
+        "witch_claim_0001",
+        "witch_claim_0002",
+        "witch_claim_0003",
+        "witch_claim_0004",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_witch_vm264_scope_card_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_provenance_site_surface",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the Witch site-surface chain.",
+      "expected_identity": "WITCH",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/witch/witch.profile.json",
+      "canonical_pointer": "/site_surface",
+      "evidence_claim_ids": [
+        "witch_claim_0001",
+        "witch_claim_0002",
+        "witch_claim_0003",
+        "witch_claim_0004",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_witch_vm264_scope_card_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_provenance_discriminator_001",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the first Witch discriminator chain.",
+      "expected_identity": "WITCH",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/witch/witch.placement.json",
+      "canonical_pointer": "/discriminator_questions/0",
+      "evidence_claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_provenance_collision_ink",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the WITCH-owned Ink collision chain.",
+      "expected_identity": "WITCH",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/witch/witch.placement.json",
+      "canonical_pointer": "/collision_guidance/pairs/0",
+      "evidence_claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_ink_protected_commons",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "INK",
+      "scenario": "RGWU protected commons, open knowledge, shared prosperity, and non-Black generosity are proposed as Witch.",
+      "expected_identity": "INK",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_yore_constructed_agency",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "YORE",
+      "scenario": "WUBR constructed agency, civilization, technology, artifice, and progress against natural limits are proposed as Witch.",
+      "expected_identity": "YORE",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_glint_living_volatility",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GLINT",
+      "scenario": "UBRG appetite, adaptation, volatility, and non-White living force are proposed as Witch.",
+      "expected_identity": "GLINT",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_dune_territorial_force",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "DUNE",
+      "scenario": "BRGW direct action, territorial pressure, organized force, and missing-Blue immediacy are proposed as Witch.",
+      "expected_identity": "DUNE",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_bant_black_missing",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BANT",
+      "scenario": "Green-white-blue order, growth, and knowledge without Black ambition are proposed as Witch.",
+      "expected_identity": "BANT",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0002",
+        "witch_claim_0003"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_esper_green_missing",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ESPER",
+      "scenario": "White-blue-black structure and control without Green cultivation are proposed as Witch.",
+      "expected_identity": "ESPER",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0002",
+        "witch_claim_0003"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_sultai_white_missing",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SULTAI",
+      "scenario": "Blue-black-green ambition and growth without White structure are proposed as Witch.",
+      "expected_identity": "SULTAI",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0002",
+        "witch_claim_0003"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_abzan_blue_missing",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ABZAN",
+      "scenario": "White-black-green endurance and family structure without Blue calculation are proposed as Witch.",
+      "expected_identity": "ABZAN",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0002",
+        "witch_claim_0003"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_wg_pair",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WG",
+      "scenario": "Selesnya community, cultivation, and protection alone are proposed as Witch.",
+      "expected_identity": "WG",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_ug_pair",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UG",
+      "scenario": "Simic growth through study alone is proposed as Witch.",
+      "expected_identity": "UG",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_bg_pair",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BG",
+      "scenario": "Golgari endurance, reuse, and ambition alone are proposed as Witch.",
+      "expected_identity": "BG",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_wu_pair",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WU",
+      "scenario": "Azorius structure and knowledge alone are proposed as Witch.",
+      "expected_identity": "WU",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_wb_pair",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WB",
+      "scenario": "Orzhov obligation, hierarchy, and ambition alone are proposed as Witch.",
+      "expected_identity": "WB",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_ub_pair",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UB",
+      "scenario": "Dimir secrecy, calculation, and ambition alone are proposed as Witch.",
+      "expected_identity": "UB",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_generic_gwub",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_GWUB",
+      "scenario": "Generic GWUB goodstuff or same-color grouping is proposed as Witch proof without the missing-Red protected-growth worldview.",
+      "expected_identity": "GENERIC_GWUB",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0002",
+        "witch_claim_0003"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_generic_four_color_commander",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_FOUR_COLOR_COMMANDER",
+      "scenario": "A four-color Commander deck is proposed as Witch because of color identity alone.",
+      "expected_identity": "GENERIC_FOUR_COLOR_COMMANDER",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0002",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_generic_counters",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_COUNTERS",
+      "scenario": "Counters alone are proposed as Witch identity proof.",
+      "expected_identity": "GENERIC_COUNTERS",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_generic_proliferate",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_PROLIFERATE",
+      "scenario": "Proliferate alone is proposed as Witch identity proof.",
+      "expected_identity": "GENERIC_PROLIFERATE",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_generic_atraxa",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_ATRAXA",
+      "scenario": "Atraxa alone is treated as Witch lore, naming, or placement proof.",
+      "expected_identity": "GENERIC_ATRAXA",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0002",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_infect_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "INFECT_ONLY",
+      "scenario": "Infect mechanics alone are proposed as Witch identity proof.",
+      "expected_identity": "INFECT_ONLY",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_superfriends_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SUPERFRIENDS_ONLY",
+      "scenario": "Superfriends mechanics alone are proposed as Witch identity proof.",
+      "expected_identity": "SUPERFRIENDS_ONLY",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_phyrexia_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "PHYREXIA_ONLY",
+      "scenario": "Phyrexia-only lore or aesthetics are proposed as Witch identity proof.",
+      "expected_identity": "PHYREXIA_ONLY",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_witch_maw_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WITCH_MAW_ONLY",
+      "scenario": "Witch-Maw Nephilim alone is treated as an official Witch faction, institution, doctrine, naming authority, or placement proof.",
+      "expected_identity": "WITCH_MAW_ONLY",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0004",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_breed_lethality_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BREED_LETHALITY_ONLY",
+      "scenario": "The Breed Lethality precon is treated as Witch naming authority, lore proof, or placement proof.",
+      "expected_identity": "BREED_LETHALITY_ONLY",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0002",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_growth_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GROWTH_ONLY",
+      "scenario": "Growth is treated as a public alias, universal official name, or standalone placement proof for Witch.",
+      "expected_identity": "GROWTH_ONLY",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0002",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_commander_legality",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "COMMANDER_LEGALITY",
+      "scenario": "Commander legality, decklists, recommendations, rankings, or metagame claims are used as Witch proof.",
+      "expected_identity": "COMMANDER_LEGALITY",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0002",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_official_name",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "OFFICIAL_NAME",
+      "scenario": "Witch / Growth is presented as the official universal Magic name for GWUB.",
+      "expected_identity": "OFFICIAL_NAME",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0002"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    },
+    {
+      "fixture_id": "witch_excludes_red_present_collapse",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "RED_PRESENT_COLLAPSE",
+      "scenario": "A Red-present speed, spectacle, impulse, haste, or emotional-ignition center is treated as Witch instead of being rejected on missing-Red grounds.",
+      "expected_identity": "RED_PRESENT_COLLAPSE",
+      "expected_decision": "reject_witch",
+      "evidence_claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ]
+    }
+  ]
+}

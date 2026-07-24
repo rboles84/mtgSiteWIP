@@ -62,7 +62,8 @@
       "new_claim_ids_added": [],
       "new_evidence_ids_added": [],
       "source_backing": "Generated WITCH good-fit, poor-fit, and inhibitor strings were source-normalized only where traceable to VM-264 evidence and VM-266 separator guidance."
-    }
+    },
+    "semantic_readiness_status": "VM-536 Gate 3 semantic remediation complete; five claims substantive with bounded evidence, WITCH-owned collision proof chains, and semantic fixture coverage."
   },
   "changes": [
     {
@@ -227,6 +228,47 @@
         "Keep ring collision guidance lateral_inhibition:false unless a future approved calibration card strengthens suppression deliberately."
       ],
       "notes": "VM-348 is a source-bound cohort repair. It adds no web intake, no raw claims, no generated hand edits, no public aliases, no Home preview membership, and no route changes."
+    },
+    {
+      "change_id": "witch_change_004",
+      "change_type": "VM-536 Gate 3 Semantic Readiness Recovery",
+      "change_date": "2026-07-24",
+      "summary": "Classified all five WITCH claims as substantive, added bounded evidence locators with source-id parity, kept Growth/GWUB/WUBG/permutations support or metadata-only, replaced foreign INK/YORE collision claim IDs with WITCH-owned proof chains, added semantic guidance evidence, and created WITCH semantic fixtures for required neighbor and provenance controls.",
+      "sources_added": [],
+      "sources_updated": [],
+      "claims_added": [],
+      "claims_updated": [
+        "witch_claim_0001",
+        "witch_claim_0002",
+        "witch_claim_0003",
+        "witch_claim_0004",
+        "witch_claim_0005"
+      ],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "evidence_rows_added": [],
+      "profile_fields_updated": [
+        "core_identity.core_identity_id"
+      ],
+      "placement_fields_updated": [
+        "collision_guidance.pairs",
+        "semantic_guidance_evidence"
+      ],
+      "fixtures_added": [
+        "research/fixtures/semantic-readiness/witch.semantic-fixtures.json"
+      ],
+      "support_only_rows_used": [
+        "src_vm_four_color_identity_dossier_md_20260604",
+        "src_vm_commander_recommendations_breed_lethality_20260604"
+      ],
+      "manual_review_required": [
+        "Keep claim_count at exactly 5.",
+        "Keep Commander/deck/operator material support-only and out of lore, placement, Crucible, discriminator-proof, claim, route, alias, and naming authority.",
+        "Keep unmanaged discovery drafts discovery-only unless a future source-intake card audits and promotes them.",
+        "Keep GWUB, WUBG, and all same-color permutations metadata/query-only and reject them as canonical identity keys.",
+        "Keep WITCH preview-ineligible and do not add public aliases, routes, Home preview membership, or hero work."
+      ],
+      "notes": "VM-536 Gate 3 performs semantic-readiness recovery only. It adds no web intake, no raw claims, no evidence rows, no runtime scoring changes, no public aliases, no Home preview membership, and no route changes."
     }
   ]
 }

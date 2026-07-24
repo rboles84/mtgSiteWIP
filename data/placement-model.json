@@ -6591,16 +6591,13 @@
           "ask": "Is the answer cultivating inevitability, or keeping the commons open and protected?",
           "evidence_claim_ids": [
             "witch_claim_0003",
-            "witch_claim_0005",
-            "ink_claim_0003",
-            "ink_claim_0005"
+            "witch_claim_0005"
           ],
           "supporting_source_ids": [
             "src_vm_witch_evidence_ledger_20260604",
-            "src_vm_four_color_reference_audit_20260604",
-            "src_vm_ink_evidence_ledger_20260604",
             "src_vm_four_color_reference_audit_20260604"
-          ]
+          ],
+          "neighbor_evidence_boundary": "Ink claim IDs remain Ink-owned authority and are not used as Witch proof; this collision row is supported only by Witch-owned missing-Red and patient-growth claims."
         },
         {
           "review_triggers": [
@@ -6631,16 +6628,13 @@
           "ask": "Is the answer patient cultivation reaching critical mass, or constructed agency refusing organic closure?",
           "evidence_claim_ids": [
             "witch_claim_0003",
-            "witch_claim_0005",
-            "yore_claim_0003",
-            "yore_claim_0004"
+            "witch_claim_0005"
           ],
           "supporting_source_ids": [
             "src_vm_witch_evidence_ledger_20260604",
-            "src_vm_four_color_reference_audit_20260604",
-            "src_vm_yore_evidence_ledger_20260602",
-            "src_vm_four_color_reference_audit_20260602"
-          ]
+            "src_vm_four_color_reference_audit_20260604"
+          ],
+          "neighbor_evidence_boundary": "Yore claim IDs remain Yore-owned authority and are not used as Witch proof; this collision row is supported only by Witch-owned missing-Red and patient-growth claims."
         }
       ],
       "chatbot_guidance": {

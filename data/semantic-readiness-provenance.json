@@ -43197,12 +43197,10 @@
       "canonical_file": "data/raw-factions/witch/witch.placement.json",
       "canonical_pointer": "/collision_guidance/pairs/0",
       "canonical_id": "collision_witch_ink_four_color_ring",
-      "canonical_content_hash": "sha256:c4d89af764de87a2b7b8475b8d3d9f23198964fb0b059ada130abb6a948e921a",
+      "canonical_content_hash": "sha256:dee28b648162efc2cf37c8f7cda2847c1516f672a8cb9eb2121d43e02de6dc79",
       "evidence_claim_ids": [
         "witch_claim_0003",
-        "witch_claim_0005",
-        "ink_claim_0003",
-        "ink_claim_0005"
+        "witch_claim_0005"
       ],
       "evidence_source_ids": [
         "src_vm_four_color_reference_audit_20260604",
@@ -43220,12 +43218,10 @@
       "canonical_file": "data/raw-factions/witch/witch.placement.json",
       "canonical_pointer": "/collision_guidance/pairs/1",
       "canonical_id": "collision_witch_yore_four_color_ring",
-      "canonical_content_hash": "sha256:3d199571849bc5d26846aa744ed337d15787598fdbf8a6a39f00109c30b95e02",
+      "canonical_content_hash": "sha256:519837e596714217fdb725744a0cfb10f69f8f806cd25f455d00399757044174",
       "evidence_claim_ids": [
         "witch_claim_0003",
-        "witch_claim_0005",
-        "yore_claim_0003",
-        "yore_claim_0004"
+        "witch_claim_0005"
       ],
       "evidence_source_ids": [
         "src_vm_four_color_reference_audit_20260604",
@@ -43303,10 +43299,74 @@
     },
     {
       "identity_key": "WITCH",
+      "canonical_file": "data/raw-factions/witch/witch.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "guidance_witch_mismatch_0001_gate3",
+      "canonical_content_hash": "sha256:2ed630022e3a7ea230c89c052297189a1f25c0f768b25eddd997c66daf4bc82b",
+      "evidence_claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_witch_evidence_ledger_20260604"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITCH",
+        "data/placement-model.json#/factions/WITCH",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITCH"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITCH",
+      "canonical_file": "data/raw-factions/witch/witch.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "guidance_witch_mismatch_0002_gate3",
+      "canonical_content_hash": "sha256:021bdc50f6bbd3602eac9760fcda3f450c6dbc8ea362bfef08a08c599eb72401",
+      "evidence_claim_ids": [
+        "witch_claim_0002",
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_witch_evidence_ledger_20260604"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITCH",
+        "data/placement-model.json#/factions/WITCH",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITCH"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITCH",
+      "canonical_file": "data/raw-factions/witch/witch.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "guidance_witch_mismatch_0003_gate3",
+      "canonical_content_hash": "sha256:4be74f6599b1ef47f1a475fafbd1a1514c40d02ca8b1fa15d415b976cab05ab3",
+      "evidence_claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_witch_evidence_ledger_20260604"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WITCH",
+        "data/placement-model.json#/factions/WITCH",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WITCH"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WITCH",
       "canonical_file": "data/raw-factions/witch/witch.profile.json",
       "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:d2b83783cb96a9f08b0d9fd3b46f88e5ad86d085c3e1bdfec2f5085f9285350c",
+      "canonical_id": "witch_core_identity_gate3",
+      "canonical_content_hash": "sha256:9b1dec91633a47e6d5dd3b8830318ffd9e0f48438ef409634e34a01736f54cfb",
       "evidence_claim_ids": [
         "witch_claim_0001",
         "witch_claim_0002",

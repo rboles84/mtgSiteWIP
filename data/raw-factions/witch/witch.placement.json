@@ -317,16 +317,13 @@
         "ask": "Is the answer cultivating inevitability, or keeping the commons open and protected?",
         "evidence_claim_ids": [
           "witch_claim_0003",
-          "witch_claim_0005",
-          "ink_claim_0003",
-          "ink_claim_0005"
+          "witch_claim_0005"
         ],
         "supporting_source_ids": [
           "src_vm_witch_evidence_ledger_20260604",
-          "src_vm_four_color_reference_audit_20260604",
-          "src_vm_ink_evidence_ledger_20260604",
           "src_vm_four_color_reference_audit_20260604"
-        ]
+        ],
+        "neighbor_evidence_boundary": "Ink claim IDs remain Ink-owned authority and are not used as Witch proof; this collision row is supported only by Witch-owned missing-Red and patient-growth claims."
       },
       {
         "collision_id": "collision_witch_yore_four_color_ring",
@@ -336,18 +333,60 @@
         "ask": "Is the answer patient cultivation reaching critical mass, or constructed agency refusing organic closure?",
         "evidence_claim_ids": [
           "witch_claim_0003",
-          "witch_claim_0005",
-          "yore_claim_0003",
-          "yore_claim_0004"
+          "witch_claim_0005"
         ],
         "supporting_source_ids": [
           "src_vm_witch_evidence_ledger_20260604",
-          "src_vm_four_color_reference_audit_20260604",
-          "src_vm_yore_evidence_ledger_20260602",
-          "src_vm_four_color_reference_audit_20260602"
-        ]
+          "src_vm_four_color_reference_audit_20260604"
+        ],
+        "neighbor_evidence_boundary": "Yore claim IDs remain Yore-owned authority and are not used as Witch proof; this collision row is supported only by Witch-owned missing-Red and patient-growth claims."
       }
     ]
   },
-  "placement_model_version": "0.1.3"
+  "placement_model_version": "0.1.3",
+  "semantic_guidance_evidence": [
+    {
+      "canonical_id": "guidance_witch_mismatch_0001_gate3",
+      "claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ],
+      "bounded_paraphrase": "Generic counters, proliferate, Atraxa, infect, superfriends, or same-color grouping are rejected as standalone Witch proof because support mechanics do not replace the missing-Red protected-growth worldview.",
+      "evidence_scope": "generic_mechanics_and_support_anchor_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0"
+    },
+    {
+      "canonical_id": "guidance_witch_mismatch_0002_gate3",
+      "claim_ids": [
+        "witch_claim_0002",
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ],
+      "bounded_paraphrase": "Bant, Esper, Sultai, or Abzan readings are rejected when they do not need the complete Green, White, Blue, Black, and missing-Red structure.",
+      "evidence_scope": "four_color_threshold_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1"
+    },
+    {
+      "canonical_id": "guidance_witch_mismatch_0003_gate3",
+      "claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ],
+      "bounded_paraphrase": "Speed, spectacle, haste, emotional release, and present-tense ignition are rejected as Witch centers because Witch is the non-Red patient-cultivation frame.",
+      "evidence_scope": "missing_red_pressure_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2"
+    }
+  ]
 }
