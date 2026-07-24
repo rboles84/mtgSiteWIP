@@ -234,6 +234,46 @@
         "Keep ring collision guidance lateral_inhibition:false unless a future approved calibration card strengthens suppression deliberately."
       ],
       "notes": "VM-348 is a source-bound cohort repair. It adds no web intake, no raw claims, no generated hand edits, no public aliases, no Home preview membership, and no route changes."
+    },
+    {
+      "change_id": "ink_change_004",
+      "change_type": "VM-535 CRIT-001 Gate 3 Semantic Readiness Candidate",
+      "change_date": "2026-07-24",
+      "summary": "Classified the five existing Ink claims as substantive with bounded evidence locators, added stable native IDs for generated semantic provenance, repaired Ink-owned collision guidance evidence chains, and added recruiter guidance evidence mappings without changing frozen placement calibration or public alias behavior.",
+      "sources_added": [],
+      "sources_updated": [],
+      "claims_added": [],
+      "claims_updated": [
+        "ink_claim_0001 semantic_role/evidence_locations",
+        "ink_claim_0002 semantic_role/evidence_locations",
+        "ink_claim_0003 semantic_role/evidence_locations",
+        "ink_claim_0004 semantic_role/evidence_locations",
+        "ink_claim_0005 semantic_role/evidence_locations"
+      ],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "core_identity.core_identity_id",
+        "profile.profile_id",
+        "search_and_filter_metadata.search_metadata_id",
+        "site_surface.surface_id",
+        "data_quality",
+        "semantic_readiness_gate"
+      ],
+      "placement_fields_updated": [
+        "collision_guidance.pairs evidence_claim_ids/supporting_source_ids",
+        "collision_guidance.pairs neighbor_evidence_boundary",
+        "semantic_guidance_evidence",
+        "semantic_readiness_gate"
+      ],
+      "support_only_rows_used": [],
+      "manual_review_required": [
+        "Keep Altruism, Kynaios, Stalwart Unity, Ink-Treader, Commander rows, group-hug texture, and same-color permutations out of authoritative proof chains.",
+        "Keep RGWU, WURG, and all same-color permutations metadata/query-only and rejected as aliases.",
+        "Keep Dune and Witch claim IDs out of Ink-owned candidate proof chains.",
+        "Keep raw preview disabled while generated identity-layer preview remains retained by existing repository behavior."
+      ],
+      "notes": "VM-535 candidate remediation is INK-only. It does not create governance, review, certification, recruiter, identity-layer, package, validator, test, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, or Excel changes."
     }
   ]
 }

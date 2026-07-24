@@ -26,7 +26,8 @@
       "ink_claim_0003",
       "ink_claim_0004",
       "ink_claim_0005"
-    ]
+    ],
+    "core_identity_id": "ink_core_identity_gate3"
   },
   "structure": {
     "identity_class": "four-color",
@@ -94,7 +95,8 @@
       "ink_claim_0003",
       "ink_claim_0004",
       "ink_claim_0005"
-    ]
+    ],
+    "profile_id": "ink_profile_gate3"
   },
   "mechanics": {
     "summary": "Missing-Black four-color pressure, protected public abundance, open knowledge, shared resources, reciprocity, group-hug/table-politics support texture, and guarded commons play can express Ink only when they serve the full RGWU/non-Black worldview of Red care, Green reciprocity, White civic promise, and Blue open knowledge without Black-style private hoarding; group-hug, public archives, Kynaios, Ink-Treader, Altruism, or same-color identity alone do not define the identity.",
@@ -332,7 +334,8 @@
       "ink_claim_0003",
       "ink_claim_0004",
       "ink_claim_0005"
-    ]
+    ],
+    "search_metadata_id": "ink_search_metadata_gate3"
   },
   "site_surface": {
     "display_name": "Ink / Altruism",
@@ -390,7 +393,8 @@
       "ink_claim_0003",
       "ink_claim_0004",
       "ink_claim_0005"
-    ]
+    ],
+    "surface_id": "ink_site_surface_gate3"
   },
   "data_quality": {
     "strongest_evidence_areas": [
@@ -414,7 +418,10 @@
     "placement_eligible": true,
     "preview_eligible": false,
     "live_pilot": true,
-    "notes": "VM-304 preserves the original five-claim floor while source-backing INK's current generated profile and placement state after VM-263. Altruism, RGWU, WURG, same-color permutations, Kynaios, Stalwart Unity, Ink-Treader, support-only rows, and discovery drafts remain bounded and cannot prove placement or public naming."
+    "notes": "VM-535 classifies all five Ink claims as substantive with bounded evidence locations, preserves support-only Commander boundaries, and keeps preview disabled in raw metadata.",
+    "source_status": "source_grounded_live_repair",
+    "semantic_readiness": "candidate_ready",
+    "source_generated_parity": "generated preview retained from identity layer; profile changes remain INK-local"
   },
   "research_limitations": [
     "Do not use VM-259 or VM-260 architecture docs as raw-claim evidence.",
@@ -445,5 +452,6 @@
     "source_packet": "data/raw-factions/ink/ink.sources.json",
     "support_dossier": "docs/research/canon/misc/Magic Four-Color Identity Dossier.md",
     "commander_support_row": "docs/research/vox_mana_second_commander_recommendations_enhanced.jsonl (content-matched deckName Stalwart Unity and mainCommander Kynaios and Tiro of Meletis)"
-  }
+  },
+  "semantic_readiness_gate": "VM-535 Gate 3 candidate"
 }

@@ -6299,16 +6299,13 @@
           "ask": "Is the answer protecting shared benefit, or organizing force before delay costs the opening?",
           "evidence_claim_ids": [
             "ink_claim_0003",
-            "ink_claim_0005",
-            "dune_claim_0003",
-            "dune_claim_0005"
+            "ink_claim_0005"
           ],
           "supporting_source_ids": [
             "src_vm_ink_evidence_ledger_20260604",
-            "src_vm_four_color_reference_audit_20260604",
-            "src_vm_dune_evidence_ledger_20260603",
-            "src_vm_four_color_reference_audit_20260603"
-          ]
+            "src_vm_four_color_reference_audit_20260604"
+          ],
+          "neighbor_evidence_boundary": "Dune claim IDs remain Dune-owned authority and are not used as Ink proof; this collision row is supported only by Ink-owned missing-Black and protected-commons claims."
         },
         {
           "review_triggers": [
@@ -6332,16 +6329,13 @@
           "ask": "Is the answer a shared good kept open, or a cultivated position becoming inevitable?",
           "evidence_claim_ids": [
             "ink_claim_0003",
-            "ink_claim_0005",
-            "witch_claim_0003",
-            "witch_claim_0005"
+            "ink_claim_0005"
           ],
           "supporting_source_ids": [
             "src_vm_ink_evidence_ledger_20260604",
-            "src_vm_four_color_reference_audit_20260604",
-            "src_vm_witch_evidence_ledger_20260604",
             "src_vm_four_color_reference_audit_20260604"
-          ]
+          ],
+          "neighbor_evidence_boundary": "Witch claim IDs remain outside VM-535 scope and are not used as Ink proof; this collision row is supported only by Ink-owned missing-Black and protected-commons claims."
         }
       ],
       "chatbot_guidance": {

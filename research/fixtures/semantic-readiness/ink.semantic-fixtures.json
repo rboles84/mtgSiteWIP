@@ -1,0 +1,563 @@
+{
+  "identity_key": "INK",
+  "raw_id": "ink",
+  "display_name": "Ink / Altruism",
+  "display_color_order": "RGWU",
+  "accepted_aliases": [
+    "INK"
+  ],
+  "metadata_only_color_orders": [
+    "RGWU",
+    "RGUW",
+    "RWGU",
+    "RWUG",
+    "RUGW",
+    "RUWG",
+    "GRWU",
+    "GRUW",
+    "GWRU",
+    "GWUR",
+    "GURW",
+    "GUWR",
+    "WRGU",
+    "WRUG",
+    "WGRU",
+    "WGUR",
+    "WURG",
+    "WUGR",
+    "URGW",
+    "URWG",
+    "UGRW",
+    "UGWR",
+    "UWRG",
+    "UWGR"
+  ],
+  "contract_version": "v1.1",
+  "generated_by": "VM-535 Gate 3 semantic remediation",
+  "runtime_assertions": false,
+  "fixture_count": 30,
+  "fixtures": [
+    {
+      "fixture_id": "ink_core_inclusion_missing_black_identity",
+      "fixture_type": "core_inclusion",
+      "scenario": "A user asks what Ink means in Vox Mana and gives RGWU, missing-Black, protected generosity, shared prosperity, open knowledge, and guarded-commons language while rejecting color-code aliases.",
+      "expected_identity": "INK",
+      "expected_decision": "accept",
+      "evidence_claim_ids": [
+        "ink_claim_0001",
+        "ink_claim_0002",
+        "ink_claim_0003",
+        "ink_claim_0004",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm263_ink_runtime_promotion_20260604",
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_ink_vm258_scope_card_20260603"
+      ]
+    },
+    {
+      "fixture_id": "ink_mature_pressure_behavior_guarded_commons",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "A user centers protected public abundance, shared resources guarded from capture, and open knowledge while naming the risk of generosity becoming self-erasure.",
+      "expected_identity": "INK",
+      "expected_decision": "accept",
+      "evidence_claim_ids": [
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_nearest_collision_dune_witch_ring",
+      "fixture_type": "nearest_collision_ambiguity",
+      "scenario": "A four-color answer mentions force, generosity, patient accumulation, shared resources, and missing-color language without clearly choosing which color is absent or what good is being protected.",
+      "expected_identity": "INK",
+      "expected_decision": "ask_boundary_question",
+      "evidence_claim_ids": [
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_provenance_core_identity",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the Ink core identity chain.",
+      "expected_identity": "INK",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/ink/ink.profile.json",
+      "canonical_pointer": "/core_identity",
+      "evidence_claim_ids": [
+        "ink_claim_0001",
+        "ink_claim_0002",
+        "ink_claim_0003",
+        "ink_claim_0004",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm263_ink_runtime_promotion_20260604",
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_ink_vm258_scope_card_20260603"
+      ]
+    },
+    {
+      "fixture_id": "ink_provenance_profile",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the Ink generated profile chain.",
+      "expected_identity": "INK",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/ink/ink.profile.json",
+      "canonical_pointer": "/profile",
+      "evidence_claim_ids": [
+        "ink_claim_0001",
+        "ink_claim_0002",
+        "ink_claim_0003",
+        "ink_claim_0004",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm263_ink_runtime_promotion_20260604",
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_ink_vm258_scope_card_20260603"
+      ]
+    },
+    {
+      "fixture_id": "ink_provenance_search_metadata",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the Ink search and metadata boundary chain.",
+      "expected_identity": "INK",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/ink/ink.profile.json",
+      "canonical_pointer": "/search_and_filter_metadata",
+      "evidence_claim_ids": [
+        "ink_claim_0001",
+        "ink_claim_0002",
+        "ink_claim_0003",
+        "ink_claim_0004",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm263_ink_runtime_promotion_20260604",
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_ink_vm258_scope_card_20260603"
+      ]
+    },
+    {
+      "fixture_id": "ink_provenance_site_surface",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the Ink site-surface chain.",
+      "expected_identity": "INK",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/ink/ink.profile.json",
+      "canonical_pointer": "/site_surface",
+      "evidence_claim_ids": [
+        "ink_claim_0001",
+        "ink_claim_0002",
+        "ink_claim_0003",
+        "ink_claim_0004",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm263_ink_runtime_promotion_20260604",
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_ink_vm258_scope_card_20260603"
+      ]
+    },
+    {
+      "fixture_id": "ink_provenance_discriminator_001",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the first Ink discriminator chain.",
+      "expected_identity": "INK",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/ink/ink.placement.json",
+      "canonical_pointer": "/discriminator_questions/0",
+      "evidence_claim_ids": [
+        "ink_claim_0001",
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm263_ink_runtime_promotion_20260604",
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_ink_vm258_scope_card_20260603"
+      ]
+    },
+    {
+      "fixture_id": "ink_provenance_discriminator_002",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the second Ink discriminator chain.",
+      "expected_identity": "INK",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/ink/ink.placement.json",
+      "canonical_pointer": "/discriminator_questions/1",
+      "evidence_claim_ids": [
+        "ink_claim_0001",
+        "ink_claim_0002",
+        "ink_claim_0003",
+        "ink_claim_0004",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm263_ink_runtime_promotion_20260604",
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_ink_vm258_scope_card_20260603"
+      ]
+    },
+    {
+      "fixture_id": "ink_provenance_discriminator_003",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the third Ink discriminator chain.",
+      "expected_identity": "INK",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/ink/ink.placement.json",
+      "canonical_pointer": "/discriminator_questions/2",
+      "evidence_claim_ids": [
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_provenance_collision_dune",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the INK-owned Dune collision chain.",
+      "expected_identity": "INK",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/ink/ink.placement.json",
+      "canonical_pointer": "/collision_guidance/pairs/0",
+      "evidence_claim_ids": [
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_provenance_collision_witch",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the INK-owned Witch collision chain.",
+      "expected_identity": "INK",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/ink/ink.placement.json",
+      "canonical_pointer": "/collision_guidance/pairs/1",
+      "evidence_claim_ids": [
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_excludes_dune_force",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "DUNE",
+      "scenario": "BRGW organized force, territorial pressure, and non-Blue direct action are proposed as Ink.",
+      "expected_identity": "DUNE",
+      "expected_decision": "reject_ink",
+      "evidence_claim_ids": [
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_excludes_witch_accumulation",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WITCH",
+      "scenario": "GWUB patient accumulation, calculation, protected ambition, and non-Red long-horizon growth are proposed as Ink.",
+      "expected_identity": "WITCH",
+      "expected_decision": "reject_ink",
+      "evidence_claim_ids": [
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_excludes_bant",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BANT",
+      "scenario": "White-blue-green order, learning, and community without Red care or immediacy are proposed as Ink.",
+      "expected_identity": "BANT",
+      "expected_decision": "reject_ink",
+      "evidence_claim_ids": [
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_excludes_jeskai",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "JESKAI",
+      "scenario": "Blue-red-white discipline, expression, and trained insight without Green reciprocity are proposed as Ink.",
+      "expected_identity": "JESKAI",
+      "expected_decision": "reject_ink",
+      "evidence_claim_ids": [
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_excludes_naya",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "NAYA",
+      "scenario": "Red-green-white embodied community and abundance without Blue open knowledge or archive are proposed as Ink.",
+      "expected_identity": "NAYA",
+      "expected_decision": "reject_ink",
+      "evidence_claim_ids": [
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_excludes_temur",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "TEMUR",
+      "scenario": "Blue-red-green vitality, instinct, and study without White civic promise are proposed as Ink.",
+      "expected_identity": "TEMUR",
+      "expected_decision": "reject_ink",
+      "evidence_claim_ids": [
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_excludes_generic_rgwu",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_RGWU",
+      "scenario": "A caller asks to use RGWU as an accepted Ink alias instead of INK.",
+      "expected_identity": "RGWU_METADATA_ONLY",
+      "expected_decision": "reject_alias",
+      "evidence_claim_ids": [
+        "ink_claim_0001",
+        "ink_claim_0002"
+      ],
+      "evidence_source_ids": [
+        "src_vm263_ink_runtime_promotion_20260604",
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_ink_vm258_scope_card_20260603"
+      ]
+    },
+    {
+      "fixture_id": "ink_excludes_generic_four_color_commander",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_FOUR_COLOR_COMMANDER",
+      "scenario": "A generic four-color Commander deck is proposed as Ink without the missing-Black protected-commons identity frame.",
+      "expected_identity": "GENERIC_FOUR_COLOR_COMMANDER",
+      "expected_decision": "reject_ink",
+      "evidence_claim_ids": [
+        "ink_claim_0002",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_excludes_generic_group_hug",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_GROUP_HUG",
+      "scenario": "Friendly group-hug or everyone-draws language alone is proposed as Ink identity proof.",
+      "expected_identity": "GENERIC_GROUP_HUG",
+      "expected_decision": "reject_ink",
+      "evidence_claim_ids": [
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_excludes_generic_shared_resources",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_SHARED_RESOURCES",
+      "scenario": "Shared resources alone are proposed as Ink proof without protection from capture, missing-Black pressure, or the full RGWU worldview.",
+      "expected_identity": "GENERIC_SHARED_RESOURCES",
+      "expected_decision": "reject_ink",
+      "evidence_claim_ids": [
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_excludes_kynaios_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "KYNAIOS_ONLY",
+      "scenario": "Kynaios and Tiro alone are presented as sufficient lore or identity proof for Ink.",
+      "expected_identity": "KYNAIOS_ONLY",
+      "expected_decision": "reject_ink",
+      "evidence_claim_ids": [
+        "ink_claim_0002",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_excludes_stalwart_unity_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "STALWART_UNITY_ONLY",
+      "scenario": "The Stalwart Unity precon is treated as Ink naming authority, lore proof, or placement proof.",
+      "expected_identity": "STALWART_UNITY_ONLY",
+      "expected_decision": "reject_ink",
+      "evidence_claim_ids": [
+        "ink_claim_0002",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_excludes_ink_treader_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "INK_TREADER_ONLY",
+      "scenario": "Ink-Treader Nephilim alone is treated as an official Ink faction, institution, doctrine, naming authority, or placement proof.",
+      "expected_identity": "INK_TREADER_ONLY",
+      "expected_decision": "reject_ink",
+      "evidence_claim_ids": [
+        "ink_claim_0004",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_excludes_commander_legality",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "COMMANDER_LEGALITY",
+      "scenario": "Commander legality, decklists, recommendations, or metagame rankings are used as Ink proof.",
+      "expected_identity": "COMMANDER_LEGALITY",
+      "expected_decision": "reject_ink",
+      "evidence_claim_ids": [
+        "ink_claim_0002",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_excludes_official_name",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "OFFICIAL_NAME",
+      "scenario": "Ink / Altruism is presented as the official universal Magic name for RGWU.",
+      "expected_identity": "OFFICIAL_NAME",
+      "expected_decision": "reject_ink",
+      "evidence_claim_ids": [
+        "ink_claim_0002"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_excludes_black_present_collapse",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BLACK_PRESENT_COLLAPSE",
+      "scenario": "A Black-present private leverage, hoarding, sovereignty, or personal-advantage center is treated as Ink instead of being rejected on missing-Black grounds.",
+      "expected_identity": "BLACK_PRESENT_COLLAPSE",
+      "expected_decision": "reject_ink",
+      "evidence_claim_ids": [
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ]
+    },
+    {
+      "fixture_id": "ink_excludes_wurg_alias",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WURG_METADATA_ONLY",
+      "scenario": "A caller asks to use WURG or another RGWU color permutation as an accepted Ink alias.",
+      "expected_identity": "INK",
+      "expected_decision": "reject_alias",
+      "evidence_claim_ids": [
+        "ink_claim_0001",
+        "ink_claim_0002"
+      ],
+      "evidence_source_ids": [
+        "src_vm263_ink_runtime_promotion_20260604",
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_ink_vm258_scope_card_20260603"
+      ]
+    },
+    {
+      "fixture_id": "ink_excludes_color_order_as_canonical_identity",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "COLOR_ORDER_AS_KEY",
+      "scenario": "Ink is stored under RGWU instead of the canonical INK key.",
+      "expected_identity": "RGWU_METADATA_ONLY",
+      "expected_decision": "reject_alias",
+      "evidence_claim_ids": [
+        "ink_claim_0001",
+        "ink_claim_0002"
+      ],
+      "evidence_source_ids": [
+        "src_vm263_ink_runtime_promotion_20260604",
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_ink_vm258_scope_card_20260603"
+      ]
+    }
+  ]
+}

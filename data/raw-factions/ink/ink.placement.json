@@ -312,16 +312,13 @@
         "ask": "Is the answer protecting shared benefit, or organizing force before delay costs the opening?",
         "evidence_claim_ids": [
           "ink_claim_0003",
-          "ink_claim_0005",
-          "dune_claim_0003",
-          "dune_claim_0005"
+          "ink_claim_0005"
         ],
         "supporting_source_ids": [
           "src_vm_ink_evidence_ledger_20260604",
-          "src_vm_four_color_reference_audit_20260604",
-          "src_vm_dune_evidence_ledger_20260603",
-          "src_vm_four_color_reference_audit_20260603"
-        ]
+          "src_vm_four_color_reference_audit_20260604"
+        ],
+        "neighbor_evidence_boundary": "Dune claim IDs remain Dune-owned authority and are not used as Ink proof; this collision row is supported only by Ink-owned missing-Black and protected-commons claims."
       },
       {
         "collision_id": "collision_ink_witch_four_color_ring",
@@ -331,17 +328,80 @@
         "ask": "Is the answer a shared good kept open, or a cultivated position becoming inevitable?",
         "evidence_claim_ids": [
           "ink_claim_0003",
-          "ink_claim_0005",
-          "witch_claim_0003",
-          "witch_claim_0005"
+          "ink_claim_0005"
         ],
         "supporting_source_ids": [
           "src_vm_ink_evidence_ledger_20260604",
-          "src_vm_four_color_reference_audit_20260604",
-          "src_vm_witch_evidence_ledger_20260604",
           "src_vm_four_color_reference_audit_20260604"
-        ]
+        ],
+        "neighbor_evidence_boundary": "Witch claim IDs remain outside VM-535 scope and are not used as Ink proof; this collision row is supported only by Ink-owned missing-Black and protected-commons claims."
       }
     ]
-  }
+  },
+  "semantic_readiness_gate": "VM-535 Gate 3 candidate",
+  "semantic_guidance_evidence": [
+    {
+      "canonical_id": "guidance_ink_mismatch_0001_gate3",
+      "claim_ids": [
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "source_ids": [
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ],
+      "bounded_paraphrase": "Treating private need, guarded consent, or personal limits as automatically selfish is rejected because Ink's missing-Black commons still requires protection from capture and self-erasure.",
+      "evidence_scope": "missing_black_shadow_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0"
+    },
+    {
+      "canonical_id": "guidance_ink_mismatch_0002_gate3",
+      "claim_ids": [
+        "ink_claim_0001",
+        "ink_claim_0002",
+        "ink_claim_0004",
+        "ink_claim_0005"
+      ],
+      "source_ids": [
+        "src_vm263_ink_runtime_promotion_20260604",
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_ink_vm258_scope_card_20260603",
+        "src_vm_four_color_reference_audit_20260604"
+      ],
+      "bounded_paraphrase": "Generic shared resources, group-hug, public archives, Kynaios, Ink-Treader, Altruism, or same-color grouping are rejected as standalone Ink proof because support/card/metadata anchors do not replace the full missing-Black worldview.",
+      "evidence_scope": "support_anchor_and_generic_group_hug_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1"
+    },
+    {
+      "canonical_id": "guidance_ink_mismatch_0003_gate3",
+      "claim_ids": [
+        "ink_claim_0001",
+        "ink_claim_0002",
+        "ink_claim_0004"
+      ],
+      "source_ids": [
+        "src_vm263_ink_runtime_promotion_20260604",
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_ink_vm258_scope_card_20260603",
+        "src_vm_four_color_reference_audit_20260604"
+      ],
+      "bounded_paraphrase": "Treating Altruism, Kynaios, Stalwart Unity, Ink-Treader, RGWU, WURG, or same-color identity as naming authority is rejected because those are support, anchor, or metadata boundaries rather than public aliases or official names.",
+      "evidence_scope": "official_name_card_anchor_and_alias_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2"
+    },
+    {
+      "canonical_id": "guidance_ink_mismatch_0004_gate3",
+      "claim_ids": [
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "source_ids": [
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ],
+      "bounded_paraphrase": "Centering private advantage, hoarding, or personal sovereignty is rejected because Ink is the RGWU missing-Black protected-commons frame rather than a Black-style private leverage center.",
+      "evidence_scope": "private_hoarding_collision_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3"
+    }
+  ]
 }

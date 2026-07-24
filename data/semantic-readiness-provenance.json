@@ -12023,12 +12023,10 @@
       "canonical_file": "data/raw-factions/ink/ink.placement.json",
       "canonical_pointer": "/collision_guidance/pairs/0",
       "canonical_id": "collision_ink_dune_four_color_ring",
-      "canonical_content_hash": "sha256:be2837db6935e1b4693b87ab281128341679979c2021e93cec605c7ee57662cc",
+      "canonical_content_hash": "sha256:9c65a7a1cd2679df8c103c3a786d0062ad74f4d3a471814b4a1f7259205181de",
       "evidence_claim_ids": [
         "ink_claim_0003",
-        "ink_claim_0005",
-        "dune_claim_0003",
-        "dune_claim_0005"
+        "ink_claim_0005"
       ],
       "evidence_source_ids": [
         "src_vm_four_color_reference_audit_20260604",
@@ -12046,12 +12044,10 @@
       "canonical_file": "data/raw-factions/ink/ink.placement.json",
       "canonical_pointer": "/collision_guidance/pairs/1",
       "canonical_id": "collision_ink_witch_four_color_ring",
-      "canonical_content_hash": "sha256:d3743949be458b63ae339a15c0113a7e7f0e2ce2e005aab59673e88343a10910",
+      "canonical_content_hash": "sha256:6ec0dd5aac6cd706ad88746c798452b1e9a353f2988e2451dc63f93b540afe8d",
       "evidence_claim_ids": [
         "ink_claim_0003",
-        "ink_claim_0005",
-        "witch_claim_0003",
-        "witch_claim_0005"
+        "ink_claim_0005"
       ],
       "evidence_source_ids": [
         "src_vm_four_color_reference_audit_20260604",
@@ -12137,10 +12133,101 @@
     },
     {
       "identity_key": "INK",
+      "canonical_file": "data/raw-factions/ink/ink.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "guidance_ink_mismatch_0001_gate3",
+      "canonical_content_hash": "sha256:aa36a48dc660cc849e3d528255e5bb5875803190e9a8c9851d187d3c2e71b454",
+      "evidence_claim_ids": [
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/INK",
+        "data/placement-model.json#/factions/INK",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/INK"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "INK",
+      "canonical_file": "data/raw-factions/ink/ink.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "guidance_ink_mismatch_0002_gate3",
+      "canonical_content_hash": "sha256:7762479ed9c67018e24c2e22f7f762c7851457c40c56622d15c3e5705ddb8203",
+      "evidence_claim_ids": [
+        "ink_claim_0001",
+        "ink_claim_0002",
+        "ink_claim_0004",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm263_ink_runtime_promotion_20260604",
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_ink_vm258_scope_card_20260603"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/INK",
+        "data/placement-model.json#/factions/INK",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/INK"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "INK",
+      "canonical_file": "data/raw-factions/ink/ink.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "guidance_ink_mismatch_0003_gate3",
+      "canonical_content_hash": "sha256:1d303cdcd9750ab593850c227ed11858aa7ef152e7c1cd98bbe5b2f25b685ed1",
+      "evidence_claim_ids": [
+        "ink_claim_0001",
+        "ink_claim_0002",
+        "ink_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm263_ink_runtime_promotion_20260604",
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_ink_vm258_scope_card_20260603"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/INK",
+        "data/placement-model.json#/factions/INK",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/INK"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "INK",
+      "canonical_file": "data/raw-factions/ink/ink.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "guidance_ink_mismatch_0004_gate3",
+      "canonical_content_hash": "sha256:bc8d7fd1db02a0e54d42d3816cf2edb82647d53bd58faf4a3aaf0a0e8e72d1aa",
+      "evidence_claim_ids": [
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm_ink_evidence_ledger_20260604"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/INK",
+        "data/placement-model.json#/factions/INK",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/INK"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "INK",
       "canonical_file": "data/raw-factions/ink/ink.profile.json",
       "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:87d0e6690ada932fc4dc35ff5da4d85498d0d05311bfc50c817486c8bc9b9a03",
+      "canonical_id": "ink_core_identity_gate3",
+      "canonical_content_hash": "sha256:c9868963adb05a894fffcbe6657c99016deac0715b51491be7eaf6e5fadaa22d",
       "evidence_claim_ids": [
         "ink_claim_0001",
         "ink_claim_0002",
@@ -12165,8 +12252,8 @@
       "identity_key": "INK",
       "canonical_file": "data/raw-factions/ink/ink.profile.json",
       "canonical_pointer": "/profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:e0e382bad8a0c991454f905e3961ebe31d47397ff9a0fa210ec0aeb688cedd0b",
+      "canonical_id": "ink_profile_gate3",
+      "canonical_content_hash": "sha256:9ca15b4003692d0ea4ac15e81e82e798daaa080ff93026331a10eb97384fb483",
       "evidence_claim_ids": [
         "ink_claim_0001",
         "ink_claim_0002",
@@ -12191,8 +12278,8 @@
       "identity_key": "INK",
       "canonical_file": "data/raw-factions/ink/ink.profile.json",
       "canonical_pointer": "/search_and_filter_metadata",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:f92d50852f6b032fb45dde5906cf6f0ccd867837e90000c6fcee455820d494cf",
+      "canonical_id": "ink_search_metadata_gate3",
+      "canonical_content_hash": "sha256:4eff2843e813c6df422b4d3ed6fe47d28fedddc6412af280949ff41dc13ca739",
       "evidence_claim_ids": [
         "ink_claim_0001",
         "ink_claim_0002",
@@ -12217,8 +12304,8 @@
       "identity_key": "INK",
       "canonical_file": "data/raw-factions/ink/ink.profile.json",
       "canonical_pointer": "/site_surface",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:3c4d45d7112c08ec165a7fe5258ee088397e7cebb928a83a2b06bada1a57e444",
+      "canonical_id": "ink_site_surface_gate3",
+      "canonical_content_hash": "sha256:96d0ce5228fb7efa52ad82b2245cb6b09e418378fe72d1a0ba9c89996b7f5dc0",
       "evidence_claim_ids": [
         "ink_claim_0001",
         "ink_claim_0002",

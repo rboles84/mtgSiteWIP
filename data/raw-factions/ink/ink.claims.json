@@ -24,7 +24,8 @@
       "ink_claim_0003",
       "ink_claim_0004",
       "ink_claim_0005"
-    ]
+    ],
+    "semantic_readiness_gate": "VM-535 Gate 3 candidate: all Ink claims classified as substantive with bounded locators and source-id parity."
   },
   "claims": [
     {
@@ -44,7 +45,34 @@
         "INK-EVID-010"
       ],
       "confidence": "High",
-      "notes": "VM-304 updates the lifecycle sentence after VM-263 while preserving the evidence floor and naming/color-code boundary. VM-263 is used only for lifecycle/live-status metadata, not placement axes, inhibitor traps, mechanics, lore, Commander identity, deck links, or discriminator support."
+      "notes": "VM-304 updates the lifecycle sentence after VM-263 while preserving the evidence floor and naming/color-code boundary. VM-263 is used only for lifecycle/live-status metadata, not placement axes, inhibitor traps, mechanics, lore, Commander identity, deck links, or discriminator support.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_ink_evidence_ledger_20260604",
+          "locator_type": "ledger_rows",
+          "locator": "docs/research/ink/ink-evidence-ledger.md#INK-EVID-001-INK-EVID-002-INK-EVID-010",
+          "bounded_paraphrase": "The Ink evidence ledger records the source-packet lifecycle boundary, the INK project key, and RGWU/permutation metadata-only restrictions.",
+          "evidence_scope": "project_identity_and_alias_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_ink_vm258_scope_card_20260603",
+          "locator_type": "kanban_card",
+          "locator": "docs/kanban/done/VM-258-ink-source-packet-and-evidence-ledger.md#scope-completed",
+          "bounded_paraphrase": "The VM-258 scope card authorizes the Ink source packet and evidence ledger while excluding runtime aliases, generated artifacts, and neighbor work.",
+          "evidence_scope": "program_lifecycle_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm263_ink_runtime_promotion_20260604",
+          "locator_type": "kanban_card",
+          "locator": "docs/kanban/done/VM-263-ink-controlled-runtime-promotion.md#results",
+          "bounded_paraphrase": "The VM-263 promotion card confirms INK as the live public/generated key while preserving RGWU and all permutations as metadata-query-only and keeping raw preview disabled.",
+          "evidence_scope": "runtime_promotion_boundary_not_lore_evidence",
+          "interpretation_level": "supporting_project_record"
+        }
+      ]
     },
     {
       "claim_id": "ink_claim_0002",
@@ -61,7 +89,26 @@
         "INK-EVID-010"
       ],
       "confidence": "High",
-      "notes": "Do not create public aliases from this naming policy. Altruism is display/support framing only, and RGWU, WURG, and all same-color permutations remain metadata/query-only."
+      "notes": "Do not create public aliases from this naming policy. Altruism is display/support framing only, and RGWU, WURG, and all same-color permutations remain metadata/query-only.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_ink_evidence_ledger_20260604",
+          "locator_type": "ledger_rows",
+          "locator": "docs/research/ink/ink-evidence-ledger.md#INK-EVID-002-INK-EVID-010",
+          "bounded_paraphrase": "The evidence ledger distinguishes INK as the Vox Mana expression label and Altruism as Commander 2016 support/theme framing, not official universal naming.",
+          "evidence_scope": "official_name_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260604",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#quick-reference-table",
+          "bounded_paraphrase": "The four-color reference audit maps the RGWU slot to Ink / Altruism while framing those labels as project/reference terms rather than official universal names.",
+          "evidence_scope": "four_color_reference_boundary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "ink_claim_0003",
@@ -77,7 +124,26 @@
         "INK-EVID-003"
       ],
       "confidence": "High",
-      "notes": "Missing-color framing is identity structure, not a canon faction claim."
+      "notes": "Missing-color framing is identity structure, not a canon faction claim.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_ink_evidence_ledger_20260604",
+          "locator_type": "ledger_row",
+          "locator": "docs/research/ink/ink-evidence-ledger.md#INK-EVID-003",
+          "bounded_paraphrase": "The evidence ledger records that the Ink/RGWU lane is defined by excluding Black.",
+          "evidence_scope": "missing_black_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260604",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#rgwu-altruism-ink",
+          "bounded_paraphrase": "The four-color audit describes the RGWU Altruism/Ink slot as the four-color combination excluding Black.",
+          "evidence_scope": "color_order_boundary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "ink_claim_0004",
@@ -93,7 +159,26 @@
         "INK-EVID-004"
       ],
       "confidence": "Medium",
-      "notes": "Exact official Ink-Treader card facts remain Manual fill required before deeper raw or public copy. Ink-Treader may help identify the historical card-anchor boundary, but it does not authorize routing, scoring, or placement eligibility."
+      "notes": "Exact official Ink-Treader card facts remain Manual fill required before deeper raw or public copy. Ink-Treader may help identify the historical card-anchor boundary, but it does not authorize routing, scoring, or placement eligibility.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_ink_evidence_ledger_20260604",
+          "locator_type": "ledger_row",
+          "locator": "docs/research/ink/ink-evidence-ledger.md#INK-EVID-004",
+          "bounded_paraphrase": "The evidence ledger permits Ink-Treader Nephilim as a bounded card anchor while rejecting Nephilim as a faction, institution, doctrine, civilization, naming authority, or placement authority.",
+          "evidence_scope": "card_anchor_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260604",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#rgwu-altruism-ink",
+          "bounded_paraphrase": "The four-color audit uses Ink-Treader Nephilim as the reference anchor for the RGWU slot, not as standalone institutional proof.",
+          "evidence_scope": "card_anchor_boundary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "ink_claim_0005",
@@ -109,7 +194,26 @@
         "INK-EVID-007"
       ],
       "confidence": "Medium",
-      "notes": "Use as high-level identity framing only. Keep long-form metaphysics, public-memory symbolism, placement logic, and Commander texture conservative and explicitly bounded."
+      "notes": "Use as high-level identity framing only. Keep long-form metaphysics, public-memory symbolism, placement logic, and Commander texture conservative and explicitly bounded.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_ink_evidence_ledger_20260604",
+          "locator_type": "ledger_row",
+          "locator": "docs/research/ink/ink-evidence-ledger.md#INK-EVID-007",
+          "bounded_paraphrase": "The evidence ledger permits shared prosperity, community benefit, protected generosity, and open knowledge only as bounded Ink/Altruism framing.",
+          "evidence_scope": "missing_black_identity_frame",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260604",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#rgwu-altruism-ink",
+          "bounded_paraphrase": "The four-color audit describes the RGWU slot as Altruism/Ink while keeping stronger metaphysical, Commander, strategic, comparative, and symbolic claims outside the source floor.",
+          "evidence_scope": "four_color_reference_boundary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     }
   ]
 }
