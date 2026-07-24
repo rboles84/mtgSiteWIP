@@ -56,6 +56,15 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - Certification scope: governance-only; Yore source, generated semantic data, fixtures, provenance source, runtime, validator/test implementation, package, CI, Excel, original main, DRIFT-017 prototype, Table Talk baseline, VM-533 Glint, and parked Glint shadow work were untouched.
 - Program base: `PENDING_VM531_CERTIFICATION_COMMIT_SHA`; certified identity count advances to 30 of 37 and Wave 4 shards complete at 10 of 10.
 
+## VM-533 Gate 1+2 Update - 2026-07-23
+
+- DRIFT-014: VM-533 started from exact VM-532 certification/program base `8145b8697ed1d1500c0faecf080b55404ab8ec4e`; Gate 1+2 governance is separate from any future semantic candidate, workflow record, independent review, or certification.
+- DRIFT-015: Gate 1+2 identified GLINT preview ownership without editing preview source; raw search metadata remains preview-disabled while generated identity-layer preview is enabled and source/embedded generated preview text is equal.
+- DRIFT-016: GLINT uses object-with-pairs collision guidance and retains `UBRG` plus all same-color permutations as metadata/query-only candidate identities that must fail closed.
+- DRIFT-017/DRIFT-019: Gate 1+2 treats copied Glint strings and historical draft/discovery surfaces as non-authoritative unless active-consumer proof and source role permit use.
+- DRIFT-020: Gate 1+2 does not require a `data/identity-layers.json` preview-source exception; any later preview-source edit would have to be GLINT-only and validator-approved.
+- Gate 1+2 scope: governance-only; GLINT raw data, generated semantic data, fixtures, provenance source, recruiter context, runtime, validator/test implementation, package, CI, Excel, original main, VM-534 Dune, VM-535 Ink, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, and parked Glint shadow work were untouched.
+
 ## VM-530 Certification Update - 2026-07-23
 
 - DRIFT-014: VM-530 certification preserved candidate/workflow/review/certification object separation; only exact approved candidate `96df085ff38d03da1e37de80b1e11705b1dfa47a` was certified, while workflow `ab961e384ef72bd4c56dae07f60863016511adb0` and approval review `f3b360ec0d9df569f585299480db1f34ba72a01b` remain distinct.

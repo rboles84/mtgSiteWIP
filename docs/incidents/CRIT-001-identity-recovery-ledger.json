@@ -5,14 +5,14 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "YORE",
-    "next_identity": "GLINT",
+    "active_identity": "GLINT",
+    "next_identity": "DUNE",
     "certified_identity_count": 31,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore certified from exact approved candidate f83b8b90b49a7afe3236f3e7f7ab52a254625d1f; VM-533 Glint remains backlog/not_started",
-      "current_program_base": "PENDING_VM532_CERTIFICATION_COMMIT_SHA",
+      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore certified from exact approved candidate f83b8b90b49a7afe3236f3e7f7ab52a254625d1f; VM-533 Glint Gate 1+2 read-only audit complete and Gate 3+4 remediation authorized",
+      "current_program_base": "8145b8697ed1d1500c0faecf080b55404ab8ec4e",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -64,14 +64,14 @@
           "INK",
           "WITCH"
         ],
-        "current_identity": "YORE",
-        "current_identity_status": "certified_semantically_ready",
-        "next_identity": "GLINT",
+        "current_identity": "GLINT",
+        "current_identity_status": "gate_1_2_complete_remediation_authorized",
+        "next_identity": "DUNE",
         "next_identity_status": "backlog_not_started",
         "certified": "1 of 5",
         "started_by": "PENDING_VM532_DRIFT_PREFLIGHT_COMMIT_SHA",
         "started_at": "2026-07-23T16:46:00-06:00",
-        "latest_certification": "PENDING_VM532_CERTIFICATION_COMMIT_SHA",
+        "latest_certification": "8145b8697ed1d1500c0faecf080b55404ab8ec4e",
         "latest_certified_identity": "YORE",
         "identities_certified": [
           "YORE"
@@ -105,34 +105,49 @@
       "installed_after_program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
       "governance_commit": "PENDING_CRIT001_DRIFT_CONTROL_GOVERNANCE_SHA",
       "current_identity_hold": {
-        "identity": "YORE",
-        "card": "VM-532",
-        "state": "certified_semantically_ready",
-        "branch": "codex/vm-532-yore-certification",
-        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm532-yore-certification",
-        "prior_identity_certified": "JESKAI",
-        "prior_identity_certification": "4529f8615785743d074e3060e13f990941c1a458",
-        "authorized_next_scope": "VM-533 / Glint may receive only a separate drift-preflight setup after this certification/program-base advancement is externally accepted and separately authorized. No VM-533 semantic work, Glint shadow-audit incorporation, Excel update by Codex, push, PR, merge, or cleanup of protected worktrees is authorized by this certification record.",
-        "required_next_milestone": "External tracker update outside Codex if required, then a separate VM-533 Glint drift-preflight control record before any Gate 1+2 semantic work.",
-        "program_base": "PENDING_VM532_CERTIFICATION_COMMIT_SHA",
-        "drift_preflight_commit": "PENDING_VM532_DRIFT_PREFLIGHT_COMMIT_SHA",
-        "shadow_revalidation_result": "confirmed old-base Yore shadow findings as non-authoritative preflight baseline; candidate-scope base updated to Jeskai certification SHA",
-        "updated_at": "2026-07-23T20:42:00-06:00",
-        "gate_1_2_commit": "PENDING_VM532_GATE_1_2_COMMIT_SHA",
-        "gate_1_2_report": "docs/handoffs/2026-07-23-1818-codex-vm532-yore-gate1-gate2.md",
+        "identity": "GLINT",
+        "card": "VM-533",
+        "state": "gate_1_2_complete_remediation_authorized",
+        "branch": "codex/vm-533-glint-semantic-recovery",
+        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm533-glint",
+        "prior_identity_certified": "YORE",
+        "prior_identity_certification": "8145b8697ed1d1500c0faecf080b55404ab8ec4e",
+        "authorized_next_scope": "VM-533 / Glint may proceed with GLINT-only Gate 3+4 semantic remediation and candidate creation after this Gate 1+2 governance commit. No certification, independent review, VM-534 Dune, VM-535 Ink, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, Excel update by Codex, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, or force operation is authorized.",
+        "required_next_milestone": "GLINT-only semantic candidate commit, exact candidate-scope validation, and separate candidate-workflow governance record before independent exact-SHA review.",
+        "program_base": "8145b8697ed1d1500c0faecf080b55404ab8ec4e",
+        "updated_at": "2026-07-23T21:08:00-06:00",
+        "gate_1_2_commit": "PENDING_VM533_GATE_1_2_COMMIT_SHA",
+        "gate_1_2_report": "docs/handoffs/2026-07-23-2108-codex-vm533-glint-gate1-gate2.md",
         "gate_1_2_result": "READY FOR GATE 3 REMEDIATION",
-        "candidate_recovery_sha": "f83b8b90b49a7afe3236f3e7f7ab52a254625d1f",
-        "candidate_workflow_commit": "80b83039aca88d66baf47486861e38caeb46b229",
-        "independent_review_branch": "codex/vm-532-yore-semantic-recovery-independent-review",
-        "independent_review_worktree": "C:\\dev\\mtgSiteWIP-crit001-vm532-yore-independent-review",
-        "independent_review_handoff": "docs/handoffs/2026-07-23-2012-codex-vm532-yore-independent-review.md",
-        "independent_review_commit": "3f012fa254816f27f2958c93fc5df742b445bb52",
-        "independent_review_decision": "APPROVE EXACT SHA f83b8b90b49a7afe3236f3e7f7ab52a254625d1f",
-        "certification_branch": "codex/vm-532-yore-certification",
-        "certification_worktree": "C:\\dev\\mtgSiteWIP-crit001-vm532-yore-certification",
-        "certification_handoff": "docs/handoffs/2026-07-23-2042-codex-vm532-yore-certification.md",
-        "certification_commit": "PENDING_VM532_CERTIFICATION_COMMIT_SHA",
-        "certification_result": "CERTIFIED EXACT SHA f83b8b90b49a7afe3236f3e7f7ab52a254625d1f"
+        "baseline_claim_role_counts": {
+          "total": 5,
+          "substantive_claim": 0,
+          "discovery_record": 0,
+          "support_record": 0,
+          "unclassified": 5
+        },
+        "baseline_source_role_counts": {
+          "claim-bearing": 3,
+          "discovery-only": 3,
+          "shaping-only": 5,
+          "support-only": 4
+        },
+        "baseline_provenance_count": 9,
+        "baseline_null_canonical_ids": 4,
+        "baseline_missing_hashes": 0,
+        "baseline_fixture_count": 0,
+        "canonical_key": "GLINT",
+        "display_name": "Glint / Chaos",
+        "display_color_order": "UBRG",
+        "accepted_aliases": [
+          "GLINT"
+        ],
+        "invalid_alias_result_required": "UBRG and all same-color permutations must remain metadata/query-only and reject as candidate identities",
+        "preview_result": "raw preview disabled; generated identity-layer preview enabled and source/embedded generated preview text equal",
+        "candidate_recovery_sha": null,
+        "candidate_workflow_commit": null,
+        "independent_review_commit": null,
+        "certification_commit": null
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -5327,19 +5342,37 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "gate_1_2_complete",
+        "status": "in_progress",
+        "started_at": "2026-07-23T21:08:00-06:00",
+        "gate_entered_at": "2026-07-23T21:08:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "DUNE",
-        "primary_disposition": null
+        "primary_disposition": "gate_3_4_glint_only_remediation_authorized"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "YORE",
+          "DUNE",
+          "GRIXIS",
+          "JUND",
+          "TEMUR",
+          "SULTAI",
+          "UB",
+          "UR",
+          "UG",
+          "BR",
+          "BG",
+          "RG"
+        ],
+        "audit_report": "docs/handoffs/2026-07-23-2108-codex-vm533-glint-gate1-gate2.md",
+        "residual_findings": [
+          "Gate 1+2 authorizes remediation only; GLINT remains unready until a separate exact semantic candidate passes validation.",
+          "Do not use DUNE-owned claims as GLINT proof before DUNE starts; DUNE can appear only as a GLINT-owned boundary target in this candidate.",
+          "Support-only Commander, Yidris, Entropic Uprising, and local card-data material must remain auxiliary support and cannot prove identity or placement.",
+          "UBRG and all same-color permutations remain metadata/query-only and must fail closed as candidate identities."
+        ]
       },
       "certification": {
         "contract_version": null,
