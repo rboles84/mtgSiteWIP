@@ -11,7 +11,7 @@
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 5 four-color identities started; VM-532 Yore drift preflight complete, Gate 1+2 pending; VM-533 Glint remains backlog/not started",
+      "next_cohort": "Wave 5 four-color identities started; VM-532 Yore Gate 1+2 complete and Gate 3+4 remediation authorized; VM-533 Glint remains backlog/not started",
       "current_program_base": "4529f8615785743d074e3060e13f990941c1a458",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
@@ -65,7 +65,7 @@
           "WITCH"
         ],
         "current_identity": "YORE",
-        "current_identity_status": "in_progress_drift_preflight_complete_gate_1_2_not_started",
+        "current_identity_status": "gate_1_2_complete_gate_3_4_authorized_no_candidate",
         "next_identity": "GLINT",
         "next_identity_status": "backlog_not_started",
         "certified": "0 of 5",
@@ -102,17 +102,20 @@
       "current_identity_hold": {
         "identity": "YORE",
         "card": "VM-532",
-        "state": "in_progress_drift_preflight_complete_gate_1_2_not_started",
+        "state": "gate_1_2_complete_gate_3_4_authorized_no_candidate",
         "branch": "codex/vm-532-yore-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm532-yore",
         "prior_identity_certified": "JESKAI",
         "prior_identity_certification": "4529f8615785743d074e3060e13f990941c1a458",
-        "authorized_next_scope": "Resume the same VM-532 / Yore branch and worktree for Gate 1+2 read-only semantic audit using the revalidated preflight baseline. No Yore remediation, candidate, review, certification, Excel, push, PR, merge, VM-533 work, or cleanup is authorized by the drift preflight record.",
-        "required_next_milestone": "VM-532 Gate 1+2 read-only audit must be committed separately before any remediation or candidate creation.",
+        "authorized_next_scope": "Resume the same VM-532 / Yore branch and worktree for YORE-only Gate 3+4 remediation using the committed Gate 1+2 boundary, then create an exact semantic candidate only after validation passes. No independent review, certification, Excel, push, PR, merge, VM-533 work, program-base movement, or permanent cleanup is authorized.",
+        "required_next_milestone": "VM-532 exact semantic candidate must be committed separately after Gate 3+4 remediation and validation; candidate-workflow governance must remain separate from the candidate.",
         "program_base": "4529f8615785743d074e3060e13f990941c1a458",
         "drift_preflight_commit": "PENDING_VM532_DRIFT_PREFLIGHT_COMMIT_SHA",
         "shadow_revalidation_result": "confirmed old-base Yore shadow findings as non-authoritative preflight baseline; candidate-scope base updated to Jeskai certification SHA",
-        "updated_at": "2026-07-23T16:46:00-06:00"
+        "updated_at": "2026-07-23T18:18:00-06:00",
+        "gate_1_2_commit": "PENDING_VM532_GATE_1_2_COMMIT_SHA",
+        "gate_1_2_report": "docs/handoffs/2026-07-23-1818-codex-vm532-yore-gate1-gate2.md",
+        "gate_1_2_result": "READY FOR GATE 3 REMEDIATION"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -149,7 +152,7 @@
         "wave_4_certified": "10 of 10",
         "total_certified": 30,
         "next_identity": "YORE",
-        "next_identity_status": "in_progress_drift_preflight_complete_gate_1_2_not_started",
+        "next_identity_status": "gate_1_2_complete_gate_3_4_authorized_no_candidate",
         "prior_program_base": "9b91bbe0631ecdb45f38823ecc0fdc70bd7c12a2"
       }
     },
@@ -5169,14 +5172,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "drift_preflight_complete",
+        "current_gate": "gate_1_2_complete",
         "status": "in_progress",
         "started_at": "2026-07-23T16:46:00-06:00",
-        "gate_entered_at": "2026-07-23T16:46:00-06:00",
+        "gate_entered_at": "2026-07-23T18:18:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "GLINT",
-        "primary_disposition": "pending_gate_1_2_read_only_audit"
+        "primary_disposition": "ready_for_gate_3_remediation"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -5186,19 +5189,38 @@
           "ESPER",
           "GRIXIS",
           "MARDU",
-          "SULTAI"
+          "SULTAI",
+          "WU",
+          "UB",
+          "BR",
+          "UR",
+          "WB",
+          "WR",
+          "GENERIC_WUBR",
+          "GENERIC_ARTIFACTS",
+          "GENERIC_RECURSION",
+          "GENERIC_COMMANDER",
+          "BREYA_ONLY",
+          "YORE_TILLER_AS_FACTION",
+          "CULT_OF_YORE",
+          "COMMANDER_PRODUCT",
+          "THRAN",
+          "PHYREXIA",
+          "COLOR_CODE_GOODSTUFF",
+          "SEED_FILE",
+          "ARCHITECTURE_ONLY"
         ],
-        "audit_report": "docs/handoffs/2026-07-23-1646-codex-vm532-yore-drift-preflight.md",
+        "audit_report": "docs/handoffs/2026-07-23-1818-codex-vm532-yore-gate1-gate2.md",
         "residual_findings": [
-          "Preflight only: 5 Yore claims remain unclassified with no evidence_scope fields.",
-          "No Yore semantic-readiness fixture exists.",
+          "Gate 1+2 authorizes YORE-only remediation: assign all five claims to substantive_claim and add Contract v1.1 bounded evidence locations/evidence_scope fields.",
+          "No Yore semantic-readiness fixture exists; Gate 3+4 must add research/fixtures/semantic-readiness/yore.semantic-fixtures.json.",
           "9 Yore-owned provenance rows; 4 Yore profile rows have null canonical_id; zero missing canonical_content_hash values.",
-          "Generated identity-layer preview remains enabled while raw preview_eligible is false.",
-          "GLINT and WITCH collision references require official Gate 1+2 recheck."
+          "Raw preview_eligible is false while generated identity-layer preview is enabled; preview source-to-embedded equality must be preserved or changed only under the target preview-source exception.",
+          "GLINT and WITCH collision references, certified JESKAI boundary, generic artifact/recursion, Breya-only, Yore-Tiller-as-faction, Cult of Yore, Commander legality, and universal WUBR-name exclusions must be validated before candidate."
         ]
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": null,
         "recovery_commit": null,
