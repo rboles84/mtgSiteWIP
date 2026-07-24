@@ -7,7 +7,7 @@ Priority: CRIT-001
 Identity key: YORE
 Raw packet: `data/raw-factions/yore/`
 Cohort: four-color
-Contract: v1.1 drift preflight and Gate 1+2 complete; Gate 3+4 authorized
+Contract: v1.1 exact candidate created; awaiting independent exact-SHA review
 
 ## Objective
 
@@ -15,7 +15,7 @@ Recover Yore end to end under CRIT-001: audit the existing packet, bound readine
 
 ## Current State
 
-VM-532 drift preflight was recorded on branch `codex/vm-532-yore-semantic-recovery` and worktree `C:\dev\mtgSiteWIP-crit001-vm532-yore` from exact program base `4529f8615785743d074e3060e13f990941c1a458`. Official Gate 1+2 read-only audit is complete and authorizes YORE-only Gate 3+4 remediation. No semantic candidate, independent review, certification, program-base advancement, VM-533 work, or Excel update exists.
+VM-532 drift preflight was recorded on branch `codex/vm-532-yore-semantic-recovery` and worktree `C:\dev\mtgSiteWIP-crit001-vm532-yore` from exact program base `4529f8615785743d074e3060e13f990941c1a458`. Official Gate 1+2 read-only audit authorized YORE-only Gate 3+4 remediation. Exact semantic candidate `f83b8b90b49a7afe3236f3e7f7ab52a254625d1f` now exists and passed qualification; VM-532 is awaiting independent exact-SHA review. No independent review, certification, program-base advancement, VM-533 work, or Excel update exists.
 
 ## Gates
 
@@ -38,6 +38,14 @@ VM-532 drift preflight was recorded on branch `codex/vm-532-yore-semantic-recove
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/handoffs/2026-07-23-1818-codex-vm532-yore-gate1-gate2.md`
-- Candidate recovery SHA: pending
-- Independent reviewer: pending
-- Certification commit: pending
+- Candidate recovery SHA: f83b8b90b49a7afe3236f3e7f7ab52a254625d1f
+- Independent reviewer: pending for exact SHA f83b8b90b49a7afe3236f3e7f7ab52a254625d1f
+- Certification commit: pending; certification not authorized
+
+## Candidate Workflow
+
+- Exact semantic candidate: `f83b8b90b49a7afe3236f3e7f7ab52a254625d1f`
+- Candidate parent: `0c073a4db20a75ad00d548aa68d6f6dbf387501a`
+- Candidate workflow handoff: `docs/handoffs/2026-07-23-1942-codex-vm532-yore-candidate-workflow.md`
+- Candidate workflow governance commit: pending in this commit
+- Status: awaiting independent exact-SHA review; certification not authorized

@@ -11,7 +11,7 @@
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 5 four-color identities started; VM-532 Yore Gate 1+2 complete and Gate 3+4 remediation authorized; VM-533 Glint remains backlog/not started",
+      "next_cohort": "Wave 5 four-color identities started; VM-532 Yore exact semantic candidate created and awaiting independent exact-SHA review; VM-533 Glint remains backlog/not started",
       "current_program_base": "4529f8615785743d074e3060e13f990941c1a458",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
@@ -51,7 +51,7 @@
         "latest_certification": "4529f8615785743d074e3060e13f990941c1a458",
         "latest_certified_identity": "JESKAI",
         "next_identity": "YORE",
-        "next_identity_status": "in_progress_drift_preflight_complete_gate_1_2_not_started",
+        "next_identity_status": "in_progress_exact_candidate_created_awaiting_review",
         "completed_by": "4529f8615785743d074e3060e13f990941c1a458",
         "completed_at": "2026-07-23T12:15:00-06:00"
       },
@@ -65,7 +65,7 @@
           "WITCH"
         ],
         "current_identity": "YORE",
-        "current_identity_status": "gate_1_2_complete_gate_3_4_authorized_no_candidate",
+        "current_identity_status": "exact_candidate_created_awaiting_independent_review",
         "next_identity": "GLINT",
         "next_identity_status": "backlog_not_started",
         "certified": "0 of 5",
@@ -102,7 +102,7 @@
       "current_identity_hold": {
         "identity": "YORE",
         "card": "VM-532",
-        "state": "gate_1_2_complete_gate_3_4_authorized_no_candidate",
+        "state": "exact_candidate_created_awaiting_independent_review",
         "branch": "codex/vm-532-yore-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm532-yore",
         "prior_identity_certified": "JESKAI",
@@ -5108,14 +5108,13 @@
       "computed": {
         "structural_fingerprint": [
           "low-volume-pattern",
-          "support-heavy-pattern",
-          "invalid-reference-pattern"
+          "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 5,
           "discovery_record": 0,
           "support_record": 0,
-          "unclassified": 5
+          "unclassified": 0
         },
         "source_count": 13,
         "source_role_counts": {
@@ -5126,25 +5125,8 @@
         },
         "claim_bearing_source_count": 3,
         "claim_bearing_source_rate": 0.2308,
-        "reference_site_count": 9,
-        "missing_references": [
-          {
-            "pointer": "data/raw-factions/yore/yore.placement.json#/collision_guidance/pairs/0",
-            "claim_id": "glint_claim_0003"
-          },
-          {
-            "pointer": "data/raw-factions/yore/yore.placement.json#/collision_guidance/pairs/0",
-            "claim_id": "glint_claim_0005"
-          },
-          {
-            "pointer": "data/raw-factions/yore/yore.placement.json#/collision_guidance/pairs/1",
-            "claim_id": "witch_claim_0003"
-          },
-          {
-            "pointer": "data/raw-factions/yore/yore.placement.json#/collision_guidance/pairs/1",
-            "claim_id": "witch_claim_0005"
-          }
-        ],
+        "reference_site_count": 17,
+        "missing_references": [],
         "potential_role_invalid_support_links": [],
         "raw_question_count": 3,
         "unique_question_claim_ids": [
@@ -5160,11 +5142,12 @@
         ],
         "recruiter_context_size": 9287,
         "creation_commit": "8cf770221e7fcf42423a9c6a39c120111c7406a9",
-        "readiness_mentions": [],
+        "readiness_mentions": [
+          "VM-532 exact semantic candidate created; semantic readiness validation passed for YORE"
+        ],
         "provisional_risk_indicators": {
           "coverage": [
-            "low-record-volume",
-            "no-explicit-substantive-role"
+            "low-record-volume"
           ],
           "neighbors": []
         },
@@ -5172,14 +5155,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_1_2_complete",
-        "status": "in_progress",
+        "current_gate": "candidate_created",
+        "status": "awaiting_independent_review",
         "started_at": "2026-07-23T16:46:00-06:00",
-        "gate_entered_at": "2026-07-23T18:18:00-06:00",
+        "gate_entered_at": "2026-07-23T19:42:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "GLINT",
-        "primary_disposition": "ready_for_gate_3_remediation"
+        "primary_disposition": "ready_for_independent_exact_sha_review_f83b8b90b49a7afe3236f3e7f7ab52a254625d1f"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -5212,23 +5195,26 @@
         ],
         "audit_report": "docs/handoffs/2026-07-23-1818-codex-vm532-yore-gate1-gate2.md",
         "residual_findings": [
-          "Gate 1+2 authorizes YORE-only remediation: assign all five claims to substantive_claim and add Contract v1.1 bounded evidence locations/evidence_scope fields.",
-          "No Yore semantic-readiness fixture exists; Gate 3+4 must add research/fixtures/semantic-readiness/yore.semantic-fixtures.json.",
-          "9 Yore-owned provenance rows; 4 Yore profile rows have null canonical_id; zero missing canonical_content_hash values.",
-          "Raw preview_eligible is false while generated identity-layer preview is enabled; preview source-to-embedded equality must be preserved or changed only under the target preview-source exception.",
-          "GLINT and WITCH collision references, certified JESKAI boundary, generic artifact/recursion, Breya-only, Yore-Tiller-as-faction, Cult of Yore, Commander legality, and universal WUBR-name exclusions must be validated before candidate."
+          "Exact semantic candidate f83b8b90b49a7afe3236f3e7f7ab52a254625d1f passed candidate scope from program base 4529f8615785743d074e3060e13f990941c1a458.",
+          "All five Yore claims are substantive_claim with bounded evidence locations and exact source chains.",
+          "Yore semantic readiness fixture exists and covers core inclusion, pressure behavior, nearest collision ambiguity, provenance, and all required neighbor/exclusion boundaries.",
+          "YORE provenance rows increased to 17 with zero null canonical IDs and zero missing hashes.",
+          "Glint and Witch collision rows now use Yore-owned evidence only; neighbor claim chains remain outside Yore authority.",
+          "WUBR and all permutations remain metadata/query-only and rejected as candidate identities.",
+          "Independent exact-SHA review is required before certification."
         ]
       },
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "f83b8b90b49a7afe3236f3e7f7ab52a254625d1f",
+        "recovery_commit": "f83b8b90b49a7afe3236f3e7f7ab52a254625d1f",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
         "approval_date": null,
-        "certified_at": null
+        "certified_at": null,
+        "candidate_workflow_commit": "PENDING_VM532_CANDIDATE_WORKFLOW_COMMIT_SHA"
       }
     },
     {
