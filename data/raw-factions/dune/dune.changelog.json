@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "dune",
   "faction_name": "Dune / Aggression",
-  "last_updated": "2026-06-12",
+  "last_updated": "2026-07-23",
   "audit_summary": {
     "raw_packet_created": true,
     "raw_claim_count": 5,
@@ -222,6 +222,52 @@
         "Keep ring collision guidance lateral_inhibition:false unless a future approved calibration card strengthens suppression deliberately."
       ],
       "notes": "VM-348 is a source-bound cohort repair. It adds no web intake, no raw claims, no generated hand edits, no public aliases, no Home preview membership, and no route changes."
+    },
+    {
+      "change_id": "dune_change_004",
+      "change_type": "VM-534 Semantic Readiness Recovery Candidate",
+      "change_date": "2026-07-23",
+      "summary": "Classified the existing five Dune claims as substantive, added bounded evidence locations, removed GLINT/INK-owned claim IDs from Dune collision proof chains, added DUNE-owned recruiter guidance evidence mappings, and prepared fixture/provenance parity without widening Dune aliases or support-only Commander authority.",
+      "sources_added": [],
+      "sources_updated": [],
+      "claims_added": [],
+      "claims_updated": [
+        "dune_claim_0001 semantic_role/evidence_locations",
+        "dune_claim_0002 semantic_role/evidence_locations",
+        "dune_claim_0003 semantic_role/evidence_locations",
+        "dune_claim_0004 semantic_role/evidence_locations",
+        "dune_claim_0005 semantic_role/evidence_locations"
+      ],
+      "claims_superseded": [],
+      "claims_contradicted": [],
+      "profile_fields_updated": [
+        "profile_version",
+        "source_review_date",
+        "last_incremental_review",
+        "data_quality",
+        "semantic_readiness_gate",
+        "core_identity.core_identity_id",
+        "search_and_filter_metadata.metadata_id",
+        "site_surface.surface_id",
+        "profile.profile_id"
+      ],
+      "placement_fields_updated": [
+        "placement_profile_version",
+        "placement_model_version",
+        "based_on_profile_version",
+        "placement_quality",
+        "collision_guidance",
+        "semantic_guidance_evidence",
+        "semantic_readiness_gate"
+      ],
+      "support_only_rows_used": [],
+      "manual_review_required": [
+        "Keep Commander, precon, Saskia, and Open Hostility rows support-only.",
+        "Keep Dune-Brood and Nephilim references as bounded card anchors, not faction or institution proof.",
+        "Keep BRGW and all same-color permutations metadata-query-only and non-public.",
+        "Keep INK neighbor claims outside DUNE-owned authoritative proof chains until a separate Ink recovery starts."
+      ],
+      "notes": "VM-534 keeps the raw claim count at exactly five claims, preserves DUNE as the only accepted alias, and does not add lore, route, preview, scoring, calibration, package, validator, VM-535, VM-536, VM-537, VM-538, or Excel authority. Native profile object IDs were added for null-free semantic provenance."
     }
   ]
 }

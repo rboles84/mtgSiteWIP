@@ -6001,16 +6001,13 @@
           "ask": "Is the answer claiming ground before contemplation slows it, or adapting through living volatility?",
           "evidence_claim_ids": [
             "dune_claim_0003",
-            "dune_claim_0005",
-            "glint_claim_0003",
-            "glint_claim_0005"
+            "dune_claim_0005"
           ],
           "supporting_source_ids": [
             "src_vm_dune_evidence_ledger_20260603",
-            "src_vm_four_color_reference_audit_20260603",
-            "src_vm_glint_evidence_ledger_20260602",
-            "src_vm_four_color_reference_audit_20260602"
-          ]
+            "src_vm_four_color_reference_audit_20260603"
+          ],
+          "neighbor_evidence_boundary": "Glint claim IDs remain Glint-owned authority and are not used as Dune proof; this collision row is supported only by Dune-owned missing-blue and direct-force claims."
         },
         {
           "review_triggers": [
@@ -6031,16 +6028,13 @@
           "ask": "Is the answer trying to take and hold ground, or protect a shared good from private capture?",
           "evidence_claim_ids": [
             "dune_claim_0003",
-            "dune_claim_0005",
-            "ink_claim_0003",
-            "ink_claim_0005"
+            "dune_claim_0005"
           ],
           "supporting_source_ids": [
             "src_vm_dune_evidence_ledger_20260603",
-            "src_vm_four_color_reference_audit_20260603",
-            "src_vm_ink_evidence_ledger_20260604",
-            "src_vm_four_color_reference_audit_20260604"
-          ]
+            "src_vm_four_color_reference_audit_20260603"
+          ],
+          "neighbor_evidence_boundary": "Ink claim IDs remain outside VM-534 scope and are not used as Dune proof; this collision row is supported only by Dune-owned missing-blue and direct-force claims."
         }
       ],
       "chatbot_guidance": {
@@ -6067,9 +6061,9 @@
         ]
       },
       "source_metadata": {
-        "profile_version": "0.1.2",
-        "placement_model_version": "0.1.2",
-        "source_review_date": "2026-06-12",
+        "profile_version": "0.1.3",
+        "placement_model_version": "0.1.3",
+        "source_review_date": "2026-07-23",
         "claim_count": 5
       }
     },

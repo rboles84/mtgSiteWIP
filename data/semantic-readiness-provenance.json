@@ -7886,12 +7886,10 @@
       "canonical_file": "data/raw-factions/dune/dune.placement.json",
       "canonical_pointer": "/collision_guidance/pairs/0",
       "canonical_id": "collision_dune_glint_four_color_ring",
-      "canonical_content_hash": "sha256:4484d3bf69012e3de12453df80a06db4aedda8df26dbd8535f4f1db21739ce20",
+      "canonical_content_hash": "sha256:ee98fada8a0999a0ab11669ee4902d7742d37442922799bc86ca5eebbd239273",
       "evidence_claim_ids": [
         "dune_claim_0003",
-        "dune_claim_0005",
-        "glint_claim_0003",
-        "glint_claim_0005"
+        "dune_claim_0005"
       ],
       "evidence_source_ids": [
         "src_vm_dune_evidence_ledger_20260603",
@@ -7909,12 +7907,10 @@
       "canonical_file": "data/raw-factions/dune/dune.placement.json",
       "canonical_pointer": "/collision_guidance/pairs/1",
       "canonical_id": "collision_dune_ink_four_color_ring",
-      "canonical_content_hash": "sha256:913d1a0b487002f58b704ae5f6cd896fe14c293c77027f43a3b4e398b849493e",
+      "canonical_content_hash": "sha256:1e8160efc0e1174a98105a5a7d5afe8fa073e6e1270f07d2f1ad001699dc8c86",
       "evidence_claim_ids": [
         "dune_claim_0003",
-        "dune_claim_0005",
-        "ink_claim_0003",
-        "ink_claim_0005"
+        "dune_claim_0005"
       ],
       "evidence_source_ids": [
         "src_vm_dune_evidence_ledger_20260603",
@@ -7999,10 +7995,95 @@
     },
     {
       "identity_key": "DUNE",
+      "canonical_file": "data/raw-factions/dune/dune.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "guidance_dune_mismatch_0001_gate3",
+      "canonical_content_hash": "sha256:241105039fd549f22794d4e93f428b813f3984ea041621a8925ce62aea17d678",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/DUNE",
+        "data/placement-model.json#/factions/DUNE",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/DUNE"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "DUNE",
+      "canonical_file": "data/raw-factions/dune/dune.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "guidance_dune_mismatch_0002_gate3",
+      "canonical_content_hash": "sha256:c88b0bc4095dc5c1d63b164031215d6eda9288c87d3d75e43d1fdafa296c9274",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/DUNE",
+        "data/placement-model.json#/factions/DUNE",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/DUNE"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "DUNE",
+      "canonical_file": "data/raw-factions/dune/dune.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "guidance_dune_mismatch_0003_gate3",
+      "canonical_content_hash": "sha256:fe4f27fb0757ab64323ef853f0118621ca13e54cea97e3a40204c9332231e05d",
+      "evidence_claim_ids": [
+        "dune_claim_0002",
+        "dune_claim_0004",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/DUNE",
+        "data/placement-model.json#/factions/DUNE",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/DUNE"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "DUNE",
+      "canonical_file": "data/raw-factions/dune/dune.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "guidance_dune_mismatch_0004_gate3",
+      "canonical_content_hash": "sha256:8b884df327fadb840d074f1b639170c480a97af6d1ef990558ec9788784405f8",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/DUNE",
+        "data/placement-model.json#/factions/DUNE",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/DUNE"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "DUNE",
       "canonical_file": "data/raw-factions/dune/dune.profile.json",
       "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:6cb654cf6e06a65f8d4f07a282aaa9ddb57db7a9de7555815e889ef0e0438676",
+      "canonical_id": "dune_core_identity_gate3",
+      "canonical_content_hash": "sha256:63ef4df44d6a8e0c730fc51ba4f281406358ebed545ec682ec45ef0d787d4c21",
       "evidence_claim_ids": [
         "dune_claim_0001",
         "dune_claim_0002",
@@ -8027,8 +8108,8 @@
       "identity_key": "DUNE",
       "canonical_file": "data/raw-factions/dune/dune.profile.json",
       "canonical_pointer": "/profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:9d33ed603924d4e6ba36c998ee05972b8b7dcb6b704cc92fe675472a4b5c789f",
+      "canonical_id": "dune_profile_gate3",
+      "canonical_content_hash": "sha256:4a66a4623102b7f0973b9c98133ecffabecd93dbba7c79dfbf97f81f0a4ea677",
       "evidence_claim_ids": [
         "dune_claim_0001",
         "dune_claim_0002",
@@ -8053,8 +8134,8 @@
       "identity_key": "DUNE",
       "canonical_file": "data/raw-factions/dune/dune.profile.json",
       "canonical_pointer": "/search_and_filter_metadata",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:a82359aad9195d5f5efafc117d576fa8f10fb8b3ff417b4de5e063e74cadef58",
+      "canonical_id": "dune_search_and_filter_metadata_gate3",
+      "canonical_content_hash": "sha256:c8adf641784db0d9eca4186276a549339f627d2e37c4e7b7cef592e52b7b8092",
       "evidence_claim_ids": [
         "dune_claim_0001",
         "dune_claim_0002",
@@ -8079,8 +8160,8 @@
       "identity_key": "DUNE",
       "canonical_file": "data/raw-factions/dune/dune.profile.json",
       "canonical_pointer": "/site_surface",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:2f283731a84f22b7ff01c6c082fb195ead7b090c05d534ead4b739763b2654f0",
+      "canonical_id": "dune_site_surface_gate3",
+      "canonical_content_hash": "sha256:4d9272e52043d76b00a4ba2b23a2789962dcbf9665959eca5e3b880afdb6f281",
       "evidence_claim_ids": [
         "dune_claim_0001",
         "dune_claim_0002",

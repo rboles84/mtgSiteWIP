@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "faction_id": "dune",
   "faction_name": "Dune / Aggression",
-  "source_review_date": "2026-06-09",
-  "last_updated": "2026-06-09",
+  "source_review_date": "2026-07-23",
+  "last_updated": "2026-07-23",
   "claim_count": 5,
   "claim_quality_summary": {
     "claim_basis": "Existing VM-252 claim-bearing evidence rows, with VM-257 used only for live lifecycle metadata.",
@@ -24,7 +24,8 @@
       "dune_claim_0003",
       "dune_claim_0004",
       "dune_claim_0005"
-    ]
+    ],
+    "semantic_readiness_gate": "VM-534 Gate 3 candidate: all Dune claims classified as substantive with bounded locators and source-id parity."
   },
   "claims": [
     {
@@ -44,7 +45,34 @@
         "DUNE-EVID-010"
       ],
       "confidence": "High",
-      "notes": "VM-302 updates the lifecycle sentence after VM-257 while preserving the evidence floor and color-code boundary. BRGW, WBRG, and all same-color permutations remain metadata/query-only and are not aliases, route keys, fixture keys, Home preview keys, Maze keys, Supabase keys, schema keys, or public color-code interfaces."
+      "notes": "VM-302 updates the lifecycle sentence after VM-257 while preserving the evidence floor and color-code boundary. BRGW, WBRG, and all same-color permutations remain metadata/query-only and are not aliases, route keys, fixture keys, Home preview keys, Maze keys, Supabase keys, schema keys, or public color-code interfaces.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_dune_evidence_ledger_20260603",
+          "locator_type": "ledger_rows",
+          "locator": "docs/research/dune/dune-evidence-ledger.md#DUNE-EVID-001-DUNE-EVID-002-DUNE-EVID-010",
+          "bounded_paraphrase": "The Dune evidence ledger records the source-packet lifecycle boundary, the DUNE project key, and BRGW/permutation metadata-only restrictions.",
+          "evidence_scope": "project_identity_and_alias_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_dune_vm252_scope_card_20260603",
+          "locator_type": "kanban_card",
+          "locator": "docs/kanban/done/VM-252-dune-source-packet-and-evidence-ledger.md#scope-completed",
+          "bounded_paraphrase": "The VM-252 scope card authorizes the Dune source packet and evidence ledger only, while explicitly excluding runtime aliases, generated artifacts, and neighbor work.",
+          "evidence_scope": "program_lifecycle_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm257_dune_runtime_promotion_20260603",
+          "locator_type": "kanban_card",
+          "locator": "docs/kanban/done/VM-257-dune-controlled-runtime-promotion.md#results",
+          "bounded_paraphrase": "The VM-257 promotion card confirms exactly one live key, DUNE, while preserving BRGW and all permutations as metadata-query-only and keeping Dune outside Home preview.",
+          "evidence_scope": "runtime_promotion_boundary_not_lore_evidence",
+          "interpretation_level": "supporting_project_record"
+        }
+      ]
     },
     {
       "claim_id": "dune_claim_0002",
@@ -61,7 +89,26 @@
         "DUNE-EVID-010"
       ],
       "confidence": "High",
-      "notes": "Do not create public aliases from this naming policy. Aggression is paired-framing support text only, and BRGW, WBRG, and all same-color permutations remain metadata/query-only."
+      "notes": "Do not create public aliases from this naming policy. Aggression is paired-framing support text only, and BRGW, WBRG, and all same-color permutations remain metadata/query-only.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_dune_evidence_ledger_20260603",
+          "locator_type": "ledger_rows",
+          "locator": "docs/research/dune/dune-evidence-ledger.md#DUNE-EVID-002-DUNE-EVID-010",
+          "bounded_paraphrase": "The evidence ledger distinguishes DUNE as the Vox Mana expression label and Aggression as Commander 2016 theme texture, not official universal naming.",
+          "evidence_scope": "official_name_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260603",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#quick-reference-table",
+          "bounded_paraphrase": "The four-color reference audit maps the BRGW slot to Dune / Aggression while framing those labels as project/reference terms rather than official universal names.",
+          "evidence_scope": "four_color_reference_boundary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "dune_claim_0003",
@@ -77,7 +124,26 @@
         "DUNE-EVID-003"
       ],
       "confidence": "High",
-      "notes": "Missing-color framing is identity structure, not a canon faction claim."
+      "notes": "Missing-color framing is identity structure, not a canon faction claim.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_dune_evidence_ledger_20260603",
+          "locator_type": "ledger_row",
+          "locator": "docs/research/dune/dune-evidence-ledger.md#DUNE-EVID-003",
+          "bounded_paraphrase": "The evidence ledger records that the Dune/BRGW lane is defined by excluding Blue.",
+          "evidence_scope": "missing_blue_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260603",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#brgw-aggression-dune",
+          "bounded_paraphrase": "The four-color audit describes the BRGW Aggression/Dune slot as the four-color combination excluding Blue.",
+          "evidence_scope": "color_order_boundary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "dune_claim_0004",
@@ -93,7 +159,26 @@
         "DUNE-EVID-004"
       ],
       "confidence": "Medium",
-      "notes": "Exact official Dune-Brood card facts remain Manual fill required before deeper raw or public copy. Dune-Brood may help identify the historical card-anchor boundary, but it does not authorize routing, scoring, or placement eligibility."
+      "notes": "Exact official Dune-Brood card facts remain Manual fill required before deeper raw or public copy. Dune-Brood may help identify the historical card-anchor boundary, but it does not authorize routing, scoring, or placement eligibility.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_dune_evidence_ledger_20260603",
+          "locator_type": "ledger_row",
+          "locator": "docs/research/dune/dune-evidence-ledger.md#DUNE-EVID-004",
+          "bounded_paraphrase": "The evidence ledger permits Dune-Brood Nephilim as a bounded card anchor while rejecting Nephilim as a faction, institution, doctrine, or civilization.",
+          "evidence_scope": "card_anchor_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260603",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#brgw-aggression-dune",
+          "bounded_paraphrase": "The four-color audit uses Dune-Brood Nephilim as the reference anchor for the BRGW slot, not as standalone institutional proof.",
+          "evidence_scope": "card_anchor_boundary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "dune_claim_0005",
@@ -109,7 +194,26 @@
         "DUNE-EVID-007"
       ],
       "confidence": "Medium",
-      "notes": "Use as high-level identity framing only. Keep long-form metaphysics, placement logic, and Commander texture conservative and explicitly bounded."
+      "notes": "Use as high-level identity framing only. Keep long-form metaphysics, placement logic, and Commander texture conservative and explicitly bounded.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_dune_evidence_ledger_20260603",
+          "locator_type": "ledger_row",
+          "locator": "docs/research/dune/dune-evidence-ledger.md#DUNE-EVID-007",
+          "bounded_paraphrase": "The evidence ledger permits direct action, physical momentum, territorial pressure, and rejection of detached contemplation only as bounded Dune/Aggression framing.",
+          "evidence_scope": "missing_blue_identity_frame",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260603",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#brgw-aggression-dune",
+          "bounded_paraphrase": "The four-color audit describes the BRGW slot as direct-force Aggression/Dune while keeping stronger strategy or competitive claims outside the source floor.",
+          "evidence_scope": "four_color_reference_boundary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     }
   ]
 }

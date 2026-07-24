@@ -1,0 +1,506 @@
+{
+  "identity_key": "DUNE",
+  "raw_id": "dune",
+  "contract_version": "v1.1",
+  "generated_by": "VM-534 Gate 3 semantic remediation",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "dune_core_inclusion_missing_blue_identity",
+      "fixture_type": "core_inclusion",
+      "scenario": "A user describes BRGW without Blue as organized territorial pressure, direct action, White line, Black cost, Red ignition, and Green persistence while rejecting color-code aliases.",
+      "expected_identity": "DUNE",
+      "expected_decision": "accept",
+      "evidence_claim_ids": [
+        "dune_claim_0001",
+        "dune_claim_0002",
+        "dune_claim_0003",
+        "dune_claim_0004",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm257_dune_runtime_promotion_20260603",
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_dune_vm252_scope_card_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_mature_pressure_behavior_common_front",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "A user centers common-front force, survival-minded multiplication, and immediate territorial pressure while acknowledging the risk of domination or overextension.",
+      "expected_identity": "DUNE",
+      "expected_decision": "accept",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_nearest_collision_glint_ink_ring",
+      "fixture_type": "nearest_collision_ambiguity",
+      "scenario": "A four-color answer mentions force, appetite, generosity, combat, and missing-color language without clearly choosing which color is absent.",
+      "expected_identity": "DUNE",
+      "expected_decision": "ask_boundary_question",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_provenance_core_identity",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the Dune core identity chain.",
+      "expected_identity": "DUNE",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/dune/dune.profile.json",
+      "canonical_pointer": "/core_identity",
+      "evidence_claim_ids": [
+        "dune_claim_0001",
+        "dune_claim_0002",
+        "dune_claim_0003",
+        "dune_claim_0004",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm257_dune_runtime_promotion_20260603",
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_dune_vm252_scope_card_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_provenance_profile",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the Dune generated profile chain.",
+      "expected_identity": "DUNE",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/dune/dune.profile.json",
+      "canonical_pointer": "/profile",
+      "evidence_claim_ids": [
+        "dune_claim_0001",
+        "dune_claim_0002",
+        "dune_claim_0003",
+        "dune_claim_0004",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm257_dune_runtime_promotion_20260603",
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_dune_vm252_scope_card_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_provenance_discriminator_001",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the first Dune discriminator chain.",
+      "expected_identity": "DUNE",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/dune/dune.placement.json",
+      "canonical_pointer": "/discriminator_questions/0",
+      "evidence_claim_ids": [
+        "dune_claim_0001",
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm257_dune_runtime_promotion_20260603",
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_dune_vm252_scope_card_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_provenance_collision_glint",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the DUNE-owned Glint collision chain.",
+      "expected_identity": "DUNE",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/dune/dune.placement.json",
+      "canonical_pointer": "/collision_guidance/pairs/0",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_glint_blue_present",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "UBRG appetite, adaptation, volatility, and non-White living force are proposed as Dune.",
+      "expected_identity": "GLINT",
+      "expected_decision": "reject_dune",
+      "neighbor": "GLINT",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_ink_protected_commons",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "RGWU protected commons, open knowledge, shared prosperity, and non-Black generosity are proposed as Dune.",
+      "expected_identity": "INK",
+      "expected_decision": "reject_dune",
+      "neighbor": "INK",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_jund",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Black-red-green predation and appetite without White common-front discipline are proposed as Dune.",
+      "expected_identity": "JUND",
+      "expected_decision": "reject_dune",
+      "neighbor": "JUND",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_naya",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Red-green-white abundance, celebratory force, and creature community without Black cost-bearing conquest are proposed as Dune.",
+      "expected_identity": "NAYA",
+      "expected_decision": "reject_dune",
+      "neighbor": "NAYA",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_mardu",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Red-white-black raid speed, war code, and sacrifice without Green survival-minded multiplication are proposed as Dune.",
+      "expected_identity": "MARDU",
+      "expected_decision": "reject_dune",
+      "neighbor": "MARDU",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_abzan",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "White-black-green endurance, family duty, and survival without Red ignition are proposed as Dune.",
+      "expected_identity": "ABZAN",
+      "expected_decision": "reject_dune",
+      "neighbor": "ABZAN",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_br",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Black-red aggression, sacrifice, and appetite without Green persistence or White line are proposed as Dune.",
+      "expected_identity": "BR",
+      "expected_decision": "reject_dune",
+      "neighbor": "BR",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_rg",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Red-green creature force and instinct without White line or Black cost are proposed as Dune.",
+      "expected_identity": "RG",
+      "expected_decision": "reject_dune",
+      "neighbor": "RG",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_wg",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "White-green solidarity, growth, and numbers without Black cost or Red ignition are proposed as Dune.",
+      "expected_identity": "WG",
+      "expected_decision": "reject_dune",
+      "neighbor": "WG",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_wb",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "White-black hierarchy, debt, and obligation without Red ignition or Green persistence are proposed as Dune.",
+      "expected_identity": "WB",
+      "expected_decision": "reject_dune",
+      "neighbor": "WB",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_wr",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "White-red tactics, courage, and speed without Black cost or Green multiplication are proposed as Dune.",
+      "expected_identity": "WR",
+      "expected_decision": "reject_dune",
+      "neighbor": "WR",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_bg",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Black-green survival, graveyard value, and hunger without White line or Red ignition are proposed as Dune.",
+      "expected_identity": "BG",
+      "expected_decision": "reject_dune",
+      "neighbor": "BG",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_generic_brgw",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "A prompt uses BRGW or a same-color permutation as a color-code label with no Dune worldview.",
+      "expected_identity": "BRGW_METADATA_ONLY",
+      "expected_decision": "reject_alias",
+      "neighbor": "GENERIC_BRGW",
+      "evidence_claim_ids": [
+        "dune_claim_0001",
+        "dune_claim_0002"
+      ],
+      "evidence_source_ids": [
+        "src_vm257_dune_runtime_promotion_20260603",
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_dune_vm252_scope_card_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_generic_four_color_commander",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "A generic four-color Commander deck is proposed as Dune without the missing-Blue direct-force frame.",
+      "expected_identity": "GENERIC_FOUR_COLOR_COMMANDER",
+      "expected_decision": "reject_dune",
+      "neighbor": "GENERIC_FOUR_COLOR_COMMANDER",
+      "evidence_claim_ids": [
+        "dune_claim_0002",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_generic_combat",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Combat preference alone is proposed as Dune identity proof.",
+      "expected_identity": "GENERIC_COMBAT",
+      "expected_decision": "reject_dune",
+      "neighbor": "GENERIC_COMBAT",
+      "evidence_claim_ids": [
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_generic_tokens",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Tokens or go-wide pressure alone are proposed as Dune identity proof.",
+      "expected_identity": "GENERIC_TOKENS",
+      "expected_decision": "reject_dune",
+      "neighbor": "GENERIC_TOKENS",
+      "evidence_claim_ids": [
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_saskia_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Saskia the Unyielding alone is treated as sufficient proof of Dune identity.",
+      "expected_identity": "SASKIA_ONLY",
+      "expected_decision": "reject_dune",
+      "neighbor": "SASKIA_ONLY",
+      "evidence_claim_ids": [
+        "dune_claim_0002",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_open_hostility_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Open Hostility product texture is treated as Dune naming or lore authority.",
+      "expected_identity": "OPEN_HOSTILITY_ONLY",
+      "expected_decision": "reject_dune",
+      "neighbor": "OPEN_HOSTILITY_ONLY",
+      "evidence_claim_ids": [
+        "dune_claim_0002",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_dune_brood_as_faction",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Dune-Brood Nephilim is treated as an official Dune faction, institution, doctrine, or leader.",
+      "expected_identity": "DUNE_BROOD_AS_FACTION",
+      "expected_decision": "reject_dune",
+      "neighbor": "DUNE_BROOD_AS_FACTION",
+      "evidence_claim_ids": [
+        "dune_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_nephilim_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Nephilim references alone are proposed as Dune identity proof.",
+      "expected_identity": "NEPHILIM_ONLY",
+      "expected_decision": "reject_dune",
+      "neighbor": "NEPHILIM_ONLY",
+      "evidence_claim_ids": [
+        "dune_claim_0004",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_commander_legality",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Commander legality, decklists, or recommendations are used as Dune proof.",
+      "expected_identity": "COMMANDER_LEGALITY",
+      "expected_decision": "reject_dune",
+      "neighbor": "COMMANDER_LEGALITY",
+      "evidence_claim_ids": [
+        "dune_claim_0002",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_official_name",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "Dune / Aggression is presented as the official universal Magic name for BRGW.",
+      "expected_identity": "OFFICIAL_NAME",
+      "expected_decision": "reject_dune",
+      "neighbor": "OFFICIAL_NAME",
+      "evidence_claim_ids": [
+        "dune_claim_0002"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    },
+    {
+      "fixture_id": "dune_excludes_blue_present_collapse",
+      "fixture_type": "required_neighbor_exclusion",
+      "scenario": "A Blue-present planning, contemplation, modeling, or adaptation answer is treated as Dune instead of being rejected on missing-Blue grounds.",
+      "expected_identity": "BLUE_PRESENT_COLLAPSE",
+      "expected_decision": "reject_dune",
+      "neighbor": "BLUE_PRESENT_COLLAPSE",
+      "evidence_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ]
+    }
+  ]
+}
