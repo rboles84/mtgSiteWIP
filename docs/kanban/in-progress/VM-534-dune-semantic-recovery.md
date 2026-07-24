@@ -35,7 +35,7 @@ Recover Dune end to end under CRIT-001: audit the existing packet, bound readine
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-534-dune-semantic-recovery.md`
 - Candidate recovery SHA: `e6f776d4e047aaa8f22358d4ff09486ff6100cf5`
-- Independent reviewer: pending
+- Independent reviewer: `docs/handoffs/2026-07-24-0045-codex-vm534-dune-independent-review.md`
 - Certification commit: pending
 
 ## Gate 1+2 Baseline - 2026-07-23
@@ -54,3 +54,12 @@ Candidate parent: `c05b7c752748e9432a9321b6bd8f2e1b65c29ee0`
 Disposition: READY FOR INDEPENDENT REVIEW EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5
 
 DUNE-only Gate 3+4 remediation is complete and awaiting independent exact-SHA review. The candidate records 5 substantive claims, 14 sources, 30 semantic fixtures, 13 DUNE provenance rows, zero null canonical IDs, zero missing hashes, DUNE-owned GLINT/INK collision evidence, and generated DUNE parity. BRGW and all same-color permutations remain metadata/query-only and failed closed; UNKNOWN, GLINT, INK, WITCH, and JESKAI rejected the DUNE range. VM-535 Ink, VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG remain backlog/not started and untouched. Excel was not updated by Codex.
+
+
+## Independent Review - 2026-07-24
+
+Review record: `docs/handoffs/2026-07-24-0045-codex-vm534-dune-independent-review.md`
+
+Decision: APPROVE EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5
+
+The independent review approved exact candidate `e6f776d4e047aaa8f22358d4ff09486ff6100cf5` and confirmed DUNE-only scope, governance-only workflow separation, BRGW/permutation fail-closed behavior, UNKNOWN/GLINT/INK/WITCH/JESKAI range rejection, semantic readiness, source/generated guardrails, normalized provenance parity, parser, placement, candidate-scope regression, and full npm.cmd test. No certification, program-base advancement, VM-535 through VM-538 work, or Excel update occurred.

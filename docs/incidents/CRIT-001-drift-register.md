@@ -166,3 +166,14 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - Exact candidate: `e6f776d4e047aaa8f22358d4ff09486ff6100cf5`
 - Result: READY FOR INDEPENDENT REVIEW EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5
 - Boundary: DUNE-only candidate; BRGW and all same-color permutations remain metadata/query-only and failed closed. VM-535 through VM-538 remain backlog/not started and untouched. Excel was not updated by Codex.
+
+
+## VM-534 Dune Independent Review - 2026-07-24
+
+- Identity: DUNE / Dune / Aggression
+- Program base: `ab3ece2155d52c0f4283a0c0244c601a0991f970`
+- Candidate: `e6f776d4e047aaa8f22358d4ff09486ff6100cf5`
+- Candidate workflow: `98269eca73ca59e4356a91b63e14f168df264434`
+- Review handoff: `docs/handoffs/2026-07-24-0045-codex-vm534-dune-independent-review.md`
+- Decision: APPROVE EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5
+- Notes: CRLF-only provenance byte-check warning; normalized manifest parity passed with 2059 entries. No remediation, certification, program-base advancement, VM-535 through VM-538 work, or Excel update occurred.

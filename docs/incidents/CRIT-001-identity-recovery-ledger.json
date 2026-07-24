@@ -11,7 +11,7 @@
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore certified from exact approved candidate f83b8b90b49a7afe3236f3e7f7ab52a254625d1f; VM-533 Glint certified from exact approved candidate ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6; VM-534 Dune exact candidate e6f776d4e047aaa8f22358d4ff09486ff6100cf5 awaits independent exact-SHA review",
+      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore certified from exact approved candidate f83b8b90b49a7afe3236f3e7f7ab52a254625d1f; VM-533 Glint certified from exact approved candidate ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6; VM-534 Dune exact candidate e6f776d4e047aaa8f22358d4ff09486ff6100cf5 approved by independent review and awaiting certification",
       "current_program_base": "ab3ece2155d52c0f4283a0c0244c601a0991f970",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
@@ -65,7 +65,7 @@
           "WITCH"
         ],
         "current_identity": "DUNE",
-        "current_identity_status": "awaiting_independent_review",
+        "current_identity_status": "approved_awaiting_certification",
         "next_identity": "INK",
         "next_identity_status": "backlog_not_started",
         "certified": "2 of 5",
@@ -108,7 +108,7 @@
       "current_identity_hold": {
         "identity": "DUNE",
         "card": "VM-534",
-        "state": "awaiting_independent_exact_sha_review",
+        "state": "approved_awaiting_certification",
         "branch": "codex/vm-534-dune-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm534-dune",
         "prior_identity_certified": "GLINT",
@@ -119,8 +119,13 @@
         "candidate_handoff": "docs/handoffs/2026-07-24-0030-codex-vm534-dune-candidate-workflow.md",
         "recovery_summary": "docs/incidents/recoveries/VM-534-dune-semantic-recovery.md",
         "result": "READY FOR INDEPENDENT REVIEW EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5",
-        "authorized_next_scope": "Fresh independent exact-SHA review only. No certification, program-base advancement, VM-535 Ink, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, Excel update by Codex, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, or force operation is authorized by this candidate workflow record.",
-        "updated_at": "2026-07-24T00:30:00-06:00"
+        "authorized_next_scope": "Certification-only governance for exact approved candidate. No remediation, replacement candidate, VM-535 Ink, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, Excel update by Codex, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, or force operation is authorized by this review record.",
+        "updated_at": "2026-07-24T00:45:00-06:00",
+        "independent_review_commit": "PENDING_VM534_INDEPENDENT_REVIEW_SHA",
+        "independent_review_branch": "codex/vm-534-dune-independent-review",
+        "independent_review_worktree": "C:\\dev\\mtgSiteWIP-crit001-vm534-dune-independent-review",
+        "independent_review_handoff": "docs/handoffs/2026-07-24-0045-codex-vm534-dune-independent-review.md",
+        "independent_review_decision": "APPROVE EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -5437,14 +5442,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_4_complete",
-        "status": "awaiting_independent_review",
+        "current_gate": "independent_review_complete",
+        "status": "approved_awaiting_certification",
         "started_at": "2026-07-23T23:23:00-06:00",
-        "gate_entered_at": "2026-07-24T00:30:00-06:00",
+        "gate_entered_at": "2026-07-24T00:45:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "INK",
-        "primary_disposition": "READY FOR INDEPENDENT REVIEW EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5"
+        "primary_disposition": "APPROVE EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -5472,11 +5477,11 @@
           "OFFICIAL_NAME",
           "BLUE_PRESENT_COLLAPSE"
         ],
-        "audit_report": "docs/incidents/recoveries/VM-534-dune-semantic-recovery.md",
+        "audit_report": "docs/handoffs/2026-07-24-0045-codex-vm534-dune-independent-review.md",
         "residual_findings": [
-          "Exact DUNE candidate e6f776d4e047aaa8f22358d4ff09486ff6100cf5 is awaiting independent exact-SHA review.",
-          "DUNE canonical key, Dune / Aggression display, BRGW display metadata, and DUNE-only accepted alias are preserved; BRGW and all same-color permutations failed closed.",
-          "Candidate records 5 substantive claims, 14 sources, 30 fixtures, 13 DUNE provenance rows, zero null canonical IDs, zero missing hashes, and DUNE-owned GLINT/INK collision evidence.",
+          "Independent exact-SHA review approved candidate e6f776d4e047aaa8f22358d4ff09486ff6100cf5.",
+          "DUNE-only scope, frozen fields, BRGW/permutation fail-closed behavior, and UNKNOWN/GLINT/INK/WITCH/JESKAI range rejection passed.",
+          "Semantic readiness, source/generated guardrails, parser, placement, candidate-scope regression, normalized provenance parity, and full npm.cmd test passed.",
           "VM-535 Ink, VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG remain backlog/not_started and untouched; Excel was not updated by Codex."
         ]
       },
@@ -5486,9 +5491,9 @@
         "candidate_recovery_sha": "e6f776d4e047aaa8f22358d4ff09486ff6100cf5",
         "recovery_commit": "PENDING_VM534_CANDIDATE_WORKFLOW_SHA",
         "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
+        "reviewer": "docs/handoffs/2026-07-24-0045-codex-vm534-dune-independent-review.md",
+        "review_cycles": 1,
+        "approval_date": "2026-07-24",
         "certified_at": null
       }
     },
