@@ -156,3 +156,13 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - DRIFT-016: Grixis array-shape candidate-scope validation passed for `GRIXIS`; invalid `UBR` alias was rejected as `Unknown identity UBR`.
 - DRIFT-017: Active Home, Archscry, recruiter, tests, and CI consumer classifications were preserved; historical/debug/archive exclusions were untouched.
 - DRIFT-019: VM-542 / DRIFT-019 residual classifications remained untouched; copied-string debug/archive exclusions were not promoted into active defects.
+
+
+## VM-534 Dune Candidate Workflow - 2026-07-24
+
+- Identity: DUNE / Dune / Aggression
+- Program base: `ab3ece2155d52c0f4283a0c0244c601a0991f970`
+- Gate 1+2 governance: `c05b7c752748e9432a9321b6bd8f2e1b65c29ee0`
+- Exact candidate: `e6f776d4e047aaa8f22358d4ff09486ff6100cf5`
+- Result: READY FOR INDEPENDENT REVIEW EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5
+- Boundary: DUNE-only candidate; BRGW and all same-color permutations remain metadata/query-only and failed closed. VM-535 through VM-538 remain backlog/not started and untouched. Excel was not updated by Codex.

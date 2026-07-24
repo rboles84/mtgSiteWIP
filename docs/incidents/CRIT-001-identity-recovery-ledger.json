@@ -11,7 +11,7 @@
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore certified from exact approved candidate f83b8b90b49a7afe3236f3e7f7ab52a254625d1f; VM-533 Glint certified from exact approved candidate ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6; VM-534 Dune Gate 1+2 recorded and Gate 3+4 remediation authorized",
+      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore certified from exact approved candidate f83b8b90b49a7afe3236f3e7f7ab52a254625d1f; VM-533 Glint certified from exact approved candidate ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6; VM-534 Dune exact candidate e6f776d4e047aaa8f22358d4ff09486ff6100cf5 awaits independent exact-SHA review",
       "current_program_base": "ab3ece2155d52c0f4283a0c0244c601a0991f970",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
@@ -65,7 +65,7 @@
           "WITCH"
         ],
         "current_identity": "DUNE",
-        "current_identity_status": "gate_1_2_complete",
+        "current_identity_status": "awaiting_independent_review",
         "next_identity": "INK",
         "next_identity_status": "backlog_not_started",
         "certified": "2 of 5",
@@ -106,57 +106,21 @@
       "installed_after_program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
       "governance_commit": "PENDING_CRIT001_DRIFT_CONTROL_GOVERNANCE_SHA",
       "current_identity_hold": {
-        "identity": "GLINT",
-        "card": "VM-533",
-        "state": "certified_semantically_ready",
-        "branch": "codex/vm-533-glint-certification",
-        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm533-glint-certification",
-        "prior_identity_certified": "YORE",
-        "prior_identity_certification": "8145b8697ed1d1500c0faecf080b55404ab8ec4e",
-        "authorized_next_scope": "VM-534 / Dune may receive only a separate drift-preflight setup after this certification/program-base advancement is externally accepted and separately authorized. No VM-534 semantic work, VM-535 Ink, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, Excel update by Codex, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, or force operation is authorized by this certification record.",
-        "required_next_milestone": "External tracker update outside Codex if required, then a separate VM-534 Dune drift-preflight control record before any Gate 1+2 semantic work.",
-        "program_base": "PENDING_VM533_CERTIFICATION_COMMIT_SHA",
-        "updated_at": "2026-07-23T22:33:00-06:00",
-        "gate_1_2_commit": "PENDING_VM533_GATE_1_2_COMMIT_SHA",
-        "gate_1_2_report": "docs/handoffs/2026-07-23-2108-codex-vm533-glint-gate1-gate2.md",
-        "gate_1_2_result": "READY FOR GATE 3 REMEDIATION",
-        "baseline_claim_role_counts": {
-          "total": 5,
-          "substantive_claim": 0,
-          "discovery_record": 0,
-          "support_record": 0,
-          "unclassified": 5
-        },
-        "baseline_source_role_counts": {
-          "claim-bearing": 3,
-          "discovery-only": 3,
-          "shaping-only": 5,
-          "support-only": 4
-        },
-        "baseline_provenance_count": 9,
-        "baseline_null_canonical_ids": 4,
-        "baseline_missing_hashes": 0,
-        "baseline_fixture_count": 0,
-        "canonical_key": "GLINT",
-        "display_name": "Glint / Chaos",
-        "display_color_order": "UBRG",
-        "accepted_aliases": [
-          "GLINT"
-        ],
-        "invalid_alias_result_required": "UBRG and all same-color permutations must remain metadata/query-only and reject as candidate identities",
-        "preview_result": "raw preview disabled; generated identity-layer preview enabled and source/embedded generated preview text equal",
-        "candidate_recovery_sha": "ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6",
-        "candidate_workflow_commit": "bc7252431149a862970d7c93ad82df8782ceb6cd",
-        "independent_review_commit": "e8710dffe4324aeaa3a0a0713e9596349382b592",
-        "certification_commit": "PENDING_VM533_CERTIFICATION_COMMIT_SHA",
-        "independent_review_branch": "codex/vm-533-glint-independent-review",
-        "independent_review_worktree": "C:\\dev\\mtgSiteWIP-crit001-vm533-glint-independent-review",
-        "independent_review_handoff": "docs/handoffs/2026-07-23-2157-codex-vm533-glint-independent-review.md",
-        "independent_review_decision": "APPROVE EXACT SHA ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6",
-        "certification_branch": "codex/vm-533-glint-certification",
-        "certification_worktree": "C:\\dev\\mtgSiteWIP-crit001-vm533-glint-certification",
-        "certification_handoff": "docs/handoffs/2026-07-23-2233-codex-vm533-glint-certification.md",
-        "certification_result": "CERTIFIED EXACT SHA ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6"
+        "identity": "DUNE",
+        "card": "VM-534",
+        "state": "awaiting_independent_exact_sha_review",
+        "branch": "codex/vm-534-dune-semantic-recovery",
+        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm534-dune",
+        "prior_identity_certified": "GLINT",
+        "prior_identity_certification": "ab3ece2155d52c0f4283a0c0244c601a0991f970",
+        "gate_1_2_commit": "c05b7c752748e9432a9321b6bd8f2e1b65c29ee0",
+        "candidate_recovery_sha": "e6f776d4e047aaa8f22358d4ff09486ff6100cf5",
+        "candidate_workflow_commit": "PENDING_VM534_CANDIDATE_WORKFLOW_SHA",
+        "candidate_handoff": "docs/handoffs/2026-07-24-0030-codex-vm534-dune-candidate-workflow.md",
+        "recovery_summary": "docs/incidents/recoveries/VM-534-dune-semantic-recovery.md",
+        "result": "READY FOR INDEPENDENT REVIEW EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5",
+        "authorized_next_scope": "Fresh independent exact-SHA review only. No certification, program-base advancement, VM-535 Ink, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, Excel update by Codex, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, or force operation is authorized by this candidate workflow record.",
+        "updated_at": "2026-07-24T00:30:00-06:00"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -5431,10 +5395,10 @@
           "invalid-reference-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 5,
           "discovery_record": 0,
           "support_record": 0,
-          "unclassified": 5
+          "unclassified": 0
         },
         "source_count": 14,
         "source_role_counts": {
@@ -5445,25 +5409,8 @@
         },
         "claim_bearing_source_count": 3,
         "claim_bearing_source_rate": 0.2143,
-        "reference_site_count": 9,
-        "missing_references": [
-          {
-            "pointer": "data/raw-factions/dune/dune.placement.json#/collision_guidance/pairs/0",
-            "claim_id": "glint_claim_0003"
-          },
-          {
-            "pointer": "data/raw-factions/dune/dune.placement.json#/collision_guidance/pairs/0",
-            "claim_id": "glint_claim_0005"
-          },
-          {
-            "pointer": "data/raw-factions/dune/dune.placement.json#/collision_guidance/pairs/1",
-            "claim_id": "ink_claim_0003"
-          },
-          {
-            "pointer": "data/raw-factions/dune/dune.placement.json#/collision_guidance/pairs/1",
-            "claim_id": "ink_claim_0005"
-          }
-        ],
+        "reference_site_count": 13,
+        "missing_references": [],
         "potential_role_invalid_support_links": [],
         "raw_question_count": 3,
         "unique_question_claim_ids": [
@@ -5490,14 +5437,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_1_2_complete",
-        "status": "in_progress",
+        "current_gate": "gate_4_complete",
+        "status": "awaiting_independent_review",
         "started_at": "2026-07-23T23:23:00-06:00",
-        "gate_entered_at": "2026-07-23T23:23:00-06:00",
+        "gate_entered_at": "2026-07-24T00:30:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "INK",
-        "primary_disposition": "ready_for_gate_3_remediation"
+        "primary_disposition": "READY FOR INDEPENDENT REVIEW EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -5525,19 +5472,19 @@
           "OFFICIAL_NAME",
           "BLUE_PRESENT_COLLAPSE"
         ],
-        "audit_report": "docs/handoffs/2026-07-23-2323-codex-vm534-dune-gate1-gate2.md",
+        "audit_report": "docs/incidents/recoveries/VM-534-dune-semantic-recovery.md",
         "residual_findings": [
-          "Gate 1+2 read-only audit authorizes DUNE-only Gate 3+4 remediation from exact program base ab3ece2155d52c0f4283a0c0244c601a0991f970.",
-          "DUNE canonical key, Dune / Aggression display, BRGW display metadata, and DUNE-only accepted alias are frozen; BRGW and all same-color permutations remain metadata/query-only and must fail closed.",
-          "Baseline has 5 unclassified claims, 14 sources, no fixture file, 9 DUNE provenance entries with 4 null canonical IDs and zero missing canonical hashes, stale provenance, and GLINT/INK neighbor claim contamination in collision guidance.",
+          "Exact DUNE candidate e6f776d4e047aaa8f22358d4ff09486ff6100cf5 is awaiting independent exact-SHA review.",
+          "DUNE canonical key, Dune / Aggression display, BRGW display metadata, and DUNE-only accepted alias are preserved; BRGW and all same-color permutations failed closed.",
+          "Candidate records 5 substantive claims, 14 sources, 30 fixtures, 13 DUNE provenance rows, zero null canonical IDs, zero missing hashes, and DUNE-owned GLINT/INK collision evidence.",
           "VM-535 Ink, VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG remain backlog/not_started and untouched; Excel was not updated by Codex."
         ]
       },
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "e6f776d4e047aaa8f22358d4ff09486ff6100cf5",
+        "recovery_commit": "PENDING_VM534_CANDIDATE_WORKFLOW_SHA",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
