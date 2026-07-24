@@ -11,7 +11,7 @@
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore certified from exact approved candidate f83b8b90b49a7afe3236f3e7f7ab52a254625d1f; VM-533 Glint Gate 1+2 read-only audit complete and Gate 3+4 remediation authorized",
+      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore certified from exact approved candidate f83b8b90b49a7afe3236f3e7f7ab52a254625d1f; VM-533 Glint exact candidate ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6 approved by independent exact-SHA review and awaiting certification",
       "current_program_base": "8145b8697ed1d1500c0faecf080b55404ab8ec4e",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
@@ -65,7 +65,7 @@
           "WITCH"
         ],
         "current_identity": "GLINT",
-        "current_identity_status": "gate_1_2_complete_remediation_authorized",
+        "current_identity_status": "exact_candidate_approved_awaiting_certification",
         "next_identity": "DUNE",
         "next_identity_status": "backlog_not_started",
         "certified": "1 of 5",
@@ -107,15 +107,15 @@
       "current_identity_hold": {
         "identity": "GLINT",
         "card": "VM-533",
-        "state": "gate_1_2_complete_remediation_authorized",
+        "state": "exact_candidate_approved_awaiting_certification",
         "branch": "codex/vm-533-glint-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm533-glint",
         "prior_identity_certified": "YORE",
         "prior_identity_certification": "8145b8697ed1d1500c0faecf080b55404ab8ec4e",
-        "authorized_next_scope": "VM-533 / Glint may proceed with GLINT-only Gate 3+4 semantic remediation and candidate creation after this Gate 1+2 governance commit. No certification, independent review, VM-534 Dune, VM-535 Ink, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, Excel update by Codex, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, or force operation is authorized.",
-        "required_next_milestone": "GLINT-only semantic candidate commit, exact candidate-scope validation, and separate candidate-workflow governance record before independent exact-SHA review.",
+        "authorized_next_scope": "Separate VM-533 / Glint certification-only governance may certify exact approved candidate ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6 after the independent-review governance commit is recorded. No candidate repair, replacement candidate, VM-534 Dune, VM-535 Ink, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, Excel update by Codex, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, or force operation is authorized by this review.",
+        "required_next_milestone": "VM-533 certification-only governance, if separately authorized, must certify only exact approved candidate ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6 and keep candidate/workflow/review/certification object separation.",
         "program_base": "8145b8697ed1d1500c0faecf080b55404ab8ec4e",
-        "updated_at": "2026-07-23T21:08:00-06:00",
+        "updated_at": "2026-07-23T21:57:00-06:00",
         "gate_1_2_commit": "PENDING_VM533_GATE_1_2_COMMIT_SHA",
         "gate_1_2_report": "docs/handoffs/2026-07-23-2108-codex-vm533-glint-gate1-gate2.md",
         "gate_1_2_result": "READY FOR GATE 3 REMEDIATION",
@@ -144,10 +144,14 @@
         ],
         "invalid_alias_result_required": "UBRG and all same-color permutations must remain metadata/query-only and reject as candidate identities",
         "preview_result": "raw preview disabled; generated identity-layer preview enabled and source/embedded generated preview text equal",
-        "candidate_recovery_sha": null,
-        "candidate_workflow_commit": null,
-        "independent_review_commit": null,
-        "certification_commit": null
+        "candidate_recovery_sha": "ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6",
+        "candidate_workflow_commit": "bc7252431149a862970d7c93ad82df8782ceb6cd",
+        "independent_review_commit": "PENDING_VM533_INDEPENDENT_REVIEW_SHA",
+        "certification_commit": null,
+        "independent_review_branch": "codex/vm-533-glint-independent-review",
+        "independent_review_worktree": "C:\\dev\\mtgSiteWIP-crit001-vm533-glint-independent-review",
+        "independent_review_handoff": "docs/handoffs/2026-07-23-2157-codex-vm533-glint-independent-review.md",
+        "independent_review_decision": "APPROVE EXACT SHA ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -5325,14 +5329,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "candidate_created",
-        "status": "awaiting_independent_review",
+        "current_gate": "independent_review_complete",
+        "status": "approved_pending_certification",
         "started_at": "2026-07-23T21:08:00-06:00",
-        "gate_entered_at": "2026-07-23T21:38:00-06:00",
+        "gate_entered_at": "2026-07-23T21:57:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "DUNE",
-        "primary_disposition": "ready_for_independent_exact_sha_review_ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6"
+        "primary_disposition": "approved_exact_sha_ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6_certification_required"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -5351,15 +5355,17 @@
         ],
         "audit_report": "docs/handoffs/2026-07-23-2108-codex-vm533-glint-gate1-gate2.md",
         "residual_findings": [
-          "Exact semantic candidate ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6 passed candidate scope from program base 8145b8697ed1d1500c0faecf080b55404ab8ec4e.",
-          "All five Glint claims are substantive_claim with bounded evidence locations and exact source chains.",
-          "Glint semantic readiness fixture exists and covers core inclusion, mature/pressure behavior, nearest collision ambiguity, provenance, all required neighbors, alias rejection, and generic false-positive exclusions.",
-          "GLINT provenance rows are 13 with zero null canonical IDs and zero missing hashes.",
-          "Yore and Dune collision rows now use Glint-owned evidence only; neighbor claim chains remain outside Glint authority.",
-          "UBRG and all permutations remain metadata/query-only and rejected as candidate identities.",
-          "Independent exact-SHA review is required before certification."
+          "Independent exact-SHA review approved candidate ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6 with no approval-blocking findings.",
+          "Exact candidate scope is limited to the eight authorized GLINT candidate files; no recruiter, identity-layer, preview, package, validator, test, VM-534 through VM-538, or unrelated infrastructure file changed in the candidate.",
+          "All five Glint claims are substantive_claim with bounded evidence locations and exact source chains; non-claim-bearing sources remain discovery-only, shaping-only, or support-only and are not used as substantive proof.",
+          "GLINT provenance rows are 13 with zero null canonical IDs and zero missing hashes; fixture coverage is 30 cases.",
+          "UBRG and all permutations remain metadata/query-only and rejected as candidate identities; YORE, DUNE, WITCH, and JESKAI reject the Glint candidate range.",
+          "Raw preview remains disabled and generated identity-layer preview remains enabled/unchanged.",
+          "Provenance builder byte check reports stale only because of CRLF normalization; LF-normalized generated manifest matches the committed provenance content."
         ],
-        "candidate_workflow_report": "docs/handoffs/2026-07-23-2138-codex-vm533-glint-candidate-workflow.md"
+        "candidate_workflow_report": "docs/handoffs/2026-07-23-2138-codex-vm533-glint-candidate-workflow.md",
+        "independent_review_report": "docs/handoffs/2026-07-23-2157-codex-vm533-glint-independent-review.md",
+        "independent_review_decision": "APPROVE EXACT SHA ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6"
       },
       "certification": {
         "contract_version": "v1.1",
@@ -5367,11 +5373,15 @@
         "candidate_recovery_sha": "ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6",
         "recovery_commit": "ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6",
         "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
+        "reviewer": "Codex independent exact-SHA review",
+        "review_cycles": 1,
+        "approval_date": "2026-07-23",
         "certified_at": null,
-        "candidate_workflow_commit": "PENDING_VM533_CANDIDATE_WORKFLOW_COMMIT_SHA"
+        "candidate_workflow_commit": "bc7252431149a862970d7c93ad82df8782ceb6cd",
+        "review_result": "approved_exact_sha",
+        "approval_review_handoff": "docs/handoffs/2026-07-23-2157-codex-vm533-glint-independent-review.md",
+        "approval_review_sha": "PENDING_VM533_INDEPENDENT_REVIEW_SHA",
+        "review_decision": "APPROVE EXACT SHA ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6"
       }
     },
     {
