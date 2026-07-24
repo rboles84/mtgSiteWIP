@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "glint",
   "faction_name": "Glint / Chaos",
-  "last_updated": "2026-06-12",
+  "last_updated": "2026-07-23",
   "audit_summary": {
     "raw_packet_created": true,
     "raw_claim_count": 5,
@@ -54,7 +54,8 @@
     "build_factions_run": true,
     "placement_eligible": true,
     "preview_eligible": false,
-    "live_pilot": true
+    "live_pilot": true,
+    "semantic_readiness_gate": "VM-533 Gate 3 candidate"
   },
   "changes": [
     {
@@ -262,6 +263,22 @@
         "Keep ring collision guidance lateral_inhibition:false unless a future approved calibration card strengthens suppression deliberately."
       ],
       "notes": "VM-348 is a source-bound cohort repair. It adds no web intake, no raw claims, no generated hand edits, no public aliases, no Home preview membership, and no route changes."
+    },
+    {
+      "change_id": "glint_change_005",
+      "change_type": "VM-533 Semantic Readiness Recovery",
+      "change_date": "2026-07-23",
+      "summary": "Classified Glint claims, added bounded evidence locators, repaired GLINT-owned provenance anchors, added fixtures, and retained the authorized raw/generated preview distinction for VM-533 candidate review.",
+      "files_touched": [
+        "data/raw-factions/glint/glint.claims.json",
+        "data/raw-factions/glint/glint.profile.json",
+        "data/raw-factions/glint/glint.placement.json",
+        "research/fixtures/semantic-readiness/glint.semantic-fixtures.json",
+        "data/factions.json",
+        "data/placement-model.json",
+        "data/semantic-readiness-provenance.json"
+      ],
+      "authority_boundary": "GLINT only; no Dune, Ink, Witch, Colorless, WUBRG, recruiter, identity-layer, package, validator, or test remediation performed."
     }
   ]
 }

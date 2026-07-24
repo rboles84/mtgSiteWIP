@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0.0",
-  "placement_profile_version": "0.1.2",
-  "placement_model_version": "0.1.2",
-  "based_on_profile_version": "0.1.2",
+  "placement_profile_version": "0.1.3",
+  "placement_model_version": "0.1.3",
+  "based_on_profile_version": "0.1.3",
   "faction_id": "glint",
   "faction_name": "Glint / Chaos",
-  "last_updated": "2026-06-12",
+  "last_updated": "2026-07-23",
   "color_identity": {
     "colors": [
       "Blue",
@@ -241,7 +241,9 @@
     "calibration_tuning_status": "source_authored_live_repair",
     "last_placement_ready_pass": "VM-303",
     "live_pilot": true,
-    "notes": "VM-303 source-backs the current generated GLINT placement/profile output while preserving the five-claim floor, support-only card/mechanics texture, UBRG metadata-only boundary, and no-route/Home-preview policy."
+    "notes": "VM-303 source-backs the current generated GLINT placement/profile output while preserving the five-claim floor, support-only card/mechanics texture, UBRG metadata-only boundary, and no-route/Home-preview policy.",
+    "semantic_readiness": "candidate_ready",
+    "source_generated_parity": "generated preview retained from identity layer; placement changes remain GLINT-local"
   },
   "calibration_tuning": {
     "status": "source_authored_live_repair",
@@ -304,16 +306,13 @@
         "ask": "Is the answer alive because it refuses imposed order, or built because it refuses natural closure?",
         "evidence_claim_ids": [
           "glint_claim_0003",
-          "glint_claim_0005",
-          "yore_claim_0003",
-          "yore_claim_0004"
+          "glint_claim_0005"
         ],
         "supporting_source_ids": [
           "src_vm_glint_evidence_ledger_20260602",
-          "src_vm_four_color_reference_audit_20260602",
-          "src_vm_yore_evidence_ledger_20260602",
           "src_vm_four_color_reference_audit_20260602"
-        ]
+        ],
+        "neighbor_evidence_boundary": "Yore claim IDs remain Yore-owned authority and are not used as Glint proof; this collision row is supported only by Glint-owned missing-white and four-color-order claims."
       },
       {
         "collision_id": "collision_glint_dune_four_color_ring",
@@ -323,17 +322,73 @@
         "ask": "Is the answer becoming through volatility, or taking ground through immediate force?",
         "evidence_claim_ids": [
           "glint_claim_0003",
-          "glint_claim_0005",
-          "dune_claim_0003",
-          "dune_claim_0005"
+          "glint_claim_0005"
         ],
         "supporting_source_ids": [
           "src_vm_glint_evidence_ledger_20260602",
-          "src_vm_four_color_reference_audit_20260602",
-          "src_vm_dune_evidence_ledger_20260603",
-          "src_vm_four_color_reference_audit_20260603"
-        ]
+          "src_vm_four_color_reference_audit_20260602"
+        ],
+        "neighbor_evidence_boundary": "Dune claim IDs remain outside VM-533 scope and are not used as Glint proof; this collision row is supported only by Glint-owned missing-white and four-color-order claims."
       }
     ]
-  }
+  },
+  "semantic_readiness_gate": "VM-533 Gate 3 candidate",
+  "semantic_guidance_evidence": [
+    {
+      "canonical_id": "guidance_glint_mismatch_0001_gate3",
+      "claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ],
+      "bounded_paraphrase": "Misclassifying Glint as Grixis with green splash is rejected because the Glint frame is explicitly UBRG and missing white, not a three-color base plus incidental green.",
+      "evidence_scope": "grixis_collision_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0"
+    },
+    {
+      "canonical_id": "guidance_glint_mismatch_0002_gate3",
+      "claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ],
+      "bounded_paraphrase": "Treating every four-color pile with Yidris as Glint is rejected because Commander or card legality is support-only, while Glint identity depends on the missing-white UBRG frame.",
+      "evidence_scope": "commander_support_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1"
+    },
+    {
+      "canonical_id": "guidance_glint_mismatch_0003_gate3",
+      "claim_ids": [
+        "glint_claim_0002",
+        "glint_claim_0004"
+      ],
+      "source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ],
+      "bounded_paraphrase": "Calling Glint an official Glint-Eye faction is rejected because Glint / Chaos is a project display label and Glint-Eye is only bounded card-anchor material.",
+      "evidence_scope": "official_name_and_card_anchor_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2"
+    },
+    {
+      "canonical_id": "guidance_glint_mismatch_0004_gate3",
+      "claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ],
+      "bounded_paraphrase": "Conflating Glint with Yore or Dune is rejected because Glint is the UBRG missing-white slot, while those neighbors occupy distinct four-color frames.",
+      "evidence_scope": "four_color_neighbor_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3"
+    }
+  ]
 }

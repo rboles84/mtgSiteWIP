@@ -5710,16 +5710,13 @@
           "ask": "Is the answer alive because it refuses imposed order, or built because it refuses natural closure?",
           "evidence_claim_ids": [
             "glint_claim_0003",
-            "glint_claim_0005",
-            "yore_claim_0003",
-            "yore_claim_0004"
+            "glint_claim_0005"
           ],
           "supporting_source_ids": [
             "src_vm_glint_evidence_ledger_20260602",
-            "src_vm_four_color_reference_audit_20260602",
-            "src_vm_yore_evidence_ledger_20260602",
             "src_vm_four_color_reference_audit_20260602"
-          ]
+          ],
+          "neighbor_evidence_boundary": "Yore claim IDs remain Yore-owned authority and are not used as Glint proof; this collision row is supported only by Glint-owned missing-white and four-color-order claims."
         },
         {
           "review_triggers": [
@@ -5742,16 +5739,13 @@
           "ask": "Is the answer becoming through volatility, or taking ground through immediate force?",
           "evidence_claim_ids": [
             "glint_claim_0003",
-            "glint_claim_0005",
-            "dune_claim_0003",
-            "dune_claim_0005"
+            "glint_claim_0005"
           ],
           "supporting_source_ids": [
             "src_vm_glint_evidence_ledger_20260602",
-            "src_vm_four_color_reference_audit_20260602",
-            "src_vm_dune_evidence_ledger_20260603",
-            "src_vm_four_color_reference_audit_20260603"
-          ]
+            "src_vm_four_color_reference_audit_20260602"
+          ],
+          "neighbor_evidence_boundary": "Dune claim IDs remain outside VM-533 scope and are not used as Glint proof; this collision row is supported only by Glint-owned missing-white and four-color-order claims."
         }
       ],
       "chatbot_guidance": {
@@ -5778,9 +5772,9 @@
         ]
       },
       "source_metadata": {
-        "profile_version": "0.1.2",
-        "placement_model_version": "0.1.2",
-        "source_review_date": "2026-06-12",
+        "profile_version": "0.1.3",
+        "placement_model_version": "0.1.3",
+        "source_review_date": "2026-07-23",
         "claim_count": 5
       }
     },

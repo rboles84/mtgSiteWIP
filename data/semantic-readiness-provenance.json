@@ -9936,12 +9936,10 @@
       "canonical_file": "data/raw-factions/glint/glint.placement.json",
       "canonical_pointer": "/collision_guidance/pairs/0",
       "canonical_id": "collision_glint_yore_four_color_ring",
-      "canonical_content_hash": "sha256:37eb18c7d62dbcf83dae71918a73e1f0ac88972d6a10bd0d02ea31a9dc778797",
+      "canonical_content_hash": "sha256:e104d3198e44cc19b2049b48c9333bea6966263fa2cf7b8db603635d043e508a",
       "evidence_claim_ids": [
         "glint_claim_0003",
-        "glint_claim_0005",
-        "yore_claim_0003",
-        "yore_claim_0004"
+        "glint_claim_0005"
       ],
       "evidence_source_ids": [
         "src_vm_four_color_reference_audit_20260602",
@@ -9959,12 +9957,10 @@
       "canonical_file": "data/raw-factions/glint/glint.placement.json",
       "canonical_pointer": "/collision_guidance/pairs/1",
       "canonical_id": "collision_glint_dune_four_color_ring",
-      "canonical_content_hash": "sha256:15f3b78c0308d121a0b9f3b38a1c637c879787af0d7f5bba89e7888d74faa420",
+      "canonical_content_hash": "sha256:95fcc64845bd44edebec9b2bccd461f91b28ef62c32e35a04f6c3e2743a877c9",
       "evidence_claim_ids": [
         "glint_claim_0003",
-        "glint_claim_0005",
-        "dune_claim_0003",
-        "dune_claim_0005"
+        "glint_claim_0005"
       ],
       "evidence_source_ids": [
         "src_vm_four_color_reference_audit_20260602",
@@ -10050,10 +10046,94 @@
     },
     {
       "identity_key": "GLINT",
+      "canonical_file": "data/raw-factions/glint/glint.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "guidance_glint_mismatch_0001_gate3",
+      "canonical_content_hash": "sha256:097073ef13e90b66551bf3609dc790cc7a3d4b430762641f3e6600eb69b4d1ea",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_glint_evidence_ledger_20260602"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GLINT",
+        "data/placement-model.json#/factions/GLINT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GLINT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GLINT",
+      "canonical_file": "data/raw-factions/glint/glint.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "guidance_glint_mismatch_0002_gate3",
+      "canonical_content_hash": "sha256:5d819cde61f704498910cf94a42816d700bd94f1610a94fb6fe41423932d3e2e",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_glint_evidence_ledger_20260602"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GLINT",
+        "data/placement-model.json#/factions/GLINT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GLINT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GLINT",
+      "canonical_file": "data/raw-factions/glint/glint.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "guidance_glint_mismatch_0003_gate3",
+      "canonical_content_hash": "sha256:67682077bed8caee0ccf2e20fd76cec4a2f495e56f8b5ca8b39cd66227ac7c92",
+      "evidence_claim_ids": [
+        "glint_claim_0002",
+        "glint_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_glint_evidence_ledger_20260602"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GLINT",
+        "data/placement-model.json#/factions/GLINT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GLINT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GLINT",
+      "canonical_file": "data/raw-factions/glint/glint.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "guidance_glint_mismatch_0004_gate3",
+      "canonical_content_hash": "sha256:c4d5f9331cce97f02278868db2bcbe830f86347ae8aec5b171d88a0a7ea0e82c",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_glint_evidence_ledger_20260602"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/GLINT",
+        "data/placement-model.json#/factions/GLINT",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/GLINT"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "GLINT",
       "canonical_file": "data/raw-factions/glint/glint.profile.json",
       "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:58a884ac0019e3c7224763214c71853ac8d6baecf83ded472f8314e1edd1a678",
+      "canonical_id": "glint_core_identity_gate3",
+      "canonical_content_hash": "sha256:dbd23312c5abc4939a26f349f8aa5e42b1e9bdc5c3a95e50d81f95496a9c66a2",
       "evidence_claim_ids": [
         "glint_claim_0001",
         "glint_claim_0002",
@@ -10078,8 +10158,8 @@
       "identity_key": "GLINT",
       "canonical_file": "data/raw-factions/glint/glint.profile.json",
       "canonical_pointer": "/profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:10b5ffb84ffaf0c3f739b767b40f3d3223fcec76d27eb2e19f8a9d5ee1c2e813",
+      "canonical_id": "glint_profile_gate3",
+      "canonical_content_hash": "sha256:fd106b9d1c384d4311e322f09b99ea9ee6b20ce70b84ff87fa70a50cf251d613",
       "evidence_claim_ids": [
         "glint_claim_0001",
         "glint_claim_0002",
@@ -10104,8 +10184,8 @@
       "identity_key": "GLINT",
       "canonical_file": "data/raw-factions/glint/glint.profile.json",
       "canonical_pointer": "/search_and_filter_metadata",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:6a1393f2fda7ff92b0322aef2fcefbb797cf7ee1cacbf39eb23c65c3f6dff838",
+      "canonical_id": "glint_search_and_filter_metadata_gate3",
+      "canonical_content_hash": "sha256:6062d815bcea9f376dae9c0a9ae28f0f14c541829a33331ecb889fc4fd3ae45a",
       "evidence_claim_ids": [
         "glint_claim_0001",
         "glint_claim_0002",
@@ -10130,8 +10210,8 @@
       "identity_key": "GLINT",
       "canonical_file": "data/raw-factions/glint/glint.profile.json",
       "canonical_pointer": "/site_surface",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:9b10e299fb6a947c15e8e0bed1c1290d4a3ccdc351de99e12ade430e0d84a881",
+      "canonical_id": "glint_site_surface_gate3",
+      "canonical_content_hash": "sha256:d8ebd04ade486c6545e35ef306536f4b7152dd36475e97a0be454d48c4575ad5",
       "evidence_claim_ids": [
         "glint_claim_0001",
         "glint_claim_0002",

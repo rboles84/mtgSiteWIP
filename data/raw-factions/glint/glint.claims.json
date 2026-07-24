@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "faction_id": "glint",
   "faction_name": "Glint / Chaos",
-  "source_review_date": "2026-06-09",
-  "last_updated": "2026-06-09",
+  "source_review_date": "2026-07-23",
+  "last_updated": "2026-07-23",
   "claim_count": 5,
   "claim_quality_summary": {
     "claim_basis": "Existing VM-246 claim-bearing evidence rows only, with VM-251 used only for lifecycle/live-status metadata; VM-276 adds support-only local card-data validation without widening raw-claim authority.",
@@ -24,7 +24,8 @@
       "glint_claim_0003",
       "glint_claim_0004",
       "glint_claim_0005"
-    ]
+    ],
+    "semantic_readiness_gate": "VM-533 Gate 3 candidate: all Glint claims classified as substantive with bounded locators and source-id parity."
   },
   "claims": [
     {
@@ -44,7 +45,34 @@
         "GLINT-EVID-010"
       ],
       "confidence": "High",
-      "notes": "VM-303 updates the lifecycle sentence after VM-251 while preserving the evidence floor and color-code boundary. VM-251 is used only for lifecycle/live-status metadata, not placement axes, inhibitor traps, mechanics, lore, Commander identity, or discriminator support."
+      "notes": "VM-303 updates the lifecycle sentence after VM-251 while preserving the evidence floor and color-code boundary. VM-251 is used only for lifecycle/live-status metadata, not placement axes, inhibitor traps, mechanics, lore, Commander identity, or discriminator support.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_glint_evidence_ledger_20260602",
+          "locator_type": "ledger_row",
+          "locator": "docs/research/glint/glint-evidence-ledger.md#GLINT-EVID-001",
+          "bounded_paraphrase": "The Glint evidence ledger treats Glint as a project-defined UBRG chaos identity rather than a lore faction with independent canon proof.",
+          "evidence_scope": "project_identity_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_glint_vm246_scope_card_20260602",
+          "locator_type": "kanban_card",
+          "locator": "docs/kanban/done/VM-246-glint-source-packet-and-evidence-ledger.md#deliverables",
+          "bounded_paraphrase": "The VM-246 scope card records Glint as a controlled source packet and evidence-ledger recovery item, not as a canonical Magic setting faction.",
+          "evidence_scope": "program_lifecycle_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm251_glint_runtime_promotion_20260603",
+          "locator_type": "kanban_card",
+          "locator": "docs/kanban/done/VM-251-glint-controlled-runtime-promotion.md#result",
+          "bounded_paraphrase": "The runtime promotion card confirms Glint entered runtime surfaces through controlled project promotion while retaining identity-level guardrails.",
+          "evidence_scope": "runtime_promotion_boundary",
+          "interpretation_level": "supporting_project_record"
+        }
+      ]
     },
     {
       "claim_id": "glint_claim_0002",
@@ -61,7 +89,26 @@
         "GLINT-EVID-010"
       ],
       "confidence": "High",
-      "notes": "Do not create public aliases from this naming policy. UBRG and all permutations remain metadata/query-only."
+      "notes": "Do not create public aliases from this naming policy. UBRG and all permutations remain metadata/query-only.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_glint_evidence_ledger_20260602",
+          "locator_type": "ledger_row",
+          "locator": "docs/research/glint/glint-evidence-ledger.md#GLINT-EVID-002",
+          "bounded_paraphrase": "The evidence ledger records that Glint / Chaos is a Vox Mana display label and must not be treated as an official Wizards faction name.",
+          "evidence_scope": "official_name_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260602",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#glint-chaos-ubrg",
+          "bounded_paraphrase": "The four-color audit distinguishes Glint / Chaos as the project label for the UBRG slot and does not elevate the label into official canon nomenclature.",
+          "evidence_scope": "four_color_reference_boundary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "glint_claim_0003",
@@ -77,7 +124,26 @@
         "GLINT-EVID-003"
       ],
       "confidence": "High",
-      "notes": "Missing-color framing is identity structure, not a canon faction claim."
+      "notes": "Missing-color framing is identity structure, not a canon faction claim.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_glint_evidence_ledger_20260602",
+          "locator_type": "ledger_row",
+          "locator": "docs/research/glint/glint-evidence-ledger.md#GLINT-EVID-003",
+          "bounded_paraphrase": "The evidence ledger anchors Glint in blue, black, red, and green while emphasizing that its boundary is the absence of white.",
+          "evidence_scope": "missing_white_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260602",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#glint-chaos-ubrg",
+          "bounded_paraphrase": "The four-color reference audit maps Glint / Chaos to the UBRG four-color slot and separates it from WUBR, WURG, WBRG, and WUBG identities.",
+          "evidence_scope": "color_order_boundary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "glint_claim_0004",
@@ -93,7 +159,26 @@
         "GLINT-EVID-004"
       ],
       "confidence": "Medium",
-      "notes": "Exact local card-data validation now exists via a support-only local card-data source, but the raw-claim authority for this boundary remains the approved VM-246 claim-bearing floor."
+      "notes": "Exact local card-data validation now exists via a support-only local card-data source, but the raw-claim authority for this boundary remains the approved VM-246 claim-bearing floor.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_glint_evidence_ledger_20260602",
+          "locator_type": "ledger_row",
+          "locator": "docs/research/glint/glint-evidence-ledger.md#GLINT-EVID-004",
+          "bounded_paraphrase": "The evidence ledger treats Glint-Eye references as anchor material for the UBRG identity while rejecting Glint-Eye as the faction itself.",
+          "evidence_scope": "card_anchor_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260602",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#glint-eye-anchor",
+          "bounded_paraphrase": "The four-color audit uses Glint-Eye material as a constrained reference point, not as authority for a standalone faction named Glint-Eye.",
+          "evidence_scope": "card_anchor_boundary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "glint_claim_0005",
@@ -109,7 +194,26 @@
         "GLINT-EVID-006"
       ],
       "confidence": "Medium",
-      "notes": "Use as high-level identity framing only. Keep long-form metaphysics and psychology conservative and explicitly bounded."
+      "notes": "Use as high-level identity framing only. Keep long-form metaphysics and psychology conservative and explicitly bounded.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_glint_evidence_ledger_20260602",
+          "locator_type": "ledger_row",
+          "locator": "docs/research/glint/glint-evidence-ledger.md#GLINT-EVID-005",
+          "bounded_paraphrase": "The evidence ledger frames Glint as the missing-white four-color identity and keeps generic four-color Commander support separate from identity proof.",
+          "evidence_scope": "missing_white_identity_frame",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260602",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#missing-white-reference-frame",
+          "bounded_paraphrase": "The audit distinguishes the UBRG missing-white frame from generic four-color Commander legality and from other four-color slots.",
+          "evidence_scope": "four_color_reference_boundary",
+          "interpretation_level": "bounded_synthesis"
+        }
+      ]
     }
   ]
 }

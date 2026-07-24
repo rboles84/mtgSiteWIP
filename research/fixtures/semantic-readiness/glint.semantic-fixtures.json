@@ -1,0 +1,514 @@
+{
+  "identity_key": "GLINT",
+  "raw_id": "glint",
+  "display_name": "Glint / Chaos",
+  "display_color_order": "UBRG",
+  "accepted_aliases": [
+    "GLINT"
+  ],
+  "metadata_only_color_orders": [
+    "UBRG",
+    "UBGR",
+    "URBG",
+    "URGB",
+    "UGBR",
+    "UGRB",
+    "BURG",
+    "BUGR",
+    "BRUG",
+    "BRGU",
+    "BGUR",
+    "BGRU",
+    "RUBG",
+    "RUGB",
+    "RBUG",
+    "RBGU",
+    "RGUB",
+    "RGBU",
+    "GUBR",
+    "GURB",
+    "GBUR",
+    "GBRU",
+    "GRUB",
+    "GRBU"
+  ],
+  "runtime_assertions": false,
+  "fixture_count": 30,
+  "fixtures": [
+    {
+      "fixture_id": "glint_core_inclusion_missing_white_identity",
+      "fixture_type": "core_inclusion",
+      "scenario": "A user asks what Glint means in Vox Mana and gives UBRG, missing-white, appetite, adaptation, volatility, and living-force language.",
+      "expected_identity": "GLINT",
+      "expected_decision": "accept",
+      "evidence_claim_ids": [
+        "glint_claim_0001",
+        "glint_claim_0002",
+        "glint_claim_0003",
+        "glint_claim_0004",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm251_glint_runtime_promotion_20260603",
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_glint_vm246_scope_card_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_mature_pressure_behavior_adaptive_appetite",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "A user centers adaptive appetite under pressure, learning through instability, and rejecting imposed civic restraint while preserving the UBRG/non-White frame.",
+      "expected_identity": "GLINT",
+      "expected_decision": "accept",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_nearest_collision_yore_dune_ring",
+      "fixture_type": "nearest_collision_ambiguity",
+      "scenario": "A four-color answer mentions artifacts, civilization, deserts, endurance, chaos, and missing-color language without clearly choosing which color is absent.",
+      "expected_identity": "GLINT",
+      "expected_decision": "ask_boundary_question",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_provenance_core_identity",
+      "fixture_type": "provenance",
+      "canonical_file": "data/raw-factions/glint/glint.profile.json",
+      "canonical_pointer": "/core_identity",
+      "evidence_claim_ids": [
+        "glint_claim_0001",
+        "glint_claim_0002",
+        "glint_claim_0003",
+        "glint_claim_0004",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm251_glint_runtime_promotion_20260603",
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_glint_vm246_scope_card_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_yore_missing_green",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "YORE",
+      "scenario": "WUBR artifact recursion, artifice, and constructed continuity are proposed as Glint.",
+      "expected_identity": "YORE",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_dune_missing_blue",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "DUNE",
+      "scenario": "WBRG deserts, endurance, and missing-blue survival pressure are proposed as Glint.",
+      "expected_identity": "DUNE",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_grixis",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GRIXIS",
+      "scenario": "Blue-black-red ambition, cruelty, and spell pressure without green living force are proposed as Glint.",
+      "expected_identity": "GRIXIS",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_jund",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "JUND",
+      "scenario": "Black-red-green predation and hunger without blue adaptive intelligence are proposed as Glint.",
+      "expected_identity": "JUND",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_temur",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "TEMUR",
+      "scenario": "Blue-red-green experimentation and instinct without black appetite are proposed as Glint.",
+      "expected_identity": "TEMUR",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_sultai",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SULTAI",
+      "scenario": "Blue-black-green exploitation and graveyard value without red ignition are proposed as Glint.",
+      "expected_identity": "SULTAI",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_ub",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UB",
+      "scenario": "Blue-black control, secrecy, and ambition without red or green are proposed as Glint.",
+      "expected_identity": "UB",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_ur",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UR",
+      "scenario": "Blue-red spells, improvisation, and volatility without black or green are proposed as Glint.",
+      "expected_identity": "UR",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_ug",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UG",
+      "scenario": "Blue-green ramp, growth, and adaptation without black or red are proposed as Glint.",
+      "expected_identity": "UG",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_br",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BR",
+      "scenario": "Black-red sacrifice, appetite, and volatility without blue or green are proposed as Glint.",
+      "expected_identity": "BR",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_bg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BG",
+      "scenario": "Black-green graveyard value and hunger without blue or red are proposed as Glint.",
+      "expected_identity": "BG",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_rg",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "RG",
+      "scenario": "Red-green creature pressure, instinct, and growth without blue or black are proposed as Glint.",
+      "expected_identity": "RG",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_generic_ubrg_alias",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UBRG_METADATA_ONLY",
+      "scenario": "A caller asks to use UBRG as an accepted Glint alias instead of GLINT.",
+      "expected_identity": "GLINT",
+      "expected_decision": "reject_alias",
+      "evidence_claim_ids": [
+        "glint_claim_0003"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_ubgr_alias",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UBGR_METADATA_ONLY",
+      "scenario": "A caller asks to use UBGR or another UBRG color permutation as an accepted Glint alias.",
+      "expected_identity": "GLINT",
+      "expected_decision": "reject_alias",
+      "evidence_claim_ids": [
+        "glint_claim_0003"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_generic_four_color_commander",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_FOUR_COLOR_COMMANDER",
+      "scenario": "A generic four-color Commander deck is proposed as Glint without the missing-white identity frame.",
+      "expected_identity": "GENERIC_FOUR_COLOR_COMMANDER",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_yidris_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "YIDRIS_ONLY",
+      "scenario": "Yidris alone is presented as sufficient proof of Glint identity.",
+      "expected_identity": "YIDRIS_ONLY",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_glint_eye_as_faction",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GLINT_EYE_AS_FACTION",
+      "scenario": "Glint-Eye Nephilim is treated as an official Glint faction, institution, or doctrine.",
+      "expected_identity": "GLINT_EYE_AS_FACTION",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_official_name",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "OFFICIAL_NAME",
+      "scenario": "Glint / Chaos is presented as the official universal Magic name for the UBRG color quadruple.",
+      "expected_identity": "OFFICIAL_NAME",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0002"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_generic_chaos",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_CHAOS",
+      "scenario": "Random chaotic gameplay is proposed as Glint without the UBRG missing-white boundary.",
+      "expected_identity": "GENERIC_CHAOS",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_generic_cascade",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_CASCADE",
+      "scenario": "Cascade mechanics alone are proposed as Glint identity proof.",
+      "expected_identity": "GENERIC_CASCADE",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_high_variance",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_HIGH_VARIANCE",
+      "scenario": "A high-variance deck is proposed as Glint without missing-white identity evidence.",
+      "expected_identity": "GENERIC_HIGH_VARIANCE",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_nephilim_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "NEPHILIM_ONLY",
+      "scenario": "Nephilim references alone are proposed as Glint identity proof.",
+      "expected_identity": "NEPHILIM_ONLY",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0004",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_architecture_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_TECHNOLOGY",
+      "scenario": "Architecture or technology language alone is proposed as Glint identity proof.",
+      "expected_identity": "GENERIC_TECHNOLOGY",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_discovery_only_packet",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "DISCOVERY_ONLY",
+      "scenario": "Discovery-only Glint research is used as substantive proof instead of claim-bearing evidence.",
+      "expected_identity": "DISCOVERY_ONLY",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0001"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_glint_vm246_scope_card_20260602",
+        "src_vm251_glint_runtime_promotion_20260603"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_support_only_card_data",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SUPPORT_ONLY_CARD_DATA",
+      "scenario": "Scryfall or Commander deck data alone is used as Glint proof.",
+      "expected_identity": "SUPPORT_ONLY_CARD_DATA",
+      "expected_decision": "reject_glint",
+      "evidence_claim_ids": [
+        "glint_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    },
+    {
+      "fixture_id": "glint_excludes_color_order_as_canonical_identity",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "COLOR_ORDER_AS_KEY",
+      "scenario": "Glint is stored under UBRG instead of the canonical GLINT key.",
+      "expected_identity": "UBRG_METADATA_ONLY",
+      "expected_decision": "reject_alias",
+      "evidence_claim_ids": [
+        "glint_claim_0003"
+      ],
+      "evidence_source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ]
+    }
+  ]
+}
