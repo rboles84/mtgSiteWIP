@@ -1,13 +1,13 @@
 # VM-534 — Dune Semantic Recovery
 
 ID: VM-534
-Status: Backlog
+Status: In Progress
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: DUNE
 Raw packet: `data/raw-factions/dune/`
 Cohort: four-color
-Contract: pending Contract v1
+Contract: Contract v1.1 Gate 1+2 recorded
 
 ## Objective
 
@@ -15,8 +15,8 @@ Recover Dune end to end under CRIT-001: audit the existing packet, bound readine
 
 ## Gates
 
-- [ ] Gate 1 — Packet audit and bounded disposition.
-- [ ] Gate 2 — Sufficient evidence completion.
+- [x] Gate 1 - Packet audit and bounded disposition. Recorded in `docs/handoffs/2026-07-23-2323-codex-vm534-dune-gate1-gate2.md`.
+- [x] Gate 2 - Sufficient evidence completion. Bounded DUNE-only remediation authorized.
 - [ ] Gate 3 — Canonical remediation.
 - [ ] Gate 4 — Generation and validation.
 - [ ] Gate 5 — Independent certification.
@@ -37,3 +37,9 @@ Recover Dune end to end under CRIT-001: audit the existing packet, bound readine
 - Candidate recovery SHA: pending
 - Independent reviewer: pending
 - Certification commit: pending
+
+## Gate 1+2 Baseline - 2026-07-23
+
+Official branch/worktree: `codex/vm-534-dune-semantic-recovery` at `C:\dev\mtgSiteWIP-crit001-vm534-dune`, starting from program base `ab3ece2155d52c0f4283a0c0244c601a0991f970`.
+
+Gate 1+2 authorizes DUNE-only semantic remediation. Baseline: canonical key `DUNE`; display `Dune / Aggression`; display color order `BRGW`; accepted alias `DUNE` only; BRGW and all same-color permutations metadata/query-only; 5 unclassified claims; 14 sources; no semantic fixture; 9 DUNE provenance rows with 4 null canonical IDs; stale provenance; GLINT/INK neighbor claim contamination in collision guidance; raw preview disabled while generated preview remains enabled/equal. VM-535 Ink, VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG remain backlog/not started and untouched. Excel was not updated by Codex.

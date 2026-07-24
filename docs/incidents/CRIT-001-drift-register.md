@@ -65,6 +65,15 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - DRIFT-020: Gate 1+2 does not require a `data/identity-layers.json` preview-source exception; any later preview-source edit would have to be GLINT-only and validator-approved.
 - Gate 1+2 scope: governance-only; GLINT raw data, generated semantic data, fixtures, provenance source, recruiter context, runtime, validator/test implementation, package, CI, Excel, original main, VM-534 Dune, VM-535 Ink, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, and parked Glint shadow work were untouched.
 
+## VM-534 Gate 1+2 Update - 2026-07-23
+
+- DRIFT-014: VM-534 starts from exact VM-533 certification/program base `ab3ece2155d52c0f4283a0c0244c601a0991f970`; Gate 1+2 governance is separate from any future semantic candidate, workflow record, independent review, or certification.
+- DRIFT-015: Gate 1+2 identified DUNE preview ownership without editing preview source; raw search metadata remains preview-disabled while generated identity-layer preview is enabled and source/embedded generated preview text is equal.
+- DRIFT-016: DUNE uses object-with-pairs collision guidance and retains `BRGW` plus all same-color permutations as metadata/query-only candidate identities that must fail closed.
+- DRIFT-017/DRIFT-019: Gate 1+2 treats copied Dune strings, Commander support rows, precon rows, and historical draft/discovery surfaces as non-authoritative unless active-consumer proof and source role permit use.
+- DRIFT-020: Gate 1+2 does not require a `data/identity-layers.json` preview-source exception; any later preview-source edit would have to be DUNE-only and validator-approved.
+- Gate 1+2 scope: governance-only; DUNE raw data, generated semantic data, fixtures, provenance source, recruiter context, runtime, validator/test implementation, package, CI, Excel, original main, protected worktrees, VM-535 Ink, VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG were untouched.
+
 ## VM-533 Certification Update - 2026-07-23
 
 - DRIFT-014: VM-533 certification preserved candidate/workflow/review/certification object separation; only exact approved candidate `ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6` was certified, while workflow `bc7252431149a862970d7c93ad82df8782ceb6cd` and approval review `e8710dffe4324aeaa3a0a0713e9596349382b592` remain distinct.

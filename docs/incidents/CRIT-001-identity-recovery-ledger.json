@@ -5,14 +5,14 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "GLINT",
-    "next_identity": "DUNE",
+    "active_identity": "DUNE",
+    "next_identity": "INK",
     "certified_identity_count": 32,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore certified from exact approved candidate f83b8b90b49a7afe3236f3e7f7ab52a254625d1f; VM-533 Glint certified from exact approved candidate ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6; VM-534 Dune remains backlog/not_started",
-      "current_program_base": "PENDING_VM533_CERTIFICATION_COMMIT_SHA",
+      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore certified from exact approved candidate f83b8b90b49a7afe3236f3e7f7ab52a254625d1f; VM-533 Glint certified from exact approved candidate ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6; VM-534 Dune Gate 1+2 recorded and Gate 3+4 remediation authorized",
+      "current_program_base": "ab3ece2155d52c0f4283a0c0244c601a0991f970",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -64,9 +64,9 @@
           "INK",
           "WITCH"
         ],
-        "current_identity": "GLINT",
-        "current_identity_status": "certified_semantically_ready",
-        "next_identity": "DUNE",
+        "current_identity": "DUNE",
+        "current_identity_status": "gate_1_2_complete",
+        "next_identity": "INK",
         "next_identity_status": "backlog_not_started",
         "certified": "2 of 5",
         "started_by": "PENDING_VM532_DRIFT_PREFLIGHT_COMMIT_SHA",
@@ -5490,22 +5490,51 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "gate_1_2_complete",
+        "status": "in_progress",
+        "started_at": "2026-07-23T23:23:00-06:00",
+        "gate_entered_at": "2026-07-23T23:23:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "INK",
-        "primary_disposition": null
+        "primary_disposition": "ready_for_gate_3_remediation"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "GLINT",
+          "INK",
+          "JUND",
+          "NAYA",
+          "MARDU",
+          "ABZAN",
+          "BR",
+          "RG",
+          "WG",
+          "WB",
+          "WR",
+          "BG",
+          "GENERIC_BRGW",
+          "GENERIC_FOUR_COLOR_COMMANDER",
+          "GENERIC_COMBAT",
+          "GENERIC_TOKENS",
+          "SASKIA_ONLY",
+          "OPEN_HOSTILITY_ONLY",
+          "DUNE_BROOD_AS_FACTION",
+          "NEPHILIM_ONLY",
+          "COMMANDER_LEGALITY",
+          "OFFICIAL_NAME",
+          "BLUE_PRESENT_COLLAPSE"
+        ],
+        "audit_report": "docs/handoffs/2026-07-23-2323-codex-vm534-dune-gate1-gate2.md",
+        "residual_findings": [
+          "Gate 1+2 read-only audit authorizes DUNE-only Gate 3+4 remediation from exact program base ab3ece2155d52c0f4283a0c0244c601a0991f970.",
+          "DUNE canonical key, Dune / Aggression display, BRGW display metadata, and DUNE-only accepted alias are frozen; BRGW and all same-color permutations remain metadata/query-only and must fail closed.",
+          "Baseline has 5 unclassified claims, 14 sources, no fixture file, 9 DUNE provenance entries with 4 null canonical IDs and zero missing canonical hashes, stale provenance, and GLINT/INK neighbor claim contamination in collision guidance.",
+          "VM-535 Ink, VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG remain backlog/not_started and untouched; Excel was not updated by Codex."
+        ]
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": null,
         "recovery_commit": null,
