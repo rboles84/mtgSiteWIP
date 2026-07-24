@@ -5418,16 +5418,13 @@
           "ask": "Is the answer trying to outbuild natural limits, or follow living volatility without civic restraint?",
           "evidence_claim_ids": [
             "yore_claim_0003",
-            "yore_claim_0004",
-            "glint_claim_0003",
-            "glint_claim_0005"
+            "yore_claim_0004"
           ],
           "supporting_source_ids": [
             "src_vm_yore_evidence_ledger_20260602",
-            "src_vm_four_color_reference_audit_20260602",
-            "src_vm_glint_evidence_ledger_20260602",
             "src_vm_four_color_reference_audit_20260602"
-          ]
+          ],
+          "neighbor_evidence_boundary": "Glint claim IDs remain official Glint scope and are not imported into the Yore candidate; this row uses only Yore-owned missing-Green/artifice evidence to express the separator."
         },
         {
           "review_triggers": [
@@ -5452,16 +5449,13 @@
           "ask": "Is the answer an engineered intervention against natural limits, or a slow cultivated position becoming irreversible?",
           "evidence_claim_ids": [
             "yore_claim_0003",
-            "yore_claim_0004",
-            "witch_claim_0003",
-            "witch_claim_0005"
+            "yore_claim_0004"
           ],
           "supporting_source_ids": [
             "src_vm_yore_evidence_ledger_20260602",
-            "src_vm_four_color_reference_audit_20260602",
-            "src_vm_witch_evidence_ledger_20260604",
-            "src_vm_four_color_reference_audit_20260604"
-          ]
+            "src_vm_four_color_reference_audit_20260602"
+          ],
+          "neighbor_evidence_boundary": "Witch claim IDs remain Witch scope and are not imported into the Yore candidate; this row uses only Yore-owned missing-Green/artifice evidence to express the separator."
         }
       ],
       "chatbot_guidance": {
@@ -5488,9 +5482,9 @@
         ]
       },
       "source_metadata": {
-        "profile_version": "0.1.2",
-        "placement_model_version": "0.1.2",
-        "source_review_date": "2026-06-12",
+        "profile_version": "0.1.3",
+        "placement_model_version": "0.1.3",
+        "source_review_date": "2026-07-23",
         "claim_count": 5
       }
     },

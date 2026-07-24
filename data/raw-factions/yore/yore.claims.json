@@ -2,11 +2,11 @@
   "schema_version": "1.0.0",
   "faction_id": "yore",
   "faction_name": "Yore / Artifice",
-  "source_review_date": "2026-06-09",
-  "last_updated": "2026-06-09",
+  "source_review_date": "2026-07-23",
+  "last_updated": "2026-07-23",
   "claim_count": 5,
   "claim_quality_summary": {
-    "claim_basis": "Existing VM-240 claim-bearing evidence rows, with VM-245 used only for live lifecycle metadata.",
+    "claim_basis": "Existing VM-240 claim-bearing evidence rows, with VM-245 used only for live lifecycle metadata; all five claims carry VM-532 substantive semantic roles and bounded evidence locations.",
     "support_material_policy": "Support-only, shaping-only, discovery-only, Commander/operator, architecture, seed, user-added source-material, and manual-fill material may appear only in bounded profile or review notes.",
     "evidence_quality": "High for lifecycle, naming, missing-color, artifice framing, and Yore-Tiller boundary guardrails; low or deferred for exact card facts, Commander legality, Breya lore, cEDH claims, and public placement readiness.",
     "known_limitations": [
@@ -23,7 +23,8 @@
       "yore_claim_0003",
       "yore_claim_0004",
       "yore_claim_0005"
-    ]
+    ],
+    "semantic_readiness_gate": "VM-532 Gate 3"
   },
   "claims": [
     {
@@ -43,7 +44,34 @@
         "YORE-EVID-010"
       ],
       "confidence": "High",
-      "notes": "VM-301 updates the lifecycle sentence after VM-245 while preserving the evidence floor and color-code boundary. WUBR and all same-color permutations remain metadata/query-only and are not aliases, route keys, fixture keys, Home preview keys, Maze keys, Supabase keys, schema keys, or public color-code interfaces."
+      "notes": "VM-301 updates the lifecycle sentence after VM-245 while preserving the evidence floor and color-code boundary. WUBR and all same-color permutations remain metadata/query-only and are not aliases, route keys, fixture keys, Home preview keys, Maze keys, Supabase keys, schema keys, or public color-code interfaces.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_yore_evidence_ledger_20260602",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "docs/research/yore/yore-evidence-ledger.md; rows YORE-EVID-001, YORE-EVID-002, YORE-EVID-010",
+          "bounded_paraphrase": "The evidence ledger records Yore as the WUBR/non-Green raw identity lane, preserves YORE as the project expression, and keeps WUBR/permutations metadata-query-only.",
+          "evidence_scope": "substantive_yore_semantic_evidence",
+          "interpretation_level": "bounded_project_evidence"
+        },
+        {
+          "source_id": "src_vm_yore_vm240_scope_card_20260602",
+          "locator_type": "kanban_scope_record",
+          "locator": "docs/kanban/done/VM-240-yore-source-packet-and-evidence-ledger.md",
+          "bounded_paraphrase": "The VM-240 scope record fixes Yore as source-packet/evidence-ledger work and preserves the WUBR metadata/query-only boundary.",
+          "evidence_scope": "project_scope_boundary",
+          "interpretation_level": "project_boundary"
+        },
+        {
+          "source_id": "src_vm245_yore_runtime_promotion_20260602",
+          "locator_type": "project_lifecycle_decision",
+          "locator": "docs/kanban/done/VM-245-yore-controlled-runtime-promotion.md",
+          "bounded_paraphrase": "VM-245 is used only to document the later live public/generated YORE lifecycle state, not to add lore, card, Commander, or alias authority.",
+          "evidence_scope": "lifecycle_boundary_not_lore_evidence",
+          "interpretation_level": "project_boundary"
+        }
+      ]
     },
     {
       "claim_id": "yore_claim_0002",
@@ -60,7 +88,26 @@
         "YORE-EVID-010"
       ],
       "confidence": "High",
-      "notes": "Do not create public aliases from this naming policy. WUBR and all permutations remain metadata/query-only."
+      "notes": "Do not create public aliases from this naming policy. WUBR and all permutations remain metadata/query-only.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_yore_evidence_ledger_20260602",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "docs/research/yore/yore-evidence-ledger.md; rows YORE-EVID-002, YORE-EVID-010",
+          "bounded_paraphrase": "The Yore evidence ledger distinguishes Vox Mana YORE expression language from WUBR color-code metadata and does not authorize universal public aliases.",
+          "evidence_scope": "substantive_yore_semantic_evidence",
+          "interpretation_level": "bounded_project_evidence"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260602",
+          "locator_type": "repo_truth_audit",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md; Yore / Artifice WUBR rows",
+          "bounded_paraphrase": "The four-color audit supports Yore / Artifice as bounded project framing and preserves the warning that YORE or Artifice must not be presented as an official universal MTG name for WUBR.",
+          "evidence_scope": "substantive_yore_semantic_evidence",
+          "interpretation_level": "bounded_project_evidence"
+        }
+      ]
     },
     {
       "claim_id": "yore_claim_0003",
@@ -76,7 +123,26 @@
         "YORE-EVID-003"
       ],
       "confidence": "High",
-      "notes": "Missing-color framing is identity structure, not a canon faction claim."
+      "notes": "Missing-color framing is identity structure, not a canon faction claim.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_yore_evidence_ledger_20260602",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "docs/research/yore/yore-evidence-ledger.md; row YORE-EVID-003",
+          "bounded_paraphrase": "The evidence ledger frames Yore / Artifice through the missing-color structure of WUBR without Green.",
+          "evidence_scope": "substantive_yore_semantic_evidence",
+          "interpretation_level": "bounded_project_evidence"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260602",
+          "locator_type": "repo_truth_audit",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md; Yore / Artifice WUBR rows",
+          "bounded_paraphrase": "The four-color audit records the Yore / Artifice lane by the Green-exclusion frame rather than by a standalone canon faction claim.",
+          "evidence_scope": "substantive_yore_semantic_evidence",
+          "interpretation_level": "bounded_project_evidence"
+        }
+      ]
     },
     {
       "claim_id": "yore_claim_0004",
@@ -92,7 +158,26 @@
         "YORE-EVID-004"
       ],
       "confidence": "Medium",
-      "notes": "Use as high-level identity framing only. Do not treat generic artifact decks, Breya decks, Phyrexia, Thran, or cEDH shells as Yore from this claim alone."
+      "notes": "Use as high-level identity framing only. Do not treat generic artifact decks, Breya decks, Phyrexia, Thran, or cEDH shells as Yore from this claim alone.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_yore_evidence_ledger_20260602",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "docs/research/yore/yore-evidence-ledger.md; row YORE-EVID-004",
+          "bounded_paraphrase": "The evidence ledger supports the high-level Yore / Artifice frame of civilization, technology, artifice, and progress over natural acceptance or organic limits.",
+          "evidence_scope": "substantive_yore_semantic_evidence",
+          "interpretation_level": "bounded_project_evidence"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260602",
+          "locator_type": "repo_truth_audit",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md; Yore / Artifice WUBR rows",
+          "bounded_paraphrase": "The four-color audit supports artifice/civilization as bounded identity framing while excluding generic artifact, Breya-only, Thran, Phyrexian, and cEDH overclaims.",
+          "evidence_scope": "substantive_yore_semantic_evidence",
+          "interpretation_level": "bounded_project_evidence"
+        }
+      ]
     },
     {
       "claim_id": "yore_claim_0005",
@@ -108,7 +193,26 @@
         "YORE-EVID-005"
       ],
       "confidence": "Medium",
-      "notes": "Exact official Yore-Tiller card facts and Cult of Yore narrative boundaries remain Manual fill required before deeper raw or public copy."
+      "notes": "Exact official Yore-Tiller card facts and Cult of Yore narrative boundaries remain Manual fill required before deeper raw or public copy.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_vm_yore_evidence_ledger_20260602",
+          "locator_type": "evidence_ledger_rows",
+          "locator": "docs/research/yore/yore-evidence-ledger.md; row YORE-EVID-005",
+          "bounded_paraphrase": "The evidence ledger preserves Yore-Tiller Nephilim as a historical/card anchor while warning that Nephilim are not Vox Mana factions or institutions.",
+          "evidence_scope": "substantive_yore_semantic_evidence",
+          "interpretation_level": "bounded_project_evidence"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260602",
+          "locator_type": "repo_truth_audit",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md; Yore-Tiller / Nephilim boundary rows",
+          "bounded_paraphrase": "The four-color audit supports the bounded Yore-Tiller anchor and keeps exact card facts, Cult of Yore narrative, and faction/institution readings deferred.",
+          "evidence_scope": "substantive_yore_semantic_evidence",
+          "interpretation_level": "bounded_project_evidence"
+        }
+      ]
     }
   ]
 }

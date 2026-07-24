@@ -1,0 +1,525 @@
+{
+  "identity_key": "YORE",
+  "raw_id": "yore",
+  "contract_version": "v1.1",
+  "generated_by": "VM-532 Gate 3 semantic remediation",
+  "runtime_assertions": false,
+  "fixtures": [
+    {
+      "fixture_id": "yore_core_inclusion_gate3_001",
+      "fixture_type": "core_inclusion",
+      "prompt": "A user describes WUBR without Green as civilization, technology, artifice, progress, and engineered agency refusing natural limits, while explicitly rejecting color-code aliases.",
+      "scenario": "Full Yore worldview with missing-Green and alias boundaries present.",
+      "expected": "Include YORE as the identity while keeping WUBR/permutations metadata-query-only.",
+      "evidence_claim_ids": [
+        "yore_claim_0001",
+        "yore_claim_0002",
+        "yore_claim_0003",
+        "yore_claim_0004",
+        "yore_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm245_yore_runtime_promotion_20260602",
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602",
+        "src_vm_yore_vm240_scope_card_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_pressure_behavior_gate3_001",
+      "fixture_type": "mature_or_pressure_behavior",
+      "prompt": "A user wants to rebuild bodies, graves, tools, and rules into a controlled engine of agency, but asks whether this becomes overreach.",
+      "scenario": "Yore pressure case where constructed intervention risks treating all limits as material.",
+      "expected": "Name Yore pressure cautiously: engineered agency is supported, overreach remains a live warning, and exact card or Commander claims stay deferred.",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004",
+        "yore_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_nearest_collision_gate3_001",
+      "fixture_type": "nearest_collision_ambiguity",
+      "prompt": "A user likes artifact recursion and optimization, but the motivation could be Esper perfection, Grixis grave-value, Jeskai discipline, or Yore constructed agency.",
+      "scenario": "Nearest-neighbor ambiguity across certified Jeskai and adjacent artifact/recursion frames.",
+      "expected": "Ask for the missing-Green engineered-agency boundary before selecting Yore; do not award Yore for artifacts or recursion alone.",
+      "boundary": "Yore requires WUBR/non-Green constructed agency, not generic artifact or recursion affinity.",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004",
+        "yore_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_provenance_gate3_001",
+      "fixture_type": "provenance",
+      "canonical_file": "data/raw-factions/yore/yore.profile.json",
+      "canonical_pointer": "/core_identity",
+      "evidence_claim_ids": [
+        "yore_claim_0001",
+        "yore_claim_0002",
+        "yore_claim_0003",
+        "yore_claim_0004",
+        "yore_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm245_yore_runtime_promotion_20260602",
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602",
+        "src_vm_yore_vm240_scope_card_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_001_glint",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GLINT",
+      "prompt": "A prompt asks for UBRG volatility, appetite, adaptation, and refusal of imposed civic order.",
+      "scenario": "A prompt asks for UBRG volatility, appetite, adaptation, and refusal of imposed civic order.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_002_witch",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WITCH",
+      "prompt": "A prompt asks for patient cultivation, protected long-horizon growth, and non-Red calculation.",
+      "scenario": "A prompt asks for patient cultivation, protected long-horizon growth, and non-Red calculation.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_003_jeskai",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "JESKAI",
+      "prompt": "A prompt asks for Blue-centered discipline, martial training, and precise action without Black refusal.",
+      "scenario": "A prompt asks for Blue-centered discipline, martial training, and precise action without Black refusal.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0001",
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm245_yore_runtime_promotion_20260602",
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602",
+        "src_vm_yore_vm240_scope_card_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_004_esper",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ESPER",
+      "prompt": "A prompt asks for artifact perfection and White-Blue-Black control without Red heat.",
+      "scenario": "A prompt asks for artifact perfection and White-Blue-Black control without Red heat.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_005_grixis",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GRIXIS",
+      "prompt": "A prompt asks for Blue-Black-Red recursion and ruthless conversion without White structure.",
+      "scenario": "A prompt asks for Blue-Black-Red recursion and ruthless conversion without White structure.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_006_mardu",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "MARDU",
+      "prompt": "A prompt asks for Red-led speed, sacrifice, and war code without Blue optimization.",
+      "scenario": "A prompt asks for Red-led speed, sacrifice, and war code without Blue optimization.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_007_sultai",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SULTAI",
+      "prompt": "A prompt asks for Green-including resource conversion, patient death-growth loops, and organic continuity.",
+      "scenario": "A prompt asks for Green-including resource conversion, patient death-growth loops, and organic continuity.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_008_wu",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WU",
+      "prompt": "A prompt asks only for procedure, law, or structured knowledge.",
+      "scenario": "A prompt asks only for procedure, law, or structured knowledge.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_009_ub",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UB",
+      "prompt": "A prompt asks only for secrecy, ambition, or information control.",
+      "scenario": "A prompt asks only for secrecy, ambition, or information control.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_010_br",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BR",
+      "prompt": "A prompt asks only for cost, appetite, spectacle, or sacrifice.",
+      "scenario": "A prompt asks only for cost, appetite, spectacle, or sacrifice.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_011_ur",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UR",
+      "prompt": "A prompt asks only for invention, spells, or volatile experimentation.",
+      "scenario": "A prompt asks only for invention, spells, or volatile experimentation.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_012_wb",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WB",
+      "prompt": "A prompt asks only for obligation, debts, hierarchy, or transactional order.",
+      "scenario": "A prompt asks only for obligation, debts, hierarchy, or transactional order.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_013_wr",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WR",
+      "prompt": "A prompt asks only for action, zeal, tactics, or organized courage.",
+      "scenario": "A prompt asks only for action, zeal, tactics, or organized courage.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_014_generic_wubr",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_WUBR",
+      "prompt": "A prompt uses WUBR or a same-color permutation as a color-code label with no Yore worldview.",
+      "scenario": "A prompt uses WUBR or a same-color permutation as a color-code label with no Yore worldview.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0001",
+        "yore_claim_0002"
+      ],
+      "evidence_source_ids": [
+        "src_vm245_yore_runtime_promotion_20260602",
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602",
+        "src_vm_yore_vm240_scope_card_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_015_generic_artifacts",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_ARTIFACTS",
+      "prompt": "A prompt asks for artifact decks or artifact value without engineered agency against natural limits.",
+      "scenario": "A prompt asks for artifact decks or artifact value without engineered agency against natural limits.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_016_generic_recursion",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_RECURSION",
+      "prompt": "A prompt asks for reanimation, graveyard loops, or recursion by itself.",
+      "scenario": "A prompt asks for reanimation, graveyard loops, or recursion by itself.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0004",
+        "yore_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_017_generic_commander",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_COMMANDER",
+      "prompt": "A prompt asks for generic Commander legality, decklists, or optimization.",
+      "scenario": "A prompt asks for generic Commander legality, decklists, or optimization.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0002",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_018_breya_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BREYA_ONLY",
+      "prompt": "A prompt treats Breya or Invent Superiority as enough to prove Yore lore.",
+      "scenario": "A prompt treats Breya or Invent Superiority as enough to prove Yore lore.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0002",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_019_yore_tiller_as_faction",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "YORE_TILLER_AS_FACTION",
+      "prompt": "A prompt treats Yore-Tiller Nephilim as a faction, civilization, doctrine, or leader.",
+      "scenario": "A prompt treats Yore-Tiller Nephilim as a faction, civilization, doctrine, or leader.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_020_cult_of_yore",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "CULT_OF_YORE",
+      "prompt": "A prompt asks for Cult of Yore narrative proof or exact story status.",
+      "scenario": "A prompt asks for Cult of Yore narrative proof or exact story status.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_021_commander_product",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "COMMANDER_PRODUCT",
+      "prompt": "A prompt treats Commander 2016 product texture as naming or lore authority.",
+      "scenario": "A prompt treats Commander 2016 product texture as naming or lore authority.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0002",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_022_thran",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "THRAN",
+      "prompt": "A prompt treats Thran artifice as direct Yore proof.",
+      "scenario": "A prompt treats Thran artifice as direct Yore proof.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_023_phyrexia",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "PHYREXIA",
+      "prompt": "A prompt treats Phyrexian artifice or body-horror as direct Yore proof.",
+      "scenario": "A prompt treats Phyrexian artifice or body-horror as direct Yore proof.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_024_color_code_goodstuff",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "COLOR_CODE_GOODSTUFF",
+      "prompt": "A prompt only wants four-color goodstuff or color-identity sorting.",
+      "scenario": "A prompt only wants four-color goodstuff or color-identity sorting.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0001",
+        "yore_claim_0002",
+        "yore_claim_0003"
+      ],
+      "evidence_source_ids": [
+        "src_vm245_yore_runtime_promotion_20260602",
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602",
+        "src_vm_yore_vm240_scope_card_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_025_seed_file",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SEED_FILE",
+      "prompt": "A prompt cites seed files, generated HTML, or user-added drafts as raw proof.",
+      "scenario": "A prompt cites seed files, generated HTML, or user-added drafts as raw proof.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0002"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    },
+    {
+      "fixture_id": "yore_neighbor_exclusion_gate3_026_architecture_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ARCHITECTURE_ONLY",
+      "prompt": "A prompt cites architecture prose without claim-bearing evidence rows.",
+      "scenario": "A prompt cites architecture prose without claim-bearing evidence rows.",
+      "expected": "Do not select YORE unless the prompt also supplies the full WUBR/non-Green engineered-agency frame with bounded Yore evidence.",
+      "boundary": "Metadata, support texture, adjacent identity, or excluded-source evidence is not sufficient Yore authority.",
+      "evidence_claim_ids": [
+        "yore_claim_0002",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ]
+    }
+  ]
+}

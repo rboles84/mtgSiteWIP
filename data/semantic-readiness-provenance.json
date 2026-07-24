@@ -48030,14 +48030,107 @@
     {
       "identity_key": "YORE",
       "canonical_file": "data/raw-factions/yore/yore.placement.json",
-      "canonical_pointer": "/collision_guidance/pairs/0",
-      "canonical_id": "collision_yore_glint_four_color_ring",
-      "canonical_content_hash": "sha256:38b5214c4bb3ff6500f1eefdfc8556ecd9bda8f1c6774873510c29f27840b9b1",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0",
+      "canonical_id": "guidance_yore_mismatch_0001_gate3",
+      "canonical_content_hash": "sha256:b290adb24b1be08fb9085d7c8434aa3cce2ae7873213c7d2eb7cd5cd145e99ab",
       "evidence_claim_ids": [
         "yore_claim_0003",
-        "yore_claim_0004",
-        "glint_claim_0003",
-        "glint_claim_0005"
+        "yore_claim_0004"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/YORE",
+        "data/placement-model.json#/factions/YORE",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/YORE"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "YORE",
+      "canonical_file": "data/raw-factions/yore/yore.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1",
+      "canonical_id": "guidance_yore_mismatch_0002_gate3",
+      "canonical_content_hash": "sha256:59ff78ec368be521ce3cda0620814dca5796641d5e3f1e97a05c2b8c48013f2a",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/YORE",
+        "data/placement-model.json#/factions/YORE",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/YORE"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "YORE",
+      "canonical_file": "data/raw-factions/yore/yore.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2",
+      "canonical_id": "guidance_yore_mismatch_0003_gate3",
+      "canonical_content_hash": "sha256:8a6337e7ae06cdccecca39741f4611c3051d4afe4c1fbc602b1ec1944611fd2f",
+      "evidence_claim_ids": [
+        "yore_claim_0001",
+        "yore_claim_0002",
+        "yore_claim_0005"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm245_yore_runtime_promotion_20260602",
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602",
+        "src_vm_yore_vm240_scope_card_20260602"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/YORE",
+        "data/placement-model.json#/factions/YORE",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/YORE"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "YORE",
+      "canonical_file": "data/raw-factions/yore/yore.placement.json",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3",
+      "canonical_id": "guidance_yore_mismatch_0004_gate3",
+      "canonical_content_hash": "sha256:9ac9a2f0fd4054f3640421135a5636df1dc185e77cbbab91a1e1ee144370ad37",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "declared_content_hash": null,
+      "evidence_use": "semantic",
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/YORE",
+        "data/placement-model.json#/factions/YORE",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/YORE"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "YORE",
+      "canonical_file": "data/raw-factions/yore/yore.placement.json",
+      "canonical_pointer": "/collision_guidance/pairs/0",
+      "canonical_id": "collision_yore_glint_four_color_ring",
+      "canonical_content_hash": "sha256:b6fd8d7472b2bdbe4fe415ca61c1d483a697482d94172f5ce71fcac0e586c714",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
       ],
       "evidence_source_ids": [
         "src_vm_four_color_reference_audit_20260602",
@@ -48055,12 +48148,10 @@
       "canonical_file": "data/raw-factions/yore/yore.placement.json",
       "canonical_pointer": "/collision_guidance/pairs/1",
       "canonical_id": "collision_yore_witch_four_color_ring",
-      "canonical_content_hash": "sha256:988e6e306756c8b3703589cea071d632a65047d6ae4a2f57f9a62cf0420ada26",
+      "canonical_content_hash": "sha256:f26e3d76a8f8fd0f1ee26bd7b8352d30518b91d556d9d01b651d430ae544d43b",
       "evidence_claim_ids": [
         "yore_claim_0003",
-        "yore_claim_0004",
-        "witch_claim_0003",
-        "witch_claim_0005"
+        "yore_claim_0004"
       ],
       "evidence_source_ids": [
         "src_vm_four_color_reference_audit_20260602",
@@ -48143,10 +48234,97 @@
     },
     {
       "identity_key": "YORE",
+      "canonical_file": "data/raw-factions/yore/yore.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "guidance_yore_mismatch_0001_gate3",
+      "canonical_content_hash": "sha256:efba677cd012f66220cda559b296984e45de9182f63ffca0a310973c0e32c463",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/YORE",
+        "data/placement-model.json#/factions/YORE",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/YORE"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "YORE",
+      "canonical_file": "data/raw-factions/yore/yore.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "guidance_yore_mismatch_0002_gate3",
+      "canonical_content_hash": "sha256:7b9015dd2ddac93acb71751b8ff7b36253dec763b2475e58cadf7cdd8a6bb4fa",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/YORE",
+        "data/placement-model.json#/factions/YORE",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/YORE"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "YORE",
+      "canonical_file": "data/raw-factions/yore/yore.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "guidance_yore_mismatch_0003_gate3",
+      "canonical_content_hash": "sha256:f97dc5ecf8d105dd00837e5ba0f025ca4bc8273f3cca113f80bae9a2f3b149de",
+      "evidence_claim_ids": [
+        "yore_claim_0001",
+        "yore_claim_0002",
+        "yore_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "src_vm245_yore_runtime_promotion_20260602",
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602",
+        "src_vm_yore_vm240_scope_card_20260602"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/YORE",
+        "data/placement-model.json#/factions/YORE",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/YORE"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "YORE",
+      "canonical_file": "data/raw-factions/yore/yore.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "guidance_yore_mismatch_0004_gate3",
+      "canonical_content_hash": "sha256:6a6b1130401b8f8eeb2978700d2eaf77855fe1f477cd9ab8536f3f3e2599b692",
+      "evidence_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "src_vm_four_color_reference_audit_20260602",
+        "src_vm_yore_evidence_ledger_20260602"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/YORE",
+        "data/placement-model.json#/factions/YORE",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/YORE"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "YORE",
       "canonical_file": "data/raw-factions/yore/yore.profile.json",
       "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:83cffa4059cb08eef69003f7ac4be172bb826ef37d7a1a97a48daa28aa60cf84",
+      "canonical_id": "yore_core_identity_gate3",
+      "canonical_content_hash": "sha256:3ffaf340033297d9c5a0f4e21f8be5370ee182db7a609d922ec438b7b4bc593d",
       "evidence_claim_ids": [
         "yore_claim_0001",
         "yore_claim_0002",
@@ -48171,8 +48349,8 @@
       "identity_key": "YORE",
       "canonical_file": "data/raw-factions/yore/yore.profile.json",
       "canonical_pointer": "/profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:a88937b95bd1b0209ec7d90f1a4b6e09f2a59e44d4fe5189cbe00fb184da6997",
+      "canonical_id": "yore_profile_gate3",
+      "canonical_content_hash": "sha256:e313e7bfae208769c2414afb9eec28fb59bf52efd6e6d39528478200de108e8b",
       "evidence_claim_ids": [
         "yore_claim_0001",
         "yore_claim_0002",
@@ -48197,8 +48375,8 @@
       "identity_key": "YORE",
       "canonical_file": "data/raw-factions/yore/yore.profile.json",
       "canonical_pointer": "/search_and_filter_metadata",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:7d043e6d62b76b44543dbe9eb129ce4a458b0570999e298bc6067716445d9843",
+      "canonical_id": "yore_search_and_filter_metadata_gate3",
+      "canonical_content_hash": "sha256:465a33dda24f56a2cd563be64ea5170dd871183b608b63728430ad4b8f191065",
       "evidence_claim_ids": [
         "yore_claim_0001",
         "yore_claim_0002",
@@ -48223,8 +48401,8 @@
       "identity_key": "YORE",
       "canonical_file": "data/raw-factions/yore/yore.profile.json",
       "canonical_pointer": "/site_surface",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:9f5f820bf5251505075ae6aab2e5293d9c21ae45bd3bf41da4c609a9a737d5d6",
+      "canonical_id": "yore_site_surface_gate3",
+      "canonical_content_hash": "sha256:f0bfb51caf2b82844678455bcb83d62de14ea568340629142f2a4dd30e1143a9",
       "evidence_claim_ids": [
         "yore_claim_0001",
         "yore_claim_0002",

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "profile_version": "0.1.2",
+  "profile_version": "0.1.3",
   "faction_id": "yore",
   "faction_name": "Yore / Artifice",
   "faction_type": "four-color",
@@ -12,10 +12,10 @@
   ],
   "color_pair_or_group": "WUBR four-color metadata only; all 24 WUBR permutations metadata/query-only",
   "plane_or_setting": "Cross-setting; Ravnica historical anchor; Commander 2016 support texture",
-  "last_updated": "2026-06-12",
-  "source_review_date": "2026-06-12",
+  "last_updated": "2026-07-23",
+  "source_review_date": "2026-07-23",
   "last_full_review": "2026-06-02",
-  "last_incremental_review": "2026-06-12",
+  "last_incremental_review": "2026-07-23",
   "core_identity": {
     "short_form": "WUBR without Green: engineered agency against natural surrender.",
     "identity_frame": "Yore / Artifice uses the missing-Green frame to describe civilization, technology, artifice, and progress over natural acceptance and organic limits.",
@@ -26,7 +26,8 @@
       "yore_claim_0003",
       "yore_claim_0004",
       "yore_claim_0005"
-    ]
+    ],
+    "core_identity_id": "yore_core_identity_gate3"
   },
   "structure": {
     "identity_class": "four-color",
@@ -312,7 +313,8 @@
       "yore_claim_0003",
       "yore_claim_0004",
       "yore_claim_0005"
-    ]
+    ],
+    "metadata_id": "yore_search_and_filter_metadata_gate3"
   },
   "site_surface": {
     "display_name": "Yore / Artifice",
@@ -370,7 +372,8 @@
       "yore_claim_0003",
       "yore_claim_0004",
       "yore_claim_0005"
-    ]
+    ],
+    "surface_id": "yore_site_surface_gate3"
   },
   "data_quality": {
     "strongest_evidence_areas": [
@@ -396,7 +399,9 @@
     "preview_eligible": false,
     "live_pilot": true,
     "notes": "VM-301 repairs source durability after VM-245 live promotion and VM-273 copy polish. The raw claim set remains exactly five claims; placement/profile output must stay within that boundary.",
-    "source_status": "source_grounded_live_repair"
+    "source_status": "source_grounded_live_repair",
+    "semantic_readiness_gate": "VM-532 Gate 3",
+    "semantic_readiness_status": "candidate_remediated"
   },
   "research_limitations": [
     "Do not use VM-241 or VM-242 architecture docs as raw-claim evidence.",
@@ -415,7 +420,8 @@
       "yore_claim_0003",
       "yore_claim_0004",
       "yore_claim_0005"
-    ]
+    ],
+    "profile_id": "yore_profile_gate3"
   },
   "deck_links": [
     {
