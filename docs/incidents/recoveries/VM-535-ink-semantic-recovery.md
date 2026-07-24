@@ -1,6 +1,6 @@
 # VM-535 Ink Semantic Recovery
 
-Status: Approved by independent exact-SHA review; certification pending
+Status: Certified semantically ready
 
 Identity: INK / Ink / Altruism
 
@@ -30,8 +30,14 @@ Unstaged byproducts: data/placement-model.schema.json, docs/audits/gate-compress
 
 Warnings: Git reported permission denial for C:\Users\obake/.config/git/ignore, Windows checkout emitted LF/CRLF warnings, and npm.cmd ci reported inherited package audit advisories. No dependency fix or package staging occurred.
 
-Independent review: APPROVE EXACT SHA 9cefe57611552e563ab7601f2f32fc2c9eeac566 in docs/handoffs/2026-07-24-1519-codex-vm535-ink-independent-review.md. Review verified exact ancestry, INK-only eight-file candidate scope, governance-only workflow separation, 5 substantive claims, 13 sources, 30 fixtures, 13 INK provenance rows with zero null IDs/hashes, RGWU/WURG/permutation metadata-only behavior, required neighbor rejection fixtures, preview invariant preservation, full validation after ignored Scryfall corpus hardlink, and CRLF-only provenance byte normalization. Review commit placeholder: PENDING_VM535_INDEPENDENT_REVIEW_SHA.
+Independent review: APPROVE EXACT SHA 9cefe57611552e563ab7601f2f32fc2c9eeac566 in docs/handoffs/2026-07-24-1519-codex-vm535-ink-independent-review.md. Review verified exact ancestry, INK-only eight-file candidate scope, governance-only workflow separation, 5 substantive claims, 13 sources, 30 fixtures, 13 INK provenance rows with zero null IDs/hashes, RGWU/WURG/permutation metadata-only behavior, required neighbor rejection fixtures, preview invariant preservation, full validation after ignored Scryfall corpus hardlink, and CRLF-only provenance byte normalization. Review commit: df6a9aa38c52908d08f12696e5ab7a1503048ff1.
 
-Non-goals: No certification, program-base advancement, Excel update, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, GitHub remote authority, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, force operation, semantic candidate edit, or replacement candidate occurred.
+Certification: CERTIFIED EXACT SHA 9cefe57611552e563ab7601f2f32fc2c9eeac566 in docs/handoffs/2026-07-24-1724-codex-vm535-ink-certification.md. Certification commit placeholder: PENDING_VM535_CERTIFICATION_COMMIT_SHA. Prior program base: 8a4f273e75842f97debbcdbc70009da7845e41d4. Candidate workflow commit: fb50d26f011a75d35032f4e1bd1db83eeb70c752. Independent review commit: df6a9aa38c52908d08f12696e5ab7a1503048ff1.
+
+Certification validation: npm.cmd ci passed. npm.cmd test initially failed only because ignored data/scryfall/raw/oracle-cards.json was missing; after adding the ignored hardlink to the local control corpus, full npm.cmd test passed. INK semantic readiness with fixtures passed; source/generated guardrails passed; faction-context isolation passed; parser passed; placement passed; semantic candidate scope passed; exact INK candidate scope passed; all 24 RGWU permutations failed closed; required neighbor/generic rejection probes failed closed; preview invariant passed. Byte-strict provenance check and the final provenance step of npm.cmd run test:semantic-readiness reported the known CRLF-only stale warning, and normalized provenance parity passed with 2063 entries.
+
+Counts: certified identity count is 34 of 37. Wave 5 is 4 of 5 certified.
+
+Non-goals: No remediation, Excel update, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, GitHub remote authority, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, force operation, semantic candidate edit, or replacement candidate occurred.
 
 APPROVE EXACT SHA 9cefe57611552e563ab7601f2f32fc2c9eeac566

@@ -1,7 +1,7 @@
 # VM-535 - Ink Semantic Recovery
 
 ID: VM-535
-Status: Approved by independent exact-SHA review; certification pending
+Status: Certified semantically ready
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: INK
@@ -19,7 +19,7 @@ Recover Ink end to end under CRIT-001: audit the existing packet, bound readines
 - [x] Gate 2 - Sufficient evidence completion.
 - [x] Gate 3 - Canonical remediation.
 - [x] Gate 4 - Generation and validation.
-- [ ] Gate 5 - Independent certification.
+- [x] Gate 5 - Independent certification.
 
 ## Scope Rules
 
@@ -36,7 +36,7 @@ Recover Ink end to end under CRIT-001: audit the existing packet, bound readines
 - Audit/recovery report: `docs/incidents/recoveries/VM-535-ink-semantic-recovery.md`
 - Candidate recovery SHA: `9cefe57611552e563ab7601f2f32fc2c9eeac566`
 - Independent reviewer: docs/handoffs/2026-07-24-1519-codex-vm535-ink-independent-review.md
-- Certification commit: pending
+- Certification commit: `PENDING_VM535_CERTIFICATION_COMMIT_SHA`
 
 ## Gate 1+2 Baseline - 2026-07-24
 
@@ -64,6 +64,18 @@ The independent review verified exact parent chain, INK-only eight-file candidat
 
 Warnings: the provenance byte check reports stale in the Windows review worktree, but normalized provenance parity passed with 2063 entries. Gate-bias audit byproducts, ignored `node_modules/`, and ignored `data/scryfall/raw/oracle-cards.json` hardlink were left unstaged.
 
-No certification has occurred. Program base remains `8a4f273e75842f97debbcdbc70009da7845e41d4`; VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG remain untouched; Excel was not updated by Codex.
+Certification is now recorded separately below. VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG remain untouched; Excel was not updated by Codex.
 
 APPROVE EXACT SHA `9cefe57611552e563ab7601f2f32fc2c9eeac566`
+
+## Certification - 2026-07-24
+
+Decision: CERTIFIED EXACT SHA `9cefe57611552e563ab7601f2f32fc2c9eeac566`.
+
+Certification handoff: `docs/handoffs/2026-07-24-1724-codex-vm535-ink-certification.md`.
+
+Certification started from independent review commit `df6a9aa38c52908d08f12696e5ab7a1503048ff1`, whose parent is candidate-workflow governance `fb50d26f011a75d35032f4e1bd1db83eeb70c752`. The exact approved semantic candidate remains `9cefe57611552e563ab7601f2f32fc2c9eeac566`, with Gate 1+2 governance parent `4305482967f21be4a5c58c2f97fda2a848fc60c2` and prior program base `8a4f273e75842f97debbcdbc70009da7845e41d4`.
+
+Certification validation passed `npm.cmd ci`, full `npm.cmd test` after adding the ignored Scryfall corpus hardlink, INK semantic readiness with fixtures, source/generated guardrails, faction-context isolation, parser, placement, semantic candidate scope, exact INK candidate scope, all 24 RGWU permutation fail-closed probes, required neighbor/generic rejection probes, preview invariant checks, and normalized provenance parity with 2063 entries. The byte-strict provenance check and the final provenance step of `npm.cmd run test:semantic-readiness` retain the known CRLF-only stale warning.
+
+Certified count advances to 34 of 37 and Wave 5 advances to 4 of 5. VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG remain backlog/not started and untouched. Excel was not updated by Codex. No remediation was performed.

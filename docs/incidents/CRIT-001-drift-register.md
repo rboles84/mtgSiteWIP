@@ -226,3 +226,16 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - Review handoff: `docs/handoffs/2026-07-24-1519-codex-vm535-ink-independent-review.md`
 - Decision: APPROVE EXACT SHA 9cefe57611552e563ab7601f2f32fc2c9eeac566
 - Notes: CRLF-only provenance byte-check warning; normalized manifest parity passed with 2063 entries. No remediation, certification, program-base advancement, VM-536 through VM-538 work, or Excel update occurred.
+
+
+## VM-535 Ink Certification - 2026-07-24
+
+- Identity: INK / Ink / Altruism
+- Prior program base: `8a4f273e75842f97debbcdbc70009da7845e41d4`
+- Approved candidate: `9cefe57611552e563ab7601f2f32fc2c9eeac566`
+- Candidate workflow: `fb50d26f011a75d35032f4e1bd1db83eeb70c752`
+- Independent review: `df6a9aa38c52908d08f12696e5ab7a1503048ff1`
+- Certification handoff: `docs/handoffs/2026-07-24-1724-codex-vm535-ink-certification.md`
+- Result: CERTIFIED EXACT SHA 9cefe57611552e563ab7601f2f32fc2c9eeac566
+- Counts: 34 of 37 certified; Wave 5 4 of 5 certified.
+- Notes: Certification preserved candidate/workflow/review/certification object separation; RGWU/permutations and required neighbor probes failed closed; preview invariant passed; CRLF-only provenance byte-check warning remains normalized-parity PASS with 2063 entries. No remediation, VM-536 through VM-538 work, or Excel update occurred. Certification commit is intended to become the new program base by exact old-value update-ref.
