@@ -11,7 +11,7 @@
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore, VM-533 Glint, and VM-534 Dune certified; VM-535 Ink exact candidate ready for independent review",
+      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore, VM-533 Glint, and VM-534 Dune certified; VM-535 Ink exact candidate approved by independent review and awaiting certification",
       "current_program_base": "8a4f273e75842f97debbcdbc70009da7845e41d4",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
@@ -65,7 +65,7 @@
           "WITCH"
         ],
         "current_identity": "INK",
-        "current_identity_status": "candidate_ready_for_review",
+        "current_identity_status": "approved_pending_certification",
         "next_identity": "WITCH",
         "next_identity_status": "backlog_not_started",
         "certified": "3 of 5",
@@ -109,7 +109,7 @@
       "current_identity_hold": {
         "identity": "INK",
         "card": "VM-535",
-        "state": "candidate_ready_for_review",
+        "state": "approved_pending_certification",
         "branch": "codex/vm-535-ink-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm535-ink",
         "prior_identity_certified": "DUNE",
@@ -146,7 +146,7 @@
         "candidate_parent": "4305482967f21be4a5c58c2f97fda2a848fc60c2",
         "candidate_parent_proof": "9cefe57611552e563ab7601f2f32fc2c9eeac566^ = 4305482967f21be4a5c58c2f97fda2a848fc60c2",
         "candidate_workflow_report": "docs/handoffs/2026-07-24-1330-codex-vm535-ink-candidate-workflow.md",
-        "candidate_workflow_sha": "PENDING_VM535_CANDIDATE_WORKFLOW_SHA",
+        "candidate_workflow_sha": "fb50d26f011a75d35032f4e1bd1db83eeb70c752",
         "candidate_files": [
           "data/factions.json",
           "data/placement-model.json",
@@ -5564,14 +5564,13 @@
       "computed": {
         "structural_fingerprint": [
           "low-volume-pattern",
-          "support-heavy-pattern",
-          "invalid-reference-pattern"
+          "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 5,
           "discovery_record": 0,
           "support_record": 0,
-          "unclassified": 5
+          "unclassified": 0
         },
         "source_count": 13,
         "source_role_counts": {
@@ -5582,25 +5581,8 @@
         },
         "claim_bearing_source_count": 3,
         "claim_bearing_source_rate": 0.2308,
-        "reference_site_count": 9,
-        "missing_references": [
-          {
-            "pointer": "data/raw-factions/ink/ink.placement.json#/collision_guidance/pairs/0",
-            "claim_id": "dune_claim_0003"
-          },
-          {
-            "pointer": "data/raw-factions/ink/ink.placement.json#/collision_guidance/pairs/0",
-            "claim_id": "dune_claim_0005"
-          },
-          {
-            "pointer": "data/raw-factions/ink/ink.placement.json#/collision_guidance/pairs/1",
-            "claim_id": "witch_claim_0003"
-          },
-          {
-            "pointer": "data/raw-factions/ink/ink.placement.json#/collision_guidance/pairs/1",
-            "claim_id": "witch_claim_0005"
-          }
-        ],
+        "reference_site_count": 13,
+        "missing_references": [],
         "potential_role_invalid_support_links": [],
         "raw_question_count": 3,
         "unique_question_claim_ids": [
@@ -5627,8 +5609,7 @@
         ],
         "provisional_risk_indicators": {
           "coverage": [
-            "low-record-volume",
-            "no-explicit-substantive-role"
+            "low-record-volume"
           ],
           "neighbors": []
         },
@@ -5636,14 +5617,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "candidate_ready_for_review",
+        "current_gate": "approved_pending_certification",
         "status": "in_progress",
         "started_at": "2026-07-24T08:13:00-06:00",
         "gate_entered_at": "2026-07-24T13:30:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WITCH",
-        "primary_disposition": "READY FOR INDEPENDENT REVIEW EXACT SHA 9cefe57611552e563ab7601f2f32fc2c9eeac566"
+        "primary_disposition": "APPROVE EXACT SHA 9cefe57611552e563ab7601f2f32fc2c9eeac566"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -5664,23 +5645,24 @@
           "OFFICIAL_NAME",
           "BLACK_PRESENT_COLLAPSE"
         ],
-        "audit_report": "docs/handoffs/2026-07-24-0813-codex-vm535-ink-gate1-gate2.md",
+        "audit_report": "docs/handoffs/2026-07-24-1519-codex-vm535-ink-independent-review.md",
         "residual_findings": [
-          "Exact semantic candidate 9cefe57611552e563ab7601f2f32fc2c9eeac566 is ready for independent exact-SHA review from Gate 1+2 parent 4305482967f21be4a5c58c2f97fda2a848fc60c2.",
+          "Independent exact-SHA review approved candidate 9cefe57611552e563ab7601f2f32fc2c9eeac566 from Gate 1+2 parent 4305482967f21be4a5c58c2f97fda2a848fc60c2 and workflow parent fb50d26f011a75d35032f4e1bd1db83eeb70c752.",
           "INK canonical key, Ink / Altruism display, RGWU display metadata, and INK-only accepted alias are preserved; RGWU/WURG/permutations remain metadata-query-only and fail closed.",
-          "Candidate records 5 substantive claims, 13 INK provenance entries with zero null canonical IDs, 30 fixtures, required neighbor rejection probes, and preview invariant preservation.",
-          "No independent review or certification has occurred. Program base remains 8a4f273e75842f97debbcdbc70009da7845e41d4; VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG remain backlog/not_started and untouched; Excel was not updated by Codex."
+          "Review verified 5 substantive claims, 13 sources, 13 INK provenance entries with zero null canonical IDs/hashes, 30 fixtures, required neighbor rejection fixtures, and preview invariant preservation.",
+          "Semantic readiness, source/generated guardrails, parser, placement, faction-context, candidate-scope validation, and full npm.cmd test passed after ignored Scryfall corpus hardlink; provenance byte check had a CRLF-only warning with normalized parity passing at 2063 entries.",
+          "No remediation or certification occurred. Program base remains 8a4f273e75842f97debbcdbc70009da7845e41d4; VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG remain backlog/not_started and untouched; Excel was not updated by Codex."
         ]
       },
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "9cefe57611552e563ab7601f2f32fc2c9eeac566",
-        "recovery_commit": "PENDING_VM535_CANDIDATE_WORKFLOW_SHA",
+        "recovery_commit": "fb50d26f011a75d35032f4e1bd1db83eeb70c752",
         "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
+        "reviewer": "docs/handoffs/2026-07-24-1519-codex-vm535-ink-independent-review.md",
+        "review_cycles": 1,
+        "approval_date": "2026-07-24",
         "certified_at": null
       }
     },

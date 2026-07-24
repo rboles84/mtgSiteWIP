@@ -1,6 +1,6 @@
 # VM-535 Ink Semantic Recovery
 
-Status: Ready for independent exact-SHA review
+Status: Approved by independent exact-SHA review; certification pending
 
 Identity: INK / Ink / Altruism
 
@@ -24,12 +24,14 @@ Alias and neighbor behavior: identity-layer aliases remain exactly ["INK"]; all 
 
 Preview invariant: raw preview_eligible remains false; generated identity-layer preview is retained; generated preview matches embedded data/factions.json preview.
 
-Validation: npm.cmd ci passed; full npm.cmd test passed after adding ignored Scryfall corpus hardlink; INK semantic readiness passed; provenance check passed with 2063 entries; source/generated guardrails passed for INK; faction-context isolation passed; parser passed; placement passed; semantic-readiness regression bundle passed; audit target passed.
+Validation: npm.cmd ci passed; full npm.cmd test passed after adding ignored Scryfall corpus hardlink; INK semantic readiness passed; source/generated guardrails passed for INK; faction-context isolation passed; parser passed; placement passed; semantic candidate scope passed; audit target passed. In the independent review worktree, the provenance byte check reported stale because of line endings, and normalized provenance parity passed with 2063 entries.
 
 Unstaged byproducts: data/placement-model.schema.json, docs/audits/gate-compression/live-gate-bias.json, docs/audits/gate-compression/live-gate-bias.md, supabase/functions/guild-recruiter/faction-context.ts, ignored data/scryfall/raw/oracle-cards.json, and ignored node_modules/ were not staged.
 
 Warnings: Git reported permission denial for C:\Users\obake/.config/git/ignore, Windows checkout emitted LF/CRLF warnings, and npm.cmd ci reported inherited package audit advisories. No dependency fix or package staging occurred.
 
-Non-goals: No independent review, certification, program-base advancement, Excel update, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, GitHub remote authority, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, force operation, semantic candidate edit, or replacement candidate occurred.
+Independent review: APPROVE EXACT SHA 9cefe57611552e563ab7601f2f32fc2c9eeac566 in docs/handoffs/2026-07-24-1519-codex-vm535-ink-independent-review.md. Review verified exact ancestry, INK-only eight-file candidate scope, governance-only workflow separation, 5 substantive claims, 13 sources, 30 fixtures, 13 INK provenance rows with zero null IDs/hashes, RGWU/WURG/permutation metadata-only behavior, required neighbor rejection fixtures, preview invariant preservation, full validation after ignored Scryfall corpus hardlink, and CRLF-only provenance byte normalization. Review commit placeholder: PENDING_VM535_INDEPENDENT_REVIEW_SHA.
 
-READY FOR INDEPENDENT REVIEW EXACT SHA 9cefe57611552e563ab7601f2f32fc2c9eeac566
+Non-goals: No certification, program-base advancement, Excel update, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, GitHub remote authority, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, force operation, semantic candidate edit, or replacement candidate occurred.
+
+APPROVE EXACT SHA 9cefe57611552e563ab7601f2f32fc2c9eeac566

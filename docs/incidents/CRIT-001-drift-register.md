@@ -215,3 +215,14 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - Boundary: aliases remain exactly `["INK"]`; RGWU/WURG/permutations metadata-query-only and reject alias probes passed; required neighbor rejection probes passed; raw preview_eligible remains false and generated preview equals embedded data/factions.json preview.
 - Result: READY FOR INDEPENDENT REVIEW EXACT SHA 9cefe57611552e563ab7601f2f32fc2c9eeac566
 - Notes: No independent review, certification, program-base advancement, Excel update, VM-536 through VM-538 work, semantic candidate edit, replacement candidate, GitHub remote authority, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, or force operation occurred.
+
+
+## VM-535 Ink Independent Review - 2026-07-24
+
+- Identity: INK / Ink / Altruism
+- Program base: `8a4f273e75842f97debbcdbc70009da7845e41d4`
+- Candidate: `9cefe57611552e563ab7601f2f32fc2c9eeac566`
+- Candidate workflow: `fb50d26f011a75d35032f4e1bd1db83eeb70c752`
+- Review handoff: `docs/handoffs/2026-07-24-1519-codex-vm535-ink-independent-review.md`
+- Decision: APPROVE EXACT SHA 9cefe57611552e563ab7601f2f32fc2c9eeac566
+- Notes: CRLF-only provenance byte-check warning; normalized manifest parity passed with 2063 entries. No remediation, certification, program-base advancement, VM-536 through VM-538 work, or Excel update occurred.

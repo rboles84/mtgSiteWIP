@@ -1,7 +1,7 @@
 # VM-535 - Ink Semantic Recovery
 
 ID: VM-535
-Status: In Progress
+Status: Approved by independent exact-SHA review; certification pending
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: INK
@@ -35,7 +35,7 @@ Recover Ink end to end under CRIT-001: audit the existing packet, bound readines
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/incidents/recoveries/VM-535-ink-semantic-recovery.md`
 - Candidate recovery SHA: `9cefe57611552e563ab7601f2f32fc2c9eeac566`
-- Independent reviewer: pending
+- Independent reviewer: docs/handoffs/2026-07-24-1519-codex-vm535-ink-independent-review.md
 - Certification commit: pending
 
 ## Gate 1+2 Baseline - 2026-07-24
@@ -54,4 +54,16 @@ The candidate records 5 substantive claims, 13 INK provenance rows with zero nul
 
 No independent review or certification has occurred. Program base remains `8a4f273e75842f97debbcdbc70009da7845e41d4`; VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG remain untouched; Excel was not updated by Codex.
 
-READY FOR INDEPENDENT REVIEW EXACT SHA `9cefe57611552e563ab7601f2f32fc2c9eeac566`
+## Independent Review - 2026-07-24
+
+Decision: APPROVE EXACT SHA `9cefe57611552e563ab7601f2f32fc2c9eeac566`.
+
+Review handoff: `docs/handoffs/2026-07-24-1519-codex-vm535-ink-independent-review.md`.
+
+The independent review verified exact parent chain, INK-only eight-file candidate scope, governance-only workflow separation, no semantic files changed after candidate SHA, no remediation in the review window, no certification, unchanged program base, 5 substantive claims, 13 sources, 30 fixtures, 13 INK provenance rows with zero null IDs/hashes, RGWU/WURG/permutation metadata-only behavior, required neighbor rejection fixtures, preview invariant preservation, source/generated guardrails, parser, placement, faction-context isolation, candidate-scope validation, and full `npm.cmd test` after the ignored Scryfall corpus hardlink.
+
+Warnings: the provenance byte check reports stale in the Windows review worktree, but normalized provenance parity passed with 2063 entries. Gate-bias audit byproducts, ignored `node_modules/`, and ignored `data/scryfall/raw/oracle-cards.json` hardlink were left unstaged.
+
+No certification has occurred. Program base remains `8a4f273e75842f97debbcdbc70009da7845e41d4`; VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG remain untouched; Excel was not updated by Codex.
+
+APPROVE EXACT SHA `9cefe57611552e563ab7601f2f32fc2c9eeac566`
