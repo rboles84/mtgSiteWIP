@@ -46,6 +46,14 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - DRIFT-019: Copied-string debug/archive exclusions were not promoted into active Jeskai defects; historical/debug/archive files remained untouched.
 - DRIFT-020: Certification used the DRIFT-020-certified committed validator and preserved the Jund preview infrastructure authority without modifying validator/test implementation.
 - Certification scope: governance-only; Jeskai source, generated semantic data, fixtures, provenance, runtime, validator/test implementation, package, CI, Excel, original main, DRIFT-017 prototype, Table Talk baseline, VM-532/Yore, and the parked Yore shadow audit were untouched.
+
+## VM-532 Certification Update - 2026-07-23
+
+- DRIFT-014: VM-532 certification preserved candidate/workflow/review/certification object separation; only exact approved candidate `f83b8b90b49a7afe3236f3e7f7ab52a254625d1f` was certified, while workflow `80b83039aca88d66baf47486861e38caeb46b229` and approval review `3f012fa254816f27f2958c93fc5df742b445bb52` remain distinct.
+- DRIFT-015: No Yore preview edit entered certification; `data/identity-layers.json` remained outside the candidate and certification scope, raw preview remained disabled, generated preview remained enabled and source/embedded generated preview objects remained equal.
+- DRIFT-016: Candidate-scope regression and exact YORE candidate scope passed; WUBR and all same-color permutations failed closed as unknown identities; GLINT, WITCH, and JESKAI rejected the Yore candidate range.
+- DRIFT-020: Certification preserved the source/embedded preview-source control and did not alter preview source, generated consumers, validators, package files, or tests.
+- Certification scope: governance-only; Yore source, generated semantic data, fixtures, provenance source, runtime, validator/test implementation, package, CI, Excel, original main, DRIFT-017 prototype, Table Talk baseline, VM-533 Glint, and parked Glint shadow work were untouched.
 - Program base: `PENDING_VM531_CERTIFICATION_COMMIT_SHA`; certified identity count advances to 30 of 37 and Wave 4 shards complete at 10 of 10.
 
 ## VM-530 Certification Update - 2026-07-23
