@@ -5,14 +5,14 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "DUNE",
+    "active_identity": "INK",
     "next_identity": "INK",
-    "certified_identity_count": 32,
+    "certified_identity_count": 33,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore certified from exact approved candidate f83b8b90b49a7afe3236f3e7f7ab52a254625d1f; VM-533 Glint certified from exact approved candidate ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6; VM-534 Dune exact candidate e6f776d4e047aaa8f22358d4ff09486ff6100cf5 approved by independent review and awaiting certification",
-      "current_program_base": "ab3ece2155d52c0f4283a0c0244c601a0991f970",
+      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore certified from exact approved candidate f83b8b90b49a7afe3236f3e7f7ab52a254625d1f; VM-533 Glint certified from exact approved candidate ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6; VM-534 Dune certified from exact approved candidate e6f776d4e047aaa8f22358d4ff09486ff6100cf5; VM-535 Ink remains backlog/not started",
+      "current_program_base": "PENDING_VM534_CERTIFICATION_COMMIT_SHA",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -64,18 +64,19 @@
           "INK",
           "WITCH"
         ],
-        "current_identity": "DUNE",
-        "current_identity_status": "approved_awaiting_certification",
+        "current_identity": "INK",
+        "current_identity_status": "backlog_not_started",
         "next_identity": "INK",
         "next_identity_status": "backlog_not_started",
-        "certified": "2 of 5",
+        "certified": "3 of 5",
         "started_by": "PENDING_VM532_DRIFT_PREFLIGHT_COMMIT_SHA",
         "started_at": "2026-07-23T16:46:00-06:00",
-        "latest_certification": "PENDING_VM533_CERTIFICATION_COMMIT_SHA",
-        "latest_certified_identity": "GLINT",
+        "latest_certification": "PENDING_VM534_CERTIFICATION_COMMIT_SHA",
+        "latest_certified_identity": "DUNE",
         "identities_certified": [
           "YORE",
-          "GLINT"
+          "GLINT",
+          "DUNE"
         ]
       }
     },
@@ -108,24 +109,22 @@
       "current_identity_hold": {
         "identity": "DUNE",
         "card": "VM-534",
-        "state": "approved_awaiting_certification",
-        "branch": "codex/vm-534-dune-semantic-recovery",
-        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm534-dune",
+        "state": "certified_semantically_ready",
+        "branch": "codex/vm-534-dune-certification",
+        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm534-dune-certification",
         "prior_identity_certified": "GLINT",
         "prior_identity_certification": "ab3ece2155d52c0f4283a0c0244c601a0991f970",
-        "gate_1_2_commit": "c05b7c752748e9432a9321b6bd8f2e1b65c29ee0",
         "candidate_recovery_sha": "e6f776d4e047aaa8f22358d4ff09486ff6100cf5",
-        "candidate_workflow_commit": "PENDING_VM534_CANDIDATE_WORKFLOW_SHA",
-        "candidate_handoff": "docs/handoffs/2026-07-24-0030-codex-vm534-dune-candidate-workflow.md",
-        "recovery_summary": "docs/incidents/recoveries/VM-534-dune-semantic-recovery.md",
-        "result": "READY FOR INDEPENDENT REVIEW EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5",
-        "authorized_next_scope": "Certification-only governance for exact approved candidate. No remediation, replacement candidate, VM-535 Ink, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, Excel update by Codex, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, or force operation is authorized by this review record.",
-        "updated_at": "2026-07-24T00:45:00-06:00",
-        "independent_review_commit": "PENDING_VM534_INDEPENDENT_REVIEW_SHA",
-        "independent_review_branch": "codex/vm-534-dune-independent-review",
-        "independent_review_worktree": "C:\\dev\\mtgSiteWIP-crit001-vm534-dune-independent-review",
-        "independent_review_handoff": "docs/handoffs/2026-07-24-0045-codex-vm534-dune-independent-review.md",
-        "independent_review_decision": "APPROVE EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5"
+        "candidate_workflow_commit": "98269eca73ca59e4356a91b63e14f168df264434",
+        "independent_review_commit": "229f41278b5ff103e95e493c9623e3c0ec2573f6",
+        "certification_commit": "PENDING_VM534_CERTIFICATION_COMMIT_SHA",
+        "independent_review_decision": "APPROVE EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5",
+        "certification_handoff": "docs/handoffs/2026-07-24-0759-codex-vm534-dune-certification.md",
+        "certification_result": "CERTIFIED EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5",
+        "program_base": "PENDING_VM534_CERTIFICATION_COMMIT_SHA",
+        "updated_at": "2026-07-24T07:59:00-06:00",
+        "authorized_next_scope": "VM-535 / Ink may receive only a separate drift-preflight setup after this certification/program-base advancement is externally accepted and separately authorized. No VM-535 semantic work, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, Excel update by Codex, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, or force operation is authorized by this certification record.",
+        "required_next_milestone": "External tracker update outside Codex if required, then a separate VM-535 Ink drift-preflight control record before any Gate 1+2 semantic work."
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -136,15 +135,15 @@
         "Begin Simic Goal mode only after the drift preflight reports no FAIL or UNKNOWN controls."
       ],
       "last_certification": {
-        "identity": "GLINT",
-        "card": "VM-533",
-        "candidate_sha": "ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6",
-        "candidate_workflow_sha": "bc7252431149a862970d7c93ad82df8782ceb6cd",
+        "identity": "DUNE",
+        "card": "VM-534",
+        "candidate_sha": "e6f776d4e047aaa8f22358d4ff09486ff6100cf5",
+        "candidate_workflow_sha": "98269eca73ca59e4356a91b63e14f168df264434",
         "gate_3_4_workflow_sha": null,
-        "approval_review_sha": "e8710dffe4324aeaa3a0a0713e9596349382b592",
-        "review_decision": "APPROVE EXACT SHA ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6",
-        "certification_commit": "PENDING_VM533_CERTIFICATION_COMMIT_SHA",
-        "certified_at": "2026-07-23T22:33:00-06:00",
+        "approval_review_sha": "229f41278b5ff103e95e493c9623e3c0ec2573f6",
+        "review_decision": "APPROVE EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5",
+        "certification_commit": "PENDING_VM534_CERTIFICATION_COMMIT_SHA",
+        "certified_at": "2026-07-24T07:59:00-06:00",
         "final_state": "semantically_ready",
         "contract_version": "v1.1",
         "reviewed_provenance_count": 13,
@@ -158,19 +157,19 @@
         },
         "source_role_counts": {
           "claim-bearing": 3,
-          "discovery-only": 3,
+          "discovery-only": 1,
           "shaping-only": 5,
-          "support-only": 4
+          "support-only": 5
         },
         "candidate_scope_result": "PASS",
-        "invalid_alias_result": "UBRG and all 23 same-color permutations rejected as unknown identities",
-        "neighbor_rejection_result": "YORE, DUNE, WITCH, and JESKAI rejected the Glint candidate range",
+        "invalid_alias_result": "BRGW and all 23 same-color permutations rejected as unknown identities",
+        "neighbor_rejection_result": "UNKNOWN, GLINT, INK, WITCH, and JESKAI rejected the Dune candidate range",
         "fixture_count": 30,
-        "wave_5_certified": "2 of 5",
-        "total_certified": 32,
-        "next_identity": "DUNE",
+        "wave_5_certified": "3 of 5",
+        "total_certified": 33,
+        "next_identity": "INK",
         "next_identity_status": "backlog_not_started",
-        "prior_program_base": "8145b8697ed1d1500c0faecf080b55404ab8ec4e"
+        "prior_program_base": "ab3ece2155d52c0f4283a0c0244c601a0991f970"
       }
     },
     "rejected_prerequisite_candidates": [
@@ -5442,14 +5441,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "independent_review_complete",
-        "status": "approved_awaiting_certification",
+        "current_gate": "certification_complete",
+        "status": "certified_semantically_ready",
         "started_at": "2026-07-23T23:23:00-06:00",
         "gate_entered_at": "2026-07-24T00:45:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "INK",
-        "primary_disposition": "APPROVE EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5"
+        "primary_disposition": "CERTIFIED EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -5489,12 +5488,12 @@
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "e6f776d4e047aaa8f22358d4ff09486ff6100cf5",
-        "recovery_commit": "PENDING_VM534_CANDIDATE_WORKFLOW_SHA",
-        "certification_commit": null,
+        "recovery_commit": "98269eca73ca59e4356a91b63e14f168df264434",
+        "certification_commit": "PENDING_VM534_CERTIFICATION_COMMIT_SHA",
         "reviewer": "docs/handoffs/2026-07-24-0045-codex-vm534-dune-independent-review.md",
         "review_cycles": 1,
         "approval_date": "2026-07-24",
-        "certified_at": null
+        "certified_at": "2026-07-24T07:59:00-06:00"
       }
     },
     {

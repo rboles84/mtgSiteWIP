@@ -1,13 +1,13 @@
 # VM-534 — Dune Semantic Recovery
 
 ID: VM-534
-Status: In Progress
+Status: Done
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: DUNE
 Raw packet: `data/raw-factions/dune/`
 Cohort: four-color
-Contract: Contract v1.1 candidate workflow recorded
+Contract: Contract v1.1 certified semantically ready
 
 ## Objective
 
@@ -19,7 +19,7 @@ Recover Dune end to end under CRIT-001: audit the existing packet, bound readine
 - [x] Gate 2 - Sufficient evidence completion. Bounded DUNE-only remediation authorized.
 - [x] Gate 3 — Canonical remediation.
 - [x] Gate 4 — Generation and validation.
-- [ ] Gate 5 — Independent certification.
+- [x] Gate 5 — Independent certification.
 
 ## Scope Rules
 
@@ -36,7 +36,7 @@ Recover Dune end to end under CRIT-001: audit the existing packet, bound readine
 - Audit/recovery report: `docs/incidents/recoveries/VM-534-dune-semantic-recovery.md`
 - Candidate recovery SHA: `e6f776d4e047aaa8f22358d4ff09486ff6100cf5`
 - Independent reviewer: `docs/handoffs/2026-07-24-0045-codex-vm534-dune-independent-review.md`
-- Certification commit: pending
+- Certification commit: `PENDING_VM534_CERTIFICATION_COMMIT_SHA`
 
 ## Gate 1+2 Baseline - 2026-07-23
 
@@ -63,3 +63,12 @@ Review record: `docs/handoffs/2026-07-24-0045-codex-vm534-dune-independent-revie
 Decision: APPROVE EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5
 
 The independent review approved exact candidate `e6f776d4e047aaa8f22358d4ff09486ff6100cf5` and confirmed DUNE-only scope, governance-only workflow separation, BRGW/permutation fail-closed behavior, UNKNOWN/GLINT/INK/WITCH/JESKAI range rejection, semantic readiness, source/generated guardrails, normalized provenance parity, parser, placement, candidate-scope regression, and full npm.cmd test. No certification, program-base advancement, VM-535 through VM-538 work, or Excel update occurred.
+
+
+## Certification - 2026-07-24
+
+Certification handoff: `docs/handoffs/2026-07-24-0759-codex-vm534-dune-certification.md`
+
+Decision: CERTIFIED EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5
+
+VM-534 Dune is certified semantically ready from exact approved candidate `e6f776d4e047aaa8f22358d4ff09486ff6100cf5`. Certified count is now 33 of 37, and Wave 5 is now 3 of 5 certified. VM-535 Ink, VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG remain backlog/not started and untouched. Excel was not updated by Codex.

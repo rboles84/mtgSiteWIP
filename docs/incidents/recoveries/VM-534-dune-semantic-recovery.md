@@ -1,6 +1,6 @@
 # VM-534 Dune Semantic Recovery
 
-Status: Awaiting independent exact-SHA review
+Status: Certified semantically ready
 
 Identity: DUNE / Dune / Aggression
 
@@ -19,3 +19,12 @@ Validation: DUNE exact candidate scope passed; BRGW and all 23 same-color permut
 Non-goals: No independent review, certification, program-base advancement, Excel update, VM-535 Ink, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, or force operation occurred.
 
 READY FOR INDEPENDENT REVIEW EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5
+
+
+Certification: PENDING_VM534_CERTIFICATION_COMMIT_SHA
+
+Certified count: 33 of 37
+
+Wave 5: 3 of 5 certified
+
+CERTIFIED EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5

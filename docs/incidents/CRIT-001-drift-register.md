@@ -177,3 +177,16 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - Review handoff: `docs/handoffs/2026-07-24-0045-codex-vm534-dune-independent-review.md`
 - Decision: APPROVE EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5
 - Notes: CRLF-only provenance byte-check warning; normalized manifest parity passed with 2059 entries. No remediation, certification, program-base advancement, VM-535 through VM-538 work, or Excel update occurred.
+
+
+## VM-534 Dune Certification - 2026-07-24
+
+- Identity: DUNE / Dune / Aggression
+- Prior program base: `ab3ece2155d52c0f4283a0c0244c601a0991f970`
+- Approved candidate: `e6f776d4e047aaa8f22358d4ff09486ff6100cf5`
+- Candidate workflow: `98269eca73ca59e4356a91b63e14f168df264434`
+- Independent review: `229f41278b5ff103e95e493c9623e3c0ec2573f6`
+- Certification handoff: `docs/handoffs/2026-07-24-0759-codex-vm534-dune-certification.md`
+- Result: CERTIFIED EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5
+- Counts: 33 of 37 certified; Wave 5 3 of 5 certified.
+- Notes: No remediation, VM-535 through VM-538 work, or Excel update occurred. Certification commit is intended to become the new program base by exact old-value update-ref.
