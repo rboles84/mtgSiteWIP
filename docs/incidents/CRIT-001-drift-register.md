@@ -65,6 +65,16 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - DRIFT-020: Gate 1+2 does not require a `data/identity-layers.json` preview-source exception; any later preview-source edit would have to be GLINT-only and validator-approved.
 - Gate 1+2 scope: governance-only; GLINT raw data, generated semantic data, fixtures, provenance source, recruiter context, runtime, validator/test implementation, package, CI, Excel, original main, VM-534 Dune, VM-535 Ink, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, and parked Glint shadow work were untouched.
 
+## VM-533 Certification Update - 2026-07-23
+
+- DRIFT-014: VM-533 certification preserved candidate/workflow/review/certification object separation; only exact approved candidate `ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6` was certified, while workflow `bc7252431149a862970d7c93ad82df8782ceb6cd` and approval review `e8710dffe4324aeaa3a0a0713e9596349382b592` remain distinct.
+- DRIFT-015: No Glint preview edit entered certification; `data/identity-layers.json` remained outside the candidate and certification scope, raw preview remained disabled, generated preview remained enabled, and source/embedded generated preview objects remained equal.
+- DRIFT-016: Candidate-scope regression and exact GLINT candidate scope passed; UBRG and all same-color permutations failed closed as unknown identities; YORE, DUNE, WITCH, and JESKAI rejected the Glint candidate range.
+- DRIFT-017/DRIFT-019: Active Home, Archscry, recruiter, tests, and CI consumer classifications were preserved; historical/debug/archive exclusions and copied-string debt were not promoted into active Glint defects.
+- DRIFT-020: Certification preserved the source/embedded preview-source control and did not alter preview source, generated consumers, validators, package files, or tests.
+- Certification scope: governance-only; Glint source, generated semantic data, fixtures, provenance source, runtime, validator/test implementation, package, CI, Excel, original main, protected worktrees, VM-534 Dune, VM-535 Ink, VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG were untouched.
+- Program base: `PENDING_VM533_CERTIFICATION_COMMIT_SHA`; certified identity count advances to 32 of 37 and Wave 5 four-color identities advance to 2 of 5.
+
 ## VM-530 Certification Update - 2026-07-23
 
 - DRIFT-014: VM-530 certification preserved candidate/workflow/review/certification object separation; only exact approved candidate `96df085ff38d03da1e37de80b1e11705b1dfa47a` was certified, while workflow `ab961e384ef72bd4c56dae07f60863016511adb0` and approval review `f3b360ec0d9df569f585299480db1f34ba72a01b` remain distinct.
