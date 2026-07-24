@@ -190,3 +190,13 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - Result: CERTIFIED EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5
 - Counts: 33 of 37 certified; Wave 5 3 of 5 certified.
 - Notes: No remediation, VM-535 through VM-538 work, or Excel update occurred. Certification commit is intended to become the new program base by exact old-value update-ref.
+
+
+## VM-535 Ink Gate 1+2 - 2026-07-24
+
+- Identity: INK / Ink / Altruism
+- Program base: `8a4f273e75842f97debbcdbc70009da7845e41d4`
+- Branch/worktree: `codex/vm-535-ink-semantic-recovery` / `C:\\dev\\mtgSiteWIP-crit001-vm535-ink`
+- Result: READY FOR GATE 3 REMEDIATION
+- Baseline: 5 unclassified claims, 13 sources, no fixture, 3 INK provenance rows, zero null canonical IDs, zero missing hashes, DUNE/WITCH collision contamination, and expected readiness/provenance diagnostics.
+- Boundary: INK-only remediation authorized; RGWU/WURG/permutations metadata-query-only; VM-536 through VM-538 remain untouched; Excel was not updated by Codex.

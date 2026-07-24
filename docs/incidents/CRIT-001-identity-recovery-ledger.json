@@ -6,13 +6,13 @@
   "program": {
     "status": "active",
     "active_identity": "INK",
-    "next_identity": "INK",
+    "next_identity": "WITCH",
     "certified_identity_count": 33,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore certified from exact approved candidate f83b8b90b49a7afe3236f3e7f7ab52a254625d1f; VM-533 Glint certified from exact approved candidate ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6; VM-534 Dune certified from exact approved candidate e6f776d4e047aaa8f22358d4ff09486ff6100cf5; VM-535 Ink remains backlog/not started",
-      "current_program_base": "PENDING_VM534_CERTIFICATION_COMMIT_SHA",
+      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore, VM-533 Glint, and VM-534 Dune certified; VM-535 Ink Gate 1+2 recorded and Gate 3+4 remediation authorized",
+      "current_program_base": "8a4f273e75842f97debbcdbc70009da7845e41d4",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -65,13 +65,13 @@
           "WITCH"
         ],
         "current_identity": "INK",
-        "current_identity_status": "backlog_not_started",
-        "next_identity": "INK",
+        "current_identity_status": "gate_1_2_complete",
+        "next_identity": "WITCH",
         "next_identity_status": "backlog_not_started",
         "certified": "3 of 5",
         "started_by": "PENDING_VM532_DRIFT_PREFLIGHT_COMMIT_SHA",
         "started_at": "2026-07-23T16:46:00-06:00",
-        "latest_certification": "PENDING_VM534_CERTIFICATION_COMMIT_SHA",
+        "latest_certification": "8a4f273e75842f97debbcdbc70009da7845e41d4",
         "latest_certified_identity": "DUNE",
         "identities_certified": [
           "YORE",
@@ -107,24 +107,43 @@
       "installed_after_program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
       "governance_commit": "PENDING_CRIT001_DRIFT_CONTROL_GOVERNANCE_SHA",
       "current_identity_hold": {
-        "identity": "DUNE",
-        "card": "VM-534",
-        "state": "certified_semantically_ready",
-        "branch": "codex/vm-534-dune-certification",
-        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm534-dune-certification",
-        "prior_identity_certified": "GLINT",
-        "prior_identity_certification": "ab3ece2155d52c0f4283a0c0244c601a0991f970",
-        "candidate_recovery_sha": "e6f776d4e047aaa8f22358d4ff09486ff6100cf5",
-        "candidate_workflow_commit": "98269eca73ca59e4356a91b63e14f168df264434",
-        "independent_review_commit": "229f41278b5ff103e95e493c9623e3c0ec2573f6",
-        "certification_commit": "PENDING_VM534_CERTIFICATION_COMMIT_SHA",
-        "independent_review_decision": "APPROVE EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5",
-        "certification_handoff": "docs/handoffs/2026-07-24-0759-codex-vm534-dune-certification.md",
-        "certification_result": "CERTIFIED EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5",
-        "program_base": "PENDING_VM534_CERTIFICATION_COMMIT_SHA",
-        "updated_at": "2026-07-24T07:59:00-06:00",
-        "authorized_next_scope": "VM-535 / Ink may receive only a separate drift-preflight setup after this certification/program-base advancement is externally accepted and separately authorized. No VM-535 semantic work, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, Excel update by Codex, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, or force operation is authorized by this certification record.",
-        "required_next_milestone": "External tracker update outside Codex if required, then a separate VM-535 Ink drift-preflight control record before any Gate 1+2 semantic work."
+        "identity": "INK",
+        "card": "VM-535",
+        "state": "gate_1_2_complete",
+        "branch": "codex/vm-535-ink-semantic-recovery",
+        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm535-ink",
+        "prior_identity_certified": "DUNE",
+        "prior_identity_certification": "8a4f273e75842f97debbcdbc70009da7845e41d4",
+        "gate_1_2_commit": "PENDING_VM535_GATE_1_2_COMMIT_SHA",
+        "gate_1_2_report": "docs/handoffs/2026-07-24-0813-codex-vm535-ink-gate1-gate2.md",
+        "gate_1_2_result": "READY FOR GATE 3 REMEDIATION",
+        "baseline_claim_role_counts": {
+          "total": 5,
+          "substantive_claim": 0,
+          "discovery_record": 0,
+          "support_record": 0,
+          "unclassified": 5
+        },
+        "baseline_source_role_counts": {
+          "claim-bearing": 3,
+          "discovery-only": 1,
+          "shaping-only": 4,
+          "support-only": 5
+        },
+        "baseline_provenance_count": 3,
+        "baseline_null_canonical_ids": 0,
+        "baseline_missing_hashes": 0,
+        "baseline_fixture_count": 0,
+        "canonical_key": "INK",
+        "display_name": "Ink / Altruism",
+        "display_color_order": "RGWU",
+        "accepted_aliases": [
+          "INK"
+        ],
+        "invalid_alias_result_required": "RGWU, WURG, and all same-color permutations must remain metadata/query-only and reject as candidate identities",
+        "preview_result": "raw preview disabled; generated identity-layer preview retained",
+        "updated_at": "2026-07-24T08:13:00-06:00",
+        "authorized_next_scope": "INK-only Gate 3+4 semantic remediation and exact candidate workflow. No VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, Excel update by Codex, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, or force operation is authorized by this Gate record."
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -142,7 +161,7 @@
         "gate_3_4_workflow_sha": null,
         "approval_review_sha": "229f41278b5ff103e95e493c9623e3c0ec2573f6",
         "review_decision": "APPROVE EXACT SHA e6f776d4e047aaa8f22358d4ff09486ff6100cf5",
-        "certification_commit": "PENDING_VM534_CERTIFICATION_COMMIT_SHA",
+        "certification_commit": "8a4f273e75842f97debbcdbc70009da7845e41d4",
         "certified_at": "2026-07-24T07:59:00-06:00",
         "final_state": "semantically_ready",
         "contract_version": "v1.1",
@@ -5579,22 +5598,44 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "gate_1_2_complete",
+        "status": "in_progress",
+        "started_at": "2026-07-24T08:13:00-06:00",
+        "gate_entered_at": "2026-07-24T08:13:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WITCH",
-        "primary_disposition": null
+        "primary_disposition": "ready_for_gate_3_remediation"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "DUNE",
+          "WITCH",
+          "BANT",
+          "JESKAI",
+          "NAYA",
+          "TEMUR",
+          "GENERIC_RGWU",
+          "GENERIC_FOUR_COLOR_COMMANDER",
+          "GENERIC_GROUP_HUG",
+          "GENERIC_SHARED_RESOURCES",
+          "KYNAIOS_ONLY",
+          "STALWART_UNITY_ONLY",
+          "INK_TREADER_ONLY",
+          "COMMANDER_LEGALITY",
+          "OFFICIAL_NAME",
+          "BLACK_PRESENT_COLLAPSE"
+        ],
+        "audit_report": "docs/handoffs/2026-07-24-0813-codex-vm535-ink-gate1-gate2.md",
+        "residual_findings": [
+          "Gate 1+2 read-only audit authorizes INK-only Gate 3+4 remediation from exact program base 8a4f273e75842f97debbcdbc70009da7845e41d4.",
+          "INK canonical key, Ink / Altruism display, RGWU display metadata, and INK-only accepted alias are frozen; RGWU/WURG/permutations remain metadata/query-only and must fail closed.",
+          "Baseline has 5 unclassified claims, 13 sources, no fixture file, 3 INK provenance entries with zero null canonical IDs and zero missing hashes, stale provenance byte-check diagnostic, and DUNE/WITCH neighbor claim contamination in collision guidance.",
+          "VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG remain backlog/not_started and untouched; Excel was not updated by Codex."
+        ]
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": null,
         "recovery_commit": null,
