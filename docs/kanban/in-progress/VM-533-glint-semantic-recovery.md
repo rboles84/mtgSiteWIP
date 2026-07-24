@@ -1,13 +1,13 @@
 # VM-533 — Glint Semantic Recovery
 
 ID: VM-533
-Status: In Progress
+Status: Awaiting Independent Review
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: GLINT
 Raw packet: `data/raw-factions/glint/`
 Cohort: four-color
-Contract: v1.1 Gate 1+2 complete; Gate 3+4 remediation authorized
+Contract: v1.1 exact candidate awaiting independent review
 
 ## Objective
 
@@ -17,8 +17,8 @@ Recover Glint end to end under CRIT-001: audit the existing packet, bound readin
 
 - [x] Gate 1 — Packet audit and bounded disposition.
 - [x] Gate 2 — Sufficient evidence completion.
-- [ ] Gate 3 — Canonical remediation.
-- [ ] Gate 4 — Generation and validation.
+- [x] Gate 3 - Canonical remediation.
+- [x] Gate 4 - Generation and validation.
 - [ ] Gate 5 — Independent certification.
 
 ## Scope Rules
@@ -32,9 +32,11 @@ Recover Glint end to end under CRIT-001: audit the existing packet, bound readin
 
 VM-533 starts from exact VM-532 Yore certification/program base `8145b8697ed1d1500c0faecf080b55404ab8ec4e` on branch `codex/vm-533-glint-semantic-recovery` and worktree `C:\dev\mtgSiteWIP-crit001-vm533-glint`.
 
-Gate 1+2 read-only audit is complete and authorizes GLINT-only Gate 3+4 remediation. Baseline records `GLINT` as canonical with display name `Glint / Chaos`, display color order `UBRG`, and `GLINT` as the only accepted alias while UBRG and all same-color permutations remain metadata/query-only and fail closed as candidate identities.
+Gate 1+2 read-only audit is complete. Gate 3+4 GLINT-only remediation produced exact semantic candidate `ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6` from Gate 1+2 governance `65772b612cff924b683c0c1bf9e13e30f4951d5a`. The candidate keeps `GLINT` canonical, preserves display name `Glint / Chaos`, display color order `UBRG`, and `GLINT` as the only accepted alias while UBRG and all same-color permutations remain metadata/query-only and fail closed as candidate identities.
 
-Current baseline defects: 5 unclassified claims, missing bounded evidence locations, missing Glint semantic fixture file, stale provenance check, 9 GLINT provenance rows with 4 null canonical IDs, recruiter mismatch strings lacking evidence mapping, and GLINT collision chains that must become GLINT-owned instead of relying on not-yet-started DUNE claim IDs or YORE-owned authority. Source/generated guardrails currently pass for GLINT.
+Candidate state: 5 substantive claims, 15 sources (3 claim-bearing, 3 discovery-only, 5 shaping-only, 4 support-only), 13 GLINT provenance rows with 0 null canonical IDs and 0 missing hashes, 30 fixtures, raw preview disabled, generated identity-layer preview enabled and unchanged, Yore/Dune collision chains GLINT-owned, exact candidate-scope PASS, full validation PASS, and disposable exact-tree npm.cmd test PASS. VM-533 is awaiting independent exact-SHA review and is not certified.
+
+VM-534 Dune, VM-535 Ink, VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG remain backlog/not started and untouched.
 
 ## Required Records
 
@@ -42,6 +44,6 @@ Current baseline defects: 5 unclassified claims, missing bounded evidence locati
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/handoffs/2026-07-23-2108-codex-vm533-glint-gate1-gate2.md`
-- Candidate recovery SHA: pending
-- Independent reviewer: pending
+- Candidate recovery SHA: ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6
+- Independent reviewer: pending exact-SHA review
 - Certification commit: pending

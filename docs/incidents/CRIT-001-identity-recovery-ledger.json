@@ -5278,14 +5278,13 @@
       "computed": {
         "structural_fingerprint": [
           "low-volume-pattern",
-          "support-heavy-pattern",
-          "invalid-reference-pattern"
+          "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 5,
           "discovery_record": 0,
           "support_record": 0,
-          "unclassified": 5
+          "unclassified": 0
         },
         "source_count": 15,
         "source_role_counts": {
@@ -5296,25 +5295,8 @@
         },
         "claim_bearing_source_count": 3,
         "claim_bearing_source_rate": 0.2,
-        "reference_site_count": 9,
-        "missing_references": [
-          {
-            "pointer": "data/raw-factions/glint/glint.placement.json#/collision_guidance/pairs/0",
-            "claim_id": "yore_claim_0003"
-          },
-          {
-            "pointer": "data/raw-factions/glint/glint.placement.json#/collision_guidance/pairs/0",
-            "claim_id": "yore_claim_0004"
-          },
-          {
-            "pointer": "data/raw-factions/glint/glint.placement.json#/collision_guidance/pairs/1",
-            "claim_id": "dune_claim_0003"
-          },
-          {
-            "pointer": "data/raw-factions/glint/glint.placement.json#/collision_guidance/pairs/1",
-            "claim_id": "dune_claim_0005"
-          }
-        ],
+        "reference_site_count": 13,
+        "missing_references": [],
         "potential_role_invalid_support_links": [],
         "raw_question_count": 3,
         "unique_question_claim_ids": [
@@ -5330,11 +5312,12 @@
         ],
         "recruiter_context_size": 9266,
         "creation_commit": "8cf770221e7fcf42423a9c6a39c120111c7406a9",
-        "readiness_mentions": [],
+        "readiness_mentions": [
+          "VM-533 exact semantic candidate created; semantic readiness validation passed for GLINT"
+        ],
         "provisional_risk_indicators": {
           "coverage": [
-            "low-record-volume",
-            "no-explicit-substantive-role"
+            "low-record-volume"
           ],
           "neighbors": []
         },
@@ -5342,14 +5325,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_1_2_complete",
-        "status": "in_progress",
+        "current_gate": "candidate_created",
+        "status": "awaiting_independent_review",
         "started_at": "2026-07-23T21:08:00-06:00",
-        "gate_entered_at": "2026-07-23T21:08:00-06:00",
+        "gate_entered_at": "2026-07-23T21:38:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "DUNE",
-        "primary_disposition": "gate_3_4_glint_only_remediation_authorized"
+        "primary_disposition": "ready_for_independent_exact_sha_review_ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -5368,22 +5351,27 @@
         ],
         "audit_report": "docs/handoffs/2026-07-23-2108-codex-vm533-glint-gate1-gate2.md",
         "residual_findings": [
-          "Gate 1+2 authorizes remediation only; GLINT remains unready until a separate exact semantic candidate passes validation.",
-          "Do not use DUNE-owned claims as GLINT proof before DUNE starts; DUNE can appear only as a GLINT-owned boundary target in this candidate.",
-          "Support-only Commander, Yidris, Entropic Uprising, and local card-data material must remain auxiliary support and cannot prove identity or placement.",
-          "UBRG and all same-color permutations remain metadata/query-only and must fail closed as candidate identities."
-        ]
+          "Exact semantic candidate ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6 passed candidate scope from program base 8145b8697ed1d1500c0faecf080b55404ab8ec4e.",
+          "All five Glint claims are substantive_claim with bounded evidence locations and exact source chains.",
+          "Glint semantic readiness fixture exists and covers core inclusion, mature/pressure behavior, nearest collision ambiguity, provenance, all required neighbors, alias rejection, and generic false-positive exclusions.",
+          "GLINT provenance rows are 13 with zero null canonical IDs and zero missing hashes.",
+          "Yore and Dune collision rows now use Glint-owned evidence only; neighbor claim chains remain outside Glint authority.",
+          "UBRG and all permutations remain metadata/query-only and rejected as candidate identities.",
+          "Independent exact-SHA review is required before certification."
+        ],
+        "candidate_workflow_report": "docs/handoffs/2026-07-23-2138-codex-vm533-glint-candidate-workflow.md"
       },
       "certification": {
-        "contract_version": null,
+        "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6",
+        "recovery_commit": "ed11a9194fb3d525b8b7cbf2c0ef8b304e6408c6",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
         "approval_date": null,
-        "certified_at": null
+        "certified_at": null,
+        "candidate_workflow_commit": "PENDING_VM533_CANDIDATE_WORKFLOW_COMMIT_SHA"
       }
     },
     {
