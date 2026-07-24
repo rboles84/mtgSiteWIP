@@ -1,4 +1,4 @@
-# VM-532 — Yore Semantic Recovery
+# VM-532 - Yore Semantic Recovery
 
 ID: VM-532
 Status: In Progress
@@ -7,7 +7,7 @@ Priority: CRIT-001
 Identity key: YORE
 Raw packet: `data/raw-factions/yore/`
 Cohort: four-color
-Contract: v1.1 exact candidate created; awaiting independent exact-SHA review
+Contract: v1.1 exact candidate approved; awaiting separate certification
 
 ## Objective
 
@@ -15,15 +15,15 @@ Recover Yore end to end under CRIT-001: audit the existing packet, bound readine
 
 ## Current State
 
-VM-532 drift preflight was recorded on branch `codex/vm-532-yore-semantic-recovery` and worktree `C:\dev\mtgSiteWIP-crit001-vm532-yore` from exact program base `4529f8615785743d074e3060e13f990941c1a458`. Official Gate 1+2 read-only audit authorized YORE-only Gate 3+4 remediation. Exact semantic candidate `f83b8b90b49a7afe3236f3e7f7ab52a254625d1f` now exists and passed qualification; VM-532 is awaiting independent exact-SHA review. No independent review, certification, program-base advancement, VM-533 work, or Excel update exists.
+VM-532 drift preflight was recorded on branch `codex/vm-532-yore-semantic-recovery` and worktree `C:\dev\mtgSiteWIP-crit001-vm532-yore` from exact program base `4529f8615785743d074e3060e13f990941c1a458`. Official Gate 1+2 read-only audit authorized YORE-only Gate 3+4 remediation. Exact semantic candidate `f83b8b90b49a7afe3236f3e7f7ab52a254625d1f` exists, passed qualification, and received independent exact-SHA review decision `APPROVE EXACT SHA f83b8b90b49a7afe3236f3e7f7ab52a254625d1f` at `PENDING_VM532_INDEPENDENT_REVIEW_SHA`. No certification, program-base advancement, VM-533 work, Glint-shadow incorporation, or Excel update exists.
 
 ## Gates
 
 - [x] Gate 1 - Packet audit and bounded disposition.
 - [x] Gate 2 - Sufficient evidence completion.
-- [ ] Gate 3 — Canonical remediation.
-- [ ] Gate 4 — Generation and validation.
-- [ ] Gate 5 — Independent certification.
+- [x] Gate 3 - Canonical remediation.
+- [x] Gate 4 - Generation and validation.
+- [ ] Gate 5 - Independent certification.
 
 ## Scope Rules
 
@@ -38,14 +38,16 @@ VM-532 drift preflight was recorded on branch `codex/vm-532-yore-semantic-recove
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/handoffs/2026-07-23-1818-codex-vm532-yore-gate1-gate2.md`
-- Candidate recovery SHA: f83b8b90b49a7afe3236f3e7f7ab52a254625d1f
-- Independent reviewer: pending for exact SHA f83b8b90b49a7afe3236f3e7f7ab52a254625d1f
-- Certification commit: pending; certification not authorized
+- Candidate recovery SHA: `f83b8b90b49a7afe3236f3e7f7ab52a254625d1f`
+- Independent reviewer: Codex independent exact-SHA review; decision `APPROVE EXACT SHA f83b8b90b49a7afe3236f3e7f7ab52a254625d1f`; review handoff `docs/handoffs/2026-07-23-2012-codex-vm532-yore-independent-review.md`; review governance commit `PENDING_VM532_INDEPENDENT_REVIEW_SHA`
+- Certification commit: pending; certification not authorized in this review
 
 ## Candidate Workflow
 
 - Exact semantic candidate: `f83b8b90b49a7afe3236f3e7f7ab52a254625d1f`
 - Candidate parent: `0c073a4db20a75ad00d548aa68d6f6dbf387501a`
 - Candidate workflow handoff: `docs/handoffs/2026-07-23-1942-codex-vm532-yore-candidate-workflow.md`
-- Candidate workflow governance commit: pending in this commit
-- Status: awaiting independent exact-SHA review; certification not authorized
+- Candidate workflow governance commit: `80b83039aca88d66baf47486861e38caeb46b229`
+- Independent review handoff: `docs/handoffs/2026-07-23-2012-codex-vm532-yore-independent-review.md`
+- Independent review governance commit: `PENDING_VM532_INDEPENDENT_REVIEW_SHA`
+- Status: approved by independent exact-SHA review; awaiting separate certification
