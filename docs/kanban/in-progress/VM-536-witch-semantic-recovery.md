@@ -1,7 +1,7 @@
-# VM-536 — Witch Semantic Recovery
+﻿# VM-536 â€” Witch Semantic Recovery
 
 ID: VM-536
-Status: Backlog
+Status: In Progress
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: WITCH
@@ -15,11 +15,11 @@ Recover Witch end to end under CRIT-001: audit the existing packet, bound readin
 
 ## Gates
 
-- [ ] Gate 1 — Packet audit and bounded disposition.
-- [ ] Gate 2 — Sufficient evidence completion.
-- [ ] Gate 3 — Canonical remediation.
-- [ ] Gate 4 — Generation and validation.
-- [ ] Gate 5 — Independent certification.
+- [x] Gate 1 - Packet audit and bounded disposition.
+- [x] Gate 2 - Sufficient evidence completion.
+- [ ] Gate 3 â€” Canonical remediation.
+- [ ] Gate 4 â€” Generation and validation.
+- [ ] Gate 5 â€” Independent certification.
 
 ## Scope Rules
 
@@ -33,7 +33,7 @@ Recover Witch end to end under CRIT-001: audit the existing packet, bound readin
 - Canonical ledger: `docs/incidents/CRIT-001-identity-recovery-ledger.json`
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
-- Audit/recovery report: pending
+- Audit/recovery report: `docs/handoffs/2026-07-24-1744-codex-vm536-witch-gate1-gate2.md`
 - Candidate recovery SHA: pending
 - Independent reviewer: pending
 - Certification commit: pending

@@ -239,3 +239,13 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - Result: CERTIFIED EXACT SHA 9cefe57611552e563ab7601f2f32fc2c9eeac566
 - Counts: 34 of 37 certified; Wave 5 4 of 5 certified.
 - Notes: Certification preserved candidate/workflow/review/certification object separation; RGWU/permutations and required neighbor probes failed closed; preview invariant passed; CRLF-only provenance byte-check warning remains normalized-parity PASS with 2063 entries. No remediation, VM-536 through VM-538 work, or Excel update occurred. Certification commit is intended to become the new program base by exact old-value update-ref.
+
+
+## VM-536 Witch Gate 1+2 - 2026-07-24
+
+- Identity: WITCH / Witch / Growth
+- Program base: `fa88363b7a09ed326a0f15484388e7f2b8fce9ef`
+- Branch/worktree: `codex/vm-536-witch-semantic-recovery` / `C:\\dev\\mtgSiteWIP-crit001-vm536-witch`
+- Result: READY FOR GATE 3 REMEDIATION
+- Baseline: 5 unclassified claims, 13 sources, no fixture, 9 WITCH provenance rows, 4 null canonical IDs, zero missing hashes, INK/YORE collision claim contamination, missing mismatch-guidance evidence mappings, and expected readiness/candidate-scope diagnostics.
+- Boundary: WITCH-only remediation authorized; GWUB/WUBG/permutations metadata-query-only; Growth support/display-only; Atraxa, Breed Lethality, Witch-Maw, Commander support rows, architecture prose, and discovery drafts remain bounded/non-authoritative unless current repository rules explicitly permit their use. VM-537 Colorless and VM-538 WUBRG remain untouched. Excel was not updated by Codex.
