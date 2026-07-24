@@ -11,7 +11,7 @@
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore, VM-533 Glint, and VM-534 Dune certified; VM-535 Ink Gate 1+2 recorded and Gate 3+4 remediation authorized",
+      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore, VM-533 Glint, and VM-534 Dune certified; VM-535 Ink exact candidate ready for independent review",
       "current_program_base": "8a4f273e75842f97debbcdbc70009da7845e41d4",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
@@ -65,7 +65,7 @@
           "WITCH"
         ],
         "current_identity": "INK",
-        "current_identity_status": "gate_1_2_complete",
+        "current_identity_status": "candidate_ready_for_review",
         "next_identity": "WITCH",
         "next_identity_status": "backlog_not_started",
         "certified": "3 of 5",
@@ -109,12 +109,12 @@
       "current_identity_hold": {
         "identity": "INK",
         "card": "VM-535",
-        "state": "gate_1_2_complete",
+        "state": "candidate_ready_for_review",
         "branch": "codex/vm-535-ink-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm535-ink",
         "prior_identity_certified": "DUNE",
         "prior_identity_certification": "8a4f273e75842f97debbcdbc70009da7845e41d4",
-        "gate_1_2_commit": "PENDING_VM535_GATE_1_2_COMMIT_SHA",
+        "gate_1_2_commit": "4305482967f21be4a5c58c2f97fda2a848fc60c2",
         "gate_1_2_report": "docs/handoffs/2026-07-24-0813-codex-vm535-ink-gate1-gate2.md",
         "gate_1_2_result": "READY FOR GATE 3 REMEDIATION",
         "baseline_claim_role_counts": {
@@ -142,8 +142,46 @@
         ],
         "invalid_alias_result_required": "RGWU, WURG, and all same-color permutations must remain metadata/query-only and reject as candidate identities",
         "preview_result": "raw preview disabled; generated identity-layer preview retained",
-        "updated_at": "2026-07-24T08:13:00-06:00",
-        "authorized_next_scope": "INK-only Gate 3+4 semantic remediation and exact candidate workflow. No VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, Excel update by Codex, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, or force operation is authorized by this Gate record."
+        "candidate_sha": "9cefe57611552e563ab7601f2f32fc2c9eeac566",
+        "candidate_parent": "4305482967f21be4a5c58c2f97fda2a848fc60c2",
+        "candidate_parent_proof": "9cefe57611552e563ab7601f2f32fc2c9eeac566^ = 4305482967f21be4a5c58c2f97fda2a848fc60c2",
+        "candidate_workflow_report": "docs/handoffs/2026-07-24-1330-codex-vm535-ink-candidate-workflow.md",
+        "candidate_workflow_sha": "PENDING_VM535_CANDIDATE_WORKFLOW_SHA",
+        "candidate_files": [
+          "data/factions.json",
+          "data/placement-model.json",
+          "data/raw-factions/ink/ink.changelog.json",
+          "data/raw-factions/ink/ink.claims.json",
+          "data/raw-factions/ink/ink.placement.json",
+          "data/raw-factions/ink/ink.profile.json",
+          "data/semantic-readiness-provenance.json",
+          "research/fixtures/semantic-readiness/ink.semantic-fixtures.json"
+        ],
+        "candidate_validation_summary": [
+          "npm.cmd ci passed",
+          "full npm.cmd test passed after adding ignored Scryfall corpus hardlink",
+          "INK semantic readiness passed",
+          "provenance check passed with 2063 entries",
+          "source/generated guardrails passed for INK",
+          "faction-context isolation passed",
+          "parser passed",
+          "placement passed",
+          "semantic-readiness regression bundle passed",
+          "audit target passed"
+        ],
+        "candidate_baseline_after": {
+          "total_claims": 5,
+          "substantive_claim": 5,
+          "unclassified": 0,
+          "provenance_count": 13,
+          "null_canonical_ids": 0,
+          "fixture_count": 30
+        },
+        "candidate_alias_result": "identity-layer aliases remain exactly [\"INK\"]; all 24 RGWU permutations remain metadata/query-only; reject-alias probes passed for RGWU, WURG, and color-order-as-canonical-key",
+        "candidate_neighbor_rejection_result": "DUNE, WITCH, BANT, JESKAI, NAYA, TEMUR, GENERIC_RGWU, GENERIC_FOUR_COLOR_COMMANDER, GENERIC_GROUP_HUG, GENERIC_SHARED_RESOURCES, KYNAIOS_ONLY, STALWART_UNITY_ONLY, INK_TREADER_ONLY, COMMANDER_LEGALITY, OFFICIAL_NAME, and BLACK_PRESENT_COLLAPSE probes passed",
+        "candidate_preview_result": "raw preview_eligible remains false; generated identity-layer preview retained; generated preview matches embedded data/factions.json preview",
+        "updated_at": "2026-07-24T13:30:00-06:00",
+        "authorized_next_scope": "Independent exact-SHA review of 9cefe57611552e563ab7601f2f32fc2c9eeac566 only. No certification, program-base advancement, VM-536 Witch, VM-537 Colorless, VM-538 WUBRG, Excel update by Codex, semantic candidate edit, replacement candidate, GitHub remote authority, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, or force operation is authorized by this workflow record."
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -5598,14 +5636,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_1_2_complete",
+        "current_gate": "candidate_ready_for_review",
         "status": "in_progress",
         "started_at": "2026-07-24T08:13:00-06:00",
-        "gate_entered_at": "2026-07-24T08:13:00-06:00",
+        "gate_entered_at": "2026-07-24T13:30:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WITCH",
-        "primary_disposition": "ready_for_gate_3_remediation"
+        "primary_disposition": "READY FOR INDEPENDENT REVIEW EXACT SHA 9cefe57611552e563ab7601f2f32fc2c9eeac566"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -5628,17 +5666,17 @@
         ],
         "audit_report": "docs/handoffs/2026-07-24-0813-codex-vm535-ink-gate1-gate2.md",
         "residual_findings": [
-          "Gate 1+2 read-only audit authorizes INK-only Gate 3+4 remediation from exact program base 8a4f273e75842f97debbcdbc70009da7845e41d4.",
-          "INK canonical key, Ink / Altruism display, RGWU display metadata, and INK-only accepted alias are frozen; RGWU/WURG/permutations remain metadata/query-only and must fail closed.",
-          "Baseline has 5 unclassified claims, 13 sources, no fixture file, 3 INK provenance entries with zero null canonical IDs and zero missing hashes, stale provenance byte-check diagnostic, and DUNE/WITCH neighbor claim contamination in collision guidance.",
-          "VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG remain backlog/not_started and untouched; Excel was not updated by Codex."
+          "Exact semantic candidate 9cefe57611552e563ab7601f2f32fc2c9eeac566 is ready for independent exact-SHA review from Gate 1+2 parent 4305482967f21be4a5c58c2f97fda2a848fc60c2.",
+          "INK canonical key, Ink / Altruism display, RGWU display metadata, and INK-only accepted alias are preserved; RGWU/WURG/permutations remain metadata-query-only and fail closed.",
+          "Candidate records 5 substantive claims, 13 INK provenance entries with zero null canonical IDs, 30 fixtures, required neighbor rejection probes, and preview invariant preservation.",
+          "No independent review or certification has occurred. Program base remains 8a4f273e75842f97debbcdbc70009da7845e41d4; VM-536 Witch, VM-537 Colorless, and VM-538 WUBRG remain backlog/not_started and untouched; Excel was not updated by Codex."
         ]
       },
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "candidate_recovery_sha": "9cefe57611552e563ab7601f2f32fc2c9eeac566",
+        "recovery_commit": "PENDING_VM535_CANDIDATE_WORKFLOW_SHA",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,

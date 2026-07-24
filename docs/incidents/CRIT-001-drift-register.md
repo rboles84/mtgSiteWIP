@@ -200,3 +200,18 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - Result: READY FOR GATE 3 REMEDIATION
 - Baseline: 5 unclassified claims, 13 sources, no fixture, 3 INK provenance rows, zero null canonical IDs, zero missing hashes, DUNE/WITCH collision contamination, and expected readiness/provenance diagnostics.
 - Boundary: INK-only remediation authorized; RGWU/WURG/permutations metadata-query-only; VM-536 through VM-538 remain untouched; Excel was not updated by Codex.
+
+
+## VM-535 Ink Candidate Workflow - 2026-07-24
+
+- Identity: INK / Ink / Altruism
+- Program base: `8a4f273e75842f97debbcdbc70009da7845e41d4`
+- Gate 1+2 governance: `4305482967f21be4a5c58c2f97fda2a848fc60c2`
+- Exact candidate: `9cefe57611552e563ab7601f2f32fc2c9eeac566`
+- Parent proof: `9cefe57611552e563ab7601f2f32fc2c9eeac566^ = 4305482967f21be4a5c58c2f97fda2a848fc60c2`
+- Candidate files: `data/factions.json`, `data/placement-model.json`, `data/raw-factions/ink/ink.changelog.json`, `data/raw-factions/ink/ink.claims.json`, `data/raw-factions/ink/ink.placement.json`, `data/raw-factions/ink/ink.profile.json`, `data/semantic-readiness-provenance.json`, `research/fixtures/semantic-readiness/ink.semantic-fixtures.json`.
+- Baseline movement: before 5 claims, 0 substantive / 5 unclassified, 9 INK provenance rows, 4 null canonical IDs, no fixture; after 5 claims, 5 substantive / 0 unclassified, 13 INK provenance rows, 0 null canonical IDs, 30 fixtures.
+- Validation: npm.cmd ci PASS; full npm.cmd test PASS after ignored Scryfall corpus hardlink; INK semantic readiness PASS; provenance check PASS with 2063 entries; source/generated guardrails PASS for INK; faction-context isolation PASS; parser PASS; placement PASS; semantic-readiness regression bundle PASS; audit target PASS.
+- Boundary: aliases remain exactly `["INK"]`; RGWU/WURG/permutations metadata-query-only and reject alias probes passed; required neighbor rejection probes passed; raw preview_eligible remains false and generated preview equals embedded data/factions.json preview.
+- Result: READY FOR INDEPENDENT REVIEW EXACT SHA 9cefe57611552e563ab7601f2f32fc2c9eeac566
+- Notes: No independent review, certification, program-base advancement, Excel update, VM-536 through VM-538 work, semantic candidate edit, replacement candidate, GitHub remote authority, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, or force operation occurred.
