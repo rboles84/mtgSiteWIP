@@ -1,12 +1,12 @@
 # Vox Mana
 
-Vox Mana helps Commander players discover, understand, and explain the kinds of games they enjoy most.
+Vox Mana helps Commander players discover, understand, and explain the kinds of games they enjoy most. It is a Commander identity and taste compass that helps players understand their color signals, play patterns, placement, and browsing direction before they build or compare decks elsewhere.
 
-It is a Commander identity and taste compass for Magic: The Gathering players. Vox Mana helps you understand your color signals, play patterns, placement, and browsing direction before you build or compare decks elsewhere.
-
-Try it at [voxmana.io](https://voxmana.io/).
+Explore Vox Mana: [voxmana.io](https://voxmana.io/).
 
 It is not a deckbuilder, card database, rules engine, EDHREC clone, generic MTG wiki, or purchasing/recommendation authority.
+
+Vox Mana complements deckbuilding and card-search tools by helping players understand why they enjoy particular Commander experiences before deciding what to build.
 
 ## Quick Links
 
@@ -52,9 +52,7 @@ Most public use can happen without signing in. Some flows use browser storage fo
 
 ## Current Status
 
-Vox Mana is in active development. Core public experiences are available while validation, editorial refinement, accessibility, and cross-device testing continue.
-
-The underlying placement model is maintained through an internal validation and regression process. Public experiences continue to evolve as research, editorial review, accessibility, and cross-device testing progress.
+Vox Mana is in active development. Core public experiences are available while validation, editorial refinement, accessibility, and cross-device testing continue. The underlying placement model is maintained through an internal validation and regression process.
 
 ## Local Development
 
@@ -89,19 +87,19 @@ npm run test:browser-smoke
 
 | Path | What lives there |
 | --- | --- |
-| `index.html` | Canonical public home route. |
+| `index.html` | Public site entry point. |
 | `archscry/`, `maze/`, `strategium/`, `apocrypha/` | Primary public application routes. |
-| `privacy/`, `terms/` | Public privacy and terms pages. |
-| `assets/` | Shared CSS, JavaScript, images, fonts, route behavior, and frontend support code. |
-| `data/` | Runtime data, source-governed data, schemas, generated artifacts, and Scryfall-derived indexes. |
-| `research/` | Placement, parser, dossier, source, and artifact-building scripts. |
-| `scripts/` | Validation, smoke-test, Scryfall, and utility scripts. |
-| `docs/reference/` | Current workflow, contracts, source/generated rules, and operational references. |
-| `docs/architecture/` | System maps, route ownership, data flow, and implementation architecture. |
-| `docs/research/` | Source packets, ledgers, and research material. |
-| `docs/qa/` | QA plans, scorecards, visual-readiness notes, and test evidence. |
-| `docs/kanban/` | File-based project board and work cards. |
-| `docs/handoffs/` | Agent handoff records and the handoff index. |
+| `privacy/`, `terms/` | Public policy pages. |
+| `assets/` | Shared frontend assets (CSS, JavaScript, images, fonts). |
+| `data/` | Runtime data, schemas, and generated artifacts. |
+| `research/` | Research tooling and artifact generation. |
+| `scripts/` | Validation, testing, and utility scripts. |
+| `docs/reference/` | Workflow, operational guidance, and reference documentation. |
+| `docs/architecture/` | System architecture and data flow. |
+| `docs/research/` | Research packets, evidence, and supporting material. |
+| `docs/qa/` | QA plans, test evidence, and validation notes. |
+| `docs/kanban/` | Project board and work items. |
+| `docs/handoffs/` | Handoff records and project history. |
 
 ## Contributing Safely
 
