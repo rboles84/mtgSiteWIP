@@ -5,14 +5,14 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "WITCH",
+    "active_identity": null,
     "next_identity": "COLORLESS",
-    "certified_identity_count": 34,
+    "certified_identity_count": 35,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 5 four-color identities in progress; VM-532 Yore, VM-533 Glint, VM-534 Dune, and VM-535 Ink certified; VM-536 Witch Gate 1+2 recorded and remediation authorized",
-      "current_program_base": "fa88363b7a09ed326a0f15484388e7f2b8fce9ef",
+      "next_cohort": "Wave 5 four-color identities complete; VM-532 Yore, VM-533 Glint, VM-534 Dune, VM-535 Ink, and VM-536 Witch certified; VM-537 Colorless remains backlog/not started",
+      "current_program_base": "PENDING_VM536_CERTIFICATION_COMMIT_SHA",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -56,7 +56,7 @@
         "completed_at": "2026-07-23T12:15:00-06:00"
       },
       "wave_5_four_color": {
-        "status": "in_progress",
+        "status": "complete",
         "order": [
           "YORE",
           "GLINT",
@@ -64,21 +64,24 @@
           "INK",
           "WITCH"
         ],
-        "current_identity": "WITCH",
-        "current_identity_status": "gate_1_2_complete_remediation_authorized",
+        "current_identity": null,
+        "current_identity_status": "wave_complete",
         "next_identity": "COLORLESS",
         "next_identity_status": "backlog_not_started",
-        "certified": "4 of 5",
+        "certified": "5 of 5",
         "started_by": "PENDING_VM532_DRIFT_PREFLIGHT_COMMIT_SHA",
         "started_at": "2026-07-23T16:46:00-06:00",
-        "latest_certification": "PENDING_VM535_CERTIFICATION_COMMIT_SHA",
-        "latest_certified_identity": "INK",
+        "latest_certification": "PENDING_VM536_CERTIFICATION_COMMIT_SHA",
+        "latest_certified_identity": "WITCH",
         "identities_certified": [
           "YORE",
           "GLINT",
           "DUNE",
-          "INK"
-        ]
+          "INK",
+          "WITCH"
+        ],
+        "completed_by": "PENDING_VM536_CERTIFICATION_COMMIT_SHA",
+        "completed_at": "2026-07-24T18:41:00-06:00"
       }
     },
     "wip_limit": 1,
@@ -110,7 +113,7 @@
       "current_identity_hold": {
         "identity": "WITCH",
         "card": "VM-536",
-        "state": "candidate_created_ready_for_independent_review",
+        "state": "certification_complete",
         "branch": "codex/vm-536-witch-semantic-recovery",
         "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm536-witch",
         "prior_identity_certified": "INK",
@@ -193,8 +196,19 @@
         "candidate_alias_result": "identity-layer aliases remain exactly [\"WITCH\"]; all 24 GWUB same-color permutations, including WUBG support-source order, remain metadata/query-only and have no canonical generated keys",
         "candidate_neighbor_rejection_result": "INK, YORE, GLINT, DUNE, BANT, ESPER, SULTAI, ABZAN, WG, UG, BG, WU, WB, UB, GENERIC_GWUB, GENERIC_FOUR_COLOR_COMMANDER, GENERIC_COUNTERS, GENERIC_PROLIFERATE, GENERIC_ATRAXA, INFECT_ONLY, SUPERFRIENDS_ONLY, PHYREXIA_ONLY, WITCH_MAW_ONLY, BREED_LETHALITY_ONLY, GROWTH_ONLY, COMMANDER_LEGALITY, OFFICIAL_NAME, and RED_PRESENT_COLLAPSE fixtures are present as WITCH rejection boundaries",
         "candidate_preview_result": "raw preview_eligible remains false; generated identity-layer preview retained; no data/identity-layers.json source-preview edit occurred",
-        "updated_at": "2026-07-24T18:01:00-06:00",
-        "authorized_next_scope": "Independent review may review only exact candidate acaf51a4f7e11d73b59fcc61397dcab2cb39e490. Certification is not authorized until a separate exact-SHA approval exists. VM-537 Colorless and VM-538 WUBRG remain backlog/not started."
+        "updated_at": "2026-07-24T18:41:00-06:00",
+        "authorized_next_scope": "VM-537 Colorless remains backlog/not started and may receive only a separate committed drift-preflight control record before Gate 1+2 semantic work. VM-538 WUBRG remains backlog/not started.",
+        "certification_commit": "PENDING_VM536_CERTIFICATION_COMMIT_SHA",
+        "certification_handoff": "docs/handoffs/2026-07-24-1841-codex-vm536-witch-certification.md",
+        "recovery_summary": "docs/incidents/recoveries/VM-536-witch-semantic-recovery.md",
+        "approval_review_sha": "5a5291f50fc90cfc3f3592e53cb7ae9907b57309",
+        "approval_review_handoff": "docs/handoffs/2026-07-24-1820-codex-vm536-witch-independent-review.md",
+        "review_decision": "APPROVE EXACT SHA acaf51a4f7e11d73b59fcc61397dcab2cb39e490",
+        "certification_status": "certified_semantically_ready",
+        "certified_at": "2026-07-24T18:41:00-06:00",
+        "certified_identity_count": "35 of 37",
+        "wave_5_certified": "5 of 5",
+        "wave_5_status": "complete"
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -205,18 +219,22 @@
         "Begin Simic Goal mode only after the drift preflight reports no FAIL or UNKNOWN controls."
       ],
       "last_certification": {
-        "identity": "INK",
-        "card": "VM-535",
-        "candidate_sha": "9cefe57611552e563ab7601f2f32fc2c9eeac566",
-        "candidate_workflow_sha": "fb50d26f011a75d35032f4e1bd1db83eeb70c752",
+        "identity": "WITCH",
+        "card": "VM-536",
+        "candidate_sha": "acaf51a4f7e11d73b59fcc61397dcab2cb39e490",
+        "superseded_candidates": [
+          "96f8ee3259a5010e96ba92aea35ae271eb692ac8"
+        ],
+        "candidate_workflow_sha": "f654abd2ad52ae41571e6b476bc26a87e90de514",
         "gate_3_4_workflow_sha": null,
-        "approval_review_sha": "df6a9aa38c52908d08f12696e5ab7a1503048ff1",
-        "review_decision": "APPROVE EXACT SHA 9cefe57611552e563ab7601f2f32fc2c9eeac566",
-        "certification_commit": "PENDING_VM535_CERTIFICATION_COMMIT_SHA",
-        "certified_at": "2026-07-24T17:24:00-06:00",
+        "approval_review_sha": "5a5291f50fc90cfc3f3592e53cb7ae9907b57309",
+        "review_decision": "APPROVE EXACT SHA acaf51a4f7e11d73b59fcc61397dcab2cb39e490",
+        "certification_commit": "PENDING_VM536_CERTIFICATION_COMMIT_SHA",
+        "certification_handoff": "docs/handoffs/2026-07-24-1841-codex-vm536-witch-certification.md",
+        "certified_at": "2026-07-24T18:41:00-06:00",
         "final_state": "semantically_ready",
         "contract_version": "v1.1",
-        "reviewed_provenance_count": 13,
+        "reviewed_provenance_count": 12,
         "evidence_locator_count": "bounded evidence locations on all 5 substantive claims",
         "claim_role_counts": {
           "total": 5,
@@ -232,14 +250,15 @@
           "support-only": 5
         },
         "candidate_scope_result": "PASS",
-        "invalid_alias_result": "RGWU and all 23 same-color permutations rejected as unknown identities",
-        "neighbor_rejection_result": "DUNE, WITCH, BANT, JESKAI, NAYA, TEMUR, GENERIC_RGWU, GENERIC_FOUR_COLOR_COMMANDER, GENERIC_GROUP_HUG, GENERIC_SHARED_RESOURCES, KYNAIOS_ONLY, STALWART_UNITY_ONLY, INK_TREADER_ONLY, COMMANDER_LEGALITY, OFFICIAL_NAME, and BLACK_PRESENT_COLLAPSE rejected the Ink candidate range",
-        "fixture_count": 30,
-        "wave_5_certified": "4 of 5",
-        "total_certified": 34,
-        "next_identity": "WITCH",
+        "invalid_alias_result": "GWUB, WUBG, and all 24 same-color permutations remained metadata-only/non-canonical; WITCH remains the only accepted alias",
+        "neighbor_rejection_result": "INK, YORE, GLINT, DUNE, BANT, ESPER, SULTAI, ABZAN, WG, UG, BG, WU, WB, UB, GENERIC_GWUB, GENERIC_FOUR_COLOR_COMMANDER, GENERIC_COUNTERS, GENERIC_PROLIFERATE, GENERIC_ATRAXA, INFECT_ONLY, SUPERFRIENDS_ONLY, PHYREXIA_ONLY, WITCH_MAW_ONLY, BREED_LETHALITY_ONLY, GROWTH_ONLY, COMMANDER_LEGALITY, OFFICIAL_NAME, and RED_PRESENT_COLLAPSE rejected the Witch candidate range",
+        "fixture_count": 37,
+        "wave_5_certified": "5 of 5",
+        "wave_5_status": "complete",
+        "total_certified": 35,
+        "next_identity": "COLORLESS",
         "next_identity_status": "backlog_not_started",
-        "prior_program_base": "8a4f273e75842f97debbcdbc70009da7845e41d4"
+        "prior_program_base": "fa88363b7a09ed326a0f15484388e7f2b8fce9ef"
       }
     },
     "rejected_prerequisite_candidates": [
@@ -5713,14 +5732,13 @@
       "computed": {
         "structural_fingerprint": [
           "low-volume-pattern",
-          "support-heavy-pattern",
-          "invalid-reference-pattern"
+          "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 5,
           "discovery_record": 0,
           "support_record": 0,
-          "unclassified": 5
+          "unclassified": 0
         },
         "source_count": 13,
         "source_role_counts": {
@@ -5731,25 +5749,8 @@
         },
         "claim_bearing_source_count": 3,
         "claim_bearing_source_rate": 0.2308,
-        "reference_site_count": 9,
-        "missing_references": [
-          {
-            "pointer": "data/raw-factions/witch/witch.placement.json#/collision_guidance/pairs/0",
-            "claim_id": "ink_claim_0003"
-          },
-          {
-            "pointer": "data/raw-factions/witch/witch.placement.json#/collision_guidance/pairs/0",
-            "claim_id": "ink_claim_0005"
-          },
-          {
-            "pointer": "data/raw-factions/witch/witch.placement.json#/collision_guidance/pairs/1",
-            "claim_id": "yore_claim_0003"
-          },
-          {
-            "pointer": "data/raw-factions/witch/witch.placement.json#/collision_guidance/pairs/1",
-            "claim_id": "yore_claim_0004"
-          }
-        ],
+        "reference_site_count": 12,
+        "missing_references": [],
         "potential_role_invalid_support_links": [],
         "raw_question_count": 3,
         "unique_question_claim_ids": [
@@ -5766,23 +5767,22 @@
         "readiness_mentions": [],
         "provisional_risk_indicators": {
           "coverage": [
-            "low-record-volume",
-            "no-explicit-substantive-role"
+            "low-record-volume"
           ],
           "neighbors": []
         },
         "template_cohort_pattern": false,
-        "inventory_updated_at": "2026-07-11T18:42:33.624Z"
+        "inventory_updated_at": "2026-07-24T18:41:00-06:00"
       },
       "workflow": {
-        "current_gate": "candidate_created",
-        "status": "ready_for_independent_review",
+        "current_gate": "certification_complete",
+        "status": "certified_semantically_ready",
         "started_at": "2026-07-24T17:44:00-06:00",
-        "gate_entered_at": "2026-07-24T18:01:00-06:00",
+        "gate_entered_at": "2026-07-24T18:41:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "COLORLESS",
-        "primary_disposition": "READY FOR INDEPENDENT REVIEW EXACT SHA acaf51a4f7e11d73b59fcc61397dcab2cb39e490"
+        "primary_disposition": "CERTIFIED EXACT SHA acaf51a4f7e11d73b59fcc61397dcab2cb39e490"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -5815,26 +5815,27 @@
           "OFFICIAL_NAME",
           "RED_PRESENT_COLLAPSE"
         ],
-        "audit_report": "docs/handoffs/2026-07-24-1801-codex-vm536-witch-candidate-workflow.md",
+        "audit_report": "docs/handoffs/2026-07-24-1820-codex-vm536-witch-independent-review.md",
         "residual_findings": [
-          "Final WITCH semantic candidate acaf51a4f7e11d73b59fcc61397dcab2cb39e490 was created from Gate 1+2 b16e8f60c73e868fee628f3510cdd1aa670cdfc0; superseded candidate 96f8ee3259a5010e96ba92aea35ae271eb692ac8 remains recorded and unreviewed.",
-          "Final candidate records 5 substantive claims, 13 sources, 12 WITCH provenance rows, zero null canonical IDs, zero missing hashes, and 37 semantic fixtures.",
-          "Collision proof chains are WITCH-owned; INK/YORE claim IDs were removed from WITCH authoritative proof chains and retained only as neighbor concepts in text.",
-          "GWUB, WUBG, and all 24 same-color permutations remain metadata-query-only; accepted aliases remain exactly WITCH.",
-          "Raw preview remains disabled and no source-preview exception or data/identity-layers.json edit was introduced.",
-          "VM-537 Colorless and VM-538 WUBRG remain backlog/not_started and untouched; Excel was not updated by Codex."
+          "Independent exact-SHA review approved candidate acaf51a4f7e11d73b59fcc61397dcab2cb39e490 from Gate 1+2 b16e8f60c73e868fee628f3510cdd1aa670cdfc0 and workflow parent f654abd2ad52ae41571e6b476bc26a87e90de514.",
+          "Superseded candidate 96f8ee3259a5010e96ba92aea35ae271eb692ac8 remains recorded, unapproved, and uncertified.",
+          "WITCH canonical key, Witch / Growth display, GWUB display metadata, and WITCH-only accepted alias are preserved; GWUB/WUBG/permutations remain metadata-only and non-canonical.",
+          "Review and certification verified 5 substantive claims, 13 sources, 12 WITCH provenance entries with zero null canonical IDs/hashes, 37 fixtures, WITCH-owned INK/YORE collision chains, required neighbor rejection fixtures, and preview invariant preservation.",
+          "Certification validation passed npm.cmd ci, full npm.cmd test after ignored Scryfall corpus hardlink, WITCH semantic readiness with fixtures, source/generated guardrails, parser, placement, faction-context, exact candidate-scope, GWUB permutation probes, required neighbor rejection probes, preview invariant, and normalized provenance parity with 2066 entries.",
+          "The byte-strict provenance check and final provenance step of npm.cmd run test:semantic-readiness reported the known CRLF-only stale warning; normalized rendered-manifest parity passed.",
+          "No remediation occurred. Program base advances only through the VM-536 certification governance commit; VM-537 Colorless and VM-538 WUBRG remain backlog/not_started and untouched; Excel was not updated by Codex."
         ]
       },
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "acaf51a4f7e11d73b59fcc61397dcab2cb39e490",
-        "recovery_commit": "PENDING_VM536_CANDIDATE_WORKFLOW_SHA",
-        "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
-        "certified_at": null,
+        "recovery_commit": "f654abd2ad52ae41571e6b476bc26a87e90de514",
+        "certification_commit": "PENDING_VM536_CERTIFICATION_COMMIT_SHA",
+        "reviewer": "docs/handoffs/2026-07-24-1820-codex-vm536-witch-independent-review.md",
+        "review_cycles": 1,
+        "approval_date": "2026-07-24",
+        "certified_at": "2026-07-24T18:41:00-06:00",
         "superseded_candidates": [
           {
             "candidate_sha": "96f8ee3259a5010e96ba92aea35ae271eb692ac8",
@@ -5842,8 +5843,13 @@
           }
         ],
         "candidate_workflow_handoff": "docs/handoffs/2026-07-24-1801-codex-vm536-witch-candidate-workflow.md",
-        "candidate_workflow_commit": "PENDING_VM536_CANDIDATE_WORKFLOW_SHA",
-        "final_state": "awaiting_independent_review",
+        "candidate_workflow_commit": "f654abd2ad52ae41571e6b476bc26a87e90de514",
+        "approval_review_handoff": "docs/handoffs/2026-07-24-1820-codex-vm536-witch-independent-review.md",
+        "approval_review_sha": "5a5291f50fc90cfc3f3592e53cb7ae9907b57309",
+        "review_decision": "APPROVE EXACT SHA acaf51a4f7e11d73b59fcc61397dcab2cb39e490",
+        "certification_handoff": "docs/handoffs/2026-07-24-1841-codex-vm536-witch-certification.md",
+        "recovery_summary": "docs/incidents/recoveries/VM-536-witch-semantic-recovery.md",
+        "final_state": "semantically_ready",
         "claim_role_counts": {
           "total": 5,
           "substantive_claim": 5,
@@ -5855,9 +5861,9 @@
         "fixture_count": 37,
         "known_unchanged_warnings": [
           "Git reports permission denied for C:\\Users\\obake/.config/git/ignore.",
-          "npm.cmd ci reports inherited audit vulnerabilities: 17 moderate and 2 high; package and lockfile unchanged.",
           "npm.cmd test required an ignored hardlink to the local Scryfall corpus at data/scryfall/raw/oracle-cards.json.",
-          "docs/audits/gate-compression/live-gate-bias.json and .md were touched as CRLF/stat-only validation byproducts with no content diff."
+          "docs/audits/gate-compression/live-gate-bias.json and .md were touched as CRLF/stat-only validation byproducts with no content diff.",
+          "Byte-strict semantic provenance check reports stale on Windows line endings; normalized parity passes with 2066 entries."
         ]
       }
     },

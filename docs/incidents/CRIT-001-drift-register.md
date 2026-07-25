@@ -258,3 +258,13 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - DRIFT-017/DRIFT-019: Candidate review boundary keeps support-only Commander/deck/mechanics rows, unmanaged discovery drafts, and copied/generic texture out of authoritative proof chains unless source roles permit them; full validation required locked dependency install plus ignored Scryfall corpus hardlink.
 - DRIFT-020: Candidate did not use the source-preview exception and did not modify validator/test implementation.
 - Candidate scope: WITCH-only source/generated/fixture recovery; VM-537 Colorless, VM-538 WUBRG, Excel, GitHub remote authority, push, PR, merge, review, and certification were untouched.
+
+## VM-536 Witch Certification - 2026-07-24
+
+- DRIFT-014: VM-536 certification preserved candidate/workflow/review/certification object separation; only exact approved candidate `acaf51a4f7e11d73b59fcc61397dcab2cb39e490` was certified, while superseded candidate `96f8ee3259a5010e96ba92aea35ae271eb692ac8`, workflow `f654abd2ad52ae41571e6b476bc26a87e90de514`, and approval review `5a5291f50fc90cfc3f3592e53cb7ae9907b57309` remain distinct.
+- DRIFT-015: No Witch preview-source edit entered certification; `data/identity-layers.json` remained outside the candidate and certification scope, raw preview remained disabled, and generated identity-layer preview stayed equal to the embedded `data/factions.json` preview.
+- DRIFT-016: Candidate-scope regression and exact WITCH candidate scope passed; GWUB, WUBG, and all 24 same-color permutations remained metadata-only/non-canonical, and 28 required neighbor/generic rejection fixtures were present.
+- DRIFT-017/DRIFT-019: Active-consumer and copied-string boundaries stayed outside certification; no support-only Commander/deck/mechanics rows, unmanaged discovery drafts, copied/generic texture, VM-537 Colorless, or VM-538 WUBRG content was promoted.
+- DRIFT-020: Certification did not use the source-preview exception and did not modify validator/test implementation.
+- Certification scope: governance-only; WITCH source, generated semantic data, fixtures, provenance source, runtime, validator/test implementation, package, CI, Excel, GitHub remote authority, VM-537 Colorless, and VM-538 WUBRG were untouched.
+- Program base: `PENDING_VM536_CERTIFICATION_COMMIT_SHA`; certified identity count advances to 35 of 37 and Wave 5 four-color identities are 5 of 5 certified and complete.

@@ -1,7 +1,7 @@
 ﻿# VM-536 â€” Witch Semantic Recovery
 
 ID: VM-536
-Status: In Progress
+Status: Complete
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: WITCH
@@ -19,7 +19,7 @@ Recover Witch end to end under CRIT-001: audit the existing packet, bound readin
 - [x] Gate 2 - Sufficient evidence completion.
 - [x] Gate 3 - Canonical remediation.
 - [x] Gate 4 - Generation and validation.
-- [ ] Gate 5 â€” Independent certification.
+- [x] Gate 5 â€” Independent certification.
 
 ## Scope Rules
 
@@ -37,5 +37,19 @@ Recover Witch end to end under CRIT-001: audit the existing packet, bound readin
 - Candidate workflow report: `docs/handoffs/2026-07-24-1801-codex-vm536-witch-candidate-workflow.md`
 - Candidate recovery SHA: `acaf51a4f7e11d73b59fcc61397dcab2cb39e490`
 - Superseded candidate SHA: `96f8ee3259a5010e96ba92aea35ae271eb692ac8`
-- Independent reviewer: pending
-- Certification commit: pending
+- Independent reviewer: `docs/handoffs/2026-07-24-1820-codex-vm536-witch-independent-review.md`
+- Certification commit: `PENDING_VM536_CERTIFICATION_COMMIT_SHA`
+
+## Certification
+
+Certified semantically ready from exact approved candidate `acaf51a4f7e11d73b59fcc61397dcab2cb39e490`.
+
+Independent review decision: `APPROVE EXACT SHA acaf51a4f7e11d73b59fcc61397dcab2cb39e490`.
+
+Superseded candidate `96f8ee3259a5010e96ba92aea35ae271eb692ac8` remains recorded, unapproved, and uncertified.
+
+Certified count: 35 of 37.
+
+Wave 5: 5 of 5 certified and complete.
+
+VM-537 Colorless and VM-538 WUBRG remain backlog/not started and untouched. Excel was not updated by Codex.
