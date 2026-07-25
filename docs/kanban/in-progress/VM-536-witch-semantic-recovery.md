@@ -7,7 +7,7 @@ Priority: CRIT-001
 Identity key: WITCH
 Raw packet: `data/raw-factions/witch/`
 Cohort: four-color
-Contract: pending Contract v1
+Contract: CRIT-001 Contract v1.1
 
 ## Objective
 
@@ -17,8 +17,8 @@ Recover Witch end to end under CRIT-001: audit the existing packet, bound readin
 
 - [x] Gate 1 - Packet audit and bounded disposition.
 - [x] Gate 2 - Sufficient evidence completion.
-- [ ] Gate 3 â€” Canonical remediation.
-- [ ] Gate 4 â€” Generation and validation.
+- [x] Gate 3 - Canonical remediation.
+- [x] Gate 4 - Generation and validation.
 - [ ] Gate 5 â€” Independent certification.
 
 ## Scope Rules
@@ -34,6 +34,8 @@ Recover Witch end to end under CRIT-001: audit the existing packet, bound readin
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/handoffs/2026-07-24-1744-codex-vm536-witch-gate1-gate2.md`
-- Candidate recovery SHA: pending
+- Candidate workflow report: `docs/handoffs/2026-07-24-1801-codex-vm536-witch-candidate-workflow.md`
+- Candidate recovery SHA: `acaf51a4f7e11d73b59fcc61397dcab2cb39e490`
+- Superseded candidate SHA: `96f8ee3259a5010e96ba92aea35ae271eb692ac8`
 - Independent reviewer: pending
 - Certification commit: pending

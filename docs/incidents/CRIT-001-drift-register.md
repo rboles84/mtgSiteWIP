@@ -249,3 +249,12 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - Result: READY FOR GATE 3 REMEDIATION
 - Baseline: 5 unclassified claims, 13 sources, no fixture, 9 WITCH provenance rows, 4 null canonical IDs, zero missing hashes, INK/YORE collision claim contamination, missing mismatch-guidance evidence mappings, and expected readiness/candidate-scope diagnostics.
 - Boundary: WITCH-only remediation authorized; GWUB/WUBG/permutations metadata-query-only; Growth support/display-only; Atraxa, Breed Lethality, Witch-Maw, Commander support rows, architecture prose, and discovery drafts remain bounded/non-authoritative unless current repository rules explicitly permit their use. VM-537 Colorless and VM-538 WUBRG remain untouched. Excel was not updated by Codex.
+
+## VM-536 Candidate Workflow Update - 2026-07-24
+
+- DRIFT-014: VM-536 candidate workflow preserves candidate/workflow separation; exact semantic candidate `acaf51a4f7e11d73b59fcc61397dcab2cb39e490` is ready for independent review, while superseded candidate `96f8ee3259a5010e96ba92aea35ae271eb692ac8` remains recorded and unapproved.
+- DRIFT-015: No Witch preview-source edit entered the candidate; `data/identity-layers.json` remained outside scope, raw preview remains disabled, and generated identity-layer preview remains retained.
+- DRIFT-016: Exact candidate-scope validation passed for `WITCH` from Gate 1+2 `b16e8f60c73e868fee628f3510cdd1aa670cdfc0` to candidate `acaf51a4f7e11d73b59fcc61397dcab2cb39e490`; GWUB, WUBG, and all 24 same-color permutations remain metadata-query-only and are not canonical keys.
+- DRIFT-017/DRIFT-019: Candidate review boundary keeps support-only Commander/deck/mechanics rows, unmanaged discovery drafts, and copied/generic texture out of authoritative proof chains unless source roles permit them; full validation required locked dependency install plus ignored Scryfall corpus hardlink.
+- DRIFT-020: Candidate did not use the source-preview exception and did not modify validator/test implementation.
+- Candidate scope: WITCH-only source/generated/fixture recovery; VM-537 Colorless, VM-538 WUBRG, Excel, GitHub remote authority, push, PR, merge, review, and certification were untouched.
