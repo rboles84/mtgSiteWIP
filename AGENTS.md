@@ -25,6 +25,19 @@ For any non-trivial work, the main agent must follow:
 
 Do not work from blank context.
 
+## Optional Work Intake Triage
+
+For non-CRIT, non-certification, non-destructive, non-migration work, an agent may run a lightweight intake check before planning when scope is ambiguous or likely to exceed one window.
+
+Record:
+
+1. Verdict: proceed, shrink, table, or stop.
+2. Smallest safe version.
+3. Review level.
+4. Stop condition.
+
+This triage cannot weaken existing program, CRIT-001, source-authority, MTG factual, Kanban, handoff, or destructive-change governance. If another card, prompt, or program requires stricter workflow, the stricter rule wins.
+
 ## Mandatory Pre-Flight Review
 
 Before starting any planning, implementation, documentation, JSON/data, or testing task, review:
