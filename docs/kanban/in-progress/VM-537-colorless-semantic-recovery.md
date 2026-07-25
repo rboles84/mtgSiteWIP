@@ -17,8 +17,8 @@ Recover Colorless end to end under CRIT-001: audit the existing packet, bound re
 
 - [x] Gate 1 — Packet audit and bounded disposition.
 - [x] Gate 2 — Sufficient evidence completion.
-- [ ] Gate 3 — Canonical remediation.
-- [ ] Gate 4 — Generation and validation.
+- [x] Gate 3 — Canonical remediation.
+- [x] Gate 4 — Generation and validation.
 - [ ] Gate 5 — Independent certification.
 
 ## Scope Rules
@@ -34,6 +34,7 @@ Recover Colorless end to end under CRIT-001: audit the existing packet, bound re
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
 - Audit/recovery report: `docs/handoffs/2026-07-24-1951-codex-vm537-colorless-gate1-gate2.md`
-- Candidate recovery SHA: pending
+- Candidate workflow report: `docs/handoffs/2026-07-24-2014-codex-vm537-colorless-candidate-workflow.md`
+- Candidate recovery SHA: `ae54c83db22fda6bd48574b3431b64d92e8cf04a`
 - Independent reviewer: pending
 - Certification commit: pending

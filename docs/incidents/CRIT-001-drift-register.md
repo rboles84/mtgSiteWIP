@@ -279,3 +279,14 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - Baseline: 8 unclassified claims, 17 sources, no fixture, 23 COLORLESS provenance rows, 12 null canonical IDs, zero missing hashes, stale provenance, five missing recruiter evidence mappings, and foreign `wubrg_claim_0007` collision contamination.
 - Gate 1+2 scope: governance-only. Colorless raw semantic files, generated semantic data, fixtures, provenance, recruiter source, identity-layer source, runtime, validator/test implementation, package, CI, Excel, GitHub remote authority, protected worktrees, and VM-538 WUBRG were untouched.
 - Result: READY FOR GATE 3 REMEDIATION.
+
+## VM-537 Colorless Candidate Workflow - 2026-07-24
+
+- DRIFT-014: Candidate/workflow separation is preserved. Exact semantic candidate `ae54c83db22fda6bd48574b3431b64d92e8cf04a` has parent Gate 1+2 governance `cb2980e27bbd6283cddc44f76803c9c2dcabf019`; this workflow record is a later governance-only commit.
+- DRIFT-015: `data/identity-layers.json` and the embedded `data/factions.json` COLORLESS preview record remain equal to Gate 1+2. Home preview remains enabled, directory links remain suppressed, and no public route, alias, or recommendation expansion was introduced.
+- DRIFT-016: `COLORLESS` remains the only accepted alias. `C`, `c`, lowercase `colorless`, `{C}`, and `Wastes` fail closed as identity aliases. No color-order or permutation model was introduced.
+- DRIFT-017/DRIFT-019: All 8 substantive claims use bounded claim-bearing evidence chains. Support-only Commander/product rows, comparator-only material, discovery bundles, copied texture, and unverified legality/price/metagame material remain excluded from authoritative proof.
+- DRIFT-020: Exact candidate-scope validation passed from `cb2980e27bbd6283cddc44f76803c9c2dcabf019` to `ae54c83db22fda6bd48574b3431b64d92e8cf04a`. Frozen axes, six discriminator IDs, lateral targets, min-hits `2`, broad penalty `0.12`, calibration state, and the single inhibiting `COLORLESS/WUBRG` collision were preserved.
+- Candidate result: 8 substantive claims, 17 unchanged sources, 28 COLORLESS provenance rows, zero null canonical IDs, zero missing hashes, 24 fixtures, and all 20 required neighbor/endpoint exclusions.
+- Candidate scope: seven COLORLESS source/generated/fixture files. `data/factions.json`, the placement schema, and recruiter output regenerated with no content delta and were not staged. VM-538 WUBRG, Excel, GitHub remote authority, review, certification, push, PR, merge, package, validator, test, runtime, and identity-layer source files were untouched.
+- Result: READY FOR INDEPENDENT REVIEW EXACT SHA `ae54c83db22fda6bd48574b3431b64d92e8cf04a`.
