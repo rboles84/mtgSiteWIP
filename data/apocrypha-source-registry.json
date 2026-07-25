@@ -34,12 +34,16 @@
       "sourceType": [
         "official-design",
         "official-lore",
-        "supplemental-reference"
+        "supplemental-reference",
+        "official-archive",
+        "official-rules"
       ],
       "group": [
         "design",
         "lore",
-        "supplemental"
+        "supplemental",
+        "official-archives",
+        "rules-card-records"
       ],
       "status": [
         "active",
@@ -47,10 +51,12 @@
       ],
       "evidenceRole": [
         "official-support-pending-verification",
-        "supplemental-navigation-only"
+        "supplemental-navigation-only",
+        "official-support"
       ],
       "verificationStatus": [
-        "not-checked"
+        "not-checked",
+        "verified"
       ],
       "auditDisposition": [
         "keep",
@@ -68,14 +74,14 @@
       "url": "https://magic.wizards.com/en/news/making-magic/great-white-way-2003-02-03",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/great-white-way-2003-02-03",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2003-02-03",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "foundational-color-philosophy",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports the public trail for mono-color philosophy and color-pie design as an official Wizards design source.",
       "notFor": "Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -90,16 +96,22 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/great-white-way-2003-02-03",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/great-white-way-2003-02-03",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
@@ -108,14 +120,14 @@
       "url": "https://magic.wizards.com/en/news/making-magic/true-blue-2003-08-11",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/true-blue-2003-08-11",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2003-08-11",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "foundational-color-philosophy",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports the public trail for mono-color philosophy and color-pie design as an official Wizards design source.",
       "notFor": "Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -130,16 +142,22 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/true-blue-2003-08-11",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/true-blue-2003-08-11",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
@@ -148,14 +166,14 @@
       "url": "https://magic.wizards.com/en/news/making-magic/black-2004-02-02",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/black-2004-02-02",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2004-02-02",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "foundational-color-philosophy",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports the public trail for mono-color philosophy and color-pie design as an official Wizards design source.",
       "notFor": "Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -170,16 +188,22 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/black-2004-02-02",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/black-2004-02-02",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification. Gate 1 noted this rendered URL differs from the retained candidate file row.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
@@ -188,14 +212,14 @@
       "url": "https://magic.wizards.com/en/news/making-magic/seeing-red-2004-07-19-0",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/seeing-red-2004-07-19-0",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2004-07-19",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "foundational-color-philosophy",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports the public trail for mono-color philosophy and color-pie design as an official Wizards design source.",
       "notFor": "Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -210,16 +234,22 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/seeing-red-2004-07-19-0",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/seeing-red-2004-07-19-0",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification. Gate 1 noted this rendered URL differs from the retained candidate file row.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
@@ -228,14 +258,14 @@
       "url": "https://magic.wizards.com/en/news/making-magic/its-not-easy-being-green-2002-10-21-0",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/its-not-easy-being-green-2002-10-21-0",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2002-10-21",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "foundational-color-philosophy",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports the public trail for mono-color philosophy and color-pie design as an official Wizards design source.",
       "notFor": "Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -250,16 +280,22 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/its-not-easy-being-green-2002-10-21-0",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/its-not-easy-being-green-2002-10-21-0",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
@@ -268,14 +304,14 @@
       "url": "https://magic.wizards.com/en/news/making-magic/great-white-way-revisited-2015-07-13",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/great-white-way-revisited-2015-07-13",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2015-07-13",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "foundational-color-philosophy",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports the public trail for revisited mono-color philosophy as an official Wizards design source.",
       "notFor": "Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -290,16 +326,22 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/great-white-way-revisited-2015-07-13",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/great-white-way-revisited-2015-07-13",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification. Gate 1 noted this rendered URL differs from the retained candidate file row.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
@@ -308,14 +350,14 @@
       "url": "https://magic.wizards.com/en/news/making-magic/true-blue-revisited-2015-07-20",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/true-blue-revisited-2015-07-20",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2015-07-20",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "foundational-color-philosophy",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports the public trail for revisited mono-color philosophy as an official Wizards design source.",
       "notFor": "Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -330,16 +372,22 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/true-blue-revisited-2015-07-20",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/true-blue-revisited-2015-07-20",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification. Gate 1 noted this rendered URL differs from the retained candidate file row.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
@@ -348,14 +396,14 @@
       "url": "https://magic.wizards.com/en/news/making-magic/black-revisited-2015-07-27",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/black-revisited-2015-07-27",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2015-07-27",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "foundational-color-philosophy",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports the public trail for revisited mono-color philosophy as an official Wizards design source.",
       "notFor": "Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -370,16 +418,22 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/black-revisited-2015-07-27",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/black-revisited-2015-07-27",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification. Gate 1 noted this rendered title differs from the retained candidate file row title.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
@@ -388,14 +442,14 @@
       "url": "https://magic.wizards.com/en/news/making-magic/seeing-red-revisited-2015-08-03",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/seeing-red-revisited-2015-08-03",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2015-08-03",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "foundational-color-philosophy",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports the public trail for revisited mono-color philosophy as an official Wizards design source.",
       "notFor": "Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -410,16 +464,22 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/seeing-red-revisited-2015-08-03",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/seeing-red-revisited-2015-08-03",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification. Gate 1 noted this rendered title differs from the retained candidate file row title.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
@@ -428,14 +488,14 @@
       "url": "https://magic.wizards.com/en/news/making-magic/its-not-easy-being-green-revisited-2015-08-10",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/its-not-easy-being-green-revisited-2015-08-10",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2015-08-10",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "foundational-color-philosophy",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports the public trail for revisited mono-color philosophy as an official Wizards design source.",
       "notFor": "Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -450,16 +510,22 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/its-not-easy-being-green-revisited-2015-08-10",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/its-not-easy-being-green-revisited-2015-08-10",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification. Gate 1 noted this rendered title differs from the retained candidate file row title.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
@@ -707,14 +773,14 @@
       "url": "https://magic.wizards.com/en/news/making-magic/pie-fights-2016-11-14",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/pie-fights-2016-11-14",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2016-11-15",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "current-color-voice-governance",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports color-pie maintenance and design-governance context as an official Wizards design source.",
       "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -728,16 +794,22 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/pie-fights-2016-11-14",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/pie-fights-2016-11-14",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification. Gate 1 noted this rendered URL differs from the retained candidate file row.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
@@ -781,18 +853,18 @@
     },
     {
       "id": "apoc-design-mechanical-color-pie-2021",
-      "title": "The Mechanical Color Pie 2021",
+      "title": "Mechanical Color Pie 2021",
       "url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2021-10-18",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "current-color-voice-governance",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports mechanical color-pie context as an official Wizards design source.",
       "notFor": "Comprehensive rules authority, card legality, card-record truth, or official lore claims unless a later registry record assigns that role.",
       "topics": [
@@ -806,16 +878,22 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
@@ -824,14 +902,14 @@
       "url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021-changes",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021-changes",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2021-10-18",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "current-color-voice-governance",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports mechanical color-pie change tracking as an official Wizards design source.",
       "notFor": "Comprehensive rules authority, card legality, card-record truth, or official lore claims unless a later registry record assigns that role.",
       "topics": [
@@ -845,32 +923,38 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021-changes",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021-changes",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
       "id": "apoc-design-group-think-selesnya",
-      "title": "Group Think (Selesnya)",
+      "title": "Group Think",
       "url": "https://magic.wizards.com/en/news/making-magic/group-think-2005-10-03-0",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/group-think-2005-10-03-0",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2005-10-03",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "ravnica-guild-design",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.",
       "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -884,32 +968,38 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/group-think-2005-10-03-0",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/group-think-2005-10-03-0",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
       "id": "apoc-design-life-and-death-golgari",
-      "title": "Life and Death (Golgari)",
+      "title": "Life and Death",
       "url": "https://magic.wizards.com/en/news/making-magic/life-and-death-2005-10-24-0",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/life-and-death-2005-10-24-0",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2005-10-24",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "ravnica-guild-design",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.",
       "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -923,32 +1013,38 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/life-and-death-2005-10-24-0",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/life-and-death-2005-10-24-0",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
       "id": "apoc-design-pretty-sneaky-sis-dimir",
-      "title": "Pretty Sneaky, Sis (Dimir)",
+      "title": "Pretty Sneaky Sis",
       "url": "https://magic.wizards.com/en/news/making-magic/pretty-sneaky-sis-2005-11-07-0",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/pretty-sneaky-sis-2005-11-07-0",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2005-11-07",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "ravnica-guild-design",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.",
       "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -962,32 +1058,38 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/pretty-sneaky-sis-2005-11-07-0",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/pretty-sneaky-sis-2005-11-07-0",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
       "id": "apoc-design-disorderly-conduct-boros",
-      "title": "Disorderly Conduct (Boros)",
+      "title": "Disorderly Conduct",
       "url": "https://magic.wizards.com/en/news/making-magic/disorderly-conduct-2005-12-05",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/disorderly-conduct-2005-12-05",
       "publisher": "Wizards of the Coast",
-      "author": null,
+      "author": "Mark Rosewater",
       "publishedDate": null,
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "ravnica-guild-design",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.",
       "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -1001,32 +1103,38 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/disorderly-conduct-2005-12-05",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/disorderly-conduct-2005-12-05",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed. Visible byline/title confirmed Mark Rosewater and Disorderly Conduct, but migrated JSON-LD reports 2012-01-02 while the URL and series context indicate the 2005 Ravnica sequence; publishedDate remains null rather than inventing certainty.",
       "auditDisposition": "keep"
     },
     {
       "id": "apoc-design-aaaargh-gruul",
-      "title": "Aaaargh! (Gruul)",
+      "title": "Aaaargh!!!",
       "url": "https://magic.wizards.com/en/news/making-magic/aaaargh-2006-01-30-0",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/aaaargh-2006-01-30-0",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2006-01-30",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "ravnica-guild-design",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.",
       "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -1040,32 +1148,38 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/aaaargh-2006-01-30-0",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/aaaargh-2006-01-30-0",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
       "id": "apoc-design-creative-differences-izzet",
-      "title": "Creative Differences (Izzet)",
+      "title": "Creative Differences",
       "url": "https://magic.wizards.com/en/news/making-magic/creative-differences-2006-02-27-0",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/creative-differences-2006-02-27-0",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2006-02-27",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "ravnica-guild-design",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.",
       "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -1079,32 +1193,38 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/creative-differences-2006-02-27-0",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/creative-differences-2006-02-27-0",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
       "id": "apoc-design-playing-own-rules-orzhov",
-      "title": "Playing by Their Own Rules (Orzhov)",
+      "title": "Playing By Their Own Rules",
       "url": "https://magic.wizards.com/en/news/making-magic/playing-their-own-rules-2006-03-27-0",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/playing-their-own-rules-2006-03-27-0",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2006-03-27",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "ravnica-guild-design",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.",
       "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -1118,32 +1238,38 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/playing-their-own-rules-2006-03-27-0",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/playing-their-own-rules-2006-03-27-0",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
       "id": "apoc-design-slow-and-steady-azorius",
-      "title": "Slow and Steady (Azorius)",
-      "url": "https://magic.wizards.com/en/news/making-magic/slow-and-steady-2006-05-01",
-      "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/slow-and-steady-2006-05-01",
+      "title": "Slow and Steady",
+      "url": "https://magic.wizards.com/en/news/making-magic/slow-and-steady-2006-05-01-0",
+      "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/slow-and-steady-2006-05-01-0",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2006-05-01",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "ravnica-guild-design",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.",
       "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -1157,32 +1283,38 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/slow-and-steady-2006-05-01-0",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/slow-and-steady-2006-05-01-0",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed. Gate 4.5 corrected the registry URL to the verified official -0 URL; hardcoded Apocrypha HTML still points to the unsuffixed URL until Gate 5 rendering replaces it.",
       "auditDisposition": "keep"
     },
     {
       "id": "apoc-design-hedonism-attitude-rakdos",
-      "title": "Hedonism with Attitude (Rakdos)",
+      "title": "Hedonism With Attitude",
       "url": "https://magic.wizards.com/en/news/making-magic/hedonism-attitude-2006-08-14-0",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/hedonism-attitude-2006-08-14-0",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2006-08-14",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "ravnica-guild-design",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.",
       "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -1196,32 +1328,38 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/hedonism-attitude-2006-08-14-0",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/hedonism-attitude-2006-08-14-0",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
       "id": "apoc-design-improving-upon-nature-simic",
-      "title": "Improving Upon Nature (Simic)",
+      "title": "Improving Upon Nature",
       "url": "https://magic.wizards.com/en/news/making-magic/improving-upon-nature-2006-05-29",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/improving-upon-nature-2006-05-29",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2006-05-29",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "ravnica-guild-design",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.",
       "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -1235,16 +1373,22 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/improving-upon-nature-2006-05-29",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/improving-upon-nature-2006-05-29",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
@@ -1327,18 +1471,18 @@
     },
     {
       "id": "apoc-design-peace-love-understanding-bant",
-      "title": "Peace, Love and Understanding (Bant)",
+      "title": "Peace, Love and Understanding",
       "url": "https://magic.wizards.com/en/news/making-magic/peace-love-and-understanding-2008-10-06",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/peace-love-and-understanding-2008-10-06",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2008-10-06",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "alara-shard-and-three-color-design",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports three-color philosophy and shard comparison context as an official Wizards design source.",
       "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -1353,32 +1497,38 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/peace-love-and-understanding-2008-10-06",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/peace-love-and-understanding-2008-10-06",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
       "id": "apoc-design-striving-for-perfection-esper",
-      "title": "Striving for Perfection (Esper)",
+      "title": "Striving For Perfection",
       "url": "https://magic.wizards.com/en/news/making-magic/striving-for-perfection",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/striving-for-perfection",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2008-11-16",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "alara-shard-and-three-color-design",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports three-color philosophy and shard comparison context as an official Wizards design source.",
       "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -1393,32 +1543,38 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/striving-for-perfection",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/striving-for-perfection",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
       "id": "apoc-design-looking-out-number-one-grixis",
-      "title": "Looking Out For Number One (Grixis)",
+      "title": "Looking Out For Number One",
       "url": "https://magic.wizards.com/en/news/making-magic/looking-out-number-one-2008-10-17",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/looking-out-number-one-2008-10-17",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2008-10-20",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "alara-shard-and-three-color-design",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports three-color philosophy and shard comparison context as an official Wizards design source.",
       "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -1433,32 +1589,38 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/looking-out-number-one-2008-10-17",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/looking-out-number-one-2008-10-17",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed. Visible publication date differs from the URL suffix; registry uses the visible/JSON-LD publication date.",
       "auditDisposition": "keep"
     },
     {
       "id": "apoc-design-following-your-heart-jund",
-      "title": "Following Your Heart (Jund)",
+      "title": "Following Your Heart",
       "url": "https://magic.wizards.com/en/news/making-magic/following-your-heart-2008-12-01",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/following-your-heart-2008-12-01",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2008-12-01",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "alara-shard-and-three-color-design",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports three-color philosophy and shard comparison context as an official Wizards design source.",
       "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -1473,32 +1635,38 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/following-your-heart-2008-12-01",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/following-your-heart-2008-12-01",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
       "id": "apoc-design-searching-within-naya",
-      "title": "Searching Within (Naya)",
+      "title": "Searching Within",
       "url": "https://magic.wizards.com/en/news/making-magic/searching-within-2008-11-01",
       "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/searching-within-2008-11-01",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Mark Rosewater",
+      "publishedDate": "2008-11-03",
       "sourceType": "official-design",
       "group": "design",
       "subgroup": "alara-shard-and-three-color-design",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports three-color philosophy and shard comparison context as an official Wizards design source.",
       "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -1513,16 +1681,22 @@
         "apocrypha/index.html#apoc-library-official-wizards"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/searching-within-2008-11-01",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/searching-within-2008-11-01",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed. Visible publication date differs from the URL suffix; registry uses the visible/JSON-LD publication date.",
       "auditDisposition": "keep"
     },
     {
@@ -1611,14 +1785,14 @@
       "url": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03",
       "canonicalUrl": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03",
       "publisher": "Wizards of the Coast",
-      "author": null,
-      "publishedDate": null,
+      "author": "Cassie LaBelle",
+      "publishedDate": "2018-10-03",
       "sourceType": "official-lore",
       "group": "lore",
       "subgroup": "official-lore-and-story",
       "official": true,
       "status": "active",
-      "evidenceRole": "official-support-pending-verification",
+      "evidenceRole": "official-support",
       "usedFor": "Supports guild identity descriptions as an official Wizards lore or feature source.",
       "notFor": "Mechanical color-pie authority, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
       "topics": [
@@ -1633,16 +1807,22 @@
         "apocrypha/index.html#apoc-library-official-lore"
       ],
       "verification": {
-        "status": "not-checked",
-        "checkedAt": null,
-        "method": null,
-        "httpStatus": null,
-        "finalUrl": null,
-        "redirectChain": []
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03",
+            "status": 200,
+            "location": null
+          }
+        ]
       },
       "replacementFor": null,
       "replacedBy": null,
-      "notes": "Network unavailable during Gate 2; link requires later verification.",
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
       "auditDisposition": "keep"
     },
     {
@@ -1998,6 +2178,533 @@
       "replacedBy": null,
       "notes": "Network unavailable during Gate 2; link requires later verification. Gate 1 identified this as a fan or unverified video lore overview.",
       "auditDisposition": "move"
+    },
+    {
+      "id": "apoc-design-lets-talk-color-pie",
+      "title": "Let's Talk Color Pie",
+      "url": "https://magic.wizards.com/en/news/making-magic/lets-talk-color-pie",
+      "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/lets-talk-color-pie",
+      "publisher": "Wizards of the Coast",
+      "author": "Mark Rosewater",
+      "publishedDate": "2021-10-11",
+      "sourceType": "official-design",
+      "group": "design",
+      "subgroup": "current-color-voice-governance",
+      "official": true,
+      "status": "active",
+      "evidenceRole": "official-support",
+      "usedFor": "Supports the official color-pie index trail for color philosophy, mechanical color pie, and color-pie article navigation.",
+      "notFor": "Official lore claims, comprehensive rules authority, card legality, card-record truth, or a complete guarantee that every linked historical article is current guidance.",
+      "topics": [
+        "color-pie",
+        "color-philosophy-index",
+        "design-governance"
+      ],
+      "colors": [],
+      "identities": [],
+      "planes": [],
+      "linkedFrom": [
+        "apocrypha/index.html#gate-45-source-gap-implementation"
+      ],
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/lets-talk-color-pie",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/lets-talk-color-pie",
+            "status": 200,
+            "location": null
+          }
+        ]
+      },
+      "replacementFor": null,
+      "replacedBy": null,
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
+      "auditDisposition": "keep"
+    },
+    {
+      "id": "apoc-design-we-will-survive-abzan",
+      "title": "We Will Survive",
+      "url": "https://magic.wizards.com/en/news/making-magic/we-will-survive-2014-09-29",
+      "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/we-will-survive-2014-09-29",
+      "publisher": "Wizards of the Coast",
+      "author": "Mark Rosewater",
+      "publishedDate": "2014-09-29",
+      "sourceType": "official-design",
+      "group": "design",
+      "subgroup": "tarkir-wedge-design",
+      "official": true,
+      "status": "active",
+      "evidenceRole": "official-support",
+      "usedFor": "Supports Abzan wedge color interaction and three-color design philosophy as an official Wizards design source.",
+      "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
+      "topics": [
+        "three-color-philosophy",
+        "wedge-design",
+        "abzan",
+        "design"
+      ],
+      "colors": [],
+      "identities": [
+        "Abzan"
+      ],
+      "planes": [],
+      "linkedFrom": [
+        "apocrypha/index.html#gate-45-source-gap-implementation"
+      ],
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/we-will-survive-2014-09-29",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/we-will-survive-2014-09-29",
+            "status": 200,
+            "location": null
+          }
+        ]
+      },
+      "replacementFor": null,
+      "replacedBy": null,
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
+      "auditDisposition": "keep"
+    },
+    {
+      "id": "apoc-design-smart-thinking-jeskai",
+      "title": "Smart Thinking",
+      "url": "https://magic.wizards.com/en/news/making-magic/smart-thinking-2014-11-03",
+      "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/smart-thinking-2014-11-03",
+      "publisher": "Wizards of the Coast",
+      "author": "Mark Rosewater",
+      "publishedDate": "2014-11-04",
+      "sourceType": "official-design",
+      "group": "design",
+      "subgroup": "tarkir-wedge-design",
+      "official": true,
+      "status": "active",
+      "evidenceRole": "official-support",
+      "usedFor": "Supports Jeskai wedge color interaction and three-color design philosophy as an official Wizards design source.",
+      "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
+      "topics": [
+        "three-color-philosophy",
+        "wedge-design",
+        "jeskai",
+        "design"
+      ],
+      "colors": [],
+      "identities": [
+        "Jeskai"
+      ],
+      "planes": [],
+      "linkedFrom": [
+        "apocrypha/index.html#gate-45-source-gap-implementation"
+      ],
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/smart-thinking-2014-11-03",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/smart-thinking-2014-11-03",
+            "status": 200,
+            "location": null
+          }
+        ]
+      },
+      "replacementFor": null,
+      "replacedBy": null,
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
+      "auditDisposition": "keep"
+    },
+    {
+      "id": "apoc-design-whatever-it-takes-sultai",
+      "title": "Whatever It Takes",
+      "url": "https://magic.wizards.com/en/news/making-magic/whatever-it-takes-2015-02-02",
+      "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/whatever-it-takes-2015-02-02",
+      "publisher": "Wizards of the Coast",
+      "author": "Mark Rosewater",
+      "publishedDate": "2015-02-03",
+      "sourceType": "official-design",
+      "group": "design",
+      "subgroup": "tarkir-wedge-design",
+      "official": true,
+      "status": "active",
+      "evidenceRole": "official-support",
+      "usedFor": "Supports Sultai wedge color interaction and three-color design philosophy as an official Wizards design source.",
+      "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
+      "topics": [
+        "three-color-philosophy",
+        "wedge-design",
+        "sultai",
+        "design"
+      ],
+      "colors": [],
+      "identities": [
+        "Sultai"
+      ],
+      "planes": [],
+      "linkedFrom": [
+        "apocrypha/index.html#gate-45-source-gap-implementation"
+      ],
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/whatever-it-takes-2015-02-02",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/whatever-it-takes-2015-02-02",
+            "status": 200,
+            "location": null
+          }
+        ]
+      },
+      "replacementFor": null,
+      "replacedBy": null,
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
+      "auditDisposition": "keep"
+    },
+    {
+      "id": "apoc-design-finishing-first-mardu",
+      "title": "Finishing First",
+      "url": "https://magic.wizards.com/en/news/making-magic/finishing-first-2014-11-17",
+      "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/finishing-first-2014-11-17",
+      "publisher": "Wizards of the Coast",
+      "author": "Mark Rosewater",
+      "publishedDate": "2014-11-18",
+      "sourceType": "official-design",
+      "group": "design",
+      "subgroup": "tarkir-wedge-design",
+      "official": true,
+      "status": "active",
+      "evidenceRole": "official-support",
+      "usedFor": "Supports Mardu wedge color interaction and three-color design philosophy as an official Wizards design source.",
+      "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
+      "topics": [
+        "three-color-philosophy",
+        "wedge-design",
+        "mardu",
+        "design"
+      ],
+      "colors": [],
+      "identities": [
+        "Mardu"
+      ],
+      "planes": [],
+      "linkedFrom": [
+        "apocrypha/index.html#gate-45-source-gap-implementation"
+      ],
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/finishing-first-2014-11-17",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/finishing-first-2014-11-17",
+            "status": 200,
+            "location": null
+          }
+        ]
+      },
+      "replacementFor": null,
+      "replacedBy": null,
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
+      "auditDisposition": "keep"
+    },
+    {
+      "id": "apoc-design-what-doesnt-kill-you-makes-you-stronger-temur",
+      "title": "What Doesn't Kill You Makes You Stronger",
+      "url": "https://magic.wizards.com/en/news/making-magic/what-doesnt-kill-you-makes-you-stronger-2015-02-23",
+      "canonicalUrl": "https://magic.wizards.com/en/news/making-magic/what-doesnt-kill-you-makes-you-stronger-2015-02-23",
+      "publisher": "Wizards of the Coast",
+      "author": "Mark Rosewater",
+      "publishedDate": "2015-02-24",
+      "sourceType": "official-design",
+      "group": "design",
+      "subgroup": "tarkir-wedge-design",
+      "official": true,
+      "status": "active",
+      "evidenceRole": "official-support",
+      "usedFor": "Supports Temur wedge color interaction and three-color design philosophy as an official Wizards design source.",
+      "notFor": "Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
+      "topics": [
+        "three-color-philosophy",
+        "wedge-design",
+        "temur",
+        "design"
+      ],
+      "colors": [],
+      "identities": [
+        "Temur"
+      ],
+      "planes": [],
+      "linkedFrom": [
+        "apocrypha/index.html#gate-45-source-gap-implementation"
+      ],
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/making-magic/what-doesnt-kill-you-makes-you-stronger-2015-02-23",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/making-magic/what-doesnt-kill-you-makes-you-stronger-2015-02-23",
+            "status": 200,
+            "location": null
+          }
+        ]
+      },
+      "replacementFor": null,
+      "replacedBy": null,
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
+      "auditDisposition": "keep"
+    },
+    {
+      "id": "apoc-lore-flavorful-guide-ravnica-allegiance",
+      "title": "A Flavorful Guide to the Guilds of Ravnica Allegiance",
+      "url": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07",
+      "canonicalUrl": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07",
+      "publisher": "Wizards of the Coast",
+      "author": "Cassie LaBelle",
+      "publishedDate": "2019-02-07",
+      "sourceType": "official-lore",
+      "group": "lore",
+      "subgroup": "official-lore-and-story",
+      "official": true,
+      "status": "active",
+      "evidenceRole": "official-support",
+      "usedFor": "Supports Ravnica Allegiance guild identity descriptions as an official Wizards lore or feature source.",
+      "notFor": "Mechanical color-pie authority, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.",
+      "topics": [
+        "ravnica",
+        "guild-identity",
+        "lore"
+      ],
+      "colors": [],
+      "identities": [],
+      "planes": [
+        "Ravnica"
+      ],
+      "linkedFrom": [
+        "apocrypha/index.html#gate-45-source-gap-implementation"
+      ],
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07",
+            "status": 200,
+            "location": null
+          }
+        ]
+      },
+      "replacementFor": null,
+      "replacedBy": null,
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
+      "auditDisposition": "keep"
+    },
+    {
+      "id": "apoc-lore-ravnica-plane",
+      "title": "RAVNICA",
+      "url": "https://magic.wizards.com/en/story/ravnica-plane",
+      "canonicalUrl": "https://magic.wizards.com/en/story/ravnica-plane",
+      "publisher": "Wizards of the Coast",
+      "author": null,
+      "publishedDate": null,
+      "sourceType": "official-lore",
+      "group": "lore",
+      "subgroup": "official-plane-pages",
+      "official": true,
+      "status": "active",
+      "evidenceRole": "official-support",
+      "usedFor": "Supports Ravnica plane context and guild-setting overview as an official Wizards story plane page.",
+      "notFor": "Design philosophy, comprehensive rules authority, card legality, card-record truth, or exhaustive story chronology.",
+      "topics": [
+        "ravnica",
+        "plane-page",
+        "lore"
+      ],
+      "colors": [],
+      "identities": [],
+      "planes": [
+        "Ravnica"
+      ],
+      "linkedFrom": [
+        "apocrypha/index.html#gate-45-source-gap-implementation"
+      ],
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/story/ravnica-plane",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/story/ravnica-plane",
+            "status": 200,
+            "location": null
+          }
+        ]
+      },
+      "replacementFor": null,
+      "replacedBy": null,
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
+      "auditDisposition": "keep"
+    },
+    {
+      "id": "apoc-lore-alara-plane",
+      "title": "ALARA",
+      "url": "https://magic.wizards.com/en/story/alara-plane",
+      "canonicalUrl": "https://magic.wizards.com/en/story/alara-plane",
+      "publisher": "Wizards of the Coast",
+      "author": null,
+      "publishedDate": null,
+      "sourceType": "official-lore",
+      "group": "lore",
+      "subgroup": "official-plane-pages",
+      "official": true,
+      "status": "active",
+      "evidenceRole": "official-support",
+      "usedFor": "Supports Alara plane and shard-setting context as an official Wizards story plane page.",
+      "notFor": "Design philosophy, comprehensive rules authority, card legality, card-record truth, or exhaustive story chronology.",
+      "topics": [
+        "alara",
+        "plane-page",
+        "lore"
+      ],
+      "colors": [],
+      "identities": [],
+      "planes": [
+        "Alara"
+      ],
+      "linkedFrom": [
+        "apocrypha/index.html#gate-45-source-gap-implementation"
+      ],
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/story/alara-plane",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/story/alara-plane",
+            "status": 200,
+            "location": null
+          }
+        ]
+      },
+      "replacementFor": null,
+      "replacedBy": null,
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
+      "auditDisposition": "keep"
+    },
+    {
+      "id": "apoc-archive-magic-story",
+      "title": "MTG Story, Planes, and Planeswalkers",
+      "url": "https://magic.wizards.com/en/story",
+      "canonicalUrl": "https://magic.wizards.com/en/story",
+      "publisher": "Wizards of the Coast",
+      "author": null,
+      "publishedDate": null,
+      "sourceType": "official-archive",
+      "group": "official-archives",
+      "subgroup": "magic-story-archive",
+      "official": true,
+      "status": "active",
+      "evidenceRole": "official-support",
+      "usedFor": "Supports official story archive navigation and official story-source discovery as a Wizards story archive surface.",
+      "notFor": "A guarantee of complete pre-2014 story coverage, design philosophy, comprehensive rules authority, card legality, or card-record truth.",
+      "topics": [
+        "magic-story",
+        "story-archive",
+        "official-archive"
+      ],
+      "colors": [],
+      "identities": [],
+      "planes": [],
+      "linkedFrom": [
+        "apocrypha/index.html#gate-45-source-gap-implementation"
+      ],
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/story",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/story",
+            "status": 200,
+            "location": null
+          }
+        ]
+      },
+      "replacementFor": null,
+      "replacedBy": null,
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
+      "auditDisposition": "keep"
+    },
+    {
+      "id": "apoc-rules-magic-rules",
+      "title": "RULES",
+      "url": "https://magic.wizards.com/en/rules",
+      "canonicalUrl": "https://magic.wizards.com/en/rules",
+      "publisher": "Wizards of the Coast",
+      "author": null,
+      "publishedDate": null,
+      "sourceType": "official-rules",
+      "group": "rules-card-records",
+      "subgroup": "official-rules",
+      "official": true,
+      "status": "active",
+      "evidenceRole": "official-support",
+      "usedFor": "Supports official rules-document navigation and Comprehensive Rules access as a Wizards rules source.",
+      "notFor": "Oracle/card-record truth, Gatherer-specific card rulings, design philosophy, lore claims, deck quality, price, or legality advice by itself.",
+      "topics": [
+        "rules",
+        "comprehensive-rules",
+        "official-rules"
+      ],
+      "colors": [],
+      "identities": [],
+      "planes": [],
+      "linkedFrom": [
+        "apocrypha/index.html#gate-45-source-gap-implementation"
+      ],
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-07-25",
+        "method": "GET",
+        "httpStatus": 200,
+        "finalUrl": "https://magic.wizards.com/en/rules",
+        "redirectChain": [
+          {
+            "url": "https://magic.wizards.com/en/rules",
+            "status": 200,
+            "location": null
+          }
+        ]
+      },
+      "replacementFor": null,
+      "replacedBy": null,
+      "notes": "Gate 4.5 GET verification succeeded on 2026-07-25: method GET, HTTP 200, final URL matched canonical URL, no redirects observed.",
+      "auditDisposition": "keep"
     }
   ]
 }

@@ -170,6 +170,43 @@ function checkArray(source, field, { required = false } = {}) {
   }
 }
 
+function checkRedirectChain(source) {
+  if (!Array.isArray(source.verification.redirectChain)) {
+    fail(source, "verification.redirectChain must be an array");
+    return;
+  }
+  for (const [index, hop] of source.verification.redirectChain.entries()) {
+    if (!isObject(hop)) {
+      fail(source, `verification.redirectChain[${index}] must be an object`);
+      continue;
+    }
+    const keys = Object.keys(hop);
+    for (const key of ["url", "status", "location"]) {
+      if (!keys.includes(key)) fail(source, `verification.redirectChain[${index}] missing ${key}`);
+    }
+    for (const key of keys) {
+      if (!["url", "status", "location"].includes(key)) {
+        fail(source, `verification.redirectChain[${index}] has unexpected field ${key}`);
+      }
+    }
+    if (typeof hop.url !== "string" || hop.url.trim() === "") {
+      fail(source, `verification.redirectChain[${index}].url must be a non-empty string`);
+    } else {
+      try {
+        new URL(hop.url);
+      } catch {
+        fail(source, `verification.redirectChain[${index}].url is not a valid URL`);
+      }
+    }
+    if (!Number.isInteger(hop.status) || hop.status < 100 || hop.status > 599) {
+      fail(source, `verification.redirectChain[${index}].status must be an HTTP status integer`);
+    }
+    if (hop.location !== null && (typeof hop.location !== "string" || hop.location.trim() === "")) {
+      fail(source, `verification.redirectChain[${index}].location must be null or a non-empty string`);
+    }
+  }
+}
+
 function assertOfficialRecord(source, hostname) {
   if (source.official !== true) {
     fail(source, "official sourceType requires official:true");
@@ -183,8 +220,12 @@ function assertOfficialRecord(source, hostname) {
   if (source.auditDisposition !== "keep") {
     fail(source, "official source must use auditDisposition keep");
   }
-  if (source.evidenceRole !== "official-support-pending-verification") {
-    fail(source, "official source must use official-support-pending-verification evidenceRole");
+  if (source.verification?.status === "verified") {
+    if (source.evidenceRole !== "official-support") {
+      fail(source, "verified official source must use official-support evidenceRole");
+    }
+  } else if (source.evidenceRole !== "official-support-pending-verification") {
+    fail(source, "unverified official source must use official-support-pending-verification evidenceRole");
   }
   if (!hostMatches(hostname, registry.schema.approvedOfficialDomains)) {
     fail(source, `official source uses non-approved domain "${hostname}"`);
@@ -330,6 +371,18 @@ if (!Array.isArray(registry.sources)) {
     if (source.sourceType === "official-lore" && source.group !== "lore") {
       fail(source, "official-lore must use lore group");
     }
+    if (source.sourceType === "official-archive" && source.group !== "official-archives") {
+      fail(source, "official-archive must use official-archives group");
+    }
+    if (source.sourceType === "official-rules" && source.group !== "rules-card-records") {
+      fail(source, "official-rules must use rules-card-records group");
+    }
+    if (source.group === "official-archives" && source.sourceType !== "official-archive") {
+      fail(source, "official-archives group requires official-archive sourceType");
+    }
+    if (source.group === "rules-card-records" && source.sourceType !== "official-rules") {
+      fail(source, "rules-card-records group may only contain official-rules until card-record authority is approved");
+    }
 
     const usedFor = textValue(source.usedFor);
     if (!usedFor) {
@@ -370,6 +423,29 @@ if (!Array.isArray(registry.sources)) {
         if (source.verification.finalUrl !== null) fail(source, "not-checked verification must have finalUrl:null");
         if (!Array.isArray(source.verification.redirectChain) || source.verification.redirectChain.length !== 0) {
           fail(source, "not-checked verification must have empty redirectChain");
+        }
+      } else if (source.verification.status === "verified") {
+        if (!datePattern.test(source.verification.checkedAt ?? "")) {
+          fail(source, "verified verification must have checkedAt YYYY-MM-DD");
+        }
+        if (source.verification.method !== "GET") {
+          fail(source, "verified verification must use method GET");
+        }
+        if (!Number.isInteger(source.verification.httpStatus) || source.verification.httpStatus < 200 || source.verification.httpStatus > 399) {
+          fail(source, "verified verification must have observed 2xx/3xx httpStatus");
+        }
+        if (!source.verification.finalUrl) {
+          fail(source, "verified verification must have finalUrl");
+        } else {
+          try {
+            new URL(source.verification.finalUrl);
+          } catch {
+            fail(source, "verified verification finalUrl is not a valid URL");
+          }
+        }
+        checkRedirectChain(source);
+        if (source.evidenceRole !== "official-support") {
+          fail(source, "verified records must use official-support evidenceRole");
         }
       }
     }
