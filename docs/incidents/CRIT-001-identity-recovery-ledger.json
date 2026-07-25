@@ -11,7 +11,7 @@
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 5 four-color identities complete; VM-537 Colorless certified; VM-538 WUBRG Gate 1+2 complete and active as the only uncertified identity",
+      "next_cohort": "Wave 5 four-color identities complete; VM-537 Colorless certified; VM-538 WUBRG exact candidate ready for independent review as the only uncertified identity",
       "current_program_base": "7f615d4fe5a19cf8f9d2a58a8026f837378c06b2",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
@@ -6211,14 +6211,14 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "gate_1_2_complete",
-        "status": "in_progress",
+        "current_gate": "candidate_created",
+        "status": "ready_for_independent_review",
         "started_at": "2026-07-24T22:24:00-06:00",
-        "gate_entered_at": "2026-07-24T22:24:00-06:00",
+        "gate_entered_at": "2026-07-24T22:45:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": null,
-        "primary_disposition": "remediation_authorized"
+        "primary_disposition": "READY FOR INDEPENDENT REVIEW EXACT SHA c33a139e9fe9f7dc12ed63abcacbd9773fb5e73b"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -6260,26 +6260,44 @@
           "PUBLIC_ALIAS_FIVECOLOR",
           "COLOR_ORDER_PERMUTATION"
         ],
-        "audit_report": "docs/handoffs/2026-07-24-2224-codex-vm538-wubrg-gate1-gate2.md",
+        "audit_report": "docs/handoffs/2026-07-24-2245-codex-vm538-wubrg-candidate-workflow.md",
         "residual_findings": [
-          "8 claims require semantic roles and bounded evidence locations",
-          "WUBRG-LOCAL-002 is referenced but missing from the source registry",
-          "three foreign Colorless claim IDs contaminate the canonical collision proof",
-          "eight mismatch-guidance strings lack evidence mappings",
-          "WUBRG semantic fixtures are missing",
-          "13 provenance rows include three null canonical IDs and the manifest is stale"
+          "Final WUBRG semantic candidate c33a139e9fe9f7dc12ed63abcacbd9773fb5e73b was created directly from Gate 1+2 a5e678bea5d92a2addc184e3564d37b7e098140d.",
+          "Candidate records 8 substantive claims, 20 sources, 21 WUBRG provenance rows, zero null canonical IDs, zero missing hashes, 8 mapped guidance strings, and 41 semantic fixtures.",
+          "The canonical COLORLESS/WUBRG proof chain is WUBRG-owned; three foreign Colorless claims were removed while frozen axes, questions, collision IDs, lateral targets, min-hits, penalty, and calibration fields were preserved.",
+          "Accepted aliases remain exactly WUBRG and Five-Color; lowercase, unhyphenated, compact, and noncanonical color-order forms are not public aliases.",
+          "Home preview remains enabled and unchanged at order 36; public route and directory-link expansion remain disabled; data/identity-layers.json was not modified.",
+          "Independent exact-SHA review remains required; no approval, certification, semantically-ready transition, program-base advancement, or Excel update occurred."
         ]
       },
       "certification": {
         "contract_version": "v1.1",
-        "contract_revalidation_required": true,
-        "candidate_recovery_sha": null,
-        "recovery_commit": null,
+        "contract_revalidation_required": false,
+        "candidate_recovery_sha": "c33a139e9fe9f7dc12ed63abcacbd9773fb5e73b",
+        "recovery_commit": "PENDING_VM538_CANDIDATE_WORKFLOW_SHA",
         "certification_commit": null,
         "reviewer": null,
         "review_cycles": 0,
         "approval_date": null,
-        "certified_at": null
+        "certified_at": null,
+        "candidate_workflow_handoff": "docs/handoffs/2026-07-24-2245-codex-vm538-wubrg-candidate-workflow.md",
+        "candidate_workflow_commit": "PENDING_VM538_CANDIDATE_WORKFLOW_SHA",
+        "final_state": "awaiting_independent_review",
+        "claim_role_counts": {
+          "total": 8,
+          "substantive_claim": 8,
+          "discovery_record": 0,
+          "support_record": 0,
+          "unclassified": 0
+        },
+        "reviewed_provenance_count": 21,
+        "fixture_count": 41,
+        "known_unchanged_warnings": [
+          "Git reports permission denied for C:\\Users\\obake/.config/git/ignore.",
+          "npm.cmd test required an ignored hardlink to the local Scryfall corpus at data/scryfall/raw/oracle-cards.json.",
+          "data/placement-model.schema.json and supabase/functions/guild-recruiter/faction-context.ts are stat/CRLF-only generator touches with no content diff.",
+          "docs/audits/gate-compression/live-gate-bias.json and .md are validation output and remain unstaged."
+        ]
       }
     }
   ]

@@ -1,0 +1,41 @@
+# VM-538 WUBRG Candidate Workflow Handoff
+
+Agent name: Codex
+
+Task requested: Begin official VM-538 WUBRG semantic recovery in the existing worktree, create separate Gate 1+2 governance, produce one exact WUBRG-only semantic candidate, validate it, and record candidate-workflow governance without performing independent review, certification, or Excel updates.
+
+Files reviewed: `AGENTS.md`; `docs/handoffs/HANDOFF_INDEX.md`; recent VM-535 Ink, VM-536 Witch, and VM-537 Colorless Gate/candidate/review/certification handoffs; prior VM-367 through VM-374 WUBRG records; `docs/kanban/board.md`; the VM-538 card; `docs/incidents/CRIT-001-drift-control-template.md`; CRIT-001 playbook, contract, ledger, and drift register; WUBRG research, source/evidence records, raw files, generated faction/placement/identity-layer records, provenance, semantic fixtures, source/generated controls, and faction-context isolation controls.
+
+Files changed: Candidate `c33a139e9fe9f7dc12ed63abcacbd9773fb5e73b` changes `data/factions.json`; `data/placement-model.json`; `data/raw-factions/wubrg/wubrg.changelog.json`; `data/raw-factions/wubrg/wubrg.claims.json`; `data/raw-factions/wubrg/wubrg.placement.json`; `data/raw-factions/wubrg/wubrg.profile.json`; `data/raw-factions/wubrg/wubrg.sources.json`; `data/semantic-readiness-provenance.json`; and `research/fixtures/semantic-readiness/wubrg.semantic-fixtures.json`. This later workflow commit changes only governance, Kanban, ledger, recovery, index, and handoff files.
+
+What changed: Gate 1+2 governance commit `a5e678bea5d92a2addc184e3564d37b7e098140d` recorded the frozen endpoint baseline from program base `7f615d4fe5a19cf8f9d2a58a8026f837378c06b2`. Exact semantic candidate `c33a139e9fe9f7dc12ed63abcacbd9773fb5e73b` classifies all 8 WUBRG claims as substantive, adds bounded evidence locations, narrows proof chains, restores missing `WUBRG-LOCAL-002` as shaping/discovery-only, adds three native profile IDs, maps eight guidance strings, replaces three foreign Colorless claim IDs with WUBRG-owned collision proof, regenerates WUBRG-owned generated data, and adds 41 fixtures including all 37 required neighbor/endpoint exclusions.
+
+Why it changed: The Gate baseline was not semantically ready: 8 claims were unclassified, `WUBRG-LOCAL-002` was absent from the source registry, 13 provenance rows included 3 null canonical IDs, no semantic fixture existed, eight guidance strings lacked evidence mappings, provenance was stale, and the canonical collision chain cited three foreign Colorless claims.
+
+Decisions made: Kept canonical key/technical code `WUBRG`, public label `Five-Color`, generated name `Five-Color / WUBRG`, exact colors and secondary colors `["W", "U", "B", "R", "G"]`, and `core_color`/`display_code` `WUBRG`. Accepted aliases remain exactly `["WUBRG", "Five-Color"]`. Lowercase, unhyphenated/compact, and noncanonical color-order forms remain non-public metadata/query forms. Home preview remains enabled and unchanged at order 36; directory links remain suppressed; no public route, alias, schema/API, recruiter, runtime, scoring, calibration, or recommendation expansion occurred. `wubrg.sources.json` is the ninth candidate path because repository discovery proved that a referenced source record was missing.
+
+Risks / uncertainties: Independent exact-SHA review remains mandatory. Support-only Commander/product/deck/search material, current-legality caution, shaping/discovery synthesis, exact card/price/metagame claims, generic goodstuff/all-colors/fixing-only framing, and public-surface expansion remain outside candidate authority. Git reports permission denial for `C:\Users\obake/.config/git/ignore`.
+
+Tests run: `npm.cmd ci` PASS; `npm.cmd run build:factions` PASS; `npm.cmd run build:semantic-provenance` PASS; `node research/validate-semantic-readiness.mjs --target=WUBRG` PASS; `node research/build-semantic-readiness-provenance.mjs --check` PASS with 2079 entries; `npm.cmd run test:semantic-readiness` PASS; `npm.cmd run audit:semantic-readiness -- --targets=WUBRG` PASS with 8 substantive claims, 20 sources, and 21 reference sites; `npm.cmd run validate:source-generated -- --target=WUBRG` PASS; `npm.cmd run test:faction-context-isolation` PASS; `npm.cmd run test:parser` PASS with 226 cases; `npm.cmd run test:placement` PASS with 37 factions and 37 golden paths; semantic candidate-scope regression PASS; exact candidate-scope PASS for `a5e678bea5d92a2addc184e3564d37b7e098140d..c33a139e9fe9f7dc12ed63abcacbd9773fb5e73b`; canonical generator byte determinism PASS; full `npm.cmd test` PASS after adding the ignored local Scryfall corpus hardlink. Direct probes passed for the exact aliases, four rejected label forms, all 120 color-order permutations, all 37 required neighbor/endpoint fixtures, WUBRG-owned collision proof, frozen placement controls, unchanged preview/routing, and source/embedded identity-layer equality.
+
+Baseline before and after: Before: 8 unclassified claims, 19 sources, missing `WUBRG-LOCAL-002`, 13 provenance rows, 3 null canonical IDs, zero missing hashes, no fixture, 8 unmapped guidance strings, and 3 foreign Colorless collision claims. After: 8 substantive claims, 20 sources, 21 provenance rows, zero null canonical IDs, zero missing hashes, 41 fixtures, 8 mapped guidance strings, and WUBRG-owned collision proof.
+
+Alias behavior: only exact `WUBRG` and `Five-Color` are accepted. Lowercase `wubrg`, lowercase `five-color`, `Five Color`, `FiveColor`, and all 119 noncanonical WUBRG permutations fail closed as public aliases.
+
+Endpoint behavior: WUBRG requires all five colors present and meaningfully negotiated. Generic five-color Commander, goodstuff, all-colors availability, fixing-only, default high complexity, completion/final-form, superiority, universal-superset, official-faction, five-color-Eldrazi, and support-only Commander evidence all reject WUBRG.
+
+Neighbor rejection probes: 37 of 37 required identity, generic, endpoint, alias, and permutation exclusions match the frozen ledger list. The canonical `COLORLESS/WUBRG` chain remains the sole Crucible candidate and now uses only WUBRG claim IDs.
+
+Preview invariant result: PASS. `data/identity-layers.json` was untouched and its WUBRG expression equals both Gate 1+2 and the embedded `data/factions.json` expression. Preview remains enabled at order 36; routing stays exact `WUBRG`; directory links stay suppressed.
+
+Unstaged byproducts: `data/placement-model.schema.json` and `supabase/functions/guild-recruiter/faction-context.ts` are stat/CRLF-only generator touches with no content diff. `docs/audits/gate-compression/live-gate-bias.json` and `.md` are validation output. Ignored `node_modules/` and `data/scryfall/raw/oracle-cards.json` remain local-only and unstaged.
+
+Not touched: independent review; approval; certification; semantically-ready status; certified count; program-base advancement; Excel/external tracker; GitHub remote authority; recruiter source; `data/identity-layers.json`; package or lockfile; validator or test implementation; runtime, CI, scoring, calibration, Hall/Crucible behavior, scheduling, push, PR, merge, reset, clean, stash, amend, rebase, cherry-pick, or force operation.
+
+Follow-up recommendations: An independent reviewer must use only exact candidate `c33a139e9fe9f7dc12ed63abcacbd9773fb5e73b` against Gate 1+2 `a5e678bea5d92a2addc184e3564d37b7e098140d`, rerun all drift controls and validations, verify nine-file exact scope, confirm 21 non-null WUBRG provenance rows and 41 fixtures, and independently probe alias, endpoint, neighbor, collision, and preview boundaries. Do not certify without a separate exact-SHA approval.
+
+Next suggested agent: Independent Reviewer for exact-SHA VM-538 WUBRG review.
+
+Related Kanban card, docs, or plans: `docs/kanban/in-progress/VM-538-wubrg-semantic-recovery.md`; `docs/handoffs/2026-07-24-2224-codex-vm538-wubrg-gate1-gate2.md`; `docs/incidents/recoveries/VM-538-wubrg-semantic-recovery.md`; `docs/incidents/CRIT-001-identity-recovery-ledger.json`; `docs/incidents/CRIT-001-drift-register.md`; `docs/incidents/CRIT-001-drift-control-template.md`.
+
+Final disposition: READY FOR INDEPENDENT REVIEW EXACT SHA `c33a139e9fe9f7dc12ed63abcacbd9773fb5e73b`.

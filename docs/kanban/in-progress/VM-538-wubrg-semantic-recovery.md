@@ -17,8 +17,8 @@ Recover WUBRG end to end under CRIT-001: audit the existing packet, bound readin
 
 - [x] Gate 1 — Packet audit and bounded disposition.
 - [x] Gate 2 — Sufficient evidence completion.
-- [ ] Gate 3 — Canonical remediation.
-- [ ] Gate 4 — Generation and validation.
+- [x] Gate 3 — Canonical remediation.
+- [x] Gate 4 — Generation and validation.
 - [ ] Gate 5 — Independent certification.
 
 ## Scope Rules
@@ -33,7 +33,9 @@ Recover WUBRG end to end under CRIT-001: audit the existing packet, bound readin
 - Canonical ledger: `docs/incidents/CRIT-001-identity-recovery-ledger.json`
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
-- Audit/recovery report: `docs/handoffs/2026-07-24-2224-codex-vm538-wubrg-gate1-gate2.md`
-- Candidate recovery SHA: pending
+- Audit/recovery report: `docs/incidents/recoveries/VM-538-wubrg-semantic-recovery.md`
+- Gate 1+2 record: `docs/handoffs/2026-07-24-2224-codex-vm538-wubrg-gate1-gate2.md`
+- Candidate workflow: `docs/handoffs/2026-07-24-2245-codex-vm538-wubrg-candidate-workflow.md`
+- Candidate recovery SHA: `c33a139e9fe9f7dc12ed63abcacbd9773fb5e73b`
 - Independent reviewer: pending
 - Certification commit: pending

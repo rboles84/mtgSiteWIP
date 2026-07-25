@@ -312,3 +312,14 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - Baseline: 8 unclassified claims, 19 sources, missing source record `WUBRG-LOCAL-002`, no fixture, 13 WUBRG provenance rows, 3 null canonical IDs, zero missing hashes, stale provenance, 8 missing guidance mappings, and three foreign Colorless collision claim IDs.
 - Gate 1+2 scope: governance-only. WUBRG raw data, generated semantic data, fixtures, provenance, recruiter source, identity-layer source, runtime, validator/test implementation, package, CI, Excel, GitHub authority, protected worktrees, and other identities were untouched.
 - Result: READY FOR GATE 3 REMEDIATION.
+
+## VM-538 WUBRG Candidate Workflow - 2026-07-24
+
+- DRIFT-014: Candidate/workflow separation is preserved. Exact semantic candidate `c33a139e9fe9f7dc12ed63abcacbd9773fb5e73b` has parent Gate 1+2 governance `a5e678bea5d92a2addc184e3564d37b7e098140d`; this workflow record is a later governance-only commit.
+- DRIFT-015: `data/identity-layers.json` was not modified. Its enabled WUBRG Home preview remains byte-for-byte equal to Gate 1+2 and exactly equal to the embedded `data/factions.json` expression; order 36 and directory-link suppression are unchanged.
+- DRIFT-016: Accepted aliases remain exactly `WUBRG` and `Five-Color`. Lowercase `wubrg`, lowercase `five-color`, `Five Color`, `FiveColor`, and all 119 noncanonical WUBRG color-order permutations fail closed as public aliases.
+- DRIFT-017/DRIFT-019: All 8 substantive claims use bounded claim-bearing evidence chains. Restored `WUBRG-LOCAL-002` is explicitly shaping/discovery-only and is absent from substantive proof; support-only Commander/product/deck/search rows remain isolated.
+- DRIFT-020: Exact candidate-scope validation passed from `a5e678bea5d92a2addc184e3564d37b7e098140d` to `c33a139e9fe9f7dc12ed63abcacbd9773fb5e73b`. Four axes, five discriminator IDs, three collision IDs, min-hits `2`, broad penalty `0.16`, calibration lists, 21 lateral targets, and the single canonical inhibiting `COLORLESS/WUBRG` pair remain frozen.
+- Candidate result: 8 substantive claims, 20 sources, 21 WUBRG provenance rows, zero null canonical IDs, zero missing hashes, 8 mapped guidance strings, and 41 fixtures including all 37 required neighbor/endpoint exclusions.
+- Candidate scope: nine WUBRG source/generated/fixture files, including `wubrg.sources.json` because Gate discovery proved `WUBRG-LOCAL-002` was missing. Placement schema and recruiter context were stat/CRLF-only; live-gate reports are validation output. Those files, identity-layer source, package, validator, test, runtime, Excel, GitHub authority, review, certification, push, PR, and merge were not included.
+- Result: READY FOR INDEPENDENT REVIEW EXACT SHA `c33a139e9fe9f7dc12ed63abcacbd9773fb5e73b`.
