@@ -38,6 +38,17 @@ Registry path:
 
 `data/apocrypha-source-registry.json`
 
+Current registry schema version after Gate 2A hardening:
+
+`schemaVersion: 2`
+
+Schema v2 separates registry lifecycle from link verification:
+
+- `status` is the record lifecycle status.
+- `verification.status` is the online link-check state.
+- `evidenceRole` is the claim-use policy.
+- `schema.fields`, `schema.enums`, and `schema.approvedOfficialDomains` document the registry contract inside the artifact.
+
 Validation script path:
 
 `scripts/validate-apocrypha-sources.mjs`
@@ -69,11 +80,15 @@ All 49 records are current rendered Gate 1 sources. The 40 official records are 
 
 No online GET verification was performed in Gate 2 because this environment has restricted network access and the Gate 2 prompt permitted recording network-unavailable status rather than guessing. No source is marked verified.
 
-Every record has:
+Every record has a structured `verification` object:
 
-- `linkStatus: "not-checked"`
-- `lastVerified: null`
-- A note containing: `Network unavailable during Gate 2; link requires later verification.`
+- `verification.status: "not-checked"`
+- `verification.checkedAt: null`
+- `verification.method: null`
+- `verification.httpStatus: null`
+- `verification.finalUrl: null`
+- `verification.redirectChain: []`
+- A `notes` value containing: `Network unavailable during Gate 2; link requires later verification.`
 
 No HEAD-only link check was used. No tracking parameters were added. Canonical URLs strip trailing-only navigation noise where applicable and do not include tracking parameters.
 
@@ -82,21 +97,37 @@ No HEAD-only link check was used. No tracking parameters were added. Canonical U
 The validator fails on:
 
 - Missing or duplicate `id`.
-- Missing `title`, `url`, `canonicalUrl`, `sourceType`, `group`, `status`, or `usedFor`.
-- Unknown `sourceType`, `group`, or `status`.
+- Missing any field documented in `schema.fields`.
+- Undocumented record fields.
+- Missing `title`, `url`, `canonicalUrl`, `sourceType`, `group`, `status`, `evidenceRole`, `verification`, or `usedFor`.
+- Unknown `sourceType`, `group`, `status`, `evidenceRole`, `verification.status`, or `auditDisposition`.
+- Orphan enum values documented but unused by current records.
 - Tracking parameters in `url` or `canonicalUrl`.
 - Duplicate `canonicalUrl`.
+- Duplicate semantic source keys.
 - `official: true` on non-approved official domains.
-- `official: false` inside official groups.
-- Supplemental records inside official groups.
+- Contradictory official/supplemental combinations across `sourceType`, `group`, `official`, `status`, `auditDisposition`, and `evidenceRole`.
 - Social URLs for Twitter/X, Facebook, Tumblr, Discord, Instagram, and TikTok.
 - Reddit URLs outside supplemental records.
 - YouTube URLs outside supplemental records.
 - Vague `usedFor` phrases listed in the Gate 2 prompt.
-- Missing `lastVerified` unless `linkStatus` is `not-checked`.
-- Invalid `publishedDate` or `lastVerified` format when present.
-- `current-official` records that are not verified.
+- Empty required arrays such as `topics` or `linkedFrom`.
+- Invalid `verification` object shape or invalid not-checked verification state.
+- Invalid `publishedDate` format when present.
+- Invalid `replacementFor` / `replacedBy` shape.
+- Ambiguous future rendering locators outside `apocrypha/index.html#...`.
 - Manual count fields stored in the registry.
+
+Canonical enum set after Gate 2A:
+
+| Enum | Values |
+|---|---|
+| `sourceType` | `official-design`, `official-lore`, `supplemental-reference` |
+| `group` | `design`, `lore`, `supplemental` |
+| `status` | `active`, `candidate-move` |
+| `evidenceRole` | `official-support-pending-verification`, `supplemental-navigation-only` |
+| `verification.status` | `not-checked` |
+| `auditDisposition` | `keep`, `move` |
 
 ## Minimum Official Set Gaps
 
@@ -128,7 +159,8 @@ The 9 non-official records are retained and marked:
 - `official: false`
 - `sourceType: "supplemental-reference"`
 - `group: "supplemental"`
-- `status: "supplemental"`
+- `status: "candidate-move"`
+- `evidenceRole: "supplemental-navigation-only"`
 - `auditDisposition: "move"`
 
 Their `usedFor` values describe navigation, comparison, or gap-finding only. Their `notFor` values explicitly bar official claims, canon proof, rules authority, card-record truth, and standalone source support.

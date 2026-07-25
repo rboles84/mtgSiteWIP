@@ -5,49 +5,6 @@ import process from "node:process";
 const registryPath = path.resolve("data/apocrypha-source-registry.json");
 const registry = JSON.parse(fs.readFileSync(registryPath, "utf8"));
 
-const allowedSourceTypes = new Set([
-  "official-design",
-  "official-lore",
-  "official-rules",
-  "official-card-record",
-  "official-archive",
-  "supplemental-reference",
-]);
-
-const allowedGroups = new Set([
-  "design",
-  "lore",
-  "rules-card-records",
-  "official-archives",
-  "supplemental",
-]);
-
-const allowedStatuses = new Set([
-  "current-official",
-  "dated-official",
-  "historical-official",
-  "official-archive",
-  "supplemental",
-  "moved",
-  "unavailable",
-  "replaced",
-  "not-checked",
-]);
-
-const officialGroups = new Set([
-  "design",
-  "lore",
-  "rules-card-records",
-  "official-archives",
-]);
-
-const approvedOfficialDomains = [
-  "magic.wizards.com",
-  "gatherer.wizards.com",
-  "media.wizards.com",
-  "wizards.com",
-];
-
 const socialDomains = [
   "twitter.com",
   "x.com",
@@ -77,10 +34,21 @@ const vagueUsedForValues = new Set([
   "helpful context",
 ]);
 
+const requiredVerificationKeys = [
+  "status",
+  "checkedAt",
+  "method",
+  "httpStatus",
+  "finalUrl",
+  "redirectChain",
+];
+
 const datePattern = /^\d{4}-\d{2}-\d{2}$/;
 const errors = [];
 const ids = new Set();
+const semanticKeys = new Set();
 const canonicalUrls = new Set();
+const enumUsage = new Map();
 
 function fail(source, message) {
   const prefix = source?.id ? source.id : "<registry>";
@@ -89,6 +57,10 @@ function fail(source, message) {
 
 function isObject(value) {
   return value !== null && typeof value === "object" && !Array.isArray(value);
+}
+
+function sorted(value) {
+  return [...value].sort();
 }
 
 function hasCountKey(value, trail = []) {
@@ -128,11 +100,141 @@ function hasTrackingParameter(url) {
   return false;
 }
 
-function usedForText(value) {
+function textValue(value) {
   if (typeof value === "string") return value.trim();
   if (Array.isArray(value)) return value.join(" ").trim();
   return "";
 }
+
+function normalizeSemanticText(value) {
+  return textValue(value).toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+function enumValues(name) {
+  const values = registry.schema?.enums?.[name];
+  if (!Array.isArray(values) || values.length === 0) {
+    fail(null, `missing non-empty schema enum "${name}"`);
+    return new Set();
+  }
+  const seen = new Set();
+  for (const value of values) {
+    if (typeof value !== "string" || value.trim() === "") {
+      fail(null, `schema enum "${name}" contains a non-string or empty value`);
+      continue;
+    }
+    if (value !== value.toLowerCase()) {
+      fail(null, `schema enum "${name}" value "${value}" must be lowercase`);
+    }
+    if (seen.has(value)) {
+      fail(null, `schema enum "${name}" duplicates "${value}"`);
+    }
+    seen.add(value);
+  }
+  enumUsage.set(name, new Set());
+  return seen;
+}
+
+function checkEnum(source, enumName, value, allowed) {
+  if (value === undefined || value === null || value === "") {
+    fail(source, `missing ${enumName}`);
+    return;
+  }
+  if (!allowed.has(value)) {
+    fail(source, `unknown ${enumName} "${value}"`);
+    return;
+  }
+  enumUsage.get(enumName)?.add(value);
+}
+
+function checkArray(source, field, { required = false } = {}) {
+  if (!Array.isArray(source[field])) {
+    fail(source, `${field} must be an array`);
+    return;
+  }
+  if (required && source[field].length === 0) {
+    fail(source, `${field} must not be empty`);
+  }
+  const seen = new Set();
+  for (const item of source[field]) {
+    if (typeof item !== "string" || item.trim() === "") {
+      fail(source, `${field} contains a non-string or empty value`);
+      continue;
+    }
+    if (item !== item.trim()) {
+      fail(source, `${field} value "${item}" has surrounding whitespace`);
+    }
+    if (seen.has(item)) {
+      fail(source, `${field} duplicates "${item}"`);
+    }
+    seen.add(item);
+  }
+}
+
+function assertOfficialRecord(source, hostname) {
+  if (source.official !== true) {
+    fail(source, "official sourceType requires official:true");
+  }
+  if (source.group === "supplemental") {
+    fail(source, "official source cannot use supplemental group");
+  }
+  if (source.status !== "active") {
+    fail(source, "official source must use active status until superseded by a future schema update");
+  }
+  if (source.auditDisposition !== "keep") {
+    fail(source, "official source must use auditDisposition keep");
+  }
+  if (source.evidenceRole !== "official-support-pending-verification") {
+    fail(source, "official source must use official-support-pending-verification evidenceRole");
+  }
+  if (!hostMatches(hostname, registry.schema.approvedOfficialDomains)) {
+    fail(source, `official source uses non-approved domain "${hostname}"`);
+  }
+}
+
+function assertSupplementalRecord(source) {
+  if (source.official !== false) {
+    fail(source, "supplemental source requires official:false");
+  }
+  if (source.sourceType !== "supplemental-reference") {
+    fail(source, "supplemental group requires supplemental-reference sourceType");
+  }
+  if (source.group !== "supplemental") {
+    fail(source, "supplemental source must use supplemental group");
+  }
+  if (source.status !== "candidate-move") {
+    fail(source, "supplemental rendered source must be a candidate-move record in Gate 2A");
+  }
+  if (source.auditDisposition !== "move") {
+    fail(source, "supplemental rendered source must use auditDisposition move");
+  }
+  if (source.evidenceRole !== "supplemental-navigation-only") {
+    fail(source, "supplemental source must use supplemental-navigation-only evidenceRole");
+  }
+  if (!textValue(source.usedFor).includes("does not carry official claims")) {
+    fail(source, "supplemental usedFor must state that it does not carry official claims");
+  }
+  if (!textValue(source.notFor).includes("Official claims")) {
+    fail(source, "supplemental notFor must explicitly bar official claims");
+  }
+}
+
+const schema = registry.schema;
+if (registry.schemaVersion !== 2) fail(null, "schemaVersion must be 2");
+if (!datePattern.test(registry.auditDate ?? "")) fail(null, "auditDate must use YYYY-MM-DD");
+if (!isObject(schema)) fail(null, "missing schema object");
+if (!isObject(schema?.fields)) fail(null, "missing schema.fields object");
+if (!isObject(schema?.enums)) fail(null, "missing schema.enums object");
+if (!Array.isArray(schema?.approvedOfficialDomains) || schema.approvedOfficialDomains.length === 0) {
+  fail(null, "schema.approvedOfficialDomains must be a non-empty array");
+}
+
+const sourceTypes = enumValues("sourceType");
+const groups = enumValues("group");
+const statuses = enumValues("status");
+const evidenceRoles = enumValues("evidenceRole");
+const verificationStatuses = enumValues("verificationStatus");
+const auditDispositions = enumValues("auditDisposition");
+const documentedFields = new Set(Object.keys(schema?.fields ?? {}));
 
 const countKeys = hasCountKey(registry);
 if (countKeys.length > 0) {
@@ -148,10 +250,24 @@ if (!Array.isArray(registry.sources)) {
       continue;
     }
 
+    const sourceFields = Object.keys(source);
+    for (const field of documentedFields) {
+      if (!sourceFields.includes(field)) {
+        fail(source, `missing documented field "${field}"`);
+      }
+    }
+    for (const field of sourceFields) {
+      if (!documentedFields.has(field)) {
+        fail(source, `undocumented field "${field}"`);
+      }
+    }
+
     if (!source.id) {
       fail(source, "missing id");
     } else if (ids.has(source.id)) {
       fail(source, "duplicate id");
+    } else if (!/^apoc-[a-z0-9]+(?:-[a-z0-9]+)*$/.test(source.id)) {
+      fail(source, "id must be lowercase kebab-case and start with apoc-");
     } else {
       ids.add(source.id);
     }
@@ -159,18 +275,13 @@ if (!Array.isArray(registry.sources)) {
     if (!source.title) fail(source, "missing title");
     if (!source.url) fail(source, "missing url");
     if (!source.canonicalUrl) fail(source, "missing canonicalUrl");
-    if (!source.sourceType) fail(source, "missing sourceType");
-    if (source.sourceType && !allowedSourceTypes.has(source.sourceType)) {
-      fail(source, `unknown sourceType "${source.sourceType}"`);
-    }
-    if (!source.group) fail(source, "missing group");
-    if (source.group && !allowedGroups.has(source.group)) {
-      fail(source, `unknown group "${source.group}"`);
-    }
-    if (!source.status) fail(source, "missing status");
-    if (source.status && !allowedStatuses.has(source.status)) {
-      fail(source, `unknown status "${source.status}"`);
-    }
+    if (source.official !== true && source.official !== false) fail(source, "official must be boolean");
+
+    checkEnum(source, "sourceType", source.sourceType, sourceTypes);
+    checkEnum(source, "group", source.group, groups);
+    checkEnum(source, "status", source.status, statuses);
+    checkEnum(source, "evidenceRole", source.evidenceRole, evidenceRoles);
+    checkEnum(source, "auditDisposition", source.auditDisposition, auditDispositions);
 
     const url = source.url ? parseUrl(source, "url") : null;
     const canonicalUrl = source.canonicalUrl ? parseUrl(source, "canonicalUrl") : null;
@@ -189,56 +300,102 @@ if (!Array.isArray(registry.sources)) {
       }
     }
 
-    const hostname = canonicalUrl?.hostname.toLowerCase() ?? url?.hostname.toLowerCase() ?? "";
-    if (source.official === true && !hostMatches(hostname, approvedOfficialDomains)) {
-      fail(source, `official source uses non-approved domain "${hostname}"`);
-    }
-    if (officialGroups.has(source.group) && source.official === false) {
-      fail(source, "official group contains official:false source");
-    }
-    if (source.group === "supplemental" && source.official === true) {
-      fail(source, "supplemental group contains official:true source");
-    }
-    if (source.sourceType === "supplemental-reference" && source.group !== "supplemental") {
-      fail(source, "supplemental source is inside an official group");
+    const semanticKey = `${source.sourceType}|${normalizeSemanticText(source.title)}`;
+    if (semanticKeys.has(semanticKey)) {
+      fail(source, "duplicate semantic source key");
+    } else {
+      semanticKeys.add(semanticKey);
     }
 
+    const hostname = canonicalUrl?.hostname.toLowerCase() ?? url?.hostname.toLowerCase() ?? "";
     if (hostMatches(hostname, socialDomains)) {
       fail(source, `social media URL is not allowed: ${hostname}`);
     }
-    if (hostMatches(hostname, ["reddit.com"]) && (source.group !== "supplemental" || source.sourceType !== "supplemental-reference")) {
+    if (hostMatches(hostname, ["reddit.com"]) && source.sourceType !== "supplemental-reference") {
       fail(source, "Reddit URL outside supplemental record");
     }
-    if (hostMatches(hostname, ["youtube.com", "youtu.be"]) && (source.group !== "supplemental" || source.sourceType !== "supplemental-reference")) {
+    if (hostMatches(hostname, ["youtube.com", "youtu.be"]) && source.sourceType !== "supplemental-reference") {
       fail(source, "YouTube URL outside supplemental record");
     }
 
-    const usedFor = usedForText(source.usedFor);
+    if (source.sourceType.startsWith("official-")) {
+      assertOfficialRecord(source, hostname);
+    }
+    if (source.sourceType === "supplemental-reference" || source.group === "supplemental") {
+      assertSupplementalRecord(source);
+    }
+    if (source.sourceType === "official-design" && source.group !== "design") {
+      fail(source, "official-design must use design group");
+    }
+    if (source.sourceType === "official-lore" && source.group !== "lore") {
+      fail(source, "official-lore must use lore group");
+    }
+
+    const usedFor = textValue(source.usedFor);
     if (!usedFor) {
       fail(source, "missing usedFor");
     } else if (vagueUsedForValues.has(usedFor.toLowerCase())) {
       fail(source, `vague usedFor value "${usedFor}"`);
     }
+    if (!textValue(source.notFor)) fail(source, "missing notFor");
+    if (!textValue(source.subgroup)) fail(source, "missing subgroup");
+    if (!textValue(source.notes)) fail(source, "missing notes");
 
-    if (source.linkStatus !== "not-checked" && !source.lastVerified) {
-      fail(source, "missing lastVerified unless linkStatus is not-checked");
+    checkArray(source, "topics", { required: true });
+    checkArray(source, "colors");
+    checkArray(source, "identities");
+    checkArray(source, "planes");
+    checkArray(source, "linkedFrom", { required: true });
+    for (const locator of source.linkedFrom ?? []) {
+      if (!locator.startsWith("apocrypha/index.html#")) {
+        fail(source, `linkedFrom locator must point at an Apocrypha anchor: ${locator}`);
+      }
     }
+
+    if (!isObject(source.verification)) {
+      fail(source, "verification must be an object");
+    } else {
+      const keys = Object.keys(source.verification);
+      for (const key of requiredVerificationKeys) {
+        if (!keys.includes(key)) fail(source, `verification missing ${key}`);
+      }
+      for (const key of keys) {
+        if (!requiredVerificationKeys.includes(key)) fail(source, `verification has unexpected field ${key}`);
+      }
+      checkEnum(source, "verificationStatus", source.verification.status, verificationStatuses);
+      if (source.verification.status === "not-checked") {
+        if (source.verification.checkedAt !== null) fail(source, "not-checked verification must have checkedAt:null");
+        if (source.verification.method !== null) fail(source, "not-checked verification must have method:null");
+        if (source.verification.httpStatus !== null) fail(source, "not-checked verification must have httpStatus:null");
+        if (source.verification.finalUrl !== null) fail(source, "not-checked verification must have finalUrl:null");
+        if (!Array.isArray(source.verification.redirectChain) || source.verification.redirectChain.length !== 0) {
+          fail(source, "not-checked verification must have empty redirectChain");
+        }
+      }
+    }
+
     if (source.publishedDate !== null && source.publishedDate !== undefined && !datePattern.test(source.publishedDate)) {
       fail(source, `invalid publishedDate format "${source.publishedDate}"`);
     }
-    if (source.lastVerified !== null && source.lastVerified !== undefined && !datePattern.test(source.lastVerified)) {
-      fail(source, `invalid lastVerified format "${source.lastVerified}"`);
+    if (source.replacementFor !== null && !Array.isArray(source.replacementFor)) {
+      fail(source, "replacementFor must be null or an array of source IDs");
     }
-    if (source.status === "current-official" && source.linkStatus !== "ok" && source.linkStatus !== "redirected") {
-      fail(source, "current-official source is unverified");
+    if (source.replacedBy !== null && !Array.isArray(source.replacedBy)) {
+      fail(source, "replacedBy must be null or an array of source IDs");
     }
   }
+}
+
+for (const [enumName, used] of enumUsage) {
+  const allowed = new Set(registry.schema?.enums?.[enumName] ?? []);
+  const unused = sorted([...allowed].filter((value) => !used.has(value)));
+  if (unused.length > 0) fail(null, `orphan enum value(s) in ${enumName}: ${unused.join(", ")}`);
 }
 
 const sources = Array.isArray(registry.sources) ? registry.sources : [];
 const officialCount = sources.filter((source) => source.official === true).length;
 const supplementalCount = sources.filter((source) => source.sourceType === "supplemental-reference").length;
-const notCheckedCount = sources.filter((source) => source.linkStatus === "not-checked").length;
+const notCheckedCount = sources.filter((source) => source.verification?.status === "not-checked").length;
 const moveRemoveCount = sources.filter((source) => source.auditDisposition === "move" || source.auditDisposition === "remove").length;
 
 if (errors.length > 0) {
