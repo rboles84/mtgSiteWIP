@@ -290,3 +290,14 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - Candidate result: 8 substantive claims, 17 unchanged sources, 28 COLORLESS provenance rows, zero null canonical IDs, zero missing hashes, 24 fixtures, and all 20 required neighbor/endpoint exclusions.
 - Candidate scope: seven COLORLESS source/generated/fixture files. `data/factions.json`, the placement schema, and recruiter output regenerated with no content delta and were not staged. VM-538 WUBRG, Excel, GitHub remote authority, review, certification, push, PR, merge, package, validator, test, runtime, and identity-layer source files were untouched.
 - Result: READY FOR INDEPENDENT REVIEW EXACT SHA `ae54c83db22fda6bd48574b3431b64d92e8cf04a`.
+
+## VM-537 Colorless Certification - 2026-07-24
+
+- DRIFT-014: Certification preserved program-base/Gate/candidate/workflow/review/certification separation. Only exact approved candidate `ae54c83db22fda6bd48574b3431b64d92e8cf04a` was certified; workflow `ef6acf5a4574fc543ea6bb397f0a9ae4748b0158` and approval review `0d150a45ab9894f7fa57513603eb569840a63635` remain distinct.
+- DRIFT-015: `data/identity-layers.json` and the embedded `data/factions.json` COLORLESS record remain equal to Gate 1+2. Home preview remains enabled; directory links, public routes, public alias expansion, and recommendation expansion remain disabled.
+- DRIFT-016: `COLORLESS` remains the only accepted alias. `C`, `c`, lowercase `colorless`, `{C}`, and `Wastes` fail closed as public aliases. Exact candidate-scope regression passed and all 20 required neighbor/endpoint rejection boundaries are present.
+- DRIFT-017/DRIFT-019: Support-only Commander/product rows, comparator-only material, discovery bundles, copied texture, and unverified legality/price/metagame material remain outside authoritative proof. Foreign `wubrg_claim_0007` was removed while the Colorless-owned collision chain remains intact.
+- DRIFT-020: Certification used no source-preview exception and modified no validator/test implementation.
+- Certification scope: governance-only. No Colorless semantic/generated/fixture/provenance content, package, schema, recruiter, identity-layer, runtime, validator, test, CI, Excel, GitHub remote authority, or VM-538 WUBRG content was changed.
+- Validation: npm.cmd ci PASS; full npm.cmd test PASS after ignored Scryfall hardlink; semantic readiness/fixtures, 2071-entry provenance, source/generated guardrails, faction-context, parser, placement, candidate-scope regression, exact candidate scope, deterministic build, alias/endpoint/neighbor/collision/preview probes PASS.
+- Program base: `PENDING_VM537_CERTIFICATION_COMMIT_SHA`; certified identity count advances to 36 of 37. VM-538 WUBRG remains backlog/not started/untouched and is the only uncertified identity.

@@ -5,14 +5,14 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": "COLORLESS",
+    "active_identity": null,
     "next_identity": "WUBRG",
-    "certified_identity_count": 35,
+    "certified_identity_count": 36,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 5 four-color identities complete; VM-537 Colorless exact semantic candidate is ready for independent review; VM-538 WUBRG remains backlog/not started",
-      "current_program_base": "8576efbb3e9e16b50684e1ea86214f9beb3b94dd",
+      "next_cohort": "Wave 5 four-color identities complete; VM-537 Colorless certified; VM-538 WUBRG remains backlog/not started and is the only uncertified identity",
+      "current_program_base": "PENDING_VM537_CERTIFICATION_COMMIT_SHA",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -64,8 +64,8 @@
           "INK",
           "WITCH"
         ],
-        "current_identity": "COLORLESS",
-        "current_identity_status": "candidate_created_ready_for_independent_review",
+        "current_identity": null,
+        "current_identity_status": "wave_complete_colorless_certified",
         "next_identity": "WUBRG",
         "next_identity_status": "backlog_not_started",
         "certified": "5 of 5",
@@ -113,9 +113,9 @@
       "current_identity_hold": {
         "identity": "COLORLESS",
         "card": "VM-537",
-        "state": "candidate_created_ready_for_independent_review",
-        "branch": "codex/vm-537-colorless-semantic-recovery",
-        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm537-colorless",
+        "state": "certification_complete",
+        "branch": "codex/vm-537-colorless-certification",
+        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm537-colorless-certification",
         "prior_identity_certified": "WITCH",
         "prior_identity_certification": "8576efbb3e9e16b50684e1ea86214f9beb3b94dd",
         "gate_1_2_commit": "cb2980e27bbd6283cddc44f76803c9c2dcabf019",
@@ -154,7 +154,7 @@
         "candidate_parent_proof": "ae54c83db22fda6bd48574b3431b64d92e8cf04a^ = cb2980e27bbd6283cddc44f76803c9c2dcabf019",
         "superseded_candidates": [],
         "candidate_workflow_report": "docs/handoffs/2026-07-24-2014-codex-vm537-colorless-candidate-workflow.md",
-        "candidate_workflow_sha": "PENDING_VM537_CANDIDATE_WORKFLOW_SHA",
+        "candidate_workflow_sha": "ef6acf5a4574fc543ea6bb397f0a9ae4748b0158",
         "candidate_files": [
           "data/placement-model.json",
           "data/raw-factions/colorless/colorless.changelog.json",
@@ -195,8 +195,16 @@
         "candidate_endpoint_result": "public aliases, public routes, directory links, and broad recommendation expansion remain disabled; C is retained only as a core/display and mana-query marker",
         "candidate_neighbor_rejection_result": "WUBRG, W, U, B, R, G, YORE, ESPER, WITCH, GENERIC_MANA, ARTIFACT_ONLY, ELDRAZI_ONLY, WASTES_ONLY, DEVOID_ONLY, PHYREXIA_ONLY, FIVE_COLOR_ELDRAZI, COMMANDER_SUPPORT_ONLY, SIXTH_COLOR, PUBLIC_ALIAS_C, and PUBLIC_ALIAS_LOWERCASE_COLORLESS fixtures are present as COLORLESS rejection boundaries",
         "candidate_preview_result": "Home preview remains enabled and unchanged; identity-layer and factions COLORLESS records equal Gate 1+2; directory links remain suppressed; no identity-layer source edit occurred",
-        "updated_at": "2026-07-24T20:14:00-06:00",
-        "authorized_next_scope": "Independent review may review only exact candidate ae54c83db22fda6bd48574b3431b64d92e8cf04a. Certification is not authorized until a separate exact-SHA approval exists. VM-538 WUBRG remains backlog/not started."
+        "approval_review_handoff": "docs/handoffs/2026-07-24-2031-codex-vm537-colorless-independent-review.md",
+        "approval_review_sha": "0d150a45ab9894f7fa57513603eb569840a63635",
+        "review_decision": "APPROVE EXACT SHA ae54c83db22fda6bd48574b3431b64d92e8cf04a",
+        "certification_handoff": "docs/handoffs/2026-07-24-2046-codex-vm537-colorless-certification.md",
+        "certification_commit": "PENDING_VM537_CERTIFICATION_COMMIT_SHA",
+        "certification_result": "CERTIFIED EXACT SHA ae54c83db22fda6bd48574b3431b64d92e8cf04a",
+        "certified_at": "2026-07-24T20:46:00-06:00",
+        "certified_identity_count": "36 of 37",
+        "updated_at": "2026-07-24T20:46:00-06:00",
+        "authorized_next_scope": "VM-538 WUBRG remains backlog/not started and untouched. A separate explicit authorization and committed drift preflight are required before Gate 1+2 semantic work."
       },
       "pre_simic_sequence": [
         "Install and commit the drift-control framework.",
@@ -207,46 +215,53 @@
         "Begin Simic Goal mode only after the drift preflight reports no FAIL or UNKNOWN controls."
       ],
       "last_certification": {
-        "identity": "WITCH",
-        "card": "VM-536",
-        "candidate_sha": "acaf51a4f7e11d73b59fcc61397dcab2cb39e490",
-        "superseded_candidates": [
-          "96f8ee3259a5010e96ba92aea35ae271eb692ac8"
-        ],
-        "candidate_workflow_sha": "f654abd2ad52ae41571e6b476bc26a87e90de514",
+        "identity": "COLORLESS",
+        "card": "VM-537",
+        "candidate_sha": "ae54c83db22fda6bd48574b3431b64d92e8cf04a",
+        "superseded_candidates": [],
+        "candidate_workflow_sha": "ef6acf5a4574fc543ea6bb397f0a9ae4748b0158",
         "gate_3_4_workflow_sha": null,
-        "approval_review_sha": "5a5291f50fc90cfc3f3592e53cb7ae9907b57309",
-        "review_decision": "APPROVE EXACT SHA acaf51a4f7e11d73b59fcc61397dcab2cb39e490",
-        "certification_commit": "PENDING_VM536_CERTIFICATION_COMMIT_SHA",
-        "certification_handoff": "docs/handoffs/2026-07-24-1841-codex-vm536-witch-certification.md",
-        "certified_at": "2026-07-24T18:41:00-06:00",
+        "approval_review_sha": "0d150a45ab9894f7fa57513603eb569840a63635",
+        "review_decision": "APPROVE EXACT SHA ae54c83db22fda6bd48574b3431b64d92e8cf04a",
+        "certification_commit": "PENDING_VM537_CERTIFICATION_COMMIT_SHA",
+        "certification_handoff": "docs/handoffs/2026-07-24-2046-codex-vm537-colorless-certification.md",
+        "certified_at": "2026-07-24T20:46:00-06:00",
         "final_state": "semantically_ready",
         "contract_version": "v1.1",
-        "reviewed_provenance_count": 12,
-        "evidence_locator_count": "bounded evidence locations on all 5 substantive claims",
+        "reviewed_provenance_count": 28,
+        "evidence_locator_count": "bounded evidence locations on all 8 substantive claims",
         "claim_role_counts": {
-          "total": 5,
-          "substantive_claim": 5,
+          "total": 8,
+          "substantive_claim": 8,
           "discovery_record": 0,
           "support_record": 0,
           "unclassified": 0
         },
         "source_role_counts": {
-          "claim-bearing": 3,
+          "claim-bearing": 1,
+          "claim-bearing-boundary-support": 1,
+          "claim-bearing-with-audit-caution": 3,
+          "claim-bearing-with-audit-caution / support-shaping": 1,
+          "comparator-only": 1,
+          "comparator-support-only": 1,
           "discovery-only": 1,
-          "shaping-only": 4,
-          "support-only": 5
+          "distinction-only": 1,
+          "governance-bound": 2,
+          "home-preview-lifecycle-governance": 1,
+          "lifecycle-product-governance": 1,
+          "shaping-only": 2,
+          "support-only": 1
         },
         "candidate_scope_result": "PASS",
-        "invalid_alias_result": "GWUB, WUBG, and all 24 same-color permutations remained metadata-only/non-canonical; WITCH remains the only accepted alias",
-        "neighbor_rejection_result": "INK, YORE, GLINT, DUNE, BANT, ESPER, SULTAI, ABZAN, WG, UG, BG, WU, WB, UB, GENERIC_GWUB, GENERIC_FOUR_COLOR_COMMANDER, GENERIC_COUNTERS, GENERIC_PROLIFERATE, GENERIC_ATRAXA, INFECT_ONLY, SUPERFRIENDS_ONLY, PHYREXIA_ONLY, WITCH_MAW_ONLY, BREED_LETHALITY_ONLY, GROWTH_ONLY, COMMANDER_LEGALITY, OFFICIAL_NAME, and RED_PRESENT_COLLAPSE rejected the Witch candidate range",
-        "fixture_count": 37,
+        "invalid_alias_result": "COLORLESS remains the only accepted alias; C, c, lowercase colorless, {C}, and Wastes fail closed as public identity aliases",
+        "neighbor_rejection_result": "All 20 required COLORLESS neighbor and endpoint rejection boundaries are present",
+        "fixture_count": 24,
         "wave_5_certified": "5 of 5",
         "wave_5_status": "complete",
-        "total_certified": 35,
-        "next_identity": "COLORLESS",
+        "total_certified": 36,
+        "next_identity": "WUBRG",
         "next_identity_status": "backlog_not_started",
-        "prior_program_base": "fa88363b7a09ed326a0f15484388e7f2b8fce9ef"
+        "prior_program_base": "8576efbb3e9e16b50684e1ea86214f9beb3b94dd"
       }
     },
     "rejected_prerequisite_candidates": [
@@ -5866,14 +5881,13 @@
       "computed": {
         "structural_fingerprint": [
           "low-volume-pattern",
-          "support-heavy-pattern",
-          "invalid-reference-pattern"
+          "support-heavy-pattern"
         ],
         "semantic_role_counts": {
-          "substantive_claim": 0,
+          "substantive_claim": 8,
           "discovery_record": 0,
           "support_record": 0,
-          "unclassified": 8
+          "unclassified": 0
         },
         "source_count": 17,
         "source_role_counts": {
@@ -5893,13 +5907,8 @@
         },
         "claim_bearing_source_count": 1,
         "claim_bearing_source_rate": 0.0588,
-        "reference_site_count": 23,
-        "missing_references": [
-          {
-            "pointer": "data/raw-factions/colorless/colorless.placement.json#/collision_guidance/pairs/0",
-            "claim_id": "wubrg_claim_0007"
-          }
-        ],
+        "reference_site_count": 28,
+        "missing_references": [],
         "potential_role_invalid_support_links": [],
         "raw_question_count": 6,
         "unique_question_claim_ids": [
@@ -5922,23 +5931,22 @@
         ],
         "provisional_risk_indicators": {
           "coverage": [
-            "low-record-volume",
-            "no-explicit-substantive-role"
+            "low-record-volume"
           ],
           "neighbors": []
         },
         "template_cohort_pattern": false,
-        "inventory_updated_at": "2026-07-11T18:42:33.624Z"
+        "inventory_updated_at": "2026-07-24T20:46:00-06:00"
       },
       "workflow": {
-        "current_gate": "candidate_created",
-        "status": "ready_for_independent_review",
+        "current_gate": "certification_complete",
+        "status": "certified_semantically_ready",
         "started_at": "2026-07-24T19:51:00-06:00",
-        "gate_entered_at": "2026-07-24T20:14:00-06:00",
+        "gate_entered_at": "2026-07-24T20:46:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WUBRG",
-        "primary_disposition": "READY FOR INDEPENDENT REVIEW EXACT SHA ae54c83db22fda6bd48574b3431b64d92e8cf04a"
+        "primary_disposition": "CERTIFIED EXACT SHA ae54c83db22fda6bd48574b3431b64d92e8cf04a"
       },
       "semantic_review": {
         "required_neighbors": [
@@ -5963,29 +5971,35 @@
           "PUBLIC_ALIAS_C",
           "PUBLIC_ALIAS_LOWERCASE_COLORLESS"
         ],
-        "audit_report": "docs/handoffs/2026-07-24-2014-codex-vm537-colorless-candidate-workflow.md",
+        "audit_report": "docs/handoffs/2026-07-24-2031-codex-vm537-colorless-independent-review.md",
         "residual_findings": [
-          "Final COLORLESS semantic candidate ae54c83db22fda6bd48574b3431b64d92e8cf04a was created directly from Gate 1+2 cb2980e27bbd6283cddc44f76803c9c2dcabf019.",
-          "Candidate records 8 substantive claims, 17 unchanged sources, 28 COLORLESS provenance rows, zero null canonical IDs, zero missing hashes, and 24 semantic fixtures.",
-          "The WUBRG collision proof chain is COLORLESS-owned; foreign wubrg_claim_0007 was removed and the frozen COLORLESS/WUBRG collision, axes, questions, lateral targets, min-hits, penalty, and calibration fields were preserved.",
-          "Accepted aliases remain exactly COLORLESS; C, c, and lowercase colorless are not public aliases, while {C} and Wastes remain bounded metadata/rules/query terms.",
-          "Home preview remains enabled and unchanged; public route, directory links, and recommendation expansion remain disabled; data/identity-layers.json was not modified.",
-          "VM-538 WUBRG remains backlog/not_started and untouched; Excel was not updated by Codex."
+          "Independent exact-SHA review approved candidate ae54c83db22fda6bd48574b3431b64d92e8cf04a from Gate 1+2 cb2980e27bbd6283cddc44f76803c9c2dcabf019 and workflow ef6acf5a4574fc543ea6bb397f0a9ae4748b0158.",
+          "Review and certification verified 8 substantive claims, 17 unchanged sources, 28 COLORLESS provenance rows, zero null canonical IDs/hashes, 24 semantic fixtures, and five complete guidance mappings.",
+          "The WUBRG collision proof chain is COLORLESS-owned; foreign wubrg_claim_0007 is removed while the frozen COLORLESS/WUBRG collision, axes, questions, lateral targets, min-hits, penalty, and calibration fields remain preserved.",
+          "Accepted aliases remain exactly COLORLESS; C, c, lowercase colorless, {C}, and Wastes fail closed as public identity aliases.",
+          "Home preview remains enabled and unchanged; public route, directory links, and recommendation expansion remain disabled; identity-layer and embedded factions records equal Gate 1+2.",
+          "Certification validation passed npm.cmd ci, full npm.cmd test after the ignored Scryfall hardlink, COLORLESS semantic readiness and fixtures, strict 2071-entry provenance, source/generated guardrails, faction-context, parser, placement, candidate-scope regression, exact candidate scope, deterministic build, and direct boundary probes.",
+          "No remediation occurred. VM-538 WUBRG remains backlog/not_started and untouched as the only uncertified identity; Excel was not updated by Codex."
         ]
       },
       "certification": {
         "contract_version": "v1.1",
         "contract_revalidation_required": false,
         "candidate_recovery_sha": "ae54c83db22fda6bd48574b3431b64d92e8cf04a",
-        "recovery_commit": "PENDING_VM537_CANDIDATE_WORKFLOW_SHA",
-        "certification_commit": null,
-        "reviewer": null,
-        "review_cycles": 0,
-        "approval_date": null,
-        "certified_at": null,
+        "recovery_commit": "ef6acf5a4574fc543ea6bb397f0a9ae4748b0158",
+        "certification_commit": "PENDING_VM537_CERTIFICATION_COMMIT_SHA",
+        "reviewer": "docs/handoffs/2026-07-24-2031-codex-vm537-colorless-independent-review.md",
+        "review_cycles": 1,
+        "approval_date": "2026-07-24",
+        "certified_at": "2026-07-24T20:46:00-06:00",
         "candidate_workflow_handoff": "docs/handoffs/2026-07-24-2014-codex-vm537-colorless-candidate-workflow.md",
-        "candidate_workflow_commit": "PENDING_VM537_CANDIDATE_WORKFLOW_SHA",
-        "final_state": "awaiting_independent_review",
+        "candidate_workflow_commit": "ef6acf5a4574fc543ea6bb397f0a9ae4748b0158",
+        "approval_review_handoff": "docs/handoffs/2026-07-24-2031-codex-vm537-colorless-independent-review.md",
+        "approval_review_sha": "0d150a45ab9894f7fa57513603eb569840a63635",
+        "review_decision": "APPROVE EXACT SHA ae54c83db22fda6bd48574b3431b64d92e8cf04a",
+        "certification_handoff": "docs/handoffs/2026-07-24-2046-codex-vm537-colorless-certification.md",
+        "recovery_summary": "docs/incidents/recoveries/VM-537-colorless-semantic-recovery.md",
+        "final_state": "semantically_ready",
         "claim_role_counts": {
           "total": 8,
           "substantive_claim": 8,
@@ -5998,8 +6012,8 @@
         "known_unchanged_warnings": [
           "Git reports permission denied for C:\\Users\\obake/.config/git/ignore.",
           "npm.cmd test required an ignored hardlink to the local Scryfall corpus at data/scryfall/raw/oracle-cards.json.",
-          "data/factions.json, data/placement-model.schema.json, and supabase/functions/guild-recruiter/faction-context.ts were touched as CRLF/stat-only generator byproducts with no content diff.",
-          "docs/audits/gate-compression/live-gate-bias.json and .md were touched by npm.cmd test and remain unstaged."
+          "data/factions.json, data/placement-model.json, data/placement-model.schema.json, data/semantic-readiness-provenance.json, recruiter context, and live-gate-bias reports were touched as CRLF/stat-only validation byproducts with no content diff.",
+          "The initial byte-strict provenance check observed CRLF/LF mismatch; normalized equality passed, deterministic generation rewrote the manifest, and strict verification then passed with 2071 entries."
         ]
       }
     },
