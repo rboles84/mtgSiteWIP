@@ -1,10 +1,25 @@
 # Vox Mana
 
-Vox Mana is a Commander identity and taste compass for Magic: The Gathering players. It helps you understand your color signals, play patterns, placement, and browsing direction before you build or compare decks elsewhere.
+Vox Mana helps Commander players discover, understand, and explain the kinds of games they enjoy most.
+
+It is a Commander identity and taste compass for Magic: The Gathering players. Vox Mana helps you understand your color signals, play patterns, placement, and browsing direction before you build or compare decks elsewhere.
 
 Try it at [voxmana.io](https://voxmana.io/).
 
-Vox Mana is for Commander players who want clearer language for what they enjoy at the table: pacing, pressure, risk, resource use, color identity, nearby fits, and what to look for next. It is not a deckbuilder, card database, rules engine, EDHREC clone, generic MTG wiki, or purchasing/recommendation authority.
+It is not a deckbuilder, card database, rules engine, EDHREC clone, generic MTG wiki, or purchasing/recommendation authority.
+
+## Quick Links
+
+| Link | Destination |
+| --- | --- |
+| Live Site | [voxmana.io](https://voxmana.io/) |
+| Workflow | [docs/reference/workflow.md](docs/reference/workflow.md) |
+| Privacy | [privacy/](privacy/) |
+| Terms | [terms/](terms/) |
+
+## Why Vox Mana Exists
+
+Commander players often know when a game feels right but struggle to explain why. Vox Mana gives players a vocabulary for play styles, table dynamics, pacing, and color identity so they can better understand their preferences, communicate expectations, and explore new strategies with more confidence.
 
 ## Core Experiences
 
@@ -39,7 +54,7 @@ Most public use can happen without signing in. Some flows use browser storage fo
 
 Vox Mana is in active development. Core public experiences are available while validation, editorial refinement, accessibility, and cross-device testing continue.
 
-The project currently has 37 certified placement identities under the CRIT-001 semantic-readiness campaign. That certification is an internal source and regression-control milestone; it is not a claim that the placement model is scientifically validated for every player.
+The underlying placement model is maintained through an internal validation and regression process. Public experiences continue to evolve as research, editorial review, accessibility, and cross-device testing progress.
 
 ## Local Development
 

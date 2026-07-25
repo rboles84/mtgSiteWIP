@@ -55,6 +55,8 @@ VM-429 Section 14 ID reconciliation, 2026-06-30: the early readiness plan expect
 
 - [VM-543 - Public README Gateway Repair](done/VM-543-public-readme-gateway-repair.md) - replaced the obsolete root README with an accurate public gateway covering product purpose, live site, current experiences, repository map, local checks, protected workflow boundaries, attribution, non-affiliation, and license status.
 
+- [VM-544 - README GitHub Polish Pass](done/VM-544-readme-github-polish-pass.md) - polished the public README opening, Quick Links, mission framing, and status wording after the VM-543 gateway repair without changing runtime, data, source, generated, or placement surfaces.
+
 - [VM-501 - Faction Semantic Readiness Recovery Infrastructure](done/VM-501-faction-semantic-readiness-recovery.md) - established Contract v1, all-37 structural inventory, provenance, validator, fixtures, ledger, and recovery governance without changing placement or recruiter semantics; Contract v1.1 prerequisite candidate `6e53acd` is independently approved for program-base acceptance.
 
 - [VM-540 - CRIT-001 Operating Playbook And Gate 0 Hardening](done/VM-540-crit001-operating-playbook-gate-zero-hardening.md) - one-time campaign Gate 0 hardening before Rakdos; adds Operating Playbook v2, template/checklist updates, and narrow candidate-scope guard tests for recurring CRIT-001 defects.
