@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vox Mana - The Apocrypha</title>
-<meta name="description" content="Read the public sources, lore references, design notes, and research trail behind Vox Mana's Commander identity model.">
+<meta name="description" content="Read the registry-backed public source library behind Vox Mana's color, lore, and Commander identity work.">
 <link rel="canonical" href="https://voxmana.io/apocrypha/">
 <meta property="og:site_name" content="Vox Mana">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Vox Mana - The Apocrypha">
-<meta property="og:description" content="A public source library for the lore, color philosophy, design notes, and research trail behind Vox Mana.">
+<meta property="og:description" content="A registry-backed public source library for the evidence and source boundaries behind Vox Mana.">
 <meta property="og:url" content="https://voxmana.io/apocrypha/">
 <meta property="og:image" content="https://voxmana.io/assets/img/vox-mana-hero-1280w.jpg">
 <meta property="og:image:alt" content="Vox Mana gateway artwork for the Apocrypha source library.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Vox Mana - The Apocrypha">
-<meta name="twitter:description" content="Public sources, lore references, design notes, and research trails behind Vox Mana.">
+<meta name="twitter:description" content="Registry-backed public sources and authority boundaries behind Vox Mana.">
 <meta name="twitter:image" content="https://voxmana.io/assets/img/vox-mana-hero-1280w.jpg">
 <link rel="icon" type="image/svg+xml" href="../assets/img/vox-mana-header-logo.svg">
 
@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../assets/css/topbar.css">
 <link rel="stylesheet" href="../assets/css/atmosphere.css">
 <link rel="stylesheet" href="../assets/css/components.css">
-<link rel="stylesheet" href="../assets/css/apocrypha.css?v=20260615a">
+<link rel="stylesheet" href="../assets/css/apocrypha.css?v=20260725g5">
 <noscript>
   <style>
     [data-reveal] {
@@ -103,48 +103,42 @@
     <section class="apoc-hero apoc-section" id="top" data-rail-section aria-labelledby="apocrypha-title">
       <div class="apoc-hero__grid">
         <div class="vm-panel apoc-hero__copy" data-reveal>
-          <p class="apoc-kicker">Why This Page Exists</p>
+          <p class="apoc-kicker">Source Library</p>
           <div class="apoc-hero__intro">
             <h1 id="apocrypha-title">The Apocrypha</h1>
             <p class="apoc-subtitle">Where Vox Mana shows its work.</p>
-            <p class="apoc-lede">
-              Vox Mana connects Magic lore, color philosophy, factions, and player-facing themes.
-              Apocrypha is the public reference library behind those interpretations.
-            </p>
-            <p class="apoc-note">
-              Use this page to see the websites, videos, archives, GitHub projects, and lore
-              references used while building Vox Mana.
-            </p>
+            <p class="apoc-lede">Apocrypha lists the public sources behind Vox Mana's color, lore, rules, and Commander identity work. Each source card should say what the source is, what it can support, and where its authority stops.</p>
+            <p class="apoc-note">Official sources can support design, lore, rules, card-record, or archive claims according to their source type. Supplemental references can help with navigation and context, but they do not carry official claims by themselves.</p>
           </div>
           <div class="apoc-hero__actions">
-            <a class="vm-button vm-button--primary" href="#ledger">Browse public references</a>
-            <a class="vm-button" href="#decks">Read the quick guide</a>
+            <a class="vm-button vm-button--primary" href="#ledger">Browse source shelves</a>
+            <a class="vm-button" href="#method">Read the trust note</a>
           </div>
-          <div class="apoc-hero__status" aria-label="Apocrypha commitments">
-            <span>Public URLs</span>
-            <span>Source Groups</span>
-            <span>Reviewed Support</span>
+          <div class="apoc-hero__status" aria-label="Current registry coverage">
+            <span data-source-total="59">59 rendered sources</span>
+            <span data-source-official="50">50 official sources</span>
+            <span data-source-pending="20">20 links pending check</span>
           </div>
         </div>
 
-        <aside class="vm-panel apoc-hero__signal" data-reveal aria-label="Why this page exists">
+        <aside class="vm-panel apoc-hero__signal" data-reveal aria-label="How to read Apocrypha">
           <div class="apoc-hero__signal-head">
             <p class="vm-card-kicker">At A Glance</p>
-            <h2>Public links first.</h2>
-            <p>This page gathers the public references behind Vox Mana in one place so visitors can follow the visible research trail.</p>
+            <h2>Start with official evidence.</h2>
+            <p>Start with the official shelves when checking a Vox Mana claim. Use supplemental references only as wayfinding aids or context trails.</p>
           </div>
           <div class="apoc-signal-list">
             <article class="apoc-signal-item">
-              <h3>Public references only</h3>
-              <p>The focus here is live public URLs and plain-language source context.</p>
+              <h3>Source type matters</h3>
+              <p>Official publisher status and link verification are separate facts.</p>
             </article>
             <article class="apoc-signal-item">
-              <h3>Grouped for browsing</h3>
-              <p>Official lore, community references, video lore, and project archives are separated so the library is easy to scan.</p>
+              <h3>Boundaries stay visible</h3>
+              <p>Every source card says what the source supports and what it does not support.</p>
             </article>
             <article class="apoc-signal-item">
-              <h3>Reviewed support only</h3>
-              <p>Only source support that helps explain the public reference trail is surfaced here.</p>
+              <h3>Known gaps remain</h3>
+              <p>Current registry coverage is useful, but it is not a complete Magic source library.</p>
             </article>
           </div>
         </aside>
@@ -161,8 +155,8 @@
         <nav class="apoc-rail__links" aria-label="Apocrypha sections">
           <a href="#top" data-rail-link="top" aria-current="false">Top</a>
           <a href="#decks" data-rail-link="decks" aria-current="false">Quick Guide</a>
-          <a href="#ledger" data-rail-link="ledger" aria-current="false">Reference Library</a>
-          <a href="#method" data-rail-link="method" aria-current="false">How Used</a>
+          <a href="#ledger" data-rail-link="ledger" aria-current="false">Source Library</a>
+          <a href="#method" data-rail-link="method" aria-current="false">Trust Note</a>
         </nav>
       </aside>
 
@@ -171,330 +165,1670 @@
           <div class="apoc-section__head" data-reveal>
             <p class="apoc-kicker">What Should I Look At?</p>
             <h2 id="apocrypha-decks-title">Start with the shelf that matches your question.</h2>
-            <p>Use this quick guide first if you want the short version, then jump into the public reference library for the individual links.</p>
+            <p>Official sources support only the claims their source type can carry. Supplemental sources help readers navigate; they do not prove canon, rules, card records, or design intent.</p>
           </div>
 
           <div class="apoc-guide-grid">
             <article class="vm-panel apoc-guide-card" data-reveal>
-              <p class="vm-card-kicker">Official Lore</p>
-              <h3>Start here for the strongest lore foundation.</h3>
-              <p>Wizards articles, official story material, and timeline references used as the baseline for faction identity and continuity.</p>
+              <p class="vm-card-kicker">Official Design</p>
+              <h3>Color, mechanics, and faction design.</h3>
+              <p>Use these sources when checking why Vox Mana treats a color, guild, shard, wedge, or mechanic as design-supported.</p>
             </article>
 
             <article class="vm-panel apoc-guide-card" data-reveal>
-              <p class="vm-card-kicker">Community References</p>
-              <h3>Useful for structure and interpretation.</h3>
-              <p>Wiki pages, Reddit discussions, lore guides, and player-facing explanations that help clarify how the lore is commonly understood.</p>
+              <p class="vm-card-kicker">Worldbuilding & Lore</p>
+              <h3>Story, planes, setting, and flavor.</h3>
+              <p>Use these sources when checking official setting details, guild flavor, plane context, or story support.</p>
             </article>
 
             <article class="vm-panel apoc-guide-card" data-reveal>
-              <p class="vm-card-kicker">Video Lore</p>
-              <h3>Helpful for review and cross-checking.</h3>
-              <p>YouTube lore overviews used for reminders, comparison, and narrative gap checks.</p>
+              <p class="vm-card-kicker">Official Archives</p>
+              <h3>Historical official context.</h3>
+              <p>Use these sources when checking where an older official statement came from or how an idea was framed at the time.</p>
             </article>
 
             <article class="vm-panel apoc-guide-card" data-reveal>
-              <p class="vm-card-kicker">Project Archives</p>
-              <h3>Useful for navigation and continuity.</h3>
-              <p>GitHub projects, story archives, PDF indexes, and public collections that help trace the research trail and find source material quickly.</p>
+              <p class="vm-card-kicker">Supplemental References</p>
+              <h3>Navigation only.</h3>
+              <p>Use these links to find chronology, terminology, community framing, or source trails that still need official support.</p>
             </article>
           </div>
         </section>
 
         <section class="apoc-section" id="ledger" data-rail-section aria-labelledby="apocrypha-ledger-title">
           <div class="apoc-section__head" data-reveal>
-            <p class="apoc-kicker">Public Reference Library</p>
-            <h2 id="apocrypha-ledger-title">Public links grouped by type.</h2>
-            <p>These are the public references currently linked from Apocrypha. Every entry stays visible here, with a short note about why it matters.</p>
+            <p class="apoc-kicker">Public Source Library</p>
+            <h2 id="apocrypha-ledger-title">Registry-listed sources, grouped by authority.</h2>
+            <p>A source being listed here does not make every claim official, current, complete, or verified. Authority comes from source type, publisher, evidence role, and verification state.</p>
           </div>
 
+          <div class="apoc-registry-summary" aria-label="Current registry rendering summary">
+            <span data-source-total="59">59 rendered sources</span>
+            <span>45 design</span>
+            <span>4 lore</span>
+            <span>1 archive</span>
+            <span>9 supplemental</span>
+            <span>39 checked links</span>
+            <span>20 pending link checks</span>
+            <span>1 rules record suppressed</span>
+          </div>
+
+          <p class="apoc-source-status" data-apoc-source-status role="status" aria-live="polite">Static source shelves are available below. When served over HTTP, JavaScript checks the registry and refreshes this library from data.</p>
+          <noscript>
+            <p class="apoc-source-status">JavaScript is off. Source shelves remain available below; filtering and navigation enhancements are disabled.</p>
+          </noscript>
+
+          <div data-apoc-source-root data-render-mode="fallback">
           <nav class="apoc-source-compass" aria-label="Source library groups" data-source-compass>
             <div class="apoc-source-compass__rail">
-              <a class="apoc-source-tome" href="#apoc-library-official-wizards" data-source-tome data-library-target="apoc-library-official-wizards" data-deck-tone="canon" aria-current="false" aria-controls="apoc-library-official-wizards">
-                <span class="apoc-source-tome__label">Official Wizards / Mark Rosewater</span>
-                <span class="apoc-shelf__count" aria-label="39 sources">39 sources</span>
-                <span class="apoc-source-tome__scent">Primary color-pie and faction-design sources.</span>
+              <a class="apoc-source-tome" href="#apoc-library-official-design" data-source-tome data-library-target="apoc-library-official-design" data-deck-tone="canon" aria-current="false" aria-controls="apoc-library-official-design">
+                <span class="apoc-source-tome__label">Official Design</span>
+                <span class="apoc-shelf__count" data-source-count="45" aria-label="45 sources">45 sources</span>
+                <span class="apoc-source-tome__scent">Official Wizards design articles used to understand color philosophy, mechanics, faction design, and design intent.</span>
               </a>
 
-              <a class="apoc-source-tome" href="#apoc-library-official-lore" data-source-tome data-library-target="apoc-library-official-lore" data-deck-tone="codex" aria-current="false" aria-controls="apoc-library-official-lore">
-                <span class="apoc-source-tome__label">Official Lore And Story</span>
-                <span class="apoc-shelf__count" aria-label="1 source">1 source</span>
-                <span class="apoc-source-tome__scent">Primary lore foundations.</span>
+              <a class="apoc-source-tome" href="#apoc-library-worldbuilding-lore" data-source-tome data-library-target="apoc-library-worldbuilding-lore" data-deck-tone="codex" aria-current="false" aria-controls="apoc-library-worldbuilding-lore">
+                <span class="apoc-source-tome__label">Worldbuilding &amp; Lore</span>
+                <span class="apoc-shelf__count" data-source-count="4" aria-label="4 sources">4 sources</span>
+                <span class="apoc-source-tome__scent">Official story, plane, setting, and flavor material used for lore and identity context.</span>
               </a>
 
-              <a class="apoc-source-tome" href="#apoc-library-story-archives" data-source-tome data-library-target="apoc-library-story-archives" data-deck-tone="scholarship" aria-current="false" aria-controls="apoc-library-story-archives">
-                <span class="apoc-source-tome__label">Story Archives And Indexes</span>
-                <span class="apoc-shelf__count" aria-label="3 sources">3 sources</span>
-                <span class="apoc-source-tome__scent">Archives that help trace the story trail.</span>
+              <a class="apoc-source-tome" href="#apoc-library-official-archives" data-source-tome data-library-target="apoc-library-official-archives" data-deck-tone="scholarship" aria-current="false" aria-controls="apoc-library-official-archives">
+                <span class="apoc-source-tome__label">Official Archives</span>
+                <span class="apoc-shelf__count" data-source-count="1" aria-label="1 source">1 source</span>
+                <span class="apoc-source-tome__scent">Historical Wizards material kept for source lineage and older official context.</span>
               </a>
 
-              <a class="apoc-source-tome" href="#apoc-library-community" data-source-tome data-library-target="apoc-library-community" data-deck-tone="logic" aria-current="false" aria-controls="apoc-library-community">
-                <span class="apoc-source-tome__label">Wiki And Community References</span>
-                <span class="apoc-shelf__count" aria-label="3 sources">3 sources</span>
-                <span class="apoc-source-tome__scent">Support for structure and interpretation.</span>
-              </a>
-
-              <a class="apoc-source-tome" href="#apoc-library-video-lore" data-source-tome data-library-target="apoc-library-video-lore" data-deck-tone="media" aria-current="false" aria-controls="apoc-library-video-lore">
-                <span class="apoc-source-tome__label">Video Lore And Overviews</span>
-                <span class="apoc-shelf__count" aria-label="3 sources">3 sources</span>
-                <span class="apoc-source-tome__scent">Review and cross-check surfaces.</span>
+              <a class="apoc-source-tome" href="#apoc-library-supplemental-references" data-source-tome data-library-target="apoc-library-supplemental-references" data-deck-tone="logic" aria-current="false" aria-controls="apoc-library-supplemental-references">
+                <span class="apoc-source-tome__label">Supplemental References</span>
+                <span class="apoc-shelf__count" data-source-count="9" aria-label="9 sources">9 sources</span>
+                <span class="apoc-source-tome__scent">Community, wiki, video, social, and archive links kept only for navigation or context.</span>
               </a>
             </div>
           </nav>
 
           <div class="apoc-library-grid" data-library-groups>
-            <details class="vm-panel apoc-library-group" id="apoc-library-official-wizards" name="apoc-library" data-deck-tone="canon" data-reveal>
+            <details class="vm-panel apoc-library-group" id="apoc-library-official-design" name="apoc-library" data-deck-tone="canon" data-source-shelf="design" data-reveal open>
               <summary class="apoc-library-summary">
                 <span class="chev" aria-hidden="true"></span>
                 <span class="apoc-library-summary__copy">
-                  <span class="vm-card-kicker">Official Wizards / Mark Rosewater</span>
-                  <span class="apoc-library-title">Primary color-pie and faction-design sources.</span>
-                  <span class="apoc-library-desc">Verified Wizards links used as the strongest public trail for color philosophy, color voice, guild design, and shard design.</span>
+                  <span class="vm-card-kicker">Official Design</span>
+                  <span class="apoc-library-title">Official Design</span>
+                  <span class="apoc-library-desc">Official Wizards design articles used to understand color philosophy, mechanics, faction design, and design intent.</span>
+                  <span class="apoc-library-desc"><strong>Useful for:</strong> Use these sources when checking why Vox Mana treats a color, guild, shard, wedge, or mechanic as design-supported.</span>
+                  <span class="apoc-library-desc"><strong>Not proving:</strong> These sources do not replace rules text, Oracle records, story canon, legality checks, or deckbuilding advice.</span>
                 </span>
-                <span class="apoc-shelf__count" aria-label="39 sources">39 sources</span>
+                <span class="apoc-shelf__count" data-source-count="45" aria-label="45 sources">45 sources</span>
               </summary>
 
               <div class="apoc-library-body">
                 <div class="apoc-shelf-list">
-                <details class="apoc-shelf" open>
+                <details class="apoc-shelf" data-source-subgroup="foundational-color-philosophy" open>
                   <summary class="apoc-shelf__bar">
                     <span class="chev" aria-hidden="true"></span>
-                    <h4>Foundational color philosophy</h4>
-                    <span class="apoc-shelf__count" aria-label="10 sources">10</span>
-                    <span><strong>Used for:</strong> Mono-color philosophy and the color-pie backbone.</span>
+                    <h3>Foundational color philosophy</h3>
+                    <span class="apoc-shelf__count" data-source-count="10" aria-label="10 sources">10</span>
                   </summary>
                   <div class="apoc-shelf__body">
-                    <ul class="apoc-reference-links">
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/great-white-way-2003-02-03" target="_blank" rel="noopener">The Great White Way</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/true-blue-2003-08-11" target="_blank" rel="noopener">True Blue</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/black-2004-02-02" target="_blank" rel="noopener">In the Black</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/seeing-red-2004-07-19-0" target="_blank" rel="noopener">Seeing Red</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/its-not-easy-being-green-2002-10-21-0" target="_blank" rel="noopener">It's Not Easy Being Green</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/great-white-way-revisited-2015-07-13" target="_blank" rel="noopener">The Great White Way Revisited</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/true-blue-revisited-2015-07-20" target="_blank" rel="noopener">True Blue Revisited</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/black-revisited-2015-07-27" target="_blank" rel="noopener">In the Black Revisited</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/seeing-red-revisited-2015-08-03" target="_blank" rel="noopener">Seeing Red Revisited</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/its-not-easy-being-green-revisited-2015-08-10" target="_blank" rel="noopener">It's Not Easy Being Green Revisited</a></li>
-                  </ul>
+                    <ul class="apoc-source-list">
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-great-white-way" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>The Great White Way</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2003-02-03</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports the public trail for mono-color philosophy and color-pie design as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>color-pie</li>
+                      <li>mono-color-philosophy</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/great-white-way-2003-02-03" target="_blank" rel="noopener" data-source-link="apoc-design-great-white-way" aria-label="Open source: The Great White Way">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-true-blue" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>True Blue</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2003-08-11</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports the public trail for mono-color philosophy and color-pie design as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>color-pie</li>
+                      <li>mono-color-philosophy</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/true-blue-2003-08-11" target="_blank" rel="noopener" data-source-link="apoc-design-true-blue" aria-label="Open source: True Blue">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-in-the-black" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>In the Black</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2004-02-02</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports the public trail for mono-color philosophy and color-pie design as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>color-pie</li>
+                      <li>mono-color-philosophy</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/black-2004-02-02" target="_blank" rel="noopener" data-source-link="apoc-design-in-the-black" aria-label="Open source: In the Black">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-seeing-red" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Seeing Red</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2004-07-19</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports the public trail for mono-color philosophy and color-pie design as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>color-pie</li>
+                      <li>mono-color-philosophy</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/seeing-red-2004-07-19-0" target="_blank" rel="noopener" data-source-link="apoc-design-seeing-red" aria-label="Open source: Seeing Red">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-not-easy-being-green" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>It's Not Easy Being Green</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2002-10-21</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports the public trail for mono-color philosophy and color-pie design as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>color-pie</li>
+                      <li>mono-color-philosophy</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/its-not-easy-being-green-2002-10-21-0" target="_blank" rel="noopener" data-source-link="apoc-design-not-easy-being-green" aria-label="Open source: It's Not Easy Being Green">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-great-white-way-revisited" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>The Great White Way Revisited</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2015-07-13</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports the public trail for revisited mono-color philosophy as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>color-pie</li>
+                      <li>mono-color-philosophy</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/great-white-way-revisited-2015-07-13" target="_blank" rel="noopener" data-source-link="apoc-design-great-white-way-revisited" aria-label="Open source: The Great White Way Revisited">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-true-blue-revisited" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>True Blue Revisited</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2015-07-20</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports the public trail for revisited mono-color philosophy as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>color-pie</li>
+                      <li>mono-color-philosophy</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/true-blue-revisited-2015-07-20" target="_blank" rel="noopener" data-source-link="apoc-design-true-blue-revisited" aria-label="Open source: True Blue Revisited">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-in-the-black-revisited" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>In the Black Revisited</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2015-07-27</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports the public trail for revisited mono-color philosophy as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>color-pie</li>
+                      <li>mono-color-philosophy</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/black-revisited-2015-07-27" target="_blank" rel="noopener" data-source-link="apoc-design-in-the-black-revisited" aria-label="Open source: In the Black Revisited">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-seeing-red-revisited" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Seeing Red Revisited</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2015-08-03</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports the public trail for revisited mono-color philosophy as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>color-pie</li>
+                      <li>mono-color-philosophy</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/seeing-red-revisited-2015-08-03" target="_blank" rel="noopener" data-source-link="apoc-design-seeing-red-revisited" aria-label="Open source: Seeing Red Revisited">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-not-easy-being-green-revisited" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>It's Not Easy Being Green Revisited</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2015-08-10</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports the public trail for revisited mono-color philosophy as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>color-pie</li>
+                      <li>mono-color-philosophy</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/its-not-easy-being-green-revisited-2015-08-10" target="_blank" rel="noopener" data-source-link="apoc-design-not-easy-being-green-revisited" aria-label="Open source: It's Not Easy Being Green Revisited">Open source</a>
+                  </article>
+                </li>
+                    </ul>
                   </div>
                 </details>
-
-                <details class="apoc-shelf">
+                <details class="apoc-shelf" data-source-subgroup="current-color-voice-governance">
                   <summary class="apoc-shelf__bar">
                     <span class="chev" aria-hidden="true"></span>
-                    <h4>Current color voice and governance</h4>
-                    <span class="apoc-shelf__count" aria-label="10 sources">10</span>
-                    <span><strong>Used for:</strong> Color voice, color-pie maintenance, and mechanical-pie authority.</span>
+                    <h3>Current color voice and governance</h3>
+                    <span class="apoc-shelf__count" data-source-count="11" aria-label="11 sources">11</span>
                   </summary>
                   <div class="apoc-shelf__body">
-                    <ul class="apoc-reference-links">
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/my-words-white" target="_blank" rel="noopener">My Words: White</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/my-words-blue" target="_blank" rel="noopener">My Words: Blue</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/my-words-black" target="_blank" rel="noopener">My Words: Black</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/my-words-red" target="_blank" rel="noopener">My Words: Red</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/my-words-green" target="_blank" rel="noopener">My Words: Green</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/the-council-of-colors-revisited" target="_blank" rel="noopener">The Council of Colors, Revisited</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/pie-fights-2016-11-14" target="_blank" rel="noopener">Pie Fights</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2017-2017-06-05" target="_blank" rel="noopener">The Mechanical Color Pie 2017</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021" target="_blank" rel="noopener">The Mechanical Color Pie 2021</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021-changes" target="_blank" rel="noopener">Mechanical Color Pie 2021 Changes</a></li>
-                  </ul>
+                    <ul class="apoc-source-list">
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-my-words-white" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support-pending-verification" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>My Words: White</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast</p>
+                    <p><strong>Evidence role:</strong> Official support, link pending.</p>
+                    <p><strong>Used for:</strong> Supports color voice, color-pie maintenance, and mechanical-pie context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>color-pie</li>
+                      <li>color-voice</li>
+                      <li>design-governance</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/my-words-white" target="_blank" rel="noopener" data-source-link="apoc-design-my-words-white" aria-label="Open source: My Words: White">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-my-words-blue" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support-pending-verification" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>My Words: Blue</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast</p>
+                    <p><strong>Evidence role:</strong> Official support, link pending.</p>
+                    <p><strong>Used for:</strong> Supports color voice, color-pie maintenance, and mechanical-pie context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>color-pie</li>
+                      <li>color-voice</li>
+                      <li>design-governance</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/my-words-blue" target="_blank" rel="noopener" data-source-link="apoc-design-my-words-blue" aria-label="Open source: My Words: Blue">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-my-words-black" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support-pending-verification" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>My Words: Black</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast</p>
+                    <p><strong>Evidence role:</strong> Official support, link pending.</p>
+                    <p><strong>Used for:</strong> Supports color voice, color-pie maintenance, and mechanical-pie context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>color-pie</li>
+                      <li>color-voice</li>
+                      <li>design-governance</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/my-words-black" target="_blank" rel="noopener" data-source-link="apoc-design-my-words-black" aria-label="Open source: My Words: Black">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-my-words-red" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support-pending-verification" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>My Words: Red</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast</p>
+                    <p><strong>Evidence role:</strong> Official support, link pending.</p>
+                    <p><strong>Used for:</strong> Supports color voice, color-pie maintenance, and mechanical-pie context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>color-pie</li>
+                      <li>color-voice</li>
+                      <li>design-governance</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/my-words-red" target="_blank" rel="noopener" data-source-link="apoc-design-my-words-red" aria-label="Open source: My Words: Red">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-my-words-green" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support-pending-verification" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>My Words: Green</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast</p>
+                    <p><strong>Evidence role:</strong> Official support, link pending.</p>
+                    <p><strong>Used for:</strong> Supports color voice, color-pie maintenance, and mechanical-pie context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>color-pie</li>
+                      <li>color-voice</li>
+                      <li>design-governance</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/my-words-green" target="_blank" rel="noopener" data-source-link="apoc-design-my-words-green" aria-label="Open source: My Words: Green">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-council-of-colors-revisited" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support-pending-verification" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>The Council of Colors, Revisited</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast</p>
+                    <p><strong>Evidence role:</strong> Official support, link pending.</p>
+                    <p><strong>Used for:</strong> Supports color-pie governance and design-maintenance context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>color-pie</li>
+                      <li>design-governance</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/the-council-of-colors-revisited" target="_blank" rel="noopener" data-source-link="apoc-design-council-of-colors-revisited" aria-label="Open source: The Council of Colors, Revisited">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-pie-fights" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Pie Fights</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2016-11-15</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports color-pie maintenance and design-governance context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>color-pie</li>
+                      <li>design-governance</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/pie-fights-2016-11-14" target="_blank" rel="noopener" data-source-link="apoc-design-pie-fights" aria-label="Open source: Pie Fights">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-mechanical-color-pie-2017" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support-pending-verification" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>The Mechanical Color Pie 2017</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast</p>
+                    <p><strong>Evidence role:</strong> Official support, link pending.</p>
+                    <p><strong>Used for:</strong> Supports mechanical color-pie context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Comprehensive rules authority, card legality, card-record truth, or official lore claims unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>mechanical-color-pie</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2017-2017-06-05" target="_blank" rel="noopener" data-source-link="apoc-design-mechanical-color-pie-2017" aria-label="Open source: The Mechanical Color Pie 2017">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-mechanical-color-pie-2021" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Mechanical Color Pie 2021</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2021-10-18</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports mechanical color-pie context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Comprehensive rules authority, card legality, card-record truth, or official lore claims unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>mechanical-color-pie</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021" target="_blank" rel="noopener" data-source-link="apoc-design-mechanical-color-pie-2021" aria-label="Open source: Mechanical Color Pie 2021">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-mechanical-color-pie-2021-changes" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Mechanical Color Pie 2021 Changes</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2021-10-18</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports mechanical color-pie change tracking as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Comprehensive rules authority, card legality, card-record truth, or official lore claims unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>mechanical-color-pie</li>
+                      <li>design-change-log</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021-changes" target="_blank" rel="noopener" data-source-link="apoc-design-mechanical-color-pie-2021-changes" aria-label="Open source: Mechanical Color Pie 2021 Changes">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-lets-talk-color-pie" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Let's Talk Color Pie</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2021-10-11</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports the official color-pie index trail for color philosophy, mechanical color pie, and color-pie article navigation.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, card-record truth, or a complete guarantee that every linked historical article is current guidance.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>color-pie</li>
+                      <li>color-philosophy-index</li>
+                      <li>design-governance</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/lets-talk-color-pie" target="_blank" rel="noopener" data-source-link="apoc-design-lets-talk-color-pie" aria-label="Open source: Let's Talk Color Pie">Open source</a>
+                  </article>
+                </li>
+                    </ul>
                   </div>
                 </details>
-
-                <details class="apoc-shelf">
+                <details class="apoc-shelf" data-source-subgroup="ravnica-guild-design">
                   <summary class="apoc-shelf__bar">
                     <span class="chev" aria-hidden="true"></span>
-                    <h4>Ravnica guild design</h4>
-                    <span class="apoc-shelf__count" aria-label="12 sources">12</span>
-                    <span><strong>Used for:</strong> Two-color faction philosophy and guild mechanics context.</span>
+                    <h3>Ravnica guild design</h3>
+                    <span class="apoc-shelf__count" data-source-count="12" aria-label="12 sources">12</span>
                   </summary>
                   <div class="apoc-shelf__body">
-                    <ul class="apoc-reference-links">
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/group-think-2005-10-03-0" target="_blank" rel="noopener">Group Think (Selesnya)</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/life-and-death-2005-10-24-0" target="_blank" rel="noopener">Life and Death (Golgari)</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/pretty-sneaky-sis-2005-11-07-0" target="_blank" rel="noopener">Pretty Sneaky, Sis (Dimir)</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/disorderly-conduct-2005-12-05" target="_blank" rel="noopener">Disorderly Conduct (Boros)</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/aaaargh-2006-01-30-0" target="_blank" rel="noopener">Aaaargh! (Gruul)</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/creative-differences-2006-02-27-0" target="_blank" rel="noopener">Creative Differences (Izzet)</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/playing-their-own-rules-2006-03-27-0" target="_blank" rel="noopener">Playing by Their Own Rules (Orzhov)</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/slow-and-steady-2006-05-01" target="_blank" rel="noopener">Slow and Steady (Azorius)</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/hedonism-attitude-2006-08-14-0" target="_blank" rel="noopener">Hedonism with Attitude (Rakdos)</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/improving-upon-nature-2006-05-29" target="_blank" rel="noopener">Improving Upon Nature (Simic)</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/guild-order-part-2-2018-09-17" target="_blank" rel="noopener">Guild to Order, Part 2</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04" target="_blank" rel="noopener">Guilds of Ravnica Mechanics</a></li>
-                  </ul>
+                    <ul class="apoc-source-list">
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-group-think-selesnya" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Group Think</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2005-10-03</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>two-color-philosophy</li>
+                      <li>ravnica-guild-design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/group-think-2005-10-03-0" target="_blank" rel="noopener" data-source-link="apoc-design-group-think-selesnya" aria-label="Open source: Group Think">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-life-and-death-golgari" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Life and Death</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2005-10-24</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>two-color-philosophy</li>
+                      <li>ravnica-guild-design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/life-and-death-2005-10-24-0" target="_blank" rel="noopener" data-source-link="apoc-design-life-and-death-golgari" aria-label="Open source: Life and Death">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-pretty-sneaky-sis-dimir" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Pretty Sneaky Sis</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2005-11-07</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>two-color-philosophy</li>
+                      <li>ravnica-guild-design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/pretty-sneaky-sis-2005-11-07-0" target="_blank" rel="noopener" data-source-link="apoc-design-pretty-sneaky-sis-dimir" aria-label="Open source: Pretty Sneaky Sis">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-disorderly-conduct-boros" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Disorderly Conduct</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>two-color-philosophy</li>
+                      <li>ravnica-guild-design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/disorderly-conduct-2005-12-05" target="_blank" rel="noopener" data-source-link="apoc-design-disorderly-conduct-boros" aria-label="Open source: Disorderly Conduct">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-aaaargh-gruul" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Aaaargh!!!</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2006-01-30</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>two-color-philosophy</li>
+                      <li>ravnica-guild-design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/aaaargh-2006-01-30-0" target="_blank" rel="noopener" data-source-link="apoc-design-aaaargh-gruul" aria-label="Open source: Aaaargh!!!">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-creative-differences-izzet" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Creative Differences</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2006-02-27</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>two-color-philosophy</li>
+                      <li>ravnica-guild-design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/creative-differences-2006-02-27-0" target="_blank" rel="noopener" data-source-link="apoc-design-creative-differences-izzet" aria-label="Open source: Creative Differences">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-playing-own-rules-orzhov" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Playing By Their Own Rules</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2006-03-27</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>two-color-philosophy</li>
+                      <li>ravnica-guild-design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/playing-their-own-rules-2006-03-27-0" target="_blank" rel="noopener" data-source-link="apoc-design-playing-own-rules-orzhov" aria-label="Open source: Playing By Their Own Rules">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-slow-and-steady-azorius" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Slow and Steady</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2006-05-01</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>two-color-philosophy</li>
+                      <li>ravnica-guild-design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/slow-and-steady-2006-05-01-0" target="_blank" rel="noopener" data-source-link="apoc-design-slow-and-steady-azorius" aria-label="Open source: Slow and Steady">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-hedonism-attitude-rakdos" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Hedonism With Attitude</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2006-08-14</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>two-color-philosophy</li>
+                      <li>ravnica-guild-design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/hedonism-attitude-2006-08-14-0" target="_blank" rel="noopener" data-source-link="apoc-design-hedonism-attitude-rakdos" aria-label="Open source: Hedonism With Attitude">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-improving-upon-nature-simic" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Improving Upon Nature</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2006-05-29</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports two-color faction philosophy and guild mechanics context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>two-color-philosophy</li>
+                      <li>ravnica-guild-design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/improving-upon-nature-2006-05-29" target="_blank" rel="noopener" data-source-link="apoc-design-improving-upon-nature-simic" aria-label="Open source: Improving Upon Nature">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-guild-to-order-part-2" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support-pending-verification" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>Guild to Order, Part 2</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast</p>
+                    <p><strong>Evidence role:</strong> Official support, link pending.</p>
+                    <p><strong>Used for:</strong> Supports two-color faction philosophy and guild design context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>two-color-philosophy</li>
+                      <li>ravnica-guild-design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/guild-order-part-2-2018-09-17" target="_blank" rel="noopener" data-source-link="apoc-design-guild-to-order-part-2" aria-label="Open source: Guild to Order, Part 2">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-guilds-ravnica-mechanics" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support-pending-verification" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>Guilds of Ravnica Mechanics</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast</p>
+                    <p><strong>Evidence role:</strong> Official support, link pending.</p>
+                    <p><strong>Used for:</strong> Supports guild mechanics context as an official Wizards feature source.</p>
+                    <p><strong>Does not support:</strong> Comprehensive rules authority, card legality, card-record truth, or official lore claims unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>ravnica-guild-design</li>
+                      <li>mechanics</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04" target="_blank" rel="noopener" data-source-link="apoc-design-guilds-ravnica-mechanics" aria-label="Open source: Guilds of Ravnica Mechanics">Open source</a>
+                  </article>
+                </li>
+                    </ul>
                   </div>
                 </details>
-
-                <details class="apoc-shelf">
+                <details class="apoc-shelf" data-source-subgroup="alara-shard-and-three-color-design">
                   <summary class="apoc-shelf__bar">
                     <span class="chev" aria-hidden="true"></span>
-                    <h4>Alara shard and three-color design</h4>
-                    <span class="apoc-shelf__count" aria-label="7 sources">7</span>
-                    <span><strong>Used for:</strong> Three-color philosophy and shard/wedge comparison context.</span>
+                    <h3>Alara shard and three-color design</h3>
+                    <span class="apoc-shelf__count" data-source-count="7" aria-label="7 sources">7</span>
                   </summary>
                   <div class="apoc-shelf__body">
-                    <ul class="apoc-reference-links">
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/peace-love-and-understanding-2008-10-06" target="_blank" rel="noopener">Peace, Love and Understanding (Bant)</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/striving-for-perfection" target="_blank" rel="noopener">Striving for Perfection (Esper)</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/looking-out-number-one-2008-10-17" target="_blank" rel="noopener">Looking Out For Number One (Grixis)</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/following-your-heart-2008-12-01" target="_blank" rel="noopener">Following Your Heart (Jund)</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/searching-within-2008-11-01" target="_blank" rel="noopener">Searching Within (Naya)</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/khan-do-attitude-part-1-2014-09-01" target="_blank" rel="noopener">Khan Do Attitude, Part 1</a></li>
-                    <li><a href="https://magic.wizards.com/en/news/making-magic/khan-do-attitude-part-2-2014-09-08" target="_blank" rel="noopener">Khan Do Attitude, Part 2</a></li>
-                  </ul>
+                    <ul class="apoc-source-list">
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-peace-love-understanding-bant" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Peace, Love and Understanding</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2008-10-06</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports three-color philosophy and shard comparison context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>three-color-philosophy</li>
+                      <li>shard-design</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/peace-love-and-understanding-2008-10-06" target="_blank" rel="noopener" data-source-link="apoc-design-peace-love-understanding-bant" aria-label="Open source: Peace, Love and Understanding">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-striving-for-perfection-esper" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Striving For Perfection</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2008-11-16</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports three-color philosophy and shard comparison context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>three-color-philosophy</li>
+                      <li>shard-design</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/striving-for-perfection" target="_blank" rel="noopener" data-source-link="apoc-design-striving-for-perfection-esper" aria-label="Open source: Striving For Perfection">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-looking-out-number-one-grixis" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Looking Out For Number One</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2008-10-20</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports three-color philosophy and shard comparison context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>three-color-philosophy</li>
+                      <li>shard-design</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/looking-out-number-one-2008-10-17" target="_blank" rel="noopener" data-source-link="apoc-design-looking-out-number-one-grixis" aria-label="Open source: Looking Out For Number One">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-following-your-heart-jund" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Following Your Heart</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2008-12-01</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports three-color philosophy and shard comparison context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>three-color-philosophy</li>
+                      <li>shard-design</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/following-your-heart-2008-12-01" target="_blank" rel="noopener" data-source-link="apoc-design-following-your-heart-jund" aria-label="Open source: Following Your Heart">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-searching-within-naya" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Searching Within</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2008-11-03</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports three-color philosophy and shard comparison context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>three-color-philosophy</li>
+                      <li>shard-design</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/searching-within-2008-11-01" target="_blank" rel="noopener" data-source-link="apoc-design-searching-within-naya" aria-label="Open source: Searching Within">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-khan-do-attitude-part-1" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support-pending-verification" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>Khan Do Attitude, Part 1</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast</p>
+                    <p><strong>Evidence role:</strong> Official support, link pending.</p>
+                    <p><strong>Used for:</strong> Supports three-color philosophy and wedge comparison context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>three-color-philosophy</li>
+                      <li>wedge-design</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/khan-do-attitude-part-1-2014-09-01" target="_blank" rel="noopener" data-source-link="apoc-design-khan-do-attitude-part-1" aria-label="Open source: Khan Do Attitude, Part 1">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-khan-do-attitude-part-2" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support-pending-verification" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>Khan Do Attitude, Part 2</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast</p>
+                    <p><strong>Evidence role:</strong> Official support, link pending.</p>
+                    <p><strong>Used for:</strong> Supports three-color philosophy and wedge comparison context as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>three-color-philosophy</li>
+                      <li>wedge-design</li>
+                      <li>design</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/khan-do-attitude-part-2-2014-09-08" target="_blank" rel="noopener" data-source-link="apoc-design-khan-do-attitude-part-2" aria-label="Open source: Khan Do Attitude, Part 2">Open source</a>
+                  </article>
+                </li>
+                    </ul>
+                  </div>
+                </details>
+                <details class="apoc-shelf" data-source-subgroup="tarkir-wedge-design">
+                  <summary class="apoc-shelf__bar">
+                    <span class="chev" aria-hidden="true"></span>
+                    <h3>Tarkir wedge design</h3>
+                    <span class="apoc-shelf__count" data-source-count="5" aria-label="5 sources">5</span>
+                  </summary>
+                  <div class="apoc-shelf__body">
+                    <ul class="apoc-source-list">
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-we-will-survive-abzan" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>We Will Survive</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2014-09-29</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports Abzan wedge color interaction and three-color design philosophy as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>three-color-philosophy</li>
+                      <li>wedge-design</li>
+                      <li>abzan</li>
+                      <li>design</li>
+                      <li>Abzan</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/we-will-survive-2014-09-29" target="_blank" rel="noopener" data-source-link="apoc-design-we-will-survive-abzan" aria-label="Open source: We Will Survive">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-smart-thinking-jeskai" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Smart Thinking</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2014-11-04</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports Jeskai wedge color interaction and three-color design philosophy as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>three-color-philosophy</li>
+                      <li>wedge-design</li>
+                      <li>jeskai</li>
+                      <li>design</li>
+                      <li>Jeskai</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/smart-thinking-2014-11-03" target="_blank" rel="noopener" data-source-link="apoc-design-smart-thinking-jeskai" aria-label="Open source: Smart Thinking">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-finishing-first-mardu" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Finishing First</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2014-11-18</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports Mardu wedge color interaction and three-color design philosophy as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>three-color-philosophy</li>
+                      <li>wedge-design</li>
+                      <li>mardu</li>
+                      <li>design</li>
+                      <li>Mardu</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/finishing-first-2014-11-17" target="_blank" rel="noopener" data-source-link="apoc-design-finishing-first-mardu" aria-label="Open source: Finishing First">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-whatever-it-takes-sultai" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>Whatever It Takes</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2015-02-03</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports Sultai wedge color interaction and three-color design philosophy as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>three-color-philosophy</li>
+                      <li>wedge-design</li>
+                      <li>sultai</li>
+                      <li>design</li>
+                      <li>Sultai</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/whatever-it-takes-2015-02-02" target="_blank" rel="noopener" data-source-link="apoc-design-whatever-it-takes-sultai" aria-label="Open source: Whatever It Takes">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-design-what-doesnt-kill-you-makes-you-stronger-temur" data-source-group="design" data-source-type="official-design" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>What Doesn't Kill You Makes You Stronger</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Design</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Mark Rosewater · Published: 2015-02-24</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports Temur wedge color interaction and three-color design philosophy as an official Wizards design source.</p>
+                    <p><strong>Does not support:</strong> Official lore claims, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>three-color-philosophy</li>
+                      <li>wedge-design</li>
+                      <li>temur</li>
+                      <li>design</li>
+                      <li>Temur</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/making-magic/what-doesnt-kill-you-makes-you-stronger-2015-02-23" target="_blank" rel="noopener" data-source-link="apoc-design-what-doesnt-kill-you-makes-you-stronger-temur" aria-label="Open source: What Doesn't Kill You Makes You Stronger">Open source</a>
+                  </article>
+                </li>
+                    </ul>
                   </div>
                 </details>
                 </div>
               </div>
             </details>
 
-            <details class="vm-panel apoc-library-group" id="apoc-library-official-lore" name="apoc-library" data-deck-tone="codex" data-reveal>
+            <details class="vm-panel apoc-library-group" id="apoc-library-worldbuilding-lore" name="apoc-library" data-deck-tone="codex" data-source-shelf="lore" data-reveal>
               <summary class="apoc-library-summary">
                 <span class="chev" aria-hidden="true"></span>
                 <span class="apoc-library-summary__copy">
-                  <span class="vm-card-kicker">Official Lore And Story</span>
-                  <span class="apoc-library-title">Primary lore foundations.</span>
-                  <span class="apoc-library-desc">Official or near-official story material used to anchor faction identity and set context.</span>
+                  <span class="vm-card-kicker">Worldbuilding &amp; Lore</span>
+                  <span class="apoc-library-title">Worldbuilding &amp; Lore</span>
+                  <span class="apoc-library-desc">Official story, plane, setting, and flavor material used for lore and identity context.</span>
+                  <span class="apoc-library-desc"><strong>Useful for:</strong> Use these sources when checking official setting details, guild flavor, plane context, or story support.</span>
+                  <span class="apoc-library-desc"><strong>Not proving:</strong> These sources do not prove design intent, rules meaning, card-record truth, or every community interpretation.</span>
                 </span>
-                <span class="apoc-shelf__count" aria-label="1 source">1 source</span>
+                <span class="apoc-shelf__count" data-source-count="4" aria-label="4 sources">4 sources</span>
               </summary>
 
               <div class="apoc-library-body">
-                <div class="apoc-reference-list">
-                <article class="apoc-reference-card">
-                  <h4><a href="https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03" target="_blank" rel="noopener">A Flavorful Guide to the Guilds of Ravnica</a></h4>
-                  <p><strong>Used for:</strong> Guild identity descriptions.</p>
-                </article>
+                <div class="apoc-shelf-list">
+                <details class="apoc-shelf" data-source-subgroup="official-lore-and-story" open>
+                  <summary class="apoc-shelf__bar">
+                    <span class="chev" aria-hidden="true"></span>
+                    <h3>Official lore and story</h3>
+                    <span class="apoc-shelf__count" data-source-count="2" aria-label="2 sources">2</span>
+                  </summary>
+                  <div class="apoc-shelf__body">
+                    <ul class="apoc-source-list">
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-lore-flavorful-guide-guilds-ravnica" data-source-group="lore" data-source-type="official-lore" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>A Flavorful Guide to the Guilds of Ravnica</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Lore</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Cassie LaBelle · Published: 2018-10-03</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports guild identity descriptions as an official Wizards lore or feature source.</p>
+                    <p><strong>Does not support:</strong> Mechanical color-pie authority, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>ravnica</li>
+                      <li>guild-identity</li>
+                      <li>lore</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03" target="_blank" rel="noopener" data-source-link="apoc-lore-flavorful-guide-guilds-ravnica" aria-label="Open source: A Flavorful Guide to the Guilds of Ravnica">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-lore-flavorful-guide-ravnica-allegiance" data-source-group="lore" data-source-type="official-lore" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>A Flavorful Guide to the Guilds of Ravnica Allegiance</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Lore</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast · Author: Cassie LaBelle · Published: 2019-02-07</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports Ravnica Allegiance guild identity descriptions as an official Wizards lore or feature source.</p>
+                    <p><strong>Does not support:</strong> Mechanical color-pie authority, comprehensive rules authority, card legality, or card-record truth unless a later registry record assigns that role.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>ravnica</li>
+                      <li>guild-identity</li>
+                      <li>lore</li>
+                      <li>Ravnica</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07" target="_blank" rel="noopener" data-source-link="apoc-lore-flavorful-guide-ravnica-allegiance" aria-label="Open source: A Flavorful Guide to the Guilds of Ravnica Allegiance">Open source</a>
+                  </article>
+                </li>
+                    </ul>
+                  </div>
+                </details>
+                <details class="apoc-shelf" data-source-subgroup="official-plane-pages">
+                  <summary class="apoc-shelf__bar">
+                    <span class="chev" aria-hidden="true"></span>
+                    <h3>Official plane pages</h3>
+                    <span class="apoc-shelf__count" data-source-count="2" aria-label="2 sources">2</span>
+                  </summary>
+                  <div class="apoc-shelf__body">
+                    <ul class="apoc-source-list">
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-lore-alara-plane" data-source-group="lore" data-source-type="official-lore" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>ALARA</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Lore</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports Alara plane and shard-setting context as an official Wizards story plane page.</p>
+                    <p><strong>Does not support:</strong> Design philosophy, comprehensive rules authority, card legality, card-record truth, or exhaustive story chronology.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>alara</li>
+                      <li>plane-page</li>
+                      <li>lore</li>
+                      <li>Alara</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/story/alara-plane" target="_blank" rel="noopener" data-source-link="apoc-lore-alara-plane" aria-label="Open source: ALARA">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-lore-ravnica-plane" data-source-group="lore" data-source-type="official-lore" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>RAVNICA</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Lore</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports Ravnica plane context and guild-setting overview as an official Wizards story plane page.</p>
+                    <p><strong>Does not support:</strong> Design philosophy, comprehensive rules authority, card legality, card-record truth, or exhaustive story chronology.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>ravnica</li>
+                      <li>plane-page</li>
+                      <li>lore</li>
+                      <li>Ravnica</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/story/ravnica-plane" target="_blank" rel="noopener" data-source-link="apoc-lore-ravnica-plane" aria-label="Open source: RAVNICA">Open source</a>
+                  </article>
+                </li>
+                    </ul>
+                  </div>
+                </details>
                 </div>
               </div>
             </details>
 
-            <details class="vm-panel apoc-library-group" id="apoc-library-story-archives" name="apoc-library" data-deck-tone="scholarship" data-reveal>
+            <details class="vm-panel apoc-library-group" id="apoc-library-official-archives" name="apoc-library" data-deck-tone="scholarship" data-source-shelf="official-archives" data-reveal>
               <summary class="apoc-library-summary">
                 <span class="chev" aria-hidden="true"></span>
                 <span class="apoc-library-summary__copy">
-                  <span class="vm-card-kicker">Story Archives And Indexes</span>
-                  <span class="apoc-library-title">Archives that help trace the story trail.</span>
-                  <span class="apoc-library-desc">Public archives and indexes that make story material, continuity, and chronology easier to reach.</span>
+                  <span class="vm-card-kicker">Official Archives</span>
+                  <span class="apoc-library-title">Official Archives</span>
+                  <span class="apoc-library-desc">Historical Wizards material kept for source lineage and older official context.</span>
+                  <span class="apoc-library-desc"><strong>Useful for:</strong> Use these sources when checking where an older official statement came from or how an idea was framed at the time.</span>
+                  <span class="apoc-library-desc"><strong>Not proving:</strong> Archive sources should not be treated as current guidance unless the registry marks them as current and verified.</span>
                 </span>
-                <span class="apoc-shelf__count" aria-label="3 sources">3 sources</span>
+                <span class="apoc-shelf__count" data-source-count="1" aria-label="1 source">1 source</span>
               </summary>
 
               <div class="apoc-library-body">
-                <div class="apoc-reference-list">
-                <article class="apoc-reference-card">
-                  <h4><a href="https://github.com/polarkac/MTG-Stories/tree/master/stories" target="_blank" rel="noopener">MTG Stories - polarkac GitHub Archive</a></h4>
-                  <p><strong>Used for:</strong> Story beats and faction voice.</p>
-                </article>
-                <article class="apoc-reference-card">
-                  <h4><a href="https://www.reddit.com/r/mtgvorthos/comments/14zerhh/pdf_archive_of_mtg_stories_from_magic_origins_to/" target="_blank" rel="noopener">MTG Stories PDF Archive - r/mtgvorthos</a></h4>
-                  <p><strong>Used for:</strong> Story navigation support.</p>
-                </article>
-                <article class="apoc-reference-card">
-                  <h4><a href="https://mtglore.com/chronological/" target="_blank" rel="noopener">MTGLore.com - Chronological Story Index</a></h4>
-                  <p><strong>Used for:</strong> Set chronology and timeline checks.</p>
-                </article>
+                <div class="apoc-shelf-list">
+                <details class="apoc-shelf" data-source-subgroup="magic-story-archive" open>
+                  <summary class="apoc-shelf__bar">
+                    <span class="chev" aria-hidden="true"></span>
+                    <h3>Magic Story archive</h3>
+                    <span class="apoc-shelf__count" data-source-count="1" aria-label="1 source">1</span>
+                  </summary>
+                  <div class="apoc-shelf__body">
+                    <ul class="apoc-source-list">
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-archive-magic-story" data-source-group="official-archives" data-source-type="official-archive" data-evidence-role="official-support" data-verification-status="verified">
+                    <div class="apoc-source-card__head">
+                      <h4>MTG Story, Planes, and Planeswalkers</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Official</span>
+                        <span class="apoc-badge">Archive</span>
+                        <span class="apoc-badge">Checked Link</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Wizards of the Coast</p>
+                    <p><strong>Evidence role:</strong> Official support.</p>
+                    <p><strong>Used for:</strong> Supports official story archive navigation and official story-source discovery as a Wizards story archive surface.</p>
+                    <p><strong>Does not support:</strong> A guarantee of complete pre-2014 story coverage, design philosophy, comprehensive rules authority, card legality, or card-record truth.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>magic-story</li>
+                      <li>story-archive</li>
+                    </ul>
+                    <p class="apoc-source-verification">Checked 2026-07-25.</p>
+                    <a class="apoc-source-link" href="https://magic.wizards.com/en/story" target="_blank" rel="noopener" data-source-link="apoc-archive-magic-story" aria-label="Open source: MTG Story, Planes, and Planeswalkers">Open source</a>
+                  </article>
+                </li>
+                    </ul>
+                  </div>
+                </details>
                 </div>
               </div>
             </details>
 
-            <details class="vm-panel apoc-library-group" id="apoc-library-community" name="apoc-library" data-deck-tone="logic" data-reveal>
+            <details class="vm-panel apoc-library-group" id="apoc-library-supplemental-references" name="apoc-library" data-deck-tone="logic" data-source-shelf="supplemental" data-reveal>
               <summary class="apoc-library-summary">
                 <span class="chev" aria-hidden="true"></span>
                 <span class="apoc-library-summary__copy">
-                  <span class="vm-card-kicker">Wiki And Community References</span>
-                  <span class="apoc-library-title">Support for structure and interpretation.</span>
-                  <span class="apoc-library-desc">Community references that help explain guild structure, player-facing readings, and lore interpretation.</span>
+                  <span class="vm-card-kicker">Supplemental References</span>
+                  <span class="apoc-library-title">Supplemental References</span>
+                  <span class="apoc-library-desc">Community, wiki, video, social, and archive links kept only for navigation or context.</span>
+                  <span class="apoc-library-desc"><strong>Useful for:</strong> Use these links to find chronology, terminology, community framing, or source trails that still need official support.</span>
+                  <span class="apoc-library-desc"><strong>Not proving:</strong> Supplemental references do not prove official canon, rules meaning, card records, design intent, legality, recommendations, or Vox Mana claims by themselves.</span>
                 </span>
-                <span class="apoc-shelf__count" aria-label="3 sources">3 sources</span>
+                <span class="apoc-shelf__count" data-source-count="9" aria-label="9 sources">9 sources</span>
               </summary>
 
               <div class="apoc-library-body">
-                <div class="apoc-reference-list">
-                <article class="apoc-reference-card">
-                  <h4><a href="https://mtg.fandom.com/wiki/Ravnican_guild" target="_blank" rel="noopener">MTG Fandom Wiki - Ravnican Guilds</a></h4>
-                  <p><strong>Used for:</strong> History and guild structure support.</p>
-                </article>
-                <article class="apoc-reference-card">
-                  <h4><a href="https://www.reddit.com/r/magicTCG/comments/ack2ij/ravnica_guild_identities_lore_wise/" target="_blank" rel="noopener">Guild Identities - Lore-Wise (r/magicTCG)</a></h4>
-                  <p><strong>Used for:</strong> Lore-vs-perception disambiguation.</p>
-                </article>
-                <article class="apoc-reference-card">
-                  <h4><a href="https://draftsim.com/mtg-guilds/" target="_blank" rel="noopener">MTG Guilds - Draftsim</a></h4>
-                  <p><strong>Used for:</strong> Commander browsing and playstyle context; not deckbuilding authority.</p>
-                </article>
+                <div class="apoc-shelf-list">
+                <details class="apoc-shelf" data-source-subgroup="story-archives-and-indexes" open>
+                  <summary class="apoc-shelf__bar">
+                    <span class="chev" aria-hidden="true"></span>
+                    <h3>Story archives and indexes</h3>
+                    <span class="apoc-shelf__count" data-source-count="3" aria-label="3 sources">3</span>
+                  </summary>
+                  <div class="apoc-shelf__body">
+                    <ul class="apoc-source-list">
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-supplemental-polarkac-mtg-stories-github" data-source-group="supplemental" data-source-type="supplemental-reference" data-evidence-role="supplemental-navigation-only" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>MTG Stories - polarkac GitHub Archive</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Supplemental</span>
+                        <span class="apoc-badge">Navigation Only</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: GitHub</p>
+                    <p><strong>Evidence role:</strong> Navigation only.</p>
+                    <p><strong>Used for:</strong> May help locate story material for later official-source replacement review; it does not carry official claims.</p>
+                    <p><strong>Does not support:</strong> Official claims, canon proof, rules authority, card-record truth, or standalone source support.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>story-navigation</li>
+                      <li>archive-review</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://github.com/polarkac/MTG-Stories/tree/master/stories" target="_blank" rel="noopener" data-source-link="apoc-supplemental-polarkac-mtg-stories-github" aria-label="Open source: MTG Stories - polarkac GitHub Archive">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-supplemental-mtgvorthos-pdf-archive" data-source-group="supplemental" data-source-type="supplemental-reference" data-evidence-role="supplemental-navigation-only" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>MTG Stories PDF Archive - r/mtgvorthos</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Supplemental</span>
+                        <span class="apoc-badge">Navigation Only</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Reddit</p>
+                    <p><strong>Evidence role:</strong> Navigation only.</p>
+                    <p><strong>Used for:</strong> May help locate story navigation gaps for later official-source replacement review; it does not carry official claims.</p>
+                    <p><strong>Does not support:</strong> Official claims, canon proof, rules authority, card-record truth, or standalone source support.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>story-navigation</li>
+                      <li>fan-pdf-archive</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://www.reddit.com/r/mtgvorthos/comments/14zerhh/pdf_archive_of_mtg_stories_from_magic_origins_to/" target="_blank" rel="noopener" data-source-link="apoc-supplemental-mtgvorthos-pdf-archive" aria-label="Open source: MTG Stories PDF Archive - r/mtgvorthos">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-supplemental-mtglore-chronological-story-index" data-source-group="supplemental" data-source-type="supplemental-reference" data-evidence-role="supplemental-navigation-only" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>MTGLore.com - Chronological Story Index</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Supplemental</span>
+                        <span class="apoc-badge">Navigation Only</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: MTGLore.com</p>
+                    <p><strong>Evidence role:</strong> Navigation only.</p>
+                    <p><strong>Used for:</strong> May help compare chronology and navigation coverage during later official-source review; it does not carry official claims.</p>
+                    <p><strong>Does not support:</strong> Official claims, canon proof, rules authority, card-record truth, or standalone source support.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>story-navigation</li>
+                      <li>chronology</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://mtglore.com/chronological/" target="_blank" rel="noopener" data-source-link="apoc-supplemental-mtglore-chronological-story-index" aria-label="Open source: MTGLore.com - Chronological Story Index">Open source</a>
+                  </article>
+                </li>
+                    </ul>
+                  </div>
+                </details>
+                <details class="apoc-shelf" data-source-subgroup="wiki-and-community-references">
+                  <summary class="apoc-shelf__bar">
+                    <span class="chev" aria-hidden="true"></span>
+                    <h3>Wiki and community references</h3>
+                    <span class="apoc-shelf__count" data-source-count="3" aria-label="3 sources">3</span>
+                  </summary>
+                  <div class="apoc-shelf__body">
+                    <ul class="apoc-source-list">
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-supplemental-fandom-ravnican-guilds" data-source-group="supplemental" data-source-type="supplemental-reference" data-evidence-role="supplemental-navigation-only" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>MTG Fandom Wiki - Ravnican Guilds</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Supplemental</span>
+                        <span class="apoc-badge">Navigation Only</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Fandom</p>
+                    <p><strong>Evidence role:</strong> Navigation only.</p>
+                    <p><strong>Used for:</strong> May help identify guild-structure topics that need official-source replacement review; it does not carry official claims.</p>
+                    <p><strong>Does not support:</strong> Official claims, canon proof, rules authority, card-record truth, or standalone source support.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>ravnica</li>
+                      <li>guild-structure</li>
+                      <li>wiki</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://mtg.fandom.com/wiki/Ravnican_guild" target="_blank" rel="noopener" data-source-link="apoc-supplemental-fandom-ravnican-guilds" aria-label="Open source: MTG Fandom Wiki - Ravnican Guilds">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-supplemental-reddit-guild-identities-lore-wise" data-source-group="supplemental" data-source-type="supplemental-reference" data-evidence-role="supplemental-navigation-only" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>Guild Identities - Lore-Wise (r/magicTCG)</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Supplemental</span>
+                        <span class="apoc-badge">Navigation Only</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Reddit</p>
+                    <p><strong>Evidence role:</strong> Navigation only.</p>
+                    <p><strong>Used for:</strong> May help spot lore-versus-perception questions for later official-source review; it does not carry official claims.</p>
+                    <p><strong>Does not support:</strong> Official claims, canon proof, rules authority, card-record truth, or standalone source support.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>ravnica</li>
+                      <li>guild-identity</li>
+                      <li>community-discussion</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://www.reddit.com/r/magicTCG/comments/ack2ij/ravnica_guild_identities_lore_wise/" target="_blank" rel="noopener" data-source-link="apoc-supplemental-reddit-guild-identities-lore-wise" aria-label="Open source: Guild Identities - Lore-Wise (r/magicTCG)">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-supplemental-draftsim-mtg-guilds" data-source-group="supplemental" data-source-type="supplemental-reference" data-evidence-role="supplemental-navigation-only" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>MTG Guilds - Draftsim</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Supplemental</span>
+                        <span class="apoc-badge">Navigation Only</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: Draftsim</p>
+                    <p><strong>Evidence role:</strong> Navigation only.</p>
+                    <p><strong>Used for:</strong> May help compare player-facing browsing context during later official-source review; it does not carry official claims.</p>
+                    <p><strong>Does not support:</strong> Official claims, canon proof, rules authority, card-record truth, deckbuilding authority, or standalone source support.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>ravnica</li>
+                      <li>guild-browsing</li>
+                      <li>deckbuilding-site</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://draftsim.com/mtg-guilds/" target="_blank" rel="noopener" data-source-link="apoc-supplemental-draftsim-mtg-guilds" aria-label="Open source: MTG Guilds - Draftsim">Open source</a>
+                  </article>
+                </li>
+                    </ul>
+                  </div>
+                </details>
+                <details class="apoc-shelf" data-source-subgroup="video-lore-and-overviews">
+                  <summary class="apoc-shelf__bar">
+                    <span class="chev" aria-hidden="true"></span>
+                    <h3>Video lore and overviews</h3>
+                    <span class="apoc-shelf__count" data-source-count="3" aria-label="3 sources">3</span>
+                  </summary>
+                  <div class="apoc-shelf__body">
+                    <ul class="apoc-source-list">
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-supplemental-youtube-guilds-ravnica-lore-overview" data-source-group="supplemental" data-source-type="supplemental-reference" data-evidence-role="supplemental-navigation-only" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>The Guilds of Ravnica - Lore Overview</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Supplemental</span>
+                        <span class="apoc-badge">Navigation Only</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: YouTube</p>
+                    <p><strong>Evidence role:</strong> Navigation only.</p>
+                    <p><strong>Used for:</strong> May help identify narrative gaps to check against official story and lore sources later; it does not carry official claims.</p>
+                    <p><strong>Does not support:</strong> Official claims, canon proof, rules authority, card-record truth, or standalone source support.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>ravnica</li>
+                      <li>fan-lore-video</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://www.youtube.com/watch?v=a56_7ht2hCI" target="_blank" rel="noopener" data-source-link="apoc-supplemental-youtube-guilds-ravnica-lore-overview" aria-label="Open source: The Guilds of Ravnica - Lore Overview">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-supplemental-youtube-ravnica-guild-deep-dive-1" data-source-group="supplemental" data-source-type="supplemental-reference" data-evidence-role="supplemental-navigation-only" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>Ravnica Guild Deep Dive - Part I</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Supplemental</span>
+                        <span class="apoc-badge">Navigation Only</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: YouTube</p>
+                    <p><strong>Evidence role:</strong> Navigation only.</p>
+                    <p><strong>Used for:</strong> May help identify character or event topics to check against official story and lore sources later; it does not carry official claims.</p>
+                    <p><strong>Does not support:</strong> Official claims, canon proof, rules authority, card-record truth, or standalone source support.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>ravnica</li>
+                      <li>fan-lore-video</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://www.youtube.com/watch?v=ln91iHDBTao" target="_blank" rel="noopener" data-source-link="apoc-supplemental-youtube-ravnica-guild-deep-dive-1" aria-label="Open source: Ravnica Guild Deep Dive - Part I">Open source</a>
+                  </article>
+                </li>
+                <li class="apoc-source-item">
+                  <article class="apoc-source-card" data-source-id="apoc-supplemental-youtube-ravnica-guild-deep-dive-2" data-source-group="supplemental" data-source-type="supplemental-reference" data-evidence-role="supplemental-navigation-only" data-verification-status="not-checked">
+                    <div class="apoc-source-card__head">
+                      <h4>Ravnica Guild Deep Dive - Part II</h4>
+                      <div class="apoc-source-badges" aria-label="Source classification">
+                        <span class="apoc-badge">Supplemental</span>
+                        <span class="apoc-badge">Navigation Only</span>
+                        <span class="apoc-badge">Pending Link Check</span>
+                      </div>
+                    </div>
+                    <p class="apoc-source-meta">Publisher: YouTube</p>
+                    <p><strong>Evidence role:</strong> Navigation only.</p>
+                    <p><strong>Used for:</strong> May help identify tension or lore topics to check against official story and lore sources later; it does not carry official claims.</p>
+                    <p><strong>Does not support:</strong> Official claims, canon proof, rules authority, card-record truth, or standalone source support.</p>
+                    <ul class="apoc-source-tags" aria-label="Source topics">
+                      <li>ravnica</li>
+                      <li>fan-lore-video</li>
+                    </ul>
+                    <p class="apoc-source-verification">Pending link check.</p>
+                    <a class="apoc-source-link" href="https://www.youtube.com/watch?v=BTWalpU7Sws" target="_blank" rel="noopener" data-source-link="apoc-supplemental-youtube-ravnica-guild-deep-dive-2" aria-label="Open source: Ravnica Guild Deep Dive - Part II">Open source</a>
+                  </article>
+                </li>
+                    </ul>
+                  </div>
+                </details>
                 </div>
               </div>
             </details>
-
-            <details class="vm-panel apoc-library-group" id="apoc-library-video-lore" name="apoc-library" data-deck-tone="media" data-reveal>
-              <summary class="apoc-library-summary">
-                <span class="chev" aria-hidden="true"></span>
-                <span class="apoc-library-summary__copy">
-                  <span class="vm-card-kicker">Video Lore And Overviews</span>
-                  <span class="apoc-library-title">Review and cross-check surfaces.</span>
-                  <span class="apoc-library-desc">Video essays and lore breakdowns used to revisit themes, compare coverage, and catch missing beats.</span>
-                </span>
-                <span class="apoc-shelf__count" aria-label="3 sources">3 sources</span>
-              </summary>
-
-              <div class="apoc-library-body">
-                <div class="apoc-reference-list">
-                <article class="apoc-reference-card">
-                  <h4><a href="https://www.youtube.com/watch?v=a56_7ht2hCI" target="_blank" rel="noopener">The Guilds of Ravnica - Lore Overview</a></h4>
-                  <p><strong>Used for:</strong> Narrative gap checking.</p>
-                </article>
-                <article class="apoc-reference-card">
-                  <h4><a href="https://www.youtube.com/watch?v=ln91iHDBTao" target="_blank" rel="noopener">Ravnica Guild Deep Dive - Part I</a></h4>
-                  <p><strong>Used for:</strong> Character and event support.</p>
-                </article>
-                <article class="apoc-reference-card">
-                  <h4><a href="https://www.youtube.com/watch?v=BTWalpU7Sws" target="_blank" rel="noopener">Ravnica Guild Deep Dive - Part II</a></h4>
-                  <p><strong>Used for:</strong> Tension and lore support.</p>
-                </article>
-                </div>
-              </div>
-            </details>
+          </div>
           </div>
         </section>
 
         <section class="apoc-section" id="method" data-rail-section aria-labelledby="apocrypha-method-title">
           <div class="apoc-section__head" data-reveal>
-            <p class="apoc-kicker">How These References Are Used</p>
-            <h2 id="apocrypha-method-title">How public references support the site.</h2>
-            <p>This is the short version: what each reference type helps with, and how public sources support the site.</p>
+            <p class="apoc-kicker">How These Sources Are Used</p>
+            <h2 id="apocrypha-method-title">Authority comes from source type.</h2>
+            <p>Vox Mana is not an official Magic source, rules engine, legality checker, deckbuilder, wiki, or purchasing guide. Apocrypha shows the public evidence Vox Mana uses and the limits on that evidence.</p>
           </div>
 
           <div class="apoc-use-grid">
             <article class="vm-panel apoc-use-card" data-reveal>
-              <p class="vm-card-kicker">Official Lore</p>
-              <h3>Baseline authority</h3>
-              <p>Official lore is treated as the strongest foundation for named events, faction voice, and continuity.</p>
+              <p class="vm-card-kicker">Official Sources</p>
+              <h3>Support only matching claims.</h3>
+              <p>Publisher authority does not turn a design article into rules text or a lore article into card-record truth.</p>
             </article>
 
             <article class="vm-panel apoc-use-card" data-reveal>
-              <p class="vm-card-kicker">Community References</p>
-              <h3>Interpretation support</h3>
-              <p>Community references help clarify structure, compare readings, and show how players commonly understand the lore.</p>
+              <p class="vm-card-kicker">Link Checks</p>
+              <h3>Verification is separate.</h3>
+              <p>Links checked by GET show a checked-link badge. Other links remain pending and should not be described as verified.</p>
             </article>
 
             <article class="vm-panel apoc-use-card" data-reveal>
-              <p class="vm-card-kicker">Video Lore</p>
-              <h3>Review and cross-checking</h3>
-              <p>Video sources are used as review surfaces and cross-check aids, not as standalone canon.</p>
+              <p class="vm-card-kicker">Supplemental References</p>
+              <h3>Useful, but limited.</h3>
+              <p>Supplemental references stay visible because they can help readers follow a trail. They are separated from official evidence because they cannot carry Vox Mana's official claims by themselves.</p>
             </article>
 
             <article class="vm-panel apoc-use-card" data-reveal>
-              <p class="vm-card-kicker">Archives And Indexes</p>
-              <h3>Navigation and continuity</h3>
-              <p>GitHub archives, story indexes, and public collections help track story material and keep continuity easier to follow.</p>
+              <p class="vm-card-kicker">Known Gaps</p>
+              <h3>Partial coverage stays honest.</h3>
+              <p>Known source gaps remain. Vox Mana should show partial coverage honestly rather than imply a complete official library.</p>
             </article>
           </div>
 
           <article class="vm-panel apoc-use-note" data-reveal>
-            <p>Working notes may inform drafts, but only reviewed public references are listed here as source support.</p>
+            <p>Rules and card-record sources are not ready for public shelf rendering. The registry keeps the official rules record, but the Rules & Card Records shelf stays suppressed until an approved card-record source is added.</p>
           </article>
         </section>
       </div>
@@ -515,6 +1849,6 @@
 <script src="../assets/js/reduce-motion.js" defer></script>
 <script src="../assets/js/vm-feedback.js" defer></script>
 <script src="../assets/js/vm-topbar.js" defer></script>
-<script src="../assets/js/apocrypha.js?v=20260615a" defer></script>
+<script src="../assets/js/apocrypha.js?v=20260725g5" defer></script>
 </body>
 </html>
