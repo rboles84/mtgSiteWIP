@@ -46,6 +46,7 @@ Implement the user-approved Token And Reasoning Cost Control Governance plan as 
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/handoffs/2026-07-25-1020-codex-token-reasoning-governance.md`
+- `docs/strategy/2026-07-25-token-reasoning-cost-control-learning.md`
 
 ## What Changed
 
@@ -54,6 +55,8 @@ Implement the user-approved Token And Reasoning Cost Control Governance plan as 
 - Added one-line policy pointers to relevant local role prompts.
 - Added an optional handoff field for efficiency or escalation notes.
 - Created backlog card `VM-541` and recorded this implementation handoff.
+- Added a permanent learning note for token/reasoning cost control.
+- Pushed the governance commit to `origin/main` at `39eb1f0f982c49fe4b3f4b13e0499bc9019f619e`.
 
 ## Why It Changed
 
@@ -66,6 +69,7 @@ The project needed a durable way to reduce unnecessary reasoning, context retrie
 - Efficiency/escalation notes remain optional and should be recorded only when useful.
 - The policy lives in one canonical reference doc instead of being duplicated across prompts.
 - `VM-541` was selected after checking existing Kanban card filenames, which topped out at `VM-540`.
+- There was no literal root `handoff.md` or `learnings.md`; the project equivalents updated are this task handoff and `docs/strategy/2026-07-25-token-reasoning-cost-control-learning.md`.
 
 ## Risks / Uncertainties
 
@@ -83,6 +87,10 @@ Work intentionally stayed narrow: governance docs, prompt pointers, Kanban card,
 - `git diff --check`
 - `git status --short`
 - `rg -n "Token And Reasoning Cost Control|token-reasoning-cost-control\.md|Efficiency / Escalation Notes|VM-541" ...`
+- `git rev-parse HEAD`
+- `git rev-parse origin/main`
+- `Select-String -Path docs\strategy\2026-07-25-token-reasoning-cost-control-learning.md,docs\handoffs\2026-07-25-1020-codex-token-reasoning-governance.md,docs\handoffs\HANDOFF_INDEX.md -Pattern ...`
+- `git ls-files --others --exclude-standard`
 
 ## Not Touched
 
@@ -110,3 +118,5 @@ Work intentionally stayed narrow: governance docs, prompt pointers, Kanban card,
 
 - `docs/kanban/backlog/VM-541-token-reasoning-cost-control-governance.md`
 - `docs/reference/token-reasoning-cost-control.md`
+- `docs/strategy/2026-07-25-token-reasoning-cost-control-learning.md`
+- Pushed commit: `39eb1f0f982c49fe4b3f4b13e0499bc9019f619e`
