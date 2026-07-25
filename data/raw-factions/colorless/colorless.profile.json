@@ -12,6 +12,7 @@
   "last_incremental_review": "2026-07-10",
   "last_updated": "2026-07-10",
   "core_identity": {
+    "core_identity_id": "colorless_core_identity_gate3",
     "short_form": "Outside WUBRG: absence, machinery, void, desolation, and transcendence held as separate branches.",
     "identity_frame": "Colorless is Vox Mana's VM-334-ratified controlled non-color identity for magic and objects outside the five-color philosophical wheel, with strict separation between colorless mana, generic mana costs, artifacts, Eldrazi, Wastes, Devoid, strict Commander constraints, and support-bound Ugin/Karn or named-card texture.",
     "naming_boundary": "COLORLESS is a controlled placeable Layer 1 expression key with colors: [], core_color: \"C\", placement_eligible: true, and preview_eligible: true for the Home Identity Signal under VM-389. Directory links remain suppressed, aliases remain limited to [\"COLORLESS\"], and no public route, lowercase alias, C alias, or broader recommendation expansion is approved.",
@@ -32,6 +33,7 @@
     "primary_boundary": "Not a color, not mono-color, not five-color, and not a sixth color.",
     "branches": [
       {
+        "branch_id": "colorless_branch_rules_and_mana",
         "branch": "rules_and_mana",
         "summary": "Object colorlessness, colorless mana represented by {C}, and generic mana costs are related but distinct.",
         "claim_ids": [
@@ -39,6 +41,7 @@
         ]
       },
       {
+        "branch_id": "colorless_branch_artifacts_and_function",
         "branch": "artifacts_and_function",
         "summary": "Artifacts can express Colorless function and instrumentality, but artifacts and Colorless identity are not equivalent.",
         "claim_ids": [
@@ -46,6 +49,7 @@
         ]
       },
       {
+        "branch_id": "colorless_branch_eldrazi_and_void",
         "branch": "eldrazi_and_void",
         "summary": "Eldrazi colorlessness can mark alien outside-color design, but Eldrazi are not artifacts and not all Colorless meaning.",
         "claim_ids": [
@@ -54,6 +58,7 @@
         ]
       },
       {
+        "branch_id": "colorless_branch_wastes_and_desolation",
         "branch": "wastes_and_desolation",
         "summary": "Wastes can support the terrain/desolation branch, but Wastes are not all of Colorless.",
         "claim_ids": [
@@ -62,6 +67,7 @@
         ]
       },
       {
+        "branch_id": "colorless_branch_ugin_karn_and_transcendence",
         "branch": "ugin_karn_and_transcendence",
         "summary": "Ugin and Karn may appear only as support-bound branch texture until direct lore grounding is added.",
         "claim_ids": [
@@ -72,6 +78,7 @@
         ]
       },
       {
+        "branch_id": "colorless_branch_player_fit_and_strategy",
         "branch": "player_fit_and_strategy",
         "summary": "Colorless can attract players through restriction puzzles, artifact machinery, Eldrazi spectacle, austere mana systems, and resource-denial or engine-expression play, but this is Vox Mana synthesis rather than official color philosophy.",
         "claim_ids": [
@@ -79,6 +86,7 @@
         ]
       },
       {
+        "branch_id": "colorless_branch_strict_commander_and_devoid",
         "branch": "strict_commander_and_devoid_boundaries",
         "summary": "Strict Colorless Commander constraints, Devoid object colorlessness, and five-color Eldrazi support must be separated before any user-facing deck or placement work.",
         "claim_ids": [
@@ -167,6 +175,7 @@
     "boundary": "Use synthesis only as profile language, not canon proof, public copy, or raw claim authority."
   },
   "profile": {
+    "profile_id": "colorless_profile_gate3",
     "overview": "Colorless is Vox Mana's controlled placeable non-color identity for absence, machinery, void, desolation, and chosen restriction outside WUBRG, while keeping each branch separate and public expansion gated.",
     "philosophy": "Colorless asks what remains when the five colors are not the grammar of the answer: the artifact that acts without appetite, the void that does not negotiate, the Wastes where colored mana has been stripped away, and the detached perspective that must not become superiority over color.",
     "core_tension": "Colorless gains clarity by standing outside WUBRG, but loses clarity the moment outside-ness becomes a generic catch-all.",
@@ -183,6 +192,7 @@
     ]
   },
   "mechanics": {
+    "mechanics_id": "colorless_mechanics_gate3",
     "summary": "Mechanics and card-type texture can support Colorless only when they preserve the distinction between object colorlessness, specifically colorless mana, generic mana costs, artifacts, Eldrazi, Wastes, Devoid design support, strict Commander constraints, and five-color Eldrazi comparator boundaries.",
     "source_bound_texture": [
       "objects with no color",
@@ -390,6 +400,7 @@
     "local_staples_review_context": "docs/research/colorless/colorless_Commander_ColorlessStaples_ManaStaples.txt"
   },
   "search_and_filter_metadata": {
+    "search_and_filter_metadata_id": "colorless_search_and_filter_metadata_gate3",
     "future_expression_name": "COLORLESS",
     "future_expression_name_status": "Controlled placeable expression key with VM-389 Home Identity Signal membership. COLORLESS remains directory-link suppressed and is not approved as a public route, lowercase alias, C alias, Supabase manual-context expansion, schema expansion, broader recommendation surface, or other public interface expansion.",
     "metadata_query_only_terms": [
@@ -478,6 +489,8 @@
     ]
   },
   "data_quality": {
+    "data_quality_id": "colorless_data_quality_gate3",
+    "evidence_use": "discovery_metadata",
     "review_gated": true,
     "placement_eligible": true,
     "preview_eligible": true,

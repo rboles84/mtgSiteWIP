@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "faction_id": "colorless",
   "faction_name": "Colorless",
-  "last_updated": "2026-07-10",
+  "last_updated": "2026-07-24",
   "audit_summary": {
     "raw_packet_created": true,
     "raw_claim_count": 8,
@@ -96,6 +96,51 @@
     "next_review_gate_required": "Separate approval before public routes, public aliases, directory links, hero assets, schema/API expansion, broad recommendations, preview expansion beyond the Home Identity Signal, or additional Commander/deck/research expansion"
   },
   "changes": [
+    {
+      "change_id": "colorless_change_007",
+      "change_type": "VM-537 Contract v1.1 Semantic Recovery Candidate",
+      "change_date": "2026-07-24",
+      "summary": "Classified all eight Colorless claims as substantive with bounded evidence locations, removed support-only and foreign WUBRG claim contamination from authoritative chains, added Colorless-owned provenance IDs and recruiter guidance evidence, and added endpoint-specific semantic fixtures without changing frozen placement, preview, routing, alias, or recommendation behavior.",
+      "claims_added": [],
+      "claims_updated": [
+        "colorless_claim_0001",
+        "colorless_claim_0002",
+        "colorless_claim_0003",
+        "colorless_claim_0004",
+        "colorless_claim_0005",
+        "colorless_claim_0006",
+        "colorless_claim_0007",
+        "colorless_claim_0008"
+      ],
+      "sources_added": [],
+      "source_inventory_changed": false,
+      "profile_fields_updated": [
+        "core_identity",
+        "structure.branches",
+        "profile",
+        "mechanics",
+        "search_and_filter_metadata",
+        "data_quality"
+      ],
+      "placement_fields_updated": [
+        "semantic_guidance_evidence",
+        "collision_guidance"
+      ],
+      "fixture_added": "research/fixtures/semantic-readiness/colorless.semantic-fixtures.json",
+      "frozen_fields_preserved": [
+        "placement confidence",
+        "required_positive_evidence_terms",
+        "required_positive_min_hits",
+        "broad_match_penalty",
+        "calibration_tuning",
+        "lateral_inhibition_targets",
+        "COLORLESS/WUBRG collision identity and lateral_inhibition",
+        "Home preview source and text",
+        "COLORLESS-only accepted alias",
+        "public route and directory suppression"
+      ],
+      "notes": "VM-538 WUBRG remains untouched. WUBRG claim IDs remain WUBRG-owned and are excluded from Colorless proof. C, c, and lowercase colorless remain invalid public identity aliases; {C} and Wastes remain bounded rules/metadata terms."
+    },
     {
       "change_id": "colorless_change_006",
       "change_type": "VM-498 VM-389 Lifecycle Authority Reconciliation",

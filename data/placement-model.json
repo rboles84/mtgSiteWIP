@@ -6871,9 +6871,16 @@
           "claim_ids": [
             "colorless_claim_0002",
             "colorless_claim_0005",
-            "colorless_claim_0008",
-            "wubrg_claim_0007"
+            "colorless_claim_0008"
           ],
+          "supporting_source_ids": [
+            "COLORLESS-CANON-001",
+            "COLORLESS-SCOPE-005",
+            "COLORLESS-SRC-008",
+            "COLORLESS-SRC-012",
+            "COLORLESS-SRC-018"
+          ],
+          "neighbor_evidence_boundary": "WUBRG claim IDs remain WUBRG-owned authority and are not used as Colorless proof; this collision row is supported only by Colorless-owned non-color, support/comparator, and false-positive claims.",
           "placement_confusion_reproduced": "VM-369 reproduced WUBRG and COLORLESS as top two candidates after paired Hall answers, with a 0.0178 probability gap and needsCrucible=true before a pair-specific Crucible existed."
         }
       ],

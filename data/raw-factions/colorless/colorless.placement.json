@@ -324,6 +324,90 @@
       "Phyrexia is Colorless."
     ]
   },
+  "semantic_guidance_evidence": [
+    {
+      "canonical_id": "guidance_colorless_mismatch_0001_gate3",
+      "claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0003",
+        "colorless_claim_0004",
+        "colorless_claim_0008"
+      ],
+      "source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ],
+      "bounded_paraphrase": "Generic mana, colorless mana, artifacts, Eldrazi, Wastes, Devoid, and five-color Eldrazi are related but non-interchangeable layers; collapsing them fails the Colorless boundary.",
+      "evidence_scope": "colorless_no_conflation_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0"
+    },
+    {
+      "canonical_id": "guidance_colorless_mismatch_0002_gate3",
+      "claim_ids": [
+        "colorless_claim_0004",
+        "colorless_claim_0006"
+      ],
+      "source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ],
+      "bounded_paraphrase": "Artifact, Eldrazi, or Wastes attraction can describe an internal branch but cannot become sufficient Colorless proof without the chosen outside-WUBRG restriction.",
+      "evidence_scope": "branch_only_false_positive_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1"
+    },
+    {
+      "canonical_id": "guidance_colorless_mismatch_0003_gate3",
+      "claim_ids": [
+        "colorless_claim_0003"
+      ],
+      "source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-012"
+      ],
+      "bounded_paraphrase": "Specifically colorless mana and generic mana costs remain distinct; using {C} and generic as synonyms is a rules/concept mismatch.",
+      "evidence_scope": "generic_and_colorless_mana_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2"
+    },
+    {
+      "canonical_id": "guidance_colorless_mismatch_0004_gate3",
+      "claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0005",
+        "colorless_claim_0008"
+      ],
+      "source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SCOPE-005",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ],
+      "bounded_paraphrase": "Five-color Eldrazi and Phyrexia remain comparator or separator contexts and do not prove strict Colorless identity.",
+      "evidence_scope": "wubrg_eldrazi_and_phyrexia_false_positive_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3"
+    },
+    {
+      "canonical_id": "guidance_colorless_mismatch_0005_gate3",
+      "claim_ids": [
+        "colorless_claim_0001",
+        "colorless_claim_0005",
+        "colorless_claim_0007"
+      ],
+      "source_ids": [
+        "COLORLESS-SCOPE-005",
+        "COLORLESS-SCOPE-006",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ],
+      "bounded_paraphrase": "Controlled placement and Home preview membership do not authorize a public route, C or lowercase alias, directory links, legality advice, or broad recommendations.",
+      "evidence_scope": "endpoint_public_surface_and_recommendation_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/4"
+    }
+  ],
   "placement_quality": {
     "review_gated": true,
     "placement_eligible": true,
@@ -366,9 +450,16 @@
         "claim_ids": [
           "colorless_claim_0002",
           "colorless_claim_0005",
-          "colorless_claim_0008",
-          "wubrg_claim_0007"
+          "colorless_claim_0008"
         ],
+        "supporting_source_ids": [
+          "COLORLESS-CANON-001",
+          "COLORLESS-SCOPE-005",
+          "COLORLESS-SRC-008",
+          "COLORLESS-SRC-012",
+          "COLORLESS-SRC-018"
+        ],
+        "neighbor_evidence_boundary": "WUBRG claim IDs remain WUBRG-owned authority and are not used as Colorless proof; this collision row is supported only by Colorless-owned non-color, support/comparator, and false-positive claims.",
         "placement_confusion_reproduced": "VM-369 reproduced WUBRG and COLORLESS as top two candidates after paired Hall answers, with a 0.0178 probability gap and needsCrucible=true before a pair-specific Crucible existed."
       }
     ]

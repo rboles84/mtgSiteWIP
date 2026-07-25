@@ -83,8 +83,6 @@
       },
       "canon_status": "Vox Mana lifecycle and public-interface boundary",
       "source_ids": [
-        "COLORLESS-SCOPE-003",
-        "COLORLESS-SCOPE-004",
         "COLORLESS-SCOPE-005",
         "COLORLESS-SCOPE-006"
       ],
@@ -95,7 +93,26 @@
         "COLORLESS-EVID-033"
       ],
       "confidence": "High",
-      "notes": "current_product_state is the authoritative structured current-state representation inside this raw packet; data/identity-layers.json remains runtime registry authority. VM-389 authorizes Home Identity Signal membership only and does not authorize public routing, public aliases, directory links, recommendation expansion, schema changes, Supabase manual-context expansion, image edits, or lore/rules evidence."
+      "notes": "current_product_state is the authoritative structured current-state representation inside this raw packet; data/identity-layers.json remains runtime registry authority. VM-389 authorizes Home Identity Signal membership only and does not authorize public routing, public aliases, directory links, recommendation expansion, schema changes, Supabase manual-context expansion, image edits, or lore/rules evidence.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "COLORLESS-SCOPE-005",
+          "locator_type": "governance_section",
+          "locator": "docs/architecture/colors/colorless/product-decision-gate.md#accepted-contract",
+          "bounded_paraphrase": "The Colorless product decision records the controlled placeable representation, COLORLESS-only alias policy, suppressed directory routing, and broader public-surface restrictions.",
+          "evidence_scope": "product_lifecycle_and_endpoint_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "COLORLESS-SCOPE-006",
+          "locator_type": "kanban_section",
+          "locator": "docs/kanban/done/VM-389-v1-home-identity-signal-promotion.md#promoted-into-home",
+          "bounded_paraphrase": "VM-389 promotes Colorless into the Home Identity Signal while leaving route, alias, directory, and broader recommendation decisions outside that promotion.",
+          "evidence_scope": "home_preview_lifecycle_boundary",
+          "interpretation_level": "direct_project_record"
+        }
+      ]
     },
     {
       "claim_id": "colorless_claim_0002",
@@ -104,11 +121,8 @@
       "statement": "Colorless should be framed as outside or orthogonal to the WUBRG color wheel: it is not a color, not a mono-color identity, not a sixth color, and not superior to or complete mastery of WUBRG.",
       "canon_status": "Source-bound identity boundary with Vox Mana phrasing",
       "source_ids": [
-        "COLORLESS-SRC-010",
         "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017",
-        "COLORLESS-CANON-001",
-        "COLORLESS-CANON-003"
+        "COLORLESS-CANON-001"
       ],
       "evidence_rows": [
         "COLORLESS-EVID-006",
@@ -116,7 +130,26 @@
         "COLORLESS-EVID-018"
       ],
       "confidence": "Medium",
-      "notes": "The outside/orthogonal wording is architecture-aligned Vox Mana synthesis over VM-308 boundaries. Do not convert this into official MTG philosophy beyond the cited local evidence floor."
+      "notes": "The outside/orthogonal wording is architecture-aligned Vox Mana synthesis over VM-308 boundaries. Do not convert this into official MTG philosophy beyond the cited local evidence floor.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "COLORLESS-SRC-012",
+          "locator_type": "section",
+          "locator": "docs/research/colorless/source-material/colorless_magic_cleaned.md#overview",
+          "bounded_paraphrase": "The cleaned research overview explicitly distinguishes colorless from a color and rejects framing it as a sixth color.",
+          "evidence_scope": "non_color_and_sixth_color_boundary",
+          "interpretation_level": "bounded_source_synthesis"
+        },
+        {
+          "source_id": "COLORLESS-CANON-001",
+          "locator_type": "section",
+          "locator": "docs/research/canon/misc/mtg_five_color_and_colorless_dossier.md#five-color-vs-colorless",
+          "bounded_paraphrase": "The dossier distinguishes WUBRG full inclusion from Colorless non-coloration and treats them as different structural questions rather than rank or mastery states.",
+          "evidence_scope": "wubrg_and_colorless_identity_boundary",
+          "interpretation_level": "bounded_repo_canon_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "colorless_claim_0003",
@@ -125,9 +158,7 @@
       "statement": "Object colorlessness, specifically colorless mana represented by {C}, generic mana costs, and Vox Mana's Colorless identity are related but distinct concepts; generic mana is not a type of mana and must not be collapsed into colorless mana or Colorless identity.",
       "canon_status": "Source-bound rules/concept boundary with manual-fill caution",
       "source_ids": [
-        "COLORLESS-SRC-010",
         "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017",
         "COLORLESS-CANON-001"
       ],
       "evidence_rows": [
@@ -136,7 +167,26 @@
         "COLORLESS-EVID-009"
       ],
       "confidence": "Medium",
-      "notes": "Exact current Comprehensive Rules citations, Oath of the Gatewatch source mapping, and Wastes Oracle/ruling details remain COLORLESS-MF-001, COLORLESS-MF-002, and COLORLESS-MF-003 limitations."
+      "notes": "Exact current Comprehensive Rules citations, Oath of the Gatewatch source mapping, and Wastes Oracle/ruling details remain COLORLESS-MF-001, COLORLESS-MF-002, and COLORLESS-MF-003 limitations.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "COLORLESS-SRC-012",
+          "locator_type": "section",
+          "locator": "docs/research/colorless/source-material/colorless_magic_cleaned.md#colorless-mana-vs-generic-mana",
+          "bounded_paraphrase": "The rules/mechanics compilation separates specifically colorless mana represented by {C} from generic costs payable with mana of any type.",
+          "evidence_scope": "colorless_mana_and_generic_cost_boundary",
+          "interpretation_level": "bounded_source_synthesis"
+        },
+        {
+          "source_id": "COLORLESS-CANON-001",
+          "locator_type": "section",
+          "locator": "docs/research/canon/misc/mtg_five_color_and_colorless_dossier.md#how-colorless-differs-from-generic-mana",
+          "bounded_paraphrase": "The dossier keeps object colorlessness, colorless mana, generic costs, and Vox Mana identity interpretation as distinct layers.",
+          "evidence_scope": "rules_concept_and_identity_no_conflation",
+          "interpretation_level": "bounded_repo_canon_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "colorless_claim_0004",
@@ -146,9 +196,7 @@
       "canon_status": "Source-bound branch boundary with synthesis caution",
       "source_ids": [
         "COLORLESS-SRC-008",
-        "COLORLESS-SRC-010",
         "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017",
         "COLORLESS-CANON-001"
       ],
       "evidence_rows": [
@@ -158,7 +206,34 @@
         "COLORLESS-EVID-013"
       ],
       "confidence": "Medium",
-      "notes": "Ugin/Karn may appear only as support-bound branch texture with COLORLESS-EVID-014 and COLORLESS-MF-005 limitations. Do not make detailed Ugin/Karn lore claims in VM-311."
+      "notes": "Ugin/Karn may appear only as support-bound branch texture with COLORLESS-EVID-014 and COLORLESS-MF-005 limitations. Do not make detailed Ugin/Karn lore claims in VM-311.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "COLORLESS-SRC-008",
+          "locator_type": "article_section",
+          "locator": "docs/research/colorless/source-material/Colorless - Concept vs. Execution _ MAGIC_ THE GATHERING_markRosewater.md#devoid-and-eldrazi-execution",
+          "bounded_paraphrase": "The captured design article describes colorless and Devoid as deliberate Eldrazi execution choices rather than a universal definition of every colorless expression.",
+          "evidence_scope": "devoid_and_eldrazi_design_boundary",
+          "interpretation_level": "direct_design_capture"
+        },
+        {
+          "source_id": "COLORLESS-SRC-012",
+          "locator_type": "section_range",
+          "locator": "docs/research/colorless/source-material/colorless_magic_cleaned.md#the-dual-faces-of-colorlessness-through-transcendence-ugin-karn",
+          "bounded_paraphrase": "The cleaned compilation separates artifact/function, Eldrazi/void, Wastes, and Ugin/Karn texture into distinct colorless branches.",
+          "evidence_scope": "internal_colorless_branch_separation",
+          "interpretation_level": "bounded_source_synthesis"
+        },
+        {
+          "source_id": "COLORLESS-CANON-001",
+          "locator_type": "section",
+          "locator": "docs/research/canon/misc/mtg_five_color_and_colorless_dossier.md#artifacts-eldrazi-and-wastes-as-separate-colorless-branches",
+          "bounded_paraphrase": "The dossier explicitly distinguishes artifact, Eldrazi, and Wastes expressions and warns against treating any one branch as the whole identity.",
+          "evidence_scope": "artifact_eldrazi_wastes_branch_boundary",
+          "interpretation_level": "bounded_repo_canon_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "colorless_claim_0005",
@@ -167,12 +242,9 @@
       "statement": "Commander, five-color Eldrazi, and Phyrexia material must remain bounded: Eldrazi Unbound is support-only Colorless Commander texture, Eldrazi Incursion is five-color comparator support, Phyrexia is distinction-only context, and none of these independently authorizes broad Commander viability, lore proof, placement eligibility, or raw claim expansion.",
       "canon_status": "Support/comparator boundary, not broad Commander proof",
       "source_ids": [
-        "COLORLESS-CMD-001",
-        "COLORLESS-CMD-002",
-        "COLORLESS-SRC-009",
+        "COLORLESS-SRC-018",
         "COLORLESS-CANON-001",
-        "COLORLESS-SCOPE-003",
-        "COLORLESS-SCOPE-004"
+        "COLORLESS-SCOPE-005"
       ],
       "evidence_rows": [
         "COLORLESS-EVID-015",
@@ -180,7 +252,34 @@
         "COLORLESS-EVID-018"
       ],
       "confidence": "Low",
-      "notes": "COLORLESS-EVID-015 and COLORLESS-EVID-017 are cited only for support/comparator boundaries, not as proof of broad Commander viability, official product facts, or Phyrexia/Colorless equivalence. Official Eldrazi Unbound product proof remains COLORLESS-MF-004."
+      "notes": "COLORLESS-EVID-015 and COLORLESS-EVID-017 are cited only for support/comparator boundaries, not as proof of broad Commander viability, official product facts, or Phyrexia/Colorless equivalence. Official Eldrazi Unbound product proof remains COLORLESS-MF-004.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "COLORLESS-SRC-018",
+          "locator_type": "section_range",
+          "locator": "docs/research/colorless/source-material/colorless_mtg_notes_sourced_v2.md#modern-horizons-3-eldrazi-deck",
+          "bounded_paraphrase": "The sourced intake distinguishes a five-color Eldrazi deck and Ulalek from strict Colorless Commander identity and flags named-card conclusions for verification.",
+          "evidence_scope": "five_color_eldrazi_and_commander_comparator_boundary",
+          "interpretation_level": "bounded_audit_intake"
+        },
+        {
+          "source_id": "COLORLESS-CANON-001",
+          "locator_type": "section_range",
+          "locator": "docs/research/canon/misc/mtg_five_color_and_colorless_dossier.md#five-color-vs-colorless-through-artifacts-eldrazi-and-wastes-as-separate-colorless-branches",
+          "bounded_paraphrase": "The dossier separates all-five-color inclusion from non-coloration and keeps Eldrazi, artifact, and related texture from becoming interchangeable proof.",
+          "evidence_scope": "five_color_and_colorless_comparator_boundary",
+          "interpretation_level": "bounded_repo_canon_synthesis"
+        },
+        {
+          "source_id": "COLORLESS-SCOPE-005",
+          "locator_type": "governance_section",
+          "locator": "docs/architecture/colors/colorless/product-decision-gate.md#vm-372-support-only-controlled-richness-addendum",
+          "bounded_paraphrase": "The product gate permits only support-bound Commander richness and explicitly withholds broad recommendation, legality, route, alias, and product expansion.",
+          "evidence_scope": "support_only_product_boundary",
+          "interpretation_level": "direct_project_record"
+        }
+      ]
     },
     {
       "claim_id": "colorless_claim_0006",
@@ -190,7 +289,6 @@
       "canon_status": "Vox Mana player-fit synthesis over sourced design and psychographic material",
       "source_ids": [
         "COLORLESS-SRC-018",
-        "COLORLESS-SRC-012",
         "COLORLESS-CANON-001"
       ],
       "evidence_rows": [
@@ -200,7 +298,26 @@
         "COLORLESS-EVID-018"
       ],
       "confidence": "Medium",
-      "notes": "Use as controlled dossier and placement-axis material only. Do not present as official Wizards Colorless psychology, public deck advice, or broad recommendation authorization."
+      "notes": "Use as controlled dossier and placement-axis material only. Do not present as official Wizards Colorless psychology, public deck advice, or broad recommendation authorization.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "COLORLESS-SRC-018",
+          "locator_type": "section_range",
+          "locator": "docs/research/colorless/source-material/colorless_mtg_notes_sourced_v2.md#why-players-choose-colorless-through-strategy-mapping-why-the-player-selects-the-strategy",
+          "bounded_paraphrase": "The sourced intake describes attraction to restriction puzzles, artifact engines, Eldrazi spectacle, austere mana systems, and resource-denial or engine-expression play.",
+          "evidence_scope": "player_fit_and_strategy_attraction",
+          "interpretation_level": "bounded_vox_mana_synthesis"
+        },
+        {
+          "source_id": "COLORLESS-CANON-001",
+          "locator_type": "section",
+          "locator": "docs/research/canon/misc/mtg_five_color_and_colorless_dossier.md#how-these-identities-work-for-vox-mana-placement",
+          "bounded_paraphrase": "The dossier permits a bounded Vox Mana placement synthesis that distinguishes deliberate non-color restriction from branch-only or five-color readings.",
+          "evidence_scope": "vox_mana_placement_synthesis",
+          "interpretation_level": "bounded_repo_canon_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "colorless_claim_0007",
@@ -210,7 +327,7 @@
       "canon_status": "Source-bound Commander boundary with manual-fill caution",
       "source_ids": [
         "COLORLESS-SRC-018",
-        "COLORLESS-CMD-001"
+        "COLORLESS-SRC-012"
       ],
       "evidence_rows": [
         "COLORLESS-EVID-020",
@@ -218,7 +335,26 @@
         "COLORLESS-EVID-018"
       ],
       "confidence": "Medium",
-      "notes": "May shape strict-colorless versus merely colorless-feeling Commander questions. Exact card legality, product proof, and recommendation proof remain COLORLESS-MF-004 and COLORLESS-MF-014."
+      "notes": "May shape strict-colorless versus merely colorless-feeling Commander questions. Exact card legality, product proof, and recommendation proof remain COLORLESS-MF-004 and COLORLESS-MF-014.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "COLORLESS-SRC-018",
+          "locator_type": "section",
+          "locator": "docs/research/colorless/source-material/colorless_mtg_notes_sourced_v2.md#format-legalities",
+          "bounded_paraphrase": "The sourced intake treats strict Colorless Commander as a distinct deckbuilding constraint and separates it from merely colorless-feeling card selections.",
+          "evidence_scope": "strict_colorless_commander_boundary",
+          "interpretation_level": "bounded_audit_intake"
+        },
+        {
+          "source_id": "COLORLESS-SRC-012",
+          "locator_type": "section",
+          "locator": "docs/research/colorless/source-material/colorless_magic_cleaned.md#color-identity-in-commander",
+          "bounded_paraphrase": "The Commander section distinguishes a colorless commander's empty color identity from colored identity permissions while keeping exact card conclusions bounded.",
+          "evidence_scope": "commander_color_identity_constraint",
+          "interpretation_level": "bounded_rules_synthesis"
+        }
+      ]
     },
     {
       "claim_id": "colorless_claim_0008",
@@ -229,7 +365,7 @@
       "source_ids": [
         "COLORLESS-SRC-018",
         "COLORLESS-SRC-008",
-        "COLORLESS-CMD-002"
+        "COLORLESS-CANON-001"
       ],
       "evidence_rows": [
         "COLORLESS-EVID-010",
@@ -238,7 +374,34 @@
         "COLORLESS-EVID-018"
       ],
       "confidence": "Medium",
-      "notes": "Use for false-positive testing and controlled discriminator copy only. Do not turn five-color Eldrazi support into strict Colorless proof."
+      "notes": "Use for false-positive testing and controlled discriminator copy only. Do not turn five-color Eldrazi support into strict Colorless proof.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "COLORLESS-SRC-018",
+          "locator_type": "section_range",
+          "locator": "docs/research/colorless/source-material/colorless_mtg_notes_sourced_v2.md#is-a-devoid-card-truly-colorless-through-a-five-color-colorless-deck",
+          "bounded_paraphrase": "The intake separates Devoid object colorlessness from Commander color identity and distinguishes Ulalek's five-color Eldrazi deck from strict Colorless identity.",
+          "evidence_scope": "devoid_and_five_color_eldrazi_false_positive",
+          "interpretation_level": "bounded_audit_intake"
+        },
+        {
+          "source_id": "COLORLESS-SRC-008",
+          "locator_type": "article_section",
+          "locator": "docs/research/colorless/source-material/Colorless - Concept vs. Execution _ MAGIC_ THE GATHERING_markRosewater.md#devoid-and-eldrazi-execution",
+          "bounded_paraphrase": "The design capture explains Devoid as an execution tool for colorless Eldrazi flavor rather than proof of strict Colorless deck identity.",
+          "evidence_scope": "devoid_design_boundary",
+          "interpretation_level": "direct_design_capture"
+        },
+        {
+          "source_id": "COLORLESS-CANON-001",
+          "locator_type": "section",
+          "locator": "docs/research/canon/misc/mtg_five_color_and_colorless_dossier.md#five-color-vs-colorless",
+          "bounded_paraphrase": "The dossier distinguishes five-color inclusion from Colorless non-coloration, preventing five-color Eldrazi support from becoming Colorless proof.",
+          "evidence_scope": "wubrg_colorless_false_positive_boundary",
+          "interpretation_level": "bounded_repo_canon_synthesis"
+        }
+      ]
     }
   ]
 }

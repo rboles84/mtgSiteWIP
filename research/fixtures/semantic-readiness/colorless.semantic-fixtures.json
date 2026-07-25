@@ -1,0 +1,475 @@
+{
+  "identity_key": "COLORLESS",
+  "raw_id": "colorless",
+  "display_name": "Colorless",
+  "color_representation": {
+    "colors": [],
+    "secondary_colors": [],
+    "core_color": "C",
+    "display_code": "C"
+  },
+  "accepted_aliases": [
+    "COLORLESS"
+  ],
+  "rejected_public_aliases": [
+    "C",
+    "c",
+    "colorless"
+  ],
+  "metadata_query_only_forms": [
+    "{C}",
+    "Wastes"
+  ],
+  "contract_version": "v1.1",
+  "generated_by": "VM-537 Gate 3 semantic remediation",
+  "runtime_assertions": false,
+  "fixture_count": 24,
+  "fixtures": [
+    {
+      "fixture_id": "colorless_core_inclusion_outside_wubrg",
+      "fixture_type": "core_inclusion",
+      "scenario": "A user deliberately chooses the restriction, precision, resource conversion, and structural problem-solving of a Commander identity outside WUBRG without collapsing it into artifacts, Eldrazi, Wastes, or generic mana.",
+      "expected_identity": "COLORLESS",
+      "expected_decision": "accept",
+      "evidence_claim_ids": [
+        "colorless_claim_0001",
+        "colorless_claim_0002",
+        "colorless_claim_0003",
+        "colorless_claim_0004",
+        "colorless_claim_0005",
+        "colorless_claim_0006",
+        "colorless_claim_0007",
+        "colorless_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SCOPE-005",
+        "COLORLESS-SCOPE-006",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_mature_pressure_behavior_exact_resources",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "Under pressure, the player accepts narrower tools, plans exact mana and sequencing, and turns asymmetry, utility lands, and durable engines into inevitability.",
+      "expected_identity": "COLORLESS",
+      "expected_decision": "accept",
+      "evidence_claim_ids": [
+        "colorless_claim_0006",
+        "colorless_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_nearest_collision_wubrg_access",
+      "fixture_type": "nearest_collision_ambiguity",
+      "scenario": "A player likes Eldrazi and artifact engines but has not said whether the center is the chosen strict Colorless restriction or access to all five colors.",
+      "expected_identity": "COLORLESS",
+      "expected_decision": "ask_boundary_question",
+      "evidence_claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0005",
+        "colorless_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SCOPE-005",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_provenance_core_identity",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the Colorless core identity chain.",
+      "expected_identity": "COLORLESS",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/colorless/colorless.profile.json",
+      "canonical_pointer": "/core_identity",
+      "evidence_claim_ids": [
+        "colorless_claim_0001",
+        "colorless_claim_0002",
+        "colorless_claim_0003",
+        "colorless_claim_0004",
+        "colorless_claim_0005",
+        "colorless_claim_0006",
+        "colorless_claim_0007",
+        "colorless_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SCOPE-005",
+        "COLORLESS-SCOPE-006",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_wubrg_unrestricted_access",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WUBRG",
+      "scenario": "Five-color access and unrestricted color expression are proposed as strict Colorless identity.",
+      "expected": "Reject Colorless unless the answer chooses the outside-WUBRG restriction rather than access to every color.",
+      "boundary": "Five-color Eldrazi or broad access remains WUBRG-side evidence.",
+      "evidence_claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0005",
+        "colorless_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SCOPE-005",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_white_order",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "W",
+      "scenario": "Order, duty, community, and White mana are proposed as Colorless.",
+      "expected": "Reject Colorless when White philosophy and colored mana are the center.",
+      "boundary": "Colorless restriction is not a substitute label for White structure.",
+      "evidence_claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_blue_perfection",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "U",
+      "scenario": "Knowledge, perfection, planning, and Blue mana are proposed as Colorless.",
+      "expected": "Reject Colorless when Blue philosophy and colored mana are the center.",
+      "boundary": "Technical play alone does not erase a Blue identity.",
+      "evidence_claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_black_ambition",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "B",
+      "scenario": "Ambition, sacrifice, self-determination, and Black mana are proposed as Colorless.",
+      "expected": "Reject Colorless when Black philosophy and colored mana are the center.",
+      "boundary": "Resource conversion alone does not erase a Black identity.",
+      "evidence_claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_red_freedom",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "R",
+      "scenario": "Freedom, impulse, emotion, and Red mana are proposed as Colorless.",
+      "expected": "Reject Colorless when Red philosophy and colored mana are the center.",
+      "boundary": "Unconventional play alone does not erase a Red identity.",
+      "evidence_claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_green_acceptance",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "G",
+      "scenario": "Growth, interdependence, acceptance, and Green mana are proposed as Colorless.",
+      "expected": "Reject Colorless when Green philosophy and colored mana are the center.",
+      "boundary": "Large permanents alone do not erase a Green identity.",
+      "evidence_claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_yore_constructed_agency",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "YORE",
+      "scenario": "WUBR constructed agency and progress against natural limits are proposed as Colorless.",
+      "expected": "Reject Colorless when Yore's four-color worldview is the center.",
+      "boundary": "Artifice is shared texture, not proof of strict Colorless identity.",
+      "evidence_claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0006",
+        "colorless_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_esper_control",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ESPER",
+      "scenario": "WUB artifact control, refinement, and colored-mana structure are proposed as Colorless.",
+      "expected": "Reject Colorless when Esper's three-color worldview is the center.",
+      "boundary": "Artifacts do not make an Esper answer Colorless.",
+      "evidence_claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0004",
+        "colorless_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_witch_patient_growth",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WITCH",
+      "scenario": "GWUB patient cultivation, protected growth, and missing-Red structure are proposed as Colorless.",
+      "expected": "Reject Colorless when Witch's four-color worldview is the center.",
+      "boundary": "Patience and structure do not erase the complete Witch color frame.",
+      "evidence_claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0006",
+        "colorless_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_generic_mana",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_MANA",
+      "scenario": "A prompt treats a generic mana cost as specifically colorless mana.",
+      "expected": "Reject the conflation.",
+      "boundary": "Generic costs and specifically colorless mana are distinct rules concepts.",
+      "evidence_claim_ids": [
+        "colorless_claim_0003"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-012"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_artifact_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ARTIFACT_ONLY",
+      "scenario": "A prompt cites artifacts alone as sufficient proof of Colorless identity.",
+      "expected": "Reject artifact-only proof.",
+      "boundary": "Artifacts are a functional branch and may have colored identity.",
+      "evidence_claim_ids": [
+        "colorless_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_eldrazi_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ELDRAZI_ONLY",
+      "scenario": "A prompt cites Eldrazi attraction alone as sufficient proof of Colorless identity.",
+      "expected": "Reject Eldrazi-only proof.",
+      "boundary": "Eldrazi are an internal branch and may appear outside strict Colorless decks.",
+      "evidence_claim_ids": [
+        "colorless_claim_0004",
+        "colorless_claim_0005"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SCOPE-005",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_wastes_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WASTES_ONLY",
+      "scenario": "A prompt treats Wastes or a {C} symbol alone as the whole Colorless identity.",
+      "expected": "Reject Wastes-only proof.",
+      "boundary": "Wastes and {C} are rules and display contexts, not public identity aliases.",
+      "evidence_claim_ids": [
+        "colorless_claim_0003",
+        "colorless_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_devoid_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "DEVOID_ONLY",
+      "scenario": "A prompt treats Devoid alone as strict Colorless Commander identity.",
+      "expected": "Reject Devoid-only proof.",
+      "boundary": "Devoid does not erase colored Commander identity requirements.",
+      "evidence_claim_ids": [
+        "colorless_claim_0004",
+        "colorless_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_phyrexia_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "PHYREXIA_ONLY",
+      "scenario": "A prompt cites Phyrexian aesthetics or artifacts alone as Colorless proof.",
+      "expected": "Reject Phyrexia-only proof.",
+      "boundary": "Phyrexia is a comparator context, not a synonym for Colorless.",
+      "evidence_claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_five_color_eldrazi",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "FIVE_COLOR_ELDRAZI",
+      "scenario": "A prompt treats five-color Eldrazi access as proof of strict Colorless identity.",
+      "expected": "Reject five-color Eldrazi proof.",
+      "boundary": "Five-color Eldrazi remains on the WUBRG side of the frozen collision.",
+      "evidence_claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0005",
+        "colorless_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SCOPE-005",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_commander_support_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "COMMANDER_SUPPORT_ONLY",
+      "scenario": "A prompt cites Commander product support or preview placement as semantic proof.",
+      "expected": "Reject support-only proof.",
+      "boundary": "Product, placement, and preview metadata do not create semantic authority or public expansion.",
+      "evidence_claim_ids": [
+        "colorless_claim_0001",
+        "colorless_claim_0005",
+        "colorless_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SCOPE-005",
+        "COLORLESS-SCOPE-006",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_sixth_color",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SIXTH_COLOR",
+      "scenario": "A prompt treats Colorless as a sixth philosophical color parallel to WUBRG.",
+      "expected": "Reject the sixth-color model.",
+      "boundary": "Colorless is represented outside the five-color order, not appended to it.",
+      "evidence_claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_public_alias_c",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "PUBLIC_ALIAS_C",
+      "scenario": "A public endpoint submits C as an identity alias.",
+      "expected": "Reject C as a public identity alias.",
+      "boundary": "C is a bounded mana and display code only; the accepted identity key remains COLORLESS.",
+      "evidence_claim_ids": [
+        "colorless_claim_0001",
+        "colorless_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-SCOPE-005",
+        "COLORLESS-SCOPE-006",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    },
+    {
+      "fixture_id": "colorless_excludes_public_alias_lowercase",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "PUBLIC_ALIAS_LOWERCASE_COLORLESS",
+      "scenario": "A public endpoint submits lowercase colorless as an identity alias.",
+      "expected": "Reject lowercase colorless as a public identity alias.",
+      "boundary": "Lowercase colorless remains a prose and query form; the accepted identity key remains COLORLESS.",
+      "evidence_claim_ids": [
+        "colorless_claim_0001",
+        "colorless_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-SCOPE-005",
+        "COLORLESS-SCOPE-006",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ]
+    }
+  ]
+}

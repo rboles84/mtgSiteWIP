@@ -7246,25 +7246,17 @@
       "canonical_file": "data/raw-factions/colorless/colorless.placement.json",
       "canonical_pointer": "/collision_guidance/pairs/0",
       "canonical_id": "colorless_vs_wubrg",
-      "canonical_content_hash": "sha256:8b99826a4b82eacf09a04496c0783e895f638a7f36605b55dfe93a97ec7e52de",
+      "canonical_content_hash": "sha256:b1db897acd537552d691cfecdfd84dbae8e81a1504364997a12e335783d285e4",
       "evidence_claim_ids": [
         "colorless_claim_0002",
         "colorless_claim_0005",
-        "colorless_claim_0008",
-        "wubrg_claim_0007"
+        "colorless_claim_0008"
       ],
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
-        "COLORLESS-CANON-003",
-        "COLORLESS-CMD-001",
-        "COLORLESS-CMD-002",
-        "COLORLESS-SCOPE-003",
-        "COLORLESS-SCOPE-004",
+        "COLORLESS-SCOPE-005",
         "COLORLESS-SRC-008",
-        "COLORLESS-SRC-009",
-        "COLORLESS-SRC-010",
         "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017",
         "COLORLESS-SRC-018"
       ],
       "generated_consumers": [
@@ -7287,11 +7279,8 @@
       ],
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
-        "COLORLESS-CANON-003",
         "COLORLESS-SRC-008",
-        "COLORLESS-SRC-010",
-        "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017"
+        "COLORLESS-SRC-012"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/COLORLESS",
@@ -7311,9 +7300,7 @@
       ],
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
-        "COLORLESS-SRC-010",
-        "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017"
+        "COLORLESS-SRC-012"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/COLORLESS",
@@ -7334,15 +7321,9 @@
       ],
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
-        "COLORLESS-CANON-003",
-        "COLORLESS-CMD-001",
-        "COLORLESS-CMD-002",
-        "COLORLESS-SCOPE-003",
-        "COLORLESS-SCOPE-004",
-        "COLORLESS-SRC-009",
-        "COLORLESS-SRC-010",
+        "COLORLESS-SCOPE-005",
         "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017"
+        "COLORLESS-SRC-018"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/COLORLESS",
@@ -7364,9 +7345,7 @@
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
         "COLORLESS-SRC-008",
-        "COLORLESS-SRC-010",
         "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017",
         "COLORLESS-SRC-018"
       ],
       "generated_consumers": [
@@ -7389,12 +7368,9 @@
       ],
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
-        "COLORLESS-CMD-001",
-        "COLORLESS-CMD-002",
-        "COLORLESS-SCOPE-003",
-        "COLORLESS-SCOPE-004",
+        "COLORLESS-SCOPE-005",
         "COLORLESS-SRC-008",
-        "COLORLESS-SRC-009",
+        "COLORLESS-SRC-012",
         "COLORLESS-SRC-018"
       ],
       "generated_consumers": [
@@ -7417,8 +7393,6 @@
       ],
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
-        "COLORLESS-CMD-001",
-        "COLORLESS-CMD-002",
         "COLORLESS-SRC-008",
         "COLORLESS-SRC-012",
         "COLORLESS-SRC-018"
@@ -7442,10 +7416,7 @@
       ],
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
-        "COLORLESS-CANON-003",
-        "COLORLESS-SRC-010",
         "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017",
         "COLORLESS-SRC-018"
       ],
       "generated_consumers": [
@@ -7468,9 +7439,7 @@
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
         "COLORLESS-SRC-008",
-        "COLORLESS-SRC-010",
         "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017",
         "COLORLESS-SRC-018"
       ],
       "generated_consumers": [
@@ -7492,7 +7461,6 @@
       ],
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
-        "COLORLESS-CMD-001",
         "COLORLESS-SRC-012",
         "COLORLESS-SRC-018"
       ],
@@ -7514,6 +7482,123 @@
       ],
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
+        "COLORLESS-SRC-018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/COLORLESS",
+        "data/placement-model.json#/factions/COLORLESS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/COLORLESS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "COLORLESS",
+      "canonical_file": "data/raw-factions/colorless/colorless.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "guidance_colorless_mismatch_0001_gate3",
+      "canonical_content_hash": "sha256:8db4be8c340d05b7d425df0e76416858431705802e335d725b765bd5b8d5989b",
+      "evidence_claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0003",
+        "colorless_claim_0004",
+        "colorless_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/COLORLESS",
+        "data/placement-model.json#/factions/COLORLESS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/COLORLESS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "COLORLESS",
+      "canonical_file": "data/raw-factions/colorless/colorless.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "guidance_colorless_mismatch_0002_gate3",
+      "canonical_content_hash": "sha256:1af8edbb62c94193efdf4ac81b1b777350bae0cfaf3542fbd06240e17f4a68bc",
+      "evidence_claim_ids": [
+        "colorless_claim_0004",
+        "colorless_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/COLORLESS",
+        "data/placement-model.json#/factions/COLORLESS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/COLORLESS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "COLORLESS",
+      "canonical_file": "data/raw-factions/colorless/colorless.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "guidance_colorless_mismatch_0003_gate3",
+      "canonical_content_hash": "sha256:3ab487aa1b90ca3db5bae3e4eaeaedf000af9b1f2b199c4cc56b01d11833d0f3",
+      "evidence_claim_ids": [
+        "colorless_claim_0003"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-012"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/COLORLESS",
+        "data/placement-model.json#/factions/COLORLESS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/COLORLESS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "COLORLESS",
+      "canonical_file": "data/raw-factions/colorless/colorless.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "guidance_colorless_mismatch_0004_gate3",
+      "canonical_content_hash": "sha256:8506a90facf1e69f104053ac848f689a22280103c826ed04fa08a7972dfcc5e1",
+      "evidence_claim_ids": [
+        "colorless_claim_0002",
+        "colorless_claim_0005",
+        "colorless_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SCOPE-005",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
+        "COLORLESS-SRC-018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/COLORLESS",
+        "data/placement-model.json#/factions/COLORLESS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/COLORLESS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "COLORLESS",
+      "canonical_file": "data/raw-factions/colorless/colorless.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "guidance_colorless_mismatch_0005_gate3",
+      "canonical_content_hash": "sha256:52a9097cf39d62c218f40ff0e2e6886e20d99b313b0fbc8797c0200d3518622f",
+      "evidence_claim_ids": [
+        "colorless_claim_0001",
+        "colorless_claim_0005",
+        "colorless_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SCOPE-005",
+        "COLORLESS-SCOPE-006",
         "COLORLESS-SRC-012",
         "COLORLESS-SRC-018"
       ],
@@ -7528,8 +7613,8 @@
       "identity_key": "COLORLESS",
       "canonical_file": "data/raw-factions/colorless/colorless.profile.json",
       "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:e1507516b4833570c9d32e3246c0bf4886c64b8c6808ee269f6ae39c14f5dc7d",
+      "canonical_id": "colorless_core_identity_gate3",
+      "canonical_content_hash": "sha256:3cdc849ce98ecbfe322565609732beb74b3ac1b810373d7024fc142d956a7edf",
       "evidence_claim_ids": [
         "colorless_claim_0001",
         "colorless_claim_0002",
@@ -7542,18 +7627,10 @@
       ],
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
-        "COLORLESS-CANON-003",
-        "COLORLESS-CMD-001",
-        "COLORLESS-CMD-002",
-        "COLORLESS-SCOPE-003",
-        "COLORLESS-SCOPE-004",
         "COLORLESS-SCOPE-005",
         "COLORLESS-SCOPE-006",
         "COLORLESS-SRC-008",
-        "COLORLESS-SRC-009",
-        "COLORLESS-SRC-010",
         "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017",
         "COLORLESS-SRC-018"
       ],
       "generated_consumers": [
@@ -7567,8 +7644,8 @@
       "identity_key": "COLORLESS",
       "canonical_file": "data/raw-factions/colorless/colorless.profile.json",
       "canonical_pointer": "/data_quality",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:b4d4ee28de0038e0c5479434721271114e63154b89784b816fbefa25ca342c5f",
+      "canonical_id": "colorless_data_quality_gate3",
+      "canonical_content_hash": "sha256:4de40a435dd27d0df5d232b005f611228985493de34509aa8b4aabc2669cb9ae",
       "evidence_claim_ids": [
         "colorless_claim_0001",
         "colorless_claim_0002",
@@ -7579,20 +7656,13 @@
         "colorless_claim_0007",
         "colorless_claim_0008"
       ],
+      "evidence_use": "discovery_metadata",
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
-        "COLORLESS-CANON-003",
-        "COLORLESS-CMD-001",
-        "COLORLESS-CMD-002",
-        "COLORLESS-SCOPE-003",
-        "COLORLESS-SCOPE-004",
         "COLORLESS-SCOPE-005",
         "COLORLESS-SCOPE-006",
         "COLORLESS-SRC-008",
-        "COLORLESS-SRC-009",
-        "COLORLESS-SRC-010",
         "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017",
         "COLORLESS-SRC-018"
       ],
       "generated_consumers": [
@@ -7606,8 +7676,8 @@
       "identity_key": "COLORLESS",
       "canonical_file": "data/raw-factions/colorless/colorless.profile.json",
       "canonical_pointer": "/mechanics",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:212d1180be6016445590811694760f79f904806f16a9b268cc3e785bb93c877a",
+      "canonical_id": "colorless_mechanics_gate3",
+      "canonical_content_hash": "sha256:87ded10c026d3b9777691aa936e5454db724e592f25bd2daf64f8efb66ce86fa",
       "evidence_claim_ids": [
         "colorless_claim_0002",
         "colorless_claim_0003",
@@ -7619,16 +7689,9 @@
       ],
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
-        "COLORLESS-CANON-003",
-        "COLORLESS-CMD-001",
-        "COLORLESS-CMD-002",
-        "COLORLESS-SCOPE-003",
-        "COLORLESS-SCOPE-004",
+        "COLORLESS-SCOPE-005",
         "COLORLESS-SRC-008",
-        "COLORLESS-SRC-009",
-        "COLORLESS-SRC-010",
         "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017",
         "COLORLESS-SRC-018"
       ],
       "generated_consumers": [
@@ -7642,8 +7705,8 @@
       "identity_key": "COLORLESS",
       "canonical_file": "data/raw-factions/colorless/colorless.profile.json",
       "canonical_pointer": "/profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:2c470c146c48cbc23a3568870ca96615d34c0fa88978b2ab152a6f644223569b",
+      "canonical_id": "colorless_profile_gate3",
+      "canonical_content_hash": "sha256:bd4933efef0fae015f0905b557a69280a5db02a90c179eb9bb9fda11ed54cad9",
       "evidence_claim_ids": [
         "colorless_claim_0001",
         "colorless_claim_0002",
@@ -7656,18 +7719,10 @@
       ],
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
-        "COLORLESS-CANON-003",
-        "COLORLESS-CMD-001",
-        "COLORLESS-CMD-002",
-        "COLORLESS-SCOPE-003",
-        "COLORLESS-SCOPE-004",
         "COLORLESS-SCOPE-005",
         "COLORLESS-SCOPE-006",
         "COLORLESS-SRC-008",
-        "COLORLESS-SRC-009",
-        "COLORLESS-SRC-010",
         "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017",
         "COLORLESS-SRC-018"
       ],
       "generated_consumers": [
@@ -7681,8 +7736,8 @@
       "identity_key": "COLORLESS",
       "canonical_file": "data/raw-factions/colorless/colorless.profile.json",
       "canonical_pointer": "/search_and_filter_metadata",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:d06d47a7801a6e1949dff7cdffa9b8757e4a941a8977e2bdf30415d89e0d68b2",
+      "canonical_id": "colorless_search_and_filter_metadata_gate3",
+      "canonical_content_hash": "sha256:e38e062885de7a2267863e697959d9b1f339e79087af9b000daa7c622dc5edf2",
       "evidence_claim_ids": [
         "colorless_claim_0001",
         "colorless_claim_0002",
@@ -7695,18 +7750,10 @@
       ],
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
-        "COLORLESS-CANON-003",
-        "COLORLESS-CMD-001",
-        "COLORLESS-CMD-002",
-        "COLORLESS-SCOPE-003",
-        "COLORLESS-SCOPE-004",
         "COLORLESS-SCOPE-005",
         "COLORLESS-SCOPE-006",
         "COLORLESS-SRC-008",
-        "COLORLESS-SRC-009",
-        "COLORLESS-SRC-010",
         "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017",
         "COLORLESS-SRC-018"
       ],
       "generated_consumers": [
@@ -7720,16 +7767,14 @@
       "identity_key": "COLORLESS",
       "canonical_file": "data/raw-factions/colorless/colorless.profile.json",
       "canonical_pointer": "/structure/branches/0",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:02fc961e97f9648756dee6957ec7aa3ccd94529056fe52e126667ce2dccab2e5",
+      "canonical_id": "colorless_branch_rules_and_mana",
+      "canonical_content_hash": "sha256:d3b23993accddd661c0c5dc237d28d509bde7f6cc5222a9ad3195c7bfac7cae0",
       "evidence_claim_ids": [
         "colorless_claim_0003"
       ],
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
-        "COLORLESS-SRC-010",
-        "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017"
+        "COLORLESS-SRC-012"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/COLORLESS",
@@ -7742,17 +7787,15 @@
       "identity_key": "COLORLESS",
       "canonical_file": "data/raw-factions/colorless/colorless.profile.json",
       "canonical_pointer": "/structure/branches/1",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:6a7a5cc55779592548143ecf6d2424a6b01de889082b2fef6822f58a8e84ecdc",
+      "canonical_id": "colorless_branch_artifacts_and_function",
+      "canonical_content_hash": "sha256:057bae64f7b23f8bbc8ae22baa1b0b94d710a097f497ef0473aaa6bbf61686ef",
       "evidence_claim_ids": [
         "colorless_claim_0004"
       ],
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
         "COLORLESS-SRC-008",
-        "COLORLESS-SRC-010",
-        "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017"
+        "COLORLESS-SRC-012"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/COLORLESS",
@@ -7765,89 +7808,16 @@
       "identity_key": "COLORLESS",
       "canonical_file": "data/raw-factions/colorless/colorless.profile.json",
       "canonical_pointer": "/structure/branches/2",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:0ed88316b3b7a316d7a15739c44d482b1b521ef830a61f9efc146b479e8f0ad3",
+      "canonical_id": "colorless_branch_eldrazi_and_void",
+      "canonical_content_hash": "sha256:638a627206d92b0a7e9db3ef504b7796a74264777df9c503072e2c028dff6e27",
       "evidence_claim_ids": [
         "colorless_claim_0004",
         "colorless_claim_0005"
       ],
       "evidence_source_ids": [
         "COLORLESS-CANON-001",
-        "COLORLESS-CMD-001",
-        "COLORLESS-CMD-002",
-        "COLORLESS-SCOPE-003",
-        "COLORLESS-SCOPE-004",
+        "COLORLESS-SCOPE-005",
         "COLORLESS-SRC-008",
-        "COLORLESS-SRC-009",
-        "COLORLESS-SRC-010",
-        "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/COLORLESS",
-        "data/placement-model.json#/factions/COLORLESS",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/COLORLESS"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "COLORLESS",
-      "canonical_file": "data/raw-factions/colorless/colorless.profile.json",
-      "canonical_pointer": "/structure/branches/3",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:09e822d8109ffe429f2044508a4730f507c5712f28c54ce614cfc7162ef4aba7",
-      "evidence_claim_ids": [
-        "colorless_claim_0003",
-        "colorless_claim_0004"
-      ],
-      "evidence_source_ids": [
-        "COLORLESS-CANON-001",
-        "COLORLESS-SRC-008",
-        "COLORLESS-SRC-010",
-        "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/COLORLESS",
-        "data/placement-model.json#/factions/COLORLESS",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/COLORLESS"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "COLORLESS",
-      "canonical_file": "data/raw-factions/colorless/colorless.profile.json",
-      "canonical_pointer": "/structure/branches/4",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:d9bc2394097e3463f5c79d5c8b92365c80f4f7fdf1d245cfcc8db368c37cbc8c",
-      "evidence_claim_ids": [
-        "colorless_claim_0004"
-      ],
-      "evidence_source_ids": [
-        "COLORLESS-CANON-001",
-        "COLORLESS-SRC-008",
-        "COLORLESS-SRC-010",
-        "COLORLESS-SRC-012",
-        "COLORLESS-SRC-017"
-      ],
-      "generated_consumers": [
-        "data/factions.json#/factions/COLORLESS",
-        "data/placement-model.json#/factions/COLORLESS",
-        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/COLORLESS"
-      ],
-      "contract_version": "v1.1"
-    },
-    {
-      "identity_key": "COLORLESS",
-      "canonical_file": "data/raw-factions/colorless/colorless.profile.json",
-      "canonical_pointer": "/structure/branches/5",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:fc484d166f3ef805d2ed0f407c4447e5bc721ae42cd8dd9533b13085e85d00dc",
-      "evidence_claim_ids": [
-        "colorless_claim_0006"
-      ],
-      "evidence_source_ids": [
-        "COLORLESS-CANON-001",
         "COLORLESS-SRC-012",
         "COLORLESS-SRC-018"
       ],
@@ -7861,17 +7831,80 @@
     {
       "identity_key": "COLORLESS",
       "canonical_file": "data/raw-factions/colorless/colorless.profile.json",
+      "canonical_pointer": "/structure/branches/3",
+      "canonical_id": "colorless_branch_wastes_and_desolation",
+      "canonical_content_hash": "sha256:85f33b36eb7898eb3df737b6fd83e17bc1ec3bfe071f62808ef0fb7ee5d7f792",
+      "evidence_claim_ids": [
+        "colorless_claim_0003",
+        "colorless_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/COLORLESS",
+        "data/placement-model.json#/factions/COLORLESS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/COLORLESS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "COLORLESS",
+      "canonical_file": "data/raw-factions/colorless/colorless.profile.json",
+      "canonical_pointer": "/structure/branches/4",
+      "canonical_id": "colorless_branch_ugin_karn_and_transcendence",
+      "canonical_content_hash": "sha256:2f0edf5333b3919098c55dd7b38491a20081608a3b04deee6b716685f8cb8376",
+      "evidence_claim_ids": [
+        "colorless_claim_0004"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/COLORLESS",
+        "data/placement-model.json#/factions/COLORLESS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/COLORLESS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "COLORLESS",
+      "canonical_file": "data/raw-factions/colorless/colorless.profile.json",
+      "canonical_pointer": "/structure/branches/5",
+      "canonical_id": "colorless_branch_player_fit_and_strategy",
+      "canonical_content_hash": "sha256:6b835877b586e77419598394c79d75138440774dd7b1a49a8dcc14b7041402f8",
+      "evidence_claim_ids": [
+        "colorless_claim_0006"
+      ],
+      "evidence_source_ids": [
+        "COLORLESS-CANON-001",
+        "COLORLESS-SRC-018"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/COLORLESS",
+        "data/placement-model.json#/factions/COLORLESS",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/COLORLESS"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "COLORLESS",
+      "canonical_file": "data/raw-factions/colorless/colorless.profile.json",
       "canonical_pointer": "/structure/branches/6",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:0a5d473e9b6f94117b5da09dbd145c719177c0d39f081bf8009ac2e91aa4de79",
+      "canonical_id": "colorless_branch_strict_commander_and_devoid",
+      "canonical_content_hash": "sha256:d3b22fc618dca67a8f163f9f2739b34c1dc7f808582982e2fc8393cd1fb34d17",
       "evidence_claim_ids": [
         "colorless_claim_0007",
         "colorless_claim_0008"
       ],
       "evidence_source_ids": [
-        "COLORLESS-CMD-001",
-        "COLORLESS-CMD-002",
+        "COLORLESS-CANON-001",
         "COLORLESS-SRC-008",
+        "COLORLESS-SRC-012",
         "COLORLESS-SRC-018"
       ],
       "generated_consumers": [
