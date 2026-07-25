@@ -5,14 +5,14 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": null,
-    "next_identity": "WUBRG",
+    "active_identity": "WUBRG",
+    "next_identity": null,
     "certified_identity_count": 36,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 5 four-color identities complete; VM-537 Colorless certified; VM-538 WUBRG remains backlog/not started and is the only uncertified identity",
-      "current_program_base": "PENDING_VM537_CERTIFICATION_COMMIT_SHA",
+      "next_cohort": "Wave 5 four-color identities complete; VM-537 Colorless certified; VM-538 WUBRG Gate 1+2 complete and active as the only uncertified identity",
+      "current_program_base": "7f615d4fe5a19cf8f9d2a58a8026f837378c06b2",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -111,6 +111,111 @@
       "installed_after_program_base": "fbb81530b5932fd7913ba5f9e9d35d4f8e9ad6e3",
       "governance_commit": "PENDING_CRIT001_DRIFT_CONTROL_GOVERNANCE_SHA",
       "current_identity_hold": {
+        "identity": "WUBRG",
+        "card": "VM-538",
+        "state": "gate_1_2_complete",
+        "branch": "codex/vm-538-wubrg-semantic-recovery",
+        "worktree": "C:\\dev\\mtgSiteWIP-crit001-vm538-wubrg",
+        "starting_program_base": "7f615d4fe5a19cf8f9d2a58a8026f837378c06b2",
+        "prior_identity_certified": "COLORLESS",
+        "prior_identity_certification": "7f615d4fe5a19cf8f9d2a58a8026f837378c06b2",
+        "gate_1_2_commit": "PENDING_VM538_GATE1_GATE2_COMMIT_SHA",
+        "gate_1_2_report": "docs/handoffs/2026-07-24-2224-codex-vm538-wubrg-gate1-gate2.md",
+        "gate_1_2_result": "READY FOR GATE 3 REMEDIATION",
+        "baseline_claim_role_counts": {
+          "total": 8,
+          "substantive_claim": 0,
+          "discovery_record": 0,
+          "support_record": 0,
+          "unclassified": 8
+        },
+        "baseline_source_count": 19,
+        "baseline_missing_source_ids": [
+          "WUBRG-LOCAL-002"
+        ],
+        "baseline_provenance_count": 13,
+        "baseline_null_canonical_ids": 3,
+        "baseline_missing_hashes": 0,
+        "baseline_fixture_count": 0,
+        "canonical_key": "WUBRG",
+        "display_name": "Five-Color / WUBRG",
+        "public_label": "Five-Color",
+        "color_representation": {
+          "colors": [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
+          "secondary_colors": [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
+          "core_color": "WUBRG",
+          "display_code": "WUBRG"
+        },
+        "accepted_aliases": [
+          "WUBRG",
+          "Five-Color"
+        ],
+        "invalid_alias_result_required": "lowercase wubrg, lowercase five-color, Five Color, FiveColor, and noncanonical five-color order permutations must not become accepted public identity aliases",
+        "preview_result": "Home preview enabled and unchanged; identity-layer source equals embedded factions expression; directory links suppressed; no public route or recommendation expansion",
+        "frozen_placement": {
+          "axis_ids": [
+            "axis_full_spectrum_integration",
+            "axis_breadth_vs_dilution",
+            "axis_deck_access_vs_card_bounds",
+            "axis_coalition_vs_superiority"
+          ],
+          "discriminator_ids": [
+            "wubrg_disc_001",
+            "wubrg_disc_002",
+            "wubrg_disc_003",
+            "wubrg_disc_004",
+            "wubrg_disc_005"
+          ],
+          "collision_ids": [
+            "wubrg_vs_colorless",
+            "wubrg_vs_four_color",
+            "wubrg_vs_goodstuff"
+          ],
+          "required_positive_min_hits": 2,
+          "broad_match_penalty": 0.16,
+          "lateral_targets": [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G",
+            "COLORLESS",
+            "YORE",
+            "GLINT",
+            "DUNE",
+            "INK",
+            "WITCH",
+            "BANT",
+            "ESPER",
+            "GRIXIS",
+            "JUND",
+            "NAYA",
+            "ABZAN",
+            "TEMUR",
+            "SULTAI",
+            "MARDU",
+            "JESKAI"
+          ],
+          "canonical_collision": "COLORLESS/WUBRG"
+        },
+        "excel_updated_by_codex": false,
+        "candidate_sha": null,
+        "superseded_candidates": [],
+        "authorized_scope": "WUBRG-only semantic remediation and exact candidate workflow"
+      },
+      "last_certified_identity_hold": {
         "identity": "COLORLESS",
         "card": "VM-537",
         "state": "certification_complete",
@@ -6106,23 +6211,68 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "gate_1_2_complete",
+        "status": "in_progress",
+        "started_at": "2026-07-24T22:24:00-06:00",
+        "gate_entered_at": "2026-07-24T22:24:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": null,
-        "primary_disposition": null
+        "primary_disposition": "remediation_authorized"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "COLORLESS",
+          "W",
+          "U",
+          "B",
+          "R",
+          "G",
+          "YORE",
+          "GLINT",
+          "DUNE",
+          "INK",
+          "WITCH",
+          "BANT",
+          "ESPER",
+          "GRIXIS",
+          "JUND",
+          "NAYA",
+          "ABZAN",
+          "TEMUR",
+          "SULTAI",
+          "MARDU",
+          "JESKAI",
+          "GENERIC_FIVE_COLOR_COMMANDER",
+          "GENERIC_GOODSTUFF",
+          "GENERIC_ALL_COLORS_ACCESS",
+          "GENERIC_MANA_FIXING",
+          "GENERIC_HIGH_COMPLEXITY",
+          "ENDPOINT_COMPLETION",
+          "SUPERIORITY",
+          "UNIVERSAL_SUPERSET",
+          "OFFICIAL_FACTION",
+          "FIVE_COLOR_ELDRAZI",
+          "COMMANDER_SUPPORT_ONLY",
+          "PUBLIC_ALIAS_LOWERCASE_WUBRG",
+          "PUBLIC_ALIAS_LOWERCASE_FIVE_COLOR",
+          "PUBLIC_ALIAS_FIVE_COLOR_UNHYPHENATED",
+          "PUBLIC_ALIAS_FIVECOLOR",
+          "COLOR_ORDER_PERMUTATION"
+        ],
+        "audit_report": "docs/handoffs/2026-07-24-2224-codex-vm538-wubrg-gate1-gate2.md",
+        "residual_findings": [
+          "8 claims require semantic roles and bounded evidence locations",
+          "WUBRG-LOCAL-002 is referenced but missing from the source registry",
+          "three foreign Colorless claim IDs contaminate the canonical collision proof",
+          "eight mismatch-guidance strings lack evidence mappings",
+          "WUBRG semantic fixtures are missing",
+          "13 provenance rows include three null canonical IDs and the manifest is stale"
+        ]
       },
       "certification": {
-        "contract_version": null,
-        "contract_revalidation_required": false,
+        "contract_version": "v1.1",
+        "contract_revalidation_required": true,
         "candidate_recovery_sha": null,
         "recovery_commit": null,
         "certification_commit": null,

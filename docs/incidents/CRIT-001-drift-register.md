@@ -301,3 +301,14 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - Certification scope: governance-only. No Colorless semantic/generated/fixture/provenance content, package, schema, recruiter, identity-layer, runtime, validator, test, CI, Excel, GitHub remote authority, or VM-538 WUBRG content was changed.
 - Validation: npm.cmd ci PASS; full npm.cmd test PASS after ignored Scryfall hardlink; semantic readiness/fixtures, 2071-entry provenance, source/generated guardrails, faction-context, parser, placement, candidate-scope regression, exact candidate scope, deterministic build, alias/endpoint/neighbor/collision/preview probes PASS.
 - Program base: `PENDING_VM537_CERTIFICATION_COMMIT_SHA`; certified identity count advances to 36 of 37. VM-538 WUBRG remains backlog/not started/untouched and is the only uncertified identity.
+
+## VM-538 WUBRG Gate 1+2 - 2026-07-24
+
+- DRIFT-014: VM-538 uses the existing official branch/worktree at exact program base `7f615d4fe5a19cf8f9d2a58a8026f837378c06b2`; Gate 1+2 governance remains separate from semantic candidate, workflow, review, and certification commits.
+- DRIFT-015: `data/identity-layers.json` owns the enabled WUBRG Home preview and exactly equals the embedded `data/factions.json` expression. No preview-source edit is authorized.
+- DRIFT-016: Accepted aliases remain exactly `WUBRG` and `Five-Color`; lowercase, unhyphenated/compact label forms, and noncanonical five-color order permutations remain metadata/query-only and must fail closed.
+- DRIFT-017/DRIFT-019: WUBRG support-only Commander/product/deck/search records, current-legality caution, discovery/shaping essays, copied presentation texture, and generated consumers remain outside substantive proof chains.
+- DRIFT-020: Gate 1+2 freezes four axes, five discriminator IDs, three collision IDs, min-hits `2`, broad penalty `0.16`, all current calibration lists, the 21 generated lateral targets, and exactly one canonical inhibiting `COLORLESS/WUBRG` pair.
+- Baseline: 8 unclassified claims, 19 sources, missing source record `WUBRG-LOCAL-002`, no fixture, 13 WUBRG provenance rows, 3 null canonical IDs, zero missing hashes, stale provenance, 8 missing guidance mappings, and three foreign Colorless collision claim IDs.
+- Gate 1+2 scope: governance-only. WUBRG raw data, generated semantic data, fixtures, provenance, recruiter source, identity-layer source, runtime, validator/test implementation, package, CI, Excel, GitHub authority, protected worktrees, and other identities were untouched.
+- Result: READY FOR GATE 3 REMEDIATION.

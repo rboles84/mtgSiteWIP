@@ -1,13 +1,13 @@
 # VM-538 — WUBRG Semantic Recovery
 
 ID: VM-538
-Status: Backlog
+Status: In Progress
 Type: Canonical Identity Semantic Recovery
 Priority: CRIT-001
 Identity key: WUBRG
 Raw packet: `data/raw-factions/wubrg/`
 Cohort: endpoint
-Contract: pending Contract v1
+Contract: CRIT-001 Contract v1.1
 
 ## Objective
 
@@ -15,8 +15,8 @@ Recover WUBRG end to end under CRIT-001: audit the existing packet, bound readin
 
 ## Gates
 
-- [ ] Gate 1 — Packet audit and bounded disposition.
-- [ ] Gate 2 — Sufficient evidence completion.
+- [x] Gate 1 — Packet audit and bounded disposition.
+- [x] Gate 2 — Sufficient evidence completion.
 - [ ] Gate 3 — Canonical remediation.
 - [ ] Gate 4 — Generation and validation.
 - [ ] Gate 5 — Independent certification.
@@ -33,7 +33,7 @@ Recover WUBRG end to end under CRIT-001: audit the existing packet, bound readin
 - Canonical ledger: `docs/incidents/CRIT-001-identity-recovery-ledger.json`
 - Shared contract: `docs/reference/semantic-readiness-contract.md`
 - Shared template: `docs/incidents/templates/identity-semantic-recovery-template.md`
-- Audit/recovery report: pending
+- Audit/recovery report: `docs/handoffs/2026-07-24-2224-codex-vm538-wubrg-gate1-gate2.md`
 - Candidate recovery SHA: pending
 - Independent reviewer: pending
 - Certification commit: pending
