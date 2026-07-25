@@ -268,3 +268,14 @@ Control template: `docs/incidents/CRIT-001-drift-control-template.md`
 - DRIFT-020: Certification did not use the source-preview exception and did not modify validator/test implementation.
 - Certification scope: governance-only; WITCH source, generated semantic data, fixtures, provenance source, runtime, validator/test implementation, package, CI, Excel, GitHub remote authority, VM-537 Colorless, and VM-538 WUBRG were untouched.
 - Program base: `PENDING_VM536_CERTIFICATION_COMMIT_SHA`; certified identity count advances to 35 of 37 and Wave 5 four-color identities are 5 of 5 certified and complete.
+
+## VM-537 Colorless Gate 1+2 - 2026-07-24
+
+- DRIFT-014: VM-537 starts on the existing official branch/worktree from exact program base `8576efbb3e9e16b50684e1ea86214f9beb3b94dd`; Gate 1+2 governance remains separate from any semantic candidate, workflow record, independent review, or certification.
+- DRIFT-015: Colorless preview ownership is endpoint-specific: `data/identity-layers.json` owns the enabled Home preview and `data/factions.json` embeds it. No preview-source edit is authorized; source/embedded equality must pass before candidate creation.
+- DRIFT-016: Colorless has no color-permutation model. `COLORLESS` is the only accepted alias. `C`, `c`, and lowercase `colorless` must fail closed as identity aliases; `{C}` and `Wastes` remain bounded metadata/rules terms. Endpoint route/directory/recommendation restrictions remain active.
+- DRIFT-017/DRIFT-019: Active Colorless generated/recruiter consumers are isolation targets only. Support-only Commander/product rows, comparator-only material, shaping synthesis, discovery bundles, copied texture, and unverified price/metagame/card-legality material remain excluded from authoritative proof chains.
+- DRIFT-020: Gate 1+2 captured four axes, six discriminator IDs, one `COLORLESS/WUBRG` collision, frozen min-hits `2`, broad penalty `0.12`, and lateral targets `W/U/B/R/G/YORE/ESPER/WITCH/WUBRG`; candidate-scope must preserve them and add only Colorless-owned canonical IDs/evidence.
+- Baseline: 8 unclassified claims, 17 sources, no fixture, 23 COLORLESS provenance rows, 12 null canonical IDs, zero missing hashes, stale provenance, five missing recruiter evidence mappings, and foreign `wubrg_claim_0007` collision contamination.
+- Gate 1+2 scope: governance-only. Colorless raw semantic files, generated semantic data, fixtures, provenance, recruiter source, identity-layer source, runtime, validator/test implementation, package, CI, Excel, GitHub remote authority, protected worktrees, and VM-538 WUBRG were untouched.
+- Result: READY FOR GATE 3 REMEDIATION.

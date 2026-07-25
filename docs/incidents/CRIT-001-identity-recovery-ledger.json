@@ -5,14 +5,14 @@
   "authoritative": true,
   "program": {
     "status": "active",
-    "active_identity": null,
-    "next_identity": "COLORLESS",
+    "active_identity": "COLORLESS",
+    "next_identity": "WUBRG",
     "certified_identity_count": 35,
     "wave_status": {
       "ravnica_wave_2": "complete",
       "ravnica_wave_2_certified": "10 of 10",
-      "next_cohort": "Wave 5 four-color identities complete; VM-532 Yore, VM-533 Glint, VM-534 Dune, VM-535 Ink, and VM-536 Witch certified; VM-537 Colorless remains backlog/not started",
-      "current_program_base": "PENDING_VM536_CERTIFICATION_COMMIT_SHA",
+      "next_cohort": "Wave 5 four-color identities complete; VM-537 Colorless Gate 1+2 is active from exact VM-536 certification base; VM-538 WUBRG remains backlog/not started",
+      "current_program_base": "8576efbb3e9e16b50684e1ea86214f9beb3b94dd",
       "wave_3_monocolors": "complete",
       "wave_3_monocolors_certified": "5 of 5",
       "wave_3_completion": {
@@ -64,10 +64,10 @@
           "INK",
           "WITCH"
         ],
-        "current_identity": null,
-        "current_identity_status": "wave_complete",
+        "current_identity": "COLORLESS",
+        "current_identity_status": "gate_1_2_complete",
         "next_identity": "COLORLESS",
-        "next_identity_status": "backlog_not_started",
+        "next_identity_status": "in_progress_gate_1_2_complete",
         "certified": "5 of 5",
         "started_by": "PENDING_VM532_DRIFT_PREFLIGHT_COMMIT_SHA",
         "started_at": "2026-07-23T16:46:00-06:00",
@@ -5943,19 +5943,46 @@
         "inventory_updated_at": "2026-07-11T18:42:33.624Z"
       },
       "workflow": {
-        "current_gate": "not_started",
-        "status": "backlog",
-        "started_at": null,
-        "gate_entered_at": null,
+        "current_gate": "gate_1_2_complete",
+        "status": "in_progress",
+        "started_at": "2026-07-24T19:51:00-06:00",
+        "gate_entered_at": "2026-07-24T19:51:00-06:00",
         "blocked_at": null,
         "blocked_reason": null,
         "next_identity": "WUBRG",
-        "primary_disposition": null
+        "primary_disposition": "READY FOR GATE 3 REMEDIATION"
       },
       "semantic_review": {
-        "required_neighbors": [],
-        "audit_report": null,
-        "residual_findings": []
+        "required_neighbors": [
+          "WUBRG",
+          "W",
+          "U",
+          "B",
+          "R",
+          "G",
+          "YORE",
+          "ESPER",
+          "WITCH",
+          "GENERIC_MANA",
+          "ARTIFACT_ONLY",
+          "ELDRAZI_ONLY",
+          "WASTES_ONLY",
+          "DEVOID_ONLY",
+          "PHYREXIA_ONLY",
+          "FIVE_COLOR_ELDRAZI",
+          "COMMANDER_SUPPORT_ONLY",
+          "SIXTH_COLOR",
+          "PUBLIC_ALIAS_C",
+          "PUBLIC_ALIAS_LOWERCASE_COLORLESS"
+        ],
+        "audit_report": "docs/handoffs/2026-07-24-1951-codex-vm537-colorless-gate1-gate2.md",
+        "residual_findings": [
+          "Gate 1+2 found 8 unclassified claims, 17 sources, no fixture, 23 COLORLESS provenance rows, 12 null canonical IDs, zero missing hashes, stale provenance, five missing recruiter evidence mappings, and foreign wubrg_claim_0007 collision contamination.",
+          "COLORLESS is canonical with Colorless display, colors [], core/display marker C, and no color-order permutation model.",
+          "Accepted aliases remain exactly COLORLESS; C, c, and lowercase colorless are not public aliases, while {C} and Wastes remain bounded metadata/rules terms.",
+          "Home preview is enabled and source-owned by data/identity-layers.json; public route, directory links, and recommendation expansion remain disabled.",
+          "Gate 3 remediation is limited to COLORLESS. VM-538 WUBRG and Excel remain untouched."
+        ]
       },
       "certification": {
         "contract_version": null,
