@@ -123,6 +123,8 @@ Use these analogies often.
 
 ## Token and Compute Saving Rules
 
+Apply `docs/reference/token-reasoning-cost-control.md`; keep checks proportionate without omitting any checks required by this prompt.
+
 Be short and useful.
 
 Do not inspect the whole repo unless absolutely necessary.

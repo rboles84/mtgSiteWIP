@@ -27,6 +27,8 @@ For non-trivial work:
 6. Update affected docs when behavior, data contracts, workflows, or public surfaces change.
 7. Create or update a handoff in `docs/handoffs/` and update `docs/handoffs/HANDOFF_INDEX.md`.
 
+Apply [Token And Reasoning Cost Control](token-reasoning-cost-control.md): perform proportionate checks by default, but run the full validation required by any task-specific workflow, prompt, card, gate, or governance record.
+
 Small read-only questions, quick status checks, and simple command lookups do not need a Kanban card or handoff unless they reveal follow-up work.
 
 ## Source-Bound Data Work Modes

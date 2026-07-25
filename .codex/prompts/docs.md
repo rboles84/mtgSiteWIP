@@ -17,6 +17,8 @@ Clean, organize, normalize, and maintain Vox Mana documentation.
 
 ## Rules
 
+Apply `docs/reference/token-reasoning-cost-control.md`; keep checks proportionate without omitting any checks required by this prompt.
+
 Allowed:
 - Read documentation.
 - Identify duplicates and stale docs.

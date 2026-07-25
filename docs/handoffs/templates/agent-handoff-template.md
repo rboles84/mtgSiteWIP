@@ -33,6 +33,10 @@ Status:
 
 - 
 
+## Efficiency / Escalation Notes
+
+- Optional. Record only when reasoning was deliberately escalated or the task intentionally stayed narrower than the project's default workflow.
+
 ## Tests / Checks Run
 
 - 

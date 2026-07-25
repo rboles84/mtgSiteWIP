@@ -22,6 +22,12 @@ For any non-trivial work:
 
 ---
 
+## Token And Reasoning Cost Control
+
+Apply `docs/reference/token-reasoning-cost-control.md` by default: use the least reasoning, context retrieval, search, and tool usage needed for a correct result. This policy governs efficiency only and cannot waive, shorten, replace, or reinterpret any required validation, source-authority rule, protected workflow, review gate, testing requirement, handoff obligation, Kanban control, migration safeguard, or destructive-change restriction. When efficiency guidance conflicts with task-specific governance, the stricter task-specific governance controls.
+
+---
+
 ## Mandatory Pre-Flight Review
 
 Before any planning, implementation, documentation, JSON/data, or testing work, read:

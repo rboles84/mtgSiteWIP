@@ -28,6 +28,7 @@ Provide:
 
 ## Rules
 
+- Apply `docs/reference/token-reasoning-cost-control.md`; keep checks proportionate without omitting any checks required by this prompt.
 - Do not modify files.
 - Do not implement.
 - Do not guess missing context.

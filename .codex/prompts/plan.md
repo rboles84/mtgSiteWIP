@@ -19,6 +19,7 @@ Create a full implementation plan for the requested Vox Mana enhancement.
 
 ## Rules
 
+- Apply `docs/reference/token-reasoning-cost-control.md`; keep checks proportionate without omitting any checks required by this prompt.
 - Read relevant repo files before recommending changes.
 - Do not modify files except for the required handoff file and `docs/handoffs/HANDOFF_INDEX.md`.
 - Identify current state.

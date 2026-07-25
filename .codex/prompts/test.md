@@ -17,6 +17,7 @@ Create or update the testing plan for the current Vox Mana enhancement.
 
 ## Rules
 
+- Apply `docs/reference/token-reasoning-cost-control.md`; keep checks proportionate without omitting any checks required by this prompt.
 - Identify unit tests.
 - Identify parser tests.
 - Identify DOM/UI tests.

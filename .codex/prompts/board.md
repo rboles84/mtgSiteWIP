@@ -28,6 +28,7 @@ Statuses:
 
 ## Rules
 
+- Apply `docs/reference/token-reasoning-cost-control.md`; keep checks proportionate without omitting any checks required by this prompt.
 - Do not modify runtime code.
 - Required handoff and `docs/handoffs/HANDOFF_INDEX.md` updates are allowed.
 - Create new cards in `docs/kanban/backlog/` unless told otherwise.

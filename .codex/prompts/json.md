@@ -17,6 +17,8 @@ Map, validate, and explain the Vox Mana JSON/data layer.
 
 ## Rules
 
+Apply `docs/reference/token-reasoning-cost-control.md`; keep checks proportionate without omitting any checks required by this prompt.
+
 Allowed:
 - Inventory JSON files.
 - Identify canonical source JSON.
