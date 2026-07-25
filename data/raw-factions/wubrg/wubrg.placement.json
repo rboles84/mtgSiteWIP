@@ -280,10 +280,9 @@
         "canonical_pair_key": "COLORLESS/WUBRG",
         "crucible_candidate": true,
         "claim_ids": [
+          "wubrg_claim_0002",
           "wubrg_claim_0007",
-          "colorless_claim_0002",
-          "colorless_claim_0005",
-          "colorless_claim_0008"
+          "wubrg_claim_0004"
         ],
         "placement_confusion_reproduced": "VM-369 reproduced WUBRG and COLORLESS as top two candidates after paired Hall answers, with a 0.0178 probability gap and needsCrucible=true before a pair-specific Crucible existed."
       },
@@ -330,6 +329,140 @@
     "false_positive_guardrail": "Do not place WUBRG when the answer only wants power, fixing, generic access, Colorless restriction, or a missing-color frame; require all-five integration and source-bound tradeoff awareness.",
     "broad_match_penalty": 0.16
   },
+  "semantic_guidance_evidence": [
+    {
+      "canonical_id": "guidance_wubrg_mismatch_0001_gate3",
+      "claim_ids": [
+        "wubrg_claim_0005",
+        "wubrg_claim_0007"
+      ],
+      "source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-SCOPE-001"
+      ],
+      "bounded_paraphrase": "Generic goodstuff and broad mechanics access are false positives unless all five colors have purposeful roles, bounded evidence, and explicit tradeoffs.",
+      "evidence_scope": "goodstuff_and_generic_access_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/0"
+    },
+    {
+      "canonical_id": "guidance_wubrg_mismatch_0002_gate3",
+      "claim_ids": [
+        "wubrg_claim_0002",
+        "wubrg_claim_0005",
+        "wubrg_claim_0007"
+      ],
+      "source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-001",
+        "WUBRG-SCOPE-001"
+      ],
+      "bounded_paraphrase": "Mana fixing or access alone does not establish WUBRG identity; Commander deck access must remain distinct from identity meaning and verified mechanics claims.",
+      "evidence_scope": "fixing_and_access_only_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/1"
+    },
+    {
+      "canonical_id": "guidance_wubrg_mismatch_0003_gate3",
+      "claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ],
+      "bounded_paraphrase": "Five-Color coalition and synthesis do not authorize superiority, total mastery, universal-superset, endpoint, or final-form claims.",
+      "evidence_scope": "superiority_and_completion_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/2"
+    },
+    {
+      "canonical_id": "guidance_wubrg_mismatch_0004_gate3",
+      "claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ],
+      "bounded_paraphrase": "WUBRG is a technical structural code and Vox Mana synthesis, not an official faction, doctrine, plane, civilization, guild, college, or personality.",
+      "evidence_scope": "official_faction_and_doctrine_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/3"
+    },
+    {
+      "canonical_id": "guidance_wubrg_mismatch_0005_gate3",
+      "claim_ids": [
+        "wubrg_claim_0002",
+        "wubrg_claim_0007"
+      ],
+      "source_ids": [
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-001",
+        "WUBRG-SCOPE-001"
+      ],
+      "bounded_paraphrase": "All five colors present and negotiated is the WUBRG side of the boundary; outside-WUBRG restriction and strict Colorless identity remain distinct.",
+      "evidence_scope": "wubrg_colorless_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/4"
+    },
+    {
+      "canonical_id": "guidance_wubrg_mismatch_0006_gate3",
+      "claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ],
+      "bounded_paraphrase": "Four-color identities are missing-color frames and partial-color identities remain narrower centers; neither becomes WUBRG without every color meaningfully present.",
+      "evidence_scope": "partial_color_and_missing_color_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/5"
+    },
+    {
+      "canonical_id": "guidance_wubrg_mismatch_0007_gate3",
+      "claim_ids": [
+        "wubrg_claim_0006",
+        "wubrg_claim_0008"
+      ],
+      "source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-LOCAL-001",
+        "WUBRG-SCOPE-001",
+        "WUBRG-SCOPE-002"
+      ],
+      "bounded_paraphrase": "Commander products, decks, and support rows may provide navigation or examples but cannot prove lore, legality, placement, popularity, ranking, metagame position, or deck quality.",
+      "evidence_scope": "commander_product_support_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/6"
+    },
+    {
+      "canonical_id": "guidance_wubrg_mismatch_0008_gate3",
+      "claim_ids": [
+        "wubrg_claim_0005",
+        "wubrg_claim_0008"
+      ],
+      "source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-LOCAL-001",
+        "WUBRG-SCOPE-001"
+      ],
+      "bounded_paraphrase": "Broad search results and named-card leads remain discovery/support until exact card text, legality, and claim scope are manually verified.",
+      "evidence_scope": "search_and_named_card_verification_boundary",
+      "canonical_pointer": "/chatbot_guidance/how_to_recognize_mismatch/7"
+    }
+  ],
   "chatbot_guidance": {
     "use_when": [
       "Use WUBRG when the user clearly wants all five colors present and meaningful.",

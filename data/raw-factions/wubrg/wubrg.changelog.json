@@ -4,6 +4,30 @@
   "faction_name": "Five-Color / WUBRG",
   "changes": [
     {
+      "date": "2026-07-24",
+      "change_id": "VM-538",
+      "summary": "Recovered WUBRG semantic readiness under CRIT-001 Contract v1.1 without changing frozen placement, endpoint, or preview behavior.",
+      "files_changed": [
+        "data/raw-factions/wubrg/wubrg.sources.json",
+        "data/raw-factions/wubrg/wubrg.claims.json",
+        "data/raw-factions/wubrg/wubrg.profile.json",
+        "data/raw-factions/wubrg/wubrg.placement.json",
+        "data/raw-factions/wubrg/wubrg.changelog.json",
+        "data/placement-model.json",
+        "data/semantic-readiness-provenance.json",
+        "research/fixtures/semantic-readiness/wubrg.semantic-fixtures.json"
+      ],
+      "why": "Classify and localize the eight WUBRG claims, restore the omitted non-authoritative source registry row, remove foreign Colorless proof IDs, add WUBRG-owned provenance IDs and guidance mappings, and add exact semantic fixtures.",
+      "boundaries": [
+        "WUBRG and Five-Color remain the only accepted aliases",
+        "lowercase, unhyphenated, compact, and noncanonical color-order forms remain metadata/query-only",
+        "Home preview remains enabled and unchanged through the identity-layer owner",
+        "COLORLESS/WUBRG remains the only canonical WUBRG Crucible",
+        "Commander products, decks, searches, and named cards remain support/discovery unless separately verified",
+        "no public route, directory, recruiter, runtime, scoring, calibration, or recommendation expansion"
+      ]
+    },
+    {
       "date": "2026-06-13",
       "change_id": "VM-368-VM-370",
       "summary": "Deepened WUBRG through source-bound Commander support verification, one canonical COLORLESS/WUBRG Crucible, and claim-backed lore/readiness boundaries.",

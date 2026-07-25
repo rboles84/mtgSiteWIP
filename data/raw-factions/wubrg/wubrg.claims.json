@@ -46,6 +46,7 @@
       "claim_id": "wubrg_claim_0001",
       "faction_id": "wubrg",
       "claim_type": "identity_lifecycle_boundary",
+      "semantic_role": "substantive_claim",
       "statement": "WUBRG / Five-Color is approved for controlled Layer 1 promotion only after Layer 2 gold readiness; it is placeable and dossier-visible but not Home-preview, public-route, or Crucible-expanded.",
       "canon_status": "Vox Mana lifecycle and public-interface boundary",
       "source_ids": [
@@ -56,6 +57,24 @@
         "WUBRG-EVID-001",
         "WUBRG-EVID-002"
       ],
+      "evidence_locations": [
+        {
+          "source_id": "WUBRG-SCOPE-001",
+          "locator_type": "contract_sections",
+          "locator": "docs/reference/source-generated-guardrails.md#source-bound-gold-standard-rule-through-gold-standard-contract",
+          "bounded_paraphrase": "The repository guardrail requires source-owned evidence before generated promotion and forbids generated/runtime output from becoming semantic evidence.",
+          "evidence_scope": "source_generated_and_promotion_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "WUBRG-SCOPE-002",
+          "locator_type": "kanban_sections",
+          "locator": "docs/kanban/done/VM-367-wubrg-gold-layer1-layer2.md#completed-scope-through-guardrails-preserved",
+          "bounded_paraphrase": "VM-367 authorizes controlled WUBRG placement and dossier visibility while preserving route, directory, and then-current preview restrictions.",
+          "evidence_scope": "controlled_identity_lifecycle_boundary",
+          "interpretation_level": "direct_project_record"
+        }
+      ],
       "confidence": "High",
       "notes": "Product governance only. Not MTG lore, rules, legality, or deck evidence."
     },
@@ -63,6 +82,7 @@
       "claim_id": "wubrg_claim_0002",
       "faction_id": "wubrg",
       "claim_type": "commander_color_identity",
+      "semantic_role": "substantive_claim",
       "statement": "In Commander, a WUBRG commander gives the deck access to White, Blue, Black, Red, and Green color identity at the deck-construction level.",
       "canon_status": "Official Commander rules support",
       "source_ids": [
@@ -72,6 +92,24 @@
       "evidence_rows": [
         "WUBRG-EVID-003"
       ],
+      "evidence_locations": [
+        {
+          "source_id": "WUBRG-OFF-001",
+          "locator_type": "official_format_page",
+          "locator": "https://magic.wizards.com/en/formats/commander#color-identity-and-deck-construction",
+          "bounded_paraphrase": "The official Commander format page ties deck construction to the commander's color identity, including mana symbols in the commander.",
+          "evidence_scope": "commander_color_identity_deck_construction",
+          "interpretation_level": "direct_official_source"
+        },
+        {
+          "source_id": "WUBRG-LOCAL-001",
+          "locator_type": "research_packet_section",
+          "locator": "docs/research/wubrg/WUBRG Identity Research Prompt.md#claim-1-definition-of-color-identity",
+          "bounded_paraphrase": "The audited WUBRG packet applies the Commander color-identity rule to the all-five-color WUBRG deck-construction lane without making named-card legality claims.",
+          "evidence_scope": "wubrg_commander_rule_application",
+          "interpretation_level": "bounded_audited_synthesis"
+        }
+      ],
       "confidence": "High",
       "notes": "Does not recommend a named commander or imply current legality without a dated card/source check."
     },
@@ -79,6 +117,7 @@
       "claim_id": "wubrg_claim_0003",
       "faction_id": "wubrg",
       "claim_type": "color_pie_boundary",
+      "semantic_role": "substantive_claim",
       "statement": "WUBRG grants full deck-level color access, but individual cards and effects remain bounded by their own rules text, color identity, and color-pie context.",
       "canon_status": "Official design/rules boundary",
       "source_ids": [
@@ -88,6 +127,24 @@
       "evidence_rows": [
         "WUBRG-EVID-005"
       ],
+      "evidence_locations": [
+        {
+          "source_id": "WUBRG-OFF-003",
+          "locator_type": "official_design_article",
+          "locator": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021#mechanical-color-pie-boundaries",
+          "bounded_paraphrase": "The official design article describes mechanical capabilities and restrictions as color-specific design boundaries.",
+          "evidence_scope": "individual_card_color_pie_boundary",
+          "interpretation_level": "direct_official_source"
+        },
+        {
+          "source_id": "WUBRG-LOCAL-001",
+          "locator_type": "research_packet_section",
+          "locator": "docs/research/wubrg/WUBRG Identity Research Prompt.md#claim-2-mechanical-access-vs-individual-limits",
+          "bounded_paraphrase": "The audited packet distinguishes deck-level access to every color from the rules text, identity, and color-pie bounds of individual cards.",
+          "evidence_scope": "deck_access_and_card_limit_separation",
+          "interpretation_level": "bounded_audited_synthesis"
+        }
+      ],
       "confidence": "High",
       "notes": "Do not claim WUBRG erases color-pie limits."
     },
@@ -95,6 +152,7 @@
       "claim_id": "wubrg_claim_0004",
       "faction_id": "wubrg",
       "claim_type": "public_label_and_non_faction_guardrail",
+      "semantic_role": "substantive_claim",
       "statement": "Five-Color is the preferred public label, WUBRG is the technical/internal code, and Vox Mana must not present WUBRG as a single official faction, plane, civilization, guild, college, or doctrine.",
       "canon_status": "Vox Mana naming policy with official product-label support",
       "source_ids": [
@@ -106,6 +164,32 @@
         "WUBRG-EVID-004",
         "WUBRG-EVID-006"
       ],
+      "evidence_locations": [
+        {
+          "source_id": "WUBRG-OFF-004",
+          "locator_type": "official_product_article",
+          "locator": "https://magic.wizards.com/en/news/announcements/commander-masters-commander-decklists#five-color-label",
+          "bounded_paraphrase": "The official Commander product article uses Five-Color and the White-Blue-Black-Red-Green expression as product/deck labeling.",
+          "evidence_scope": "five_color_public_label",
+          "interpretation_level": "direct_official_source"
+        },
+        {
+          "source_id": "WUBRG-LOCAL-001",
+          "locator_type": "research_packet_sections",
+          "locator": "docs/research/wubrg/WUBRG Identity Research Prompt.md#claim-3-faction-vs-technical-key-through-naming-recommendation",
+          "bounded_paraphrase": "The audited packet treats WUBRG as technical shorthand, prefers Five-Color in public copy, and rejects presenting it as one official faction or doctrine.",
+          "evidence_scope": "technical_key_public_label_and_non_faction_boundary",
+          "interpretation_level": "bounded_audited_synthesis"
+        },
+        {
+          "source_id": "WUBRG-CANON-001",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/five-color-reference-audit.md#five-color-combination-1",
+          "bounded_paraphrase": "The repository audit inventories the full-spectrum WUBRG slot as a structural combination and records naming/interpretation limits.",
+          "evidence_scope": "repository_five_color_reference_boundary",
+          "interpretation_level": "bounded_repo_audit"
+        }
+      ],
       "confidence": "Medium-High",
       "notes": "Vox Mana may use synthesis language, but it must stay clearly non-canon."
     },
@@ -113,14 +197,33 @@
       "claim_id": "wubrg_claim_0005",
       "faction_id": "wubrg",
       "claim_type": "mechanics_texture_boundary",
+      "semantic_role": "substantive_claim",
       "statement": "Domain, converge, sunburst, WUBRG costs or activations, multicolor payoffs, and basic-land-type checks are usable discovery texture for Five-Color play patterns when specific card claims are manually verified.",
       "canon_status": "Support-bound mechanics texture",
       "source_ids": [
         "WUBRG-LOCAL-001",
-        "WUBRG-SUP-003"
+        "WUBRG-CANON-001"
       ],
       "evidence_rows": [
         "WUBRG-EVID-007"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "WUBRG-LOCAL-001",
+          "locator_type": "research_packet_sections",
+          "locator": "docs/research/wubrg/WUBRG Identity Research Prompt.md#rules-and-identity-findings-through-color-pie-findings",
+          "bounded_paraphrase": "The audited packet lists full-spectrum and multicolor mechanics as WUBRG texture while requiring card-level verification and refusing to treat search results as proof.",
+          "evidence_scope": "bounded_five_color_mechanics_texture",
+          "interpretation_level": "bounded_audited_synthesis"
+        },
+        {
+          "source_id": "WUBRG-CANON-001",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/five-color-reference-audit.md#five-color-care-mechanics-at-a-glance",
+          "bounded_paraphrase": "The reference audit inventories mechanics that care about multiple colors while retaining explicit notes and boundaries.",
+          "evidence_scope": "mechanics_reference_boundary",
+          "interpretation_level": "bounded_repo_audit"
+        }
       ],
       "confidence": "Medium",
       "notes": "Broad query results are discovery/support only until reviewed card by card."
@@ -129,20 +232,42 @@
       "claim_id": "wubrg_claim_0006",
       "faction_id": "wubrg",
       "claim_type": "commander_support_boundary",
+      "semantic_role": "substantive_claim",
       "statement": "WUBRG Commander and precon rows may be shown as support-only deckbuilding navigation when local row, commander identity, product name, and official/current decklist source agree.",
       "canon_status": "Commander support-only",
       "source_ids": [
-        "WUBRG-CMD-001",
-        "WUBRG-OFF-004",
-        "WUBRG-OFF-005",
-        "WUBRG-OFF-006",
-        "WUBRG-OFF-007",
-        "WUBRG-OFF-008",
-        "WUBRG-OFF-009",
-        "WUBRG-SUP-005"
+        "WUBRG-SCOPE-001",
+        "WUBRG-SCOPE-002",
+        "WUBRG-LOCAL-001"
       ],
       "evidence_rows": [
         "WUBRG-EVID-009"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "WUBRG-SCOPE-001",
+          "locator_type": "contract_section",
+          "locator": "docs/reference/source-generated-guardrails.md#authoritative-source-scope",
+          "bounded_paraphrase": "The repository contract separates authoritative semantic evidence from support/navigation material and generated output.",
+          "evidence_scope": "support_material_authority_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "WUBRG-SCOPE-002",
+          "locator_type": "kanban_section",
+          "locator": "docs/kanban/done/VM-367-wubrg-gold-layer1-layer2.md#guardrails-preserved",
+          "bounded_paraphrase": "VM-367 permits Commander/deck/search links as bounded support while prohibiting unsupported recommendation, legality, and public-surface expansion.",
+          "evidence_scope": "wubrg_support_navigation_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "WUBRG-LOCAL-001",
+          "locator_type": "research_packet_section",
+          "locator": "docs/research/wubrg/WUBRG Identity Research Prompt.md#commander-and-deckbuilding-relevance",
+          "bounded_paraphrase": "The audited packet permits Commander context as navigation and deckbuilding texture but does not promote it into lore, legality, popularity, or placement proof.",
+          "evidence_scope": "commander_support_only_boundary",
+          "interpretation_level": "bounded_audited_synthesis"
+        }
       ],
       "confidence": "Medium",
       "notes": "Not lore proof, legality proof, popularity proof, ranking proof, metagame proof, representative play-pattern proof, or placement proof. Draconic Domination and Painbow were verified under VM-368 as support-only deck rows."
@@ -151,18 +276,44 @@
       "claim_id": "wubrg_claim_0007",
       "faction_id": "wubrg",
       "claim_type": "false_positive_boundary",
+      "semantic_role": "substantive_claim",
       "statement": "WUBRG must remain distinct from Colorless, five-color Eldrazi-as-Colorless claims, four-color missing-color frames, generic goodstuff-only framing, superiority or total mastery claims, universal-superset claims, endpoint/completion claims, and default high-complexity-answer claims.",
       "canon_status": "Boundary support",
       "source_ids": [
         "WUBRG-CANON-002",
         "WUBRG-LOCAL-001",
-        "WUBRG-LOCAL-002",
         "WUBRG-SCOPE-001"
       ],
       "evidence_rows": [
         "WUBRG-EVID-008",
         "WUBRG-EVID-010",
         "WUBRG-EVID-012"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "WUBRG-CANON-002",
+          "locator_type": "dossier_sections",
+          "locator": "docs/research/canon/misc/mtg_five_color_and_colorless_dossier.md#five-color-vs-colorless-through-how-five-color-differs-from-colorless",
+          "bounded_paraphrase": "The repository dossier separates all-five-color inclusion from Colorless non-coloration and warns against rank, mastery, or branch conflation.",
+          "evidence_scope": "wubrg_colorless_and_totality_boundary",
+          "interpretation_level": "bounded_repo_canon_synthesis"
+        },
+        {
+          "source_id": "WUBRG-LOCAL-001",
+          "locator_type": "research_packet_section",
+          "locator": "docs/research/wubrg/WUBRG Identity Research Prompt.md#strictly-disallowed-wubrg-claims",
+          "bounded_paraphrase": "The audited packet explicitly rejects official-faction, superiority, universal-doctrine, goodstuff-only, and unverified named-card claims.",
+          "evidence_scope": "five_color_false_positive_boundaries",
+          "interpretation_level": "bounded_audited_synthesis"
+        },
+        {
+          "source_id": "WUBRG-SCOPE-001",
+          "locator_type": "contract_section",
+          "locator": "docs/reference/source-generated-guardrails.md#authoritative-source-scope",
+          "bounded_paraphrase": "The repository contract bars generated, support-only, and discovery material from becoming authoritative semantic proof.",
+          "evidence_scope": "non_authoritative_proof_exclusion",
+          "interpretation_level": "direct_project_record"
+        }
       ],
       "confidence": "Medium-High",
       "notes": "Boundary claim only. Do not infer Colorless or four-color lore from WUBRG support material, and do not make WUBRG the default answer for breadth or complexity."
@@ -171,22 +322,44 @@
       "claim_id": "wubrg_claim_0008",
       "faction_id": "wubrg",
       "claim_type": "product_anchor_boundary",
+      "semantic_role": "substantive_claim",
       "statement": "Official WUBRG Commander product and decklist anchors may support named examples, deck/product texture, and source coverage only; they do not by themselves support color philosophy, metaphysics, lore proof, placement proof, legality, popularity, ranking, metagame, or deck-quality claims.",
       "canon_status": "Source-bound support-material boundary",
       "source_ids": [
         "WUBRG-SCOPE-001",
-        "WUBRG-CMD-001",
-        "WUBRG-OFF-004",
-        "WUBRG-OFF-005",
-        "WUBRG-OFF-006",
-        "WUBRG-OFF-007",
-        "WUBRG-OFF-008",
-        "WUBRG-OFF-009"
+        "WUBRG-LOCAL-001",
+        "WUBRG-CANON-001"
       ],
       "evidence_rows": [
         "WUBRG-EVID-009",
         "WUBRG-EVID-012",
         "WUBRG-EVID-013"
+      ],
+      "evidence_locations": [
+        {
+          "source_id": "WUBRG-SCOPE-001",
+          "locator_type": "contract_sections",
+          "locator": "docs/reference/source-generated-guardrails.md#authoritative-source-scope-through-gold-standard-contract",
+          "bounded_paraphrase": "The repository contract requires authoritative source ownership and prohibits support or generated material from padding semantic proof.",
+          "evidence_scope": "product_support_authority_boundary",
+          "interpretation_level": "direct_project_record"
+        },
+        {
+          "source_id": "WUBRG-LOCAL-001",
+          "locator_type": "research_packet_sections",
+          "locator": "docs/research/wubrg/WUBRG Identity Research Prompt.md#official-five-color-examples-through-commander-and-deckbuilding-relevance",
+          "bounded_paraphrase": "The audited packet treats official products and named decks as examples and navigation, not as independent proof of WUBRG philosophy, legality, popularity, or quality.",
+          "evidence_scope": "named_product_example_boundary",
+          "interpretation_level": "bounded_audited_synthesis"
+        },
+        {
+          "source_id": "WUBRG-CANON-001",
+          "locator_type": "audit_section",
+          "locator": "docs/research/canon/five-color-reference-audit.md#notes-and-boundaries",
+          "bounded_paraphrase": "The reference audit retains interpretation and source limitations around five-color examples and mechanics.",
+          "evidence_scope": "five_color_reference_limit",
+          "interpretation_level": "bounded_repo_audit"
+        }
       ],
       "confidence": "High",
       "notes": "Use this claim to keep WUBRG product examples useful but narrow. Stronger lore or philosophy claims require an explicit source saying the stronger thing."

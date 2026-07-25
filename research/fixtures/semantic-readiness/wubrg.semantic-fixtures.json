@@ -1,0 +1,849 @@
+{
+  "identity_key": "WUBRG",
+  "raw_id": "wubrg",
+  "display_name": "Five-Color / WUBRG",
+  "color_representation": {
+    "colors": [
+      "W",
+      "U",
+      "B",
+      "R",
+      "G"
+    ],
+    "secondary_colors": [
+      "W",
+      "U",
+      "B",
+      "R",
+      "G"
+    ],
+    "core_color": "WUBRG",
+    "display_code": "WUBRG"
+  },
+  "accepted_aliases": [
+    "WUBRG",
+    "Five-Color"
+  ],
+  "rejected_public_aliases": [
+    "wubrg",
+    "five-color",
+    "Five Color",
+    "FiveColor"
+  ],
+  "representative_metadata_query_only_color_orders": [
+    "WURBG",
+    "UBRGW",
+    "GWRUB",
+    "BRGUW"
+  ],
+  "contract_version": "v1.1",
+  "generated_by": "VM-538 Gate 3 semantic remediation",
+  "runtime_assertions": false,
+  "fixture_count": 41,
+  "fixtures": [
+    {
+      "fixture_id": "wubrg_core_inclusion_all_five_meaningful",
+      "fixture_type": "core_inclusion",
+      "scenario": "A Commander-first user wants White structure, Blue understanding, Black agency, Red motion, and Green belonging to remain meaningfully present in one source-bound plan, with real fixing and tradeoffs.",
+      "expected_identity": "WUBRG",
+      "expected_decision": "accept",
+      "evidence_claim_ids": [
+        "wubrg_claim_0001",
+        "wubrg_claim_0002",
+        "wubrg_claim_0003",
+        "wubrg_claim_0004",
+        "wubrg_claim_0005",
+        "wubrg_claim_0006",
+        "wubrg_claim_0007",
+        "wubrg_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-001",
+        "WUBRG-OFF-003",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001",
+        "WUBRG-SCOPE-002"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_mature_pressure_behavior_coalition",
+      "fixture_type": "mature_or_pressure_behavior",
+      "scenario": "Under pressure, the player names what each color contributes, accepts the mana and coordination costs, and removes attractive cards that do not serve the coalition.",
+      "expected_identity": "WUBRG",
+      "expected_decision": "accept",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007",
+        "wubrg_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_nearest_collision_colorless",
+      "fixture_type": "nearest_collision_ambiguity",
+      "scenario": "A player likes five-color Eldrazi and powerful artifacts but has not said whether the center is all five colors present or an outside-WUBRG Colorless restriction.",
+      "expected_identity": "WUBRG",
+      "expected_decision": "ask_boundary_question",
+      "evidence_claim_ids": [
+        "wubrg_claim_0002",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-001",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_provenance_core_identity",
+      "fixture_type": "provenance",
+      "scenario": "Provenance should resolve the WUBRG core identity chain.",
+      "expected_identity": "WUBRG",
+      "expected_decision": "match_provenance",
+      "canonical_file": "data/raw-factions/wubrg/wubrg.profile.json",
+      "canonical_pointer": "/core_identity",
+      "evidence_claim_ids": [
+        "wubrg_claim_0001",
+        "wubrg_claim_0002",
+        "wubrg_claim_0003",
+        "wubrg_claim_0004",
+        "wubrg_claim_0005",
+        "wubrg_claim_0006",
+        "wubrg_claim_0007",
+        "wubrg_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-001",
+        "WUBRG-OFF-003",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001",
+        "WUBRG-SCOPE-002"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_colorless",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "COLORLESS",
+      "scenario": "A user chooses an outside-WUBRG restriction, true Colorless constraints, and the absence of colored identity.",
+      "expected": "Reject WUBRG.",
+      "boundary": "WUBRG requires all five colors present; Colorless is the opposite endpoint.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0002",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-001",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_white_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "W",
+      "scenario": "White structure, duty, and community are the complete center with no need for the other four colors.",
+      "expected": "Reject WUBRG.",
+      "boundary": "A mono-color center is not all-five-color negotiation.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_blue_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "U",
+      "scenario": "Blue knowledge, refinement, and control are the complete center with no need for the other four colors.",
+      "expected": "Reject WUBRG.",
+      "boundary": "A mono-color center is not all-five-color negotiation.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_black_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "B",
+      "scenario": "Black agency, ambition, and self-determination are the complete center with no need for the other four colors.",
+      "expected": "Reject WUBRG.",
+      "boundary": "A mono-color center is not all-five-color negotiation.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_red_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "R",
+      "scenario": "Red freedom, motion, and immediate expression are the complete center with no need for the other four colors.",
+      "expected": "Reject WUBRG.",
+      "boundary": "A mono-color center is not all-five-color negotiation.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_green_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "G",
+      "scenario": "Green belonging, acceptance, and organic growth are the complete center with no need for the other four colors.",
+      "expected": "Reject WUBRG.",
+      "boundary": "A mono-color center is not all-five-color negotiation.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_yore",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "YORE",
+      "scenario": "A four-color WUBR frame defined by missing Green is the center.",
+      "expected": "Reject WUBRG.",
+      "boundary": "WUBRG has no missing color.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_glint",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GLINT",
+      "scenario": "A four-color UBRG frame defined by missing White is the center.",
+      "expected": "Reject WUBRG.",
+      "boundary": "WUBRG has no missing color.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_dune",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "DUNE",
+      "scenario": "A four-color BRGW frame defined by missing Blue is the center.",
+      "expected": "Reject WUBRG.",
+      "boundary": "WUBRG has no missing color.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_ink",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "INK",
+      "scenario": "A four-color RGWU frame defined by missing Black is the center.",
+      "expected": "Reject WUBRG.",
+      "boundary": "WUBRG has no missing color.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_witch",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "WITCH",
+      "scenario": "A four-color GWUB frame defined by missing Red is the center.",
+      "expected": "Reject WUBRG.",
+      "boundary": "WUBRG has no missing color.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_bant",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "BANT",
+      "scenario": "Bant's WUG structure and community frame are sufficient without Black or Red.",
+      "expected": "Reject WUBRG.",
+      "boundary": "A three-color worldview is not all-five-color integration.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_esper",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ESPER",
+      "scenario": "Esper's WUB perfection frame is sufficient without Red or Green.",
+      "expected": "Reject WUBRG.",
+      "boundary": "A three-color worldview is not all-five-color integration.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_grixis",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GRIXIS",
+      "scenario": "Grixis's UBR survival and ambition frame is sufficient without White or Green.",
+      "expected": "Reject WUBRG.",
+      "boundary": "A three-color worldview is not all-five-color integration.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_jund",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "JUND",
+      "scenario": "Jund's BRG predation and vitality frame is sufficient without White or Blue.",
+      "expected": "Reject WUBRG.",
+      "boundary": "A three-color worldview is not all-five-color integration.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_naya",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "NAYA",
+      "scenario": "Naya's RGW communal vitality frame is sufficient without Blue or Black.",
+      "expected": "Reject WUBRG.",
+      "boundary": "A three-color worldview is not all-five-color integration.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_abzan",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ABZAN",
+      "scenario": "Abzan's WBG endurance and kinship frame is sufficient without Blue or Red.",
+      "expected": "Reject WUBRG.",
+      "boundary": "A three-color worldview is not all-five-color integration.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_temur",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "TEMUR",
+      "scenario": "Temur's GUR instinct and discovery frame is sufficient without White or Black.",
+      "expected": "Reject WUBRG.",
+      "boundary": "A three-color worldview is not all-five-color integration.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_sultai",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SULTAI",
+      "scenario": "Sultai's BGU ruthless adaptation frame is sufficient without White or Red.",
+      "expected": "Reject WUBRG.",
+      "boundary": "A three-color worldview is not all-five-color integration.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_mardu",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "MARDU",
+      "scenario": "Mardu's RWB action and obligation frame is sufficient without Blue or Green.",
+      "expected": "Reject WUBRG.",
+      "boundary": "A three-color worldview is not all-five-color integration.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_jeskai",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "JESKAI",
+      "scenario": "Jeskai's URW discipline and expression frame is sufficient without Black or Green.",
+      "expected": "Reject WUBRG.",
+      "boundary": "A three-color worldview is not all-five-color integration.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_generic_five_color_commander",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_FIVE_COLOR_COMMANDER",
+      "scenario": "A commander has WUBRG color identity, but the prompt gives no identity reason beyond legal access.",
+      "expected": "Reject generic Commander legality as sufficient WUBRG semantic proof.",
+      "boundary": "Deck construction access is necessary context, not a complete identity reading.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0002",
+        "wubrg_claim_0006",
+        "wubrg_claim_0007",
+        "wubrg_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-001",
+        "WUBRG-SCOPE-001",
+        "WUBRG-SCOPE-002"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_generic_goodstuff",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_GOODSTUFF",
+      "scenario": "The prompt wants every powerful card and calls unrestricted accumulation an identity.",
+      "expected": "Reject generic goodstuff.",
+      "boundary": "Every color needs a role and a tradeoff.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0005",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_all_colors_access_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_ALL_COLORS_ACCESS",
+      "scenario": "The prompt wants access to every color but cannot explain why any color matters.",
+      "expected": "Reject access-only framing.",
+      "boundary": "Availability is not synthesis.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0002",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-001",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_mana_fixing_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_MANA_FIXING",
+      "scenario": "The prompt describes lands and fixing but no full-spectrum identity or meaningful color roles.",
+      "expected": "Reject fixing-only framing.",
+      "boundary": "Mana infrastructure is a discipline of WUBRG, not the whole identity.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0002",
+        "wubrg_claim_0005",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-001",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_high_complexity_default",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "GENERIC_HIGH_COMPLEXITY",
+      "scenario": "The prompt is complicated, so WUBRG is selected by default without all-five-color evidence.",
+      "expected": "Reject complexity-only placement.",
+      "boundary": "Complexity does not make WUBRG the default endpoint.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_endpoint_completion",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "ENDPOINT_COMPLETION",
+      "scenario": "WUBRG is described as the final or completed form reached after mastering every other identity.",
+      "expected": "Reject endpoint/completion hierarchy.",
+      "boundary": "WUBRG is a structural identity, not a progression rank.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_superiority",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "SUPERIORITY",
+      "scenario": "Five-Color is claimed to be better or more evolved than every narrower identity.",
+      "expected": "Reject superiority.",
+      "boundary": "Breadth creates responsibility and dilution risk, not rank.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_universal_superset",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "UNIVERSAL_SUPERSET",
+      "scenario": "WUBRG is treated as automatically containing every identity's full meaning.",
+      "expected": "Reject universal-superset collapse.",
+      "boundary": "Color access does not absorb every narrower philosophy.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_official_faction",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "OFFICIAL_FACTION",
+      "scenario": "WUBRG is presented as one official faction, doctrine, plane, civilization, guild, college, or personality.",
+      "expected": "Reject official-faction framing.",
+      "boundary": "Five-Color is a structural public label and Vox Mana synthesis.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_five_color_eldrazi_colorless_proof",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "FIVE_COLOR_ELDRAZI",
+      "scenario": "Five-color Eldrazi support is used as proof that WUBRG and strict Colorless are interchangeable.",
+      "expected": "Reject the conflation.",
+      "boundary": "Five-color Eldrazi remains WUBRG-side support and does not erase the Colorless boundary.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0002",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-001",
+        "WUBRG-SCOPE-001"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_commander_support_only",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "COMMANDER_SUPPORT_ONLY",
+      "scenario": "A precon, commander row, product page, or deck link is used as semantic proof.",
+      "expected": "Reject support-only proof.",
+      "boundary": "Support navigation cannot prove lore, legality, popularity, placement, ranking, or deck quality.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0006",
+        "wubrg_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-LOCAL-001",
+        "WUBRG-SCOPE-001",
+        "WUBRG-SCOPE-002"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_lowercase_wubrg_alias",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "PUBLIC_ALIAS_LOWERCASE_WUBRG",
+      "scenario": "A public endpoint submits lowercase wubrg as an identity alias.",
+      "expected": "Reject lowercase wubrg as a public identity alias.",
+      "boundary": "Accepted aliases remain exactly WUBRG and Five-Color.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0001",
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001",
+        "WUBRG-SCOPE-002"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_lowercase_five_color_alias",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "PUBLIC_ALIAS_LOWERCASE_FIVE_COLOR",
+      "scenario": "A public endpoint submits lowercase five-color as an identity alias.",
+      "expected": "Reject lowercase five-color as a public identity alias.",
+      "boundary": "Alias matching is intentionally narrow and case-sensitive.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0001",
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001",
+        "WUBRG-SCOPE-002"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_unhyphenated_five_color_alias",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "PUBLIC_ALIAS_FIVE_COLOR_UNHYPHENATED",
+      "scenario": "A public endpoint submits Five Color as an identity alias.",
+      "expected": "Reject the unhyphenated label.",
+      "boundary": "The accepted public label is exactly Five-Color.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0001",
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001",
+        "WUBRG-SCOPE-002"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_compact_fivecolor_alias",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "PUBLIC_ALIAS_FIVECOLOR",
+      "scenario": "A public endpoint submits FiveColor as an identity alias.",
+      "expected": "Reject the compact label.",
+      "boundary": "The accepted public label is exactly Five-Color.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0001",
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001",
+        "WUBRG-SCOPE-002"
+      ]
+    },
+    {
+      "fixture_id": "wubrg_excludes_color_order_permutation_alias",
+      "fixture_type": "required_neighbor_exclusion",
+      "neighbor": "COLOR_ORDER_PERMUTATION",
+      "scenario": "A public endpoint submits WURBG, UBRGW, GWRUB, or another noncanonical permutation as an identity alias.",
+      "expected": "Reject every noncanonical color-order permutation.",
+      "boundary": "WUBRG is the only accepted color-order code; other orders remain metadata/query-only.",
+      "evidence_claim_ids": [
+        "wubrg_claim_0001",
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001",
+        "WUBRG-SCOPE-002"
+      ]
+    }
+  ]
+}

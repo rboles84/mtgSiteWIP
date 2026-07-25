@@ -47991,15 +47991,16 @@
       "canonical_id": "wubrg_vs_colorless",
       "canonical_content_hash": "sha256:f4a178cbd118bbd28c09853d91004765482e6581a62f51c59a53fcb50e07e562",
       "evidence_claim_ids": [
+        "wubrg_claim_0002",
         "wubrg_claim_0007",
-        "colorless_claim_0002",
-        "colorless_claim_0005",
-        "colorless_claim_0008"
+        "wubrg_claim_0004"
       ],
       "evidence_source_ids": [
+        "WUBRG-CANON-001",
         "WUBRG-CANON-002",
         "WUBRG-LOCAL-001",
-        "WUBRG-LOCAL-002",
+        "WUBRG-OFF-001",
+        "WUBRG-OFF-004",
         "WUBRG-SCOPE-001"
       ],
       "generated_consumers": [
@@ -48024,7 +48025,6 @@
         "WUBRG-CANON-001",
         "WUBRG-CANON-002",
         "WUBRG-LOCAL-001",
-        "WUBRG-LOCAL-002",
         "WUBRG-OFF-001",
         "WUBRG-OFF-004",
         "WUBRG-SCOPE-001"
@@ -48049,7 +48049,6 @@
       "evidence_source_ids": [
         "WUBRG-CANON-002",
         "WUBRG-LOCAL-001",
-        "WUBRG-LOCAL-002",
         "WUBRG-SCOPE-001",
         "WUBRG-SCOPE-002"
       ],
@@ -48072,17 +48071,11 @@
         "wubrg_claim_0006"
       ],
       "evidence_source_ids": [
-        "WUBRG-CMD-001",
         "WUBRG-LOCAL-001",
         "WUBRG-OFF-001",
         "WUBRG-OFF-003",
-        "WUBRG-OFF-004",
-        "WUBRG-OFF-005",
-        "WUBRG-OFF-006",
-        "WUBRG-OFF-007",
-        "WUBRG-OFF-008",
-        "WUBRG-OFF-009",
-        "WUBRG-SUP-005"
+        "WUBRG-SCOPE-001",
+        "WUBRG-SCOPE-002"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WUBRG",
@@ -48105,7 +48098,6 @@
         "WUBRG-CANON-001",
         "WUBRG-CANON-002",
         "WUBRG-LOCAL-001",
-        "WUBRG-LOCAL-002",
         "WUBRG-OFF-004",
         "WUBRG-SCOPE-001"
       ],
@@ -48128,19 +48120,11 @@
         "wubrg_claim_0007"
       ],
       "evidence_source_ids": [
+        "WUBRG-CANON-001",
         "WUBRG-CANON-002",
-        "WUBRG-CMD-001",
         "WUBRG-LOCAL-001",
-        "WUBRG-LOCAL-002",
-        "WUBRG-OFF-004",
-        "WUBRG-OFF-005",
-        "WUBRG-OFF-006",
-        "WUBRG-OFF-007",
-        "WUBRG-OFF-008",
-        "WUBRG-OFF-009",
         "WUBRG-SCOPE-001",
-        "WUBRG-SUP-003",
-        "WUBRG-SUP-005"
+        "WUBRG-SCOPE-002"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WUBRG",
@@ -48185,7 +48169,6 @@
       "evidence_source_ids": [
         "WUBRG-CANON-002",
         "WUBRG-LOCAL-001",
-        "WUBRG-LOCAL-002",
         "WUBRG-SCOPE-001",
         "WUBRG-SCOPE-002"
       ],
@@ -48232,8 +48215,195 @@
         "WUBRG-CANON-001",
         "WUBRG-CANON-002",
         "WUBRG-LOCAL-001",
-        "WUBRG-LOCAL-002",
         "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WUBRG",
+        "data/placement-model.json#/factions/WUBRG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WUBRG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WUBRG",
+      "canonical_file": "data/raw-factions/wubrg/wubrg.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/0",
+      "canonical_id": "guidance_wubrg_mismatch_0001_gate3",
+      "canonical_content_hash": "sha256:f9ef442b1442b27e9a502799a7ee8475ede0bd72a161944b92fe9c5699cb4b8f",
+      "evidence_claim_ids": [
+        "wubrg_claim_0005",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-SCOPE-001"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WUBRG",
+        "data/placement-model.json#/factions/WUBRG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WUBRG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WUBRG",
+      "canonical_file": "data/raw-factions/wubrg/wubrg.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/1",
+      "canonical_id": "guidance_wubrg_mismatch_0002_gate3",
+      "canonical_content_hash": "sha256:c53c35d0ad27f8d90a6493008e83f1236abf7aa9636209a74f01482529d5ac72",
+      "evidence_claim_ids": [
+        "wubrg_claim_0002",
+        "wubrg_claim_0005",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-001",
+        "WUBRG-SCOPE-001"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WUBRG",
+        "data/placement-model.json#/factions/WUBRG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WUBRG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WUBRG",
+      "canonical_file": "data/raw-factions/wubrg/wubrg.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/2",
+      "canonical_id": "guidance_wubrg_mismatch_0003_gate3",
+      "canonical_content_hash": "sha256:b35dbc0198bdec57e5dddb7fe5f91384e97c8b37747b8138af4324148eb44a3d",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WUBRG",
+        "data/placement-model.json#/factions/WUBRG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WUBRG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WUBRG",
+      "canonical_file": "data/raw-factions/wubrg/wubrg.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/3",
+      "canonical_id": "guidance_wubrg_mismatch_0004_gate3",
+      "canonical_content_hash": "sha256:c5b78c88a971aae0189f3773fb2618e0df51397a9dd9f45a581869c35418c352",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WUBRG",
+        "data/placement-model.json#/factions/WUBRG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WUBRG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WUBRG",
+      "canonical_file": "data/raw-factions/wubrg/wubrg.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/4",
+      "canonical_id": "guidance_wubrg_mismatch_0005_gate3",
+      "canonical_content_hash": "sha256:de30656a5b605108f42b19efea8b79615d414d5661c3a2bc2b64b72fac618305",
+      "evidence_claim_ids": [
+        "wubrg_claim_0002",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-001",
+        "WUBRG-SCOPE-001"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WUBRG",
+        "data/placement-model.json#/factions/WUBRG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WUBRG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WUBRG",
+      "canonical_file": "data/raw-factions/wubrg/wubrg.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/5",
+      "canonical_id": "guidance_wubrg_mismatch_0006_gate3",
+      "canonical_content_hash": "sha256:9b49093326f1216cdf950cf4870960d7930633daaabc746be354da7568f6ce31",
+      "evidence_claim_ids": [
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-CANON-002",
+        "WUBRG-LOCAL-001",
+        "WUBRG-OFF-004",
+        "WUBRG-SCOPE-001"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WUBRG",
+        "data/placement-model.json#/factions/WUBRG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WUBRG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WUBRG",
+      "canonical_file": "data/raw-factions/wubrg/wubrg.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/6",
+      "canonical_id": "guidance_wubrg_mismatch_0007_gate3",
+      "canonical_content_hash": "sha256:eafc69deb788fd8555b40f23eb709a3a7f231d6c8bfe3717173e46d501b1f0d2",
+      "evidence_claim_ids": [
+        "wubrg_claim_0006",
+        "wubrg_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-LOCAL-001",
+        "WUBRG-SCOPE-001",
+        "WUBRG-SCOPE-002"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/WUBRG",
+        "data/placement-model.json#/factions/WUBRG",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/WUBRG"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "WUBRG",
+      "canonical_file": "data/raw-factions/wubrg/wubrg.placement.json",
+      "canonical_pointer": "/semantic_guidance_evidence/7",
+      "canonical_id": "guidance_wubrg_mismatch_0008_gate3",
+      "canonical_content_hash": "sha256:98b7b3b97059462428a4ccc5fe7f4f809e82d25764c9e7f03d868b1ce8e6f1d2",
+      "evidence_claim_ids": [
+        "wubrg_claim_0005",
+        "wubrg_claim_0008"
+      ],
+      "evidence_source_ids": [
+        "WUBRG-CANON-001",
+        "WUBRG-LOCAL-001",
         "WUBRG-SCOPE-001"
       ],
       "generated_consumers": [
@@ -48247,8 +48417,8 @@
       "identity_key": "WUBRG",
       "canonical_file": "data/raw-factions/wubrg/wubrg.profile.json",
       "canonical_pointer": "/core_identity",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:7ef66c1272849efb2c5c0090f037a0f25f53208263653869d30f348286b1820f",
+      "canonical_id": "wubrg_core_identity_gate3",
+      "canonical_content_hash": "sha256:d0b4504b3e4bdb2dd87763ddfdc737fc4decbc5d60cabed5bc94456569ec8f17",
       "evidence_claim_ids": [
         "wubrg_claim_0001",
         "wubrg_claim_0002",
@@ -48262,21 +48432,12 @@
       "evidence_source_ids": [
         "WUBRG-CANON-001",
         "WUBRG-CANON-002",
-        "WUBRG-CMD-001",
         "WUBRG-LOCAL-001",
-        "WUBRG-LOCAL-002",
         "WUBRG-OFF-001",
         "WUBRG-OFF-003",
         "WUBRG-OFF-004",
-        "WUBRG-OFF-005",
-        "WUBRG-OFF-006",
-        "WUBRG-OFF-007",
-        "WUBRG-OFF-008",
-        "WUBRG-OFF-009",
         "WUBRG-SCOPE-001",
-        "WUBRG-SCOPE-002",
-        "WUBRG-SUP-003",
-        "WUBRG-SUP-005"
+        "WUBRG-SCOPE-002"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WUBRG",
@@ -48289,8 +48450,8 @@
       "identity_key": "WUBRG",
       "canonical_file": "data/raw-factions/wubrg/wubrg.profile.json",
       "canonical_pointer": "/profile",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:7d9cc9c22c5ab2cc2e3a849a1ee52365ef5128b3e56a11b4d180fc7fa40c835e",
+      "canonical_id": "wubrg_profile_gate3",
+      "canonical_content_hash": "sha256:aa939cecf259869fd39e275da653d3c146f51fbcf960ab30cf84d81dc587a41c",
       "evidence_claim_ids": [
         "wubrg_claim_0001",
         "wubrg_claim_0002",
@@ -48304,21 +48465,12 @@
       "evidence_source_ids": [
         "WUBRG-CANON-001",
         "WUBRG-CANON-002",
-        "WUBRG-CMD-001",
         "WUBRG-LOCAL-001",
-        "WUBRG-LOCAL-002",
         "WUBRG-OFF-001",
         "WUBRG-OFF-003",
         "WUBRG-OFF-004",
-        "WUBRG-OFF-005",
-        "WUBRG-OFF-006",
-        "WUBRG-OFF-007",
-        "WUBRG-OFF-008",
-        "WUBRG-OFF-009",
         "WUBRG-SCOPE-001",
-        "WUBRG-SCOPE-002",
-        "WUBRG-SUP-003",
-        "WUBRG-SUP-005"
+        "WUBRG-SCOPE-002"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WUBRG",
@@ -48331,8 +48483,8 @@
       "identity_key": "WUBRG",
       "canonical_file": "data/raw-factions/wubrg/wubrg.profile.json",
       "canonical_pointer": "/search_and_filter_metadata",
-      "canonical_id": null,
-      "canonical_content_hash": "sha256:169ec3f1dc5af8b76286ae637d08ba3d95cbec6493e319946779719ddb69e57e",
+      "canonical_id": "wubrg_search_and_filter_metadata_gate3",
+      "canonical_content_hash": "sha256:bc4e5691948d3f6f3b06583cd24fb3fb992ec8e3fd3f8f663047e374c8fe3fa8",
       "evidence_claim_ids": [
         "wubrg_claim_0001",
         "wubrg_claim_0002",
@@ -48345,21 +48497,12 @@
       "evidence_source_ids": [
         "WUBRG-CANON-001",
         "WUBRG-CANON-002",
-        "WUBRG-CMD-001",
         "WUBRG-LOCAL-001",
-        "WUBRG-LOCAL-002",
         "WUBRG-OFF-001",
         "WUBRG-OFF-003",
         "WUBRG-OFF-004",
-        "WUBRG-OFF-005",
-        "WUBRG-OFF-006",
-        "WUBRG-OFF-007",
-        "WUBRG-OFF-008",
-        "WUBRG-OFF-009",
         "WUBRG-SCOPE-001",
-        "WUBRG-SCOPE-002",
-        "WUBRG-SUP-003",
-        "WUBRG-SUP-005"
+        "WUBRG-SCOPE-002"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/WUBRG",
