@@ -25,18 +25,18 @@
       title: "Official Design",
       kicker: "Official Design",
       tone: "canon",
-      shortDescription: "Official Wizards design articles used to understand color philosophy, mechanics, faction design, and design intent.",
-      usefulFor: "Use these sources when checking why Vox Mana treats a color, guild, shard, wedge, or mechanic as design-supported.",
-      notProving: "These sources do not replace rules text, Oracle records, story canon, legality checks, or deckbuilding advice."
+      shortDescription: "Official Wizards design articles for color philosophy, mechanics, faction design, and design intent.",
+      usefulFor: "Color, guild, shard, wedge, and mechanic design support.",
+      notProving: "Rules text, Oracle records, story canon, legality, or deckbuilding advice."
     },
     lore: {
       id: "apoc-library-worldbuilding-lore",
       title: "Worldbuilding & Lore",
       kicker: "Worldbuilding & Lore",
       tone: "codex",
-      shortDescription: "Official story, plane, setting, and flavor material used for lore and identity context.",
-      usefulFor: "Use these sources when checking official setting details, guild flavor, plane context, or story support.",
-      notProving: "These sources do not prove design intent, rules meaning, card-record truth, or every community interpretation."
+      shortDescription: "Official story, plane, setting, and flavor material for lore and identity context.",
+      usefulFor: "Setting details, guild flavor, plane context, and story support.",
+      notProving: "Design intent, rules meaning, card-record truth, or community interpretation."
     },
     "official-archives": {
       id: "apoc-library-official-archives",
@@ -44,8 +44,8 @@
       kicker: "Official Archives",
       tone: "scholarship",
       shortDescription: "Historical Wizards material kept for source lineage and older official context.",
-      usefulFor: "Use these sources when checking where an older official statement came from or how an idea was framed at the time.",
-      notProving: "Archive sources should not be treated as current guidance unless the registry marks them as current and verified."
+      usefulFor: "Older official statements and how ideas were framed at the time.",
+      notProving: "Current guidance unless the registry marks it current and verified."
     },
     supplemental: {
       id: "apoc-library-supplemental-references",
@@ -53,8 +53,8 @@
       kicker: "Supplemental References",
       tone: "logic",
       shortDescription: "Community, wiki, video, social, and archive links kept only for navigation or context.",
-      usefulFor: "Use these links to find chronology, terminology, community framing, or source trails that still need official support.",
-      notProving: "Supplemental references do not prove official canon, rules meaning, card records, design intent, legality, recommendations, or Vox Mana claims by themselves."
+      usefulFor: "Chronology, terminology, community framing, and source trails needing official support.",
+      notProving: "Official canon, rules meaning, card records, design intent, legality, recommendations, or Vox Mana claims."
     }
   });
 
@@ -272,9 +272,8 @@
       "</div>",
       "</div>",
       '<p class="apoc-source-meta">' + formatMetadata(source).map(escapeHtml).join(" · ") + "</p>",
-      "<p><strong>Evidence role:</strong> " + escapeHtml(APOC_EVIDENCE_COPY[source.evidenceRole]) + "</p>",
-      "<p><strong>Used for:</strong> " + escapeHtml(source.usedFor) + "</p>",
-      "<p><strong>Does not support:</strong> " + escapeHtml(source.notFor) + "</p>",
+      "<p><strong>Supports:</strong> " + escapeHtml(source.usedFor) + "</p>",
+      "<p><strong>Not for:</strong> " + escapeHtml(source.notFor) + "</p>",
       renderTags(source),
       '<p class="apoc-source-verification">' + escapeHtml(verificationCopy(source)) + "</p>",
       '<a class="apoc-source-link" href="' + escapeHtml(source.url) + '" target="_blank" rel="noopener" data-source-link="' + escapeHtml(source.id) + '" aria-label="Open source: ' + escapeHtml(source.title) + '">Open source</a>',
@@ -328,7 +327,7 @@
       '<span class="apoc-library-title">' + escapeHtml(shelf.title) + "</span>",
       '<span class="apoc-library-desc">' + escapeHtml(shelf.shortDescription) + "</span>",
       '<span class="apoc-library-desc"><strong>Useful for:</strong> ' + escapeHtml(shelf.usefulFor) + "</span>",
-      '<span class="apoc-library-desc"><strong>Not proving:</strong> ' + escapeHtml(shelf.notProving) + "</span>",
+      '<span class="apoc-library-desc"><strong>Not for:</strong> ' + escapeHtml(shelf.notProving) + "</span>",
       "</span>",
       '<span class="apoc-shelf__count" data-source-count="' + records.length + '" aria-label="' + records.length + (records.length === 1 ? " source" : " sources") + '">' + records.length + (records.length === 1 ? " source" : " sources") + "</span>",
       "</summary>",
@@ -689,6 +688,21 @@
       });
     }
 
+    function preserveGroupViewport(group, previousTop) {
+      if (typeof previousTop !== "number") {
+        return;
+      }
+
+      window.requestAnimationFrame(function () {
+        var nextTop = group.getBoundingClientRect().top;
+        var delta = nextTop - previousTop;
+
+        if (Math.abs(delta) > 1) {
+          window.scrollBy(0, delta);
+        }
+      });
+    }
+
     function openGroup(group) {
       if (!group) {
         return;
@@ -747,12 +761,24 @@
     });
 
     groups.forEach(function (group) {
+      var summary = group.querySelector("summary.apoc-library-summary");
+
+      if (summary) {
+        summary.addEventListener("click", function () {
+          group.__apocManualOpenTop = group.open ? null : group.getBoundingClientRect().top;
+        });
+      }
+
       group.addEventListener("toggle", function () {
         var hasOpenGroup;
+        var manualOpenTop;
 
         if (group.open) {
+          manualOpenTop = group.__apocManualOpenTop;
+          group.__apocManualOpenTop = null;
           closeSiblingGroups(group);
           setActiveTome(group.id);
+          preserveGroupViewport(group, manualOpenTop);
           return;
         }
 
