@@ -27,8 +27,10 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-006 - Archscry / Maze Verification and Repeat-Visit Polish](backlog/VM-006-archscry-maze-verification-repeat-visit-polish.md)
 - [VM-007 - Commander Dossier Quality and Link Follow-Up](backlog/VM-007-commander-dossier-quality-link-follow-up.md)
 - [VM-008 - Commander Compass V1.5 Archetype-Guided Recommendations](backlog/VM-008-commander-compass-v1-5-archetype-guided-recommendations.md)
+- [VM-547 - Post-Reading Commander Shortlist Bridge](backlog/VM-547-post-reading-commander-shortlist-bridge.md) - clarify the practical commander-next-step handoff after Archscry without turning Vox Mana into a generic ranked commander database.
 - [VM-009 - 32-Deck Challenge, Saved Taste Profile, and Deck Import Later](backlog/VM-009-32-deck-challenge-saved-taste-profile-deck-import-later.md)
 - [VM-010 - The Loom Commander Finder Mode and Graph/Query Layer](backlog/VM-010-the-loom-commander-finder-mode-graph-query-layer.md)
+- [VM-548 - Commander Seed Discovery Mode](backlog/VM-548-commander-seed-discovery-mode.md) - explore a future discovery path where favorite commander names seed Vox Mana identity, strategy, and adjacent-fit interpretation.
 - [VM-025 - Combo Discovery Placement Section](backlog/VM-025-combo-discovery-placement-section.md)
 - [VM-014 - UI Shell Cleanup and Legacy Terminal Follow-Up](backlog/VM-014-ui-shell-cleanup-legacy-terminal-follow-up.md)
 - [VM-015 - Returning User Commander Fit Check](backlog/VM-015-returning-user-commander-fit-check.md)
