@@ -1,0 +1,58 @@
+# VM-550 - Strategium After-the-Game MVP
+
+ID: VM-550
+Title: Strategium After-the-Game MVP
+Status: in progress
+Type: Frontend / Commander UX / Product Slice
+Area: Strategium
+Priority: high
+Created: 2026-07-27
+
+## Summary
+
+Turn `/strategium/` into a two-path product hub, preserve the established Commander learning Console at `/strategium/console/`, and implement the first complete `Help Me Understand` diagnostic at `/strategium/review/` for After the Game.
+
+## Pre-Flight Summary
+
+- The user-authorized base is exact SHA `ce406477a83be8529ed4a09602438168463d4b45`, the final head of `codex/vm546-vm549-documentation-checkpoint`.
+- Local `main` and `origin/main` are both older at `867608bdda5ef61a6b16d0781ed4f0c1bffb0b0d` and are not valid bases for this ticket.
+- The control worktree has a pre-existing untracked `tmp/` directory and must remain untouched.
+- VM-122 established the current Commander learning Console; VM-124 through VM-126 expanded and softened its teaching model; VM-128 extracted route-local CSS/JS; VM-416 added Heat Management and retained the six Console lesson lanes; VM-493 added player-confidence guidance without runtime changes.
+- Existing decisions require route-local Strategium behavior, preservation of lesson IDs/content, existing topbar/atmosphere/style reuse, no persistence backend, no generated-data or placement changes, and no visual-baseline refresh for incomplete slices.
+- No local artifact named CECOS draft.4 exists. The implementation follows the approved request guardrails and reviewed Strategium/corpus work without exposing or inventing internal methodology.
+
+## Scope
+
+- Make `/strategium/` a hub for `Help Me Understand` and `Learn the Commander Table`.
+- Keep Before the Game, During the Game, and Finding a Table visible but explicitly in development.
+- Move the existing Strategium page intact to `/strategium/console/` and reuse its route-local assets.
+- Add lesson query routing to the Console without changing lesson content.
+- Add `/strategium/review/` with a shared data-driven question/result renderer.
+- Implement six After-the-Game opening paths, the required ten-choice loss branch, bounded deeper questions, qualified result patterns, Console lesson links, local-only feedback, back/start-over/return controls, and URL history/deep-link handling.
+- Distinguish actual, visible, expected future, remembered, and social power signals in the targeting result.
+- Extend existing validators and add one focused Strategium review test.
+
+## Acceptance Criteria
+
+- Hub, review, and Console routes load without broken links or console errors.
+- The existing Console retains Command Zone, Pod Readiness, Archetype Signal, Threat Reading, Heat Management, Beyond WUBRG, color-to-pod expectations, and the Commander Readiness Checklist.
+- All six opening choices and all ten loss choices lead to useful states.
+- Every result includes `What may have happened`, `What to look for next time`, `One thing to try`, and `Learn more`.
+- Result explanations remain qualified and route to valid Console lessons.
+- Feedback remains in current-page state and does not imply submission.
+- Browser back/forward, refresh, Back, Start over, Return to Strategium, and lesson routing work.
+- Native controls, visible focus, aria-live updates, reduced motion, and responsive layouts through 320px are preserved.
+- Existing repository tests and new focused tests pass.
+
+## Non-Goals
+
+- Do not implement Before the Game, During the Game, or Finding a Table diagnostics.
+- Do not add a backend, authentication, AI runtime, database, framework, or server requirement.
+- Do not modify generated/source-governed data, placement/identity logic, Archscry, Maze, Home, Apocrypha, or visual baselines.
+- Do not push, merge, or deploy.
+
+## Working Branch
+
+- Branch: `codex/vm550-strategium-after-game-mvp`
+- Worktree: `C:\tmp\voxmana.io-strategium-after-game-mvp`
+- Base: `ce406477a83be8529ed4a09602438168463d4b45`

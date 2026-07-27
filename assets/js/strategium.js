@@ -1167,26 +1167,38 @@ function initArchetypeLibrary() {
 function initStrategiumConsole() {
   const reveal = document.getElementById("basicsReveal");
   const tabs = Array.from(document.querySelectorAll(".vm-tab"));
+  if (!reveal || !tabs.length) return;
 
-  function setTopic(topic) {
-    reveal.innerHTML = basics[topic] || basics["command-zone"];
+  function setTopic(topic, updateUrl = false) {
+    const safeTopic = Object.prototype.hasOwnProperty.call(basics, topic) ? topic : "command-zone";
+    reveal.innerHTML = basics[safeTopic];
 
-    if (topic === "archetype-signal") {
+    if (safeTopic === "archetype-signal") {
       initArchetypeLibrary();
     }
 
     tabs.forEach(tab => {
-      const active = tab.dataset.topic === topic;
+      const active = tab.dataset.topic === safeTopic;
       tab.classList.toggle("active", active);
       tab.setAttribute("aria-selected", active ? "true" : "false");
     });
+
+    if (updateUrl && window.history && typeof window.history.pushState === "function") {
+      const url = new URL(window.location.href);
+      url.searchParams.set("lesson", safeTopic);
+      window.history.pushState({ strategiumLesson: safeTopic }, "", url);
+    }
   }
 
   tabs.forEach(tab => {
-    tab.addEventListener("click", () => setTopic(tab.dataset.topic));
+    tab.addEventListener("click", () => setTopic(tab.dataset.topic, true));
   });
 
-  setTopic("command-zone");
+  window.addEventListener("popstate", () => {
+    setTopic(new URLSearchParams(window.location.search).get("lesson") || "command-zone");
+  });
+
+  setTopic(new URLSearchParams(window.location.search).get("lesson") || "command-zone");
 }
 
 function initReadinessChecklist() {
@@ -1197,6 +1209,7 @@ function initReadinessChecklist() {
   const percent = document.getElementById("readinessPercent");
   const conversationStatus = document.getElementById("conversationStatus");
   const kitStatus = document.getElementById("kitStatus");
+  if (!checklist || !summary || !meter || !meterTrack || !percent || !conversationStatus || !kitStatus) return;
 
   checklist.innerHTML = readinessItems.map((item, index) => `
     <button class="vm-checklist-button" type="button" aria-pressed="false" data-index="${index}">

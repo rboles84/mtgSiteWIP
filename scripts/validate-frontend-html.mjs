@@ -6,6 +6,8 @@ const publicPages = {
   maze: "maze/index.html",
   archscry: "archscry/index.html",
   strategium: "strategium/index.html",
+  strategiumConsole: "strategium/console/index.html",
+  strategiumReview: "strategium/review/index.html",
   apocrypha: "apocrypha/index.html",
   library: "library/index.html",
   privacy: "privacy/index.html",
@@ -276,6 +278,17 @@ expect(
   !getScriptTags(sources.strategium).some(inlineScriptIsExecutable),
   "strategium/index.html should not ship executable inline <script> blocks"
 );
+for (const key of ["strategiumConsole", "strategiumReview"]) {
+  expectAbsent(
+    sources[key],
+    /<style\b[^>]*>/i,
+    `${publicPages[key]} should not ship inline <style> blocks`
+  );
+  expect(
+    !getScriptTags(sources[key]).some(inlineScriptIsExecutable),
+    `${publicPages[key]} should not ship executable inline <script> blocks`
+  );
+}
 
 const homeTopbarLinkIndex = sources.home.indexOf('./assets/css/topbar.css');
 const homeRouteCssIndex = sources.home.indexOf('./assets/css/home.css');

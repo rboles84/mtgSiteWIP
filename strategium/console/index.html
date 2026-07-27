@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<base href="../" />
+<title>Vox Mana - Strategium Console</title>
+<meta name="description" content="Learn Commander table literacy through archetypes, threat assessment, pod communication, readiness checks, and how color identity becomes table behavior." />
+<link rel="canonical" href="https://voxmana.io/strategium/console/" />
+<meta property="og:site_name" content="Vox Mana" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Vox Mana - Strategium Console" />
+<meta property="og:description" content="Commander education for archetypes, table pressure, pod communication, readiness checks, and color identity as table behavior." />
+<meta property="og:url" content="https://voxmana.io/strategium/console/" />
+<meta property="og:image" content="https://voxmana.io/assets/img/vox-mana-hero-1280w.jpg" />
+<meta property="og:image:alt" content="Vox Mana gateway artwork for Commander table literacy." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Vox Mana - Strategium Console" />
+<meta name="twitter:description" content="Learn Commander table literacy: archetypes, threat assessment, readiness, and table behavior." />
+<meta name="twitter:image" content="https://voxmana.io/assets/img/vox-mana-hero-1280w.jpg" />
+<link rel="icon" type="image/svg+xml" href="../assets/img/vox-mana-header-logo.svg">
+<link rel="stylesheet" href="../assets/css/tokens.css" />
+<link rel="stylesheet" href="../assets/css/fonts.css" />
+<link rel="stylesheet" href="../assets/css/layout.css" />
+<link rel="stylesheet" href="../assets/css/topbar.css" />
+<link rel="stylesheet" href="../assets/css/strategium.css" />
+</head>
+<body data-page="strategium-console" data-vm-current="strategium" data-bg="medium">
+  <div class="vm-bg" aria-hidden="true">
+    <picture class="vm-bg__picture">
+      <source type="image/webp" srcset="../assets/img/backgrounds/background-vox-gateway-clean-13.webp 2560w" sizes="100vw">
+      <img src="../assets/img/backgrounds/background-vox-gateway-clean-13.webp" alt="" width="1672" height="941" decoding="async" fetchpriority="high">
+    </picture>
+    <div class="vm-bg__nebula"></div>
+    <canvas class="vm-bg__stars" aria-hidden="true"></canvas>
+  </div>
+
+  <header class="vm-topbar" role="banner">
+    <a class="vm-brand" href="../index.html" aria-label="Vox Mana - home">
+      <span class="vm-brand-mark" aria-hidden="true">
+        <img src="../assets/img/vox-mana-header-logo.svg" alt="" width="44" height="44" decoding="async" fetchpriority="high">
+      </span>
+      <span class="vm-brand-text">Vox Mana</span>
+    </a>
+
+    <nav class="vm-nav" aria-label="Main Navigation">
+      <a class="vm-nav-link" href="../index.html" data-vm-nav="home" data-nav-hint="Identity signal hub">Home<span class="vm-nav-hint" aria-hidden="true">Identity signal hub</span></a>
+      <a class="vm-nav-link" href="../archscry/index.html" data-vm-nav="archscry" data-nav-hint="Color identity reading">Archscry<span class="vm-nav-hint" aria-hidden="true">Color identity reading</span></a>
+      <a class="vm-nav-link" href="../maze/index.html" data-vm-nav="maze" data-nav-hint="Guided card search">The Implicit Maze<span class="vm-nav-hint" aria-hidden="true">Guided card search</span></a>
+      <a class="vm-nav-link" href="../apocrypha/index.html" data-vm-nav="apocrypha" data-nav-hint="Lore and source library">Apocrypha<span class="vm-nav-hint" aria-hidden="true">Lore and source library</span></a>
+      <a class="vm-nav-link" href="#strategium" data-vm-nav="strategium" data-nav-hint="Commander table literacy">Strategium<span class="vm-nav-hint" aria-hidden="true">Commander table literacy</span></a>
+    </nav>
+
+    <div class="vm-utility">
+      <button
+        type="button"
+        class="vm-menu-button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-controls="vm-menu-panel"
+        data-vm-menu-trigger
+      >
+        <span class="vm-menu-dots" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <div
+        id="vm-menu-panel"
+        class="vm-menu-panel"
+        data-open="false"
+        data-vm-menu-panel
+      >
+        <nav class="vm-menu-nav" aria-label="Mobile Navigation" data-vm-menu-nav></nav>
+        <button
+          type="button"
+          class="vm-menu-item"
+          data-vm-toggle="reduce-motion"
+          data-vm-tooltip-on="Stillness - on"
+          data-vm-tooltip-off="Quiet the motion"
+        >
+          <span>Reduce motion</span>
+          <span class="vm-menu-item-status" data-vm-status>Off</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="vm-shell">
+    <section class="vm-hero reveal" aria-labelledby="strategium-hero-title">
+      <div class="vm-hero-panel">
+        <div class="vm-hero-copy">
+          <span class="vm-eyebrow">Strategium Console</span>
+          <h1 id="strategium-hero-title">Learn the Commander table.</h1>
+          <p class="vm-hero-lead">
+            Color identity is only the beginning. Strategium teaches how decks behave,
+            how pods communicate, and how to read pressure before it becomes lethal.
+          </p>
+          <p class="vm-hero-actions">
+            <a class="vm-button vm-button-secondary" href="./">Return to Strategium</a>
+          </p>
+        </div>
+        <div class="vm-status-strip" aria-label="Strategium priorities">
+          <span>Table Readiness</span>
+          <span>Deck Behavior</span>
+          <span>Threat Assessment</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="vm-section vm-section-tight" aria-labelledby="strategium-commander-title">
+      <div class="vm-panel reveal">
+        <span class="vm-eyebrow">Commander Focused</span>
+        <h2 class="vm-section-heading" id="strategium-commander-title">Bring your identity to the table.</h2>
+        <p class="vm-section-intro">
+          Strategium is where your color identity becomes table behavior: how your deck
+          introduces itself, how it wins, how it gets perceived, and how you avoid
+          blindsiding the table into a game it didn't sign up for.
+        </p>
+        <div class="vm-commander-grid">
+          <article class="vm-card vm-focus-card">
+            <span class="vm-focus-kicker">Before the Game</span>
+            <h3>Set expectations before the first land drop.</h3>
+            <p>
+              Talk through Rule 0, power or bracket expectation, precon versus custom,
+              combos, proxies, tutors, fast mana, and what kind of game the pod actually wants.
+            </p>
+          </article>
+          <article class="vm-card vm-focus-card">
+            <span class="vm-focus-kicker">During the Game</span>
+            <h3>Read who is ahead before the table panics.</h3>
+            <p>
+              Track open mana, commander damage, timing windows, politics, and which player
+              is truly converting resources into a win instead of just being loud.
+            </p>
+          </article>
+          <article class="vm-card vm-focus-card">
+            <span class="vm-focus-kicker">After the Game</span>
+            <h3>Tune the deck you actually piloted.</h3>
+            <p>
+              Review upgrades, salt points, confusing turns, and whether the deck played
+              the way you described it before shuffling up.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="vm-section vm-section-tight" aria-labelledby="strategium-entry-title">
+      <div class="vm-panel vm-entry-panel reveal">
+        <span class="vm-eyebrow">Choose Your Entry Point</span>
+        <h2 class="vm-section-heading" id="strategium-entry-title">What kind of Commander player are you right now?</h2>
+        <p class="vm-section-intro">
+          Strategium should still help if you already know Magic. Pick the lane that sounds
+          most like your current table problem.
+        </p>
+        <div class="vm-entry-grid">
+          <article class="vm-entry-row">
+            <div>
+              <strong>New to the Table</strong>
+              <p>I need to survive my first few games without feeling lost.</p>
+              <p class="vm-entry-note"><span>Best next move:</span> Learn how to explain your deck simply and ask who can actually end the game first.</p>
+              <p class="vm-entry-note"><span>Opening Hand Check:</span> A keepable Commander hand usually needs mana, a first action, and a reason it becomes your deck's plan instead of just "cards I can cast."</p>
+              <p class="vm-entry-note"><span>Start with:</span> Pod Readiness + Readiness Checklist</p>
+            </div>
+            <span class="vm-entry-chip">Onboard</span>
+          </article>
+          <article class="vm-entry-row">
+            <div>
+              <strong>Returning Player</strong>
+              <p>I know Magic, but Commander has changed.</p>
+              <p class="vm-entry-note"><span>Watch for this:</span> Table expectations matter more now, so speed and social fit are part of the game plan.</p>
+              <p class="vm-entry-note"><span>Start with:</span> Pod Readiness + Archetype Signal</p>
+            </div>
+            <span class="vm-entry-chip">Relearn</span>
+          </article>
+          <article class="vm-entry-row">
+            <div>
+              <strong>Precon Pilot</strong>
+              <p>I bought a deck and want to understand what it is trying to do.</p>
+              <p class="vm-entry-note"><span>Best next move:</span> Figure out the precon's default win pattern before you start swapping cards.</p>
+              <p class="vm-entry-note"><span>Start with:</span> Archetype Signal + Command Zone + Beyond WUBRG</p>
+            </div>
+            <span class="vm-entry-chip">Pilot</span>
+          </article>
+          <article class="vm-entry-row">
+            <div>
+              <strong>Brewer / Upgrader</strong>
+              <p>I want to tune a deck without accidentally overpowering the pod.</p>
+              <p class="vm-entry-note"><span>Watch for this:</span> Tutors, fast mana, and cleaner finish lines can change a table faster than a big mythic upgrade.</p>
+              <p class="vm-entry-note"><span>Start with:</span> Pod Readiness + Threat Reading + Heat Management</p>
+            </div>
+            <span class="vm-entry-chip">Tune</span>
+          </article>
+          <article class="vm-entry-row">
+            <div>
+              <strong>Competitive-Curious</strong>
+              <p>I want sharper games, but I need to communicate that honestly.</p>
+              <p class="vm-entry-note"><span>Best next move:</span> Practice naming combo pressure, interaction density, and speed without pretending the deck is softer than it is.</p>
+              <p class="vm-entry-note"><span>Start with:</span> Command Zone + Threat Reading + Heat Management</p>
+            </div>
+            <span class="vm-entry-chip">Escalate</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="strategium" class="vm-section" aria-labelledby="strategium-console-title">
+      <h2 class="vm-section-heading" id="strategium-console-title">The Strategium Console</h2>
+      <p class="vm-section-intro">
+        Use the console like a table-read drill. Each lane turns color identity into live
+        Commander behavior instead of abstract philosophy.
+      </p>
+
+      <div class="vm-tabs" role="tablist" aria-label="Strategium console topics">
+        <button class="vm-tab active" type="button" data-topic="command-zone" role="tab" aria-selected="true">
+          <span class="vm-tab-title">Command Zone</span>
+          <span class="vm-tab-copy">tax, damage, recasts, and identity promise</span>
+        </button>
+        <button class="vm-tab" type="button" data-topic="pod-readiness" role="tab" aria-selected="false">
+          <span class="vm-tab-title">Pod Readiness</span>
+          <span class="vm-tab-copy">Rule 0 and honest table expectation setting</span>
+        </button>
+        <button class="vm-tab" type="button" data-topic="archetype-signal" role="tab" aria-selected="false">
+          <span class="vm-tab-title">Archetype Signal</span>
+          <span class="vm-tab-copy">what your deck tells the pod at a glance</span>
+        </button>
+        <button class="vm-tab" type="button" data-topic="threat-reading" role="tab" aria-selected="false">
+          <span class="vm-tab-title">Threat Reading</span>
+          <span class="vm-tab-copy">who is annoying, who is actually winning</span>
+        </button>
+        <button class="vm-tab" type="button" data-topic="heat-management" role="tab" aria-selected="false">
+          <span class="vm-tab-title">Heat Management</span>
+          <span class="vm-tab-copy">deals, deflection, and archenemy pressure</span>
+        </button>
+        <button class="vm-tab" type="button" data-topic="beyond-wubrg" role="tab" aria-selected="false">
+          <span class="vm-tab-title">Beyond WUBRG</span>
+          <span class="vm-tab-copy">colorless, artifacts, Eldrazi, and stranger identities</span>
+        </button>
+      </div>
+
+      <div class="vm-reveal" id="basicsReveal" role="tabpanel" aria-live="polite"></div>
+    </section>
+
+    <section class="vm-section vm-section-tight" aria-labelledby="strategium-pod-title">
+      <div class="vm-panel vm-bridge-panel reveal">
+        <span class="vm-eyebrow">How Your Colors Look to the Pod</span>
+        <h2 class="vm-section-heading" id="strategium-pod-title">How your colors look to the pod.</h2>
+        <p class="vm-section-intro">
+          The table rarely reads your deck as pure philosophy. It reads your colors as
+          warning signs, openings, and future headaches.
+        </p>
+        <div class="vm-philosophy-grid">
+          <article class="vm-card vm-bridge-card">
+            <span class="vm-philosophy-symbol" style="--philosophy-color: var(--mana-white);">W</span>
+            <h3>White</h3>
+            <p>Table read: this player may stabilize, tax, protect, make tokens, or reset the board.</p>
+            <p>Commander pressure: White often looks harmless until it has built enough structure that attacking it becomes inefficient.</p>
+          </article>
+          <article class="vm-card vm-bridge-card">
+            <span class="vm-philosophy-symbol" style="--philosophy-color: var(--mana-blue);">U</span>
+            <h3>Blue</h3>
+            <p>Table read: this player may have interaction, card draw, theft, bounce, or combo protection.</p>
+            <p>Commander pressure: Blue changes how opponents sequence their turns because open mana can represent denial.</p>
+          </article>
+          <article class="vm-card vm-bridge-card">
+            <span class="vm-philosophy-symbol" style="--philosophy-color: var(--mana-black);">B</span>
+            <h3>Black</h3>
+            <p>Table read: this player may trade life, creatures, and cards for inevitability.</p>
+            <p>Commander pressure: Black can look behind on life while quietly assembling recursion, tutors, sacrifice engines, or a lethal drain.</p>
+          </article>
+          <article class="vm-card vm-bridge-card">
+            <span class="vm-philosophy-symbol" style="--philosophy-color: var(--mana-red);">R</span>
+            <h3>Red</h3>
+            <p>Table read: this player may pressure early, disrupt artifacts, punish greed, or explode suddenly.</p>
+            <p>Commander pressure: Red can convert one turn cycle into lethal damage or chaotic resource swings.</p>
+          </article>
+          <article class="vm-card vm-bridge-card">
+            <span class="vm-philosophy-symbol" style="--philosophy-color: var(--mana-green);">G</span>
+            <h3>Green</h3>
+            <p>Table read: this player may ramp quietly, build the biggest board, and turn mana into inevitability.</p>
+            <p>Commander pressure: Green often becomes the threat before the table realizes the setup phase is over.</p>
+          </article>
+          <article class="vm-card vm-bridge-card">
+            <span class="vm-philosophy-symbol" style="--philosophy-color: var(--mana-colorless);">C</span>
+            <h3>Colorless</h3>
+            <p>Table read: this player may look slow, then drop huge artifact engines, Eldrazi pressure, or strange utility-land lines.</p>
+            <p>Commander pressure: Colorless decks can bypass normal color expectations but often trade flexibility for explosive artifacts and enormous threats.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="readiness-checklist" class="vm-section vm-section-tight" aria-labelledby="strategium-readiness-title">
+      <div class="vm-panel vm-readiness-panel reveal">
+        <span class="vm-eyebrow">Commander Readiness Checklist</span>
+        <h2 class="vm-section-heading" id="strategium-readiness-title">Commander Readiness Checklist</h2>
+        <p class="vm-section-intro">
+          Know whether you can explain the deck, name the sharp edges, and sit down without
+          surprising the pod for the wrong reasons.
+        </p>
+        <div class="vm-readiness-gauge">
+          <div class="vm-readiness-gauge-head">
+            <div>
+              <span class="vm-readiness-kicker">Live Preparation Gauge</span>
+              <strong id="readinessGaugeTitle">Table readiness status</strong>
+            </div>
+            <span class="vm-readiness-percent" id="readinessPercent">0% ready</span>
+          </div>
+          <div
+            class="vm-readiness-meter-track"
+            role="progressbar"
+            aria-labelledby="readinessGaugeTitle"
+            aria-valuemin="0"
+            aria-valuemax="10"
+            aria-valuenow="0"
+          >
+            <div class="vm-readiness-meter-fill" id="readinessMeter"></div>
+          </div>
+          <div class="vm-readiness-legend" aria-hidden="true">
+            <span>Needs a clearer deck brief</span>
+            <span>Ready to shuffle and explain</span>
+          </div>
+          <div class="vm-readiness-status-grid">
+            <div class="vm-readiness-status-card">
+              <strong>Conversation status</strong>
+              <span id="conversationStatus">Tell the table what the deck does, what it avoids, and what speed you expect.</span>
+            </div>
+            <div class="vm-readiness-status-card">
+              <strong>Table kit status</strong>
+              <span id="kitStatus">Gather your damage tracking, tokens, and life tools before the pod has to wait on you.</span>
+            </div>
+          </div>
+        </div>
+        <div class="vm-readiness-summary" id="readinessSummary" aria-live="polite">
+          <strong>0 of 10 checked</strong>
+          <span>Review your win condition and power expectation before shuffling.</span>
+        </div>
+        <div class="vm-checklist-grid" id="readinessChecklist"></div>
+      </div>
+    </section>
+
+    <section class="vm-section vm-section-tight" aria-labelledby="strategium-next-title">
+      <div class="vm-panel reveal">
+        <span class="vm-eyebrow">Choose Your Next Move</span>
+        <h2 class="vm-section-heading" id="strategium-next-title">Choose your next move.</h2>
+        <p class="vm-section-intro">
+          Bring this table-read lens back into the rest of Vox Mana once you know what your
+          deck is promising to the pod.
+        </p>
+        <div class="vm-next-grid">
+          <a class="vm-next-card" href="../archscry/index.html">
+            <h3>Return to your dossier</h3>
+            <p>Bring this table-reading lens back to your color identity.</p>
+            <span class="vm-cta">Open Archscry -></span>
+          </a>
+          <a class="vm-next-card" href="../archscry/index.html">
+            <h3>Start Archscry</h3>
+            <p>Map your instincts before choosing a commander path.</p>
+            <span class="vm-cta">Begin the reading -></span>
+          </a>
+          <a class="vm-next-card" href="../maze/index.html">
+            <h3>Explore Maze</h3>
+            <p>Move through color, faction, and identity pathways.</p>
+            <span class="vm-cta">Step into the maze -></span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="vm-shell vm-footer section-lazy-render">
+    <span>Vox Mana - Strategium, commander table literacy, and identity pressure.</span>
+    <span>
+      <a href="#top">Back to top</a> ·
+      <a href="../index.html">Home</a> ·
+      <a href="#strategium">Strategium</a> ·
+      <a href="../archscry/index.html">Archscry</a> ·
+      <a href="../maze/index.html">Maze</a> ·
+      <a href="../apocrypha/index.html">Apocrypha</a> ·
+      <a href="../privacy/index.html">Privacy</a> ·
+      <a href="../terms/index.html">Terms</a>
+    </span>
+  </footer>
+
+  <a class="vm-button vm-backtop" id="backTop" href="#top">Top</a>
+
+<script src="../assets/js/strategium.js" defer></script>
+<script src="../assets/js/reduce-motion.js" defer></script>
+<script src="../assets/js/vm-feedback.js" defer></script>
+<script src="../assets/js/vm-topbar.js" defer></script>
+</body>
+</html>

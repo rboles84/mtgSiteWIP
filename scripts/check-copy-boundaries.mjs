@@ -9,6 +9,8 @@ const SCOPED_FILES = [
   "archscry/index.html",
   "maze/index.html",
   "strategium/index.html",
+  "strategium/console/index.html",
+  "strategium/review/index.html",
   "apocrypha/index.html",
   "privacy/index.html",
   "terms/index.html",
@@ -17,6 +19,7 @@ const SCOPED_FILES = [
   "assets/js/commander-dossier.js",
   "assets/js/adaptive-placement.js",
   "assets/js/strategium.js",
+  "assets/js/strategium-review.js",
   "research/research-init.js",
   "research/maze-scratchpad-store.js",
 ];

@@ -1062,3 +1062,455 @@ main section {
     border-radius: 18px;
   }
 }
+
+/* Strategium hub and guided game review */
+.vm-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.vm-hero-actions {
+  margin: 1.25rem 0 0;
+}
+
+.vm-button-secondary,
+.vm-button-quiet {
+  background: rgba(5, 7, 12, 0.64);
+  color: var(--text);
+}
+
+.vm-button-quiet {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.vm-hub-paths {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.vm-path-card {
+  position: relative;
+  display: grid;
+  min-height: 280px;
+  align-content: end;
+  gap: 0.75rem;
+  overflow: hidden;
+}
+
+.vm-path-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, transparent 42%, rgba(247, 215, 132, 0.08));
+}
+
+.vm-path-card-primary {
+  border-color: rgba(247, 215, 132, 0.42);
+  background:
+    radial-gradient(circle at 80% 10%, rgba(247, 215, 132, 0.15), transparent 16rem),
+    linear-gradient(180deg, rgba(24, 30, 44, 0.74), rgba(9, 12, 20, 0.68));
+}
+
+.vm-path-number {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  color: rgba(247, 215, 132, 0.28);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1;
+}
+
+.vm-path-card h3 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+}
+
+.vm-path-card p,
+.vm-path-card .vm-cta {
+  position: relative;
+  z-index: 1;
+}
+
+.vm-path-card .vm-cta {
+  color: var(--gold-2);
+  font-weight: 700;
+}
+
+.vm-situation-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 1.4rem;
+}
+
+.vm-situation-card {
+  display: grid;
+  align-content: start;
+  gap: 0.55rem;
+  min-height: 190px;
+  padding: 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  background: rgba(4, 6, 11, 0.46);
+}
+
+.vm-situation-card span {
+  color: var(--gold-2);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+
+.vm-situation-card strong {
+  width: max-content;
+  max-width: 100%;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.vm-situation-card p {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.vm-situation-card-active {
+  border-color: rgba(247, 215, 132, 0.45);
+  background: linear-gradient(180deg, rgba(33, 37, 47, 0.7), rgba(12, 16, 25, 0.58));
+}
+
+.vm-situation-card-active strong {
+  background: rgba(247, 215, 132, 0.16);
+  color: var(--gold-2);
+}
+
+.vm-review-shell {
+  min-height: calc(100vh - 9rem);
+}
+
+.vm-review-workspace {
+  padding-top: 0.5rem;
+}
+
+.vm-review-panel,
+.vm-result-card {
+  width: min(940px, 100%);
+  margin: 0 auto;
+  padding: clamp(1rem, 4vw, 2.2rem);
+  border: 1px solid rgba(247, 215, 132, 0.26);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 90% 0%, rgba(88, 184, 255, 0.11), transparent 18rem),
+    linear-gradient(180deg, rgba(15, 19, 30, 0.88), rgba(6, 9, 15, 0.84));
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+}
+
+.vm-review-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.vm-review-progress {
+  flex: 1;
+  height: 4px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.vm-review-progress span {
+  display: block;
+  width: var(--progress);
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-2));
+}
+
+.vm-review-copy {
+  max-width: 720px;
+  margin-bottom: 1.4rem;
+}
+
+.vm-review-copy h2,
+.vm-result-header h2 {
+  margin: 0.4rem 0 0.65rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.08;
+}
+
+[data-review-focus]:focus {
+  outline: none;
+}
+
+.vm-review-copy p,
+.vm-result-header p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.vm-review-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.vm-review-option {
+  display: grid;
+  gap: 0.4rem;
+  min-height: 105px;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.26);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.vm-review-option:hover:not(:disabled),
+.vm-review-option:focus-visible {
+  border-color: rgba(247, 215, 132, 0.58);
+  background: rgba(247, 215, 132, 0.08);
+}
+
+.vm-review-option:disabled {
+  color: rgba(245, 234, 210, 0.62);
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+.vm-review-option span {
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.vm-review-option small {
+  color: var(--muted);
+}
+
+.vm-review-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+}
+
+.vm-result-card {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.vm-result-header {
+  padding-bottom: 1.4rem;
+}
+
+.vm-result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.vm-result-grid > section {
+  padding: 1.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.24);
+}
+
+.vm-result-grid h3 {
+  margin: 0 0 0.65rem;
+  color: var(--gold-2);
+  font-size: 0.82rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.vm-result-grid p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.62;
+}
+
+.vm-lesson-grid {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.vm-lesson-link {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+}
+
+.vm-lesson-link strong {
+  color: var(--gold-2);
+  font-size: 0.8rem;
+}
+
+.vm-targeting-signals {
+  margin-top: 0.9rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(88, 184, 255, 0.28);
+  border-radius: 18px;
+  background: rgba(88, 184, 255, 0.06);
+}
+
+.vm-targeting-signals summary {
+  color: var(--gold-2);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.vm-targeting-signals > div {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.vm-targeting-signals article {
+  padding: 0.8rem;
+  border-left: 2px solid rgba(247, 215, 132, 0.36);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.vm-targeting-signals p {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.vm-result-feedback {
+  margin: 1rem 0 0;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(247, 215, 132, 0.22);
+  border-radius: 18px;
+}
+
+.vm-result-feedback legend {
+  padding: 0 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+
+.vm-result-feedback > p {
+  margin: 0.25rem 0 0.8rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.vm-result-feedback > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.vm-feedback-choice {
+  padding: 0.65rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.28);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.vm-feedback-choice[aria-pressed="true"] {
+  border-color: rgba(247, 215, 132, 0.62);
+  background: rgba(247, 215, 132, 0.16);
+  color: var(--gold-2);
+}
+
+.vm-feedback-state {
+  min-height: 1.3em;
+}
+
+.vm-review-option:focus-visible,
+.vm-feedback-choice:focus-visible,
+.vm-targeting-signals summary:focus-visible,
+.vm-button:focus-visible,
+.vm-path-card:focus-visible,
+.vm-situation-card-active:focus-visible,
+.vm-lesson-link:focus-visible {
+  outline: 3px solid var(--mana-blue);
+  outline-offset: 3px;
+}
+
+@media (max-width: 980px) {
+  .vm-situation-grid,
+  .vm-targeting-signals > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .vm-hub-paths,
+  .vm-review-options,
+  .vm-result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-path-card {
+    min-height: 230px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vm-situation-grid,
+  .vm-targeting-signals > div {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-review-panel {
+    padding: 1rem;
+    border-radius: 18px;
+  }
+
+  .vm-review-option {
+    min-height: 88px;
+  }
+
+  .vm-review-nav .vm-button {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .vm-lesson-link {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-review-progress span {
+    transition: none;
+  }
+}

@@ -32,6 +32,7 @@
     "test:bias": "node assets/js/quick-reading-bias.js",
     "test:bias:all": "node assets/js/quick-reading-bias.js --all",
     "test:frontend-smoke": "node scripts/frontend-smoke.mjs",
+    "test:strategium-review": "node scripts/strategium-review-tests.mjs",
     "test:browser-smoke": "node scripts/browser-smoke.mjs",
     "test:gate-compression": "node research/gate-compression-simulator.mjs",
     "test:gate-live-bias": "node assets/js/gate-compression-live-bias-tests.js",

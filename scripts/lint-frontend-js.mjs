@@ -5,6 +5,8 @@ const files = [
   "assets/js/index.js",
   "assets/js/home.js",
   "assets/js/strategium.js",
+  "assets/js/strategium-hub.js",
+  "assets/js/strategium-review.js",
   "research/research-init.js",
   "research/research-ui.js",
 ];

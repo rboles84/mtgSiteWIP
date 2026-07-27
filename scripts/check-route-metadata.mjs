@@ -27,6 +27,16 @@ const ROUTES = [
     canonical: "https://voxmana.io/strategium/",
   },
   {
+    file: "strategium/console/index.html",
+    title: "Vox Mana - Strategium Console",
+    canonical: "https://voxmana.io/strategium/console/",
+  },
+  {
+    file: "strategium/review/index.html",
+    title: "Help Me Understand - Strategium",
+    canonical: "https://voxmana.io/strategium/review/",
+  },
+  {
     file: "apocrypha/index.html",
     title: "Vox Mana - The Apocrypha",
     canonical: "https://voxmana.io/apocrypha/",

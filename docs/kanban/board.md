@@ -43,7 +43,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- No cards currently in progress.
+- [VM-550 - Strategium After-the-Game MVP](in-progress/VM-550-strategium-after-game-mvp.md) - build the Strategium hub, preserve the established Console at a stable route, and ship the first complete Help Me Understand diagnostic for After the Game.
 
 ## Blocked
 
