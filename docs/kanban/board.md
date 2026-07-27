@@ -63,6 +63,8 @@ VM-429 Section 14 ID reconciliation, 2026-06-30: the early readiness plan expect
 
 - [VM-546 - EDHMatch Comparison Review](done/VM-546-edhmatch-comparison-review.md) - compared Archscry quiz, adaptive placement, dossier/result flow, and Vox Mana product feel against EDHMatch's discovery, quiz, Commander DNA, guild quiz, strategy index, and supplied captures; analysis-only, no runtime or data changes.
 
+- [VM-549 - Architecture Documentation Layer](done/VM-549-architecture-documentation-layer.md) - added a concise docs folder index, Architecture folder README, and behavioral model integration roadmap without moving files or changing production code.
+
 - [VM-501 - Faction Semantic Readiness Recovery Infrastructure](done/VM-501-faction-semantic-readiness-recovery.md) - established Contract v1, all-37 structural inventory, provenance, validator, fixtures, ledger, and recovery governance without changing placement or recruiter semantics; Contract v1.1 prerequisite candidate `6e53acd` is independently approved for program-base acceptance.
 
 - [VM-540 - CRIT-001 Operating Playbook And Gate 0 Hardening](done/VM-540-crit001-operating-playbook-gate-zero-hardening.md) - one-time campaign Gate 0 hardening before Rakdos; adds Operating Playbook v2, template/checklist updates, and narrow candidate-scope guard tests for recurring CRIT-001 defects.
