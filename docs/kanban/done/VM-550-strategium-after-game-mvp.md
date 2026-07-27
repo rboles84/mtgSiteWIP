@@ -2,11 +2,12 @@
 
 ID: VM-550
 Title: Strategium After-the-Game MVP
-Status: in progress
+Status: done
 Type: Frontend / Commander UX / Product Slice
 Area: Strategium
 Priority: high
 Created: 2026-07-27
+Completed: 2026-07-27
 
 ## Summary
 
@@ -56,3 +57,29 @@ Turn `/strategium/` into a two-path product hub, preserve the established Comman
 - Branch: `codex/vm550-strategium-after-game-mvp`
 - Worktree: `C:\tmp\voxmana.io-strategium-after-game-mvp`
 - Base: `ce406477a83be8529ed4a09602438168463d4b45`
+
+## Outcome
+
+- `/strategium/` is now a focused hub with the two connected Strategium experiences and honest development labels for incomplete situation families.
+- The original Strategium implementation is preserved at `/strategium/console/`; its HTML moved intact, its CSS/JS are reused, and lesson query routing was added without rewriting the lesson content.
+- `/strategium/review/` now implements the full After-the-Game MVP with 6 opening paths, 10 required loss choices, 3 bounded narrowing questions, and 14 shared qualified result patterns.
+- Results contain all four required sections, local-only feedback, valid Console routing, and progressive targeting signals.
+- URL state supports refresh, direct links, custom Back, Start over, browser back/forward, and safe fallback for invalid paths.
+- Existing `/strategium/` Console hashes receive a deterministic compatibility redirect.
+
+## Validation
+
+- `npm.cmd run test:strategium-review` - passed: 6 opening choices, 10 loss choices, 14 qualified result patterns, Console routes, targeting signals, and internal links.
+- `npm.cmd run lint:html` - passed.
+- `npm.cmd run lint:js` - passed.
+- `npm.cmd run test:copy-boundaries` - passed.
+- `npm.cmd run test:route-metadata` - passed.
+- `npm.cmd run test:frontend-smoke` - passed.
+- `npm.cmd test` - passed after using the existing local `node_modules` and ignored Scryfall fixture in the isolated worktree; no dependency download or source-data change.
+- Browser QA passed at 1440, 1024, 768, and 320 pixels for hub, review, and Console routes with no horizontal overflow or console warnings/errors.
+- Browser interaction passed for all six opening outcomes, every required loss choice, all four result sections, Console lesson deep links, checklist interaction, targeting disclosure, local feedback reset, refresh, custom Back, Start over, and browser back/forward.
+- Keyboard/accessibility review passed through semantic headings, native buttons/links/details, visible control focus, disabled development controls, aria-live result changes, local feedback status, reduced-motion support, and 320px responsive behavior.
+
+## Implementation Commit
+
+- `3a7eac93cc37627a814f6e04e3c2288f785b6678`
