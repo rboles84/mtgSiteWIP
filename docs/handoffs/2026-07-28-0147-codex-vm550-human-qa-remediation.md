@@ -244,7 +244,7 @@ The owner did not approve the first human-QA remediation HEAD and requested one 
 - The dialog now uses one centered bounded surface, one rendered lesson title, one header close control, one internal scroll owner, an inert/scroll-locked background, and a connected full-Console footer action. Escape, focus containment/restoration, browser history, and reduced motion remain intact.
 - The full-Console link carries an exact local review result path. Console validation rejects external origins, non-review routes, hashes, extra query keys, unsupported paths, control characters, and backslashes. A contextual sticky return action remains visible alongside the focused lesson and returns to the exact result. Direct Console visits show no misleading return action.
 - Visual review found and corrected an overflowing availability status chip and the uneven 390px long-title lesson-row breakpoint before final validation.
-- Implementation commit: `a732148f9a08c2548a277cd3a2bdd6fe2524af30`.
+- Implementation commit: `a73214826a464727d83a00f2735849b8b1a8bd6c`.
 - Final automated validation passed: focused Strategium, full `npm test`, JavaScript lint, HTML lint, copy boundaries, route metadata, frontend smoke, browser smoke, and `git diff --check`. One parallel browser-smoke attempt sampled the unrelated Home canvas before it painted; the isolated rerun passed.
 - Browser validation passed at 1440 x 900, 1024 x 768, 768 x 1024, 390 x 844, and 320 x 568 across the hub, review, dialog, and Console. All action states, representative one-/two-/three-lesson results, wrong-target, targeting disclosure, invalid recovery, mobile dialog top/bottom, close/focus restoration, full-Console contextual return, overflow, clipping, and browser logs were checked. Browser console warnings/errors: none.
 - No result prose, unavailable-family implementation, unrelated route, visual baseline, generated/source data, dependency, persistence, analytics, push, merge, rebase, deployment, integration, or certification work occurred.
@@ -255,5 +255,5 @@ The owner did not approve the first human-QA remediation HEAD and requested one 
 - Original candidate: `162beae60a117ff97f35036f236bb2f3c0ea79b1`
 - Human-QA remediation implementation: `4858e8c75edb6fe9b136cff51c9e23fe53de9cf6`
 - Second owner-review remediation start: `d6c89ecdf70e6bb342f8b3a5f705ff5898930571`
-- Second owner-review implementation: `a732148f9a08c2548a277cd3a2bdd6fe2524af30`
+- Second owner-review implementation: `a73214826a464727d83a00f2735849b8b1a8bd6c`
 - Validation and remediation handoff: this document's final commit

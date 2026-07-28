@@ -32,7 +32,7 @@ Reopened on 2026-07-28 from exact clean HEAD `d6c89ecdf70e6bb342f8b3a5f705ff5898
 - Refine only hub hierarchy/alignment, review action controls, Learn More row stability, dialog presentation, and validated contextual return from the full Console.
 - Validate 1440 x 900, 1024 x 768, 768 x 1024, 390 x 844, and 320 x 568.
 - Do not touch unavailable situation-family implementation, unrelated routes, visual baselines, persistence, analytics, generated data, push, merge, deployment, integration, or certification.
-- Implementation commit: `a732148f9a08c2548a277cd3a2bdd6fe2524af30`.
+- Implementation commit: `a73214826a464727d83a00f2735849b8b1a8bd6c`.
 - The hub now has one centered review-versus-study choice axis and a non-competing MVP availability panel.
 - Back, Start over, and Return to Strategium share one semantic Vox Mana action component across every question and result.
 - Learn More rows use a stable title/action grid on wider screens and one consistent stacked pattern through 480px.

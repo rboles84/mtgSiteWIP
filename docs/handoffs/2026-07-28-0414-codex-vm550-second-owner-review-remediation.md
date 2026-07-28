@@ -17,7 +17,7 @@ Perform a second tightly bounded VM-550 remediation from exact clean SHA `d6c89e
 - Required and proved clean starting HEAD: `d6c89ecdf70e6bb342f8b3a5f705ff5898930571`
 - The control worktree's tracked status was clean and remained untouched.
 - Git registered the VM-550 worktree at the exact approved path.
-- Implementation commit: `a732148f9a08c2548a277cd3a2bdd6fe2524af30`
+- Implementation commit: `a73214826a464727d83a00f2735849b8b1a8bd6c`
 - Final remediation HEAD: the commit containing this validation and handoff record. Use the exact SHA reported by Git for owner review.
 
 ## Files reviewed
@@ -195,5 +195,5 @@ Product owner performing the exact-SHA hand review.
 ## Commit record
 
 - Second owner-review start: `d6c89ecdf70e6bb342f8b3a5f705ff5898930571`
-- Second owner-review implementation: `a732148f9a08c2548a277cd3a2bdd6fe2524af30`
+- Second owner-review implementation: `a73214826a464727d83a00f2735849b8b1a8bd6c`
 - Validation and handoff: this document's commit
