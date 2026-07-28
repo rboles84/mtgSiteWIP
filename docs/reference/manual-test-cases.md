@@ -268,6 +268,27 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
 8. Confirm bracket copy names all five brackets, frames brackets as conversation support, does not imply `precon = Bracket 2`, and states Game Changers as excluded for Brackets 1-2, up to three for Bracket 3, and unrestricted for Brackets 4-5.
 9. Confirm the compact Opening Hand Check sits near new-player/pregame content and the Closing Window Check sits near Threat Reading.
 
+## VM-550 Strategium After-the-Game human-QA remediation
+
+1. Review `/strategium/`, `/strategium/review/`, and `/strategium/console/` at 1440 x 900, 1024 x 768, 768 x 1024, 390 x 844, and 320 x 568; confirm there is no horizontal overflow, clipped hero copy, or unreadable control overlap.
+2. On the hub, confirm the two primary experiences are balanced, the decorative `01` / `02` numerals and internal taxonomy labels are gone, and only After the Game is offered as the available review start.
+3. Open every authored After-the-Game leaf path and confirm the expected result, all four result sections, and the ordered one-, two-, or three-lesson set.
+4. Confirm `after-game/lost/other-plan/wrong-piece` renders the dedicated qualified wrong-target result and links to Threat Reading followed by Archetype Signal.
+5. For a result with one lesson, confirm there is no empty divider, phantom row, or unused grid track; for multiple lessons, confirm each control is distinct and follows the authored order.
+6. Open every lesson from a result, including the Commander Readiness Checklist; confirm the reusable dialog stays on the result, has an accessible title, contains the same registry content as the Console, traps focus, closes by Escape and its close controls, restores focus to the exact opener, and controls background scrolling.
+7. Use browser Back and Forward while the lesson dialog is open and closed; confirm the result never enters an impossible state.
+8. Open all six Console `?lesson=` values and the readiness-checklist destination directly; confirm the selected lesson renders, its heading is focused and visible, and readiness lands at the section beginning.
+9. Exercise Console `#top`, `#strategium`, historical hashes, an unknown hash, and an unknown lesson; confirm Console-local anchors stay in `/strategium/console/`, Top reaches scroll position zero, compatibility remains safe, and unknown values fail closed.
+10. Exercise valid, partial, extra-segment, malformed, and encoded review URLs; confirm valid state is reproducible and invalid state shows an announced recovery notice without inventing an answer.
+11. On a narrow viewport, confirm the recovery notice and the focused returned question heading are both visible after normalization.
+12. Traverse a long mobile path by selecting answers; after each answer, confirm the new question or result heading receives focus and remains visible without a delayed jump.
+13. On a targeting result, open the five-signal disclosure and confirm it distinguishes current power, visible pressure, expected next turn, table memory, and table talk without claiming proof of player intent.
+14. Select Yes, Partly, No, and Something was missing; confirm `aria-pressed` and the live status update to `Current selection: ...`, with an explicit no-storage/no-transmission explanation and no `Saved`, `Sent`, or `Submitted` claim.
+15. Confirm Back, Start over, and Return to Strategium form a styled action group and preserve button-versus-link semantics.
+16. Move the pointer across dense reading panels and lesson content; confirm no distracting pointer-reactive light tracks the cursor and keyboard users receive the same stable visual surface.
+17. Confirm browser console warning/error output is empty for the three Strategium routes.
+18. Do not refresh or approve Strategium visual baselines during this remediation.
+
 ## `apocrypha/index.html` visual regression harness
 
 1. Before changing `apocrypha/index.html`, `assets/css/apocrypha.css`, or `assets/js/apocrypha.js`, run `npm.cmd run test:visual:apocrypha:baseline`.

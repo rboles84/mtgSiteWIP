@@ -131,3 +131,21 @@ Product owner or Test Strategist for acceptance review; then a Planning Architec
 
 - Implementation: `3a7eac93cc37627a814f6e04e3c2288f785b6678`
 - Validation and handoff: this document's final commit
+
+## 2026-07-28 Human-QA Remediation Addendum
+
+The original candidate was reopened after the authoritative human-QA workbook review. The statements above describing 14 result patterns, outgoing Learn More links, silent invalid-path fallback, optional analytics feedback hooks, the temporary worktree path, and four-width browser validation are superseded by the remediation record below.
+
+- Remediation start: exact candidate `162beae60a117ff97f35036f236bb2f3c0ea79b1`.
+- Worktree relocation: Git moved the registered clean worktree from `C:\tmp\voxmana.io-strategium-after-game-mvp` to `C:\dev\voxmana.io-strategium-after-game-mvp`; no manual copy or fallback path was used.
+- Remediation implementation: `4858e8c75edb6fe9b136cff51c9e23fe53de9cf6`.
+- Final result count: 15. The new `wrong-target` result replaces the semantically incorrect open-mana result for `after-game/lost/other-plan/wrong-piece`.
+- Final authored leaf count: 24, with ordered one-, two-, and three-lesson mappings recorded in `2026-07-28-0147-codex-vm550-human-qa-remediation.md`.
+- Lesson architecture: the six Console lessons and readiness checklist now come from one registry in `assets/js/strategium.js`; both the full Console and the in-page review dialog use its shared renderer.
+- Feedback remains strictly local, with no analytics call and no storage or transmission claim.
+- Invalid review state now shows an accessible recovery notice and keeps that notice plus the returned focused heading visible on narrow screens.
+- Browser validation now covers 1440 x 900, 1024 x 768, 768 x 1024, 390 x 844, and 320 x 568.
+- Copy authority and constraints are documented in the remediation handoff. No accepted Gate 3 corpus player-language set existed, so raw candidate slang was not promoted into UI copy.
+- Visual baselines remain intentionally untouched.
+
+This addendum does not accept, certify, merge, deploy, or declare the branch production-ready. The required next action is an owner hand review of the exact final remediation HEAD.
