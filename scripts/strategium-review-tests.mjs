@@ -119,7 +119,13 @@ async function getResultState(page) {
   return page.evaluate(() => ({
     resultId: document.querySelector("[data-result-id]")?.getAttribute("data-result-id") || "",
     lessons: Array.from(document.querySelectorAll("[data-lesson]"), button => button.getAttribute("data-lesson")),
+    lessonActions: Array.from(document.querySelectorAll(".vm-lesson-link-action"), label => label.textContent.trim()),
     sections: Array.from(document.querySelectorAll(".vm-result-grid > section h3"), heading => heading.textContent.trim()),
+    actions: Array.from(document.querySelectorAll(".vm-review-action"), action => ({
+      label: action.textContent.trim(),
+      tag: action.tagName,
+      type: action.getAttribute("type") || "",
+    })),
     activeTag: document.activeElement?.tagName || "",
     activeText: document.activeElement?.textContent?.trim() || "",
     headingBounds: (() => {
@@ -155,19 +161,30 @@ async function runStaticChecks() {
   expect(review.includes('lessonDialog.addEventListener("cancel"'), "Lesson dialog Escape handling is missing");
   expect(review.includes("lessonOpener.focus()"), "Lesson dialog focus restoration is missing");
   expect(review.includes("strategiumLessonDialogOwned"), "Lesson dialog browser-history ownership is missing");
+  expect(review.includes("reviewActionsMarkup"), "Review states should share one action-control component");
+  expect(review.includes("getCurrentReviewReturnPath"), "Dialog full-Console navigation should preserve exact review context");
   expect(consoleRuntime.includes("window.vmStrategiumLessons = strategiumLessonRegistry"), "Shared lesson registry is not exposed");
   expect(consoleRuntime.includes("window.vmStrategiumRenderLesson = renderStrategiumLesson"), "Shared lesson renderer is not exposed");
+  expect(consoleRuntime.includes("getValidStrategiumReviewReturn"), "Console return destination validation is missing");
+  expect(consoleRuntime.includes('candidate.pathname !== "/strategium/review/"'), "Console return validation must be restricted to the review route");
   expect(!consoleHtml.includes("<base "), "Console must not use a base element");
   expect(consoleHtml.includes('href="#top"') && consoleHtml.includes('href="#strategium"'), "Console-local Top and Strategium anchors are missing");
   expect(consoleHtml.includes("../../assets/js/strategium.js"), "Console nested-route asset paths were not repaired");
   expect(reviewHtml.includes('id="strategiumLessonDialog"'), "Review route is missing the reusable lesson dialog");
   expect(reviewHtml.includes('aria-labelledby="strategiumLessonDialogTitle"'), "Lesson dialog is missing its accessible title relationship");
+  expect((reviewHtml.match(/data-lesson-dialog-close/g) || []).length === 1, "Lesson dialog should expose one close action");
+  expect(!reviewHtml.includes("Return to this result"), "Lesson dialog should not duplicate its close action in the footer");
+  expect(consoleHtml.includes("data-review-return-link"), "Console is missing contextual review-return navigation");
   expect(!hubHtml.includes("vm-path-number"), "Hub decorative experience numerals should be removed");
   expect(!hubHtml.includes("Two Connected Experiences"), "Hub should not use internal experience taxonomy");
   expect(!hubHtml.includes("Situation Families"), "Hub should not use internal situation-family taxonomy");
+  expect(!hubHtml.includes("Start with a game you just played"), "Hub availability section should not repeat the primary review invitation");
+  expect(hubHtml.includes("<h3>Review a game</h3>") && hubHtml.includes("<h3>Study the table</h3>"), "Hub cards should distinguish review and study");
   expect(!review.includes('id: "start-unsure"'), "Review must not show a duplicate start-unsure route");
   expect(!styles.includes("circle at var(--mx"), "Strategium viewport lighting should no longer track the pointer");
   expect(!consoleRuntime.includes('document.addEventListener("pointermove"'), "Dense Strategium panels should not run continuous pointer lighting updates");
+  expect(styles.includes("grid-template-columns: minmax(0, 1fr) max-content"), "Lesson rows should use a stable title/action grid");
+  expect(styles.includes("white-space: nowrap"), "Lesson-row action labels should remain on one line");
 
   for (const heading of [
     "What may have happened",
@@ -233,6 +250,10 @@ async function runBrowserChecks(baseUrl) {
         `${reviewPath} expected lessons ${expectedLessons.join(", ")}, received ${state.lessons.join(", ")}`
       );
       expect(
+        state.lessonActions.length === expectedLessons.length && state.lessonActions.every(label => label === "Read this lesson"),
+        `${reviewPath} should render one stable action label per lesson row`
+      );
+      expect(
         JSON.stringify(state.sections) === JSON.stringify([
           "What may have happened",
           "What to look for next time",
@@ -246,7 +267,91 @@ async function runBrowserChecks(baseUrl) {
         state.headingBounds && state.headingBounds.top >= 0 && state.headingBounds.top < 768,
         `${reviewPath} result heading should be visible in the viewport`
       );
+      expect(
+        JSON.stringify(state.actions) === JSON.stringify([
+          { label: "Back", tag: "BUTTON", type: "button" },
+          { label: "Start over", tag: "BUTTON", type: "button" },
+          { label: "Return to Strategium", tag: "A", type: "" },
+        ]),
+        `${reviewPath} should preserve the semantic review-action component`
+      );
     }
+
+    const questionPaths = [
+      "",
+      "after-game",
+      "after-game/lost",
+      "after-game/lost/never-started",
+      "after-game/lost/stopped",
+      "after-game/lost/other-plan",
+    ];
+    for (const questionPath of questionPaths) {
+      const suffix = questionPath ? `?path=${questionPath}` : "";
+      await page.goto(`${baseUrl}/strategium/review/${suffix}`, { waitUntil: "networkidle0" });
+      await waitForReview(page);
+      const questionActions = await page.evaluate(() => Array.from(document.querySelectorAll(".vm-review-action"), action => ({
+        label: action.textContent.trim(),
+        tag: action.tagName,
+        type: action.getAttribute("type") || "",
+        height: Math.round(action.getBoundingClientRect().height),
+      })));
+      const expectedLabels = questionPath
+        ? ["Back", "Start over", "Return to Strategium"]
+        : ["Start over", "Return to Strategium"];
+      expect(
+        JSON.stringify(questionActions.map(action => action.label)) === JSON.stringify(expectedLabels),
+        `${questionPath || "review root"} action labels are incomplete`
+      );
+      expect(questionActions.every(action => action.height >= 44), `${questionPath || "review root"} actions should retain usable hit areas`);
+      expect(
+        questionActions.every(action => action.label === "Return to Strategium" ? action.tag === "A" : action.tag === "BUTTON" && action.type === "button"),
+        `${questionPath || "review root"} actions should retain button/link semantics`
+      );
+    }
+
+    const lessonLayoutExamples = [
+      ["after-game/lost/never-started/commander-needed", 1],
+      ["after-game/lost/opening-hand", 2],
+      ["after-game/won-unclear", 3],
+    ];
+    for (const [reviewPath, expectedCount] of lessonLayoutExamples) {
+      await page.goto(`${baseUrl}/strategium/review/?path=${reviewPath}`, { waitUntil: "networkidle0" });
+      const lessonLayout = await page.evaluate(() => {
+        const grid = document.querySelector(".vm-lesson-grid");
+        const rows = Array.from(grid.querySelectorAll(".vm-lesson-link"));
+        return {
+          childCount: grid.children.length,
+          rows: rows.map(row => ({
+            columns: getComputedStyle(row).gridTemplateColumns.split(" ").filter(Boolean).length,
+            height: Math.round(row.getBoundingClientRect().height),
+            childCount: row.children.length,
+            actionWhiteSpace: getComputedStyle(row.querySelector(".vm-lesson-link-action")).whiteSpace,
+          })),
+        };
+      });
+      expect(lessonLayout.childCount === expectedCount, `${reviewPath} should render exactly ${expectedCount} lesson row(s)`);
+      expect(
+        lessonLayout.rows.every(row =>
+          row.columns === 2 && row.height >= 54 && row.childCount === 2 && row.actionWhiteSpace === "nowrap"
+        ),
+        `${reviewPath} lesson rows should keep stable desktop title/action alignment`
+      );
+    }
+
+    await page.goto(`${baseUrl}/strategium/review/?path=after-game/lost`, { waitUntil: "networkidle0" });
+    await page.click('[data-review-action="back"]');
+    await waitForReview(page);
+    expect(
+      new URL(page.url()).searchParams.get("path") === "after-game"
+        && await page.$eval("[data-review-focus]", heading => heading.textContent.trim()) === "What best describes the game?",
+      "The custom Back action should restore the exact prior question"
+    );
+    await page.goto(`${baseUrl}/strategium/review/?path=after-game/lost`, { waitUntil: "networkidle0" });
+    await Promise.all([
+      page.waitForNavigation({ waitUntil: "networkidle0" }),
+      page.click(".vm-review-action-return"),
+    ]);
+    expect(new URL(page.url()).pathname === "/strategium/", "Return to Strategium should navigate to the hub");
 
     const lessonExamples = [
       ["after-game/lost/wrong-order", "command-zone"],
@@ -267,32 +372,54 @@ async function runBrowserChecks(baseUrl) {
         const registry = window.vmStrategiumLessons[id];
         const body = document.getElementById("strategiumLessonDialogBody");
         const link = document.getElementById("strategiumLessonConsoleLink");
+        const template = document.createElement("template");
+        template.innerHTML = registry.content;
+        const repeatedTitle = template.content.querySelector("h3");
+        if (repeatedTitle && repeatedTitle.textContent.trim() === registry.label) repeatedTitle.remove();
+        const dialogBounds = dialog.getBoundingClientRect();
+        const scrollOwners = Array.from(dialog.querySelectorAll("*")).filter(element => {
+          const style = getComputedStyle(element);
+          return /(auto|scroll)/.test(style.overflowY) && element.scrollHeight > element.clientHeight + 1;
+        });
         return {
           open: dialog.open,
           title: document.getElementById("strategiumLessonDialogTitle").textContent.trim(),
           registryTitle: registry.label,
           bodyText: body.textContent.replace(/\s+/g, " ").trim(),
-          registryText: (() => {
-            const template = document.createElement("template");
-            template.innerHTML = registry.content;
-            return template.content.textContent.replace(/\s+/g, " ").trim();
-          })(),
+          registryText: template.content.textContent.replace(/\s+/g, " ").trim(),
           focusId: document.activeElement?.id || "",
           mainInert: document.querySelector("main").hasAttribute("inert"),
           consoleHref: link.getAttribute("href"),
+          returnPath: new URL(link.href).searchParams.get("return"),
+          titleCount: Array.from(dialog.querySelectorAll("h1,h2,h3,h4,h5,h6"))
+            .filter(heading => heading.textContent.trim() === registry.label).length,
+          closeCount: dialog.querySelectorAll("[data-lesson-dialog-close]").length,
+          footerButtons: dialog.querySelectorAll(".vm-lesson-dialog-footer button").length,
+          footerLinks: dialog.querySelectorAll(".vm-lesson-dialog-footer a").length,
+          scrollOwners: scrollOwners.map(element => element.id || element.className),
+          centered: Math.abs((dialogBounds.left + dialogBounds.width / 2) - window.innerWidth / 2) < 2,
+          horizontalMargin: Math.min(dialogBounds.left, window.innerWidth - dialogBounds.right),
         };
       }, lessonId);
       expect(dialogState.open, `${lessonId} dialog did not open`);
       expect(dialogState.title === dialogState.registryTitle, `${lessonId} dialog title does not come from the shared registry`);
-      expect(dialogState.bodyText.startsWith(dialogState.registryText), `${lessonId} dialog copy does not match the shared registry`);
+      expect(dialogState.bodyText.startsWith(dialogState.registryText), `${lessonId} dialog copy does not match the shared registry after title normalization`);
       expect(dialogState.focusId === "strategiumLessonDialogTitle", `${lessonId} dialog title should receive focus`);
       expect(dialogState.mainInert, `${lessonId} dialog should prevent background interaction`);
+      expect(dialogState.titleCount === 1, `${lessonId} dialog should render the lesson title exactly once`);
+      expect(dialogState.closeCount === 1, `${lessonId} dialog should expose one close action`);
+      expect(dialogState.footerButtons === 0 && dialogState.footerLinks === 1, `${lessonId} dialog footer should contain only the full-Console link`);
+      expect(dialogState.scrollOwners.length <= 1, `${lessonId} dialog should have at most one internal vertical scroll owner`);
+      expect(dialogState.centered && dialogState.horizontalMargin >= 16, `${lessonId} dialog should be centered with deliberate desktop margins`);
       expect(
         dialogState.consoleHref.includes(lessonId),
         `${lessonId} dialog full-Console fallback does not target the selected lesson`
       );
+      expect(
+        dialogState.returnPath === `/strategium/review/?path=${reviewPath}`,
+        `${lessonId} dialog full-Console link should preserve the exact result return path`
+      );
 
-      await page.focus("[data-lesson-dialog-close]:last-of-type").catch(() => {});
       await page.keyboard.press("Escape");
       await page.waitForFunction(() => !document.getElementById("strategiumLessonDialog").open);
       const restoredLesson = await page.evaluate(() => document.activeElement?.getAttribute("data-lesson") || "");
@@ -302,7 +429,7 @@ async function runBrowserChecks(baseUrl) {
     await page.goto(`${baseUrl}/strategium/review/?path=after-game/lost/stopped/key-spells`, { waitUntil: "networkidle0" });
     await page.click('[data-lesson="threat-reading"]');
     await page.waitForSelector("#strategiumLessonDialog[open]");
-    await page.focus(".vm-lesson-dialog-footer [data-lesson-dialog-close]");
+    await page.focus("#strategiumLessonConsoleLink");
     await page.keyboard.press("Tab");
     const wrappedFocus = await page.evaluate(() => document.activeElement?.classList.contains("vm-lesson-dialog-close"));
     expect(wrappedFocus, "Lesson dialog Tab navigation should wrap within the dialog");
@@ -329,6 +456,63 @@ async function runBrowserChecks(baseUrl) {
     expect(parseFloat(reducedMotion.progressTransition) <= 0.0001, "Reduced motion should reduce progress transition to an imperceptible duration");
     await page.keyboard.press("Escape");
     await page.emulateMediaFeatures([]);
+
+    const exactReturnPath = "/strategium/review/?path=after-game/lost/other-plan/wrong-piece";
+    await page.goto(`${baseUrl}${exactReturnPath}`, { waitUntil: "networkidle0" });
+    await page.click('[data-lesson="threat-reading"]');
+    await page.waitForSelector("#strategiumLessonDialog[open]");
+    await Promise.all([
+      page.waitForNavigation({ waitUntil: "networkidle0" }),
+      page.click("#strategiumLessonConsoleLink"),
+    ]);
+    let contextualReturn = await page.evaluate(() => {
+      const link = document.querySelector("[data-review-return-link]");
+      return {
+        visible: !link.hidden,
+        href: link.getAttribute("href"),
+        lesson: new URLSearchParams(window.location.search).get("lesson"),
+      };
+    });
+    expect(contextualReturn.visible, "Console should show contextual return after a diagnostic lesson");
+    expect(contextualReturn.href === exactReturnPath, "Console contextual return should target the exact review result");
+    expect(contextualReturn.lesson === "threat-reading", "Contextual Console visit should preserve the selected lesson");
+
+    await page.goBack({ waitUntil: "networkidle0" });
+    await page.waitForSelector("#strategiumLessonDialog[open]");
+    expect(await page.$eval("[data-result-id]", node => node.dataset.resultId) === "wrong-target", "Browser Back from the Console should restore the exact result");
+    await page.goForward({ waitUntil: "networkidle0" });
+    await page.waitForSelector("[data-review-return-link]:not([hidden])");
+    await Promise.all([
+      page.waitForNavigation({ waitUntil: "networkidle0" }),
+      page.click("[data-review-return-link]"),
+    ]);
+    expect(page.url() === `${baseUrl}${exactReturnPath}`, "Contextual return should navigate to the exact diagnostic result URL");
+    expect(await page.$eval("[data-result-id]", node => node.dataset.resultId) === "wrong-target", "Contextual return should render wrong-target");
+    expect(!(await page.$("#strategiumLessonDialog[open]")), "Contextual return should not reopen the lesson dialog");
+
+    await page.goto(`${baseUrl}/strategium/console/?lesson=threat-reading`, { waitUntil: "networkidle0" });
+    contextualReturn = await page.$eval("[data-review-return-link]", link => ({
+      hidden: link.hidden,
+      href: link.getAttribute("href"),
+    }));
+    expect(contextualReturn.hidden && !contextualReturn.href, "Direct Console visits should not show a misleading review return");
+
+    for (const invalidReturn of [
+      "https://example.com/strategium/review/?path=after-game/won-unclear",
+      "/privacy/",
+      "/strategium/review/?path=after-game/won-unclear&extra=1",
+      "/strategium/review/?path=after-game/../../privacy",
+    ]) {
+      await page.goto(
+        `${baseUrl}/strategium/console/?lesson=threat-reading&return=${encodeURIComponent(invalidReturn)}`,
+        { waitUntil: "networkidle0" }
+      );
+      const rejectedReturn = await page.$eval("[data-review-return-link]", link => ({
+        hidden: link.hidden,
+        href: link.getAttribute("href"),
+      }));
+      expect(rejectedReturn.hidden && !rejectedReturn.href, `Console should reject invalid return destination: ${invalidReturn}`);
+    }
 
     for (const [lessonId, expectedTitle] of consoleLessons) {
       await page.goto(`${baseUrl}/strategium/console/?lesson=${lessonId}`, { waitUntil: "networkidle0" });
@@ -426,6 +610,70 @@ async function runBrowserChecks(baseUrl) {
     expect(partialTitle === "What did the loss look like from your side?", "Valid partial path did not render its question");
     await page.reload({ waitUntil: "networkidle0" });
     expect(await page.$eval("[data-review-focus]", heading => heading.textContent.trim()) === partialTitle, "Refresh did not reproduce a valid partial path");
+
+    for (const width of [390, 320]) {
+      await page.setViewport({ width, height: width === 390 ? 844 : 568, deviceScaleFactor: 1 });
+      await page.goto(`${baseUrl}/strategium/review/?path=after-game/won-unclear`, { waitUntil: "networkidle0" });
+      const narrowLessonLayout = await page.evaluate(() => Array.from(document.querySelectorAll(".vm-lesson-link"), row => {
+        const bounds = row.getBoundingClientRect();
+        return {
+          columns: getComputedStyle(row).gridTemplateColumns.split(" ").filter(Boolean).length,
+          insideViewport: bounds.left >= 0 && bounds.right <= window.innerWidth,
+          actionWhiteSpace: getComputedStyle(row.querySelector(".vm-lesson-link-action")).whiteSpace,
+        };
+      }));
+      expect(
+        narrowLessonLayout.length === 3
+          && narrowLessonLayout.every(row =>
+            row.columns === (width <= 480 ? 1 : 2)
+            && row.insideViewport
+            && row.actionWhiteSpace === "nowrap"
+          ),
+        `${width}px lesson rows should use one predictable responsive pattern`
+      );
+
+      await page.goto(`${baseUrl}/strategium/review/?path=after-game/lost/other-plan/artifact-confusion`, { waitUntil: "networkidle0" });
+      await page.click('[data-lesson="beyond-wubrg"]');
+      await page.waitForSelector("#strategiumLessonDialog[open]");
+      await page.$eval("#strategiumLessonDialogBody", body => {
+        body.scrollTop = body.scrollHeight;
+      });
+      await page.evaluate(() => new Promise(resolve => window.requestAnimationFrame(resolve)));
+      const mobileDialog = await page.evaluate(() => {
+        const dialog = document.getElementById("strategiumLessonDialog");
+        const body = document.getElementById("strategiumLessonDialogBody");
+        const close = dialog.querySelector("[data-lesson-dialog-close]");
+        const footer = dialog.querySelector(".vm-lesson-dialog-footer");
+        const dialogBounds = dialog.getBoundingClientRect();
+        const closeBounds = close.getBoundingClientRect();
+        const footerBounds = footer.getBoundingClientRect();
+        const scrollOwners = Array.from(dialog.querySelectorAll("*")).filter(element => {
+          const style = getComputedStyle(element);
+          return /(auto|scroll)/.test(style.overflowY) && element.scrollHeight > element.clientHeight + 1;
+        });
+        return {
+          dialogInsideViewport: dialogBounds.left >= 0 && dialogBounds.right <= window.innerWidth
+            && dialogBounds.top >= 0 && dialogBounds.bottom <= window.innerHeight,
+          closeVisible: closeBounds.top >= 0 && closeBounds.bottom <= window.innerHeight,
+          footerVisible: footerBounds.top >= 0 && footerBounds.bottom <= window.innerHeight,
+          bodyAtBottom: Math.abs(body.scrollHeight - body.clientHeight - body.scrollTop) <= 2,
+          bodyScrollable: body.scrollHeight > body.clientHeight,
+          scrollOwners: scrollOwners.map(element => element.id || element.className),
+          backgroundLocked: getComputedStyle(document.documentElement).overflow === "hidden"
+            && getComputedStyle(document.body).overflow === "hidden",
+        };
+      });
+      expect(mobileDialog.dialogInsideViewport, `${width}px lesson dialog should fit inside the viewport`);
+      expect(mobileDialog.closeVisible && mobileDialog.footerVisible, `${width}px dialog close and Console link should remain reachable`);
+      expect(mobileDialog.bodyScrollable && mobileDialog.bodyAtBottom, `${width}px dialog body should own a usable content scroll`);
+      expect(
+        JSON.stringify(mobileDialog.scrollOwners) === JSON.stringify(["strategiumLessonDialogBody"]),
+        `${width}px dialog should have exactly one internal vertical scroll owner`
+      );
+      expect(mobileDialog.backgroundLocked, `${width}px dialog should lock background scrolling`);
+      await page.keyboard.press("Escape");
+      await page.waitForFunction(() => !document.getElementById("strategiumLessonDialog").open);
+    }
 
     await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 1 });
     await page.goto(`${baseUrl}/strategium/review/?path=after-game/%E0%A4%A`, { waitUntil: "networkidle0" });

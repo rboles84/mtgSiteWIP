@@ -70,17 +70,18 @@
   >
     <div class="vm-lesson-dialog-shell">
       <header class="vm-lesson-dialog-header">
-        <div>
+        <div class="vm-lesson-dialog-heading">
           <span class="vm-eyebrow">Strategium lesson</span>
           <h2 id="strategiumLessonDialogTitle" tabindex="-1"></h2>
-          <p id="strategiumLessonDialogDescription">Read this lesson without leaving your game-review result.</p>
+          <p id="strategiumLessonDialogDescription">Use this lesson alongside the game-review result you were reading.</p>
         </div>
-        <button class="vm-lesson-dialog-close" type="button" data-lesson-dialog-close aria-label="Close lesson">Close</button>
+        <button class="vm-lesson-dialog-close" type="button" data-lesson-dialog-close aria-label="Close lesson">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </header>
       <div class="vm-lesson-dialog-body" id="strategiumLessonDialogBody"></div>
       <div class="vm-lesson-dialog-footer">
-        <a class="vm-button vm-button-secondary" id="strategiumLessonConsoleLink" href="../console/">Open in the full Console</a>
-        <button class="vm-button" type="button" data-lesson-dialog-close>Return to this result</button>
+        <a class="vm-button vm-button-secondary" id="strategiumLessonConsoleLink" href="../console/">Open this lesson in the full Console</a>
       </div>
     </div>
   </dialog>

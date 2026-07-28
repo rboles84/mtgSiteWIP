@@ -323,9 +323,19 @@
     if (!lesson) return "";
     return `
       <button class="vm-lesson-link" type="button" data-lesson="${lessonId}">
-        <span>${lesson.label}</span>
-        <strong>Read this lesson</strong>
+        <span class="vm-lesson-link-title">${lesson.label}</span>
+        <strong class="vm-lesson-link-action">Read this lesson</strong>
       </button>`;
+  }
+
+  function reviewActionsMarkup(includeBack) {
+    const actionCount = includeBack ? 3 : 2;
+    return `
+      <div class="vm-review-nav" aria-label="Review actions" style="--review-action-count:${actionCount}">
+        ${includeBack ? '<button class="vm-review-action vm-review-action-back" type="button" data-review-action="back">Back</button>' : ""}
+        <button class="vm-review-action vm-review-action-reset" type="button" data-review-action="start-over">Start over</button>
+        <a class="vm-review-action vm-review-action-return" href="../">Return to Strategium</a>
+      </div>`;
   }
 
   function recoveryMarkup() {
@@ -369,11 +379,7 @@
             ${option.note ? `<small id="note-${option.id}">${option.note}</small>` : ""}
           </button>`).join("")}
       </div>
-      <div class="vm-review-nav" aria-label="Review actions">
-        ${trail.length ? '<button class="vm-button vm-button-secondary" type="button" data-review-action="back">Back</button>' : ""}
-        <button class="vm-button vm-button-secondary" type="button" data-review-action="start-over">Start over</button>
-        <a class="vm-button vm-button-quiet" href="../">Return to Strategium</a>
-      </div>`;
+      ${reviewActionsMarkup(Boolean(trail.length))}`;
     focusNewHeading();
   }
 
@@ -411,11 +417,7 @@
           <div>${["Yes", "Partly", "No", "Something was missing"].map(choice => `<button type="button" class="vm-feedback-choice" data-feedback="${choice}" aria-pressed="${feedback === choice}">${choice}</button>`).join("")}</div>
           <p class="vm-feedback-state" role="status" aria-live="polite">${feedback ? `Current selection: ${feedback}` : "No selection for this result."}</p>
         </fieldset>
-        <div class="vm-review-nav" aria-label="Review actions">
-          <button class="vm-button vm-button-secondary" type="button" data-review-action="back">Back</button>
-          <button class="vm-button" type="button" data-review-action="start-over">Start over</button>
-          <a class="vm-button vm-button-quiet" href="../">Return to Strategium</a>
-        </div>
+        ${reviewActionsMarkup(true)}
       </article>`;
     focusNewHeading();
   }
@@ -470,20 +472,29 @@
     document.documentElement.classList.toggle("vm-dialog-open", active);
   }
 
+  function getCurrentReviewReturnPath() {
+    return `/strategium/review/?path=${trail.join("/")}`;
+  }
+
   function openLessonDialog(lessonId) {
     const lesson = getRegistry()[lessonId];
     if (!lesson) return false;
 
     lessonDialogTitle.textContent = lesson.label;
     if (typeof window.vmStrategiumRenderLesson === "function") {
-      window.vmStrategiumRenderLesson(lessonDialogBody, lessonId);
+      window.vmStrategiumRenderLesson(lessonDialogBody, lessonId, { omitTitle: true });
     } else {
       lessonDialogBody.innerHTML = lesson.content;
+      const repeatedTitle = lessonDialogBody.querySelector("h3");
+      if (repeatedTitle && repeatedTitle.textContent.trim() === lesson.label) repeatedTitle.remove();
     }
-    fullConsoleLink.href = lessonId === "readiness-checklist"
-      ? "../console/?lesson=readiness-checklist#readiness-checklist"
-      : `../console/?lesson=${encodeURIComponent(lessonId)}#strategium`;
-    fullConsoleLink.textContent = `Open ${lesson.label} in the full Console`;
+
+    const consoleUrl = new URL("../console/", window.location.href);
+    consoleUrl.searchParams.set("lesson", lessonId);
+    consoleUrl.searchParams.set("return", getCurrentReviewReturnPath());
+    consoleUrl.hash = lessonId === "readiness-checklist" ? "readiness-checklist" : "strategium";
+    fullConsoleLink.href = `${consoleUrl.pathname}${consoleUrl.search}${consoleUrl.hash}`;
+    fullConsoleLink.textContent = "Open this lesson in the full Console";
 
     if (!lessonDialog.open) {
       setDialogBackgroundInert(true);
@@ -494,7 +505,10 @@
   }
 
   function closeLessonDialog() {
-    if (lessonDialog.open) lessonDialog.close();
+    if (!lessonDialog.open) return;
+    lessonDialog.close();
+    setDialogBackgroundInert(false);
+    if (lessonOpener && lessonOpener.isConnected) lessonOpener.focus();
   }
 
   function requestLessonClose() {

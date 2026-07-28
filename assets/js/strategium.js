@@ -1070,10 +1070,14 @@ const strategiumLessonRegistry = Object.freeze({
   })
 });
 
-function renderStrategiumLesson(target, lessonId) {
+function renderStrategiumLesson(target, lessonId, options = {}) {
   const lesson = strategiumLessonRegistry[lessonId];
   if (!target || !lesson) return false;
   target.innerHTML = lesson.content;
+  if (options.omitTitle) {
+    const firstHeading = target.querySelector("h3");
+    if (firstHeading && firstHeading.textContent.trim() === lesson.label) firstHeading.remove();
+  }
   if (lessonId === "archetype-signal") initArchetypeLibrary();
   return true;
 }
@@ -1323,6 +1327,46 @@ function initStrategiumConsole() {
   applyLocation(true);
 }
 
+function getValidStrategiumReviewReturn() {
+  const rawReturn = new URLSearchParams(window.location.search).get("return");
+  if (!rawReturn || rawReturn.length > 1024 || /[\u0000-\u001f\\]/.test(rawReturn)) return "";
+
+  let candidate;
+  try {
+    candidate = new URL(rawReturn, window.location.origin);
+  } catch {
+    return "";
+  }
+
+  if (candidate.origin !== window.location.origin || candidate.pathname !== "/strategium/review/" || candidate.hash) {
+    return "";
+  }
+
+  const keys = Array.from(candidate.searchParams.keys());
+  if (keys.length !== 1 || keys[0] !== "path") return "";
+
+  const reviewPath = candidate.searchParams.get("path") || "";
+  if (!/^after-game(?:\/[a-z0-9-]+){1,3}$/.test(reviewPath)) return "";
+
+  return `${candidate.pathname}?path=${reviewPath}`;
+}
+
+function initStrategiumReviewReturn() {
+  const returnLink = document.querySelector("[data-review-return-link]");
+  const returnBar = document.querySelector("[data-review-return-bar]");
+  if (!returnLink) return;
+  const returnDestination = getValidStrategiumReviewReturn();
+  if (!returnDestination) {
+    if (returnBar) returnBar.hidden = true;
+    returnLink.hidden = true;
+    returnLink.removeAttribute("href");
+    return;
+  }
+  returnLink.href = returnDestination;
+  returnLink.hidden = false;
+  if (returnBar) returnBar.hidden = false;
+}
+
 function initReadinessChecklist() {
   const checklist = document.getElementById("readinessChecklist");
   const summary = document.getElementById("readinessSummary");
@@ -1566,6 +1610,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initStrategiumAtmosphere();
   initRevealObserver();
   initStrategiumConsole();
+  initStrategiumReviewReturn();
   initReadinessChecklist();
 
   const backTop = document.getElementById("backTop");
