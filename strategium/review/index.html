@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Help Me Understand - Strategium</title>
-<meta name="description" content="Review a Commander game through a short, qualified Strategium diagnostic." />
+<meta name="description" content="Review a Commander game through a short, qualified Strategium path." />
 <link rel="canonical" href="https://voxmana.io/strategium/review/" />
 <meta property="og:site_name" content="Vox Mana" />
 <meta property="og:type" content="website" />
@@ -25,6 +25,7 @@
 <link rel="stylesheet" href="../../assets/css/strategium.css" />
 </head>
 <body data-page="strategium-review" data-vm-current="strategium" data-bg="medium">
+  <span class="vm-page-top-anchor" id="top" aria-hidden="true"></span>
   <div class="vm-bg" aria-hidden="true">
     <picture class="vm-bg__picture"><source type="image/webp" srcset="../../assets/img/backgrounds/background-vox-gateway-clean-13.webp 2560w" sizes="100vw"><img src="../../assets/img/backgrounds/background-vox-gateway-clean-13.webp" alt="" width="1672" height="941" decoding="async" fetchpriority="high"></picture>
     <div class="vm-bg__nebula"></div><canvas class="vm-bg__stars" aria-hidden="true"></canvas>
@@ -46,12 +47,12 @@
   <main id="top" class="vm-shell vm-review-shell">
     <section class="vm-hero reveal" aria-labelledby="review-title">
       <div class="vm-hero-panel">
-        <div class="vm-hero-copy"><span class="vm-eyebrow">Help Me Understand</span><h1 id="review-title">What are you trying to understand?</h1><p class="vm-hero-lead">Start with what you experienced. Strategium will offer a possible explanation, not a verdict.</p></div>
+        <div class="vm-hero-copy"><span class="vm-eyebrow">Help Me Understand</span><h1 id="review-title">Turn one game into one useful next step.</h1><p class="vm-hero-lead">Start with what you experienced. Strategium will offer a possible explanation, not a verdict.</p></div>
         <div class="vm-status-strip" aria-label="Review principles"><span>Short Path</span><span>Qualified Read</span><span>One Next Step</span></div>
       </div>
     </section>
     <section class="vm-section vm-review-workspace" aria-labelledby="review-workspace-title">
-      <h2 class="vm-section-heading vm-visually-hidden" id="review-workspace-title">Strategium game review</h2>
+      <h2 class="vm-visually-hidden" id="review-workspace-title">Guided game review</h2>
       <div id="strategiumReview" class="vm-review-panel" aria-live="polite"></div>
       <noscript><div class="vm-panel"><h2>JavaScript is needed for the guided review.</h2><p>The Strategium Console remains available without this interaction.</p><a class="vm-button" href="../console/">Open the Console</a></div></noscript>
     </section>
@@ -61,6 +62,28 @@
     <span><a href="#top">Back to top</a> &middot; <a href="../">Strategium</a> &middot; <a href="../console/">Console</a> &middot; <a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></span>
   </footer>
   <a class="vm-button vm-backtop" id="backTop" href="#top">Top</a>
+  <dialog
+    class="vm-lesson-dialog"
+    id="strategiumLessonDialog"
+    aria-labelledby="strategiumLessonDialogTitle"
+    aria-describedby="strategiumLessonDialogDescription"
+  >
+    <div class="vm-lesson-dialog-shell">
+      <header class="vm-lesson-dialog-header">
+        <div>
+          <span class="vm-eyebrow">Strategium lesson</span>
+          <h2 id="strategiumLessonDialogTitle" tabindex="-1"></h2>
+          <p id="strategiumLessonDialogDescription">Read this lesson without leaving your game-review result.</p>
+        </div>
+        <button class="vm-lesson-dialog-close" type="button" data-lesson-dialog-close aria-label="Close lesson">Close</button>
+      </header>
+      <div class="vm-lesson-dialog-body" id="strategiumLessonDialogBody"></div>
+      <div class="vm-lesson-dialog-footer">
+        <a class="vm-button vm-button-secondary" id="strategiumLessonConsoleLink" href="../console/">Open in the full Console</a>
+        <button class="vm-button" type="button" data-lesson-dialog-close>Return to this result</button>
+      </div>
+    </div>
+  </dialog>
   <script src="../../assets/js/strategium.js" defer></script>
   <script src="../../assets/js/strategium-review.js" defer></script>
   <script src="../../assets/js/reduce-motion.js" defer></script>

@@ -1023,6 +1023,64 @@ const readinessItems = [
   { copy: "I can adjust if the pod wants a slower or stronger game.", tag: "conversation" }
 ];
 
+const readinessIntro = "Know whether you can explain the deck's plan, name its combos or lock pieces, and sit down without surprising the pod.";
+
+const strategiumLessonRegistry = Object.freeze({
+  "command-zone": Object.freeze({
+    id: "command-zone",
+    label: "Command Zone",
+    content: basics["command-zone"]
+  }),
+  "pod-readiness": Object.freeze({
+    id: "pod-readiness",
+    label: "Pod Readiness",
+    content: basics["pod-readiness"]
+  }),
+  "archetype-signal": Object.freeze({
+    id: "archetype-signal",
+    label: "Archetype Signal",
+    content: basics["archetype-signal"]
+  }),
+  "threat-reading": Object.freeze({
+    id: "threat-reading",
+    label: "Threat Reading",
+    content: basics["threat-reading"]
+  }),
+  "heat-management": Object.freeze({
+    id: "heat-management",
+    label: "Heat Management",
+    content: basics["heat-management"]
+  }),
+  "beyond-wubrg": Object.freeze({
+    id: "beyond-wubrg",
+    label: "Beyond WUBRG",
+    content: basics["beyond-wubrg"]
+  }),
+  "readiness-checklist": Object.freeze({
+    id: "readiness-checklist",
+    label: "Commander Readiness Checklist",
+    content: `
+      <div class="vm-console-body">
+        <h3>Commander Readiness Checklist</h3>
+        <p>${readinessIntro}</p>
+        <ul class="vm-console-list">
+          ${readinessItems.map(item => `<li>${item.copy}</li>`).join("")}
+        </ul>
+      </div>`
+  })
+});
+
+function renderStrategiumLesson(target, lessonId) {
+  const lesson = strategiumLessonRegistry[lessonId];
+  if (!target || !lesson) return false;
+  target.innerHTML = lesson.content;
+  if (lessonId === "archetype-signal") initArchetypeLibrary();
+  return true;
+}
+
+window.vmStrategiumLessons = strategiumLessonRegistry;
+window.vmStrategiumRenderLesson = renderStrategiumLesson;
+
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, character => ({
     "&": "&amp;",
@@ -1169,36 +1227,100 @@ function initStrategiumConsole() {
   const tabs = Array.from(document.querySelectorAll(".vm-tab"));
   if (!reveal || !tabs.length) return;
 
-  function setTopic(topic, updateUrl = false) {
-    const safeTopic = Object.prototype.hasOwnProperty.call(basics, topic) ? topic : "command-zone";
-    reveal.innerHTML = basics[safeTopic];
+  const tabLessonIds = new Set(tabs.map(tab => tab.dataset.topic));
 
-    if (safeTopic === "archetype-signal") {
-      initArchetypeLibrary();
-    }
+  function prefersReducedMotion() {
+    return (
+      document.documentElement.getAttribute("data-reduce-motion") === "true" ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    );
+  }
+
+  function revealHeading(target, moveFocus = false) {
+    window.requestAnimationFrame(() => {
+      if (!target) return;
+      if (moveFocus) {
+        target.setAttribute("tabindex", "-1");
+        target.focus();
+      }
+      const immediate = moveFocus || prefersReducedMotion();
+      const priorScrollBehavior = document.documentElement.style.scrollBehavior;
+      if (immediate) document.documentElement.style.scrollBehavior = "auto";
+      target.scrollIntoView({ behavior: immediate ? "auto" : "smooth", block: "start" });
+      if (immediate) document.documentElement.style.scrollBehavior = priorScrollBehavior;
+    });
+  }
+
+  function setTopic(topic, updateUrl = false, moveFocus = false) {
+    const safeTopic = tabLessonIds.has(topic) ? topic : "command-zone";
+    renderStrategiumLesson(reveal, safeTopic);
 
     tabs.forEach(tab => {
       const active = tab.dataset.topic === safeTopic;
       tab.classList.toggle("active", active);
       tab.setAttribute("aria-selected", active ? "true" : "false");
+      tab.setAttribute("tabindex", active ? "0" : "-1");
     });
 
     if (updateUrl && window.history && typeof window.history.pushState === "function") {
       const url = new URL(window.location.href);
       url.searchParams.set("lesson", safeTopic);
+      url.hash = "strategium";
       window.history.pushState({ strategiumLesson: safeTopic }, "", url);
+    }
+
+    if (moveFocus) revealHeading(reveal.querySelector("h3"), true);
+    else if (updateUrl) revealHeading(reveal.querySelector("h3"));
+  }
+
+  function showReadinessChecklist(moveFocus = false) {
+    const section = document.getElementById("readiness-checklist");
+    const heading = document.getElementById("strategium-readiness-title");
+    if (!section || !heading) return;
+    window.requestAnimationFrame(() => {
+      if (moveFocus) heading.focus({ preventScroll: true });
+      const priorScrollBehavior = document.documentElement.style.scrollBehavior;
+      document.documentElement.style.scrollBehavior = "auto";
+      section.scrollIntoView({ behavior: "auto", block: "start" });
+      document.documentElement.style.scrollBehavior = priorScrollBehavior;
+    });
+  }
+
+  function applyLocation(moveFocus = false) {
+    const requestedLesson = new URLSearchParams(window.location.search).get("lesson") || "";
+    if (requestedLesson === "readiness-checklist") {
+      setTopic("command-zone");
+      showReadinessChecklist(moveFocus);
+      return;
+    }
+
+    setTopic(requestedLesson || "command-zone", false, Boolean(requestedLesson && moveFocus));
+    if (!requestedLesson && window.location.hash === "#readiness-checklist") {
+      showReadinessChecklist(moveFocus);
     }
   }
 
   tabs.forEach(tab => {
     tab.addEventListener("click", () => setTopic(tab.dataset.topic, true));
+    tab.addEventListener("keydown", event => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+      event.preventDefault();
+      const currentIndex = tabs.indexOf(tab);
+      let nextIndex = currentIndex;
+      if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+      if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % tabs.length;
+      if (event.key === "Home") nextIndex = 0;
+      if (event.key === "End") nextIndex = tabs.length - 1;
+      tabs[nextIndex].focus();
+      setTopic(tabs[nextIndex].dataset.topic, true);
+    });
   });
 
   window.addEventListener("popstate", () => {
-    setTopic(new URLSearchParams(window.location.search).get("lesson") || "command-zone");
+    applyLocation(true);
   });
 
-  setTopic(new URLSearchParams(window.location.search).get("lesson") || "command-zone");
+  applyLocation(true);
 }
 
 function initReadinessChecklist() {
@@ -1210,6 +1332,9 @@ function initReadinessChecklist() {
   const conversationStatus = document.getElementById("conversationStatus");
   const kitStatus = document.getElementById("kitStatus");
   if (!checklist || !summary || !meter || !meterTrack || !percent || !conversationStatus || !kitStatus) return;
+
+  const readinessIntroTarget = document.querySelector("[data-readiness-intro]");
+  if (readinessIntroTarget) readinessIntroTarget.textContent = readinessIntro;
 
   checklist.innerHTML = readinessItems.map((item, index) => `
     <button class="vm-checklist-button" type="button" aria-pressed="false" data-index="${index}">
@@ -1243,7 +1368,7 @@ function initReadinessChecklist() {
     }
 
     if (conversationCount === conversationTarget) {
-      conversationMessage = "You can describe speed, pressure, and sharp edges without sandbagging the truth.";
+      conversationMessage = "You can describe speed, combos, lock pieces, and pressure without understating the deck.";
     } else if (conversationCount >= 4) {
       conversationMessage = "Most of the pod briefing is there, but combo and pace language could still be clearer.";
     }
@@ -1410,19 +1535,6 @@ function initStrategiumAtmosphere() {
     isHidden = document.hidden;
   });
 
-  document.addEventListener("pointermove", event => {
-    document.body.style.setProperty("--mx", `${event.clientX}px`);
-    document.body.style.setProperty("--my", `${event.clientY}px`);
-    document.querySelectorAll(".vm-card, .vm-panel, .vm-tab, .vm-entry-row, .vm-next-card, .vm-checklist-button").forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.width <= 0 || rect.height <= 0) return;
-      const x = ((event.clientX - rect.left) / rect.width) * 100;
-      const y = ((event.clientY - rect.top) / rect.height) * 100;
-      el.style.setProperty("--x", `${Math.max(0, Math.min(100, x))}%`);
-      el.style.setProperty("--y", `${Math.max(0, Math.min(100, y))}%`);
-    });
-  }, { passive: true });
-
   resizeCanvas();
   drawAtmosphere();
 }
@@ -1462,4 +1574,19 @@ document.addEventListener("DOMContentLoaded", () => {
       backTop.classList.toggle("show", window.scrollY > 500);
     });
   }
+
+  document.querySelectorAll('a[href="#top"], a[href="#strategium"]').forEach(link => {
+    link.addEventListener("click", event => {
+      const anchorId = link.hash.slice(1);
+      const anchor = document.getElementById(anchorId);
+      if (!anchor) return;
+      event.preventDefault();
+      if (window.history && typeof window.history.pushState === "function") {
+        window.history.pushState({ strategiumAnchor: anchorId }, "", `#${anchorId}`);
+      } else {
+        window.location.hash = anchorId;
+      }
+      anchor.scrollIntoView({ behavior: "auto", block: "start" });
+    });
+  });
 });

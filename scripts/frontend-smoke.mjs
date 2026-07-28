@@ -16,7 +16,7 @@ const routeChecks = [
   { label: "Strategium -> Console", from: "strategium/index.html", href: "./console/" },
   { label: "Strategium Review -> Hub", from: "strategium/review/index.html", href: "../" },
   { label: "Strategium Review -> Console", from: "strategium/review/index.html", href: "../console/" },
-  { label: "Strategium Console -> Hub", from: "strategium/console/index.html", href: "./" },
+  { label: "Strategium Console -> Hub", from: "strategium/console/index.html", href: "../" },
   { label: "Apocrypha -> Home", from: "apocrypha/index.html", href: "../index.html" },
   { label: "Privacy -> Home", from: "privacy/index.html", href: "../index.html" },
   { label: "Terms -> Home", from: "terms/index.html", href: "../index.html" },

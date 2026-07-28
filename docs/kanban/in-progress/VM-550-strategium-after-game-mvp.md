@@ -2,16 +2,26 @@
 
 ID: VM-550
 Title: Strategium After-the-Game MVP
-Status: done
+Status: in progress
 Type: Frontend / Commander UX / Product Slice
 Area: Strategium
 Priority: high
 Created: 2026-07-27
-Completed: 2026-07-27
+Completed: pending owner review
 
 ## Summary
 
 Turn `/strategium/` into a two-path product hub, preserve the established Commander learning Console at `/strategium/console/`, and implement the first complete `Help Me Understand` diagnostic at `/strategium/review/` for After the Game.
+
+## Human-QA Remediation
+
+Reopened on 2026-07-28 against exact candidate SHA `162beae60a117ff97f35036f236bb2f3c0ea79b1`.
+
+- Authority: `VM-550_Strategium_Human_QA_Workbook_v3_FIXED.xlsx`
+- Worktree relocated with `git worktree move` from `C:\tmp\voxmana.io-strategium-after-game-mvp` to `C:\dev\voxmana.io-strategium-after-game-mvp`.
+- Scope is limited to the workbook findings and the authorized After-the-Game MVP remediation.
+- Required outcomes include Console-local deep links, an in-page shared-registry lesson dialog, complete path/lesson mapping coverage, a dedicated wrong-piece result, bounded Commander-language cleanup, clearer hierarchy and controls, visible URL recovery, correct transient feedback language, restrained Strategium pointer effects, and responsive/accessibility polish.
+- The candidate is not accepted, certified, merged, deployed, or production-ready. Completion requires automated validation, the full manual browser matrix, a remediation handoff, and a new owner review of the exact final SHA.
 
 ## Pre-Flight Summary
 

@@ -43,7 +43,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- No cards currently in progress.
+- [VM-550 - Strategium After-the-Game MVP Human-QA Remediation](in-progress/VM-550-strategium-after-game-mvp.md) - repairing workbook findings against exact candidate `162beae60a117ff97f35036f236bb2f3c0ea79b1`; no acceptance, integration, push, or deployment authority is implied.
 
 ## Blocked
 
@@ -64,8 +64,6 @@ VM-429 Section 14 ID reconciliation, 2026-06-30: the early readiness plan expect
 - [VM-546 - EDHMatch Comparison Review](done/VM-546-edhmatch-comparison-review.md) - compared Archscry quiz, adaptive placement, dossier/result flow, and Vox Mana product feel against EDHMatch's discovery, quiz, Commander DNA, guild quiz, strategy index, and supplied captures; analysis-only, no runtime or data changes.
 
 - [VM-549 - Architecture Documentation Layer](done/VM-549-architecture-documentation-layer.md) - added a concise docs folder index, Architecture folder README, and behavioral model integration roadmap without moving files or changing production code.
-
-- [VM-550 - Strategium After-the-Game MVP](done/VM-550-strategium-after-game-mvp.md) - shipped the Strategium hub, preserved the existing learning Console at `/strategium/console/`, and added the first complete Help Me Understand diagnostic for After the Game at `/strategium/review/`.
 
 - [VM-501 - Faction Semantic Readiness Recovery Infrastructure](done/VM-501-faction-semantic-readiness-recovery.md) - established Contract v1, all-37 structural inventory, provenance, validator, fixtures, ledger, and recovery governance without changing placement or recruiter semantics; Contract v1.1 prerequisite candidate `6e53acd` is independently approved for program-base acceptance.
 
