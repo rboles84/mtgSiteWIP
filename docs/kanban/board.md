@@ -55,6 +55,8 @@ Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is
 
 VM-429 Section 14 ID reconciliation, 2026-06-30: the early readiness plan expected route metadata as `VM-448` and public demo / strategic case study as `VM-449`, but final ID assignment shifted after intervening queue work. In the final handoff trail, `VM-448` is Critical Browser E2E Smoke and `VM-449` is Maze Return Loop Microcopy Tightening; both are complete. The originally expected route metadata and public demo / strategic case-study scopes were completed as `VM-451` and `VM-452`. VM-458 later moved VM-422/VM-446 to backlog; live private deck-link behavior remains not production-proven.
 
+- [VM-550 - Strategium After-the-Game MVP Second Owner-Review Remediation](done/VM-550-strategium-after-game-mvp.md) - completed the bounded hub hierarchy, semantic action-control, stable Learn More row, centered single-scroll dialog, and validated exact-result Console return pass from `d6c89ecdf70e6bb342f8b3a5f705ff5898930571`; exact final remediation HEAD still requires owner hand review.
+
 - [VM-543 - Public README Gateway Repair](done/VM-543-public-readme-gateway-repair.md) - replaced the obsolete root README with an accurate public gateway covering product purpose, live site, current experiences, repository map, local checks, protected workflow boundaries, attribution, non-affiliation, and license status.
 
 - [VM-544 - README GitHub Polish Pass](done/VM-544-readme-github-polish-pass.md) - polished the public README opening, Quick Links, mission framing, and status wording after the VM-543 gateway repair without changing runtime, data, source, generated, or placement surfaces.
@@ -64,8 +66,6 @@ VM-429 Section 14 ID reconciliation, 2026-06-30: the early readiness plan expect
 - [VM-546 - EDHMatch Comparison Review](done/VM-546-edhmatch-comparison-review.md) - compared Archscry quiz, adaptive placement, dossier/result flow, and Vox Mana product feel against EDHMatch's discovery, quiz, Commander DNA, guild quiz, strategy index, and supplied captures; analysis-only, no runtime or data changes.
 
 - [VM-549 - Architecture Documentation Layer](done/VM-549-architecture-documentation-layer.md) - added a concise docs folder index, Architecture folder README, and behavioral model integration roadmap without moving files or changing production code.
-
-- [VM-550 - Strategium After-the-Game MVP Human-QA Remediation](done/VM-550-strategium-after-game-mvp.md) - remediated the authoritative human-QA workbook against candidate `162beae60a117ff97f35036f236bb2f3c0ea79b1`, including 15 result patterns, shared in-page lessons, Console-local navigation, visible recovery, exact mappings, Commander-language cleanup, and five-viewport browser QA; pending a new owner hand review of the exact final remediation HEAD.
 
 - [VM-501 - Faction Semantic Readiness Recovery Infrastructure](done/VM-501-faction-semantic-readiness-recovery.md) - established Contract v1, all-37 structural inventory, provenance, validator, fixtures, ledger, and recovery governance without changing placement or recruiter semantics; Contract v1.1 prerequisite candidate `6e53acd` is independently approved for program-base acceptance.
 

@@ -2,7 +2,7 @@
 
 ID: VM-550
 Title: Strategium After-the-Game MVP
-Status: done - pending owner hand review of exact final remediation HEAD
+Status: done - awaiting second owner hand review
 Type: Frontend / Commander UX / Product Slice
 Area: Strategium
 Priority: high
@@ -23,6 +23,23 @@ Reopened on 2026-07-28 against exact candidate SHA `162beae60a117ff97f35036f236b
 - Required outcomes include Console-local deep links, an in-page shared-registry lesson dialog, complete path/lesson mapping coverage, a dedicated wrong-piece result, bounded Commander-language cleanup, clearer hierarchy and controls, visible URL recovery, correct transient feedback language, restrained Strategium pointer effects, and responsive/accessibility polish.
 - Remediation implementation commit: `4858e8c75edb6fe9b136cff51c9e23fe53de9cf6`.
 - Automated validation, the full required viewport matrix, the remediation handoff, and clean-worktree proof are complete. The candidate is not accepted, certified, merged, deployed, or production-ready; it now requires a new owner hand review of the exact final remediation HEAD.
+
+## Second Owner-Review Remediation
+
+Reopened on 2026-07-28 from exact clean HEAD `d6c89ecdf70e6bb342f8b3a5f705ff5898930571`.
+
+- Preserve all 15 result patterns, 24 authored leaf mappings, wrong-target semantics, Console lesson queries, recovery notice, transient feedback, and shared lesson registry.
+- Refine only hub hierarchy/alignment, review action controls, Learn More row stability, dialog presentation, and validated contextual return from the full Console.
+- Validate 1440 x 900, 1024 x 768, 768 x 1024, 390 x 844, and 320 x 568.
+- Do not touch unavailable situation-family implementation, unrelated routes, visual baselines, persistence, analytics, generated data, push, merge, deployment, integration, or certification.
+- Implementation commit: `a732148f9a08c2548a277cd3a2bdd6fe2524af30`.
+- The hub now has one centered review-versus-study choice axis and a non-competing MVP availability panel.
+- Back, Start over, and Return to Strategium share one semantic Vox Mana action component across every question and result.
+- Learn More rows use a stable title/action grid on wider screens and one consistent stacked pattern through 480px.
+- The lesson dialog is centered, bounded, single-scroll, single-title, and single-close; its full-Console link carries an exact validated review return destination.
+- Contextual Console visits expose a sticky `Return to your game review` action that returns to the exact result; malformed, external, and unsupported values are rejected.
+- Required automated validation and five-viewport browser QA passed with no horizontal overflow or browser console warnings/errors.
+- The diagnostic remains exactly 24 authored leaf paths and 15 result patterns; `wrong-target` and its ordered Threat Reading / Archetype Signal lessons are unchanged.
 
 ## Pre-Flight Summary
 
