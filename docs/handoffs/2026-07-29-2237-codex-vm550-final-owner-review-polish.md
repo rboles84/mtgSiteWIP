@@ -223,3 +223,7 @@ Product owner performing the exact-SHA hand review.
 - Required starting candidate: `a908c12362dc4602af1829a867fa5b62233e0366`
 - Final owner-review polish implementation: `4e87270a2668a118b2bb22b0d7b7eceb9bf1b8c9`
 - Validation and handoff: this document's commit
+
+## Subsequent final visual acceptance refinement
+
+Owner review subsequently authorized one more presentation-only pass from exact clean HEAD `1fa8fc6ab374ced5ea05377bf4e116ae3ebe5dd4`. That pass is recorded in `docs/handoffs/2026-07-29-2322-codex-vm550-final-visual-acceptance-refinement.md` and implementation commit `5dd604f0e435e9fcbaf3901ad84b4e28c5668d1d`. It supersedes this handoff only as the latest exact-SHA review target; the accepted behavioral contracts documented above remain unchanged.

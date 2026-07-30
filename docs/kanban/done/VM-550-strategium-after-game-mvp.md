@@ -2,12 +2,12 @@
 
 ID: VM-550
 Title: Strategium After-the-Game MVP
-Status: in progress - final visual acceptance refinement
+Status: done - awaiting owner hand review of exact final SHA
 Type: Frontend / Commander UX / Product Slice
 Area: Strategium
 Priority: high
 Created: 2026-07-27
-Completed: pending owner hand review
+Completed: 2026-07-29
 
 ## Summary
 
@@ -70,6 +70,15 @@ Reopened on 2026-07-29 from exact clean HEAD `1fa8fc6ab374ced5ea05377bf4e116ae3e
 - Remove only the redundant Console hero `Return to Strategium` action and its unused route-specific styles.
 - Preserve all accepted diagnostic, lesson, dialog, contextual-return, history, recovery, feedback, and responsive behavior.
 - Validate 1440 x 900, 1024 x 768, 768 x 1024, 390 x 844, and 320 x 568 without refreshing visual baselines.
+- Implementation commit: `5dd604f0e435e9fcbaf3901ad84b4e28c5668d1d`.
+- The hub lens heading, support copy, and two aligned primary cards now read as one restrained bounded choice panel.
+- The ten unchanged readiness statements render as compact full-width rows in two accessible semantic groups: six under `Know your deck` and four under `Prepare for the table`.
+- Item indices, identifiers, selected state, percentage, meter, conversation status, table-kit status, and local reset behavior are unchanged.
+- The redundant Console hero return action and its route-specific CSS are removed; the validated inline diagnostic return remains unchanged.
+- Focused/full/lint/copy/metadata/frontend/browser/diff validation and the required five-viewport in-app browser pass succeeded with no horizontal overflow or browser warnings/errors.
+- The first browser-smoke attempt hit a transient mobile Home-canvas visibility check before Strategium; an immediate isolated rerun passed desktop and mobile. No source change was made for that unrelated transient.
+- Visual baselines were not refreshed or approved.
+- The exact final validation-and-handoff HEAD requires owner hand review. This card does not claim acceptance, integration, certification, deployment, or production readiness.
 
 ## Pre-Flight Summary
 
