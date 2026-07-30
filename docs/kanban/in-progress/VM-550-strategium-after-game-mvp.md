@@ -2,12 +2,12 @@
 
 ID: VM-550
 Title: Strategium After-the-Game MVP
-Status: done - awaiting second owner hand review
+Status: in progress - final owner-review polish remediation
 Type: Frontend / Commander UX / Product Slice
 Area: Strategium
 Priority: high
 Created: 2026-07-27
-Completed: 2026-07-28
+Completed: pending final owner hand review
 
 ## Summary
 
@@ -40,6 +40,18 @@ Reopened on 2026-07-28 from exact clean HEAD `d6c89ecdf70e6bb342f8b3a5f705ff5898
 - Contextual Console visits expose a sticky `Return to your game review` action that returns to the exact result; malformed, external, and unsupported values are rejected.
 - Required automated validation and five-viewport browser QA passed with no horizontal overflow or browser console warnings/errors.
 - The diagnostic remains exactly 24 authored leaf paths and 15 result patterns; `wrong-target` and its ordered Threat Reading / Archetype Signal lessons are unchanged.
+
+## Final Owner-Review Polish Remediation
+
+Reopened on 2026-07-29 from exact clean HEAD `a908c12362dc4602af1829a867fa5b62233e0366`.
+
+- Preserve all accepted diagnostic paths, result and lesson mappings, shared-registry lesson dialog behavior, deep links, recovery, feedback, and browser-history behavior.
+- Remove only the duplicated Guided Moments hub panel and correct the two primary cards' deterministic alignment.
+- Make review action controls stage-aware without changing diagnostic state semantics.
+- Normalize Pod Readiness category spacing and stop readiness-checklist cards from stretching to equal visible heights.
+- Replace the fixed Console review-return control with an inline contextual link immediately before the active lesson or readiness destination.
+- Explicitly reject external, protocol-relative, unrelated local, JavaScript-style, empty, malformed, and absent return values.
+- Validate the required desktop and mobile viewports without refreshing visual baselines.
 
 ## Pre-Flight Summary
 

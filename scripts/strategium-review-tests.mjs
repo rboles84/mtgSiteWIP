@@ -175,6 +175,8 @@ async function runStaticChecks() {
   expect((reviewHtml.match(/data-lesson-dialog-close/g) || []).length === 1, "Lesson dialog should expose one close action");
   expect(!reviewHtml.includes("Return to this result"), "Lesson dialog should not duplicate its close action in the footer");
   expect(consoleHtml.includes("data-review-return-link"), "Console is missing contextual review-return navigation");
+  expect((hubHtml.match(/class="vm-card vm-path-card"/g) || []).length === 2, "Hub should retain exactly two primary experience choices");
+  expect(!hubHtml.includes("Guided moments") && !hubHtml.includes("vm-hub-availability"), "Hub must not duplicate review moments in a Guided Moments panel");
   expect(!hubHtml.includes("vm-path-number"), "Hub decorative experience numerals should be removed");
   expect(!hubHtml.includes("Two Connected Experiences"), "Hub should not use internal experience taxonomy");
   expect(!hubHtml.includes("Situation Families"), "Hub should not use internal situation-family taxonomy");
@@ -185,6 +187,14 @@ async function runStaticChecks() {
   expect(!consoleRuntime.includes('document.addEventListener("pointermove"'), "Dense Strategium panels should not run continuous pointer lighting updates");
   expect(styles.includes("grid-template-columns: minmax(0, 1fr) max-content"), "Lesson rows should use a stable title/action grid");
   expect(styles.includes("white-space: nowrap"), "Lesson-row action labels should remain on one line");
+  expect(styles.includes("grid-template-rows: auto auto 1fr auto"), "Hub cards should use one deterministic vertical layout");
+  expect(styles.includes(".vm-console-script-card .vm-mini-badge"), "Pod Readiness categories should use one shared pill rule");
+  expect(styles.includes("align-items: start"), "Readiness checklist grid should align cards to their own content");
+  expect(!styles.includes(".vm-console-context-bar"), "Console return must not use the former sticky contextual bar");
+  expect(
+    consoleHtml.includes('data-review-return-anchor="lesson"') && consoleHtml.includes('data-review-return-anchor="readiness"'),
+    "Console should provide inline return anchors for lessons and readiness"
+  );
 
   for (const heading of [
     "What may have happened",
@@ -240,6 +250,117 @@ async function runBrowserChecks(baseUrl) {
   try {
     await page.setViewport({ width: 1024, height: 768, deviceScaleFactor: 1 });
 
+    const requiredViewports = [
+      { width: 1440, height: 900 },
+      { width: 1024, height: 768 },
+      { width: 768, height: 1024 },
+      { width: 390, height: 844 },
+      { width: 320, height: 568 },
+    ];
+
+    for (const viewport of requiredViewports) {
+      await page.setViewport({ ...viewport, deviceScaleFactor: 1 });
+      await page.goto(`${baseUrl}/strategium/`, { waitUntil: "networkidle0" });
+      const hubLayout = await page.evaluate(() => {
+        const cards = Array.from(document.querySelectorAll(".vm-path-card"));
+        const group = document.querySelector(".vm-hub-paths");
+        const footer = document.querySelector(".vm-footer");
+        const main = document.querySelector("main");
+        const groupBounds = group.getBoundingClientRect();
+        return {
+          cardCount: cards.length,
+          guidedMoments: Boolean(document.querySelector(".vm-hub-availability")),
+          overflow: document.documentElement.scrollWidth > window.innerWidth,
+          groupCenterDelta: Math.abs((groupBounds.left + groupBounds.width / 2) - window.innerWidth / 2),
+          mainFooterGap: Math.max(0, footer.getBoundingClientRect().top - main.getBoundingClientRect().bottom),
+          cards: cards.map(card => {
+            const bounds = card.getBoundingClientRect();
+            const heading = card.querySelector("h3").getBoundingClientRect();
+            const copy = card.querySelector("p").getBoundingClientRect();
+            const action = card.querySelector(".vm-cta").getBoundingClientRect();
+            return {
+              top: Math.round(bounds.top),
+              headingTop: Math.round(heading.top),
+              copyTop: Math.round(copy.top),
+              actionBottom: Math.round(action.bottom),
+            };
+          }),
+        };
+      });
+      expect(hubLayout.cardCount === 2 && !hubLayout.guidedMoments, `${viewport.width}px hub should expose only two primary choices`);
+      expect(!hubLayout.overflow, `${viewport.width}px hub should not overflow horizontally`);
+      expect(hubLayout.groupCenterDelta <= 1, `${viewport.width}px hub card group should remain centered`);
+      expect(hubLayout.mainFooterGap < viewport.height * 0.2, `${viewport.width}px hub should not leave an oversized gap before the footer`);
+      if (viewport.width > 720) {
+        expect(
+          new Set(hubLayout.cards.map(card => card.top)).size === 1
+            && new Set(hubLayout.cards.map(card => card.headingTop)).size === 1
+            && new Set(hubLayout.cards.map(card => card.copyTop)).size === 1
+            && new Set(hubLayout.cards.map(card => card.actionBottom)).size === 1,
+          `${viewport.width}px hub cards should share top, heading, copy, and action axes`
+        );
+      }
+
+      await page.goto(`${baseUrl}/strategium/console/?lesson=pod-readiness`, { waitUntil: "networkidle0" });
+      await page.waitForSelector("#basicsReveal .vm-console-script-card");
+      const podLayout = await page.evaluate(() => {
+        const cards = Array.from(document.querySelectorAll("#basicsReveal .vm-console-script-card"));
+        const checklist = document.querySelector(".vm-checklist-grid");
+        return {
+          overflow: document.documentElement.scrollWidth > window.innerWidth,
+          checklistAlign: getComputedStyle(checklist).alignItems,
+          cards: cards.map(card => {
+            const badge = card.querySelector(".vm-mini-badge");
+            const copy = card.querySelector("p");
+            const quote = card.querySelector("blockquote");
+            const badgeStyle = getComputedStyle(badge);
+            return {
+              badgeAlign: badgeStyle.textAlign,
+              badgeLineHeight: badgeStyle.lineHeight,
+              badgePaddingLeft: badgeStyle.paddingLeft,
+              badgePaddingRight: badgeStyle.paddingRight,
+              badgeMinHeight: badgeStyle.minHeight,
+              copyMargin: getComputedStyle(copy).margin,
+              firstGap: Math.round(copy.getBoundingClientRect().top - badge.getBoundingClientRect().bottom),
+              secondGap: Math.round(quote.getBoundingClientRect().top - copy.getBoundingClientRect().bottom),
+            };
+          }),
+        };
+      });
+      expect(!podLayout.overflow, `${viewport.width}px Pod Readiness should not overflow horizontally`);
+      expect(podLayout.checklistAlign === "start", `${viewport.width}px readiness cards should align to their own content`);
+      expect(
+        podLayout.cards.length === 3 && podLayout.cards.every(card =>
+          card.badgeAlign === "center"
+          && card.badgePaddingLeft === card.badgePaddingRight
+          && parseFloat(card.badgeMinHeight) >= 48
+          && card.copyMargin === "0px"
+          && Math.abs(card.firstGap - card.secondGap) <= 1
+        ),
+        `${viewport.width}px Pod Readiness categories should share centered pills and consistent vertical rhythm`
+      );
+
+      await page.goto(`${baseUrl}/strategium/console/?lesson=readiness-checklist#readiness-checklist`, { waitUntil: "networkidle0" });
+      await page.waitForSelector("#readinessChecklist .vm-checklist-button");
+      const checklistLayout = await page.evaluate(() => {
+        const buttons = Array.from(document.querySelectorAll("#readinessChecklist .vm-checklist-button"));
+        return {
+          overflow: document.documentElement.scrollWidth > window.innerWidth,
+          align: getComputedStyle(document.getElementById("readinessChecklist")).alignItems,
+          buttonAlign: buttons.map(button => getComputedStyle(button).alignSelf),
+          heights: buttons.map(button => Math.round(button.getBoundingClientRect().height)),
+        };
+      });
+      expect(!checklistLayout.overflow, `${viewport.width}px readiness checklist should not overflow horizontally`);
+      expect(
+        checklistLayout.align === "start" && checklistLayout.buttonAlign.every(value => value === "start"),
+        `${viewport.width}px checklist cards should not stretch to a neighboring card`
+      );
+      expect(checklistLayout.heights.length === 10, `${viewport.width}px readiness checklist should retain all ten checkpoints`);
+    }
+
+    await page.setViewport({ width: 1024, height: 768, deviceScaleFactor: 1 });
+
     for (const [reviewPath, expectedResult, expectedLessons] of pathCases) {
       await page.goto(`${baseUrl}/strategium/review/?path=${reviewPath}`, { waitUntil: "networkidle0" });
       await waitForReview(page);
@@ -278,14 +399,14 @@ async function runBrowserChecks(baseUrl) {
     }
 
     const questionPaths = [
-      "",
-      "after-game",
-      "after-game/lost",
-      "after-game/lost/never-started",
-      "after-game/lost/stopped",
-      "after-game/lost/other-plan",
+      ["", ["Return to Strategium"]],
+      ["after-game", ["Back", "Return to Strategium"]],
+      ["after-game/lost", ["Back", "Start over", "Return to Strategium"]],
+      ["after-game/lost/never-started", ["Back", "Start over", "Return to Strategium"]],
+      ["after-game/lost/stopped", ["Back", "Start over", "Return to Strategium"]],
+      ["after-game/lost/other-plan", ["Back", "Start over", "Return to Strategium"]],
     ];
-    for (const questionPath of questionPaths) {
+    for (const [questionPath, expectedLabels] of questionPaths) {
       const suffix = questionPath ? `?path=${questionPath}` : "";
       await page.goto(`${baseUrl}/strategium/review/${suffix}`, { waitUntil: "networkidle0" });
       await waitForReview(page);
@@ -295,9 +416,6 @@ async function runBrowserChecks(baseUrl) {
         type: action.getAttribute("type") || "",
         height: Math.round(action.getBoundingClientRect().height),
       })));
-      const expectedLabels = questionPath
-        ? ["Back", "Start over", "Return to Strategium"]
-        : ["Start over", "Return to Strategium"];
       expect(
         JSON.stringify(questionActions.map(action => action.label)) === JSON.stringify(expectedLabels),
         `${questionPath || "review root"} action labels are incomplete`
@@ -345,6 +463,13 @@ async function runBrowserChecks(baseUrl) {
       new URL(page.url()).searchParams.get("path") === "after-game"
         && await page.$eval("[data-review-focus]", heading => heading.textContent.trim()) === "What best describes the game?",
       "The custom Back action should restore the exact prior question"
+    );
+    await page.click('[data-review-action="back"]');
+    await waitForReview(page);
+    expect(
+      !new URL(page.url()).searchParams.has("path")
+        && await page.$eval("[data-review-focus]", heading => heading.textContent.trim()) === "Which moment do you want to review?",
+      "Stage 2 Back should restore Stage 1 without exposing Start over"
     );
     await page.goto(`${baseUrl}/strategium/review/?path=after-game/lost`, { waitUntil: "networkidle0" });
     await Promise.all([
@@ -467,15 +592,28 @@ async function runBrowserChecks(baseUrl) {
     ]);
     let contextualReturn = await page.evaluate(() => {
       const link = document.querySelector("[data-review-return-link]");
+      const reveal = document.getElementById("basicsReveal");
+      const bounds = link.getBoundingClientRect();
       return {
         visible: !link.hidden,
         href: link.getAttribute("href"),
         lesson: new URLSearchParams(window.location.search).get("lesson"),
+        anchor: link.parentElement?.dataset.reviewReturnAnchor || "",
+        immediatelyBeforeLesson: link.parentElement?.nextElementSibling === reveal,
+        position: getComputedStyle(link).position,
+        inViewport: bounds.top >= 80 && bounds.bottom <= window.innerHeight,
       };
     });
     expect(contextualReturn.visible, "Console should show contextual return after a diagnostic lesson");
     expect(contextualReturn.href === exactReturnPath, "Console contextual return should target the exact review result");
     expect(contextualReturn.lesson === "threat-reading", "Contextual Console visit should preserve the selected lesson");
+    expect(
+      contextualReturn.anchor === "lesson"
+        && contextualReturn.immediatelyBeforeLesson
+        && contextualReturn.position === "static"
+        && contextualReturn.inViewport,
+      "Lesson return should be an inline link immediately before the visible lesson"
+    );
 
     await page.goBack({ waitUntil: "networkidle0" });
     await page.waitForSelector("#strategiumLessonDialog[open]");
@@ -497,21 +635,68 @@ async function runBrowserChecks(baseUrl) {
     }));
     expect(contextualReturn.hidden && !contextualReturn.href, "Direct Console visits should not show a misleading review return");
 
-    for (const invalidReturn of [
-      "https://example.com/strategium/review/?path=after-game/won-unclear",
-      "/privacy/",
-      "/strategium/review/?path=after-game/won-unclear&extra=1",
-      "/strategium/review/?path=after-game/../../privacy",
-    ]) {
+    const exactReadinessReturn = "/strategium/review/?path=after-game/unsure";
+    await page.goto(
+      `${baseUrl}/strategium/console/?lesson=readiness-checklist&return=${encodeURIComponent(exactReadinessReturn)}#readiness-checklist`,
+      { waitUntil: "networkidle0" }
+    );
+    await page.waitForSelector("[data-review-return-link]:not([hidden])");
+    const readinessReturn = await page.evaluate(() => {
+      const link = document.querySelector("[data-review-return-link]");
+      const panel = document.querySelector("#readiness-checklist .vm-readiness-panel");
+      const bounds = link.getBoundingClientRect();
+      return {
+        href: link.getAttribute("href"),
+        anchor: link.parentElement?.dataset.reviewReturnAnchor || "",
+        beforePanel: link.parentElement?.nextElementSibling === panel,
+        inViewport: bounds.top >= 80 && bounds.bottom <= window.innerHeight,
+      };
+    });
+    expect(
+      readinessReturn.href === exactReadinessReturn
+        && readinessReturn.anchor === "readiness"
+        && readinessReturn.beforePanel
+        && readinessReturn.inViewport,
+      "Readiness return should appear inline immediately before the checklist destination"
+    );
+
+    const invalidReturns = [
+      ["external https", "https://example.com/strategium/review/?path=after-game/won-unclear"],
+      ["protocol-relative", "//example.com/strategium/review/?path=after-game/won-unclear"],
+      ["unrelated same-origin", "/privacy/"],
+      ["javascript", "javascript:window.__strategiumUnsafeReturnExecuted=true"],
+      ["empty", ""],
+      ["malformed encoded", "%E0%A4%A"],
+      ["extra query key", "/strategium/review/?path=after-game/won-unclear&extra=1"],
+      ["path traversal", "/strategium/review/?path=after-game/../../privacy"],
+    ];
+    for (const [label, invalidReturn] of invalidReturns) {
+      await page.evaluate(() => {
+        window.__strategiumUnsafeReturnExecuted = false;
+      });
+      const returnQuery = invalidReturn === "" ? "&return=" : `&return=${encodeURIComponent(invalidReturn)}`;
       await page.goto(
-        `${baseUrl}/strategium/console/?lesson=threat-reading&return=${encodeURIComponent(invalidReturn)}`,
+        `${baseUrl}/strategium/console/?lesson=threat-reading${returnQuery}`,
         { waitUntil: "networkidle0" }
       );
-      const rejectedReturn = await page.$eval("[data-review-return-link]", link => ({
-        hidden: link.hidden,
-        href: link.getAttribute("href"),
-      }));
-      expect(rejectedReturn.hidden && !rejectedReturn.href, `Console should reject invalid return destination: ${invalidReturn}`);
+      const rejectedReturn = await page.evaluate(() => {
+        const link = document.querySelector("[data-review-return-link]");
+        return {
+          hidden: link.hidden,
+          href: link.getAttribute("href"),
+          path: window.location.pathname,
+          lessonTitle: document.querySelector("#basicsReveal h3")?.textContent.trim() || "",
+          executed: Boolean(window.__strategiumUnsafeReturnExecuted),
+        };
+      });
+      expect(
+        rejectedReturn.hidden
+          && !rejectedReturn.href
+          && rejectedReturn.path === "/strategium/console/"
+          && rejectedReturn.lessonTitle === "Threat Reading"
+          && !rejectedReturn.executed,
+        `Console should safely reject ${label} return values`
+      );
     }
 
     for (const [lessonId, expectedTitle] of consoleLessons) {

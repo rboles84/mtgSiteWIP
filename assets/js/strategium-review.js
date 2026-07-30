@@ -328,12 +328,14 @@
       </button>`;
   }
 
-  function reviewActionsMarkup(includeBack) {
-    const actionCount = includeBack ? 3 : 2;
+  function reviewActionsMarkup(stage) {
+    const showBack = stage >= 2;
+    const showStartOver = stage >= 3;
+    const actionCount = Number(showBack) + Number(showStartOver) + 1;
     return `
       <div class="vm-review-nav" aria-label="Review actions" style="--review-action-count:${actionCount}">
-        ${includeBack ? '<button class="vm-review-action vm-review-action-back" type="button" data-review-action="back">Back</button>' : ""}
-        <button class="vm-review-action vm-review-action-reset" type="button" data-review-action="start-over">Start over</button>
+        ${showBack ? '<button class="vm-review-action vm-review-action-back" type="button" data-review-action="back">Back</button>' : ""}
+        ${showStartOver ? '<button class="vm-review-action vm-review-action-reset" type="button" data-review-action="start-over">Start over</button>' : ""}
         <a class="vm-review-action vm-review-action-return" href="../">Return to Strategium</a>
       </div>`;
   }
@@ -379,7 +381,7 @@
             ${option.note ? `<small id="note-${option.id}">${option.note}</small>` : ""}
           </button>`).join("")}
       </div>
-      ${reviewActionsMarkup(Boolean(trail.length))}`;
+      ${reviewActionsMarkup(question.stage)}`;
     focusNewHeading();
   }
 
@@ -417,7 +419,7 @@
           <div>${["Yes", "Partly", "No", "Something was missing"].map(choice => `<button type="button" class="vm-feedback-choice" data-feedback="${choice}" aria-pressed="${feedback === choice}">${choice}</button>`).join("")}</div>
           <p class="vm-feedback-state" role="status" aria-live="polite">${feedback ? `Current selection: ${feedback}` : "No selection for this result."}</p>
         </fieldset>
-        ${reviewActionsMarkup(true)}
+        ${reviewActionsMarkup(4)}
       </article>`;
     focusNewHeading();
   }

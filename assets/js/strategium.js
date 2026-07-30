@@ -1245,12 +1245,14 @@ function initStrategiumConsole() {
       if (!target) return;
       if (moveFocus) {
         target.setAttribute("tabindex", "-1");
-        target.focus();
+        target.focus({ preventScroll: true });
       }
+      const returnLink = placeStrategiumReviewReturn("lesson");
+      const scrollTarget = returnLink || target;
       const immediate = moveFocus || prefersReducedMotion();
       const priorScrollBehavior = document.documentElement.style.scrollBehavior;
       if (immediate) document.documentElement.style.scrollBehavior = "auto";
-      target.scrollIntoView({ behavior: immediate ? "auto" : "smooth", block: "start" });
+      scrollTarget.scrollIntoView({ behavior: immediate ? "auto" : "smooth", block: "start" });
       if (immediate) document.documentElement.style.scrollBehavior = priorScrollBehavior;
     });
   }
@@ -1283,9 +1285,11 @@ function initStrategiumConsole() {
     if (!section || !heading) return;
     window.requestAnimationFrame(() => {
       if (moveFocus) heading.focus({ preventScroll: true });
+      const returnLink = placeStrategiumReviewReturn("readiness");
+      const scrollTarget = returnLink || section;
       const priorScrollBehavior = document.documentElement.style.scrollBehavior;
       document.documentElement.style.scrollBehavior = "auto";
-      section.scrollIntoView({ behavior: "auto", block: "start" });
+      scrollTarget.scrollIntoView({ behavior: "auto", block: "start" });
       document.documentElement.style.scrollBehavior = priorScrollBehavior;
     });
   }
@@ -1351,20 +1355,27 @@ function getValidStrategiumReviewReturn() {
   return `${candidate.pathname}?path=${reviewPath}`;
 }
 
+function placeStrategiumReviewReturn(destination) {
+  const returnLink = document.querySelector("[data-review-return-link]");
+  const anchor = document.querySelector(`[data-review-return-anchor="${destination}"]`);
+  if (!returnLink || returnLink.hidden || !anchor) return null;
+  anchor.append(returnLink);
+  return returnLink;
+}
+
 function initStrategiumReviewReturn() {
   const returnLink = document.querySelector("[data-review-return-link]");
-  const returnBar = document.querySelector("[data-review-return-bar]");
   if (!returnLink) return;
   const returnDestination = getValidStrategiumReviewReturn();
   if (!returnDestination) {
-    if (returnBar) returnBar.hidden = true;
     returnLink.hidden = true;
     returnLink.removeAttribute("href");
     return;
   }
   returnLink.href = returnDestination;
   returnLink.hidden = false;
-  if (returnBar) returnBar.hidden = false;
+  const requestedLesson = new URLSearchParams(window.location.search).get("lesson");
+  placeStrategiumReviewReturn(requestedLesson === "readiness-checklist" ? "readiness" : "lesson");
 }
 
 function initReadinessChecklist() {
@@ -1609,8 +1620,8 @@ function initRevealObserver() {
 document.addEventListener("DOMContentLoaded", () => {
   initStrategiumAtmosphere();
   initRevealObserver();
-  initStrategiumConsole();
   initStrategiumReviewReturn();
+  initStrategiumConsole();
   initReadinessChecklist();
 
   const backTop = document.getElementById("backTop");

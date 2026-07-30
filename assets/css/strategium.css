@@ -614,6 +614,12 @@ main section {
   padding: 0.95rem;
 }
 
+.vm-console-script-card {
+  grid-template-rows: auto auto 1fr;
+  align-content: start;
+  gap: 0.7rem;
+}
+
 .vm-console-script-card strong,
 .vm-archetype-card h4,
 .vm-readiness-status-card strong {
@@ -627,6 +633,10 @@ main section {
   line-height: 1.55;
 }
 
+.vm-console-script-card > p {
+  margin: 0;
+}
+
 .vm-console-script-card blockquote {
   margin: 0;
   padding-left: 0.8rem;
@@ -636,9 +646,20 @@ main section {
   line-height: 1.6;
 }
 
-.vm-console-script-card .vm-mini-badge,
 .vm-archetype-card .vm-mini-badge {
   justify-self: start;
+}
+
+.vm-console-script-card .vm-mini-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: stretch;
+  min-height: 3rem;
+  padding: 0.55rem 0.85rem;
+  line-height: 1.25;
+  text-align: center;
+  white-space: normal;
 }
 
 .vm-cognitive-list {
@@ -883,6 +904,7 @@ main section {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.8rem;
+  align-items: start;
 }
 
 .vm-checklist-button {
@@ -890,6 +912,7 @@ main section {
   grid-template-columns: auto 1fr;
   gap: 0.9rem;
   align-items: start;
+  align-self: start;
   width: 100%;
   color: var(--text);
   cursor: pointer;
@@ -1094,35 +1117,26 @@ main section {
   align-items: center;
 }
 
-.vm-console-context-bar {
-  position: sticky;
-  top: 5.4rem;
-  z-index: 12;
-  display: flex;
-  justify-content: flex-end;
-  width: min(1220px, calc(100% - 2rem));
-  margin: 1rem auto 0;
-  pointer-events: none;
-}
-
-.vm-console-context-bar[hidden] {
-  display: none;
+.vm-console-context-return:has(.vm-console-review-return:not([hidden])) {
+  margin: 0.9rem 0;
 }
 
 .vm-console-review-return {
-  pointer-events: auto;
-  border-color: rgba(247, 215, 132, 0.7);
-  background: linear-gradient(135deg, rgba(247, 215, 132, 0.24), rgba(88, 184, 255, 0.12));
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  scroll-margin-top: 6.5rem;
   color: var(--gold-2);
-  font-weight: 750;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.48);
-  backdrop-filter: blur(12px);
+  font-weight: 700;
+  text-decoration-color: rgba(247, 215, 132, 0.48);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.28em;
 }
 
 .vm-console-review-return:hover,
 .vm-console-review-return:focus-visible {
-  border-color: var(--gold-2);
-  background: linear-gradient(135deg, rgba(247, 215, 132, 0.34), rgba(88, 184, 255, 0.18));
+  color: var(--ink);
+  text-decoration-color: currentColor;
 }
 
 .vm-console-review-return[hidden] {
@@ -1164,6 +1178,7 @@ main section {
 .vm-hub-path-section {
   width: min(1040px, 100%);
   margin-inline: auto;
+  padding-bottom: clamp(3rem, 7vw, 5rem);
 }
 
 .vm-hub-section-head {
@@ -1179,8 +1194,9 @@ main section {
 .vm-path-card {
   position: relative;
   display: grid;
+  grid-template-rows: auto auto 1fr auto;
   min-height: 292px;
-  align-content: end;
+  align-content: stretch;
   gap: 0.75rem;
   overflow: hidden;
   border-color: rgba(247, 215, 132, 0.34);
@@ -1202,6 +1218,7 @@ main section {
   z-index: 1;
   margin: 0;
   font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1.12;
 }
 
 .vm-path-kicker {
@@ -1220,76 +1237,14 @@ main section {
   z-index: 1;
 }
 
+.vm-path-card p {
+  margin: 0;
+}
+
 .vm-path-card .vm-cta {
+  align-self: end;
   color: var(--gold-2);
   font-weight: 700;
-}
-
-.vm-hub-availability {
-  width: min(1040px, 100%);
-  margin-inline: auto;
-}
-
-.vm-availability-panel {
-  padding: clamp(1.4rem, 3vw, 2rem);
-}
-
-.vm-availability-panel > .vm-eyebrow,
-.vm-availability-panel > .vm-section-heading,
-.vm-availability-panel > .vm-section-intro {
-  max-width: 760px;
-}
-
-.vm-situation-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.8rem;
-  margin-top: 1.4rem;
-}
-
-.vm-situation-card {
-  display: grid;
-  align-content: start;
-  gap: 0.55rem;
-  min-height: 190px;
-  padding: 1.1rem;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 18px;
-  background: rgba(4, 6, 11, 0.46);
-}
-
-.vm-situation-card span {
-  color: var(--gold-2);
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-}
-
-.vm-situation-card strong {
-  width: max-content;
-  max-width: 100%;
-  padding: 0.25rem 0.55rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--muted);
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.vm-situation-card p {
-  margin: 0.35rem 0 0;
-  color: var(--muted);
-  line-height: 1.55;
-}
-
-.vm-situation-card-active {
-  border-color: rgba(247, 215, 132, 0.45);
-  background: linear-gradient(180deg, rgba(33, 37, 47, 0.7), rgba(12, 16, 25, 0.58));
-}
-
-.vm-situation-card-active strong {
-  background: rgba(247, 215, 132, 0.16);
-  color: var(--gold-2);
 }
 
 .vm-review-shell {
@@ -1649,7 +1604,6 @@ main section {
 .vm-targeting-signals summary:focus-visible,
 .vm-button:focus-visible,
 .vm-path-card:focus-visible,
-.vm-situation-card-active:focus-visible,
 .vm-lesson-link:focus-visible {
   outline: 3px solid var(--mana-blue);
   outline-offset: 3px;
@@ -1663,10 +1617,6 @@ main section {
 
 .vm-console-body > h3 {
   scroll-margin-top: 6.5rem;
-}
-
-.vm-shell:has(.vm-console-context-bar:not([hidden])) .vm-console-body > h3 {
-  scroll-margin-top: 10rem;
 }
 
 .vm-console-body > h3:focus,
@@ -1783,7 +1733,6 @@ html.vm-dialog-open body {
 }
 
 @media (max-width: 980px) {
-  .vm-situation-grid,
   .vm-targeting-signals > div {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1802,7 +1751,6 @@ html.vm-dialog-open body {
 }
 
 @media (max-width: 480px) {
-  .vm-situation-grid,
   .vm-targeting-signals > div {
     grid-template-columns: 1fr;
   }

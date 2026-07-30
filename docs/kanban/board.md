@@ -55,7 +55,7 @@ Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is
 
 VM-429 Section 14 ID reconciliation, 2026-06-30: the early readiness plan expected route metadata as `VM-448` and public demo / strategic case study as `VM-449`, but final ID assignment shifted after intervening queue work. In the final handoff trail, `VM-448` is Critical Browser E2E Smoke and `VM-449` is Maze Return Loop Microcopy Tightening; both are complete. The originally expected route metadata and public demo / strategic case-study scopes were completed as `VM-451` and `VM-452`. VM-458 later moved VM-422/VM-446 to backlog; live private deck-link behavior remains not production-proven.
 
-- [VM-550 - Strategium After-the-Game MVP Second Owner-Review Remediation](done/VM-550-strategium-after-game-mvp.md) - completed the bounded hub hierarchy, semantic action-control, stable Learn More row, centered single-scroll dialog, and validated exact-result Console return pass from `d6c89ecdf70e6bb342f8b3a5f705ff5898930571`; exact final remediation HEAD still requires owner hand review.
+- [VM-550 - Strategium After-the-Game MVP Final Owner-Review Polish](in-progress/VM-550-strategium-after-game-mvp.md) - reopened from exact clean HEAD `a908c12362dc4602af1829a867fa5b62233e0366` for the bounded hub, stage-aware control, lesson spacing, checklist sizing, and inline contextual-return pass.
 
 - [VM-543 - Public README Gateway Repair](done/VM-543-public-readme-gateway-repair.md) - replaced the obsolete root README with an accurate public gateway covering product purpose, live site, current experiences, repository map, local checks, protected workflow boundaries, attribution, non-affiliation, and license status.
 
