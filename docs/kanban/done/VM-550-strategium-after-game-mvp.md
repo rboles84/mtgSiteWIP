@@ -2,7 +2,7 @@
 
 ID: VM-550
 Title: Strategium After-the-Game MVP
-Status: done - awaiting owner hand review of exact final SHA
+Status: remediation complete - awaiting owner hand review and repeated independent review
 Type: Frontend / Commander UX / Product Slice
 Area: Strategium
 Priority: high
@@ -79,6 +79,23 @@ Reopened on 2026-07-29 from exact clean HEAD `1fa8fc6ab374ced5ea05377bf4e116ae3e
 - The first browser-smoke attempt hit a transient mobile Home-canvas visibility check before Strategium; an immediate isolated rerun passed desktop and mobile. No source change was made for that unrelated transient.
 - Visual baselines were not refreshed or approved.
 - The exact final validation-and-handoff HEAD requires owner hand review. This card does not claim acceptance, integration, certification, deployment, or production readiness.
+
+## Independent-Review Remediation
+
+Reopened on 2026-07-30 from exact clean owner-approved candidate `e53e8319ecc77bea12e1e33e30914cacc83c1531`.
+
+- Scope is limited to exact authored-result validation for Console return destinations, complete positive and negative return regressions, unique `#top` anchors on the three Strategium routes, and the required VM-550 validation/handoff record.
+- Preserve all 24 authored paths, 15 result patterns, accepted result and lesson mappings, shared lesson/dialog behavior, Console deep links, readiness behavior, feedback, history, and final owner-approved visual work.
+- Do not change unrelated gate-bias test/report architecture. The aggregate suite's known report-writing behavior will be handled through the repository-authorized implementation-test method and documented honestly.
+- Do not push, merge, rebase, deploy, certify, refresh visual baselines, or touch unrelated routes.
+- Implementation commit: `e494a114870740a517fafc246ec52df844634748`.
+- `assets/js/strategium-review-paths.js` is the immutable authority for all 24 exact leaf paths, their 15 result identifiers, and their ordered lesson IDs. The diagnostic, Console validator, and focused tests consume that same registry.
+- The Console return link now requires one same-origin `/strategium/review/` destination with exactly one `path` query whose decoded value is an exact registry key. Partial question states, invented and impossible combinations, extra segments, malformed/traversal values, unsafe schemes, duplicates, hashes, and unsupported query keys fail closed while the requested Console lesson still renders.
+- Focused browser coverage now round-trips all 24 exact authored results and rejects 27 negative return categories.
+- `/strategium/`, `/strategium/review/`, and `/strategium/console/` each render exactly one `id="top"` anchor. Footer and floating Top controls stay within their current route and reach page top.
+- The aggregate suite passed using the authorized implementation-worktree method. The pre/post SHA-256 hashes of `live-gate-bias.json` and `live-gate-bias.md` were identical, so no audit-report change entered this remediation.
+- Required automated checks and the five-viewport in-app browser pass completed. Browser warnings/errors were empty; visual baselines were not refreshed.
+- Exact next action: owner hand review of the new exact validation-and-handoff SHA, then repetition of the independent review gate against that exact SHA. Certification and integration remain out of scope.
 
 ## Pre-Flight Summary
 
@@ -174,3 +191,5 @@ The complete authoritative mapping is recorded in `docs/handoffs/2026-07-28-0147
 - `3a7eac93cc37627a814f6e04e3c2288f785b6678`
 - Human-QA remediation implementation: `4858e8c75edb6fe9b136cff51c9e23fe53de9cf6`
 - Validation and remediation handoff: this document's final commit
+- Independent-review remediation implementation: `e494a114870740a517fafc246ec52df844634748`
+- Independent-review validation and handoff: this document's final commit

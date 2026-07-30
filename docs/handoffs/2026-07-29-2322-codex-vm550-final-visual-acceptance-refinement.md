@@ -156,3 +156,17 @@ Product owner performing the exact-SHA hand review.
 - Required starting candidate: `1fa8fc6ab374ced5ea05377bf4e116ae3ebe5dd4`
 - Final visual acceptance implementation: `5dd604f0e435e9fcbaf3901ad84b4e28c5668d1d`
 - Validation and handoff: this document's commit
+
+## Subsequent independent-review remediation
+
+On 2026-07-30, VM-550 was reopened from the owner-approved exact SHA `e53e8319ecc77bea12e1e33e30914cacc83c1531` solely to dispose of the independent-review return-validation and duplicate-anchor findings.
+
+- Implementation commit: `e494a114870740a517fafc246ec52df844634748`.
+- One immutable authored-result registry now owns the accepted 24 leaf paths, 15 result IDs, and ordered lesson IDs for the diagnostic, Console return validator, and focused tests.
+- Console contextual return now accepts only an exact authored result and rejects partial stages, invented or impossible combinations, extra segments, unsafe/malformed values, unsupported or duplicate parameters, and hashes without suppressing the requested valid lesson.
+- All 24 exact result returns complete a Console-to-result round trip; 27 negative categories fail closed.
+- The duplicate `id="top"` on each Strategium route was removed; every route has one top anchor and its local footer/floating controls retain page-top behavior.
+- The full aggregate suite passed with identical pre/post hashes for its two tracked live gate-bias reports, so no unrelated report changes were retained.
+- Required automated validation and five-viewport in-app browser review passed; browser warnings/errors were empty.
+- Full disposition and validation evidence: `docs/handoffs/2026-07-30-1149-codex-vm550-independent-review-remediation.md`.
+- Exact next action is owner hand review of the new exact SHA, followed by repetition of the independent review gate against that exact SHA. This addendum does not claim certification or integration.

@@ -288,6 +288,10 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
 16. Move the pointer across dense reading panels and lesson content; confirm no distracting pointer-reactive light tracks the cursor and keyboard users receive the same stable visual surface.
 17. Confirm browser console warning/error output is empty for the three Strategium routes.
 18. Do not refresh or approve Strategium visual baselines during this remediation.
+19. Use every one of the 24 authored leaf paths as a Console `return` value; confirm the inline link appears, retains the canonical exact URL, and returns to the same rendered result without recovery normalization.
+20. Reject partial question states, invented paths, real-segment impossible combinations, valid paths with extra segments, external/protocol-relative/JavaScript/traversal/malformed values, empty or missing values, duplicate parameters, destination hashes, and unsupported query keys; confirm no contextual return appears, no script runs, and the requested Console lesson still renders.
+21. On `/strategium/`, `/strategium/review/`, and `/strategium/console/`, confirm `document.querySelectorAll("#top").length === 1`; exercise footer Back to top and the visible floating Top action, confirm scroll position reaches zero, and confirm the pathname remains on the current Strategium route.
+22. Before aggregate validation, record hashes for the tracked live gate-bias JSON and Markdown reports; after `npm.cmd test`, confirm both hashes and candidate status are unchanged.
 
 ## `apocrypha/index.html` visual regression harness
 
