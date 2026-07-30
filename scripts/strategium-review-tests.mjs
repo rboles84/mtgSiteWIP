@@ -4,6 +4,8 @@ import path from "node:path";
 
 import puppeteer from "puppeteer-core";
 
+await import("../assets/js/strategium-review-paths.js");
+
 const root = process.cwd();
 const browserCandidates = [
   process.env.LIGHTHOUSE_CHROME_PATH,
@@ -13,32 +15,11 @@ const browserCandidates = [
 ].filter(Boolean);
 const failures = [];
 
-const pathCases = [
-  ["after-game/won-unclear", "won-unclear", ["threat-reading", "heat-management", "archetype-signal"]],
-  ["after-game/one-sided", "one-sided", ["threat-reading", "pod-readiness"]],
-  ["after-game/couldnt-follow", "game-flow", ["archetype-signal", "threat-reading"]],
-  ["after-game/table-bad", "social-friction", ["pod-readiness", "heat-management"]],
-  ["after-game/unsure", "uncertain", ["threat-reading", "readiness-checklist"]],
-  ["after-game/lost/opening-hand", "opening-hand", ["pod-readiness", "readiness-checklist"]],
-  ["after-game/lost/mana-draw", "mana-development", ["pod-readiness", "readiness-checklist"]],
-  ["after-game/lost/wrong-order", "sequencing", ["threat-reading", "command-zone"]],
-  ["after-game/lost/never-started/resources-late", "mana-development", ["pod-readiness", "readiness-checklist"]],
-  ["after-game/lost/never-started/commander-needed", "commander-dependence", ["command-zone"]],
-  ["after-game/lost/never-started/pod-fast", "power-mismatch", ["pod-readiness", "readiness-checklist"]],
-  ["after-game/lost/never-started/unsure", "uncertain", ["threat-reading", "readiness-checklist"]],
-  ["after-game/lost/stopped/commander-stopped", "commander-dependence", ["command-zone"]],
-  ["after-game/lost/stopped/key-spells", "open-mana", ["threat-reading"]],
-  ["after-game/lost/stopped/visible-engine", "targeting", ["heat-management", "threat-reading"]],
-  ["after-game/lost/stopped/unsure", "uncertain", ["threat-reading", "readiness-checklist"]],
-  ["after-game/lost/other-plan/engine-hidden", "other-plan", ["archetype-signal", "threat-reading"]],
-  ["after-game/lost/other-plan/wrong-piece", "wrong-target", ["threat-reading", "archetype-signal"]],
-  ["after-game/lost/other-plan/artifact-confusion", "beyond-wubrg", ["beyond-wubrg", "archetype-signal"]],
-  ["after-game/lost/other-plan/plan-unsure", "game-flow", ["archetype-signal", "threat-reading"]],
-  ["after-game/lost/focused", "targeting", ["heat-management", "threat-reading"]],
-  ["after-game/lost/stronger", "power-mismatch", ["pod-readiness", "readiness-checklist"]],
-  ["after-game/lost/nothing-mattered", "one-sided", ["threat-reading", "pod-readiness"]],
-  ["after-game/lost/unsure", "uncertain", ["threat-reading", "readiness-checklist"]],
-];
+const pathCases = globalThis.vmStrategiumReviewPaths.entries.map(entry => [
+  entry.path,
+  entry.resultId,
+  entry.lessonIds
+]);
 
 const consoleLessons = new Map([
   ["command-zone", "Command Zone"],
@@ -139,6 +120,7 @@ async function getResultState(page) {
 async function runStaticChecks() {
   const review = await readFile(path.join(root, "assets/js/strategium-review.js"), "utf8");
   const consoleRuntime = await readFile(path.join(root, "assets/js/strategium.js"), "utf8");
+  const pathRegistry = await readFile(path.join(root, "assets/js/strategium-review-paths.js"), "utf8");
   const styles = await readFile(path.join(root, "assets/css/strategium.css"), "utf8");
   const hubHtml = await readFile(path.join(root, "strategium/index.html"), "utf8");
   const reviewHtml = await readFile(path.join(root, "strategium/review/index.html"), "utf8");
@@ -146,6 +128,17 @@ async function runStaticChecks() {
 
   expect(pathCases.length === 24, `Expected 24 workbook path cases, found ${pathCases.length}`);
   expect(new Set(pathCases.map(([, resultId]) => resultId)).size === 15, "Expected 15 result patterns after the wrong-piece repair");
+  expect(
+    Object.isFrozen(globalThis.vmStrategiumReviewPaths)
+      && Object.isFrozen(globalThis.vmStrategiumReviewPaths.entries)
+      && Object.isFrozen(globalThis.vmStrategiumReviewPaths.byPath)
+      && globalThis.vmStrategiumReviewPaths.entries.every(entry =>
+        Object.isFrozen(entry) && Object.isFrozen(entry.lessonIds)
+      ),
+    "Shared authored-result registry must be immutable"
+  );
+  expect(!globalThis.vmStrategiumReviewPaths.byPath["after-game/lost"], "Partial review states must not enter the authored-result registry");
+  expect(pathRegistry.includes("globalThis.vmStrategiumReviewPaths"), "Shared authored-result registry is not exposed");
   expect(review.includes('"wrong-target"'), "Wrong-piece path must have a dedicated wrong-target result");
   expect(
     review.includes('{ id: "wrong-piece", label: "I reacted, but I may have answered the wrong piece", result: "wrong-target" }'),
@@ -167,11 +160,21 @@ async function runStaticChecks() {
   expect(consoleRuntime.includes("window.vmStrategiumRenderLesson = renderStrategiumLesson"), "Shared lesson renderer is not exposed");
   expect(consoleRuntime.includes("getValidStrategiumReviewReturn"), "Console return destination validation is missing");
   expect(consoleRuntime.includes('candidate.pathname !== "/strategium/review/"'), "Console return validation must be restricted to the review route");
+  expect(consoleRuntime.includes("window.vmStrategiumReviewPaths?.byPath"), "Console return validation must use the shared authored-result registry");
   expect(!consoleHtml.includes("<base "), "Console must not use a base element");
   expect(consoleHtml.includes('href="#top"') && consoleHtml.includes('href="#strategium"'), "Console-local Top and Strategium anchors are missing");
   expect(consoleHtml.includes("../../assets/js/strategium.js"), "Console nested-route asset paths were not repaired");
   expect(reviewHtml.includes('id="strategiumLessonDialog"'), "Review route is missing the reusable lesson dialog");
   expect(reviewHtml.includes('aria-labelledby="strategiumLessonDialogTitle"'), "Lesson dialog is missing its accessible title relationship");
+  expect(reviewHtml.includes("../../assets/js/strategium-review-paths.js"), "Review route must load the shared authored-result registry");
+  expect(consoleHtml.includes("../../assets/js/strategium-review-paths.js"), "Console route must load the shared authored-result registry");
+  for (const [route, source] of [
+    ["hub", hubHtml],
+    ["review", reviewHtml],
+    ["console", consoleHtml],
+  ]) {
+    expect((source.match(/\bid="top"/g) || []).length === 1, `${route} route must contain exactly one #top anchor`);
+  }
   expect((reviewHtml.match(/data-lesson-dialog-close/g) || []).length === 1, "Lesson dialog should expose one close action");
   expect(!reviewHtml.includes("Return to this result"), "Lesson dialog should not duplicate its close action in the footer");
   expect(consoleHtml.includes("data-review-return-link"), "Console is missing contextual review-return navigation");
@@ -488,6 +491,37 @@ async function runBrowserChecks(baseUrl) {
         ]),
         `${reviewPath} should preserve the semantic review-action component`
       );
+
+      const exactReturnPath = `/strategium/review/?path=${reviewPath}`;
+      await page.goto(
+        `${baseUrl}/strategium/console/?lesson=${expectedLessons[0]}&return=${encodeURIComponent(exactReturnPath)}`,
+        { waitUntil: "networkidle0" }
+      );
+      await page.waitForSelector("[data-review-return-link]:not([hidden])");
+      const authoredReturn = await page.$eval("[data-review-return-link]", link => ({
+        href: link.getAttribute("href"),
+        consolePath: window.location.pathname,
+        lessonTitle: document.querySelector("#basicsReveal h3")?.textContent.trim() || "",
+      }));
+      expect(
+        authoredReturn.href === exactReturnPath
+          && authoredReturn.consolePath === "/strategium/console/"
+          && authoredReturn.lessonTitle.length > 0,
+        `${reviewPath} should be accepted as an exact authored Console return`
+      );
+      await Promise.all([
+        page.waitForNavigation({ waitUntil: "networkidle0" }),
+        page.click("[data-review-return-link]"),
+      ]);
+      expect(page.url() === `${baseUrl}${exactReturnPath}`, `${reviewPath} return target should remain canonical`);
+      expect(
+        await page.$eval("[data-result-id]", node => node.dataset.resultId) === expectedResult,
+        `${reviewPath} contextual return should restore result ${expectedResult}`
+      );
+      expect(
+        await page.$("[data-review-recovery]") === null,
+        `${reviewPath} contextual return must not normalize to an earlier review state`
+      );
     }
 
     const questionPaths = [
@@ -754,21 +788,40 @@ async function runBrowserChecks(baseUrl) {
       "Readiness return should appear inline immediately before the checklist destination"
     );
 
+    const canonicalReturn = "/strategium/review/?path=after-game/won-unclear";
     const invalidReturns = [
-      ["external https", "https://example.com/strategium/review/?path=after-game/won-unclear"],
-      ["protocol-relative", "//example.com/strategium/review/?path=after-game/won-unclear"],
-      ["unrelated same-origin", "/privacy/"],
-      ["javascript", "javascript:window.__strategiumUnsafeReturnExecuted=true"],
-      ["empty", ""],
-      ["malformed encoded", "%E0%A4%A"],
-      ["extra query key", "/strategium/review/?path=after-game/won-unclear&extra=1"],
-      ["path traversal", "/strategium/review/?path=after-game/../../privacy"],
+      ["partial root", "&return=%2Fstrategium%2Freview%2F%3Fpath%3Dafter-game"],
+      ["partial Game stage", `&return=${encodeURIComponent("/strategium/review/?path=after-game/lost")}`],
+      ["partial never-started stage", `&return=${encodeURIComponent("/strategium/review/?path=after-game/lost/never-started")}`],
+      ["partial stopped stage", `&return=${encodeURIComponent("/strategium/review/?path=after-game/lost/stopped")}`],
+      ["partial other-plan stage", `&return=${encodeURIComponent("/strategium/review/?path=after-game/lost/other-plan")}`],
+      ["invented top-level result", `&return=${encodeURIComponent("/strategium/review/?path=after-game/not-real")}`],
+      ["invented Game child", `&return=${encodeURIComponent("/strategium/review/?path=after-game/lost/not-real")}`],
+      ["invented Detail child", `&return=${encodeURIComponent("/strategium/review/?path=after-game/lost/other-plan/not-real")}`],
+      ["valid prefix with extra segment", `&return=${encodeURIComponent("/strategium/review/?path=after-game/won-unclear/extra")}`],
+      ["valid nested result with extra segment", `&return=${encodeURIComponent("/strategium/review/?path=after-game/lost/other-plan/wrong-piece/extra")}`],
+      ["impossible stopped and commander-needed combination", `&return=${encodeURIComponent("/strategium/review/?path=after-game/lost/stopped/commander-needed")}`],
+      ["impossible never-started and key-spells combination", `&return=${encodeURIComponent("/strategium/review/?path=after-game/lost/never-started/key-spells")}`],
+      ["external https", `&return=${encodeURIComponent("https://example.com/strategium/review/?path=after-game/won-unclear")}`],
+      ["protocol-relative", `&return=${encodeURIComponent("//example.com/strategium/review/?path=after-game/won-unclear")}`],
+      ["unrelated same-origin", `&return=${encodeURIComponent("/privacy/")}`],
+      ["javascript", `&return=${encodeURIComponent("javascript:window.__strategiumUnsafeReturnExecuted=true")}`],
+      ["empty", "&return="],
+      ["missing", ""],
+      ["malformed encoded", "&return=%E0%A4%A"],
+      ["extra destination query key", `&return=${encodeURIComponent(`${canonicalReturn}&extra=1`)}`],
+      ["path traversal", `&return=${encodeURIComponent("/strategium/review/?path=after-game/../../privacy")}`],
+      ["duplicate destination path parameters", `&return=${encodeURIComponent("/strategium/review/?path=after-game/won-unclear&path=after-game/unsure")}`],
+      ["duplicate outer return parameters", `&return=${encodeURIComponent(canonicalReturn)}&return=${encodeURIComponent(canonicalReturn)}`],
+      ["duplicate outer lesson parameters", `&lesson=heat-management&return=${encodeURIComponent(canonicalReturn)}`],
+      ["unsupported outer query key", `&extra=1&return=${encodeURIComponent(canonicalReturn)}`],
+      ["destination hash", `&return=${encodeURIComponent(`${canonicalReturn}#top`)}`],
+      ["unsupported destination query combination", `&return=${encodeURIComponent(`${canonicalReturn}&lesson=threat-reading`)}`],
     ];
-    for (const [label, invalidReturn] of invalidReturns) {
+    for (const [label, returnQuery] of invalidReturns) {
       await page.evaluate(() => {
         window.__strategiumUnsafeReturnExecuted = false;
       });
-      const returnQuery = invalidReturn === "" ? "&return=" : `&return=${encodeURIComponent(invalidReturn)}`;
       await page.goto(
         `${baseUrl}/strategium/console/?lesson=threat-reading${returnQuery}`,
         { waitUntil: "networkidle0" }
@@ -791,6 +844,48 @@ async function runBrowserChecks(baseUrl) {
           && !rejectedReturn.executed,
         `Console should safely reject ${label} return values`
       );
+    }
+
+    for (const route of [
+      "/strategium/",
+      "/strategium/review/?path=after-game/won-unclear",
+      "/strategium/console/",
+    ]) {
+      await page.goto(`${baseUrl}${route}`, { waitUntil: "networkidle0" });
+      expect(
+        await page.$$eval("#top", elements => elements.length) === 1,
+        `${route} should render exactly one #top element`
+      );
+      for (const selector of ['footer a[href="#top"]', "#backTop"]) {
+        await page.goto(`${baseUrl}${route}`, { waitUntil: "networkidle0" });
+        await page.evaluate(() => new Promise(resolve =>
+          window.requestAnimationFrame(() => window.requestAnimationFrame(resolve))
+        ));
+        await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+        await page.evaluate(() => new Promise(resolve => window.requestAnimationFrame(resolve)));
+        if (selector === "#backTop" && !(await page.$eval("#backTop", link => link.classList.contains("show")))) {
+          continue;
+        }
+        const routeBeforeTop = new URL(page.url()).pathname;
+        await page.click(selector);
+        await page.waitForFunction(
+          () => window.location.hash === "#top" && window.scrollY <= 1,
+          { timeout: 5000 }
+        );
+        const topPosition = await page.evaluate(() => ({
+          hash: window.location.hash,
+          scrollY: window.scrollY,
+          anchorTop: document.getElementById("top").getBoundingClientRect().top,
+        }));
+        expect(
+          new URL(page.url()).pathname === routeBeforeTop,
+          `${selector} on ${route} should remain within its Strategium route`
+        );
+        expect(
+          topPosition.hash === "#top" && topPosition.scrollY <= 1 && Math.abs(topPosition.anchorTop) <= 1,
+          `${selector} on ${route} should land at the page top (${JSON.stringify(topPosition)})`
+        );
+      }
     }
 
     for (const [lessonId, expectedTitle] of consoleLessons) {
@@ -1015,9 +1110,8 @@ async function runBrowserChecks(baseUrl) {
     expect(await page.$eval("[data-result-id]", node => node.dataset.resultId) === "won-unclear", "Diagnostic Forward did not restore the result");
 
     const lessonCounts = await page.evaluate(() => {
-      const model = window.vmStrategiumReviewModel.results;
-      return Object.values(model).reduce((counts, result) => {
-        counts[result.lessons.length] = (counts[result.lessons.length] || 0) + 1;
+      return window.vmStrategiumReviewPaths.entries.reduce((counts, entry) => {
+        counts[entry.lessonIds.length] = (counts[entry.lessonIds.length] || 0) + 1;
         return counts;
       }, {});
     });

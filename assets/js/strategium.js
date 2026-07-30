@@ -1337,7 +1337,13 @@ function initStrategiumConsole() {
 }
 
 function getValidStrategiumReviewReturn() {
-  const rawReturn = new URLSearchParams(window.location.search).get("return");
+  const consoleParams = new URLSearchParams(window.location.search);
+  const consoleKeys = Array.from(consoleParams.keys());
+  if (consoleKeys.some(key => key !== "lesson" && key !== "return")) return "";
+  if (consoleParams.getAll("lesson").length > 1) return "";
+  const returnValues = consoleParams.getAll("return");
+  if (returnValues.length !== 1) return "";
+  const rawReturn = returnValues[0];
   if (!rawReturn || rawReturn.length > 1024 || /[\u0000-\u001f\\]/.test(rawReturn)) return "";
 
   let candidate;
@@ -1355,9 +1361,10 @@ function getValidStrategiumReviewReturn() {
   if (keys.length !== 1 || keys[0] !== "path") return "";
 
   const reviewPath = candidate.searchParams.get("path") || "";
-  if (!/^after-game(?:\/[a-z0-9-]+){1,3}$/.test(reviewPath)) return "";
+  const authoredResultsByPath = window.vmStrategiumReviewPaths?.byPath;
+  if (!authoredResultsByPath || !Object.prototype.hasOwnProperty.call(authoredResultsByPath, reviewPath)) return "";
 
-  return `${candidate.pathname}?path=${reviewPath}`;
+  return `${candidate.pathname}?path=${authoredResultsByPath[reviewPath].path}`;
 }
 
 function placeStrategiumReviewReturn(destination) {
@@ -1657,7 +1664,14 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         window.location.hash = anchorId;
       }
-      anchor.scrollIntoView({ behavior: "auto", block: "start" });
+      if (anchorId === "top") {
+        const priorScrollBehavior = document.documentElement.style.scrollBehavior;
+        document.documentElement.style.scrollBehavior = "auto";
+        window.scrollTo({ top: 0, behavior: "auto" });
+        document.documentElement.style.scrollBehavior = priorScrollBehavior;
+      } else {
+        anchor.scrollIntoView({ behavior: "auto", block: "start" });
+      }
     });
   });
 });

@@ -6,15 +6,9 @@
   const fullConsoleLink = document.getElementById("strategiumLessonConsoleLink");
   if (!mount || !lessonDialog || !lessonDialogTitle || !lessonDialogBody || !fullConsoleLink) return;
 
-  const lessonKeys = {
-    command: "command-zone",
-    pod: "pod-readiness",
-    archetype: "archetype-signal",
-    threat: "threat-reading",
-    heat: "heat-management",
-    beyond: "beyond-wubrg",
-    checklist: "readiness-checklist"
-  };
+  const authoredResultRegistry = window.vmStrategiumReviewPaths;
+  if (!authoredResultRegistry?.entries || !authoredResultRegistry?.byPath) return;
+  const authoredResultsByPath = authoredResultRegistry.byPath;
 
   const results = {
     "opening-hand": {
@@ -22,63 +16,54 @@
       happened: "The hand may have contained castable cards without enough mana, early action, or a clear route into the deck's main plan.",
       look: "Notice whether the first three turns develop mana, draw cards, or put the deck's plan on the table. Also note what happens if the commander is delayed.",
       try: "Before your next keep, name your first useful play and what the hand does on turns two and three.",
-      lessons: ["pod", "checklist"]
     },
     "mana-development": {
       title: "Your mana development may have stalled the plan",
       happened: "Too many or too few lands can decide a game, but the same pattern can appear when ramp, card draw, and the deck's mana costs do not line up.",
       look: "Track the first turn when you could use most of your mana and whether each turn gave you a meaningful play.",
       try: "For one game, note unused mana and turns when every relevant card in hand cost more than you could spend.",
-      lessons: ["pod", "checklist"]
     },
     sequencing: {
       title: "The order of your plays may have cost information or tempo",
       happened: "You may have had the right tools but used them in an order that exposed a key card, spent interaction early, or left too little mana for the next decision.",
       look: "Watch what changes if you draw first, develop mana first, or wait to reveal the most important part of the turn.",
       try: "At the start of one turn, pause and say the full sequence to yourself before tapping mana.",
-      lessons: ["threat", "command"]
     },
     "commander-dependence": {
       title: "The deck may have leaned too hard on the command zone",
       happened: "This can happen when the commander is the engine, payoff, and recovery plan at the same time. Repeated removal then interrupts several parts of the deck.",
       look: "Notice what the deck can still advance when the commander costs more, gets answered, or never stays in play.",
       try: "Before each recast, ask yourself: \"What is my best non-commander turn?\"",
-      lessons: ["command"]
     },
     "open-mana": {
       title: "The table may have had an answer window for your key spells",
       happened: "Your important cards may have run into interaction because opponents still had mana and cards available. Casting was not necessarily wrong; the window may simply have been contested.",
       look: "Before a key spell, check who can respond, who benefits if it fails, and whether a smaller play could draw out an answer.",
       try: "Before committing your most important card, ask the table what is currently most dangerous.",
-      lessons: ["threat"]
     },
     "other-plan": {
       title: "Another deck's engine may not have been obvious yet",
       happened: "You may have seen individual cards without recognizing the repeatable engine, setup piece, or closing pattern they were building.",
       look: "Watch for resources that grow every turn, cards that make later plays cheaper, and commanders that turn ordinary actions into repeated value.",
       try: "After the next unfamiliar game, ask that pilot for the deck's one-sentence plan and its earliest warning sign.",
-      lessons: ["archetype", "threat"]
     },
     "wrong-target": {
       title: "You may have answered a piece the deck could replace",
       happened: "You did interact, but the permanent you removed may not have been the plan's true dependency. Some decks can replace a setup piece or engine while protecting the payoff or the card that makes the line work.",
       look: "Ask what role each visible piece serves: setup, repeatable engine, enabler, payoff, protection, or finisher. Then ask which role the deck cannot easily replace.",
       try: "Before your next answer, ask: \"If this stays, what does it enable next?\" Spend interaction on the piece creating the most immediate or least replaceable pressure.",
-      lessons: ["threat", "archetype"]
     },
     "beyond-wubrg": {
       title: "Artifacts or colorless pieces may have hidden the deck's plan",
       happened: "Colorless cards can look interchangeable even when they are ramp, engines, combo pieces, or finishers. That unfamiliar board may have been harder to read.",
       look: "Separate cards that only make resources from cards that repeatedly turn those resources into cards, damage, or a win.",
       try: "Choose one unfamiliar artifact after the game and ask what role it played instead of trying to learn the whole board at once.",
-      lessons: ["beyond", "archetype"]
     },
     targeting: {
       title: "The table may have been reacting to more than your current board",
       happened: "Being focused does not prove why the table chose you. Attention can come from what your deck can do now, what opponents can see, what they expect it to become, what they remember, or what table talk keeps emphasizing.",
       look: "Compare the five signals below. They can overlap, but none of them alone proves why the table targeted you.",
       try: "When pressure starts, ask: \"What are you most worried this board will do next?\" Answer with what your board can actually do, not only what you intended.",
-      lessons: ["heat", "threat"],
       signals: [
         ["Current power", "What your board and known resources can actually do now."],
         ["Visible pressure", "What opponents can see without knowing your hand."],
@@ -92,42 +77,36 @@
       happened: "A game can feel unwinnable when speed, interaction, resilience, or closing power differs across the pod. One game cannot establish a stable power ranking, but it can expose a conversation the table missed.",
       look: "Compare when each deck first became dangerous, how easily it recovered, and whether the pregame descriptions matched what happened.",
       try: "Before the next game, describe speed, combos, fast mana, lock pieces, and early win pressure instead of relying on one power number.",
-      lessons: ["pod", "checklist"]
     },
     "one-sided": {
       title: "The game may have closed before the table had meaningful choices",
       happened: "This can happen when one deck starts much faster, an early engine goes unanswered, or several players lose resources while one player keeps developing.",
       look: "Find the earliest turn when the table still had a shared decision. That point is often more useful than the final winning play.",
       try: "Review that first turning point and name one question or interaction window the table could have noticed sooner.",
-      lessons: ["threat", "pod"]
     },
     "won-unclear": {
       title: "Your win may have been set up before the final turn",
       happened: "Earlier mana development, opponents spending their answers elsewhere, or a low-profile engine may have created the safe final turn. The last play is not always the whole explanation.",
       look: "Notice when opponents stopped holding mana, when your repeatable value survived, and when the table began fighting somewhere else.",
       try: "Reconstruct the two turns before the win and identify the first moment your line became difficult to stop.",
-      lessons: ["threat", "heat", "archetype"]
     },
     "game-flow": {
       title: "Several plans may have competed for your attention",
       happened: "Triggers, unfamiliar archetypes, and several possible threats may have arrived together. Losing the thread does not mean every decision you made was wrong.",
       look: "Reduce the board to three questions: who can win soon, who is gaining repeatable resources, and who still has answers?",
       try: "At the next busy table, track only commanders, open mana, and one engine per player for a full turn cycle.",
-      lessons: ["archetype", "threat"]
     },
     "social-friction": {
       title: "The problem may have been the table fit, not one game action",
       happened: "A bad table experience may involve mismatched expectations, unclear deals, repeated pressure, pace, communication, or conduct. A short review cannot determine another player's intent.",
       look: "Separate the game action from the table behavior: what happened, what was said, and which expectation was unclear?",
       try: "Use one direct sentence next time: \"I expected a different kind of game. Can we reset what this pod wants?\"",
-      lessons: ["pod", "heat"]
     },
     uncertain: {
       title: "You may need one more game to see the pattern",
       happened: "The game may have turned on several small choices rather than one obvious cause. Memory also becomes less reliable after a long or intense game.",
       look: "Choose one observable thread next time: opening hand, unused mana, commander recasts, first major engine, or the first player treated as the threat.",
       try: "Write down one turning point immediately after the game without trying to explain it yet.",
-      lessons: ["threat", "checklist"]
     }
   };
 
@@ -225,7 +204,7 @@
   ]);
 
   window.vmStrategiumReviewModel = Object.freeze({
-    lessonKeys: Object.freeze({ ...lessonKeys }),
+    authoredResults: authoredResultRegistry.entries,
     questions: Object.freeze(questions),
     results: Object.freeze(results)
   });
@@ -256,6 +235,11 @@
 
       validTrail.push(optionId);
       if (option.result) {
+        const authoredResult = authoredResultsByPath[validTrail.join("/")];
+        if (!authoredResult || authoredResult.resultId !== option.result) {
+          validTrail.pop();
+          return { questionId, resultId: "", validTrail, recovered: true };
+        }
         resultId = option.result;
         questionId = "";
         return {
@@ -317,8 +301,7 @@
     window.history.pushState({ strategiumPath: trail.slice() }, "", url);
   }
 
-  function lessonControl(key) {
-    const lessonId = lessonKeys[key];
+  function lessonControl(lessonId) {
     const lesson = getRegistry()[lessonId];
     if (!lesson) return "";
     return `
@@ -387,7 +370,9 @@
 
   function renderResult(resultId) {
     const result = results[resultId] || results.uncertain;
-    const lessonButtons = result.lessons.map(lessonControl).join("");
+    const authoredResult = authoredResultsByPath[trail.join("/")];
+    const lessonIds = authoredResult?.resultId === resultId ? authoredResult.lessonIds : [];
+    const lessonButtons = lessonIds.map(lessonControl).join("");
     mount.innerHTML = `
       ${recoveryMarkup()}
       <article class="vm-result-card" data-result-id="${resultId}">
@@ -401,7 +386,7 @@
           <section aria-labelledby="result-happened"><h3 id="result-happened">What may have happened</h3><p>${result.happened}</p></section>
           <section aria-labelledby="result-look"><h3 id="result-look">What to look for next time</h3><p>${result.look}</p></section>
           <section aria-labelledby="result-try"><h3 id="result-try">One thing to try</h3><p>${result.try}</p></section>
-          <section class="vm-result-learn" aria-labelledby="result-learn" data-lesson-count="${result.lessons.length}">
+          <section class="vm-result-learn" aria-labelledby="result-learn" data-lesson-count="${lessonIds.length}">
             <h3 id="result-learn">Learn more</h3>
             <p>Open a lesson here without leaving this result.</p>
             <div class="vm-lesson-grid">${lessonButtons}</div>
@@ -475,7 +460,10 @@
   }
 
   function getCurrentReviewReturnPath() {
-    return `/strategium/review/?path=${trail.join("/")}`;
+    const reviewPath = trail.join("/");
+    return Object.prototype.hasOwnProperty.call(authoredResultsByPath, reviewPath)
+      ? `/strategium/review/?path=${reviewPath}`
+      : "";
   }
 
   function openLessonDialog(lessonId) {
@@ -493,7 +481,9 @@
 
     const consoleUrl = new URL("../console/", window.location.href);
     consoleUrl.searchParams.set("lesson", lessonId);
-    consoleUrl.searchParams.set("return", getCurrentReviewReturnPath());
+    const reviewReturnPath = getCurrentReviewReturnPath();
+    if (reviewReturnPath) consoleUrl.searchParams.set("return", reviewReturnPath);
+    else consoleUrl.searchParams.delete("return");
     consoleUrl.hash = lessonId === "readiness-checklist" ? "readiness-checklist" : "strategium";
     fullConsoleLink.href = `${consoleUrl.pathname}${consoleUrl.search}${consoleUrl.hash}`;
     fullConsoleLink.textContent = "Open this lesson in the full Console";
