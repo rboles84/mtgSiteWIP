@@ -197,3 +197,18 @@ Product owner performing the exact-SHA hand review.
 - Second owner-review start: `d6c89ecdf70e6bb342f8b3a5f705ff5898930571`
 - Second owner-review implementation: `a73214826a464727d83a00f2735849b8b1a8bd6c`
 - Validation and handoff: this document's commit
+
+## Final owner-review polish addendum
+
+The owner reopened VM-550 on 2026-07-29 from exact clean HEAD `a908c12362dc4602af1829a867fa5b62233e0366` for one final bounded polish pass.
+
+- Removed the Guided Moments panel from the parent hub; unavailable moments remain exclusively in the review route.
+- Rebuilt the two hub cards on one deterministic top-aligned grid with bottom-aligned calls to action.
+- Changed review controls to the exact stage matrix: Situation has Return only; Game has Back and Return; Detail and Result have Back, Start over, and Return.
+- Normalized Pod Readiness category-pill centering and shared vertical rhythm without changing accepted prose.
+- Stopped readiness checklist cards from stretching to neighboring content height.
+- Replaced the sticky Console return action with an inline validated link immediately before the active lesson or readiness section.
+- Added explicit external, protocol-relative, unrelated-local, JavaScript-style, empty, malformed, extra-key, traversal, and absent return rejection checks.
+- Preserved all 24 authored paths, 15 result identifiers, path/result mappings, lesson mappings, lesson registry/dialog semantics, Console deep links, history, feedback, and recovery behavior.
+- Implementation commit: `4e87270a2668a118b2bb22b0d7b7eceb9bf1b8c9`.
+- Full details and final validation are in `docs/handoffs/2026-07-29-2237-codex-vm550-final-owner-review-polish.md`.

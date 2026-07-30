@@ -2,12 +2,12 @@
 
 ID: VM-550
 Title: Strategium After-the-Game MVP
-Status: in progress - final owner-review polish remediation
+Status: done - awaiting final owner hand review
 Type: Frontend / Commander UX / Product Slice
 Area: Strategium
 Priority: high
 Created: 2026-07-27
-Completed: pending final owner hand review
+Completed: 2026-07-29
 
 ## Summary
 
@@ -52,6 +52,14 @@ Reopened on 2026-07-29 from exact clean HEAD `a908c12362dc4602af1829a867fa5b6223
 - Replace the fixed Console review-return control with an inline contextual link immediately before the active lesson or readiness destination.
 - Explicitly reject external, protocol-relative, unrelated local, JavaScript-style, empty, malformed, and absent return values.
 - Validate the required desktop and mobile viewports without refreshing visual baselines.
+- Implementation commit: `4e87270a2668a118b2bb22b0d7b7eceb9bf1b8c9`.
+- The duplicate Guided Moments panel and its unused styles are removed; the hub now ends as a complete, centered two-experience choice.
+- Review controls now match the exact Situation, Game, Detail, and Result action matrix.
+- Pod Readiness category pills share centered sizing and spacing in both the Console and shared-registry dialog.
+- All ten readiness cards size to their own content instead of stretching to the tallest card in a row.
+- The validated review return is an inline contextual link before the active lesson or readiness section, never a fixed viewport control.
+- Focused/full/lint/copy/metadata/frontend/browser/diff validation and the five-viewport browser matrix passed with no browser warnings or errors.
+- The final exact remediation HEAD still requires owner hand review; this card does not claim acceptance, integration, certification, deployment, or production readiness.
 
 ## Pre-Flight Summary
 
