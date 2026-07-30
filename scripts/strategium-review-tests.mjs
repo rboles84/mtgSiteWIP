@@ -175,6 +175,7 @@ async function runStaticChecks() {
   expect((reviewHtml.match(/data-lesson-dialog-close/g) || []).length === 1, "Lesson dialog should expose one close action");
   expect(!reviewHtml.includes("Return to this result"), "Lesson dialog should not duplicate its close action in the footer");
   expect(consoleHtml.includes("data-review-return-link"), "Console is missing contextual review-return navigation");
+  expect((hubHtml.match(/vm-hub-choice-panel/g) || []).length === 1, "Hub should contain one unified lens-choice panel");
   expect((hubHtml.match(/class="vm-card vm-path-card"/g) || []).length === 2, "Hub should retain exactly two primary experience choices");
   expect(!hubHtml.includes("Guided moments") && !hubHtml.includes("vm-hub-availability"), "Hub must not duplicate review moments in a Guided Moments panel");
   expect(!hubHtml.includes("vm-path-number"), "Hub decorative experience numerals should be removed");
@@ -182,6 +183,10 @@ async function runStaticChecks() {
   expect(!hubHtml.includes("Situation Families"), "Hub should not use internal situation-family taxonomy");
   expect(!hubHtml.includes("Start with a game you just played"), "Hub availability section should not repeat the primary review invitation");
   expect(hubHtml.includes("<h3>Review a game</h3>") && hubHtml.includes("<h3>Study the table</h3>"), "Hub cards should distinguish review and study");
+  expect(!consoleHtml.includes("vm-console-return"), "Console hero must not contain the redundant Return to Strategium action");
+  expect(consoleRuntime.includes('title: "Know your deck", itemIndexes: [0, 1, 2, 3, 4, 5]'), "Readiness deck group must retain items 1 through 6");
+  expect(consoleRuntime.includes('title: "Prepare for the table", itemIndexes: [6, 7, 8, 9]'), "Readiness table group must retain items 7 through 10");
+  expect(!consoleRuntime.includes("<strong>Checkpoint"), "Readiness rows should not render competing Checkpoint headings");
   expect(!review.includes('id: "start-unsure"'), "Review must not show a duplicate start-unsure route");
   expect(!styles.includes("circle at var(--mx"), "Strategium viewport lighting should no longer track the pointer");
   expect(!consoleRuntime.includes('document.addEventListener("pointermove"'), "Dense Strategium panels should not run continuous pointer lighting updates");
@@ -189,7 +194,7 @@ async function runStaticChecks() {
   expect(styles.includes("white-space: nowrap"), "Lesson-row action labels should remain on one line");
   expect(styles.includes("grid-template-rows: auto auto 1fr auto"), "Hub cards should use one deterministic vertical layout");
   expect(styles.includes(".vm-console-script-card .vm-mini-badge"), "Pod Readiness categories should use one shared pill rule");
-  expect(styles.includes("align-items: start"), "Readiness checklist grid should align cards to their own content");
+  expect(styles.includes(".vm-checklist-groups") && styles.includes(".vm-checklist-group"), "Readiness checklist should expose shared group layout rules");
   expect(!styles.includes(".vm-console-context-bar"), "Console return must not use the former sticky contextual bar");
   expect(
     consoleHtml.includes('data-review-return-anchor="lesson"') && consoleHtml.includes('data-review-return-anchor="readiness"'),
@@ -264,11 +269,18 @@ async function runBrowserChecks(baseUrl) {
       const hubLayout = await page.evaluate(() => {
         const cards = Array.from(document.querySelectorAll(".vm-path-card"));
         const group = document.querySelector(".vm-hub-paths");
+        const panel = document.querySelector(".vm-hub-choice-panel");
+        const heading = document.getElementById("strategium-paths-title");
         const footer = document.querySelector(".vm-footer");
         const main = document.querySelector("main");
         const groupBounds = group.getBoundingClientRect();
         return {
           cardCount: cards.length,
+          panelCount: document.querySelectorAll(".vm-hub-choice-panel").length,
+          cardsInsidePanel: cards.every(card => panel.contains(card)),
+          headingInsidePanel: panel.contains(heading),
+          panelBackground: getComputedStyle(panel).backgroundImage,
+          panelBorder: getComputedStyle(panel).borderTopWidth,
           guidedMoments: Boolean(document.querySelector(".vm-hub-availability")),
           overflow: document.documentElement.scrollWidth > window.innerWidth,
           groupCenterDelta: Math.abs((groupBounds.left + groupBounds.width / 2) - window.innerWidth / 2),
@@ -287,7 +299,16 @@ async function runBrowserChecks(baseUrl) {
           }),
         };
       });
-      expect(hubLayout.cardCount === 2 && !hubLayout.guidedMoments, `${viewport.width}px hub should expose only two primary choices`);
+      expect(
+        hubLayout.cardCount === 2
+          && hubLayout.panelCount === 1
+          && hubLayout.cardsInsidePanel
+          && hubLayout.headingInsidePanel
+          && hubLayout.panelBackground !== "none"
+          && hubLayout.panelBorder !== "0px"
+          && !hubLayout.guidedMoments,
+        `${viewport.width}px hub should expose one bounded panel with exactly two primary choices`
+      );
       expect(!hubLayout.overflow, `${viewport.width}px hub should not overflow horizontally`);
       expect(hubLayout.groupCenterDelta <= 1, `${viewport.width}px hub card group should remain centered`);
       expect(hubLayout.mainFooterGap < viewport.height * 0.2, `${viewport.width}px hub should not leave an oversized gap before the footer`);
@@ -305,7 +326,7 @@ async function runBrowserChecks(baseUrl) {
       await page.waitForSelector("#basicsReveal .vm-console-script-card");
       const podLayout = await page.evaluate(() => {
         const cards = Array.from(document.querySelectorAll("#basicsReveal .vm-console-script-card"));
-        const checklist = document.querySelector(".vm-checklist-grid");
+        const checklist = document.querySelector(".vm-checklist-groups");
         return {
           overflow: document.documentElement.scrollWidth > window.innerWidth,
           checklistAlign: getComputedStyle(checklist).alignItems,
@@ -344,22 +365,93 @@ async function runBrowserChecks(baseUrl) {
       await page.waitForSelector("#readinessChecklist .vm-checklist-button");
       const checklistLayout = await page.evaluate(() => {
         const buttons = Array.from(document.querySelectorAll("#readinessChecklist .vm-checklist-button"));
+        const groups = Array.from(document.querySelectorAll("#readinessChecklist .vm-checklist-group"));
+        const groupColumns = getComputedStyle(document.getElementById("readinessChecklist"))
+          .gridTemplateColumns.split(" ").filter(Boolean).length;
         return {
           overflow: document.documentElement.scrollWidth > window.innerWidth,
           align: getComputedStyle(document.getElementById("readinessChecklist")).alignItems,
-          buttonAlign: buttons.map(button => getComputedStyle(button).alignSelf),
+          groupColumns,
+          groupNames: groups.map(group => group.querySelector("legend")?.textContent.trim() || ""),
+          groupCounts: groups.map(group => group.querySelectorAll(".vm-checklist-button").length),
+          indexes: buttons.map(button => button.dataset.index),
+          ids: buttons.map(button => button.id),
           heights: buttons.map(button => Math.round(button.getBoundingClientRect().height)),
+          checkpointHeadings: groups.reduce((count, group) => count + group.querySelectorAll("strong").length, 0),
         };
       });
       expect(!checklistLayout.overflow, `${viewport.width}px readiness checklist should not overflow horizontally`);
       expect(
-        checklistLayout.align === "start" && checklistLayout.buttonAlign.every(value => value === "start"),
-        `${viewport.width}px checklist cards should not stretch to a neighboring card`
+        checklistLayout.align === "start"
+          && checklistLayout.groupColumns === (viewport.width >= 1024 ? 2 : 1)
+          && JSON.stringify(checklistLayout.groupNames) === JSON.stringify(["Know your deck", "Prepare for the table"])
+          && JSON.stringify(checklistLayout.groupCounts) === JSON.stringify([6, 4]),
+        `${viewport.width}px checklist should preserve two accessible groups and the intended responsive columns`
       );
-      expect(checklistLayout.heights.length === 10, `${viewport.width}px readiness checklist should retain all ten checkpoints`);
+      expect(
+        checklistLayout.heights.length === 10
+          && checklistLayout.heights.every(height => height >= 48)
+          && JSON.stringify(checklistLayout.indexes) === JSON.stringify(["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"])
+          && JSON.stringify(checklistLayout.ids) === JSON.stringify([
+            "readiness-item-1", "readiness-item-2", "readiness-item-3", "readiness-item-4", "readiness-item-5",
+            "readiness-item-6", "readiness-item-7", "readiness-item-8", "readiness-item-9", "readiness-item-10"
+          ])
+          && checklistLayout.checkpointHeadings === 0,
+        `${viewport.width}px readiness checklist should retain ten compact selectable rows and identifiers`
+      );
     }
 
     await page.setViewport({ width: 1024, height: 768, deviceScaleFactor: 1 });
+
+    await page.goto(`${baseUrl}/strategium/console/?lesson=readiness-checklist#readiness-checklist`, { waitUntil: "networkidle0" });
+    await page.waitForSelector("#readiness-item-1");
+    expect(!(await page.$(".vm-console-return")), "Direct Console visits should not render the removed hero return action");
+    const readinessProgress = [await page.evaluate(() => ({
+      count: document.querySelectorAll('.vm-checklist-button[aria-pressed="true"]').length,
+      summary: document.querySelector("#readinessSummary strong")?.textContent.trim() || "",
+      percent: document.getElementById("readinessPercent")?.textContent.trim() || "",
+      meter: document.querySelector(".vm-readiness-meter-track")?.getAttribute("aria-valuenow") || "",
+    }))];
+    for (let index = 0; index < 10; index += 1) {
+      if (index === 0) {
+        await page.focus("#readiness-item-1");
+        await page.keyboard.press("Space");
+      } else {
+        await page.click(`#readiness-item-${index + 1}`);
+      }
+      readinessProgress.push(await page.evaluate(() => ({
+        count: document.querySelectorAll('.vm-checklist-button[aria-pressed="true"]').length,
+        summary: document.querySelector("#readinessSummary strong")?.textContent.trim() || "",
+        percent: document.getElementById("readinessPercent")?.textContent.trim() || "",
+        meter: document.querySelector(".vm-readiness-meter-track")?.getAttribute("aria-valuenow") || "",
+      })));
+    }
+    expect(
+      readinessProgress.every((state, index) =>
+        state.count === index
+        && state.summary === `${index} of 10 checked`
+        && state.percent === `${Math.round((index / 10) * 100)}% ready`
+        && state.meter === String(index)
+      ),
+      "Readiness progress, percentage, and meter should remain correct from 0 through 10"
+    );
+    const completedReadiness = await page.evaluate(() => ({
+      conversation: document.getElementById("conversationStatus")?.textContent.trim() || "",
+      kit: document.getElementById("kitStatus")?.textContent.trim() || "",
+      allPressed: Array.from(document.querySelectorAll(".vm-checklist-button")).every(button => button.getAttribute("aria-pressed") === "true"),
+    }));
+    expect(
+      completedReadiness.allPressed
+        && completedReadiness.conversation === "You can describe speed, combos, lock pieces, and pressure without understating the deck."
+        && completedReadiness.kit === "Your tracking tools are covered, so commander damage and table objects should stay clean.",
+      "Readiness completion should preserve conversation and table-kit status behavior"
+    );
+    await page.reload({ waitUntil: "networkidle0" });
+    expect(
+      await page.$eval("#readinessSummary strong", node => node.textContent.trim()) === "0 of 10 checked"
+        && await page.$$eval('.vm-checklist-button[aria-pressed="true"]', nodes => nodes.length) === 0,
+      "Readiness selections should remain local and reset on reload"
+    );
 
     for (const [reviewPath, expectedResult, expectedLessons] of pathCases) {
       await page.goto(`${baseUrl}/strategium/review/?path=${reviewPath}`, { waitUntil: "networkidle0" });
@@ -554,7 +646,9 @@ async function runBrowserChecks(baseUrl) {
     await page.goto(`${baseUrl}/strategium/review/?path=after-game/lost/stopped/key-spells`, { waitUntil: "networkidle0" });
     await page.click('[data-lesson="threat-reading"]');
     await page.waitForSelector("#strategiumLessonDialog[open]");
+    await page.waitForFunction(() => document.activeElement?.id === "strategiumLessonDialogTitle");
     await page.focus("#strategiumLessonConsoleLink");
+    await page.waitForFunction(() => document.activeElement?.id === "strategiumLessonConsoleLink");
     await page.keyboard.press("Tab");
     const wrappedFocus = await page.evaluate(() => document.activeElement?.classList.contains("vm-lesson-dialog-close"));
     expect(wrappedFocus, "Lesson dialog Tab navigation should wrap within the dialog");

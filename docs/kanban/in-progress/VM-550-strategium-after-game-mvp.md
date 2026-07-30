@@ -2,12 +2,12 @@
 
 ID: VM-550
 Title: Strategium After-the-Game MVP
-Status: done - awaiting final owner hand review
+Status: in progress - final visual acceptance refinement
 Type: Frontend / Commander UX / Product Slice
 Area: Strategium
 Priority: high
 Created: 2026-07-27
-Completed: 2026-07-29
+Completed: pending owner hand review
 
 ## Summary
 
@@ -60,6 +60,16 @@ Reopened on 2026-07-29 from exact clean HEAD `a908c12362dc4602af1829a867fa5b6223
 - The validated review return is an inline contextual link before the active lesson or readiness section, never a fixed viewport control.
 - Focused/full/lint/copy/metadata/frontend/browser/diff validation and the five-viewport browser matrix passed with no browser warnings or errors.
 - The final exact remediation HEAD still requires owner hand review; this card does not claim acceptance, integration, certification, deployment, or production readiness.
+
+## Final Visual Acceptance Refinement
+
+Reopened on 2026-07-29 from exact clean HEAD `1fa8fc6ab374ced5ea05377bf4e116ae3ebe5dd4`.
+
+- Unify the existing lens heading, explanation, and two primary experience cards inside one restrained bounded panel.
+- Regroup the existing ten readiness items into `Know your deck` and `Prepare for the table` without changing statements, item indices, state, progress, or status calculations.
+- Remove only the redundant Console hero `Return to Strategium` action and its unused route-specific styles.
+- Preserve all accepted diagnostic, lesson, dialog, contextual-return, history, recovery, feedback, and responsive behavior.
+- Validate 1440 x 900, 1024 x 768, 768 x 1024, 390 x 844, and 320 x 568 without refreshing visual baselines.
 
 ## Pre-Flight Summary
 

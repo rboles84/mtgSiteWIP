@@ -1023,6 +1023,11 @@ const readinessItems = [
   { copy: "I can adjust if the pod wants a slower or stronger game.", tag: "conversation" }
 ];
 
+const readinessGroups = [
+  { id: "deck", title: "Know your deck", itemIndexes: [0, 1, 2, 3, 4, 5] },
+  { id: "table", title: "Prepare for the table", itemIndexes: [6, 7, 8, 9] }
+];
+
 const readinessIntro = "Know whether you can explain the deck's plan, name its combos or lock pieces, and sit down without surprising the pod.";
 
 const strategiumLessonRegistry = Object.freeze({
@@ -1391,13 +1396,23 @@ function initReadinessChecklist() {
   const readinessIntroTarget = document.querySelector("[data-readiness-intro]");
   if (readinessIntroTarget) readinessIntroTarget.textContent = readinessIntro;
 
-  checklist.innerHTML = readinessItems.map((item, index) => `
-    <button class="vm-checklist-button" type="button" aria-pressed="false" data-index="${index}">
-      <div>
-        <strong>Checkpoint ${index + 1}</strong>
-        <span>${item.copy}</span>
+  checklist.innerHTML = readinessGroups.map(group => `
+    <fieldset class="vm-checklist-group" data-checklist-group="${group.id}">
+      <legend>${group.title}</legend>
+      <div class="vm-checklist-list">
+        ${group.itemIndexes.map(index => `
+          <button
+            class="vm-checklist-button"
+            id="readiness-item-${index + 1}"
+            type="button"
+            aria-pressed="false"
+            data-index="${index}"
+          >
+            <span class="vm-checklist-copy">${readinessItems[index].copy}</span>
+          </button>
+        `).join("")}
       </div>
-    </button>
+    </fieldset>
   `).join("");
 
   const buttons = Array.from(checklist.querySelectorAll(".vm-checklist-button"));

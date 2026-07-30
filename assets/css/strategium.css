@@ -147,8 +147,7 @@ main section {
 .vm-hero-panel,
 .vm-panel,
 .vm-card,
-.vm-next-card,
-.vm-checklist-button {
+.vm-next-card {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -166,14 +165,12 @@ main section {
 }
 
 .vm-card,
-.vm-next-card,
-.vm-checklist-button {
+.vm-next-card {
   padding: 1.15rem;
 }
 
 .vm-card,
 .vm-next-card,
-.vm-checklist-button,
 .vm-tab,
 .vm-entry-row {
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
@@ -181,7 +178,6 @@ main section {
 
 .vm-card:hover,
 .vm-next-card:hover,
-.vm-checklist-button:hover,
 .vm-tab:hover,
 .vm-entry-row:hover {
   transform: translateY(-3px);
@@ -264,7 +260,6 @@ main section {
 .vm-focus-card h3,
 .vm-entry-row strong,
 .vm-next-card h3,
-.vm-checklist-button strong,
 .vm-bridge-card h3 {
   color: var(--ink);
 }
@@ -900,30 +895,59 @@ main section {
   gap: 0.8rem;
 }
 
-.vm-checklist-grid {
+.vm-checklist-groups {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.8rem;
+  gap: 1rem;
   align-items: start;
 }
 
+.vm-checklist-group {
+  min-width: 0;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid rgba(247, 215, 132, 0.2);
+  border-radius: 20px;
+  background: rgba(5, 8, 14, 0.28);
+}
+
+.vm-checklist-group legend {
+  padding: 0 0.45rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-weight: 700;
+}
+
+.vm-checklist-list {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.35rem;
+}
+
 .vm-checklist-button {
+  position: relative;
+  overflow: hidden;
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 0.9rem;
-  align-items: start;
-  align-self: start;
+  gap: 0.75rem;
+  align-items: center;
   width: 100%;
+  min-height: 48px;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: rgba(10, 14, 22, 0.48);
   color: var(--text);
   cursor: pointer;
   text-align: left;
+  transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
 }
 
 .vm-checklist-button::before {
   content: "";
   width: 1.1rem;
   height: 1.1rem;
-  margin-top: 0.1rem;
   border: 1px solid rgba(247, 215, 132, 0.42);
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.24);
@@ -931,27 +955,27 @@ main section {
   transition: box-shadow 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
-.vm-checklist-button strong {
-  display: block;
-  margin-bottom: 0.35rem;
-  font-size: 0.98rem;
-}
-
-.vm-checklist-button span {
+.vm-checklist-copy {
   color: var(--muted);
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 .vm-checklist-button:hover,
 .vm-checklist-button:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(247, 215, 132, 0.42);
   background:
     radial-gradient(circle at top right, rgba(247, 215, 132, 0.14), transparent 14rem),
     linear-gradient(180deg, rgba(18, 23, 35, 0.72), rgba(10, 14, 22, 0.54)),
     linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02));
 }
 
-.vm-checklist-button:hover span,
-.vm-checklist-button:focus-visible span {
+.vm-checklist-button:active {
+  transform: translateY(0) scale(0.995);
+}
+
+.vm-checklist-button:hover .vm-checklist-copy,
+.vm-checklist-button:focus-visible .vm-checklist-copy {
   color: rgba(245, 234, 210, 0.86);
 }
 
@@ -1026,7 +1050,7 @@ main section {
 
 @container (max-width: 54rem) {
   .vm-philosophy-grid,
-  .vm-checklist-grid {
+  .vm-checklist-groups {
     grid-template-columns: 1fr;
   }
 }
@@ -1072,7 +1096,6 @@ main section {
   .vm-console-script-grid,
   .vm-archetype-grid,
   .vm-philosophy-grid,
-  .vm-checklist-grid,
   .vm-next-grid {
     grid-template-columns: 1fr;
   }
@@ -1093,6 +1116,10 @@ main section {
   }
 }
 
+.vm-checklist-button[aria-pressed="true"] .vm-checklist-copy {
+  color: var(--ink);
+}
+
 /* Strategium hub and guided game review */
 .vm-visually-hidden {
   position: absolute;
@@ -1108,13 +1135,6 @@ main section {
 
 .vm-hero-actions {
   margin: 1.25rem 0 0;
-}
-
-.vm-console-hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-  align-items: center;
 }
 
 .vm-console-context-return:has(.vm-console-review-return:not([hidden])) {
@@ -1143,19 +1163,6 @@ main section {
   display: none;
 }
 
-.vm-console-return {
-  border-color: rgba(247, 215, 132, 0.62);
-  background: rgba(247, 215, 132, 0.14);
-  color: var(--gold-2);
-  font-weight: 750;
-}
-
-.vm-console-return:hover,
-.vm-console-return:focus-visible {
-  border-color: var(--gold-2);
-  background: rgba(247, 215, 132, 0.24);
-}
-
 .vm-button-secondary,
 .vm-button-quiet {
   background: rgba(5, 7, 12, 0.64);
@@ -1179,6 +1186,16 @@ main section {
   width: min(1040px, 100%);
   margin-inline: auto;
   padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.vm-hub-choice-panel {
+  padding: clamp(1.35rem, 3vw, 2.25rem);
+  border: 1px solid rgba(247, 215, 132, 0.18);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(13, 17, 26, 0.64), rgba(6, 9, 15, 0.5)),
+    radial-gradient(circle at 50% 0%, rgba(247, 215, 132, 0.07), transparent 28rem);
+  box-shadow: 0 26px 80px rgba(0, 0, 0, 0.34);
 }
 
 .vm-hub-section-head {
@@ -1811,12 +1828,6 @@ html.vm-dialog-open body {
 @media (max-width: 380px) {
   .vm-review-nav {
     grid-template-columns: 1fr;
-  }
-
-  .vm-console-hero-actions .vm-button {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
   }
 }
 
