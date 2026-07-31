@@ -148,6 +148,38 @@ async function run() {
   const allOutputText = JSON.stringify({ stableFind, fullStatement, duringRules, before: evaluateBeforeGame({ bracket: "unsure", deck: "unsure", win: "unsure", speed: "variable", surprises: ["none"], agreements: ["none"] }) });
   expect(!/%|compatibility score|rating/i.test(allOutputText), "lifecycle logic should not present scores, percentages, or ratings as truth");
 
+  const findConfig = lifecycleConfigs["find-a-table"];
+  const findCategories = new Set();
+  const findExplanations = new Set();
+  const findFollowUps = new Set();
+  const findWarnings = new Set();
+  let findCombinationCount = 0;
+  for (const experience of findConfig.questions[0].options.map(option => option.id)) {
+    for (const pace of findConfig.questions[1].options.map(option => option.id)) {
+      for (const uncertainty of findConfig.questions[2].options.map(option => option.id)) {
+        for (const disruption of findConfig.questions[3].options.map(option => option.id)) {
+          for (const table of findConfig.questions[4].options.map(option => option.id)) {
+            const result = evaluateFindTable({ experience, pace, uncertainty, disruption, table });
+            findCombinationCount += 1;
+            findCategories.add(result.category);
+            findExplanations.add(result.cards[0].body);
+            findFollowUps.add(result.cards[1].body);
+            findWarnings.add(result.cards[2].body);
+            expect(result.cards.length === 4, "Finding a Table should expose exactly four result cards");
+            expect(result.cards.map(card => card.title).join("|") === "Why this read may apply|One question to ask before joining|A possible mismatch to watch for|You can choose another table", "Finding a Table card structure should remain stable across all combinations");
+            expect(!/Provisional compatibility read/i.test(JSON.stringify(result)), "Finding a Table should not reintroduce the duplicate compatibility card");
+            expect(!/%|compatibility score|player rating|personality label/i.test(JSON.stringify(result)), "Finding a Table output must remain non-scoring and non-labeling");
+          }
+        }
+      }
+    }
+  }
+  expect(findCombinationCount === 1200, `Finding a Table should enumerate 1,200 combinations, got ${findCombinationCount}`);
+  expect(findCategories.size >= 3, "Finding a Table should retain distinct compatibility categories");
+  expect(findExplanations.size > 1, "Finding a Table should retain input-sensitive explanations");
+  expect(findFollowUps.size > 1, "Finding a Table should retain input-sensitive follow-up questions");
+  expect(findWarnings.size > 1, "Finding a Table should retain input-sensitive mismatch warnings");
+
   const beforeConfig = lifecycleConfigs["before-game"];
   const bracketValues = beforeConfig.questions[0].options.map(option => option.id);
   const deckValues = beforeConfig.questions[1].options.map(option => option.id);
