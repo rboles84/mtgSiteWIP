@@ -2,7 +2,7 @@
 
 ID: VM-550
 Title: Strategium After-the-Game MVP
-Status: remediation complete - awaiting owner hand review and repeated independent review
+Status: hub navigation remediation complete - awaiting owner hand review and repeated independent review
 Type: Frontend / Commander UX / Product Slice
 Area: Strategium
 Priority: high
@@ -96,6 +96,23 @@ Reopened on 2026-07-30 from exact clean owner-approved candidate `e53e8319ecc77b
 - The aggregate suite passed using the authorized implementation-worktree method. The pre/post SHA-256 hashes of `live-gate-bias.json` and `live-gate-bias.md` were identical, so no audit-report change entered this remediation.
 - Required automated checks and the five-viewport in-app browser pass completed. Browser warnings/errors were empty; visual baselines were not refreshed.
 - Exact next action: owner hand review of the new exact validation-and-handoff SHA, then repetition of the independent review gate against that exact SHA. Certification and integration remain out of scope.
+
+## Hub Navigation Regression Remediation
+
+Reopened on 2026-07-30 from exact clean candidate `43e0ed0cc0436dc9c0da38d4eff1e980e058b00f`.
+
+- Owner review found that the Console desktop Strategium navigation item and its cloned mobile counterpart use route-local `#strategium`, leaving users inside `/strategium/console/` instead of returning to the `/strategium/` hub.
+- Scope is limited to canonical hub destinations for global desktop, cloned mobile, and intended footer links on the three Strategium routes, plus focused history and preservation regressions.
+- Preserve the legitimate Console section ID/hash compatibility, all 24 authored paths, 15 result patterns, exact-return validation, lesson/dialog/checklist behavior, unique top anchors, accepted copy/mappings, and final visual refinements.
+- Do not push, merge, rebase, deploy, certify, refresh baselines, or touch unrelated routes/navigation architecture.
+- Root cause: the Console desktop product-area navigation and footer were using the legitimate route-local `#strategium` section hash as though it were the global hub destination. `vm-topbar.js` cloned the desktop href verbatim into the mobile menu, propagating the same defect.
+- Implementation commit: `d037a4cdfea5355164c5dc18c2b746fb2a05a1ea`.
+- The Console desktop and footer Strategium links now use the repository-consistent child-to-parent destination `../`. Hub `./` and Review `../` destinations were already correct and remain unchanged.
+- The mobile menu continues cloning the desktop navigation, now inheriting the corrected canonical destination while preserving `aria-current="page"`, hints, focus, and keyboard behavior.
+- The Console `id="strategium"` section, historical `#strategium` compatibility, lesson hashes, `#top`, readiness deep links, and contextual review return are unchanged.
+- Focused navigation regressions cover all three desktop targets, Review and Console mobile targets, both child-route footer links, current state, Browser Back, Console lesson restoration, review-result restoration, and local Top behavior.
+- Required automated checks and manual browser validation at 1440 x 900, 390 x 844, and 320 x 568 passed. Browser warnings/errors were empty and aggregate report hashes remained unchanged.
+- Exact next action: owner hand review of the new exact validation-and-handoff SHA, followed by repetition of the independent review gate against that exact SHA. Certification and integration remain out of scope.
 
 ## Pre-Flight Summary
 
@@ -193,3 +210,5 @@ The complete authoritative mapping is recorded in `docs/handoffs/2026-07-28-0147
 - Validation and remediation handoff: this document's final commit
 - Independent-review remediation implementation: `e494a114870740a517fafc246ec52df844634748`
 - Independent-review validation and handoff: this document's final commit
+- Hub-navigation remediation implementation: `d037a4cdfea5355164c5dc18c2b746fb2a05a1ea`
+- Hub-navigation validation and handoff: this document's final commit

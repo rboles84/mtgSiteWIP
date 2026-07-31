@@ -292,6 +292,7 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
 20. Reject partial question states, invented paths, real-segment impossible combinations, valid paths with extra segments, external/protocol-relative/JavaScript/traversal/malformed values, empty or missing values, duplicate parameters, destination hashes, and unsupported query keys; confirm no contextual return appears, no script runs, and the requested Console lesson still renders.
 21. On `/strategium/`, `/strategium/review/`, and `/strategium/console/`, confirm `document.querySelectorAll("#top").length === 1`; exercise footer Back to top and the visible floating Top action, confirm scroll position reaches zero, and confirm the pathname remains on the current Strategium route.
 22. Before aggregate validation, record hashes for the tracked live gate-bias JSON and Markdown reports; after `npm.cmd test`, confirm both hashes and candidate status are unchanged.
+23. From the hub, Review, and Console, activate the desktop and cloned mobile Strategium product-area link and confirm it reaches `/strategium/`; confirm footer Strategium links also reach the hub, Browser Back restores the exact child route/state, and legitimate Console `#strategium`, `#top`, lesson, readiness, and contextual-review anchors remain route-local.
 
 ## `apocrypha/index.html` visual regression harness
 

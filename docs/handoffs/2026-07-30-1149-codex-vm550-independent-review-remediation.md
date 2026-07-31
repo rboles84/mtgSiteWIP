@@ -236,3 +236,17 @@ Product owner performing the exact-SHA hand review, followed by a separate indep
 - Required starting candidate: `e53e8319ecc77bea12e1e33e30914cacc83c1531`
 - Exact-result return remediation and focused tests: `e494a114870740a517fafc246ec52df844634748`
 - Validation and handoff: this document's commit
+
+## Subsequent hub-navigation regression remediation
+
+On 2026-07-30, owner review found that the Console global Strategium link still used route-local `#strategium`. VM-550 was reopened from exact clean SHA `43e0ed0cc0436dc9c0da38d4eff1e980e058b00f` solely to correct hub navigation and add regressions.
+
+- Root cause: the Console desktop nav and footer confused the legitimate Console section hash with the global product-area destination; `vm-topbar.js` cloned the incorrect desktop href into mobile navigation.
+- Implementation commit: `d037a4cdfea5355164c5dc18c2b746fb2a05a1ea`.
+- Console desktop and footer Strategium destinations now use canonical child-to-parent `../`; Hub `./` and Review `../` were already correct.
+- Runtime mobile cloning is unchanged and now produces the correct hub destination with preserved active state and keyboard behavior.
+- The legitimate Console `id="strategium"` section, historical hash compatibility, lesson/readiness/top anchors, and exact contextual review return remain intact.
+- Focused, full, syntax/lint, copy, metadata, frontend, browser, internal-link, and diff validation passed. The aggregate report hashes were unchanged.
+- In-app browser validation passed at 1440 x 900, 390 x 844, and 320 x 568 with clean logs and no horizontal overflow.
+- Full disposition: `docs/handoffs/2026-07-30-1807-codex-vm550-hub-navigation-remediation.md`.
+- Exact next action is owner hand review of the new exact SHA, followed by repetition of the independent review gate against that exact SHA. This addendum does not claim certification or integration.
