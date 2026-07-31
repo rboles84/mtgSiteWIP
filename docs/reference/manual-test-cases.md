@@ -271,7 +271,7 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
 ## VM-550 Strategium After-the-Game human-QA remediation
 
 1. Review `/strategium/`, `/strategium/review/`, and `/strategium/console/` at 1440 x 900, 1024 x 768, 768 x 1024, 390 x 844, and 320 x 568; confirm there is no horizontal overflow, clipped hero copy, or unreadable control overlap.
-2. On the hub, confirm the two primary experiences are balanced, the decorative `01` / `02` numerals and internal taxonomy labels are gone, and only After the Game is offered as the available review start.
+2. On the hub, confirm the two primary experiences are balanced, the decorative `01` / `02` numerals and internal taxonomy labels are gone, and the Help Me Understand card keeps the lifecycle moments grouped while After the Game remains the existing review route.
 3. Open every authored After-the-Game leaf path and confirm the expected result, all four result sections, and the ordered one-, two-, or three-lesson set.
 4. Confirm `after-game/lost/other-plan/wrong-piece` renders the dedicated qualified wrong-target result and links to Threat Reading followed by Archetype Signal.
 5. For a result with one lesson, confirm there is no empty divider, phantom row, or unused grid track; for multiple lessons, confirm each control is distinct and follows the authored order.
@@ -293,6 +293,21 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
 21. On `/strategium/`, `/strategium/review/`, and `/strategium/console/`, confirm `document.querySelectorAll("#top").length === 1`; exercise footer Back to top and the visible floating Top action, confirm scroll position reaches zero, and confirm the pathname remains on the current Strategium route.
 22. Before aggregate validation, record hashes for the tracked live gate-bias JSON and Markdown reports; after `npm.cmd test`, confirm both hashes and candidate status are unchanged.
 23. From the hub, Review, and Console, activate the desktop and cloned mobile Strategium product-area link and confirm it reaches `/strategium/`; confirm footer Strategium links also reach the hub, Browser Back restores the exact child route/state, and legitimate Console `#strategium`, `#top`, lesson, readiness, and contextual-review anchors remain route-local.
+
+## VM-552 Strategium game-lifecycle completion MVP
+
+1. Review `docs/qa/strategium-game-lifecycle-mvp.md` before testing; treat its decision tables, state matrix, exclusions, and manual record as the acceptance map for this MVP. This is implementation QA only, not owner acceptance or certification.
+2. On `/strategium/`, confirm there are exactly two top-level experience cards: Help Me Understand and Commander Console. Confirm Help Me Understand contains Finding a Table, Before the Game, During the Game, and After the Game, and that no `Guided Moments` copy or separate duplicate surface appears.
+3. Open `/strategium/find-a-table/`; select a representative path through all five questions and confirm the result has provisional compatibility, why the read may apply, one question, a possible mismatch, and permission to choose another table. Confirm no rating, score, percentage, or matchmaking language appears.
+4. Open `/strategium/before-game/`; select a player-supplied approximate context, deck plan, finish, timing, one or more progressive-disclosure items, and an agreement. Confirm the multi-select stage stays in place until Continue, the result has five cards, and the generated statement is short, natural, and no more than two sentences.
+5. Activate Before the Game’s Copy this sentence control; confirm local status feedback reports the copy attempt without claiming storage, submission, or transmission.
+6. Open `/strategium/during-game/`; confirm the flow is visibly thin enough for a 30–60 second check-in and contains no board-state, target, tactical, score, or ruling-engine surface.
+7. Select the rules-uncertainty moment and official-rule lookup response; confirm the result directs the player to an official rules lookup, judge, or agreed resource and explicitly does not decide the ruling.
+8. For each new route, confirm initial load, valid partial URL, valid complete URL, refresh, Back, Start over, Return to Strategium, malformed/extra path recovery, and focus return to the visible question/result heading.
+9. Use native keyboard traversal on lifecycle buttons and links; confirm focus rings remain visible, buttons retain button semantics, and route returns retain link semantics. Confirm multi-select exposes `aria-pressed` and requires Continue.
+10. Review at `1440 × 900`, `1024 × 768`, `768 × 1024`, `390 × 844`, and `320 × 568`; confirm no horizontal overflow, clipped hero copy, unreadable result card, or sticky-header overlap. At 320px specifically confirm the focused lifecycle heading clears the sticky bar.
+11. Confirm `/strategium/review/` and `/strategium/console/` still mount and retain their existing navigation, lesson, readiness, and route-local anchor behavior.
+12. Run `npm.cmd run test:strategium-lifecycle`, `npm.cmd run test:strategium-review`, `npm.cmd run lint:js`, `npm.cmd run lint:html`, `npm.cmd run test:copy-boundaries`, `npm.cmd run test:route-metadata`, and `npm.cmd run test:frontend-smoke`. Record results in the QA artifact and handoff.
 
 ## `apocrypha/index.html` visual regression harness
 

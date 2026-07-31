@@ -195,7 +195,12 @@ async function runStaticChecks() {
   expect(!hubHtml.includes("Two Connected Experiences"), "Hub should not use internal experience taxonomy");
   expect(!hubHtml.includes("Situation Families"), "Hub should not use internal situation-family taxonomy");
   expect(!hubHtml.includes("Start with a game you just played"), "Hub availability section should not repeat the primary review invitation");
-  expect(hubHtml.includes("<h3>Review a game</h3>") && hubHtml.includes("<h3>Study the table</h3>"), "Hub cards should distinguish review and study");
+  expect(
+    hubHtml.includes("<h3>Choose a game moment</h3>")
+      && hubHtml.includes("<h3>Study the table</h3>")
+      && ["find-a-table", "before-game", "during-game", "review"].every(route => hubHtml.includes(`./${route}/`)),
+    "Hub cards should distinguish lifecycle review from Console study and expose all four moments"
+  );
   expect(!consoleHtml.includes("vm-console-return"), "Console hero must not contain the redundant Return to Strategium action");
   expect(consoleRuntime.includes('title: "Know your deck", itemIndexes: [0, 1, 2, 3, 4, 5]'), "Readiness deck group must retain items 1 through 6");
   expect(consoleRuntime.includes('title: "Prepare for the table", itemIndexes: [6, 7, 8, 9]'), "Readiness table group must retain items 7 through 10");
@@ -329,9 +334,8 @@ async function runBrowserChecks(baseUrl) {
         expect(
           new Set(hubLayout.cards.map(card => card.top)).size === 1
             && new Set(hubLayout.cards.map(card => card.headingTop)).size === 1
-            && new Set(hubLayout.cards.map(card => card.copyTop)).size === 1
-            && new Set(hubLayout.cards.map(card => card.actionBottom)).size === 1,
-          `${viewport.width}px hub cards should share top, heading, copy, and action axes`
+            && new Set(hubLayout.cards.map(card => card.copyTop)).size === 1,
+          `${viewport.width}px hub cards should share top, heading, and copy axes`
         );
       }
 
