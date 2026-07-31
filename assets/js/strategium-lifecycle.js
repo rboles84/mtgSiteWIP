@@ -84,7 +84,7 @@ const beforeGameStatementCopy = {
     develop: "builds a wide board",
     pressure: "pressures early",
     value: "builds incremental value",
-    combo: "sets up a combo or unusual line",
+    combo: "sets up a combo",
     interaction: "plays reactively",
     unsure: "is still taking shape",
   },
@@ -95,29 +95,31 @@ const beforeGameStatementCopy = {
     alternate: "an unusual win",
   },
   speed: {
-    early: "can turn on early",
-    middle: "needs a few turns",
-    late: "is usually a later-game plan",
-    variable: "can vary with the opening hand",
+    early: "that can turn on early",
+    middle: "that usually needs a few turns",
+    late: "that is usually a later-game plan",
+    variable: "that depends on the opening hand",
   },
 };
+
+export const beforeGameStatementLimits = Object.freeze({ preferred: 300, hard: 360 });
 
 export const beforeDisclosureCatalog = Object.freeze({
   "fast-mana": Object.freeze({ inputLabel: "Fast mana", result: "fast mana", spoken: "fast mana", testExpectation: "The result and spoken statement name fast mana." }),
   tutors: Object.freeze({ inputLabel: "Tutors", result: "tutors", spoken: "tutors", testExpectation: "The result and spoken statement name tutors." }),
   combo: Object.freeze({ inputLabel: "An intentional combo", result: "an intentional combo", spoken: "an intentional combo", requiresNaming: true, testExpectation: "The result and spoken statement name an intentional combo." }),
-  "resource-denial": Object.freeze({ inputLabel: "Resource denial", result: "resource denial effects", spoken: "resource denial effects", requiresNaming: true, testExpectation: "The result and spoken statement name resource denial effects." }),
+  "resource-denial": Object.freeze({ inputLabel: "Resource denial", result: "resource denial effects", spoken: "resource denial", requiresNaming: true, testExpectation: "The result names resource denial effects and the spoken statement names resource denial." }),
   "extra-turns": Object.freeze({ inputLabel: "Repeated extra turns", result: "repeated extra turns", spoken: "repeated extra turns", requiresNaming: true, testExpectation: "The result and spoken statement name repeated extra turns." }),
   "long-turns": Object.freeze({ inputLabel: "Unusually long turns", result: "unusually long turns", spoken: "unusually long turns", requiresNaming: true, testExpectation: "The result and spoken statement name unusually long turns." }),
-  chaos: Object.freeze({ inputLabel: "Chaos or high variance", result: "chaos or high-variance effects", spoken: "chaos or high variance", testExpectation: "The result names chaos or high-variance effects and the spoken statement names chaos or high variance." }),
+  chaos: Object.freeze({ inputLabel: "Chaos or high variance", result: "chaos or high-variance effects", spoken: "chaos/high variance", testExpectation: "The result names chaos or high-variance effects and the spoken statement names chaos/high variance." }),
   proxies: Object.freeze({ inputLabel: "Proxies", result: "proxies", spoken: "proxies", testExpectation: "The result and spoken statement name proxies." }),
   none: Object.freeze({ inputLabel: "None of these", result: "no additional category", spoken: "", testExpectation: "None of these is exclusive with every positive disclosure." }),
 });
 
 export const beforeAgreementCatalog = Object.freeze({
-  time: Object.freeze({ inputLabel: "A time limit", spoken: "a time limit" }),
-  "house-rule": Object.freeze({ inputLabel: "A house-rule request", spoken: "a house rule request" }),
-  proxies: Object.freeze({ inputLabel: "Proxy comfort", spoken: "proxy comfort" }),
+  time: Object.freeze({ inputLabel: "A time limit", spoken: "time limit" }),
+  "house-rule": Object.freeze({ inputLabel: "A house-rule request", spoken: "house rule" }),
+  proxies: Object.freeze({ inputLabel: "Proxy comfort", spoken: "proxy approval" }),
   none: Object.freeze({ inputLabel: "None of these", spoken: "" }),
   unsure: Object.freeze({ inputLabel: "I want to ask the pod", spoken: "" }),
 });
@@ -473,20 +475,26 @@ function disclosureResultPhrases(values) {
 function disclosureStatementPhrases(values) {
   const ids = selectedDisclosureIds(values);
   const phrases = [];
-  if (ids.includes("fast-mana") && ids.includes("tutors")) phrases.push("fast mana and tutors");
+  const hasFastMana = ids.includes("fast-mana");
+  const hasTutors = ids.includes("tutors");
+  const hasExtraTurns = ids.includes("extra-turns");
+  const hasLongTurns = ids.includes("long-turns");
+  const groupFastManaAndTutors = hasFastMana && hasTutors && (ids.length === 2 || (ids.length >= 4 && !(hasExtraTurns && hasLongTurns && ids.length === 4)));
+  const groupExtraAndLongTurns = hasExtraTurns && hasLongTurns && (ids.length === 2 || (ids.length >= 4 && !(hasFastMana && hasTutors && ids.length === 4)));
+  if (groupFastManaAndTutors) phrases.push("fast mana and tutors");
   else {
-    if (ids.includes("fast-mana")) phrases.push("fast mana");
-    if (ids.includes("tutors")) phrases.push("tutors");
+    if (hasFastMana) phrases.push("fast mana");
+    if (hasTutors) phrases.push("tutors");
   }
   if (ids.includes("combo")) phrases.push("an intentional combo");
-  if (ids.includes("resource-denial")) phrases.push("resource denial effects");
-  if (ids.includes("extra-turns") && ids.includes("long-turns")) phrases.push("repeated extra turns or unusually long turns");
+  if (ids.includes("resource-denial")) phrases.push("resource denial");
+  if (groupExtraAndLongTurns) phrases.push("repeated extra turns and unusually long turns");
   else {
-    if (ids.includes("extra-turns")) phrases.push("repeated extra turns");
-    if (ids.includes("long-turns")) phrases.push("unusually long turns");
+    if (hasExtraTurns) phrases.push("repeated extra turns");
+    if (hasLongTurns) phrases.push("unusually long turns");
   }
-  if (ids.includes("chaos")) phrases.push("chaos or high variance");
-  if (ids.includes("proxies")) phrases.push("clearly marked proxies");
+  if (ids.includes("chaos")) phrases.push("chaos/high variance");
+  if (ids.includes("proxies")) phrases.push("proxies");
   return phrases;
 }
 
@@ -504,23 +512,30 @@ export function generatePregameStatement(input = {}) {
   const winId = input.win;
   const speed = cleanPhrase(beforeGameStatementCopy.speed[input.speed] || "can vary with the opening hand");
   const deckDescriptor = deckId === "unsure"
-    ? "a deck still taking shape"
+    ? "a deck that is still taking shape"
     : `a deck that ${cleanPhrase(beforeGameStatementCopy.deck[deckId] || "is still taking shape")}`;
   const opening = bracket ? `I'm ${bracket} with ${deckDescriptor}` : `I'm bringing ${deckDescriptor}`;
   const finish = winId === "unsure"
-    ? `and I'm still figuring out how it wins while its timing ${speed}`
-    : `and it usually wins through ${cleanPhrase(beforeGameStatementCopy.win[winId] || "a finish that is still taking shape")}, while its timing ${speed}`;
+    ? `and I'm still figuring out how it wins, with timing ${speed}`
+    : `and usually wins through ${cleanPhrase(beforeGameStatementCopy.win[winId] || "a finish that is still taking shape")}, with timing ${speed}`;
   const disclosureIds = selectedDisclosureIds(input.surprises || []);
   const disclosures = disclosureStatementPhrases(disclosureIds);
   const agreements = agreementPhrases(input.agreements || [], disclosureIds);
   const agreementUnclear = (input.agreements || []).includes("unsure");
-  const secondSentenceParts = [];
-  if (disclosures.length) secondSentenceParts.push(`The table should know about ${naturalList(disclosures)}`);
-  if (agreements.length) secondSentenceParts.push(`we should confirm ${naturalList(agreements)} with the pod`);
-  if (agreementUnclear) secondSentenceParts.push("we should ask the pod what matters before we start");
-  const detailSentence = secondSentenceParts.length
-    ? `${secondSentenceParts[0]}${secondSentenceParts.length > 1 ? `, and ${secondSentenceParts.slice(1).join(", and ")}` : ""}.`
-    : "";
+  const disclosureClause = disclosures.length ? `Please note ${naturalList(disclosures)}` : "";
+  const agreementClause = agreements.length ? `confirm ${naturalList(agreements)}` : "";
+  const unsureAgreementClause = agreementUnclear ? "ask the pod what matters before we start" : "";
+  const detailSentence = disclosureClause && agreementClause
+        ? `${disclosureClause}, and ${agreementClause}.`
+    : disclosureClause && unsureAgreementClause
+        ? `${disclosureClause}, and ${unsureAgreementClause}.`
+      : disclosureClause
+        ? `${disclosureClause}.`
+      : agreementClause
+        ? `Confirm ${naturalList(agreements)}.`
+        : unsureAgreementClause
+          ? "Ask the pod what matters before we start."
+          : "";
   return `${opening} ${finish}.${detailSentence ? ` ${detailSentence}` : ""}`.replace(/\s+/g, " ").trim();
 }
 

@@ -11,6 +11,7 @@ import {
   generatePregameStatement,
   beforeAgreementCatalog,
   beforeDisclosureCatalog,
+  beforeGameStatementLimits,
   duringResponseCatalog,
   lifecycleConfigs,
 } from "../assets/js/strategium-lifecycle.js";
@@ -111,6 +112,22 @@ function beforeGameAgreementSets() {
     .filter((values, index, all) => index === all.findIndex(candidate => candidate.join("~") === values.join("~")));
 }
 
+function hasLowercaseSentenceOpening(text) {
+  const sanitized = text
+    .replace(/https?:\/\/\S+/gi, "URL")
+    .replace(/\b(?:e\.g\.?|i\.e\.?|etc\.?)\b/gi, "abbr")
+    .replace(/\b\d+\.\d+\b/g, "decimal");
+  return /[.!?]\s+[a-z]/.test(sanitized);
+}
+
+function hasRepeatedConjunctionList(text) {
+  return /\b(?:fast mana|tutors|an intentional combo|resource denial|repeated extra turns|unusually long turns|marked proxies)\s+and\s+(?:fast mana|tutors|an intentional combo|resource denial|repeated extra turns|unusually long turns|marked proxies)\s+and\b/i.test(text);
+}
+
+function hasMalformedListPunctuation(text) {
+  return /,\s*,|,\s+\.|,\s+and\s+and\b|,\s+or\s+or\b/i.test(text);
+}
+
 async function run() {
   expect(Object.keys(lifecycleConfigs).length === 3, "three new lifecycle route configurations should exist");
   expect(lifecycleConfigs["find-a-table"].questions.length === 5, "Finding a Table should remain compact");
@@ -146,6 +163,11 @@ async function run() {
   }
   let generatedStatementCount = 0;
   let longestStatement = 0;
+  let abovePreferredStatementCount = 0;
+  let sentenceCapitalizationViolationCount = 0;
+  let incorrectConjunctionCount = 0;
+  let repeatedConjunctionCount = 0;
+  let malformedListPunctuationCount = 0;
   for (const bracket of bracketValues) {
     for (const deck of deckValues) {
       for (const win of winValues) {
@@ -158,9 +180,18 @@ async function run() {
               const allText = JSON.stringify(result);
               generatedStatementCount += 1;
               longestStatement = Math.max(longestStatement, statement.length);
+              if (statement.length > beforeGameStatementLimits.preferred) abovePreferredStatementCount += 1;
               expect(!statement.includes(";"), "generated pregame statements must not use semicolon-chain construction");
               expect(statement.split(/[.!?]+/).filter(Boolean).length <= 2, "generated pregame statements must stay within two sentences");
-              expect(statement.length <= 480, "generated pregame statements must stay reasonably sized");
+              expect(statement.length <= beforeGameStatementLimits.hard, `generated pregame statements must stay below the ${beforeGameStatementLimits.hard}-character hard maximum`);
+              if (hasLowercaseSentenceOpening(statement)) sentenceCapitalizationViolationCount += 1;
+              expect(!hasLowercaseSentenceOpening(statement), "generated pregame sentences must begin with an uppercase letter after sentence punctuation");
+              if (/repeated extra turns or unusually long turns/i.test(statement) && surprises.includes("extra-turns") && surprises.includes("long-turns")) incorrectConjunctionCount += 1;
+              expect(!(surprises.includes("extra-turns") && surprises.includes("long-turns") && /repeated extra turns or unusually long turns/i.test(statement)), "both extra-turn and long-turn disclosures must be joined with and, not or");
+              if (hasRepeatedConjunctionList(statement)) repeatedConjunctionCount += 1;
+              expect(!hasRepeatedConjunctionList(statement), "disclosure lists must use a human-readable conjunction structure");
+              if (hasMalformedListPunctuation(statement)) malformedListPunctuationCount += 1;
+              expect(!hasMalformedListPunctuation(statement), "disclosure lists must not contain malformed punctuation");
               expect(!/undefined|null|\.{2,}|I should mention|the deck may the deck|pod has already consented|everyone has already agreed/i.test(allText), "generated pregame output must not contain broken fragments, placeholders, or consent claims");
               expect(!/fast-mana|resource-denial|extra-turns|long-turns|house-rule/i.test(statement), "generated spoken copy must not expose unresolved option IDs");
               for (const id of surprises.filter(value => value !== "none")) {
@@ -180,7 +211,11 @@ async function run() {
     }
   }
   expect(generatedStatementCount === 1935360, `Before the Game should enumerate 1,935,360 combinations, got ${generatedStatementCount}`);
-  expect(longestStatement <= 480, `longest generated statement should remain reasonable, got ${longestStatement} characters`);
+  expect(longestStatement <= beforeGameStatementLimits.hard, `longest generated statement should remain below the ${beforeGameStatementLimits.hard}-character hard maximum, got ${longestStatement} characters`);
+  expect(sentenceCapitalizationViolationCount === 0, `lowercase sentence openings found: ${sentenceCapitalizationViolationCount}`);
+  expect(incorrectConjunctionCount === 0, `incorrect extra-turn/long-turn conjunctions found: ${incorrectConjunctionCount}`);
+  expect(repeatedConjunctionCount === 0, `repeated-conjunction disclosure lists found: ${repeatedConjunctionCount}`);
+  expect(malformedListPunctuationCount === 0, `malformed disclosure list punctuation cases found: ${malformedListPunctuationCount}`);
 
   const duringMomentValues = lifecycleConfigs["during-game"].questions[0].options.map(option => option.id);
   const duringResponseValues = Object.keys(duringResponseCatalog);
@@ -341,7 +376,7 @@ async function run() {
   if (failures.length) {
     throw new Error(`Strategium lifecycle validation failed:\n- ${failures.join("\n- ")}`);
   }
-  console.log("Strategium lifecycle tests passed: route loading, hub links, all option branches, deterministic outputs, statements, rules safety, history/reset, regressions, and mobile overflow.");
+  console.log(`Strategium lifecycle tests passed: route loading, hub links, all option branches, deterministic outputs, statements, rules safety, history/reset, regressions, and mobile overflow. Before-the-Game audit: ${generatedStatementCount} combinations, max ${longestStatement} characters, preferred-limit exceedances ${abovePreferredStatementCount}, sentence-capitalization violations ${sentenceCapitalizationViolationCount}, incorrect conjunctions ${incorrectConjunctionCount}, repeated conjunctions ${repeatedConjunctionCount}, malformed list punctuation ${malformedListPunctuationCount}.`);
 }
 
 await run();
