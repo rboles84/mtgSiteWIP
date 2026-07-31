@@ -120,7 +120,7 @@ Manual in-app browser review passed at 1440×900, 390×844, and 320×568; the br
 
 - `4d04962` — `feat(strategium): add game lifecycle flows`
 - `dcc462b` — `test(strategium): add lifecycle QA coverage`
-- A documentation/kanban/handoff commit will record the final candidate SHA immediately after it is created.
+- `68a8b140b4c87f90130828f5bb8b5338119d22fe` — `docs(strategium): record lifecycle handoff` checkpoint; final candidate SHA is verified from the exact candidate `HEAD` at handoff close and reported with this handoff.
 
 ## Follow-up recommendations
 
