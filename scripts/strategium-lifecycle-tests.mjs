@@ -9,6 +9,9 @@ import {
   evaluateDuringGame,
   evaluateFindTable,
   generatePregameStatement,
+  beforeAgreementCatalog,
+  beforeDisclosureCatalog,
+  duringResponseCatalog,
   lifecycleConfigs,
 } from "../assets/js/strategium-lifecycle.js";
 
@@ -22,7 +25,7 @@ const browserCandidates = [
 ].filter(Boolean);
 
 function expect(condition, message) {
-  if (!condition) failures.push(message);
+  if (!condition && failures.length < 100) failures.push(message);
 }
 
 async function findBrowser() {
@@ -88,6 +91,26 @@ function collectVisibleText(page) {
   return page.$eval("#strategiumLifecycle", node => node.innerText);
 }
 
+const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+function nonEmptySubsets(values) {
+  const subsets = [];
+  for (let mask = 1; mask < (1 << values.length); mask += 1) {
+    subsets.push(values.filter((_, index) => mask & (1 << index)));
+  }
+  return subsets;
+}
+
+function beforeGameDisclosureSets() {
+  const positive = Object.keys(beforeDisclosureCatalog).filter(id => id !== "none");
+  return [["none"], ...nonEmptySubsets(positive)];
+}
+
+function beforeGameAgreementSets() {
+  return [["none"], ["unsure"], ...nonEmptySubsets(["time", "house-rule", "proxies"])]
+    .filter((values, index, all) => index === all.findIndex(candidate => candidate.join("~") === values.join("~")));
+}
+
 async function run() {
   expect(Object.keys(lifecycleConfigs).length === 3, "three new lifecycle route configurations should exist");
   expect(lifecycleConfigs["find-a-table"].questions.length === 5, "Finding a Table should remain compact");
@@ -107,6 +130,73 @@ async function run() {
   expect(!/attack|target|optimal|best line|threat score|percentage|%/i.test(duringText), "During the Game output should not recommend targets or tactical play");
   const allOutputText = JSON.stringify({ stableFind, fullStatement, duringRules, before: evaluateBeforeGame({ bracket: "unsure", deck: "unsure", win: "unsure", speed: "variable", surprises: ["none"], agreements: ["none"] }) });
   expect(!/%|compatibility score|rating/i.test(allOutputText), "lifecycle logic should not present scores, percentages, or ratings as truth");
+
+  const beforeConfig = lifecycleConfigs["before-game"];
+  const bracketValues = beforeConfig.questions[0].options.map(option => option.id);
+  const deckValues = beforeConfig.questions[1].options.map(option => option.id);
+  const winValues = beforeConfig.questions[2].options.map(option => option.id);
+  const speedValues = beforeConfig.questions[3].options.map(option => option.id);
+  const disclosureSets = beforeGameDisclosureSets();
+  const agreementSets = beforeGameAgreementSets();
+  for (const [id, catalog] of Object.entries(beforeDisclosureCatalog)) {
+    expect(catalog.inputLabel && catalog.result && typeof catalog.spoken === "string" && catalog.testExpectation, `disclosure catalog entry ${id} should expose label, result, spoken copy, and test expectation`);
+  }
+  for (const [id, response] of Object.entries(duringResponseCatalog)) {
+    expect(response.label && response.note && response.guidance, `During the Game response catalog entry ${id} should expose label, note, and guidance`);
+  }
+  let generatedStatementCount = 0;
+  let longestStatement = 0;
+  for (const bracket of bracketValues) {
+    for (const deck of deckValues) {
+      for (const win of winValues) {
+        for (const speed of speedValues) {
+          for (const surprises of disclosureSets) {
+            for (const agreements of agreementSets) {
+              const result = evaluateBeforeGame({ bracket, deck, win, speed, surprises, agreements });
+              const statement = result.cards.at(-1).body;
+              const disclosure = result.cards[1].body;
+              const allText = JSON.stringify(result);
+              generatedStatementCount += 1;
+              longestStatement = Math.max(longestStatement, statement.length);
+              expect(!statement.includes(";"), "generated pregame statements must not use semicolon-chain construction");
+              expect(statement.split(/[.!?]+/).filter(Boolean).length <= 2, "generated pregame statements must stay within two sentences");
+              expect(statement.length <= 480, "generated pregame statements must stay reasonably sized");
+              expect(!/undefined|null|\.{2,}|I should mention|the deck may the deck|pod has already consented|everyone has already agreed/i.test(allText), "generated pregame output must not contain broken fragments, placeholders, or consent claims");
+              expect(!/fast-mana|resource-denial|extra-turns|long-turns|house-rule/i.test(statement), "generated spoken copy must not expose unresolved option IDs");
+              for (const id of surprises.filter(value => value !== "none")) {
+                const catalog = beforeDisclosureCatalog[id];
+                expect(disclosure.includes(catalog.result), `result disclosure should retain ${id}`);
+                expect(statement.toLowerCase().includes(catalog.spoken.toLowerCase()), `spoken statement should retain ${id}`);
+              }
+              for (const id of agreements.filter(value => !["none", "unsure"].includes(value))) {
+                const catalog = beforeAgreementCatalog[id];
+                if (!(id === "proxies" && surprises.includes("proxies"))) expect(statement.toLowerCase().includes(catalog.spoken.toLowerCase()), `spoken statement should retain agreement ${id}`);
+              }
+              if (agreements.includes("unsure")) expect(/ask the pod/i.test(statement), "still-figuring agreement should ask the pod naturally");
+            }
+          }
+        }
+      }
+    }
+  }
+  expect(generatedStatementCount === 1935360, `Before the Game should enumerate 1,935,360 combinations, got ${generatedStatementCount}`);
+  expect(longestStatement <= 480, `longest generated statement should remain reasonable, got ${longestStatement} characters`);
+
+  const duringMomentValues = lifecycleConfigs["during-game"].questions[0].options.map(option => option.id);
+  const duringResponseValues = Object.keys(duringResponseCatalog);
+  let duringPairCount = 0;
+  for (const moment of duringMomentValues) {
+    for (const response of duringResponseValues) {
+      const result = evaluateDuringGame({ moment, response });
+      const availablePaths = result.cards.at(-1).body;
+      duringPairCount += 1;
+      expect(availablePaths.includes(duringResponseCatalog[response].label), `During the Game response ${moment}/${response} should show its selected label`);
+      expect(availablePaths.includes(duringResponseCatalog[response].guidance), `During the Game response ${moment}/${response} should show response-specific guidance`);
+      expect(!/Choose the smallest useful response|undefined|null/i.test(availablePaths), `During the Game response ${moment}/${response} must not use fallback copy`);
+      expect(!/recommend(?:s|ed)?\s+(?:a\s+)?(?:target|attack|removal)|scores?\s+(?:a\s+)?threat|rates?\s+(?:a\s+)?player|tactical\s+(?:advice|sequencing)|invent(?:s|ing)?\s+(?:a\s+)?rules? ruling|declares?\s+.*objectively correct|manipulat(?:ive|es)\s+table/i.test(JSON.stringify(result)), `During the Game response ${moment}/${response} must remain neutral and non-tactical`);
+    }
+  }
+  expect(duringPairCount === 48, `During the Game should enumerate 48 moment/response pairs, got ${duringPairCount}`);
 
   const { server, baseUrl } = await startServer();
   const browser = await puppeteer.launch({ executablePath: await findBrowser(), headless: true, args: ["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"] });
@@ -149,6 +239,15 @@ async function run() {
       }
     }
 
+    await page.goto(`${baseUrl}/strategium/find-a-table/?path=memorable/develop`, { waitUntil: "networkidle0" });
+    expect(await page.$(".vm-review-recovery") !== null, "direct partial lifecycle state should announce safe recovery");
+    expect(new URL(page.url()).searchParams.get("path") === "memorable/develop", "partial recovery should preserve the nearest valid path");
+    await page.goto(`${baseUrl}/strategium/find-a-table/?path=memorable/develop/unknown`, { waitUntil: "networkidle0" });
+    expect(await page.$(".vm-review-recovery") !== null, "invalid option state should announce safe recovery");
+    expect(new URL(page.url()).searchParams.get("path") === "memorable/develop", "invalid option state should normalize to the nearest valid path");
+    await page.goto(`${baseUrl}/strategium/find-a-table/?path=memorable/develop/predictable/light/clear/extra`, { waitUntil: "networkidle0" });
+    expect(await page.$(".vm-review-recovery") !== null && await page.$("[data-result-category]") !== null, "extra state should announce recovery without fabricating a different result");
+
     await page.goto(`${baseUrl}/strategium/find-a-table/`, { waitUntil: "networkidle0" });
     await page.click('[data-lifecycle-option="memorable"]');
     expect(new URL(page.url()).searchParams.get("path") === "memorable", "selecting an answer should update lifecycle history");
@@ -157,6 +256,59 @@ async function run() {
     await page.click('[data-lifecycle-option="memorable"]');
     await page.click('[data-lifecycle-action="reset"]');
     expect(new URL(page.url()).searchParams.get("path") === null && await page.$eval("[data-lifecycle-focus]", node => node.textContent.includes("What kind of game")), "reset should return to the initial question");
+
+    await page.goto(`${baseUrl}/strategium/find-a-table/`, { waitUntil: "networkidle0" });
+    await page.focus('[data-lifecycle-option="memorable"]');
+    await page.keyboard.press("Enter");
+    await pause(50);
+    expect(new URL(page.url()).searchParams.get("path") === "memorable", "native lifecycle options should activate with Enter");
+    await page.goBack({ waitUntil: "networkidle0" });
+    await page.focus('[data-lifecycle-option="memorable"]');
+    await page.keyboard.press("Space");
+    await pause(50);
+    expect(new URL(page.url()).searchParams.get("path") === "memorable", "native lifecycle options should activate with Space");
+    expect(await page.$(".vm-review-recovery") === null, "ordinary browser history should not announce recovery");
+    await page.goto(`${baseUrl}/strategium/during-game/`, { waitUntil: "networkidle0" });
+    await page.focus(".vm-review-action-return");
+    await page.keyboard.press("Enter");
+    await pause(250);
+    expect(new URL(page.url()).pathname.endsWith("/strategium/"), "native lifecycle links should activate with Enter");
+
+    await page.goto(`${baseUrl}/strategium/before-game/?path=approximate-3/develop/combat/middle`, { waitUntil: "networkidle0" });
+    await page.click('[data-lifecycle-option="none"]');
+    await page.click('[data-lifecycle-option="combo"]');
+    expect(await page.$eval('[data-lifecycle-option="none"]', node => node.getAttribute("aria-pressed")) === "false" && await page.$eval('[data-lifecycle-option="combo"]', node => node.getAttribute("aria-pressed")) === "true", "selecting a positive disclosure should clear None of these");
+    await page.click('[data-lifecycle-option="none"]');
+    expect(await page.$eval('[data-lifecycle-option="none"]', node => node.getAttribute("aria-pressed")) === "true" && await page.$eval('[data-lifecycle-option="combo"]', node => node.getAttribute("aria-pressed")) === "false", "selecting None of these should clear positive disclosures");
+    await page.click('[data-lifecycle-action="continue"]');
+    expect(new URL(page.url()).searchParams.get("path")?.endsWith("/none") === true, "None of these should remain the committed disclosure selection");
+
+    await page.goto(`${baseUrl}/strategium/before-game/?path=approximate-3/develop/combat/middle/none`, { waitUntil: "networkidle0" });
+    const finalActionBefore = await page.$eval(".vm-lifecycle-continue", node => ({ text: node.textContent.trim(), disabled: node.disabled }));
+    expect(finalActionBefore.text === "Build my pregame statement" && finalActionBefore.disabled, "final agreement should expose a named disabled result-building action before selection");
+    expect(await page.$$eval(".vm-lifecycle-continue", nodes => nodes.filter(node => node.textContent.trim() === "Continue").length) === 0, "final agreement should not use a generic Continue label");
+    await page.focus('[data-lifecycle-option="time"]');
+    await page.keyboard.press("Space");
+    await pause(50);
+    expect(await page.$eval(".vm-lifecycle-continue", node => !node.disabled), "final agreement selection should enable the result-building action");
+    await page.focus(".vm-lifecycle-continue");
+    await page.keyboard.press("Enter");
+    await pause(50);
+    expect(await page.$("[data-result-category]") !== null && await page.$(".vm-lifecycle-continue") === null, "final result action should reach the result directly");
+
+    await page.goto(`${baseUrl}/strategium/before-game/?path=approximate-3/develop/combat/middle/none/none`, { waitUntil: "networkidle0" });
+    const visibleStatement = await page.$eval(".vm-lifecycle-statement p", node => node.textContent);
+    await page.evaluate(() => {
+      Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async text => { window.__strategiumCopied = text; } } });
+    });
+    await page.click(".vm-lifecycle-copy");
+    expect(await page.$eval(".vm-lifecycle-copy-status", node => node.textContent) === "Copied for the table.", "copy success feedback should be truthful");
+    expect(await page.evaluate(() => window.__strategiumCopied) === visibleStatement, "copy action should receive the exact visible statement");
+    await page.evaluate(() => {
+      navigator.clipboard.writeText = async () => { throw new Error("blocked"); };
+    });
+    await page.click(".vm-lifecycle-copy");
+    expect(await page.$eval(".vm-lifecycle-copy-status", node => node.textContent) === "Select the sentence above to copy it.", "blocked clipboard feedback should be truthful");
 
     await page.goto(`${baseUrl}/strategium/before-game/?path=approximate-3/develop/combat/middle/none/none`, { waitUntil: "networkidle0" });
     const statementText = await page.$eval(".vm-lifecycle-statement p", node => node.textContent);

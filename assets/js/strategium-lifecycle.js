@@ -57,12 +57,12 @@ const beforeGameCopy = {
     notUsing: "the table is not using brackets",
   },
   deck: {
-    develop: "build a wide board and keep developing it",
-    pressure: "apply early combat pressure",
-    value: "trade resources and build incremental value",
-    combo: "set up a combo or unusual line",
-    interaction: "play a reactive, interaction-heavy game",
-    unsure: "the deck's plan is still being figured out",
+    develop: "builds a wide board and keeps developing it",
+    pressure: "applies early combat pressure",
+    value: "trades resources and builds incremental value",
+    combo: "sets up a combo or unusual line",
+    interaction: "plays a reactive, interaction-heavy game",
+    unsure: "has a main plan that is still taking shape",
   },
   win: {
     combat: "combat damage after the board develops",
@@ -72,27 +72,55 @@ const beforeGameCopy = {
     unsure: "the win condition is still being figured out",
   },
   speed: {
-    early: "it can become threatening early",
-    middle: "it usually needs a few turns to become threatening",
-    late: "it is usually a later-game plan",
-    variable: "its timing can vary with the opening hand",
-  },
-  surprise: {
-    fastMana: "fast mana",
-    tutors: "tutors",
-    combo: "an intentional combo",
-    denial: "resource-denial effects",
-    turns: "repeated extra turns",
-    longTurns: "unusually long turns",
-    chaos: "high-variance or chaos effects",
-    proxies: "proxies",
-  },
-  agreement: {
-    time: "a time limit",
-    houseRule: "a house-rule request",
-    proxies: "proxies that the table should be comfortable with",
+    early: "can become threatening early",
+    middle: "usually needs a few turns to become threatening",
+    late: "is usually a later-game plan",
+    variable: "can vary with the opening hand",
   },
 };
+
+const beforeGameStatementCopy = {
+  deck: {
+    develop: "builds a wide board",
+    pressure: "pressures early",
+    value: "builds incremental value",
+    combo: "sets up a combo or unusual line",
+    interaction: "plays reactively",
+    unsure: "is still taking shape",
+  },
+  win: {
+    combat: "combat damage",
+    value: "incremental value",
+    combo: "a sudden combo",
+    alternate: "an unusual win",
+  },
+  speed: {
+    early: "can turn on early",
+    middle: "needs a few turns",
+    late: "is usually a later-game plan",
+    variable: "can vary with the opening hand",
+  },
+};
+
+export const beforeDisclosureCatalog = Object.freeze({
+  "fast-mana": Object.freeze({ inputLabel: "Fast mana", result: "fast mana", spoken: "fast mana", testExpectation: "The result and spoken statement name fast mana." }),
+  tutors: Object.freeze({ inputLabel: "Tutors", result: "tutors", spoken: "tutors", testExpectation: "The result and spoken statement name tutors." }),
+  combo: Object.freeze({ inputLabel: "An intentional combo", result: "an intentional combo", spoken: "an intentional combo", requiresNaming: true, testExpectation: "The result and spoken statement name an intentional combo." }),
+  "resource-denial": Object.freeze({ inputLabel: "Resource denial", result: "resource denial effects", spoken: "resource denial effects", requiresNaming: true, testExpectation: "The result and spoken statement name resource denial effects." }),
+  "extra-turns": Object.freeze({ inputLabel: "Repeated extra turns", result: "repeated extra turns", spoken: "repeated extra turns", requiresNaming: true, testExpectation: "The result and spoken statement name repeated extra turns." }),
+  "long-turns": Object.freeze({ inputLabel: "Unusually long turns", result: "unusually long turns", spoken: "unusually long turns", requiresNaming: true, testExpectation: "The result and spoken statement name unusually long turns." }),
+  chaos: Object.freeze({ inputLabel: "Chaos or high variance", result: "chaos or high-variance effects", spoken: "chaos or high variance", testExpectation: "The result names chaos or high-variance effects and the spoken statement names chaos or high variance." }),
+  proxies: Object.freeze({ inputLabel: "Proxies", result: "proxies", spoken: "proxies", testExpectation: "The result and spoken statement name proxies." }),
+  none: Object.freeze({ inputLabel: "None of these", result: "no additional category", spoken: "", testExpectation: "None of these is exclusive with every positive disclosure." }),
+});
+
+export const beforeAgreementCatalog = Object.freeze({
+  time: Object.freeze({ inputLabel: "A time limit", spoken: "a time limit" }),
+  "house-rule": Object.freeze({ inputLabel: "A house-rule request", spoken: "a house rule request" }),
+  proxies: Object.freeze({ inputLabel: "Proxy comfort", spoken: "proxy comfort" }),
+  none: Object.freeze({ inputLabel: "None of these", spoken: "" }),
+  unsure: Object.freeze({ inputLabel: "I want to ask the pod", spoken: "" }),
+});
 
 const duringMoments = {
   attention: {
@@ -269,15 +297,15 @@ const beforeGameQuestions = [
     title: "Is there anything here worth naming before play?",
     intro: "Select any that matter for this table, or choose None of these. You do not need to list every advanced category.",
     options: [
-      ["fast-mana", "Fast mana", "Mana that may change the deck's timing."],
-      ["tutors", "Tutors", "Consistent access to specific cards."],
-      ["combo", "An intentional combo", "A sudden or repeatable finish."],
-      ["resource-denial", "Resource denial", "Effects that restrict how the table develops."],
-      ["extra-turns", "Repeated extra turns", "Turns that may extend one player's sequence."],
-      ["long-turns", "Unusually long turns", "A heads-up about sequencing or setup time."],
-      ["chaos", "Chaos or high variance", "Outcomes that may be difficult to predict."],
-      ["proxies", "Proxies", "A practical detail to confirm with the pod."],
-      ["none", "None of these", "No extra category needs naming right now."],
+      ["fast-mana", beforeDisclosureCatalog["fast-mana"].inputLabel, "Mana that may change the deck's timing."],
+      ["tutors", beforeDisclosureCatalog.tutors.inputLabel, "Consistent access to specific cards."],
+      ["combo", beforeDisclosureCatalog.combo.inputLabel, "A sudden or repeatable finish."],
+      ["resource-denial", beforeDisclosureCatalog["resource-denial"].inputLabel, "Effects that restrict how the table develops."],
+      ["extra-turns", beforeDisclosureCatalog["extra-turns"].inputLabel, "Turns that may extend one player's sequence."],
+      ["long-turns", beforeDisclosureCatalog["long-turns"].inputLabel, "A heads-up about sequencing or setup time."],
+      ["chaos", beforeDisclosureCatalog.chaos.inputLabel, "Outcomes that may be difficult to predict."],
+      ["proxies", beforeDisclosureCatalog.proxies.inputLabel, "A practical detail to confirm with the pod."],
+      ["none", beforeDisclosureCatalog.none.inputLabel, "No extra category needs naming right now."],
     ],
   },
   {
@@ -288,14 +316,27 @@ const beforeGameQuestions = [
     title: "Is there anything else the pod should agree on?",
     intro: "Select only what matters today, or choose None of these.",
     options: [
-      ["time", "A time limit", "Name a hard stop before shuffling."],
-      ["house-rule", "A house-rule request", "Ask for consent before changing the default rules."],
-      ["proxies", "Proxy comfort", "Confirm that marked proxies are okay with the table."],
-      ["none", "None of these", "No additional agreement is needed."],
-      ["unsure", "I want to ask the pod", "Leave the final agreement open for one question."],
+      ["time", beforeAgreementCatalog.time.inputLabel, "Name a hard stop before shuffling."],
+      ["house-rule", beforeAgreementCatalog["house-rule"].inputLabel, "Ask for consent before changing the default rules."],
+      ["proxies", beforeAgreementCatalog.proxies.inputLabel, "Confirm that marked proxies are okay with the table."],
+      ["none", beforeAgreementCatalog.none.inputLabel, "No additional agreement is needed."],
+      ["unsure", beforeAgreementCatalog.unsure.inputLabel, "Leave the final agreement open for one question."],
     ],
   },
 ];
+
+export const duringResponseCatalog = Object.freeze({
+  continue: Object.freeze({ label: "Continue as-is", note: "No reset is needed yet.", guidance: "Keep the next step with the table." }),
+  clarify: Object.freeze({ label: "Clarify expectations", note: "Ask one neutral question before the next action.", guidance: "Ask one neutral question before the next action." }),
+  pause: Object.freeze({ label: "Pause briefly", note: "Take a short breath before deciding.", guidance: "Take a short breath before deciding." }),
+  accelerate: Object.freeze({ label: "Accelerate the ending", note: "Shorten the wait without assigning blame.", guidance: "Shorten the wait without assigning blame." }),
+  reset: Object.freeze({ label: "Reset the agreement", note: "Choose a clearer table expectation.", guidance: "Choose a clearer table expectation together." }),
+  lookup: Object.freeze({ label: "Look up the official rule", note: "Use an official lookup or agreed rules resource.", guidance: "Use an official lookup or agreed rules resource." }),
+  end: Object.freeze({ label: "End the game", note: "Stopping is an available table choice, not a punishment.", guidance: "Stopping is an available table choice, not a punishment." }),
+  "new-game": Object.freeze({ label: "Start a new game", note: "A fresh agreement may be the cleanest option.", guidance: "A fresh agreement may be the cleanest option." }),
+});
+
+const duringResponseEntries = Object.entries(duringResponseCatalog).map(([id, response]) => [id, response.label, response.note]);
 
 const duringQuestion = {
   id: "response",
@@ -303,16 +344,7 @@ const duringQuestion = {
   eyebrow: "One small next step",
   title: "What would help the table most right now?",
   intro: "Pick the smallest useful response. You can pause, clarify, continue, or end without treating any option as failure.",
-  options: [
-    ["continue", "Continue as-is", "No reset is needed yet."],
-    ["clarify", "Clarify expectations", "Ask one neutral question before the next action."],
-    ["pause", "Pause briefly", "Take a short breath before deciding."],
-    ["accelerate", "Accelerate the ending", "Shorten the wait without assigning blame."],
-    ["reset", "Reset the agreement", "Choose a clearer table expectation."],
-    ["lookup", "Look up the official rule", "Use an official lookup or agreed rules resource."],
-    ["end", "End the game", "Stopping is an available table choice, not a punishment."],
-    ["new-game", "Start a new game", "A fresh agreement may be the cleanest option."],
-  ],
+  options: duringResponseEntries,
 };
 
 const duringEntries = [
@@ -427,40 +459,69 @@ export function evaluateFindTable(answers) {
 function bracketPhrase(value) {
   if (!value || value === "unsure" || value === "not-using") return "";
   const number = value.replace("approximate-", "");
-  return `roughly bracket ${number}`;
+  return `around bracket ${number}`;
 }
 
-function surprisePhrases(values) {
-  return values.filter(value => value !== "none").map(value => beforeGameCopy.surprise[value]).filter(Boolean);
+function selectedDisclosureIds(values) {
+  return [...new Set(values)].filter(value => value !== "none" && beforeDisclosureCatalog[value]);
 }
 
-function agreementPhrases(values) {
-  return values.filter(value => !["none", "unsure"].includes(value)).map(value => beforeGameCopy.agreement[value]).filter(Boolean);
+function disclosureResultPhrases(values) {
+  return selectedDisclosureIds(values).map(value => beforeDisclosureCatalog[value].result);
+}
+
+function disclosureStatementPhrases(values) {
+  const ids = selectedDisclosureIds(values);
+  const phrases = [];
+  if (ids.includes("fast-mana") && ids.includes("tutors")) phrases.push("fast mana and tutors");
+  else {
+    if (ids.includes("fast-mana")) phrases.push("fast mana");
+    if (ids.includes("tutors")) phrases.push("tutors");
+  }
+  if (ids.includes("combo")) phrases.push("an intentional combo");
+  if (ids.includes("resource-denial")) phrases.push("resource denial effects");
+  if (ids.includes("extra-turns") && ids.includes("long-turns")) phrases.push("repeated extra turns or unusually long turns");
+  else {
+    if (ids.includes("extra-turns")) phrases.push("repeated extra turns");
+    if (ids.includes("long-turns")) phrases.push("unusually long turns");
+  }
+  if (ids.includes("chaos")) phrases.push("chaos or high variance");
+  if (ids.includes("proxies")) phrases.push("clearly marked proxies");
+  return phrases;
+}
+
+function agreementPhrases(values, disclosures = []) {
+  const selected = [...new Set(values)].filter(value => !["none", "unsure"].includes(value) && beforeAgreementCatalog[value]);
+  return selected
+    .filter(value => !(value === "proxies" && selectedDisclosureIds(disclosures).includes("proxies")))
+    .map(value => beforeAgreementCatalog[value].spoken)
+    .filter(Boolean);
 }
 
 export function generatePregameStatement(input = {}) {
   const bracket = bracketPhrase(input.bracket);
-  const deck = beforeGameCopy.deck[input.deck] || "is still taking shape";
-  const win = beforeGameCopy.win[input.win] || "the finish is still taking shape";
-  const speed = beforeGameCopy.speed[input.speed] || "the timing can vary from game to game";
-  const hasDeck = Boolean(beforeGameCopy.deck[input.deck]);
-  const hasWin = Boolean(beforeGameCopy.win[input.win]);
-  const hasSpeed = Boolean(beforeGameCopy.speed[input.speed]);
-  const surprises = surprisePhrases(input.surprises || []);
-  const agreements = agreementPhrases(input.agreements || []);
-  const opening = bracket
-    ? `I’m ${bracket} with a deck that ${hasDeck ? `will ${cleanPhrase(deck)}` : cleanPhrase(deck)}`
-    : `I’m bringing a deck that ${hasDeck ? `will ${cleanPhrase(deck)}` : cleanPhrase(deck)}`;
-  const finish = hasWin
-    ? `It usually wins through ${cleanPhrase(win)}${hasSpeed ? `, and ${cleanPhrase(speed)}` : ""}`
-    : `Its finish is still taking shape${hasSpeed ? `, and ${cleanPhrase(speed)}` : ""}`;
-  const details = surprises.length
-    ? `I should mention ${naturalList(surprises)}`
-    : "I do not have any extra surprises to flag";
-  const agreement = agreements.length
-    ? `and check the table’s comfort with ${naturalList(agreements)}`
-    : "and I’m happy to follow the table’s usual agreements";
-  return `${opening}. ${finish}; ${details}; ${agreement}.`.replace(/\s+/g, " ").trim();
+  const deckId = input.deck;
+  const winId = input.win;
+  const speed = cleanPhrase(beforeGameStatementCopy.speed[input.speed] || "can vary with the opening hand");
+  const deckDescriptor = deckId === "unsure"
+    ? "a deck still taking shape"
+    : `a deck that ${cleanPhrase(beforeGameStatementCopy.deck[deckId] || "is still taking shape")}`;
+  const opening = bracket ? `I'm ${bracket} with ${deckDescriptor}` : `I'm bringing ${deckDescriptor}`;
+  const finish = winId === "unsure"
+    ? `and I'm still figuring out how it wins while its timing ${speed}`
+    : `and it usually wins through ${cleanPhrase(beforeGameStatementCopy.win[winId] || "a finish that is still taking shape")}, while its timing ${speed}`;
+  const disclosureIds = selectedDisclosureIds(input.surprises || []);
+  const disclosures = disclosureStatementPhrases(disclosureIds);
+  const agreements = agreementPhrases(input.agreements || [], disclosureIds);
+  const agreementUnclear = (input.agreements || []).includes("unsure");
+  const secondSentenceParts = [];
+  if (disclosures.length) secondSentenceParts.push(`The table should know about ${naturalList(disclosures)}`);
+  if (agreements.length) secondSentenceParts.push(`we should confirm ${naturalList(agreements)} with the pod`);
+  if (agreementUnclear) secondSentenceParts.push("we should ask the pod what matters before we start");
+  const detailSentence = secondSentenceParts.length
+    ? `${secondSentenceParts[0]}${secondSentenceParts.length > 1 ? `, and ${secondSentenceParts.slice(1).join(", and ")}` : ""}.`
+    : "";
+  return `${opening} ${finish}.${detailSentence ? ` ${detailSentence}` : ""}`.replace(/\s+/g, " ").trim();
 }
 
 export function evaluateBeforeGame(answers) {
@@ -470,23 +531,32 @@ export function evaluateBeforeGame(answers) {
   const speed = findValue(answers, "speed");
   const surprises = findValues(answers, "surprises");
   const agreements = findValues(answers, "agreements");
-  const surpriseText = surprisePhrases(surprises);
-  const agreementText = agreementPhrases(agreements);
+  const surpriseIds = selectedDisclosureIds(surprises);
+  const surpriseText = disclosureResultPhrases(surpriseIds);
+  const agreementText = agreementPhrases(agreements, surpriseIds);
   const statement = generatePregameStatement({ bracket, deck, win, speed, surprises, agreements });
-  const category = surprises.some(value => ["combo", "resource-denial", "extra-turns"].includes(value))
+  const category = surpriseIds.some(value => beforeDisclosureCatalog[value].requiresNaming)
     ? "name-the-surprise"
     : bracket === "unsure" || bracket === "not-using" || win === "unsure"
       ? "ask-one-more"
       : "clear-disclosure";
+  const deckExpectation = deck === "unsure"
+    ? "The deck’s main plan is still taking shape."
+    : `The deck ${cleanPhrase(beforeGameCopy.deck[deck] || "is still taking shape")}.`;
+  const finishExpectation = win === "unsure"
+    ? "The finish is still taking shape."
+    : `It usually wins through ${cleanPhrase(beforeGameCopy.win[win] || "a finish that is still taking shape")}.`;
+  const timingExpectation = `Timing: ${cleanPhrase(beforeGameCopy.speed[speed] || "can vary with the opening hand")}.`;
   const tableExpectation = [
     bracketPhrase(bracket) ? `You supplied ${bracketPhrase(bracket)} as one signal.` : "You left the bracket open, so the deck description carries more weight.",
-    `The deck may ${beforeGameCopy.deck[deck] || "still be finding its plan"}.`,
-    `Its finish is ${beforeGameCopy.win[win] || "not fully settled yet"}, and ${beforeGameCopy.speed[speed] || "the timing may vary"}.`,
+    deckExpectation,
+    finishExpectation,
+    timingExpectation,
   ].join(" ");
   const disclosure = surpriseText.length
     ? `Worth disclosing for this table: ${naturalList(surpriseText)}.`
     : "No advanced category needs to be disclosed beyond the short deck description you just made.";
-  const question = surpriseText.includes(beforeGameCopy.surprise.combo)
+  const question = surpriseIds.includes("combo")
     ? "How does the pod feel about an intentional combo that may end the game suddenly?"
     : agreementText.length
       ? "Is everyone comfortable with the selected table agreement before we shuffle?"
@@ -511,7 +581,7 @@ export function evaluateDuringGame(answers) {
   const moment = findValue(answers, "moment") || "fun";
   const response = findValue(answers, "response") || "clarify";
   const detail = duringMoments[moment] || duringMoments.fun;
-  const responseText = duringQuestion.options.find(option => option.id === response)?.label || "Choose the smallest useful response";
+  const responseDetail = duringResponseCatalog[response] || duringResponseCatalog.clarify;
   const ruleNote = moment === "rules"
     ? "If the question is about a card interaction, use an official rules lookup, store judge, event judge, or mutually accepted knowledgeable person. This tool does not decide the ruling."
     : "Keep the next sentence about the shared table experience, not about who is right or who should be targeted.";
@@ -522,7 +592,7 @@ export function evaluateDuringGame(answers) {
       { title: "What may be happening", body: detail.happening },
       { title: "What to clarify with the table", body: `${detail.clarify} ${ruleNote}` },
       { title: "A neutral sentence someone can say", body: detail.say, copyText: detail.say },
-      { title: "Available paths", body: `You selected: ${responseText}. The table can still choose among these paths.`, items: detail.paths },
+      { title: "Available paths", body: `You selected: ${responseDetail.label}. ${responseDetail.guidance} The table can still choose among these paths.`, items: detail.paths },
     ],
   };
 }
@@ -552,23 +622,20 @@ function readState(config) {
   const segments = requestedPath ? requestedPath.split("/").filter(Boolean) : [];
   const validTrail = [];
   const answers = {};
-  let recovered = false;
   for (let index = 0; index < segments.length; index += 1) {
     const question = getQuestion(config, index, answers);
     if (!question) {
-      recovered = true;
       break;
     }
     const decoded = decodeSegment(segments[index], question);
     if (decoded === null) {
-      recovered = true;
       break;
     }
     answers[question.id] = decoded;
     validTrail.push(Array.isArray(decoded) ? decoded.join("~") : decoded);
   }
-  if (segments.length !== validTrail.length) recovered = Boolean(requestedPath);
   const complete = validTrail.length === config.questions.length;
+  const recovered = Boolean(requestedPath) && (segments.length !== validTrail.length || !complete);
   return {
     requestedPath,
     validTrail,
@@ -615,7 +682,9 @@ function renderQuestion(mount, config, state, recoveryNotice, draft) {
     const isSelected = selected.has(option.id);
     return `<button class="vm-review-option${isSelected ? " is-selected" : ""}" type="button" data-lifecycle-option="${escapeHtml(option.id)}" aria-describedby="lifecycle-note-${escapeHtml(option.id)}"${isMulti(question) ? ` aria-pressed="${isSelected}"` : ""}><span>${escapeHtml(option.label)}</span><small id="lifecycle-note-${escapeHtml(option.id)}">${escapeHtml(option.note)}</small></button>`;
   }).join("");
-  const continueMarkup = isMulti(question) ? '<button class="vm-button vm-button-secondary vm-lifecycle-continue" type="button" data-lifecycle-action="continue">Continue</button>' : "";
+  const continueLabel = question.id === "agreements" ? "Build my pregame statement" : "Continue";
+  const continueClass = question.id === "agreements" ? "vm-button vm-button--primary vm-lifecycle-final-action" : "vm-button vm-button-secondary";
+  const continueMarkup = isMulti(question) ? `<button class="${continueClass} vm-lifecycle-continue" type="button" data-lifecycle-action="continue"${selected.size ? "" : " disabled"}>${continueLabel}</button>` : "";
   mount.innerHTML = `${recoverMarkup(recoveryNotice)}<div class="vm-lifecycle-flow" data-stage-id="${escapeHtml(question.id)}">${progressMarkup(index, config.questions.length)}<div class="vm-review-copy"><span class="vm-eyebrow">${escapeHtml(question.eyebrow)}</span><h2 tabindex="-1" data-lifecycle-focus>${escapeHtml(question.title)}</h2>${question.intro ? `<p>${escapeHtml(question.intro)}</p>` : ""}</div><div class="vm-review-options">${optionMarkup}</div>${continueMarkup}${reviewActionsMarkup(index)}</div>`;
 }
 
@@ -662,11 +731,11 @@ export function bootLifecycleFlow(config) {
   let recoveryNotice = "";
   let pendingMulti = null;
 
-  function render() {
+  function render(showRecovery = false) {
     const state = readState(config);
     trail = state.validTrail;
-    if (state.recovered) {
-      recoveryNotice = "That lifecycle state was unavailable or incomplete. You are back at the nearest valid step; no answer was added.";
+    if (showRecovery && state.recovered) {
+      recoveryNotice = "We could not restore that exact review, so this step was restarted safely.";
       setPath(config, trail, true);
     } else {
       recoveryNotice = "";
@@ -707,7 +776,7 @@ export function bootLifecycleFlow(config) {
       const nextTrail = state.validTrail.concat(option.dataset.lifecycleOption);
       setPath(config, nextTrail);
       recoveryNotice = "";
-      render();
+      render(false);
       return;
     }
     if (action?.dataset.lifecycleAction === "continue" && question && isMulti(question)) {
@@ -718,7 +787,7 @@ export function bootLifecycleFlow(config) {
       pendingMulti = null;
       setPath(config, state.validTrail.concat(selected.join("~")));
       recoveryNotice = "";
-      render();
+      render(false);
       return;
     }
     if (action?.dataset.lifecycleAction === "back") {
@@ -727,14 +796,14 @@ export function bootLifecycleFlow(config) {
       const previous = state.validTrail.slice(0, -1);
       setPath(config, previous);
       recoveryNotice = "";
-      render();
+      render(false);
       return;
     }
     if (action?.dataset.lifecycleAction === "reset") {
       pendingMulti = null;
       setPath(config, []);
       recoveryNotice = "";
-      render();
+      render(false);
       return;
     }
     if (copyButton) {
@@ -750,12 +819,10 @@ export function bootLifecycleFlow(config) {
 
   window.addEventListener("popstate", () => {
     pendingMulti = null;
-    render();
+    render(false);
   });
   window.vmStrategiumLifecycleModel = { config, readState: () => readState(config), evaluate: config.evaluate };
-  const initial = readState(config);
-  if (initial.recovered) setPath(config, initial.validTrail, true);
-  render();
+  render(true);
 }
 
 if (typeof window !== "undefined" && typeof document !== "undefined") {
