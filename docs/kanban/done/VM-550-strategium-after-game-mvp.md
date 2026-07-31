@@ -2,7 +2,7 @@
 
 ID: VM-550
 Title: Strategium After-the-Game MVP
-Status: hub navigation remediation complete - awaiting owner hand review and repeated independent review
+Status: certified and integrated into local main - awaiting owner verification and separately authorized push/deployment
 Type: Frontend / Commander UX / Product Slice
 Area: Strategium
 Priority: high
@@ -212,3 +212,17 @@ The complete authoritative mapping is recorded in `docs/handoffs/2026-07-28-0147
 - Independent-review validation and handoff: this document's final commit
 - Hub-navigation remediation implementation: `d037a4cdfea5355164c5dc18c2b746fb2a05a1ea`
 - Hub-navigation validation and handoff: this document's final commit
+
+## Certification And Controlled Local Integration - 2026-07-30
+
+- Owner approval: `OWNER REVIEW: APPROVE EXACT SHA 639a63f81762450e6c87259416a0fdfa2c313681`.
+- Independent approval: `INDEPENDENT REVIEW: APPROVE EXACT SHA 639a63f81762450e6c87259416a0fdfa2c313681`.
+- The exact approved candidate was fast-forwarded without conflict or history rewriting into the dedicated integration worktree at `C:\dev\voxmana.io-vm550-integration` on branch `codex/vm550-certification-integration`, starting from local-main SHA `867608bdda5ef61a6b16d0781ed4f0c1bffb0b0d`.
+- Certification validation passed for the focused Strategium suite, all 24 exact authored returns, the complete negative-return matrix, JavaScript syntax and lint, HTML lint, copy boundaries, route metadata, frontend smoke, browser smoke, the full aggregate suite, internal links, and `git diff --check`.
+- Manual browser review passed at 1440 x 900, 1024 x 768, 768 x 1024, 390 x 844, and 320 x 568 with no horizontal overflow, clipped controls, hidden content, browser warnings, or browser errors.
+- The 15 non-document runtime/test blobs from the exact candidate were recorded before integration and are required to remain byte-identical at the final integration head.
+- The aggregate suite's deterministic Gate live-bias writer canonicalized the physical line endings of two tracked audit reports while preserving Git content. Their pre-test hashes were recorded, the canonical hashes were stable across the focused and aggregate executions, and the worktree copies were restored exactly from `HEAD`; no report change is included.
+- This record's certification commit is the controlled local integration head. The final phase fast-forwards local `main` to that exact commit only after clean-worktree, blob-identity, ancestry, and unchanged-main proof.
+- No push, deployment, visual-baseline refresh, candidate-worktree mutation, unrelated-route change, or worktree cleanup is authorized or performed here.
+- Intentional MVP boundaries remain: Before the Game, During the Game, and Finding a Table are unavailable; feedback remains local and non-persisted; no accounts, history, analytics, LLM runtime, or additional situation-family implementation was added.
+- Exact next action: owner verification of local `main`, followed only by separately authorized push/deployment work. Candidate and integration worktree cleanup remains a later separately authorized action.

@@ -201,3 +201,11 @@ Product owner performing the exact-SHA hand review, followed by a separate indep
 - Required starting candidate: `43e0ed0cc0436dc9c0da38d4eff1e980e058b00f`
 - Hub-navigation implementation and focused tests: `d037a4cdfea5355164c5dc18c2b746fb2a05a1ea`
 - Validation and handoff: this document's commit
+
+## Certification addendum - 2026-07-30
+
+- Owner hand review approved exact SHA `639a63f81762450e6c87259416a0fdfa2c313681`.
+- The repeated independent review gate approved the same exact SHA.
+- Certification reran the required automated and five-viewport browser validation from a dedicated integration worktree and found no blocking or major findings.
+- The exact candidate runtime/test blobs were preserved without modification through controlled local integration.
+- Superseding certification record: `docs/handoffs/2026-07-30-2134-codex-vm550-certification-integration.md`.
