@@ -701,8 +701,8 @@ async function runBrowserChecks(baseUrl) {
     await waitForReview(page);
     expect(
       !new URL(page.url()).searchParams.has("path")
-        && await page.$eval("[data-review-focus]", heading => heading.textContent.trim()) === "Which moment do you want to review?",
-      "Stage 2 Back should restore Stage 1 without exposing Start over"
+        && await page.$eval("[data-review-focus]", heading => heading.textContent.trim()) === "What best describes the game?",
+      "First-question Back should return to the direct After the Game start without exposing Start over"
     );
     await page.goto(`${baseUrl}/strategium/review/?path=after-game/lost`, { waitUntil: "networkidle0" });
     await Promise.all([
@@ -1175,7 +1175,7 @@ async function runBrowserChecks(baseUrl) {
     expect(mobileRecovery.headingFocused && mobileRecovery.headingVisible, "Mobile recovery should focus and reveal the returned question");
 
     await page.goto(`${baseUrl}/strategium/review/`, { waitUntil: "networkidle0" });
-    await page.click('[data-option="after-game"]');
+    expect(await page.$eval("[data-review-focus]", heading => heading.textContent.trim()) === "What best describes the game?", "Review root should begin at the first meaningful After the Game question");
     await page.waitForFunction(() => document.activeElement?.matches("[data-review-focus]"));
     await page.evaluate(() => new Promise(resolve => window.requestAnimationFrame(resolve)));
     let focusState = await getResultState(page);
@@ -1207,9 +1207,8 @@ async function runBrowserChecks(baseUrl) {
 
     await page.click('[data-review-action="start-over"]');
     expect(!new URL(page.url()).searchParams.has("path"), "Start Over should clear the review path");
-    expect(await page.$eval("[data-review-focus]", heading => heading.textContent.trim()) === "Which moment do you want to review?", "Start Over should return to Situation");
+    expect(await page.$eval("[data-review-focus]", heading => heading.textContent.trim()) === "What best describes the game?", "Start Over should return to the direct After the Game start");
 
-    await page.click('[data-option="after-game"]');
     await page.click('[data-option="won-unclear"]');
     await page.goBack({ waitUntil: "networkidle0" });
     expect(await page.$eval("[data-review-focus]", heading => heading.textContent.trim()) === "What best describes the game?", "Diagnostic Back did not restore the prior question");

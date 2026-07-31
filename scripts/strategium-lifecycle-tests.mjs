@@ -261,6 +261,34 @@ async function run() {
     expect(hub.length === 4, "hub should expose four chronological lifecycle moments");
     expect(hub.map(item => item.href).join("|") === "./find-a-table/|./before-game/|./during-game/|./review/", "hub lifecycle links should target the correct routes");
     expect(await page.$(".vm-hub-availability") === null, "hub should not restore the removed Guided Moments section");
+    const consolePreview = await page.$$eval(".vm-console-preview", nodes => nodes.map(node => node.innerText.trim()));
+    expect(consolePreview.length === 4, "Commander Console hub card should show four compact previews");
+    for (const concept of ["Pod Readiness", "Archetypes", "Threat & Pressure", "Color Expectations"]) {
+      expect(consolePreview.some(copy => copy.startsWith(concept)), `Commander Console preview should include ${concept}`);
+    }
+
+    await page.goto(`${baseUrl}/strategium/find-a-table/?path=memorable/develop/predictable/light/clear`, { waitUntil: "networkidle0" });
+    const findResult = await page.evaluate(() => ({
+      headline: document.querySelector("[data-lifecycle-focus]")?.textContent.trim() || "",
+      cards: [...document.querySelectorAll(".vm-lifecycle-result-card h3")].map(node => node.textContent.trim()),
+      body: document.querySelector(".vm-lifecycle-result")?.innerText || "",
+    }));
+    expect(findResult.headline && (findResult.body.match(new RegExp(findResult.headline.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g")) || []).length === 1, "Finding a Table compatibility conclusion should appear only once");
+    expect(!findResult.cards.includes("Provisional compatibility read"), "Finding a Table should remove the duplicate provisional compatibility card");
+    expect(findResult.cards.join("|") === "Why this read may apply|One question to ask before joining|A possible mismatch to watch for|You can choose another table", "Finding a Table should render the four required result cards");
+    expect(findResult.body.includes("big memorable turns") && findResult.body.includes("table"), "Finding a Table explanation should interpret the selected preference against the table signal");
+
+    for (const bracketId of ["approximate-1", "approximate-2", "approximate-3", "approximate-4", "approximate-5", "unsure", "not-using"]) {
+      await page.goto(`${baseUrl}/strategium/before-game/`, { waitUntil: "networkidle0" });
+      expect(await page.$$eval(".vm-bracket-number", nodes => nodes.length) === 5, "Before the Game bracket step should use five compact number controls");
+      if (bracketId.startsWith("approximate-")) {
+        await page.click(`[data-lifecycle-option="${bracketId}"]`);
+      } else {
+        await page.click(`[data-lifecycle-option="${bracketId}"]`);
+      }
+      expect(new URL(page.url()).searchParams.get("path") === bracketId, `bracket state ${bracketId} should be encoded after selection`);
+      expect(await page.$(".vm-bracket-selector") === null, `bracket state ${bracketId} should advance to the next question`);
+    }
 
     for (const [route, config] of Object.entries(lifecycleConfigs)) {
       for (let stageIndex = 0; stageIndex < config.questions.length; stageIndex += 1) {
@@ -310,6 +338,8 @@ async function run() {
     expect(new URL(page.url()).pathname.endsWith("/strategium/"), "native lifecycle links should activate with Enter");
 
     await page.goto(`${baseUrl}/strategium/before-game/?path=approximate-3/develop/combat/middle`, { waitUntil: "networkidle0" });
+    expect(await page.$eval(".vm-lifecycle-continue", node => node.textContent.trim()) === "Continue to final check", "Step 5 should use the explicit final-check action");
+    expect(await page.$eval(".vm-lifecycle-continue", node => Boolean(node.closest(".vm-review-nav"))), "Step 5 primary action should be inside the standard footer");
     await page.click('[data-lifecycle-option="none"]');
     await page.click('[data-lifecycle-option="combo"]');
     expect(await page.$eval('[data-lifecycle-option="none"]', node => node.getAttribute("aria-pressed")) === "false" && await page.$eval('[data-lifecycle-option="combo"]', node => node.getAttribute("aria-pressed")) === "true", "selecting a positive disclosure should clear None of these");
@@ -321,6 +351,8 @@ async function run() {
     await page.goto(`${baseUrl}/strategium/before-game/?path=approximate-3/develop/combat/middle/none`, { waitUntil: "networkidle0" });
     const finalActionBefore = await page.$eval(".vm-lifecycle-continue", node => ({ text: node.textContent.trim(), disabled: node.disabled }));
     expect(finalActionBefore.text === "Build my pregame statement" && finalActionBefore.disabled, "final agreement should expose a named disabled result-building action before selection");
+    expect(await page.$eval(".vm-lifecycle-continue", node => Boolean(node.closest(".vm-review-nav"))), "Step 6 result-building action should be inside the standard footer");
+    expect(await page.$$eval(".vm-lifecycle-continue", nodes => nodes.filter(node => !node.closest(".vm-review-nav")).length) === 0, "Step 6 should not render a detached action bar");
     expect(await page.$$eval(".vm-lifecycle-continue", nodes => nodes.filter(node => node.textContent.trim() === "Continue").length) === 0, "final agreement should not use a generic Continue label");
     await page.focus('[data-lifecycle-option="time"]');
     await page.keyboard.press("Space");
@@ -355,8 +387,15 @@ async function run() {
     expect(/official rule|judge|agreed rules resource/i.test(rulesResult), "rules path should point to a rules resource");
     expect(!/attack|target recommendation|optimal line/i.test(rulesResult), "rules path should not offer tactical advice");
 
-    await page.goto(`${baseUrl}/strategium/review/`, { waitUntil: "networkidle0" });
-    expect(await page.$("#strategiumReview") !== null, "After the Game route should remain available");
+    await page.goto(`${baseUrl}/strategium/`, { waitUntil: "networkidle0" });
+    await page.click('.vm-lifecycle-links a[href="./review/"]');
+    await page.waitForFunction(() => document.querySelector("[data-review-focus]")?.textContent.includes("What best describes the game"));
+    const afterEntryText = await page.$eval("#strategiumReview", node => node.innerText);
+    expect(afterEntryText.includes("What best describes the game?"), "hub After the Game entry should open the first real review question");
+    expect(!/Which moment do you want to review|In development|After the Game is ready now|Start the available review/i.test(afterEntryText), "After the Game entry should not render the obsolete lifecycle selector");
+    expect(await page.$$eval("[data-option]", nodes => nodes.map(node => node.textContent.trim())).then(options => !options.includes("Before the Game") && !options.includes("During the Game") && !options.includes("Finding a Table")), "obsolete lifecycle buttons should be absent from the rendered review route");
+    await page.goto(`${baseUrl}/strategium/review/?path=before-game`, { waitUntil: "networkidle0" });
+    expect(await page.$(".vm-review-recovery") !== null && await page.$eval("[data-review-focus]", node => node.textContent.includes("What best describes the game")), "legacy After the Game selector URLs should recover to the real review start");
     await page.goto(`${baseUrl}/strategium/console/`, { waitUntil: "networkidle0" });
     expect(await page.$(".vm-commander-grid") !== null, "Commander Console should remain available");
 

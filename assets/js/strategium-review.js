@@ -111,19 +111,6 @@
   };
 
   const questions = {
-    family: {
-      stage: 1,
-      stageName: "Situation",
-      eyebrow: "Choose a situation",
-      title: "Which moment do you want to review?",
-      intro: "After the Game is ready now. Choose it even if you are not sure which detail mattered.",
-      options: [
-        { id: "before-game", label: "Before the Game", note: "In development", disabled: true },
-        { id: "during-game", label: "During the Game", note: "In development", disabled: true },
-        { id: "after-game", label: "After the Game", note: "Start the available review", next: "after" },
-        { id: "finding-table", label: "Finding a Table", note: "In development", disabled: true }
-      ]
-    },
     after: {
       stage: 2,
       stageName: "Game",
@@ -197,6 +184,9 @@
 
   const historicalPathAliases = new Map([
     ["start-unsure", "after-game"],
+    ["before-game", "after-game"],
+    ["during-game", "after-game"],
+    ["finding-table", "after-game"],
     ["after-game/takeaway-unsure", "after-game/unsure"],
     ["after-game/lost/loss-unsure", "after-game/lost/unsure"],
     ["after-game/lost/never-started/start-unknown", "after-game/lost/never-started/unsure"],
@@ -221,11 +211,16 @@
   }
 
   function getState(candidateTrail) {
-    let questionId = "family";
+    let questionId = "after";
     let resultId = "";
     const validTrail = [];
 
     for (let index = 0; index < candidateTrail.length; index += 1) {
+      if (index === 0 && candidateTrail[index] === "after-game") {
+        validTrail.push("after-game");
+        questionId = "after";
+        continue;
+      }
       const optionId = candidateTrail[index];
       const question = questions[questionId];
       const option = question && question.options.find(item => item.id === optionId && !item.disabled);
@@ -278,7 +273,7 @@
 
   function describeReturnPoint(state) {
     if (state.resultId) return `the last available result`;
-    const question = questions[state.questionId] || questions.family;
+    const question = questions[state.questionId] || questions.after;
     return question.stage === 1 ? "the start of the review" : `"${question.title}"`;
   }
 
@@ -311,9 +306,9 @@
       </button>`;
   }
 
-  function reviewActionsMarkup(stage) {
-    const showBack = stage >= 2;
-    const showStartOver = stage >= 3;
+  function reviewActionsMarkup(stage, trailLength = trail.length) {
+    const showBack = trailLength > 0;
+    const showStartOver = trailLength > 1;
     const actionCount = Number(showBack) + Number(showStartOver) + 1;
     return `
       <div class="vm-review-nav" aria-label="Review actions" style="--review-action-count:${actionCount}">
@@ -364,7 +359,7 @@
             ${option.note ? `<small id="note-${option.id}">${option.note}</small>` : ""}
           </button>`).join("")}
       </div>
-      ${reviewActionsMarkup(question.stage)}`;
+        ${reviewActionsMarkup(question.stage, trail.length)}`;
     focusNewHeading();
   }
 
@@ -404,7 +399,7 @@
           <div>${["Yes", "Partly", "No", "Something was missing"].map(choice => `<button type="button" class="vm-feedback-choice" data-feedback="${choice}" aria-pressed="${feedback === choice}">${choice}</button>`).join("")}</div>
           <p class="vm-feedback-state" role="status" aria-live="polite">${feedback ? `Current selection: ${feedback}` : "No selection for this result."}</p>
         </fieldset>
-        ${reviewActionsMarkup(4)}
+        ${reviewActionsMarkup(4, trail.length)}
       </article>`;
     focusNewHeading();
   }
@@ -555,13 +550,13 @@
   }
 
   mount.addEventListener("click", event => {
-    const option = event.target.closest("[data-option]");
+      const option = event.target.closest("[data-option]");
     const action = event.target.closest("[data-review-action]");
     const feedbackButton = event.target.closest("[data-feedback]");
     const lessonButton = event.target.closest("[data-lesson]");
 
     if (option && !option.disabled) {
-      trail.push(option.dataset.option);
+      trail = trail.length ? trail.concat(option.dataset.option) : ["after-game", option.dataset.option];
       feedback = "";
       recoveryNotice = "";
       pushTrail();

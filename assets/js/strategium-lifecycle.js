@@ -430,11 +430,9 @@ export function evaluateFindTable(answers) {
     : category === "one-more-answer"
       ? "You may need one more answer before joining."
       : "This may be a reasonable fit based on the signals you have.";
-  const why = [
-    `You are looking for ${findTableCopy.experience[experience] || "a game that fits today"}.`,
-    `Your preferred pace is ${findTableCopy.pace[pace] || "still open"}.`,
-    `The table's clearest signal is: ${findTableCopy.table[table] || "not enough information yet"}`,
-  ].join(" ");
+  const preferenceRead = `${findTableCopy.experience[experience] || "a game that fits today"} at ${findTableCopy.pace[pace] || "an open pace"}`;
+  const tableRead = findTableCopy.table[table] || "not enough information yet";
+  const why = `Your read points toward ${preferenceRead}, while the table signal says ${tableRead.toLowerCase()} The useful comparison is whether the table's pace, interaction, and finish leave room for the game you are hoping to have.`;
   const ask = category === "different-game"
     ? "If you are still curious, ask: “What does your deck usually do, and how quickly can it become threatening?”"
     : category === "one-more-answer"
@@ -449,7 +447,6 @@ export function evaluateFindTable(answers) {
     category,
     headline: read,
     cards: [
-      { title: "Provisional compatibility read", body: read },
       { title: "Why this read may apply", body: why },
       { title: "One question to ask before joining", body: ask },
       { title: "A possible mismatch to watch for", body: watch },
@@ -676,11 +673,11 @@ function progressMarkup(index, total, complete = false) {
   return `<div class="vm-review-toolbar"><div class="vm-review-progress" aria-label="${complete ? "Lifecycle result" : `Lifecycle progress: ${label}`}" role="progressbar" aria-valuemin="1" aria-valuemax="${total}" aria-valuenow="${stage}"><span style="--progress:${(stage / total) * 100}%"></span></div><span>${label}</span></div>`;
 }
 
-function reviewActionsMarkup(index) {
+function reviewActionsMarkup(index, primaryAction = "") {
   const showBack = index > 0;
   const showStartOver = index > 0;
-  const actionCount = Number(showBack) + Number(showStartOver) + 1;
-  return `<div class="vm-review-nav" aria-label="Lifecycle actions" style="--review-action-count:${actionCount}">${showBack ? '<button class="vm-review-action" type="button" data-lifecycle-action="back">Back</button>' : ""}${showStartOver ? '<button class="vm-review-action vm-review-action-reset" type="button" data-lifecycle-action="reset">Start over</button>' : ""}<a class="vm-review-action vm-review-action-return" href="../">Return to Strategium</a></div>`;
+  const actionCount = Number(showBack) + Number(showStartOver) + Number(Boolean(primaryAction)) + 1;
+  return `<div class="vm-review-nav" aria-label="Lifecycle actions" style="--review-action-count:${actionCount}">${showBack ? '<button class="vm-review-action" type="button" data-lifecycle-action="back">Back</button>' : ""}${showStartOver ? '<button class="vm-review-action vm-review-action-reset" type="button" data-lifecycle-action="reset">Start over</button>' : ""}${primaryAction}<a class="vm-review-action vm-review-action-return" href="../">Return to Strategium</a></div>`;
 }
 
 function recoverMarkup(message) {
@@ -693,14 +690,24 @@ function renderQuestion(mount, config, state, recoveryNotice, draft) {
   const selected = isMulti(question)
     ? new Set(draft?.stageIndex === index ? draft.values : state.answers[question.id] || [])
     : new Set();
-  const optionMarkup = question.options.map(option => {
+  const selectedSingle = state.answers[question.id] || "";
+  const optionMarkup = question.id === "bracket"
+    ? `<div class="vm-bracket-selector" role="group" aria-label="Approximate bracket">
+        <span class="vm-bracket-selector-label">Use your pod's current bracket language, if you use it.</span>
+        <div class="vm-bracket-numbers">${question.options.filter(option => option.id.startsWith("approximate-")).map(option => {
+          const isSelected = selectedSingle === option.id;
+          return `<button class="vm-bracket-number${isSelected ? " is-selected" : ""}" type="button" data-lifecycle-option="${escapeHtml(option.id)}" aria-pressed="${isSelected}" aria-label="${escapeHtml(option.label)}">${escapeHtml(option.id.replace("approximate-", ""))}</button>`;
+        }).join("")}</div>
+      </div>
+      <div class="vm-bracket-context-options">${question.options.filter(option => !option.id.startsWith("approximate-")).map(option => `<button class="vm-review-option vm-bracket-context-option${selectedSingle === option.id ? " is-selected" : ""}" type="button" data-lifecycle-option="${escapeHtml(option.id)}" aria-describedby="lifecycle-note-${escapeHtml(option.id)}"><span>${escapeHtml(option.label)}</span><small id="lifecycle-note-${escapeHtml(option.id)}">${escapeHtml(option.note)}</small></button>`).join("")}</div>`
+    : question.options.map(option => {
     const isSelected = selected.has(option.id);
     return `<button class="vm-review-option${isSelected ? " is-selected" : ""}" type="button" data-lifecycle-option="${escapeHtml(option.id)}" aria-describedby="lifecycle-note-${escapeHtml(option.id)}"${isMulti(question) ? ` aria-pressed="${isSelected}"` : ""}><span>${escapeHtml(option.label)}</span><small id="lifecycle-note-${escapeHtml(option.id)}">${escapeHtml(option.note)}</small></button>`;
   }).join("");
-  const continueLabel = question.id === "agreements" ? "Build my pregame statement" : "Continue";
-  const continueClass = question.id === "agreements" ? "vm-button vm-button--primary vm-lifecycle-final-action" : "vm-button vm-button-secondary";
-  const continueMarkup = isMulti(question) ? `<button class="${continueClass} vm-lifecycle-continue" type="button" data-lifecycle-action="continue"${selected.size ? "" : " disabled"}>${continueLabel}</button>` : "";
-  mount.innerHTML = `${recoverMarkup(recoveryNotice)}<div class="vm-lifecycle-flow" data-stage-id="${escapeHtml(question.id)}">${progressMarkup(index, config.questions.length)}<div class="vm-review-copy"><span class="vm-eyebrow">${escapeHtml(question.eyebrow)}</span><h2 tabindex="-1" data-lifecycle-focus>${escapeHtml(question.title)}</h2>${question.intro ? `<p>${escapeHtml(question.intro)}</p>` : ""}</div><div class="vm-review-options">${optionMarkup}</div>${continueMarkup}${reviewActionsMarkup(index)}</div>`;
+  const continueLabel = question.id === "agreements" ? "Build my pregame statement" : question.id === "surprises" ? "Continue to final check" : "";
+  const continueClass = question.id === "agreements" ? "vm-review-action-primary vm-button vm-button--primary vm-lifecycle-final-action" : "vm-review-action-primary vm-button vm-button--primary";
+  const primaryAction = isMulti(question) ? `<button class="${continueClass} vm-review-action vm-lifecycle-continue" type="button" data-lifecycle-action="continue"${selected.size ? "" : " disabled"}>${continueLabel}</button>` : "";
+  mount.innerHTML = `${recoverMarkup(recoveryNotice)}<div class="vm-lifecycle-flow" data-stage-id="${escapeHtml(question.id)}">${progressMarkup(index, config.questions.length)}<div class="vm-review-copy"><span class="vm-eyebrow">${escapeHtml(question.eyebrow)}</span><h2 tabindex="-1" data-lifecycle-focus>${escapeHtml(question.title)}</h2>${question.intro ? `<p>${escapeHtml(question.intro)}</p>` : ""}</div><div class="vm-review-options">${optionMarkup}</div>${reviewActionsMarkup(index, primaryAction)}</div>`;
 }
 
 function renderResult(mount, config, state, recoveryNotice) {

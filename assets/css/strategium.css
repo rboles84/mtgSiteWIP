@@ -1264,6 +1264,36 @@ main section {
   font-weight: 700;
 }
 
+.vm-console-preview-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin: 0.15rem 0 0.3rem;
+}
+
+.vm-console-preview {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+  padding: 0.65rem 0.7rem;
+  border: 1px solid rgba(247, 215, 132, 0.18);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.vm-console-preview strong {
+  color: var(--gold-2);
+  font-size: 0.78rem;
+}
+
+.vm-console-preview span {
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
 .vm-review-shell {
   min-height: calc(100vh - 9rem);
 }
@@ -1434,9 +1464,9 @@ main section {
 }
 
 .vm-review-action-return {
-  border-color: rgba(247, 215, 132, 0.62);
-  background: rgba(247, 215, 132, 0.14);
-  color: var(--gold-2);
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
 }
 
 .vm-review-action:active {
@@ -1877,8 +1907,79 @@ html.vm-dialog-open body {
 
 .vm-lifecycle-continue {
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 0;
   justify-content: center;
+}
+
+.vm-review-action-primary {
+  border-color: rgba(247, 215, 132, 0.72);
+  background: var(--gold-2);
+  color: #14100a;
+}
+
+.vm-review-action-primary:hover:not(:disabled),
+.vm-review-action-primary:focus-visible {
+  border-color: var(--gold-2);
+  background: var(--gold-2);
+  color: #14100a;
+}
+
+.vm-review-action-primary:disabled {
+  border-color: rgba(247, 215, 132, 0.28);
+  background: rgba(247, 215, 132, 0.16);
+  color: rgba(245, 234, 210, 0.7);
+  cursor: not-allowed;
+}
+
+.vm-bracket-selector {
+  display: grid;
+  gap: 0.7rem;
+  margin-bottom: 0.85rem;
+  padding: 0.9rem;
+  border: 1px solid rgba(247, 215, 132, 0.18);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.vm-bracket-selector-label {
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.vm-bracket-numbers {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.vm-bracket-number {
+  min-height: 54px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.26);
+  color: var(--text);
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.vm-bracket-number:hover,
+.vm-bracket-number:focus-visible,
+.vm-bracket-number.is-selected {
+  border-color: rgba(247, 215, 132, 0.72);
+  background: rgba(247, 215, 132, 0.12);
+  color: var(--gold-2);
+}
+
+.vm-bracket-context-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.vm-bracket-context-option {
+  min-height: 88px;
 }
 
 .vm-lifecycle-result-grid > section {
@@ -1924,6 +2025,11 @@ html.vm-dialog-open body {
 
 @media (max-width: 720px) {
   .vm-lifecycle-links {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-console-preview-grid,
+  .vm-bracket-context-options {
     grid-template-columns: 1fr;
   }
 
