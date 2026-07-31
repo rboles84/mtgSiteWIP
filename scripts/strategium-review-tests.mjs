@@ -162,7 +162,17 @@ async function runStaticChecks() {
   expect(consoleRuntime.includes('candidate.pathname !== "/strategium/review/"'), "Console return validation must be restricted to the review route");
   expect(consoleRuntime.includes("window.vmStrategiumReviewPaths?.byPath"), "Console return validation must use the shared authored-result registry");
   expect(!consoleHtml.includes("<base "), "Console must not use a base element");
-  expect(consoleHtml.includes('href="#top"') && consoleHtml.includes('href="#strategium"'), "Console-local Top and Strategium anchors are missing");
+  expect(consoleHtml.includes('href="#top"') && consoleHtml.includes('id="strategium"'), "Console-local Top and Strategium section anchors are missing");
+  expect(hubHtml.includes('href="./" data-vm-nav="strategium"'), "Hub Strategium navigation should target the canonical hub");
+  expect(reviewHtml.includes('href="../" data-vm-nav="strategium"'), "Review Strategium navigation should target the canonical hub");
+  expect(consoleHtml.includes('href="../" data-vm-nav="strategium"'), "Console Strategium navigation should target the canonical hub");
+  expect(!consoleHtml.includes('href="#strategium"'), "Global Console links must not use the route-local Strategium section hash");
+  expect(reviewHtml.includes('<a href="../">Strategium</a>'), "Review footer Strategium link should target the canonical hub");
+  expect(consoleHtml.includes('<a href="../">Strategium</a>'), "Console footer Strategium link should target the canonical hub");
+  expect(
+    (await readFile(path.join(root, "assets/js/vm-topbar.js"), "utf8")).includes("cloneNode(true)"),
+    "Mobile navigation must continue cloning the corrected desktop navigation targets"
+  );
   expect(consoleHtml.includes("../../assets/js/strategium.js"), "Console nested-route asset paths were not repaired");
   expect(reviewHtml.includes('id="strategiumLessonDialog"'), "Review route is missing the reusable lesson dialog");
   expect(reviewHtml.includes('aria-labelledby="strategiumLessonDialogTitle"'), "Lesson dialog is missing its accessible title relationship");
@@ -405,6 +415,99 @@ async function runBrowserChecks(baseUrl) {
     }
 
     await page.setViewport({ width: 1024, height: 768, deviceScaleFactor: 1 });
+
+    const desktopStrategiumNavCases = [
+      ["/strategium/", "./"],
+      ["/strategium/review/?path=after-game/won-unclear", "../"],
+      ["/strategium/console/?lesson=heat-management", "../"],
+    ];
+    await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 1 });
+    for (const [sourceRoute, expectedHref] of desktopStrategiumNavCases) {
+      await page.goto(`${baseUrl}${sourceRoute}`, { waitUntil: "networkidle0" });
+      await page.waitForSelector('[data-vm-menu-nav] [data-vm-nav="strategium"]');
+      const navigationState = await page.evaluate(() => {
+        const desktop = document.querySelector('.vm-nav > [data-vm-nav="strategium"]');
+        const mobile = document.querySelector('[data-vm-menu-nav] [data-vm-nav="strategium"]');
+        return {
+          desktopHref: desktop?.getAttribute("href") || "",
+          mobileHref: mobile?.getAttribute("href") || "",
+          desktopCurrent: desktop?.getAttribute("aria-current") || "",
+          mobileCurrent: mobile?.getAttribute("aria-current") || "",
+        };
+      });
+      expect(
+        navigationState.desktopHref === expectedHref
+          && navigationState.mobileHref === expectedHref
+          && navigationState.desktopCurrent === "page"
+          && navigationState.mobileCurrent === "page",
+        `${sourceRoute} should expose matching canonical desktop/mobile Strategium navigation with current-page state`
+      );
+      await Promise.all([
+        page.waitForNavigation({ waitUntil: "networkidle0" }),
+        page.click('.vm-nav > [data-vm-nav="strategium"]'),
+      ]);
+      expect(new URL(page.url()).pathname === "/strategium/", `${sourceRoute} desktop Strategium navigation should reach the hub`);
+      if (sourceRoute !== "/strategium/") {
+        await page.goBack({ waitUntil: "networkidle0" });
+        expect(
+          `${new URL(page.url()).pathname}${new URL(page.url()).search}` === sourceRoute,
+          `Browser Back should restore ${sourceRoute} after desktop hub navigation`
+        );
+      }
+    }
+
+    await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 1 });
+    for (const sourceRoute of [
+      "/strategium/review/?path=after-game/won-unclear",
+      "/strategium/console/?lesson=heat-management",
+    ]) {
+      await page.goto(`${baseUrl}${sourceRoute}`, { waitUntil: "networkidle0" });
+      await page.waitForSelector('[data-vm-menu-nav] [data-vm-nav="strategium"]');
+      expect(
+        await page.$eval('[data-vm-menu-nav] [data-vm-nav="strategium"]', link => ({
+          href: link.getAttribute("href"),
+          current: link.getAttribute("aria-current"),
+        })).then(state => state.href === "../" && state.current === "page"),
+        `${sourceRoute} cloned mobile Strategium navigation should target the hub and retain current-page state`
+      );
+      await page.click("[data-vm-menu-trigger]");
+      await page.waitForFunction(() => {
+        const panel = document.querySelector("[data-vm-menu-panel]");
+        const style = panel ? getComputedStyle(panel) : null;
+        return panel?.dataset.open === "true" && style?.visibility === "visible" && style?.opacity === "1";
+      });
+      await Promise.all([
+        page.waitForNavigation({ waitUntil: "networkidle0" }),
+        page.click('[data-vm-menu-nav] [data-vm-nav="strategium"]'),
+      ]);
+      expect(new URL(page.url()).pathname === "/strategium/", `${sourceRoute} mobile Strategium navigation should reach the hub`);
+      await page.goBack({ waitUntil: "networkidle0" });
+      expect(
+        `${new URL(page.url()).pathname}${new URL(page.url()).search}` === sourceRoute,
+        `Browser Back should restore ${sourceRoute} after mobile hub navigation`
+      );
+    }
+
+    await page.setViewport({ width: 1024, height: 768, deviceScaleFactor: 1 });
+    for (const sourceRoute of [
+      "/strategium/review/?path=after-game/won-unclear",
+      "/strategium/console/?lesson=heat-management",
+    ]) {
+      await page.goto(`${baseUrl}${sourceRoute}`, { waitUntil: "networkidle0" });
+      const footerStrategium = 'footer a[href="../"]';
+      expect(await page.$$eval(footerStrategium, links => links.length) === 1, `${sourceRoute} should expose one global Strategium footer link`);
+      await page.focus(footerStrategium);
+      await Promise.all([
+        page.waitForNavigation({ waitUntil: "networkidle0" }),
+        page.keyboard.press("Enter"),
+      ]);
+      expect(new URL(page.url()).pathname === "/strategium/", `${sourceRoute} footer Strategium link should reach the hub`);
+      await page.goBack({ waitUntil: "networkidle0" });
+      expect(
+        `${new URL(page.url()).pathname}${new URL(page.url()).search}` === sourceRoute,
+        `Browser Back should restore ${sourceRoute} after footer hub navigation`
+      );
+    }
 
     await page.goto(`${baseUrl}/strategium/console/?lesson=readiness-checklist#readiness-checklist`, { waitUntil: "networkidle0" });
     await page.waitForSelector("#readiness-item-1");
@@ -1137,4 +1240,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("Strategium remediation checks passed: 24 paths, 15 results, shared lessons, dialog accessibility, Console deep links, URL recovery, history, focus, and transient feedback.");
+console.log("Strategium remediation checks passed: canonical hub navigation, 24 paths, 15 results, shared lessons, dialog accessibility, Console deep links, URL recovery, history, focus, and transient feedback.");
