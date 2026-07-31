@@ -1333,7 +1333,8 @@ main section {
   line-height: 1.08;
 }
 
-[data-review-focus]:focus {
+[data-review-focus]:focus,
+[data-lifecycle-focus]:focus {
   outline: none;
   scroll-margin-top: 7rem;
 }
@@ -1828,6 +1829,111 @@ html.vm-dialog-open body {
 @media (max-width: 380px) {
   .vm-review-nav {
     grid-template-columns: 1fr;
+  }
+}
+
+.vm-lifecycle-links {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin: 0.2rem 0 0.85rem;
+}
+
+.vm-lifecycle-links a {
+  display: grid;
+  gap: 0.18rem;
+  min-width: 0;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid rgba(247, 215, 132, 0.18);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.vm-lifecycle-links a:hover,
+.vm-lifecycle-links a:focus-visible {
+  border-color: rgba(247, 215, 132, 0.58);
+  background: rgba(247, 215, 132, 0.08);
+}
+
+.vm-lifecycle-links span {
+  color: var(--gold-2);
+  font-weight: 700;
+}
+
+.vm-lifecycle-links small {
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.vm-review-option.is-selected {
+  border-color: rgba(247, 215, 132, 0.72);
+  background: rgba(247, 215, 132, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(247, 215, 132, 0.2);
+}
+
+.vm-lifecycle-continue {
+  width: 100%;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.vm-lifecycle-result-grid > section {
+  min-height: 100%;
+}
+
+.vm-lifecycle-result-grid ul {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0.8rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.vm-lifecycle-result-grid li {
+  padding-left: 0.15rem;
+}
+
+.vm-lifecycle-statement {
+  grid-column: 1 / -1;
+  border-color: rgba(247, 215, 132, 0.34) !important;
+  background: linear-gradient(145deg, rgba(86, 62, 25, 0.32), rgba(0, 0, 0, 0.28)) !important;
+}
+
+.vm-lifecycle-copy-target {
+  padding: 0.85rem 0.9rem;
+  border-left: 3px solid var(--gold-2);
+  background: rgba(0, 0, 0, 0.22);
+  color: var(--text) !important;
+}
+
+.vm-lifecycle-copy {
+  margin-top: 0.9rem;
+}
+
+.vm-lifecycle-copy-status {
+  display: inline-block;
+  min-height: 1.4em;
+  margin-left: 0.6rem;
+  color: var(--gold-2);
+  font-size: 0.86rem;
+}
+
+@media (max-width: 720px) {
+  .vm-lifecycle-links {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-lifecycle-statement {
+    grid-column: auto;
+  }
+
+  .vm-lifecycle-copy-status {
+    display: block;
+    margin: 0.45rem 0 0;
   }
 }
 
