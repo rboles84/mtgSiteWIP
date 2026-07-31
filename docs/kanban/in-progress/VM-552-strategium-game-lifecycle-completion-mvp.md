@@ -79,3 +79,14 @@ Extend the existing Strategium static HTML/CSS/JavaScript patterns with a small 
 - Retest evidence is under `docs/qa/evidence/retest-01/`; the workbook now records 95 executable rows as 80 Automated Pass and 15 Owner Review Required, with 0 Automated Fail and 0 Blocked. Human QA Log contains 22 records: 16 Automated Pass and 6 Owner Review Required.
 - The retest enumerated 1,935,360 Before-the-Game combinations and all 48 During-the-Game moment/response pairs; zero controlling objective failures remain.
 - QA-BLOCK-001 was resolved by direct repository Puppeteer validation of native Enter/Space/link activation. The remaining gate is owner execution of the subjective acceptance checklist against the exact final candidate SHA; independent review is not authorized before explicit owner approval.
+
+## Final copy-composition retest - 2026-07-31
+
+- Previous final candidate: `63b40ba0eac7a533f5401fa8018a183ba40b2d77`.
+- Implementation commit tested: `bc5dc696388bc7678e9efc9786c3b2d4985606b4`.
+- Retest evidence: `docs/qa/evidence/retest-02/`; retest-01 and the QA-baseline evidence remain preserved.
+- Before-the-Game audit: 1,935,360 combinations; max 354 characters; preferred 300 / hard 360; 92,923 above preferred; zero lowercase openings, incorrect conjunctions, repeated conjunctions, malformed list punctuation, semicolon chains, lost disclosures, unresolved IDs, duplicate clauses, over-two-sentence outputs, and hard-limit violations.
+- Finding a Table: 1,200 combinations with three categories, 100 explanations, five follow-up variants, and three mismatch warnings.
+- During the Game: all 48 moment/response pairs, zero fallback responses, zero prohibited safety findings.
+- Required command suites, browser smoke, five viewport mechanics, clipboard, named final action, recovery, history, focus, console, and failed-request checks passed. The workbook records 110 Automated Pass, 0 Automated Fail, 15 Owner Review Required, and 0 Blocked across 95 executable cases and 30 QA-log rows.
+- Next gate remains owner execution of the subjective acceptance checklist against the exact final candidate SHA. No owner acceptance, independent review, integration, deployment, certification, push, or merge is claimed.

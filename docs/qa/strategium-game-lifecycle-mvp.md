@@ -221,3 +221,25 @@ Retest outcome:
 The controlling defects are remediated: structured Before-the-Game sentence composition replaces semicolon chains; a canonical disclosure catalog preserves every selected disclosure through results and spoken copy; a canonical During-the-Game response catalog replaces fallback text for all 48 pairs; invalid, incomplete, malformed, and extra state now produces an announced non-modal recovery notice; and the final agreement step uses the named primary `Build my pregame statement` action. QA-BLOCK-001 was resolved as an automation-surface limitation by direct repository Puppeteer validation of native Enter, Space, and link activation; no product keyboard defect remains.
 
 The remaining 15 owner-review rows are subjective visual, editorial, tone, reduced-motion, or environment judgments already represented in `docs/qa/strategium-lifecycle-owner-acceptance-checklist.md`. This retest does not claim owner acceptance, independent review, integration, deployment, or certification. The next gate is owner execution of that checklist against the exact final candidate SHA.
+
+## Final copy-composition retest - 2026-07-31
+
+The previous final candidate was `63b40ba0eac7a533f5401fa8018a183ba40b2d77`. The bounded Before-the-Game implementation retest was run against implementation commit `bc5dc696388bc7678e9efc9786c3b2d4985606b4`; the later QA/documentation commit must not be substituted for the implementation SHA under test. Existing baseline and retest-01 evidence remain preserved.
+
+Retest-02 evidence is under `docs/qa/evidence/retest-02/` with `retest-summary.json` and seven browser screenshots. The expanded copy audit covered all `1,935,360` reachable combinations and a compact 12-sample risk set. The documented statement boundary is 300 characters preferred and 360 characters hard; maximum observed length was 354, with 92,923 large-disclosure boundary outputs above the preferred limit and none above the hard limit.
+
+| Check | Retest result |
+| --- | --- |
+| Lowercase sentence openings | 0 |
+| Incorrect `or` join for repeated extra turns + unusually long turns | 0 |
+| Repeated-conjunction list constructions | 0 |
+| Malformed list punctuation | 0 |
+| Semicolon chains | 0 |
+| Missing disclosure selections in result data/spoken copy | 0 |
+| Unresolved IDs, duplicate clauses, malformed outputs | 0 |
+| Statements above two sentences or 360 characters | 0 |
+| Finding-a-Table combinations | 1,200; 3 categories, 100 explanations, 5 follow-ups, 3 mismatch warnings |
+| During-the-Game pairs | 48; 0 fallback and 0 safety violations |
+| Browser errors / failed requests / horizontal overflow / unnamed controls | 0 |
+
+Focused lifecycle, review, lint, copy-boundary, route-metadata, frontend-smoke, parser, browser-smoke, and full `npm.cmd test` validation passed. The workbook now records the new tested implementation SHA, retest-02 evidence, 110 Automated Pass records, 0 Automated Fail, 15 Owner Review Required, and 0 Blocked. The remaining gate is owner execution of the focused subjective checklist against the exact final candidate SHA; this record does not claim owner acceptance, independent review, integration, deployment, or certification.
