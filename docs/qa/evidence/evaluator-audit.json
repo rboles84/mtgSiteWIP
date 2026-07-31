@@ -1,0 +1,597 @@
+{
+  "candidateSha": "6f807816a81ca347cbd180a8c1ab413df84dce69",
+  "generatedAt": "2026-07-31T13:53:30.588Z",
+  "finding": {
+    "optionCounts": [
+      5,
+      4,
+      3,
+      4,
+      5
+    ],
+    "combinations": 1200,
+    "categories": [
+      "reasonable-fit",
+      "one-more-answer",
+      "different-game"
+    ],
+    "uniqueWhy": 100,
+    "uniqueFollowUps": 5,
+    "uniqueMismatchWarnings": 3,
+    "representativeContrasts": [
+      {
+        "answers": {
+          "experience": "memorable",
+          "pace": "develop",
+          "uncertainty": "predictable",
+          "disruption": "light",
+          "table": "clear"
+        },
+        "category": "reasonable-fit",
+        "why": "You are looking for big memorable turns and a table that enjoys the spectacle. Your preferred pace is relaxed development before the table gets pressured. The table's clearest signal is: The table has described what its decks do and what pace it expects.",
+        "ask": "Ask: “Are you comfortable with light interaction and room for plans to develop?”",
+        "mismatch": "Watch for the table using the same words for different kinds of games."
+      },
+      {
+        "answers": {
+          "experience": "mixed",
+          "pace": "develop",
+          "uncertainty": "predictable",
+          "disruption": "light",
+          "table": "clear"
+        },
+        "category": "one-more-answer",
+        "why": "You are looking for a balanced game where the table can clarify the pace together. Your preferred pace is relaxed development before the table gets pressured. The table's clearest signal is: The table has described what its decks do and what pace it expects.",
+        "ask": "Ask: “What does each deck like to do, and what kind of pace are you hoping for?”",
+        "mismatch": "Watch for the table using the same words for different kinds of games."
+      },
+      {
+        "answers": {
+          "experience": "social",
+          "pace": "develop",
+          "uncertainty": "predictable",
+          "disruption": "light",
+          "table": "optimized"
+        },
+        "category": "different-game",
+        "why": "You are looking for shared development and a relaxed social pace. Your preferred pace is relaxed development before the table gets pressured. The table's clearest signal is: The table sounds focused on fast, optimized execution.",
+        "ask": "If you are still curious, ask: “What does your deck usually do, and how quickly can it become threatening?”",
+        "mismatch": "Watch for the table using the same words for different kinds of games."
+      }
+    ]
+  },
+  "before": {
+    "optionCounts": {
+      "bracket": 7,
+      "deck": 6,
+      "win": 5,
+      "speed": 4,
+      "surprises": 9,
+      "agreements": 5
+    },
+    "surpriseSubsets": 256,
+    "agreementSubsets": 9,
+    "generatedStatementCombinations": 1935360,
+    "uniqueStatements": 46080,
+    "categories": [
+      "clear-disclosure",
+      "name-the-surprise",
+      "ask-one-more"
+    ],
+    "statementAudit": {
+      "count": 1935360,
+      "maxLength": 422,
+      "minLength": 216,
+      "semicolonChainCount": 1935360,
+      "repeatedPunctuationCount": 0,
+      "brokenPhraseCount": 0,
+      "emptyFragmentCount": 0,
+      "consentClaimCount": 0,
+      "missingCopyMatchCount": 0,
+      "categoryCounts": {
+        "clear-disclosure": 138240,
+        "name-the-surprise": 1693440,
+        "ask-one-more": 103680
+      }
+    },
+    "representativeDisclosureChecks": [
+      {
+        "value": "fast-mana",
+        "appearsInOutput": false,
+        "category": "clear-disclosure",
+        "statement": "I’m roughly bracket 3 with a deck that will build a wide board and keep developing it. It usually wins through combat damage after the board develops, and it usually needs a few turns to become threatening; I do not have any extra surprises to flag; and I’m happy to follow the table’s usual agreements.",
+        "disclosure": "No advanced category needs to be disclosed beyond the short deck description you just made."
+      },
+      {
+        "value": "tutors",
+        "appearsInOutput": true,
+        "category": "clear-disclosure",
+        "statement": "I’m roughly bracket 3 with a deck that will build a wide board and keep developing it. It usually wins through combat damage after the board develops, and it usually needs a few turns to become threatening; I should mention tutors; and I’m happy to follow the table’s usual agreements.",
+        "disclosure": "Worth disclosing for this table: tutors."
+      },
+      {
+        "value": "combo",
+        "appearsInOutput": true,
+        "category": "name-the-surprise",
+        "statement": "I’m roughly bracket 3 with a deck that will build a wide board and keep developing it. It usually wins through combat damage after the board develops, and it usually needs a few turns to become threatening; I should mention an intentional combo; and I’m happy to follow the table’s usual agreements.",
+        "disclosure": "Worth disclosing for this table: an intentional combo."
+      },
+      {
+        "value": "resource-denial",
+        "appearsInOutput": false,
+        "category": "name-the-surprise",
+        "statement": "I’m roughly bracket 3 with a deck that will build a wide board and keep developing it. It usually wins through combat damage after the board develops, and it usually needs a few turns to become threatening; I do not have any extra surprises to flag; and I’m happy to follow the table’s usual agreements.",
+        "disclosure": "No advanced category needs to be disclosed beyond the short deck description you just made."
+      },
+      {
+        "value": "extra-turns",
+        "appearsInOutput": false,
+        "category": "name-the-surprise",
+        "statement": "I’m roughly bracket 3 with a deck that will build a wide board and keep developing it. It usually wins through combat damage after the board develops, and it usually needs a few turns to become threatening; I do not have any extra surprises to flag; and I’m happy to follow the table’s usual agreements.",
+        "disclosure": "No advanced category needs to be disclosed beyond the short deck description you just made."
+      },
+      {
+        "value": "long-turns",
+        "appearsInOutput": false,
+        "category": "clear-disclosure",
+        "statement": "I’m roughly bracket 3 with a deck that will build a wide board and keep developing it. It usually wins through combat damage after the board develops, and it usually needs a few turns to become threatening; I do not have any extra surprises to flag; and I’m happy to follow the table’s usual agreements.",
+        "disclosure": "No advanced category needs to be disclosed beyond the short deck description you just made."
+      },
+      {
+        "value": "chaos",
+        "appearsInOutput": true,
+        "category": "clear-disclosure",
+        "statement": "I’m roughly bracket 3 with a deck that will build a wide board and keep developing it. It usually wins through combat damage after the board develops, and it usually needs a few turns to become threatening; I should mention high-variance or chaos effects; and I’m happy to follow the table’s usual agreements.",
+        "disclosure": "Worth disclosing for this table: high-variance or chaos effects."
+      },
+      {
+        "value": "proxies",
+        "appearsInOutput": true,
+        "category": "clear-disclosure",
+        "statement": "I’m roughly bracket 3 with a deck that will build a wide board and keep developing it. It usually wins through combat damage after the board develops, and it usually needs a few turns to become threatening; I should mention proxies; and I’m happy to follow the table’s usual agreements.",
+        "disclosure": "Worth disclosing for this table: proxies."
+      },
+      {
+        "value": "time",
+        "appearsInOutput": false,
+        "category": "clear-disclosure",
+        "statement": "I’m roughly bracket 3 with a deck that will build a wide board and keep developing it. It usually wins through combat damage after the board develops, and it usually needs a few turns to become threatening; I do not have any extra surprises to flag; and I’m happy to follow the table’s usual agreements.",
+        "disclosure": "No advanced category needs to be disclosed beyond the short deck description you just made."
+      },
+      {
+        "value": "house-rule",
+        "appearsInOutput": false,
+        "category": "clear-disclosure",
+        "statement": "I’m roughly bracket 3 with a deck that will build a wide board and keep developing it. It usually wins through combat damage after the board develops, and it usually needs a few turns to become threatening; I do not have any extra surprises to flag; and I’m happy to follow the table’s usual agreements.",
+        "disclosure": "No advanced category needs to be disclosed beyond the short deck description you just made."
+      }
+    ]
+  },
+  "during": {
+    "moments": 6,
+    "responses": 8,
+    "combinations": 48,
+    "categories": [
+      "attention",
+      "out",
+      "stalled",
+      "mismatch",
+      "rules",
+      "fun"
+    ],
+    "cardCounts": [
+      4
+    ],
+    "prohibitedMatches": [
+      {
+        "moment": "attention",
+        "response": "continue",
+        "category": "attention",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "attention",
+        "response": "clarify",
+        "category": "attention",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "attention",
+        "response": "pause",
+        "category": "attention",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "attention",
+        "response": "accelerate",
+        "category": "attention",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "attention",
+        "response": "reset",
+        "category": "attention",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "attention",
+        "response": "lookup",
+        "category": "attention",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "attention",
+        "response": "end",
+        "category": "attention",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "attention",
+        "response": "new-game",
+        "category": "attention",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "out",
+        "response": "continue",
+        "category": "out",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "out",
+        "response": "clarify",
+        "category": "out",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "out",
+        "response": "pause",
+        "category": "out",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "out",
+        "response": "accelerate",
+        "category": "out",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "out",
+        "response": "reset",
+        "category": "out",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "out",
+        "response": "lookup",
+        "category": "out",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "out",
+        "response": "end",
+        "category": "out",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "out",
+        "response": "new-game",
+        "category": "out",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "stalled",
+        "response": "continue",
+        "category": "stalled",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "stalled",
+        "response": "clarify",
+        "category": "stalled",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "stalled",
+        "response": "pause",
+        "category": "stalled",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "stalled",
+        "response": "accelerate",
+        "category": "stalled",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "stalled",
+        "response": "reset",
+        "category": "stalled",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "stalled",
+        "response": "lookup",
+        "category": "stalled",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "stalled",
+        "response": "end",
+        "category": "stalled",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "stalled",
+        "response": "new-game",
+        "category": "stalled",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "mismatch",
+        "response": "continue",
+        "category": "mismatch",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "mismatch",
+        "response": "clarify",
+        "category": "mismatch",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "mismatch",
+        "response": "pause",
+        "category": "mismatch",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "mismatch",
+        "response": "accelerate",
+        "category": "mismatch",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "mismatch",
+        "response": "reset",
+        "category": "mismatch",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "mismatch",
+        "response": "lookup",
+        "category": "mismatch",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "mismatch",
+        "response": "end",
+        "category": "mismatch",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "mismatch",
+        "response": "new-game",
+        "category": "mismatch",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "fun",
+        "response": "continue",
+        "category": "fun",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i",
+          "/manipulate|pressure the table|guilt|punish/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "fun",
+        "response": "clarify",
+        "category": "fun",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i",
+          "/manipulate|pressure the table|guilt|punish/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "fun",
+        "response": "pause",
+        "category": "fun",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i",
+          "/manipulate|pressure the table|guilt|punish/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "fun",
+        "response": "accelerate",
+        "category": "fun",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i",
+          "/manipulate|pressure the table|guilt|punish/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "fun",
+        "response": "reset",
+        "category": "fun",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i",
+          "/manipulate|pressure the table|guilt|punish/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "fun",
+        "response": "lookup",
+        "category": "fun",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i",
+          "/manipulate|pressure the table|guilt|punish/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "fun",
+        "response": "end",
+        "category": "fun",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i",
+          "/manipulate|pressure the table|guilt|punish/i"
+        ],
+        "rulesRoutesToOfficial": false
+      },
+      {
+        "moment": "fun",
+        "response": "new-game",
+        "category": "fun",
+        "cards": 4,
+        "prohibited": [
+          "/objectively correct|one participant is right|who is right/i",
+          "/manipulate|pressure the table|guilt|punish/i"
+        ],
+        "rulesRoutesToOfficial": false
+      }
+    ],
+    "rulesOfficialCount": 8
+  }
+}

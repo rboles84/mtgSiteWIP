@@ -63,10 +63,11 @@ Extend the existing Strategium static HTML/CSS/JavaScript patterns with a small 
 ## Completion record
 
 - Runtime, focused tests, claim register, QA matrix, and manual-test checklist are implemented.
-- The combined human-QA workbook is populated with 95 executable cases plus 6 prior-evidence rows (101 populated rows total) across the required lifecycle, transition, navigation, and regression sheets.
-- The workbook records the exact remediated candidate SHA `413bb16f27283e5d29c08607756d0647df2dd35f` and is included in the final validation/handoff commit for this QA deliverable.
+- The combined human-QA workbook is populated with 95 executable cases plus 14 Human QA Log execution records (109 populated execution rows total) across the required lifecycle, transition, navigation, and regression sheets.
+- Automated QA was executed against exact candidate `6f807816a81ca347cbd180a8c1ab413df84dce69`; the workbook now records 51 Automated Pass, 42 Automated Fail, 15 Owner Review Required, and 1 Blocked row, with evidence retained under `docs/qa/evidence/`.
+- The owner-only acceptance set is `docs/qa/strategium-lifecycle-owner-acceptance-checklist.md`; no product implementation or remediation commit was created during execution.
 - Candidate branch: `codex/strategium-game-lifecycle-completion`.
 - Candidate worktree: `C:\dev\voxmana.io-strategium-lifecycle-completion`.
 - Exact control base: `5ae7d873cd09d6bd9cfd45f3564d8cad8126e3e9`.
 - Reviewable commits: `4d04962` (`feat(strategium): add game lifecycle flows`) and `dcc462b` (`test(strategium): add lifecycle QA coverage`), followed by the documentation/handoff commit recorded in the final handoff.
-- Next gate: owner human execution of the combined workbook against the exact candidate SHA, followed by independent review. No integration or certification is authorized without explicit approval of that exact SHA.
+- Next gate: owner review of the focused acceptance checklist, followed by independent review and separate remediation triage for the recorded automated failures. No integration or certification is authorized without explicit approval of that exact SHA.
