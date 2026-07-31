@@ -1,6 +1,8 @@
 # Strategium Lifecycle Owner-Review Checklist
 
-Remediated implementation exercised by automation: `84a458aa7b2c14db6184fc0b11271cbfeb7ed9b0`
+Remediated implementation exercised by automation: `03569c28644e40c39cd836b8e2559a652914d006`
+
+Owner-remediation review target: `03569c28644e40c39cd836b8e2559a652914d006` (previous rejected candidate: `affbd46be443d18d73a7a8a9bb9938dee36f5a34`). The five OAR checks below are not owner acceptance; they are the next required owner re-review against this exact SHA.
 
 The final candidate commit that carries this retest record is identified in the final handoff. Execute this checklist against that exact final candidate SHA.
 
@@ -187,5 +189,47 @@ This is the remaining owner judgment set after objective execution. Do not repea
 - Exact URL: `/strategium/console/`
 - Mechanically validated: Console mount, deep-link, lesson, dialog, navigation, and regression tests pass.
 - Owner must judge: whether Console access and its primary learning interaction remain visually and behaviorally intact.
+- Pass / Fail: __________
+- Notes: ______________________________
+
+## Current owner-remediation re-review: OAR-01 through OAR-05
+
+### OAR-01 - Commander Console hub preview balance
+
+- Exact URL: `/strategium/` at 1440x900 and 390x844.
+- Mechanically validated: four preview concepts are present in the actual rendered hub, the main Open the Console action remains intact, no new preview routes were created, no horizontal overflow or browser errors were observed, and desktop/mobile screenshots are captured.
+- Owner must judge: whether the Commander Console card is visually balanced with Help Me Understand, whether the 2x2 preview grid has useful density, and whether the previews read as non-interactive previews rather than false routes.
+- Pass / Fail: __________
+- Notes: ______________________________
+
+### OAR-02 - Finding-a-Table result hierarchy
+
+- Exact URL: `/strategium/find-a-table/?path=memorable/develop/predictable/light/clear` at 1440x900.
+- Mechanically validated: all 1,200 combinations remain valid; the compatibility headline appears once; the Provisional compatibility read card is absent; the four required cards render; input-sensitive explanation/follow-up/mismatch variants remain; no score or permanent label is emitted.
+- Owner must judge: whether the headline and four-card grid feel balanced, whether the explanation interprets the signal instead of echoing labels, and whether the result remains appropriately provisional.
+- Pass / Fail: __________
+- Notes: ______________________________
+
+### OAR-03 - Compact bracket selector
+
+- Exact URL: `/strategium/before-game/` at 1440x900 and 390x844.
+- Mechanically validated: five compact number buttons plus distinct I am unsure and We are not using brackets choices render; all seven states, native semantics, selection encoding, Enter/Space activation, Back restoration, focus, and responsive overflow checks pass.
+- Owner must judge: whether the compact selector is immediately understandable, visually calm, and clear without teaching bracket definitions or implying verification.
+- Pass / Fail: __________
+- Notes: ______________________________
+
+### OAR-04 - Before-the-Game action hierarchy
+
+- Exact URLs: `/strategium/before-game/?path=approximate-3/develop/combat/middle` and `/strategium/before-game/?path=approximate-3/develop/combat/middle/none` at 1440x900 and 390x844.
+- Mechanically validated: Step 5 uses Continue to final check in the standard footer; Step 6 has one footer-contained Build my pregame statement primary action; valid selection enables it; Back, Start over, native keyboard activation, direct result navigation, and mobile overflow pass.
+- Owner must judge: whether primary versus secondary actions are unmistakable, disabled text remains readable, and the unified footer feels complete rather than crowded or detached.
+- Pass / Fail: __________
+- Notes: ______________________________
+
+### OAR-05 - After-the-Game direct entry
+
+- Exact URL: open `/strategium/`, click the visible After the Game lifecycle link, and inspect the resulting `/strategium/review/` route; also spot-check `/strategium/review/?path=before-game`.
+- Mechanically validated: the exact hub-click path opens What best describes the game? directly; no second lifecycle selection, stale In development labels, obsolete selector buttons, or After the Game is ready now copy remain; legacy state recovers safely; existing review result/history/reset behavior remains green.
+- Owner must judge: whether the entry feels like a seamless continuation of the completed After-the-Game review and whether the first question has the right visual and editorial emphasis.
 - Pass / Fail: __________
 - Notes: ______________________________

@@ -90,3 +90,12 @@ Extend the existing Strategium static HTML/CSS/JavaScript patterns with a small 
 - During the Game: all 48 moment/response pairs, zero fallback responses, zero prohibited safety findings.
 - Required command suites, browser smoke, five viewport mechanics, clipboard, named final action, recovery, history, focus, console, and failed-request checks passed. The workbook records 110 Automated Pass, 0 Automated Fail, 15 Owner Review Required, and 0 Blocked across 95 executable cases and 30 QA-log rows.
 - Next gate remains owner execution of the subjective acceptance checklist against the exact final candidate SHA. No owner acceptance, independent review, integration, deployment, certification, push, or merge is claimed.
+
+## Final owner-acceptance remediation - 2026-07-31
+
+- Rejected candidate: `affbd46be443d18d73a7a8a9bb9938dee36f5a34`.
+- Tested candidate: `03569c28644e40c39cd836b8e2559a652914d006` after product commit `e5e06cf39d4e89210bd23e8d397d32be0d287595` and focused regression coverage commit `03569c28644e40c39cd836b8e2559a652914d006`.
+- OAR-01 through OAR-05 are remediated in bounded hub, Finding-a-Table, bracket/footer, and After-the-Game route changes. Passing evaluator logic, During-the-Game safety, Console internals, and lifecycle architecture were preserved.
+- Owner-remediation evidence: `docs/qa/evidence/owner-remediation-01/`.
+- Workbook verification: seven sheets, 95 executable cases, 35 QA-log records, 110 Automated Pass, 0 Automated Fail, 20 Owner Review Required, 0 Blocked.
+- Next gate: owner re-review of OAR-01 through OAR-05 against the exact tested candidate SHA. Independent review is not authorized until explicit owner approval. No push, merge, deploy, integrate, certify, or VM-551 work occurred.

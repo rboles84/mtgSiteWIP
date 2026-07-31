@@ -243,3 +243,22 @@ Retest-02 evidence is under `docs/qa/evidence/retest-02/` with `retest-summary.j
 | Browser errors / failed requests / horizontal overflow / unnamed controls | 0 |
 
 Focused lifecycle, review, lint, copy-boundary, route-metadata, frontend-smoke, parser, browser-smoke, and full `npm.cmd test` validation passed. The workbook now records the new tested implementation SHA, retest-02 evidence, 110 Automated Pass records, 0 Automated Fail, 15 Owner Review Required, and 0 Blocked. The remaining gate is owner execution of the focused subjective checklist against the exact final candidate SHA; this record does not claim owner acceptance, independent review, integration, deployment, or certification.
+
+## Final owner-acceptance remediation - 2026-07-31
+
+The rejected candidate was `affbd46be443d18d73a7a8a9bb9938dee36f5a34`. The bounded implementation and regression-test commits are `e5e06cf39d4e89210bd23e8d397d32be0d287595` and `03569c28644e40c39cd836b8e2559a652914d006`; the exact tested candidate before the QA/docs commit is `03569c28644e40c39cd836b8e2559a652914d006`. Existing `retest-01` and `retest-02` evidence remains preserved. New evidence is under `docs/qa/evidence/owner-remediation-01/`.
+
+OAR disposition: OAR-01 adds the four non-interactive Commander Console previews and remains owner-gated for balance; OAR-02 removes the duplicate Provisional compatibility read card and remains owner-gated for hierarchy/editorial feel; OAR-03 replaces the seven heavy bracket cards with five compact number controls plus unsure/not-using choices and remains owner-gated for visual clarity; OAR-04 unifies the Step 5/6 footer actions with the named primary hierarchy and remains owner-gated for visual comfort; OAR-05 removes the obsolete After-the-Game selector and direct hub click now opens the first real review question, with continuity still owner-gated.
+
+The earlier After-the-Game green was a coverage gap: the prior browser test asserted that `#strategiumReview` existed and exercised internal encoded review paths, but did not open `/strategium/`, click the visible After the Game link, and assert the rendered first question and absence of stale selector copy. The updated browser test follows that owner path exactly.
+
+| Current owner-remediation scope | Result |
+| --- | --- |
+| Workbook records | 130 populated records: 95 executable cases plus 35 Human QA Log records; workbook verification reports 110 Automated Pass, 0 Automated Fail, 20 Owner Review Required, 0 Blocked |
+| Finding-a-Table | 1,200 combinations; four result cards, single headline, varied interpreted copy, no score/rating/permanent label |
+| Before-the-Game copy audit | 1,935,360 combinations; max 354 characters; 0 lowercase openings, incorrect conjunctions, repeated conjunctions, malformed punctuation, semicolon chains, missing disclosures, unresolved IDs, duplicate clauses, or copy mismatches |
+| During-the-Game | 48 moment/response pairs; 0 fallback and 0 safety violations |
+| Browser evidence | 27 assertions, 0 console/page/network errors; required desktop/mobile screenshots and responsive checks captured |
+| Full repository suite | `npm.cmd test` passed using a temporary candidate-only hard link to the control repository's ignored Scryfall fixture; the exact link was removed afterward |
+
+The workbook and checklist do not claim owner acceptance. The next gate is owner re-review of OAR-01 through OAR-05 against exact candidate `03569c28644e40c39cd836b8e2559a652914d006`; no independent review, integration, deployment, certification, push, merge, or VM-551 work is authorized by this record.

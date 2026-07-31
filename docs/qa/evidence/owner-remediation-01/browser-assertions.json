@@ -1,0 +1,137 @@
+{
+  "testedImplementationSha": "03569c28644e40c39cd836b8e2559a652914d006",
+  "baseUrl": "http://127.0.0.1:65122",
+  "viewportSet": [
+    [
+      1440,
+      900
+    ],
+    [
+      1024,
+      768
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      320,
+      568
+    ]
+  ],
+  "assertions": [
+    {
+      "condition": true,
+      "message": "hub has four lifecycle links"
+    },
+    {
+      "condition": true,
+      "message": "hub has four Commander Console previews"
+    },
+    {
+      "condition": true,
+      "message": "hub preview present: Pod Readiness"
+    },
+    {
+      "condition": true,
+      "message": "hub preview present: Archetypes"
+    },
+    {
+      "condition": true,
+      "message": "hub preview present: Threat & Pressure"
+    },
+    {
+      "condition": true,
+      "message": "hub preview present: Color Expectations"
+    },
+    {
+      "condition": true,
+      "message": "hub After the Game opens the first real review question"
+    },
+    {
+      "condition": true,
+      "message": "obsolete After the Game selector is absent"
+    },
+    {
+      "condition": true,
+      "message": "Finding a Table has four result cards"
+    },
+    {
+      "condition": true,
+      "message": "Finding a Table has no duplicate provisional card"
+    },
+    {
+      "condition": true,
+      "message": "Finding a Table headline appears once"
+    },
+    {
+      "condition": true,
+      "message": "bracket UI has five compact number controls"
+    },
+    {
+      "condition": true,
+      "message": "bracket UI has unsure and not-using choices"
+    },
+    {
+      "condition": true,
+      "message": "step 5 has explicit final-check action"
+    },
+    {
+      "condition": true,
+      "message": "step 5 action is inside the standard footer"
+    },
+    {
+      "condition": true,
+      "message": "step 5 action enables in the footer after valid selection"
+    },
+    {
+      "condition": true,
+      "message": "step 6 primary build action starts disabled"
+    },
+    {
+      "condition": true,
+      "message": "step 6 primary action is inside the standard footer"
+    },
+    {
+      "condition": true,
+      "message": "step 6 has one enabled primary build action after selection"
+    },
+    {
+      "condition": true,
+      "message": "step 6 action opens the result directly"
+    },
+    {
+      "condition": true,
+      "message": "native Enter activates the compact bracket button"
+    },
+    {
+      "condition": true,
+      "message": "browser Back restores the bracket selector"
+    },
+    {
+      "condition": true,
+      "message": "1440x900 hub has no horizontal overflow"
+    },
+    {
+      "condition": true,
+      "message": "1024x768 hub has no horizontal overflow"
+    },
+    {
+      "condition": true,
+      "message": "768x1024 hub has no horizontal overflow"
+    },
+    {
+      "condition": true,
+      "message": "390x844 hub has no horizontal overflow"
+    },
+    {
+      "condition": true,
+      "message": "320x568 hub has no horizontal overflow"
+    }
+  ],
+  "browserErrors": []
+}
