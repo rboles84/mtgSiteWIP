@@ -122,6 +122,16 @@ Observed interaction checks:
 - After-the-Game and Commander Console still mount at their existing routes.
 - Valid path URL state, back/reset behavior, focus, invalid recovery, all option branches, deterministic outputs, and mobile overflow are covered by `npm.cmd run test:strategium-lifecycle`.
 
+## Combined human-QA workbook
+
+The populated owner-execution workbook is `docs/qa/Strategium_Game_Lifecycle_Human_QA_Workbook.xlsx`.
+
+- Exact remediated candidate SHA under test: `413bb16f27283e5d29c08607756d0647df2dd35f`.
+- Sheets: README; Finding a Table; Before the Game; During the Game; State Transitions; Navigation and Regression; Human QA Log.
+- Executable case counts: 14 Finding a Table, 29 Before the Game, 14 During the Game, 20 State Transitions, and 18 Navigation/Regression cases, plus 6 prior-evidence log rows.
+- Coverage uses decision tables, classification trees, state transitions, equivalence partitions, applicable boundaries, pairwise reduction, and targeted generated-copy/multi-select risk cases. The README records why representative pairs and boundary cases replace low-value Cartesian repetition.
+- Route cases begin as `Not Run`; the six prior-evidence rows preserve the candidate's already-recorded manual checks as `Pass` and are not a substitute for owner execution of the complete workbook.
+
 ## Automated checks
 
 Passed on the candidate branch:

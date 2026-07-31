@@ -40,6 +40,7 @@ Complete the first player-facing Strategium lifecycle slice by adding Finding a 
 - `scripts/strategium-lifecycle-tests.mjs`
 - `docs/research/strategium-game-lifecycle-claim-evidence-register.md`
 - `docs/qa/strategium-game-lifecycle-mvp.md`
+- `docs/qa/Strategium_Game_Lifecycle_Human_QA_Workbook.xlsx`
 - `docs/handoffs/` and `docs/kanban/board.md`
 
 ## Risks
@@ -62,8 +63,10 @@ Extend the existing Strategium static HTML/CSS/JavaScript patterns with a small 
 ## Completion record
 
 - Runtime, focused tests, claim register, QA matrix, and manual-test checklist are implemented.
+- The combined human-QA workbook is populated with 95 executable cases plus 6 prior-evidence rows (101 populated rows total) across the required lifecycle, transition, navigation, and regression sheets.
+- The workbook records the exact remediated candidate SHA `413bb16f27283e5d29c08607756d0647df2dd35f` and is included in the final validation/handoff commit for this QA deliverable.
 - Candidate branch: `codex/strategium-game-lifecycle-completion`.
 - Candidate worktree: `C:\dev\voxmana.io-strategium-lifecycle-completion`.
 - Exact control base: `5ae7d873cd09d6bd9cfd45f3564d8cad8126e3e9`.
 - Reviewable commits: `4d04962` (`feat(strategium): add game lifecycle flows`) and `dcc462b` (`test(strategium): add lifecycle QA coverage`), followed by the documentation/handoff commit recorded in the final handoff.
-- Next gate: owner hand review of the exact candidate SHA, followed by independent review. No integration or certification is authorized without explicit approval of that exact SHA.
+- Next gate: owner human execution of the combined workbook against the exact candidate SHA, followed by independent review. No integration or certification is authorized without explicit approval of that exact SHA.
