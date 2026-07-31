@@ -71,3 +71,11 @@ Extend the existing Strategium static HTML/CSS/JavaScript patterns with a small 
 - Exact control base: `5ae7d873cd09d6bd9cfd45f3564d8cad8126e3e9`.
 - Reviewable commits: `4d04962` (`feat(strategium): add game lifecycle flows`) and `dcc462b` (`test(strategium): add lifecycle QA coverage`), followed by the documentation/handoff commit recorded in the final handoff.
 - Next gate: owner review of the focused acceptance checklist, followed by independent review and separate remediation triage for the recorded automated failures. No integration or certification is authorized without explicit approval of that exact SHA.
+
+## QA-driven remediation retest
+
+- Failed first-run evidence was preserved in QA-baseline commit `953a9052d2b056ed39051f11e247938fa60555d4` for implementation SHA `6f807816a81ca347cbd180a8c1ab413df84dce69`.
+- Bounded remediation is implementation commit `84a458aa7b2c14db6184fc0b11271cbfeb7ed9b0`; it changes only the lifecycle copy/disclosure/response/recovery implementation and focused lifecycle regression test.
+- Retest evidence is under `docs/qa/evidence/retest-01/`; the workbook now records 95 executable rows as 80 Automated Pass and 15 Owner Review Required, with 0 Automated Fail and 0 Blocked. Human QA Log contains 22 records: 16 Automated Pass and 6 Owner Review Required.
+- The retest enumerated 1,935,360 Before-the-Game combinations and all 48 During-the-Game moment/response pairs; zero controlling objective failures remain.
+- QA-BLOCK-001 was resolved by direct repository Puppeteer validation of native Enter/Space/link activation. The remaining gate is owner execution of the subjective acceptance checklist against the exact final candidate SHA; independent review is not authorized before explicit owner approval.

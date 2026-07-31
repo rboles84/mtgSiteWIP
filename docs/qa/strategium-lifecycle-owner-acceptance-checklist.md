@@ -1,6 +1,8 @@
 # Strategium Lifecycle Owner-Review Checklist
 
-Candidate under review: `6f807816a81ca347cbd180a8c1ab413df84dce69`
+Remediated implementation exercised by automation: `84a458aa7b2c14db6184fc0b11271cbfeb7ed9b0`
+
+The final candidate commit that carries this retest record is identified in the final handoff. Execute this checklist against that exact final candidate SHA.
 
 This is the remaining owner judgment set after objective execution. Do not repeat the workbook’s automated route, state, copy-enumeration, accessibility, URL, console, or overflow checks. For each item, record the owner’s visual/editorial judgment only.
 

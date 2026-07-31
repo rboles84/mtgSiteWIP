@@ -200,3 +200,24 @@ The focused lifecycle suite covers all option branches for all three new routes,
 - Owner acceptance, independent review, integration, deployment, and certification remain future gates for the exact candidate SHA.
 
 Related records: `docs/research/strategium-game-lifecycle-claim-evidence-register.md`, `docs/kanban/in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md`, and `docs/handoffs/`.
+
+## QA-driven remediation and retest — 2026-07-31
+
+The failed first-run evidence was preserved in QA-baseline commit `953a9052d2b056ed39051f11e247938fa60555d4` before product remediation. The rejected implementation under test was `6f807816a81ca347cbd180a8c1ab413df84dce69`. Remediation was committed separately as implementation commit `84a458aa7b2c14db6184fc0b11271cbfeb7ed9b0`; the workbook records that implementation SHA as the SHA actually tested, not the later documentation/workbook commit.
+
+The retest evidence is under `docs/qa/evidence/retest-01/`. It includes the deterministic evaluator summary and screenshots for the hub, representative results, final action, mobile result, and announced recovery state. The retest exercised 1,200 Finding-a-Table combinations, all 1,935,360 reachable Before-the-Game combinations, and all 48 During-the-Game moment/response pairs.
+
+Retest outcome:
+
+| Scope | Result |
+| --- | --- |
+| Executable workbook rows | 95 total: 80 Automated Pass, 0 Automated Fail, 15 Owner Review Required, 0 Blocked |
+| Human QA Log rows | 22 total: 16 Automated Pass, 0 Automated Fail, 6 Owner Review Required |
+| Before-the-Game statement enumeration | 1,935,360 combinations; maximum 434 characters; zero semicolon chains, malformed outputs, lost disclosures, unresolved IDs, or duplicate clauses/punctuation |
+| During-the-Game mapping | 48 pairs; zero fallback pairs and zero prohibited-content findings |
+| Finding-a-Table variation | 1,200 combinations; 3 categories, 100 explanations, 5 follow-up variants, 3 mismatch warnings |
+| Browser mechanics | Zero console errors, failed requests, horizontal-overflow findings, or unnamed controls across 1440×900, 1024×768, 768×1024, 390×844, and 320×568 |
+
+The controlling defects are remediated: structured Before-the-Game sentence composition replaces semicolon chains; a canonical disclosure catalog preserves every selected disclosure through results and spoken copy; a canonical During-the-Game response catalog replaces fallback text for all 48 pairs; invalid, incomplete, malformed, and extra state now produces an announced non-modal recovery notice; and the final agreement step uses the named primary `Build my pregame statement` action. QA-BLOCK-001 was resolved as an automation-surface limitation by direct repository Puppeteer validation of native Enter, Space, and link activation; no product keyboard defect remains.
+
+The remaining 15 owner-review rows are subjective visual, editorial, tone, reduced-motion, or environment judgments already represented in `docs/qa/strategium-lifecycle-owner-acceptance-checklist.md`. This retest does not claim owner acceptance, independent review, integration, deployment, or certification. The next gate is owner execution of that checklist against the exact final candidate SHA.
