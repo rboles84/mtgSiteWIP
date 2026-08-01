@@ -1,12 +1,13 @@
-import { access, readFile, stat } from "node:fs/promises";
-import http from "node:http";
+import { access, readFile } from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 import puppeteer from "puppeteer-core";
+import { startCandidateServer } from "./strategium-owner-review-launch.mjs";
 
 await import("../assets/js/strategium-review-paths.js");
 
-const root = process.cwd();
+const root = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
 const browserCandidates = [
   process.env.LIGHTHOUSE_CHROME_PATH,
   "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe",
@@ -45,50 +46,6 @@ async function findBrowser() {
     }
   }
   throw new Error("No supported local Chromium browser was found for Strategium browser validation.");
-}
-
-function mimeType(filePath) {
-  return {
-    ".css": "text/css; charset=utf-8",
-    ".html": "text/html; charset=utf-8",
-    ".js": "application/javascript; charset=utf-8",
-    ".json": "application/json; charset=utf-8",
-    ".svg": "image/svg+xml",
-    ".webp": "image/webp",
-    ".woff": "font/woff",
-    ".woff2": "font/woff2",
-  }[path.extname(filePath).toLowerCase()] || "application/octet-stream";
-}
-
-async function startServer() {
-  const server = http.createServer(async (request, response) => {
-    try {
-      const requestUrl = new URL(request.url || "/", "http://127.0.0.1");
-      const decodedPath = decodeURIComponent(requestUrl.pathname);
-      let filePath = path.resolve(root, `.${decodedPath}`);
-      if (!filePath.startsWith(path.resolve(root))) {
-        response.writeHead(403).end("Forbidden");
-        return;
-      }
-      const fileStats = await stat(filePath).catch(() => null);
-      if (fileStats?.isDirectory()) filePath = path.join(filePath, "index.html");
-      const body = await readFile(filePath);
-      response.writeHead(200, { "Content-Type": mimeType(filePath), "Cache-Control": "no-store" });
-      response.end(body);
-    } catch {
-      response.writeHead(404).end("Not found");
-    }
-  });
-
-  await new Promise((resolve, reject) => {
-    server.once("error", reject);
-    server.listen(0, "127.0.0.1", resolve);
-  });
-  const address = server.address();
-  return {
-    baseUrl: `http://127.0.0.1:${address.port}`,
-    close: () => new Promise(resolve => server.close(resolve))
-  };
 }
 
 async function waitForReview(page) {
@@ -189,7 +146,7 @@ async function runStaticChecks() {
   expect(!reviewHtml.includes("Return to this result"), "Lesson dialog should not duplicate its close action in the footer");
   expect(consoleHtml.includes("data-review-return-link"), "Console is missing contextual review-return navigation");
   expect((hubHtml.match(/vm-hub-choice-panel/g) || []).length === 1, "Hub should contain one unified lens-choice panel");
-  expect((hubHtml.match(/class="vm-card vm-path-card"/g) || []).length === 2, "Hub should retain exactly two primary experience choices");
+expect((hubHtml.match(/class="vm-card vm-path-card(?:\s|\")/g) || []).length === 2, "Hub should retain exactly two primary experience choices");
   expect(!hubHtml.includes("Guided moments") && !hubHtml.includes("vm-hub-availability"), "Hub must not duplicate review moments in a Guided Moments panel");
   expect(!hubHtml.includes("vm-path-number"), "Hub decorative experience numerals should be removed");
   expect(!hubHtml.includes("Two Connected Experiences"), "Hub should not use internal experience taxonomy");
@@ -1231,7 +1188,7 @@ async function runBrowserChecks(baseUrl) {
 }
 
 await runStaticChecks();
-const server = await startServer();
+const server = await startCandidateServer();
 try {
   await runBrowserChecks(server.baseUrl);
 } finally {

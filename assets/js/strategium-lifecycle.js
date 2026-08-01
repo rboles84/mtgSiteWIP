@@ -83,22 +83,22 @@ const beforeGameStatementCopy = {
   deck: {
     develop: "builds a wide board",
     pressure: "pressures early",
-    value: "builds incremental value",
+    value: "builds value",
     combo: "sets up a combo",
     interaction: "plays reactively",
     unsure: "is still taking shape",
   },
   win: {
     combat: "combat damage",
-    value: "incremental value",
+    value: "value",
     combo: "a sudden combo",
     alternate: "an unusual win",
   },
   speed: {
-    early: "that can turn on early",
-    middle: "that usually needs a few turns",
-    late: "that is usually a later-game plan",
-    variable: "that depends on the opening hand",
+    early: "can turn on early",
+    middle: "comes online after a few turns",
+    late: "comes online late",
+    variable: "depends on the opener",
   },
 };
 
@@ -119,7 +119,7 @@ export const beforeDisclosureCatalog = Object.freeze({
 export const beforeAgreementCatalog = Object.freeze({
   time: Object.freeze({ inputLabel: "A time limit", spoken: "time limit" }),
   "house-rule": Object.freeze({ inputLabel: "A house-rule request", spoken: "house rule" }),
-  proxies: Object.freeze({ inputLabel: "Proxy comfort", spoken: "proxy approval" }),
+  proxies: Object.freeze({ inputLabel: "Proxy comfort", spoken: "proxies" }),
   none: Object.freeze({ inputLabel: "None of these", spoken: "" }),
   unsure: Object.freeze({ inputLabel: "I want to ask the pod", spoken: "" }),
 });
@@ -476,16 +476,14 @@ function disclosureStatementPhrases(values) {
   const hasTutors = ids.includes("tutors");
   const hasExtraTurns = ids.includes("extra-turns");
   const hasLongTurns = ids.includes("long-turns");
-  const groupFastManaAndTutors = hasFastMana && hasTutors && (ids.length === 2 || (ids.length >= 4 && !(hasExtraTurns && hasLongTurns && ids.length === 4)));
-  const groupExtraAndLongTurns = hasExtraTurns && hasLongTurns && (ids.length === 2 || (ids.length >= 4 && !(hasFastMana && hasTutors && ids.length === 4)));
-  if (groupFastManaAndTutors) phrases.push("fast mana and tutors");
+  if (hasFastMana && hasTutors) phrases.push("fast mana with tutors");
   else {
     if (hasFastMana) phrases.push("fast mana");
     if (hasTutors) phrases.push("tutors");
   }
   if (ids.includes("combo")) phrases.push("an intentional combo");
   if (ids.includes("resource-denial")) phrases.push("resource denial");
-  if (groupExtraAndLongTurns) phrases.push("repeated extra turns and unusually long turns");
+  if (hasExtraTurns && hasLongTurns) phrases.push("repeated extra turns alongside unusually long turns");
   else {
     if (hasExtraTurns) phrases.push("repeated extra turns");
     if (hasLongTurns) phrases.push("unusually long turns");
@@ -503,37 +501,65 @@ function agreementPhrases(values, disclosures = []) {
     .filter(Boolean);
 }
 
+function agreementRequestPhrases(values, disclosures = []) {
+  const selected = [...new Set(values)].filter(value => !["none", "unsure"].includes(value) && beforeAgreementCatalog[value]);
+  const requests = selected
+    .filter(value => !(value === "proxies" && selectedDisclosureIds(disclosures).includes("proxies")))
+    .map(value => ({
+      time: "set a time limit",
+      "house-rule": "cover house rules",
+      proxies: "check proxies",
+    }[value]))
+    .filter(Boolean);
+  if (values.includes("unsure")) requests.unshift("ask the pod what matters most");
+  return requests;
+}
+
+function timingPhrase(value) {
+  return {
+    early: "can turn on early",
+    middle: "comes online after a few turns",
+    late: "comes online late",
+    variable: "depends on the opener",
+  }[value] || "depends on the opener";
+}
+
 export function generatePregameStatement(input = {}) {
   const bracket = bracketPhrase(input.bracket);
   const deckId = input.deck;
   const winId = input.win;
-  const speed = cleanPhrase(beforeGameStatementCopy.speed[input.speed] || "can vary with the opening hand");
-  const deckDescriptor = deckId === "unsure"
-    ? "a deck that is still taking shape"
-    : `a deck that ${cleanPhrase(beforeGameStatementCopy.deck[deckId] || "is still taking shape")}`;
-  const opening = bracket ? `I'm ${bracket} with ${deckDescriptor}` : `I'm bringing ${deckDescriptor}`;
-  const finish = winId === "unsure"
-    ? `and I'm still figuring out how it wins, with timing ${speed}`
-    : `and usually wins through ${cleanPhrase(beforeGameStatementCopy.win[winId] || "a finish that is still taking shape")}, with timing ${speed}`;
+  const deckPhrase = cleanPhrase(beforeGameStatementCopy.deck[deckId] || "is still taking shape");
+  const winPhrase = cleanPhrase(beforeGameStatementCopy.win[winId] || "a finish that is still taking shape");
+  const timing = timingPhrase(input.speed);
+  const deckNoun = {
+    develop: "wide-board",
+    pressure: "pressure",
+    value: "value",
+    combo: "combo",
+    interaction: "reactive",
+  }[deckId] || "still-forming";
+  const lead = bracket ? `I'm ${bracket} with` : "I'm bringing";
+  const planCore = deckId === "unsure" && winId === "unsure"
+    ? `${lead} a deck still taking shape, with its win and timing still unclear`
+    : deckId === "unsure"
+      ? `${lead} a deck still taking shape that usually wins through ${winPhrase} and ${timing}`
+      : winId === "unsure"
+        ? `${lead} a ${deckNoun} deck whose win is still unclear but ${timing}`
+        : `${lead} a deck that ${deckPhrase}, usually wins through ${winPhrase} and ${timing}`;
   const disclosureIds = selectedDisclosureIds(input.surprises || []);
   const disclosures = disclosureStatementPhrases(disclosureIds);
-  const agreements = agreementPhrases(input.agreements || [], disclosureIds);
-  const agreementUnclear = (input.agreements || []).includes("unsure");
-  const disclosureClause = disclosures.length ? `Please note ${naturalList(disclosures)}` : "";
-  const agreementClause = agreements.length ? `confirm ${naturalList(agreements)}` : "";
-  const unsureAgreementClause = agreementUnclear ? "ask the pod what matters before we start" : "";
-  const detailSentence = disclosureClause && agreementClause
-        ? `${disclosureClause}, and ${agreementClause}.`
-    : disclosureClause && unsureAgreementClause
-        ? `${disclosureClause}, and ${unsureAgreementClause}.`
-      : disclosureClause
-        ? `${disclosureClause}.`
-      : agreementClause
-        ? `Confirm ${naturalList(agreements)}.`
-        : unsureAgreementClause
-          ? "Ask the pod what matters before we start."
-          : "";
-  return `${opening} ${finish}.${detailSentence ? ` ${detailSentence}` : ""}`.replace(/\s+/g, " ").trim();
+  const agreementRequests = agreementRequestPhrases(input.agreements || [], disclosureIds);
+  const allDisclosureIds = Object.keys(beforeDisclosureCatalog).filter(id => id !== "none");
+  const extremeDisclosureSet = allDisclosureIds.every(id => disclosureIds.includes(id));
+  const sentences = [];
+  if (disclosures.length && agreementRequests.length && !extremeDisclosureSet) {
+    sentences.push(`${planCore}, and I want to flag ${naturalList(disclosures)}.`);
+  } else {
+    sentences.push(`${planCore}.`);
+    if (disclosures.length) sentences.push(`I want to flag ${naturalList(disclosures)}.`);
+  }
+  if (agreementRequests.length) sentences.push(`Can we ${naturalList(agreementRequests)}?`);
+  return sentences.join(" ").replace(/\s+/g, " ").trim();
 }
 
 export function evaluateBeforeGame(answers) {
@@ -603,8 +629,8 @@ export function evaluateDuringGame(answers) {
     cards: [
       { title: "What may be happening", body: detail.happening },
       { title: "What to clarify with the table", body: `${detail.clarify} ${ruleNote}` },
-      { title: "A neutral sentence someone can say", body: detail.say, copyText: detail.say },
       { title: "Available paths", body: `You selected: ${responseDetail.label}. ${responseDetail.guidance} The table can still choose among these paths.`, items: detail.paths },
+      { title: "A neutral sentence someone can say", body: detail.say, copyText: detail.say },
     ],
   };
 }
@@ -712,7 +738,8 @@ function renderQuestion(mount, config, state, recoveryNotice, draft) {
 
 function renderResult(mount, config, state, recoveryNotice) {
   const result = config.evaluate(state.answers);
-  const cardMarkup = result.cards.map((card, index) => `<section class="vm-lifecycle-result-card${card.copyText ? " vm-lifecycle-statement" : ""}" aria-labelledby="lifecycle-result-${index}"><h3 id="lifecycle-result-${index}">${escapeHtml(card.title)}</h3><p${card.copyText ? ' class="vm-lifecycle-copy-target"' : ""}>${escapeHtml(card.body)}</p>${card.items ? `<ul>${card.items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : ""}${card.copyText ? `<button class="vm-button vm-button-secondary vm-lifecycle-copy" type="button" data-copy-text="${escapeHtml(card.copyText)}">Copy this sentence</button><span class="vm-lifecycle-copy-status" role="status" aria-live="polite"></span>` : ""}</section>`).join("");
+  const copyLabel = config.key === "during-game" ? "Copy table reset" : "Copy statement";
+  const cardMarkup = result.cards.map((card, index) => `<section class="vm-lifecycle-result-card${card.copyText ? " vm-lifecycle-statement" : ""}" aria-labelledby="lifecycle-result-${index}"><h3 id="lifecycle-result-${index}">${escapeHtml(card.title)}</h3><p${card.copyText ? ' class="vm-lifecycle-copy-target"' : ""}>${escapeHtml(card.body)}</p>${card.items ? `<ul>${card.items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : ""}${card.copyText ? `<button class="vm-lifecycle-copy vm-copy-action" type="button" data-copy-text="${escapeHtml(card.copyText)}">${copyLabel}</button><span class="vm-lifecycle-copy-status" role="status" aria-live="polite"></span>` : ""}</section>`).join("");
   mount.innerHTML = `${recoverMarkup(recoveryNotice)}<article class="vm-result-card vm-lifecycle-result" data-result-category="${escapeHtml(result.category)}">${progressMarkup(config.questions.length, config.questions.length, true)}<header class="vm-result-header"><span class="vm-eyebrow">${escapeHtml(config.title)}</span><h2 tabindex="-1" data-lifecycle-focus>${escapeHtml(result.headline)}</h2><p>This is a guided interpretation, not a judgment about a player, deck, or table.</p></header><div class="vm-result-grid vm-lifecycle-result-grid">${cardMarkup}</div>${reviewActionsMarkup(config.questions.length)}</article>`;
 }
 

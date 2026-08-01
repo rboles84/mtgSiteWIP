@@ -128,6 +128,10 @@ function hasMalformedListPunctuation(text) {
   return /,\s*,|,\s+\.|,\s+and\s+and\b|,\s+or\s+or\b/i.test(text);
 }
 
+function hasRepeatedDisclosurePrefix(text) {
+  return /please note|\bi want to flag[^.!?]*(?:i want to flag|please note)/i.test(text);
+}
+
 async function run() {
   expect(Object.keys(lifecycleConfigs).length === 3, "three new lifecycle route configurations should exist");
   expect(lifecycleConfigs["find-a-table"].questions.length === 5, "Finding a Table should remain compact");
@@ -139,7 +143,7 @@ async function run() {
   const emptyStatement = generatePregameStatement({});
   expect(!/undefined|null|\.{2,}|,\s*[.;]/i.test(emptyStatement), "empty pregame fields should not create broken punctuation or missing values");
   const fullStatement = generatePregameStatement({ bracket: "approximate-3", deck: "combo", win: "combo", speed: "early", surprises: ["combo", "proxies"], agreements: ["time"] });
-  expect(fullStatement.split(/[.!?]+/).filter(Boolean).length <= 2, "pregame statement should stay within two natural sentences");
+  expect(fullStatement.split(/[.!?]+/).filter(Boolean).length <= 2, "ordinary pregame statement should stay within two natural sentences");
   expect(!/Timmy|Tammy|Johnny|Jenny|Spike|Quandrix|Silverquill|Prismari|Lorehold|Witherbloom/i.test(fullStatement), "player-model labels should not leak into pregame output");
   const duringRules = evaluateDuringGame({ moment: "rules", response: "lookup" });
   const duringText = JSON.stringify(duringRules);
@@ -200,6 +204,9 @@ async function run() {
   let incorrectConjunctionCount = 0;
   let repeatedConjunctionCount = 0;
   let malformedListPunctuationCount = 0;
+  let repeatedDisclosurePrefixCount = 0;
+  let compliancePhraseCount = 0;
+  let maximumSentenceCount = 0;
   for (const bracket of bracketValues) {
     for (const deck of deckValues) {
       for (const win of winValues) {
@@ -214,7 +221,10 @@ async function run() {
               longestStatement = Math.max(longestStatement, statement.length);
               if (statement.length > beforeGameStatementLimits.preferred) abovePreferredStatementCount += 1;
               expect(!statement.includes(";"), "generated pregame statements must not use semicolon-chain construction");
-              expect(statement.split(/[.!?]+/).filter(Boolean).length <= 2, "generated pregame statements must stay within two sentences");
+              const sentenceCount = statement.split(/[.!?]+/).filter(Boolean).length;
+              const extremeDisclosureSet = surprises.filter(value => value !== "none").length === Object.keys(beforeDisclosureCatalog).length - 1;
+              maximumSentenceCount = Math.max(maximumSentenceCount, sentenceCount);
+              expect(sentenceCount <= (extremeDisclosureSet ? 3 : 2), "ordinary generated pregame statements must stay within two sentences; only the extreme disclosure set may use three");
               expect(statement.length <= beforeGameStatementLimits.hard, `generated pregame statements must stay below the ${beforeGameStatementLimits.hard}-character hard maximum`);
               if (hasLowercaseSentenceOpening(statement)) sentenceCapitalizationViolationCount += 1;
               expect(!hasLowercaseSentenceOpening(statement), "generated pregame sentences must begin with an uppercase letter after sentence punctuation");
@@ -224,6 +234,10 @@ async function run() {
               expect(!hasRepeatedConjunctionList(statement), "disclosure lists must use a human-readable conjunction structure");
               if (hasMalformedListPunctuation(statement)) malformedListPunctuationCount += 1;
               expect(!hasMalformedListPunctuation(statement), "disclosure lists must not contain malformed punctuation");
+              if (hasRepeatedDisclosurePrefix(statement)) repeatedDisclosurePrefixCount += 1;
+              expect(!hasRepeatedDisclosurePrefix(statement), "generated statements must not repeat a disclosure prefix");
+              if (/\bconfirm (?:a )?(?:house rule|time limit)\b/i.test(statement)) compliancePhraseCount += 1;
+              expect(!/\bconfirm (?:a )?(?:house rule|time limit)\b/i.test(statement), "agreement requests must use conversational wording");
               expect(!/undefined|null|\.{2,}|I should mention|the deck may the deck|pod has already consented|everyone has already agreed/i.test(allText), "generated pregame output must not contain broken fragments, placeholders, or consent claims");
               expect(!/fast-mana|resource-denial|extra-turns|long-turns|house-rule/i.test(statement), "generated spoken copy must not expose unresolved option IDs");
               for (const id of surprises.filter(value => value !== "none")) {
@@ -248,6 +262,9 @@ async function run() {
   expect(incorrectConjunctionCount === 0, `incorrect extra-turn/long-turn conjunctions found: ${incorrectConjunctionCount}`);
   expect(repeatedConjunctionCount === 0, `repeated-conjunction disclosure lists found: ${repeatedConjunctionCount}`);
   expect(malformedListPunctuationCount === 0, `malformed disclosure list punctuation cases found: ${malformedListPunctuationCount}`);
+  expect(repeatedDisclosurePrefixCount === 0, `repeated disclosure prefixes found: ${repeatedDisclosurePrefixCount}`);
+  expect(compliancePhraseCount === 0, `bureaucratic agreement phrases found: ${compliancePhraseCount}`);
+  expect(maximumSentenceCount <= 3, `maximum generated sentence count should be three or fewer, got ${maximumSentenceCount}`);
 
   const duringMomentValues = lifecycleConfigs["during-game"].questions[0].options.map(option => option.id);
   const duringResponseValues = Object.keys(duringResponseCatalog);
@@ -255,7 +272,7 @@ async function run() {
   for (const moment of duringMomentValues) {
     for (const response of duringResponseValues) {
       const result = evaluateDuringGame({ moment, response });
-      const availablePaths = result.cards.at(-1).body;
+      const availablePaths = result.cards.find(card => card.title === "Available paths")?.body || "";
       duringPairCount += 1;
       expect(availablePaths.includes(duringResponseCatalog[response].label), `During the Game response ${moment}/${response} should show its selected label`);
       expect(availablePaths.includes(duringResponseCatalog[response].guidance), `During the Game response ${moment}/${response} should show response-specific guidance`);
@@ -298,6 +315,12 @@ async function run() {
     for (const concept of ["Pod Readiness", "Archetypes", "Threat & Pressure", "Color Expectations"]) {
       expect(consolePreview.some(copy => copy.startsWith(concept)), `Commander Console preview should include ${concept}`);
     }
+    const consoleGap = await page.$eval(".vm-console-path-card", card => {
+      const paragraph = card.querySelector("p").getBoundingClientRect();
+      const previews = card.querySelector(".vm-console-preview-grid").getBoundingClientRect();
+      return Math.round(previews.top - paragraph.bottom);
+    });
+    expect(consoleGap >= 0 && consoleGap <= 24, `Commander Console preview grid should sit close below its introduction (gap ${consoleGap}px)`);
 
     await page.goto(`${baseUrl}/strategium/find-a-table/?path=memorable/develop/predictable/light/clear`, { waitUntil: "networkidle0" });
     const findResult = await page.evaluate(() => ({
@@ -412,12 +435,17 @@ async function run() {
     await page.goto(`${baseUrl}/strategium/before-game/?path=approximate-3/develop/combat/middle/none/none`, { waitUntil: "networkidle0" });
     const statementText = await page.$eval(".vm-lifecycle-statement p", node => node.textContent);
     expect(statementText && !/undefined|null|\.{2,}/i.test(statementText), "pregame result should render a clean spoken statement");
-    expect(await page.$(".vm-lifecycle-copy") !== null, "pregame result should offer a copy action");
+    expect(await page.$eval(".vm-lifecycle-copy", node => node.textContent.trim()) === "Copy statement", "pregame result should use the shared statement copy action");
+    expect(await page.$eval(".vm-lifecycle-copy", node => getComputedStyle(node).borderTopWidth !== "0px"), "pregame copy action should have a visible control boundary");
 
     await page.goto(`${baseUrl}/strategium/during-game/?path=rules/lookup`, { waitUntil: "networkidle0" });
     const rulesResult = await collectVisibleText(page);
     expect(/official rule|judge|agreed rules resource/i.test(rulesResult), "rules path should point to a rules resource");
     expect(!/attack|target recommendation|optimal line/i.test(rulesResult), "rules path should not offer tactical advice");
+    const duringCardOrder = await page.$$eval(".vm-lifecycle-result-card h3", nodes => nodes.map(node => node.textContent.trim()));
+    expect(duringCardOrder.join("|") === "What may be happening|What to clarify with the table|Available paths|A neutral sentence someone can say", "During the Game result cards should keep the neutral sentence last");
+    expect(await page.$eval(".vm-lifecycle-copy", node => node.textContent.trim()) === "Copy table reset", "During the Game should use the shared table-reset copy action");
+    expect(await page.$eval(".vm-lifecycle-copy", node => getComputedStyle(node).borderTopWidth !== "0px"), "During the Game copy action should have a visible control boundary");
 
     await page.goto(`${baseUrl}/strategium/`, { waitUntil: "networkidle0" });
     await page.click('.vm-lifecycle-links a[href="./review/"]');
