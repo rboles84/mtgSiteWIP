@@ -1,0 +1,215 @@
+{
+  "candidateImplementationSha": "b9814549911306cc46ce6db321e0e2f4c354c4ec",
+  "combinationCount": 1935360,
+  "hardMaximum": 360,
+  "preferredMaximum": 300,
+  "counts": {
+    "combinations": 1935360,
+    "lowercaseSentenceOpenings": 0,
+    "incorrectConjunctions": 0,
+    "repeatedConjunctions": 0,
+    "malformedListPunctuation": 0,
+    "missingDisclosureSelections": 0,
+    "unresolvedOptionIds": 0,
+    "duplicateClauses": 0,
+    "emptyFragments": 0,
+    "semicolonChains": 0,
+    "overHardMaximum": 0,
+    "overSentenceMaximum": 0
+  },
+  "samples": {
+    "no-disclosures-unsure": {
+      "input": {
+        "bracket": "not-using",
+        "deck": "unsure",
+        "win": "unsure",
+        "speed": "variable",
+        "surprises": [
+          "none"
+        ],
+        "agreements": [
+          "unsure"
+        ]
+      },
+      "statement": "I'm bringing a deck still taking shape, with its win and timing still unclear. Can we ask the pod what matters most?",
+      "detailedDisclosureCard": "No advanced category needs to be disclosed beyond the short deck description you just made."
+    },
+    "no-disclosures-time": {
+      "input": {
+        "bracket": "not-using",
+        "deck": "unsure",
+        "win": "unsure",
+        "speed": "variable",
+        "surprises": [
+          "none"
+        ],
+        "agreements": [
+          "time"
+        ]
+      },
+      "statement": "I'm bringing a deck still taking shape, with its win and timing still unclear. Can we set a time limit?",
+      "detailedDisclosureCard": "No advanced category needs to be disclosed beyond the short deck description you just made."
+    },
+    "no-disclosures-house-rule": {
+      "input": {
+        "bracket": "not-using",
+        "deck": "unsure",
+        "win": "unsure",
+        "speed": "variable",
+        "surprises": [
+          "none"
+        ],
+        "agreements": [
+          "house-rule"
+        ]
+      },
+      "statement": "I'm bringing a deck still taking shape, with its win and timing still unclear. Can we cover house rules?",
+      "detailedDisclosureCard": "No advanced category needs to be disclosed beyond the short deck description you just made."
+    },
+    "no-disclosures-proxies": {
+      "input": {
+        "bracket": "not-using",
+        "deck": "unsure",
+        "win": "unsure",
+        "speed": "variable",
+        "surprises": [
+          "none"
+        ],
+        "agreements": [
+          "proxies"
+        ]
+      },
+      "statement": "I'm bringing a deck still taking shape, with its win and timing still unclear. Can we check proxies?",
+      "detailedDisclosureCard": "No advanced category needs to be disclosed beyond the short deck description you just made."
+    },
+    "large-disclosure-set": {
+      "input": {
+        "bracket": "not-using",
+        "deck": "unsure",
+        "win": "unsure",
+        "speed": "variable",
+        "surprises": [
+          "fast-mana",
+          "tutors",
+          "combo",
+          "resource-denial",
+          "extra-turns",
+          "long-turns",
+          "chaos",
+          "proxies"
+        ],
+        "agreements": [
+          "time",
+          "house-rule",
+          "proxies"
+        ]
+      },
+      "statement": "I'm bringing a deck still taking shape, with its win and timing still unclear. I want to flag fast mana with tutors, an intentional combo, resource denial, repeated extra turns alongside unusually long turns, chaos/high variance, and proxies. Can we set a time limit and cover house rules?",
+      "detailedDisclosureCard": "Worth disclosing for this table: fast mana, tutors, an intentional combo, resource denial effects, repeated extra turns, unusually long turns, chaos or high-variance effects, and proxies."
+    },
+    "still-figuring-it-out": {
+      "input": {
+        "bracket": "not-using",
+        "deck": "unsure",
+        "win": "unsure",
+        "speed": "variable",
+        "surprises": [
+          "none"
+        ],
+        "agreements": [
+          "none"
+        ]
+      },
+      "statement": "I'm bringing a deck still taking shape, with its win and timing still unclear.",
+      "detailedDisclosureCard": "No advanced category needs to be disclosed beyond the short deck description you just made."
+    },
+    "fast-mana-tutors-combo": {
+      "input": {
+        "bracket": "approximate-3",
+        "deck": "combo",
+        "win": "combo",
+        "speed": "early",
+        "surprises": [
+          "fast-mana",
+          "tutors",
+          "combo"
+        ],
+        "agreements": [
+          "none"
+        ]
+      },
+      "statement": "I'm around bracket 3 with a deck that sets up a combo, usually wins through a sudden combo and can turn on early. I want to flag fast mana with tutors and an intentional combo.",
+      "detailedDisclosureCard": "Worth disclosing for this table: fast mana, tutors, and an intentional combo."
+    },
+    "extra-turns-long-turns": {
+      "input": {
+        "bracket": "approximate-3",
+        "deck": "combo",
+        "win": "combo",
+        "speed": "early",
+        "surprises": [
+          "extra-turns",
+          "long-turns"
+        ],
+        "agreements": [
+          "none"
+        ]
+      },
+      "statement": "I'm around bracket 3 with a deck that sets up a combo, usually wins through a sudden combo and can turn on early. I want to flag repeated extra turns alongside unusually long turns.",
+      "detailedDisclosureCard": "Worth disclosing for this table: repeated extra turns and unusually long turns."
+    },
+    "high-impact-disclosures": {
+      "input": {
+        "bracket": "approximate-3",
+        "deck": "combo",
+        "win": "combo",
+        "speed": "early",
+        "surprises": [
+          "combo",
+          "resource-denial",
+          "extra-turns",
+          "long-turns",
+          "proxies"
+        ],
+        "agreements": [
+          "none"
+        ]
+      },
+      "statement": "I'm around bracket 3 with a deck that sets up a combo, usually wins through a sudden combo and can turn on early. I want to flag an intentional combo, resource denial, repeated extra turns alongside unusually long turns, and proxies.",
+      "detailedDisclosureCard": "Worth disclosing for this table: an intentional combo, resource denial effects, repeated extra turns, unusually long turns, and proxies."
+    },
+    "unsure-bracket": {
+      "input": {
+        "bracket": "unsure",
+        "deck": "unsure",
+        "win": "unsure",
+        "speed": "variable",
+        "surprises": [
+          "none"
+        ],
+        "agreements": [
+          "none"
+        ]
+      },
+      "statement": "I'm bringing a deck still taking shape, with its win and timing still unclear.",
+      "detailedDisclosureCard": "No advanced category needs to be disclosed beyond the short deck description you just made."
+    },
+    "not-using-brackets": {
+      "input": {
+        "bracket": "not-using",
+        "deck": "unsure",
+        "win": "unsure",
+        "speed": "variable",
+        "surprises": [
+          "none"
+        ],
+        "agreements": [
+          "none"
+        ]
+      },
+      "statement": "I'm bringing a deck still taking shape, with its win and timing still unclear.",
+      "detailedDisclosureCard": "No advanced category needs to be disclosed beyond the short deck description you just made."
+    }
+  },
+  "status": "review-required"
+}

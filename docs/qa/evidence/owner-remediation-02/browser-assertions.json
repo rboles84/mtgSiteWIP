@@ -1,0 +1,138 @@
+{
+  "candidateHead": "b9814549911306cc46ce6db321e0e2f4c354c4ec",
+  "server": {
+    "candidateHead": "b9814549911306cc46ce6db321e0e2f4c354c4ec",
+    "serverPid": 22520,
+    "port": 63677,
+    "workingDirectory": "C:\\dev\\voxmana.io-strategium-lifecycle-completion",
+    "baseUrl": "http://127.0.0.1:63677",
+    "directReviewUrl": "http://127.0.0.1:63677/strategium/review/",
+    "hubUrl": "http://127.0.0.1:63677/strategium/"
+  },
+  "browserPath": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "screenshots": [
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-02\\direct-clean-review.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-02\\hub-desktop.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-02\\hub-mobile.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-02\\hub-click-review.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-02\\finding-result-footer.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-02\\before-step5-footer.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-02\\before-step6-before-selection.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-02\\before-step6-after-selection.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-02\\before-result-rich-copy.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-02\\during-result-reordered-copy.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-02\\during-result-mobile.png"
+  ],
+  "assertions": [
+    {
+      "condition": true,
+      "message": "direct clean review route opens the first meaningful After-the-Game question"
+    },
+    {
+      "condition": true,
+      "message": "direct clean review route contains no stale lifecycle selector copy"
+    },
+    {
+      "condition": true,
+      "message": "hub renders all four Commander Console preview concepts"
+    },
+    {
+      "condition": true,
+      "message": "hub Console preview gap is composed (14px)"
+    },
+    {
+      "condition": true,
+      "message": "hub mobile layout has no horizontal overflow"
+    },
+    {
+      "condition": true,
+      "message": "hub After-the-Game click reaches the canonical review route"
+    },
+    {
+      "condition": true,
+      "message": "hub After-the-Game click opens the first meaningful question"
+    },
+    {
+      "condition": true,
+      "message": "hub After-the-Game click contains no stale selector copy"
+    },
+    {
+      "condition": true,
+      "message": "Finding-a-Table conclusion appears once"
+    },
+    {
+      "condition": true,
+      "message": "Finding-a-Table result has four non-duplicate cards"
+    },
+    {
+      "condition": true,
+      "message": "Finding-a-Table result footer actions are visibly boxed"
+    },
+    {
+      "condition": true,
+      "message": "Before-the-Game Step 5 has the explicit final-check action"
+    },
+    {
+      "condition": true,
+      "message": "Step 5 action is inside the shared footer"
+    },
+    {
+      "condition": true,
+      "message": "Before-the-Game Step 6 has one named result action"
+    },
+    {
+      "condition": true,
+      "message": "Step 6 result action is inside the shared footer"
+    },
+    {
+      "condition": true,
+      "message": "Step 6 footer actions are visibly boxed"
+    },
+    {
+      "condition": true,
+      "message": "valid Step 6 selection visibly enables the primary action"
+    },
+    {
+      "condition": true,
+      "message": "disclosure-rich spoken statement stays within the hard length maximum"
+    },
+    {
+      "condition": true,
+      "message": "disclosure-rich spoken statement uses at most three sentences"
+    },
+    {
+      "condition": true,
+      "message": "disclosure-rich spoken statement avoids compliance and repeated-conjunction copy"
+    },
+    {
+      "condition": true,
+      "message": "disclosure-rich statement retains every high-impact disclosure"
+    },
+    {
+      "condition": true,
+      "message": "Before-the-Game copy action has the shared label"
+    },
+    {
+      "condition": true,
+      "message": "Before-the-Game copy output exactly matches visible statement"
+    },
+    {
+      "condition": true,
+      "message": "During-the-Game result places the neutral sentence last"
+    },
+    {
+      "condition": true,
+      "message": "During-the-Game copy action has the shared label"
+    },
+    {
+      "condition": true,
+      "message": "During-the-Game result footer actions are visibly boxed"
+    },
+    {
+      "condition": true,
+      "message": "During-the-Game mobile result has no horizontal overflow"
+    }
+  ],
+  "consoleErrors": [],
+  "requestFailures": []
+}

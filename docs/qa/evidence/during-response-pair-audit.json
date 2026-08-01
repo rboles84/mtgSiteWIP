@@ -1,0 +1,342 @@
+{
+  "moments": 6,
+  "responses": 8,
+  "mismatches": [
+    {
+      "moment": "attention",
+      "response": "continue",
+      "expected": "Continue as-is",
+      "category": "attention",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "attention",
+      "response": "clarify",
+      "expected": "Clarify expectations",
+      "category": "attention",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "attention",
+      "response": "pause",
+      "expected": "Pause briefly",
+      "category": "attention",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "attention",
+      "response": "accelerate",
+      "expected": "Accelerate the ending",
+      "category": "attention",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "attention",
+      "response": "reset",
+      "expected": "Reset the agreement",
+      "category": "attention",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "attention",
+      "response": "lookup",
+      "expected": "Look up the official rule",
+      "category": "attention",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "attention",
+      "response": "end",
+      "expected": "End the game",
+      "category": "attention",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "attention",
+      "response": "new-game",
+      "expected": "Start a new game",
+      "category": "attention",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "out",
+      "response": "continue",
+      "expected": "Continue as-is",
+      "category": "out",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "out",
+      "response": "clarify",
+      "expected": "Clarify expectations",
+      "category": "out",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "out",
+      "response": "pause",
+      "expected": "Pause briefly",
+      "category": "out",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "out",
+      "response": "accelerate",
+      "expected": "Accelerate the ending",
+      "category": "out",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "out",
+      "response": "reset",
+      "expected": "Reset the agreement",
+      "category": "out",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "out",
+      "response": "lookup",
+      "expected": "Look up the official rule",
+      "category": "out",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "out",
+      "response": "end",
+      "expected": "End the game",
+      "category": "out",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "out",
+      "response": "new-game",
+      "expected": "Start a new game",
+      "category": "out",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "stalled",
+      "response": "continue",
+      "expected": "Continue as-is",
+      "category": "stalled",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "stalled",
+      "response": "clarify",
+      "expected": "Clarify expectations",
+      "category": "stalled",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "stalled",
+      "response": "pause",
+      "expected": "Pause briefly",
+      "category": "stalled",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "stalled",
+      "response": "accelerate",
+      "expected": "Accelerate the ending",
+      "category": "stalled",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "stalled",
+      "response": "reset",
+      "expected": "Reset the agreement",
+      "category": "stalled",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "stalled",
+      "response": "lookup",
+      "expected": "Look up the official rule",
+      "category": "stalled",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "stalled",
+      "response": "end",
+      "expected": "End the game",
+      "category": "stalled",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "stalled",
+      "response": "new-game",
+      "expected": "Start a new game",
+      "category": "stalled",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "mismatch",
+      "response": "continue",
+      "expected": "Continue as-is",
+      "category": "mismatch",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "mismatch",
+      "response": "clarify",
+      "expected": "Clarify expectations",
+      "category": "mismatch",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "mismatch",
+      "response": "pause",
+      "expected": "Pause briefly",
+      "category": "mismatch",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "mismatch",
+      "response": "accelerate",
+      "expected": "Accelerate the ending",
+      "category": "mismatch",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "mismatch",
+      "response": "reset",
+      "expected": "Reset the agreement",
+      "category": "mismatch",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "mismatch",
+      "response": "lookup",
+      "expected": "Look up the official rule",
+      "category": "mismatch",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "mismatch",
+      "response": "end",
+      "expected": "End the game",
+      "category": "mismatch",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "mismatch",
+      "response": "new-game",
+      "expected": "Start a new game",
+      "category": "mismatch",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "rules",
+      "response": "continue",
+      "expected": "Continue as-is",
+      "category": "rules",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "rules",
+      "response": "clarify",
+      "expected": "Clarify expectations",
+      "category": "rules",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "rules",
+      "response": "pause",
+      "expected": "Pause briefly",
+      "category": "rules",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "rules",
+      "response": "accelerate",
+      "expected": "Accelerate the ending",
+      "category": "rules",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "rules",
+      "response": "reset",
+      "expected": "Reset the agreement",
+      "category": "rules",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "rules",
+      "response": "lookup",
+      "expected": "Look up the official rule",
+      "category": "rules",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "rules",
+      "response": "end",
+      "expected": "End the game",
+      "category": "rules",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "rules",
+      "response": "new-game",
+      "expected": "Start a new game",
+      "category": "rules",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "fun",
+      "response": "continue",
+      "expected": "Continue as-is",
+      "category": "fun",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "fun",
+      "response": "clarify",
+      "expected": "Clarify expectations",
+      "category": "fun",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "fun",
+      "response": "pause",
+      "expected": "Pause briefly",
+      "category": "fun",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "fun",
+      "response": "accelerate",
+      "expected": "Accelerate the ending",
+      "category": "fun",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "fun",
+      "response": "reset",
+      "expected": "Reset the agreement",
+      "category": "fun",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "fun",
+      "response": "lookup",
+      "expected": "Look up the official rule",
+      "category": "fun",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "fun",
+      "response": "end",
+      "expected": "End the game",
+      "category": "fun",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    },
+    {
+      "moment": "fun",
+      "response": "new-game",
+      "expected": "Start a new game",
+      "category": "fun",
+      "excerpt": "You selected: Choose the smallest useful response. The table can still choose among these paths."
+    }
+  ]
+}

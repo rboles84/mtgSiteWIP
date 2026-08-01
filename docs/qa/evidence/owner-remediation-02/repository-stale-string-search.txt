@@ -1,0 +1,15 @@
+Command:
+rg -n -F -e "Which moment do you want to review?" -e "After the Game is ready now" -e "Start the available review" -e "In development" C:\dev\voxmana.io-strategium-lifecycle-completion
+
+Matches in the candidate worktree:
+C:\dev\voxmana.io-strategium-lifecycle-completion\scripts\strategium-owner-remediation-browser.mjs:19:const stalePattern = /Which moment do you want to review\?|After the Game is ready now|Start the available review|In development/i;
+C:\dev\voxmana.io-strategium-lifecycle-completion\scripts\strategium-lifecycle-tests.mjs:456:    expect(!/Which moment do you want to review|In development|After the Game is ready now|Start the available review/i.test(afterEntryText), "After the Game entry should not render the obsolete lifecycle selector");
+C:\dev\voxmana.io-strategium-lifecycle-completion\docs\qa\strategium-lifecycle-owner-acceptance-checklist.md:16:- Mechanically validated: two primary cards, four lifecycle links, no stale “In development” label, no horizontal overflow, and no console errors.
+C:\dev\voxmana.io-strategium-lifecycle-completion\docs\qa\strategium-lifecycle-owner-acceptance-checklist.md:232:- Mechanically validated: the exact hub-click path opens What best describes the game? directly; no second lifecycle selection, stale In development labels, obsolete selector buttons, or After the Game is ready now copy remain; legacy state recovers safely; existing review result/history/reset behavior remains green.
+
+Served route inventory:
+- /strategium/review/ -> strategium/review/index.html -> ../../assets/js/strategium-review.js?v=20260731-owner2
+- Review root question in the served script: What best describes the game?
+- No stale selector string occurs in strategium/review/index.html or assets/js/strategium-review.js.
+
+Interpretation: the stale strings are retained only in test assertions and historical owner-QA documentation so the regression remains detectable; they are absent from the current reachable runtime route.

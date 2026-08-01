@@ -1,0 +1,175 @@
+{
+  "candidateHead": "99bd02481405e896780dc3067512eacac8cfa602",
+  "server": {
+    "candidateHead": "99bd02481405e896780dc3067512eacac8cfa602",
+    "serverPid": 25936,
+    "port": 60050,
+    "workingDirectory": "C:\\dev\\voxmana.io-strategium-lifecycle-completion",
+    "baseUrl": "http://127.0.0.1:60050",
+    "directReviewUrl": "http://127.0.0.1:60050/strategium/review/",
+    "hubUrl": "http://127.0.0.1:60050/strategium/"
+  },
+  "browserPath": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "screenshots": [
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-03\\direct-clean-review.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-03\\hub-desktop.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-03\\hub-mobile.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-03\\hub-click-review.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-03\\finding-result-footer.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-03\\before-step5-footer.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-03\\before-step6-before-selection.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-03\\before-step6-after-selection.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-03\\before-result-rich-copy.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-03\\during-result-reordered-copy.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-03\\during-result-copy-success.png",
+    "C:\\dev\\voxmana.io-strategium-lifecycle-completion\\docs\\qa\\evidence\\owner-remediation-03\\during-result-mobile.png"
+  ],
+  "assertions": [
+    {
+      "condition": true,
+      "message": "direct clean review route opens the first meaningful After-the-Game question"
+    },
+    {
+      "condition": true,
+      "message": "direct clean review route contains no stale lifecycle selector copy"
+    },
+    {
+      "condition": true,
+      "message": "hub renders all four Commander Console preview concepts"
+    },
+    {
+      "condition": true,
+      "message": "hub Console preview gap is composed (14px)"
+    },
+    {
+      "condition": true,
+      "message": "hub mobile layout has no horizontal overflow"
+    },
+    {
+      "condition": true,
+      "message": "hub After-the-Game click reaches the canonical review route"
+    },
+    {
+      "condition": true,
+      "message": "hub After-the-Game click opens the first meaningful question"
+    },
+    {
+      "condition": true,
+      "message": "hub After-the-Game click contains no stale selector copy"
+    },
+    {
+      "condition": true,
+      "message": "Finding-a-Table conclusion appears once"
+    },
+    {
+      "condition": true,
+      "message": "Finding-a-Table result has four non-duplicate cards"
+    },
+    {
+      "condition": true,
+      "message": "Finding-a-Table result footer actions are visibly boxed"
+    },
+    {
+      "condition": true,
+      "message": "Before-the-Game Step 5 has the explicit final-check action"
+    },
+    {
+      "condition": true,
+      "message": "Step 5 action is inside the shared footer"
+    },
+    {
+      "condition": true,
+      "message": "Before-the-Game Step 6 has one named result action"
+    },
+    {
+      "condition": true,
+      "message": "Step 6 result action is inside the shared footer"
+    },
+    {
+      "condition": true,
+      "message": "Step 6 footer actions are visibly boxed"
+    },
+    {
+      "condition": true,
+      "message": "valid Step 6 selection visibly enables the primary action"
+    },
+    {
+      "condition": true,
+      "message": "disclosure-rich spoken statement stays within the hard length maximum"
+    },
+    {
+      "condition": true,
+      "message": "disclosure-rich spoken statement uses at most three sentences"
+    },
+    {
+      "condition": true,
+      "message": "disclosure-rich spoken statement avoids compliance and repeated-conjunction copy"
+    },
+    {
+      "condition": true,
+      "message": "disclosure-rich statement retains every high-impact disclosure"
+    },
+    {
+      "condition": true,
+      "message": "Before-the-Game result has no route-specific copy label"
+    },
+    {
+      "condition": true,
+      "message": "Before-the-Game copy action has the concise visible label"
+    },
+    {
+      "condition": true,
+      "message": "Before-the-Game copy action has a descriptive accessible name"
+    },
+    {
+      "condition": true,
+      "message": "Before-the-Game copy output exactly matches visible statement"
+    },
+    {
+      "condition": true,
+      "message": "During-the-Game result places the neutral sentence last"
+    },
+    {
+      "condition": true,
+      "message": "During-the-Game result has no route-specific copy label"
+    },
+    {
+      "condition": true,
+      "message": "During-the-Game copy action has the concise visible label"
+    },
+    {
+      "condition": true,
+      "message": "During-the-Game copy action has a descriptive accessible name"
+    },
+    {
+      "condition": true,
+      "message": "During-the-Game Available paths card is centered (0px delta)"
+    },
+    {
+      "condition": true,
+      "message": "During-the-Game Available paths card uses a balanced content width"
+    },
+    {
+      "condition": true,
+      "message": "During-the-Game result footer actions are visibly boxed"
+    },
+    {
+      "condition": true,
+      "message": "During-the-Game copy output exactly matches visible neutral sentence"
+    },
+    {
+      "condition": true,
+      "message": "During-the-Game copy action provides success feedback"
+    },
+    {
+      "condition": true,
+      "message": "During-the-Game mobile result has no horizontal overflow"
+    },
+    {
+      "condition": true,
+      "message": "During-the-Game Available paths card stacks within the mobile result width"
+    }
+  ],
+  "consoleErrors": [],
+  "requestFailures": []
+}

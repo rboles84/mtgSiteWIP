@@ -1,0 +1,727 @@
+{
+  "candidateImplementationSha": "bc5dc696388bc7678e9efc9786c3b2d4985606b4",
+  "browser": {
+    "engine": "Microsoft Edge via puppeteer-core",
+    "executablePath": "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
+    "headless": true,
+    "baseUrl": "http://127.0.0.1:56235",
+    "viewports": [
+      [
+        1440,
+        900
+      ],
+      [
+        1024,
+        768
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        320,
+        568
+      ]
+    ]
+  },
+  "deterministic": {
+    "candidateImplementationSha": "bc5dc696388bc7678e9efc9786c3b2d4985606b4",
+    "findingATable": {
+      "combinations": 1200,
+      "categories": [
+        "reasonable-fit",
+        "one-more-answer",
+        "different-game"
+      ],
+      "distinctExplanations": 100,
+      "distinctFollowUpQuestions": 5,
+      "distinctMismatchWarnings": 3
+    },
+    "beforeTheGame": {
+      "combinations": 1935360,
+      "agreementCombinationCount": 1935360,
+      "maxStatementLength": 354,
+      "preferredStatementLimit": 300,
+      "hardStatementLimit": 360,
+      "preferredLimitExceedances": 92923,
+      "sentenceCapitalizationViolations": 0,
+      "incorrectConjunctions": 0,
+      "repeatedConjunctions": 0,
+      "malformedListPunctuation": 0,
+      "statementsAboveTwoSentences": 0,
+      "semicolonStatements": 0,
+      "malformedOutputs": 0,
+      "lostDisclosureSelections": 0,
+      "unresolvedOptionIds": 0,
+      "duplicateClausesOrPunctuation": 0,
+      "statementSamples": {
+        "approximate-1|develop|combat|middle|none|none": "I'm around bracket 1 with a deck that builds a wide board and usually wins through combat damage, with timing that usually needs a few turns.",
+        "approximate-1|develop|combat|middle|none|unsure": "I'm around bracket 1 with a deck that builds a wide board and usually wins through combat damage, with timing that usually needs a few turns. Ask the pod what matters before we start.",
+        "approximate-1|develop|combat|middle|none|time": "I'm around bracket 1 with a deck that builds a wide board and usually wins through combat damage, with timing that usually needs a few turns. Confirm time limit.",
+        "approximate-1|develop|combat|middle|none|house-rule": "I'm around bracket 1 with a deck that builds a wide board and usually wins through combat damage, with timing that usually needs a few turns. Confirm house rule.",
+        "approximate-1|develop|combat|middle|none|proxies": "I'm around bracket 1 with a deck that builds a wide board and usually wins through combat damage, with timing that usually needs a few turns. Confirm proxy approval.",
+        "approximate-1|develop|combat|middle|fast-mana+tutors+combo|none": "I'm around bracket 1 with a deck that builds a wide board and usually wins through combat damage, with timing that usually needs a few turns. Please note fast mana, tutors, and an intentional combo.",
+        "approximate-1|develop|combat|middle|extra-turns+long-turns|none": "I'm around bracket 1 with a deck that builds a wide board and usually wins through combat damage, with timing that usually needs a few turns. Please note repeated extra turns and unusually long turns.",
+        "approximate-1|develop|combat|middle|proxies|proxies": "I'm around bracket 1 with a deck that builds a wide board and usually wins through combat damage, with timing that usually needs a few turns. Please note proxies.",
+        "approximate-1|develop|combat|middle|fast-mana+tutors+combo+resource-denial+extra-turns+long-turns+chaos+proxies|none": "I'm around bracket 1 with a deck that builds a wide board and usually wins through combat damage, with timing that usually needs a few turns. Please note fast mana and tutors, an intentional combo, resource denial, repeated extra turns and unusually long turns, chaos/high variance, and proxies.",
+        "approximate-1|unsure|combat|middle|none|none": "I'm around bracket 1 with a deck that is still taking shape and usually wins through combat damage, with timing that usually needs a few turns.",
+        "unsure|develop|combat|middle|none|none": "I'm bringing a deck that builds a wide board and usually wins through combat damage, with timing that usually needs a few turns.",
+        "not-using|develop|combat|middle|none|none": "I'm bringing a deck that builds a wide board and usually wins through combat damage, with timing that usually needs a few turns."
+      }
+    },
+    "duringTheGame": {
+      "pairCount": 48,
+      "fallbackPairs": 0,
+      "safetyViolations": 0,
+      "pairs": [
+        {
+          "moment": "attention",
+          "response": "continue",
+          "label": "Continue as-is",
+          "guidance": "Keep the next step with the table.",
+          "rendered": "You selected: Continue as-is. Keep the next step with the table. The table can still choose among these paths."
+        },
+        {
+          "moment": "attention",
+          "response": "clarify",
+          "label": "Clarify expectations",
+          "guidance": "Ask one neutral question before the next action.",
+          "rendered": "You selected: Clarify expectations. Ask one neutral question before the next action. The table can still choose among these paths."
+        },
+        {
+          "moment": "attention",
+          "response": "pause",
+          "label": "Pause briefly",
+          "guidance": "Take a short breath before deciding.",
+          "rendered": "You selected: Pause briefly. Take a short breath before deciding. The table can still choose among these paths."
+        },
+        {
+          "moment": "attention",
+          "response": "accelerate",
+          "label": "Accelerate the ending",
+          "guidance": "Shorten the wait without assigning blame.",
+          "rendered": "You selected: Accelerate the ending. Shorten the wait without assigning blame. The table can still choose among these paths."
+        },
+        {
+          "moment": "attention",
+          "response": "reset",
+          "label": "Reset the agreement",
+          "guidance": "Choose a clearer table expectation together.",
+          "rendered": "You selected: Reset the agreement. Choose a clearer table expectation together. The table can still choose among these paths."
+        },
+        {
+          "moment": "attention",
+          "response": "lookup",
+          "label": "Look up the official rule",
+          "guidance": "Use an official lookup or agreed rules resource.",
+          "rendered": "You selected: Look up the official rule. Use an official lookup or agreed rules resource. The table can still choose among these paths."
+        },
+        {
+          "moment": "attention",
+          "response": "end",
+          "label": "End the game",
+          "guidance": "Stopping is an available table choice, not a punishment.",
+          "rendered": "You selected: End the game. Stopping is an available table choice, not a punishment. The table can still choose among these paths."
+        },
+        {
+          "moment": "attention",
+          "response": "new-game",
+          "label": "Start a new game",
+          "guidance": "A fresh agreement may be the cleanest option.",
+          "rendered": "You selected: Start a new game. A fresh agreement may be the cleanest option. The table can still choose among these paths."
+        },
+        {
+          "moment": "out",
+          "response": "continue",
+          "label": "Continue as-is",
+          "guidance": "Keep the next step with the table.",
+          "rendered": "You selected: Continue as-is. Keep the next step with the table. The table can still choose among these paths."
+        },
+        {
+          "moment": "out",
+          "response": "clarify",
+          "label": "Clarify expectations",
+          "guidance": "Ask one neutral question before the next action.",
+          "rendered": "You selected: Clarify expectations. Ask one neutral question before the next action. The table can still choose among these paths."
+        },
+        {
+          "moment": "out",
+          "response": "pause",
+          "label": "Pause briefly",
+          "guidance": "Take a short breath before deciding.",
+          "rendered": "You selected: Pause briefly. Take a short breath before deciding. The table can still choose among these paths."
+        },
+        {
+          "moment": "out",
+          "response": "accelerate",
+          "label": "Accelerate the ending",
+          "guidance": "Shorten the wait without assigning blame.",
+          "rendered": "You selected: Accelerate the ending. Shorten the wait without assigning blame. The table can still choose among these paths."
+        },
+        {
+          "moment": "out",
+          "response": "reset",
+          "label": "Reset the agreement",
+          "guidance": "Choose a clearer table expectation together.",
+          "rendered": "You selected: Reset the agreement. Choose a clearer table expectation together. The table can still choose among these paths."
+        },
+        {
+          "moment": "out",
+          "response": "lookup",
+          "label": "Look up the official rule",
+          "guidance": "Use an official lookup or agreed rules resource.",
+          "rendered": "You selected: Look up the official rule. Use an official lookup or agreed rules resource. The table can still choose among these paths."
+        },
+        {
+          "moment": "out",
+          "response": "end",
+          "label": "End the game",
+          "guidance": "Stopping is an available table choice, not a punishment.",
+          "rendered": "You selected: End the game. Stopping is an available table choice, not a punishment. The table can still choose among these paths."
+        },
+        {
+          "moment": "out",
+          "response": "new-game",
+          "label": "Start a new game",
+          "guidance": "A fresh agreement may be the cleanest option.",
+          "rendered": "You selected: Start a new game. A fresh agreement may be the cleanest option. The table can still choose among these paths."
+        },
+        {
+          "moment": "stalled",
+          "response": "continue",
+          "label": "Continue as-is",
+          "guidance": "Keep the next step with the table.",
+          "rendered": "You selected: Continue as-is. Keep the next step with the table. The table can still choose among these paths."
+        },
+        {
+          "moment": "stalled",
+          "response": "clarify",
+          "label": "Clarify expectations",
+          "guidance": "Ask one neutral question before the next action.",
+          "rendered": "You selected: Clarify expectations. Ask one neutral question before the next action. The table can still choose among these paths."
+        },
+        {
+          "moment": "stalled",
+          "response": "pause",
+          "label": "Pause briefly",
+          "guidance": "Take a short breath before deciding.",
+          "rendered": "You selected: Pause briefly. Take a short breath before deciding. The table can still choose among these paths."
+        },
+        {
+          "moment": "stalled",
+          "response": "accelerate",
+          "label": "Accelerate the ending",
+          "guidance": "Shorten the wait without assigning blame.",
+          "rendered": "You selected: Accelerate the ending. Shorten the wait without assigning blame. The table can still choose among these paths."
+        },
+        {
+          "moment": "stalled",
+          "response": "reset",
+          "label": "Reset the agreement",
+          "guidance": "Choose a clearer table expectation together.",
+          "rendered": "You selected: Reset the agreement. Choose a clearer table expectation together. The table can still choose among these paths."
+        },
+        {
+          "moment": "stalled",
+          "response": "lookup",
+          "label": "Look up the official rule",
+          "guidance": "Use an official lookup or agreed rules resource.",
+          "rendered": "You selected: Look up the official rule. Use an official lookup or agreed rules resource. The table can still choose among these paths."
+        },
+        {
+          "moment": "stalled",
+          "response": "end",
+          "label": "End the game",
+          "guidance": "Stopping is an available table choice, not a punishment.",
+          "rendered": "You selected: End the game. Stopping is an available table choice, not a punishment. The table can still choose among these paths."
+        },
+        {
+          "moment": "stalled",
+          "response": "new-game",
+          "label": "Start a new game",
+          "guidance": "A fresh agreement may be the cleanest option.",
+          "rendered": "You selected: Start a new game. A fresh agreement may be the cleanest option. The table can still choose among these paths."
+        },
+        {
+          "moment": "mismatch",
+          "response": "continue",
+          "label": "Continue as-is",
+          "guidance": "Keep the next step with the table.",
+          "rendered": "You selected: Continue as-is. Keep the next step with the table. The table can still choose among these paths."
+        },
+        {
+          "moment": "mismatch",
+          "response": "clarify",
+          "label": "Clarify expectations",
+          "guidance": "Ask one neutral question before the next action.",
+          "rendered": "You selected: Clarify expectations. Ask one neutral question before the next action. The table can still choose among these paths."
+        },
+        {
+          "moment": "mismatch",
+          "response": "pause",
+          "label": "Pause briefly",
+          "guidance": "Take a short breath before deciding.",
+          "rendered": "You selected: Pause briefly. Take a short breath before deciding. The table can still choose among these paths."
+        },
+        {
+          "moment": "mismatch",
+          "response": "accelerate",
+          "label": "Accelerate the ending",
+          "guidance": "Shorten the wait without assigning blame.",
+          "rendered": "You selected: Accelerate the ending. Shorten the wait without assigning blame. The table can still choose among these paths."
+        },
+        {
+          "moment": "mismatch",
+          "response": "reset",
+          "label": "Reset the agreement",
+          "guidance": "Choose a clearer table expectation together.",
+          "rendered": "You selected: Reset the agreement. Choose a clearer table expectation together. The table can still choose among these paths."
+        },
+        {
+          "moment": "mismatch",
+          "response": "lookup",
+          "label": "Look up the official rule",
+          "guidance": "Use an official lookup or agreed rules resource.",
+          "rendered": "You selected: Look up the official rule. Use an official lookup or agreed rules resource. The table can still choose among these paths."
+        },
+        {
+          "moment": "mismatch",
+          "response": "end",
+          "label": "End the game",
+          "guidance": "Stopping is an available table choice, not a punishment.",
+          "rendered": "You selected: End the game. Stopping is an available table choice, not a punishment. The table can still choose among these paths."
+        },
+        {
+          "moment": "mismatch",
+          "response": "new-game",
+          "label": "Start a new game",
+          "guidance": "A fresh agreement may be the cleanest option.",
+          "rendered": "You selected: Start a new game. A fresh agreement may be the cleanest option. The table can still choose among these paths."
+        },
+        {
+          "moment": "rules",
+          "response": "continue",
+          "label": "Continue as-is",
+          "guidance": "Keep the next step with the table.",
+          "rendered": "You selected: Continue as-is. Keep the next step with the table. The table can still choose among these paths."
+        },
+        {
+          "moment": "rules",
+          "response": "clarify",
+          "label": "Clarify expectations",
+          "guidance": "Ask one neutral question before the next action.",
+          "rendered": "You selected: Clarify expectations. Ask one neutral question before the next action. The table can still choose among these paths."
+        },
+        {
+          "moment": "rules",
+          "response": "pause",
+          "label": "Pause briefly",
+          "guidance": "Take a short breath before deciding.",
+          "rendered": "You selected: Pause briefly. Take a short breath before deciding. The table can still choose among these paths."
+        },
+        {
+          "moment": "rules",
+          "response": "accelerate",
+          "label": "Accelerate the ending",
+          "guidance": "Shorten the wait without assigning blame.",
+          "rendered": "You selected: Accelerate the ending. Shorten the wait without assigning blame. The table can still choose among these paths."
+        },
+        {
+          "moment": "rules",
+          "response": "reset",
+          "label": "Reset the agreement",
+          "guidance": "Choose a clearer table expectation together.",
+          "rendered": "You selected: Reset the agreement. Choose a clearer table expectation together. The table can still choose among these paths."
+        },
+        {
+          "moment": "rules",
+          "response": "lookup",
+          "label": "Look up the official rule",
+          "guidance": "Use an official lookup or agreed rules resource.",
+          "rendered": "You selected: Look up the official rule. Use an official lookup or agreed rules resource. The table can still choose among these paths."
+        },
+        {
+          "moment": "rules",
+          "response": "end",
+          "label": "End the game",
+          "guidance": "Stopping is an available table choice, not a punishment.",
+          "rendered": "You selected: End the game. Stopping is an available table choice, not a punishment. The table can still choose among these paths."
+        },
+        {
+          "moment": "rules",
+          "response": "new-game",
+          "label": "Start a new game",
+          "guidance": "A fresh agreement may be the cleanest option.",
+          "rendered": "You selected: Start a new game. A fresh agreement may be the cleanest option. The table can still choose among these paths."
+        },
+        {
+          "moment": "fun",
+          "response": "continue",
+          "label": "Continue as-is",
+          "guidance": "Keep the next step with the table.",
+          "rendered": "You selected: Continue as-is. Keep the next step with the table. The table can still choose among these paths."
+        },
+        {
+          "moment": "fun",
+          "response": "clarify",
+          "label": "Clarify expectations",
+          "guidance": "Ask one neutral question before the next action.",
+          "rendered": "You selected: Clarify expectations. Ask one neutral question before the next action. The table can still choose among these paths."
+        },
+        {
+          "moment": "fun",
+          "response": "pause",
+          "label": "Pause briefly",
+          "guidance": "Take a short breath before deciding.",
+          "rendered": "You selected: Pause briefly. Take a short breath before deciding. The table can still choose among these paths."
+        },
+        {
+          "moment": "fun",
+          "response": "accelerate",
+          "label": "Accelerate the ending",
+          "guidance": "Shorten the wait without assigning blame.",
+          "rendered": "You selected: Accelerate the ending. Shorten the wait without assigning blame. The table can still choose among these paths."
+        },
+        {
+          "moment": "fun",
+          "response": "reset",
+          "label": "Reset the agreement",
+          "guidance": "Choose a clearer table expectation together.",
+          "rendered": "You selected: Reset the agreement. Choose a clearer table expectation together. The table can still choose among these paths."
+        },
+        {
+          "moment": "fun",
+          "response": "lookup",
+          "label": "Look up the official rule",
+          "guidance": "Use an official lookup or agreed rules resource.",
+          "rendered": "You selected: Look up the official rule. Use an official lookup or agreed rules resource. The table can still choose among these paths."
+        },
+        {
+          "moment": "fun",
+          "response": "end",
+          "label": "End the game",
+          "guidance": "Stopping is an available table choice, not a punishment.",
+          "rendered": "You selected: End the game. Stopping is an available table choice, not a punishment. The table can still choose among these paths."
+        },
+        {
+          "moment": "fun",
+          "response": "new-game",
+          "label": "Start a new game",
+          "guidance": "A fresh agreement may be the cleanest option.",
+          "rendered": "You selected: Start a new game. A fresh agreement may be the cleanest option. The table can still choose among these paths."
+        }
+      ]
+    }
+  },
+  "browserAudit": {
+    "hubUrl": "http://127.0.0.1:56235/strategium/",
+    "hubLinks": [
+      {
+        "text": "Finding a TableBefore you sit down",
+        "href": "./find-a-table/"
+      },
+      {
+        "text": "Before the GameBefore you shuffle",
+        "href": "./before-game/"
+      },
+      {
+        "text": "During the GameWhen the table feels off",
+        "href": "./during-game/"
+      },
+      {
+        "text": "After the GameTurn one game into a next step",
+        "href": "./review/"
+      }
+    ],
+    "routeResults": {
+      "finding": {
+        "url": "http://127.0.0.1:56235/strategium/find-a-table/?path=social%2Fdevelop%2Fpredictable%2Flight%2Fclear",
+        "category": "reasonable-fit",
+        "resultCards": 5,
+        "visibleTextLength": 956
+      },
+      "before": {
+        "url": "http://127.0.0.1:56235/strategium/before-game/?path=approximate-3%2Fdevelop%2Fcombat%2Fmiddle%2Ffast-mana~tutors~combo~resource-denial~extra-turns~long-turns~chaos~proxies%2Ftime~house-rule~proxies",
+        "category": "name-the-surprise",
+        "resultCards": 5,
+        "visibleTextLength": 1315
+      },
+      "during": {
+        "url": "http://127.0.0.1:56235/strategium/during-game/?path=rules%2Flookup",
+        "category": "rules",
+        "resultCards": 4,
+        "visibleTextLength": 1131
+      }
+    },
+    "screenshots": [
+      "docs/qa/evidence/retest-02/hub-1440x900.png",
+      "docs/qa/evidence/retest-02/finding-a-table-result-1440x900.png",
+      "docs/qa/evidence/retest-02/before-game-result-1440x900.png",
+      "docs/qa/evidence/retest-02/during-game-rules-result-1440x900.png",
+      "docs/qa/evidence/retest-02/before-final-action-390x844.png",
+      "docs/qa/evidence/retest-02/before-game-result-320x568.png",
+      "docs/qa/evidence/retest-02/recovery-invalid-option-390x844.png"
+    ],
+    "viewportChecks": [
+      {
+        "width": 1440,
+        "height": 900,
+        "route": "hub",
+        "scrollWidth": 1440,
+        "scrollHeight": 1482,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "route": "find-a-table",
+        "scrollWidth": 1440,
+        "scrollHeight": 1425,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "route": "before-game",
+        "scrollWidth": 1440,
+        "scrollHeight": 1542,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "route": "during-game",
+        "scrollWidth": 1440,
+        "scrollHeight": 1392,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 1024,
+        "height": 768,
+        "route": "hub",
+        "scrollWidth": 1024,
+        "scrollHeight": 1300,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 1024,
+        "height": 768,
+        "route": "find-a-table",
+        "scrollWidth": 1024,
+        "scrollHeight": 1302,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 1024,
+        "height": 768,
+        "route": "before-game",
+        "scrollWidth": 1024,
+        "scrollHeight": 1419,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 1024,
+        "height": 768,
+        "route": "during-game",
+        "scrollWidth": 1024,
+        "scrollHeight": 1323,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 768,
+        "height": 1024,
+        "route": "hub",
+        "scrollWidth": 768,
+        "scrollHeight": 1323,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 768,
+        "height": 1024,
+        "route": "find-a-table",
+        "scrollWidth": 768,
+        "scrollHeight": 1249,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 768,
+        "height": 1024,
+        "route": "before-game",
+        "scrollWidth": 768,
+        "scrollHeight": 1388,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 768,
+        "height": 1024,
+        "route": "during-game",
+        "scrollWidth": 768,
+        "scrollHeight": 1304,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "route": "hub",
+        "scrollWidth": 390,
+        "scrollHeight": 2019,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "route": "find-a-table",
+        "scrollWidth": 390,
+        "scrollHeight": 1667,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "route": "before-game",
+        "scrollWidth": 390,
+        "scrollHeight": 1858,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "route": "during-game",
+        "scrollWidth": 390,
+        "scrollHeight": 1854,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 320,
+        "height": 568,
+        "route": "hub",
+        "scrollWidth": 320,
+        "scrollHeight": 2601,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 320,
+        "height": 568,
+        "route": "find-a-table",
+        "scrollWidth": 320,
+        "scrollHeight": 1864,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 320,
+        "height": 568,
+        "route": "before-game",
+        "scrollWidth": 320,
+        "scrollHeight": 2045,
+        "overflow": false,
+        "unnamedControls": 0
+      },
+      {
+        "width": 320,
+        "height": 568,
+        "route": "during-game",
+        "scrollWidth": 320,
+        "scrollHeight": 2021,
+        "overflow": false,
+        "unnamedControls": 0
+      }
+    ],
+    "focusedStyle": {
+      "outlineStyle": "solid",
+      "outlineWidth": "3px",
+      "boxShadow": "none",
+      "focused": true
+    },
+    "keyboard": {
+      "finalAction": {
+        "activatedBySpaceAndEnter": true,
+        "reachedResult": true
+      },
+      "enterButton": {
+        "url": "http://127.0.0.1:56235/strategium/find-a-table/?path=memorable",
+        "activated": true
+      },
+      "spaceButton": {
+        "url": "http://127.0.0.1:56235/strategium/find-a-table/?path=memorable",
+        "activated": true
+      },
+      "enterLink": {
+        "url": "http://127.0.0.1:56235/strategium/",
+        "activated": true
+      }
+    },
+    "historyUrl": "http://127.0.0.1:56235/strategium/find-a-table/?path=memorable",
+    "recovery": {
+      "partial": {
+        "url": "http://127.0.0.1:56235/strategium/find-a-table/?path=memorable%2Fdevelop",
+        "notice": {
+          "text": "We could not restore that exact review, so this step was restarted safely.",
+          "role": "status",
+          "live": "polite"
+        },
+        "normalizedPath": "memorable/develop"
+      },
+      "invalid-option": {
+        "url": "http://127.0.0.1:56235/strategium/find-a-table/?path=memorable%2Fdevelop%2Funknown",
+        "notice": {
+          "text": "We could not restore that exact review, so this step was restarted safely.",
+          "role": "status",
+          "live": "polite"
+        },
+        "normalizedPath": "memorable/develop"
+      },
+      "extra-state": {
+        "url": "http://127.0.0.1:56235/strategium/find-a-table/?path=memorable%2Fdevelop%2Fpredictable%2Flight%2Fclear%2Fextra",
+        "notice": {
+          "text": "We could not restore that exact review, so this step was restarted safely.",
+          "role": "status",
+          "live": "polite"
+        },
+        "normalizedPath": "memorable/develop/predictable/light/clear"
+      },
+      "during-extra": {
+        "url": "http://127.0.0.1:56235/strategium/during-game/?path=rules%2Flookup%2Fextra",
+        "notice": {
+          "text": "We could not restore that exact review, so this step was restarted safely.",
+          "role": "status",
+          "live": "polite"
+        },
+        "normalizedPath": "rules/lookup"
+      },
+      "before-invalid": {
+        "url": "http://127.0.0.1:56235/strategium/before-game/?path=approximate-3%2Fdevelop%2Funknown",
+        "notice": {
+          "text": "We could not restore that exact review, so this step was restarted safely.",
+          "role": "status",
+          "live": "polite"
+        },
+        "normalizedPath": "approximate-3/develop"
+      }
+    },
+    "consoleErrors": []
+  },
+  "failures": [],
+  "generatedAt": "2026-07-31T20:43:56.869Z"
+}

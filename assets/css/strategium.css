@@ -1258,10 +1258,49 @@ main section {
   margin: 0;
 }
 
+.vm-console-path-card {
+  grid-template-rows: auto auto auto auto 1fr;
+  align-content: stretch;
+}
+
+.vm-console-path-card .vm-cta {
+  align-self: end;
+}
+
 .vm-path-card .vm-cta {
   align-self: end;
   color: var(--gold-2);
   font-weight: 700;
+}
+
+.vm-console-preview-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin: 0.15rem 0 0.3rem;
+}
+
+.vm-console-preview {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+  padding: 0.65rem 0.7rem;
+  border: 1px solid rgba(247, 215, 132, 0.18);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.vm-console-preview strong {
+  color: var(--gold-2);
+  font-size: 0.78rem;
+}
+
+.vm-console-preview span {
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.35;
 }
 
 .vm-review-shell {
@@ -1333,7 +1372,8 @@ main section {
   line-height: 1.08;
 }
 
-[data-review-focus]:focus {
+[data-review-focus]:focus,
+[data-lifecycle-focus]:focus {
   outline: none;
   scroll-margin-top: 7rem;
 }
@@ -1433,9 +1473,10 @@ main section {
 }
 
 .vm-review-action-return {
-  border-color: rgba(247, 215, 132, 0.62);
-  background: rgba(247, 215, 132, 0.14);
+  border-color: rgba(247, 215, 132, 0.36);
+  background: rgba(247, 215, 132, 0.045);
   color: var(--gold-2);
+  text-decoration: none;
 }
 
 .vm-review-action:active {
@@ -1828,6 +1869,235 @@ html.vm-dialog-open body {
 @media (max-width: 380px) {
   .vm-review-nav {
     grid-template-columns: 1fr;
+  }
+}
+
+.vm-lifecycle-links {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin: 0.2rem 0 0.85rem;
+}
+
+.vm-lifecycle-links a {
+  display: grid;
+  gap: 0.18rem;
+  min-width: 0;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid rgba(247, 215, 132, 0.18);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.vm-lifecycle-links a:hover,
+.vm-lifecycle-links a:focus-visible {
+  border-color: rgba(247, 215, 132, 0.58);
+  background: rgba(247, 215, 132, 0.08);
+}
+
+.vm-lifecycle-links span {
+  color: var(--gold-2);
+  font-weight: 700;
+}
+
+.vm-lifecycle-links small {
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.vm-review-option.is-selected {
+  border-color: rgba(247, 215, 132, 0.72);
+  background: rgba(247, 215, 132, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(247, 215, 132, 0.2);
+}
+
+.vm-lifecycle-continue {
+  width: 100%;
+  margin-top: 0;
+  justify-content: center;
+}
+
+.vm-review-action-primary {
+  border-color: rgba(247, 215, 132, 0.72);
+  background: var(--gold-2);
+  color: #14100a;
+}
+
+.vm-review-action-primary:hover:not(:disabled),
+.vm-review-action-primary:focus-visible {
+  border-color: var(--gold-2);
+  background: var(--gold-2);
+  color: #14100a;
+}
+
+.vm-review-action-primary:disabled {
+  border-color: rgba(247, 215, 132, 0.28);
+  background: rgba(247, 215, 132, 0.16);
+  color: rgba(245, 234, 210, 0.7);
+  cursor: not-allowed;
+}
+
+.vm-bracket-selector {
+  display: grid;
+  gap: 0.7rem;
+  margin-bottom: 0.85rem;
+  padding: 0.9rem;
+  border: 1px solid rgba(247, 215, 132, 0.18);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.vm-bracket-selector-label {
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.vm-bracket-numbers {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.vm-bracket-number {
+  min-height: 54px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.26);
+  color: var(--text);
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.vm-bracket-number:hover,
+.vm-bracket-number:focus-visible,
+.vm-bracket-number.is-selected {
+  border-color: rgba(247, 215, 132, 0.72);
+  background: rgba(247, 215, 132, 0.12);
+  color: var(--gold-2);
+}
+
+.vm-bracket-context-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.vm-bracket-context-option {
+  min-height: 88px;
+}
+
+.vm-lifecycle-result-grid > section {
+  min-height: 100%;
+}
+
+.vm-lifecycle-result-grid ul {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0.8rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.vm-lifecycle-result-grid li {
+  padding-left: 0.15rem;
+}
+
+.vm-lifecycle-statement {
+  grid-column: 1 / -1;
+  border-color: rgba(247, 215, 132, 0.34) !important;
+  background: linear-gradient(145deg, rgba(86, 62, 25, 0.32), rgba(0, 0, 0, 0.28)) !important;
+}
+
+.vm-lifecycle-paths {
+  grid-column: 1 / -1;
+  width: min(560px, 100%);
+  justify-self: center;
+}
+
+.vm-lifecycle-copy-target {
+  padding: 0.85rem 0.9rem;
+  border-left: 3px solid var(--gold-2);
+  background: rgba(0, 0, 0, 0.22);
+  color: var(--text) !important;
+}
+
+.vm-lifecycle-copy {
+  margin-top: 0.9rem;
+}
+
+.vm-copy-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-top: 0.9rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(247, 215, 132, 0.42);
+  border-radius: 12px;
+  background: rgba(5, 7, 12, 0.64);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.vm-copy-action:hover,
+.vm-copy-action:focus-visible {
+  border-color: var(--gold-2);
+  background: rgba(247, 215, 132, 0.12);
+  color: var(--gold-2);
+  transform: translateY(-1px);
+}
+
+.vm-copy-action:active {
+  transform: translateY(1px);
+}
+
+.vm-lifecycle-copy-status {
+  display: inline-block;
+  min-height: 1.4em;
+  margin-left: 0.6rem;
+  color: var(--gold-2);
+  font-size: 0.86rem;
+}
+
+@media (max-width: 720px) {
+  .vm-lifecycle-links {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-console-preview-grid,
+  .vm-bracket-context-options {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-lifecycle-statement {
+    grid-column: auto;
+  }
+
+  .vm-lifecycle-paths {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .vm-lifecycle-copy-status {
+    display: block;
+    margin: 0.45rem 0 0;
+  }
+
+  .vm-copy-action {
+    width: 100%;
   }
 }
 
