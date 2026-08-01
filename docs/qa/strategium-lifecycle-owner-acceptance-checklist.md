@@ -1,10 +1,10 @@
 # Strategium Lifecycle Owner-Review Checklist
 
-Remediated implementation exercised by automation: `b9814549911306cc46ce6db321e0e2f4c354c4ec`
+Remediated implementation exercised by automation: `99bd02481405e896780dc3067512eacac8cfa602`
 
-Current owner-remediation review target: `b9814549911306cc46ce6db321e0e2f4c354c4ec` (rejected candidate: `52554cc4e6572e85301b89884b7513c23302ad82`). The six DEF-OWNER checks below are not owner acceptance; they are the next required owner re-review against this exact implementation SHA.
+Current owner-remediation review target: `99bd02481405e896780dc3067512eacac8cfa602` (rejected candidate: `10511cc31f29b9b9e15a65aae3a25190d473f27c`). The two final DEF-OWNER checks below are not owner acceptance; they are the next required owner re-review against this exact implementation SHA.
 
-Previous owner-remediation target `03569c28644e40c39cd836b8e2559a652914d006` and its OAR-01 through OAR-05 history remain preserved below. Those earlier checks, and the OA-01 through OA-21 set, remain unapproved.
+Previous owner-remediation targets `03569c28644e40c39cd836b8e2559a652914d006` and `b9814549911306cc46ce6db321e0e2f4c354c4ec`, with their OAR and DEF-OWNER-01 through DEF-OWNER-06 history, remain preserved below. Those earlier checks, and the OA-01 through OA-21 set, remain unapproved.
 
 The final candidate commit that carries this retest record is identified in the final handoff. Execute this checklist against that exact final candidate SHA.
 
@@ -285,5 +285,25 @@ These six checks are the only new subjective gate after the exact `b981454991130
 - Exact URLs: direct clean `/strategium/review/` and `/strategium/` followed by clicking the visible After the Game tile, using the canonical command `node scripts/strategium-owner-review-launch.mjs --serve` from the candidate worktree.
 - Mechanically validated: the fresh candidate-rooted server and fresh browser context reached What best describes the game? for both paths; stale selector strings were absent from reachable runtime content; screenshots, server record, and repository search are captured.
 - Owner must judge: whether direct and hub entry feel seamless and whether the first meaningful question has the right visual and editorial emphasis.
+- Pass / Fail: __________
+- Notes: ______________________________
+
+## Current owner re-review: final three-defect pass
+
+These two checks are the only new subjective gate after the exact `99bd02481405e896780dc3067512eacac8cfa602` retest. Automated evidence is preserved under `docs/qa/evidence/owner-remediation-03/`; do not repeat the objective label, clipboard, keyboard, geometry, overflow, or browser-error checks.
+
+### DEF-OWNER-07 - Concise Copy label
+
+- Exact URLs: Before-the-Game rich result and During-the-Game rules result at 1440x900 and 390x844.
+- Mechanically validated: both visible controls say `Copy`; accessible names remain `Copy pregame statement` and `Copy neutral table-reset sentence`; native buttons, focus, exact clipboard equality, truthful success feedback, and mobile sizing pass.
+- Owner must judge: whether the concise label remains immediately understandable in both contexts and stays visually subordinate to the primary result actions.
+- Pass / Fail: __________
+- Notes: ______________________________
+
+### DEF-OWNER-08 - Centered Available Paths card
+
+- Exact URLs: `/strategium/during-game/?path=rules/lookup` and one representative result for each of the six During-the-Game moments at 1440x900 and 390x844.
+- Mechanically validated: the two interpretation cards remain in two columns; the single Available Paths card is centered at a constrained desktop width, follows the required order, stacks within the mobile result width, and produces no overflow or browser errors across all 48 pairs.
+- Owner must judge: whether the centered card has balanced visual weight, readable bullet spacing, and a natural transition into the full-width neutral sentence card.
 - Pass / Fail: __________
 - Notes: ______________________________

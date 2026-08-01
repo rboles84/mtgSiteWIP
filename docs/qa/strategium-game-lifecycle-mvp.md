@@ -289,3 +289,24 @@ The canonical launch command is `node scripts/strategium-owner-review-launch.mjs
 The validation commands that passed were `npm.cmd run test:strategium-lifecycle`, `npm.cmd run test:strategium-review`, `npm.cmd run test:copy-boundaries`, `npm.cmd run test:route-metadata`, `npm.cmd run test:frontend-smoke`, `npm.cmd run test:parser`, `npm.cmd run test:browser-smoke`, `npm.cmd run lint:js`, `npm.cmd run lint:html`, and full `npm.cmd test`. The full suite used a temporary candidate-only hard link to the control repository's ignored Scryfall fixture; it was removed after the run.
 
 The current owner gate is `DEF-OWNER-01` through `DEF-OWNER-06` in `docs/qa/strategium-lifecycle-owner-acceptance-checklist.md`. The workbook and this record do not mark owner acceptance as passed. No push, merge, deployment, integration, certification, or VM-551 work occurred.
+
+## Final three-defect owner remediation - 2026-07-31
+
+The rejected candidate was `10511cc31f29b9b9e15a65aae3a25190d473f27c`. The narrowly bounded implementation and regression-test retest was run against `99bd02481405e896780dc3067512eacac8cfa602`; the final QA/documentation commit will be recorded separately. Accepted lifecycle logic, routes, evaluators, generated statement wording, hub spacing, result footers, and After-the-Game navigation were not changed.
+
+The implementation changes only the shared lifecycle result render path and layout: both statement-copy controls visibly say `Copy` while retaining descriptive accessible names (`Copy pregame statement` and `Copy neutral table-reset sentence`), and the single During-the-Game Available paths card spans the result row at a constrained centered width and returns to normal stacking on mobile.
+
+### Retest outcome
+
+| Scope | Result |
+| --- | --- |
+| During-the-Game deterministic coverage | All 48 moment/response pairs passed |
+| Before-the-Game exhaustive coverage | All 1,935,360 statements passed; existing text and copy composition unchanged |
+| Browser owner-remediation checks | 34/34 passed on a fresh server; 0 console errors; 0 failed requests |
+| Copy behavior | Both visible labels are `Copy`; descriptive accessible names, native semantics, success feedback, and exact visible-to-clipboard equality passed |
+| Available Paths layout | Centered and constrained on desktop; contained/stacked on mobile; no overflow |
+| Repository validation | Focused lifecycle, copy-boundary, review, metadata, frontend-smoke, parser, browser-smoke, lint, and full `npm.cmd test` passed |
+
+The exact browser evidence is under `docs/qa/evidence/owner-remediation-03/`. The fresh browser run used a candidate-rooted server at port `60050`, PID `25936`, working directory `C:\dev\voxmana.io-strategium-lifecycle-completion`, and implementation HEAD `99bd02481405e896780dc3067512eacac8cfa602`.
+
+The current owner gate is `DEF-OWNER-07` and `DEF-OWNER-08` in `docs/qa/strategium-lifecycle-owner-acceptance-checklist.md`. These remain Owner Review Required; the workbook and this record do not claim owner acceptance. No push, merge, deployment, integration, certification, or VM-551 work occurred.

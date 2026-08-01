@@ -109,3 +109,12 @@ Extend the existing Strategium static HTML/CSS/JavaScript patterns with a small 
 - Evidence: `docs/qa/evidence/owner-remediation-02/`.
 - The workbook records 110 Automated Pass, 0 Automated Fail, 20 Owner Review Required, and 0 Blocked across 95 executable cases and 35 QA-log records.
 - Next gate: owner re-review of DEF-OWNER-01 through DEF-OWNER-06 against the exact final candidate SHA. Owner acceptance, independent review, integration, deployment, certification, push, merge, and VM-551 remain unauthorized.
+
+## Final three-defect owner remediation - 2026-07-31
+
+- Rejected candidate: `10511cc31f29b9b9e15a65aae3a25190d473f27c`.
+- Tested implementation: `99bd02481405e896780dc3067512eacac8cfa602`.
+- Bounded changes: one shared visible `Copy` label with descriptive accessible names, plus centered constrained Available Paths layout for all During-the-Game results.
+- Validation passed: all 48 During-the-Game pairs, all 1,935,360 Before-the-Game statements, 34 fresh-server browser assertions, copy-boundary, review, metadata, frontend, parser, browser-smoke, lint, and full repository suite; 0 Automated Fail and 0 Blocked.
+- Evidence: `docs/qa/evidence/owner-remediation-03/`.
+- Next gate: owner re-review of DEF-OWNER-07 and DEF-OWNER-08 against the exact final candidate SHA. Owner acceptance, independent review, integration, deployment, certification, push, merge, and VM-551 remain unauthorized.
