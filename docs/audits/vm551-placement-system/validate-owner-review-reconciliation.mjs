@@ -8,7 +8,7 @@ const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(scriptDir, "../../..");
 const controlRoot = "C:\\dev\\voxmana.io";
 const base = "2b4058ff4c769f03d52070204b3ce973e51decbd";
-const startingHead = "797fb14d08209c310dbc0087a3940e0a74edf21d";
+const startingHead = "dbf67b97515550b0ceac2bf711facacd7acc0701";
 const requiredCecosHash = "dd3c266771f7724589a5d7bd881143a8c0a7372218cd167fccf5f8173da738f3";
 
 function run(command, args, cwd = repoRoot) {
@@ -79,14 +79,13 @@ assert(requirements.find((row) => row.requirement_id === "REQ-B1-001").finding_i
 const defects = csv("defect-register-remediated.csv");
 assert(defects.find((row) => row.defect_id === "VM551-D008").repair_gate === "Gate B1", "D008 defect gate mismatch");
 
-const precedenceSentence = "bounded-mvp-repair-plan.md` and `requirements-traceability-matrix.csv` govern";
+const precedenceSentence = "downstream-compatibility-contract.md";
 for (const relativePath of [
   "docs/audits/vm551-placement-system/VM-551-full-placement-system-audit.md",
   "docs/audits/vm551-placement-system/requirements-specification.md",
   "docs/audits/vm551-placement-system/bounded-mvp-repair-plan.md",
   "docs/audits/vm551-placement-system/validation-record.md",
   "docs/audits/vm551-placement-system/README.md",
-  "docs/handoffs/2026-08-01-1002-codex-vm551-owner-rejection-remediation.md",
   "docs/kanban/done/VM-551-full-placement-system-audit.md",
 ]) assert(fs.readFileSync(path.join(repoRoot, relativePath), "utf8").includes(precedenceSentence), `Missing boundary precedence: ${relativePath}`);
 
@@ -107,7 +106,7 @@ assert(staleViolations.length === 0, `Unqualified stale evidence conclusion rema
 
 const manifestText = read("owner-review-evidence-manifest.md");
 const manifestMatches = [...manifestText.matchAll(/^\| (docs\/audits\/vm551-placement-system\/[^|]+) \| (\d+) \| `([a-f0-9]{64})` \|/gm)];
-assert(manifestMatches.length === 16, `Owner manifest artifact count mismatch: ${manifestMatches.length}`);
+assert(manifestMatches.length === 18, `Owner manifest artifact count mismatch: ${manifestMatches.length}`);
 for (const match of manifestMatches) {
   const relativePath = match[1].trim();
   assert(fs.statSync(path.join(repoRoot, relativePath)).size === Number(match[2]), `Owner manifest size mismatch: ${relativePath}`);

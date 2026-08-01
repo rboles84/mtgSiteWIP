@@ -4,6 +4,16 @@ This bounded extract reproduces selected complete records from the authoritative
 
 Reconciled extract counts: question records 28; identity records 23; representative profiles 5; materially challenging profiles 0; adversarial records 9; representative flips 5; different-family categories 151; repeated constructs 11; non-monotonic rows 28; defect records 9; Gate A/B1 requirements 11.
 
+## Gate A downstream compatibility
+
+`downstream-compatibility-contract.md` changes public interpretation/rendering only. It preserves internal scores/softmax/gaps and existing serialized fields for ranking, stopping, replay, storage, dossier, recommendation, deck-link, adjacent-view, Matrix, and Maze compatibility. Additive bounded result states are permitted only after independent consumer-map review; destructive field removal/rename is outside Gate A.
+
+Consumer-map records: 35. Compatibility dispositions: {"ADDITIVE-EXTENSION":2,"PRESERVE-INTERNAL-HIDE-PUBLICLY":6,"PRESERVE-UNCHANGED":24,"VERSIONED-MIGRATION-LATER":3}.
+
+The authored Matrix path (`identity-layers.preview_scores` or `vm-radar.js` component averages) is an identity visualization. The separate placement-result path (`placementResult.mana_scores` -> dossier `manaAlignment`) is placement-derived, normalized, cached, serialized, and rendered. Neither is public confidence, and the two paths are not interchangeable.
+
+Gate A implementation planning is prohibited until the map is independently reviewed and no material field classified `UNRESOLVED-BLOCKER` enters planning. This extract does not replace the complete map.
+
 ## Question adjudication
 
 Selection includes every KEEP, KEEP-BUT-REWORD, and NEEDS-EVIDENCE row; all four Gate rows; and the first five source-order Hall RETUNE, Hall REPLACE, Crucible RETUNE, and Crucible REPLACE rows. No KEEP rows exist.
@@ -7232,10 +7242,10 @@ Observed denominator: 44005; primary flips: 14424; different-family flips: 12360
 {
   "requirement_id": "REQ-A-002",
   "finding_ids": "VM551-D003|VM551-D007|VM551-D023",
-  "evidence": "26,891 paths + runtime trace",
-  "risk": "Numeric shares/fabricated defaults imply calibrated certainty",
-  "requirement": "Replace displayed percentage/strength with unknown or bounded nonnumeric evidence state; legacy missing stays unknown",
-  "validation": "All result-state and legacy fixtures; no numeric confidence without calibration",
+  "evidence": "26,891 paths + runtime trace; downstream-compatibility-contract.md; result-field-consumer-map.csv",
+  "risk": "Numeric shares/fabricated defaults imply calibrated certainty and an unbounded removal could break ranking replay persistence dossier Matrix recommendation adjacent deck-link and Maze consumers",
+  "requirement": "Remove public numeric confidence, probability, correctness, and strength claims; preserve internal scores, softmax shares, gaps, ranking/stopping inputs, existing serialized field names/shapes, cache/profile/saved/legacy/OAuth/dossier/recommendation/deck-link/adjacent/Maze consumers, authored Matrix values, and the separate placement-derived mana-alignment payload; keep legacy missing confidence unknown; introduce only additive bounded public result states with backward-compatible normalization; prohibit implementation planning until the complete consumer map is independently reviewed and no UNRESOLVED-BLOCKER enters Gate A",
+  "validation": "Compatibility validator; field-shape and writer/reader reconciliation; cache/profile/OAuth round trips; saved legacy reading; primary dossier; alternative/adjacent view; recommendation and deck-link rendering; authored Matrix; placement-result mana alignment; Maze handoff; return-to-dossier; legacy missing-confidence unknown; no fabricated numeric fallback; no public numeric confidence output",
   "gate": "Gate A"
 }
 ```

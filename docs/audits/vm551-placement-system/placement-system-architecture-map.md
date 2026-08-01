@@ -93,6 +93,19 @@ The audit therefore prohibits calling the result a Bayesian probability or calib
 | `shouldFinishAdaptiveReading` | same | Stops at 6–8 answers using stage counts and score separation. |
 | `buildAdaptivePlacementResult` | same | Serializes top three; calls rank 2/3 adjacent; exposes share as confidence. |
 
+## Downstream compatibility boundary
+
+`buildAdaptivePlacementResult()` writes a shared result envelope consumed by `shared.js` normalization/session cache/OAuth/profile persistence, `commander-dossier.js`, Archscry primary and alternative views, deck-link metadata, and the localStorage Maze handoff/return loop. The field-level writer/reader evidence is recorded in `result-field-consumer-map.csv`; `downstream-compatibility-contract.md` governs Gate A preservation.
+
+Gate A removes public calibrated-confidence/correctness meaning only. It preserves internal scores, softmax shares and gaps for ranking/stopping/replay, existing result fields and shapes, and all downstream consumers. New public states are additive. Missing legacy confidence is unknown and must not receive a fabricated numeric default.
+
+Two numeric Matrix paths are separate:
+
+1. `dossier-radar.js` -> `vm-radar.js:resolveRadarProfile()` renders authored identity-layer `preview_scores` or authored component averages on Order/Knowledge/Ambition/Freedom/Growth axes. This is an authored identity visualization, not confidence or a raw score ledger.
+2. `adaptive-placement.js:buildManaScores()` writes placement-derived `placementResult.mana_scores`; `shared.js` caches/persists it and `commander-dossier.js:buildManaAlignment()` maps it to the dossier `manaAlignment` array. This normalized WUBRG payload is not the authored Matrix and is not calibrated confidence.
+
+No destructive result-field removal or rename belongs in Gate A. Implementation planning is blocked until the consumer map receives independent review and no material field remains `UNRESOLVED-BLOCKER`.
+
 ## Live model counts
 
 - Identities: 37.

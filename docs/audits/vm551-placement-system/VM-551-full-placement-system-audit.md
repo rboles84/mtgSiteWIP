@@ -2,7 +2,7 @@
 
 Remediation status: revised after owner rejection and final owner-review reconciliation. The exact CECOS draft.4 authority, corrected positive-evidence metric, question/answer dispositions, all-37 distinctiveness, 37 classified profile probes, nine re-adjudicated adversarial scenarios, sensitivity/dependency analysis, and bounded Gate A/B1/B2 plan are authoritative additions. See `audit-input-authority.md`, `remediation-analysis-summary.json`, and the artifact README. Draft.2 and the rejected audit's web-derived Hearthhull legality claim are not VM-551 authority.
 
-Boundary precedence: `bounded-mvp-repair-plan.md` and `requirements-traceability-matrix.csv` govern the repair boundary. Narrative summaries must agree with them.
+Boundary precedence: `bounded-mvp-repair-plan.md`, `requirements-traceability-matrix.csv`, and `downstream-compatibility-contract.md` jointly govern the repair boundary. Narrative summaries must agree with them.
 
 Audit date: 2026-08-01
 
@@ -88,7 +88,13 @@ Color-identity compatibility is strongest: 82 locally indexed commander candidat
 
 ### What must be fixed before broader public validation?
 
-Gate A is immediate trust containment only: use honest adaptive weighted-scoring terminology; remove numeric confidence and fabricated certainty; preserve tie, close, mixed, contradictory, unknown, insufficient, invalid, and incomplete result states; stop calling numerical runners-up adjacency; and restrict public claims to demonstrated observations or safe fallbacks. Gate A does not refit the questionnaire, rebuild scoring authority, or implement minimum-hit/guardrail contracts except where suppressing or downgrading a misleading result is strictly necessary.
+Gate A is immediate trust containment only: use honest adaptive weighted-scoring terminology; remove public numeric confidence/probability/correctness/strength claims and fabricated certainty; preserve tie, close, mixed, contradictory, unknown, insufficient, invalid, and incomplete result states through additive fields; stop calling numerical runners-up adjacency; and restrict public claims to demonstrated observations or safe fallbacks. Gate A preserves internal scores, softmax shares, gaps, ranking/stopping inputs, serialized result-field names/shapes, storage/persistence, dossier/recommendation/deck-link/adjacent/Maze consumers, and both separately documented Matrix numeric paths. Gate A does not refit the questionnaire, rebuild scoring authority, destructively remove/rename fields, or implement minimum-hit/guardrail contracts except where suppressing or downgrading a misleading result is strictly necessary.
+
+### Gate A downstream compatibility conclusion
+
+The exact compatibility boundary is governed by `downstream-compatibility-contract.md` and the implementation-derived `result-field-consumer-map.csv`. The authored Mana Alignment Matrix resolves identity-layer `preview_scores` or authored component averages in `vm-radar.js`; it is an identity visualization, not confidence or a raw placement-score ledger. Separately, `placementResult.mana_scores` is a placement-derived normalized WUBRG payload that is cached/serialized and converted into `commander-dossier.js` `manaAlignment`. Neither path may be removed or conflated with public confidence removal.
+
+Gate A implementation planning remains prohibited until the consumer map is independently reviewed and every material field has an allowed compatibility disposition. No `UNRESOLVED-BLOCKER` may enter planning. Legacy missing confidence remains unknown rather than receiving a fabricated number; historical results retain their original model/result versions and are not silently reinterpreted.
 
 Gate B1 is the first controlled-pilot correctness slice: the smallest evidence-derived Commander-relevant question set, stable IDs/provenance, one scoring authority, repeated-construct dependency handling, executable minimum-hit/guardrail decisions, predeclared sensitivity thresholds, and high-risk identity-family/edge scenarios. Gate B2 defers remaining schemas, manifests, dead-control cleanup, broader normalization, and expanded coverage that need not block that controlled pilot.
 

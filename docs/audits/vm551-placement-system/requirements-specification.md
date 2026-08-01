@@ -4,7 +4,7 @@ Status: design specification only. Implementation is not authorized by this docu
 
 Governing CECOS input: exact draft.4 object recorded in `audit-input-authority.md`. Draft.2 is not authority for this remediation.
 
-Boundary precedence: `bounded-mvp-repair-plan.md` and `requirements-traceability-matrix.csv` govern the repair boundary. Narrative summaries must agree with them. This broader design specification describes eventual contracts; it does not move Gate B1 or B2 work into Gate A.
+Boundary precedence: `bounded-mvp-repair-plan.md`, `requirements-traceability-matrix.csv`, and `downstream-compatibility-contract.md` jointly govern the repair boundary. Narrative summaries must agree with them. This broader design specification describes eventual contracts; it does not move Gate B1 or B2 work into Gate A.
 
 ## Design principles
 
@@ -251,6 +251,11 @@ Every result state must render:
 - Version the new result schema and retain read-only legacy parsing.
 - Never convert missing legacy confidence to a number; use `unknown`.
 - Do not silently reinterpret legacy scores as new confidence states.
+- Gate A changes public interpretation/rendering only. Preserve internal scores, softmax shares/gaps, ranking/stopping inputs, serialized result-field names/shapes, cache/profile/saved/OAuth/legacy state, dossier/recommendation/deck-link/adjacent/Maze consumers, and historical model/result versions.
+- Add bounded public states as new fields; do not replace or rename existing fields. Missing additive fields normalize to unknown/incomplete without fabricated certainty.
+- Keep authored `preview_scores`/component-average Mana Alignment Matrix values separate from public confidence and from the placement-derived normalized `mana_scores`/dossier `manaAlignment` path.
+- A future destructive schema change requires a separately reviewed additive version/migration contract, consumer review, compatibility testing, and owner authorization.
+- Gate A implementation planning is prohibited until `result-field-consumer-map.csv` receives independent review and every material field has an allowed disposition with no `UNRESOLVED-BLOCKER` entering planning.
 - Invalidate or migrate cached partial state when contract/model hashes differ.
 - Preserve saved results as historical outputs with their original model version.
 - Do not mutate CRIT-001 certified raw records through placement repair; reference them by exact version/hash.
@@ -289,7 +294,7 @@ Production certification is a later, separately authorized Vox Mana gate. It mus
 ### Gate A — Immediate trust containment
 
 1. Freeze terminology: stop calling current shares Bayesian probability or calibrated confidence.
-2. Remove numeric confidence/strength claims and preserve missing legacy confidence as unknown.
+2. Remove public numeric confidence/probability/correctness/strength claims; preserve internal numeric behavior and existing result/storage/consumer shapes; keep missing legacy confidence unknown; add only backward-compatible bounded public states after the consumer map is independently reviewed.
 3. Emit explicit tied, close, mixed, insufficient, and invalid/incomplete states instead of forced certainty.
 4. Treat numeric second/third as close alternatives or omit them; reserve adjacency for a later relationship contract.
 5. Constrain first-pass copy to selected observations and qualified interpretation.

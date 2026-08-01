@@ -2,7 +2,7 @@
 
 Status: implementation-planning input only. This document does not authorize implementation, task creation, integration, push, deployment, or certification.
 
-Precedence: `bounded-mvp-repair-plan.md` and `requirements-traceability-matrix.csv` govern the repair boundary. Narrative summaries must agree with them.
+Precedence: `bounded-mvp-repair-plan.md`, `requirements-traceability-matrix.csv`, and `downstream-compatibility-contract.md` jointly govern the repair boundary. Narrative summaries must agree with them.
 
 ## Gate A — Immediate trust containment
 
@@ -13,13 +13,19 @@ Smallest outcome: stop presenting an editorial weighted score as calibrated iden
 - Likely production files if later authorized: `assets/js/adaptive-placement.js`, `assets/js/commander-dossier.js`, `assets/js/archscry-presentation.js`, `assets/js/shared.js`, Archscry result template/route HTML, and focused result-state tests.
 - Identities/families: all 37; especially exact ties, weak rank two, guild/college collisions, Colorless, WUBRG, and four-color cross-family results.
 - Question scope: no questionnaire refit. Preserve unknown/insufficient/invalid/incomplete outcomes from existing response and state evidence, and contain or suppress a misleading named result when necessary.
-- Scoring-contract scope: no model refit. Name the model adaptive weighted scoring; expose tie/insufficient state; stop treating softmax share as confidence.
-- Output-contract scope: no numeric accuracy/confidence; numeric ranks are close alternatives, not adjacency; unsupported motivation/table/deck claims fall back to bounded observation language.
-- Required tests: exact/near tie; no-direction/incomplete; weak rank two; legacy missing confidence; primary/alternative rendering; one representative identity per structural family; mobile/keyboard/state regression.
+- Scoring-contract scope: no model refit and no scoring/stopping change. Name the model adaptive weighted scoring; preserve accumulated scores, softmax shares, gaps, ranking inputs, and adaptive stopping inputs; expose additive tie/insufficient state; stop presenting softmax share as calibrated confidence.
+- Output-contract scope: remove public numeric confidence, probability, correctness, and strength claims only. Preserve existing serialized field names/shapes and all cache, profile, saved-reading, legacy, OAuth, dossier, recommendation, deck-link, adjacent-view, Matrix, Maze, and return consumers. New public states are additive; numeric ranks are close alternatives, not adjacency; unsupported motivation/table/deck claims fall back to bounded observation language. The authored Mana Alignment Matrix remains separate from confidence and from the placement-derived `mana_scores` dossier payload.
+- Required tests: exact/near tie; no-direction/incomplete; weak rank two; legacy missing confidence; no fabricated numeric fallback; no public numeric confidence output; field-shape and writer/reader compatibility; session-cache, profile, OAuth, and saved/legacy-reading round trips; primary dossier and alternative/adjacent rendering; recommendation and deck-link rendering; authored Matrix and placement-result mana-alignment rendering; Maze handoff and return-to-dossier state; one representative identity per structural family; mobile/keyboard/state regression.
 - Owner decisions: exact public terminology; whether Gate A suppresses named placement when current minimum evidence is not established; whether close alternatives are shown or omitted.
 - Source/corpus dependencies: exact draft.4 boundary and certified identity names only; no new semantic research required to stop overclaiming.
-- Entry conditions: owner accepts the remediated authority record, D004 correction, and Gate A output boundary.
-- Stopping point: public output is honest about the current heuristic; no questionnaire refit, calibration, recommendation redesign, or new identity semantics.
+- Entry conditions: owner accepts the remediated authority record, D004 correction, and Gate A output boundary; `result-field-consumer-map.csv` receives independent review; every material field is classified `PRESERVE-UNCHANGED`, `PRESERVE-INTERNAL-HIDE-PUBLICLY`, `ADDITIVE-EXTENSION`, `VERSIONED-MIGRATION-LATER`, or `UNRESOLVED-BLOCKER`; and no `UNRESOLVED-BLOCKER` enters Gate A implementation planning.
+- Stopping point: public output is honest about the current heuristic while existing internal numbers, result-field shapes, persistence, dossier, Matrix, recommendation, deck-link, adjacent-view, and Maze consumers remain compatible; no questionnaire refit, calibration, recommendation redesign, destructive field removal/rename, or new identity semantics.
+
+### Gate A downstream compatibility contract
+
+Gate A changes public interpretation/rendering only. Internal numeric values may remain necessary for ranking, adaptive selection/stopping, deterministic replay, legacy compatibility, and regression testing. Existing serialized field names and shapes remain stable. Additive result-state examples include `result_state`, `public_confidence_state`, `alternative_state`, `confidence_display_mode`, `model_kind`, `legacy_result`, `limitations`, and `compatibility_version`; these are planning examples, not authorization to implement them.
+
+Gate A implementation planning is prohibited until the machine-reviewable result-field consumer map is independently reviewed under `downstream-compatibility-contract.md`. No destructive removal or rename belongs in Gate A. Any future replacement requires a separately reviewed additive version/migration contract and owner authorization.
 
 ## Gate B1 — First controlled-pilot correctness slice
 
@@ -100,6 +106,8 @@ Smallest outcome: long-term reproducibility, calibration, migration, monitoring,
 - Canonical identity-semantic edits or CRIT-001 recertification.
 - Visual baseline creation/acceptance.
 - Full historical-result migration.
+- Removal or rename of existing result fields, storage keys, profile columns, dossier payloads, Matrix inputs, deck-link metadata, adjacent-view state, or Maze handoff state.
+- Changes to internal scores, softmax ranking, adaptive stopping, question selection, or the authored Mana Alignment Matrix.
 - Production certification, integration, merge, push, or deployment.
 
 The first pass ends at Gate A containment plus an owner-approved Gate B1 controlled-pilot candidate. Nothing in this document authorizes that work to begin.

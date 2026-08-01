@@ -1,5 +1,7 @@
 # VM-551 Final Audit Reconciliation Handoff
 
+> Supersession note (2026-08-01): exact audit-content candidate `bc2b5a764569ab79fae04b72695097cafc6bd4e8` was independently rejected only for a missing Gate A downstream compatibility contract. The quantitative and methodological findings remain preserved. A later dated VM-551 compatibility-reconciliation handoff records the replacement documentation candidate; this historical handoff remains evidence of the rejected candidate workflow.
+
 Agent: Codex
 
 Task requested: Perform one bounded documentation-only reconciliation of the accepted VM-551 remediation candidate, remove the stale zero-evidence conclusion, establish one Gate A/B1/B2 authority, create an owner-review evidence package and critical extract, reconcile scenario terminology and adversarial dispositions, validate, commit, and stop for owner review.

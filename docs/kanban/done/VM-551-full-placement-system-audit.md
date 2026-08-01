@@ -1,6 +1,6 @@
 # VM-551 - Full Placement-System Audit
 
-Status: Owner-Rejected; Bounded Documentation Remediation In Review
+Status: Owner-Rejected; Final Compatibility Reconciliation Awaiting Independent Review
 
 Type: Audit / Requirements Definition
 
@@ -111,11 +111,20 @@ Audit and define requirements only. Do not implement repairs, change production 
 
 ## Final Owner-Review Reconciliation
 
-- `bounded-mvp-repair-plan.md` and `requirements-traceability-matrix.csv` govern Gate A/B1/B2; narrative summaries must agree with them.
+- `bounded-mvp-repair-plan.md`, `requirements-traceability-matrix.csv`, and `downstream-compatibility-contract.md` jointly govern Gate A/B1/B2; narrative summaries must agree with them.
 - Corrected authority remains zero genuinely negative-only winners; 2,901 primary terminal paths are separately below generated minimum-hit metadata under the documented strong-authored-hit proxy; runtime does not enforce that metadata and false-positive guardrails remain non-executable.
 - All 37 profile probes are `GOLDEN-PATH-DERIVED`, score `EXACT-PRIMARY`, and remain `INCOMPLETE` because they lack an independently selected neighboring or mixed/uncertain challenge.
 - The nine adversarial dispositions reconcile to 5 literal non-representations, 2 partial/conflated cases, and 2 unsupported-inference cases.
 - Gate A is immediate output trust containment only. Question/scoring refit, executable minimum/guardrail contracts, stable provenance, and dependency handling begin in Gate B1; broader schemas/manifests/dead-control cleanup remain Gate B2.
 - `owner-review-evidence-manifest.md` and `owner-review-critical-extract.md` are the bounded owner-review package. No production implementation is authorized.
 
-Next gate: owner review and explicit acceptance of the audit, defect categories, and MVP repair boundary before implementation planning.
+## Final Compatibility Reconciliation
+
+- Independent review of exact content candidate `bc2b5a764569ab79fae04b72695097cafc6bd4e8` accepted the quantitative/methodological audit in substance and rejected it only for a missing Gate A downstream compatibility boundary.
+- `downstream-compatibility-contract.md` limits Gate A numeric-confidence removal to public interpretation/rendering. Existing scores, softmax shares, gaps, result-field names/shapes, persistence, dossier, recommendation, deck-link, adjacent-view, Matrix, Maze, and return consumers remain preserved.
+- `result-field-consumer-map.csv` records actual local writers/readers and classifies each material field. Unresolved indirect consumers remain explicit rather than being treated as absent.
+- The authored `preview_scores`/component-average Mana Alignment Matrix path is separate from the placement-derived `mana_scores`/dossier `manaAlignment` path. Neither is calibrated confidence.
+- Gate A public states are additive. Destructive field removal/rename is excluded. Implementation planning is prohibited until the consumer map receives independent review and no `UNRESOLVED-BLOCKER` enters planning.
+- Audit counts, question/identity/scenario dispositions, defect severities, and Gate B1/B2/C/D scope are unchanged. No production implementation or implementation planning is authorized.
+
+Next gate: independent review of the exact compatibility-reconciliation documentation candidate. Owner acceptance remains required after that review; implementation planning remains unauthorized.

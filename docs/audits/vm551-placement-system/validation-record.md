@@ -5,7 +5,7 @@ Scope: documentation/audit artifacts only
 Original base: `2b4058ff4c769f03d52070204b3ce973e51decbd`
 Rejected audit: `c62c7e1b43421359488537457804698a77656952`
 
-Boundary precedence: `bounded-mvp-repair-plan.md` and `requirements-traceability-matrix.csv` govern the repair boundary. Narrative summaries must agree with them.
+Boundary precedence: `bounded-mvp-repair-plan.md`, `requirements-traceability-matrix.csv`, and `downstream-compatibility-contract.md` jointly govern the repair boundary. Narrative summaries must agree with them.
 
 ## Authority and artifact validation
 
@@ -36,8 +36,8 @@ Boundary precedence: `bounded-mvp-repair-plan.md` and `requirements-traceability
 |---|---|
 | Original audit generator | PASS — 26,891 terminal paths and 333 exact ties reproduced; five artifacts remained byte-identical and one stale reachability-matrix label was intentionally corrected with old/new hashes pinned |
 | Remediation generator reproducibility | PASS — all 16 generated CSV/JSON artifacts reproduced byte-for-byte |
-| Owner-review package reproducibility | PASS — manifest and critical extract reproduced byte-for-byte |
-| Reconciliation validator | PASS — 16 manifest artifacts; 28 question, 23 identity, 5 representative profile, 9 adversarial, 5 flip, 151 cross-family category, 11 repeated-construct, 28 non-monotonic, 9 defect, and 11 Gate A/B1 extract records reconciled |
+| Owner-review package reproducibility | PASS — 18-artifact manifest and critical extract reproduced byte-for-byte after the compatibility additions |
+| Reconciliation validator | PASS — 18 manifest artifacts; 28 question, 23 identity, 5 representative profile, 9 adversarial, 5 flip, 151 cross-family category, 11 repeated-construct, 28 non-monotonic, 9 defect, and 11 Gate A/B1 extract records reconciled |
 | Stale evidence conclusion scan | PASS — zero unqualified stale statements; historical occurrences are explicitly marked withdrawn |
 | Scenario origins | PASS — 37 `GOLDEN-PATH-DERIVED`; 0 independent; 0 assisted; 37 `EXACT-PRIMARY` scoring outcomes; 37 `INCOMPLETE` review dispositions |
 | Adversarial dispositions | PASS — 5 literal non-representations, 2 partial/conflated, 2 unsupported-inference cases |
@@ -45,15 +45,31 @@ Boundary precedence: `bounded-mvp-repair-plan.md` and `requirements-traceability
 | Defect severity | UNCHANGED — 3 Critical, 26 High, 10 Medium, 1 Low |
 | Documentation-only scope | PASS — all changed paths under `docs/`; no production/test/fixture/schema/canonical/runtime path changed |
 
+## Final downstream-compatibility reconciliation
+
+| Check | Result |
+|---|---|
+| Governing contract | PASS — Gate A is explicitly limited to public interpretation/rendering; internal scores, softmax/gaps, serialized fields, persistence, dossier, Matrix, recommendation, deck-link, adjacent-view, and Maze consumers are preserved |
+| Result-field consumer map | PASS — 35 rows; 24 `PRESERVE-UNCHANGED`, 6 `PRESERVE-INTERNAL-HIDE-PUBLICLY`, 2 `ADDITIVE-EXTENSION`, 3 `VERSIONED-MIGRATION-LATER`, 0 `UNRESOLVED-BLOCKER` |
+| Matrix path separation | PASS — authored `preview_scores`/component averages are separate from placement-derived `mana_scores`/dossier `manaAlignment` |
+| REQ-A-002 | PASS — public numeric confidence removal is bounded by internal/serialized compatibility, additive states, backward normalization, consumer review, and the expanded future validation matrix |
+| Planning prerequisite | PASS — implementation planning is prohibited until independent map review; no destructive field removal/rename belongs in Gate A |
+| Compatibility documentation validator | PASS — required contract phrases, 5 Gate A requirements, 35 map rows, required field families/consumers, both Matrix paths, and narrative agreement |
+| Quantitative artifacts | UNCHANGED — original and remediation generators reproduced 37 identities, 113 questions, 356 answers, 26,891 terminal paths, 333 ties, 44,005 matched comparisons, zero negative-only winners, and 2,901 below-minimum-proxy paths without modifying machine evidence |
+| Defect severity | UNCHANGED — 3 Critical, 26 High, 10 Medium, 1 Low |
+
 Validator command:
 
 ```powershell
 node docs\audits\vm551-placement-system\validate-placement-system-remediation.mjs
 node docs\audits\vm551-placement-system\build-owner-review-package.mjs
 node docs\audits\vm551-placement-system\validate-owner-review-reconciliation.mjs
+node docs\audits\vm551-placement-system\validate-downstream-compatibility-docs.mjs
 ```
 
 ## Existing repository tests
+
+The final compatibility reconciliation reran every focused command below. Placement, Gate/bias, source/generated, parser, JavaScript/HTML lint, frontend smoke, route metadata, and copy-boundary checks passed without retained generated-report changes. The aggregate and semantic-readiness results reproduced only the known limitations listed below.
 
 Passed:
 
@@ -75,6 +91,8 @@ Known baseline failures preserved, not fixed:
 
 - `npm.cmd run test:semantic-readiness` — contract, candidate-scope, and fixture validation pass; committed `semantic-readiness-provenance.json` is stale.
 - `npm.cmd test` — earlier placement/Gate/parser/builder/semantic/Maze/mode/precon suites pass, then `data/scryfall/raw/oracle-cards.json` is absent.
+
+Known limitations remain separate from the documentation candidate: stale semantic-readiness provenance; the absent ignored Scryfall raw fixture; absent visual baselines; and environment-sensitive canvas visibility recorded by the prior reconciliation. No baseline, dependency, fixture, or runtime repair was attempted.
 
 Visual validation:
 

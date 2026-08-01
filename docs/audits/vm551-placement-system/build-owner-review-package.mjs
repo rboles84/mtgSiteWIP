@@ -6,8 +6,8 @@ import { fileURLToPath } from "node:url";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(scriptDir, "../../..");
-const acceptedCandidate = "bff929d603727cbf1fa043e9881b10cbbc346c3c";
-const workflowStart = "797fb14d08209c310dbc0087a3940e0a74edf21d";
+const rejectedCandidate = "bc2b5a764569ab79fae04b72695097cafc6bd4e8";
+const workflowStart = "dbf67b97515550b0ceac2bf711facacd7acc0701";
 
 function parseCsv(text) {
   const rows = [];
@@ -37,12 +37,13 @@ const hash = (buffer) => crypto.createHash("sha256").update(buffer).digest("hex"
 
 function startingBuffer(relativePath) {
   const result = spawnSync("git", ["-c", "safe.directory=C:/dev/voxmana.io-vm551-placement-system-audit", "show", `${workflowStart}:${relativePath}`], { cwd: repoRoot, encoding: null });
-  if (result.status !== 0) throw new Error(`Unable to read ${relativePath} from ${workflowStart}: ${result.stderr.toString("utf8")}`);
+  if (result.status !== 0) return null;
   return result.stdout;
 }
 
 function rowCount(name, parsed) {
   if (name.endsWith(".csv")) return `${parsed.length} data rows`;
+  if (name.endsWith(".md")) return `${String(parsed).split(/\r?\n/).length} lines`;
   if (Array.isArray(parsed)) return `${parsed.length} records`;
   if (name === "audit-input-manifest.json") return `1 manifest; ${parsed.runtime_inputs.length} runtime inputs; ${parsed.preserved_artifacts.length} preserved artifacts`;
   if (name === "question-disposition-summary.json") return `${parsed.question_total} questions; ${parsed.answer_total} answers`;
@@ -68,12 +69,19 @@ const manifestSpecs = [
   ["defect-register-remediated.csv", "Authoritative 40-defect register with reproduction and traceability", "Severity is audit judgment; no fix is authorized."],
   ["requirements-traceability-matrix.csv", "Authoritative finding-to-risk-to-requirement-to-validation Gate map", "Implementation boundary only; no implementation authorization."],
   ["remediation-analysis-summary.json", "Reconciled quantitative audit summary", "Summary must be read with detailed sources and limitations."],
+  ["downstream-compatibility-contract.md", "Controlling Gate A public/internal compatibility and planning boundary", "Documentation contract only; no implementation or migration is authorized."],
+  ["result-field-consumer-map.csv", "Field-level writer/reader, persistence, rendering, and handoff compatibility inventory", "Static local inspection; unresolved indirect or external consumers remain explicitly marked."],
 ];
 
 const manifestRows = manifestSpecs.map(([name, purpose, limitation]) => {
   const relativePath = `docs/audits/vm551-placement-system/${name}`;
   const fileBuffer = fs.readFileSync(path.join(scriptDir, name));
-  const parsed = name.endsWith(".csv") ? parseCsv(fileBuffer.toString("utf8")) : JSON.parse(fileBuffer.toString("utf8"));
+  const parsed = name.endsWith(".csv")
+    ? parseCsv(fileBuffer.toString("utf8"))
+    : name.endsWith(".json")
+      ? JSON.parse(fileBuffer.toString("utf8"))
+      : fileBuffer.toString("utf8");
+  const priorBuffer = startingBuffer(relativePath);
   return {
     relativePath,
     size: fileBuffer.length,
@@ -81,7 +89,7 @@ const manifestRows = manifestSpecs.map(([name, purpose, limitation]) => {
     count: rowCount(name, parsed),
     purpose,
     limitation,
-    reconciliation: hash(fileBuffer) === hash(startingBuffer(relativePath)) ? "UNCHANGED" : "MODIFIED",
+    reconciliation: priorBuffer === null ? "ADDED" : hash(fileBuffer) === hash(priorBuffer) ? "UNCHANGED" : "MODIFIED",
   };
 });
 
@@ -89,11 +97,11 @@ const escapeTable = (value) => String(value).replace(/\|/g, "\\|").replace(/\r?\
 const manifest = [
   "# VM-551 Owner-Review Evidence Manifest",
   "",
-  `Exact accepted audit-content candidate reconciled: \`${acceptedCandidate}\`.`,
+  `Exact independently rejected audit-content candidate reconciled: \`${rejectedCandidate}\`.`,
   "",
   `Exact workflow-record starting HEAD: \`${workflowStart}\`.`,
   "",
-  "The new reconciliation commit SHA is necessarily assigned after this file is written; the dated reconciliation handoff and final response record that exact SHA. Hashes below cover the exact files in the reconciliation worktree and are validated before commit.",
+  "The compatibility-reconciliation content SHA is necessarily assigned after this file is written; the dated reconciliation handoff and final response record that exact SHA. Hashes below cover the exact files in the reconciliation worktree and are validated before commit.",
   "",
   "This manifest identifies the bounded owner-review evidence package. It does not duplicate, replace, or upgrade the authority of the listed artifacts.",
   "",
@@ -131,7 +139,9 @@ const adversarial = readCsv("adversarial-scenario-matrix.csv");
 const repeated = readCsv("repeated-signal-dependency-audit.csv");
 const defects = readCsv("defect-register-remediated.csv");
 const requirements = readCsv("requirements-traceability-matrix.csv");
+const consumers = readCsv("result-field-consumer-map.csv");
 const sensitivity = readJson("sensitivity-dependency-collision-analysis.json");
+const consumerDispositionCounts = Object.fromEntries([...new Set(consumers.map((row) => row.compatibility_disposition))].sort().map((value) => [value, consumers.filter((row) => row.compatibility_disposition === value).length]));
 
 const selectedQuestions = new Map();
 const addQuestion = (row) => selectedQuestions.set(row.question_id, row);
@@ -163,6 +173,16 @@ const extract = [
   "This bounded extract reproduces selected complete records from the authoritative machine artifacts for human inspection. The source CSV/JSON files remain authoritative; this file does not replace them or introduce new severity analysis.",
   "",
   `Reconciled extract counts: question records ${selectedQuestions.size}; identity records ${selectedIdentities.length}; representative profiles ${representativeProfiles.length}; materially challenging profiles ${materiallyChallengedProfiles.length}; adversarial records ${adversarial.length}; representative flips ${sensitivity.representative_primary_flips.length}; different-family categories ${Object.keys(sensitivity.different_family_flip_categories).length}; repeated constructs ${repeated.length}; non-monotonic rows ${sensitivity.non_monotonic_support_observations.length}; defect records ${selectedDefects.length}; Gate A/B1 requirements ${selectedRequirements.length}.`,
+  "",
+  "## Gate A downstream compatibility",
+  "",
+  "`downstream-compatibility-contract.md` changes public interpretation/rendering only. It preserves internal scores/softmax/gaps and existing serialized fields for ranking, stopping, replay, storage, dossier, recommendation, deck-link, adjacent-view, Matrix, and Maze compatibility. Additive bounded result states are permitted only after independent consumer-map review; destructive field removal/rename is outside Gate A.",
+  "",
+  `Consumer-map records: ${consumers.length}. Compatibility dispositions: ${JSON.stringify(consumerDispositionCounts)}.`,
+  "",
+  "The authored Matrix path (`identity-layers.preview_scores` or `vm-radar.js` component averages) is an identity visualization. The separate placement-result path (`placementResult.mana_scores` -> dossier `manaAlignment`) is placement-derived, normalized, cached, serialized, and rendered. Neither is public confidence, and the two paths are not interchangeable.",
+  "",
+  "Gate A implementation planning is prohibited until the map is independently reviewed and no material field classified `UNRESOLVED-BLOCKER` enters planning. This extract does not replace the complete map.",
   "",
   "## Question adjudication",
   "",
@@ -246,4 +266,6 @@ console.log(JSON.stringify({
   non_monotonic_rows: sensitivity.non_monotonic_support_observations.length,
   defect_records: selectedDefects.length,
   gate_a_b1_requirements: selectedRequirements.length,
+  result_field_consumers: consumers.length,
+  compatibility_dispositions: consumerDispositionCounts,
 }, null, 2));
