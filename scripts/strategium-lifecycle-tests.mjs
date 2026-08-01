@@ -436,7 +436,8 @@ async function run() {
     await page.goto(`${baseUrl}/strategium/before-game/?path=approximate-3/develop/combat/middle/none/none`, { waitUntil: "networkidle0" });
     const statementText = await page.$eval(".vm-lifecycle-statement p", node => node.textContent);
     expect(statementText && !/undefined|null|\.{2,}/i.test(statementText), "pregame result should render a clean spoken statement");
-    expect(await page.$eval(".vm-lifecycle-copy", node => node.textContent.trim()) === "Copy statement", "pregame result should use the shared statement copy action");
+    expect(await page.$eval(".vm-lifecycle-copy", node => node.textContent.trim()) === "Copy", "pregame result should use the concise shared copy action label");
+    expect(await page.$eval(".vm-lifecycle-copy", node => node.getAttribute("aria-label")) === "Copy pregame statement", "pregame copy action should retain a descriptive accessible name");
     expect(await page.$eval(".vm-lifecycle-copy", node => getComputedStyle(node).borderTopWidth !== "0px"), "pregame copy action should have a visible control boundary");
 
     await page.goto(`${baseUrl}/strategium/during-game/?path=rules/lookup`, { waitUntil: "networkidle0" });
@@ -445,7 +446,14 @@ async function run() {
     expect(!/attack|target recommendation|optimal line/i.test(rulesResult), "rules path should not offer tactical advice");
     const duringCardOrder = await page.$$eval(".vm-lifecycle-result-card h3", nodes => nodes.map(node => node.textContent.trim()));
     expect(duringCardOrder.join("|") === "What may be happening|What to clarify with the table|Available paths|A neutral sentence someone can say", "During the Game result cards should keep the neutral sentence last");
-    expect(await page.$eval(".vm-lifecycle-copy", node => node.textContent.trim()) === "Copy table reset", "During the Game should use the shared table-reset copy action");
+    expect(await page.$eval(".vm-lifecycle-copy", node => node.textContent.trim()) === "Copy", "During the Game should use the concise shared copy action label");
+    expect(await page.$eval(".vm-lifecycle-copy", node => node.getAttribute("aria-label")) === "Copy neutral table-reset sentence", "During the Game copy action should retain a descriptive accessible name");
+    const duringPathsLayout = await page.$eval(".vm-lifecycle-paths", node => {
+      const card = node.getBoundingClientRect();
+      const grid = node.parentElement.getBoundingClientRect();
+      return { centerDelta: Math.abs((card.left + card.width / 2) - (grid.left + grid.width / 2)), cardWidth: card.width, gridWidth: grid.width };
+    });
+    expect(duringPathsLayout.centerDelta <= 1 && duringPathsLayout.cardWidth < duringPathsLayout.gridWidth, "During the Game Available paths card should be centered and narrower than the result grid");
     expect(await page.$eval(".vm-lifecycle-copy", node => getComputedStyle(node).borderTopWidth !== "0px"), "During the Game copy action should have a visible control boundary");
 
     await page.goto(`${baseUrl}/strategium/`, { waitUntil: "networkidle0" });

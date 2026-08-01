@@ -8,7 +8,8 @@ import puppeteer from "puppeteer-core";
 import { startCandidateServer } from "./strategium-owner-review-launch.mjs";
 
 const root = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
-const evidenceDir = path.join(root, "docs", "qa", "evidence", "owner-remediation-02");
+const requestedEvidenceDir = process.argv.find((argument, index) => argument === "--evidence-dir" && process.argv[index + 1]) ? process.argv[process.argv.indexOf("--evidence-dir") + 1] : "docs/qa/evidence/owner-remediation-02";
+const evidenceDir = path.isAbsolute(requestedEvidenceDir) ? requestedEvidenceDir : path.join(root, requestedEvidenceDir);
 const browserCandidates = [
   process.env.LIGHTHOUSE_CHROME_PATH,
   "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe",
@@ -147,7 +148,9 @@ async function main() {
     check(richStatement.split(/[.!?]+/).filter(Boolean).length <= 3, "disclosure-rich spoken statement uses at most three sentences");
     check(!/please note|confirm house rule|confirm time limit|\band\b[^.!?]*\band\b[^.!?]*\band\b/i.test(richStatement), "disclosure-rich spoken statement avoids compliance and repeated-conjunction copy");
     check(["intentional combo", "resource denial", "repeated extra turns", "unusually long turns", "proxies"].every(value => richStatement.toLowerCase().includes(value)), "disclosure-rich statement retains every high-impact disclosure");
-    check(await page.$eval(".vm-lifecycle-copy", node => node.textContent.trim()) === "Copy statement", "Before-the-Game copy action has the shared label");
+    const beforeCopy = await page.$eval(".vm-lifecycle-copy", node => ({ label: node.textContent.trim(), ariaLabel: node.getAttribute("aria-label") }));
+    check(beforeCopy.label === "Copy", "Before-the-Game copy action has the concise visible label");
+    check(beforeCopy.ariaLabel === "Copy pregame statement", "Before-the-Game copy action has a descriptive accessible name");
     await page.evaluate(() => Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async text => { window.__strategiumCopied = text; } } }));
     await page.click(".vm-lifecycle-copy");
     check(await page.evaluate(() => window.__strategiumCopied) === richStatement, "Before-the-Game copy output exactly matches visible statement");
@@ -157,14 +160,30 @@ async function main() {
     await waitForLifecycle(page);
     const duringHeadings = await page.$$eval(".vm-lifecycle-result-card h3", nodes => nodes.map(node => node.textContent.trim()));
     check(duringHeadings.join("|") === "What may be happening|What to clarify with the table|Available paths|A neutral sentence someone can say", "During-the-Game result places the neutral sentence last");
-    check(await page.$eval(".vm-lifecycle-copy", node => node.textContent.trim()) === "Copy table reset", "During-the-Game copy action has the shared label");
+    const duringCopy = await page.$eval(".vm-lifecycle-copy", node => ({ label: node.textContent.trim(), ariaLabel: node.getAttribute("aria-label") }));
+    check(duringCopy.label === "Copy", "During-the-Game copy action has the concise visible label");
+    check(duringCopy.ariaLabel === "Copy neutral table-reset sentence", "During-the-Game copy action has a descriptive accessible name");
+    const duringPathsLayout = await page.$eval(".vm-lifecycle-paths", node => {
+      const card = node.getBoundingClientRect();
+      const grid = node.parentElement.getBoundingClientRect();
+      return { centerDelta: Math.abs((card.left + card.width / 2) - (grid.left + grid.width / 2)), cardWidth: card.width, gridWidth: grid.width };
+    });
+    check(duringPathsLayout.centerDelta <= 1, `During-the-Game Available paths card is centered (${Math.round(duringPathsLayout.centerDelta)}px delta)`);
+    check(duringPathsLayout.cardWidth < duringPathsLayout.gridWidth, "During-the-Game Available paths card uses a balanced content width");
     check((await actionSnapshot(page)).every(action => action.borderTopWidth !== "0px"), "During-the-Game result footer actions are visibly boxed");
+    await page.evaluate(() => Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async text => { window.__strategiumCopied = text; } } }));
+    const duringStatement = await page.$eval(".vm-lifecycle-copy-target", node => node.textContent);
+    await page.click(".vm-lifecycle-copy");
+    check(await page.evaluate(() => window.__strategiumCopied) === duringStatement, "During-the-Game copy output exactly matches visible neutral sentence");
+    check(Boolean((await page.$eval(".vm-lifecycle-copy-status", node => node.textContent.trim()))), "During-the-Game copy action provides success feedback");
     await capture("during-result-reordered-copy.png");
+    await capture("during-result-copy-success.png");
 
     await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 1 });
     await page.goto(`${server.baseUrl}/strategium/during-game/?path=rules/lookup`, { waitUntil: "networkidle0" });
     await waitForLifecycle(page);
     check(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), "During-the-Game mobile result has no horizontal overflow");
+    check(await page.$eval(".vm-lifecycle-paths", node => node.getBoundingClientRect().width <= node.parentElement.getBoundingClientRect().width + 1), "During-the-Game Available paths card stacks within the mobile result width");
     await capture("during-result-mobile.png");
   } finally {
     await page.close();

@@ -738,8 +738,14 @@ function renderQuestion(mount, config, state, recoveryNotice, draft) {
 
 function renderResult(mount, config, state, recoveryNotice) {
   const result = config.evaluate(state.answers);
-  const copyLabel = config.key === "during-game" ? "Copy table reset" : "Copy statement";
-  const cardMarkup = result.cards.map((card, index) => `<section class="vm-lifecycle-result-card${card.copyText ? " vm-lifecycle-statement" : ""}" aria-labelledby="lifecycle-result-${index}"><h3 id="lifecycle-result-${index}">${escapeHtml(card.title)}</h3><p${card.copyText ? ' class="vm-lifecycle-copy-target"' : ""}>${escapeHtml(card.body)}</p>${card.items ? `<ul>${card.items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : ""}${card.copyText ? `<button class="vm-lifecycle-copy vm-copy-action" type="button" data-copy-text="${escapeHtml(card.copyText)}">${copyLabel}</button><span class="vm-lifecycle-copy-status" role="status" aria-live="polite"></span>` : ""}</section>`).join("");
+  const copyLabel = "Copy";
+  const copyAriaLabel = config.key === "during-game" ? "Copy neutral table-reset sentence" : "Copy pregame statement";
+  const cardMarkup = result.cards.map((card, index) => {
+    const cardClasses = ["vm-lifecycle-result-card"];
+    if (card.copyText) cardClasses.push("vm-lifecycle-statement");
+    if (card.title === "Available paths") cardClasses.push("vm-lifecycle-paths");
+    return `<section class="${cardClasses.join(" ")}" aria-labelledby="lifecycle-result-${index}"><h3 id="lifecycle-result-${index}">${escapeHtml(card.title)}</h3><p${card.copyText ? ' class="vm-lifecycle-copy-target"' : ""}>${escapeHtml(card.body)}</p>${card.items ? `<ul>${card.items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : ""}${card.copyText ? `<button class="vm-lifecycle-copy vm-copy-action" type="button" aria-label="${escapeHtml(copyAriaLabel)}" data-copy-text="${escapeHtml(card.copyText)}">${copyLabel}</button><span class="vm-lifecycle-copy-status" role="status" aria-live="polite"></span>` : ""}</section>`;
+  }).join("");
   mount.innerHTML = `${recoverMarkup(recoveryNotice)}<article class="vm-result-card vm-lifecycle-result" data-result-category="${escapeHtml(result.category)}">${progressMarkup(config.questions.length, config.questions.length, true)}<header class="vm-result-header"><span class="vm-eyebrow">${escapeHtml(config.title)}</span><h2 tabindex="-1" data-lifecycle-focus>${escapeHtml(result.headline)}</h2><p>This is a guided interpretation, not a judgment about a player, deck, or table.</p></header><div class="vm-result-grid vm-lifecycle-result-grid">${cardMarkup}</div>${reviewActionsMarkup(config.questions.length)}</article>`;
 }
 

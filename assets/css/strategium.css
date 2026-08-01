@@ -2014,6 +2014,12 @@ html.vm-dialog-open body {
   background: linear-gradient(145deg, rgba(86, 62, 25, 0.32), rgba(0, 0, 0, 0.28)) !important;
 }
 
+.vm-lifecycle-paths {
+  grid-column: 1 / -1;
+  width: min(560px, 100%);
+  justify-self: center;
+}
+
 .vm-lifecycle-copy-target {
   padding: 0.85rem 0.9rem;
   border-left: 3px solid var(--gold-2);
@@ -2078,6 +2084,11 @@ html.vm-dialog-open body {
 
   .vm-lifecycle-statement {
     grid-column: auto;
+  }
+
+  .vm-lifecycle-paths {
+    grid-column: auto;
+    width: 100%;
   }
 
   .vm-lifecycle-copy-status {
