@@ -125,7 +125,8 @@ function hasRepeatedConjunctionList(text) {
 }
 
 function hasMalformedListPunctuation(text) {
-  return /,\s*,|,\s+\.|,\s+and\s+and\b|,\s+or\s+or\b/i.test(text);
+  const disclosureSentence = text.match(/I want to flag[^.!?]*[.!?]/i)?.[0] || "";
+  return /,\s*,|,\s+\.|,\s+and\s+and\b|,\s+or\s+or\b|,\s+and[^.!?]*,\s+and/i.test(disclosureSentence);
 }
 
 function hasRepeatedDisclosurePrefix(text) {
