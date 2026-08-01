@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-08-01",
+  "audit_base": "2b4058ff4c769f03d52070204b3ce973e51decbd",
+  "rejected_audit_sha": "c62c7e1b43421359488537457804698a77656952",
+  "cecos": {
+    "repository": "C:\\dev\\Commander_Questions_Corpus",
+    "commit": "947bf45bf6a191839b5fb4fa6c65980ed9d5737e",
+    "path": "docs/standards/cecos/CECOS-v1.0.0-draft.4.md",
+    "sha256": "dd3c266771f7724589a5d7bd881143a8c0a7372218cd167fccf5f8173da738f3",
+    "verification": "PASS"
+  },
+  "runtime_inputs": [
+    {
+      "path": "data/placement-model.json",
+      "sha256": "df157d5ec79d9b19c1147596d23496c34bcca40039ee912b035826a9e40b5bae"
+    },
+    {
+      "path": "data/factions.json",
+      "sha256": "202643acdc1a8d5e4a92ec411ba73f624dd13915b6154f0ef466660172d9669c"
+    },
+    {
+      "path": "assets/js/adaptive-placement.js",
+      "sha256": "430f72968c3620b2b86ab53e9bd42e06645d4e6ccf6bc0c19d34d08f00c93681"
+    },
+    {
+      "path": "assets/js/commander-dossier.js",
+      "sha256": "73bd91d27225ee6eaabf9a52bd0aa53fe2d605c022f1a2592fab5ac555b3a738"
+    },
+    {
+      "path": "assets/js/archscry-presentation.js",
+      "sha256": "7dae09ef51eabd63e193bf7286bbc165d7324bb7e58c4fbaf178f30b0a863644"
+    }
+  ],
+  "preserved_artifacts": [
+    {
+      "path": "docs/audits/vm551-placement-system/analysis-summary.json",
+      "sha256": "bc0a97fb2166bb6fabbe7c0beb77402565ea5948ea01719e0e577c53243fece8",
+      "byte_reproduction": "PASS before remediation"
+    },
+    {
+      "path": "docs/audits/vm551-placement-system/question-to-signal-matrix.csv",
+      "sha256": "ab4c83dfd9bce32a0227b960633e6c29a46851841ebcc6cd5ad5963690eb0ae2",
+      "byte_reproduction": "PASS before remediation"
+    },
+    {
+      "path": "docs/audits/vm551-placement-system/identity-reachability-opportunity-matrix.csv",
+      "sha256": "46ec414bc7597d3a0f61519bfe07bb761e4c954899ac01832e9831af8f6bca28",
+      "byte_reproduction": "PASS before remediation"
+    },
+    {
+      "path": "docs/audits/vm551-placement-system/copy-comparison-corpus.json",
+      "sha256": "7eca12ab9f7e5b3342c9ec242c09ff9f36b867ce615ebc7b27349b2c20251cf8",
+      "byte_reproduction": "PASS before remediation"
+    },
+    {
+      "path": "docs/audits/vm551-placement-system/copy-comparison-pairs.csv",
+      "sha256": "898ede00d8b89564935f0ab5399dfc146d26a8cc1554a89e7ea1ddce2c85a90b",
+      "byte_reproduction": "PASS before remediation"
+    },
+    {
+      "path": "docs/audits/vm551-placement-system/claim-evidence-register.csv",
+      "sha256": "4fa31b387e104287eb76dc396692f911c2deb0b64e7c26c095697d335f4a52d1",
+      "byte_reproduction": "PASS before remediation"
+    }
+  ],
+  "prohibited_inputs": [
+    "web browsing",
+    "uncommitted production data",
+    "working-tree CECOS substitution"
+  ]
+}

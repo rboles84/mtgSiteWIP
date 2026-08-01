@@ -1,0 +1,3756 @@
+[
+  {
+    "expected_identity": "ABZAN",
+    "defining_evidence": [
+      "Abzan Houses",
+      "Tarkir",
+      "WBG",
+      "White-centered",
+      "family",
+      "house continuity",
+      "endurance",
+      "Kin-Trees",
+      "ancestor spirits",
+      "perennation",
+      "defensive patience"
+    ],
+    "closest_competitor": "WB",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor WB; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_braided_witness",
+        "title": "A braided witness"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_many_currents",
+        "title": "Many currents, one course"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_cold_pattern",
+        "title": "The cold pattern"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_preserve",
+        "title": "Preserve what must not break"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_ABZAN_family_endurance",
+        "answer_id": "MISSING:hall_ABZAN_family_endurance#answer-1",
+        "title": "Keep the house alive"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_ABZAN_ancestor_perennation",
+        "answer_id": "MISSING:hall_ABZAN_ancestor_perennation#answer-1",
+        "title": "Let memory become stewardship"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_ABZAN_family_endurance",
+      "hall:hall_ABZAN_ancestor_perennation"
+    ],
+    "final_primary": "ABZAN",
+    "rank_two": "WB",
+    "rank_three": "SILVERQUILL",
+    "softmax_share_displayed_as_confidence": 0.686,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 4,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Abzan Houses recognizes the shape of your game as The Ancestral Endurer. Your answers repeatedly expressed preserving duty and family endurance through house continuity. Orzhov Syndicate stayed near the reading, but Abzan Houses was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "WB",
+        "share": 0.045,
+        "reason": "Orzhov Syndicate stayed close through calculated implication, preserving duty, family endurance through house continuity."
+      },
+      {
+        "identity": "SILVERQUILL",
+        "share": 0.034,
+        "reason": "Silverquill College stayed close through balanced convergence, calculated implication, preserving duty."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Abzan Armor (Precon)",
+      "Anafenza, the Foremost",
+      "Karador, Ghost Chieftain"
+    ],
+    "acceptable_result_set": [
+      "ABZAN"
+    ],
+    "unacceptable_false_positives": [
+      "BANT",
+      "BR",
+      "COLORLESS",
+      "DUNE",
+      "ESPER"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "B",
+    "defining_evidence": [
+      "power",
+      "opportunity",
+      "self-interest",
+      "agency",
+      "cost",
+      "sacrifice",
+      "leverage"
+    ],
+    "closest_competitor": "WB",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor WB; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_self_claim",
+        "title": "The claim no one can make for me"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_silent_axis",
+        "title": "A silent axis"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_cold_pattern",
+        "title": "The cold pattern"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_preserve",
+        "title": "Preserve what must not break"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_B_cost",
+        "answer_id": "MISSING:hall_B_cost#answer-1",
+        "title": "Pay the cost"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_B_graveyard",
+        "answer_id": "MISSING:hall_B_graveyard#answer-1",
+        "title": "Reclaim it as leverage"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_B_cost",
+      "hall:hall_B_graveyard"
+    ],
+    "final_primary": "B",
+    "rank_two": "WB",
+    "rank_three": "UB",
+    "softmax_share_displayed_as_confidence": 0.854,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 4,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Black recognizes the shape of your game as The Self-Sovereign Operator. Your answers repeatedly expressed preserving duty and power at a cost. Orzhov Syndicate stayed near the reading, but Black was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "WB",
+        "share": 0.019,
+        "reason": "Orzhov Syndicate stayed close through preserving duty, power at a cost, graveyard as resource."
+      },
+      {
+        "identity": "UB",
+        "share": 0.017,
+        "reason": "House Dimir stayed close through calculated implication, power at a cost, graveyard as resource."
+      }
+    ],
+    "commander_recommendation_result": [
+      "K'rrik, Son of Yawgmoth",
+      "Ayara, First of Locthwain",
+      "Chainer, Dementia Master"
+    ],
+    "acceptable_result_set": [
+      "B"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "BANT",
+      "BG",
+      "BR",
+      "COLORLESS"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "BANT",
+    "defining_evidence": [
+      "Bant",
+      "exalted",
+      "champion",
+      "sigil",
+      "honor",
+      "Rafiq",
+      "Valeron",
+      "Akrasa",
+      "Great Conduit",
+      "community",
+      "protection",
+      "refinement"
+    ],
+    "closest_competitor": "INK",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor INK; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_common_root",
+        "title": "The common root"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_answerable_motion",
+        "title": "Answerable motion"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_whole_chord",
+        "title": "The whole chord"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_whole_covenant",
+        "title": "Keep the whole covenant"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_BANT_champion",
+        "answer_id": "MISSING:hall_BANT_champion#answer-1",
+        "title": "Public trust and support"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_BANT_living_order",
+        "answer_id": "MISSING:hall_BANT_living_order#answer-1",
+        "title": "Duty held by living community"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_BANT_champion",
+      "hall:hall_BANT_living_order"
+    ],
+    "final_primary": "BANT",
+    "rank_two": "INK",
+    "rank_three": "JESKAI",
+    "softmax_share_displayed_as_confidence": 0.701,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 4,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Bant recognizes the shape of your game as The Communal Champion. Your answers repeatedly expressed integrated covenant and supported champion. Ink / Altruism stayed near the reading, but Bant was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "INK",
+        "share": 0.032,
+        "reason": "Ink / Altruism stayed close through bounded action, balanced chord, integrated covenant."
+      },
+      {
+        "identity": "JESKAI",
+        "share": 0.03,
+        "reason": "Jeskai Way stayed close through bounded action, balanced chord, integrated covenant."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Rafiq of the Many",
+      "Chulane, Teller of Tales",
+      "Tuvasa the Sunlit"
+    ],
+    "acceptable_result_set": [
+      "BANT"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BG",
+      "BR",
+      "COLORLESS"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "BG",
+    "defining_evidence": [
+      "decay",
+      "renewal",
+      "death",
+      "life",
+      "rot",
+      "undercity",
+      "survival",
+      "graveyard",
+      "cycle",
+      "reclamation"
+    ],
+    "closest_competitor": "G",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor G; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_outside_measure",
+        "title": "The measure outside the map"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_wild_release",
+        "title": "A wild release"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_measured_trace",
+        "title": "The measured trace"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_whole_covenant",
+        "title": "Keep the whole covenant"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_BG_reclamation",
+        "answer_id": "MISSING:hall_BG_reclamation#answer-1",
+        "title": "Build from the rot"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_B_cost",
+        "answer_id": "MISSING:hall_B_cost#answer-3",
+        "title": "Make it a debt"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_BG_reclamation",
+      "hall:hall_B_cost"
+    ],
+    "final_primary": "BG",
+    "rank_two": "G",
+    "rank_three": "GLINT",
+    "softmax_share_displayed_as_confidence": 0.349,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 3,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Golgari Swarm recognizes the shape of your game as The Resilient Reclaimer. Your answers repeatedly expressed measured inference and integrated covenant. Green stayed near the reading, but Golgari Swarm was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "G",
+        "share": 0.064,
+        "reason": "Green stayed close through adaptive release, measured inference, integrated covenant."
+      },
+      {
+        "identity": "GLINT",
+        "share": 0.052,
+        "reason": "Glint / Chaos stayed close through adaptive release, measured inference, integrated covenant."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Jarad, Golgari Lich Lord",
+      "Meren of Clan Nel Toth",
+      "The Gitrog Monster"
+    ],
+    "acceptable_result_set": [
+      "BG"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BR",
+      "COLORLESS"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "BR",
+    "defining_evidence": [
+      "spectacle",
+      "performance",
+      "transgression",
+      "sensation",
+      "danger",
+      "provocation",
+      "comedy",
+      "chaos",
+      "entertainment",
+      "intensity"
+    ],
+    "closest_competitor": "DUNE",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor DUNE; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_personal_threshold",
+        "title": "The threshold in the self"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_wild_release",
+        "title": "A wild release"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_whole_chord",
+        "title": "The whole chord"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_steward",
+        "title": "Steward the change"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_BR_intensity",
+        "answer_id": "MISSING:hall_BR_intensity#answer-1",
+        "title": "Make the discomfort impossible to ignore"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_GLINT_living_force",
+        "answer_id": "MISSING:hall_GLINT_living_force#answer-4",
+        "title": "Hear the storm before acting"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_TEMUR_survival_attunement",
+        "answer_id": "MISSING:hall_TEMUR_survival_attunement#answer-2",
+        "title": "Feed the pressure"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_BR_intensity",
+      "hall:hall_GLINT_living_force",
+      "hall:hall_TEMUR_survival_attunement"
+    ],
+    "final_primary": "BR",
+    "rank_two": "DUNE",
+    "rank_three": "R",
+    "softmax_share_displayed_as_confidence": 0.353,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 3,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Cult of Rakdos recognizes the shape of your game as The Transgressive Performer. Your answers repeatedly expressed balanced chord and careful stewardship. Dune / Aggression stayed near the reading, but Cult of Rakdos was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "DUNE",
+        "share": 0.079,
+        "reason": "Dune / Aggression stayed close through adaptive release, balanced chord, careful stewardship."
+      },
+      {
+        "identity": "R",
+        "share": 0.053,
+        "reason": "Red stayed close through adaptive release, balanced chord, careful stewardship."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Rakdos, Lord of Riots",
+      "Judith, the Scourge Diva",
+      "Rakdos, the Showstopper"
+    ],
+    "acceptable_result_set": [
+      "BR"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "COLORLESS"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "COLORLESS",
+    "defining_evidence": [],
+    "closest_competitor": "WUBRG",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor WUBRG; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_outside_measure",
+        "title": "The measure outside the map"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_silent_axis",
+        "title": "A silent axis"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_unlit_edge",
+        "title": "The unlit edge"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_without_color",
+        "title": "Stand where the lamp does not reach"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_COLORLESS_outside_wubrg",
+        "answer_id": "MISSING:hall_COLORLESS_outside_wubrg#answer-1",
+        "title": "Stay outside the wheel"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_COLORLESS_branch_boundary",
+        "answer_id": "MISSING:hall_COLORLESS_branch_boundary#answer-1",
+        "title": "Chosen restriction"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_COLORLESS_outside_wubrg",
+      "hall:hall_COLORLESS_branch_boundary"
+    ],
+    "final_primary": "COLORLESS",
+    "rank_two": "WUBRG",
+    "rank_three": "ABZAN",
+    "softmax_share_displayed_as_confidence": 1,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 6,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Colorless recognizes the shape of your game as The Outside-System Architect. Your answers repeatedly expressed outside boundary and outside-WUBRG precision. Five-Color / WUBRG stayed near the reading, but Colorless was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "WUBRG",
+        "share": 0,
+        "reason": "Five-Color / WUBRG remained adjacent as the full-spectrum integrator."
+      },
+      {
+        "identity": "ABZAN",
+        "share": 0,
+        "reason": "Abzan Houses remained adjacent as the ancestral endurer."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Zhulodok, Void Gorger",
+      "Omarthis, Ghostfire Initiate",
+      "Eldrazi Unbound (Precon)"
+    ],
+    "acceptable_result_set": [
+      "COLORLESS"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "DUNE",
+    "defining_evidence": [
+      "organized",
+      "territorial",
+      "force",
+      "pressure",
+      "direct action",
+      "physical momentum",
+      "survival",
+      "multiplication",
+      "common front",
+      "four-color",
+      "without Blue",
+      "missing-Blue",
+      "White line",
+      "Black cost",
+      "Red ignition",
+      "Green persistence"
+    ],
+    "closest_competitor": "RG",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor RG; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_braided_witness",
+        "title": "A braided witness"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_wild_release",
+        "title": "A wild release"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_whole_chord",
+        "title": "The whole chord"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_preserve",
+        "title": "Preserve what must not break"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_DUNE_territorial_force",
+        "answer_id": "MISSING:hall_DUNE_territorial_force#answer-1",
+        "title": "Claim the ground now"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_DUNE_missing_blue",
+        "answer_id": "MISSING:hall_DUNE_missing_blue#answer-1",
+        "title": "It refuses detached contemplation"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_DUNE_territorial_force",
+      "hall:hall_DUNE_missing_blue"
+    ],
+    "final_primary": "DUNE",
+    "rank_two": "RG",
+    "rank_three": "BR",
+    "softmax_share_displayed_as_confidence": 0.767,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 4,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Dune / Aggression recognizes the shape of your game as The Common-Front Linebreaker. Your answers repeatedly expressed preserving duty and organized territorial pressure before detached contemplation. Gruul Clans stayed near the reading, but Dune / Aggression was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "RG",
+        "share": 0.016,
+        "reason": "Gruul Clans stayed close through adaptive release, balanced chord, preserving duty."
+      },
+      {
+        "identity": "BR",
+        "share": 0.016,
+        "reason": "Cult of Rakdos stayed close through adaptive release, balanced chord, preserving duty."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Saskia the Unyielding",
+      "Open Hostility (Precon)"
+    ],
+    "acceptable_result_set": [
+      "DUNE"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "BANT",
+      "BG",
+      "BR",
+      "COLORLESS"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "ESPER",
+    "defining_evidence": [
+      "Esper",
+      "Alara",
+      "WUB",
+      "Blue-centered perfectibility",
+      "perfectibility",
+      "knowledge",
+      "planning",
+      "applied information",
+      "ordered improvement",
+      "coordination",
+      "focused control",
+      "instrumental information",
+      "designed control",
+      "optimization"
+    ],
+    "closest_competitor": "SILVERQUILL",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor SILVERQUILL; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_braided_witness",
+        "title": "A braided witness"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_answerable_motion",
+        "title": "Answerable motion"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_cold_pattern",
+        "title": "The cold pattern"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_preserve",
+        "title": "Preserve what must not break"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_ESPER_perfectibility",
+        "answer_id": "MISSING:hall_ESPER_perfectibility#answer-1",
+        "title": "Understand, then refine"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_ESPER_designed_control",
+        "answer_id": "MISSING:hall_ESPER_designed_control#answer-1",
+        "title": "Make every piece serve the design"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_ESPER_perfectibility",
+      "hall:hall_ESPER_designed_control"
+    ],
+    "final_primary": "ESPER",
+    "rank_two": "SILVERQUILL",
+    "rank_three": "ABZAN",
+    "softmax_share_displayed_as_confidence": 0.671,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 5,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Esper recognizes the shape of your game as The Perfecting Systems Architect. Your answers repeatedly expressed preserving duty and perfectibility through applied knowledge. Silverquill College stayed near the reading, but Esper was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "SILVERQUILL",
+        "share": 0.031,
+        "reason": "Silverquill College stayed close through bounded action, calculated implication, preserving duty."
+      },
+      {
+        "identity": "ABZAN",
+        "share": 0.03,
+        "reason": "Abzan Houses stayed close through bounded action, calculated implication, preserving duty."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Y'shtola, Night's Blessed",
+      "Aminatou, Veil Piercer",
+      "Oloro, Ageless Ascetic"
+    ],
+    "acceptable_result_set": [
+      "ESPER"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "BANT",
+      "BG",
+      "BR",
+      "COLORLESS"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "G",
+    "defining_evidence": [
+      "nature",
+      "acceptance",
+      "instinct",
+      "growth",
+      "interdependence",
+      "role",
+      "tradition",
+      "land"
+    ],
+    "closest_competitor": "UG",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor UG; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_common_root",
+        "title": "The common root"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_wild_release",
+        "title": "A wild release"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_cold_pattern",
+        "title": "The cold pattern"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_transform",
+        "title": "Become the changed thing"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_G_growth",
+        "answer_id": "MISSING:hall_G_growth#answer-1",
+        "title": "Let the roots deepen"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_G_natural_order",
+        "answer_id": "MISSING:hall_G_natural_order#answer-1",
+        "title": "Trust the natural pace"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_G_growth",
+      "hall:hall_G_natural_order"
+    ],
+    "final_primary": "G",
+    "rank_two": "UG",
+    "rank_three": "QUANDRIX",
+    "softmax_share_displayed_as_confidence": 0.729,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 5,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Green recognizes the shape of your game as The Rooted Becoming. Your answers repeatedly expressed transformative cost and organic growth. Simic Combine stayed near the reading, but Green was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "UG",
+        "share": 0.045,
+        "reason": "Simic Combine stayed close through transformative cost, organic growth, natural patience."
+      },
+      {
+        "identity": "QUANDRIX",
+        "share": 0.035,
+        "reason": "Quandrix College stayed close through adaptive release, calculated implication, transformative cost."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Azusa, Lost but Seeking",
+      "Selvala, Heart of the Wilds",
+      "Goreclaw, Terror of Qal Sisma"
+    ],
+    "acceptable_result_set": [
+      "G"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "GLINT",
+    "defining_evidence": [
+      "adaptive",
+      "appetite",
+      "volatility",
+      "living force",
+      "improvisation",
+      "four-color",
+      "without White",
+      "missing-White",
+      "Blue adaptation",
+      "Black appetite",
+      "Red ignition",
+      "Green living force",
+      "cascade",
+      "maelstrom",
+      "unlicensed",
+      "civic restraint"
+    ],
+    "closest_competitor": "BR",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor BR; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_self_claim",
+        "title": "The claim no one can make for me"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_wild_release",
+        "title": "A wild release"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_whole_chord",
+        "title": "The whole chord"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_transform",
+        "title": "Become the changed thing"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_GLINT_living_force",
+        "answer_id": "MISSING:hall_GLINT_living_force#answer-1",
+        "title": "Keep the living pressure learning"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_GLINT_missing_white",
+        "answer_id": "MISSING:hall_GLINT_missing_white#answer-1",
+        "title": "It refuses civic restraint"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_GLINT_living_force",
+      "hall:hall_GLINT_missing_white"
+    ],
+    "final_primary": "GLINT",
+    "rank_two": "BR",
+    "rank_three": "BG",
+    "softmax_share_displayed_as_confidence": 0.859,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 5,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Glint / Chaos recognizes the shape of your game as The Storm-Fed Opportunist. Your answers repeatedly expressed transformative cost and living force under pressure rather than generic chaos. Cult of Rakdos stayed near the reading, but Glint / Chaos was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "BR",
+        "share": 0.018,
+        "reason": "Cult of Rakdos stayed close through self-authored agency, adaptive release, balanced chord."
+      },
+      {
+        "identity": "BG",
+        "share": 0.014,
+        "reason": "Golgari Swarm stayed close through adaptive release, balanced chord, transformative cost."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Yidris, Maelstrom Wielder",
+      "Entropic Uprising (Precon)"
+    ],
+    "acceptable_result_set": [
+      "GLINT"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "BANT",
+      "BG",
+      "COLORLESS",
+      "DUNE"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "GRIXIS",
+    "defining_evidence": [
+      "Grixis",
+      "Alara",
+      "UBR",
+      "Black-centered survival",
+      "survival",
+      "self-advocacy",
+      "adaptation",
+      "calculation",
+      "weakness analysis",
+      "immediacy",
+      "zeal",
+      "volatility"
+    ],
+    "closest_competitor": "UB",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor UB; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_personal_threshold",
+        "title": "The threshold in the self"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_many_currents",
+        "title": "Many currents, one course"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_whole_chord",
+        "title": "The whole chord"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_transform",
+        "title": "Become the changed thing"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_GRIXIS_survival_opening",
+        "answer_id": "MISSING:hall_GRIXIS_survival_opening#answer-1",
+        "title": "Find the weakness and take it"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_GRIXIS_volatile_calculation",
+        "answer_id": "MISSING:hall_GRIXIS_volatile_calculation#answer-1",
+        "title": "Calculation aimed at survival"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_GRIXIS_survival_opening",
+      "hall:hall_GRIXIS_volatile_calculation"
+    ],
+    "final_primary": "GRIXIS",
+    "rank_two": "UB",
+    "rank_three": "GLINT",
+    "softmax_share_displayed_as_confidence": 0.672,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 3,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Grixis recognizes the shape of your game as The Survival Strategist. Your answers repeatedly expressed transformative cost and calculated survival opening. House Dimir stayed near the reading, but Grixis was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "UB",
+        "share": 0.037,
+        "reason": "House Dimir stayed close through transformative cost, calculated survival opening, volatile calculation."
+      },
+      {
+        "identity": "GLINT",
+        "share": 0.037,
+        "reason": "Glint / Chaos stayed close through balanced convergence, balanced chord, transformative cost."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Kess, Dissident Mage",
+      "Nekusar, the Mindrazer",
+      "Jeleva, Nephalia's Scourge"
+    ],
+    "acceptable_result_set": [
+      "GRIXIS"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "BANT",
+      "BG",
+      "COLORLESS",
+      "DUNE"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "INK",
+    "defining_evidence": [
+      "protected",
+      "public abundance",
+      "open knowledge",
+      "community benefit",
+      "shared resources",
+      "guarded commons",
+      "protected generosity",
+      "four-color",
+      "without Black",
+      "missing-Black",
+      "Red care",
+      "Green reciprocity",
+      "White civic promise",
+      "Blue open knowledge",
+      "commons",
+      "gift",
+      "capture"
+    ],
+    "closest_competitor": "LOREHOLD",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor LOREHOLD; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_common_root",
+        "title": "The common root"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_many_currents",
+        "title": "Many currents, one course"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_live_spark",
+        "title": "The live spark"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_whole_covenant",
+        "title": "Keep the whole covenant"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_INK_protected_abundance",
+        "answer_id": "MISSING:hall_INK_protected_abundance#answer-1",
+        "title": "Guard the commons"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_INK_missing_black",
+        "answer_id": "MISSING:hall_INK_missing_black#answer-1",
+        "title": "It resists private capture"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_INK_protected_abundance",
+      "hall:hall_INK_missing_black"
+    ],
+    "final_primary": "INK",
+    "rank_two": "LOREHOLD",
+    "rank_three": "WG",
+    "softmax_share_displayed_as_confidence": 0.746,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 4,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Ink / Altruism recognizes the shape of your game as The Commons Keeper. Your answers repeatedly expressed integrated covenant and protected public abundance. Lorehold College stayed near the reading, but Ink / Altruism was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "LOREHOLD",
+        "share": 0.03,
+        "reason": "Lorehold College stayed close through balanced convergence, felt ignition, integrated covenant."
+      },
+      {
+        "identity": "WG",
+        "share": 0.016,
+        "reason": "Selesnya Conclave stayed close through balanced convergence, felt ignition, integrated covenant."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Kynaios and Tiro of Meletis",
+      "Stalwart Unity (Precon)"
+    ],
+    "acceptable_result_set": [
+      "INK"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "BANT",
+      "BG",
+      "BR",
+      "COLORLESS"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "JESKAI",
+    "defining_evidence": [
+      "Jeskai Way",
+      "Blue-centered",
+      "cunning",
+      "discipline",
+      "training",
+      "martial practice",
+      "monastery",
+      "Narset",
+      "Shu Yun",
+      "Ojutai boundary",
+      "Dragonstorm revival",
+      "trained insight"
+    ],
+    "closest_competitor": "LOREHOLD",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor LOREHOLD; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_braided_witness",
+        "title": "A braided witness"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_answerable_motion",
+        "title": "Answerable motion"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_live_spark",
+        "title": "The live spark"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_steward",
+        "title": "Steward the change"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_JESKAI_disciplined_cunning",
+        "answer_id": "MISSING:hall_JESKAI_disciplined_cunning#answer-1",
+        "title": "Train until insight can move"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_JESKAI_way_form",
+        "answer_id": "MISSING:hall_JESKAI_way_form#answer-1",
+        "title": "Let form serve the moving insight"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_JESKAI_disciplined_cunning",
+      "hall:hall_JESKAI_way_form"
+    ],
+    "final_primary": "JESKAI",
+    "rank_two": "LOREHOLD",
+    "rank_three": "INK",
+    "softmax_share_displayed_as_confidence": 0.768,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 5,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Jeskai Way recognizes the shape of your game as The Disciplined Cunning Adept. Your answers repeatedly expressed careful stewardship and Blue-centered cunning through disciplined action. Lorehold College stayed near the reading, but Jeskai Way was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "LOREHOLD",
+        "share": 0.028,
+        "reason": "Lorehold College stayed close through bounded action, felt ignition, careful stewardship."
+      },
+      {
+        "identity": "INK",
+        "share": 0.022,
+        "reason": "Ink / Altruism stayed close through bounded action, felt ignition, careful stewardship."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Jeskai Striker (Precon)",
+      "Narset, Enlightened Master",
+      "Elsha of the Infinite"
+    ],
+    "acceptable_result_set": [
+      "JESKAI"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "JUND",
+    "defining_evidence": [
+      "Jund",
+      "Alara",
+      "BRG",
+      "Red-centered",
+      "self-truth",
+      "gut instinct",
+      "emotion as guide",
+      "freedom with consequences",
+      "Black appetite",
+      "Green instinct"
+    ],
+    "closest_competitor": "BR",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor BR; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_self_claim",
+        "title": "The claim no one can make for me"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_wild_release",
+        "title": "A wild release"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_whole_chord",
+        "title": "The whole chord"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_preserve",
+        "title": "Preserve what must not break"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_JUND_instinct_pressure",
+        "answer_id": "MISSING:hall_JUND_instinct_pressure#answer-1",
+        "title": "Trust the gut and move"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_JUND_appetite_consequence",
+        "answer_id": "MISSING:hall_JUND_appetite_consequence#answer-1",
+        "title": "Feed it and own the cost"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_JUND_instinct_pressure",
+      "hall:hall_JUND_appetite_consequence"
+    ],
+    "final_primary": "JUND",
+    "rank_two": "BR",
+    "rank_three": "DUNE",
+    "softmax_share_displayed_as_confidence": 0.689,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 5,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Jund recognizes the shape of your game as The Instinctive Survivor. Your answers repeatedly expressed preserving duty and instinct under pressure. Cult of Rakdos stayed near the reading, but Jund was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "BR",
+        "share": 0.059,
+        "reason": "Cult of Rakdos stayed close through preserving duty, instinct under pressure, appetite with consequence."
+      },
+      {
+        "identity": "DUNE",
+        "share": 0.033,
+        "reason": "Dune / Aggression stayed close through adaptive release, balanced chord, preserving duty."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Prossh, Skyraider of Kher",
+      "Hearthhull, the Worldseed",
+      "Disa the Restless"
+    ],
+    "acceptable_result_set": [
+      "JUND"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "BANT",
+      "BG",
+      "COLORLESS",
+      "DUNE"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "LOREHOLD",
+    "defining_evidence": [
+      "history",
+      "archive",
+      "relic",
+      "evidence",
+      "field",
+      "past",
+      "archaeology",
+      "memory",
+      "lesson",
+      "ruins",
+      "research"
+    ],
+    "closest_competitor": "W",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor W; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_common_root",
+        "title": "The common root"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_form",
+        "title": "A form that can hold"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_live_spark",
+        "title": "The live spark"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_preserve",
+        "title": "Preserve what must not break"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_LOREHOLD_history",
+        "answer_id": "MISSING:hall_LOREHOLD_history#answer-1",
+        "title": "Interrogate the past"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_JESKAI_disciplined_cunning",
+        "answer_id": "MISSING:hall_JESKAI_disciplined_cunning#answer-4",
+        "title": "Wait for the living signal"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_LOREHOLD_history",
+      "hall:hall_JESKAI_disciplined_cunning"
+    ],
+    "final_primary": "LOREHOLD",
+    "rank_two": "W",
+    "rank_three": "INK",
+    "softmax_share_displayed_as_confidence": 0.491,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 4,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Lorehold College recognizes the shape of your game as The Historical Field Investigator. Your answers repeatedly expressed felt ignition and preserving duty. White stayed near the reading, but Lorehold College was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "W",
+        "share": 0.135,
+        "reason": "White stayed close through ordered containment, felt ignition, preserving duty."
+      },
+      {
+        "identity": "INK",
+        "share": 0.057,
+        "reason": "Ink / Altruism stayed close through ordered containment, felt ignition, preserving duty."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Lorehold, the Historian",
+      "Velomachus Lorehold",
+      "Quintorius, History Chaser"
+    ],
+    "acceptable_result_set": [
+      "LOREHOLD"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "MARDU",
+    "defining_evidence": [
+      "Mardu Horde",
+      "Red-centered",
+      "speed",
+      "total commitment",
+      "war names",
+      "Edicts of Ilagra",
+      "Zurgo",
+      "Alesha",
+      "Kolaghan boundary",
+      "Dragonstorm Mardu",
+      "martial oath",
+      "Tarkir"
+    ],
+    "closest_competitor": "YORE",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor YORE; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_self_claim",
+        "title": "The claim no one can make for me"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_many_currents",
+        "title": "Many currents, one course"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_whole_chord",
+        "title": "The whole chord"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_preserve",
+        "title": "Preserve what must not break"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_MARDU_total_commitment",
+        "answer_id": "MISSING:hall_MARDU_total_commitment#answer-1",
+        "title": "Take the opening now"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_MARDU_war_name_oath",
+        "answer_id": "MISSING:hall_MARDU_war_name_oath#answer-1",
+        "title": "Keep the war name"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_MARDU_total_commitment",
+      "hall:hall_MARDU_war_name_oath"
+    ],
+    "final_primary": "MARDU",
+    "rank_two": "YORE",
+    "rank_three": "WR",
+    "softmax_share_displayed_as_confidence": 0.749,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 4,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Mardu Horde recognizes the shape of your game as The Oathbound Raider. Your answers repeatedly expressed preserving duty and Red-centered speed through coordinated attack. Yore / Artifice stayed near the reading, but Mardu Horde was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "YORE",
+        "share": 0.026,
+        "reason": "Yore / Artifice stayed close through balanced convergence, balanced chord, preserving duty."
+      },
+      {
+        "identity": "WR",
+        "share": 0.022,
+        "reason": "Boros Legion stayed close through preserving duty, Red-centered speed through coordinated attack, war-name oath and martial structure."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Mardu Surge (Precon)",
+      "Alesha, Who Smiles at Death",
+      "Zurgo Helmsmasher"
+    ],
+    "acceptable_result_set": [
+      "MARDU"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "BANT",
+      "BG",
+      "COLORLESS",
+      "DUNE"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "NAYA",
+    "defining_evidence": [
+      "Naya",
+      "Alara",
+      "RGW",
+      "Green-centered",
+      "life",
+      "nature",
+      "growth",
+      "ecosystem belonging",
+      "larger natural whole",
+      "White care",
+      "Red instinct"
+    ],
+    "closest_competitor": "RG",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor RG; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_common_root",
+        "title": "The common root"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_wild_release",
+        "title": "A wild release"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_live_spark",
+        "title": "The live spark"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_preserve",
+        "title": "Preserve what must not break"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_NAYA_living_whole",
+        "answer_id": "MISSING:hall_NAYA_living_whole#answer-1",
+        "title": "Protect the living whole"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_NAYA_abundance_instinct",
+        "answer_id": "MISSING:hall_NAYA_abundance_instinct#answer-1",
+        "title": "When growth belongs"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_NAYA_living_whole",
+      "hall:hall_NAYA_abundance_instinct"
+    ],
+    "final_primary": "NAYA",
+    "rank_two": "RG",
+    "rank_three": "LOREHOLD",
+    "softmax_share_displayed_as_confidence": 0.845,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 6,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Naya recognizes the shape of your game as The Living World Guardian. Your answers repeatedly expressed preserving duty and belonging through protective abundance. Gruul Clans stayed near the reading, but Naya was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "RG",
+        "share": 0.03,
+        "reason": "Gruul Clans stayed close through preserving duty, belonging through protective abundance, abundance held by belonging."
+      },
+      {
+        "identity": "LOREHOLD",
+        "share": 0.021,
+        "reason": "Lorehold College stayed close through adaptive release, felt ignition, preserving duty."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Pantlaza, Sun-Favored",
+      "Marath, Will of the Wild",
+      "Shalai and Hallar"
+    ],
+    "acceptable_result_set": [
+      "NAYA"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "BANT",
+      "BG",
+      "BR",
+      "COLORLESS"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "PRISMARI",
+    "defining_evidence": [
+      "expression",
+      "performance",
+      "art",
+      "emotion",
+      "elemental",
+      "creativity",
+      "dramatic",
+      "style",
+      "movement",
+      "spectacle"
+    ],
+    "closest_competitor": "R",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor R; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_personal_threshold",
+        "title": "The threshold in the self"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_answerable_motion",
+        "title": "Answerable motion"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_live_spark",
+        "title": "The live spark"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_transform",
+        "title": "Become the changed thing"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_PRISMARI_expression",
+        "answer_id": "MISSING:hall_PRISMARI_expression#answer-1",
+        "title": "The unforgettable expression"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_TEMUR_survival_attunement",
+        "answer_id": "MISSING:hall_TEMUR_survival_attunement#answer-4",
+        "title": "Guard the living whole"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_PRISMARI_expression",
+      "hall:hall_TEMUR_survival_attunement"
+    ],
+    "final_primary": "PRISMARI",
+    "rank_two": "R",
+    "rank_three": "GLINT",
+    "softmax_share_displayed_as_confidence": 0.461,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 3,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Prismari College recognizes the shape of your game as The Elemental Expressionist. Your answers repeatedly expressed felt ignition and transformative cost. Red stayed near the reading, but Prismari College was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "R",
+        "share": 0.056,
+        "reason": "Red stayed close through personal threshold, felt ignition."
+      },
+      {
+        "identity": "GLINT",
+        "share": 0.044,
+        "reason": "Glint / Chaos stayed close through personal threshold, bounded action, transformative cost."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Prismari Artistry (Precon)",
+      "Galazeth Prismari",
+      "Rootha, Mercurial Artist"
+    ],
+    "acceptable_result_set": [
+      "PRISMARI"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "QUANDRIX",
+    "defining_evidence": [
+      "pattern",
+      "proof",
+      "mathematics",
+      "abstraction",
+      "equation",
+      "structure",
+      "model",
+      "precision",
+      "theory",
+      "fractal"
+    ],
+    "closest_competitor": "U",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor U; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_common_root",
+        "title": "The common root"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_answerable_motion",
+        "title": "Answerable motion"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_measured_trace",
+        "title": "The measured trace"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_transform",
+        "title": "Become the changed thing"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_QUANDRIX_pattern",
+        "answer_id": "MISSING:hall_QUANDRIX_pattern#answer-1",
+        "title": "The underlying pattern"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_SULTAI_resource_conversion",
+        "answer_id": "MISSING:hall_SULTAI_resource_conversion#answer-4",
+        "title": "Turn risk into performance"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_QUANDRIX_pattern",
+      "hall:hall_SULTAI_resource_conversion"
+    ],
+    "final_primary": "QUANDRIX",
+    "rank_two": "U",
+    "rank_three": "UG",
+    "softmax_share_displayed_as_confidence": 0.525,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 3,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Quandrix College recognizes the shape of your game as The Pattern Theorist. Your answers repeatedly expressed measured inference and transformative cost. Blue stayed near the reading, but Quandrix College was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "U",
+        "share": 0.054,
+        "reason": "Blue stayed close through bounded action, measured inference, transformative cost."
+      },
+      {
+        "identity": "UG",
+        "share": 0.048,
+        "reason": "Simic Combine stayed close through bounded action, measured inference, transformative cost."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Quandrix Unlimited (Precon)",
+      "Tanazir Quandrix",
+      "Adrix and Nev, Twincasters"
+    ],
+    "acceptable_result_set": [
+      "QUANDRIX"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "R",
+    "defining_evidence": [
+      "freedom",
+      "emotion",
+      "action",
+      "passion",
+      "impulse",
+      "experience",
+      "speed"
+    ],
+    "closest_competitor": "WR",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor WR; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_self_claim",
+        "title": "The claim no one can make for me"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_silent_axis",
+        "title": "A silent axis"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_live_spark",
+        "title": "The live spark"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_preserve",
+        "title": "Preserve what must not break"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_R_ignition",
+        "answer_id": "MISSING:hall_R_ignition#answer-1",
+        "title": "Move with the spark"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_R_freedom",
+        "answer_id": "MISSING:hall_R_freedom#answer-1",
+        "title": "Take the direct line"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_R_ignition",
+      "hall:hall_R_freedom"
+    ],
+    "final_primary": "R",
+    "rank_two": "WR",
+    "rank_three": "LOREHOLD",
+    "softmax_share_displayed_as_confidence": 0.862,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 5,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Red recognizes the shape of your game as The Ignition Heart. Your answers repeatedly expressed preserving duty and emotion into action. Boros Legion stayed near the reading, but Red was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "WR",
+        "share": 0.028,
+        "reason": "Boros Legion stayed close through preserving duty, emotion into action, direct action."
+      },
+      {
+        "identity": "LOREHOLD",
+        "share": 0.016,
+        "reason": "Lorehold College stayed close through self-authored agency, felt ignition, preserving duty."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Torbran, Thane of Red Fell",
+      "Krenko, Mob Boss",
+      "Magda, Brazen Outlaw"
+    ],
+    "acceptable_result_set": [
+      "R"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "RG",
+    "defining_evidence": [
+      "loss",
+      "taken",
+      "dispossessed",
+      "wild",
+      "wilderness",
+      "civilization",
+      "institution",
+      "clan",
+      "survival",
+      "grievance",
+      "ruin",
+      "direct"
+    ],
+    "closest_competitor": "QUANDRIX",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor QUANDRIX; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_common_root",
+        "title": "The common root"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_wild_release",
+        "title": "A wild release"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_live_spark",
+        "title": "The live spark"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_transform",
+        "title": "Become the changed thing"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_RG_wild",
+        "answer_id": "MISSING:hall_RG_wild#answer-1",
+        "title": "Stop asking permission"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_G_growth",
+        "answer_id": "MISSING:hall_G_growth#answer-5",
+        "title": "Break the fence"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_RG_wild",
+      "hall:hall_G_growth"
+    ],
+    "final_primary": "RG",
+    "rank_two": "QUANDRIX",
+    "rank_three": "UG",
+    "softmax_share_displayed_as_confidence": 0.72,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 5,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Gruul Clans recognizes the shape of your game as The Primal Liberator. Your answers repeatedly expressed transformative cost and undomesticated grievance. Quandrix College stayed near the reading, but Gruul Clans was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "QUANDRIX",
+        "share": 0.034,
+        "reason": "Quandrix College stayed close through communal continuity, adaptive release, transformative cost."
+      },
+      {
+        "identity": "UG",
+        "share": 0.034,
+        "reason": "Simic Combine stayed close through communal continuity, adaptive release, transformative cost."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Borborygmos Enraged",
+      "Ruric Thar, the Unbowed",
+      "Nikya of the Old Ways"
+    ],
+    "acceptable_result_set": [
+      "RG"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "SILVERQUILL",
+    "defining_evidence": [
+      "rhetoric",
+      "words",
+      "influence",
+      "reputation",
+      "eloquence",
+      "public",
+      "voice",
+      "persuasion",
+      "critique",
+      "status"
+    ],
+    "closest_competitor": "B",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor B; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_self_claim",
+        "title": "The claim no one can make for me"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_form",
+        "title": "A form that can hold"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_cold_pattern",
+        "title": "The cold pattern"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_preserve",
+        "title": "Preserve what must not break"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_SILVERQUILL_words",
+        "answer_id": "MISSING:hall_SILVERQUILL_words#answer-1",
+        "title": "Say the line that changes the room"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_ESPER_perfectibility",
+        "answer_id": "MISSING:hall_ESPER_perfectibility#answer-4",
+        "title": "Protect the living whole"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_SILVERQUILL_words",
+      "hall:hall_ESPER_perfectibility"
+    ],
+    "final_primary": "SILVERQUILL",
+    "rank_two": "B",
+    "rank_three": "YORE",
+    "softmax_share_displayed_as_confidence": 0.397,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 3,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Silverquill College recognizes the shape of your game as The Rhetorical Status Shaper. Your answers repeatedly expressed calculated implication and preserving duty. Black stayed near the reading, but Silverquill College was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "B",
+        "share": 0.09,
+        "reason": "Black stayed close through self-authored agency, calculated implication, preserving duty."
+      },
+      {
+        "identity": "YORE",
+        "share": 0.076,
+        "reason": "Yore / Artifice stayed close through ordered containment, calculated implication, preserving duty."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Silverquill Influence (Precon)"
+    ],
+    "acceptable_result_set": [
+      "SILVERQUILL"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "SULTAI",
+    "defining_evidence": [
+      "Sultai Brood",
+      "Tarkir",
+      "BGU",
+      "Black-centered",
+      "ruthlessness",
+      "resource conversion",
+      "necromancy",
+      "sibsig",
+      "rakshasa pacts",
+      "Queen Sidisi",
+      "Silumgar boundary",
+      "Modern Dragonstorm Sultai"
+    ],
+    "closest_competitor": "UB",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor UB; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_braided_witness",
+        "title": "A braided witness"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_answerable_motion",
+        "title": "Answerable motion"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_cold_pattern",
+        "title": "The cold pattern"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_transform",
+        "title": "Become the changed thing"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_SULTAI_resource_conversion",
+        "answer_id": "MISSING:hall_SULTAI_resource_conversion#answer-1",
+        "title": "Use what others waste"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_SULTAI_dead_usefulness",
+        "answer_id": "MISSING:hall_SULTAI_dead_usefulness#answer-1",
+        "title": "Make the dead useful"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_SULTAI_resource_conversion",
+      "hall:hall_SULTAI_dead_usefulness"
+    ],
+    "final_primary": "SULTAI",
+    "rank_two": "UB",
+    "rank_three": "BG",
+    "softmax_share_displayed_as_confidence": 0.782,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 4,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Sultai Brood recognizes the shape of your game as The Ruthless Resource Converter. Your answers repeatedly expressed transformative cost and ruthless resource conversion. House Dimir stayed near the reading, but Sultai Brood was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "UB",
+        "share": 0.033,
+        "reason": "House Dimir stayed close through bounded action, calculated implication, transformative cost."
+      },
+      {
+        "identity": "BG",
+        "share": 0.024,
+        "reason": "Golgari Swarm stayed close through transformative cost, ruthless resource conversion, death converted into power."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Sultai Arisen (Precon)",
+      "Sidisi, Brood Tyrant",
+      "Muldrotha, the Gravetide"
+    ],
+    "acceptable_result_set": [
+      "SULTAI"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "BANT",
+      "BR",
+      "COLORLESS",
+      "DUNE"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "TEMUR",
+    "defining_evidence": [
+      "Temur Frontier",
+      "Tarkir",
+      "GUR",
+      "Green-centered",
+      "savagery",
+      "instinct",
+      "mental fortitude",
+      "Qal Sisma",
+      "whisperers",
+      "Wide Whisper",
+      "frozen ancestors",
+      "elemental memory",
+      "Endless Song"
+    ],
+    "closest_competitor": "RG",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor RG; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_common_root",
+        "title": "The common root"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_wild_release",
+        "title": "A wild release"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_live_spark",
+        "title": "The live spark"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_transform",
+        "title": "Become the changed thing"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_TEMUR_survival_attunement",
+        "answer_id": "MISSING:hall_TEMUR_survival_attunement#answer-1",
+        "title": "Listen, then move"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_TEMUR_elemental_memory",
+        "answer_id": "MISSING:hall_TEMUR_elemental_memory#answer-1",
+        "title": "Follow the living memory"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_TEMUR_survival_attunement",
+      "hall:hall_TEMUR_elemental_memory"
+    ],
+    "final_primary": "TEMUR",
+    "rank_two": "RG",
+    "rank_three": "G",
+    "softmax_share_displayed_as_confidence": 0.799,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 6,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Temur Frontier recognizes the shape of your game as The Elemental Survivor. Your answers repeatedly expressed transformative cost and attuned instinct before force. Gruul Clans stayed near the reading, but Temur Frontier was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "RG",
+        "share": 0.038,
+        "reason": "Gruul Clans stayed close through adaptive release, felt ignition, transformative cost."
+      },
+      {
+        "identity": "G",
+        "share": 0.035,
+        "reason": "Green stayed close through adaptive release, transformative cost, attuned instinct before force."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Temur Roar (Precon)",
+      "Surrak Dragonclaw",
+      "Animar, Soul of Elements"
+    ],
+    "acceptable_result_set": [
+      "TEMUR"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "U",
+    "defining_evidence": [
+      "knowledge",
+      "learning",
+      "tools",
+      "improvement",
+      "optimization",
+      "control",
+      "deliberation"
+    ],
+    "closest_competitor": "UB",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor UB; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_outside_measure",
+        "title": "The measure outside the map"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_form",
+        "title": "A form that can hold"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_measured_trace",
+        "title": "The measured trace"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_transform",
+        "title": "Become the changed thing"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_U_understanding",
+        "answer_id": "MISSING:hall_U_understanding#answer-1",
+        "title": "Map the variables"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_U_possibility",
+        "answer_id": "MISSING:hall_U_possibility#answer-1",
+        "title": "Improve the model"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_U_understanding",
+      "hall:hall_U_possibility"
+    ],
+    "final_primary": "U",
+    "rank_two": "UB",
+    "rank_three": "WU",
+    "softmax_share_displayed_as_confidence": 0.894,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 4,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Blue recognizes the shape of your game as The Possibility Architect. Your answers repeatedly expressed transformative cost and act after understanding. House Dimir stayed near the reading, but Blue was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "UB",
+        "share": 0.011,
+        "reason": "House Dimir stayed close through measured inference, transformative cost, act after understanding."
+      },
+      {
+        "identity": "WU",
+        "share": 0.009,
+        "reason": "Azorius Senate stayed close through measured inference, act after understanding, optimization through knowledge."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Talrand, Sky Summoner",
+      "Azami, Lady of Scrolls",
+      "Minn, Wily Illusionist"
+    ],
+    "acceptable_result_set": [
+      "U"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "UB",
+    "defining_evidence": [
+      "secrecy",
+      "information",
+      "hidden",
+      "surveillance",
+      "discretion",
+      "unseen",
+      "memory",
+      "privacy",
+      "knowledge",
+      "infiltration"
+    ],
+    "closest_competitor": "B",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor B; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_self_claim",
+        "title": "The claim no one can make for me"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_form",
+        "title": "A form that can hold"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_cold_pattern",
+        "title": "The cold pattern"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_transform",
+        "title": "Become the changed thing"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_UB_information",
+        "answer_id": "MISSING:hall_UB_information#answer-1",
+        "title": "Hold it until timing matters"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_U_understanding",
+        "answer_id": "MISSING:hall_U_understanding#answer-3",
+        "title": "Keep the secret"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_UB_information",
+      "hall:hall_U_understanding"
+    ],
+    "final_primary": "UB",
+    "rank_two": "B",
+    "rank_three": "U",
+    "softmax_share_displayed_as_confidence": 0.884,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 6,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "House Dimir recognizes the shape of your game as The Hidden Information Operator. Your answers repeatedly expressed transformative cost and strategic secrecy. Black stayed near the reading, but House Dimir was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "B",
+        "share": 0.022,
+        "reason": "Black stayed close through self-authored agency, calculated implication."
+      },
+      {
+        "identity": "U",
+        "share": 0.014,
+        "reason": "Blue stayed close through ordered containment, calculated implication, transformative cost."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Lazav, Dimir Mastermind",
+      "Etrata, the Silencer"
+    ],
+    "acceptable_result_set": [
+      "UB"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "UG",
+    "defining_evidence": [
+      "adaptation",
+      "improvement",
+      "biology",
+      "evolve",
+      "specimen",
+      "mutation",
+      "progress",
+      "organism",
+      "experiment",
+      "biomancy"
+    ],
+    "closest_competitor": "BANT",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor BANT; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_common_root",
+        "title": "The common root"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_answerable_motion",
+        "title": "Answerable motion"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_measured_trace",
+        "title": "The measured trace"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_transform",
+        "title": "Become the changed thing"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_UG_adaptation",
+        "answer_id": "MISSING:hall_UG_adaptation#answer-1",
+        "title": "Adapt the organism"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_U_understanding",
+        "answer_id": "MISSING:hall_U_understanding#answer-4",
+        "title": "Run the experiment"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_UG_adaptation",
+      "hall:hall_U_understanding"
+    ],
+    "final_primary": "UG",
+    "rank_two": "BANT",
+    "rank_three": "G",
+    "softmax_share_displayed_as_confidence": 0.323,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 3,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Simic Combine recognizes the shape of your game as The Adaptive Biodesigner. Your answers repeatedly expressed measured inference and transformative cost. Bant stayed near the reading, but Simic Combine was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "BANT",
+        "share": 0.072,
+        "reason": "Bant stayed close through bounded action, measured inference, transformative cost."
+      },
+      {
+        "identity": "G",
+        "share": 0.064,
+        "reason": "Green stayed close through communal continuity, measured inference, transformative cost."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Prime Speaker Zegana",
+      "Zegana, Utopian Speaker",
+      "Momir Vig, Simic Visionary"
+    ],
+    "acceptable_result_set": [
+      "UG"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "UR",
+    "defining_evidence": [
+      "experiment",
+      "invention",
+      "prototype",
+      "mechanism",
+      "lightning",
+      "science",
+      "build",
+      "discovery",
+      "question",
+      "engineering",
+      "chaotic"
+    ],
+    "closest_competitor": "GLINT",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor GLINT; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_personal_threshold",
+        "title": "The threshold in the self"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_answerable_motion",
+        "title": "Answerable motion"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_live_spark",
+        "title": "The live spark"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_transform",
+        "title": "Become the changed thing"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_UR_experiment",
+        "answer_id": "MISSING:hall_UR_experiment#answer-1",
+        "title": "The mechanism"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_R_ignition",
+        "answer_id": "MISSING:hall_R_ignition#answer-3",
+        "title": "Make it a test"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_UR_experiment",
+      "hall:hall_R_ignition"
+    ],
+    "final_primary": "UR",
+    "rank_two": "GLINT",
+    "rank_three": "U",
+    "softmax_share_displayed_as_confidence": 0.756,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 4,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Izzet League recognizes the shape of your game as The Experimental Spark. Your answers repeatedly expressed transformative cost and mechanistic experiment. Glint / Chaos stayed near the reading, but Izzet League was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "GLINT",
+        "share": 0.027,
+        "reason": "Glint / Chaos stayed close through personal threshold, bounded action, transformative cost."
+      },
+      {
+        "identity": "U",
+        "share": 0.024,
+        "reason": "Blue stayed close through personal threshold, bounded action, transformative cost."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Niv-Mizzet, Parun",
+      "Melek, Izzet Paragon",
+      "Niv-Mizzet, Dracogenius"
+    ],
+    "acceptable_result_set": [
+      "UR"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "W",
+    "defining_evidence": [
+      "group needs",
+      "shared rules",
+      "duty",
+      "peace",
+      "protection",
+      "law",
+      "community"
+    ],
+    "closest_competitor": "WR",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor WR; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_outside_measure",
+        "title": "The measure outside the map"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_answerable_motion",
+        "title": "Answerable motion"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_unlit_edge",
+        "title": "The unlit edge"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_preserve",
+        "title": "Preserve what must not break"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_W_shelter",
+        "answer_id": "MISSING:hall_W_shelter#answer-1",
+        "title": "Build the shelter"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_W_duty",
+        "answer_id": "MISSING:hall_W_duty#answer-1",
+        "title": "Strengthen what protects"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_W_shelter",
+      "hall:hall_W_duty"
+    ],
+    "final_primary": "W",
+    "rank_two": "WR",
+    "rank_three": "WU",
+    "softmax_share_displayed_as_confidence": 0.76,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 3,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "White recognizes the shape of your game as The Shelter Architect. Your answers repeatedly expressed preserving duty and shelter through structure. Boros Legion stayed near the reading, but White was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "WR",
+        "share": 0.02,
+        "reason": "Boros Legion stayed close through preserving duty, shelter through structure, duty to maintain shelter."
+      },
+      {
+        "identity": "WU",
+        "share": 0.019,
+        "reason": "Azorius Senate stayed close through preserving duty, shelter through structure, duty to maintain shelter."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Giada, Font of Hope",
+      "Adeline, Resplendent Cathar",
+      "Balan, Wandering Knight"
+    ],
+    "acceptable_result_set": [
+      "W"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "WB",
+    "defining_evidence": [
+      "debt",
+      "obligation",
+      "contract",
+      "prestige",
+      "tithe",
+      "leverage",
+      "legacy",
+      "hierarchy",
+      "payment",
+      "guilt"
+    ],
+    "closest_competitor": "YORE",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor YORE; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_self_claim",
+        "title": "The claim no one can make for me"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_form",
+        "title": "A form that can hold"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_cold_pattern",
+        "title": "The cold pattern"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_preserve",
+        "title": "Preserve what must not break"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_WB_obligation",
+        "answer_id": "MISSING:hall_WB_obligation#answer-1",
+        "title": "A debt that outlasts apology"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_B_cost",
+        "answer_id": "MISSING:hall_B_cost#answer-3",
+        "title": "Make it a debt"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_WB_obligation",
+      "hall:hall_B_cost"
+    ],
+    "final_primary": "WB",
+    "rank_two": "YORE",
+    "rank_three": "B",
+    "softmax_share_displayed_as_confidence": 0.703,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 4,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Orzhov Syndicate recognizes the shape of your game as The Obligation Architect. Your answers repeatedly expressed preserving duty and debt as relationship. Yore / Artifice stayed near the reading, but Orzhov Syndicate was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "YORE",
+        "share": 0.049,
+        "reason": "Yore / Artifice stayed close through ordered containment, calculated implication, preserving duty."
+      },
+      {
+        "identity": "B",
+        "share": 0.029,
+        "reason": "Black stayed close through self-authored agency, calculated implication, preserving duty."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Teysa Karlov",
+      "Teysa, Orzhov Scion",
+      "Obzedat, Ghost Council"
+    ],
+    "acceptable_result_set": [
+      "WB"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "WG",
+    "defining_evidence": [
+      "belonging",
+      "harmony",
+      "community",
+      "consensus",
+      "peace",
+      "collective",
+      "nurture",
+      "group",
+      "selflessness",
+      "worldmind"
+    ],
+    "closest_competitor": "INK",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor INK; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_common_root",
+        "title": "The common root"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_many_currents",
+        "title": "Many currents, one course"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_whole_chord",
+        "title": "The whole chord"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_steward",
+        "title": "Steward the change"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_WG_belonging",
+        "answer_id": "MISSING:hall_WG_belonging#answer-1",
+        "title": "Belonging that softens the self"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_NAYA_living_whole",
+        "answer_id": "MISSING:hall_NAYA_living_whole#answer-2",
+        "title": "Stand with the circle"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_WG_belonging",
+      "hall:hall_NAYA_living_whole"
+    ],
+    "final_primary": "WG",
+    "rank_two": "INK",
+    "rank_three": "JESKAI",
+    "softmax_share_displayed_as_confidence": 0.428,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 3,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Selesnya Conclave recognizes the shape of your game as The Communal Harmonizer. Your answers repeatedly expressed careful stewardship and shared self. Ink / Altruism stayed near the reading, but Selesnya Conclave was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "INK",
+        "share": 0.05,
+        "reason": "Ink / Altruism stayed close through balanced convergence, balanced chord, careful stewardship."
+      },
+      {
+        "identity": "JESKAI",
+        "share": 0.047,
+        "reason": "Jeskai Way stayed close through balanced convergence, balanced chord, careful stewardship."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Trostani, Selesnya's Voice",
+      "Emmara, Soul of the Accord",
+      "Trostani Discordant"
+    ],
+    "acceptable_result_set": [
+      "WG"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "WITCH",
+    "defining_evidence": [
+      "cultivate",
+      "accumulate",
+      "patient",
+      "inevitable",
+      "compound",
+      "protect",
+      "structure",
+      "long-term",
+      "scale",
+      "deliberate",
+      "systematic"
+    ],
+    "closest_competitor": "QUANDRIX",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor QUANDRIX; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_common_root",
+        "title": "The common root"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_answerable_motion",
+        "title": "Answerable motion"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_cold_pattern",
+        "title": "The cold pattern"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_whole_covenant",
+        "title": "Keep the whole covenant"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_WITCH_patient_cultivation",
+        "answer_id": "MISSING:hall_WITCH_patient_cultivation#answer-1",
+        "title": "Let the roots keep the ledger"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_WITCH_missing_red",
+        "answer_id": "MISSING:hall_WITCH_missing_red#answer-1",
+        "title": "Keep the spark out of command"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_WITCH_patient_cultivation",
+      "hall:hall_WITCH_missing_red"
+    ],
+    "final_primary": "WITCH",
+    "rank_two": "QUANDRIX",
+    "rank_three": "UG",
+    "softmax_share_displayed_as_confidence": 0.738,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 4,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Witch / Growth recognizes the shape of your game as The Patient Cultivation Schemer. Your answers repeatedly expressed integrated covenant and patient cultivation protected by structure. Quandrix College stayed near the reading, but Witch / Growth was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "QUANDRIX",
+        "share": 0.03,
+        "reason": "Quandrix College stayed close through bounded action, calculated implication, integrated covenant."
+      },
+      {
+        "identity": "UG",
+        "share": 0.03,
+        "reason": "Simic Combine stayed close through bounded action, calculated implication, integrated covenant."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Atraxa, Praetors' Voice",
+      "Breed Lethality (Precon)"
+    ],
+    "acceptable_result_set": [
+      "WITCH"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "WITHERBLOOM",
+    "defining_evidence": [
+      "essence",
+      "life",
+      "death",
+      "pest",
+      "craft",
+      "brew",
+      "swamp",
+      "study",
+      "body",
+      "drain",
+      "growth"
+    ],
+    "closest_competitor": "GLINT",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor GLINT; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_self_claim",
+        "title": "The claim no one can make for me"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_wild_release",
+        "title": "A wild release"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_cold_pattern",
+        "title": "The cold pattern"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_whole_covenant",
+        "title": "Keep the whole covenant"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_WITHERBLOOM_essence",
+        "answer_id": "MISSING:hall_WITHERBLOOM_essence#answer-1",
+        "title": "The life-death exchange"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_B_cost",
+        "answer_id": "MISSING:hall_B_cost#answer-3",
+        "title": "Make it a debt"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_WITHERBLOOM_essence",
+      "hall:hall_B_cost"
+    ],
+    "final_primary": "WITHERBLOOM",
+    "rank_two": "GLINT",
+    "rank_three": "B",
+    "softmax_share_displayed_as_confidence": 0.379,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 3,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Witherbloom College recognizes the shape of your game as The Vitality Ecologist. Your answers repeatedly expressed calculated implication and integrated covenant. Glint / Chaos stayed near the reading, but Witherbloom College was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "GLINT",
+        "share": 0.075,
+        "reason": "Glint / Chaos stayed close through adaptive release, calculated implication, integrated covenant."
+      },
+      {
+        "identity": "B",
+        "share": 0.071,
+        "reason": "Black stayed close through adaptive release, calculated implication, integrated covenant."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Witherbloom Pestilence (Precon)"
+    ],
+    "acceptable_result_set": [
+      "WITHERBLOOM"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "WR",
+    "defining_evidence": [
+      "protect",
+      "protection",
+      "intervene",
+      "immediate",
+      "action",
+      "teammate",
+      "duty",
+      "justice",
+      "accountable",
+      "defend"
+    ],
+    "closest_competitor": "W",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor W; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_common_root",
+        "title": "The common root"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_form",
+        "title": "A form that can hold"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_live_spark",
+        "title": "The live spark"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_preserve",
+        "title": "Preserve what must not break"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_WR_protection",
+        "answer_id": "MISSING:hall_WR_protection#answer-1",
+        "title": "Move now"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_JESKAI_disciplined_cunning",
+        "answer_id": "MISSING:hall_JESKAI_disciplined_cunning#answer-4",
+        "title": "Wait for the living signal"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_WR_protection",
+      "hall:hall_JESKAI_disciplined_cunning"
+    ],
+    "final_primary": "WR",
+    "rank_two": "W",
+    "rank_three": "INK",
+    "softmax_share_displayed_as_confidence": 0.51,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 4,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Boros Legion recognizes the shape of your game as The Protective Intervener. Your answers repeatedly expressed felt ignition and preserving duty. White stayed near the reading, but Boros Legion was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "W",
+        "share": 0.14,
+        "reason": "White stayed close through ordered containment, felt ignition, preserving duty."
+      },
+      {
+        "identity": "INK",
+        "share": 0.059,
+        "reason": "Ink / Altruism stayed close through ordered containment, felt ignition, preserving duty."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Aurelia, the Warleader",
+      "Tajic, Legion's Edge",
+      "Feather, the Redeemed"
+    ],
+    "acceptable_result_set": [
+      "WR"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "WU",
+    "defining_evidence": [
+      "procedure",
+      "law",
+      "rules",
+      "precedent",
+      "protocol",
+      "proper channel",
+      "documentation",
+      "enforceable",
+      "institutional restraint",
+      "fairness through process"
+    ],
+    "closest_competitor": "W",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor W; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_common_root",
+        "title": "The common root"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_form",
+        "title": "A form that can hold"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_whole_chord",
+        "title": "The whole chord"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_steward",
+        "title": "Steward the change"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_WU_process",
+        "answer_id": "MISSING:hall_WU_process#answer-1",
+        "title": "Follow the process"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_JESKAI_disciplined_cunning",
+        "answer_id": "MISSING:hall_JESKAI_disciplined_cunning#answer-3",
+        "title": "Convert the hidden leverage"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_WU_process",
+      "hall:hall_JESKAI_disciplined_cunning"
+    ],
+    "final_primary": "WU",
+    "rank_two": "W",
+    "rank_three": "INK",
+    "softmax_share_displayed_as_confidence": 0.583,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 3,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Azorius Senate recognizes the shape of your game as The Institutional Stabilizer. Your answers repeatedly expressed balanced chord and careful stewardship. White stayed near the reading, but Azorius Senate was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "W",
+        "share": 0.074,
+        "reason": "White stayed close through ordered containment, balanced chord, careful stewardship."
+      },
+      {
+        "identity": "INK",
+        "share": 0.042,
+        "reason": "Ink / Altruism stayed close through ordered containment, balanced chord, careful stewardship."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Isperia, Supreme Judge",
+      "Lavinia, Azorius Renegade",
+      "Grand Arbiter Augustin IV"
+    ],
+    "acceptable_result_set": [
+      "WU"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "B",
+      "BANT",
+      "BG",
+      "BR"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "WUBRG",
+    "defining_evidence": [
+      "all five colors present",
+      "full-spectrum integration",
+      "coalition or synthesis",
+      "Commander color identity precision",
+      "breadth with tradeoffs"
+    ],
+    "closest_competitor": "WB",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor WB; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_braided_witness",
+        "title": "A braided witness"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_many_currents",
+        "title": "Many currents, one course"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_whole_chord",
+        "title": "The whole chord"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_whole_covenant",
+        "title": "Keep the whole covenant"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_WUBRG_full_spectrum",
+        "answer_id": "MISSING:hall_WUBRG_full_spectrum#answer-1",
+        "title": "Every color has a job"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_BG_reclamation",
+        "answer_id": "MISSING:hall_BG_reclamation#answer-4",
+        "title": "Make the debt visible"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_WUBRG_full_spectrum",
+      "hall:hall_BG_reclamation"
+    ],
+    "final_primary": "WUBRG",
+    "rank_two": "WB",
+    "rank_three": "BR",
+    "softmax_share_displayed_as_confidence": 0.926,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 5,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Five-Color / WUBRG recognizes the shape of your game as The Full-Spectrum Integrator. Your answers repeatedly expressed balanced chord and integrated covenant. Orzhov Syndicate stayed near the reading, but Five-Color / WUBRG was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "WB",
+        "share": 0.007,
+        "reason": "Orzhov Syndicate stayed close through balanced chord, integrated covenant, owed restitution."
+      },
+      {
+        "identity": "BR",
+        "share": 0.003,
+        "reason": "Cult of Rakdos stayed close through balanced convergence, balanced chord, integrated covenant."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Eldrazi Incursion (Precon)",
+      "Draconic Domination (Precon)",
+      "Sliver Swarm (Precon)"
+    ],
+    "acceptable_result_set": [
+      "WUBRG"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "BANT",
+      "BG",
+      "COLORLESS",
+      "DUNE"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  },
+  {
+    "expected_identity": "YORE",
+    "defining_evidence": [
+      "engineered",
+      "agency",
+      "artifice",
+      "technology",
+      "civilization",
+      "progress",
+      "natural limits",
+      "four-color",
+      "without Green",
+      "missing-Green",
+      "White structure",
+      "Blue optimization",
+      "Black refusal",
+      "Red heat",
+      "resource conversion",
+      "constructed continuity"
+    ],
+    "closest_competitor": "SILVERQUILL",
+    "mixed_or_uncertain_element": "Nearest current numeric competitor SILVERQUILL; no explicit mixed/unknown response state exists.",
+    "exact_available_answers_selected": [
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_locus_of_trust",
+        "answer_id": "gate_v2_trust_self_claim",
+        "title": "The claim no one can make for me"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_pressure_becomes",
+        "answer_id": "gate_v2_pressure_form",
+        "title": "A form that can hold"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_first_signal",
+        "answer_id": "gate_v2_signal_whole_chord",
+        "title": "The whole chord"
+      },
+      {
+        "stage": "gate",
+        "question_id": "gate_v2_cost_of_oath",
+        "answer_id": "gate_v2_oath_preserve",
+        "title": "Preserve what must not break"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_YORE_engineered_agency",
+        "answer_id": "MISSING:hall_YORE_engineered_agency#answer-1",
+        "title": "Build the agency machine"
+      },
+      {
+        "stage": "hall",
+        "question_id": "hall_YORE_artifice_boundary",
+        "answer_id": "MISSING:hall_YORE_artifice_boundary#answer-1",
+        "title": "The machine refuses surrender"
+      }
+    ],
+    "branch_path_reached": [
+      "gate:gate_v2_locus_of_trust",
+      "gate:gate_v2_pressure_becomes",
+      "gate:gate_v2_first_signal",
+      "gate:gate_v2_cost_of_oath",
+      "hall:hall_YORE_engineered_agency",
+      "hall:hall_YORE_artifice_boundary"
+    ],
+    "final_primary": "YORE",
+    "rank_two": "SILVERQUILL",
+    "rank_three": "WB",
+    "softmax_share_displayed_as_confidence": 0.791,
+    "direct_positive_evidence_present": true,
+    "minimum_hit_metadata_satisfied_by_strong_authored_hit_proxy": true,
+    "strong_authored_hit_count": 4,
+    "false_positive_guardrail_metadata_satisfied": "UNRESOLVED: guardrail is free text and has no executable predicate",
+    "explanation_result": "Yore / Artifice recognizes the shape of your game as The Engineered Agency Architect. Your answers repeatedly expressed preserving duty and engineered agency against finality. Silverquill College stayed near the reading, but Yore / Artifice was the stronger match. This is a Vox Mana interpretive placement for a commander start, not an objective diagnosis or official canon.",
+    "adjacent_result": [
+      {
+        "identity": "SILVERQUILL",
+        "share": 0.019,
+        "reason": "Silverquill College stayed close through ordered containment, balanced chord, preserving duty."
+      },
+      {
+        "identity": "WB",
+        "share": 0.019,
+        "reason": "Orzhov Syndicate stayed close through ordered containment, balanced chord, preserving duty."
+      }
+    ],
+    "commander_recommendation_result": [
+      "Breya, Etherium Shaper",
+      "Invent Superiority (Precon)"
+    ],
+    "acceptable_result_set": [
+      "YORE"
+    ],
+    "unacceptable_false_positives": [
+      "ABZAN",
+      "BANT",
+      "BG",
+      "BR",
+      "COLORLESS"
+    ],
+    "final_disposition": "EXACT-PRIMARY",
+    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+  }
+]

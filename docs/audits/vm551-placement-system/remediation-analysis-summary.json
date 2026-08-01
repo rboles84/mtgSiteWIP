@@ -1,0 +1,143 @@
+{
+  "authority": {
+    "repository": "C:\\dev\\Commander_Questions_Corpus",
+    "commit": "947bf45bf6a191839b5fb4fa6c65980ed9d5737e",
+    "path": "docs/standards/cecos/CECOS-v1.0.0-draft.4.md",
+    "sha256": "dd3c266771f7724589a5d7bd881143a8c0a7372218cd167fccf5f8173da738f3",
+    "verification": "PASS"
+  },
+  "preserved_counts": {
+    "identities": 37,
+    "questions": 113,
+    "answers": 356,
+    "terminal_paths": 26891,
+    "exact_top_ties": 333
+  },
+  "question_dispositions": {
+    "question_total": 113,
+    "answer_total": 356,
+    "by_question_disposition": {
+      "KEEP": 0,
+      "KEEP-BUT-REWORD": 1,
+      "RETUNE": 40,
+      "REPLACE": 69,
+      "REMOVE": 0,
+      "NEEDS-EVIDENCE": 3,
+      "UNCLEAR-AUTHORITY": 0
+    },
+    "by_answer_disposition": {
+      "KEEP": 0,
+      "KEEP-BUT-REWORD": 64,
+      "RETUNE": 41,
+      "REPLACE": 20,
+      "REMOVE": 0,
+      "NEEDS-EVIDENCE": 231,
+      "UNCLEAR-AUTHORITY": 0
+    },
+    "by_phase": {
+      "gate": {
+        "questions": 4,
+        "answers": 20,
+        "dispositions": {
+          "KEEP": 0,
+          "KEEP-BUT-REWORD": 0,
+          "RETUNE": 0,
+          "REPLACE": 4,
+          "REMOVE": 0,
+          "NEEDS-EVIDENCE": 0,
+          "UNCLEAR-AUTHORITY": 0
+        }
+      },
+      "hall": {
+        "questions": 58,
+        "answers": 234,
+        "dispositions": {
+          "KEEP": 0,
+          "KEEP-BUT-REWORD": 0,
+          "RETUNE": 22,
+          "REPLACE": 36,
+          "REMOVE": 0,
+          "NEEDS-EVIDENCE": 0,
+          "UNCLEAR-AUTHORITY": 0
+        }
+      },
+      "crucible": {
+        "questions": 51,
+        "answers": 102,
+        "dispositions": {
+          "KEEP": 0,
+          "KEEP-BUT-REWORD": 1,
+          "RETUNE": 18,
+          "REPLACE": 29,
+          "REMOVE": 0,
+          "NEEDS-EVIDENCE": 3,
+          "UNCLEAR-AUTHORITY": 0
+        }
+      }
+    },
+    "major_risk_counts": {
+      "high_abstraction_questions": 67,
+      "low_commander_relevance_questions": 45,
+      "double_barreled_questions": 73,
+      "lore_dependent_questions": 12,
+      "mood_dependent_questions": 69,
+      "questions_without_uncertainty_state": 113,
+      "answers_missing_stable_id": 336,
+      "answers_without_evidence_authority": 356
+    },
+    "method_limit": "Deterministic documentation audit based on committed wording/effects. Dispositions are implementation-planning inputs, not independently reviewed player-response validity findings."
+  },
+  "identity_distinctiveness": {
+    "rows": 37,
+    "dispositions": {
+      "MECHANICALLY-DISTINGUISHABLE-BUT-UNVALIDATED": 26,
+      "HIGH-CONFUSION-RISK": 4,
+      "INSUFFICIENT-DISTINCTIVENESS-EVIDENCE": 7
+    }
+  },
+  "scenarios": {
+    "profiles": 37,
+    "profile_dispositions": {
+      "EXACT-PRIMARY": 37
+    },
+    "adversarial": 9,
+    "adversarial_dispositions": {
+      "QUESTIONNAIRE-CANNOT-REPRESENT": 9
+    }
+  },
+  "sensitivity": {
+    "matched_one_answer_terminal_pairs": 44005,
+    "primary_flips": 14424,
+    "normalized_primary_flip_sensitivity": 0.327781,
+    "negative_only_winners": 0,
+    "below_strong_minimum_hit_proxy": 2901,
+    "dead_questions": 3,
+    "dead_answers": 6,
+    "repeated_construct_groups": 11
+  },
+  "remediated_defects": {
+    "total": 40,
+    "by_severity": {
+      "Critical": 3,
+      "High": 26,
+      "Medium": 10,
+      "Low": 1
+    },
+    "original_ids_preserved": 34,
+    "new_ids": 6
+  },
+  "correction": {
+    "rejected_positive_evidence_metric": "WITHDRAWN: inspected nonexistent evidence_trail entry.faction",
+    "replacement_metrics": [
+      "positive score-hit count from entry.deltas",
+      "strong authored hit count from selected answer likelihood >= 0.75",
+      "negative-only winner count requiring both counts zero"
+    ]
+  },
+  "limitations": [
+    "No empirical player-response, correctness, calibration, prevalence, or statistical-correlation dataset exists.",
+    "Question and distinctiveness dispositions are deterministic audit adjudications requiring owner and later independent review.",
+    "Free-text false-positive guardrails cannot be exhaustively counted as passed or violated without executable predicates.",
+    "Synthetic target-seeking profile success is not semantic distinctiveness or player accuracy."
+  ]
+}

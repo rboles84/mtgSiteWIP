@@ -1,0 +1,74 @@
+{
+  "question_total": 113,
+  "answer_total": 356,
+  "by_question_disposition": {
+    "KEEP": 0,
+    "KEEP-BUT-REWORD": 1,
+    "RETUNE": 40,
+    "REPLACE": 69,
+    "REMOVE": 0,
+    "NEEDS-EVIDENCE": 3,
+    "UNCLEAR-AUTHORITY": 0
+  },
+  "by_answer_disposition": {
+    "KEEP": 0,
+    "KEEP-BUT-REWORD": 64,
+    "RETUNE": 41,
+    "REPLACE": 20,
+    "REMOVE": 0,
+    "NEEDS-EVIDENCE": 231,
+    "UNCLEAR-AUTHORITY": 0
+  },
+  "by_phase": {
+    "gate": {
+      "questions": 4,
+      "answers": 20,
+      "dispositions": {
+        "KEEP": 0,
+        "KEEP-BUT-REWORD": 0,
+        "RETUNE": 0,
+        "REPLACE": 4,
+        "REMOVE": 0,
+        "NEEDS-EVIDENCE": 0,
+        "UNCLEAR-AUTHORITY": 0
+      }
+    },
+    "hall": {
+      "questions": 58,
+      "answers": 234,
+      "dispositions": {
+        "KEEP": 0,
+        "KEEP-BUT-REWORD": 0,
+        "RETUNE": 22,
+        "REPLACE": 36,
+        "REMOVE": 0,
+        "NEEDS-EVIDENCE": 0,
+        "UNCLEAR-AUTHORITY": 0
+      }
+    },
+    "crucible": {
+      "questions": 51,
+      "answers": 102,
+      "dispositions": {
+        "KEEP": 0,
+        "KEEP-BUT-REWORD": 1,
+        "RETUNE": 18,
+        "REPLACE": 29,
+        "REMOVE": 0,
+        "NEEDS-EVIDENCE": 3,
+        "UNCLEAR-AUTHORITY": 0
+      }
+    }
+  },
+  "major_risk_counts": {
+    "high_abstraction_questions": 67,
+    "low_commander_relevance_questions": 45,
+    "double_barreled_questions": 73,
+    "lore_dependent_questions": 12,
+    "mood_dependent_questions": 69,
+    "questions_without_uncertainty_state": 113,
+    "answers_missing_stable_id": 336,
+    "answers_without_evidence_authority": 356
+  },
+  "method_limit": "Deterministic documentation audit based on committed wording/effects. Dispositions are implementation-planning inputs, not independently reviewed player-response validity findings."
+}

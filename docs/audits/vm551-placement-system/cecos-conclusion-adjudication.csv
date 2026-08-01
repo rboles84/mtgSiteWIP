@@ -1,0 +1,16 @@
+conclusion_id,conclusion,classification,rationale
+CONC-001,"Actual model is adaptive weighted scoring, not Bayesian inference",IMPLEMENTATION-DERIVED,Code path and exhaustive outputs are independent of CECOS version.
+CONC-002,"37 identities, 113 questions, and 356 answers are present",IMPLEMENTATION-DERIVED,Direct generated-model inventory; byte reproduced.
+CONC-003,"26,891 valid terminal paths and 333 exact top ties",IMPLEMENTATION-DERIVED,Direct exhaustive model enumeration; byte reproduced.
+CONC-004,All 37 primary and rank-two reachable; 36 rank-three reachable,IMPLEMENTATION-DERIVED,Direct exhaustive rank inventory; byte reproduced.
+CONC-005,All identities can win with zero direct positive evidence,CECOS-REVISED,Rejected metric inspected nonexistent entry.faction. Correct delta-level analysis reports the actual negative-only count; strong-minimum proxy failures remain separately reported.
+CONC-006,Top softmax share is uncalibrated and must not be presented as probability/confidence,CECOS-CONFIRMED,"Implementation observation plus draft.4 sections 14.7, 3.6, 1.6, 17.9, and 23.10 support explicit uncertainty and prohibit unsupported numeric probability in corpus classification; product calibration still requires a separate contract."
+CONC-007,Numeric rank two/three is not meaningful adjacency,IMPLEMENTATION-DERIVED,Runtime slices ranks; CECOS confirms derived relationships require a separate auditable derivation but does not define adjacency.
+CONC-008,No explicit neutral/mixed/unsure state exists,CECOS-CONFIRMED,Direct answer inventory; draft.4 requires unknown/mixed handling and preserving ambiguity in evidence-derived instruments.
+CONC-009,336 answers lack stable IDs and 356 lack answer-level provenance,CECOS-CONFIRMED,Direct schema/data inventory; draft.4 provenance/reproducibility rules confirm the traceability requirement.
+CONC-010,Terminal-path winner share is not player prevalence,CECOS-CONFIRMED,"Draft.4 sections 3.4, 17.11, 23.2, and 23.8 expressly separate bounded counts from prevalence."
+CONC-011,Placement explanations infer motivations and behavior beyond selected answers,CECOS-CONFIRMED,"Direct template trace; draft.4 sections 2.1, 4.3, 4.5, 17.9, and 23.10 require derived interpretation and self-report boundaries."
+CONC-012,Hearthhull is specifically legal under current official rules,CECOS-WITHDRAWN,The rejected audit obtained this via web browsing; no local official source was preserved as VM-551 authority. Specific legality is outside this local-authority audit.
+CONC-013,Committed legality detector is incomplete for special commander-enabling rules,IMPLEMENTATION-DERIVED,Locally demonstrable: Hearthhull is recommended but absent from the committed local index; the detector documents bounded heuristic coverage. No specific legality conclusion is retained.
+CONC-014,Independent review and later certification are required after implementation,CECOS-REVISED,"Draft.4 directly governs independent corpus review/release; product implementation review/certification is a project contract informed by, but not falsely claimed as CECOS corpus certification."
+CONC-015,MVP order must protect unknown states and claim boundaries before polish,CECOS-CONFIRMED,"Draft.4 supports unknown, ambiguity, provenance, derived-output, and public-claim gates while leaving product sequencing to owner governance."
