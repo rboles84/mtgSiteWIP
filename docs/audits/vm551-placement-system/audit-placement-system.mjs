@@ -460,7 +460,7 @@ for (const row of questionRows) {
 }
 
 const summary = {
-  generated_at: new Date().toISOString(),
+  audit_date: "2026-08-01",
   model_version: placementModel._meta?.model_version,
   identity_count: factionKeys.length,
   question_count: allQuestions.length,
