@@ -1,0 +1,42 @@
+{
+  "candidateShaReviewed": "2fe0fbf44c66a369690548c70e13e0e480806cea",
+  "reviewWorktree": "C:\\dev\\voxmana.io-strategium-lifecycle-independent-review",
+  "canonicalLauncher": {
+    "command": "node scripts/strategium-owner-review-launch.mjs --serve",
+    "workingDirectory": "C:\\dev\\voxmana.io-strategium-lifecycle-independent-review",
+    "candidateHead": "2fe0fbf44c66a369690548c70e13e0e480806cea",
+    "serverPid": 26408,
+    "port": 61995,
+    "directReviewUrl": "http://127.0.0.1:61995/strategium/review/",
+    "hubUrl": "http://127.0.0.1:61995/strategium/",
+    "freshPort": true,
+    "reusedProcess": false,
+    "stoppedAfterCapture": true,
+    "stdout": "owner-review-launch.stdout.txt"
+  },
+  "renderedBrowserRun": {
+    "command": "node scripts/strategium-owner-remediation-browser.mjs --evidence-dir docs\\qa\\evidence\\independent-review-01",
+    "workingDirectory": "C:\\dev\\voxmana.io-strategium-lifecycle-independent-review",
+    "candidateHead": "2fe0fbf44c66a369690548c70e13e0e480806cea",
+    "serverPid": 23828,
+    "port": 64982,
+    "browser": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+    "assertions": 36,
+    "consoleErrors": 0,
+    "requestFailures": 0,
+    "stoppedAfterCapture": true,
+    "assertionsFile": "browser-assertions.json"
+  },
+  "inAppBrowserSpotCheck": {
+    "candidateHead": "2fe0fbf44c66a369690548c70e13e0e480806cea",
+    "serverPid": 14240,
+    "port": 55064,
+    "workingDirectory": "C:\\dev\\voxmana.io-strategium-lifecycle-independent-review",
+    "directQuestion": "What best describes the game?",
+    "hubClickPath": "/strategium/ -> /strategium/review/",
+    "staleCopyPresent": false,
+    "browserErrors": 0,
+    "adapterNote": "The in-app adapter did not support the requested networkidle wait option; URL and rendered DOM state were verified with its supported wait and read-only evaluation operations.",
+    "stoppedAfterCapture": true
+  }
+}

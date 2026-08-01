@@ -1,0 +1,90 @@
+{
+  "workbook": "C:\\dev\\voxmana.io-strategium-lifecycle-independent-review\\docs\\qa\\Strategium_Game_Lifecycle_Human_QA_Workbook.xlsx",
+  "sheets": [
+    "README",
+    "Finding a Table",
+    "Before the Game",
+    "During the Game",
+    "State Transitions",
+    "Navigation and Regression",
+    "Human QA Log"
+  ],
+  "expectedSheetsMatch": true,
+  "requiredHeadersPresent": true,
+  "totalRecords": 130,
+  "perSheet": {
+    "Finding a Table": {
+      "rows": 14,
+      "counts": {
+        "Automated Pass": 13,
+        "Automated Fail": 0,
+        "Owner Review Required": 1,
+        "Blocked": 0
+      }
+    },
+    "Before the Game": {
+      "rows": 29,
+      "counts": {
+        "Automated Pass": 27,
+        "Automated Fail": 0,
+        "Owner Review Required": 2,
+        "Blocked": 0
+      }
+    },
+    "During the Game": {
+      "rows": 14,
+      "counts": {
+        "Automated Pass": 13,
+        "Automated Fail": 0,
+        "Owner Review Required": 1,
+        "Blocked": 0
+      }
+    },
+    "State Transitions": {
+      "rows": 20,
+      "counts": {
+        "Automated Pass": 19,
+        "Automated Fail": 0,
+        "Owner Review Required": 1,
+        "Blocked": 0
+      }
+    },
+    "Navigation and Regression": {
+      "rows": 18,
+      "counts": {
+        "Automated Pass": 14,
+        "Automated Fail": 0,
+        "Owner Review Required": 4,
+        "Blocked": 0
+      }
+    },
+    "Human QA Log": {
+      "rows": 35,
+      "counts": {
+        "Automated Pass": 24,
+        "Automated Fail": 0,
+        "Owner Review Required": 11,
+        "Blocked": 0
+      }
+    }
+  },
+  "totals": {
+    "Automated Pass": 110,
+    "Automated Fail": 0,
+    "Owner Review Required": 20,
+    "Blocked": 0
+  },
+  "allowedStatusesOnly": true,
+  "allExecutionFieldsPopulated": true,
+  "missingFields": [],
+  "invalidStatuses": [],
+  "missingExecutionFields": [],
+  "readmeIdentity": {
+    "exactRemediatedCandidateSha": "99bd02481405e896780dc3067512eacac8cfa602",
+    "branch": "codex/strategium-game-lifecycle-completion",
+    "candidateWorktree": "C:/dev/voxmana.io-strategium-lifecycle-completion",
+    "controlBaseSha": "5ae7d873cd09d6bd9cfd45f3564d8cad8126e3e9",
+    "candidateHeadTested": "99bd02481405e896780dc3067512eacac8cfa602"
+  },
+  "formulaScan": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}
