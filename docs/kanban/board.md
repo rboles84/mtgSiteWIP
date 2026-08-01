@@ -43,8 +43,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-551 - Full Placement-System Audit](in-progress/VM-551-full-placement-system-audit.md) - comprehensive documentation-only audit of questionnaire, scoring, 37-identity reachability, confidence, primary/adjacent selection, copy, evidence, recommendations, pipelines, and rendering; no repairs or production changes.
-
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 
 ## Blocked
@@ -56,6 +54,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. `VM-197` also has a user-declared Abzan stack duplicate while preserving the existing Alara VM-197 card. `VM-215` has a manual-QA Abzan repair duplicate; the former Jeskai VM-215 through VM-220 reservation was repaired to VM-229 through VM-234 on 2026-05-31.
 
 VM-429 Section 14 ID reconciliation, 2026-06-30: the early readiness plan expected route metadata as `VM-448` and public demo / strategic case study as `VM-449`, but final ID assignment shifted after intervening queue work. In the final handoff trail, `VM-448` is Critical Browser E2E Smoke and `VM-449` is Maze Return Loop Microcopy Tightening; both are complete. The originally expected route metadata and public demo / strategic case-study scopes were completed as `VM-451` and `VM-452`. VM-458 later moved VM-422/VM-446 to backlog; live private deck-link behavior remains not production-proven.
+
+- [VM-551 - Full Placement-System Audit](done/VM-551-full-placement-system-audit.md) - completed comprehensive documentation-only audit with 26,891 exhaustive terminal paths, all 356 answers, all 37 identities, all-37 copy and claim evidence, 34 categorized defects, runtime rendering review, and CECOS Gate A-D requirements; no repairs or production behavior changes.
 
 - [VM-550 - Strategium After-the-Game MVP](done/VM-550-strategium-after-game-mvp.md) - exact candidate `639a63f81762450e6c87259416a0fdfa2c313681` received owner and independent exact-SHA approval, passed certification validation in the dedicated integration worktree, and is certified for controlled integration into local `main`; this certification record's commit is the local integration head. Awaiting owner verification of local `main`; push, deployment, and worktree cleanup require separate authorization.
 
