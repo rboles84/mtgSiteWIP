@@ -50,11 +50,11 @@ Boundary precedence: `bounded-mvp-repair-plan.md`, `requirements-traceability-ma
 | Check | Result |
 |---|---|
 | Governing contract | PASS — Gate A is explicitly limited to public interpretation/rendering; internal scores, softmax/gaps, serialized fields, persistence, dossier, Matrix, recommendation, deck-link, adjacent-view, and Maze consumers are preserved |
-| Result-field consumer map | PASS — 35 rows; 24 `PRESERVE-UNCHANGED`, 6 `PRESERVE-INTERNAL-HIDE-PUBLICLY`, 2 `ADDITIVE-EXTENSION`, 3 `VERSIONED-MIGRATION-LATER`, 0 `UNRESOLVED-BLOCKER` |
+| Result-field consumer map | PASS — 37 rows; 26 `PRESERVE-UNCHANGED`, 6 `PRESERVE-INTERNAL-HIDE-PUBLICLY`, 2 `ADDITIVE-EXTENSION`, 3 `VERSIONED-MIGRATION-LATER`, 0 `UNRESOLVED-BLOCKER`; field-level `decree` and optional `color_weights` chains are present |
 | Matrix path separation | PASS — authored `preview_scores`/component averages are separate from placement-derived `mana_scores`/dossier `manaAlignment` |
 | REQ-A-002 | PASS — public numeric confidence removal is bounded by internal/serialized compatibility, additive states, backward normalization, consumer review, and the expanded future validation matrix |
 | Planning prerequisite | PASS — implementation planning is prohibited until independent map review; no destructive field removal/rename belongs in Gate A |
-| Compatibility documentation validator | PASS — required contract phrases, 5 Gate A requirements, 35 map rows, required field families/consumers, both Matrix paths, and narrative agreement |
+| Compatibility documentation validator | PASS — required contract phrases, 5 Gate A requirements, exactly 37 map rows, required field families/consumers, complete decree chain, optional `color_weights` non-fabrication boundary, correct authored-`preview_scores` source direction, both Matrix paths, and narrative agreement |
 | Quantitative artifacts | UNCHANGED — original and remediation generators reproduced 37 identities, 113 questions, 356 answers, 26,891 terminal paths, 333 ties, 44,005 matched comparisons, zero negative-only winners, and 2,901 below-minimum-proxy paths without modifying machine evidence |
 | Defect severity | UNCHANGED — 3 Critical, 26 High, 10 Medium, 1 Low |
 
@@ -108,3 +108,19 @@ Visual validation:
 - No merge, push, deployment, certification, integration, or VM-551 implementation occurred.
 
 Final candidate/control SHA and cleanliness proof are recorded in the dated remediation handoff after the documentation candidate commit exists.
+
+## Final consumer-map completion
+
+Independent review of exact candidate `332c24097c8d3d9f3c87bee60527bdb73b795f1b` accepted the compatibility contract and Gate boundary but rejected the hard planning-prerequisite map as incomplete. This bounded documentation reconciliation adds the known `decree` and `color_weights` field records and corrects `authored_preview_scores` so `data/identity-layers.json` is the canonical authored source while `research/build-faction-artifacts.mjs` is a reader and propagator.
+
+The 37-row map now classifies 26 `PRESERVE-UNCHANGED`, 6 `PRESERVE-INTERNAL-HIDE-PUBLICLY`, 2 `ADDITIVE-EXTENSION`, 3 `VERSIONED-MIGRATION-LATER`, and 0 `UNRESOLVED-BLOCKER`. The `color_weights` record explicitly states `NONE-IN-CURRENT-LOCAL-QUICK-PATH` and `EXTERNAL-OR-ARCHIVED-PRODUCER-UNRESOLVED`; supplied values remain optional and must not be fabricated. Quantitative findings, defect severity, five-requirement Gate A, REQ-A-002, and Gate B1/B2/C/D scope remain unchanged.
+
+Final completion validation:
+
+- PASS — original audit generator, remediation generator, and owner-package generator; 26 CSV/JSON/owner-package files reproduced byte-for-byte on an immediate second run.
+- PASS — remediation validator, owner-review reconciliation validator, and strengthened downstream-compatibility documentation validator.
+- PASS — placement, Gate live bias, Gate compression, all-identity bias, source/generated guardrails, parser (226 cases), JavaScript lint, HTML lint, frontend smoke, route metadata, copy boundaries, deck links, and four direct Maze/adjacent-navigation checks.
+- KNOWN LIMITATION — semantic-readiness contract, candidate-scope, and fixture checks pass before stopping on the pre-existing stale provenance record.
+- KNOWN LIMITATION — aggregate `npm test` passes its preceding placement, Gate, parser, builder, semantic contract, Maze, mode, search, and precon checks before stopping on the absent ignored `data/scryfall/raw/oracle-cards.json` fixture.
+- NOT RUN — visual-baseline acceptance or regeneration; no baseline was created or accepted.
+- PASS — changed paths remain under `docs/`; no production, test, fixture, schema, runtime, route, Matrix, Maze, persistence, or cache implementation changed.

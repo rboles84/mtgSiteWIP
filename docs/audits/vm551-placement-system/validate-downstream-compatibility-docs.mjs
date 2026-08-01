@@ -92,7 +92,7 @@ for (const column of requiredColumns) assert(consumers.every((row) => Object.pro
 
 const requiredFamilies = [
   "identity_scores", "softmax_share_probability", "confidence", "confidence_gap", "mana_scores",
-  "authored_preview_scores", "authored_matrix_component_averages", "top_matches", "adjacent_matches",
+  "decree", "color_weights", "authored_preview_scores", "authored_matrix_component_averages", "top_matches", "adjacent_matches",
   "primary_identity_id_name", "result_status", "evidence_trail", "stage_trail", "selected_answers",
   "question_ids", "answer_ids", "model_version", "result_schema_version", "source_evidence_version", "source_mode",
   "session_cache", "profile_persistence", "saved_reading", "legacy_result_normalization", "oauth_return_state",
@@ -101,6 +101,35 @@ const requiredFamilies = [
 ];
 const familySet = new Set(consumers.map((row) => row.field_or_family));
 for (const family of requiredFamilies) assert(familySet.has(family), `Consumer map family missing: ${family}`);
+assert(consumers.length === 37, `Consumer map must contain 37 material field records: ${consumers.length}`);
+
+const consumerFor = (family) => consumers.find((row) => row.field_or_family === family);
+const decree = consumerFor("decree");
+for (const [column, phrase] of [
+  ["canonical_writer", "buildAdaptiveDecree"],
+  ["additional_writers", "buildQuickDecree"],
+  ["additional_writers", "guild-recruiter/index.ts"],
+  ["normalizers", "normalizePlacementResult"],
+  ["saved_profile_consumers", "profiles.decree"],
+  ["dossier_consumers", "decreeCopy"],
+  ["presentation_consumers", "result reveal"],
+  ["maze_handoff_consumers", "Maze handoff"],
+]) assert(decree?.[column]?.includes(phrase), `Decree consumer chain missing ${column}: ${phrase}`);
+assert(decree.gate_a_public_treatment && decree.gate_a_internal_treatment, "Decree Gate A treatments must be explicit");
+assert(decree.compatibility_disposition === "PRESERVE-UNCHANGED", "Decree must preserve its existing field and shape");
+
+const colorWeights = consumerFor("color_weights");
+assert(colorWeights.canonical_writer === "NONE-IN-CURRENT-LOCAL-QUICK-PATH", "color_weights must record no current local quick-path writer");
+assert(colorWeights.additional_writers.includes("EXTERNAL-OR-ARCHIVED-PRODUCER-UNRESOLVED"), "color_weights unresolved producer status missing");
+assert(colorWeights.normalizers.includes("normalizePlacementResult"), "color_weights normalizer missing");
+assert(/Do not fabricate|without manufacturing a default/.test(`${colorWeights.gate_a_public_treatment} ${colorWeights.gate_a_internal_treatment}`), "color_weights non-fabrication treatment missing");
+assert(colorWeights.compatibility_disposition === "PRESERVE-UNCHANGED", "color_weights must preserve supplied optional values");
+
+const authoredPreview = consumerFor("authored_preview_scores");
+assert(authoredPreview.canonical_writer === "data/identity-layers.json:expressions.*.preview_scores", "authored_preview_scores canonical source direction is wrong");
+assert(authoredPreview.additional_writers.includes("research/build-faction-artifacts.mjs:readJson(identityLayersPath)"), "authored preview downstream builder/propagator missing");
+assert(!authoredPreview.canonical_writer.includes("build-faction-artifacts"), "Faction builder must not be identified as the authored preview canonical writer");
+assert(authoredPreview.evidence_paths.includes("data/identity-layers.json:expressions.*.preview_scores"), "Authored preview source evidence is not resolvable");
 
 const allowed = new Set(["PRESERVE-UNCHANGED", "PRESERVE-INTERNAL-HIDE-PUBLICLY", "ADDITIVE-EXTENSION", "VERSIONED-MIGRATION-LATER", "UNRESOLVED-BLOCKER"]);
 assert(consumers.every((row) => allowed.has(row.compatibility_disposition)), "Invalid compatibility disposition");

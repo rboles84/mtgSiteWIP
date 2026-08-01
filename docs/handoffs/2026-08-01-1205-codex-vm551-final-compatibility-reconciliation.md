@@ -1,5 +1,7 @@
 # VM-551 Final Compatibility Reconciliation Handoff
 
+> Superseded/rejected candidate record: independent review at `326419c3db0d6ed10aa64d48df142088fa6adab3` rejected exact content candidate `332c24097c8d3d9f3c87bee60527bdb73b795f1b` because its 35-row consumer map omitted `decree` and `color_weights` and reversed the authored `preview_scores` source direction. The row counts and next-gate language below are preserved as historical evidence and must not be used as current authority.
+
 - Agent name: Codex
 - Task requested: Perform the sole bounded documentation remediation identified by independent review of exact audit candidate `bc2b5a764569ab79fae04b72695097cafc6bd4e8`: add a Gate A downstream compatibility contract and independently reviewable result-field consumer map without implementation or implementation planning.
 - Related Kanban card: `docs/kanban/done/VM-551-full-placement-system-audit.md`
@@ -108,4 +110,3 @@ Known repository limitations reproduced and not repaired:
 ## Follow-up recommendations / next suggested agent
 
 Next gate: an independent reviewer must review exact documentation candidate `332c24097c8d3d9f3c87bee60527bdb73b795f1b`, rerun the documented generators/validators, inspect the 35-row consumer map against the local implementation, and return an exact-SHA audit disposition. Owner acceptance is required after that review. Gate A implementation and implementation planning remain unauthorized.
-

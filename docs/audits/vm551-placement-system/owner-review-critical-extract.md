@@ -8,7 +8,7 @@ Reconciled extract counts: question records 28; identity records 23; representat
 
 `downstream-compatibility-contract.md` changes public interpretation/rendering only. It preserves internal scores/softmax/gaps and existing serialized fields for ranking, stopping, replay, storage, dossier, recommendation, deck-link, adjacent-view, Matrix, and Maze compatibility. Additive bounded result states are permitted only after independent consumer-map review; destructive field removal/rename is outside Gate A.
 
-Consumer-map records: 35. Compatibility dispositions: {"ADDITIVE-EXTENSION":2,"PRESERVE-INTERNAL-HIDE-PUBLICLY":6,"PRESERVE-UNCHANGED":24,"VERSIONED-MIGRATION-LATER":3}.
+Consumer-map records: 37. Compatibility dispositions: {"ADDITIVE-EXTENSION":2,"PRESERVE-INTERNAL-HIDE-PUBLICLY":6,"PRESERVE-UNCHANGED":26,"VERSIONED-MIGRATION-LATER":3}.
 
 The authored Matrix path (`identity-layers.preview_scores` or `vm-radar.js` component averages) is an identity visualization. The separate placement-result path (`placementResult.mana_scores` -> dossier `manaAlignment`) is placement-derived, normalized, cached, serialized, and rendered. Neither is public confidence, and the two paths are not interchangeable.
 

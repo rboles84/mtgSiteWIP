@@ -55,7 +55,7 @@ Historical-artifact warning: `identity-reachability-opportunity-matrix.csv` pres
 - `defect-register-remediated.csv` (authoritative remediated register; original IDs preserved)
 - `requirements-traceability-matrix.csv`
 - `remediation-analysis-summary.json`
-- `result-field-consumer-map.csv`
+- `result-field-consumer-map.csv` (37 material field/family records; includes field-level `decree` and optional `color_weights` chains, and identifies `data/identity-layers.json` as the authored `preview_scores` source)
 
 Scenario warning: all 37 current profile probes are `GOLDEN-PATH-DERIVED`, have `EXACT-PRIMARY` scoring outcomes, and are `INCOMPLETE` as review scenarios because none contains an independently selected neighboring or mixed/uncertain challenge. They are reachability evidence, not semantic placement accuracy or empirical player validation.
 

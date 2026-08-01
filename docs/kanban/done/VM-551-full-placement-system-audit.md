@@ -128,3 +128,13 @@ Audit and define requirements only. Do not implement repairs, change production 
 - Audit counts, question/identity/scenario dispositions, defect severities, and Gate B1/B2/C/D scope are unchanged. No production implementation or implementation planning is authorized.
 
 Next gate: independent review of the exact compatibility-reconciliation documentation candidate. Owner acceptance remains required after that review; implementation planning remains unauthorized.
+
+## Final Consumer-Map Completion
+
+- Independent review commit `326419c3db0d6ed10aa64d48df142088fa6adab3` rejected exact compatibility candidate `332c24097c8d3d9f3c87bee60527bdb73b795f1b` on one bounded documentation blocker: two known field families were absent and the authored Matrix source direction was wrong.
+- The replacement map contains 37 material field/family records: 26 `PRESERVE-UNCHANGED`, 6 `PRESERVE-INTERNAL-HIDE-PUBLICLY`, 2 `ADDITIVE-EXTENSION`, 3 `VERSIONED-MIGRATION-LATER`, and 0 `UNRESOLVED-BLOCKER`.
+- `decree` now traces adaptive, quick-reading, archived-interview, normalization, cache/profile/OAuth, reveal, dossier, Maze, and test surfaces. `color_weights` explicitly records no current local quick-path writer, unresolved external/archive producer authority, optional preservation, and non-fabrication. `data/identity-layers.json` is the canonical authored `preview_scores` source; the faction builder is a downstream reader/propagator.
+- CECOS authority, all quantitative evidence, dispositions, three Critical findings, severity totals, five Gate A requirements, REQ-A-002, and Gate B1/B2/C/D scope are unchanged.
+- No implementation, implementation planning, task creation, production change, push, merge, deploy, integration, or certification is authorized.
+
+Next gate: independent review of the exact replacement documentation candidate and its 37-row consumer map. Owner acceptance remains required after that review; Gate A implementation planning remains unauthorized.
