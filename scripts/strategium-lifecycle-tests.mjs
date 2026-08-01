@@ -436,6 +436,7 @@ async function run() {
     await page.goto(`${baseUrl}/strategium/before-game/?path=approximate-3/develop/combat/middle/none/none`, { waitUntil: "networkidle0" });
     const statementText = await page.$eval(".vm-lifecycle-statement p", node => node.textContent);
     expect(statementText && !/undefined|null|\.{2,}/i.test(statementText), "pregame result should render a clean spoken statement");
+    expect(!/Copy statement|Copy table reset/i.test(await page.$eval("body", node => node.innerText)), "pregame result should not show a route-specific copy label");
     expect(await page.$eval(".vm-lifecycle-copy", node => node.textContent.trim()) === "Copy", "pregame result should use the concise shared copy action label");
     expect(await page.$eval(".vm-lifecycle-copy", node => node.getAttribute("aria-label")) === "Copy pregame statement", "pregame copy action should retain a descriptive accessible name");
     expect(await page.$eval(".vm-lifecycle-copy", node => getComputedStyle(node).borderTopWidth !== "0px"), "pregame copy action should have a visible control boundary");
@@ -444,6 +445,7 @@ async function run() {
     const rulesResult = await collectVisibleText(page);
     expect(/official rule|judge|agreed rules resource/i.test(rulesResult), "rules path should point to a rules resource");
     expect(!/attack|target recommendation|optimal line/i.test(rulesResult), "rules path should not offer tactical advice");
+    expect(!/Copy statement|Copy table reset/i.test(rulesResult), "During the Game result should not show a route-specific copy label");
     const duringCardOrder = await page.$$eval(".vm-lifecycle-result-card h3", nodes => nodes.map(node => node.textContent.trim()));
     expect(duringCardOrder.join("|") === "What may be happening|What to clarify with the table|Available paths|A neutral sentence someone can say", "During the Game result cards should keep the neutral sentence last");
     expect(await page.$eval(".vm-lifecycle-copy", node => node.textContent.trim()) === "Copy", "During the Game should use the concise shared copy action label");

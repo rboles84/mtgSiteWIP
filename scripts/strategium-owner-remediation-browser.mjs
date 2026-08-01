@@ -148,6 +148,7 @@ async function main() {
     check(richStatement.split(/[.!?]+/).filter(Boolean).length <= 3, "disclosure-rich spoken statement uses at most three sentences");
     check(!/please note|confirm house rule|confirm time limit|\band\b[^.!?]*\band\b[^.!?]*\band\b/i.test(richStatement), "disclosure-rich spoken statement avoids compliance and repeated-conjunction copy");
     check(["intentional combo", "resource denial", "repeated extra turns", "unusually long turns", "proxies"].every(value => richStatement.toLowerCase().includes(value)), "disclosure-rich statement retains every high-impact disclosure");
+    check(!/Copy statement|Copy table reset/i.test(await page.$eval("body", node => node.innerText)), "Before-the-Game result has no route-specific copy label");
     const beforeCopy = await page.$eval(".vm-lifecycle-copy", node => ({ label: node.textContent.trim(), ariaLabel: node.getAttribute("aria-label") }));
     check(beforeCopy.label === "Copy", "Before-the-Game copy action has the concise visible label");
     check(beforeCopy.ariaLabel === "Copy pregame statement", "Before-the-Game copy action has a descriptive accessible name");
@@ -160,6 +161,7 @@ async function main() {
     await waitForLifecycle(page);
     const duringHeadings = await page.$$eval(".vm-lifecycle-result-card h3", nodes => nodes.map(node => node.textContent.trim()));
     check(duringHeadings.join("|") === "What may be happening|What to clarify with the table|Available paths|A neutral sentence someone can say", "During-the-Game result places the neutral sentence last");
+    check(!/Copy statement|Copy table reset/i.test(await page.$eval("body", node => node.innerText)), "During-the-Game result has no route-specific copy label");
     const duringCopy = await page.$eval(".vm-lifecycle-copy", node => ({ label: node.textContent.trim(), ariaLabel: node.getAttribute("aria-label") }));
     check(duringCopy.label === "Copy", "During-the-Game copy action has the concise visible label");
     check(duringCopy.ariaLabel === "Copy neutral table-reset sentence", "During-the-Game copy action has a descriptive accessible name");
