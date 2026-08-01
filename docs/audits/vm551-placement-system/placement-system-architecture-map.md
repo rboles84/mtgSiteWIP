@@ -1,7 +1,9 @@
 # VM-551 Placement System Architecture Map
 
-Status: audit evidence, not an implementation design  
-Base: `2b4058ff4c769f03d52070204b3ce973e51decbd`  
+Status: audit evidence, not an implementation design
+
+Base: `2b4058ff4c769f03d52070204b3ce973e51decbd`
+
 Runtime route: `/archscry/` (`archscry/index.html` plus `assets/js/index.js`)
 
 ## End-to-end flow
