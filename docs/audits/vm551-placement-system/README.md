@@ -1,8 +1,10 @@
 # VM-551 Placement-System Audit Artifacts
 
-Start with `VM-551-full-placement-system-audit.md`. The owner-rejection remediation is governed by `audit-input-authority.md`; `remediation-analysis-summary.json` is the reconciled quantitative summary. The original six generated evidence artifacts remain byte-identical and are preserved rather than rewritten.
+Start with `VM-551-full-placement-system-audit.md`. The owner-rejection remediation is governed by `audit-input-authority.md`; `remediation-analysis-summary.json` is the reconciled quantitative summary. Five of the original six generated evidence artifacts remain byte-identical. `identity-reachability-opportunity-matrix.csv` has one intentional reconciliation correction: its stale `can-win-with-zero-positive-evidence` bias label is replaced by a withdrawn-historical invalid-counter marker; quantitative fields are unchanged. `audit-input-manifest.json` records both hashes.
 
-Historical-artifact warning: `identity-reachability-opportunity-matrix.csv` preserves the rejected audit's invalid `minimum_positive_evidence_when_primary` column for byte-level traceability. Do not use that column. Use the corrected strong-hit and negative-only fields in `sensitivity-dependency-collision-analysis.json` and `identity-distinctiveness-matrix.csv`.
+Boundary precedence: `bounded-mvp-repair-plan.md` and `requirements-traceability-matrix.csv` govern Gate A/B1/B2. Narrative summaries must agree with them. `owner-review-evidence-manifest.md` pins the bounded owner-review package, and `owner-review-critical-extract.md` exposes consequential rows without replacing their machine-readable sources.
+
+Historical-artifact warning: `identity-reachability-opportunity-matrix.csv` preserves the rejected audit's invalid `minimum_positive_evidence_when_primary` column for field-level traceability, but its stale bias-indicator conclusion is explicitly relabeled as withdrawn historical. Do not use the invalid column. Use the corrected strong-hit and negative-only fields in `sensitivity-dependency-collision-analysis.json` and `identity-distinctiveness-matrix.csv`.
 
 ## Human-readable audit
 
@@ -21,6 +23,8 @@ Historical-artifact warning: `identity-reachability-opportunity-matrix.csv` pres
 - `voice-and-explanation-audit.md`
 - `bounded-mvp-repair-plan.md`
 - `validation-record.md`
+- `owner-review-evidence-manifest.md`
+- `owner-review-critical-extract.md`
 
 ## Machine-reviewable evidence
 
@@ -51,11 +55,15 @@ Historical-artifact warning: `identity-reachability-opportunity-matrix.csv` pres
 - `requirements-traceability-matrix.csv`
 - `remediation-analysis-summary.json`
 
+Scenario warning: all 37 current profile probes are `GOLDEN-PATH-DERIVED`, have `EXACT-PRIMARY` scoring outcomes, and are `INCOMPLETE` as review scenarios because none contains an independently selected neighboring or mixed/uncertain challenge. They are reachability evidence, not semantic placement accuracy or empirical player validation.
+
 ## Reproduce
 
 ```powershell
 node docs\audits\vm551-placement-system\audit-placement-system.mjs
 node docs\audits\vm551-placement-system\audit-placement-system-remediation.mjs
+node docs\audits\vm551-placement-system\build-owner-review-package.mjs
+node docs\audits\vm551-placement-system\validate-owner-review-reconciliation.mjs
 ```
 
 Both generators read production sources but write only inside this audit directory. The remediation generator also reads and hashes the exact CECOS draft.4 Git object. It does not browse, modify production data, or alter runtime behavior.

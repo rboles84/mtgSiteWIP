@@ -4,7 +4,7 @@ Status: design specification only. Implementation is not authorized by this docu
 
 Governing CECOS input: exact draft.4 object recorded in `audit-input-authority.md`. Draft.2 is not authority for this remediation.
 
-The authoritative finding-to-risk-to-requirement-to-validation mapping is `requirements-traceability-matrix.csv`. The bounded slice definitions are in `bounded-mvp-repair-plan.md`.
+Boundary precedence: `bounded-mvp-repair-plan.md` and `requirements-traceability-matrix.csv` govern the repair boundary. Narrative summaries must agree with them. This broader design specification describes eventual contracts; it does not move Gate B1 or B2 work into Gate A.
 
 ## Design principles
 
@@ -276,7 +276,7 @@ Independent review must:
 
 - rerun generator, exhaustive paths, matrices, and contract validators;
 - inspect a stratified player-response corpus, not implementation summaries;
-- review exact ties, weakest winners, strongest suppression-only winners, college/guild collisions, four-color, Colorless, and WUBRG;
+- review exact ties, weakest winners, below-strong-minimum proxy paths, college/guild collisions, four-color, Colorless, and WUBRG;
 - compare primary and adjacent copy against selected evidence;
 - revalidate current Commander legality;
 - inspect representative desktop/mobile routes;
@@ -286,7 +286,7 @@ Production certification is a later, separately authorized Vox Mana gate. It mus
 
 ## Prioritized repair sequence
 
-### Gate A — Immediate trust blockers
+### Gate A — Immediate trust containment
 
 1. Freeze terminology: stop calling current shares Bayesian probability or calibrated confidence.
 2. Remove numeric confidence/strength claims and preserve missing legacy confidence as unknown.
@@ -294,11 +294,13 @@ Production certification is a later, separately authorized Vox Mana gate. It mus
 4. Treat numeric second/third as close alternatives or omit them; reserve adjacency for a later relationship contract.
 5. Constrain first-pass copy to selected observations and qualified interpretation.
 
-### Gate B1 — First player-pilot correctness slice
+Gate A performs no questionnaire refit, scoring-authority rebuild, or minimum-hit/guardrail implementation except what is strictly necessary to prevent a misleading named result state.
+
+### Gate B1 — First controlled-pilot correctness slice
 
 1. Select the smallest evidence-derived, Commander-relevant, single-construct question set for owner-approved high-risk contrasts.
 2. Add stable IDs/provenance, unknown/mixed handling, one scoring authority, dependency groups, minimum hits, and executable guardrail decisions.
-3. Pass all-37 profile probes plus same-color guild/college, shard/wedge, four-color, Colorless, WUBRG, contradiction, repeated-construct, order, branch, and perturbation tests.
+3. Pass independently derived all-37 profile probes plus same-color guild/college, shard/wedge, four-color, Colorless, WUBRG, contradiction, repeated-construct, order, branch, and perturbation tests. The current 37 golden-path-derived probes are incomplete reachability checks, not this evidence.
 4. Predeclare thresholds before pilot results and downgrade unstable/insufficient cases.
 5. Stop at a controlled pilot candidate; do not claim public accuracy.
 

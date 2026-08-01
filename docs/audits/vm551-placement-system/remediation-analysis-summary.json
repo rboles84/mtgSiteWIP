@@ -98,11 +98,19 @@
   "scenarios": {
     "profiles": 37,
     "profile_dispositions": {
+      "INCOMPLETE": 37
+    },
+    "profile_scoring_outcomes": {
       "EXACT-PRIMARY": 37
+    },
+    "profile_origins": {
+      "GOLDEN-PATH-DERIVED": 37
     },
     "adversarial": 9,
     "adversarial_dispositions": {
-      "QUESTIONNAIRE-CANNOT-REPRESENT": 9
+      "PARTIALLY-REPRESENTABLE-BUT-CONFLATED": 2,
+      "REPRESENTABLE-WITH-UNSUPPORTED-INFERENCE": 2,
+      "QUESTIONNAIRE-CANNOT-REPRESENT": 5
     }
   },
   "sensitivity": {
@@ -138,6 +146,6 @@
     "No empirical player-response, correctness, calibration, prevalence, or statistical-correlation dataset exists.",
     "Question and distinctiveness dispositions are deterministic audit adjudications requiring owner and later independent review.",
     "Free-text false-positive guardrails cannot be exhaustively counted as passed or violated without executable predicates.",
-    "Synthetic target-seeking profile success is not semantic distinctiveness or player accuracy."
+    "All 37 current profile probes are golden-path-derived and incomplete because they lack an independently selected neighboring and mixed/uncertain challenge; their exact-primary scoring outcomes are reachability evidence only."
   ]
 }

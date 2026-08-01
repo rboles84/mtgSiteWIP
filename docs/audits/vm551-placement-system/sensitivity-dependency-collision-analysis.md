@@ -31,7 +31,7 @@ Paths with at least three matched one-answer neighbors and no primary flip are a
 
 ## Corrected affirmative-evidence analysis
 
-The rejected audit’s `countPositiveEvidence` function inspected `entry.faction`, but evidence-trail entries store identity deltas inside `entry.deltas`. Its conclusion that all 37 identities could win with zero direct positive evidence was therefore invalid.
+The rejected audit’s `countPositiveEvidence` function inspected `entry.faction`, but evidence-trail entries store identity deltas inside `entry.deltas`. The withdrawn historical conclusion that all 37 identities could win with zero direct positive evidence was therefore invalid.
 
 Corrected definitions:
 
@@ -57,7 +57,7 @@ Dead questions:
 
 All six answers under those questions are dead across exhaustive valid paths. They are not evidence that those pair distinctions are covered.
 
-All 37 target-seeking profile probes have unique expected primaries and no exact selection-signature collisions. That does not establish semantic collision resistance because the probes are optimized toward their target. The all-path primary/rank-two and primary/rank-three pair tables in the JSON show the actual combinatorial collision surface.
+All 37 profile probes are golden-path-derived, have unique expected primaries, and have no exact selection-signature collisions. All 37 remain incomplete because the runtime target helper supplied their answers and no independently selected neighboring or mixed/uncertain challenge was introduced. They establish target reachability only, not semantic collision resistance. The all-path primary/rank-two and primary/rank-three pair tables in the JSON show the combinatorial collision surface.
 
 ## Non-monotonic and branch behavior
 

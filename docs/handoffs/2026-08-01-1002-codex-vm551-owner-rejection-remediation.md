@@ -12,6 +12,8 @@ Task requested: Remediate the owner-rejected VM-551 documentation-only placement
 - Original audit base: `2b4058ff4c769f03d52070204b3ce973e51decbd`
 - Rejected audit SHA: `c62c7e1b43421359488537457804698a77656952`
 - Final remediation candidate SHA: `bff929d603727cbf1fa043e9881b10cbbc346c3c`
+
+Owner-review reconciliation precedence: `docs/audits/vm551-placement-system/bounded-mvp-repair-plan.md` and `requirements-traceability-matrix.csv` govern Gate A/B1/B2. Narrative summaries must agree with them.
 - Candidate commits:
   - `e9bda2bd0b45d14dd63d75635fea96dee76cccd9` — `docs(vm-551): verify authority and add remediation evidence`
   - `bff929d603727cbf1fa043e9881b10cbbc346c3c` — `docs(vm-551): readjudicate findings and bound MVP repairs`
@@ -76,7 +78,7 @@ This handoff and `HANDOFF_INDEX.md` are workflow records after the exact candida
 ## What changed and why
 
 1. Replaced the wrong CECOS authority with the exact verified draft.4 Git object and recorded an immutable input manifest.
-2. Reproduced the six existing machine artifacts byte-for-byte rather than discarding valid implementation evidence.
+2. At candidate `bff929d603727cbf1fa043e9881b10cbbc346c3c`, reproduced the six existing machine artifacts byte-for-byte rather than discarding valid implementation evidence. The later owner-review reconciliation intentionally relabels only the stale reachability-matrix bias indicator as withdrawn historical; five artifacts remain byte-identical, quantitative fields remain unchanged, and both hashes are recorded.
 3. Corrected the rejected audit's positive-evidence counter: it read nonexistent `entry.faction`; correct deltas live under `entry.deltas`.
 4. Added question dispositions for all 113 questions and answer dispositions for all 356 answers.
 5. Added all-37 distinctiveness, profile, nearest-competitor, discriminator, minimum-hit, guardrail, copy, and recommendation records.
@@ -93,8 +95,8 @@ This handoff and `HANDOFF_INDEX.md` are workflow records after the exact candida
 - Answer dispositions: 0 KEEP, 64 KEEP-BUT-REWORD, 41 RETUNE, 20 REPLACE, 0 REMOVE, 231 NEEDS-EVIDENCE, 0 UNCLEAR-AUTHORITY.
 - Major question flags: 67 high abstraction, 45 low Commander relevance, 73 double-barreled, 12 lore-dependent, 69 mood-dependent, 113 without uncertainty handling.
 - Distinctiveness: 26 mechanically distinguishable but unvalidated, 4 high confusion risk, 7 insufficient distinctiveness evidence.
-- Profiles: 37/37 exact-primary synthetic target probes; not proof of semantic validity.
-- Adversarial: 9/9 questionnaire-cannot-represent.
+- Profiles: all 37 have `EXACT-PRIMARY` scoring outcomes, but all 37 are `GOLDEN-PATH-DERIVED` and `INCOMPLETE` because no independently selected neighboring or mixed/uncertain challenge exists. They are reachability checks, not proof of semantic validity.
+- Adversarial: 5 `QUESTIONNAIRE-CANNOT-REPRESENT`, 2 `PARTIALLY-REPRESENTABLE-BUT-CONFLATED`, and 2 `REPRESENTABLE-WITH-UNSUPPORTED-INFERENCE` after detailed answer-vocabulary review.
 - Matched one-answer pairs: 44,005; primary flips 14,424; normalized sensitivity 32.7781%.
 - Corrected negative-only winners: 0.
 - Below generated strong-hit minimum proxy: 2,901 primary paths.
@@ -123,7 +125,7 @@ All previously valid High findings remain unless the remediated register explici
 
 ## Gate A and Gate B1 boundary
 
-Gate A contains only immediate output trust blockers: honest weighted-scoring terminology, removal of numeric confidence/fabricated certainty, explicit tied/close/mixed/insufficient states, numeric runners-up no longer called adjacency, and claim-entailing fallback language.
+Gate A contains only immediate output trust containment: honest adaptive weighted-scoring terminology, removal of numeric confidence/fabricated certainty, explicit tied/close/mixed/contradictory/unknown/insufficient states, numeric runners-up no longer called adjacency, and demonstrated-observation/safe-fallback language. It includes no questionnaire refit, scoring-authority rebuild, or minimum-hit/guardrail implementation except what is strictly necessary to prevent a misleading result state.
 
 Gate B1 contains the first controlled-pilot correctness slice: smallest evidence-derived Commander-relevant questions; stable IDs/provenance; one scoring authority; dependency groups; minimum-hit/guardrail decisions; predeclared perturbation thresholds; and high-risk all-37 family/edge scenario coverage.
 

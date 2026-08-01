@@ -351,6 +351,8 @@ let neighborPairs = 0;
 let primaryFlips = 0;
 let oldPrimaryBecomesRank2 = 0;
 let differentFamilyFlips = 0;
+const representativePrimaryFlips = [];
+const differentFamilyFlipCategories = new Map();
 const flipInvolvement = new Map();
 const pathNeighborStats = Array.from({ length: terminalRecords.length }, () => ({ neighbors: 0, flips: 0 }));
 const groups = new Map();
@@ -376,7 +378,32 @@ for (const list of groups.values()) {
       pathNeighborStats[list[i].recordIndex].flips += 1;
       pathNeighborStats[list[j].recordIndex].flips += 1;
       if (left.primary === right.rank2 || right.primary === left.rank2) oldPrimaryBecomesRank2 += 1;
-      if (family(left.primary) !== family(right.primary)) differentFamilyFlips += 1;
+      const leftFamily = family(left.primary);
+      const rightFamily = family(right.primary);
+      if (leftFamily !== rightFamily) {
+        differentFamilyFlips += 1;
+        const familyCategory = [leftFamily, rightFamily].sort().join(" <-> ");
+        differentFamilyFlipCategories.set(familyCategory, (differentFamilyFlipCategories.get(familyCategory) || 0) + 1);
+      }
+      if (representativePrimaryFlips.length < 5) {
+        const question = questionById.get(list[i].questionId);
+        const leftAnswer = question?.answers?.[list[i].answerIndex];
+        const rightAnswer = question?.answers?.[list[j].answerIndex];
+        representativePrimaryFlips.push({
+          question_id: list[i].questionId,
+          left_answer_id: answerId(question, leftAnswer, list[i].answerIndex),
+          left_answer_title: leftAnswer?.title || "",
+          left_primary: left.primary,
+          left_rank_two: left.rank2,
+          right_answer_id: answerId(question, rightAnswer, list[j].answerIndex),
+          right_answer_title: rightAnswer?.title || "",
+          right_primary: right.primary,
+          right_rank_two: right.rank2,
+          same_question_set: true,
+          same_other_answers: true,
+          branching_change_included: false,
+        });
+      }
       for (const item of [list[i], list[j]]) {
         const key = `${item.questionId}#answer-${item.answerIndex + 1}`;
         flipInvolvement.set(key, (flipInvolvement.get(key) || 0) + 1);
@@ -495,11 +522,16 @@ function profileScenario(identity) {
   const strongHits = run.selections.filter(({ answer }) => Number(answer.likelihoods?.[identity] || 0) >= 0.75).length;
   const corpus = copyByIdentity.get(identity);
   const exact = run.result.faction === identity;
+  const scoringOutcome = exact ? "EXACT-PRIMARY" : ranked.slice(0, 3).some((entry) => entry.faction === identity) ? "ACCEPTABLE-CLOSE-ALTERNATIVE" : "MATERIAL-MISS";
   return {
     expected_identity: identity,
+    scenario_origin: "GOLDEN-PATH-DERIVED",
+    scenario_origin_basis: "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     defining_evidence: axes.required_positive_evidence_terms || [],
     closest_competitor: ranked[1]?.faction || "",
     mixed_or_uncertain_element: `Nearest current numeric competitor ${ranked[1]?.faction || "none"}; no explicit mixed/unknown response state exists.`,
+    neighboring_challenge_status: "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    mixed_or_uncertain_challenge_status: "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     exact_available_answers_selected: run.selections.map(({ question, answer, answerIndex }) => ({ stage: question.stage, question_id: question.id, answer_id: answer.id || `MISSING:${question.id}#answer-${answerIndex + 1}`, title: answer.title })),
     branch_path_reached: run.state.stage_history.map((entry) => `${entry.stage}:${entry.question_id}`),
     final_primary: run.result.faction,
@@ -515,8 +547,9 @@ function profileScenario(identity) {
     commander_recommendation_result: (corpus?.commander_recommendations || []).slice(0, 3).map((entry) => entry.name || entry.title || entry.commander || entry),
     acceptable_result_set: [identity],
     unacceptable_false_positives: factionKeys.filter((key) => key !== identity && !(axes.suppress_when_user_centers || []).some((value) => value.includes(key))).slice(0, 5),
-    final_disposition: exact ? "EXACT-PRIMARY" : ranked.slice(0, 3).some((entry) => entry.faction === identity) ? "ACCEPTABLE-CLOSE-ALTERNATIVE" : "MATERIAL-MISS",
-    scenario_limit: "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness.",
+    scoring_outcome: scoringOutcome,
+    final_disposition: "INCOMPLETE",
+    scenario_limit: "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation.",
   };
 }
 const profileScenarios = factionKeys.map(profileScenario);
@@ -537,20 +570,22 @@ function keywordStrategy(keywords, alternate = false) {
 }
 
 const adversarialDefinitions = [
-  ["gameplay preference conflicts with philosophy", ["mechanism", "action", "community", "self"], true, "mixed-or-unknown"],
-  ["theme preference without low-power preference", ["art", "spectacle", "power", "mechanism"], true, "theme-only-no-power-inference"],
-  ["tutor use without a competitive assumption", ["tools", "preparation", "knowledge"], false, "no-stable-identity"],
-  ["combo interest without psychographic inference", ["mechanism", "sequence", "build"], false, "no-stable-identity"],
-  ["color preference without faction preference", ["color", "beauty", "style"], false, "no-faction-inference"],
-  ["social discomfort without stable identity inference", ["protect", "group", "pressure"], false, "context-limited-unknown"],
-  ["new-player uncertainty", [], false, "unknown"],
-  ["I do not know or no directional answer", [], false, "unknown"],
-  ["deck behavior differs from personal preference", ["deck", "self", "mechanism", "feeling"], true, "mixed-layer-result"],
+  { scenario: "gameplay preference conflicts with philosophy", keywords: ["mechanism", "action", "community", "self"], alternate: true, acceptable: "mixed-or-unknown", finalDisposition: "PARTIALLY-REPRESENTABLE-BUT-CONFLATED", coverage: "AVAILABLE-ANSWERS-EXPRESS-ONLY-PART", rationale: "Available answers express gameplay-like and philosophical fragments, but the instrument scores them as interchangeable identity evidence and cannot preserve the conflict as two dimensions." },
+  { scenario: "theme preference without low-power preference", keywords: ["art", "spectacle", "power", "mechanism"], alternate: true, acceptable: "theme-only-no-power-inference", finalDisposition: "REPRESENTABLE-WITH-UNSUPPORTED-INFERENCE", coverage: "AVAILABLE-ANSWERS-FORCE-UNSUPPORTED-INFERENCE", rationale: "Aesthetic/theme answers exist, but the output converts them into identity and Commander implications without a separate power-preference observation." },
+  { scenario: "tutor use without a competitive assumption", keywords: [], alternate: false, acceptable: "no-stable-identity", finalDisposition: "QUESTIONNAIRE-CANNOT-REPRESENT", coverage: "LITERALLY-NO-AVAILABLE-ANSWER", rationale: "No current prompt or answer records tutor use, frequency, intent, or competitive assumption." },
+  { scenario: "combo interest without psychographic inference", keywords: [], alternate: false, acceptable: "no-stable-identity", finalDisposition: "QUESTIONNAIRE-CANNOT-REPRESENT", coverage: "LITERALLY-NO-AVAILABLE-ANSWER", rationale: "No current prompt or answer records combo interest while separating deck behavior from psychographic motivation." },
+  { scenario: "color preference without faction preference", keywords: [], alternate: false, acceptable: "no-faction-inference", finalDisposition: "QUESTIONNAIRE-CANNOT-REPRESENT", coverage: "LITERALLY-NO-AVAILABLE-ANSWER", rationale: "No current answer records a bare color preference with an explicit prohibition on faction or behavioral inference." },
+  { scenario: "social discomfort without stable identity inference", keywords: ["protect", "group", "pressure"], alternate: false, acceptable: "context-limited-unknown", finalDisposition: "REPRESENTABLE-WITH-UNSUPPORTED-INFERENCE", coverage: "AVAILABLE-ANSWERS-FORCE-UNSUPPORTED-INFERENCE", rationale: "Pressure/protection answers can express the immediate discomfort, but the runtime converts the situational response into stable identity evidence." },
+  { scenario: "new-player uncertainty", keywords: [], alternate: false, acceptable: "unknown", finalDisposition: "QUESTIONNAIRE-CANNOT-REPRESENT", coverage: "LITERALLY-NO-AVAILABLE-ANSWER", rationale: "Every current question forces a directional answer; no answer records lack of experience or uncertainty." },
+  { scenario: "I do not know or no directional answer", keywords: [], alternate: false, acceptable: "unknown", finalDisposition: "QUESTIONNAIRE-CANNOT-REPRESENT", coverage: "LITERALLY-NO-AVAILABLE-ANSWER", rationale: "No current question offers an unsure, neutral, none, mixed, skip, or no-direction answer." },
+  { scenario: "deck behavior differs from personal preference", keywords: ["deck", "self", "mechanism", "feeling"], alternate: true, acceptable: "mixed-layer-result", finalDisposition: "PARTIALLY-REPRESENTABLE-BUT-CONFLATED", coverage: "AVAILABLE-ANSWERS-EXPRESS-ONLY-PART", rationale: "Some answers express deck behavior and others personal/philosophical preference, but the questionnaire does not preserve those layers as distinct observations." },
 ];
-const adversarialRows = adversarialDefinitions.map(([scenario, keywords, alternate, acceptable]) => {
-  const representable = keywords.length > 0 && !["tutor use without a competitive assumption", "combo interest without psychographic inference", "color preference without faction preference"].includes(scenario);
+const adversarialRows = adversarialDefinitions.map(({ scenario, keywords, alternate, acceptable, finalDisposition, coverage, rationale }) => {
+  const representable = keywords.length > 0;
   if (!representable) return {
     scenario,
+    available_answer_coverage: coverage,
+    disposition_rationale: rationale,
     exact_available_answers_selected: [],
     branch_path_reached: [],
     final_primary: "NOT-RUN",
@@ -564,26 +599,28 @@ const adversarialRows = adversarialDefinitions.map(([scenario, keywords, alterna
     commander_recommendation_result: "NOT-AVAILABLE",
     acceptable_result_set: acceptable,
     unacceptable_false_positives: "Any fixed identity, confidence percentage, or commander recommendation",
-    final_disposition: "QUESTIONNAIRE-CANNOT-REPRESENT",
+    final_disposition: finalDisposition,
   };
   const run = runAdaptiveReadingWithStrategy({ model: placementModel, factions, strategy: keywordStrategy(keywords, alternate) });
   const ranked = rankAdaptiveFactions(run.state, placementModel);
   return {
     scenario,
+    available_answer_coverage: coverage,
+    disposition_rationale: rationale,
     exact_available_answers_selected: run.selections.map(({ question, answer, answerIndex }) => ({ question_id: question.id, answer_id: answer.id || `MISSING:${question.id}#answer-${answerIndex + 1}`, title: answer.title })),
     branch_path_reached: run.state.stage_history.map((entry) => `${entry.stage}:${entry.question_id}`),
     final_primary: run.result.faction,
     rank_two: ranked[1]?.faction || "",
     rank_three: ranked[2]?.faction || "",
     softmax_share_displayed_as_confidence: run.result.confidence,
-    direct_positive_evidence_present: true,
+    direct_positive_evidence_present: run.selections.some(({ answer }) => Number(answer.likelihoods?.[run.result.faction] || 0) >= 0.75),
     minimum_hit_and_guardrail_metadata_satisfied: "UNRESOLVED: no executable guardrail; scenario deliberately contains conflicting or bounded evidence",
     explanation_result: run.result.decree,
     adjacent_result: run.result.adjacent_matches.map((match) => `${match.faction}:${round(match.confidence, 3)}`),
     commander_recommendation_result: "Identity-level recommendations would be shown despite the unresolved construct conflict",
     acceptable_result_set: acceptable,
     unacceptable_false_positives: "Any fixed identity presented as strong, diagnostic, or evidence-backed",
-    final_disposition: "QUESTIONNAIRE-CANNOT-REPRESENT",
+    final_disposition: finalDisposition,
   };
 });
 
@@ -608,9 +645,16 @@ const sensitivity = {
   terminal_paths: terminalRecords.length,
   exact_top_ties: [...tieComposition.values()].reduce((sum, count) => sum + count, 0),
   matched_one_answer_terminal_pairs: neighborPairs,
+  matched_one_answer_comparison_definition: "An unordered pair of valid terminal paths with the identical complete question-ID set and identical selected answers for every question except one; the remaining shared question has different selected answer indices.",
+  denominator_construction: "All such unordered pairs across the 26,891 enumerated valid terminal paths; each qualifying pair contributes once to 44,005.",
+  compared_paths_have_same_later_questions: true,
+  branching_changes_included: false,
+  branching_exclusion_reason: "A branch change changes the complete question-ID set, so that pair cannot enter the matched denominator.",
   one_answer_primary_flips: primaryFlips,
   one_answer_primary_to_rank_two_flips: oldPrimaryBecomesRank2,
   one_answer_primary_to_different_family_flips: differentFamilyFlips,
+  representative_primary_flips: representativePrimaryFlips,
+  different_family_flip_categories: Object.fromEntries([...differentFamilyFlipCategories.entries()].sort((a, b) => a[0].localeCompare(b[0]))),
   normalized_primary_flip_sensitivity: round(primaryFlips / Math.max(1, neighborPairs)),
   paths_with_at_least_three_matched_changes_and_no_primary_flip: matchedInsensitivePaths,
   negative_only_winners_by_identity: Object.fromEntries(factionKeys.map((key) => [key, winnerStats[key].negativeOnly])),
@@ -704,7 +748,7 @@ const conclusionRows = [
   ["CONC-002", "37 identities, 113 questions, and 356 answers are present", "IMPLEMENTATION-DERIVED", "Direct generated-model inventory; byte reproduced."],
   ["CONC-003", "26,891 valid terminal paths and 333 exact top ties", "IMPLEMENTATION-DERIVED", "Direct exhaustive model enumeration; byte reproduced."],
   ["CONC-004", "All 37 primary and rank-two reachable; 36 rank-three reachable", "IMPLEMENTATION-DERIVED", "Direct exhaustive rank inventory; byte reproduced."],
-  ["CONC-005", "All identities can win with zero direct positive evidence", "CECOS-REVISED", "Rejected metric inspected nonexistent entry.faction. Correct delta-level analysis reports the actual negative-only count; strong-minimum proxy failures remain separately reported."],
+  ["CONC-005", "WITHDRAWN HISTORICAL CLAIM: all identities can win with zero direct positive evidence", "CECOS-REVISED", "The historical claim is withdrawn because the rejected metric inspected nonexistent entry.faction. Correct delta-level analysis reports zero genuinely negative-only winners; 2,901 below-minimum proxy paths remain a separate result."],
   ["CONC-006", "Top softmax share is uncalibrated and must not be presented as probability/confidence", "CECOS-CONFIRMED", "Implementation observation plus draft.4 sections 14.7, 3.6, 1.6, 17.9, and 23.10 support explicit uncertainty and prohibit unsupported numeric probability in corpus classification; product calibration still requires a separate contract."],
   ["CONC-007", "Numeric rank two/three is not meaningful adjacency", "IMPLEMENTATION-DERIVED", "Runtime slices ranks; CECOS confirms derived relationships require a separate auditable derivation but does not define adjacency."],
   ["CONC-008", "No explicit neutral/mixed/unsure state exists", "CECOS-CONFIRMED", "Direct answer inventory; draft.4 requires unknown/mixed handling and preserving ambiguity in evidence-derived instruments."],
@@ -720,7 +764,7 @@ const conclusionRows = [
 const rejectedDefects = parseCsv(fs.readFileSync(path.join(scriptDir, "defect-register.csv"), "utf8"));
 const gateByDefect = {
   "VM551-D001": "Gate B1", "VM551-D002": "Gate A", "VM551-D003": "Gate A", "VM551-D004": "Gate B1",
-  "VM551-D005": "Gate A", "VM551-D006": "Gate A", "VM551-D007": "Gate A", "VM551-D008": "Gate A",
+  "VM551-D005": "Gate A", "VM551-D006": "Gate A", "VM551-D007": "Gate A", "VM551-D008": "Gate B1",
   "VM551-D009": "Gate B1", "VM551-D010": "Gate B1", "VM551-D011": "Gate B1", "VM551-D012": "Gate B2",
   "VM551-D013": "Gate B2", "VM551-D014": "Gate B1", "VM551-D015": "Gate B1", "VM551-D016": "Gate B2",
   "VM551-D017": "Gate A", "VM551-D018": "Gate C", "VM551-D019": "Gate C", "VM551-D020": "Gate A",
@@ -765,7 +809,7 @@ const newDefects = [
   ["VM551-D037", "logic", "Medium", "Three Crucible questions / six answers", "sensitivity-dependency-collision-analysis.json", "Inspect dead_questions and dead_answers after exhaustive enumeration.", "Authored discriminators can never affect any valid result, creating false assurance of pair coverage.", "Adaptive top-four/pair branching never reaches three committed Crucible pairs.", "Remove, re-route, or make reachable only after proving the discriminator belongs in the pilot.", "Question/branch contract", "REQ-LOGIC-009", "Gate B2", "Exhaustive path visit count must be nonzero for every active question/answer."],
   ["VM551-D038", "question-design", "High", "113 questions / 356 answers", "question-quality-adjudication.csv + question-disposition-summary.json", "Run remediation generator; reconcile all dispositions.", "67 high-abstraction, 45 low-Commander-relevance, 73 double-barreled, and 113 uncertainty-blind questions make answers hard to interpret as one bounded construct.", "Questions were authored as identity-flavored scenarios without evidence/construct/reliability contracts.", "Use the smallest evidence-derived, Commander-relevant, single-construct question slice for the first pilot; exclude unresolved questions.", "Player-language corpus derivation and owner construct decisions", "REQ-QUESTION-003", "Gate B1", "Cognitive interview, comprehension, neighbor-confusion, and representational-failure checks."],
   ["VM551-D039", "evidence-dependency", "High", "11 repeated-construct groups", "repeated-signal-dependency-audit.csv", "Run remediation generator; inspect cross-stage groups and maximum strong-hit contributions.", "One underlying preference can be counted repeatedly, inflate softmax share, affect stopping, and be narrated as multiple independent reasons.", "No controlled dependency groups, caps, or independence disclosure exist.", "Group/cap repeated constructs and compute confidence/evidence amount from independent evidence units.", "Controlled signal vocabulary and pilot response dependence analysis", "REQ-LOGIC-010|REQ-CONF-005", "Gate B1", "Synthetic duplicate-construct tests plus pilot dependence analysis; do not claim empirical correlation before data."],
-  ["VM551-D040", "distinctiveness", "High", "All 37 identities", "identity-distinctiveness-matrix.csv + profile-scenario-matrix.csv", "Compare profile golden success with distinctiveness dispositions and same-color/edge-family analysis.", "Golden target paths hit all 37, but 4 identities have high confusion risk and 7 lack sufficient current distinctiveness evidence; targeted success does not prove ordinary players can be separated.", "Reachability was used as a proxy for semantic distinctiveness; discriminators and false-positive guards are not validated.", "Pilot the smallest high-risk family contrasts and preserve unknown/close alternatives; defer universal accuracy claims.", "Certified identity definitions plus player-pilot confusion evidence", "REQ-IDENTITY-001", "Gate B1", "All-37 profile probes, same-color guild/college, shard/wedge, four-color, Colorless, and WUBRG confusion matrices."],
+  ["VM551-D040", "distinctiveness", "High", "All 37 identities", "identity-distinctiveness-matrix.csv + profile-scenario-matrix.csv", "Compare golden-path-derived probe outcomes with distinctiveness dispositions and same-color/edge-family analysis.", "Golden-path-derived target probes hit all 37, but all 37 lack an independent neighboring/mixed challenge; 4 identities have high confusion risk and 7 lack sufficient current distinctiveness evidence. Targeted reachability does not prove ordinary players can be separated.", "Reachability was used as a proxy for semantic distinctiveness; discriminators and false-positive guards are not validated.", "Pilot the smallest high-risk family contrasts and preserve unknown/close alternatives; defer universal accuracy claims.", "Certified identity definitions plus player-pilot confusion evidence", "REQ-IDENTITY-001", "Gate B1", "Independently derived all-37 profile probes, same-color guild/college, shard/wedge, four-color, Colorless, and WUBRG confusion matrices."],
 ].map(([defect_id, category, severity, affected, evidence, reproduction, impact, root, correction, dependency, requirements, gate, validation]) => ({
   defect_id, category, affected_identities_questions_routes: affected, exact_reproduction: reproduction, machine_readable_evidence_reference: evidence,
   user_facing_impact: impact, severity, severity_rationale: "Material audit or player-trust impact within the documented MVP boundary.",
@@ -779,10 +823,10 @@ const requirementRows = [
   ["REQ-GOV-001", "VM551-D035", "Wrong standard/web authority", "Audit acceptance cannot be reproduced", "Exact draft.4 authority and local-only evidence record", "Checksum replay; conclusion adjudication; no web authority", "Audit acceptance gate"],
   ["REQ-A-001", "VM551-D002", "adaptive-placement.js", "Bayesian/probability wording overclaims the model", "Name current system adaptive weighted scoring everywhere", "Static/runtime terminology scan and owner copy review", "Gate A"],
   ["REQ-A-002", "VM551-D003|VM551-D007|VM551-D023", "26,891 paths + runtime trace", "Numeric shares/fabricated defaults imply calibrated certainty", "Replace displayed percentage/strength with unknown or bounded nonnumeric evidence state; legacy missing stays unknown", "All result-state and legacy fixtures; no numeric confidence without calibration", "Gate A"],
-  ["REQ-A-003", "VM551-D005|VM551-D008", "333 ties + 0 uncertainty answers", "Forced answers and hidden tie defaults fabricate a primary", "Provide unknown/mixed/insufficient/tied outcomes without directional evidence", "Decision table, exact/near tie, incomplete and no-direction scenarios", "Gate A"],
+  ["REQ-A-003", "VM551-D005", "333 ties + incomplete/contradictory runtime states", "Hidden tie defaults and unsupported completion fabricate a primary", "Preserve unknown, mixed, contradictory, insufficient, tied, close, invalid, and incomplete result states using existing response/state evidence; do not refit the questionnaire in Gate A", "Decision table, exact/near tie, incomplete, contradictory, invalid, and absent-state scenarios", "Gate A"],
   ["REQ-A-004", "VM551-D006|VM551-D007", "numeric ranks 2/3", "Weak runner-up is mislabeled meaningful adjacency", "Call numeric runners-up close alternatives or omit them; reserve adjacency for reviewed relationship + evidence", "Weak-rank-two, cross-family, guild/college, Colorless/WUBRG tests", "Gate A"],
   ["REQ-A-005", "VM551-D017|VM551-D020", "claim register and traces", "Copy states motivation/deck/table claims beyond answers", "Use only entailed, qualified observation language in first pass", "Trace answer -> claim for every Gate A surface", "Gate A"],
-  ["REQ-B1-001", "VM551-D038", "question quality matrix", "Current instrument tests overlapping/abstract constructs", "Select smallest evidence-derived, Commander-relevant, single-construct pilot question slice", "Cognitive review plus 113/356 inclusion/exclusion manifest", "Gate B1"],
+  ["REQ-B1-001", "VM551-D008|VM551-D038", "question quality matrix + 0 uncertainty answers", "Current instrument tests overlapping/abstract constructs and forces directional evidence", "Select the smallest evidence-derived, Commander-relevant, single-construct pilot question slice with explicit unknown/mixed/no-direction handling", "Cognitive review plus 113/356 inclusion/exclusion manifest and uncertainty-state scenarios", "Gate B1"],
   ["REQ-B1-002", "VM551-D009|VM551-D010", "answer matrix", "Effects cannot be stably traced or reviewed", "Stable question/answer/signal IDs and direct/inferred/speculative provenance for every pilot effect", "Schema/reference/hash validation", "Gate B1"],
   ["REQ-B1-003", "VM551-D001|VM551-D004|VM551-D011", "builder + 2,901 below-min paths", "Scoring can ignore identity contracts", "One reviewed scoring authority; executable minimum-hit and false-positive decisions; explicit insufficient state", "Exhaustive all-37 minimum/guardrail tests", "Gate B1"],
   ["REQ-B1-004", "VM551-D039", "11 repeated constructs", "Repeated observations can masquerade as independent evidence", "Controlled dependency groups and contribution caps/disclosure", "Duplicate-construct, order, stopping, and confidence tests", "Gate B1"],
@@ -811,13 +855,33 @@ const preservedArtifacts = [
   "docs/audits/vm551-placement-system/copy-comparison-pairs.csv",
   "docs/audits/vm551-placement-system/claim-evidence-register.csv",
 ];
+const reconciliationStart = "797fb14d08209c310dbc0087a3940e0a74edf21d";
+function hashGitArtifact(commit, relativePath) {
+  const result = spawnSync("git", ["-c", "safe.directory=C:/dev/voxmana.io-vm551-placement-system-audit", "show", `${commit}:${relativePath}`], { cwd: repoRoot, encoding: null, maxBuffer: 64 * 1024 * 1024 });
+  if (result.status !== 0) throw new Error(`Cannot hash ${relativePath} at ${commit}: ${result.stderr.toString("utf8")}`);
+  return crypto.createHash("sha256").update(result.stdout).digest("hex");
+}
 const auditInputManifest = {
   generated_at: "2026-08-01",
   audit_base: "2b4058ff4c769f03d52070204b3ce973e51decbd",
   rejected_audit_sha: "c62c7e1b43421359488537457804698a77656952",
   cecos: { repository: cecosRepo, commit: cecosCommit, path: cecosPath, sha256: observedCecosHash, verification: "PASS" },
   runtime_inputs: ["data/placement-model.json", "data/factions.json", "assets/js/adaptive-placement.js", "assets/js/commander-dossier.js", "assets/js/archscry-presentation.js"].map((relativePath) => ({ path: relativePath, sha256: hashFile(relativePath) })),
-  preserved_artifacts: preservedArtifacts.map((relativePath) => ({ path: relativePath, sha256: hashFile(relativePath), byte_reproduction: "PASS before remediation" })),
+  preserved_artifacts: preservedArtifacts.map((relativePath) => {
+    const startingWorkflowSha256 = hashGitArtifact(reconciliationStart, relativePath);
+    const currentSha256 = hashFile(relativePath);
+    const intentionallyCorrected = relativePath.endsWith("identity-reachability-opportunity-matrix.csv");
+    return {
+      path: relativePath,
+      sha256: currentSha256,
+      starting_workflow_sha256: startingWorkflowSha256,
+      byte_reproduction: currentSha256 === startingWorkflowSha256
+        ? "PASS: byte-identical to accepted remediation starting point"
+        : intentionallyCorrected
+          ? "INTENTIONAL RECONCILIATION CORRECTION: only the stale can-win-with-zero-positive-evidence bias indicator was relabeled as a withdrawn historical invalid-counter marker; quantitative fields were not changed"
+          : "FAIL: unexplained change",
+    };
+  }),
   prohibited_inputs: ["web browsing", "uncommitted production data", "working-tree CECOS substitution"],
 };
 
@@ -838,6 +902,8 @@ const summary = {
   scenarios: {
     profiles: profileScenarios.length,
     profile_dispositions: Object.fromEntries([...new Set(profileScenarios.map((row) => row.final_disposition))].map((value) => [value, profileScenarios.filter((row) => row.final_disposition === value).length])),
+    profile_scoring_outcomes: Object.fromEntries([...new Set(profileScenarios.map((row) => row.scoring_outcome))].map((value) => [value, profileScenarios.filter((row) => row.scoring_outcome === value).length])),
+    profile_origins: Object.fromEntries([...new Set(profileScenarios.map((row) => row.scenario_origin))].map((value) => [value, profileScenarios.filter((row) => row.scenario_origin === value).length])),
     adversarial: adversarialRows.length,
     adversarial_dispositions: Object.fromEntries([...new Set(adversarialRows.map((row) => row.final_disposition))].map((value) => [value, adversarialRows.filter((row) => row.final_disposition === value).length])),
   },
@@ -865,7 +931,7 @@ const summary = {
     "No empirical player-response, correctness, calibration, prevalence, or statistical-correlation dataset exists.",
     "Question and distinctiveness dispositions are deterministic audit adjudications requiring owner and later independent review.",
     "Free-text false-positive guardrails cannot be exhaustively counted as passed or violated without executable predicates.",
-    "Synthetic target-seeking profile success is not semantic distinctiveness or player accuracy.",
+    "All 37 current profile probes are golden-path-derived and incomplete because they lack an independently selected neighboring and mixed/uncertain challenge; their exact-primary scoring outcomes are reachability evidence only.",
   ],
 };
 

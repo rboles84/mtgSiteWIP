@@ -2,15 +2,17 @@
 
 Status: implementation-planning input only. This document does not authorize implementation, task creation, integration, push, deployment, or certification.
 
-## Gate A — Immediate trust blockers
+Precedence: `bounded-mvp-repair-plan.md` and `requirements-traceability-matrix.csv` govern the repair boundary. Narrative summaries must agree with them.
+
+## Gate A — Immediate trust containment
 
 Smallest outcome: stop presenting an editorial weighted score as calibrated identity accuracy and preserve states where the current evidence cannot support a clear result.
 
-- Defects: D002, D003, D005–D008, D017, D020, D023.
+- Defects: D002, D003, D005–D007, D017, D020, D023.
 - Requirements: REQ-A-001 through REQ-A-005.
 - Likely production files if later authorized: `assets/js/adaptive-placement.js`, `assets/js/commander-dossier.js`, `assets/js/archscry-presentation.js`, `assets/js/shared.js`, Archscry result template/route HTML, and focused result-state tests.
 - Identities/families: all 37; especially exact ties, weak rank two, guild/college collisions, Colorless, WUBRG, and four-color cross-family results.
-- Question scope: do not rewrite 113 questions. Add only an explicit non-directional path if the current UI cannot otherwise preserve unknown/insufficient; otherwise contain misleading result output.
+- Question scope: no questionnaire refit. Preserve unknown/insufficient/invalid/incomplete outcomes from existing response and state evidence, and contain or suppress a misleading named result when necessary.
 - Scoring-contract scope: no model refit. Name the model adaptive weighted scoring; expose tie/insufficient state; stop treating softmax share as confidence.
 - Output-contract scope: no numeric accuracy/confidence; numeric ranks are close alternatives, not adjacency; unsupported motivation/table/deck claims fall back to bounded observation language.
 - Required tests: exact/near tie; no-direction/incomplete; weak rank two; legacy missing confidence; primary/alternative rendering; one representative identity per structural family; mobile/keyboard/state regression.
@@ -19,18 +21,18 @@ Smallest outcome: stop presenting an editorial weighted score as calibrated iden
 - Entry conditions: owner accepts the remediated authority record, D004 correction, and Gate A output boundary.
 - Stopping point: public output is honest about the current heuristic; no questionnaire refit, calibration, recommendation redesign, or new identity semantics.
 
-## Gate B1 — First player-pilot correctness slice
+## Gate B1 — First controlled-pilot correctness slice
 
 Smallest outcome: a disciplined, bounded pilot can test whether a minimal question/scoring slice distinguishes owner-approved high-risk identity contrasts without forcing certainty.
 
-- Defects: D001, D004, D009–D011, D014–D015, D036, D038–D040.
+- Defects: D001, D004, D008–D011, D014–D015, D036, D038–D040.
 - Requirements: REQ-B1-001 through REQ-B1-006.
 - Likely production files if later authorized: canonical placement-question/signal source chosen by owner, builder question-bank section, generated placement model/schema only through the authorized source pipeline, adaptive scoring/branching, result serializer, and new pilot-only validation fixtures. Exact paths require implementation planning after owner acceptance.
 - Identities/families: all five guild/college same-color pairs; Bant/Grixis/Sultai/Temur; Izzet/Esper/Jeskai/Lorehold/Colorless/Yore/Ink; every four-color identity; WUBRG. Remaining identities stay covered by regression, not equal-depth redesign in this slice.
 - Question scope: select the smallest evidence-derived, Commander-relevant, single-construct subset. Exclude every question that lacks owner-approved construct/evidence/false-positive contracts. Do not rewrite all 113.
 - Scoring-contract scope: stable answer/signal IDs; one reviewed scoring authority; explicit effect units; dependency groups/caps; executable minimum-hit and guardrail decisions; close/unknown/insufficient outcomes; deterministic tie handling.
 - Output-contract scope: pilot output states observed constructs and uncertainty; recommendations may be hidden or clearly generic exploration until Gate C.
-- Required tests: full active-question/answer reachability; all-37 synthetic profiles; five same-color pair confusion sets; shard/wedge boundary samples; five four-color + Colorless + WUBRG; 44,005-style matched perturbation report; repeated-construct duplicates; answer-order; contradictory/mixed/no-direction; minimum-hit/guardrail; branch coverage.
+- Required tests: full active-question/answer reachability; independently derived all-37 synthetic profiles; five same-color pair confusion sets; shard/wedge boundary samples; five four-color + Colorless + WUBRG; 44,005-style matched perturbation report; repeated-construct duplicates; answer-order; contradictory/mixed/no-direction; minimum-hit/guardrail; branch coverage. Current golden-path-derived probes are reachability fixtures only.
 - Owner decisions: pilot identity/family strata; minimum evidence unit; allowed negative evidence; perturbation thresholds; close/unknown thresholds; whether pilot results are saved; which questions are excluded.
 - Source/corpus dependencies: certified CRIT-001 identity definitions; CECOS-compliant derivation records; applicable tutor/combo and other research only as bounded support; no use of Strategium/Apocrypha presentation as scoring authority.
 - Entry conditions: Gate A passes; owner approves exact pilot construct set, thresholds before results, response consent/data boundary, and acceptable result states.

@@ -109,4 +109,13 @@ Audit and define requirements only. Do not implement repairs, change production 
 - The card remains in owner review; it is not accepted, implementation-ready, integrated, or certified.
 - No production behavior, production data, recovered identity semantics, route, deployment, certification, push, merge, or VM-551 implementation changed.
 
+## Final Owner-Review Reconciliation
+
+- `bounded-mvp-repair-plan.md` and `requirements-traceability-matrix.csv` govern Gate A/B1/B2; narrative summaries must agree with them.
+- Corrected authority remains zero genuinely negative-only winners; 2,901 primary terminal paths are separately below generated minimum-hit metadata under the documented strong-authored-hit proxy; runtime does not enforce that metadata and false-positive guardrails remain non-executable.
+- All 37 profile probes are `GOLDEN-PATH-DERIVED`, score `EXACT-PRIMARY`, and remain `INCOMPLETE` because they lack an independently selected neighboring or mixed/uncertain challenge.
+- The nine adversarial dispositions reconcile to 5 literal non-representations, 2 partial/conflated cases, and 2 unsupported-inference cases.
+- Gate A is immediate output trust containment only. Question/scoring refit, executable minimum/guardrail contracts, stable provenance, and dependency handling begin in Gate B1; broader schemas/manifests/dead-control cleanup remain Gate B2.
+- `owner-review-evidence-manifest.md` and `owner-review-critical-extract.md` are the bounded owner-review package. No production implementation is authorized.
+
 Next gate: owner review and explicit acceptance of the audit, defect categories, and MVP repair boundary before implementation planning.

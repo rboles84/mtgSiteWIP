@@ -1,6 +1,8 @@
 # VM-551 Full Placement-System Audit
 
-Remediation status: revised after owner rejection. The exact CECOS draft.4 authority, corrected positive-evidence metric, question/answer dispositions, all-37 distinctiveness, 37 profile probes, nine adversarial scenarios, sensitivity/dependency analysis, and bounded Gate A/B1 plan are authoritative additions. See `audit-input-authority.md`, `remediation-analysis-summary.json`, and the artifact README. Draft.2 and the rejected audit's web-derived Hearthhull legality claim are not VM-551 authority.
+Remediation status: revised after owner rejection and final owner-review reconciliation. The exact CECOS draft.4 authority, corrected positive-evidence metric, question/answer dispositions, all-37 distinctiveness, 37 classified profile probes, nine re-adjudicated adversarial scenarios, sensitivity/dependency analysis, and bounded Gate A/B1/B2 plan are authoritative additions. See `audit-input-authority.md`, `remediation-analysis-summary.json`, and the artifact README. Draft.2 and the rejected audit's web-derived Hearthhull legality claim are not VM-551 authority.
+
+Boundary precedence: `bounded-mvp-repair-plan.md` and `requirements-traceability-matrix.csv` govern the repair boundary. Narrative summaries must agree with them.
 
 Audit date: 2026-08-01
 
@@ -45,7 +47,7 @@ No. The repository does not establish that likelihoods are conditional probabili
 
 ### Are all 37 identities reachable and comparably represented?
 
-All 37 are primary- and rank-two-reachable across 26,891 exhaustive valid terminal paths. Thirty-six are rank-three-reachable; Colorless is not. They are not comparably represented: primary share ranges 8.22% to 0.62% and support opportunity ranges 59 to 8 answers. The rejected audit's claim that all 37 could win with zero direct positive evidence was caused by an invalid evidence-trail field lookup and is withdrawn. Corrected analysis finds zero genuinely negative-only winners but 2,901 primary paths below the generated minimum-hit metadata under the explicit strong-authored-hit proxy.
+All 37 are primary- and rank-two-reachable across 26,891 exhaustive valid terminal paths. Thirty-six are rank-three-reachable; Colorless is not. They are not comparably represented: primary share ranges 8.22% to 0.62% and support opportunity ranges 59 to 8 answers. The withdrawn historical claim that all 37 could win with zero direct positive evidence came from an invalid evidence-trail field lookup. Corrected analysis finds zero genuinely negative-only winners; separately, 2,901 primary paths fall below generated minimum-hit metadata under the documented strong-authored-hit proxy, runtime does not enforce that metadata, and false-positive guardrails remain non-executable.
 
 ### Which questions or answers create bias?
 
@@ -86,15 +88,17 @@ Color-identity compatibility is strongest: 82 locally indexed commander candidat
 
 ### What must be fixed before broader public validation?
 
-Gate A: honest model terminology, canonical evidence/signal contracts, enforced affirmative evidence and unknown/tie states, meaningful adjacency, calibrated or nonnumeric confidence, and source/generated validation. The decision-critical Gate B work must then pass all-37 opportunity, sensitivity, edge-identity, and claim-entailment gates.
+Gate A is immediate trust containment only: use honest adaptive weighted-scoring terminology; remove numeric confidence and fabricated certainty; preserve tie, close, mixed, contradictory, unknown, insufficient, invalid, and incomplete result states; stop calling numerical runners-up adjacency; and restrict public claims to demonstrated observations or safe fallbacks. Gate A does not refit the questionnaire, rebuild scoring authority, or implement minimum-hit/guardrail contracts except where suppressing or downgrading a misleading result is strictly necessary.
+
+Gate B1 is the first controlled-pilot correctness slice: the smallest evidence-derived Commander-relevant question set, stable IDs/provenance, one scoring authority, repeated-construct dependency handling, executable minimum-hit/guardrail decisions, predeclared sensitivity thresholds, and high-risk identity-family/edge scenarios. Gate B2 defers remaining schemas, manifests, dead-control cleanup, broader normalization, and expanded coverage that need not block that controlled pilot.
 
 ### What can wait until after MVP user testing?
 
-Lower-value template diversification, long-term schema ergonomics, full historical-result migration, deep hardening automation, minor mobile tab affordance polish, and nonessential dossier repetition can wait. Uncalibrated percentages, zero-evidence winners, hidden tie defaults, forced directional answers, and unsupported public claims cannot.
+Lower-value template diversification, long-term schema ergonomics, full historical-result migration, deep hardening automation, minor mobile tab affordance polish, and nonessential dossier repetition can wait. Uncalibrated percentages, hidden tie defaults, forced directional answers, unsupported public claims, and misleading named results on paths below the applicable evidence boundary cannot. The corrected negative-only count and below-minimum proxy population remain separate findings.
 
 ### What should the implementation sequence be?
 
-Gate A trust blockers -> Gate B MVP correctness -> Gate C interpretation quality -> Gate D hardening. Detailed requirements and validation gates are in `requirements-specification.md`. This audit does not authorize implementation planning or work.
+Gate A immediate trust containment -> Gate B1 first controlled-pilot correctness slice -> Gate B2 deferred correctness expansion -> Gate C interpretation quality -> Gate D hardening. Detailed requirements and validation gates are governed by `bounded-mvp-repair-plan.md` and `requirements-traceability-matrix.csv`. This audit does not authorize implementation planning or work.
 
 ## Quantitative inventory
 

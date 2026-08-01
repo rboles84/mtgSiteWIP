@@ -35,32 +35,38 @@
     {
       "path": "docs/audits/vm551-placement-system/analysis-summary.json",
       "sha256": "bc0a97fb2166bb6fabbe7c0beb77402565ea5948ea01719e0e577c53243fece8",
-      "byte_reproduction": "PASS before remediation"
+      "starting_workflow_sha256": "bc0a97fb2166bb6fabbe7c0beb77402565ea5948ea01719e0e577c53243fece8",
+      "byte_reproduction": "PASS: byte-identical to accepted remediation starting point"
     },
     {
       "path": "docs/audits/vm551-placement-system/question-to-signal-matrix.csv",
       "sha256": "ab4c83dfd9bce32a0227b960633e6c29a46851841ebcc6cd5ad5963690eb0ae2",
-      "byte_reproduction": "PASS before remediation"
+      "starting_workflow_sha256": "ab4c83dfd9bce32a0227b960633e6c29a46851841ebcc6cd5ad5963690eb0ae2",
+      "byte_reproduction": "PASS: byte-identical to accepted remediation starting point"
     },
     {
       "path": "docs/audits/vm551-placement-system/identity-reachability-opportunity-matrix.csv",
-      "sha256": "46ec414bc7597d3a0f61519bfe07bb761e4c954899ac01832e9831af8f6bca28",
-      "byte_reproduction": "PASS before remediation"
+      "sha256": "8f73523e71d1227fefe8e5f2c09e1cb7010f86ff9da75d81c73f2336c13e3521",
+      "starting_workflow_sha256": "46ec414bc7597d3a0f61519bfe07bb761e4c954899ac01832e9831af8f6bca28",
+      "byte_reproduction": "INTENTIONAL RECONCILIATION CORRECTION: only the stale can-win-with-zero-positive-evidence bias indicator was relabeled as a withdrawn historical invalid-counter marker; quantitative fields were not changed"
     },
     {
       "path": "docs/audits/vm551-placement-system/copy-comparison-corpus.json",
       "sha256": "7eca12ab9f7e5b3342c9ec242c09ff9f36b867ce615ebc7b27349b2c20251cf8",
-      "byte_reproduction": "PASS before remediation"
+      "starting_workflow_sha256": "7eca12ab9f7e5b3342c9ec242c09ff9f36b867ce615ebc7b27349b2c20251cf8",
+      "byte_reproduction": "PASS: byte-identical to accepted remediation starting point"
     },
     {
       "path": "docs/audits/vm551-placement-system/copy-comparison-pairs.csv",
       "sha256": "898ede00d8b89564935f0ab5399dfc146d26a8cc1554a89e7ea1ddce2c85a90b",
-      "byte_reproduction": "PASS before remediation"
+      "starting_workflow_sha256": "898ede00d8b89564935f0ab5399dfc146d26a8cc1554a89e7ea1ddce2c85a90b",
+      "byte_reproduction": "PASS: byte-identical to accepted remediation starting point"
     },
     {
       "path": "docs/audits/vm551-placement-system/claim-evidence-register.csv",
       "sha256": "4fa31b387e104287eb76dc396692f911c2deb0b64e7c26c095697d335f4a52d1",
-      "byte_reproduction": "PASS before remediation"
+      "starting_workflow_sha256": "4fa31b387e104287eb76dc396692f911c2deb0b64e7c26c095697d335f4a52d1",
+      "byte_reproduction": "PASS: byte-identical to accepted remediation starting point"
     }
   ],
   "prohibited_inputs": [

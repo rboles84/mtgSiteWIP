@@ -401,7 +401,7 @@ const identityRows = factionKeys.map((key) => {
       primaryShare > (1 / factionKeys.length) * 2 ? "primary-share-over-2x-uniform" : "",
       stats.primaryCount === 0 ? "unreachable-primary" : "",
       hallQuestions === 0 ? "no-targeted-hall-question" : "",
-      stats.minPositiveEvidence === 0 ? "can-win-with-zero-positive-evidence" : "",
+      stats.minPositiveEvidence === 0 ? "withdrawn-historical-positive-evidence-counter-invalid-see-remediation" : "",
     ].filter(Boolean).join("|"),
   };
 });

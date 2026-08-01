@@ -21,6 +21,10 @@ This document records current behavior and the required replacement behavior. It
 | WUBRG | All-five integration Gate channel plus targeted questions. | Can be confused with breadth/goodstuff; source-bound guardrails are not enforced. | Require all-five integration and tradeoff evidence, not mere access. |
 | Invalid/incomplete | UI prevents completion before stage minima; clean result query returns landing. | Partial state silently disappears on refresh. | Validate versioned state, explain recovery, and never fabricate confidence. |
 
+Evidence terminology: corrected enumeration finds zero genuinely negative-only winners. The distinct weak-evidence population is 2,901 primary terminal paths below generated minimum-hit metadata under the documented strong-authored-hit proxy; runtime does not enforce that metadata, and free-text false-positive guardrails cannot be executed. These are separate findings.
+
+Boundary precedence: `bounded-mvp-repair-plan.md` and `requirements-traceability-matrix.csv` govern Gate A/B1/B2 scope. This decision model describes the eventual contract and does not assign questionnaire, scoring-authority, minimum-hit, guardrail, schema, or normalization work to Gate A.
+
 ## Current classification tree
 
 ```text

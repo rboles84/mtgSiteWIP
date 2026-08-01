@@ -1,6 +1,8 @@
 [
   {
     "expected_identity": "ABZAN",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "Abzan Houses",
       "Tarkir",
@@ -16,6 +18,8 @@
     ],
     "closest_competitor": "WB",
     "mixed_or_uncertain_element": "Nearest current numeric competitor WB; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -98,11 +102,14 @@
       "DUNE",
       "ESPER"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "B",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "power",
       "opportunity",
@@ -114,6 +121,8 @@
     ],
     "closest_competitor": "WB",
     "mixed_or_uncertain_element": "Nearest current numeric competitor WB; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -196,11 +205,14 @@
       "BR",
       "COLORLESS"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "BANT",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "Bant",
       "exalted",
@@ -217,6 +229,8 @@
     ],
     "closest_competitor": "INK",
     "mixed_or_uncertain_element": "Nearest current numeric competitor INK; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -299,11 +313,14 @@
       "BR",
       "COLORLESS"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "BG",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "decay",
       "renewal",
@@ -318,6 +335,8 @@
     ],
     "closest_competitor": "G",
     "mixed_or_uncertain_element": "Nearest current numeric competitor G; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -400,11 +419,14 @@
       "BR",
       "COLORLESS"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "BR",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "spectacle",
       "performance",
@@ -419,6 +441,8 @@
     ],
     "closest_competitor": "DUNE",
     "mixed_or_uncertain_element": "Nearest current numeric competitor DUNE; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -508,14 +532,19 @@
       "BG",
       "COLORLESS"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "COLORLESS",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [],
     "closest_competitor": "WUBRG",
     "mixed_or_uncertain_element": "Nearest current numeric competitor WUBRG; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -598,11 +627,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "DUNE",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "organized",
       "territorial",
@@ -623,6 +655,8 @@
     ],
     "closest_competitor": "RG",
     "mixed_or_uncertain_element": "Nearest current numeric competitor RG; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -704,11 +738,14 @@
       "BR",
       "COLORLESS"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "ESPER",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "Esper",
       "Alara",
@@ -727,6 +764,8 @@
     ],
     "closest_competitor": "SILVERQUILL",
     "mixed_or_uncertain_element": "Nearest current numeric competitor SILVERQUILL; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -809,11 +848,14 @@
       "BR",
       "COLORLESS"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "G",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "nature",
       "acceptance",
@@ -826,6 +868,8 @@
     ],
     "closest_competitor": "UG",
     "mixed_or_uncertain_element": "Nearest current numeric competitor UG; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -908,11 +952,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "GLINT",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "adaptive",
       "appetite",
@@ -933,6 +980,8 @@
     ],
     "closest_competitor": "BR",
     "mixed_or_uncertain_element": "Nearest current numeric competitor BR; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -1014,11 +1063,14 @@
       "COLORLESS",
       "DUNE"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "GRIXIS",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "Grixis",
       "Alara",
@@ -1035,6 +1087,8 @@
     ],
     "closest_competitor": "UB",
     "mixed_or_uncertain_element": "Nearest current numeric competitor UB; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -1117,11 +1171,14 @@
       "COLORLESS",
       "DUNE"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "INK",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "protected",
       "public abundance",
@@ -1143,6 +1200,8 @@
     ],
     "closest_competitor": "LOREHOLD",
     "mixed_or_uncertain_element": "Nearest current numeric competitor LOREHOLD; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -1224,11 +1283,14 @@
       "BR",
       "COLORLESS"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "JESKAI",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "Jeskai Way",
       "Blue-centered",
@@ -1245,6 +1307,8 @@
     ],
     "closest_competitor": "LOREHOLD",
     "mixed_or_uncertain_element": "Nearest current numeric competitor LOREHOLD; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -1327,11 +1391,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "JUND",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "Jund",
       "Alara",
@@ -1346,6 +1413,8 @@
     ],
     "closest_competitor": "BR",
     "mixed_or_uncertain_element": "Nearest current numeric competitor BR; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -1428,11 +1497,14 @@
       "COLORLESS",
       "DUNE"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "LOREHOLD",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "history",
       "archive",
@@ -1448,6 +1520,8 @@
     ],
     "closest_competitor": "W",
     "mixed_or_uncertain_element": "Nearest current numeric competitor W; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -1530,11 +1604,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "MARDU",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "Mardu Horde",
       "Red-centered",
@@ -1551,6 +1628,8 @@
     ],
     "closest_competitor": "YORE",
     "mixed_or_uncertain_element": "Nearest current numeric competitor YORE; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -1633,11 +1712,14 @@
       "COLORLESS",
       "DUNE"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "NAYA",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "Naya",
       "Alara",
@@ -1653,6 +1735,8 @@
     ],
     "closest_competitor": "RG",
     "mixed_or_uncertain_element": "Nearest current numeric competitor RG; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -1735,11 +1819,14 @@
       "BR",
       "COLORLESS"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "PRISMARI",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "expression",
       "performance",
@@ -1754,6 +1841,8 @@
     ],
     "closest_competitor": "R",
     "mixed_or_uncertain_element": "Nearest current numeric competitor R; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -1836,11 +1925,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "QUANDRIX",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "pattern",
       "proof",
@@ -1855,6 +1947,8 @@
     ],
     "closest_competitor": "U",
     "mixed_or_uncertain_element": "Nearest current numeric competitor U; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -1937,11 +2031,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "R",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "freedom",
       "emotion",
@@ -1953,6 +2050,8 @@
     ],
     "closest_competitor": "WR",
     "mixed_or_uncertain_element": "Nearest current numeric competitor WR; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -2035,11 +2134,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "RG",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "loss",
       "taken",
@@ -2056,6 +2158,8 @@
     ],
     "closest_competitor": "QUANDRIX",
     "mixed_or_uncertain_element": "Nearest current numeric competitor QUANDRIX; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -2138,11 +2242,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "SILVERQUILL",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "rhetoric",
       "words",
@@ -2157,6 +2264,8 @@
     ],
     "closest_competitor": "B",
     "mixed_or_uncertain_element": "Nearest current numeric competitor B; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -2237,11 +2346,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "SULTAI",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "Sultai Brood",
       "Tarkir",
@@ -2258,6 +2370,8 @@
     ],
     "closest_competitor": "UB",
     "mixed_or_uncertain_element": "Nearest current numeric competitor UB; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -2340,11 +2454,14 @@
       "COLORLESS",
       "DUNE"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "TEMUR",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "Temur Frontier",
       "Tarkir",
@@ -2362,6 +2479,8 @@
     ],
     "closest_competitor": "RG",
     "mixed_or_uncertain_element": "Nearest current numeric competitor RG; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -2444,11 +2563,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "U",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "knowledge",
       "learning",
@@ -2460,6 +2582,8 @@
     ],
     "closest_competitor": "UB",
     "mixed_or_uncertain_element": "Nearest current numeric competitor UB; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -2542,11 +2666,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "UB",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "secrecy",
       "information",
@@ -2561,6 +2688,8 @@
     ],
     "closest_competitor": "B",
     "mixed_or_uncertain_element": "Nearest current numeric competitor B; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -2642,11 +2771,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "UG",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "adaptation",
       "improvement",
@@ -2661,6 +2793,8 @@
     ],
     "closest_competitor": "BANT",
     "mixed_or_uncertain_element": "Nearest current numeric competitor BANT; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -2743,11 +2877,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "UR",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "experiment",
       "invention",
@@ -2763,6 +2900,8 @@
     ],
     "closest_competitor": "GLINT",
     "mixed_or_uncertain_element": "Nearest current numeric competitor GLINT; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -2845,11 +2984,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "W",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "group needs",
       "shared rules",
@@ -2861,6 +3003,8 @@
     ],
     "closest_competitor": "WR",
     "mixed_or_uncertain_element": "Nearest current numeric competitor WR; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -2943,11 +3087,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "WB",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "debt",
       "obligation",
@@ -2962,6 +3109,8 @@
     ],
     "closest_competitor": "YORE",
     "mixed_or_uncertain_element": "Nearest current numeric competitor YORE; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -3044,11 +3193,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "WG",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "belonging",
       "harmony",
@@ -3063,6 +3215,8 @@
     ],
     "closest_competitor": "INK",
     "mixed_or_uncertain_element": "Nearest current numeric competitor INK; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -3145,11 +3299,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "WITCH",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "cultivate",
       "accumulate",
@@ -3165,6 +3322,8 @@
     ],
     "closest_competitor": "QUANDRIX",
     "mixed_or_uncertain_element": "Nearest current numeric competitor QUANDRIX; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -3246,11 +3405,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "WITHERBLOOM",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "essence",
       "life",
@@ -3266,6 +3428,8 @@
     ],
     "closest_competitor": "GLINT",
     "mixed_or_uncertain_element": "Nearest current numeric competitor GLINT; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -3346,11 +3510,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "WR",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "protect",
       "protection",
@@ -3365,6 +3532,8 @@
     ],
     "closest_competitor": "W",
     "mixed_or_uncertain_element": "Nearest current numeric competitor W; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -3447,11 +3616,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "WU",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "procedure",
       "law",
@@ -3466,6 +3638,8 @@
     ],
     "closest_competitor": "W",
     "mixed_or_uncertain_element": "Nearest current numeric competitor W; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -3548,11 +3722,14 @@
       "BG",
       "BR"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "WUBRG",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "all five colors present",
       "full-spectrum integration",
@@ -3562,6 +3739,8 @@
     ],
     "closest_competitor": "WB",
     "mixed_or_uncertain_element": "Nearest current numeric competitor WB; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -3644,11 +3823,14 @@
       "COLORLESS",
       "DUNE"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   },
   {
     "expected_identity": "YORE",
+    "scenario_origin": "GOLDEN-PATH-DERIVED",
+    "scenario_origin_basis": "The remediation generator calls runAdaptiveGoldenPath with targetFaction equal to the expected identity; answers were not selected independently.",
     "defining_evidence": [
       "engineered",
       "agency",
@@ -3669,6 +3851,8 @@
     ],
     "closest_competitor": "SILVERQUILL",
     "mixed_or_uncertain_element": "Nearest current numeric competitor SILVERQUILL; no explicit mixed/unknown response state exists.",
+    "neighboring_challenge_status": "INCOMPLETE: nearest numeric competitor is recorded, but no independently selected neighboring challenge was introduced.",
+    "mixed_or_uncertain_challenge_status": "INCOMPLETE: the target-seeking routine selected no mixed/uncertain answer and the questionnaire has no explicit mixed/unknown state.",
     "exact_available_answers_selected": [
       {
         "stage": "gate",
@@ -3750,7 +3934,8 @@
       "BR",
       "COLORLESS"
     ],
-    "final_disposition": "EXACT-PRIMARY",
-    "scenario_limit": "Synthetic target-seeking profile probe derived from certified placement-axis metadata and existing answers; not an empirical player profile or proof of semantic distinctiveness."
+    "scoring_outcome": "EXACT-PRIMARY",
+    "final_disposition": "INCOMPLETE",
+    "scenario_limit": "Golden-path-derived target-seeking probe. It demonstrates target reachability under the runtime helper only; it is not an independently derived profile, a neighboring challenge, semantic placement accuracy, or empirical player validation."
   }
 ]

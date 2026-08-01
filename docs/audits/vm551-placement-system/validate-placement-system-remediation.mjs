@@ -65,6 +65,9 @@ assert(answers.every((row) => allowedDispositions.has(row.final_disposition)), "
 assert(identities.length === 37 && new Set(identities.map((row) => row.identity)).size === 37, "Identity coverage mismatch");
 assert(profiles.length === 37 && new Set(profiles.map((row) => row.expected_identity)).size === 37, "Profile coverage mismatch");
 assert(adversarial.length === 9 && new Set(adversarial.map((row) => row.scenario)).size === 9, "Adversarial coverage mismatch");
+assert(profiles.every((row) => row.scenario_origin === "GOLDEN-PATH-DERIVED" && row.scoring_outcome === "EXACT-PRIMARY" && row.final_disposition === "INCOMPLETE"), "Profile origin/completeness reconciliation mismatch");
+const adversarialCounts = Object.fromEntries([...new Set(adversarial.map((row) => row.final_disposition))].map((value) => [value, adversarial.filter((row) => row.final_disposition === value).length]));
+assert(adversarialCounts["QUESTIONNAIRE-CANNOT-REPRESENT"] === 5 && adversarialCounts["PARTIALLY-REPRESENTABLE-BUT-CONFLATED"] === 2 && adversarialCounts["REPRESENTABLE-WITH-UNSUPPORTED-INFERENCE"] === 2, "Adversarial disposition reconciliation mismatch");
 assert(summary.preserved_counts.terminal_paths === 26891, "Terminal-path reproduction mismatch");
 assert(summary.preserved_counts.exact_top_ties === 333, "Exact-tie reproduction mismatch");
 
@@ -99,7 +102,10 @@ console.log(JSON.stringify({
   answers: answers.length,
   identities: identities.length,
   profiles: profiles.length,
-  adversarial: adversarial.length,
+  profile_origins: { "GOLDEN-PATH-DERIVED": 37 },
+  profile_scoring_outcomes: { "EXACT-PRIMARY": 37 },
+  profile_dispositions: { INCOMPLETE: 37 },
+  adversarial: adversarialCounts,
   terminal_paths: summary.preserved_counts.terminal_paths,
   exact_ties: summary.preserved_counts.exact_top_ties,
   defects: summary.remediated_defects,

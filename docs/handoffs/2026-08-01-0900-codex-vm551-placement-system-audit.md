@@ -110,7 +110,7 @@ VM-551 required a diagnosis and requirements baseline before any repair planning
 - `VM551-D001`: live Hall/Crucible scoring is disconnected from canonical recovered evidence contracts.
 - `VM551-D002`: Bayesian/probability terminology is unsupported by implementation.
 - `VM551-D003`: confidence is uncalibrated softmax share.
-- `VM551-D004`: every identity can win without affirmative evidence.
+- `VM551-D004` withdrawn historical claim: “every identity can win without affirmative evidence.” Corrected analysis finds zero genuinely negative-only winners; separately, 2,901 primary paths fall below generated minimum-hit metadata under the documented strong-authored-hit proxy, runtime does not enforce that metadata, and false-positive guardrails remain non-executable.
 
 ## High Findings
 
