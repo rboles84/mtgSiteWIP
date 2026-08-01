@@ -1,0 +1,45 @@
+{
+  "baseSha": "5ae7d873cd09d6bd9cfd45f3564d8cad8126e3e9",
+  "approvedCandidateSha": "2fe0fbf44c66a369690548c70e13e0e480806cea",
+  "independentReviewCommit": "e0662e55ed8ff8f1584bc984dd52df69295d82fb",
+  "finalIntegrationSha": "16b9aa1bffb892407532787a22ed44d65707cda6",
+  "integrationWorktree": "C:\\dev\\voxmana.io-strategium-lifecycle-integration",
+  "integrationBranch": "codex/strategium-game-lifecycle-integration",
+  "canonicalLauncher": {
+    "command": "node scripts/strategium-owner-review-launch.mjs --serve",
+    "serverPid": 4484,
+    "port": 52874,
+    "workingDirectory": "C:\\dev\\voxmana.io-strategium-lifecycle-integration",
+    "candidateHead": "16b9aa1bffb892407532787a22ed44d65707cda6",
+    "baseUrl": "http://127.0.0.1:52874",
+    "strategiumHubUrl": "http://127.0.0.1:52874/strategium/",
+    "directAfterTheGameUrl": "http://127.0.0.1:52874/strategium/review/",
+    "freshPort": true,
+    "reusedProcess": false,
+    "directHttpStatus": 200,
+    "hubHttpStatus": 200,
+    "stoppedAfterCapture": true,
+    "stdout": "canonical-launch-retry.stdout.txt"
+  },
+  "renderedBrowserAssertions": {
+    "command": "node scripts/strategium-owner-remediation-browser.mjs --evidence-dir docs\\qa\\evidence\\integration-01",
+    "serverPid": 14692,
+    "port": 59280,
+    "workingDirectory": "C:\\dev\\voxmana.io-strategium-lifecycle-integration",
+    "candidateHead": "16b9aa1bffb892407532787a22ed44d65707cda6",
+    "browser": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+    "assertions": 36,
+    "failedAssertions": 0,
+    "consoleErrors": 0,
+    "requestFailures": 0,
+    "stoppedAfterCapture": true,
+    "assertionsFile": "browser-assertions.json"
+  },
+  "standaloneBrowserSmoke": {
+    "command": "npm.cmd run test:browser-smoke",
+    "result": "passed after isolated rerun",
+    "desktop": "passed",
+    "mobile": "passed",
+    "initialConcurrentRun": "transient mobile canvas-pixel failure; not reproduced when run alone"
+  }
+}

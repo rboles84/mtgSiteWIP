@@ -119,6 +119,18 @@ Extend the existing Strategium static HTML/CSS/JavaScript patterns with a small 
 - Evidence: `docs/qa/evidence/owner-remediation-03/`.
 - Next gate: owner re-review of DEF-OWNER-07 and DEF-OWNER-08 against the exact final candidate SHA. Owner acceptance, independent review, integration, deployment, certification, push, merge, and VM-551 remain unauthorized.
 
+## Local integration and post-integration validation - 2026-07-31
+
+- Exact base: 5ae7d873cd09d6bd9cfd45f3564d8cad8126e3e9.
+- Approved candidate: 2fe0fbf44c66a369690548c70e13e0e480806cea.
+- Independent review commit: e0662e55ed8ff8f1584bc984dd52df69295d82fb.
+- Integration branch/worktree: codex/strategium-game-lifecycle-integration at C:\dev\voxmana.io-strategium-lifecycle-integration.
+- Candidate merge: b440d70. Independent-review merge and final integration HEAD: 16b9aa1bffb892407532787a22ed44d65707cda6.
+- Validation passed: 1,935,360 Before outputs, 1,200 Finding combinations, 48 During pairs, 36 browser assertions, direct and hub-click After-the-Game paths, Console regression, full repository suite, parser, lint, metadata, smoke, accessibility, keyboard, responsive, and copy checks.
+- Objective result: 0 Automated Fail, 0 Blocked, 0 console errors, 0 failed network requests, and 0 horizontal-overflow findings.
+- Evidence: docs/qa/evidence/integration-01/ and docs/qa/strategium-lifecycle-integration-validation.md.
+- Next gate: owner authorization to update local main to the exact validated integration SHA, followed by separate push authorization. No push, deployment, production verification, certification, or VM-551 occurred.
+
 ## Independent review - 2026-07-31
 
 - Exact owner-approved candidate reviewed: 2fe0fbf44c66a369690548c70e13e0e480806cea.
