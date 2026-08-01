@@ -262,3 +262,30 @@ The earlier After-the-Game green was a coverage gap: the prior browser test asse
 | Full repository suite | `npm.cmd test` passed using a temporary candidate-only hard link to the control repository's ignored Scryfall fixture; the exact link was removed afterward |
 
 The workbook and checklist do not claim owner acceptance. The next gate is owner re-review of OAR-01 through OAR-05 against exact candidate `03569c28644e40c39cd836b8e2559a652914d006`; no independent review, integration, deployment, certification, push, merge, or VM-551 work is authorized by this record.
+
+## Final runtime and owner-UX remediation - 2026-07-31
+
+The rejected candidate for this bounded remediation was `52554cc4e6572e85301b89884b7513c23302ad82`. The implementation retest was run against `b9814549911306cc46ce6db321e0e2f4c354c4ec`; the final candidate will add only the QA workbook, evidence, checklist, and handoff records after this tested implementation. Existing `retest-01`, `retest-02`, and `owner-remediation-01` evidence remains preserved.
+
+The implementation addressed only the six reported owner defects: reduced the Commander Console card gap while retaining all four previews; applied shared boxed result-footer actions; applied a shared styled copy action; moved the During-the-Game neutral sentence card below Available paths; reworked spoken pregame copy into conversational deck, disclosure, and agreement units; and corrected the clean After-the-Game runtime entry. Passing lifecycle classification and state logic was not rewritten.
+
+### Runtime route investigation
+
+The exact candidate-rooted search is preserved in `docs/qa/evidence/owner-remediation-02/repository-stale-string-search.txt`. The served `/strategium/review/` file is `strategium/review/index.html`, which loads `assets/js/strategium-review.js?v=20260731-owner2`; the served review root is `What best describes the game?`. The stale phrases occur only in regression assertions and historical QA checklist text, not in the served route source. The earlier false green tested an internal/query-encoded state and asserted mount/route availability without reproducing the clean `/strategium/` -> visible After the Game click -> rendered first-question path from a fresh candidate-rooted server.
+
+The canonical launch command is `node scripts/strategium-owner-review-launch.mjs --serve`, run from `C:\dev\voxmana.io-strategium-lifecycle-completion`. The recorded fresh server used PID `22520`, port `63677`, working directory `C:\dev\voxmana.io-strategium-lifecycle-completion`, and candidate HEAD `b9814549911306cc46ce6db321e0e2f4c354c4ec`. It uses a fresh port, cache-disabled browser context, and no-store/no-cache server headers.
+
+### Retest outcome
+
+| Scope | Result |
+| --- | --- |
+| Workbook records | 130 populated records: 95 executable cases plus 35 Human QA Log records; 110 Automated Pass, 0 Automated Fail, 20 Owner Review Required, 0 Blocked |
+| Finding-a-Table | 1,200 combinations, green; four-card result, one headline, varied interpreted copy |
+| Before-the-Game copy | 1,935,360 combinations, green; maximum 352 characters against hard maximum 360 |
+| Copy-audit violations | Lowercase openings 0; incorrect conjunctions 0; repeated conjunctions 0; malformed list punctuation 0; missing disclosures 0; unresolved IDs 0; duplicate clauses 0; empty fragments 0; semicolon chains 0; above hard maximum 0; above three sentences 0 |
+| During-the-Game | All 48 moment/response pairs, green; 0 fallback and 0 safety violations |
+| Owner-remediation browser | 27 assertions passed; 0 console errors; 0 failed requests; direct clean route and exact hub-click path both reached the first meaningful review question |
+
+The validation commands that passed were `npm.cmd run test:strategium-lifecycle`, `npm.cmd run test:strategium-review`, `npm.cmd run test:copy-boundaries`, `npm.cmd run test:route-metadata`, `npm.cmd run test:frontend-smoke`, `npm.cmd run test:parser`, `npm.cmd run test:browser-smoke`, `npm.cmd run lint:js`, `npm.cmd run lint:html`, and full `npm.cmd test`. The full suite used a temporary candidate-only hard link to the control repository's ignored Scryfall fixture; it was removed after the run.
+
+The current owner gate is `DEF-OWNER-01` through `DEF-OWNER-06` in `docs/qa/strategium-lifecycle-owner-acceptance-checklist.md`. The workbook and this record do not mark owner acceptance as passed. No push, merge, deployment, integration, certification, or VM-551 work occurred.

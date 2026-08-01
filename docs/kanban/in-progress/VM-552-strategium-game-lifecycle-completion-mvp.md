@@ -99,3 +99,13 @@ Extend the existing Strategium static HTML/CSS/JavaScript patterns with a small 
 - Owner-remediation evidence: `docs/qa/evidence/owner-remediation-01/`.
 - Workbook verification: seven sheets, 95 executable cases, 35 QA-log records, 110 Automated Pass, 0 Automated Fail, 20 Owner Review Required, 0 Blocked.
 - Next gate: owner re-review of OAR-01 through OAR-05 against the exact tested candidate SHA. Independent review is not authorized until explicit owner approval. No push, merge, deploy, integrate, certify, or VM-551 work occurred.
+
+## Final runtime and owner-UX remediation - 2026-07-31
+
+- Rejected candidate: `52554cc4e6572e85301b89884b7513c23302ad82`.
+- Tested implementation: `b9814549911306cc46ce6db321e0e2f4c354c4ec`.
+- DEF-OWNER-01 through DEF-OWNER-06 were remediated in bounded Console-spacing, shared-action, result-order, spoken-copy, and fresh-runtime-route changes.
+- Validation passed: 1,200 Finding-a-Table combinations, 1,935,360 Before-the-Game combinations, 48 During-the-Game pairs, 27 fresh-server browser assertions, lint, parser, smoke, metadata, and full repository suite; 0 Automated Fail and 0 Blocked.
+- Evidence: `docs/qa/evidence/owner-remediation-02/`.
+- The workbook records 110 Automated Pass, 0 Automated Fail, 20 Owner Review Required, and 0 Blocked across 95 executable cases and 35 QA-log records.
+- Next gate: owner re-review of DEF-OWNER-01 through DEF-OWNER-06 against the exact final candidate SHA. Owner acceptance, independent review, integration, deployment, certification, push, merge, and VM-551 remain unauthorized.
