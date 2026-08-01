@@ -1,5 +1,7 @@
 # VM-551 Placement System Architecture Map
 
+Remediation note: this architecture/runtime map is implementation-derived and survived byte reproduction unchanged. CECOS authority is now exact draft.4 per `audit-input-authority.md`; that correction changes evidence/derivation requirements, not the observed file/function path. The rejected positive-evidence counter and web-derived Hearthhull legality conclusion are not architecture authority.
+
 Status: audit evidence, not an implementation design
 
 Base: `2b4058ff4c769f03d52070204b3ce973e51decbd`

@@ -92,7 +92,7 @@ All 37 identities are primary-reachable and rank-two-reachable in exhaustive val
 - Same-color guild/college distinctions are not protected by a general boundary contract; they depend on hard-coded targeted questions and sparse pairs.
 - Four-color identities are reachable, but recovered missing-color/semantic guardrails are not enforced.
 - WUBRG and Colorless each have only eight supporting answers yet can reach extreme share due to special Gate channels and suppressions.
-- Every identity can win without a direct positive evidence event for that identity.
+- Historical metric corrected: the original counter inspected a nonexistent top-level evidence-trail field. Corrected delta-level analysis finds zero genuinely negative-only winners and 2,901 primary paths below the generated minimum-hit metadata under the strong authored-hit proxy.
 - Golden-path coverage proves targeted reachability but does not prove unbiased or trustworthy placement.
 
 The per-identity CSV also records canonical definition, boundary/tension, supporting/opposing question IDs, metadata minimum hits, false-positive guardrail, actual primary/adjacent coverage, confidence range, copy/recommendation completeness, sources, and semantic risk.

@@ -1,5 +1,7 @@
 # VM-551 Full Placement-System Audit
 
+Remediation status: revised after owner rejection. The exact CECOS draft.4 authority, corrected positive-evidence metric, question/answer dispositions, all-37 distinctiveness, 37 profile probes, nine adversarial scenarios, sensitivity/dependency analysis, and bounded Gate A/B1 plan are authoritative additions. See `audit-input-authority.md`, `remediation-analysis-summary.json`, and the artifact README. Draft.2 and the rejected audit's web-derived Hearthhull legality claim are not VM-551 authority.
+
 Audit date: 2026-08-01
 
 Control repository: `C:\dev\voxmana.io`
@@ -10,7 +12,7 @@ Branch: `codex/vm551-placement-system-audit`
 
 Exact base: `2b4058ff4c769f03d52070204b3ce973e51decbd`
 
-Method: CECOS-informed evidence/claim separation, exhaustive deterministic runtime analysis, all-37 copy/data generation, repository tests, and representative browser inspection
+Method: exact CECOS draft.4-informed evidence/claim separation, exhaustive deterministic runtime analysis, all-37 copy/data generation, repository tests, and representative browser inspection
 
 Scope: documentation and audit artifacts only
 
@@ -43,7 +45,7 @@ No. The repository does not establish that likelihoods are conditional probabili
 
 ### Are all 37 identities reachable and comparably represented?
 
-All 37 are primary- and rank-two-reachable across 26,891 exhaustive valid terminal paths. Thirty-six are rank-three-reachable; Colorless is not. They are not comparably represented: primary share ranges 8.22% to 0.62%, support opportunity ranges 59 to 8 answers, and all 37 can win with zero direct positive evidence.
+All 37 are primary- and rank-two-reachable across 26,891 exhaustive valid terminal paths. Thirty-six are rank-three-reachable; Colorless is not. They are not comparably represented: primary share ranges 8.22% to 0.62% and support opportunity ranges 59 to 8 answers. The rejected audit's claim that all 37 could win with zero direct positive evidence was caused by an invalid evidence-trail field lookup and is withdrawn. Corrected analysis finds zero genuinely negative-only winners but 2,901 primary paths below the generated minimum-hit metadata under the explicit strong-authored-hit proxy.
 
 ### Which questions or answers create bias?
 
@@ -51,7 +53,7 @@ The four mandatory Gate questions are the largest structural bias. A Gate answer
 
 ### Are primary placements trustworthy?
 
-Not as public accuracy claims. Golden paths and reachability pass, but primary selection can rely entirely on negative evidence, exact ties silently default by identity key, raw minimum-hit and false-positive contracts are inert, and opportunity is unequal. The result may still feel useful as an editorial exploration heuristic, but that is a lower and more honest claim.
+Not as public accuracy claims. Golden paths and reachability pass, but 2,901 primary paths fall below the generated minimum-hit metadata under the strong-authored-hit proxy, exact ties silently default by identity key, free-text false-positive contracts are inert, one-answer matched sensitivity is 32.7781%, and opportunity is unequal. The result may still feel useful as an editorial exploration heuristic, but that is a lower and more honest claim.
 
 ### Are adjacent placements meaningful?
 
@@ -71,7 +73,7 @@ All 37 dossiers contain identity-specific content and no normalized exact duplic
 
 ### Which recommendations are evidence-backed?
 
-Color-identity compatibility is strongest: 82 locally indexed commander candidates all matched their identity colors. Behavioral/strategic fit is editorially grounded in identity records and taxonomy, not selected-answer evidence. Popularity is not systematically backed. The local Commander index is stale relative to audit date and explicitly imperfect; it misses the legal Spacecraft commander Hearthhull. Eighteen deck links also flow through the commander-recommendation collection.
+Color-identity compatibility is strongest: 82 locally indexed commander candidates all matched their identity colors. Behavioral/strategic fit is editorially grounded in identity records and taxonomy, not selected-answer evidence. Popularity is not systematically backed. The committed recommendation corpus contains Hearthhull while the local Commander index does not; the specific legality claim is unresolved inside this local-authority audit because the rejected audit obtained its rule proof through prohibited web browsing. Eighteen deck links also flow through the commander-recommendation collection.
 
 ### What are the highest-risk pipeline defects?
 
@@ -114,7 +116,7 @@ Gate A trust blockers -> Gate B MVP correctness -> Gate C interpretation quality
 | Raw identity claims registered | 868 |
 | All-37 copy corpus | 37 dossiers |
 | Recommendation entries | 101 |
-| Defects | 34: 4 Critical, 20 High, 9 Medium, 1 Low |
+| Remediated defects | 40: 3 Critical, 26 High, 10 Medium, 1 Low |
 
 ## Defect taxonomy
 
@@ -125,10 +127,10 @@ Critical:
 - `VM551-D001`: live scoring bank is disconnected from canonical recovered evidence contracts.
 - `VM551-D002`: Bayesian/probability claim is unsupported by implementation.
 - `VM551-D003`: confidence is uncalibrated softmax share.
-- `VM551-D004`: every identity can win with zero affirmative evidence.
 
 High themes:
 
+- revised `VM551-D004`: zero negative-only winners; 2,901 primary paths below the strong authored-hit minimum proxy while runtime ignores generated minimum metadata,
 - hidden exact-tie default,
 - numeric rank mislabeled adjacency,
 - contradictory adjacent strength,
@@ -142,9 +144,14 @@ High themes:
 - fabricated legacy confidence,
 - incomplete Commander legality index,
 - stale committed semantic-readiness provenance,
-- missing calibration/claim-contract tests.
+- missing calibration/claim-contract tests,
+- wrong CECOS/web audit authority in the rejected candidate,
+- 32.7781% matched one-answer primary-flip sensitivity,
+- 67 high-abstraction and 73 double-barreled question flags,
+- eleven unmodeled repeated-construct groups,
+- incomplete all-37 semantic distinctiveness evidence.
 
-The complete reproduction, expectation, requirement, dependency, and trust-blocking status is in `defect-register.csv`.
+The rejected register remains preserved as `defect-register.csv`. The authoritative reproduction, impact, revised severity, CECOS dependency, smallest correction, requirement, gate, validation, and reconciliation status is `defect-register-remediated.csv`.
 
 ## Evidence limitations
 
@@ -152,11 +159,11 @@ The complete reproduction, expectation, requirement, dependency, and trust-block
 - Winner-share distribution is a model property, not a population prevalence estimate.
 - The dimension classifier in the question matrix is transparent audit routing and requires owner/editor review.
 - Raw-claim official/editorial classification uses recorded source metadata; it does not supersede claim-level source review.
-- Recommendation currentness is bounded by the committed 2026-05 Scryfall snapshot plus one focused current official-rule check for the missing candidate.
+- Recommendation currentness is bounded by the committed 2026-05 Scryfall snapshot. The rejected audit's focused web rule check is recorded as a process violation and removed as VM-551 authority.
 - Browser inspection covered one representative WUBRG primary, two adjacent options, primary-to-adjacent transition, desktop/mobile layouts, refresh/direct/partial state, metadata, headings, keyboard activation, overflow, and console logs. All 37 copy surfaces were generated and compared offscreen; 37 interactive browser runs were unnecessary because there are no 37 standalone routes.
 - The existing Archscry visual compare has no committed baselines, and the aggregate test requires an absent raw Scryfall bulk file; both are recorded as validation limitations rather than repaired here.
 - No empirical player-response/correctness corpus exists in scope, so placement accuracy and confidence calibration cannot be certified.
-- CECOS draft.2 is a production candidate, not a final approved standard; this audit applies its evidence/claim boundaries without treating it as a release certification.
+- CECOS authority is the exact draft.4 Git object and checksum in `audit-input-authority.md`. Draft.4 governs corpus/derivation boundaries; it does not itself define Archscry scoring or certify this product audit.
 
 ## Validation results
 
@@ -197,6 +204,18 @@ No failing artifact was regenerated or accepted as a new production baseline.
 | J. Requirements specification | `requirements-specification.md` |
 | Reproducible analysis | `audit-placement-system.mjs` + `analysis-summary.json` |
 | Copy/recommendation/runtime audit | `copy-evidence-recommendation-rendering-audit.md` |
+| Verified authority/input manifest | `audit-input-authority.md` + `audit-input-manifest.json` |
+| CECOS conclusion re-adjudication | `cecos-conclusion-adjudication.csv` + `evidence-integration-and-cecos-readjudication.md` |
+| Question-quality adjudication | `question-quality-adjudication.csv` + `answer-quality-adjudication.csv` + summaries |
+| All-37 distinctiveness | `identity-distinctiveness-matrix.csv` + `identity-distinctiveness-analysis.md` |
+| Profile/adversarial scenarios | `profile-scenario-matrix.csv` + details + `adversarial-scenario-matrix.csv` |
+| Sensitivity/dependency/collision | `sensitivity-dependency-collision-analysis.json` + readable summary |
+| Repeated constructs | `repeated-signal-dependency-audit.csv` + readable summary |
+| Evidence integration | `evidence-integration-matrix.csv` |
+| Voice/explanation traces | `voice-and-explanation-audit.md` + `explanation-trace-audit.json` |
+| Remediated defect/requirements authority | `defect-register-remediated.csv` + `requirements-traceability-matrix.csv` |
+| Bounded MVP boundary | `bounded-mvp-repair-plan.md` |
+| Remediation generator/summary | `audit-placement-system-remediation.mjs` + `remediation-analysis-summary.json` |
 
 ## Completion and boundary
 

@@ -1,6 +1,6 @@
 # VM-551 - Full Placement-System Audit
 
-Status: Done
+Status: Owner-Rejected; Bounded Documentation Remediation In Review
 
 Type: Audit / Requirements Definition
 
@@ -84,7 +84,7 @@ Audit worktree: `C:\dev\voxmana.io-vm551-placement-system-audit`.
 - Certified semantic readiness does not itself establish fair reachability, calibrated probabilities, or trustworthy recommendation behavior.
 - Correlated questions, unequal opportunity counts, penalties, pruning, and early stopping may create hidden bias.
 - Result copy may combine identity evidence, Commander heuristics, lore, table perception, and recommendation language without explicit claim contracts.
-- CECOS draft.2 is a production candidate, not an approved final standard; its limits must be stated.
+- Use only the exact CECOS draft.4 Git object at commit `947bf45bf6a191839b5fb4fa6c65980ed9d5737e` and required checksum; draft.2 is rejected authority.
 
 ## Stop Conditions
 
@@ -102,12 +102,11 @@ Audit and define requirements only. Do not implement repairs, change production 
 - Explicit staging only. Never use `git add .` or `git add -A`.
 - The next gate after audit completion is owner review of findings and repair requirements.
 
-## Completion
+## Rejected Audit And Remediation
 
-- Completed the end-to-end documentation-only audit at exact base `2b4058ff4c769f03d52070204b3ce973e51decbd`.
-- Produced all required human-readable and machine-reviewable artifacts under `docs/audits/vm551-placement-system/`.
-- Enumerated 26,891 valid terminal paths, all 356 answers, all 37 identities, 37 dossier corpora, 1,224 claim rows, and 34 defects.
-- Specified CECOS-informed Gate A through Gate D repair contracts without implementation.
+- Original documentation-only audit at `c62c7e1b43421359488537457804698a77656952` was owner-rejected for wrong CECOS authority and missing deliverables.
+- Bounded remediation preserves byte-reproduced implementation evidence, corrects the positive-evidence counter, re-adjudicates under exact draft.4, and adds all required question, identity, scenario, sensitivity, dependency, voice, defect, requirement, and MVP-boundary artifacts.
+- The card remains in owner review; it is not accepted, implementation-ready, integrated, or certified.
 - No production behavior, production data, recovered identity semantics, route, deployment, certification, push, merge, or VM-551 implementation changed.
 
 Next gate: owner review and explicit acceptance of the audit, defect categories, and MVP repair boundary before implementation planning.

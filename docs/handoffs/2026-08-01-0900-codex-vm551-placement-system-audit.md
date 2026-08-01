@@ -1,5 +1,7 @@
 # VM-551 Full Placement-System Audit Handoff
 
+Owner disposition: REJECTED and superseded by the bounded remediation handoff. Historical quantitative evidence remains preserved, but CECOS draft.2 is not authority, the original positive-evidence metric was invalid, and the web-derived Hearthhull legality conclusion is withdrawn.
+
 Agent name: Codex
 
 Task requested: Conduct a comprehensive documentation-only audit of Vox Mana's complete placement system, define CECOS-informed repair requirements, and do not implement, push, merge, deploy, or certify.
@@ -30,7 +32,7 @@ The final handoff/Kanban governance commit follows these audit-content commits a
 - Handoff index and relevant placement, 37-identity, CRIT-001, radar, harness, and contamination handoffs.
 - Kanban board and relevant completed/in-progress cards.
 - CRIT-001 drift template, contract amendment, operating playbook, ledger, and 37 recovered identity records.
-- CECOS draft.2 production candidate and QA report from the controlling corpus repository.
+- Historical/non-authoritative input: CECOS draft.2. The accepted remediation authority is the exact draft.4 Git object/checksum recorded in `docs/audits/vm551-placement-system/audit-input-authority.md`.
 - Placement architecture, data-flow, domain, contract, radar, and deep-research documentation.
 - `archscry/index.html`; placement, shared-state, presentation, dossier, radar, and recommendation JavaScript.
 - Faction builder, Gate source, generated model/factions/layers/provenance, schemas, precons, taxonomy, Scryfall indexes, tests, fixtures, and validation scripts.
@@ -67,7 +69,7 @@ The final handoff/Kanban governance commit follows these audit-content commits a
 - Created per-identity audit records for all 37 identities.
 - Generated and compared all 37 primary dossiers.
 - Reconciled 868 raw claims and 356 live answer claims into a 1,224-row evidence register.
-- Audited 101 recommendation entries against the committed Commander index and current official special-rule evidence for the one missing candidate.
+- Audited 101 recommendation entries against the committed Commander index. The rejected audit's web-derived special-rule evidence was a process violation and is not retained as VM-551 authority.
 - Inspected representative primary/adjacent results at desktop/mobile sizes, keyboard activation, metadata, state transitions, overflow, and console state.
 - Recorded 34 categorized defects and mapped every defect to a declared requirement.
 - Specified CECOS evidence, signal, scoring, confidence, primary/adjacent, claim, recommendation, rendering, validation, independent review, and certification contracts.
@@ -96,7 +98,7 @@ VM-551 required a diagnosis and requirements baseline before any repair planning
 - All 37 primary and rank-two reachable; 36 rank-three reachable; Colorless never rank three.
 - Winner share range: Black 8.2184% to Abzan 0.6210%.
 - Supporting-answer opportunity range: 8 to 59.
-- All 37 can win with zero direct positive evidence.
+- Historical claim withdrawn: the counter inspected a nonexistent evidence-trail field. Corrected analysis finds 0 negative-only winners and 2,901 primary paths below the strong authored-hit minimum proxy.
 - 20/356 stable answer IDs; 0/356 answer-level provenance links; 0 neutral/mixed/unsure answers.
 - 37 generated dossiers; 609/666 normalized decree pairs above 0.65 token Jaccard; zero normalized exact copy pairs.
 - 1,224 claim register rows: 868 raw identity claims + 356 live answer claims.
@@ -130,7 +132,7 @@ VM-551 required a diagnosis and requirements baseline before any repair planning
 - `VM551-D023`: legacy compatibility fabricates confidence.
 - `VM551-D029`: results lack exact input/evidence hashes.
 - `VM551-D030`: regression tests lack empirical calibration and claim-entailment gates.
-- `VM551-D031`: Commander index misses a legal Spacecraft commander rule.
+- `VM551-D031` revised: curated recommendation/local-index conflict exists; the specific Hearthhull legality conclusion is unresolved inside the local-authority audit.
 - `VM551-D032`: committed semantic-readiness provenance is stale at the exact base.
 
 ## Decisions Made
@@ -196,8 +198,8 @@ Dependencies were installed with `npm.cmd ci --ignore-scripts`; package and lock
 - No empirical player-response/correctness corpus exists, so accuracy and calibration cannot be certified.
 - Exhaustive paths are runtime-reachable paths, not arbitrary sequences of all questions.
 - Claim authority and answer-dimension classifications are review-routing aids, not new canonical truth.
-- Recommendation currentness is bounded by a May 2026 local Scryfall snapshot plus a focused current official-rule check.
-- CECOS draft.2 is a production candidate rather than approved final.
+- Recommendation currentness is bounded by the committed May 2026 local snapshot; the unpreserved web rule check is withdrawn.
+- CECOS authority is exact draft.4 commit `947bf45bf6a191839b5fb4fa6c65980ed9d5737e` with SHA-256 `dd3c266771f7724589a5d7bd881143a8c0a7372218cd167fccf5f8173da738f3`.
 - Missing aggregate fixture and visual baselines limit clean-checkout automated validation.
 
 ## Not Touched

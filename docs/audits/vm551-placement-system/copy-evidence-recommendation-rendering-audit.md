@@ -74,14 +74,14 @@ The primary 37-identity corpus surfaced 101 recommendation entries:
 - 82 non-deck-link names matched the committed Commander index and all 82 had exact expected color identity.
 - One recommendation, `Hearthhull, the Worldseed`, was absent from the committed Commander index.
 
-The missing Hearthhull row is not an illegal recommendation. Current official Edge of Eternities release notes state that a Spacecraft with printed power and toughness can be a commander. The local index, last downloaded 2026-05-15, detects practical candidates but explicitly does not attempt perfect legality solving; it missed this non-creature commander rule. This establishes both a stale-data limit and a legality-resolver gap.
+The rejected audit used web browsing to conclude that Hearthhull was a legal special-rule commander. No exact local official source was preserved, so that specific legality conclusion and external source are withdrawn as VM-551 authority. The locally demonstrable finding is narrower: the curated recommendation contains Hearthhull, the committed local Commander index does not, and the detector documents that it is a bounded practical detector rather than a complete special-rule solver. Hearthhull's specific legality is unresolved within this local-authority audit; the pipeline conflict and need for an explicit unresolved/special-rule status remain.
 
 Recommendation evidence classifications:
 
 | Recommendation property | Current support | Audit conclusion |
 |---|---|---|
 | Color identity | Local index comparison for 82 cards | Exact for all locally matched candidates. |
-| Commander legality | Practical local detector plus curated records | Not fully proven; special commander rules can be missed. |
+| Commander legality | Practical local detector plus curated records | Not fully proven; a curated/index mismatch must remain unresolved until an authorized local source proves the special rule. |
 | Currentness | Scryfall bulk snapshot updated 2026-05-14 | Stale relative to the 2026-08-01 audit. |
 | Identity appropriateness | Curated identity records | Editorially reviewed in places, not answer-evidence-derived. |
 | Behavioral alignment | Identity tags/phrases/guidance | Useful heuristic, not empirical player fit. |

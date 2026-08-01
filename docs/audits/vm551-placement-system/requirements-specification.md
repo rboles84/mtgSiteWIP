@@ -1,6 +1,10 @@
-# VM-551 CECOS Repair and Requirements Specification
+# VM-551 Draft.4-Informed Repair and Requirements Specification
 
 Status: design specification only. Implementation is not authorized by this document.
+
+Governing CECOS input: exact draft.4 object recorded in `audit-input-authority.md`. Draft.2 is not authority for this remediation.
+
+The authoritative finding-to-risk-to-requirement-to-validation mapping is `requirements-traceability-matrix.csv`. The bounded slice definitions are in `bounded-mvp-repair-plan.md`.
 
 ## Design principles
 
@@ -14,7 +18,7 @@ preserved evidence
   -> implementation and rendering
 ```
 
-Player answers are observations supplied to a product. Placement, confidence, copy, and recommendations are derived outputs. Derived outputs never become their own evidence. Unknown, mixed, contradictory, and insufficient states must remain representable.
+Question prompts and closed answer options are product-authored instruments, not corpus observations or player language. A selected answer is product-response data whose permitted interpretation must be separately derived and reviewed. Placement, confidence, copy, and recommendations are derived outputs. Derived outputs never become their own evidence. Unknown, mixed, contradictory, and insufficient states must remain representable.
 
 ## Canonical contracts
 
@@ -230,6 +234,17 @@ Every result state must render:
 - `REQ-TEST-006`: Validate Commander legality/freshness and exact/stretch recommendation status.
 - `REQ-TEST-007`: Run desktop/mobile rendering, accessibility, keyboard, refresh, invalid state, direct URL, restart, and handoff tests.
 - `REQ-TEST-008`: Make aggregate validation self-contained in a clean checkout or fail early with an exact, verified fixture prerequisite.
+- `REQ-TEST-009`: Predeclare and test one-answer perturbation thresholds by identity and structural family; unstable results must downgrade to close/unknown rather than retain certainty.
+
+### Additional remediation contracts
+
+- `REQ-GOV-001`: Every governing audit input must have an exact repository, Git object, path, checksum, role, and verification result; unpreserved web evidence cannot be audit authority.
+- `REQ-QUESTION-003`: The first pilot may use only evidence-derived, Commander-relevant, single-construct questions with reviewed false-positive/negative and representational-failure handling.
+- `REQ-LOGIC-009`: Every active question and answer must be reachable under the declared branching contract or removed from active coverage claims.
+- `REQ-LOGIC-010`: Repeated constructs must share a controlled dependency group and a cap/model/disclosure; raw repeated answers cannot count as independent evidence by default.
+- `REQ-CONF-004`: Perturbation stability must contribute to the result state; locally unstable primary results cannot use strong certainty language.
+- `REQ-CONF-005`: Evidence amount/confidence must count independent evidence units rather than repeated authored signals.
+- `REQ-IDENTITY-001`: Reachability/golden-path success cannot satisfy distinctiveness; all 37 require reviewed nearest-competitor, unique-discriminator, minimum-hit, guardrail, and scenario coverage.
 
 ### Migration and compatibility
 
@@ -250,12 +265,12 @@ Every result state must render:
 5. Claim safety: every material public claim is entailed and classified.
 6. Recommendation safety: legality/freshness/type/rationale are explicit.
 7. Rendering: all result states pass responsive, accessibility, keyboard, metadata, and persistence checks.
-8. Independent review: reviewer reruns controls from exact candidate SHA and source inputs.
-9. Production certification: reviewed/generated truth is reconciled before trackers, release metadata, or certification change.
+8. Independent product review: reviewer reruns controls from exact candidate SHA and source inputs; corpus artifacts separately follow draft.4 review requirements.
+9. Later production certification: reviewed/generated/deployed truth is reconciled before trackers, release metadata, or certification change. This is Vox Mana product governance, not a claim that CECOS defines Archscry certification.
 
 Any `FAIL` or `UNKNOWN` in a trust-blocking control stops progression. Only exact candidate SHAs may be reviewed, approved, or certified.
 
-## Independent review and production certification
+## Independent review and later production certification
 
 Independent review must:
 
@@ -267,25 +282,31 @@ Independent review must:
 - inspect representative desktop/mobile routes;
 - record exact candidate SHA and source hashes.
 
-Production certification is a later, separately authorized gate. It must reconcile canonical, generated, reviewed, and deployed truth. VM-551 does not authorize it.
+Production certification is a later, separately authorized Vox Mana gate. It must reconcile canonical, generated, reviewed, and deployed truth. Draft.4 directly governs corpus release/review, while Archscry product certification remains a separate project contract. VM-551 does not authorize either implementation or certification.
 
 ## Prioritized repair sequence
 
-### Gate A — Trust blockers
+### Gate A — Immediate trust blockers
 
 1. Freeze terminology: stop calling current shares Bayesian probability or calibrated confidence.
-2. Establish canonical signal, question-to-signal, identity evidence, and claim contracts.
-3. Enforce minimum positive evidence, unknown/mixed/tie states, and recovered semantic guardrails.
-4. Define meaningful adjacency independent of numeric second place.
-5. Rebuild provenance and source/generated validation.
+2. Remove numeric confidence/strength claims and preserve missing legacy confidence as unknown.
+3. Emit explicit tied, close, mixed, insufficient, and invalid/incomplete states instead of forced certainty.
+4. Treat numeric second/third as close alternatives or omit them; reserve adjacency for a later relationship contract.
+5. Constrain first-pass copy to selected observations and qualified interpretation.
 
-### Gate B — MVP correctness
+### Gate B1 — First player-pilot correctness slice
 
-1. Replace or refit the smallest question set needed to separate the 37 identities fairly.
-2. Add neutral/mixed/unsure responses and correlation handling.
-3. Pass all-37 reachability, opportunity, tie, edge-identity, and perturbation tests.
-4. Produce usable nonnumeric confidence states.
-5. Correct recommendation legality/type/freshness disclosures.
+1. Select the smallest evidence-derived, Commander-relevant, single-construct question set for owner-approved high-risk contrasts.
+2. Add stable IDs/provenance, unknown/mixed handling, one scoring authority, dependency groups, minimum hits, and executable guardrail decisions.
+3. Pass all-37 profile probes plus same-color guild/college, shard/wedge, four-color, Colorless, WUBRG, contradiction, repeated-construct, order, branch, and perturbation tests.
+4. Predeclare thresholds before pilot results and downgrade unstable/insufficient cases.
+5. Stop at a controlled pilot candidate; do not claim public accuracy.
+
+### Gate B2 — Deferred correctness expansion
+
+1. Expand reviewed question coverage only from pilot evidence.
+2. Strengthen schema, manifests, source/generated reconciliation, branch reachability, and dead-control removal.
+3. Broaden opportunity/fairness coverage without delaying the bounded first pilot.
 
 ### Gate C — Interpretation quality
 
@@ -303,4 +324,4 @@ Production certification is a later, separately authorized gate. It must reconci
 4. Compatibility migrations and historical result labeling.
 5. Independent review and production certification tooling.
 
-MVP-first boundary: Gate A and the decision-critical parts of Gate B precede broader player validation. Gate C polish and most Gate D automation must not delay correcting evidence integrity, reachability fairness, ties, minimum evidence, and honest confidence.
+MVP-first boundary: Gate A containment and Gate B1 precede a controlled player pilot. Gate B2 expansion, Gate C interpretation quality, and Gate D hardening must not enter the first pass unless an owner decision shows they are required to preserve the Gate A/B1 trust boundary. No implementation is authorized.
