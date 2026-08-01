@@ -32,6 +32,7 @@ const contract = read("downstream-compatibility-contract.md");
 const plan = read("bounded-mvp-repair-plan.md");
 const requirements = parseCsv(read("requirements-traceability-matrix.csv"));
 const consumers = parseCsv(read("result-field-consumer-map.csv"));
+const criticalExtract = read("owner-review-critical-extract.md");
 
 for (const phrase of [
   "changes public interpretation and rendering only",
@@ -115,6 +116,11 @@ for (const [column, phrase] of [
   ["presentation_consumers", "result reveal"],
   ["maze_handoff_consumers", "Maze handoff"],
 ]) assert(decree?.[column]?.includes(phrase), `Decree consumer chain missing ${column}: ${phrase}`);
+assert(decree.cache_consumers.includes("vm_saveWithGoogle()"), "Decree cache/OAuth chain missing vm_saveWithGoogle()");
+assert(decree.cache_consumers.includes("vm_checkPendingSave()"), "Decree cache/OAuth chain missing vm_checkPendingSave()");
+assert(!/vm_beginGoogleSave|vm_finishPendingSave/.test(JSON.stringify(decree)), "Decree row retains nonexistent save-function references");
+assert(decree.dossier_consumers.includes("no current dossier text export or audit consumption located"), "Decree dossier scope overstates text/export/audit consumption");
+assert(decree.presentation_consumers.includes("no current dossier decreeCopy presentation located"), "Decree presentation scope must distinguish object carry-through from rendering");
 assert(decree.gate_a_public_treatment && decree.gate_a_internal_treatment, "Decree Gate A treatments must be explicit");
 assert(decree.compatibility_disposition === "PRESERVE-UNCHANGED", "Decree must preserve its existing field and shape");
 
@@ -122,6 +128,8 @@ const colorWeights = consumerFor("color_weights");
 assert(colorWeights.canonical_writer === "NONE-IN-CURRENT-LOCAL-QUICK-PATH", "color_weights must record no current local quick-path writer");
 assert(colorWeights.additional_writers.includes("EXTERNAL-OR-ARCHIVED-PRODUCER-UNRESOLVED"), "color_weights unresolved producer status missing");
 assert(colorWeights.normalizers.includes("normalizePlacementResult"), "color_weights normalizer missing");
+assert(colorWeights.gate_a_public_treatment.trim(), "color_weights public treatment must be independently nonempty");
+assert(colorWeights.gate_a_internal_treatment.trim(), "color_weights internal treatment must be independently nonempty");
 assert(/Do not fabricate|without manufacturing a default/.test(`${colorWeights.gate_a_public_treatment} ${colorWeights.gate_a_internal_treatment}`), "color_weights non-fabrication treatment missing");
 assert(colorWeights.compatibility_disposition === "PRESERVE-UNCHANGED", "color_weights must preserve supplied optional values");
 
@@ -130,6 +138,12 @@ assert(authoredPreview.canonical_writer === "data/identity-layers.json:expressio
 assert(authoredPreview.additional_writers.includes("research/build-faction-artifacts.mjs:readJson(identityLayersPath)"), "authored preview downstream builder/propagator missing");
 assert(!authoredPreview.canonical_writer.includes("build-faction-artifacts"), "Faction builder must not be identified as the authored preview canonical writer");
 assert(authoredPreview.evidence_paths.includes("data/identity-layers.json:expressions.*.preview_scores"), "Authored preview source evidence is not resolvable");
+
+for (const family of ["decree", "color_weights", "authored_preview_scores"]) {
+  assert(criticalExtract.includes(`### ${family}`), `Owner critical extract missing complete consumer record: ${family}`);
+}
+assert(criticalExtract.includes('"canonical_writer": "data/identity-layers.json:expressions.*.preview_scores"'), "Owner critical extract does not preserve authored preview canonical source direction");
+assert(criticalExtract.includes("research/build-faction-artifacts.mjs:readJson(identityLayersPath)"), "Owner critical extract does not identify the faction builder as downstream reader/propagator");
 
 const allowed = new Set(["PRESERVE-UNCHANGED", "PRESERVE-INTERNAL-HIDE-PUBLICLY", "ADDITIVE-EXTENSION", "VERSIONED-MIGRATION-LATER", "UNRESOLVED-BLOCKER"]);
 assert(consumers.every((row) => allowed.has(row.compatibility_disposition)), "Invalid compatibility disposition");

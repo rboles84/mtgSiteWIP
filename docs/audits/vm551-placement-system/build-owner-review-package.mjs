@@ -142,6 +142,8 @@ const requirements = readCsv("requirements-traceability-matrix.csv");
 const consumers = readCsv("result-field-consumer-map.csv");
 const sensitivity = readJson("sensitivity-dependency-collision-analysis.json");
 const consumerDispositionCounts = Object.fromEntries([...new Set(consumers.map((row) => row.compatibility_disposition))].sort().map((value) => [value, consumers.filter((row) => row.compatibility_disposition === value).length]));
+const criticalConsumerKeys = new Set(["decree", "color_weights", "authored_preview_scores"]);
+const criticalConsumers = consumers.filter((row) => criticalConsumerKeys.has(row.field_or_family));
 
 const selectedQuestions = new Map();
 const addQuestion = (row) => selectedQuestions.set(row.question_id, row);
@@ -184,6 +186,11 @@ const extract = [
   "",
   "Gate A implementation planning is prohibited until the map is independently reviewed and no material field classified `UNRESOLVED-BLOCKER` enters planning. This extract does not replace the complete map.",
   "",
+  "### Corrected field-level compatibility records",
+  "",
+  "These complete records expose the three independently reviewed correction surfaces. `result-field-consumer-map.csv` remains authoritative.",
+  "",
+  ...criticalConsumers.map((row) => recordBlock(`${row.field_or_family} — ${row.compatibility_disposition}`, row)),
   "## Question adjudication",
   "",
   "Selection includes every KEEP, KEEP-BUT-REWORD, and NEEDS-EVIDENCE row; all four Gate rows; and the first five source-order Hall RETUNE, Hall REPLACE, Crucible RETUNE, and Crucible REPLACE rows. No KEEP rows exist.",
@@ -267,5 +274,6 @@ console.log(JSON.stringify({
   defect_records: selectedDefects.length,
   gate_a_b1_requirements: selectedRequirements.length,
   result_field_consumers: consumers.length,
+  critical_result_field_records: criticalConsumers.length,
   compatibility_dispositions: consumerDispositionCounts,
 }, null, 2));

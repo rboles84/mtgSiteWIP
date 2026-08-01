@@ -54,7 +54,7 @@ Boundary precedence: `bounded-mvp-repair-plan.md`, `requirements-traceability-ma
 | Matrix path separation | PASS — authored `preview_scores`/component averages are separate from placement-derived `mana_scores`/dossier `manaAlignment` |
 | REQ-A-002 | PASS — public numeric confidence removal is bounded by internal/serialized compatibility, additive states, backward normalization, consumer review, and the expanded future validation matrix |
 | Planning prerequisite | PASS — implementation planning is prohibited until independent map review; no destructive field removal/rename belongs in Gate A |
-| Compatibility documentation validator | PASS — required contract phrases, 5 Gate A requirements, exactly 37 map rows, required field families/consumers, complete decree chain, optional `color_weights` non-fabrication boundary, correct authored-`preview_scores` source direction, both Matrix paths, and narrative agreement |
+| Compatibility documentation validator | PASS — required contract phrases, 5 Gate A requirements, exactly 37 map rows, required field families/consumers, source-accurate decree chain, independently nonempty public/internal `color_weights` treatments and non-fabrication boundary, complete three-record critical extract, correct authored-`preview_scores` source direction, both Matrix paths, and narrative agreement |
 | Quantitative artifacts | UNCHANGED — original and remediation generators reproduced 37 identities, 113 questions, 356 answers, 26,891 terminal paths, 333 ties, 44,005 matched comparisons, zero negative-only winners, and 2,901 below-minimum-proxy paths without modifying machine evidence |
 | Defect severity | UNCHANGED — 3 Critical, 26 High, 10 Medium, 1 Low |
 
@@ -124,3 +124,16 @@ Final completion validation:
 - KNOWN LIMITATION — aggregate `npm test` passes its preceding placement, Gate, parser, builder, semantic contract, Maze, mode, search, and precon checks before stopping on the absent ignored `data/scryfall/raw/oracle-cards.json` fixture.
 - NOT RUN — visual-baseline acceptance or regeneration; no baseline was created or accepted.
 - PASS — changed paths remain under `docs/`; no production, test, fixture, schema, runtime, route, Matrix, Maze, persistence, or cache implementation changed.
+
+## Final three-blocker documentation correction
+
+Independent review evidence `bc28ca2260d3e2457a1f9572f885f6f7a92c2b03` rejected exact candidate `908007b971b6d714661cf7406597ce94c00f14a0` on three bounded documentation defects. This correction changes no quantitative finding, CECOS authority, Gate scope, question/identity/scenario conclusion, requirement count, or defect severity.
+
+- The `decree` row now names the committed `assets/js/shared.js` functions `vm_saveWithGoogle()` and `vm_checkPendingSave()`. It records `dossier.decreeCopy` as constructed object carry-through and explicitly records that current dossier text export, dossier audit, and dossier presentation do not consume it. Initial result reveal and Maze decree consumption remain documented.
+- The compatibility validator independently requires nonempty `color_weights.gate_a_public_treatment` and `color_weights.gate_a_internal_treatment`. Targeted mutation checks must fail when either cell is blank.
+- PASS — `test-downstream-compatibility-docs-validator.mjs`: blank public treatment failed with exit 1; blank internal treatment failed independently with exit 1; authoritative input files were not modified.
+- The owner critical extract now includes complete records for `decree`, `color_weights`, and `authored_preview_scores`; the preview record retains `data/identity-layers.json:expressions.*.preview_scores` as canonical and `research/build-faction-artifacts.mjs` as downstream reader/propagator.
+- The owner manifest retains 18 artifacts and 37 consumer records; the corrected map is 37,761 bytes with SHA-256 `f078c942ee5fb1f7ad634bf5ed8b58086bd79683c0b9086b84b0890d69625a71`.
+- Two immediate owner-package regenerations were byte-identical: manifest 6,702 bytes / SHA-256 `06a532688e9d3ae7a6e26361b1a6379e0710ac81a10a89678992aebf72cd008b`; critical extract 264,753 bytes / SHA-256 `8196445883018dcdb8c632e19e7ce3c8bb0ab37a48db1814f16eb399a7b3cc87`.
+
+Next gate: final micro-review restricted to these three corrections. Implementation, implementation planning, push, merge, integration, deployment, and certification remain unauthorized.

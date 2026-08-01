@@ -138,3 +138,13 @@ Next gate: independent review of the exact compatibility-reconciliation document
 - No implementation, implementation planning, task creation, production change, push, merge, deploy, integration, or certification is authorized.
 
 Next gate: independent review of the exact replacement documentation candidate and its 37-row consumer map. Owner acceptance remains required after that review; Gate A implementation planning remains unauthorized.
+
+## Final Three-Blocker Documentation Correction
+
+- Independent review evidence `bc28ca2260d3e2457a1f9572f885f6f7a92c2b03` rejected exact candidate `908007b971b6d714661cf7406597ce94c00f14a0` only on source accuracy and owner-package enforcement for three consumer-map records.
+- The `decree` row now names `vm_saveWithGoogle()` and `vm_checkPendingSave()`, distinguishes `dossier.decreeCopy` object construction from actual rendering/export/audit consumption, and retains the verified adaptive, quick, archived-interview, normalization, persistence, reveal, and Maze chain.
+- The documentation validator independently rejects a blank public or internal `color_weights` treatment.
+- The owner critical extract includes complete source-accurate `decree`, `color_weights`, and `authored_preview_scores` records. `data/identity-layers.json:expressions.*.preview_scores` remains canonical; the faction builder remains a downstream reader/propagator.
+- Quantitative findings, CECOS authority, Gate scope, question/identity/scenario conclusions, five Gate A requirements, and 3 Critical / 26 High / 10 Medium / 1 Low severity totals remain unchanged.
+
+Next gate: final independent micro-review restricted to these three documentation corrections. Owner acceptance and all implementation planning remain unauthorized.

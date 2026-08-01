@@ -14,6 +14,112 @@ The authored Matrix path (`identity-layers.preview_scores` or `vm-radar.js` comp
 
 Gate A implementation planning is prohibited until the map is independently reviewed and no material field classified `UNRESOLVED-BLOCKER` enters planning. This extract does not replace the complete map.
 
+### Corrected field-level compatibility records
+
+These complete records expose the three independently reviewed correction surfaces. `result-field-consumer-map.csv` remains authoritative.
+
+### decree — PRESERVE-UNCHANGED
+
+```json
+{
+  "field_or_family": "decree",
+  "canonical_writer": "assets/js/adaptive-placement.js:buildAdaptiveDecree|buildAdaptivePlacementResult",
+  "additional_writers": "assets/js/quick-reading.js:buildQuickDecree|buildQuickPlacementResult; supabase/functions/guild-recruiter/index.ts:normalizeDecisionResult|archived interview result",
+  "computation_source": "Adaptive top and runner-up plus supporting signals and authored expression; quick-path answers; archived interview decision",
+  "semantic_role": "Public placement explanation and decree",
+  "serialized_location": "placement_result.decree|profiles.decree|vm_last_result|vm_pending_result|archived current_result",
+  "normalizers": "assets/js/shared.js:normalizePlacementResult",
+  "cache_consumers": "vm_last_result|vm_pending_result through assets/js/shared.js:vm_saveWithGoogle() and vm_checkPendingSave()",
+  "saved_profile_consumers": "profiles.decree|profiles.placement_result through vm_savePlacementResult",
+  "legacy_consumers": "makeLegacyPlacementResult authored fallback|legacy profiles.decree column is written by vm_savePlacementResult but current vm_resumeSession selects placement_result rather than decree",
+  "ranking_consumers": "None",
+  "stopping_consumers": "None",
+  "dossier_consumers": "assets/js/commander-dossier.js:buildCommanderDossier creates dossier.decreeCopy object carry-through; no current dossier text export or audit consumption located",
+  "presentation_consumers": "assets/js/index.js initial result reveal; no current dossier decreeCopy presentation located",
+  "graph_or_matrix_consumers": "None",
+  "recommendation_consumers": "No direct committed recommendation input located",
+  "deck_link_consumers": "No direct committed deck-link input located",
+  "adjacent_view_consumers": "primary decree retained while alternative dossier substitutes reasonItStayedClose",
+  "maze_handoff_consumers": "placementResult copied into Maze handoff; research-init.js active result and reading paths consume decree",
+  "test_consumers": "assets/js/quick-reading-tests.js asserts placement decree and dossier.decreeCopy construction; no direct committed persistence OAuth or Maze decree-specific assertion located",
+  "gate_a_public_treatment": "Render only demonstrated bounded claims or safe fallbacks; do not use decree as calibrated certainty",
+  "gate_a_internal_treatment": "Preserve field name shape authored text and replay or legacy payload",
+  "compatibility_rule": "PRESERVE-UNCHANGED",
+  "migration_required": "No",
+  "evidence_paths": "assets/js/adaptive-placement.js:569-588|641; assets/js/quick-reading.js:296-320|341-357; supabase/functions/guild-recruiter/index.ts:34|163-203|382-386|438-454; assets/js/shared.js:194-226|264-280|290-300|484-550|559-613|648-678; docs/supabase-profile-update.sql:25|54|200-207; docs/reference/data-contracts.md:155-168|285-299; assets/js/index.js:1191-1218|2938; assets/js/commander-dossier.js:3052-3123|3927-3975|4381-4387; assets/js/quick-reading-tests.js:515|553|3014-3015; research/research-init.js:2108-2177",
+  "unresolved_consumer_risk": "UNRESOLVED: deployed database consumers and remote or archived interview producers cannot be exhaustively proven from committed local code",
+  "compatibility_disposition": "PRESERVE-UNCHANGED"
+}
+```
+
+### color_weights — PRESERVE-UNCHANGED
+
+```json
+{
+  "field_or_family": "color_weights",
+  "canonical_writer": "NONE-IN-CURRENT-LOCAL-QUICK-PATH",
+  "additional_writers": "EXTERNAL-OR-ARCHIVED-PRODUCER-UNRESOLVED",
+  "computation_source": "Supplied optional color-weight map; current local scoring paths do not derive or fabricate it",
+  "semantic_role": "Optional serialized color-affinity evidence",
+  "serialized_location": "placement_result.color_weights|vm_last_result|vm_pending_result|profiles.placement_result",
+  "normalizers": "assets/js/shared.js:normalizePlacementResult",
+  "cache_consumers": "vm_last_result|vm_pending_result",
+  "saved_profile_consumers": "profiles.placement_result",
+  "legacy_consumers": "legacy aggregate may omit field",
+  "ranking_consumers": "None",
+  "stopping_consumers": "None",
+  "dossier_consumers": "No direct committed field reader located",
+  "presentation_consumers": "No direct committed field renderer located",
+  "graph_or_matrix_consumers": "No direct committed graph or Matrix reader located",
+  "recommendation_consumers": "No direct committed recommendation reader located",
+  "deck_link_consumers": "No direct committed deck-link reader located",
+  "adjacent_view_consumers": "Preserved only through aggregate placement result",
+  "maze_handoff_consumers": "Preserved only through aggregate Maze placementResult handoff",
+  "test_consumers": "normalization persistence and compatibility tests should cover supplied and missing values",
+  "gate_a_public_treatment": "Do not fabricate or infer a public value; render nothing when absent",
+  "gate_a_internal_treatment": "Preserve supplied value and optional field shape without manufacturing a default",
+  "compatibility_rule": "PRESERVE-UNCHANGED",
+  "migration_required": "No",
+  "evidence_paths": "assets/js/shared.js:194-226|290-300|484-550|565-613; docs/reference/data-contracts.md:242-248; docs/architecture/data-flow-map.md:60; docs/architecture/core-logic-and-algorithms.md:30",
+  "unresolved_consumer_risk": "EXTERNAL-OR-ARCHIVED-PRODUCER-UNRESOLVED; no local adaptive or quick writer and no direct local field consumer beyond normalization and aggregate propagation",
+  "compatibility_disposition": "PRESERVE-UNCHANGED"
+}
+```
+
+### authored_preview_scores — PRESERVE-UNCHANGED
+
+```json
+{
+  "field_or_family": "authored_preview_scores",
+  "canonical_writer": "data/identity-layers.json:expressions.*.preview_scores",
+  "additional_writers": "research/build-faction-artifacts.mjs:readJson(identityLayersPath)|buildPlacementModel|displayData.identity_layers propagation",
+  "computation_source": "Hand-authored Order Knowledge Ambition Freedom Growth values",
+  "semantic_role": "Preferred authored Mana Alignment Matrix shape",
+  "serialized_location": "data/identity-layers.json expressions.*.preview_scores|generated data/factions.json identity_layers expressions",
+  "normalizers": "assets/js/vm-radar.js:previewScores",
+  "cache_consumers": "None",
+  "saved_profile_consumers": "None",
+  "legacy_consumers": "None",
+  "ranking_consumers": "None",
+  "stopping_consumers": "None",
+  "dossier_consumers": "dossier radar profile and section",
+  "presentation_consumers": "dossier-radar.js and vm-radar.js",
+  "graph_or_matrix_consumers": "vm-radar.js:resolveRadarProfile",
+  "recommendation_consumers": "No direct placement recommendation role",
+  "deck_link_consumers": "None",
+  "adjacent_view_consumers": "active dossier faction chooses authored expression",
+  "maze_handoff_consumers": "No direct Maze payload use",
+  "test_consumers": "radar source-generated and presentation tests",
+  "gate_a_public_treatment": "Keep visible as authored identity visualization; never present as confidence raw placement ledger or calibration",
+  "gate_a_internal_treatment": "Preserve authored source values and downstream propagated shape unchanged",
+  "compatibility_rule": "PRESERVE-UNCHANGED",
+  "migration_required": "No",
+  "evidence_paths": "data/identity-layers.json:expressions.*.preview_scores; research/build-faction-artifacts.mjs:11|5065|5079-5088; assets/js/vm-radar.js:2-6|141-153|225-254; assets/js/dossier-radar.js:27-34; docs/reference/archscry-identity-matrix-data-map.md:44-70",
+  "unresolved_consumer_risk": "UNRESOLVED: no deployed or external consumer inventory; source authority is locally resolved and the builder is only a reader and propagator",
+  "compatibility_disposition": "PRESERVE-UNCHANGED"
+}
+```
+
 ## Question adjudication
 
 Selection includes every KEEP, KEEP-BUT-REWORD, and NEEDS-EVIDENCE row; all four Gate rows; and the first five source-order Hall RETUNE, Hall REPLACE, Crucible RETUNE, and Crucible REPLACE rows. No KEEP rows exist.
