@@ -1,6 +1,7 @@
 # VM-552 post-integration validation summary
 
-Integration HEAD: 16b9aa1bffb892407532787a22ed44d65707cda6
+Final integration HEAD: 334f9c20f1349cbf96921a6e86f68fbcdbcb24b3
+Runtime validation HEAD: 16b9aa1bffb892407532787a22ed44d65707cda6
 Approved candidate: 2fe0fbf44c66a369690548c70e13e0e480806cea
 Independent review: e0662e55ed8ff8f1584bc984dd52df69295d82fb
 Integration worktree: C:\dev\voxmana.io-strategium-lifecycle-integration
