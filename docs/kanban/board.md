@@ -43,6 +43,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-551 - Full Placement-System Audit](in-progress/VM-551-full-placement-system-audit.md) - comprehensive documentation-only audit of questionnaire, scoring, 37-identity reachability, confidence, primary/adjacent selection, copy, evidence, recommendations, pipelines, and rendering; no repairs or production changes.
+
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 
 ## Blocked
