@@ -125,11 +125,11 @@ Extend the existing Strategium static HTML/CSS/JavaScript patterns with a small 
 - Approved candidate: 2fe0fbf44c66a369690548c70e13e0e480806cea.
 - Independent review commit: e0662e55ed8ff8f1584bc984dd52df69295d82fb.
 - Integration branch/worktree: codex/strategium-game-lifecycle-integration at C:\dev\voxmana.io-strategium-lifecycle-integration.
-- Candidate merge: b440d70. Independent-review merge: 16b9aa1bffb892407532787a22ed44d65707cda6. Final integration HEAD after integration documentation: 334f9c20f1349cbf96921a6e86f68fbcdbcb24b3.
+- Candidate merge: b440d70. Independent-review merge/product-review integration HEAD: 16b9aa1bffb892407532787a22ed44d65707cda6. Integration validation documentation commit: 334f9c20f1349cbf96921a6e86f68fbcdbcb24b3. Final branch HEAD is reported at handoff completion.
 - Validation passed: 1,935,360 Before outputs, 1,200 Finding combinations, 48 During pairs, 36 browser assertions, direct and hub-click After-the-Game paths, Console regression, full repository suite, parser, lint, metadata, smoke, accessibility, keyboard, responsive, and copy checks.
 - Objective result: 0 Automated Fail, 0 Blocked, 0 console errors, 0 failed network requests, and 0 horizontal-overflow findings.
 - Evidence: docs/qa/evidence/integration-01/ and docs/qa/strategium-lifecycle-integration-validation.md.
-- Next gate: owner authorization to update local main to the exact validated integration SHA 334f9c20f1349cbf96921a6e86f68fbcdbcb24b3, followed by separate push authorization. No push, deployment, production verification, certification, or VM-551 occurred.
+- Next gate: owner authorization to update local main to the exact validated integration branch HEAD reported at handoff completion, followed by separate push authorization. No push, deployment, production verification, certification, or VM-551 occurred.
 
 ## Independent review - 2026-07-31
 

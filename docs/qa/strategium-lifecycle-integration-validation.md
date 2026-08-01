@@ -5,7 +5,8 @@
 - Exact base: 5ae7d873cd09d6bd9cfd45f3564d8cad8126e3e9
 - Exact approved candidate: 2fe0fbf44c66a369690548c70e13e0e480806cea
 - Independent review commit: e0662e55ed8ff8f1584bc984dd52df69295d82fb
-- Final integration HEAD: 334f9c20f1349cbf96921a6e86f68fbcdbcb24b3
+- Product/review integration merge HEAD: 16b9aa1bffb892407532787a22ed44d65707cda6
+- Integration validation documentation commit: 334f9c20f1349cbf96921a6e86f68fbcdbcb24b3
 - Integration branch: codex/strategium-game-lifecycle-integration
 - Integration worktree: C:\dev\voxmana.io-strategium-lifecycle-integration
 
@@ -31,4 +32,4 @@ No unrelated files changed. VM-551, push, deployment, production verification, p
 
 ## Final state
 
-The integration worktree and source worktrees are clean after removal of temporary dependency/fixture links and restoration of the two generated gate reports. Exact approved candidate ancestry and independent-review ancestry are preserved. The next gate is owner authorization to update local main to exact validated integration HEAD 334f9c20f1349cbf96921a6e86f68fbcdbcb24b3, followed by separate push authorization.
+The integration worktree and source worktrees are clean after removal of temporary dependency/fixture links and restoration of the two generated gate reports. Exact approved candidate ancestry and independent-review ancestry are preserved. The final branch HEAD is the documentation-only completion commit reported by the integration handoff. The next gate is owner authorization to update local main to that exact validated integration branch HEAD, followed by separate push authorization.
