@@ -2,7 +2,7 @@
 
 ID: VM-551 Gate A
 Title: Archscry Trust Containment Design
-Status: Design complete; awaiting owner review
+Status: Design accepted; bounded Gate A implementation in progress
 Type: Design and implementation-planning input only
 Area: Archscry placement
 Priority: Critical trust containment
@@ -29,6 +29,10 @@ The package includes current UI/copy inventory, nine-state contract, public conf
 
 Design only. No production code, question/answer, scoring, branching, guardrail, calibration, identity, Matrix, recommendation-data, schema, route, deployment, or certification change. No implementation task has been created.
 
+## Owner approval and implementation authority
+
+On 2026-08-01, the owner approved exact design commit `c6b1c9e6940b67201c8c2f999409a7103ba52b88` and accepted `OD-01` through `OD-18` without deviation. The implementation branch `codex/vm551-gate-a-trust-containment-implementation` may now execute only the seven bounded Gate A slices. Gate B1, merge, push, deployment, and certification remain excluded.
+
 ## Next gate
 
-Owner reviews the design/implementation-planning package, resolves `owner-decisions.md`, and either accepts or revises the Gate A containment boundary. Production implementation and implementation-task creation remain unauthorized until that review is explicit.
+Complete the bounded Gate A implementation candidate, automated validation, and local owner visual-QA package. Stop for owner visual review before merge or push.

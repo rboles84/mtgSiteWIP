@@ -1,6 +1,8 @@
 # Gate A Owner Decisions
 
-Implementation planning must not begin until the owner records these decisions. Recommended defaults favor the smallest containment change.
+Status: accepted without deviation by the owner on 2026-08-01 for exact design commit `c6b1c9e6940b67201c8c2f999409a7103ba52b88`.
+
+The owner accepted `OD-01` through `OD-18` exactly as recommended. This authorizes the bounded Gate A implementation only; it does not authorize Gate B1, merge, push, deployment, or certification.
 
 | ID | Decision | Recommended default | Consequence |
 |---|---|---|---|
@@ -23,4 +25,4 @@ Implementation planning must not begin until the owner records these decisions. 
 | OD-17 | Public stored decree handling | **Preserve stored `decree` and dossier `decreeCopy`; use separate bounded copy only in the existing terminal reveal. Do not add a dossier decree surface.** | Meets compatibility contract without inventing a consumer or repeating unsafe certainty. |
 | OD-18 | Visual owner review scope | Require landing, live question/progress, every state shell, primary/close/legacy dossier, both Matrix paths, Maze return at desktop/mobile. | Prevents a text-only change from breaking hierarchy or mobile behavior. |
 
-Owner response should record accepted wording/heuristics and any deviation. A deviation that changes scoring, questions, minimum-hit/guardrails, semantics, recommendation data, Matrix values, or schemas is outside Gate A and must stop this implementation path.
+Any later deviation that changes scoring, questions, minimum-hit/guardrails, semantics, recommendation data, Matrix values, or schemas is outside Gate A and must stop this implementation path.
