@@ -149,13 +149,13 @@ const ACCOUNT_DECK_LINKS_ENABLED = false;
 const DOSSIER_PANEL_CONFIG = [
   { id: "placement", label: "Placement" },
   { id: "start", label: "Start Here" },
-  { id: "why", label: "Why This Fits" },
+  { id: "why", label: "Why This Fits", mobileLabel: "Why It Fits" },
   { id: "adjacent", label: "Close Alternative" },
-  { id: "commander-deck-starts", label: "Commander Browsing Starts" },
+  { id: "commander-deck-starts", label: "Commander Browsing Starts", mobileLabel: "Commanders" },
   ...(ACCOUNT_DECK_LINKS_ENABLED ? [{ id: "decks-saved", label: "External Deck Links" }] : []),
   { id: "starter-cards", label: "Card Signals" },
   { id: "mana-base", label: "Mana Notes" },
-  { id: "maze-discovery", label: "Maze Discovery" },
+  { id: "maze-discovery", label: "Maze Discovery", mobileLabel: "Maze" },
 ];
 const DOSSIER_PANEL_IDS = new Set(DOSSIER_PANEL_CONFIG.map((panel) => panel.id));
 const STARTER_CARD_SEGMENTS = [
@@ -436,6 +436,22 @@ function flavorSnippetsForFaction(faction) {
   const snippets = APP_STATE.archscryFlavorSnippets?.snippets || {};
   const key = faction?.key || faction?.identity?.expression_key || "";
   return Array.isArray(snippets[key]) ? snippets[key] : [];
+}
+
+function matrixFlavorSnippetsForFaction(faction) {
+  return flavorSnippetsForFaction(faction).map((snippet) => {
+    const localCard = APP_STATE.scryfallLocalCardByName.get(normalizeCardName(snippet.card_name || "")) || null;
+    const fallbackScryfallUrl = snippet.card_name
+      ? `https://scryfall.com/search?q=${encodeURIComponent(`!\"${snippet.card_name}\"`)}`
+      : "https://scryfall.com/";
+    return {
+      ...snippet,
+      card_record: localCard,
+      image_uri: cardImageUrl(localCard || {}),
+      scryfall_id: localCard?.scryfall_id || localCard?.id || "",
+      scryfall_uri: localCard?.scryfall_uri || snippet.scryfall_uri || fallbackScryfallUrl,
+    };
+  });
 }
 
 // Identity, copy, and presentation helpers used by result and dossier views.
@@ -1813,6 +1829,7 @@ function buildDossierTabsHtml(location, activePanel, layoutMode) {
   const isAllMode = layoutMode === "all";
   return DOSSIER_PANEL_CONFIG.filter((panel) => !APP_STATE.hiddenDossierPanelIds?.has(panel.id)).map((panel, index) => {
     const selected = !isAllMode && panel.id === active;
+    const shortLabel = panel.mobileLabel || panel.label;
     return `
       <button
         class="vm-tab dossier-tab${selected ? " is-active" : ""}"
@@ -1823,8 +1840,9 @@ function buildDossierTabsHtml(location, activePanel, layoutMode) {
         aria-controls="dossier-panel-${panel.id}"
         tabindex="${selected || (!isAllMode && index === 0) ? "0" : "-1"}"
         data-dossier-tab="${panel.id}"
+        aria-label="${escapeAttributeValue(panel.label)}"
         ${buildActionAttrs("set-dossier-panel", { panelId: panel.id })}
-      >${escapeHtml(panel.label)}</button>`;
+      ><span class="dossier-tab-label dossier-tab-label--full">${escapeHtml(panel.label)}</span><span class="dossier-tab-label dossier-tab-label--compact" aria-hidden="true">${escapeHtml(shortLabel)}</span></button>`;
   }).join("");
 }
 
@@ -2154,24 +2172,17 @@ function buildTiedCoLeaderSummaryHtml(dossier) {
   if (!dossier?.targetFactionKey || !dossier?.faction?.name) return "";
   const summary = dossier.resultSummaryStrip || {};
   const plan = summary.whereThisLeads || {};
-  const play = summary.playPattern || {};
   const identityName = dossier.faction.name;
+  const identityPips = buildManaPipsHtml(dossier.faction.colors || [], "tied-co-leader-pips");
   return `
-    <section class="tied-identity-container tied-identity-container--other" data-tied-identity-container="other" data-identity-key="${escapeAttributeValue(dossier.targetFactionKey)}">
-      <div class="tied-identity-kicker">Other co-leader - ${escapeHtml(identityName)}</div>
-      <div class="tied-co-leader-summary">
-        <div class="tied-co-leader-block" data-tied-plan-heading="${escapeAttributeValue(identityName)}">
-          <span>Where ${escapeHtml(identityName)} leads</span>
-          <strong>${escapeHtml(plan.heading || `${identityName} Commander direction`)}</strong>
-          <p>${escapeHtml(plan.body || `A concise ${identityName} comparison using the same recorded answers.`)}</p>
-        </div>
-        <div class="tied-co-leader-block" data-tied-play-pattern-heading="${escapeAttributeValue(identityName)}">
-          <span>Play pattern - ${escapeHtml(identityName)}</span>
-          <strong>${escapeHtml(play.heading || `${identityName} at the table`)}</strong>
-          <p>${escapeHtml(play.body || `A bounded view of ${identityName}'s possible Commander expression.`)}</p>
-        </div>
+    <section class="tied-co-leader-card" data-tied-identity-container="other" data-identity-key="${escapeAttributeValue(dossier.targetFactionKey)}">
+      <div class="tied-identity-kicker">Other co-leader &mdash; ${escapeHtml(identityName)}</div>
+      <div class="tied-co-leader-heading">
+        <strong>${escapeHtml(identityName)}</strong>
+        ${identityPips}
       </div>
-      <p class="tied-co-leader-limitation">This is a co-leader in the tied reading, not a close alternative or semantic adjacent identity.</p>
+      <p class="tied-co-leader-summary">${escapeHtml(plan.body || `${identityName} offers another way to read the same recorded answers.`)}</p>
+      <p class="tied-co-leader-explanation">This identity shares the lead in the current reading. Compare its interpretation without replacing the original reading.</p>
       <button class="btn-secondary" type="button" ${buildActionAttrs("switch-adjacent-view", { viewKey: dossier.targetFactionKey })}>Compare this co-leader</button>
     </section>`;
 }
@@ -2276,6 +2287,102 @@ function applyDossierConsoleState() {
 
   applyDossierSegmentState("starter-cards");
   applyDossierSegmentState("mana-base");
+  initializeDossierMobileTabs({ revealActive: true });
+}
+
+function updateDossierTabOverflow(shell) {
+  const tablist = shell?.querySelector("[data-dossier-mobile-tabs]");
+  if (!(tablist instanceof HTMLElement)) return;
+  const maxScroll = Math.max(0, tablist.scrollWidth - tablist.clientWidth);
+  const hasOverflow = maxScroll > 2;
+  const canScrollLeft = hasOverflow && tablist.scrollLeft > 2;
+  const canScrollRight = hasOverflow && tablist.scrollLeft < maxScroll - 2;
+  const leftButton = shell.querySelector('[data-dossier-scroll-direction="left"]');
+  const rightButton = shell.querySelector('[data-dossier-scroll-direction="right"]');
+
+  shell.classList.toggle("has-overflow", hasOverflow);
+  shell.classList.toggle("can-scroll-left", canScrollLeft);
+  shell.classList.toggle("can-scroll-right", canScrollRight);
+  if (leftButton instanceof HTMLButtonElement) {
+    leftButton.hidden = !canScrollLeft;
+    leftButton.disabled = !canScrollLeft;
+  }
+  if (rightButton instanceof HTMLButtonElement) {
+    rightButton.hidden = !canScrollRight;
+    rightButton.disabled = !canScrollRight;
+  }
+}
+
+function scrollDossierTabs(direction) {
+  const shell = document.querySelector("[data-dossier-tabs-shell]");
+  const tablist = shell?.querySelector("[data-dossier-mobile-tabs]");
+  if (!(tablist instanceof HTMLElement)) return;
+  const distance = Math.max(180, Math.round(tablist.clientWidth * 0.72));
+  if (typeof tablist.scrollBy === "function") {
+    tablist.scrollBy({ left: direction === "left" ? -distance : distance, behavior: "smooth" });
+  } else {
+    tablist.scrollLeft += direction === "left" ? -distance : distance;
+  }
+  globalThis.setTimeout(() => updateDossierTabOverflow(shell), 180);
+}
+
+function initializeDossierMobileTabs({ revealActive = false } = {}) {
+  document.querySelectorAll("[data-dossier-tabs-shell]").forEach((shell) => {
+    const tablist = shell.querySelector("[data-dossier-mobile-tabs]");
+    if (!(tablist instanceof HTMLElement)) return;
+
+    if (tablist.dataset.dossierScrollBound !== "true") {
+      tablist.dataset.dossierScrollBound = "true";
+      tablist.addEventListener("scroll", () => updateDossierTabOverflow(shell), { passive: true });
+      tablist.addEventListener("wheel", (event) => {
+        if (tablist.scrollWidth <= tablist.clientWidth + 2 || Math.abs(event.deltaX) >= Math.abs(event.deltaY)) return;
+        tablist.scrollLeft += event.deltaY;
+        event.preventDefault();
+      }, { passive: false });
+
+      let dragStartX = 0;
+      let dragStartScroll = 0;
+      let dragged = false;
+      tablist.addEventListener("pointerdown", (event) => {
+        if (event.pointerType !== "mouse" || event.button !== 0) return;
+        dragStartX = event.clientX;
+        dragStartScroll = tablist.scrollLeft;
+        dragged = false;
+        tablist.classList.add("is-dragging");
+        tablist.setPointerCapture?.(event.pointerId);
+      });
+      tablist.addEventListener("pointermove", (event) => {
+        if (!tablist.hasPointerCapture?.(event.pointerId)) return;
+        const delta = event.clientX - dragStartX;
+        if (Math.abs(delta) > 4) dragged = true;
+        tablist.scrollLeft = dragStartScroll - delta;
+        if (dragged) event.preventDefault();
+      });
+      const finishDrag = (event) => {
+        if (tablist.hasPointerCapture?.(event.pointerId)) tablist.releasePointerCapture?.(event.pointerId);
+        tablist.classList.remove("is-dragging");
+      };
+      tablist.addEventListener("pointerup", finishDrag);
+      tablist.addEventListener("pointercancel", finishDrag);
+      tablist.addEventListener("click", (event) => {
+        if (!dragged) return;
+        event.preventDefault();
+        event.stopPropagation();
+        dragged = false;
+      }, true);
+    }
+
+    const refresh = () => {
+      updateDossierTabOverflow(shell);
+      if (revealActive) {
+        const activeTab = tablist.querySelector('[data-dossier-tab].is-active');
+        activeTab?.scrollIntoView?.({ block: "nearest", inline: "center" });
+      }
+      globalThis.setTimeout(() => updateDossierTabOverflow(shell), 0);
+    };
+    if (typeof requestAnimationFrame === "function") requestAnimationFrame(refresh);
+    else refresh();
+  });
 }
 
 function setDossierPanel(panelId, { updateUrl = true } = {}) {
@@ -2673,6 +2780,20 @@ function buildFlavorEchoWhy({ card, tagMatches, faction, curatedSnippet = false 
   return curatedSnippet ? `${cardName} is a curated card-voice example for this identity. Flavor illustrates tone; it does not establish Commander behavior.` : "";
 }
 
+function cardImageUrl(record = {}) {
+  return record.image_uris?.normal ||
+    record.image_uris?.art_crop ||
+    record.card_faces?.[0]?.image_uris?.normal ||
+    record.card_faces?.[0]?.image_uris?.art_crop ||
+    record.image_uri ||
+    "";
+}
+
+function canonicalFlavorLookupName(card = {}) {
+  if (card.scryfall_id && card.card_faces?.[0]?.name) return card.card_faces[0].name;
+  return card.name || "";
+}
+
 export function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}) {
   if (flavorEchoes.length < 2) return "";
   const groundedEchoes = flavorEchoes
@@ -3013,7 +3134,7 @@ function renderResult(viewKey) {
     preconThemeTaxonomy: APP_STATE.preconThemeTaxonomy,
   });
   const commanderDeckStartFallbackCandidates = buildCommanderDeckStartFallbackCandidates(preconRecommendations);
-  const matrixFlavorSnippets = flavorSnippetsForFaction(faction);
+  const matrixFlavorSnippets = matrixFlavorSnippetsForFaction(faction);
   const hasMatrixCardVoiceSurface =
     String(faction?.key || "").toUpperCase() !== "COLORLESS" &&
     matrixFlavorSnippets.length >= 2;
@@ -3229,7 +3350,7 @@ function renderResult(viewKey) {
     (tiedAlternative || closeAlternative?.match)?.faction;
   const stateHeading = resultState === "tied"
     ? isPrimary
-      ? `Original stored reading - ${faction.name}`
+      ? "Original reading"
       : `Other co-leader - ${faction.name}`
     : resultState === "close"
       ? `Close result: ${primaryName}, with ${alternativeName} also supported`
@@ -3241,19 +3362,24 @@ function renderResult(viewKey) {
     : gateAStatePresentation(resultState)[1];
   const tiedSummaryHtml = resultState === "tied" ? `
     <section class="tied-reading-summary" data-tied-reading-summary>
-      <div class="section-label">Tied reading summary</div>
-      <h2>This reading ended tied: ${escapeHtml(primaryName)} and ${escapeHtml(alternativeName)}</h2>
-      <p>The current scoring did not separate these two co-leaders. The shared summary does not assign either identity's plan to the other, and the original serialized result remains unchanged.</p>
+      <div class="tied-reading-eyebrow">Tied result</div>
+      <h2>Two identities share the lead</h2>
+      <div class="tied-reading-identities" aria-label="Tied identities">
+        <span>${escapeHtml(primaryName)}</span>
+        <span aria-hidden="true">and</span>
+        <span>${escapeHtml(alternativeName)}</span>
+      </div>
+      <p>Your answers did not separate these two readings.</p>
     </section>` : "";
   const tiedPeerSummaryHtml = resultState === "tied" && isPrimary
     ? buildTiedCoLeaderSummaryHtml(tiedPeerDossier)
     : "";
   const placementPanelHtml = `
     ${adjacentContextHtml}
-    <div class="result-state-banner" data-result-state="${escapeAttributeValue(resultState)}">
+    ${resultState === "tied" ? "" : `<div class="result-state-banner" data-result-state="${escapeAttributeValue(resultState)}">
       <strong>${escapeHtml(stateHeading)}</strong>
       <span>${escapeHtml(stateExplanation)}</span>
-    </div>
+    </div>`}
     ${resultState === "unknown" ? `<div class="result-limitation-notice" role="note">Legacy reading — ${escapeHtml(faction.name)} was saved, but answer/evidence detail is unavailable. Matrix content is identity context, not reconfirmation of the placement. Retake the reading if you want an answer-grounded result.</div>` : ""}
     ${returnToPrimaryButton}
     ${renderDossierRadarSection({ result, faction, dossier, flavorSnippets: matrixFlavorSnippets, identityLayers: APP_STATE.identityLayers })}
@@ -3394,10 +3520,10 @@ function renderResult(viewKey) {
   const publicEyebrow = isLegacyGateAResult(result)
     ? `Historical saved identity - ${institutionLabel}`
     : isPrimary
-      ? resultState === "tied" ? `Original stored reading - ${institutionLabel}` : `Placement dossier - ${institutionLabel}`
+      ? resultState === "tied" ? "Original reading" : `Placement dossier - ${institutionLabel}`
       : resultState === "tied" ? `Other co-leader - ${institutionLabel}` : `Comparing close alternative - ${institutionLabel}`;
 
-  const identityContentHtml = `
+  const identityIntroHtml = `
     <div class="guild-banner" data-faction-key="${escapeHtml(faction.key || "")}" data-hero-background="${heroBannerImageSlugForFaction(faction) ? "identity-image" : "banner"}" style="background:${heroBannerBackgroundForFaction(faction)}">
       <div class="guild-eyebrow">${escapeHtml(publicEyebrow)}</div>
       <div class="guild-name" style="color:${faction.accent}">${faction.name}</div>
@@ -3407,12 +3533,16 @@ function renderResult(viewKey) {
       <div class="guild-lore-summary">${faction.philosophy}</div>
     </div>
 
-    ${placementSnapshotHtml}
-
+    ${placementSnapshotHtml}`;
+  const dossierConsoleHtml = `
     <div class="dossier-console" data-dossier-console data-dossier-identity-key="${escapeAttributeValue(dossier.targetFactionKey)}" data-dossier-layout="${layoutMode}">
       <div class="dossier-mobile-nav">
-        <div class="vm-tabs dossier-mobile-tabs" role="tablist" aria-label="Archscry dossier sections">
-          ${buildDossierTabsHtml("mobile", activePanel, layoutMode)}
+        <div class="dossier-mobile-tabs-shell" data-dossier-tabs-shell>
+          <button class="dossier-tabs-scroll dossier-tabs-scroll--left" type="button" data-dossier-scroll-direction="left" ${buildActionAttrs("scroll-dossier-tabs", { direction: "left" })} aria-label="Show earlier dossier sections" hidden><span aria-hidden="true">&#8249;</span></button>
+          <div class="vm-tabs dossier-mobile-tabs" role="tablist" aria-label="Archscry dossier sections" data-dossier-mobile-tabs>
+            ${buildDossierTabsHtml("mobile", activePanel, layoutMode)}
+          </div>
+          <button class="dossier-tabs-scroll dossier-tabs-scroll--right" type="button" data-dossier-scroll-direction="right" ${buildActionAttrs("scroll-dossier-tabs", { direction: "right" })} aria-label="Show later dossier sections" hidden><span aria-hidden="true">&#8250;</span></button>
         </div>
         ${buildDossierLayoutToggleHtml(layoutMode)}
         ${utilityActionsHtml}
@@ -3431,13 +3561,15 @@ function renderResult(viewKey) {
         </div>
       </div>
     </div>`;
+  const identityContentHtml = `${identityIntroHtml}${dossierConsoleHtml}`;
   document.getElementById("result-inner").innerHTML = resultState === "tied"
-    ? `${tiedSummaryHtml}
-      <section class="tied-identity-container tied-identity-container--active" data-tied-identity-container="${isPrimary ? "original" : "other-active"}" data-identity-key="${escapeAttributeValue(dossier.targetFactionKey)}">
-        <div class="tied-identity-kicker">${escapeHtml(isPrimary ? `Original stored reading - ${faction.name}` : `Other co-leader - ${faction.name}`)}</div>
-        ${identityContentHtml}
-      </section>
-      ${tiedPeerSummaryHtml}`
+    ? isPrimary
+      ? `${tiedSummaryHtml}
+        <section class="tied-identity-boundary tied-identity-boundary--intro" data-tied-identity-container="original-intro" data-identity-key="${escapeAttributeValue(dossier.targetFactionKey)}">${identityIntroHtml}</section>
+        ${tiedPeerSummaryHtml}
+        <section class="tied-identity-boundary tied-identity-boundary--dossier" data-tied-identity-container="original-dossier" data-identity-key="${escapeAttributeValue(dossier.targetFactionKey)}">${dossierConsoleHtml}</section>`
+      : `${tiedSummaryHtml}
+        <section class="tied-identity-boundary tied-identity-boundary--active-peer" data-tied-identity-container="other-active" data-identity-key="${escapeAttributeValue(dossier.targetFactionKey)}">${identityContentHtml}</section>`
     : identityContentHtml;
   APP_STATE.activeResult = result;
   APP_STATE.activeViewKey = activeKey;
@@ -3449,7 +3581,7 @@ function renderResult(viewKey) {
   void refreshAccountDeckLinks();
   initializeDossierRadarIfVisible(result, faction);
   if (!shouldDisableResultCardArt()) {
-    loadResultCardArt(faction, commanderPreviewCandidates, renderableStarterCards, landRecommendations);
+    loadResultCardArt(faction, commanderPreviewCandidates, renderableStarterCards, landRecommendations, matrixFlavorSnippets);
   }
 }
 
@@ -3511,7 +3643,7 @@ function renderUnavailableCardArt(slot) {
   slot.innerHTML = '<span aria-hidden="true">Image unavailable</span>';
 }
 
-async function loadResultCardArt(faction, commanderCandidates = [], starterCards = {}, landRecommendations = {}) {
+async function loadResultCardArt(faction, commanderCandidates = [], starterCards = {}, landRecommendations = {}, matrixFlavorSnippets = []) {
   const factionIdentity = new Set(faction?.colors || []);
   let verifiedCommanders = 0;
   const commanderCards = (commanderCandidates || []).map((candidate, index) => ({
@@ -3522,8 +3654,22 @@ async function loadResultCardArt(faction, commanderCandidates = [], starterCards
     imageClass: "commander-img",
     commanderPreview: true,
   }));
+  const matrixVoiceCards = (matrixFlavorSnippets || []).map((snippet, index) => {
+    const record = snippet.card_record || { name: snippet.card_name, scryfall_uri: snippet.scryfall_uri };
+    return {
+      name: canonicalFlavorLookupName(record),
+      displayName: snippet.card_name || record.name,
+      recordType: "CARD",
+      id: `mcv_${index}`,
+      actionId: `mcv_action_${index}`,
+      imageClass: "vm-card-voice-image",
+      matrixCardVoice: true,
+      resolvedLocally: Boolean(snippet.image_uri || cardImageUrl(record)),
+    };
+  });
   const allCards = [
     ...commanderCards,
+    ...matrixVoiceCards,
     ...(starterCards.creatures || []).map((name, index) => resultArtCandidate(name, `sc_${index}`, "staple-img")),
     ...(starterCards.spells || []).map((name, index) => resultArtCandidate(name, `ss_${index}`, "staple-img")),
     ...(starterCards.permanents || []).map((name, index) => resultArtCandidate(name, `sp_${index}`, "staple-img")),
@@ -3536,6 +3682,10 @@ async function loadResultCardArt(faction, commanderCandidates = [], starterCards
   for (const card of allCards) {
     const slot = document.getElementById(card.id);
     if (!slot) {
+      continue;
+    }
+
+    if (card.matrixCardVoice && card.resolvedLocally) {
       continue;
     }
 
@@ -3570,7 +3720,10 @@ async function loadResultCardArt(faction, commanderCandidates = [], starterCards
 
       if (imageUrl) {
         slot.closest("[data-commander-card]")?.classList.add("is-verified");
-        slot.outerHTML = `<a href="${linkUrl}" target="_blank" rel="noopener" aria-label="Open ${escapeAttributeValue(card.displayName || data.name)} on Scryfall"><img class="${card.imageClass}" src="${imageUrl}" alt="${escapeAttributeValue(`${data.name} card art`)}" loading="lazy"></a>`;
+        const linkClass = card.matrixCardVoice ? "vm-card-voice-image-link" : "";
+        slot.outerHTML = `<a class="${linkClass}" href="${linkUrl}" target="_blank" rel="noopener" aria-label="Open ${escapeAttributeValue(card.displayName || data.name)} on Scryfall"><img class="${card.imageClass}" src="${imageUrl}" alt="${escapeAttributeValue(`${data.name} card image`)}" loading="lazy"></a>`;
+        const action = card.actionId ? document.getElementById(card.actionId) : null;
+        if (action instanceof HTMLAnchorElement) action.href = linkUrl;
         if (card.commanderPreview) {
           verifiedCommanders += 1;
         }
@@ -3776,6 +3929,7 @@ function bindArchscryControls() {
   app?.addEventListener("pointerout", handleCardPreviewPointerOut);
   app?.addEventListener("focusin", handleCardPreviewFocusIn);
   app?.addEventListener("focusout", handleCardPreviewFocusOut);
+  window.addEventListener("resize", () => initializeDossierMobileTabs(), { passive: true });
 }
 
 async function handleArchscryActionClick(event) {
@@ -3839,6 +3993,9 @@ async function handleArchscryActionClick(event) {
       return;
     case "set-dossier-panel":
       setDossierPanel(actionNode.dataset.panelId || "");
+      return;
+    case "scroll-dossier-tabs":
+      scrollDossierTabs(actionNode.dataset.direction || "right");
       return;
     case "toggle-dossier-layout":
       setDossierLayoutMode(actionNode.dataset.layout || "focus");

@@ -2,7 +2,7 @@
 
 ID: VM-551 Gate A
 Title: Archscry Trust Containment
-Status: Final owner-QA correction candidate ready for one focused spot-check
+Status: Final visual-polish candidate ready for owner visual review
 Type: Production trust containment
 Area: Archscry placement
 Priority: Critical trust containment
@@ -39,4 +39,4 @@ On 2026-08-01, the owner approved exact design commit `c6b1c9e6940b67201c8c2f999
 
 ## Next gate
 
-The follow-up candidate `84099d2fd7626f8ecd732748e06fff3ce20daddf` passed the accepted unknown, incomplete, legacy, and public-confidence checks but retained three narrow owner-QA blockers. The final correction separates the shared tie summary, original stored reading, and other co-leader into explicit identity-keyed containers; adds a versioned seven-day success / six-hour negative / fifteen-minute 429-backoff named-card cache; and supplies a checked-in local QA helper with safe validation and explicit reload instructions. Focused desktop/390px DOM checks, offline cache tests, placement, lint, copy, frontend, deck, Maze, and browser smoke pass. Next gate is one owner spot-check of these three corrections only. Stop before merge or push.
+Owner QA accepted candidate `c065fb765cd71738099a3fb3fb933a15cc5c1d44` for result-state behavior, tie identity isolation, persistent named-card caching, precon/card routing, and public-confidence containment. The final presentation-only candidate compacts the tied hierarchy, makes the mobile Dossier Directory discoverably scrollable, tightens two spacing relationships, uses established Mana Font symbols in the Matrix identity summary, and renders Matrix card-voice examples with local/cache-backed art. Focused desktop, 390px, and 320px checks pass. Scoring, cache contracts, serialized fields, Matrix values, identity semantics, recommendations, deck links, Maze behavior, and Gate B1 remain excluded. The next gate is owner visual review of the exact final commit; stop before merge or push.

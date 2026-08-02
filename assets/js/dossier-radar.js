@@ -40,17 +40,15 @@ function renderPips(value) {
   )).join("");
 }
 
-function renderComponentDots(profile) {
-  const components = Array.isArray(profile.components) ? profile.components : [];
-  if (!components.length) {
-    return `<span class="vm-component-dot vm-component-dot-colorless" style="--component-color:${escapeDossierHtml(profile.hex)};">Colorless</span>`;
-  }
-
-  return components.map((componentKey) => {
-    const name = RADAR.componentName(componentKey);
-    const hex = RADAR.componentHex(componentKey);
-    return `<span class="vm-component-dot" style="--component-color:${escapeDossierHtml(hex)};"><span aria-hidden="true"></span>${escapeDossierHtml(name)}</span>`;
-  }).join("");
+function renderComponentManaSymbols(profile) {
+  const order = ["W", "U", "B", "R", "G"];
+  const components = [...new Set(Array.isArray(profile.components) ? profile.components : [])]
+    .map((component) => String(component || "").toUpperCase())
+    .filter((component) => order.includes(component))
+    .sort((left, right) => order.indexOf(left) - order.indexOf(right));
+  const symbols = components.length ? components : ["C"];
+  const names = components.length ? components.map((component) => RADAR.componentName(component)) : ["Colorless"];
+  return `<span class="mana-pips guild-mana-symbols matrix-mana-symbols" role="img" aria-label="${escapeDossierHtml(`${names.join(" and ")} mana identity`)}">${symbols.map((symbol) => `<i class="ms ms-${symbol.toLowerCase()} ms-cost" aria-hidden="true"></i>`).join("")}</span>`;
 }
 
 function renderDossierAxisList(profile) {
@@ -123,11 +121,17 @@ function renderDossierCardVoicesPanel(snippets = []) {
         <p>Short source-grounded card voices that echo the reading's feel. They are examples, not required pickups.</p>
       </div>
       <div class="vm-card-voice-list">
-        ${items.map((snippet) => `
-          <a class="vm-card-voice" href="${escapeDossierHtml(snippet.scryfall_uri)}" target="_blank" rel="noopener">
-            <span class="vm-card-voice-name">${escapeDossierHtml(snippet.card_name)}</span>
-            <span class="vm-card-voice-text">${escapeDossierHtml(snippet.flavor_excerpt)}</span>
-          </a>`).join("")}
+        ${items.map((snippet, index) => `
+          <article class="vm-card-voice" data-matrix-card-name="${escapeDossierHtml(snippet.card_name)}" data-record-type="CARD">
+            ${snippet.image_uri
+              ? `<a class="vm-card-voice-image-link" id="mcv_${index}" href="${escapeDossierHtml(snippet.scryfall_uri)}" target="_blank" rel="noopener" aria-label="Open ${escapeDossierHtml(snippet.card_name)} on Scryfall"><img class="vm-card-voice-image" src="${escapeDossierHtml(snippet.image_uri)}" alt="${escapeDossierHtml(`${snippet.card_name} card image`)}" loading="lazy"></a>`
+              : `<span class="vm-card-voice-image-fallback" id="mcv_${index}" aria-label="Card image unavailable"><span aria-hidden="true">Image unavailable</span></span>`}
+            <div class="vm-card-voice-copy">
+              <span class="vm-card-voice-name">${escapeDossierHtml(snippet.card_name)}</span>
+              <span class="vm-card-voice-text">${escapeDossierHtml(snippet.flavor_excerpt)}</span>
+              <a class="vm-card-voice-action" id="mcv_action_${index}" href="${escapeDossierHtml(snippet.scryfall_uri)}" target="_blank" rel="noopener" aria-label="Open ${escapeDossierHtml(snippet.card_name)} on Scryfall">View on Scryfall <span aria-hidden="true">&nearr;</span></a>
+            </div>
+          </article>`).join("")}
       </div>
     </div>`;
 }
@@ -190,7 +194,7 @@ function renderDossierRadarSection({ result, faction, flavorSnippets = [], ident
                   <div class="vm-reading-kicker">Identity Reading</div>
                   <div class="vm-selected-kicker" id="dossierSelectedKicker">${multiColor ? "Selected Synthesis" : "Selected Profile"}</div>
                   <h3 id="dossierColorTitle">${escapeDossierHtml(profile.title)}</h3>
-                  <div class="vm-component-dot-row" id="dossierOverlayLine">${renderComponentDots(profile)}</div>
+                  <div class="vm-component-dot-row" id="dossierOverlayLine">${renderComponentManaSymbols(profile)}</div>
                   <p class="vm-profile-text" id="dossierColorText">${escapeDossierHtml(profile.text)}</p>
                 </div>
               </div>
@@ -517,6 +521,7 @@ export {
   destroyDossierManaRadar,
   getDossierRadarProfile,
   initDossierManaRadar,
+  renderComponentManaSymbols,
   renderDossierAxisList,
   renderDossierOverlayLine,
   renderDossierRadarSection,

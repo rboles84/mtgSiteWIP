@@ -1,8 +1,21 @@
 # VM-551 Gate A Owner QA Record
 
-Candidate status: owner-rejected `f657ac5aea9b7aeaf3855a1af42148744271dc7e` remediated locally; replacement candidate awaits owner visual acceptance before merge or push.
+Candidate status: owner-accepted behavior through `c065fb765cd71738099a3fb3fb933a15cc5c1d44`; final presentation-only candidate awaits owner visual acceptance before merge or push.
 
 Authority: design `c6b1c9e6940b67201c8c2f999409a7103ba52b88`; decisions `OD-01` through `OD-18` accepted without deviation. Expected behavior is controlled by `docs/plans/vm551-gate-a-trust-containment/gate-a-regression-matrix.csv`.
+
+## Final visual-polish spot checks
+
+The exact final commit should receive only these visual checks:
+
+1. Exact tie at desktop and 390px: the compact `Tied result` status precedes the normal `Original reading` hero; the concise `Other co-leader` card follows the original introduction; compare and `Back to original reading` retain the correct identity content.
+2. Dossier Directory at 390px and 320px: swipe, trackpad/wheel, pointer drag, chevrons, and keyboard arrows can reach every fully labeled tab; the active tab is revealed and the first/last tabs are not clipped.
+3. `How This Plays`: `At the table` and `In play` each form a compact heading/label/value stack.
+4. `Layered Identity`: Belief-card mana symbols remain in normal flow roughly one text rhythm below the final paragraph for mono-, two-, three-, five-color, and Colorless identities.
+5. Matrix identity summary: established Mana Font symbols appear in canonical W/U/B/R/G order with a complete accessible label and subtle color-matched glow; the chart itself is unchanged.
+6. `Cards That Sound Like This`: each configured card shows readable card art or the deliberate unavailable state, its flavor text, and a visible Scryfall action. Reload a resolved card and confirm no repeated named-card request.
+
+Automated coverage performs the same hierarchy, accessibility, cache, edge-indicator, comparison/return, and overflow assertions at desktop, 390px, and 320px. It does not replace the final owner visual judgment. No visual baseline was created or accepted.
 
 ## Owner-rejection remediation dispositions
 
@@ -21,7 +34,7 @@ These dispositions apply to every owner comment governing this pass. `FIXED` mea
 | Guild Card Signal Reference, card, and land images were undersized | FIXED | Responsive grid minima and card widths increased; mobile uses deliberate one-column reflow and bounded card widths. |
 | Raw/repeated placeholder labels were visible | FIXED | Empty accessible image slots precede loading; failures render one deliberate “Image unavailable” fallback and one intentional visible card/land name. |
 | Plain White/Blue labels instead of established symbols | FIXED | The committed Mana Font asset is loaded and `ms-* ms-cost` symbols render with an accessible “{colors} mana identity” label. No new icon system was added. |
-| Cards That Sound Like This lacked discoverability and unique reasoning | FIXED | Each card shows its name, image or explicit fallback, a visible Scryfall action, and card-specific rules/tag reasoning with a limitation. |
+| Cards That Sound Like This lacked recognizable card images | FIXED | The Matrix card-voice surface now uses committed local card records first, the existing `vm_scryfall_named_cache_v2` second, and network lookup last. Each configured card shows readable art or an explicit fallback, flavor text, and a visible Scryfall action; double-faced local records use the front face by default. |
 | Precon/product names were sent to Scryfall named-card lookup | FIXED | Art candidates are typed first. Every committed precon maps to its known main commander card or a deliberate product fallback; the full catalog and every faction `(Precon)` value are regression-tested. Request dedupe, 90 ms pacing, and non-OK/network fallback remain active. |
 | Specialist terms lacked education | FIXED | Established keyboard-focusable `.vm-gloss` help covers Draw-Go Control, Prison Control, Midrange, Control, Tempo, Stax, Pillowfort, Hatebears, taxation, sweepers, detain, parity, and open mana with meaning, Commander behavior, reason, and boundary. |
 | Start Here deck footing/spellcraft/caution was unclear | FIXED | Budget, experience, directions, and provenance are separate; Azorius tools are translated into table actions; caution names the pivotal interaction window. |

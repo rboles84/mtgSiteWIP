@@ -18,13 +18,17 @@ import {
   getCommanderFactionGuidance,
 } from "../assets/js/commander-dossier.js";
 import { runAdaptiveGoldenPath } from "../assets/js/adaptive-placement.js";
+import { getDossierRadarProfile, renderComponentManaSymbols } from "../assets/js/dossier-radar.js";
 
 const readText = (path) => readFile(new URL(path, import.meta.url), "utf8");
 const indexSource = await readText("../assets/js/index.js");
 const htmlSource = await readText("../archscry/index.html");
 const cssSource = await readText("../assets/css/archscry.css");
+const radarSource = await readText("../assets/js/dossier-radar.js");
 const cacheSource = await readText("../assets/js/scryfall-card-cache.js");
 const qaHelperSource = await readText("../docs/qa/vm551-gate-a-fixture-helper.js");
+const identityLayers = JSON.parse(await readText("../data/identity-layers.json"));
+const commanderIndex = JSON.parse(await readText("../data/scryfall/indexes/commander-index.json"));
 const preconCatalog = JSON.parse(await readText("../data/precons/vox-mana-precon-catalog.json"));
 const taxonomy = JSON.parse(await readText("../data/taxonomy/vox-mana-tags.json"));
 const placementModel = JSON.parse(await readText("../data/placement-model.json"));
@@ -93,12 +97,17 @@ assert.doesNotMatch(abzanTieDossier.commanderLane.copy, /Azorius Senate/);
 assert.match(abzanTieDossier.resultStatus, /co-leader/i);
 assert.doesNotMatch(abzanTieDossier.resultStatus, /close alternative/i);
 assert.match(indexSource, /data-tied-reading-summary/);
-assert.match(indexSource, /data-tied-identity-container="\$\{isPrimary \? "original" : "other-active"\}"/);
+assert.match(indexSource, /Two identities share the lead/);
+assert.match(indexSource, /Your answers did not separate these two readings/);
+assert.match(indexSource, /data-tied-identity-container="original-intro"/);
+assert.match(indexSource, /data-tied-identity-container="original-dossier"/);
+assert.match(indexSource, /data-tied-identity-container="other-active"/);
 assert.match(indexSource, /data-dossier-identity-key="\$\{escapeAttributeValue\(dossier\.targetFactionKey\)\}"/);
 assert.match(indexSource, /includeAlternative: resultState !== "tied"/);
 assert.match(indexSource, /const adjacentMatches = resultState === "tied" \? \[\] : dossier\.adjacentFits/);
-assert.match(indexSource, /Original stored reading - \$\{faction\.name\}/);
-assert.match(indexSource, /Other co-leader - \$\{faction\.name\}/);
+assert.doesNotMatch(indexSource, /serialized result|stored primary|Original stored reading|identity-keyed container|plan leakage/i);
+assert.match(indexSource, /resultState === "tied" \? "Original reading"/);
+assert.match(indexSource, /Other co-leader &mdash; \$\{escapeHtml\(identityName\)\}/);
 assert.match(indexSource, /Compare this co-leader/);
 assert.doesNotMatch(buildHeroNarrative({ dossier: abzanTieDossier, faction: factions.ABZAN, result: tieResult, factions }), /Azorius Senate/);
 
@@ -242,7 +251,50 @@ assert.match(cssSource, /\.starter-grid\{[\s\S]*minmax\(min\(100%,280px\),1fr\)/
 assert.match(cssSource, /\.staple-wrap\{[^}]*width:150px/);
 assert.match(cssSource, /\.land-wrap\{[^}]*width:128px/);
 assert.match(cssSource, /@media\(max-width:700px\)[\s\S]*\.dossier-snapshot[\s\S]*grid-template-columns:1fr/);
-assert.match(cssSource, /\.tied-co-leader-summary[\s\S]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
+assert.match(cssSource, /\.tied-reading-summary\s*\{[\s\S]*border-bottom:/);
+assert.doesNotMatch(cssSource, /\.tied-reading-summary,\s*\.tied-identity-container/);
+assert.match(cssSource, /\.dossier-mobile-tabs-shell[\s\S]*position: relative/);
+assert.match(cssSource, /\.dossier-tabs-scroll[\s\S]*position: absolute/);
+assert.match(indexSource, /scrollIntoView\?\.\(\{ block: "nearest", inline: "center" \}\)/);
+assert.match(indexSource, /data-dossier-scroll-direction="left"/);
+assert.match(indexSource, /data-dossier-scroll-direction="right"/);
+assert.match(indexSource, /tablist\.scrollLeft \+= event\.deltaY/);
+assert.match(indexSource, /setPointerCapture/);
+assert.match(cssSource, /\.identity-story-meta\{[^}]*margin-top:0\.35rem/);
+assert.doesNotMatch(cssSource, /\.identity-story-meta\{[^}]*margin-top:auto/);
+assert.match(cssSource, /\.how-this-plays-block\{[^}]*gap:0\.3rem/);
+
+for (const [key, expectedSymbols, expectedLabel] of [
+  ["W", ["w"], "White mana identity"],
+  ["WU", ["w", "u"], "White and Blue mana identity"],
+  ["JESKAI", ["w", "u", "r"], "White and Blue and Red mana identity"],
+  ["COLORLESS", ["c"], "Colorless mana identity"],
+  ["WUBRG", ["w", "u", "b", "r", "g"], "White and Blue and Black and Red and Green mana identity"],
+]) {
+  const profile = getDossierRadarProfile({ faction: key }, factions[key], identityLayers);
+  const symbols = renderComponentManaSymbols(profile);
+  assert.match(symbols, new RegExp(`aria-label="${expectedLabel}"`));
+  assert.deepEqual([...symbols.matchAll(/ms-([wubrgc]) ms-cost/g)].map((match) => match[1]), expectedSymbols);
+}
+assert.match(cssSource, /matrix-mana-symbols[\s\S]*drop-shadow/);
+
+assert.match(indexSource, /matrixFlavorSnippetsForFaction/);
+assert.match(indexSource, /APP_STATE\.scryfallLocalCardByName\.get/);
+assert.match(indexSource, /loadResultCardArt\(faction, commanderPreviewCandidates, renderableStarterCards, landRecommendations, matrixFlavorSnippets\)/);
+assert.match(indexSource, /matrixCardVoice: true/);
+assert.match(radarSource, /class="vm-card-voice-image"/);
+assert.match(radarSource, /class="vm-card-voice-action"[\s\S]*View on Scryfall/);
+assert.match(radarSource, /id="mcv_\$\{index\}"/);
+assert.match(radarSource, /id="mcv_action_\$\{index\}"/);
+assert.match(indexSource, /canonicalFlavorLookupName[\s\S]*card\.scryfall_id && card\.card_faces\?\.\[0\]\?\.name/);
+for (const name of [
+  "Jerren, Corrupted Bishop // Ormendahl, the Corrupter",
+  "Egon, God of Death // Throne of Death",
+]) {
+  const record = commanderIndex.commanders.find((card) => card.name === name);
+  assert.ok(record?.scryfall_id, `${name} must retain a canonical Scryfall ID.`);
+  assert.match(record?.card_faces?.[0]?.image_uris?.normal || "", /^https:\/\/cards\.scryfall\.io\/normal\/front\//);
+}
 
 class FixtureStorage {
   constructor(values = {}) { this.values = new Map(Object.entries(values)); }

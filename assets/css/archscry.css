@@ -1073,6 +1073,18 @@ body.vm-archscry-route .dossier-mobile-nav {
   display: none;
 }
 
+body.vm-archscry-route .dossier-mobile-tabs-shell {
+  min-width: 0;
+}
+
+body.vm-archscry-route .dossier-tabs-scroll {
+  display: none;
+}
+
+body.vm-archscry-route .dossier-tab-label--compact {
+  display: none;
+}
+
 body.vm-archscry-route .dossier-segment-controls {
   display: flex;
   flex-wrap: wrap;
@@ -1146,11 +1158,19 @@ body.vm-archscry-route .lands-tiers .dossier-segment-panel[hidden] {
   body.vm-archscry-route .dossier-mobile-tabs {
     display: flex;
     flex-wrap: nowrap;
-    gap: 8px;
+    gap: clamp(4px, 0.8vw, 8px);
     overflow-x: auto;
-    padding: 0 0 0.25rem;
+    overscroll-behavior-inline: contain;
+    padding: 0.15rem 34px 0.3rem;
     scroll-snap-type: x proximity;
+    scroll-padding-inline: 34px;
     scrollbar-width: none;
+    cursor: grab;
+  }
+
+  body.vm-archscry-route .dossier-mobile-tabs.is-dragging {
+    cursor: grabbing;
+    user-select: none;
   }
 
   body.vm-archscry-route .dossier-mobile-tabs::-webkit-scrollbar {
@@ -1160,8 +1180,48 @@ body.vm-archscry-route .lands-tiers .dossier-segment-panel[hidden] {
   body.vm-archscry-route .dossier-mobile-tabs .dossier-tab {
     width: auto;
     min-width: max-content;
+    min-height: clamp(38px, 5vw, 42px);
+    padding-inline: clamp(0.55rem, 1.35vw, 0.9rem);
+    font-size: clamp(0.62rem, 1.25vw, 0.72rem);
     scroll-snap-align: start;
     white-space: nowrap;
+  }
+
+  body.vm-archscry-route .dossier-mobile-tabs-shell {
+    position: relative;
+    display: block;
+    min-width: 0;
+  }
+
+  body.vm-archscry-route .dossier-tabs-scroll {
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    min-width: 30px;
+    min-height: 38px;
+    padding: 0;
+    border: 1px solid rgba(121, 214, 208, 0.22);
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(9, 9, 12, 0.98), rgba(19, 28, 29, 0.9));
+    color: var(--teal-l);
+    font-size: 1.35rem;
+    line-height: 1;
+    transform: translateY(-50%);
+  }
+
+  body.vm-archscry-route .dossier-tabs-scroll--left { left: 0; }
+  body.vm-archscry-route .dossier-tabs-scroll--right { right: 0; }
+
+  body.vm-archscry-route .dossier-tabs-scroll:not([hidden]) {
+    display: inline-flex;
+  }
+
+  body.vm-archscry-route .dossier-tabs-scroll:focus-visible {
+    outline: 2px solid rgba(26, 170, 150, 0.92);
+    outline-offset: 2px;
   }
 
   body.vm-archscry-route .dossier-mobile-nav .dossier-view-toggle {
@@ -1960,22 +2020,60 @@ body::before{
 }
 .vm-card-voice-list{
   display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));
   gap:0.65rem;
 }
 .vm-card-voice{
   display:grid;
-  gap:0.28rem;
-  padding:0.72rem 0.78rem;
+  grid-template-columns:minmax(145px,170px) minmax(0,1fr);
+  gap:0.85rem;
+  padding:0.82rem;
   border:1px solid rgba(255,255,255,0.1);
   border-radius:10px;
   background:rgba(255,255,255,0.045);
   color:inherit;
-  text-decoration:none;
 }
 .vm-card-voice:hover,
 .vm-card-voice:focus-visible{
   border-color:rgba(230,208,139,0.34);
   background:rgba(230,208,139,0.07);
+}
+.vm-card-voice-image-link{
+  display:block;
+  align-self:start;
+  width:100%;
+  max-width:170px;
+  border-radius:4.5%;
+}
+.vm-card-voice-image{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:63/88;
+  object-fit:cover;
+  border:1px solid rgba(230,208,139,0.18);
+  border-radius:4.5%;
+  box-shadow:0 12px 28px rgba(0,0,0,0.34);
+}
+.vm-card-voice-image-fallback{
+  display:grid;
+  width:100%;
+  max-width:170px;
+  aspect-ratio:63/88;
+  place-items:center;
+  padding:0.7rem;
+  border:1px solid rgba(230,208,139,0.16);
+  border-radius:4.5%;
+  background:linear-gradient(135deg,rgba(184,149,74,0.1),rgba(9,9,12,0.92));
+  color:var(--text-muted);
+  font-size:0.72rem;
+  text-align:center;
+}
+.vm-card-voice-copy{
+  display:flex;
+  flex-direction:column;
+  gap:0.55rem;
+  min-width:0;
 }
 .vm-card-voice-name{
   color:rgba(230,208,139,0.94);
@@ -1989,6 +2087,34 @@ body::before{
   font-family:var(--font-text);
   font-size:0.92rem;
   line-height:1.48;
+}
+.vm-card-voice-action{
+  width:max-content;
+  max-width:100%;
+  margin-top:auto;
+  color:var(--teal-l);
+  font-family:var(--font-mono);
+  font-size:0.64rem;
+  letter-spacing:0.08em;
+  text-decoration:none;
+  text-transform:uppercase;
+}
+.vm-card-voice-action:hover,
+.vm-card-voice-action:focus-visible{
+  color:#c8fff7;
+  text-decoration:underline;
+  text-underline-offset:0.2em;
+}
+
+@media(max-width:560px){
+  .vm-card-voice{
+    grid-template-columns:1fr;
+  }
+  .vm-card-voice-image-link,
+  .vm-card-voice-image-fallback{
+    width:min(220px,100%);
+    max-width:100%;
+  }
 }
 
 @keyframes vmRadarBreath{
@@ -2116,6 +2242,14 @@ body::before{
   flex-wrap:wrap;
   gap:0.45rem;
   align-items:center;
+}
+.vm-dossier-matrix-section .matrix-mana-symbols{
+  display:inline-flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:0.38rem;
+  width:max-content;
+  max-width:100%;
 }
 .vm-dossier-matrix-section .vm-component-dot{
   display:inline-flex;
@@ -2439,7 +2573,7 @@ body::before{
   flex-wrap:wrap;
   align-items:center;
   gap:0.45rem;
-  margin-top:auto;
+  margin-top:0.35rem;
   color:rgba(226,217,193,0.82);
   font-family:var(--font-mono);
   font-size:0.74rem;
@@ -2461,8 +2595,9 @@ body::before{
   gap:0.9rem;
 }
 .how-this-plays-block{
-  display:grid;
-  gap:0.35rem;
+  display:flex;
+  flex-direction:column;
+  gap:0.3rem;
   padding:0.9rem 1rem;
   border:1px solid rgba(184,149,74,0.09);
   background:rgba(8,8,10,0.32);
@@ -2471,15 +2606,17 @@ body::before{
   margin-top:0;
 }
 .how-this-plays-label{
+  margin:0;
   color:var(--gold-l);
   font-family:var(--font-mono);
   font-size:0.74rem;
   letter-spacing:0.08em;
   text-transform:uppercase;
+  line-height:1.25;
 }
 .how-this-plays-label + .table-identity-list{margin-top:0}
-.table-identity-list{display:flex;flex-direction:column;gap:0.42rem}
-.table-identity-list div{color:rgba(236,233,225,0.93);font-size:1rem;line-height:1.48}
+.table-identity-list{display:flex;flex-direction:column;gap:0.56rem;margin:0}
+.table-identity-list div{margin:0;color:rgba(236,233,225,0.93);font-size:1rem;line-height:1.48}
 .table-identity-list span{
   display:block;
   margin-bottom:0.04rem;
@@ -2921,6 +3058,16 @@ body.vm-archscry-route .saved-deck-link-note{
   gap:12px;
   background:none;
 }
+
+@media (max-width: 560px) {
+  body.vm-archscry-route .dossier-mobile-tabs .dossier-tab-label--full {
+    display: none;
+  }
+
+  body.vm-archscry-route .dossier-mobile-tabs .dossier-tab-label--compact {
+    display: inline;
+  }
+}
 .flavor-echo-card{
   display:grid;
   grid-template-columns:118px minmax(0,1fr);
@@ -3201,108 +3348,120 @@ body.vm-archscry-route .saved-deck-link-note{
   background: rgba(20, 18, 14, 0.82);
 }
 
-.tied-reading-summary,
-.tied-identity-container {
-  border: 1px solid rgba(201, 168, 76, 0.34);
-  border-radius: 0.85rem;
-  background: rgba(15, 13, 17, 0.82);
-}
-
 .tied-reading-summary {
   display: grid;
-  gap: 0.55rem;
-  margin-bottom: 1.25rem;
-  padding: 1.15rem 1.25rem;
+  gap: 0.45rem;
+  margin: 0 0 0.95rem;
+  padding: 0.25rem 0 0.9rem;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.22);
 }
 
 .tied-reading-summary h2,
 .tied-reading-summary p,
-.tied-co-leader-block p {
+.tied-co-leader-card p {
   margin: 0;
 }
 
 .tied-reading-summary h2 {
-  color: var(--gold, #d8b96a);
-  font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+  color: rgba(249, 245, 231, 0.96);
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
 }
 
 .tied-reading-summary p,
-.tied-co-leader-block p,
-.tied-co-leader-limitation {
+.tied-co-leader-card p {
   color: rgba(241, 237, 225, 0.88);
   line-height: 1.55;
 }
 
-.tied-identity-container {
-  margin-bottom: 1.25rem;
-  padding: 0.8rem;
-}
-
+.tied-reading-eyebrow,
 .tied-identity-kicker {
-  margin: 0.15rem 0 0.8rem;
-  padding: 0 0.35rem;
-  color: rgba(236, 217, 153, 0.82);
+  color: rgba(236, 217, 153, 0.78);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-body.vm-archscry-route .tied-identity-container .dossier-snapshot {
-  margin-top: 0.85rem;
+.tied-reading-identities {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.42rem;
 }
 
-.tied-identity-container--other {
-  padding: 1.15rem 1.25rem;
+.tied-reading-identities span:not([aria-hidden="true"]) {
+  padding: 0.3rem 0.62rem;
+  border: 1px solid rgba(121, 214, 208, 0.22);
+  border-radius: 999px;
+  background: rgba(26, 170, 150, 0.08);
+  color: rgba(223, 250, 246, 0.92);
+  font-size: 0.86rem;
+}
+
+.tied-reading-identities span[aria-hidden="true"] {
+  color: rgba(214, 203, 184, 0.68);
+  font-size: 0.76rem;
+}
+
+.tied-identity-boundary {
+  min-width: 0;
+}
+
+.tied-co-leader-card {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0 0 1.15rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(121, 214, 208, 0.28);
+  border-radius: 0.8rem;
   border-color: rgba(121, 214, 208, 0.34);
   background:
     linear-gradient(135deg, rgba(121, 214, 208, 0.09), transparent 52%),
-    rgba(15, 13, 17, 0.82);
+    rgba(15, 13, 17, 0.68);
+}
+
+.tied-co-leader-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.tied-co-leader-heading strong {
+  color: rgba(249, 245, 231, 0.96);
+  font-family: var(--font-display);
+  font-size: 1.08rem;
 }
 
 .tied-co-leader-summary {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.85rem;
+  max-width: 70ch;
 }
 
-.tied-co-leader-block {
-  min-width: 0;
-  padding: 0.95rem;
-  border: 1px solid rgba(184, 149, 74, 0.18);
-  border-radius: 0.7rem;
-  background: rgba(11, 10, 13, 0.72);
+.tied-co-leader-explanation {
+  color: rgba(207, 225, 222, 0.8) !important;
+  font-size: 0.88rem;
 }
 
-.tied-co-leader-block span,
-.tied-co-leader-block strong {
-  display: block;
-}
-
-.tied-co-leader-block span {
-  margin-bottom: 0.4rem;
-  color: rgba(236, 217, 153, 0.72);
-  font-family: var(--font-mono);
-  font-size: 0.66rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.tied-co-leader-block strong {
-  margin-bottom: 0.45rem;
-  color: rgba(249, 245, 231, 0.94);
-}
-
-.tied-co-leader-limitation {
-  margin: 0.9rem 0;
-  font-size: 0.9rem;
+.tied-co-leader-card .btn-secondary {
+  justify-self: start;
 }
 
 body.vm-archscry-route .mana-pips .ms {
   font-size:1.55rem;
   filter:drop-shadow(0 2px 5px rgba(0,0,0,0.46));
 }
+
+body.vm-archscry-route .vm-dossier-matrix-section .matrix-mana-symbols .ms {
+  font-size:1.42rem;
+}
+
+body.vm-archscry-route .vm-dossier-matrix-section .matrix-mana-symbols .ms-w{filter:drop-shadow(0 0 6px rgba(247,240,208,0.3))}
+body.vm-archscry-route .vm-dossier-matrix-section .matrix-mana-symbols .ms-u{filter:drop-shadow(0 0 6px rgba(88,184,255,0.34))}
+body.vm-archscry-route .vm-dossier-matrix-section .matrix-mana-symbols .ms-b{filter:drop-shadow(0 0 6px rgba(149,132,166,0.34))}
+body.vm-archscry-route .vm-dossier-matrix-section .matrix-mana-symbols .ms-r{filter:drop-shadow(0 0 6px rgba(255,107,85,0.34))}
+body.vm-archscry-route .vm-dossier-matrix-section .matrix-mana-symbols .ms-g{filter:drop-shadow(0 0 6px rgba(99,229,141,0.32))}
+body.vm-archscry-route .vm-dossier-matrix-section .matrix-mana-symbols .ms-c{filter:drop-shadow(0 0 6px rgba(205,207,199,0.28))}
 
 body.vm-archscry-route .dossier-snapshot {
   grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));
@@ -3376,13 +3535,7 @@ body.vm-archscry-route .archscry-term-help::after {
     flex-direction: column;
   }
 
-  .tied-reading-summary,
-  .tied-identity-container,
-  .tied-identity-container--other {
-    padding: 0.85rem;
-  }
-
-  .tied-co-leader-summary {
-    grid-template-columns: 1fr;
+  .tied-co-leader-card {
+    padding: 0.9rem;
   }
 }

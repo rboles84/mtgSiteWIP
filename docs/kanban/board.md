@@ -43,7 +43,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-551 — Gate A Archscry Trust Containment](in-progress/VM-551-gate-a-trust-containment-design.md) - final owner-QA correction candidate is ready for one focused spot-check: tied identities now have separate keyed containers and target-specific dossier content; named-card metadata uses a bounded reload-persistent success/negative/429 cache; and the local fixture helper validates state and documents reinstall-after-reload behavior. Accepted unknown/incomplete/legacy/confidence behavior and all scoring/downstream/Matrix contracts remain unchanged; Gate B1, merge, push, deployment, and certification remain excluded.
+- [VM-551 — Gate A Archscry Trust Containment](in-progress/VM-551-gate-a-trust-containment-design.md) - final visual-polish candidate is ready for owner review: the tie status is compact; identity isolation and return remain intact; the mobile Dossier Directory has touch/pointer scrolling and live edge controls; dossier spacing is tightened; the Matrix uses accessible Mana Font symbols; and Matrix card voices render local/cache-backed card art. Desktop, 390px, and 320px focused checks pass. Accepted result-state, confidence, cache, scoring, downstream, and Matrix-value contracts remain unchanged; Gate B1, merge, push, deployment, and certification remain excluded.
 
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 

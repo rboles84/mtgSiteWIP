@@ -17,7 +17,9 @@ const browserCandidates = [
 ].filter(Boolean);
 const viewportConfigs = [
   { name: "desktop", width: 1440, height: 1200 },
+  { name: "narrow-desktop", width: 820, height: 1000 },
   { name: "mobile", width: 390, height: 1200 },
+  { name: "narrow-mobile", width: 320, height: 1200 },
 ];
 const chromeFlags = [
   "--headless=new",
@@ -581,6 +583,144 @@ async function completeQuickReading(page, viewport) {
   throw new Error(`${viewport.name} Archscry quick reading did not reach a result within 10 answers.`);
 }
 
+async function validateArchscryVisualPolish(page, viewport) {
+  const presentation = await page.evaluate(() => {
+    const matrixSymbols = document.querySelector("#dossierOverlayLine .matrix-mana-symbols");
+    const voiceCards = [...document.querySelectorAll(".vm-card-voice")];
+    return {
+      documentOverflow: document.documentElement.scrollWidth > window.innerWidth + 1,
+      matrixLabel: matrixSymbols?.getAttribute("aria-label") || "",
+      matrixSymbolCount: matrixSymbols?.querySelectorAll(".ms.ms-cost").length || 0,
+      voiceCardCount: voiceCards.length,
+      voiceImageOrFallbackCount: voiceCards.filter((card) => card.querySelector(".vm-card-voice-image, .vm-card-voice-image-fallback")).length,
+      voiceActionCount: voiceCards.filter((card) => card.querySelector(".vm-card-voice-action[href]")).length,
+      storyMetaMarginTop: getComputedStyle(document.querySelector(".identity-story-meta") || document.body).marginTop,
+      tableStackGap: getComputedStyle(document.querySelector(".how-this-plays-block") || document.body).gap,
+    };
+  });
+  assert(!presentation.documentOverflow, `${viewport.name} Archscry created document-level horizontal overflow.`);
+  assert(/mana identity$/i.test(presentation.matrixLabel), `${viewport.name} Matrix identity symbols are missing an accessible mana label.`);
+  assert(presentation.matrixSymbolCount >= 1, `${viewport.name} Matrix identity reading did not use Mana Font symbols.`);
+  if (presentation.voiceCardCount) {
+    assert(presentation.voiceImageOrFallbackCount === presentation.voiceCardCount, `${viewport.name} Cards That Sound Like This omitted an intentional image or fallback.`);
+    assert(presentation.voiceActionCount === presentation.voiceCardCount, `${viewport.name} Cards That Sound Like This omitted a visible Scryfall action.`);
+  }
+  assert(presentation.storyMetaMarginTop !== "auto", `${viewport.name} Layered Identity mana symbols remain bottom-pinned.`);
+
+  if (viewport.width <= 940) {
+    const tabs = await page.evaluate(async () => {
+      const shell = document.querySelector("[data-dossier-tabs-shell]");
+      const tablist = shell?.querySelector("[data-dossier-mobile-tabs]");
+      if (!shell || !tablist) return null;
+      const buttons = [...tablist.querySelectorAll("[data-dossier-tab]")];
+      const last = buttons.at(-1);
+      last?.click();
+      await new Promise((resolve) => setTimeout(resolve, 50));
+      const active = tablist.querySelector(".is-active");
+      const activeRect = active?.getBoundingClientRect();
+      const listRect = tablist.getBoundingClientRect();
+      const centered = activeRect
+        ? Math.abs((activeRect.left + activeRect.right) / 2 - (listRect.left + listRect.right) / 2) <= Math.max(44, listRect.width * 0.28)
+        : false;
+      const activeFullyVisible = activeRect
+        ? activeRect.left >= listRect.left && activeRect.right <= listRect.right
+        : false;
+      tablist.scrollLeft = 0;
+      tablist.dispatchEvent(new Event("scroll"));
+      await new Promise((resolve) => setTimeout(resolve, 20));
+      const startState = {
+        leftHidden: shell.querySelector('[data-dossier-scroll-direction="left"]')?.hidden,
+        rightHidden: shell.querySelector('[data-dossier-scroll-direction="right"]')?.hidden,
+      };
+      tablist.scrollLeft = tablist.scrollWidth;
+      tablist.dispatchEvent(new Event("scroll"));
+      await new Promise((resolve) => setTimeout(resolve, 20));
+      const endState = {
+        leftHidden: shell.querySelector('[data-dossier-scroll-direction="left"]')?.hidden,
+        rightHidden: shell.querySelector('[data-dossier-scroll-direction="right"]')?.hidden,
+        scrollLeft: tablist.scrollLeft,
+        maxScroll: tablist.scrollWidth - tablist.clientWidth,
+      };
+      return {
+        hasOverflow: tablist.scrollWidth > tablist.clientWidth + 2,
+        centered,
+        activeFullyVisible,
+        startState,
+        endState,
+        firstLabel: buttons[0]?.getAttribute("aria-label") || "",
+        lastLabel: last?.getAttribute("aria-label") || "",
+      };
+    });
+    assert(tabs, `${viewport.name} Dossier Directory mobile tab shell is missing.`);
+    assert(tabs.firstLabel && tabs.lastLabel, `${viewport.name} mobile tabs lost their full accessible labels.`);
+    if (tabs.hasOverflow) {
+      assert(tabs.startState.leftHidden && !tabs.startState.rightHidden, `${viewport.name} Dossier Directory start-edge indicators are incorrect: ${JSON.stringify(tabs)}.`);
+      assert(!tabs.endState.leftHidden && tabs.endState.rightHidden, `${viewport.name} Dossier Directory end-edge indicators are incorrect: ${JSON.stringify(tabs)}.`);
+      assert(tabs.centered || tabs.activeFullyVisible, `${viewport.name} active Dossier Directory tab was not revealed.`);
+    }
+  }
+}
+
+async function validateArchscryTiePolish(page, viewport) {
+  const tieFixture = await page.evaluate(() => {
+    const result = JSON.parse(sessionStorage.getItem("vm_last_result") || "null");
+    if (!result?.top_matches?.[1]) return null;
+    const leader = result.top_matches[0];
+    const peer = result.top_matches[1];
+    peer.score = leader.score;
+    if (result.scores && peer.faction in result.scores) result.scores[peer.faction] = leader.score;
+    result.result_state = "tied";
+    result.public_confidence_state = "tied";
+    result.alternative_state = "co-leader";
+    result.adjacent_matches = [peer, ...(result.adjacent_matches || []).filter((match) => match.faction !== peer.faction)].slice(0, 2);
+    sessionStorage.setItem("vm_last_result", JSON.stringify(result));
+    return { primary: leader.faction, primaryName: leader.faction_name, peer: peer.faction, peerName: peer.faction_name };
+  });
+  assert(tieFixture, `${viewport.name} could not build a local exact-tie fixture.`);
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await waitForPageReady(page);
+  await waitForDossier(page);
+  const tieState = await page.evaluate(({ primaryName, peerName }) => {
+    const summary = document.querySelector("[data-tied-reading-summary]");
+    const intro = document.querySelector('[data-tied-identity-container="original-intro"]');
+    const peer = document.querySelector('[data-tied-identity-container="other"]');
+    const dossier = document.querySelector('[data-tied-identity-container="original-dossier"]');
+    const follows = (before, after) => Boolean(before && after && (before.compareDocumentPosition(after) & Node.DOCUMENT_POSITION_FOLLOWING));
+    return {
+      text: document.getElementById("result-inner")?.innerText || "",
+      summaryText: summary?.innerText || "",
+      originalEyebrows: [...document.querySelectorAll(".guild-eyebrow")].filter((node) => node.textContent.trim() === "Original reading").length,
+      oldWrappers: document.querySelectorAll(".tied-identity-container").length,
+      order: follows(summary, intro) && follows(intro, peer) && follows(peer, dossier),
+      overflow: document.documentElement.scrollWidth > window.innerWidth + 1,
+      originalIntroIsolated: (intro?.innerText || "").includes(primaryName) && !(intro?.innerText || "").includes(peerName),
+      originalDossierIsolated: !(dossier?.innerText || "").includes(peerName),
+      peerSummaryIsolated: (peer?.innerText || "").includes(peerName) && !(peer?.innerText || "").includes(primaryName),
+    };
+  }, tieFixture);
+  assert(/Tied result[\s\S]*Two identities share the lead[\s\S]*Your answers did not separate these two readings/i.test(tieState.summaryText), `${viewport.name} compact tied status copy is incomplete.`);
+  assert(!/serialized result|stored primary|identity-keyed container|plan leakage/i.test(tieState.text), `${viewport.name} tied result exposed implementation language.`);
+  assert(tieState.originalEyebrows === 1, `${viewport.name} tied result duplicated the Original reading label.`);
+  assert(tieState.oldWrappers === 0, `${viewport.name} tied result retained an oversized identity wrapper.`);
+  assert(tieState.order, `${viewport.name} tied result hierarchy is not summary, original introduction, peer, then original dossier.`);
+  assert(!tieState.overflow, `${viewport.name} tied result created horizontal overflow.`);
+  assert(tieState.originalIntroIsolated && tieState.originalDossierIsolated && tieState.peerSummaryIsolated, `${viewport.name} tied result mixed identity-owned content.`);
+
+  await page.click('[data-tied-identity-container="other"] [data-action="switch-adjacent-view"]');
+  await page.waitForFunction((peerName) => document.querySelector(".guild-name")?.textContent.trim() === peerName, {}, tieFixture.peerName);
+  const compared = await page.evaluate((peerName) => ({
+    hero: document.querySelector(".guild-name")?.textContent.trim() || "",
+    button: document.querySelector('[data-action="return-primary-reading"]')?.textContent.trim() || "",
+    text: document.querySelector('[data-tied-identity-container="other-active"]')?.innerText || "",
+    peerName,
+  }), tieFixture.peerName);
+  assert(compared.hero === tieFixture.peerName && compared.button === "Back to original reading", `${viewport.name} co-leader comparison did not preserve its return affordance.`);
+  assert(compared.text.includes(tieFixture.peerName), `${viewport.name} co-leader comparison did not render peer-specific content.`);
+  assert(!compared.text.includes(tieFixture.primaryName), `${viewport.name} co-leader comparison retained original-identity content.`);
+  await page.click('[data-action="return-primary-reading"]');
+  await page.waitForFunction((primaryName) => document.querySelector(".guild-name")?.textContent.trim() === primaryName, {}, tieFixture.primaryName);
+}
+
 async function runArchscrySmoke(page, origin, viewport) {
   console.log(`  ${viewport.name}: Archscry`);
   await page.goto(`${origin}/archscry/index.html`, { waitUntil: "domcontentloaded" });
@@ -641,6 +781,10 @@ async function runArchscrySmoke(page, origin, viewport) {
   assert(context.handoffReadingId, `${viewport.name} Archscry did not write a Maze handoff reading id.`);
   assert(context.handoffReturnUrl, `${viewport.name} Archscry handoff is missing a return URL.`);
   assert(context.mazeHref, `${viewport.name} Archscry dossier did not expose a Maze link.`);
+  await validateArchscryVisualPolish(page, viewport);
+  if (archscryOnly) {
+    await validateArchscryTiePolish(page, viewport);
+  }
   return context;
 }
 
@@ -914,7 +1058,9 @@ async function runViewportJourney(browser, origin, viewport) {
       await runHomeSmoke(page, origin, viewport);
     }
     const archscryContext = await runArchscrySmoke(page, origin, viewport);
-    await runMazeSmoke(page, viewport, archscryContext.mazeHref);
+    if (!(archscryOnly && viewport.name === "narrow-mobile")) {
+      await runMazeSmoke(page, viewport, archscryContext.mazeHref);
+    }
     assertNoBrowserErrors(consoleErrors, pageErrors, viewport);
     console.log(`${viewport.name}: browser smoke passed.`);
   } catch (error) {

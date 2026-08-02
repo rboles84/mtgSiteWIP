@@ -149,6 +149,51 @@ const localLookup = createScryfallNamedCardLookup({
 assert.equal((await localLookup.lookup("Local Card")).name, "Local Card");
 assert.equal(localCalls, 0, "Committed local card data must precede persistent cache and network.");
 
+const flavorStorage = new MemoryStorage();
+let flavorCalls = 0;
+const flavorLookup = createScryfallNamedCardLookup({
+  storage: flavorStorage,
+  now,
+  fetchImpl: async () => {
+    flavorCalls += 1;
+    return response(200, card("Flavor Signal Card"));
+  },
+});
+assert.equal((await flavorLookup.lookup("Flavor Signal Card")).name, "Flavor Signal Card");
+assert.equal(flavorCalls, 1, "A first unresolved flavor-card image may use the named-card endpoint.");
+const flavorReload = createScryfallNamedCardLookup({
+  storage: flavorStorage,
+  now,
+  fetchImpl: async () => {
+    flavorCalls += 1;
+    return response(500);
+  },
+});
+const cachedFlavorCard = await flavorReload.lookup("Flavor Signal Card");
+assert.equal(flavorCalls, 1, "A flavor-card image must reuse the existing persistent cache after reload.");
+assert.match(cachedFlavorCard.image_uris.normal, /Flavor%20Signal%20Card/);
+assert.match(cachedFlavorCard.scryfall_uri, /^https:\/\/scryfall\.com\/card\//, "Cached flavor art must preserve its visible Scryfall action.");
+
+const frontFaceRecord = {
+  id: "0f6e668d-2502-4e82-b4c2-ef34c9afa27e",
+  name: "Jerren, Corrupted Bishop // Ormendahl, the Corrupter",
+  scryfall_uri: "https://scryfall.com/card/mid/109/jerren-corrupted-bishop-ormendahl-the-corrupter",
+  card_faces: [{
+    name: "Jerren, Corrupted Bishop",
+    image_uris: { normal: "https://cards.scryfall.io/normal/front/0/f/0f6e668d-2502-4e82-b4c2-ef34c9afa27e.jpg" },
+  }],
+};
+let frontFaceCalls = 0;
+const frontFaceLookup = createScryfallNamedCardLookup({
+  storage: new MemoryStorage(),
+  now,
+  localResolver: (name) => name === "Jerren, Corrupted Bishop" ? frontFaceRecord : null,
+  fetchImpl: async () => { frontFaceCalls += 1; return response(500); },
+});
+const localFrontFace = await frontFaceLookup.lookup("Jerren, Corrupted Bishop");
+assert.match(localFrontFace.card_faces[0].image_uris.normal, /\/front\//);
+assert.equal(frontFaceCalls, 0, "A canonical local front-face record must avoid a decorative combined-label network lookup.");
+
 const productStorage = new MemoryStorage();
 let productCalls = 0;
 const productLookup = createScryfallNamedCardLookup({
