@@ -1,6 +1,8 @@
 # Gate A Implementation Status And Compatibility Record
 
-Status: bounded local candidate complete; owner visual QA pending.
+Status: owner-QA remediation complete locally; replacement candidate pending owner visual QA.
+
+The first implementation candidate `f657ac5aea9b7aeaf3855a1af42148744271dc7e` was rejected during owner QA. The bounded remediation corrects state-origin handling, resumability, tie content isolation, repeated copy, responsive card/layout defects, card-versus-product art routing, education affordances, bounded Azorius language, direct precon research links, and stale atlas wording. Scoring, questions, identity semantics, recommendation data, Matrix values/resolvers, schemas, and downstream field shapes remain unchanged.
 
 ## Additive public-state fields
 

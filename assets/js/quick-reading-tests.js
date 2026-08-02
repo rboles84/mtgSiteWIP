@@ -2832,7 +2832,12 @@ const omenText = omens.map((omen) => `${omen.title} ${omen.answerTitle} ${omen.c
 assert.equal(omens[0].title, "Recorded signal 1");
 assert.match(omenText, /Follow the process/);
 assert.match(omenText, /authored|model recorded|contributed support/i);
-assert.match(omenText, /does not prove your personality, motivation, deck behavior/i);
+assert.doesNotMatch(omenText, /does not prove your personality, motivation, deck behavior/i);
+assert.equal(
+  omens.filter((omen) => /does not prove/i.test(omen.copy)).length,
+  0,
+  "Signal cards should rely on one section-level limitation instead of repeating the same disclaimer."
+);
 assert.doesNotMatch(omenText, /Gate|Hall|Crucible|reinforced/i);
 
 const dimirCommanderCandidates = collectCommanderPreviewCandidates(factions.UB);

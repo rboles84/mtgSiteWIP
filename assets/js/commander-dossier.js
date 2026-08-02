@@ -514,9 +514,9 @@ export const COMMANDER_FACTION_GUIDANCE = {
     bleedWarningTerms: ["stalling", "violent spectacle", "life as currency", "raw aggression"],
     bleedWarnings: ["avoid passive stall framing"],
     preferredArchetypeTags: ["Control", "Stax", "Tempo"],
-    commanderPlan: "turns order into inevitability: keep mana open, tax greedy lines, and let rule-setting permanents decide which spells matter",
-    spellcraftIdentity: "Countermagic, sweepers, tempo enforcement, detain effects, and taxation pieces that make the table play through law instead of impulse.",
-    tableCautionText: "Wait for the spell that breaks parity, hold interaction, and remove the key piece before the table slips around your rules.",
+    commanderPlan: "can explore proactive rule-setting with taxes, reactive permission with open mana, or tempo that protects a board while delaying a key opposing play",
+    spellcraftIdentity: "Counterspells answer a key spell, sweepers reset a crowded board, detain temporarily stops a permanent from attacking, blocking, or activating, and taxes make selected actions cost more. These are possible Azorius tools, not one mandatory package.",
+    tableCautionText: "Identify the interaction window that matters: answer the spell or permanent that changes the game, rather than holding every response or extending the game by default.",
     tableCautionReviewRule: "If text reads like stalling, reframe as rule enforcement",
   },
   UB: {
@@ -2227,7 +2227,7 @@ export function buildReadingOmens({
       return {
         title: `Recorded signal ${index + 1}`,
         answerTitle,
-        copy: `You selected “${answerTitle}.” The model recorded ${observation}, which ${direction} this identity. That contribution does not prove your personality, motivation, deck behavior, or how a table will perceive you.`,
+        copy: `You selected “${answerTitle}.” The model recorded ${observation}, which ${direction} this identity.`,
       };
     });
 }
@@ -2270,7 +2270,6 @@ export function buildCommanderStartingLane({
   tagLanes = [],
 }) {
   const colorIdentity = getColorIdentity(faction?.colors || faction?.key || "");
-  const factionKey = String(faction?.key || "").toUpperCase();
   const archetypes = (faction?.archetypes || []).slice(0, 2).map((item) => item.name);
   const mechanics = modelFaction?.identity?.mechanics || "";
   const budget = starterProfile?.budget_band || "mid";
@@ -2280,14 +2279,10 @@ export function buildCommanderStartingLane({
     ? guidance.starterSearchTags
     : tagLanes.map((lane) => lane.tagName);
   const institutionWord = getExpressionKindLabel(faction);
-  const deckCenter = factionKey === "WUBRG" && archetypes.length
-    ? `Start from the ${archetypes.join(" or ")} lane`
-    : archetypes.length
-      ? `Start with ${archetypes.join(" or ")}`
-      : `Start with the ${colorIdentity || "chosen"} color identity`;
-  const researchLanes = laneTags.length
-    ? `Your first searches should orbit ${laneTags.join(", ")}.`
-    : "Your first searches should favor cards that make the main plan repeatable, protected, and easy to see in an opening hand.";
+  const strategicDirections = unique([...laneTags, ...archetypes]).slice(0, 4);
+  const researchLanes = strategicDirections.length
+    ? strategicDirections.join(", ")
+    : `${colorIdentity || "the chosen color identity"} fundamentals`;
   const spellcraft = guidance?.spellcraftIdentity || compactSentence(mechanics) || pathRuleForText([
     faction?.name,
     faction?.tagline,
@@ -2306,15 +2301,27 @@ export function buildCommanderStartingLane({
   const tableCaution = guidance?.tableCautionText ||
     "Wait for the table to spend its answers, hold interaction, and rebuild before committing your last engine.";
 
-  const copy = `${faction?.name || "This path"} wants a Commander deck that ${plan}. ${deckCenter}, then tune the 99 so your best turns feel like your reading did.`;
+  const copy = `One way to explore ${faction?.name || "this path"} is a Commander deck that ${plan}. Treat this as a color-legal starting direction, not a conclusion about your skill, motivation, budget, or preferred table role.`;
 
   return {
     title: "Start With This Commander Plan",
     copy,
     details: [
       {
-        label: "Deck footing",
-        copy: `Budget and experience: ${budget} budget, ${experience} pilot. ${researchLanes}`,
+        label: "Suggested budget lane",
+        copy: `The saved starter preference is ${budget} budget. Use it to filter examples and upgrades; it did not affect the identity ranking.`,
+      },
+      {
+        label: "Experience assumption",
+        copy: `The saved starter preference is ${experience}. This controls how much explanation the dossier offers; it is not evidence of skill.`,
+      },
+      {
+        label: "Possible directions",
+        copy: `Explore ${researchLanes}. These are curated or dossier-supported search lanes, not claims that you already enjoy each strategy.`,
+      },
+      {
+        label: "Why these appear",
+        copy: `The directions come from the ${institutionWord.toLowerCase()} Commander guidance and the tags surfaced in this dossier. Color access makes them possible; your recorded answers do not prove a deck preference.`,
       },
       {
         label: `${institutionWord} spellcraft`,
@@ -2660,7 +2667,7 @@ function buildTableExperienceSentence(factionName, tableExperience) {
   if (/^(turns|builds|keeps|takes|makes|listens|survives|endures|measures|learns|assembles|grows|feeds|forces|protects|treats|adapts|commits|chooses)\b/i.test(fragment)) {
     return `${factionName} ${fragment}.`;
   }
-  return `In play, ${factionName} wants to ${lowerInitial(fragment)}.`;
+  return `In play, ${factionName} can emphasize ${lowerInitial(fragment)}.`;
 }
 
 function buildAdjacentFallbackCopy({ activeFaction, targetName, isPrimary, fallback }) {
@@ -2987,16 +2994,19 @@ export function buildCommanderDossier({
   );
   const commanderRecommendationSource = commanderCandidateSourceSummary(commanderRecommendations);
   const guidance = getCommanderFactionGuidance(faction);
-  const deckFooting = commanderLaneDetail(commanderLane.details, /^Deck footing$/i);
+  const deckFooting = commanderLaneDetail(commanderLane.details, /^(Deck footing|Suggested budget lane)$/i);
   const spellcraft = commanderLaneDetail(commanderLane.details, /spellcraft|gameplay/i);
   const tableCautionText = commanderLaneDetail(commanderLane.details, /^Table caution$/i) || guidance?.tableCautionText || "";
-  const resultStatus = isPrimary
-    ? placementResult?.alternative_state === "co-leader"
-      ? "This identity is one of two co-leaders in the adaptive weighted reading."
-      : "Current best fit in this adaptive weighted reading."
-    : placementResult?.alternative_state === "co-leader"
-      ? "Comparing the other co-leader; the serialized primary, answers, and ranking have not changed."
-      : "Comparing a close alternative with the original reading; the answers and ranking have not changed.";
+  const isLegacy = placementResult?.legacy_result === true || placementResult?.source_mode === "legacy";
+  const resultStatus = isLegacy
+    ? `Historical saved identity: ${faction.name}. Answer and evidence detail is unavailable, so no current fit or strength is claimed.`
+    : isPrimary
+      ? placementResult?.alternative_state === "co-leader"
+        ? "This identity is one of two co-leaders in the adaptive weighted reading."
+        : "Current best fit in this adaptive weighted reading."
+      : placementResult?.alternative_state === "co-leader"
+        ? "Comparing the other co-leader; the serialized primary, answers, and ranking have not changed."
+        : "Comparing a close alternative with the original reading; the answers and ranking have not changed.";
   const reasonItStayedClose = isPrimary
     ? ""
     : buildAdjacentReason({

@@ -32,9 +32,12 @@ import {
   buildReadingSignalCopy,
   buildTagExplanationSummaries,
   adjacentMatchForSummary,
+  classifyResultArtRecord,
   closeAlternativeForResult,
   deriveGateAResultState,
   gateAStatePresentation,
+  isLegacyGateAResult,
+  isResumableGateAQuestion,
   matchForFaction,
   presentationForFaction,
   selectReadingTagRefs,
@@ -539,10 +542,11 @@ function buildManaPipsHtml(colors = [], className = "") {
     .filter((color) => MANA_SYMBOL_NAMES[color]);
   if (!symbols.length) return "";
   const classAttr = ["mana-pips", className].filter(Boolean).join(" ");
+  const accessibleLabel = symbols.map((color) => MANA_SYMBOL_NAMES[color]).join(" and ");
   return `
-    <div class="${classAttr}" aria-hidden="true">
-      ${symbols.map((color) => `<div class="pip pip-${color}"></div>`).join("")}
-    </div>`;
+    <span class="${classAttr}" role="img" aria-label="${escapeAttributeValue(`${accessibleLabel} mana identity`)}">
+      ${symbols.map((color) => `<i class="ms ms-${color.toLowerCase()} ms-cost" aria-hidden="true"></i>`).join("")}
+    </span>`;
 }
 
 function firstSentence(text) {
@@ -637,7 +641,6 @@ function buildLayeredIdentityHtml({ dossier, faction }) {
   const tensionTitle = identity.secondary_color ? "Tension" : "Undivided";
   const identityMeta = [
     buildManaPipsHtml(identityColors, "mana-pips-inline"),
-    `<span>${escapeHtml(identityMetaLabelForDisplay(identity, faction, identityColors))}</span>`,
   ].filter(Boolean).join("");
 
   const beliefCard = buildIdentityStoryCard({
@@ -1483,8 +1486,29 @@ function buildScryfallCommanderUrl(name) {
   return `https://scryfall.com/search?q=${encodeURIComponent(`!"${name}"`)}`;
 }
 
+const VALIDATED_EDHREC_PRECON_URLS = Object.freeze({
+  "Abzan Armor": "https://edhrec.com/precon/abzan-armor",
+  "Buckle Up": "https://edhrec.com/precon/buckle-up",
+  "Eldrazi Unbound": "https://edhrec.com/precon/eldrazi-unbound",
+  "First Flight": "https://edhrec.com/precon/first-flight",
+  "Phantom Premonition": "https://edhrec.com/precon/phantom-premonition",
+  "Spirit Squadron": "https://edhrec.com/precon/spirit-squadron",
+  "Stalwart Unity": "https://edhrec.com/precon/stalwart-unity",
+});
+
+function validatedEdhrecPreconUrl(deckName) {
+  const normalized = String(deckName || "").replace(/\s*\(precon\)\s*$/i, "").trim();
+  return VALIDATED_EDHREC_PRECON_URLS[normalized] || "";
+}
+
 function buildPreconLinks(precon) {
   return dedupeLinks([
+    validatedEdhrecPreconUrl(precon.deckName) ? {
+      service: "edhrec",
+      label: "Research this precon",
+      url: validatedEdhrecPreconUrl(precon.deckName),
+    } : null,
+
     {
       service: "scryfall",
       label: "Research commander",
@@ -1550,7 +1574,10 @@ function preconPreviewChips(precon) {
 function buildPreconCardHtml(precon) {
   const previewGroup = precon?.previewGroup || precon?.group || (precon?.lane === "stretch" ? "stretch" : "otherExact");
   const badge = PRECON_BADGE_META[previewGroup] || PRECON_BADGE_META.otherExact;
-  const fitSummary = wordExcerpt(precon?.fitSummary || precon?.tablePerception || "", 24);
+  const fitSummarySource = precon?.deckName === "First Flight"
+    ? "A flying-creature starting point led by Isperia. Isperia may draw when any creature attacks you or a planeswalker you control; the attacker need not have flying."
+    : precon?.fitSummary || precon?.tablePerception || "";
+  const fitSummary = wordExcerpt(fitSummarySource, 30);
   const startingLaneFor = wordExcerpt(precon?.recommendedForOverride || precon?.recommendationProfile?.recommendedFor || "", 18);
   const chips = preconPreviewChips(precon);
 
@@ -2064,6 +2091,7 @@ function buildPlacementSnapshotHtml({ dossier }) {
   const adjacentFit = summary.adjacentFit || {};
   const whereThisLeads = summary.whereThisLeads || {};
   const playPattern = summary.playPattern || {};
+  const activeIdentityName = dossier?.faction?.name || dossier?.targetFactionKey || "This identity";
 
   const alternativeCard = summary.adjacentFit ? `
       <div class="dossier-snapshot-card dossier-snapshot-card--adjacent" data-summary-card="adjacent-fit" data-signal-band="${escapeAttributeValue(adjacentFit.signalBand || "close")}">
@@ -2077,13 +2105,13 @@ function buildPlacementSnapshotHtml({ dossier }) {
     <div class="dossier-snapshot" aria-label="Result summary strip">
       ${alternativeCard}
       <div class="dossier-snapshot-card dossier-snapshot-card--narrative" data-summary-card="where-this-leads">
-        <span>${escapeHtml(whereThisLeads.label || "Where this leads")}</span>
+        <span>${escapeHtml(`${whereThisLeads.label || "Where this leads"} - ${activeIdentityName}`)}</span>
         <strong>${escapeHtml(whereThisLeads.heading || "Commander direction")}</strong>
         <div class="dossier-snapshot-copy">${escapeHtml(whereThisLeads.body || "This reading points toward a Commander plan with a visible, repeatable pressure pattern.")}</div>
         ${buildSummaryTagRowHtml(whereThisLeads.tags || [])}
       </div>
       <div class="dossier-snapshot-card dossier-snapshot-card--play-pattern" data-summary-card="play-pattern">
-        <span>${escapeHtml(playPattern.label || "Play pattern")}</span>
+        <span>${escapeHtml(`${playPattern.label || "Play pattern"} - ${activeIdentityName}`)}</span>
         <strong>${escapeHtml(playPattern.heading || "At the table")}</strong>
         <div class="dossier-snapshot-copy">${escapeHtml(playPattern.body || "Opponents usually read this identity through the pressure it keeps visible and the answers it makes them spend.")}</div>
       </div>
@@ -2286,6 +2314,35 @@ function uniqueTagRefs(refs = []) {
   });
 }
 
+const ARCHSCRY_TERM_HELP = Object.freeze({
+  "Draw-Go Control": ["Meaning: develop mostly on other players' turns.", "Commander: keep mana open for draw, counters, or instant-speed interaction.", "Why here: a possible reactive Azorius exploration lane.", "Boundary: it does not mean doing nothing or prolonging every game."],
+  "Prison Control": ["Meaning: constrain which actions remain available.", "Commander: use rule-setting permanents and taxes to narrow opposing lines.", "Why here: a possible proactive Azorius control lane.", "Boundary: the label does not promise a hard lock or a preferred power level."],
+  Midrange: ["Meaning: build flexible threats and answers for the middle turns.", "Commander: develop value while keeping enough interaction to change plans.", "Why here: a broad exploration lane supported by the displayed deck context.", "Boundary: it is not proof of a pace or skill preference."],
+  Control: ["Meaning: spend resources to answer pivotal opposing plays before closing the game.", "Commander: combine removal, counters, board resets, or durable value.", "Why here: the dossier surfaced a control-related authored tag.", "Boundary: control does not automatically mean slow play or a long game."],
+  Tempo: ["Meaning: protect your progress while delaying an opponent's key play.", "Commander: bounce, tap, tax, or counter selectively while advancing a board.", "Why here: the dossier surfaced timing and enforcement language.", "Boundary: tempo is not the same as denying every action."],
+  Stax: ["Meaning: use persistent rules that restrict resources or actions.", "Commander: permanents can tax spells, limit untaps, or narrow legal sequences.", "Why here: curated Azorius guidance includes a possible rule-setting lane.", "Boundary: one tax card does not make a deck Stax, and the label says nothing about social fit."],
+  Pillowfort: ["Meaning: make attacking you less attractive or more expensive.", "Commander: defensive permanents redirect combat without necessarily stopping the whole table.", "Why here: it can overlap with protective White-Blue exploration.", "Boundary: it is not a promise that opponents will leave you alone."],
+  Hatebears: ["Meaning: small creatures carry targeted rule restrictions.", "Commander: the creatures pressure life totals while disrupting selected lines.", "Why here: it is a possible creature-based enforcement lane.", "Boundary: color access alone does not show that this reading wants it."],
+  taxation: ["Meaning: make selected actions cost more.", "Commander: spells, attacks, or activated abilities may require extra mana or resources.", "Why here: taxation is one authored Azorius mechanical expression.", "Boundary: a tax is not calibrated evidence of personality or placement accuracy."],
+  sweepers: ["Meaning: reset many permanents at once.", "Commander: a board wipe can answer a developed battlefield when one-for-one removal is insufficient.", "Why here: sweepers are one possible control tool.", "Boundary: showing the term does not mean every suggested deck should run the same reset package."],
+  detain: ["Meaning: temporarily stop a permanent from attacking, blocking, or activating non-mana abilities.", "Commander: detain creates a limited timing window rather than permanent removal.", "Why here: it is an official Azorius mechanic used as an example.", "Boundary: lore or mechanic ownership does not prove a player's deck preference."],
+  parity: ["Meaning: players appear even on resources or board position.", "Commander: an effect can break parity when your deck benefits more from a symmetrical rule or reset.", "Why here: timing advice may ask which exchange changes that balance.", "Boundary: parity is board-specific, not a claim that the table is objectively fair."],
+  "open mana": ["Meaning: leave lands or other mana sources untapped.", "Commander: this preserves the option to interact, draw, or act later.", "Why here: reactive Azorius directions can value flexible timing.", "Boundary: open mana does not prove a counterspell is present."],
+});
+
+function renderEducationalText(value) {
+  const text = String(value || "");
+  const terms = Object.keys(ARCHSCRY_TERM_HELP).sort((left, right) => right.length - left.length);
+  const escapedTerms = terms.map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const matcher = new RegExp(`\\b(${escapedTerms.join("|")})\\b`, "gi");
+  return text.split(matcher).map((part) => {
+    const canonical = terms.find((term) => term.toLowerCase() === part.toLowerCase());
+    if (!canonical) return escapeHtml(part);
+    const help = ARCHSCRY_TERM_HELP[canonical].join(" ");
+    return `<span class="vm-gloss archscry-term-help" tabindex="0" data-gloss="${escapeAttributeValue(help)}">${escapeHtml(part)}</span>`;
+  }).join("");
+}
+
 function renderTagChips(tagRefs = [], limit = 6) {
   return uniqueTagRefs(tagRefs)
     .slice(0, limit)
@@ -2352,10 +2409,10 @@ function buildTagExplanationCards(tagRefs = [], faction, limit = 4) {
   }).map((entry) => {
     return `
       <div class="starter-card tag-explainer-card">
-        <div class="starter-title">${escapeHtml(entry.title)}</div>
-        <div class="tag-meaning">${escapeHtml(entry.meaning)}</div>
-        <div class="starter-copy">${escapeHtml(entry.copy)}</div>
-        ${entry.helper ? `<div class="tag-helper">${escapeHtml(entry.helper)}</div>` : ""}
+        <div class="starter-title">${renderEducationalText(entry.title)}</div>
+        <div class="tag-meaning">${renderEducationalText(entry.meaning)}</div>
+        <div class="starter-copy">${renderEducationalText(entry.copy)}</div>
+        ${entry.helper ? `<div class="tag-helper">${renderEducationalText(entry.helper)}</div>` : ""}
       </div>`;
   }).join("");
 }
@@ -2504,10 +2561,9 @@ function buildDiscoverySummaryHtml({ dossier, faction, result }) {
       <div class="section-label">The Shape of the Reading</div>
       <div class="starter-grid">
         <div class="starter-card starter-card-wide">
-          <div class="starter-title">${escapeHtml(dossier.isPrimary ? `Why ${faction.name} Is the Current Best Fit` : `Comparing ${faction.name}`)}</div>
+          <div class="starter-title">${escapeHtml(dossier.isPrimary ? `What Moved This Reading Toward ${faction.name}` : `Comparing ${faction.name}`)}</div>
           <div class="starter-copy">${escapeHtml(signalCopy)}</div>
         </div>
-        ${buildResultStateCardHtml({ result })}
       </div>
     </div>`;
 }
@@ -2543,17 +2599,18 @@ function buildDossierInterpretationHtml({ dossier, faction, result, tagRefs }) {
     </div>`;
 }
 
-function buildFlavorEchoWhy({ tagMatches, faction, curatedSnippet = false }) {
-  const presentation = presentationForFaction(faction);
-  if (curatedSnippet) {
-    return `This curated ${presentation.shortName} card voice keeps the example tied to ${presentation.shortName}'s own table texture instead of a broad tag match.`;
-  }
+function buildFlavorEchoWhy({ card, tagMatches, faction, curatedSnippet = false }) {
+  const cardName = card?.name || "This card";
+  const normalizedName = normalizeCardName(cardName);
+  if (normalizedName === "isperia supreme judge") return "Isperia can turn creatures attacking you or a planeswalker you control into optional card draw. It illustrates reactive card advantage, not a promise that opponents will attack or that every Azorius list is control.";
+  if (normalizedName === "lavinia azorius renegade") return "Lavinia restricts oversized noncreature spells and counters spells cast without mana. It illustrates proactive rule-setting, not a universal Stax package or a judgment about the player.";
+  if (normalizedName === "grand arbiter augustin iv") return "Grand Arbiter reduces the cost of your White and Blue spells and adds one generic mana to opponents' spells. It is a concrete taxation example, not proof that every Azorius reading should tax the table.";
   const bestRef = tagMatches.find((ref) => ref.category === "identity" || ref.category === "lore-tone") || tagMatches[0];
   const entry = bestRef ? taxonomyEntry(bestRef.category, bestRef.tag) : null;
-  if (entry) {
-    return `This is one example of ${entry.display_name.toLowerCase()} showing up in card form. In this ${presentation.shortName} reading, it points toward ${presentation.tableExperience}.`;
-  }
-  return "";
+  const rules = wordExcerpt(sanitizeUserFacingCopy(card?.oracle_excerpt || ""), 20);
+  if (rules && entry) return `${cardName} was selected because its rules text includes ?${rules}? and its local index carries the ${entry.display_name} tag. It is one example of expression, not a required card or proof of placement.`;
+  if (entry) return `${cardName} was selected through the local ${entry.display_name} tag. That makes it an editorial example for ${presentationForFaction(faction).shortName}, not a required card or factual claim about the player.`;
+  return curatedSnippet ? `${cardName} is a curated card-voice example for this identity. Flavor illustrates tone; it does not establish Commander behavior.` : "";
 }
 
 export function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}) {
@@ -2561,7 +2618,7 @@ export function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}) {
   const groundedEchoes = flavorEchoes
     .map((entry) => ({
       ...entry,
-      why: buildFlavorEchoWhy({ tagMatches: entry.tagMatches, faction, curatedSnippet: entry.curatedSnippet }),
+      why: buildFlavorEchoWhy({ card: entry.card, tagMatches: entry.tagMatches, faction, curatedSnippet: entry.curatedSnippet }),
     }))
     .filter((entry) => entry.why);
   if (groundedEchoes.length < 2) return "";
@@ -2575,13 +2632,14 @@ export function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}) {
           const image = card.image_uris?.art_crop || card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.art_crop || "";
           return `
             <a class="flavor-echo-card" href="${escapeHtml(card.scryfall_uri || "#")}" target="_blank" rel="noopener">
-              ${image ? `<img src="${escapeHtml(image)}" alt="" loading="lazy">` : ""}
+              ${image ? `<img src="${escapeHtml(image)}" alt="${escapeAttributeValue(`${card.name} card art`)}" loading="lazy">` : `<span class="flavor-echo-image-fallback" aria-label="Card image unavailable">Image unavailable</span>`}
               <span class="flavor-echo-body">
                 <span class="flavor-echo-name">${escapeHtml(card.name)}</span>
-                <span class="flavor-echo-kicker">Example card moment</span>
+                <span class="flavor-echo-kicker">Card-specific example</span>
                 <span class="flavor-echo-text">${escapeHtml(excerpt)}</span>
                 <span class="flavor-echo-why">${escapeHtml(why)}</span>
                 <span class="vm-tag-row">${renderTagChips(tagMatches, 3)}</span>
+                <span class="flavor-echo-action">Open this card on Scryfall <span aria-hidden="true">?</span></span>
               </span>
             </a>`;
         }).join("")}
@@ -2734,21 +2792,50 @@ function shouldDisableResultCardArt() {
   return globalThis.__vmVisualRegressionDisableCardArt === true;
 }
 
+function getResumableQuickQuestion() {
+  if (!APP_STATE.placementModel || !APP_STATE.adaptiveState) return null;
+  const question = APP_STATE.currentQuickQuestion || selectNextAdaptiveQuestion(
+    APP_STATE.adaptiveState,
+    APP_STATE.placementModel
+  );
+  if (!isResumableGateAQuestion({
+    placementModel: APP_STATE.placementModel,
+    adaptiveState: APP_STATE.adaptiveState,
+    question,
+  })) return null;
+  return question;
+}
+
+function resumeIncompleteQuickReading() {
+  const question = getResumableQuickQuestion();
+  if (!question) {
+    renderBoundedResultShell(APP_STATE.activeResult, "incomplete");
+    return;
+  }
+  APP_STATE.currentQuickQuestion = question;
+  showSection("quick");
+  renderQuickQuestion();
+  window.setTimeout(() => {
+    document.getElementById("quick")?.scrollIntoView({ block: "start", inline: "nearest" });
+  }, 0);
+}
+
 function renderBoundedResultShell(result, state) {
   const [heading, copy] = gateAStatePresentation(state);
+  const isLegacy = isLegacyGateAResult(result);
   const identityName = state === "unknown"
     ? result?.faction_name || getFaction(result?.faction)?.name || result?.faction
     : "";
-  const legacyCopy = state === "unknown" && identityName
+  const shellCopy = isLegacy && state === "unknown" && identityName
     ? `Legacy reading — ${identityName} was saved, but answer/evidence detail is unavailable.`
     : copy;
-  const continueAction = state === "incomplete"
-    ? `<button class="btn-primary" type="button" ${buildActionAttrs("show-section", { section: "quick" })}>Continue</button>`
+  const continueAction = state === "incomplete" && getResumableQuickQuestion()
+    ? `<button class="btn-primary" type="button" ${buildActionAttrs("resume-quick-flow")}>Continue</button>`
     : "";
   document.getElementById("result-inner").innerHTML = `
     <div class="empty-state bounded-result-shell" data-result-state="${escapeAttributeValue(state)}">
       <h2>${escapeHtml(heading)}</h2>
-      <p>${escapeHtml(legacyCopy)}</p>
+      <p>${escapeHtml(shellCopy)}</p>
       ${state === "mixed" || state === "contradictory"
         ? "<p>Explore more than one Commander path, or retake when you want a fresh reading. No identity-specific recommendation is being inferred here.</p>"
         : ""}
@@ -2806,7 +2893,7 @@ function renderResult(viewKey) {
     return;
   }
 
-  if (["mixed", "contradictory", "insufficient", "invalid", "incomplete"].includes(resultState)) {
+  if (["mixed", "contradictory", "insufficient", "unknown", "invalid", "incomplete"].includes(resultState) && !(resultState === "unknown" && isLegacyGateAResult(result))) {
     renderBoundedResultShell(result, resultState);
     return;
   }
@@ -2885,19 +2972,16 @@ function renderResult(viewKey) {
   const activeExpressionEntries = Object.values(APP_STATE.identityLayers?.expressions || {})
     .filter((entry) => entry?.active !== false);
   const activeExpressionCount = activeExpressionEntries.length || Object.keys(APP_STATE.factions || {}).length || 15;
-  const activeMonoCount = activeExpressionEntries
-    .filter((entry) => String(entry?.kind || "").toLowerCase() === "color")
-    .length;
-  const atlasFrontierCopy = `The atlas is still opening: ${activeExpressionCount} expressions are lit now, and the frontier still widens from single colors and pairs through three-color, four-color, Colorless, and Five-Color expressions.`;
+  const atlasFrontierCopy = `The complete ${activeExpressionCount}-identity atlas is available for exploration. This reading is one bounded path through it, not a claim that every identity was equally tested by these answers.`;
   const archetypeHtml = (dossier.archetypes || [])
-    .map((item) => `<div class="arch-card"><div class="arch-name">${item.name}</div><div class="arch-desc">${item.desc}</div></div>`)
+    .map((item) => `<div class="arch-card"><div class="arch-name">${renderEducationalText(item.name)}</div><div class="arch-desc">${renderEducationalText(item.desc)}</div></div>`)
     .join("");
 
   function cardSlots(items, prefix, placeholderClass, imageClass) {
     return (items || [])
       .map((name, index) => {
         const id = `${prefix}_${index}`;
-        return `<div class="staple-wrap"><div class="${placeholderClass}" id="${id}">${name}</div><div class="staple-name">${name}</div></div>`;
+        return `<div class="staple-wrap"><div class="${placeholderClass}" id="${id}" aria-label="${escapeAttributeValue(`${name} card art`)}"></div><div class="staple-name">${escapeHtml(name)}</div></div>`;
       })
       .join("");
   }
@@ -2972,12 +3056,6 @@ function renderResult(viewKey) {
       <div class="section-label">${resultState === "tied" ? "Co-leaders" : "Close alternative"}</div>
       <div class="adjacent-grid">${adjacentHtml}</div>
     </div>` : "";
-  const resultStatus = dossier.resultStatus;
-  const resultStatusHtml = `
-    <div class="result-status">
-      <strong>${escapeHtml(resultStatus)}</strong>
-      ${SESSION.username ? ` Saved under ${escapeHtml(SESSION.username)}.` : ""}
-    </div>`;
   const returnToPrimaryButton = !isPrimary
     ? `<div class="footer-button-row"><button class="btn-secondary" type="button" ${buildActionAttrs("return-primary-reading")}>Back to original reading</button></div>`
     : "";
@@ -3000,7 +3078,7 @@ function renderResult(viewKey) {
         .join("")
     : "";
 
-  const pipsHtml = (faction.colors || []).map((color) => `<div class="pip pip-${color}"></div>`).join("");
+  const pipsHtml = buildManaPipsHtml(faction.colors || [], "guild-mana-symbols");
   const decksHtml = buildDeckDiscoveryHtml(buildDeckDiscoveryGroups({
     faction,
     archidektLinks: archidektSearchLinks,
@@ -3081,14 +3159,16 @@ function renderResult(viewKey) {
       : resultState === "unknown"
         ? "Legacy reading — evidence detail unavailable"
         : `Current best fit: ${primaryName}`;
+  const stateExplanation = resultState === "unknown" && isLegacyGateAResult(result)
+    ? "This historical result preserves its saved identity, but it does not contain answer detail for a current fit or strength claim."
+    : gateAStatePresentation(resultState)[1];
   const placementPanelHtml = `
     ${adjacentContextHtml}
     <div class="result-state-banner" data-result-state="${escapeAttributeValue(resultState)}">
       <strong>${escapeHtml(stateHeading)}</strong>
-      <span>${escapeHtml(gateAStatePresentation(resultState)[1])}</span>
+      <span>${escapeHtml(stateExplanation)}</span>
     </div>
     ${resultState === "unknown" ? `<div class="result-limitation-notice" role="note">Legacy reading — ${escapeHtml(faction.name)} was saved, but answer/evidence detail is unavailable. Matrix content is identity context, not reconfirmation of the placement. Retake the reading if you want an answer-grounded result.</div>` : ""}
-    ${resultStatusHtml}
     ${returnToPrimaryButton}
     ${renderDossierRadarSection({ result, faction, dossier, flavorSnippets: matrixFlavorSnippets, identityLayers: APP_STATE.identityLayers })}
     ${discoverySummaryHtml}`;
@@ -3108,12 +3188,12 @@ function renderResult(viewKey) {
       <div class="starter-grid starter-grid-start">
         <div class="starter-card starter-card-wide">
           <div class="starter-title">${commanderLane.title}</div>
-          <div class="starter-copy">${commanderLane.copy}</div>
+          <div class="starter-copy">${renderEducationalText(commanderLane.copy)}</div>
           <div class="starter-notes">
             ${commanderLane.details.map((detail) => `
               <div class="starter-note">
-                <div class="starter-note-label">${detail.label}</div>
-                <div class="starter-copy">${detail.copy}</div>
+                <div class="starter-note-label">${renderEducationalText(detail.label)}</div>
+                <div class="starter-copy">${renderEducationalText(detail.copy)}</div>
               </div>`).join("")}
           </div>
           ${commanderPreviewHtml}
@@ -3225,14 +3305,18 @@ function renderResult(viewKey) {
     content: panel.content,
   })).join("");
 
+  const publicEyebrow = isLegacyGateAResult(result)
+    ? `Historical saved identity - ${institutionLabel}`
+    : isPrimary
+      ? resultState === "tied" ? `Co-leader dossier - ${institutionLabel}` : `Placement dossier - ${institutionLabel}`
+      : resultState === "tied" ? `Comparing co-leader - ${institutionLabel}` : `Comparing close alternative - ${institutionLabel}`;
+
   document.getElementById("result-inner").innerHTML = `
     <div class="guild-banner" data-faction-key="${escapeHtml(faction.key || "")}" data-hero-background="${heroBannerImageSlugForFaction(faction) ? "identity-image" : "banner"}" style="background:${heroBannerBackgroundForFaction(faction)}">
-      <div class="guild-eyebrow">${isPrimary
-        ? resultState === "tied" ? `Co-leader · ${institutionLabel}` : `Current best fit · ${institutionLabel}`
-        : resultState === "tied" ? `Comparing co-leader · ${institutionLabel}` : `Comparing close alternative · ${institutionLabel}`}</div>
+      <div class="guild-eyebrow">${escapeHtml(publicEyebrow)}</div>
       <div class="guild-name" style="color:${faction.accent}">${faction.name}</div>
       <div class="guild-tagline">${faction.tagline}</div>
-      <div class="mana-pips">${pipsHtml}</div>
+      ${pipsHtml}
       <div class="guild-philosophy">${escapeHtml(heroNarrative)}</div>
       <div class="guild-lore-summary">${faction.philosophy}</div>
     </div>
@@ -3261,7 +3345,6 @@ function renderResult(viewKey) {
         </div>
       </div>
     </div>`;
-
   APP_STATE.activeResult = result;
   APP_STATE.activeViewKey = activeKey;
   APP_STATE.activeDossierRadarFaction = faction;
@@ -3315,29 +3398,55 @@ function returnToPrimaryReading() {
  * @param {object=} landRecommendations Dossier mana note tiers.
  * @returns {Promise<void>} Resolves after all visible slots have been attempted.
  */
+function resultArtCandidate(name, id, imageClass) {
+  const classified = classifyResultArtRecord(name, APP_STATE.preconCatalog);
+  return {
+    id,
+    imageClass,
+    displayName: classified.displayName,
+    name: classified.lookupName,
+    recordType: classified.lookupRecordType,
+    sourceRecordType: classified.recordType,
+  };
+}
+
+function renderUnavailableCardArt(slot) {
+  if (!slot) return;
+  slot.classList.add("is-unavailable");
+  slot.setAttribute("aria-label", "Card image unavailable");
+  slot.innerHTML = '<span aria-hidden="true">Image unavailable</span>';
+}
+
 async function loadResultCardArt(faction, commanderCandidates = [], starterCards = {}, landRecommendations = {}) {
   const factionIdentity = new Set(faction?.colors || []);
   let verifiedCommanders = 0;
   const commanderCards = (commanderCandidates || []).map((candidate, index) => ({
     ...candidate,
+    displayName: candidate.name,
+    recordType: "CARD",
     id: `cmd_${index}`,
     imageClass: "commander-img",
     commanderPreview: true,
   }));
   const allCards = [
     ...commanderCards,
-    ...(starterCards.creatures || []).map((name, index) => ({ name, id: `sc_${index}`, imageClass: "staple-img" })),
-    ...(starterCards.spells || []).map((name, index) => ({ name, id: `ss_${index}`, imageClass: "staple-img" })),
-    ...(starterCards.permanents || []).map((name, index) => ({ name, id: `sp_${index}`, imageClass: "staple-img" })),
-    ...(landRecommendations.premium || []).map((name, index) => ({ name, id: `lp_${index}`, imageClass: "land-img" })),
-    ...(landRecommendations.midrange || []).map((name, index) => ({ name, id: `lm_${index}`, imageClass: "land-img" })),
-    ...(landRecommendations.budget || []).map((name, index) => ({ name, id: `lb_${index}`, imageClass: "land-img" })),
-    ...(landRecommendations.utility || []).map((name, index) => ({ name, id: `lu_${index}`, imageClass: "land-img" })),
+    ...(starterCards.creatures || []).map((name, index) => resultArtCandidate(name, `sc_${index}`, "staple-img")),
+    ...(starterCards.spells || []).map((name, index) => resultArtCandidate(name, `ss_${index}`, "staple-img")),
+    ...(starterCards.permanents || []).map((name, index) => resultArtCandidate(name, `sp_${index}`, "staple-img")),
+    ...(landRecommendations.premium || []).map((name, index) => ({ ...resultArtCandidate(name, `lp_${index}`, "land-img"), recordType: "CARD", name })),
+    ...(landRecommendations.midrange || []).map((name, index) => ({ ...resultArtCandidate(name, `lm_${index}`, "land-img"), recordType: "CARD", name })),
+    ...(landRecommendations.budget || []).map((name, index) => ({ ...resultArtCandidate(name, `lb_${index}`, "land-img"), recordType: "CARD", name })),
+    ...(landRecommendations.utility || []).map((name, index) => ({ ...resultArtCandidate(name, `lu_${index}`, "land-img"), recordType: "CARD", name })),
   ];
 
   for (const card of allCards) {
     const slot = document.getElementById(card.id);
     if (!slot) {
+      continue;
+    }
+
+    if (card.recordType !== "CARD" || !card.name) {
+      renderUnavailableCardArt(slot);
       continue;
     }
 
@@ -3367,21 +3476,21 @@ async function loadResultCardArt(faction, commanderCandidates = [], starterCards
 
       if (imageUrl) {
         slot.closest("[data-commander-card]")?.classList.add("is-verified");
-        slot.outerHTML = `<a href="${linkUrl}" target="_blank" rel="noopener"><img class="${card.imageClass}" src="${imageUrl}" alt="${data.name}" loading="lazy"></a>`;
+        slot.outerHTML = `<a href="${linkUrl}" target="_blank" rel="noopener" aria-label="Open ${escapeAttributeValue(card.displayName || data.name)} on Scryfall"><img class="${card.imageClass}" src="${imageUrl}" alt="${escapeAttributeValue(`${data.name} card art`)}" loading="lazy"></a>`;
         if (card.commanderPreview) {
           verifiedCommanders += 1;
         }
       } else if (card.commanderPreview) {
         slot.closest("[data-commander-card]")?.remove();
       } else {
-        slot.textContent = card.name;
+        renderUnavailableCardArt(slot);
       }
     } catch (_) {
       const fallback = document.getElementById(card.id);
       if (card.commanderPreview) {
         fallback?.closest("[data-commander-card]")?.remove();
       } else if (fallback) {
-        fallback.textContent = card.name;
+        renderUnavailableCardArt(fallback);
       }
     }
 
@@ -3413,6 +3522,9 @@ export async function loadCachedScryfallNamedCard(name) {
     if (cachedNow) return cachedNow;
     const response = await fetch(url);
     const data = await response.json();
+    if (!response.ok || !data?.name) {
+      throw new Error(`Scryfall named-card lookup failed with status ${response.status}.`);
+    }
     if (response.ok && data?.name && storage) {
       try {
         storage.setItem(`vm_scryfall_named_v1:${url}`, JSON.stringify(data));
@@ -3631,6 +3743,9 @@ async function handleArchscryActionClick(event) {
       return;
     case "start-interview-flow":
       await startInterviewFlow();
+      return;
+    case "resume-quick-flow":
+      resumeIncompleteQuickReading();
       return;
     case "quick-back":
       goBackQuickQuestion();

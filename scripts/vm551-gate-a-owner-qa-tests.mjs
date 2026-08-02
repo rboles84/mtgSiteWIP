@@ -1,0 +1,198 @@
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import {
+  buildTagExplanationSummaries,
+  classifyResultArtRecord,
+  deriveGateAResultState,
+  gateAStatePresentation,
+  isLegacyGateAResult,
+  isResumableGateAQuestion,
+} from "../assets/js/archscry-presentation.js";
+import {
+  buildCommanderDossier,
+  buildCommanderStartingLane,
+  buildReadingOmens,
+  createArchidektTagCatalog,
+  getCommanderFactionGuidance,
+} from "../assets/js/commander-dossier.js";
+import { runAdaptiveGoldenPath } from "../assets/js/adaptive-placement.js";
+
+const readText = (path) => readFile(new URL(path, import.meta.url), "utf8");
+const indexSource = await readText("../assets/js/index.js");
+const htmlSource = await readText("../archscry/index.html");
+const cssSource = await readText("../assets/css/archscry.css");
+const preconCatalog = JSON.parse(await readText("../data/precons/vox-mana-precon-catalog.json"));
+const taxonomy = JSON.parse(await readText("../data/taxonomy/vox-mana-tags.json"));
+const placementModel = JSON.parse(await readText("../data/placement-model.json"));
+const factions = JSON.parse(await readText("../data/factions.json")).factions;
+const deckTagCatalog = createArchidektTagCatalog(JSON.parse(await readText("../data/deck-tags_expanded.json")));
+
+const currentUnknown = {
+  source_mode: "quick",
+  legacy_result: false,
+  result_state: "unknown",
+  faction: "WU",
+  faction_name: factions.WU.name,
+  top_matches: [{ rank: 1, faction: "WU", faction_name: factions.WU.name, score: 4 }],
+};
+assert.equal(deriveGateAResultState({ result: currentUnknown, placementModel, factions }), "unknown");
+assert.equal(isLegacyGateAResult(currentUnknown), false);
+assert.doesNotMatch(gateAStatePresentation("unknown").join(" "), /legacy|saved|strength|current best fit/i);
+assert.equal(isLegacyGateAResult({ ...currentUnknown, source_mode: "legacy", legacy_result: true }), true);
+assert.equal(isResumableGateAQuestion({
+  placementModel,
+  adaptiveState: { asked_question_ids: [] },
+  question: { prompt: "A real question", answers: [{ title: "A real answer" }] },
+}), true);
+assert.equal(isResumableGateAQuestion({ placementModel, adaptiveState: null, question: { prompt: "Quick question", answers: [] } }), false);
+assert.equal(isResumableGateAQuestion({ placementModel, adaptiveState: {}, question: null }), false);
+assert.equal(
+  deriveGateAResultState({
+    result: { ...currentUnknown, result_state: null, evidence_trail: [], stage_history: [] },
+    placementModel,
+    factions,
+  }),
+  "primary",
+  "A valid current result must not become unknown merely because optional evidence detail is absent."
+);
+
+assert.equal((htmlSource.match(/id="quick-back-btn"/g) || []).length, 1);
+assert.equal((indexSource.match(/"Return to landing"/g) || []).length, 1);
+assert.match(htmlSource, /mana\/css\/mana\.min\.css/);
+assert.match(indexSource, /class="ms ms-\$\{color\.toLowerCase\(\)\} ms-cost"/);
+assert.match(indexSource, /role="img"[\s\S]*mana identity/);
+assert.doesNotMatch(indexSource, /The atlas is still opening|frontier still widens/i);
+assert.doesNotMatch(indexSource, /id="\$\{id\}">\$\{name\}<\/div><div class="staple-name"/);
+assert.doesNotMatch(indexSource, /wants to restricted action/i);
+assert.match(indexSource, /case "start-interview-flow":\s*await startInterviewFlow\(\);\s*return;\s*case "resume-quick-flow":\s*resumeIncompleteQuickReading\(\);/);
+assert.match(indexSource, /state === "incomplete" && getResumableQuickQuestion\(\)/);
+
+const azoriusGolden = runAdaptiveGoldenPath({ model: placementModel, factions, targetFaction: "WU" }).result;
+const tieResult = {
+  ...azoriusGolden,
+  result_state: "tied",
+  alternative_state: "co-leader",
+  top_matches: [
+    { ...azoriusGolden.top_matches[0], faction: "WU", faction_name: factions.WU.name, score: 8 },
+    { rank: 2, faction: "ABZAN", faction_name: factions.ABZAN.name, score: 8, confidence: 0.2 },
+  ],
+  adjacent_matches: [{ rank: 2, faction: "ABZAN", faction_name: factions.ABZAN.name, score: 8, confidence: 0.2 }],
+};
+const azoriusTieDossier = buildCommanderDossier({ factions, placementModel, deckTagCatalog, placementResult: tieResult });
+const abzanTieDossier = buildCommanderDossier({ factions, placementModel, deckTagCatalog, placementResult: tieResult, targetFactionKey: "ABZAN" });
+assert.equal(azoriusTieDossier.targetFactionKey, "WU");
+assert.equal(abzanTieDossier.targetFactionKey, "ABZAN");
+assert.match(azoriusTieDossier.commanderLane.copy, /Azorius Senate/);
+assert.doesNotMatch(azoriusTieDossier.commanderLane.copy, /Abzan Houses/);
+assert.match(abzanTieDossier.commanderLane.copy, /Abzan Houses/);
+assert.doesNotMatch(abzanTieDossier.commanderLane.copy, /Azorius Senate/);
+assert.match(abzanTieDossier.resultStatus, /co-leader/i);
+assert.doesNotMatch(abzanTieDossier.resultStatus, /close alternative/i);
+
+for (const [label, inputName] of [
+  ["Abzan Armor", "Abzan Armor (Precon)"],
+  ["Stalwart Unity", "Stalwart Unity (Precon)"],
+  ["Eldrazi Unbound", "Eldrazi Unbound (Precon)"],
+  ["First Flight", "First Flight"],
+  ["Phantom Premonition", "Phantom Premonition"],
+  ["Spirit Squadron", "Spirit Squadron"],
+  ["Buckle Up", "Buckle Up"],
+]) {
+  const catalogRecord = preconCatalog.precons.find((entry) => entry.deckName === label);
+  assert.ok(catalogRecord, `${label} must exist in the committed precon catalog.`);
+  const classified = classifyResultArtRecord(inputName, preconCatalog);
+  assert.equal(classified.recordType, "PRECON", `${inputName} must be classified before art lookup.`);
+  assert.equal(classified.lookupRecordType, "CARD");
+  assert.equal(classified.lookupName, catalogRecord.mainCommander);
+  assert.notEqual(classified.lookupName, inputName.replace(/\s*\(Precon\)\s*$/i, ""));
+}
+const productWithoutCard = classifyResultArtRecord("Example Commander Deck Product", preconCatalog);
+assert.equal(productWithoutCard.lookupRecordType, "NONE");
+assert.equal(productWithoutCard.lookupName, "");
+for (const precon of preconCatalog.precons) {
+  const classified = classifyResultArtRecord(precon.deckName, preconCatalog);
+  assert.notEqual(classified.recordType, "CARD", `${precon.deckName} must never be routed as a named card.`);
+  assert.notEqual(classified.lookupName, precon.deckName, `${precon.deckName} must keep its display and lookup names separate.`);
+}
+const factionStrings = [];
+const collectStrings = (value) => {
+  if (typeof value === "string") factionStrings.push(value);
+  else if (Array.isArray(value)) value.forEach(collectStrings);
+  else if (value && typeof value === "object") Object.values(value).forEach(collectStrings);
+};
+collectStrings(factions);
+for (const value of new Set(factionStrings.filter((entry) => /\(precon\)/i.test(entry)))) {
+  const classified = classifyResultArtRecord(value, preconCatalog);
+  assert.notEqual(classified.recordType, "CARD", `${value} must be classified as a product or precon before lookup.`);
+  assert.notEqual(classified.lookupName, value.replace(/\s*\(precon\)\s*$/i, "").trim(), `${value} must not reach named-card lookup under its display name.`);
+}
+assert.match(indexSource, /if \(card\.recordType !== "CARD" \|\| !card\.name\)[\s\S]*continue;/);
+assert.match(indexSource, /loadCachedScryfallNamedCard\(card\.name\)/);
+assert.match(indexSource, /withNamedCardInFlightDedupe/);
+assert.match(indexSource, /setTimeout\(resolve, 90\)/);
+assert.match(indexSource, /!response\.ok \|\| !data\?\.name/);
+for (const slug of ["abzan-armor", "stalwart-unity", "eldrazi-unbound", "first-flight", "phantom-premonition", "spirit-squadron", "buckle-up"]) {
+  assert.match(indexSource, new RegExp(`https://edhrec\\.com/precon/${slug}`));
+}
+assert.match(indexSource, /"Research this precon"/);
+
+const omens = buildReadingOmens({
+  activeFactionKey: "WU",
+  evidenceTrail: [
+    { answer_title: "Keep mana available", signal: "open mana", deltas: [{ faction: "WU", delta: 1 }] },
+    { answer_title: "Set the rule first", signal: "proactive structure", deltas: [{ faction: "WU", delta: 1 }] },
+  ],
+});
+assert.equal(new Set(omens.map((omen) => omen.copy.trim().toLowerCase())).size, omens.length);
+assert.ok(omens.every((omen) => !/does not prove your personality/i.test(omen.copy)));
+
+const azoriusGuidance = getCommanderFactionGuidance(factions.WU);
+assert.match(azoriusGuidance.commanderPlan, /proactive rule-setting.*reactive permission.*tempo/i);
+assert.match(azoriusGuidance.spellcraftIdentity, /counterspells.*sweepers.*detain.*taxes/i);
+assert.match(azoriusGuidance.tableCautionText, /interaction window that matters/i);
+assert.doesNotMatch(`${azoriusGuidance.commanderPlan} ${azoriusGuidance.spellcraftIdentity} ${azoriusGuidance.tableCautionText}`, /always|must prolong|wants to restricted action/i);
+const azoriusLane = buildCommanderStartingLane({
+  faction: factions.WU,
+  placementResult: currentUnknown,
+  starterProfile: { budget_band: "mid", experience_level: "returning" },
+  modelFaction: placementModel.factions.WU,
+  tagLanes: [{ tagName: "Control" }, { tagName: "Tempo" }],
+});
+assert.deepEqual(
+  azoriusLane.details.slice(0, 4).map((detail) => detail.label),
+  ["Suggested budget lane", "Experience assumption", "Possible directions", "Why these appear"]
+);
+assert.match(azoriusLane.copy, /explore|starting direction/i);
+assert.match(azoriusLane.copy, /not a conclusion/i);
+assert.match(indexSource, /Isperia can turn creatures attacking you or a planeswalker you control into optional card draw/);
+assert.match(indexSource, /Lavinia restricts oversized noncreature spells and counters spells cast without mana/);
+assert.match(indexSource, /Grand Arbiter reduces the cost of your White and Blue spells and adds one generic mana to opponents' spells/);
+
+const laneSummaries = buildTagExplanationSummaries({
+  tagRefs: [
+    { category: "mechanical", tag: "draw" },
+    { category: "playstyle", tag: "aggro" },
+    { category: "playstyle", tag: "control" },
+  ],
+  faction: factions.WU,
+  taxonomy,
+  limit: 3,
+});
+assert.equal(laneSummaries.length, 3);
+assert.equal(new Set(laneSummaries.map((item) => item.copy.trim().toLowerCase())).size, 3);
+assert.ok(laneSummaries.every((item) => item.meaning && item.copy && item.helper));
+
+for (const term of ["Draw-Go Control", "Prison Control", "Midrange", "Control", "Tempo", "Stax", "Pillowfort", "Hatebears", "taxation", "sweepers", "detain", "parity", "open mana"]) {
+  const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  assert.match(indexSource, new RegExp(`(?:"${escaped}"|\\b${escaped})\\s*:`));
+}
+
+assert.match(cssSource, /how-this-plays-grid[\s\S]*grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
+assert.match(cssSource, /first-of-type > \.table-identity-list\{\s*margin-top:0/);
+assert.match(cssSource, /\.signals-intro\{[\s\S]*width:100%;[\s\S]*max-width:none;/);
+assert.match(cssSource, /\.starter-grid\{[\s\S]*minmax\(min\(100%,280px\),1fr\)/);
+assert.match(cssSource, /\.staple-wrap\{[^}]*width:150px/);
+assert.match(cssSource, /\.land-wrap\{[^}]*width:128px/);
+assert.match(cssSource, /@media\(max-width:700px\)[\s\S]*\.dossier-snapshot[\s\S]*grid-template-columns:1fr/);
+
+console.log("PASS VM-551 Gate A owner-QA remediation checks");

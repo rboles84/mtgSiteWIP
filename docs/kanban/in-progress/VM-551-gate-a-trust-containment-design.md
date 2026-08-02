@@ -2,7 +2,7 @@
 
 ID: VM-551 Gate A
 Title: Archscry Trust Containment
-Status: Bounded implementation candidate ready for owner visual QA
+Status: Owner-QA remediation candidate ready for focused visual review
 Type: Production trust containment
 Area: Archscry placement
 Priority: Critical trust containment
@@ -39,4 +39,4 @@ On 2026-08-01, the owner approved exact design commit `c6b1c9e6940b67201c8c2f999
 
 ## Next gate
 
-Owner visually reviews the exact local implementation candidate using `docs/qa/2026-08-01-vm551-gate-a-owner-qa.md`. Stop before merge or push.
+The owner-rejected candidate `f657ac5aea9b7aeaf3855a1af42148744271dc7e` has received one bounded correction pass. Owner visually reviews the replacement local candidate using `docs/qa/2026-08-01-vm551-gate-a-owner-qa.md`, focused on unknown/incomplete/tie/legacy shells, Azorius copy, glossary help, card/precon presentation, and desktop/390px layout. Stop before merge or push.

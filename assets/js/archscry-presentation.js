@@ -68,12 +68,12 @@ export const FACTION_PRESENTATION = {
   WU: {
     shortName: "Azorius",
     tableRole: "The arbiter",
-    opponentRead: "Opponents experience the deck as procedure with teeth: every shortcut must answer to the record.",
-    emotionalPressure: "Pressure through permission, timing, and the feeling that the table has entered court.",
+    opponentRead: "A rule-setting Azorius list can ask opponents to plan around visible taxes, held mana, or timing constraints; the actual experience depends on the cards, pilot, and pod.",
+    emotionalPressure: "Can create pressure through permission and timing, without proving that the pilot wants a long game or that opponents will react in one fixed way.",
     loreRole: "senate, judiciary, and lawkeeping bureaucracy",
     mechanics: "Detain, taxation, permission, sweepers, tempo, and rule-setting permanents",
     tableExperience: "restricted action, procedural pressure, and clean enforcement",
-    thesis: "Azorius read you as someone who protects the table by defining what is allowed to happen. White supplies the standard; blue supplies timing, documentation, and restraint. Together, the deck becomes law made playable: patient, exacting, and difficult to slip past.",
+    thesis: "In this authored identity, Azorius combines White's standards with Blue's planning and timing. Your recorded answers contributed toward that rule-setting frame; they do not establish personality, skill, or one required deck style.",
     closeReason: "procedure, restraint, and enforceable standards",
     forkQuestion: "What rule keeps the table from collapsing?",
     direction: "moves upward into order and precedent",
@@ -729,6 +729,20 @@ export function deriveGateAResultState({ result, placementModel = null, factions
   return closeAlternativeForResult(result, placementModel, factions) ? "close" : "primary";
 }
 
+export function isLegacyGateAResult(result = {}) {
+  return result?.legacy_result === true || result?.source_mode === "legacy";
+}
+
+export function isResumableGateAQuestion({ placementModel, adaptiveState, question } = {}) {
+  return Boolean(
+    placementModel &&
+    adaptiveState &&
+    question?.prompt &&
+    Array.isArray(question.answers) &&
+    question.answers.length
+  );
+}
+
 export function withGateAPublicState({ result, placementModel = null, factions = {} } = {}) {
   if (!result || typeof result !== "object") return result;
   const resultState = deriveGateAResultState({ result, placementModel, factions });
@@ -739,7 +753,7 @@ export function withGateAPublicState({ result, placementModel = null, factions =
     alternative_state: resultState === "tied" ? "co-leader" : resultState === "close" ? "close" : "none",
     confidence_display_mode: "bounded-state",
     model_kind: "adaptive-weighted-scoring",
-    legacy_result: result.legacy_result === true || result.source_mode === "legacy",
+    legacy_result: isLegacyGateAResult(result),
     limitations: Array.isArray(result.limitations) ? result.limitations : [],
     compatibility_version: "gate-a-v1",
   };
@@ -753,7 +767,7 @@ export function gateAStatePresentation(state) {
     mixed: ["Mixed reading", "More than one direction is present, and this reading cannot responsibly collapse them into one claim."],
     contradictory: ["Conflicting signals", "Some recorded observations pull in different directions."],
     insufficient: ["Not enough evidence to distinguish", "This reading does not have enough usable detail for a named placement."],
-    unknown: ["Evidence detail unavailable", "This saved result does not contain enough information to describe its strength."],
+    unknown: ["Evidence detail unavailable", "This current result does not contain enough answer detail to support a named placement."],
     invalid: ["Reading unavailable", "The result could not be normalized safely."],
     incomplete: ["Reading incomplete", "Continue the remaining question or restart."],
   }[state] || ["Reading unavailable", "The result could not be normalized safely."];
@@ -913,7 +927,7 @@ export function selectReadingTagRefs({ dossier, result, taxonomy, modelMechanics
       const include = matchedSources.includes("evidence") || matchedSources.length >= 2;
       if (!include) return null;
 
-      return { category: entry.category, tag: entry.tag };
+      return { category: entry.category, tag: entry.tag, sources: matchedSources };
     })
     .filter(Boolean))
     .sort((left, right) =>
@@ -960,18 +974,55 @@ export function buildTagExplanationSummaries({ tagRefs = [], faction, taxonomy, 
       };
     }
     const actions = (entry.typical_actions || []).slice(0, 2).join(" and ");
-    const actionCopy = actions ? ` One common deck expression here is to ${actions}.` : "";
-    const groundingCopy = entry.table_feel || entry.player_fantasy || entry.canonical_definition || entry.vox_mana_interpretation;
-    const groundedSentence = /[.!?]$/.test(groundingCopy) ? groundingCopy : `${groundingCopy}.`;
+    const actionCopy = actions
+      ? `At a Commander table, that can look like choosing to ${actions}.`
+      : `At a Commander table, it describes a possible ${entry.display_name.toLowerCase()} play pattern rather than a required deck plan.`;
+    const sources = Array.isArray(ref.sources) ? ref.sources : [];
+    const sourceLabels = {
+      evidence: "the recorded answer trail",
+      commander: "the curated Commander direction",
+      archetype: "the displayed archetype context",
+      mechanics: "the authored model mechanics",
+    };
+    const sourceCopy = sources.length
+      ? sources.map((source) => sourceLabels[source] || source).join(" and ")
+      : "the bounded interpretation assembled for this dossier";
+    const limitation = ref.category === "mechanical"
+      ? "A mechanic is an example of expression, not proof of identity or preference."
+      : ref.category === "playstyle"
+        ? "This is an exploration lane; color access alone does not show that you want to play it."
+        : ref.category === "lore-tone"
+          ? "A tone can guide flavor, but lore does not establish deck behavior."
+          : "This is an editorial identity interpretation, not a diagnosis of personality or motivation.";
     return {
       category: ref.category,
       tag: ref.tag,
       title: entry.display_name,
       meaning: entry.vox_mana_interpretation,
-      copy: `${groundedSentence} In this ${presentation.shortName} reading, the result leans toward ${presentation.tableExperience}.${actionCopy}`,
-      helper: entry.new_player_note || "",
+      copy: `${actionCopy} It appears here because ${sourceCopy} used this construct while describing ${presentation.shortName}.`,
+      helper: `Boundary: ${limitation}`,
     };
   }).filter(Boolean);
+}
+
+export function classifyResultArtRecord(name, preconCatalog = {}) {
+  const displayName = String(name || "").replace(/\s+/g, " ").trim();
+  const normalizedDisplay = normalizeCardName(displayName.replace(/\s*\(precon\)\s*$/i, ""));
+  const precon = (preconCatalog?.precons || []).find(
+    (entry) => normalizeCardName(entry?.deckName || "") === normalizedDisplay
+  );
+  if (precon) {
+    return {
+      recordType: "PRECON",
+      displayName,
+      lookupName: String(precon.mainCommander || "").trim(),
+      lookupRecordType: precon.mainCommander ? "CARD" : "NONE",
+    };
+  }
+  if (/\b(precon|product|commander deck|starter deck)\b/i.test(displayName)) {
+    return { recordType: "PRODUCT", displayName, lookupName: "", lookupRecordType: "NONE" };
+  }
+  return { recordType: "CARD", displayName, lookupName: displayName, lookupRecordType: "CARD" };
 }
 
 function readingIdForResult(result) {
