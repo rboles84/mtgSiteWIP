@@ -1,5 +1,11 @@
 # VM-551 Placement-System Audit Artifacts
 
+## Status
+
+Owner-approved audit content: `e0e61278a7434d35f85eabb81cfcd417c2252e3c`.
+
+The accepted audit governs the Gate A/B1/B2 repair boundary. The downstream compatibility contract and 37-row result-field consumer map are accepted as documentation authorities. This approval authorizes documentation closeout and integration only; it does not authorize implementation, implementation planning, deployment, or certification.
+
 Start with `VM-551-full-placement-system-audit.md`. The owner-rejection remediation is governed by `audit-input-authority.md`; `remediation-analysis-summary.json` is the reconciled quantitative summary. Five of the original six generated evidence artifacts remain byte-identical. `identity-reachability-opportunity-matrix.csv` has one intentional reconciliation correction: its stale `can-win-with-zero-positive-evidence` bias label is replaced by a withdrawn-historical invalid-counter marker; quantitative fields are unchanged. `audit-input-manifest.json` records both hashes.
 
 Boundary precedence: `bounded-mvp-repair-plan.md`, `requirements-traceability-matrix.csv`, and `downstream-compatibility-contract.md` jointly govern Gate A/B1/B2. Narrative summaries must agree with them. `result-field-consumer-map.csv` is the implementation-derived compatibility inventory and hard planning prerequisite. `owner-review-evidence-manifest.md` pins the bounded owner-review package, and `owner-review-critical-extract.md` exposes consequential rows without replacing their machine-readable sources, including complete records for `decree`, `color_weights`, and `authored_preview_scores`.

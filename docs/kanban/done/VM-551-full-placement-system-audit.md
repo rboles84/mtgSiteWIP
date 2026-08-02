@@ -148,3 +148,12 @@ Next gate: independent review of the exact replacement documentation candidate a
 - Quantitative findings, CECOS authority, Gate scope, question/identity/scenario conclusions, five Gate A requirements, and 3 Critical / 26 High / 10 Medium / 1 Low severity totals remain unchanged.
 
 Next gate: final independent micro-review restricted to these three documentation corrections. Owner acceptance and all implementation planning remain unauthorized.
+
+## Owner Approval and Documentation Closeout
+
+- Owner-approved audit content: `e0e61278a7434d35f85eabb81cfcd417c2252e3c`.
+- The accepted audit governs the Gate A/B1/B2 repair boundary.
+- The downstream compatibility contract and 37-row result-field consumer map are accepted.
+- Approval authorizes documentation closeout and integration only. It does not authorize implementation, implementation planning, deployment, or certification.
+
+Closeout stop: integrate the approved documentation into `main`, verify parity, clean up the completed audit worktree/branch when safe, and stop before Gate A implementation planning.
