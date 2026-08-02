@@ -21,7 +21,6 @@ import {
   getCommanderFactionGuidance,
   getServiceChipMeta,
   hasRenderableLandTier,
-  resolveSignalBand,
   selectPreconPreviewRecommendations,
 } from "./commander-dossier.js";
 import {
@@ -33,10 +32,13 @@ import {
   buildReadingSignalCopy,
   buildTagExplanationSummaries,
   adjacentMatchForSummary,
-  confidencePercent,
+  closeAlternativeForResult,
+  deriveGateAResultState,
+  gateAStatePresentation,
   matchForFaction,
   presentationForFaction,
   selectReadingTagRefs,
+  withGateAPublicState,
   withArchscryMazeContext,
 } from "./archscry-presentation.js";
 import {
@@ -143,7 +145,7 @@ const DOSSIER_PANEL_CONFIG = [
   { id: "placement", label: "Placement" },
   { id: "start", label: "Start Here" },
   { id: "why", label: "Why This Fits" },
-  { id: "adjacent", label: "Adjacent Fits" },
+  { id: "adjacent", label: "Close Alternative" },
   { id: "commander-deck-starts", label: "Commander Browsing Starts" },
   ...(ACCOUNT_DECK_LINKS_ENABLED ? [{ id: "decks-saved", label: "External Deck Links" }] : []),
   { id: "starter-cards", label: "Card Signals" },
@@ -560,52 +562,17 @@ function commanderStartSnapshotCopy({ commanderLane, dossier }) {
   return sentence || "Open Start Here to turn this placement into a first Commander direction.";
 }
 
-function readingSignalBand(confidence) {
-  return resolveSignalBand(confidence).signalBand;
-}
-
-function readingSignalMeaning({ band, dossier }) {
-  if (!dossier?.isPrimary) {
-    if (band === "strong") {
-      return "This adjacent view still has enough signal to be worth comparing against the primary reading.";
-    }
-    if (band === "moderate") {
-      return "This adjacent view stays close to the primary result and works best as a neighboring expression, not a replacement.";
-    }
-    return "This adjacent view is a softer branch off the main result. Treat it as a comparison lens while you test the primary path.";
-  }
-
-  if (band === "strong") {
-    return "This reading landed cleanly. Nearby fits can still matter, but the primary placement had a clear edge.";
-  }
-  if (band === "moderate") {
-    return "This reading led, but a neighboring fit stayed visible. Read the fork language as part of the result.";
-  }
-  return "This reading is lighter and more exploratory. Use the nearby fits and Start Here panel as orientation while you test what feels natural.";
-}
-
-function buildSignalStrengthCardHtml({ dossier, result }) {
-  const activeMatch = matchForFaction(result, dossier?.targetFactionKey) || matchForFaction(result, result?.faction) || null;
-  const confidence = Number(activeMatch?.confidence || result?.confidence || 0);
-  const percent = Math.round(confidence * 100);
-  const band = readingSignalBand(confidence);
-  const meterWidth = Math.max(10, Math.min(100, percent || 0));
+function buildResultStateCardHtml({ result }) {
+  const state = deriveGateAResultState({
+    result,
+    placementModel: APP_STATE.placementModel,
+    factions: APP_STATE.factions,
+  });
+  const [label, copy] = gateAStatePresentation(state);
   return `
-    <div class="starter-card signal-strength-card" data-signal-band="${escapeAttributeValue(band)}">
-      <div class="starter-title">Signal Strength</div>
-      <div class="signal-strength-readout">
-        <strong>${escapeHtml(band.charAt(0).toUpperCase() + band.slice(1))}</strong>
-        <span>${escapeHtml(confidencePercent(confidence))}</span>
-      </div>
-      <div class="signal-strength-meter" aria-hidden="true">
-        <span style="width:${meterWidth}%"></span>
-      </div>
-      <div class="signal-strength-scale" aria-hidden="true">
-        <span class="${band === "emerging" ? "is-active" : ""}">Emerging</span>
-        <span class="${band === "moderate" ? "is-active" : ""}">Moderate</span>
-        <span class="${band === "strong" ? "is-active" : ""}">Strong</span>
-      </div>
-      <div class="starter-copy">${escapeHtml(readingSignalMeaning({ band, dossier }))}</div>
+    <div class="starter-card result-state-card" data-result-state="${escapeAttributeValue(state)}">
+      <div class="starter-title">${escapeHtml(label)}</div>
+      <div class="starter-copy">${escapeHtml(copy)}</div>
     </div>`;
 }
 
@@ -1045,12 +1012,17 @@ function getStarterProfile() {
  * Finalizes the adaptive quick reading, stores the normalized result locally, and opens the dossier.
  */
 function finalizeQuickReading() {
-  const result = buildAdaptivePlacementResult({
+  const rawResult = buildAdaptivePlacementResult({
     state: APP_STATE.adaptiveState,
     model: APP_STATE.placementModel,
     factions: APP_STATE.factions,
     starterProfile: getStarterProfile(),
     version: RESULT_VERSION,
+  });
+  const result = withGateAPublicState({
+    result: rawResult,
+    placementModel: APP_STATE.placementModel,
+    factions: APP_STATE.factions,
   });
 
   APP_STATE.activeResult = result;
@@ -1195,24 +1167,43 @@ async function submitInterview() {
  */
 function revealDecree(result) {
   return new Promise((resolve) => {
+    const publicResult = withGateAPublicState({
+      result,
+      placementModel: APP_STATE.placementModel,
+      factions: APP_STATE.factions,
+    });
+    const state = publicResult.result_state;
+    const [stateLabel, stateCopy] = gateAStatePresentation(state);
+    const suppressNamedIdentity = ["mixed", "contradictory", "insufficient", "invalid", "incomplete"].includes(state);
+    const closeAlternative = closeAlternativeForResult(publicResult, APP_STATE.placementModel, APP_STATE.factions);
+    const tiedMatch = state === "tied" ? publicResult.top_matches?.[1] : null;
     const decree = document.getElementById("decree-container");
     const rule = document.getElementById("decree-rule");
-    const faction = getFaction(result.faction) || {};
+    const faction = getFaction(publicResult.faction) || {};
 
-    APP_STATE.activeResult = result;
-    APP_STATE.activeViewKey = result.faction;
+    APP_STATE.activeResult = publicResult;
+    APP_STATE.activeViewKey = publicResult.faction;
     APP_STATE.resultSource = "interview";
     APP_STATE.returnSection = "interview";
-    vm_cachePlacementResult(result);
+    vm_cachePlacementResult(publicResult);
 
     setTimeout(() => {
       document.getElementById("terminal-output").style.opacity = "0.4";
-      document.getElementById("decree-title").textContent = result.faction_name || result.faction || "Unbound Order";
-      document.getElementById("decree-tagline").textContent = faction.tagline || "The scrying glass has spoken.";
-      document.getElementById("decree-text").textContent = result.decree || "The decree remains unwritten.";
-      document.getElementById("decree-runner").textContent =
-        result.adjacent_matches?.[0]?.faction_name
-          ? `The reading also noted an affinity for ${result.adjacent_matches[0].faction_name}.`
+      document.getElementById("decree-title").textContent = suppressNamedIdentity
+        ? stateLabel
+        : state === "tied"
+        ? `Tied: ${publicResult.faction_name || publicResult.faction} and ${tiedMatch?.faction_name || tiedMatch?.faction}`
+        : `Current best fit: ${publicResult.faction_name || publicResult.faction || "Unbound Order"}`;
+      document.getElementById("decree-tagline").textContent = "Adaptive weighted reading";
+      document.getElementById("decree-text").textContent = suppressNamedIdentity
+        ? stateCopy
+        : "This result describes how your recorded answers contributed to the current ranking; it is not a calibrated measure of accuracy.";
+      document.getElementById("decree-runner").textContent = suppressNamedIdentity
+        ? ""
+        : tiedMatch
+        ? "The current scoring did not separate these two co-leaders."
+        : closeAlternative
+          ? `Close alternative: ${closeAlternative.match.faction_name || closeAlternative.match.faction}. Close is relative within this reading, not a confidence percentage.`
           : "";
       rule.style.background = faction.accent || "var(--gold-d)";
       decree.classList.add("visible");
@@ -2074,14 +2065,17 @@ function buildPlacementSnapshotHtml({ dossier }) {
   const whereThisLeads = summary.whereThisLeads || {};
   const playPattern = summary.playPattern || {};
 
+  const alternativeCard = summary.adjacentFit ? `
+      <div class="dossier-snapshot-card dossier-snapshot-card--adjacent" data-summary-card="adjacent-fit" data-signal-band="${escapeAttributeValue(adjacentFit.signalBand || "close")}">
+        <span>${escapeHtml(adjacentFit.label || "Close alternative")}</span>
+        <strong>${escapeHtml(adjacentFit.heading || adjacentFit.targetName || "Alternative path")}</strong>
+        <div class="dossier-snapshot-signal">${escapeHtml(adjacentFit.signalLabel || "Close is relative within this reading, not a confidence percentage.")}</div>
+        <div class="dossier-snapshot-copy">${escapeHtml(adjacentFit.relationshipCopy || "This path received direct support from the same recorded answers.")}</div>
+      </div>` : "";
+
   return `
     <div class="dossier-snapshot" aria-label="Result summary strip">
-      <div class="dossier-snapshot-card dossier-snapshot-card--adjacent" data-summary-card="adjacent-fit" data-signal-band="${escapeAttributeValue(adjacentFit.signalBand || "related")}">
-        <span>${escapeHtml(adjacentFit.label || "Adjacent fit")}</span>
-        <strong>${escapeHtml(adjacentFit.heading || adjacentFit.targetName || "Related path")}</strong>
-        <div class="dossier-snapshot-signal">${escapeHtml(adjacentFit.signalLabel || "Related adjacent signal")}</div>
-        <div class="dossier-snapshot-copy">${escapeHtml(adjacentFit.relationshipCopy || "A neighboring path stayed close enough to be worth comparing.")}</div>
-      </div>
+      ${alternativeCard}
       <div class="dossier-snapshot-card dossier-snapshot-card--narrative" data-summary-card="where-this-leads">
         <span>${escapeHtml(whereThisLeads.label || "Where this leads")}</span>
         <strong>${escapeHtml(whereThisLeads.heading || "Commander direction")}</strong>
@@ -2510,10 +2504,10 @@ function buildDiscoverySummaryHtml({ dossier, faction, result }) {
       <div class="section-label">The Shape of the Reading</div>
       <div class="starter-grid">
         <div class="starter-card starter-card-wide">
-          <div class="starter-title">${escapeHtml(dossier.isPrimary ? `Why ${faction.name} Rose First` : `${faction.name} As Adjacent Fit`)}</div>
+          <div class="starter-title">${escapeHtml(dossier.isPrimary ? `Why ${faction.name} Is the Current Best Fit` : `Comparing ${faction.name}`)}</div>
           <div class="starter-copy">${escapeHtml(signalCopy)}</div>
         </div>
-        ${buildSignalStrengthCardHtml({ dossier, result })}
+        ${buildResultStateCardHtml({ result })}
       </div>
     </div>`;
 }
@@ -2544,7 +2538,7 @@ function buildDossierInterpretationHtml({ dossier, faction, result, tagRefs }) {
       <div class="starter-grid">${buildHowThisPlaysCardHtml(faction)}</div>
     </div>
     <div class="starter-section">
-      <div class="section-label">Why This Fits You</div>
+      <div class="section-label">Why This Fit Was Ranked Here</div>
       <div class="starter-grid">${buildTagExplanationCards(tagRefs, faction, 3)}</div>
     </div>`;
 }
@@ -2740,6 +2734,35 @@ function shouldDisableResultCardArt() {
   return globalThis.__vmVisualRegressionDisableCardArt === true;
 }
 
+function renderBoundedResultShell(result, state) {
+  const [heading, copy] = gateAStatePresentation(state);
+  const identityName = state === "unknown"
+    ? result?.faction_name || getFaction(result?.faction)?.name || result?.faction
+    : "";
+  const legacyCopy = state === "unknown" && identityName
+    ? `Legacy reading — ${identityName} was saved, but answer/evidence detail is unavailable.`
+    : copy;
+  const continueAction = state === "incomplete"
+    ? `<button class="btn-primary" type="button" ${buildActionAttrs("show-section", { section: "quick" })}>Continue</button>`
+    : "";
+  document.getElementById("result-inner").innerHTML = `
+    <div class="empty-state bounded-result-shell" data-result-state="${escapeAttributeValue(state)}">
+      <h2>${escapeHtml(heading)}</h2>
+      <p>${escapeHtml(legacyCopy)}</p>
+      ${state === "mixed" || state === "contradictory"
+        ? "<p>Explore more than one Commander path, or retake when you want a fresh reading. No identity-specific recommendation is being inferred here.</p>"
+        : ""}
+      <div class="landing-actions" style="justify-content:center;margin-top:1.5rem">
+        ${continueAction}
+        <button class="btn-secondary" type="button" ${buildActionAttrs("start-quick-flow")}>Restart</button>
+      </div>
+    </div>`;
+  APP_STATE.activeResult = result;
+  APP_STATE.activeViewKey = result?.faction || null;
+  showSection("result");
+  updateTopbar();
+}
+
 /**
  * Renders the main dossier view for the active placement result.
  *
@@ -2747,12 +2770,29 @@ function shouldDisableResultCardArt() {
  */
 function renderResult(viewKey) {
   const context = getActiveResultContext();
-  const result = context.result;
-  const activeKey = viewKey || context.viewKey;
+  const result = withGateAPublicState({
+    result: context.result,
+    placementModel: APP_STATE.placementModel,
+    factions: APP_STATE.factions,
+  });
+  const resultState = deriveGateAResultState({
+    result,
+    placementModel: APP_STATE.placementModel,
+    factions: APP_STATE.factions,
+  });
+  const closeAlternative = closeAlternativeForResult(result, APP_STATE.placementModel, APP_STATE.factions);
+  const tiedAlternative = resultState === "tied" ? result?.top_matches?.[1] : null;
+  const requestedKey = viewKey || context.viewKey;
+  const allowedAlternativeKeys = new Set([
+    result?.faction,
+    closeAlternative?.match?.faction,
+    tiedAlternative?.faction,
+  ].filter(Boolean));
+  const activeKey = allowedAlternativeKeys.has(requestedKey) ? requestedKey : result?.faction;
   const terminalEnabled = isScryingTerminalEnabled();
   destroyDossierManaRadar();
 
-  if (!result || !activeKey) {
+  if (!result) {
     document.getElementById("result-inner").innerHTML = `
       <div class="empty-state">
         <h2>No reading yet.</h2>
@@ -2765,6 +2805,19 @@ function renderResult(viewKey) {
     updateTopbar();
     return;
   }
+
+  if (["mixed", "contradictory", "insufficient", "invalid", "incomplete"].includes(resultState)) {
+    renderBoundedResultShell(result, resultState);
+    return;
+  }
+
+  if (!activeKey) {
+    renderBoundedResultShell(result, "invalid");
+    return;
+  }
+
+  APP_STATE.activeResult = result;
+  vm_cachePlacementResult(result);
 
   const starterProfile = result.starter_profile || getStarterProfile();
   const dossier = buildCommanderDossier({
@@ -2906,20 +2959,19 @@ function renderResult(viewKey) {
               <div class="adjacent-label">${fit.world}</div>
               <div class="adjacent-name">${fit.name}</div>
               <div class="adjacent-copy">${fit.reason || fit.tagline}</div>
+              <div class="adjacent-copy">${resultState === "tied" ? "The current scoring did not separate these co-leaders." : "Close is relative within this reading, not a confidence percentage."}</div>
               <div class="adjacent-actions">
-                <button class="adjacent-btn" type="button" ${buildActionAttrs("switch-adjacent-view", { viewKey: fit.factionKey })}>View this fit</button>
+                <button class="adjacent-btn" type="button" ${buildActionAttrs("switch-adjacent-view", { viewKey: fit.factionKey })}>${resultState === "tied" ? "Compare this co-leader" : "Compare this alternative"}</button>
               </div>
             </div>`;
         })
         .join("")
-    : terminalEnabled
-      ? `<div class="adjacent-card"><div class="adjacent-name">No adjacent fits saved yet.</div><div class="adjacent-copy">Retake or use the Scrying Terminal to generate a fuller read.</div></div>`
-      : `<div class="adjacent-card"><div class="adjacent-name">No adjacent fits saved yet.</div><div class="adjacent-copy">Retake the quick reading to generate a fuller read.</div></div>`;
-  const adjacentSectionHtml = `
+    : "";
+  const adjacentSectionHtml = adjacentHtml ? `
     <div class="adjacent-section" id="adjacent-fits">
-      <div class="section-label">Adjacent Fits</div>
+      <div class="section-label">${resultState === "tied" ? "Co-leaders" : "Close alternative"}</div>
       <div class="adjacent-grid">${adjacentHtml}</div>
-    </div>`;
+    </div>` : "";
   const resultStatus = dossier.resultStatus;
   const resultStatusHtml = `
     <div class="result-status">
@@ -2927,7 +2979,7 @@ function renderResult(viewKey) {
       ${SESSION.username ? ` Saved under ${escapeHtml(SESSION.username)}.` : ""}
     </div>`;
   const returnToPrimaryButton = !isPrimary
-    ? `<div class="footer-button-row"><button class="btn-secondary" type="button" ${buildActionAttrs("return-primary-reading")}>Back to Primary Reading</button></div>`
+    ? `<div class="footer-button-row"><button class="btn-secondary" type="button" ${buildActionAttrs("return-primary-reading")}>Back to original reading</button></div>`
     : "";
 
   const saveButtonLabel = SESSION.username ? "Save this reading" : "Save with Google";
@@ -2992,6 +3044,12 @@ function renderResult(viewKey) {
   if (!hasStarterCardReferences) {
     hiddenDossierPanelIds.push("starter-cards");
   }
+  if (!adjacentSectionHtml) {
+    hiddenDossierPanelIds.push("adjacent");
+  }
+  if (resultState === "unknown") {
+    hiddenDossierPanelIds.push("start", "why", "commander-deck-starts", "decks-saved", "starter-cards", "mana-base");
+  }
   APP_STATE.hiddenDossierPanelIds = new Set(hiddenDossierPanelIds);
   APP_STATE.dossierAvailableSegments = {
     "starter-cards": starterCardSegments,
@@ -3012,8 +3070,24 @@ function renderResult(viewKey) {
   APP_STATE.dossierSegments["mana-base"] = manaBaseSegment;
   const placementSnapshotHtml = buildPlacementSnapshotHtml({ dossier, faction, commanderLane });
   const utilityActionsHtml = buildDossierUtilityActionsHtml({ isPrimary, layoutMode });
+  const primaryName = result.faction_name || getFaction(result.faction)?.name || result.faction;
+  const alternativeName = (tiedAlternative || closeAlternative?.match)?.faction_name ||
+    getFaction((tiedAlternative || closeAlternative?.match)?.faction)?.name ||
+    (tiedAlternative || closeAlternative?.match)?.faction;
+  const stateHeading = resultState === "tied"
+    ? `This reading ended tied: ${primaryName} and ${alternativeName}`
+    : resultState === "close"
+      ? `Close result: ${primaryName}, with ${alternativeName} also supported`
+      : resultState === "unknown"
+        ? "Legacy reading — evidence detail unavailable"
+        : `Current best fit: ${primaryName}`;
   const placementPanelHtml = `
     ${adjacentContextHtml}
+    <div class="result-state-banner" data-result-state="${escapeAttributeValue(resultState)}">
+      <strong>${escapeHtml(stateHeading)}</strong>
+      <span>${escapeHtml(gateAStatePresentation(resultState)[1])}</span>
+    </div>
+    ${resultState === "unknown" ? `<div class="result-limitation-notice" role="note">Legacy reading — ${escapeHtml(faction.name)} was saved, but answer/evidence detail is unavailable. Matrix content is identity context, not reconfirmation of the placement. Retake the reading if you want an answer-grounded result.</div>` : ""}
     ${resultStatusHtml}
     ${returnToPrimaryButton}
     ${renderDossierRadarSection({ result, faction, dossier, flavorSnippets: matrixFlavorSnippets, identityLayers: APP_STATE.identityLayers })}
@@ -3023,13 +3097,14 @@ function renderResult(viewKey) {
     ${evidenceHtml ? `
       <div class="starter-section">
         <div class="section-label">Signals From Your Answers</div>
-        <p class="signals-intro">These are answer patterns that kept nudging this placement forward. Use them as a sanity check: if these signals match the Commander game you want to play, the reading is probably pointing in a useful direction.</p>
+        <p class="signals-intro">Each card names a recorded answer, the bounded observation authored for it, and how that signal affected this identity. These contributions explain the current ranking; they do not prove personality, motivation, deck behavior, table perception, or accuracy.</p>
         <div class="starter-grid">${evidenceHtml}</div>
       </div>` : ""}
     ${flavorEchoesHtml}`;
   const startPanelHtml = `
     <div class="starter-section">
       <div class="section-label">Start Here</div>
+      <p class="signals-intro">These are identity-appropriate Commander exploration paths, not proof that this placement or any particular commander is correct for you.</p>
       <div class="starter-grid starter-grid-start">
         <div class="starter-card starter-card-wide">
           <div class="starter-title">${commanderLane.title}</div>
@@ -3137,7 +3212,7 @@ function renderResult(viewKey) {
     { id: "placement", content: placementPanelHtml },
     { id: "start", content: startPanelHtml },
     { id: "why", content: whyPanelHtml },
-    { id: "adjacent", content: adjacentSectionHtml },
+    adjacentSectionHtml ? { id: "adjacent", content: adjacentSectionHtml } : null,
     { id: "commander-deck-starts", content: deckStartsPanelHtml },
     ACCOUNT_DECK_LINKS_ENABLED ? { id: "decks-saved", content: accountDeckLinksPanelHtml } : null,
     hasStarterCardReferences ? { id: "starter-cards", content: starterCardsPanelHtml } : null,
@@ -3152,7 +3227,9 @@ function renderResult(viewKey) {
 
   document.getElementById("result-inner").innerHTML = `
     <div class="guild-banner" data-faction-key="${escapeHtml(faction.key || "")}" data-hero-background="${heroBannerImageSlugForFaction(faction) ? "identity-image" : "banner"}" style="background:${heroBannerBackgroundForFaction(faction)}">
-      <div class="guild-eyebrow">${isPrimary ? `Your ${institutionLabel}` : `Adjacent ${institutionLabel} Fit`}</div>
+      <div class="guild-eyebrow">${isPrimary
+        ? resultState === "tied" ? `Co-leader · ${institutionLabel}` : `Current best fit · ${institutionLabel}`
+        : resultState === "tied" ? `Comparing co-leader · ${institutionLabel}` : `Comparing close alternative · ${institutionLabel}`}</div>
       <div class="guild-name" style="color:${faction.accent}">${faction.name}</div>
       <div class="guild-tagline">${faction.tagline}</div>
       <div class="mana-pips">${pipsHtml}</div>

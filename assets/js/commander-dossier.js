@@ -1000,7 +1000,7 @@ export const COMMANDER_FACTION_GUIDANCE = {
 };
 
 const SUMMARY_STRIP_LABELS = Object.freeze({
-  adjacentFit: "Adjacent fit",
+  adjacentFit: "Close alternative",
   whereThisLeads: "Where this leads",
   playPattern: "Play pattern",
 });
@@ -1527,6 +1527,13 @@ function evidenceSupportForFaction(evidenceTrail = [], factionKey) {
     .filter((entry) => entry?.deltas?.some((delta) => delta.faction === factionKey && delta.delta > 0))
     .map((entry) => entry.signal || entry.answer_title)
     .filter(Boolean);
+}
+
+function evidenceDeltaForFaction(entry, factionKey) {
+  if (Array.isArray(entry?.deltas)) {
+    return Number(entry.deltas.find((delta) => delta?.faction === factionKey)?.delta || 0);
+  }
+  return Number(entry?.deltas?.[factionKey] || 0);
 }
 
 function toPlainEvidencePhrases(signals = []) {
@@ -2208,35 +2215,21 @@ export function buildReadingOmens({
   limit = 4,
 } = {}) {
   const activeKey = String(activeFactionKey || "").toUpperCase();
-  const sourceEntries = (evidenceTrail || [])
+  void factions;
+  return (evidenceTrail || [])
+    .filter((entry) => evidenceDeltaForFaction(entry, activeKey) !== 0)
     .slice(-limit)
-    .map((entry, index) => ({ entry, index }));
-  const omens = sourceEntries
-    .map(({ entry, index }) => {
-      const answerTitle = entry?.answer_title || "A table choice";
-      const names = positiveFactionNames(entry, factions, activeFactionKey);
-      const echo = names.length
-        ? ` It ${names.length > 1 ? "echoed" : "was answered by"} ${names.join(" and ")}.`
-        : "";
-      const copy = activeKey === "COLORLESS"
-        ? colorlessOmenCopy(entry)
-        : `${omenPhraseForEntry(entry)}${echo}`;
-
+    .map((entry, index) => {
+      const answerTitle = entry?.answer_title || "A recorded answer";
+      const delta = evidenceDeltaForFaction(entry, activeKey);
+      const observation = entry?.signal || "an authored placement signal";
+      const direction = delta > 0 ? "contributed support toward" : "counted against";
       return {
-        title: `Signal ${index + 1}`,
+        title: `Recorded signal ${index + 1}`,
         answerTitle,
-        copy,
+        copy: `You selected “${answerTitle}.” The model recorded ${observation}, which ${direction} this identity. That contribution does not prove your personality, motivation, deck behavior, or how a table will perceive you.`,
       };
     });
-  if (activeKey !== "COLORLESS") return omens;
-
-  const seen = new Set();
-  return omens.filter((omen) => {
-    const key = normalizeDisplayName(`${omen.answerTitle} ${omen.copy}`);
-    if (!key || seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  }).map((omen, index) => ({ ...omen, title: `Signal ${index + 1}` }));
 }
 
 function colorlessOmenCopy(entry = {}) {
@@ -2445,28 +2438,31 @@ function buildManaAlignment(placementResult = {}) {
   }));
 }
 
-function adjacentFitsForResult({ result, factions, primaryFaction, placementModel, activeKey, isPrimary }) {
-  return (result?.adjacent_matches || [])
+function adjacentFitsForResult({ result, factions, activeKey, isPrimary }) {
+  const publicMatches = result?.alternative_state === "co-leader"
+    ? (result?.top_matches || []).slice(1, 2)
+    : result?.alternative_state === "close"
+      ? (result?.adjacent_matches || []).slice(0, 1)
+      : [];
+  return publicMatches
     .filter((match) => isPrimary || match.faction !== activeKey)
     .map((match) => {
       const matchFaction = factions?.[match.faction];
       if (!matchFaction) {
         return null;
       }
-      const modelFaction = placementModel?.factions?.[match.faction] || null;
+      const directEvidence = (result?.evidence_trail || []).find(
+        (entry) => evidenceDeltaForFaction(entry, match.faction) > 0
+      );
       return {
         factionKey: match.faction,
         name: matchFaction.name,
         tagline: matchFaction.tagline,
         institutionType: matchFaction.institution_type,
         world: matchFaction.world,
-        reason: explainAdjacentFit({
-          match,
-          matchFaction,
-          primaryFaction,
-          placementResult: result,
-          modelFaction,
-        }) || match.reason || matchFaction.tagline,
+        reason: result?.alternative_state === "co-leader"
+          ? "The current scoring did not separate this identity from the stored primary. It is a co-leader, not an adjacent identity."
+          : `You selected “${directEvidence?.answer_title || "a recorded answer"}.” The authored model recorded ${directEvidence?.signal || "a supporting signal"} for ${matchFaction.name}. It stayed close under this reading's relative comparison rule; this does not prove semantic adjacency or placement accuracy.`,
       };
     })
     .filter(Boolean);
@@ -2505,16 +2501,7 @@ function buildDossierReadingOmens({ placementResult, factions, activeKey, factio
     factions,
     activeFactionKey: activeKey,
   });
-  if (omens.length > 1) {
-    return omens;
-  }
-  if (omens.length === 1) {
-    return [...omens, fallbackAdjacentOmen(faction, guidance, reasonItStayedClose, 2)];
-  }
-  return [
-    fallbackAdjacentOmen(faction, guidance, reasonItStayedClose, 1),
-    fallbackAdjacentOmen(faction, guidance, reasonItStayedClose, 2),
-  ];
+  return omens;
 }
 
 function buildAdjacentReason({ adjacentReason, activeMatch, faction, primaryFaction, placementResult, placementModel, activeKey }) {
@@ -2522,21 +2509,15 @@ function buildAdjacentReason({ adjacentReason, activeMatch, faction, primaryFact
     return adjacentReason;
   }
 
-  const explained = explainAdjacentFit({
-    match: activeMatch || { faction: activeKey },
-    matchFaction: faction,
-    primaryFaction,
-    placementResult,
-    modelFaction: placementModel?.factions?.[activeKey] || null,
-  });
-
-  if (explained) {
-    return explained;
-  }
-
-  const guidance = getCommanderFactionGuidance(faction);
-  const targetThemes = (guidance?.ownedThemes || []).slice(0, 4).join(", ");
-  return `${faction.name} stayed close to the same reading because it can translate those choices into ${targetThemes || "a neighboring Commander plan"}.`;
+  void activeMatch;
+  void primaryFaction;
+  void placementModel;
+  const evidence = (placementResult?.evidence_trail || []).find(
+    (entry) => evidenceDeltaForFaction(entry, activeKey) > 0
+  );
+  return evidence
+    ? `You selected “${evidence.answer_title || "a recorded answer"}.” The authored model recorded ${evidence.signal || "a supporting signal"} for ${faction.name}. This view compares that contribution without replacing or rescoring the original reading.`
+    : `${faction.name} is retained only as an internal ranked result; no direct positive answer trace is available for a public alternative claim.`;
 }
 
 function summaryStripOverride(key) {
@@ -2772,11 +2753,18 @@ export function resolveSummaryAdjacentFit({
   reasonItStayedClose = "",
   buildContrastCopy = null,
 } = {}) {
-  const activeFactionRecord = activeFaction?.record || activeFaction || factions?.[activeKey] || null;
-  const primaryFactionRecord = primaryFaction?.record || primaryFaction || factions?.[primaryKey] || activeFactionRecord || null;
-  const override = summaryStripOverride(activeKey);
-  const fallback = summaryStripFallback(activeKey);
-  const adjacentMatches = placementResult?.adjacent_matches || [];
+  void placementModel;
+  void activeFaction;
+  void primaryFaction;
+  const adjacentMatches = placementResult?.alternative_state === "co-leader"
+    ? (placementResult?.top_matches || []).slice(1, 2)
+    : placementResult?.alternative_state === "close"
+      ? (placementResult?.adjacent_matches || []).slice(0, 1)
+      : [];
+
+  if (!adjacentMatches.length && isPrimary) {
+    return null;
+  }
 
   let targetMatch = null;
   if (isPrimary) {
@@ -2785,68 +2773,30 @@ export function resolveSummaryAdjacentFit({
     targetMatch = activeMatchForResult(placementResult, primaryKey);
   }
 
-  if (!targetMatch) {
-    targetMatch = adjacentMatches
-      .filter((match) => match?.faction && match.faction !== activeKey)
-      .sort((left, right) =>
-        Number(left?.rank || Number.MAX_SAFE_INTEGER) - Number(right?.rank || Number.MAX_SAFE_INTEGER) ||
-        Number(right?.confidence || 0) - Number(left?.confidence || 0) ||
-        Number(right?.score || 0) - Number(left?.score || 0)
-      )[0] || null;
-  }
+  if (!targetMatch) return null;
 
   let targetKey = String(targetMatch?.faction || "").toUpperCase();
-  if (!targetKey || targetKey === activeKey) {
-    targetKey = String(
-      override?.adjacentTargetKey ||
-      (primaryKey && primaryKey !== activeKey ? primaryKey : "") ||
-      selectColorFallbackAdjacentKey({ activeKey, activeFaction: activeFactionRecord, factions })
-    ).toUpperCase();
-  }
-  if (!targetKey || targetKey === activeKey) {
-    targetKey = String(fallback?.adjacentTargetKey || "").toUpperCase();
-  }
+  if (!targetKey || targetKey === activeKey) return null;
 
   const targetFaction = factions?.[targetKey] || null;
-  const targetName = targetFaction?.name || targetMatch?.faction_name || override?.adjacentTargetName || targetKey || "Related path";
-  const signal = resolveSignalBand(targetMatch?.confidence);
-  const modelFaction = targetKey ? placementModel?.factions?.[targetKey] || null : null;
-  const contrastCopy = typeof buildContrastCopy === "function" && primaryFactionRecord && activeFactionRecord
-    ? (isPrimary
-        ? buildContrastCopy(activeFactionRecord, targetFaction || targetMatch || { key: targetKey, name: targetName })
-        : buildContrastCopy(primaryFactionRecord, activeFactionRecord))
-    : "";
-  const explainedCopy = targetKey && targetKey !== activeKey && targetFaction
-    ? explainAdjacentFit({
-        match: targetMatch || { faction: targetKey },
-        matchFaction: targetFaction,
-        primaryFaction: primaryFactionRecord || activeFactionRecord || targetFaction,
-        placementResult,
-        modelFaction,
-      })
-    : "";
-  const relationshipCopy = [
-    isGenericContrastCopy(contrastCopy) ? "" : contrastCopy,
-    isPrimary ? explainedCopy : reasonItStayedClose,
-    targetMatch?.reason,
-    buildAdjacentFallbackCopy({
-      activeFaction: activeFactionRecord,
-      targetName,
-      isPrimary,
-      fallback,
-    }),
-  ].map(compactSentence).find(hasUsableSummaryText) || buildAdjacentFallbackCopy({
-    activeFaction: activeFactionRecord,
-    targetName,
-    isPrimary,
-    fallback,
-  });
+  const targetName = targetFaction?.name || targetMatch?.faction_name || targetKey || "Related path";
+  void buildContrastCopy;
+  const directEvidence = (placementResult?.evidence_trail || []).find(
+    (entry) => evidenceDeltaForFaction(entry, targetKey) > 0
+  );
+  const relationshipCopy = placementResult?.alternative_state === "co-leader"
+    ? "The current scoring did not separate this identity from the stored primary. The serialized primary remains unchanged for compatibility."
+    : isPrimary
+      ? `You selected “${directEvidence?.answer_title || "a recorded answer"}.” The authored model recorded ${directEvidence?.signal || "a supporting signal"} for ${targetName}. That contribution does not prove semantic adjacency or placement accuracy.`
+      : reasonItStayedClose;
 
   return {
-    label: SUMMARY_STRIP_LABELS.adjacentFit,
+    label: placementResult?.alternative_state === "co-leader" ? "Co-leader" : "Close alternative",
     heading: targetName,
-    signalBand: signal.signalBand,
-    signalLabel: signal.signalLabel,
+    signalBand: placementResult?.alternative_state === "co-leader" ? "tied" : "close",
+    signalLabel: placementResult?.alternative_state === "co-leader"
+      ? "The current scoring did not separate the leaders."
+      : "Close is relative within this reading, not a confidence percentage.",
     relationshipCopy,
     targetKey: targetKey || "RELATED",
     targetName,
@@ -3041,8 +2991,12 @@ export function buildCommanderDossier({
   const spellcraft = commanderLaneDetail(commanderLane.details, /spellcraft|gameplay/i);
   const tableCautionText = commanderLaneDetail(commanderLane.details, /^Table caution$/i) || guidance?.tableCautionText || "";
   const resultStatus = isPrimary
-    ? `This is your primary ${getExpressionKindLabelLower(faction)} fit.`
-    : "You are viewing an adjacent fit built from the same reading.";
+    ? placementResult?.alternative_state === "co-leader"
+      ? "This identity is one of two co-leaders in the adaptive weighted reading."
+      : "Current best fit in this adaptive weighted reading."
+    : placementResult?.alternative_state === "co-leader"
+      ? "Comparing the other co-leader; the serialized primary, answers, and ranking have not changed."
+      : "Comparing a close alternative with the original reading; the answers and ranking have not changed.";
   const reasonItStayedClose = isPrimary
     ? ""
     : buildAdjacentReason({
@@ -3074,7 +3028,11 @@ export function buildCommanderDossier({
     isPrimary,
     primaryFactionKey: primaryKey,
     targetFactionKey: activeKey,
-    adjacentLabel: isPrimary ? "" : `Adjacent ${getExpressionKindLabel(faction)} Fit`,
+    adjacentLabel: isPrimary
+      ? ""
+      : placementResult?.alternative_state === "co-leader"
+        ? `Co-leader: ${getExpressionKindLabel(faction)}`
+        : `Close alternative: ${getExpressionKindLabel(faction)}`,
     faction: {
       key: activeKey,
       name: faction.name,
@@ -3941,7 +3899,7 @@ export function renderCommanderDossierText(dossier) {
 
   return [
     `# ${faction.name} Commander Dossier`,
-    dossier.isPrimary ? "**Dossier type:** Primary" : `**Dossier type:** Adjacent\n**Adjacent label:** ${dossier.adjacentLabel}\n**Primary result:** ${dossier.primaryFaction?.name || dossier.primaryFactionKey}\n**Reason it stayed close:** ${dossier.reasonItStayedClose}`,
+    dossier.isPrimary ? "**Dossier type:** Current reading" : `**Dossier type:** Comparison\n**Comparison label:** ${dossier.adjacentLabel}\n**Original result:** ${dossier.primaryFaction?.name || dossier.primaryFactionKey}\n**Bounded comparison note:** ${dossier.reasonItStayedClose}`,
     `**Expression name:** ${faction.name}`,
     `**Tagline:** ${faction.tagline}`,
     `**${manaLabel}:** ${mana}`,
@@ -3977,8 +3935,8 @@ export function renderCommanderDossierText(dossier) {
     renderLinkList(dossier.links?.maze) || "- None listed",
     "## Scryfall Package Searches",
     renderLinkList(dossier.links?.scryfall) || "- None listed",
-    dossier.isPrimary ? "## Adjacent Fits" : "## Other Nearby Fits From Your Primary Reading",
-    adjacentFits || "- No adjacent fits listed.",
+    dossier.isPrimary ? "## Close Alternative" : "## Original Reading Comparison",
+    adjacentFits || "- No eligible close alternative is shown.",
   ].filter((part) => part !== "").join("\n\n");
 }
 

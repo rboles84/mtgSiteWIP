@@ -47,7 +47,11 @@ import {
   buildHeroNarrative,
   buildReadingSignalCopy,
   buildTagExplanationSummaries,
+  closeAlternativeForResult,
+  deriveGateAResultState,
+  gateAStatePresentation,
   presentationForFaction,
+  withGateAPublicState,
   withArchscryMazeContext,
 } from "./archscry-presentation.js";
 import {
@@ -100,10 +104,6 @@ function assertSummaryStripComplete(strip, context) {
   assert.ok(strip, `expected ${context} to expose a resultSummaryStrip`);
 
   const fields = [
-    ["adjacent label", strip.adjacentFit?.label],
-    ["adjacent heading", strip.adjacentFit?.heading],
-    ["adjacent relationship copy", strip.adjacentFit?.relationshipCopy],
-    ["adjacent target name", strip.adjacentFit?.targetName],
     ["direction label", strip.whereThisLeads?.label],
     ["direction heading", strip.whereThisLeads?.heading],
     ["direction body", strip.whereThisLeads?.body],
@@ -111,6 +111,15 @@ function assertSummaryStripComplete(strip, context) {
     ["play-pattern heading", strip.playPattern?.heading],
     ["play-pattern body", strip.playPattern?.body],
   ];
+
+  if (strip.adjacentFit) {
+    fields.unshift(
+      ["close-alternative label", strip.adjacentFit.label],
+      ["close-alternative heading", strip.adjacentFit.heading],
+      ["close-alternative relationship copy", strip.adjacentFit.relationshipCopy],
+      ["close-alternative target name", strip.adjacentFit.targetName]
+    );
+  }
 
   fields.forEach(([label, value]) => {
     assert.ok(String(value || "").trim(), `expected ${context} ${label} to be nonempty`);
@@ -1810,12 +1819,12 @@ assert.doesNotMatch(
 const bantHeroNarrative = buildHeroNarrative({
   dossier: { isPrimary: true, targetFactionKey: "BANT" },
   faction: factions.BANT,
-  result: { faction: "BANT", adjacent_matches: [{ faction: "WU", confidence: 0.4 }] },
+  result: { faction: "BANT", alternative_state: "close", adjacent_matches: [{ faction: "WU", confidence: 0.4 }] },
   factions,
 });
-assert.match(bantHeroNarrative, /Azorius Senate stayed close/);
-assert.match(bantHeroNarrative, /one protected champion, refined support, living order, and communal trust/i);
-assert.doesNotMatch(bantHeroNarrative, /recognizable Commander table role|playable pattern|personality label|Exact WUG/i);
+assert.match(bantHeroNarrative, /Azorius Senate also received direct support/);
+assert.match(bantHeroNarrative, /not a second diagnosis or semantic-adjacency claim/i);
+assert.doesNotMatch(bantHeroNarrative, /confidence|accuracy|recognizable Commander table role|personality label|Exact WUG/i);
 
 const bantCommanderLane = buildCommanderStartingLane({
   faction: factions.BANT,
@@ -2025,11 +2034,11 @@ assert.doesNotMatch(
 const jundHeroNarrative = buildHeroNarrative({
   dossier: { isPrimary: true, targetFactionKey: "JUND" },
   faction: factions.JUND,
-  result: { faction: "JUND", adjacent_matches: [{ faction: "RG", confidence: 0.4 }] },
+  result: { faction: "JUND", alternative_state: "close", adjacent_matches: [{ faction: "RG", confidence: 0.4 }] },
   factions,
 });
-assert.match(jundHeroNarrative, /Gruul.*stayed close/);
-assert.match(jundHeroNarrative, /pressure becoming visible/);
+assert.match(jundHeroNarrative, /Gruul.*received direct support/);
+assert.match(jundHeroNarrative, /not a second diagnosis or semantic-adjacency claim/);
 assert.doesNotMatch(jundHeroNarrative, /recognizable Commander table role|playable pattern|personality label/i);
 
 const jundCommanderLane = buildCommanderStartingLane({
@@ -2318,11 +2327,11 @@ assert.doesNotMatch(
 const yoreAbzanHero = buildHeroNarrative({
   dossier: { isPrimary: true, targetFactionKey: "YORE" },
   faction: factions.YORE,
-  result: { faction: "YORE", adjacent_matches: [{ faction: "ABZAN", confidence: 0.45 }] },
+  result: { faction: "YORE", alternative_state: "close", adjacent_matches: [{ faction: "ABZAN", confidence: 0.45 }] },
   factions,
 });
-assert.match(yoreAbzanHero, /Yore believes the given world is not the final world/i);
-assert.match(yoreAbzanHero, /Abzan carries the house forward\. Yore rebuilds the limit itself\./i);
+assert.match(yoreAbzanHero, /Abzan.*received direct support/i);
+assert.match(yoreAbzanHero, /not a second diagnosis or semantic-adjacency claim/i);
 assert.doesNotMatch(yoreAbzanHero, /strict false-positive boundaries|Commander expression|support-only|manual-fill|raw packet/i);
 const yoreAbzanFork = buildContrastCopy(factions.YORE, factions.ABZAN);
 assert.match(yoreAbzanFork, /Yore asks: "What limit is worth rebuilding so choice can continue\?"/);
@@ -2333,11 +2342,12 @@ assert.doesNotMatch(yoreAbzanFork, /Commander expression|strict false-positive b
 const yoreSignalCopy = buildReadingSignalCopy({
   dossier: { isPrimary: true, targetFactionKey: "YORE" },
   faction: factions.YORE,
-  result: { faction: "YORE", confidence: 0.63, adjacent_matches: [{ faction: "ABZAN", confidence: 0.45 }] },
+  result: { faction: "YORE", evidence_trail: [{ answer_title: "Rebuild the limit", signal: "engineered agency", deltas: [{ faction: "YORE", delta: 1.2 }] }] },
   factions,
 });
-assert.match(yoreSignalCopy, /Yore constructs the system that lets choice continue/i);
-assert.match(yoreSignalCopy, /refusal to let natural limits become final/i);
+assert.match(yoreSignalCopy, /You selected “Rebuild the limit/);
+assert.match(yoreSignalCopy, /engineered agency toward Yore/i);
+assert.match(yoreSignalCopy, /do not prove personality, motivation, deck behavior/i);
 assert.doesNotMatch(yoreSignalCopy, /Commander expression|strict false-positive boundaries/i);
 const yorePressureSummary = buildTagExplanationSummaries({
   tagRefs: [{ category: "playstyle", tag: "aggro" }],
@@ -2351,7 +2361,7 @@ assert.match(yorePressureSummary[0].meaning, /forcing the table to answer/i);
 const yoreRadarProfile = getDossierRadarProfile({ faction: "YORE" }, factions.YORE, identityLayers);
 assert.deepEqual(yoreRadarProfile.data, [50, 58, 54, 56, 54]);
 assert.equal(yoreRadarProfile.note, globalThis.VMRadar.MATRIX_NOTE);
-assert.match(renderDossierRadarSection({ result: { faction: "YORE" }, faction: factions.YORE, identityLayers }), /This authored identity matrix summarizes/i);
+assert.match(renderDossierRadarSection({ result: { faction: "YORE" }, faction: factions.YORE, identityLayers }), /Authored identity profile across Order, Knowledge, Ambition, Freedom, and Growth; not placement score or confidence/i);
 const temurRadarProfile = getDossierRadarProfile({ faction: "TEMUR" }, factions.TEMUR, identityLayers);
 assert.deepEqual(temurRadarProfile.data, [45, 60, 44, 63, 71]);
 const temurHomeProfile = globalThis.VMRadar.resolveRadarProfile("TEMUR", identityLayers, factions.TEMUR);
@@ -2422,20 +2432,20 @@ assert.doesNotMatch(
 const glintSignalCopy = buildReadingSignalCopy({
   dossier: { isPrimary: true, targetFactionKey: "GLINT" },
   faction: factions.GLINT,
-  result: { faction: "GLINT", confidence: 0.64, adjacent_matches: [{ faction: "TEMUR", confidence: 0.43 }] },
+  result: { faction: "GLINT", evidence_trail: [{ answer_title: "Feed the opening", signal: "adaptive appetite", deltas: [{ faction: "GLINT", delta: 1.1 }] }] },
   factions,
 });
-assert.match(glintSignalCopy, /Glint(?: \/ Chaos)? led with a strong signal/i);
-assert.match(glintSignalCopy, /adaptive appetite, living pressure, and storm-fed growth/i);
+assert.match(glintSignalCopy, /You selected “Feed the opening/);
+assert.match(glintSignalCopy, /adaptive appetite toward Glint/i);
 assert.doesNotMatch(glintSignalCopy, /support-only|manual-fill|raw packet|Commander expression|strict non-White false-positive boundaries|\/ubrg\/|\/glint\//i);
 const glintBlackHero = buildHeroNarrative({
   dossier: { isPrimary: true, targetFactionKey: "GLINT" },
   faction: factions.GLINT,
-  result: { faction: "GLINT", adjacent_matches: [{ faction: "B", confidence: 0.45 }] },
+  result: { faction: "GLINT", alternative_state: "close", adjacent_matches: [{ faction: "B", confidence: 0.45 }] },
   factions,
 });
-assert.match(glintBlackHero, /Black stayed close because your answers also carried cost, agency, and the willingness to spend from the self to keep the choice yours/i);
-assert.match(glintBlackHero, /turns that pressure into a live surge that keeps learning, feeds on the opening, and forces the table to answer/i);
+assert.match(glintBlackHero, /Black.*received direct support/i);
+assert.match(glintBlackHero, /not a second diagnosis or semantic-adjacency claim/i);
 assert.doesNotMatch(glintBlackHero, /turns that pressure into keep the surge alive|Commander expression|strict non-White false-positive boundaries|support-only|manual-fill|raw packet/i);
 const glintBlackFork = buildContrastCopy(factions.GLINT, factions.B);
 assert.match(glintBlackFork, /Glint asks: "What opening is worth feeding before order makes it harmless\?"/);
@@ -2446,11 +2456,11 @@ assert.doesNotMatch(glintBlackFork, /What does this path do with the same tensio
 const glintBlackSignalCopy = buildReadingSignalCopy({
   dossier: { isPrimary: true, targetFactionKey: "GLINT" },
   faction: factions.GLINT,
-  result: { faction: "GLINT", confidence: 0.64, adjacent_matches: [{ faction: "B", confidence: 0.45 }] },
+  result: { faction: "GLINT", evidence_trail: [{ answer_title: "Spend to keep agency", signal: "chosen cost", deltas: [{ faction: "GLINT", delta: 1.1 }] }] },
   factions,
 });
-assert.match(glintBlackSignalCopy, /supporting Black edge stayed close because your answers also carried cost, agency, and the willingness to spend from the self to keep the choice yours/i);
-assert.match(glintBlackSignalCopy, /pressure to keep learning, feeding, and changing before White-style order could make the opening harmless/i);
+assert.match(glintBlackSignalCopy, /You selected “Spend to keep agency/);
+assert.match(glintBlackSignalCopy, /chosen cost toward Glint/i);
 assert.doesNotMatch(glintBlackSignalCopy, /Commander expression|strict non-White false-positive boundaries|turns that pressure into keep the surge alive|support-only|manual-fill|raw packet/i);
 const glintCommanderLane = buildCommanderStartingLane({
   faction: factions.GLINT,
@@ -2494,11 +2504,11 @@ assert.doesNotMatch(
 const duneSignalCopy = buildReadingSignalCopy({
   dossier: { isPrimary: true, targetFactionKey: "DUNE" },
   faction: factions.DUNE,
-  result: { faction: "DUNE", confidence: 0.64, adjacent_matches: [{ faction: "MARDU", confidence: 0.43 }] },
+  result: { faction: "DUNE", evidence_trail: [{ answer_title: "Hold the common front", signal: "organized territorial pressure", deltas: [{ faction: "DUNE", delta: 1.1 }] }] },
   factions,
 });
-assert.match(duneSignalCopy, /Dune(?: \/ Aggression)? led with a strong signal/i);
-assert.match(duneSignalCopy, /organized territorial pressure and common-front force/i);
+assert.match(duneSignalCopy, /You selected “Hold the common front/);
+assert.match(duneSignalCopy, /organized territorial pressure toward Dune/i);
 assert.doesNotMatch(duneSignalCopy, /Aggression as public alias|support-only|manual-fill|raw packet|\/brgw\/|\/wbrg\/|\/dune\//i);
 const duneCommanderLane = buildCommanderStartingLane({
   faction: factions.DUNE,
@@ -2544,7 +2554,9 @@ assert.equal(resolveSignalBand(-0.1).signalBand, "related");
 const yoreSummaryResult = {
   faction: "YORE",
   confidence: 0.63,
+  alternative_state: "close",
   adjacent_matches: [{ faction: "ABZAN", faction_name: "Abzan Houses", confidence: 0.45 }],
+  evidence_trail: [{ answer_title: "Carry the house forward", signal: "inherited continuity", deltas: [{ faction: "ABZAN", delta: 1.1 }] }],
   starter_profile: { budget_band: "mid", experience_level: "returning" },
   identity: { expression_key: "YORE" },
 };
@@ -2590,7 +2602,7 @@ const yorePrimaryAdjacent = resolveSummaryAdjacentFit({
 });
 assert.equal(yorePrimaryAdjacent.targetKey, "ABZAN");
 assert.equal(yorePrimaryAdjacent.targetName, "Abzan Houses");
-assert.equal(yorePrimaryAdjacent.signalBand, "moderate");
+assert.equal(yorePrimaryAdjacent.signalBand, "close");
 assert.notEqual(yorePrimaryAdjacent.targetKey, "YORE");
 const yoreSummaryStrip = buildResultSummaryStrip({
   factions,
@@ -2603,14 +2615,17 @@ const yoreSummaryStrip = buildResultSummaryStrip({
   buildContrastCopy,
 });
 assertSummaryStripComplete(yoreSummaryStrip, "Yore summary strip");
-assert.match(yoreSummaryStrip.adjacentFit.relationshipCopy, /Yore asks: "What limit is worth rebuilding so choice can continue\?"/);
+assert.match(yoreSummaryStrip.adjacentFit.relationshipCopy, /You selected “Carry the house forward/);
+assert.match(yoreSummaryStrip.adjacentFit.relationshipCopy, /does not prove semantic adjacency or placement accuracy/);
 assert.equal(yoreSummaryStrip.whereThisLeads.heading, "Rebuild the engine");
 assert.equal(yoreSummaryStrip.playPattern.heading, "Keep agency online");
 
 const glintSummaryResult = {
   faction: "GLINT",
   confidence: 0.64,
+  alternative_state: "close",
   adjacent_matches: [{ faction: "B", faction_name: "Black", confidence: 0.45 }],
+  evidence_trail: [{ answer_title: "Keep the opening live", signal: "chosen cost", deltas: [{ faction: "B", delta: 1.1 }] }],
   starter_profile: { budget_band: "mid", experience_level: "returning" },
   identity: { expression_key: "GLINT" },
 };
@@ -2623,7 +2638,7 @@ const glintSummaryDossier = buildCommanderDossier({
   summaryContrastCopyBuilder: buildContrastCopy,
 });
 assertSummaryStripComplete(glintSummaryDossier.resultSummaryStrip, "Glint dossier summary strip");
-assert.match(glintSummaryDossier.resultSummaryStrip.adjacentFit.relationshipCopy, /Glint asks: "What opening is worth feeding before order makes it harmless\?"/);
+assert.match(glintSummaryDossier.resultSummaryStrip.adjacentFit.relationshipCopy, /You selected “Keep the opening live/);
 assert.equal(glintSummaryDossier.resultSummaryStrip.whereThisLeads.heading, "Feed the opening");
 assert.equal(glintSummaryDossier.resultSummaryStrip.playPattern.heading, "Keep the pressure live");
 
@@ -2632,6 +2647,7 @@ const golgariPrimaryComparison = resolveSummaryAdjacentFit({
   placementModel,
   placementResult: {
     faction: "BG",
+    alternative_state: "close",
     top_matches: [{ faction: "BG", faction_name: "Golgari Swarm", confidence: 0.72 }],
     adjacent_matches: [
       { faction: "UG", faction_name: "Simic Combine", confidence: 0.42 },
@@ -2648,7 +2664,7 @@ const golgariPrimaryComparison = resolveSummaryAdjacentFit({
 });
 assert.equal(golgariPrimaryComparison.targetKey, "BG");
 assert.equal(golgariPrimaryComparison.targetName, "Golgari Swarm");
-assert.equal(golgariPrimaryComparison.signalBand, "strong");
+assert.equal(golgariPrimaryComparison.signalBand, "close");
 assert.notEqual(golgariPrimaryComparison.targetKey, "UG");
 
 });
@@ -2813,10 +2829,11 @@ const omens = buildReadingOmens({
   activeFactionKey: "WU",
 });
 const omenText = omens.map((omen) => `${omen.title} ${omen.answerTitle} ${omen.copy}`).join(" ");
-assert.equal(omens[0].title, "Signal 1");
+assert.equal(omens[0].title, "Recorded signal 1");
 assert.match(omenText, /Follow the process/);
-assert.match(omenText, /echoed|answered by/);
-assert.doesNotMatch(omenText, /Gate|Hall|Crucible|fairness through process|graveyard recursion|reinforced/i);
+assert.match(omenText, /authored|model recorded|contributed support/i);
+assert.match(omenText, /does not prove your personality, motivation, deck behavior/i);
+assert.doesNotMatch(omenText, /Gate|Hall|Crucible|reinforced/i);
 
 const dimirCommanderCandidates = collectCommanderPreviewCandidates(factions.UB);
 assert.ok(dimirCommanderCandidates.some((candidate) => candidate.name === "Lazav, Dimir Mastermind"));
@@ -3780,7 +3797,7 @@ assert.ok(
   "expected WUBRG personalized Maze paths to avoid stale WU or stretch residue"
 );
 
-assert.match(whiteDossier.resultStatus, /primary color fit/i);
+assert.match(whiteDossier.resultStatus, /current best fit.*adaptive weighted reading/i);
 assert.equal(whiteDossier.faction.identity.expression_kind, "color");
 assertMonoBoundaryState("W", whiteGolden);
 assertMonoCommanderOwnership("W", whiteDossier);
@@ -3827,7 +3844,7 @@ const blueDossier = buildCommanderDossier({
   deckTagCatalog,
   placementResult: blueGolden,
 });
-assert.match(blueDossier.resultStatus, /primary color fit/i);
+assert.match(blueDossier.resultStatus, /current best fit.*adaptive weighted reading/i);
 assert.equal(blueDossier.faction.identity.expression_kind, "color");
 assertMonoCommanderOwnership("U", blueDossier);
 assert.match(blueDossier.commanderPath.copy, /knowledge|information|draw|options|control/i);
@@ -3866,7 +3883,7 @@ const blackDossier = buildCommanderDossier({
   deckTagCatalog,
   placementResult: blackGolden,
 });
-assert.match(blackDossier.resultStatus, /primary color fit/i);
+assert.match(blackDossier.resultStatus, /current best fit.*adaptive weighted reading/i);
 assert.equal(blackDossier.faction.identity.expression_kind, "color");
 assertMonoCommanderOwnership("B", blackDossier);
 assert.match(blackDossier.commanderPath.copy, /life|sacrifice|graveyard|resource|cost|shadow/i);
@@ -3908,7 +3925,7 @@ const redDossier = buildCommanderDossier({
   deckTagCatalog,
   placementResult: redGolden,
 });
-assert.match(redDossier.resultStatus, /primary color fit/i);
+assert.match(redDossier.resultStatus, /current best fit.*adaptive weighted reading/i);
 assert.equal(redDossier.faction.identity.expression_kind, "color");
 assertMonoCommanderOwnership("R", redDossier);
 assert.match(redDossier.commanderPath.copy, /damage|burn|haste|impulse|treasure|action|pressure/i);
@@ -3981,7 +3998,7 @@ const greenDossier = buildCommanderDossier({
   deckTagCatalog,
   placementResult: greenGolden,
 });
-assert.match(greenDossier.resultStatus, /primary color fit/i);
+assert.match(greenDossier.resultStatus, /current best fit.*adaptive weighted reading/i);
 assert.equal(greenDossier.faction.identity.expression_kind, "color");
 assertMonoCommanderOwnership("G", greenDossier);
 assert.match(greenDossier.commanderPath.copy, /organic growth|natural scale|ramp|creature/i);
@@ -4014,6 +4031,101 @@ const directPlacement = buildAdaptivePlacementResult({
 });
 assertValidPlacement(directPlacement);
 
+});
+
+await runQuickReadingSection("Gate A Trust Containment States And Compatibility", async () => {
+  const baseResult = {
+    version: "adaptive-placement-v2",
+    model_version: placementModel.version,
+    source_mode: "quick",
+    faction: "W",
+    faction_name: factions.W.name,
+    confidence: 0.42,
+    confidence_gap: 0.2,
+    mana_scores: { W: 30, U: 20, B: 10, R: 5, G: 15 },
+    color_weights: { W: 1 },
+    top_matches: [
+      { rank: 1, faction: "W", faction_name: factions.W.name, score: 4.2, confidence: 0.42 },
+      { rank: 2, faction: "U", faction_name: factions.U.name, score: 3.9, confidence: 0.31 },
+      { rank: 3, faction: "B", faction_name: factions.B.name, score: 3.1, confidence: 0.12 },
+    ],
+    adjacent_matches: [
+      { rank: 2, faction: "U", faction_name: factions.U.name, score: 3.9, confidence: 0.31 },
+      { rank: 3, faction: "B", faction_name: factions.B.name, score: 3.1, confidence: 0.12 },
+    ],
+    evidence_trail: [
+      { answer_title: "Study the pattern", signal: "careful analysis", deltas: [{ faction: "U", delta: 1.1 }] },
+    ],
+    stage_history: [{ stage: "crucible", question_id: "crucible_W_U" }],
+    decree: "Stored decree remains intact.",
+  };
+
+  const primary = withGateAPublicState({ result: baseResult, placementModel, factions });
+  assert.equal(primary.result_state, "primary");
+  assert.equal(primary.confidence, baseResult.confidence);
+  assert.equal(primary.confidence_gap, baseResult.confidence_gap);
+  assert.deepEqual(primary.mana_scores, baseResult.mana_scores);
+  assert.deepEqual(primary.color_weights, baseResult.color_weights);
+  assert.deepEqual(primary.adjacent_matches, baseResult.adjacent_matches);
+  assert.equal(primary.decree, baseResult.decree);
+  assert.equal(primary.model_kind, "adaptive-weighted-scoring");
+  assert.equal(primary.confidence_display_mode, "bounded-state");
+
+  const closeResult = withGateAPublicState({
+    result: { ...baseResult, confidence_gap: placementModel.scoring_rules.crucible_probability_gap },
+    placementModel,
+    factions,
+  });
+  assert.equal(closeResult.result_state, "close");
+  assert.equal(closeResult.alternative_state, "close");
+  assert.equal(closeAlternativeForResult(closeResult, placementModel, factions)?.match?.faction, "U");
+  assert.notEqual(closeAlternativeForResult(closeResult, placementModel, factions)?.match?.faction, "B");
+
+  const noDirectSupport = {
+    ...closeResult,
+    evidence_trail: [{ answer_title: "Hold position", signal: "structure", deltas: [{ faction: "W", delta: 1 }] }],
+    result_state: null,
+  };
+  assert.equal(deriveGateAResultState({ result: noDirectSupport, placementModel, factions }), "primary");
+  assert.equal(closeAlternativeForResult(noDirectSupport, placementModel, factions), null);
+
+  const noCrucible = { ...closeResult, stage_history: [], result_state: null };
+  assert.equal(deriveGateAResultState({ result: noCrucible, placementModel, factions }), "primary");
+
+  const tied = withGateAPublicState({
+    result: {
+      ...baseResult,
+      top_matches: [baseResult.top_matches[0], { ...baseResult.top_matches[1], score: baseResult.top_matches[0].score }],
+    },
+    placementModel,
+    factions,
+  });
+  assert.equal(tied.result_state, "tied");
+  assert.equal(tied.alternative_state, "co-leader");
+  assert.equal(tied.faction, baseResult.faction, "tie presentation must not replace the serialized primary");
+
+  for (const explicitState of ["mixed", "contradictory", "insufficient", "unknown", "invalid", "incomplete"]) {
+    assert.equal(
+      deriveGateAResultState({ result: { ...baseResult, result_state: explicitState }, placementModel, factions }),
+      explicitState
+    );
+    const [label, copy] = gateAStatePresentation(explicitState);
+    assert.ok(label && copy);
+    assert.doesNotMatch(`${label} ${copy}`, /\b\d+(?:\.\d+)?%|Bayesian|probability of correctness/i);
+  }
+
+  assert.equal(
+    deriveGateAResultState({ result: { ...baseResult, source_mode: "legacy", legacy_result: true }, placementModel, factions }),
+    "unknown"
+  );
+  assert.equal(
+    deriveGateAResultState({ result: { ...baseResult, faction: "NOT-A-FACTION" }, placementModel, factions }),
+    "invalid"
+  );
+  assert.equal(
+    deriveGateAResultState({ result: { ...baseResult, top_matches: [] }, placementModel, factions }),
+    "incomplete"
+  );
 });
 
 finishQuickReadingSections();

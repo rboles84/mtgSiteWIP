@@ -1,9 +1,10 @@
 # VM-551 Gate A — Archscry Trust Containment Design
 
-Status: owner-approved for bounded Gate A implementation
+Status: bounded implementation candidate ready for owner visual QA
 Design base: `ec562f268181c9feb042eef9df20777730d64f0f`
-Branch: `codex/vm551-gate-a-trust-containment-design`
-Scope: documentation and implementation planning only
+Approved design: `c6b1c9e6940b67201c8c2f999409a7103ba52b88`
+Implementation branch: `codex/vm551-gate-a-trust-containment-implementation`
+Scope: Gate A public trust containment only; Gate B1 remains excluded
 
 ## Owner approval
 
@@ -50,6 +51,8 @@ Boundary precedence remains unchanged: the bounded MVP plan, requirements tracea
 - [Gate A regression matrix](gate-a-regression-matrix.csv)
 - [Owner decisions](owner-decisions.md)
 - [Implementation slices](implementation-slices.md)
+- [Implementation status and compatibility record](implementation-status.md)
+- [Owner QA record](../../qa/2026-08-01-vm551-gate-a-owner-qa.md)
 
 ## Smallest safe implementation shape
 
@@ -67,4 +70,4 @@ Gate A does not include questionnaire refitting, scoring-authority reconstructio
 
 ## Review gate
 
-Owner review must resolve the decisions in `owner-decisions.md` and approve the bounded heuristics before any production slice or implementation task begins. This design commit does not authorize implementation, implementation task creation, merge, push, deployment, or certification.
+The owner approved `OD-01` through `OD-18`, and the seven bounded slices have been implemented locally. The candidate now stops for owner visual and copy review. Merge, push, deployment, certification, Gate B1 work, and any broader implementation remain unauthorized.

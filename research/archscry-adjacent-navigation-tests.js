@@ -12,7 +12,7 @@ const resultStatusIndex = indexSource.indexOf("const resultStatusHtml =");
 const placementPanelIndex = indexSource.indexOf("const placementPanelHtml =");
 const adjacentPanelIndex = indexSource.indexOf('id: "adjacent", content: adjacentSectionHtml');
 const returnPrimaryActionCount = (indexSource.match(/buildActionAttrs\("return-primary-reading"\)/g) || []).length;
-const returnPrimaryLabelCount = (indexSource.match(/Back to Primary Reading/g) || []).length;
+const returnPrimaryLabelCount = (indexSource.match(/Back to original reading/g) || []).length;
 
 assert.ok(resultStatusIndex >= 0, "expected renderResult to define resultStatusHtml");
 assert.ok(placementPanelIndex >= 0, "expected renderResult to define placementPanelHtml");
@@ -32,7 +32,7 @@ assert.equal(
 assert.equal(
   returnPrimaryLabelCount,
   1,
-  "expected an adjacent dossier render to contain exactly one Back to Primary Reading label"
+  "expected an alternative dossier render to contain exactly one Back to original reading label"
 );
 
 assert.match(
@@ -42,8 +42,8 @@ assert.match(
 );
 assert.match(
   indexSource,
-  /Back to Primary Reading/,
-  "expected the adjacent-fit return button label"
+  /Back to original reading/,
+  "expected the close-alternative return button label"
 );
 assert.match(
   indexSource,

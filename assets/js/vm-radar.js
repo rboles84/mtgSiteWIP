@@ -3,7 +3,7 @@
 
   const SCORE_KEYS = ["order", "knowledge", "ambition", "freedom", "growth"];
   const AXIS_LABELS = ["Order", "Knowledge", "Ambition", "Freedom", "Growth"];
-  const MATRIX_NOTE = "This authored identity matrix summarizes how the active placement expresses Order, Knowledge, Ambition, Freedom, and Growth. It is a readable profile for the chosen fit, not a raw mana-score ledger.";
+const MATRIX_NOTE = "Authored identity profile across Order, Knowledge, Ambition, Freedom, and Growth; not placement score or confidence.";
 
   const AXIS_MEANING = Object.freeze({
     Order: "Rules, protection, teamwork",

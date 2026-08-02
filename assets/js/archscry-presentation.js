@@ -646,16 +646,122 @@ export function presentationForFaction(factionOrKey) {
   };
 }
 
+export const GATE_A_RESULT_STATES = Object.freeze([
+  "primary",
+  "tied",
+  "close",
+  "mixed",
+  "contradictory",
+  "insufficient",
+  "unknown",
+  "invalid",
+  "incomplete",
+]);
+
+const GATE_A_EXPLICIT_STATES = new Set([
+  "mixed",
+  "contradictory",
+  "insufficient",
+  "unknown",
+  "invalid",
+  "incomplete",
+]);
+
+function knownFaction(factions, key) {
+  return Boolean(key && factions?.[key]);
+}
+
+function evidenceDeltaForFaction(entry, factionKey) {
+  if (Array.isArray(entry?.deltas)) {
+    return Number(entry.deltas.find((delta) => delta?.faction === factionKey)?.delta || 0);
+  }
+  return Number(entry?.deltas?.[factionKey] || 0);
+}
+
+function directPositiveEvidenceFor(result, factionKey) {
+  return (result?.evidence_trail || []).find((entry) => evidenceDeltaForFaction(entry, factionKey) > 0) || null;
+}
+
+export function closeAlternativeForResult(result, placementModel, factions = {}) {
+  const topTwo = result?.top_matches?.slice(0, 2) || [];
+  const second = topTwo[1];
+  const gapLimit = placementModel?.scoring_rules?.crucible_probability_gap;
+  const gap = result?.confidence_gap;
+  const reachedCrucible = (result?.stage_history || []).some((entry) => entry?.stage === "crucible");
+  if (
+    topTwo.length !== 2 ||
+    !knownFaction(factions, topTwo[0]?.faction) ||
+    !knownFaction(factions, second?.faction) ||
+    typeof topTwo[0]?.score !== "number" ||
+    typeof second?.score !== "number" ||
+    topTwo[0].score === second.score ||
+    typeof gapLimit !== "number" ||
+    typeof gap !== "number" ||
+    gap > gapLimit ||
+    !reachedCrucible
+  ) {
+    return null;
+  }
+  const evidence = directPositiveEvidenceFor(result, second.faction);
+  return evidence ? { match: second, evidence } : null;
+}
+
+export function deriveGateAResultState({ result, placementModel = null, factions = {} } = {}) {
+  if (!result || typeof result !== "object") return "invalid";
+  const explicit = String(result.result_state || "").toLowerCase();
+  if (GATE_A_EXPLICIT_STATES.has(explicit)) return explicit;
+  if (result.legacy_result === true || result.source_mode === "legacy") return "unknown";
+  if (!result.faction || !knownFaction(factions, result.faction)) return "invalid";
+  if (!Array.isArray(result.top_matches) || !result.top_matches.length) return "incomplete";
+
+  const [first, second] = result.top_matches;
+  if (
+    first &&
+    second &&
+    knownFaction(factions, first.faction) &&
+    knownFaction(factions, second.faction) &&
+    typeof first.score === "number" &&
+    typeof second.score === "number" &&
+    first.score === second.score
+  ) {
+    return "tied";
+  }
+  return closeAlternativeForResult(result, placementModel, factions) ? "close" : "primary";
+}
+
+export function withGateAPublicState({ result, placementModel = null, factions = {} } = {}) {
+  if (!result || typeof result !== "object") return result;
+  const resultState = deriveGateAResultState({ result, placementModel, factions });
+  return {
+    ...result,
+    result_state: resultState,
+    public_confidence_state: resultState === "primary" ? "current-best-fit" : resultState,
+    alternative_state: resultState === "tied" ? "co-leader" : resultState === "close" ? "close" : "none",
+    confidence_display_mode: "bounded-state",
+    model_kind: "adaptive-weighted-scoring",
+    legacy_result: result.legacy_result === true || result.source_mode === "legacy",
+    limitations: Array.isArray(result.limitations) ? result.limitations : [],
+    compatibility_version: "gate-a-v1",
+  };
+}
+
+export function gateAStatePresentation(state) {
+  return {
+    primary: ["Current best fit", "This is the identity your recorded answers favored most in the current adaptive weighted reading."],
+    tied: ["Tied result", "The current scoring did not separate the two leading identities."],
+    close: ["Close result", "A second identity remained close under a bounded comparison rule; this is not calibrated confidence."],
+    mixed: ["Mixed reading", "More than one direction is present, and this reading cannot responsibly collapse them into one claim."],
+    contradictory: ["Conflicting signals", "Some recorded observations pull in different directions."],
+    insufficient: ["Not enough evidence to distinguish", "This reading does not have enough usable detail for a named placement."],
+    unknown: ["Evidence detail unavailable", "This saved result does not contain enough information to describe its strength."],
+    invalid: ["Reading unavailable", "The result could not be normalized safely."],
+    incomplete: ["Reading incomplete", "Continue the remaining question or restart."],
+  }[state] || ["Reading unavailable", "The result could not be normalized safely."];
+}
+
 export function confidencePercent(confidence) {
   const value = Number(confidence || 0);
   return value ? `${Math.round(value * 100)}%` : "unscored";
-}
-
-function confidenceBand(confidence) {
-  const value = Number(confidence || 0);
-  if (value >= 0.6) return "strong";
-  if (value >= 0.3) return "moderate";
-  return "emerging";
 }
 
 export function matchForFaction(result, factionKey) {
@@ -668,15 +774,15 @@ export function primaryMatch(result) {
 }
 
 export function adjacentMatchForSummary(result, activeKey) {
-  const matches = result?.adjacent_matches || [];
+  const matches = result?.alternative_state === "co-leader"
+    ? (result?.top_matches || []).slice(1, 2)
+    : result?.alternative_state === "close"
+      ? (result?.adjacent_matches || []).slice(0, 1)
+      : [];
   if (activeKey && activeKey !== result?.faction) {
     return primaryMatch(result);
   }
   return matches[0] || null;
-}
-
-function factionDisplayName(factions, key) {
-  return getFaction(factions, key)?.name || key || "the neighboring path";
 }
 
 function factionKey(faction) {
@@ -733,89 +839,38 @@ export function buildHeroNarrative({ dossier, faction, result, factions = {} }) 
   const presentation = presentationForFaction(faction);
   const adjacent = adjacentMatchForSummary(result, dossier.targetFactionKey);
   const adjacentFaction = adjacent?.faction ? getFaction(factions, adjacent.faction) : null;
-  const activeKey = factionKey(faction);
-  const adjacentKey = factionKey(adjacentFaction);
-
-  if (dossier.isPrimary && activeKey === "WR" && adjacentKey === "BG") {
-    return `${presentation.thesis} Golgari stayed close because your answers carried grievance, endurance, and the memory of harm. But Golgari absorbs pain and turns it into survival. Boros turns harm into action.`;
-  }
-
-  if (dossier.isPrimary && activeKey === "YORE" && adjacentKey === "ABZAN") {
-    return `${presentation.thesis} ${adjacentFaction.name} stayed close because your answers also carried endurance, obligation, ancestry, defensive patience, and continuity. The deciding difference was what the pressure became. Abzan carries the house forward. Yore rebuilds the limit itself. Yore believes the given world is not the final world. When nature asks for surrender, Yore answers with artifice, archive, sacrifice, recursion, and constructed choice.`;
-  }
-
-  if (dossier.isPrimary && activeKey === "GLINT" && adjacentKey === "B") {
-    return `${presentation.thesis} ${adjacentFaction.name} stayed close because your answers also carried cost, agency, and the willingness to spend from the self to keep the choice yours. The deciding difference was how Glint turns that pressure into ${presentation.tableExperience}.`;
-  }
-
-  if (dossier.isPrimary && activeKey === "COLORLESS") {
-    const adjacentCopy = adjacentKey === "ABZAN"
-      ? ` ${adjacentFaction.name} stayed close because your answers also carried endurance, obligation, defensive patience, and continuity.`
-      : adjacentFaction
-        ? ` ${adjacentFaction.name} stayed close because your answers also carried ${presentationForFaction(adjacentFaction).closeReason}.`
-        : "";
-    return `${presentation.thesis}${adjacentCopy} The deciding difference was motion: Colorless turns pressure into infrastructure, then asks the table to answer one oversized threat, artifact engine, or inevitability piece at a time.`;
-  }
-
-  if (dossier.isPrimary && activeKey === "WUBRG" && adjacentKey === "BG") {
-    return "Five-Color read your answers as a table where all five voices were present. White asked for structure, Blue for understanding, Black for agency, Red for motion, and Green for belonging. Golgari Swarm stayed close because your answers also carried endurance, grievance, rot, and reclamation. The deciding difference was that Five-Color turned that pressure outward: full color access, deliberate fixing, many kinds of answers, and a plan broad enough to include contradiction without drifting into goodstuff.";
-  }
 
   if (!dossier.isPrimary) {
     const primaryFaction = getFaction(factions, dossier.primaryFactionKey);
-    return `${presentation.thesis} This is an adjacent reading from your original ${primaryFaction?.name || "primary"} result, so it should feel related rather than disconnected. ${buildContrastCopy(primaryFaction, faction)}`;
+    return `Comparing ${faction.name} with the original ${primaryFaction?.name || "primary"} reading. This view reuses the same recorded answers; it does not replace or rescore the original result. ${buildContrastCopy(primaryFaction, faction)}`;
   }
 
   const closeCopy = adjacentFaction
-    ? ` ${adjacentFaction.name} stayed close because your answers also carried ${presentationForFaction(adjacentFaction).closeReason}. The deciding difference was how ${presentation.shortName} turns that pressure into ${presentation.tableExperience}.`
+    ? ` ${adjacentFaction.name} also received direct support and met the reading's bounded close rule; that is a comparison path, not a second diagnosis or semantic-adjacency claim.`
     : "";
   return `${presentation.thesis}${closeCopy}`;
 }
 
 export function technicalSignalCopy(result, activeKey) {
-  const match = matchForFaction(result, activeKey) || primaryMatch(result);
-  return `Signal strength: ${confidencePercent(match?.confidence || result?.confidence)}`;
+  void result;
+  void activeKey;
+  return "Adaptive weighted reading; numeric internals are retained for compatibility and are not public confidence.";
 }
 
 export function buildReadingSignalCopy({ dossier, faction, result, factions = {} }) {
-  const activeMatch = matchForFaction(result, dossier.targetFactionKey) || primaryMatch(result);
-  const adjacent = adjacentMatchForSummary(result, dossier.targetFactionKey);
-  const band = confidenceBand(activeMatch?.confidence || result?.confidence);
-  const presentation = presentationForFaction(faction);
-  const activeKey = factionKey(faction);
-
-  if (!dossier.isPrimary) {
-    const primaryName = dossier.primaryFaction?.name || factionDisplayName(factions, dossier.primaryFactionKey);
-    return `${faction.name} remained close to your ${primaryName} reading with a ${band} signal. It is not a new diagnosis; it is the neighboring fork where the same answers become ${presentation.tableExperience}.`;
+  void factions;
+  const supporting = (result?.evidence_trail || [])
+    .filter((entry) => evidenceDeltaForFaction(entry, dossier.targetFactionKey) > 0)
+    .slice(0, 2);
+  if (!supporting.length) {
+    return `${faction.name} is the current ranked view in this adaptive weighted reading. The stored result does not provide a direct positive answer trace for this view, so no stronger explanation is claimed.`;
   }
-
-  if (!adjacent?.faction) {
-    return `${faction.name} led with a ${band} signal. The result points toward ${presentation.tableExperience}, then asks you to turn that identity into a Commander plan.`;
-  }
-
-  const adjacentFaction = getFaction(factions, adjacent.faction);
-  const adjacentPresentation = presentationForFaction(adjacentFaction);
-
-  if (activeKey === "YORE" && factionKey(adjacentFaction) === "ABZAN") {
-    return `${faction.name} led with a ${band} signal. A nearby secondary signal stayed close: ${adjacentFaction.name} carried endurance, obligation, family continuity, and defensive patience. The deciding difference was motion. Abzan preserves what must survive. Yore constructs the system that lets choice continue. This result rose first because your answers leaned toward artifice, engineered agency, controlled overreach, and the refusal to let natural limits become final.`;
-  }
-
-  if (activeKey === "GLINT" && factionKey(adjacentFaction) === "B") {
-    return `${faction.name} led with a ${band} signal. A supporting Black edge stayed close because your answers also carried cost, agency, and the willingness to spend from the self to keep the choice yours. This result rose first because it wanted pressure to keep learning, feeding, and changing before White-style order could make the opening harmless.`;
-  }
-
-  if (activeKey === "COLORLESS") {
-    const adjacentCopy = factionKey(adjacentFaction) === "ABZAN"
-      ? `${adjacentFaction.name} stayed close through endurance, obligation, and defensive patience.`
-      : `${adjacentFaction?.name || adjacent.faction_name} stayed close through ${adjacentPresentation.closeReason}.`;
-    return `${faction.name} led with a ${band} signal, with a nearby secondary signal. ${adjacentCopy} Colorless rose first because the stronger motion was toward a strict construction problem: make mana, tools, and finishers earn their place outside the usual five-color vocabulary.`;
-  }
-
-  if (activeKey === "WUBRG" && factionKey(adjacentFaction) === "BG") {
-    return "Five-Color / WUBRG led with a strong signal. Golgari Swarm remained nearby, which suggests your answers also carried endurance, grievance, rot, and reclamation. The deciding difference was direction. Golgari turns pressure into recursion and survival; Five-Color turns it into coalition, full-spectrum access, and a disciplined plan where every color has a job.";
-  }
-
-  return `${faction.name} led with a ${band} signal. A secondary signal stayed close: ${adjacentFaction?.name || adjacent.faction_name} suggested ${adjacentPresentation.closeReason}, while this result centered ${presentation.closeReason}. The deciding difference was motion: this result chose the path that ${presentation.direction}.`;
+  const observations = supporting.map((entry) => {
+    const answer = entry.answer_title || "the recorded answer";
+    const signal = entry.signal || "an authored placement signal";
+    return `You selected “${answer}.” In the authored model, that answer contributed ${signal} toward ${faction.name}`;
+  });
+  return `${observations.join("; ")}. These contributions explain the current ranking, but they do not prove personality, motivation, deck behavior, table perception, or placement accuracy.`;
 }
 
 export function selectReadingTagRefs({ dossier, result, taxonomy, modelMechanics = "" }) {

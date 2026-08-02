@@ -43,7 +43,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-551 — Gate A Archscry Trust Containment](in-progress/VM-551-gate-a-trust-containment-design.md) - owner approved exact design `c6b1c9e6940b67201c8c2f999409a7103ba52b88` and OD-01 through OD-18 without deviation; bounded Gate A implementation is in progress, with Gate B1, merge, push, deployment, and certification excluded.
+- [VM-551 — Gate A Archscry Trust Containment](in-progress/VM-551-gate-a-trust-containment-design.md) - bounded local implementation candidate is ready for owner visual QA: nine additive states, no public numeric confidence, exact-tie co-leaders, guarded rank-two close alternative, and preserved downstream/Matrix contracts; Gate B1, merge, push, deployment, and certification remain excluded.
 
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 

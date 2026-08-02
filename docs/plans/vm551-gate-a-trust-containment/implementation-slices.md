@@ -1,6 +1,16 @@
 # Gate A Implementation Slices
 
-These are ordered design slices for a later authorized implementation. They are not implementation tasks and create no authorization.
+These are the ordered slices approved in design commit `c6b1c9e6940b67201c8c2f999409a7103ba52b88`. Slices 1 through 6 are implemented in the local Gate A candidate; Slice 7 is prepared and awaiting owner visual QA. This status does not authorize merge, push, deployment, certification, or Gate B1 work.
+
+| Slice | Candidate status |
+|---|---|
+| 1 — Terminology and public confidence containment | Implemented and automated checks passing |
+| 2 — Additive result-state normalization | Implemented and automated checks passing |
+| 3 — Placement reveal rendering | Implemented; primary desktop/mobile inspected; remaining state shells await owner review |
+| 4 — Dossier and close-alternative language | Implemented; close/tie views await owner review |
+| 5 — Saved and legacy compatibility | Implemented additively; local normalization checks pass; signed-in owner spot-check remains |
+| 6 — Matrix and downstream regression | Implemented/verified; protected numeric paths unchanged |
+| 7 — Owner visual QA | Prepared in `docs/qa/2026-08-01-vm551-gate-a-owner-qa.md`; pending |
 
 ## Slice 1 — Terminology and public confidence containment
 

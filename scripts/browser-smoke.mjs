@@ -6,6 +6,7 @@ import * as ChromeLauncher from "chrome-launcher";
 import puppeteer from "puppeteer-core";
 
 const root = process.cwd();
+const archscryOnly = process.argv.includes("--archscry-only");
 const host = "127.0.0.1";
 const manaVersion = "1.18.0";
 const manaFixtureName = "VM-485 Mana Symbol Fixture";
@@ -595,14 +596,48 @@ async function runArchscrySmoke(page, origin, viewport) {
     const mazeHref = document.querySelector('[data-dossier-panel="maze-discovery"] a[data-service="maze"]')?.href || "";
     return {
       cachedFaction: cachedResult?.faction || "",
+      cachedConfidence: cachedResult?.confidence,
+      cachedConfidenceGap: cachedResult?.confidence_gap,
+      cachedResultState: cachedResult?.result_state || "",
+      cachedTopMatchCount: cachedResult?.top_matches?.length || 0,
+      cachedAdjacentMatchCount: cachedResult?.adjacent_matches?.length || 0,
       handoffReadingId: handoff?.readingId || "",
       handoffReturnUrl: handoff?.returnUrl || "",
       mazeHref,
+      publicText: document.getElementById("result-inner")?.innerText || "",
+      normalization: typeof normalizePlacementResult === "function"
+        ? {
+            missing: normalizePlacementResult({ source_mode: "legacy", faction: cachedResult?.faction }, null),
+            supplied: normalizePlacementResult({
+              source_mode: "quick",
+              faction: cachedResult?.faction,
+              confidence: 0.314159,
+              confidence_gap: 0.07,
+              color_weights: { W: 2 },
+              unknown_extension: "preserved",
+            }, null),
+          }
+        : null,
     };
   });
 
   assert(answerCount > 0, `${viewport.name} Archscry did not record any quick answers.`);
   assert(context.cachedFaction, `${viewport.name} Archscry did not cache a placement result.`);
+  assert(typeof context.cachedConfidence === "number", `${viewport.name} Archscry did not preserve internal confidence.`);
+  assert(
+    typeof context.cachedConfidenceGap === "number" || context.cachedConfidenceGap === null,
+    `${viewport.name} Archscry did not preserve the internal confidence gap shape.`
+  );
+  assert(context.cachedResultState, `${viewport.name} Archscry did not cache an additive public result state.`);
+  assert(context.cachedTopMatchCount === 3, `${viewport.name} Archscry changed the top_matches shape.`);
+  assert(context.cachedAdjacentMatchCount === 2, `${viewport.name} Archscry changed the adjacent_matches shape.`);
+  assert(!/\b\d+(?:\.\d+)?%|Bayesian|Signal Strength|Strong signal|Moderate signal|Emerging signal/i.test(context.publicText), `${viewport.name} Archscry exposed prohibited confidence language.`);
+  assert(context.normalization, `${viewport.name} Archscry did not expose its existing normalization path.`);
+  assert(context.normalization.missing.confidence === null, `${viewport.name} missing legacy confidence was fabricated.`);
+  assert(context.normalization.supplied.confidence === 0.314159, `${viewport.name} supplied confidence was not preserved.`);
+  assert(context.normalization.supplied.confidence_gap === 0.07, `${viewport.name} supplied confidence gap was not preserved.`);
+  assert(JSON.stringify(context.normalization.supplied.color_weights) === JSON.stringify({ W: 2 }), `${viewport.name} color_weights was not preserved.`);
+  assert(context.normalization.supplied.unknown_extension === "preserved", `${viewport.name} unknown additive result fields were dropped.`);
   assert(context.handoffReadingId, `${viewport.name} Archscry did not write a Maze handoff reading id.`);
   assert(context.handoffReturnUrl, `${viewport.name} Archscry handoff is missing a return URL.`);
   assert(context.mazeHref, `${viewport.name} Archscry dossier did not expose a Maze link.`);
@@ -875,7 +910,9 @@ async function runViewportJourney(browser, origin, viewport) {
   try {
     console.log(`${viewport.name}: starting browser smoke.`);
     await resetOriginStorage(page, origin);
-    await runHomeSmoke(page, origin, viewport);
+    if (!archscryOnly) {
+      await runHomeSmoke(page, origin, viewport);
+    }
     const archscryContext = await runArchscrySmoke(page, origin, viewport);
     await runMazeSmoke(page, viewport, archscryContext.mazeHref);
     assertNoBrowserErrors(consoleErrors, pageErrors, viewport);
@@ -935,7 +972,9 @@ try {
     await runViewportJourney(browser, origin, viewport);
   }
 
-  console.log("Browser smoke passed for Home, Archscry, Maze, Reading Finds, and return-to-dossier handoff.");
+  console.log(archscryOnly
+    ? "Browser smoke passed for Archscry, Maze, Reading Finds, and return-to-dossier handoff."
+    : "Browser smoke passed for Home, Archscry, Maze, Reading Finds, and return-to-dossier handoff.");
 } catch (error) {
   process.exitCode = 1;
   console.error("Browser smoke failed.");

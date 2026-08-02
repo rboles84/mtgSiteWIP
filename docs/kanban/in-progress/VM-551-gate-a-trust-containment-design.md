@@ -1,16 +1,16 @@
-# VM-551 — Gate A Archscry Trust Containment Design
+# VM-551 — Gate A Archscry Trust Containment
 
 ID: VM-551 Gate A
-Title: Archscry Trust Containment Design
-Status: Design accepted; bounded Gate A implementation in progress
-Type: Design and implementation-planning input only
+Title: Archscry Trust Containment
+Status: Bounded implementation candidate ready for owner visual QA
+Type: Production trust containment
 Area: Archscry placement
 Priority: Critical trust containment
 Created: 2026-08-01
 
 ## Summary
 
-Translate the owner-approved VM-551 audit into the smallest implementation-ready Gate A design: honest adaptive weighted-scoring terminology, no public numeric confidence, additive bounded result states, answer-grounded placement language, rank-two Close alternative rules, and complete downstream compatibility.
+Implement the owner-approved Gate A design as the smallest public trust-containment change: honest adaptive weighted-reading terminology, no public numeric confidence, additive bounded result states, answer-grounded placement language, eligible rank-two Close alternative handling, and preserved downstream compatibility.
 
 ## Authority
 
@@ -25,9 +25,13 @@ Translate the owner-approved VM-551 audit into the smallest implementation-ready
 
 The package includes current UI/copy inventory, nine-state contract, public confidence replacement, language and close-alternative contracts, separate Matrix paths, field/file plan, 48-row regression matrix, owner decisions, and seven later implementation slices.
 
+## Candidate outcome
+
+All nine additive result states are supported; exact ties show co-leaders; an automatic close alternative requires direct rank-two support plus the completed Crucible relative-gap rule; rank three is hidden. Internal scores, softmax shares, confidence fields, result shapes, persistence, recommendation/deck/Maze contracts, and both Matrix paths remain intact. The 48-row regression ledger is reconciled, focused automated checks pass, and primary desktop/mobile/keyboard behavior was inspected locally.
+
 ## Boundary
 
-Design only. No production code, question/answer, scoring, branching, guardrail, calibration, identity, Matrix, recommendation-data, schema, route, deployment, or certification change. No implementation task has been created.
+Gate B1 remains excluded. No question/answer, score, suppression, lateral-inhibition, branch, stopping, guardrail, calibration, identity data, recommendation dataset, schema, migration, Matrix numeric path, deck-link logic, or Maze implementation changed. No merge, push, deployment, or certification is authorized.
 
 ## Owner approval and implementation authority
 
@@ -35,4 +39,4 @@ On 2026-08-01, the owner approved exact design commit `c6b1c9e6940b67201c8c2f999
 
 ## Next gate
 
-Complete the bounded Gate A implementation candidate, automated validation, and local owner visual-QA package. Stop for owner visual review before merge or push.
+Owner visually reviews the exact local implementation candidate using `docs/qa/2026-08-01-vm551-gate-a-owner-qa.md`. Stop before merge or push.

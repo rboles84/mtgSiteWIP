@@ -3171,3 +3171,46 @@ body.vm-archscry-route .saved-deck-link-note{
     justify-self:start;
   }
 }
+.result-state-card,
+.result-state-banner,
+.result-limitation-notice {
+  border: 1px solid rgba(201, 168, 76, 0.34);
+  background: rgba(20, 18, 14, 0.82);
+}
+
+.result-state-banner,
+.result-limitation-notice {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0 0 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: 0.7rem;
+  color: var(--parchment, #efe4c8);
+}
+
+.result-state-banner strong {
+  color: var(--gold, #d8b96a);
+  font-size: 1rem;
+}
+
+.result-state-banner span,
+.result-limitation-notice {
+  line-height: 1.55;
+}
+
+.bounded-result-shell {
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+@media (max-width: 720px) {
+  .result-state-banner,
+  .result-limitation-notice {
+    padding: 0.9rem;
+  }
+
+  .bounded-result-shell .landing-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

@@ -162,6 +162,7 @@ function normalizeStarterProfile(starterProfile) {
  */
 function normalizeMatch(match, index) {
   return {
+    ...(match || {}),
     rank: match?.rank || index + 1,
     faction: match?.faction || null,
     faction_name: match?.faction_name || match?.name || null,
@@ -173,13 +174,13 @@ function normalizeMatch(match, index) {
         ? match.confidence
         : typeof match?.score === "number"
         ? match.score
-        : 0,
+        : null,
     score:
       typeof match?.score === "number"
         ? match.score
         : typeof match?.confidence === "number"
         ? match.confidence
-        : 0,
+        : null,
     reason: match?.reason || "",
   };
 }
@@ -202,6 +203,7 @@ function normalizePlacementResult(result, fallbackProfile) {
     : [];
 
   const normalized = {
+    ...source,
     version: source.version || VM_RESULT_VERSION,
     model_version: source.model_version || source.placement_model_version || null,
     source_mode: source.source_mode || "legacy",
@@ -209,14 +211,14 @@ function normalizePlacementResult(result, fallbackProfile) {
     faction_name: source.faction_name || source.guild_name || null,
     institution_type: source.institution_type || null,
     world: source.world || null,
-    color_weights: source.color_weights || null,
+    color_weights: source.color_weights ?? null,
     identity: source.identity || topMatches[0]?.identity || null,
     decree: source.decree || "",
     confidence:
-      typeof source.confidence === "number" ? source.confidence : 0.66,
+      typeof source.confidence === "number" ? source.confidence : null,
     confidence_gap:
       typeof source.confidence_gap === "number" ? source.confidence_gap : null,
-    mana_scores: source.mana_scores || fallbackProfile?.scores || null,
+    mana_scores: source.mana_scores ?? fallbackProfile?.scores ?? null,
     top_matches: topMatches,
     adjacent_matches: Array.isArray(source.adjacent_matches)
       ? source.adjacent_matches.map(normalizeMatch)
@@ -224,6 +226,18 @@ function normalizePlacementResult(result, fallbackProfile) {
     starter_profile: normalizeStarterProfile(source.starter_profile),
     evidence_trail: Array.isArray(source.evidence_trail) ? source.evidence_trail : [],
     stage_history: Array.isArray(source.stage_history) ? source.stage_history : [],
+    result_state: typeof source.result_state === "string" ? source.result_state : null,
+    public_confidence_state:
+      typeof source.public_confidence_state === "string" ? source.public_confidence_state : null,
+    alternative_state:
+      typeof source.alternative_state === "string" ? source.alternative_state : null,
+    confidence_display_mode:
+      typeof source.confidence_display_mode === "string" ? source.confidence_display_mode : null,
+    model_kind: typeof source.model_kind === "string" ? source.model_kind : null,
+    legacy_result: source.legacy_result === true || source.source_mode === "legacy",
+    limitations: Array.isArray(source.limitations) ? source.limitations : [],
+    compatibility_version:
+      typeof source.compatibility_version === "string" ? source.compatibility_version : null,
   };
 
   if (!normalized.top_matches.length && normalized.faction) {
@@ -273,8 +287,16 @@ function makeLegacyPlacementResult(profileRow) {
       faction: profileRow.guild,
       faction_name: profileRow.guild_name || null,
       decree:
-        "This saved placement came from an older Vox Mana record. Retake the reading to unlock adjacent fits and the richer dossier.",
-      confidence: 0.6,
+        profileRow.decree || "This saved placement came from an older Vox Mana record. Retake the reading to restore answer and evidence detail.",
+      confidence: typeof profileRow.confidence === "number" ? profileRow.confidence : null,
+      result_state: "unknown",
+      public_confidence_state: "evidence-detail-unavailable",
+      alternative_state: "none",
+      confidence_display_mode: "bounded-state",
+      model_kind: "adaptive-weighted-scoring",
+      legacy_result: true,
+      limitations: ["Answer and evidence detail is unavailable for this saved result."],
+      compatibility_version: "gate-a-v1",
       mana_scores: profileRow.scores || null,
       starter_profile: normalizeStarterProfile(null),
     },
@@ -660,7 +682,7 @@ async function vm_resumeSession() {
     ({ data: row, error } = await sb
       .from("profiles")
       .select(
-        "username, email, display_name, avatar_url, guild, guild_name, scores, taken_at, placement_result"
+        "username, email, display_name, avatar_url, guild, guild_name, runner_up, confidence, decree, scores, taken_at, placement_result"
       )
       .eq("id", session.user.id)
       .maybeSingle());
@@ -668,7 +690,7 @@ async function vm_resumeSession() {
     if (error && error.message) {
       ({ data: row, error } = await sb
         .from("profiles")
-        .select("username, email, guild, guild_name, scores, taken_at")
+        .select("username, email, guild, guild_name, runner_up, confidence, decree, scores, taken_at")
         .eq("id", session.user.id)
         .maybeSingle());
     }
