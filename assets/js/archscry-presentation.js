@@ -854,6 +854,12 @@ export function buildHeroNarrative({ dossier, faction, result, factions = {} }) 
   const adjacent = adjacentMatchForSummary(result, dossier.targetFactionKey);
   const adjacentFaction = adjacent?.faction ? getFaction(factions, adjacent.faction) : null;
 
+  if (result?.alternative_state === "co-leader") {
+    return dossier.isPrimary
+      ? `${presentation.thesis} This is the original stored reading; the tied summary keeps the co-leader relationship separate from this identity's plan.`
+      : `${presentation.thesis} This co-leader comparison reuses the recorded answers without replacing or rescoring the original stored result.`;
+  }
+
   if (!dossier.isPrimary) {
     const primaryFaction = getFaction(factions, dossier.primaryFactionKey);
     return `Comparing ${faction.name} with the original ${primaryFaction?.name || "primary"} reading. This view reuses the same recorded answers; it does not replace or rescore the original result. ${buildContrastCopy(primaryFaction, faction)}`;

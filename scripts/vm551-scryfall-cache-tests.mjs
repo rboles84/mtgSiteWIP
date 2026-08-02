@@ -1,0 +1,196 @@
+import assert from "node:assert/strict";
+import {
+  SCRYFALL_BACKOFF_TTL_MS,
+  SCRYFALL_CACHE_MAX_RECORDS,
+  SCRYFALL_NAMED_CACHE_KEY,
+  SCRYFALL_NEGATIVE_TTL_MS,
+  SCRYFALL_SUCCESS_TTL_MS,
+  createScryfallNamedCardLookup,
+} from "../assets/js/scryfall-card-cache.js";
+
+class MemoryStorage {
+  #values = new Map();
+  getItem(key) { return this.#values.has(key) ? this.#values.get(key) : null; }
+  setItem(key, value) { this.#values.set(key, String(value)); }
+  removeItem(key) { this.#values.delete(key); }
+}
+
+const card = (name) => ({
+  id: `${name.toLowerCase().replace(/\s+/g, "-")}-id`,
+  name,
+  image_uris: { normal: `https://cards.scryfall.io/normal/${encodeURIComponent(name)}.jpg` },
+  scryfall_uri: `https://scryfall.com/card/test/1/${name.toLowerCase().replace(/\s+/g, "-")}`,
+  type_line: "Land",
+  color_identity: [],
+  legalities: { commander: "legal" },
+});
+const response = (status, payload = {}) => ({
+  ok: status >= 200 && status < 300,
+  status,
+  async json() { return payload; },
+});
+
+let clock = 1_800_000_000_000;
+const now = () => clock;
+const storage = new MemoryStorage();
+let calls = [];
+const payloads = new Map([
+  ["Exotic Orchard", card("Exotic Orchard")],
+  ["Myriad Landscape", card("Myriad Landscape")],
+]);
+const fetchImpl = async (url) => {
+  calls.push(url);
+  const name = decodeURIComponent(new URL(url).searchParams.get("fuzzy"));
+  return response(200, payloads.get(name) || card(name));
+};
+
+const firstPage = createScryfallNamedCardLookup({ storage, fetchImpl, now });
+const [exoticFirst, exoticConcurrent] = await Promise.all([
+  firstPage.lookup("Exotic Orchard"),
+  firstPage.lookup("Exotic Orchard"),
+]);
+assert.equal(calls.length, 1, "The first valid lookup may use the network.");
+assert.equal(exoticFirst.name, "Exotic Orchard");
+assert.equal(exoticConcurrent.name, "Exotic Orchard", "Concurrent same-card lookups must share one in-flight request.");
+assert.match(exoticFirst.scryfall_uri, /^https:\/\/scryfall\.com\/card\//);
+const exoticSamePage = await firstPage.lookup("Exotic Orchard");
+assert.equal(calls.length, 1, "A repeated same-page lookup must use the cache.");
+assert.equal(exoticSamePage.image_uris.normal, exoticFirst.image_uris.normal);
+
+const reloadedPage = createScryfallNamedCardLookup({ storage, fetchImpl, now });
+const exoticAfterReload = await reloadedPage.lookup("Exotic Orchard");
+assert.equal(calls.length, 1, "Exotic Orchard must survive a simulated page reload without another request.");
+assert.equal(exoticAfterReload.scryfall_uri, exoticFirst.scryfall_uri, "The cached Scryfall action must remain visible-capable.");
+await reloadedPage.lookup("Myriad Landscape");
+assert.equal(calls.length, 2);
+const secondReload = createScryfallNamedCardLookup({ storage, fetchImpl, now });
+const myriadAfterReload = await secondReload.lookup("Myriad Landscape");
+assert.equal(calls.length, 2, "Myriad Landscape must survive a simulated page reload without another request.");
+assert.match(myriadAfterReload.image_uris.normal, /Myriad%20Landscape/);
+
+const cacheEnvelope = JSON.parse(storage.getItem(SCRYFALL_NAMED_CACHE_KEY));
+assert.deepEqual(Object.keys(cacheEnvelope.records).sort(), ["exotic orchard", "myriad landscape"]);
+assert.equal(cacheEnvelope.records["exotic orchard"].status, "success");
+assert.ok(cacheEnvelope.records["exotic orchard"].timestamp);
+assert.ok(cacheEnvelope.records["exotic orchard"].image_uri);
+
+let notFoundCalls = 0;
+const negativeStorage = new MemoryStorage();
+const negativeLookup = createScryfallNamedCardLookup({
+  storage: negativeStorage,
+  now,
+  fetchImpl: async () => { notFoundCalls += 1; return response(404); },
+});
+assert.equal(await negativeLookup.lookup("Definitely Not A Card"), null);
+assert.equal(await negativeLookup.lookup("Definitely Not A Card"), null);
+const negativeReload = createScryfallNamedCardLookup({
+  storage: negativeStorage,
+  now,
+  fetchImpl: async () => { notFoundCalls += 1; return response(404); },
+});
+assert.equal(await negativeReload.lookup("Definitely Not A Card"), null);
+assert.equal(notFoundCalls, 1, "A 404 must be negatively cached across reloads.");
+clock += SCRYFALL_NEGATIVE_TTL_MS + 1;
+await negativeReload.lookup("Definitely Not A Card");
+assert.equal(notFoundCalls, 2, "An expired negative entry must be refreshed.");
+
+let rateLimitCalls = 0;
+const backoffStorage = new MemoryStorage();
+const backoffLookup = createScryfallNamedCardLookup({
+  storage: backoffStorage,
+  now,
+  fetchImpl: async () => { rateLimitCalls += 1; return response(429); },
+});
+assert.equal(await backoffLookup.lookup("Exotic Orchard"), null);
+assert.equal(await backoffLookup.lookup("Myriad Landscape"), null);
+assert.equal(rateLimitCalls, 1, "A 429 must prevent an immediate retry storm across card names.");
+const backoffReload = createScryfallNamedCardLookup({
+  storage: backoffStorage,
+  now,
+  fetchImpl: async () => { rateLimitCalls += 1; return response(429); },
+});
+assert.equal(await backoffReload.lookup("Command Tower"), null);
+assert.equal(rateLimitCalls, 1, "The 429 backoff must survive reloads.");
+clock += SCRYFALL_BACKOFF_TTL_MS + 1;
+await backoffReload.lookup("Command Tower");
+assert.equal(rateLimitCalls, 2, "The temporary backoff must expire.");
+
+const expiredStorage = new MemoryStorage();
+let expiryCalls = 0;
+const expiringLookup = createScryfallNamedCardLookup({
+  storage: expiredStorage,
+  now,
+  fetchImpl: async () => { expiryCalls += 1; return response(200, card("Command Tower")); },
+});
+await expiringLookup.lookup("Command Tower");
+clock += SCRYFALL_SUCCESS_TTL_MS + 1;
+await expiringLookup.lookup("Command Tower");
+assert.equal(expiryCalls, 2, "Expired successful entries must refresh.");
+
+const corruptStorage = new MemoryStorage();
+corruptStorage.setItem(SCRYFALL_NAMED_CACHE_KEY, "{not-json");
+let corruptCalls = 0;
+const corruptLookup = createScryfallNamedCardLookup({
+  storage: corruptStorage,
+  now,
+  fetchImpl: async () => { corruptCalls += 1; return response(200, card("Arcane Signet")); },
+});
+assert.equal((await corruptLookup.lookup("Arcane Signet")).name, "Arcane Signet");
+assert.equal(corruptCalls, 1, "Corrupt cache data must be ignored safely.");
+
+const localStorage = new MemoryStorage();
+let localCalls = 0;
+const localLookup = createScryfallNamedCardLookup({
+  storage: localStorage,
+  now,
+  localResolver: (name) => name === "Local Card" ? card("Local Card") : null,
+  fetchImpl: async () => { localCalls += 1; return response(500); },
+});
+assert.equal((await localLookup.lookup("Local Card")).name, "Local Card");
+assert.equal(localCalls, 0, "Committed local card data must precede persistent cache and network.");
+
+const productStorage = new MemoryStorage();
+let productCalls = 0;
+const productLookup = createScryfallNamedCardLookup({
+  storage: productStorage,
+  now,
+  fetchImpl: async () => { productCalls += 1; return response(200, card("First Flight")); },
+});
+assert.equal(await productLookup.lookup("First Flight", { recordType: "PRECON" }), null);
+assert.equal(productCalls, 0, "Precon and product labels must never reach the card endpoint.");
+assert.deepEqual(productLookup.inspect().records, {}, "Precon labels must never become cache keys.");
+
+const malformedStorage = new MemoryStorage();
+let malformedCalls = 0;
+const malformedLookup = createScryfallNamedCardLookup({
+  storage: malformedStorage,
+  now,
+  fetchImpl: async () => { malformedCalls += 1; return response(200, { name: "Malformed without locators" }); },
+});
+assert.equal(await malformedLookup.lookup("Malformed without locators"), null);
+assert.equal(await malformedLookup.lookup("Malformed without locators"), null);
+assert.equal(malformedCalls, 1, "A malformed response must not retry repeatedly during one page instance.");
+assert.deepEqual(malformedLookup.inspect().records, {});
+const malformedReload = createScryfallNamedCardLookup({
+  storage: malformedStorage,
+  now,
+  fetchImpl: async () => { malformedCalls += 1; return response(200, { name: "Malformed without locators" }); },
+});
+assert.equal(await malformedReload.lookup("Malformed without locators"), null);
+assert.equal(malformedCalls, 2, "Malformed responses must not enter persistent cache; a later reload may recover.");
+
+const boundedStorage = new MemoryStorage();
+const boundedLookup = createScryfallNamedCardLookup({
+  storage: boundedStorage,
+  now: () => ++clock,
+  fetchImpl: async (url) => {
+    const name = decodeURIComponent(new URL(url).searchParams.get("fuzzy"));
+    return response(200, card(name));
+  },
+});
+for (let index = 0; index < SCRYFALL_CACHE_MAX_RECORDS + 5; index += 1) {
+  await boundedLookup.lookup(`Bounded Card ${index}`);
+}
+assert.equal(Object.keys(boundedLookup.inspect().records).length, SCRYFALL_CACHE_MAX_RECORDS, "The persistent cache must remain bounded.");
+
+console.log("PASS VM-551 reload-persistent Scryfall cache checks");

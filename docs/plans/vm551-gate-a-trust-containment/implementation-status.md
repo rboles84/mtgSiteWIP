@@ -1,8 +1,8 @@
 # Gate A Implementation Status And Compatibility Record
 
-Status: owner-QA remediation complete locally; replacement candidate pending owner visual QA.
+Status: final owner-QA corrections complete locally; candidate pending one final owner spot-check.
 
-The first implementation candidate `f657ac5aea9b7aeaf3855a1af42148744271dc7e` was rejected during owner QA. The bounded remediation corrects state-origin handling, resumability, tie content isolation, repeated copy, responsive card/layout defects, card-versus-product art routing, education affordances, bounded Azorius language, direct precon research links, and stale atlas wording. Scoring, questions, identity semantics, recommendation data, Matrix values/resolvers, schemas, and downstream field shapes remain unchanged.
+The first implementation candidate `f657ac5aea9b7aeaf3855a1af42148744271dc7e` and follow-up candidate `84099d2fd7626f8ecd732748e06fff3ce20daddf` were rejected during owner QA. The final bounded correction makes tied-reading ownership visually explicit, adds reload-persistent named-card caching with negative caching and 429 backoff, and hardens the local QA helper lifecycle. Earlier accepted unknown, incomplete, legacy, and public-confidence behavior remains unchanged. Scoring, questions, identity semantics, recommendation data, Matrix values/resolvers, schemas, serialized result fields, and downstream placement-result caches remain unchanged.
 
 ## Additive public-state fields
 
@@ -39,6 +39,7 @@ The presentation layer supports `primary`, `tied`, `close`, `mixed`, `contradict
 | `assets/js/shared.js` | Preserves additive fields, stops fabricating missing confidence, and keeps full legacy/persistence shapes. |
 | `assets/js/archscry-presentation.js` | Adds the pure public-state and close-eligibility layer plus bounded explanation copy. |
 | `assets/js/index.js` | Renders state-aware reveal/dossier shells, hides public numeric confidence and rank three, and guards alternative navigation. |
+| `assets/js/scryfall-card-cache.js` | Provides local-first, reload-persistent, bounded named-card metadata caching with success/negative TTLs and temporary 429 backoff; it does not alter card selection or recommendation data. |
 | `assets/js/commander-dossier.js` | Grounds signal explanations in selected answers and limits public alternatives without changing datasets. |
 | `assets/js/vm-radar.js` | Changes only the Matrix explanatory note; numeric resolver behavior is unchanged. |
 
@@ -54,7 +55,7 @@ No change is expected or present in:
 - recommendation datasets or selection rules;
 - deck-link logic;
 - Maze implementation;
-- schemas, migrations, routes, caches, or profile/OAuth storage contracts.
+- schemas, migrations, routes, placement-result/session/profile/OAuth storage contracts, or serialized placement shapes. The only cache change is the separate named-card metadata cache used to avoid repeated Scryfall requests after reload.
 
 The authored Matrix remains the authored identity shape across Order, Knowledge, Ambition, Freedom, and Growth. Placement-derived `buildManaScores()` / `placementResult.mana_scores` remains a separate unchanged path. Neither is confidence.
 
@@ -62,4 +63,6 @@ The authored Matrix remains the authored identity shape across Order, Knowledge,
 
 The 48 design regression rows are reconciled in `docs/qa/2026-08-01-vm551-gate-a-owner-qa.md`. Placement, bias, compression, parser, source/generated, JS/HTML lint, copy, frontend, route, deck-link, Maze, focused navigation, and focused desktop/mobile browser checks pass. The broad runner reaches the known absent ignored Scryfall raw fixture after its applicable Gate A checks pass. The full browser suite retains its known environment-sensitive Home canvas limitation; the focused Archscry/Maze journey passes.
 
-No visual baseline was created or accepted. Owner visual QA remains the only next gate.
+The final focused browser check reached a normal exact tie through seven real questionnaire answers. Desktop and 390px DOM assertions proved separate primary/co-leader identity keys, target-specific plan/play-pattern/dossier content, comparison/return preservation, no tied close-alternative tab, no horizontal overflow, and no candidate-caused console errors. Offline cache tests prove reload reuse for Exotic Orchard and Myriad Landscape without live Scryfall.
+
+No visual baseline was created or accepted. One final owner spot-check of the exact local candidate remains the only next gate.

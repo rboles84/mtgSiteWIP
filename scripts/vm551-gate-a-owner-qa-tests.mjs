@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { runInNewContext } from "node:vm";
 import {
   buildTagExplanationSummaries,
+  buildHeroNarrative,
   classifyResultArtRecord,
   deriveGateAResultState,
   gateAStatePresentation,
@@ -21,6 +23,8 @@ const readText = (path) => readFile(new URL(path, import.meta.url), "utf8");
 const indexSource = await readText("../assets/js/index.js");
 const htmlSource = await readText("../archscry/index.html");
 const cssSource = await readText("../assets/css/archscry.css");
+const cacheSource = await readText("../assets/js/scryfall-card-cache.js");
+const qaHelperSource = await readText("../docs/qa/vm551-gate-a-fixture-helper.js");
 const preconCatalog = JSON.parse(await readText("../data/precons/vox-mana-precon-catalog.json"));
 const taxonomy = JSON.parse(await readText("../data/taxonomy/vox-mana-tags.json"));
 const placementModel = JSON.parse(await readText("../data/placement-model.json"));
@@ -88,6 +92,46 @@ assert.match(abzanTieDossier.commanderLane.copy, /Abzan Houses/);
 assert.doesNotMatch(abzanTieDossier.commanderLane.copy, /Azorius Senate/);
 assert.match(abzanTieDossier.resultStatus, /co-leader/i);
 assert.doesNotMatch(abzanTieDossier.resultStatus, /close alternative/i);
+assert.match(indexSource, /data-tied-reading-summary/);
+assert.match(indexSource, /data-tied-identity-container="\$\{isPrimary \? "original" : "other-active"\}"/);
+assert.match(indexSource, /data-dossier-identity-key="\$\{escapeAttributeValue\(dossier\.targetFactionKey\)\}"/);
+assert.match(indexSource, /includeAlternative: resultState !== "tied"/);
+assert.match(indexSource, /const adjacentMatches = resultState === "tied" \? \[\] : dossier\.adjacentFits/);
+assert.match(indexSource, /Original stored reading - \$\{faction\.name\}/);
+assert.match(indexSource, /Other co-leader - \$\{faction\.name\}/);
+assert.match(indexSource, /Compare this co-leader/);
+assert.doesNotMatch(buildHeroNarrative({ dossier: abzanTieDossier, faction: factions.ABZAN, result: tieResult, factions }), /Azorius Senate/);
+
+const izzetGolden = runAdaptiveGoldenPath({ model: placementModel, factions, targetFaction: "UR" }).result;
+const izzetJeskaiTie = {
+  ...izzetGolden,
+  result_state: "tied",
+  alternative_state: "co-leader",
+  top_matches: [
+    { ...izzetGolden.top_matches[0], faction: "UR", faction_name: factions.UR.name, score: 9 },
+    { rank: 2, faction: "JESKAI", faction_name: factions.JESKAI.name, score: 9, confidence: 0.2 },
+  ],
+  adjacent_matches: [{ rank: 2, faction: "JESKAI", faction_name: factions.JESKAI.name, score: 9, confidence: 0.2 }],
+};
+const izzetTieDossier = buildCommanderDossier({ factions, placementModel, deckTagCatalog, placementResult: izzetJeskaiTie });
+const jeskaiTieDossier = buildCommanderDossier({ factions, placementModel, deckTagCatalog, placementResult: izzetJeskaiTie, targetFactionKey: "JESKAI" });
+for (const value of [
+  izzetTieDossier.commanderLane.copy,
+  izzetTieDossier.resultSummaryStrip.whereThisLeads.heading,
+  izzetTieDossier.resultSummaryStrip.playPattern.heading,
+]) {
+  assert.match(value, /Izzet/i);
+  assert.doesNotMatch(value, /Jeskai/i);
+}
+for (const value of [
+  jeskaiTieDossier.commanderLane.copy,
+  jeskaiTieDossier.resultSummaryStrip.whereThisLeads.heading,
+  jeskaiTieDossier.resultSummaryStrip.playPattern.heading,
+]) {
+  assert.match(value, /Jeskai/i);
+  assert.doesNotMatch(value, /Izzet/i);
+}
+assert.doesNotMatch(buildHeroNarrative({ dossier: jeskaiTieDossier, faction: factions.JESKAI, result: izzetJeskaiTie, factions }), /Izzet/i);
 
 for (const [label, inputName] of [
   ["Abzan Armor", "Abzan Armor (Precon)"],
@@ -128,9 +172,13 @@ for (const value of new Set(factionStrings.filter((entry) => /\(precon\)/i.test(
 }
 assert.match(indexSource, /if \(card\.recordType !== "CARD" \|\| !card\.name\)[\s\S]*continue;/);
 assert.match(indexSource, /loadCachedScryfallNamedCard\(card\.name\)/);
-assert.match(indexSource, /withNamedCardInFlightDedupe/);
+assert.match(indexSource, /createScryfallNamedCardLookup/);
+assert.match(indexSource, /scryfallLocalCardByName/);
+assert.match(cacheSource, /const inFlight = new Map\(\)/);
+assert.match(cacheSource, /vm_scryfall_named_cache_v2/);
 assert.match(indexSource, /setTimeout\(resolve, 90\)/);
-assert.match(indexSource, /!response\.ok \|\| !data\?\.name/);
+assert.match(cacheSource, /response\.status === 404/);
+assert.match(cacheSource, /response\.status === 429/);
 for (const slug of ["abzan-armor", "stalwart-unity", "eldrazi-unbound", "first-flight", "phantom-premonition", "spirit-squadron", "buckle-up"]) {
   assert.match(indexSource, new RegExp(`https://edhrec\\.com/precon/${slug}`));
 }
@@ -194,5 +242,56 @@ assert.match(cssSource, /\.starter-grid\{[\s\S]*minmax\(min\(100%,280px\),1fr\)/
 assert.match(cssSource, /\.staple-wrap\{[^}]*width:150px/);
 assert.match(cssSource, /\.land-wrap\{[^}]*width:128px/);
 assert.match(cssSource, /@media\(max-width:700px\)[\s\S]*\.dossier-snapshot[\s\S]*grid-template-columns:1fr/);
+assert.match(cssSource, /\.tied-co-leader-summary[\s\S]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
+
+class FixtureStorage {
+  constructor(values = {}) { this.values = new Map(Object.entries(values)); }
+  getItem(key) { return this.values.has(key) ? this.values.get(key) : null; }
+  setItem(key, value) { this.values.set(key, String(value)); }
+}
+const fixtureErrors = [];
+const emptyFixtureContext = {
+  window: {},
+  sessionStorage: new FixtureStorage(),
+  location: { reload() {} },
+  console: { error: (message) => fixtureErrors.push(message), info() {} },
+};
+runInNewContext(qaHelperSource, emptyFixtureContext);
+assert.equal(emptyFixtureContext.window.vmGateAQa, undefined);
+assert.match(fixtureErrors.join(" "), /No vm_last_result was found/);
+
+const fixtureBase = JSON.stringify({
+  faction: "WU",
+  top_matches: [{ faction: "WU", score: 8 }, { faction: "ABZAN", score: 7 }],
+  evidence_trail: [],
+  stage_history: [],
+});
+const fixtureStorage = new FixtureStorage({ vm_last_result: fixtureBase });
+let fixtureReloads = 0;
+const helperErrors = [];
+const helperContext = {
+  window: {},
+  sessionStorage: fixtureStorage,
+  location: { reload() { fixtureReloads += 1; } },
+  console: { error: (message) => helperErrors.push(message), info() {} },
+};
+runInNewContext(qaHelperSource, helperContext);
+assert.equal(typeof helperContext.window.vmGateAQa, "function");
+assert.ok(fixtureStorage.getItem("vm_gate_a_qa_base"));
+assert.equal(helperContext.window.vmGateAQa("tye"), false);
+assert.equal(fixtureReloads, 0);
+assert.match(helperErrors.join(" "), /Unknown fixture "tye"/);
+assert.equal(helperContext.window.vmGateAQa("unknown"), true);
+assert.equal(fixtureReloads, 1);
+const afterReloadContext = {
+  window: {},
+  sessionStorage: fixtureStorage,
+  location: { reload() { fixtureReloads += 1; } },
+  console: { error: (message) => helperErrors.push(message), info() {} },
+};
+assert.equal(afterReloadContext.window.vmGateARestore, undefined, "The local QA helper is expected to disappear after reload.");
+runInNewContext(qaHelperSource, afterReloadContext);
+assert.equal(afterReloadContext.window.vmGateARestore(), true);
+assert.equal(fixtureReloads, 2);
 
 console.log("PASS VM-551 Gate A owner-QA remediation checks");

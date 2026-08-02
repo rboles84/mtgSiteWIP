@@ -65,6 +65,7 @@ import {
   listUserDeckLinks,
   saveUserDeckLink,
 } from "./deck-link-service.js";
+import { createScryfallNamedCardLookup } from "./scryfall-card-cache.js";
 
 /*
  * Archscry route runtime ownership map (VM-147B)
@@ -122,6 +123,7 @@ const APP_STATE = {
   preconThemeTaxonomy: null,
   scryfallCommanderIndex: null,
   scryfallCommanderByName: new Map(),
+  scryfallLocalCardByName: new Map(),
   scryfallColorThemeIndex: null,
   scryfallMechanicThemeIndex: null,
   previousViewKey: null,
@@ -370,6 +372,36 @@ async function loadDiscoveryData() {
   APP_STATE.scryfallCommanderByName = new Map(
     (commanderIndex?.commanders || []).map((card) => [normalizeCardName(card.name), card])
   );
+  APP_STATE.scryfallLocalCardByName = buildLocalScryfallCardLookup([
+    flavorIndex,
+    commanderIndex,
+    colorThemeIndex,
+    mechanicThemeIndex,
+  ]);
+}
+
+function buildLocalScryfallCardLookup(indexes = []) {
+  const byName = new Map();
+  const pending = [...indexes.filter(Boolean)];
+  while (pending.length) {
+    const value = pending.pop();
+    if (Array.isArray(value)) {
+      pending.push(...value);
+      continue;
+    }
+    if (!value || typeof value !== "object") continue;
+    const hasUsableLocator = Boolean(
+      value.image_uri ||
+      value.image_uris?.normal ||
+      value.card_faces?.some?.((face) => face?.image_uris?.normal) ||
+      value.scryfall_uri
+    );
+    if (typeof value.name === "string" && hasUsableLocator) {
+      byName.set(normalizeCardName(value.name), value);
+    }
+    pending.push(...Object.values(value).filter((entry) => entry && typeof entry === "object"));
+  }
+  return byName;
 }
 
 /**
@@ -2086,14 +2118,14 @@ async function handleArchiveDeckLink(actionNode) {
   }
 }
 
-function buildPlacementSnapshotHtml({ dossier }) {
+function buildPlacementSnapshotHtml({ dossier, includeAlternative = true }) {
   const summary = dossier?.resultSummaryStrip || {};
   const adjacentFit = summary.adjacentFit || {};
   const whereThisLeads = summary.whereThisLeads || {};
   const playPattern = summary.playPattern || {};
   const activeIdentityName = dossier?.faction?.name || dossier?.targetFactionKey || "This identity";
 
-  const alternativeCard = summary.adjacentFit ? `
+  const alternativeCard = includeAlternative && summary.adjacentFit ? `
       <div class="dossier-snapshot-card dossier-snapshot-card--adjacent" data-summary-card="adjacent-fit" data-signal-band="${escapeAttributeValue(adjacentFit.signalBand || "close")}">
         <span>${escapeHtml(adjacentFit.label || "Close alternative")}</span>
         <strong>${escapeHtml(adjacentFit.heading || adjacentFit.targetName || "Alternative path")}</strong>
@@ -2104,18 +2136,44 @@ function buildPlacementSnapshotHtml({ dossier }) {
   return `
     <div class="dossier-snapshot" aria-label="Result summary strip">
       ${alternativeCard}
-      <div class="dossier-snapshot-card dossier-snapshot-card--narrative" data-summary-card="where-this-leads">
+      <div class="dossier-snapshot-card dossier-snapshot-card--narrative" data-summary-card="where-this-leads" data-summary-identity-key="${escapeAttributeValue(dossier?.targetFactionKey || "")}">
         <span>${escapeHtml(`${whereThisLeads.label || "Where this leads"} - ${activeIdentityName}`)}</span>
         <strong>${escapeHtml(whereThisLeads.heading || "Commander direction")}</strong>
         <div class="dossier-snapshot-copy">${escapeHtml(whereThisLeads.body || "This reading points toward a Commander plan with a visible, repeatable pressure pattern.")}</div>
         ${buildSummaryTagRowHtml(whereThisLeads.tags || [])}
       </div>
-      <div class="dossier-snapshot-card dossier-snapshot-card--play-pattern" data-summary-card="play-pattern">
+      <div class="dossier-snapshot-card dossier-snapshot-card--play-pattern" data-summary-card="play-pattern" data-summary-identity-key="${escapeAttributeValue(dossier?.targetFactionKey || "")}">
         <span>${escapeHtml(`${playPattern.label || "Play pattern"} - ${activeIdentityName}`)}</span>
         <strong>${escapeHtml(playPattern.heading || "At the table")}</strong>
         <div class="dossier-snapshot-copy">${escapeHtml(playPattern.body || "Opponents usually read this identity through the pressure it keeps visible and the answers it makes them spend.")}</div>
       </div>
     </div>`;
+}
+
+function buildTiedCoLeaderSummaryHtml(dossier) {
+  if (!dossier?.targetFactionKey || !dossier?.faction?.name) return "";
+  const summary = dossier.resultSummaryStrip || {};
+  const plan = summary.whereThisLeads || {};
+  const play = summary.playPattern || {};
+  const identityName = dossier.faction.name;
+  return `
+    <section class="tied-identity-container tied-identity-container--other" data-tied-identity-container="other" data-identity-key="${escapeAttributeValue(dossier.targetFactionKey)}">
+      <div class="tied-identity-kicker">Other co-leader - ${escapeHtml(identityName)}</div>
+      <div class="tied-co-leader-summary">
+        <div class="tied-co-leader-block" data-tied-plan-heading="${escapeAttributeValue(identityName)}">
+          <span>Where ${escapeHtml(identityName)} leads</span>
+          <strong>${escapeHtml(plan.heading || `${identityName} Commander direction`)}</strong>
+          <p>${escapeHtml(plan.body || `A concise ${identityName} comparison using the same recorded answers.`)}</p>
+        </div>
+        <div class="tied-co-leader-block" data-tied-play-pattern-heading="${escapeAttributeValue(identityName)}">
+          <span>Play pattern - ${escapeHtml(identityName)}</span>
+          <strong>${escapeHtml(play.heading || `${identityName} at the table`)}</strong>
+          <p>${escapeHtml(play.body || `A bounded view of ${identityName}'s possible Commander expression.`)}</p>
+        </div>
+      </div>
+      <p class="tied-co-leader-limitation">This is a co-leader in the tied reading, not a close alternative or semantic adjacent identity.</p>
+      <button class="btn-secondary" type="button" ${buildActionAttrs("switch-adjacent-view", { viewKey: dossier.targetFactionKey })}>Compare this co-leader</button>
+    </section>`;
 }
 
 function normalizeDossierSegment(group, segment, segments) {
@@ -2569,7 +2627,9 @@ function buildDiscoverySummaryHtml({ dossier, faction, result }) {
 }
 
 function buildDossierInterpretationHtml({ dossier, faction, result, tagRefs }) {
-  const adjacent = adjacentMatchForSummary(result, dossier.targetFactionKey);
+  const adjacent = result?.alternative_state === "co-leader"
+    ? null
+    : adjacentMatchForSummary(result, dossier.targetFactionKey);
   const adjacentFaction = adjacent?.faction ? getFaction(adjacent.faction) : null;
   const contrastCopy = adjacentFaction
     ? buildContrastCopy(dossier.isPrimary ? faction : getFaction(dossier.primaryFactionKey), dossier.isPrimary ? adjacentFaction : faction)
@@ -2917,6 +2977,18 @@ function renderResult(viewKey) {
     summaryPresentationForFaction: presentationForFaction,
     summaryContrastCopyBuilder: buildContrastCopy,
   });
+  const tiedPeerDossier = resultState === "tied" && activeKey === result.faction && tiedAlternative?.faction
+    ? buildCommanderDossier({
+        factions: APP_STATE.factions,
+        placementModel: APP_STATE.placementModel,
+        deckTagCatalog: APP_STATE.deckTagCatalog,
+        placementResult: result,
+        targetFactionKey: tiedAlternative.faction,
+        starterProfile,
+        summaryPresentationForFaction: presentationForFaction,
+        summaryContrastCopyBuilder: buildContrastCopy,
+      })
+    : null;
   const faction = dossier.faction.record;
   const institutionLabel = getInstitutionLabel(faction);
   const isPrimary = dossier.isPrimary;
@@ -3034,7 +3106,7 @@ function renderResult(viewKey) {
       <div class="commander-preview-grid" id="commander-preview-grid">${commanderPreviewSlots(commanderPreviewCandidates)}</div>
     </div>` : "";
 
-  const adjacentMatches = dossier.adjacentFits || [];
+  const adjacentMatches = resultState === "tied" ? [] : dossier.adjacentFits || [];
   const adjacentHtml = adjacentMatches.length
     ? adjacentMatches
         .map((fit) => {
@@ -3146,14 +3218,19 @@ function renderResult(viewKey) {
   );
   APP_STATE.dossierSegments["starter-cards"] = starterSegment;
   APP_STATE.dossierSegments["mana-base"] = manaBaseSegment;
-  const placementSnapshotHtml = buildPlacementSnapshotHtml({ dossier, faction, commanderLane });
+  const placementSnapshotHtml = buildPlacementSnapshotHtml({
+    dossier,
+    includeAlternative: resultState !== "tied",
+  });
   const utilityActionsHtml = buildDossierUtilityActionsHtml({ isPrimary, layoutMode });
   const primaryName = result.faction_name || getFaction(result.faction)?.name || result.faction;
   const alternativeName = (tiedAlternative || closeAlternative?.match)?.faction_name ||
     getFaction((tiedAlternative || closeAlternative?.match)?.faction)?.name ||
     (tiedAlternative || closeAlternative?.match)?.faction;
   const stateHeading = resultState === "tied"
-    ? `This reading ended tied: ${primaryName} and ${alternativeName}`
+    ? isPrimary
+      ? `Original stored reading - ${faction.name}`
+      : `Other co-leader - ${faction.name}`
     : resultState === "close"
       ? `Close result: ${primaryName}, with ${alternativeName} also supported`
       : resultState === "unknown"
@@ -3162,6 +3239,15 @@ function renderResult(viewKey) {
   const stateExplanation = resultState === "unknown" && isLegacyGateAResult(result)
     ? "This historical result preserves its saved identity, but it does not contain answer detail for a current fit or strength claim."
     : gateAStatePresentation(resultState)[1];
+  const tiedSummaryHtml = resultState === "tied" ? `
+    <section class="tied-reading-summary" data-tied-reading-summary>
+      <div class="section-label">Tied reading summary</div>
+      <h2>This reading ended tied: ${escapeHtml(primaryName)} and ${escapeHtml(alternativeName)}</h2>
+      <p>The current scoring did not separate these two co-leaders. The shared summary does not assign either identity's plan to the other, and the original serialized result remains unchanged.</p>
+    </section>` : "";
+  const tiedPeerSummaryHtml = resultState === "tied" && isPrimary
+    ? buildTiedCoLeaderSummaryHtml(tiedPeerDossier)
+    : "";
   const placementPanelHtml = `
     ${adjacentContextHtml}
     <div class="result-state-banner" data-result-state="${escapeAttributeValue(resultState)}">
@@ -3308,10 +3394,10 @@ function renderResult(viewKey) {
   const publicEyebrow = isLegacyGateAResult(result)
     ? `Historical saved identity - ${institutionLabel}`
     : isPrimary
-      ? resultState === "tied" ? `Co-leader dossier - ${institutionLabel}` : `Placement dossier - ${institutionLabel}`
-      : resultState === "tied" ? `Comparing co-leader - ${institutionLabel}` : `Comparing close alternative - ${institutionLabel}`;
+      ? resultState === "tied" ? `Original stored reading - ${institutionLabel}` : `Placement dossier - ${institutionLabel}`
+      : resultState === "tied" ? `Other co-leader - ${institutionLabel}` : `Comparing close alternative - ${institutionLabel}`;
 
-  document.getElementById("result-inner").innerHTML = `
+  const identityContentHtml = `
     <div class="guild-banner" data-faction-key="${escapeHtml(faction.key || "")}" data-hero-background="${heroBannerImageSlugForFaction(faction) ? "identity-image" : "banner"}" style="background:${heroBannerBackgroundForFaction(faction)}">
       <div class="guild-eyebrow">${escapeHtml(publicEyebrow)}</div>
       <div class="guild-name" style="color:${faction.accent}">${faction.name}</div>
@@ -3323,7 +3409,7 @@ function renderResult(viewKey) {
 
     ${placementSnapshotHtml}
 
-    <div class="dossier-console" data-dossier-console data-dossier-layout="${layoutMode}">
+    <div class="dossier-console" data-dossier-console data-dossier-identity-key="${escapeAttributeValue(dossier.targetFactionKey)}" data-dossier-layout="${layoutMode}">
       <div class="dossier-mobile-nav">
         <div class="vm-tabs dossier-mobile-tabs" role="tablist" aria-label="Archscry dossier sections">
           ${buildDossierTabsHtml("mobile", activePanel, layoutMode)}
@@ -3345,6 +3431,14 @@ function renderResult(viewKey) {
         </div>
       </div>
     </div>`;
+  document.getElementById("result-inner").innerHTML = resultState === "tied"
+    ? `${tiedSummaryHtml}
+      <section class="tied-identity-container tied-identity-container--active" data-tied-identity-container="${isPrimary ? "original" : "other-active"}" data-identity-key="${escapeAttributeValue(dossier.targetFactionKey)}">
+        <div class="tied-identity-kicker">${escapeHtml(isPrimary ? `Original stored reading - ${faction.name}` : `Other co-leader - ${faction.name}`)}</div>
+        ${identityContentHtml}
+      </section>
+      ${tiedPeerSummaryHtml}`
+    : identityContentHtml;
   APP_STATE.activeResult = result;
   APP_STATE.activeViewKey = activeKey;
   APP_STATE.activeDossierRadarFaction = faction;
@@ -3506,32 +3600,9 @@ async function loadResultCardArt(faction, commanderCandidates = [], starterCards
 }
 
 export async function loadCachedScryfallNamedCard(name) {
-  const url = `https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(name)}`;
-  const storage = getScryfallNamedCardStorage();
-  if (storage) {
-    try {
-      const cached = storage.getItem(`vm_scryfall_named_v1:${url}`);
-      if (cached) {
-        return JSON.parse(cached);
-      }
-    } catch (_) {}
-  }
-
-  return await withNamedCardInFlightDedupe(url, async () => {
-    const cachedNow = storage ? readScryfallNamedCardCache(storage, url) : null;
-    if (cachedNow) return cachedNow;
-    const response = await fetch(url);
-    const data = await response.json();
-    if (!response.ok || !data?.name) {
-      throw new Error(`Scryfall named-card lookup failed with status ${response.status}.`);
-    }
-    if (response.ok && data?.name && storage) {
-      try {
-        storage.setItem(`vm_scryfall_named_v1:${url}`, JSON.stringify(data));
-      } catch (_) {}
-    }
-    return data;
-  });
+  const card = await ScryfallNamedCardLookup.lookup(name, { recordType: "CARD" });
+  if (!card) throw new Error("Scryfall card art is unavailable for this record.");
+  return card;
 }
 
 function getScryfallNamedCardStorage() {
@@ -3542,31 +3613,11 @@ function getScryfallNamedCardStorage() {
   }
 }
 
-function readScryfallNamedCardCache(storage, url) {
-  try {
-    const cached = storage.getItem(`vm_scryfall_named_v1:${url}`);
-    return cached ? JSON.parse(cached) : null;
-  } catch (_) {
-    return null;
-  }
-}
-
-const ScryfallNamedCardInFlightRequests = new Map();
-
-function withNamedCardInFlightDedupe(cacheKey, fetcher) {
-  if (ScryfallNamedCardInFlightRequests.has(cacheKey)) {
-    return ScryfallNamedCardInFlightRequests.get(cacheKey);
-  }
-
-  const request = Promise.resolve()
-    .then(fetcher)
-    .finally(() => {
-      ScryfallNamedCardInFlightRequests.delete(cacheKey);
-    });
-
-  ScryfallNamedCardInFlightRequests.set(cacheKey, request);
-  return request;
-}
+const ScryfallNamedCardLookup = createScryfallNamedCardLookup({
+  storage: getScryfallNamedCardStorage(),
+  fetchImpl: (...args) => fetch(...args),
+  localResolver: (name) => APP_STATE.scryfallLocalCardByName.get(normalizeCardName(name)) || null,
+});
 
 /**
  * Saves the current active result through Google OAuth or a live signed-in session.

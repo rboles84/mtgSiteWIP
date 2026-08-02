@@ -12,7 +12,7 @@ These dispositions apply to every owner comment governing this pass. `FIXED` mea
 |---|---|---|
 | Explicit current `unknown` became legacy/current Azorius | FIXED | `isLegacyGateAResult()` separates origin from state; current `unknown` now renders the bounded shell without a named identity, dossier, Matrix, or recommendations. Focused current/legacy/valid-primary cases pass. |
 | Incomplete Continue opened an empty Gate shell | FIXED | Continue exists only when `isResumableGateAQuestion()` validates a real model, adaptive state, prompt, and nonempty answers; otherwise only Restart appears. |
-| Tie content leaked the stored primary into the other co-leader | FIXED | Each dossier is built for `targetFactionKey`; summary labels include the active identity. The WU/ABZAN tie regression proves distinct Commander lanes and co-leader—not close-alternative—status. |
+| Tie content leaked the stored primary into the other co-leader | FIXED | The shared tied-reading summary contains no identity plan. Original and other-co-leader content use separate identity-keyed containers; plan, play-pattern, and dossier surfaces are rebuilt for the active identity. Tied mode has no close/adjacent tab. Focused DOM assertions verify container, snapshot, and dossier identity keys. |
 | Legacy dossier said “Current best fit” or described unavailable strength | FIXED | Legacy eyebrow/status use historical framing; stored numeric confidence remains internal and hidden. |
 | Repeated current-result and sibling-card copy | FIXED | Dossier eyebrow is now a single context label; signal cards use one section limitation; lane bodies are category-specific; card examples have card-specific explanations. Normalized sibling-copy regressions pass. |
 | Duplicate Gate 1 “Return to landing” | FIXED | One `#quick-back-btn` remains; its first-question label is set once by the renderer. |
@@ -28,7 +28,9 @@ These dispositions apply to every owner comment governing this pass. `FIXED` mea
 | Azorius/Commander claims were universal, exaggerated, or inaccurate | FIXED | Claims are bounded as possible expressions. Card facts trace to `data/scryfall/indexes/commander-index.json`; identity scope traces to `data/raw-factions/azorius_senate/azorius_senate.profile.json` and `data/placement-model.json`. Lore is not treated as deck or opponent proof. |
 | Direct precon research action missing | FIXED | Seven locally supported display names use an explicit allowlist of validated EDHREC precon routes, including `https://edhrec.com/precon/first-flight`; no display-name slug generation occurs. |
 | “Atlas is still opening” implied incomplete coverage | FIXED | Replaced with stable complete-atlas language that bounds the current reading’s evidence coverage. |
-| Edge tracking prevention, lazy-image notices, helper loss after reload, local CORS/429 | ENVIRONMENT-ONLY | No source defect was found for those messages. The deterministic product-as-card request was separately fixed above and is not classified environment-only. |
+| Edge tracking prevention and browser lazy-image notices | ENVIRONMENT-ONLY | No candidate source defect was found for these browser messages. |
+| Repeated Scryfall requests after reload caused 429/CORS fallback | FIXED | Named-card lookup now uses committed local records first, versioned `localStorage` second, and the network last. Success, negative, and 429 backoff records survive reloads; malformed records are not cached. |
+| QA helper disappeared after reload | DOCUMENTED QA LIFECYCLE | The helper is intentionally local-only on `window`; reload clears it. The checked-in loader validates `vm_last_result`, preserves `vm_gate_a_qa_base`, rejects misspellings, and reports readable errors. Reinstall after each reload. This is not an Archscry state defect. |
 
 ### Azorius evidence and editorial boundaries
 
@@ -109,60 +111,51 @@ Do not accept or regenerate visual baselines. Owner acceptance is visual/copy ap
 
 ## Remediation validation
 
-- `node scripts/vm551-gate-a-owner-qa-tests.mjs`: PASS, including unknown/legacy/primary distinction, resumability, WU/ABZAN tie isolation, normalized copy uniqueness, full precon-catalog routing, educational terms, mana symbols, responsive rules, and bounded Azorius claims.
+- `node scripts/vm551-gate-a-owner-qa-tests.mjs`: PASS, including unknown/legacy/primary distinction, resumability, WU/ABZAN and explicit Izzet/Jeskai tie isolation, normalized copy uniqueness, full precon-catalog routing, educational terms, mana symbols, responsive rules, and bounded Azorius claims.
 - `npm.cmd run test:placement`: PASS, 37 factions / 37 golden paths.
 - `npm.cmd run test:bias`, `test:gate-compression`, `test:gate-live-bias`: PASS; no model edits were made.
 - `npm.cmd run test:parser`: PASS, 226 cases.
 - `npm.cmd run test:source-generated`: PASS with the two existing JESKAI/MARDU model-owned warnings.
 - `npm.cmd run lint:js`, `lint:html`, `test:copy-boundaries`, `test:frontend-smoke`, `test:route-metadata`, `test:deck-links`, `test:maze-scratchpad`, `test:browser-smoke`: PASS.
 - In-app desktop and 390px: mana symbols rendered; no document overflow; no visible sibling overlap in dossier snapshot, flavor, How This Plays, or starter grids. No visual baseline was created or accepted.
+- `node scripts/vm551-scryfall-cache-tests.mjs`: PASS without live Scryfall. It covers local-first resolution, concurrent in-flight deduplication, same-page reuse, simulated-reload reuse for Exotic Orchard and Myriad Landscape, 404 negative caching, reload-persistent 429 backoff, expiration, corrupt storage, malformed payloads, bounded eviction, product-name rejection, preserved image URI, and preserved Scryfall URI.
+- Final tied-result browser check: PASS through a real seven-answer terminal path producing Prismari College / Esper. Desktop and 390px assertions verified a plan-free shared summary; separate `PRISMARI` original and `ESPER` peer containers; matching banner, snapshot, and dossier keys; target-specific plan/play-pattern copy; no cross-container leader name; no close/adjacent tab; comparison and return; no horizontal overflow; and no console errors.
 
-Remaining owner spot checks: explicit unknown, incomplete with/without resumable state, exact tie, legacy with/without stored confidence, Azorius card/precon copy, and the educational help interaction. Signed-in profile/OAuth persistence remains an optional owner account spot check; its contracts and field shapes were not changed.
+Owner accepted explicit current unknown, incomplete without a resumable question, legacy with stored confidence, legacy without stored confidence, and hidden historical confidence. Remaining owner spot checks are limited to the tied visual hierarchy/comparison/return, reload reuse for already-cached card art, and the readable QA-helper reinstall flow. Signed-in profile/OAuth persistence remains outside this correction; its contracts and field shapes were not changed.
 
 ## Exact local state-shell setup
 
 1. Serve the implementation worktree root (for example, `python -m http.server 8765`) and open `http://127.0.0.1:8765/archscry/index.html`.
-2. Complete one normal Quick Reading. On the result screen, open the browser console and install this local-only helper:
+2. Complete one normal Quick Reading. Confirm the result exists with `sessionStorage.getItem("vm_last_result")`. On the result screen, open the browser console and paste this local-only loader:
 
 ```js
-const vmGateABase = JSON.parse(sessionStorage.getItem("vm_gate_a_qa_base") || sessionStorage.getItem("vm_last_result"));
-if (!sessionStorage.getItem("vm_gate_a_qa_base")) {
-  sessionStorage.setItem("vm_gate_a_qa_base", JSON.stringify(vmGateABase));
-}
-window.vmGateAQa = (kind) => {
-  const result = JSON.parse(sessionStorage.getItem("vm_gate_a_qa_base"));
-  result.legacy_result = false;
-  result.source_mode = "quick";
-  result.result_state = ["mixed", "contradictory", "insufficient", "unknown", "invalid", "incomplete"].includes(kind) ? kind : null;
-  if (kind === "tie") {
-    result.top_matches[1].score = result.top_matches[0].score;
-  }
-  if (kind === "close") {
-    result.confidence_gap = 0.01;
-    result.stage_history = [...(result.stage_history || []), { stage: "crucible", qa_fixture: true }];
-    result.evidence_trail = [...(result.evidence_trail || []), {
-      answer_title: "Owner QA close-alternative probe",
-      signal: "a direct authored comparison signal",
-      deltas: [{ faction: result.top_matches[1].faction, delta: 1 }]
-    }];
-  }
-  if (kind === "legacy-with-confidence" || kind === "legacy-without-confidence") {
-    result.result_state = "unknown";
-    result.legacy_result = true;
-    result.source_mode = "legacy";
-    result.evidence_trail = [];
-    result.stage_history = [];
-    if (kind === "legacy-with-confidence") result.confidence = 0.82;
-    else delete result.confidence;
-  }
-  sessionStorage.setItem("vm_last_result", JSON.stringify(result));
-  location.reload();
-};
-window.vmGateARestore = () => {
-  sessionStorage.setItem("vm_last_result", sessionStorage.getItem("vm_gate_a_qa_base"));
-  location.reload();
-};
+fetch("/docs/qa/vm551-gate-a-fixture-helper.js")
+  .then((response) => {
+    if (!response.ok) throw new Error(`QA helper load failed: ${response.status}`);
+    return response.text();
+  })
+  .then((source) => (0, eval)(source))
+  .catch((error) => console.error("[VM-551 QA]", error.message));
 ```
 
-3. Run one of `vmGateAQa("tie")`, `vmGateAQa("close")`, `vmGateAQa("mixed")`, `vmGateAQa("contradictory")`, `vmGateAQa("insufficient")`, `vmGateAQa("unknown")`, `vmGateAQa("invalid")`, `vmGateAQa("incomplete")`, `vmGateAQa("legacy-with-confidence")`, or `vmGateAQa("legacy-without-confidence")`.
-4. Use `vmGateARestore()` after reinstalling the helper on any reloaded page, or retake the reading, to restore a normal result. These fixtures alter only local `sessionStorage`; they do not save, migrate, or change production data.
+3. Run one of `vmGateAQa("tie")`, `vmGateAQa("close")`, `vmGateAQa("mixed")`, `vmGateAQa("contradictory")`, `vmGateAQa("insufficient")`, `vmGateAQa("unknown")`, `vmGateAQa("invalid")`, `vmGateAQa("incomplete")`, `vmGateAQa("legacy-with-confidence")`, or `vmGateAQa("legacy-without-confidence")`. Misspelled fixture names are rejected without changing storage or reloading.
+4. A reload clears `window.vmGateAQa` and `window.vmGateARestore`. Paste the loader again after every reload, then use `vmGateARestore()` to restore the saved base. A `vmGateARestore is not defined` message means the local QA helper was not reinstalled; it is not an Archscry result-state defect. The helper reports a readable error when `vm_last_result` or `vm_gate_a_qa_base` is missing or malformed.
+5. These fixtures alter only local `sessionStorage`; they do not save, migrate, or change production data.
+
+## Named-card cache QA
+
+Archscry stores successful named-card results for seven days, 404/not-a-card results for six hours, and a 429 backoff for fifteen minutes under versioned local-storage key `vm_scryfall_named_cache_v2`. The cache is bounded to 200 records and evicts the oldest/least-recently-used entries. Committed local card records are checked before this cache, and the network is last.
+
+Development-only cache clear command:
+
+```js
+localStorage.removeItem("vm_scryfall_named_cache_v2");
+```
+
+## Final owner spot-check
+
+1. Install the local helper, run `vmGateAQa("tie")`, reinstall the helper after reload, and verify the page reads in this order: Tied reading summary; Original stored reading; Other co-leader. Confirm the shared summary contains no identity plan, Compare this co-leader opens only the peer's plan/play pattern/dossier, and Back to original reading restores the stored primary. No tied surface should call either identity a close alternative or adjacent identity.
+2. Clear the named-card cache once with the development command above. Open a result that requests Exotic Orchard or Myriad Landscape, allow the first lookup to finish, and reload. The cached card must retain its art and Scryfall action without another `/cards/named` request. If Scryfall previously returned 404 or 429, use the documented cache clear command before this success-path spot-check rather than waiting for the negative/backoff TTL.
+3. Reinstall the helper, run `vmGateAQa("tye")`, and confirm it reports the supported names without reloading or changing the result. Reload once, confirm the helper functions are no longer on `window`, then paste the loader again and run `vmGateARestore()`. The lifecycle message is expected QA behavior, not a product-state failure.
+
+Repeat the tie check at desktop width and 390px. Do not create or accept a visual baseline.
