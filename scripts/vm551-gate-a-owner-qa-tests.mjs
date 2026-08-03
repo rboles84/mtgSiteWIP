@@ -266,6 +266,15 @@ assert.match(cssSource, /\.dossier-snapshot-co-leader-title \{[\s\S]*display: fl
 assert.match(cssSource, /\.dossier-snapshot-card--co-leader \.mana-pips \{[\s\S]*display: inline-flex;[\s\S]*width: max-content;[\s\S]*flex: 0 0 auto;[\s\S]*justify-content: flex-start;[\s\S]*justify-self: start;/);
 assert.match(cssSource, /\.dossier-snapshot-card--co-leader\s+\.tied-co-leader-pips\s+> \.ms \{\s*margin: 0 !important;/);
 assert.match(cssSource, /\.dossier-snapshot-card--co-leader\s+\.tied-co-leader-pips\s+> \.ms\s+\+ \.ms \{\s*margin-left: 6px !important;/);
+for (const [color, left, top] of [
+  ["w", "0.028em", "-0.036em"],
+  ["u", "0.028em", "-0.04em"],
+  ["b", "0.028em", "-0.036em"],
+  ["r", "-0.004em", "-0.036em"],
+  ["g", "0.028em", "-0.032em"],
+]) {
+  assert.match(cssSource, new RegExp(`\\.dossier-snapshot-card--co-leader\\s+\\.tied-co-leader-pips\\s+> \\.ms-${color}::before \\{\\s*position: relative;\\s*left: ${left.replace(".", "\\.")};\\s*top: ${top.replace(".", "\\.")};`));
+}
 assert.match(cssSource, /\.identity-story-meta\{[^}]*margin-top:0\.35rem/);
 assert.doesNotMatch(cssSource, /\.identity-story-meta\{[^}]*margin-top:auto/);
 assert.match(cssSource, /\.how-this-plays-block\{[^}]*gap:0\.3rem/);

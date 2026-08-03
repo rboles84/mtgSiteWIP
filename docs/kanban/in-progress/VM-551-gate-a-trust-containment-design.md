@@ -39,4 +39,4 @@ On 2026-08-01, the owner approved exact design commit `c6b1c9e6940b67201c8c2f999
 
 ## Next gate
 
-The final owner pip-spacing correction leaves the accepted co-leader title and card layout unchanged and adds a direct `6px !important` adjacent-sibling margin to individual tied co-leader Mana Font symbols. Physical rectangle checks report exactly 6px between every adjacent symbol for Selesnya, Naya, and WUBRG at 1440px, 390px, and 320px, with no overlaps or card overflow. All other accepted Gate A behavior remains protected. Owner review of the exact follow-up commit is next.
+The final co-leader Mana Font polish preserves the verified 6px adjacent spacing and adds per-color optical offsets only to `.dossier-snapshot-card--co-leader .tied-co-leader-pips > .ms-{color}::before`. The colored discs, title/card layout, size, glow, symbol order, accessible labels, and every other Mana Font surface remain unchanged. Desktop/390px/320px browser checks confirm the offsets and preserve the physical spacing, containment, and canonical order. Owner review of the exact follow-up commit is next.

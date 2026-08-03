@@ -183,4 +183,6 @@ localStorage.removeItem("vm_scryfall_named_cache_v2");
 
 Owner spot-check follow-up: `Commander starting points` was a redundant label for the optional commander-card preview grid and could remain stranded when no candidate resolved. It is removed; the entire optional block stays hidden until a verified preview exists and disappears when none resolve. The later pip-spacing correction applies a direct 6px adjacent-sibling margin. Physical rectangle checks measure Selesnya `[6]`, Naya `[6,6]`, and WUBRG `[6,6,6,6]` at 1440px, 390px, and 320px; all groups remain inside their cards without overlap.
 
+Optical-centering follow-up: only the tied co-leader `.ms-w`, `.ms-u`, `.ms-b`, `.ms-r`, and `.ms-g` `::before` glyphs receive small per-color relative offsets measured from the owner's 500% capture. Browser checks confirm those offsets at desktop, 390px, and 320px while the physical gap arrays, colored discs, ordering, labels, and unrelated Mana Font surfaces remain unchanged.
+
 Do not create or accept a visual baseline.

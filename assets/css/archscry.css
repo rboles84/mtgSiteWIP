@@ -913,6 +913,46 @@ body.vm-archscry-route .dossier-snapshot-card--co-leader
   margin-left: 6px !important;
 }
 
+body.vm-archscry-route .dossier-snapshot-card--co-leader
+  .tied-co-leader-pips
+  > .ms-w::before {
+  position: relative;
+  left: 0.028em;
+  top: -0.036em;
+}
+
+body.vm-archscry-route .dossier-snapshot-card--co-leader
+  .tied-co-leader-pips
+  > .ms-u::before {
+  position: relative;
+  left: 0.028em;
+  top: -0.04em;
+}
+
+body.vm-archscry-route .dossier-snapshot-card--co-leader
+  .tied-co-leader-pips
+  > .ms-b::before {
+  position: relative;
+  left: 0.028em;
+  top: -0.036em;
+}
+
+body.vm-archscry-route .dossier-snapshot-card--co-leader
+  .tied-co-leader-pips
+  > .ms-r::before {
+  position: relative;
+  left: -0.004em;
+  top: -0.036em;
+}
+
+body.vm-archscry-route .dossier-snapshot-card--co-leader
+  .tied-co-leader-pips
+  > .ms-g::before {
+  position: relative;
+  left: 0.028em;
+  top: -0.032em;
+}
+
 body.vm-archscry-route .dossier-snapshot-card--co-leader .btn-secondary {
   width: max-content;
   max-width: 100%;

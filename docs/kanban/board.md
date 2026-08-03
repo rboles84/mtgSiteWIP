@@ -43,7 +43,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-551 — Gate A Archscry Trust Containment](in-progress/VM-551-gate-a-trust-containment-design.md) - final owner pip-spacing correction ready: adjacent co-leader Mana Font symbols now receive a direct `6px` sibling margin. Physical rectangle checks report `[6]`, `[6,6]`, and `[6,6,6,6]` for Selesnya, Naya, and WUBRG at 1440px, 390px, and 320px. Previously accepted layout and all protected Gate A behavior remain unchanged; Gate B1, merge, push, deployment, and certification remain excluded.
+- [VM-551 — Gate A Archscry Trust Containment](in-progress/VM-551-gate-a-trust-containment-design.md) - final co-leader Mana Font polish ready: adjacent symbols retain their verified 6px physical spacing, while narrowly scoped per-color `::before` offsets optically center only the black glyph artwork inside its existing disc. Desktop/390px/320px browser checks pass; other Mana Font surfaces and all protected Gate A behavior remain unchanged. Gate B1, merge, push, deployment, and certification remain excluded.
 
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 

@@ -927,9 +927,9 @@ async function validateArchscryTiePolish(page, viewport) {
   if (["desktop", "mobile", "narrow-mobile"].includes(viewport.name)) {
     const tiedBaseResult = await page.evaluate(() => JSON.parse(sessionStorage.getItem("vm_last_result") || "null"));
     const physicalGapScenarios = [
-      { label: "Selesnya W/G", key: "WG", name: "Selesnya Conclave", expectedCount: 2 },
-      { label: "Naya R/G/W", key: "NAYA", name: "Naya", expectedCount: 3 },
-      { label: "Five-Color WUBRG", key: "WUBRG", name: "Five-Color / WUBRG", expectedCount: 5 },
+      { label: "Selesnya W/G", key: "WG", name: "Selesnya Conclave", expectedSymbols: ["w", "g"] },
+      { label: "Naya R/G/W", key: "NAYA", name: "Naya", expectedSymbols: ["r", "g", "w"] },
+      { label: "Five-Color WUBRG", key: "WUBRG", name: "Five-Color / WUBRG", expectedSymbols: ["w", "u", "b", "r", "g"] },
     ];
 
     for (const target of physicalGapScenarios) {
@@ -962,9 +962,22 @@ async function validateArchscryTiePolish(page, viewport) {
         const gaps = rects.slice(1).map((current, index) => Number((current.left - rects[index].right).toFixed(3)));
         const cardRect = card?.getBoundingClientRect();
         const groupRect = group?.getBoundingClientRect();
+        const opticalOffsets = pips.map((pip) => {
+          const symbol = [...pip.classList].find((className) => /^ms-[wubrg]$/.test(className))?.slice(3) || "";
+          const pipStyle = getComputedStyle(pip);
+          const glyphStyle = getComputedStyle(pip, "::before");
+          const fontSize = Number.parseFloat(pipStyle.fontSize);
+          return {
+            symbol,
+            position: glyphStyle.position,
+            leftEm: Number((Number.parseFloat(glyphStyle.left) / fontSize).toFixed(3)),
+            topEm: Number((Number.parseFloat(glyphStyle.top) / fontSize).toFixed(3)),
+          };
+        });
         return {
           count: pips.length,
           gaps,
+          opticalOffsets,
           noOverlap: gaps.every((gap) => gap >= 0),
           groupInsideCard: Boolean(cardRect && groupRect
             && groupRect.left >= cardRect.left - 0.5
@@ -973,11 +986,23 @@ async function validateArchscryTiePolish(page, viewport) {
             && groupRect.bottom <= cardRect.bottom + 0.5),
         };
       });
-      assert(measurement.count === target.expectedCount, `${viewport.name} ${target.label} rendered ${measurement.count} pips instead of ${target.expectedCount}.`);
-      assert(measurement.gaps.length === target.expectedCount - 1, `${viewport.name} ${target.label} did not expose every adjacent physical gap.`);
+      const expectedOpticalOffsets = {
+        w: { leftEm: 0.028, topEm: -0.036 },
+        u: { leftEm: 0.028, topEm: -0.04 },
+        b: { leftEm: 0.028, topEm: -0.036 },
+        r: { leftEm: -0.004, topEm: -0.036 },
+        g: { leftEm: 0.028, topEm: -0.032 },
+      };
+      assert(measurement.count === target.expectedSymbols.length, `${viewport.name} ${target.label} rendered ${measurement.count} pips instead of ${target.expectedSymbols.length}.`);
+      assert(measurement.gaps.length === target.expectedSymbols.length - 1, `${viewport.name} ${target.label} did not expose every adjacent physical gap.`);
       assert(measurement.gaps.every((gap) => gap >= 5 && gap <= 8), `${viewport.name} ${target.label} physical pip gaps fell outside 5px–8px: ${JSON.stringify(measurement.gaps)}.`);
       assert(measurement.noOverlap, `${viewport.name} ${target.label} mana symbols overlapped.`);
       assert(measurement.groupInsideCard, `${viewport.name} ${target.label} mana-symbol group escaped the co-leader card.`);
+      assert(JSON.stringify(measurement.opticalOffsets.map(({ symbol }) => symbol)) === JSON.stringify(target.expectedSymbols), `${viewport.name} ${target.label} changed canonical symbol order.`);
+      for (const offset of measurement.opticalOffsets) {
+        const expected = expectedOpticalOffsets[offset.symbol];
+        assert(offset.position === "relative" && offset.leftEm === expected.leftEm && offset.topEm === expected.topEm, `${viewport.name} ${target.label} ${offset.symbol.toUpperCase()} optical offset was not applied only to its glyph: ${JSON.stringify(offset)}.`);
+      }
       console.log(`    ${viewport.name}: ${target.label} physical pip gaps ${JSON.stringify(measurement.gaps)}`);
     }
   }
