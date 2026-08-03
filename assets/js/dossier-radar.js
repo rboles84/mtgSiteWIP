@@ -124,12 +124,11 @@ function renderDossierCardVoicesPanel(snippets = []) {
         ${items.map((snippet, index) => `
           <article class="vm-card-voice" data-matrix-card-name="${escapeDossierHtml(snippet.card_name)}" data-record-type="CARD">
             ${snippet.image_uri
-              ? `<a class="vm-card-voice-image-link" id="mcv_${index}" href="${escapeDossierHtml(snippet.scryfall_uri)}" target="_blank" rel="noopener" aria-label="Open ${escapeDossierHtml(snippet.card_name)} on Scryfall"><img class="vm-card-voice-image" src="${escapeDossierHtml(snippet.image_uri)}" alt="${escapeDossierHtml(`${snippet.card_name} card image`)}" loading="lazy"></a>`
+              ? `<a class="vm-card-voice-image-link" id="mcv_${index}" href="${escapeDossierHtml(snippet.scryfall_uri)}" target="_blank" rel="noopener" aria-label="Open ${escapeDossierHtml(snippet.card_name)} on Scryfall" data-card-preview-anchor><img class="vm-card-voice-image" src="${escapeDossierHtml(snippet.image_uri)}" alt="${escapeDossierHtml(`${snippet.card_name} card image`)}" loading="lazy" data-card-preview-source></a>`
               : `<span class="vm-card-voice-image-fallback" id="mcv_${index}" aria-label="Card image unavailable"><span aria-hidden="true">Image unavailable</span></span>`}
             <div class="vm-card-voice-copy">
-              <span class="vm-card-voice-name">${escapeDossierHtml(snippet.card_name)}</span>
+              <a class="vm-card-voice-name" id="mcv_name_${index}" href="${escapeDossierHtml(snippet.scryfall_uri)}" target="_blank" rel="noopener" aria-label="Open ${escapeDossierHtml(snippet.card_name)} on Scryfall" data-card-preview-anchor>${escapeDossierHtml(snippet.card_name)}</a>
               <span class="vm-card-voice-text">${escapeDossierHtml(snippet.flavor_excerpt)}</span>
-              <a class="vm-card-voice-action" id="mcv_action_${index}" href="${escapeDossierHtml(snippet.scryfall_uri)}" target="_blank" rel="noopener" aria-label="Open ${escapeDossierHtml(snippet.card_name)} on Scryfall">View on Scryfall <span aria-hidden="true">&nearr;</span></a>
             </div>
           </article>`).join("")}
       </div>

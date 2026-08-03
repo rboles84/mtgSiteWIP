@@ -593,17 +593,56 @@ async function validateArchscryVisualPolish(page, viewport) {
       matrixSymbolCount: matrixSymbols?.querySelectorAll(".ms.ms-cost").length || 0,
       voiceCardCount: voiceCards.length,
       voiceImageOrFallbackCount: voiceCards.filter((card) => card.querySelector(".vm-card-voice-image, .vm-card-voice-image-fallback")).length,
-      voiceActionCount: voiceCards.filter((card) => card.querySelector(".vm-card-voice-action[href]")).length,
+      voiceNameLinkCount: voiceCards.filter((card) => card.querySelector("a.vm-card-voice-name[href]")).length,
+      voiceImageLinkCount: voiceCards.filter((card) => card.querySelector("a.vm-card-voice-image-link[href]")).length,
+      voicePreviewCount: voiceCards.filter((card) => card.querySelector("[data-card-preview-anchor]")).length,
+      voiceLinkPairs: voiceCards.map((card) => ({
+        name: card.getAttribute("data-matrix-card-name") || "",
+        nameHref: card.querySelector("a.vm-card-voice-name[href]")?.href || "",
+        imageHref: card.querySelector("a.vm-card-voice-image-link[href]")?.href || "",
+      })),
+      publicTechnicalMatches: (document.getElementById("result-inner")?.innerText || "").match(/\bmodel\b|\bscor(?:e|ed|ing)\b|\brank(?:ed|ing)\b|serialized|stored primary|algorithm|confidence percentage|placement accuracy/gi) || [],
       storyMetaMarginTop: getComputedStyle(document.querySelector(".identity-story-meta") || document.body).marginTop,
       tableStackGap: getComputedStyle(document.querySelector(".how-this-plays-block") || document.body).gap,
+      matrixDescriptionGap: (() => {
+        const symbols = document.getElementById("dossierOverlayLine");
+        const text = document.getElementById("dossierColorText");
+        if (!symbols || !text) return null;
+        return text.getBoundingClientRect().top - symbols.getBoundingClientRect().bottom;
+      })(),
+      preconRhythm: (() => {
+        const section = document.querySelector(".precons-section");
+        const label = section?.querySelector(":scope > .section-label");
+        const intro = section?.querySelector(":scope > .precon-intro");
+        const meta = section?.querySelector(":scope > .precon-meta");
+        const grid = section?.querySelector(":scope > .precon-grid");
+        return section && label && intro && grid ? {
+          labelToIntro: intro.getBoundingClientRect().top - label.getBoundingClientRect().bottom,
+          introToMeta: meta ? meta.getBoundingClientRect().top - intro.getBoundingClientRect().bottom : null,
+          metaToGrid: grid.getBoundingClientRect().top - (meta || intro).getBoundingClientRect().bottom,
+        } : null;
+      })(),
     };
   });
   assert(!presentation.documentOverflow, `${viewport.name} Archscry created document-level horizontal overflow.`);
   assert(/mana identity$/i.test(presentation.matrixLabel), `${viewport.name} Matrix identity symbols are missing an accessible mana label.`);
   assert(presentation.matrixSymbolCount >= 1, `${viewport.name} Matrix identity reading did not use Mana Font symbols.`);
+  assert(presentation.publicTechnicalMatches.length === 0, `${viewport.name} Archscry result exposed methodology language: ${JSON.stringify(presentation.publicTechnicalMatches)}.`);
   if (presentation.voiceCardCount) {
     assert(presentation.voiceImageOrFallbackCount === presentation.voiceCardCount, `${viewport.name} Cards That Sound Like This omitted an intentional image or fallback.`);
-    assert(presentation.voiceActionCount === presentation.voiceCardCount, `${viewport.name} Cards That Sound Like This omitted a visible Scryfall action.`);
+    assert(presentation.voiceNameLinkCount === presentation.voiceCardCount, `${viewport.name} Cards That Sound Like This omitted a primary card-name link.`);
+    assert(presentation.voiceImageLinkCount <= presentation.voiceCardCount, `${viewport.name} Cards That Sound Like This produced an invalid image-link count.`);
+    assert(presentation.voicePreviewCount === presentation.voiceCardCount, `${viewport.name} Cards That Sound Like This omitted the established preview affordance.`);
+    presentation.voiceLinkPairs.forEach((pair) => {
+      assert(/^https:\/\/scryfall\.com\/card\//.test(pair.nameHref), `${viewport.name} ${pair.name} name link did not target its Scryfall card page.`);
+      if (pair.imageHref) assert(pair.imageHref === pair.nameHref, `${viewport.name} ${pair.name} image and name links diverged.`);
+    });
+  }
+  assert(presentation.matrixDescriptionGap !== null && presentation.matrixDescriptionGap >= 8 && presentation.matrixDescriptionGap <= 16, `${viewport.name} Matrix mana-to-description rhythm is outside 8-16px: ${presentation.matrixDescriptionGap}.`);
+  if (presentation.preconRhythm) {
+    assert(presentation.preconRhythm.labelToIntro <= 16, `${viewport.name} precon title-to-intro gap is too large: ${JSON.stringify(presentation.preconRhythm)}.`);
+    if (presentation.preconRhythm.introToMeta !== null) assert(presentation.preconRhythm.introToMeta <= 16, `${viewport.name} precon intro-to-status gap is too large: ${JSON.stringify(presentation.preconRhythm)}.`);
+    assert(presentation.preconRhythm.metaToGrid <= 16, `${viewport.name} precon status-to-grid gap is too large: ${JSON.stringify(presentation.preconRhythm)}.`);
   }
   assert(presentation.storyMetaMarginTop !== "auto", `${viewport.name} Layered Identity mana symbols remain bottom-pinned.`);
 
@@ -613,6 +652,32 @@ async function validateArchscryVisualPolish(page, viewport) {
       const tablist = shell?.querySelector("[data-dossier-mobile-tabs]");
       if (!shell || !tablist) return null;
       const buttons = [...tablist.querySelectorAll("[data-dossier-tab]")];
+      const results = [];
+      for (const button of buttons) {
+        button.click();
+        await new Promise((resolve) => setTimeout(resolve, 30));
+        const panelId = button.getAttribute("data-dossier-tab");
+        const panel = document.querySelector(`[data-dossier-panel="${panelId}"]`);
+        const otherVisible = [...document.querySelectorAll("[data-dossier-panel]")]
+          .filter((candidate) => candidate !== panel && !candidate.hidden)
+          .map((candidate) => candidate.getAttribute("data-dossier-panel"));
+        results.push({
+          panelId,
+          active: button.classList.contains("is-active"),
+          selected: button.getAttribute("aria-selected"),
+          panelVisible: Boolean(panel && !panel.hidden),
+          otherVisible,
+        });
+      }
+      const viewAll = document.querySelector(".dossier-mobile-nav .dossier-view-toggle");
+      viewAll?.click();
+      await new Promise((resolve) => setTimeout(resolve, 30));
+      const allVisible = [...document.querySelectorAll("[data-dossier-panel]")].every((panel) => !panel.hidden);
+      const allPressed = viewAll?.getAttribute("aria-pressed") === "true";
+      buttons[0]?.click();
+      await new Promise((resolve) => setTimeout(resolve, 30));
+      const focusRestored = !document.querySelector('[data-dossier-panel="placement"]')?.hidden &&
+        [...document.querySelectorAll('[data-dossier-panel]:not([data-dossier-panel="placement"])')].every((panel) => panel.hidden);
       const last = buttons.at(-1);
       last?.click();
       await new Promise((resolve) => setTimeout(resolve, 50));
@@ -649,10 +714,25 @@ async function validateArchscryVisualPolish(page, viewport) {
         endState,
         firstLabel: buttons[0]?.getAttribute("aria-label") || "",
         lastLabel: last?.getAttribute("aria-label") || "",
+        labels: buttons.map((button) => button.getAttribute("aria-label") || ""),
+        results,
+        allVisible,
+        allPressed,
+        focusRestored,
       };
     });
     assert(tabs, `${viewport.name} Dossier Directory mobile tab shell is missing.`);
     assert(tabs.firstLabel && tabs.lastLabel, `${viewport.name} mobile tabs lost their full accessible labels.`);
+    assert(tabs.results.length >= 7, `${viewport.name} Dossier Directory did not expose the required tab set.`);
+    ["Placement", "Start Here", "Why This Fits", "Commander Browsing Starts", "Card Signals", "Mana Notes", "Maze Discovery"].forEach((label) => {
+      assert(tabs.labels.includes(label), `${viewport.name} Dossier Directory omitted ${label}.`);
+    });
+    tabs.results.forEach((result) => {
+      assert(result.active && result.selected === "true" && result.panelVisible, `${viewport.name} ${result.panelId} tab did not reveal its panel: ${JSON.stringify(result)}.`);
+      assert(result.otherVisible.length === 0, `${viewport.name} ${result.panelId} tab left other focus panels visible: ${JSON.stringify(result)}.`);
+    });
+    assert(tabs.allVisible && tabs.allPressed, `${viewport.name} View All did not reveal every dossier panel.`);
+    assert(tabs.focusRestored, `${viewport.name} selecting Placement did not leave View All mode.`);
     if (tabs.hasOverflow) {
       assert(tabs.startState.leftHidden && !tabs.startState.rightHidden, `${viewport.name} Dossier Directory start-edge indicators are incorrect: ${JSON.stringify(tabs)}.`);
       assert(!tabs.endState.leftHidden && tabs.endState.rightHidden, `${viewport.name} Dossier Directory end-edge indicators are incorrect: ${JSON.stringify(tabs)}.`);
@@ -681,37 +761,42 @@ async function validateArchscryTiePolish(page, viewport) {
   await waitForPageReady(page);
   await waitForDossier(page);
   const tieState = await page.evaluate(({ primaryName, peerName }) => {
-    const summary = document.querySelector("[data-tied-reading-summary]");
-    const intro = document.querySelector('[data-tied-identity-container="original-intro"]');
+    const resultInner = document.getElementById("result-inner");
+    const hero = resultInner?.querySelector(":scope > .guild-banner");
+    const snapshot = resultInner?.querySelector(":scope > .dossier-snapshot");
     const peer = document.querySelector('[data-tied-identity-container="other"]');
-    const dossier = document.querySelector('[data-tied-identity-container="original-dossier"]');
-    const follows = (before, after) => Boolean(before && after && (before.compareDocumentPosition(after) & Node.DOCUMENT_POSITION_FOLLOWING));
+    const narrative = snapshot?.querySelector('[data-summary-card="where-this-leads"]');
+    const playPattern = snapshot?.querySelector('[data-summary-card="play-pattern"]');
     return {
-      text: document.getElementById("result-inner")?.innerText || "",
-      summaryText: summary?.innerText || "",
+      text: resultInner?.innerText || "",
+      technicalMatches: (resultInner?.innerText || "").match(/\bmodel\b|\bscor(?:e|ed|ing)\b|\brank(?:ed|ing)\b|serialized|stored primary|algorithm|confidence percentage|placement accuracy/gi) || [],
+      firstComponentClass: resultInner?.firstElementChild?.className || "",
+      heroText: hero?.innerText || "",
       originalEyebrows: [...document.querySelectorAll(".guild-eyebrow")].filter((node) => node.textContent.trim() === "Original reading").length,
-      oldWrappers: document.querySelectorAll(".tied-identity-container").length,
-      order: follows(summary, intro) && follows(intro, peer) && follows(peer, dossier),
+      tieNoticeBeforeHero: Boolean(hero && [...resultInner.children].slice(0, [...resultInner.children].indexOf(hero)).some((node) => node.matches("[data-tied-reading-summary], [data-tied-identity-container]"))),
+      peerInsideSnapshot: Boolean(peer && peer.closest(".dossier-snapshot") === snapshot),
+      peerAfterIdentityCards: Boolean(peer && playPattern && (playPattern.compareDocumentPosition(peer) & Node.DOCUMENT_POSITION_FOLLOWING)),
       overflow: document.documentElement.scrollWidth > window.innerWidth + 1,
-      originalIntroIsolated: (intro?.innerText || "").includes(primaryName) && !(intro?.innerText || "").includes(peerName),
-      originalDossierIsolated: !(dossier?.innerText || "").includes(peerName),
+      originalHeroIsolated: (hero?.innerText || "").includes(primaryName) && !(hero?.innerText || "").includes(peerName),
+      narrativeIsolated: !(narrative?.innerText || "").includes(peerName),
+      playPatternIsolated: !(playPattern?.innerText || "").includes(peerName),
       peerSummaryIsolated: (peer?.innerText || "").includes(peerName) && !(peer?.innerText || "").includes(primaryName),
     };
   }, tieFixture);
-  assert(/Tied result[\s\S]*Two identities share the lead[\s\S]*Your answers did not separate these two readings/i.test(tieState.summaryText), `${viewport.name} compact tied status copy is incomplete.`);
-  assert(!/serialized result|stored primary|identity-keyed container|plan leakage/i.test(tieState.text), `${viewport.name} tied result exposed implementation language.`);
+  assert(/\bguild-banner\b/.test(tieState.firstComponentClass), `${viewport.name} original guild banner was not the first result component.`);
+  assert(!tieState.tieNoticeBeforeHero, `${viewport.name} tied status preceded the original hero.`);
+  assert(tieState.peerInsideSnapshot && tieState.peerAfterIdentityCards, `${viewport.name} compact co-leader information was not placed after the identity cards inside the snapshot.`);
+  assert(tieState.technicalMatches.length === 0, `${viewport.name} tied result exposed implementation language: ${JSON.stringify(tieState.technicalMatches)}.`);
   assert(tieState.originalEyebrows === 1, `${viewport.name} tied result duplicated the Original reading label.`);
-  assert(tieState.oldWrappers === 0, `${viewport.name} tied result retained an oversized identity wrapper.`);
-  assert(tieState.order, `${viewport.name} tied result hierarchy is not summary, original introduction, peer, then original dossier.`);
   assert(!tieState.overflow, `${viewport.name} tied result created horizontal overflow.`);
-  assert(tieState.originalIntroIsolated && tieState.originalDossierIsolated && tieState.peerSummaryIsolated, `${viewport.name} tied result mixed identity-owned content.`);
+  assert(tieState.originalHeroIsolated && tieState.narrativeIsolated && tieState.playPatternIsolated && tieState.peerSummaryIsolated, `${viewport.name} tied result mixed identity-owned content.`);
 
   await page.click('[data-tied-identity-container="other"] [data-action="switch-adjacent-view"]');
   await page.waitForFunction((peerName) => document.querySelector(".guild-name")?.textContent.trim() === peerName, {}, tieFixture.peerName);
   const compared = await page.evaluate((peerName) => ({
     hero: document.querySelector(".guild-name")?.textContent.trim() || "",
     button: document.querySelector('[data-action="return-primary-reading"]')?.textContent.trim() || "",
-    text: document.querySelector('[data-tied-identity-container="other-active"]')?.innerText || "",
+    text: document.getElementById("result-inner")?.innerText || "",
     peerName,
   }), tieFixture.peerName);
   assert(compared.hero === tieFixture.peerName && compared.button === "Back to original reading", `${viewport.name} co-leader comparison did not preserve its return affordance.`);

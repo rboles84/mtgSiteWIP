@@ -910,7 +910,7 @@ async function handleSignOut() {
  */
 function startQuickFlow() {
   if (!APP_STATE.placementModel) {
-    alert("The placement model is still loading. Try again in a moment.");
+    alert("The reading is still loading. Try again in a moment.");
     return;
   }
 
@@ -1245,16 +1245,16 @@ function revealDecree(result) {
         : state === "tied"
         ? `Tied: ${publicResult.faction_name || publicResult.faction} and ${tiedMatch?.faction_name || tiedMatch?.faction}`
         : `Current best fit: ${publicResult.faction_name || publicResult.faction || "Unbound Order"}`;
-      document.getElementById("decree-tagline").textContent = "Adaptive weighted reading";
+      document.getElementById("decree-tagline").textContent = "Archscry reading";
       document.getElementById("decree-text").textContent = suppressNamedIdentity
         ? stateCopy
-        : "This result describes how your recorded answers contributed to the current ranking; it is not a calibrated measure of accuracy.";
+        : "These answers brought this identity forward. The result is a bounded reading, not a prediction about you or your deck.";
       document.getElementById("decree-runner").textContent = suppressNamedIdentity
         ? ""
         : tiedMatch
-        ? "The current scoring did not separate these two co-leaders."
+        ? "Your answers supported both readings without clearly separating them."
         : closeAlternative
-          ? `Close alternative: ${closeAlternative.match.faction_name || closeAlternative.match.faction}. Close is relative within this reading, not a confidence percentage.`
+          ? `Close alternative: ${closeAlternative.match.faction_name || closeAlternative.match.faction}. Close is relative within this reading; it is not a certainty claim.`
           : "";
       rule.style.background = faction.accent || "var(--gold-d)";
       decree.classList.add("visible");
@@ -2136,7 +2136,7 @@ async function handleArchiveDeckLink(actionNode) {
   }
 }
 
-function buildPlacementSnapshotHtml({ dossier, includeAlternative = true }) {
+function buildPlacementSnapshotHtml({ dossier, includeAlternative = true, tiedPeerDossier = null }) {
   const summary = dossier?.resultSummaryStrip || {};
   const adjacentFit = summary.adjacentFit || {};
   const whereThisLeads = summary.whereThisLeads || {};
@@ -2147,8 +2147,18 @@ function buildPlacementSnapshotHtml({ dossier, includeAlternative = true }) {
       <div class="dossier-snapshot-card dossier-snapshot-card--adjacent" data-summary-card="adjacent-fit" data-signal-band="${escapeAttributeValue(adjacentFit.signalBand || "close")}">
         <span>${escapeHtml(adjacentFit.label || "Close alternative")}</span>
         <strong>${escapeHtml(adjacentFit.heading || adjacentFit.targetName || "Alternative path")}</strong>
-        <div class="dossier-snapshot-signal">${escapeHtml(adjacentFit.signalLabel || "Close is relative within this reading, not a confidence percentage.")}</div>
+        <div class="dossier-snapshot-signal">${escapeHtml(adjacentFit.signalLabel || "Close is relative within this reading; it is not a certainty claim.")}</div>
         <div class="dossier-snapshot-copy">${escapeHtml(adjacentFit.relationshipCopy || "This path received direct support from the same recorded answers.")}</div>
+      </div>` : "";
+  const tiedPeerName = tiedPeerDossier?.faction?.name || "";
+  const tiedPeerKey = tiedPeerDossier?.targetFactionKey || "";
+  const tiedPeerCard = tiedPeerName && tiedPeerKey ? `
+      <div class="dossier-snapshot-card dossier-snapshot-card--co-leader" data-summary-card="co-leader" data-tied-identity-container="other" data-identity-key="${escapeAttributeValue(tiedPeerKey)}">
+        <span>Also tied with ${escapeHtml(tiedPeerName)}</span>
+        <strong>${escapeHtml(tiedPeerName)}</strong>
+        ${buildManaPipsHtml(tiedPeerDossier.faction?.colors || [], "tied-co-leader-pips")}
+        <div class="dossier-snapshot-copy">Your answers supported both readings without clearly separating them.</div>
+        <button class="btn-secondary" type="button" ${buildActionAttrs("switch-adjacent-view", { viewKey: tiedPeerKey })}>Compare this co-leader</button>
       </div>` : "";
 
   return `
@@ -2165,26 +2175,8 @@ function buildPlacementSnapshotHtml({ dossier, includeAlternative = true }) {
         <strong>${escapeHtml(playPattern.heading || "At the table")}</strong>
         <div class="dossier-snapshot-copy">${escapeHtml(playPattern.body || "Opponents usually read this identity through the pressure it keeps visible and the answers it makes them spend.")}</div>
       </div>
+      ${tiedPeerCard}
     </div>`;
-}
-
-function buildTiedCoLeaderSummaryHtml(dossier) {
-  if (!dossier?.targetFactionKey || !dossier?.faction?.name) return "";
-  const summary = dossier.resultSummaryStrip || {};
-  const plan = summary.whereThisLeads || {};
-  const identityName = dossier.faction.name;
-  const identityPips = buildManaPipsHtml(dossier.faction.colors || [], "tied-co-leader-pips");
-  return `
-    <section class="tied-co-leader-card" data-tied-identity-container="other" data-identity-key="${escapeAttributeValue(dossier.targetFactionKey)}">
-      <div class="tied-identity-kicker">Other co-leader &mdash; ${escapeHtml(identityName)}</div>
-      <div class="tied-co-leader-heading">
-        <strong>${escapeHtml(identityName)}</strong>
-        ${identityPips}
-      </div>
-      <p class="tied-co-leader-summary">${escapeHtml(plan.body || `${identityName} offers another way to read the same recorded answers.`)}</p>
-      <p class="tied-co-leader-explanation">This identity shares the lead in the current reading. Compare its interpretation without replacing the original reading.</p>
-      <button class="btn-secondary" type="button" ${buildActionAttrs("switch-adjacent-view", { viewKey: dossier.targetFactionKey })}>Compare this co-leader</button>
-    </section>`;
 }
 
 function normalizeDossierSegment(group, segment, segments) {
@@ -2365,10 +2357,18 @@ function initializeDossierMobileTabs({ revealActive = false } = {}) {
       tablist.addEventListener("pointerup", finishDrag);
       tablist.addEventListener("pointercancel", finishDrag);
       tablist.addEventListener("click", (event) => {
-        if (!dragged) return;
+        if (dragged) {
+          event.preventDefault();
+          event.stopPropagation();
+          dragged = false;
+          return;
+        }
+        const target = event.target instanceof Element ? event.target : event.target?.parentElement;
+        const tab = target?.closest?.("[data-dossier-tab]");
+        if (!(tab instanceof HTMLElement)) return;
         event.preventDefault();
         event.stopPropagation();
-        dragged = false;
+        setDossierPanel(tab.dataset.dossierTab || "");
       }, true);
     }
 
@@ -2488,7 +2488,7 @@ const ARCHSCRY_TERM_HELP = Object.freeze({
   Stax: ["Meaning: use persistent rules that restrict resources or actions.", "Commander: permanents can tax spells, limit untaps, or narrow legal sequences.", "Why here: curated Azorius guidance includes a possible rule-setting lane.", "Boundary: one tax card does not make a deck Stax, and the label says nothing about social fit."],
   Pillowfort: ["Meaning: make attacking you less attractive or more expensive.", "Commander: defensive permanents redirect combat without necessarily stopping the whole table.", "Why here: it can overlap with protective White-Blue exploration.", "Boundary: it is not a promise that opponents will leave you alone."],
   Hatebears: ["Meaning: small creatures carry targeted rule restrictions.", "Commander: the creatures pressure life totals while disrupting selected lines.", "Why here: it is a possible creature-based enforcement lane.", "Boundary: color access alone does not show that this reading wants it."],
-  taxation: ["Meaning: make selected actions cost more.", "Commander: spells, attacks, or activated abilities may require extra mana or resources.", "Why here: taxation is one authored Azorius mechanical expression.", "Boundary: a tax is not calibrated evidence of personality or placement accuracy."],
+  taxation: ["Meaning: make selected actions cost more.", "Commander: spells, attacks, or activated abilities may require extra mana or resources.", "Why here: taxation is one curated Azorius mechanical expression.", "Boundary: a tax does not define personality or prove this fit."],
   sweepers: ["Meaning: reset many permanents at once.", "Commander: a board wipe can answer a developed battlefield when one-for-one removal is insufficient.", "Why here: sweepers are one possible control tool.", "Boundary: showing the term does not mean every suggested deck should run the same reset package."],
   detain: ["Meaning: temporarily stop a permanent from attacking, blocking, or activating non-mana abilities.", "Commander: detain creates a limited timing window rather than permanent removal.", "Why here: it is an official Azorius mechanic used as an example.", "Boundary: lore or mechanic ownership does not prove a player's deck preference."],
   parity: ["Meaning: players appear even on resources or board position.", "Commander: an effect can break parity when your deck benefits more from a symmetrical rule or reset.", "Why here: timing advice may ask which exchange changes that balance.", "Boundary: parity is board-specific, not a claim that the table is objectively fair."],
@@ -2761,7 +2761,7 @@ function buildDossierInterpretationHtml({ dossier, faction, result, tagRefs }) {
       <div class="starter-grid">${buildHowThisPlaysCardHtml(faction)}</div>
     </div>
     <div class="starter-section">
-      <div class="section-label">Why This Fit Was Ranked Here</div>
+      <div class="section-label">Why This Fit Appeared Here</div>
       <div class="starter-grid">${buildTagExplanationCards(tagRefs, faction, 3)}</div>
     </div>`;
 }
@@ -2869,7 +2869,7 @@ function buildReadingFindReflectionCopy(rows = [], tagRefs = []) {
   const tags = readingFindTagLabels(tagRefs);
   const sourceCopy = sources.length ? ` through ${sources.join(", ")}` : "";
   const tagCopy = tags.length ? ` and line up with ${tags.join(", ")}` : "";
-  return `These finds echo this reading${sourceCopy}${tagCopy}. Treat them as local notes from Maze, not as a ranked or complete conclusion.`;
+  return `These finds echo this reading${sourceCopy}${tagCopy}. Treat them as local notes from Maze, not as a complete conclusion.`;
 }
 
 function buildReadingFindRowsHtml(rows = []) {
@@ -3236,7 +3236,7 @@ function renderResult(viewKey) {
               <div class="adjacent-label">${fit.world}</div>
               <div class="adjacent-name">${fit.name}</div>
               <div class="adjacent-copy">${fit.reason || fit.tagline}</div>
-              <div class="adjacent-copy">${resultState === "tied" ? "The current scoring did not separate these co-leaders." : "Close is relative within this reading, not a confidence percentage."}</div>
+              <div class="adjacent-copy">${resultState === "tied" ? "Your answers supported both readings without clearly separating them." : "Close is relative within this reading; it is not a certainty claim."}</div>
               <div class="adjacent-actions">
                 <button class="adjacent-btn" type="button" ${buildActionAttrs("switch-adjacent-view", { viewKey: fit.factionKey })}>${resultState === "tied" ? "Compare this co-leader" : "Compare this alternative"}</button>
               </div>
@@ -3342,6 +3342,7 @@ function renderResult(viewKey) {
   const placementSnapshotHtml = buildPlacementSnapshotHtml({
     dossier,
     includeAlternative: resultState !== "tied",
+    tiedPeerDossier: resultState === "tied" && isPrimary ? tiedPeerDossier : null,
   });
   const utilityActionsHtml = buildDossierUtilityActionsHtml({ isPrimary, layoutMode });
   const primaryName = result.faction_name || getFaction(result.faction)?.name || result.faction;
@@ -3360,27 +3361,13 @@ function renderResult(viewKey) {
   const stateExplanation = resultState === "unknown" && isLegacyGateAResult(result)
     ? "This historical result preserves its saved identity, but it does not contain answer detail for a current fit or strength claim."
     : gateAStatePresentation(resultState)[1];
-  const tiedSummaryHtml = resultState === "tied" ? `
-    <section class="tied-reading-summary" data-tied-reading-summary>
-      <div class="tied-reading-eyebrow">Tied result</div>
-      <h2>Two identities share the lead</h2>
-      <div class="tied-reading-identities" aria-label="Tied identities">
-        <span>${escapeHtml(primaryName)}</span>
-        <span aria-hidden="true">and</span>
-        <span>${escapeHtml(alternativeName)}</span>
-      </div>
-      <p>Your answers did not separate these two readings.</p>
-    </section>` : "";
-  const tiedPeerSummaryHtml = resultState === "tied" && isPrimary
-    ? buildTiedCoLeaderSummaryHtml(tiedPeerDossier)
-    : "";
   const placementPanelHtml = `
     ${adjacentContextHtml}
     ${resultState === "tied" ? "" : `<div class="result-state-banner" data-result-state="${escapeAttributeValue(resultState)}">
       <strong>${escapeHtml(stateHeading)}</strong>
       <span>${escapeHtml(stateExplanation)}</span>
     </div>`}
-    ${resultState === "unknown" ? `<div class="result-limitation-notice" role="note">Legacy reading — ${escapeHtml(faction.name)} was saved, but answer/evidence detail is unavailable. Matrix content is identity context, not reconfirmation of the placement. Retake the reading if you want an answer-grounded result.</div>` : ""}
+    ${resultState === "unknown" ? `<div class="result-limitation-notice" role="note">Legacy reading — ${escapeHtml(faction.name)} was saved, but answer/evidence detail is unavailable. Matrix content is identity context, not confirmation of the reading. Retake if you want an answer-grounded result.</div>` : ""}
     ${returnToPrimaryButton}
     ${renderDossierRadarSection({ result, faction, dossier, flavorSnippets: matrixFlavorSnippets, identityLayers: APP_STATE.identityLayers })}
     ${discoverySummaryHtml}`;
@@ -3389,14 +3376,14 @@ function renderResult(viewKey) {
     ${evidenceHtml ? `
       <div class="starter-section">
         <div class="section-label">Signals From Your Answers</div>
-        <p class="signals-intro">Each card names a recorded answer, the bounded observation authored for it, and how that signal affected this identity. These contributions explain the current ranking; they do not prove personality, motivation, deck behavior, table perception, or accuracy.</p>
+        <p class="signals-intro">Each card names a recorded answer, the bounded observation attached to it, and how that signal affected this identity. These signals help explain the result, but they do not define your personality, determine your deck, or predict how a table will respond.</p>
         <div class="starter-grid">${evidenceHtml}</div>
       </div>` : ""}
     ${flavorEchoesHtml}`;
   const startPanelHtml = `
     <div class="starter-section">
       <div class="section-label">Start Here</div>
-      <p class="signals-intro">These are identity-appropriate Commander exploration paths, not proof that this placement or any particular commander is correct for you.</p>
+      <p class="signals-intro">These are identity-appropriate Commander exploration paths, not proof that this identity or any particular commander is correct for you.</p>
       <div class="starter-grid starter-grid-start">
         <div class="starter-card starter-card-wide">
           <div class="starter-title">${commanderLane.title}</div>
@@ -3562,15 +3549,7 @@ function renderResult(viewKey) {
       </div>
     </div>`;
   const identityContentHtml = `${identityIntroHtml}${dossierConsoleHtml}`;
-  document.getElementById("result-inner").innerHTML = resultState === "tied"
-    ? isPrimary
-      ? `${tiedSummaryHtml}
-        <section class="tied-identity-boundary tied-identity-boundary--intro" data-tied-identity-container="original-intro" data-identity-key="${escapeAttributeValue(dossier.targetFactionKey)}">${identityIntroHtml}</section>
-        ${tiedPeerSummaryHtml}
-        <section class="tied-identity-boundary tied-identity-boundary--dossier" data-tied-identity-container="original-dossier" data-identity-key="${escapeAttributeValue(dossier.targetFactionKey)}">${dossierConsoleHtml}</section>`
-      : `${tiedSummaryHtml}
-        <section class="tied-identity-boundary tied-identity-boundary--active-peer" data-tied-identity-container="other-active" data-identity-key="${escapeAttributeValue(dossier.targetFactionKey)}">${identityContentHtml}</section>`
-    : identityContentHtml;
+  document.getElementById("result-inner").innerHTML = identityContentHtml;
   APP_STATE.activeResult = result;
   APP_STATE.activeViewKey = activeKey;
   APP_STATE.activeDossierRadarFaction = faction;
@@ -3661,7 +3640,7 @@ async function loadResultCardArt(faction, commanderCandidates = [], starterCards
       displayName: snippet.card_name || record.name,
       recordType: "CARD",
       id: `mcv_${index}`,
-      actionId: `mcv_action_${index}`,
+      nameLinkId: `mcv_name_${index}`,
       imageClass: "vm-card-voice-image",
       matrixCardVoice: true,
       resolvedLocally: Boolean(snippet.image_uri || cardImageUrl(record)),
@@ -3721,9 +3700,11 @@ async function loadResultCardArt(faction, commanderCandidates = [], starterCards
       if (imageUrl) {
         slot.closest("[data-commander-card]")?.classList.add("is-verified");
         const linkClass = card.matrixCardVoice ? "vm-card-voice-image-link" : "";
-        slot.outerHTML = `<a class="${linkClass}" href="${linkUrl}" target="_blank" rel="noopener" aria-label="Open ${escapeAttributeValue(card.displayName || data.name)} on Scryfall"><img class="${card.imageClass}" src="${imageUrl}" alt="${escapeAttributeValue(`${data.name} card image`)}" loading="lazy"></a>`;
-        const action = card.actionId ? document.getElementById(card.actionId) : null;
-        if (action instanceof HTMLAnchorElement) action.href = linkUrl;
+        const previewAttrs = card.matrixCardVoice ? " data-card-preview-anchor" : "";
+        const imagePreviewAttr = card.matrixCardVoice ? " data-card-preview-source" : "";
+        slot.outerHTML = `<a class="${linkClass}" href="${linkUrl}" target="_blank" rel="noopener" aria-label="Open ${escapeAttributeValue(card.displayName || data.name)} on Scryfall"${previewAttrs}><img class="${card.imageClass}" src="${imageUrl}" alt="${escapeAttributeValue(`${data.name} card image`)}" loading="lazy"${imagePreviewAttr}></a>`;
+        const nameLink = card.nameLinkId ? document.getElementById(card.nameLinkId) : null;
+        if (nameLink instanceof HTMLAnchorElement) nameLink.href = linkUrl;
         if (card.commanderPreview) {
           verifiedCommanders += 1;
         }
@@ -3867,9 +3848,9 @@ function hideCardPreviewOverlay() {
 
 function cardPreviewImageFromEvent(event) {
   const wrap = event.target instanceof Element
-    ? event.target.closest(".staple-wrap, .land-wrap")
+    ? event.target.closest(".staple-wrap, .land-wrap, .vm-card-voice")
     : null;
-  return wrap?.querySelector("img.staple-img, img.land-img") || null;
+  return wrap?.querySelector("img.staple-img, img.land-img, img.vm-card-voice-image") || null;
 }
 
 function handleCardPreviewPointerOver(event) {
@@ -3891,7 +3872,7 @@ function handleCardPreviewPointerMove(event) {
 
 function handleCardPreviewPointerOut(event) {
   const wrap = event.target instanceof Element
-    ? event.target.closest(".staple-wrap, .land-wrap")
+    ? event.target.closest(".staple-wrap, .land-wrap, .vm-card-voice")
     : null;
   const relatedInside = event.relatedTarget instanceof Node && wrap?.contains(event.relatedTarget);
   if (wrap && !relatedInside) {
@@ -3908,7 +3889,7 @@ function handleCardPreviewFocusIn(event) {
 
 function handleCardPreviewFocusOut(event) {
   const wrap = event.target instanceof Element
-    ? event.target.closest(".staple-wrap, .land-wrap")
+    ? event.target.closest(".staple-wrap, .land-wrap, .vm-card-voice")
     : null;
   const relatedInside = event.relatedTarget instanceof Node && wrap?.contains(event.relatedTarget);
   if (wrap && !relatedInside) {
@@ -3933,7 +3914,8 @@ function bindArchscryControls() {
 }
 
 async function handleArchscryActionClick(event) {
-  const actionNode = event.target.closest("[data-action]");
+  const target = event.target instanceof Element ? event.target : event.target?.parentElement;
+  const actionNode = target?.closest?.("[data-action]");
   if (!(actionNode instanceof HTMLElement)) return;
 
   switch (actionNode.dataset.action) {

@@ -496,7 +496,7 @@ export const FACTION_PRESENTATION = {
     closeReason: "all five colors present, full-spectrum integration, coalition, color breadth, and tradeoffs that keep access from becoming goodstuff",
     forkQuestion: "What does every color contribute that the others cannot carry alone?",
     direction: "moves toward all-five-color synthesis and full-spectrum Commander expression",
-    selfCheck: "This may fit if you want a Commander deck where every color matters, mana infrastructure is part of the discipline, and support links remain browsing aids rather than lore, legality, or ranking proof.",
+    selfCheck: "This may fit if you want a Commander deck where every color matters, mana infrastructure is part of the discipline, and support links remain browsing aids rather than lore, legality, or result proof.",
   },
 };
 
@@ -761,9 +761,9 @@ export function withGateAPublicState({ result, placementModel = null, factions =
 
 export function gateAStatePresentation(state) {
   return {
-    primary: ["Current best fit", "This is the identity your recorded answers favored most in the current adaptive weighted reading."],
-    tied: ["Tied result", "The current scoring did not separate the two leading identities."],
-    close: ["Close result", "A second identity remained close under a bounded comparison rule; this is not calibrated confidence."],
+    primary: ["Current best fit", "This is the identity your recorded answers favored most in this reading."],
+    tied: ["Tied result", "Your answers supported two readings without clearly separating them."],
+    close: ["Close result", "A second identity also received direct support from your answers under the current close-result limitation."],
     mixed: ["Mixed reading", "More than one direction is present, and this reading cannot responsibly collapse them into one claim."],
     contradictory: ["Conflicting signals", "Some recorded observations pull in different directions."],
     insufficient: ["Not enough evidence to distinguish", "This reading does not have enough usable detail for a named placement."],
@@ -856,13 +856,13 @@ export function buildHeroNarrative({ dossier, faction, result, factions = {} }) 
 
   if (result?.alternative_state === "co-leader") {
     return dossier.isPrimary
-      ? `${presentation.thesis} This is the original stored reading; the tied summary keeps the co-leader relationship separate from this identity's plan.`
-      : `${presentation.thesis} This co-leader comparison reuses the recorded answers without replacing or rescoring the original stored result.`;
+      ? presentation.thesis
+      : `${presentation.thesis} This co-leader comparison uses the same recorded answers without replacing the original reading.`;
   }
 
   if (!dossier.isPrimary) {
     const primaryFaction = getFaction(factions, dossier.primaryFactionKey);
-    return `Comparing ${faction.name} with the original ${primaryFaction?.name || "primary"} reading. This view reuses the same recorded answers; it does not replace or rescore the original result. ${buildContrastCopy(primaryFaction, faction)}`;
+    return `Comparing ${faction.name} with the original ${primaryFaction?.name || "primary"} reading. This view uses the same recorded answers without replacing the original result. ${buildContrastCopy(primaryFaction, faction)}`;
   }
 
   const closeCopy = adjacentFaction
@@ -874,7 +874,7 @@ export function buildHeroNarrative({ dossier, faction, result, factions = {} }) 
 export function technicalSignalCopy(result, activeKey) {
   void result;
   void activeKey;
-  return "Adaptive weighted reading; numeric internals are retained for compatibility and are not public confidence.";
+  return "Answer-grounded reading with bounded fit and limitation language.";
 }
 
 export function buildReadingSignalCopy({ dossier, faction, result, factions = {} }) {
@@ -883,14 +883,14 @@ export function buildReadingSignalCopy({ dossier, faction, result, factions = {}
     .filter((entry) => evidenceDeltaForFaction(entry, dossier.targetFactionKey) > 0)
     .slice(0, 2);
   if (!supporting.length) {
-    return `${faction.name} is the current ranked view in this adaptive weighted reading. The stored result does not provide a direct positive answer trace for this view, so no stronger explanation is claimed.`;
+    return `${faction.name} appears in the saved reading, but the available detail does not include a direct positive answer signal for this view. No stronger explanation is claimed.`;
   }
   const observations = supporting.map((entry) => {
     const answer = entry.answer_title || "the recorded answer";
-    const signal = entry.signal || "an authored placement signal";
-    return `You selected “${answer}.” In the authored model, that answer contributed ${signal} toward ${faction.name}`;
+    const signal = entry.signal || "a supporting signal";
+    return `“${answer}” added a signal of ${signal} to this ${faction.name} reading`;
   });
-  return `${observations.join("; ")}. These contributions explain the current ranking, but they do not prove personality, motivation, deck behavior, table perception, or placement accuracy.`;
+  return `${observations.join("; ")}. These signals help explain why ${faction.name} appeared here, but they do not define your personality, determine your deck, or predict how a table will respond.`;
 }
 
 export function selectReadingTagRefs({ dossier, result, taxonomy, modelMechanics = "" }) {
@@ -988,7 +988,7 @@ export function buildTagExplanationSummaries({ tagRefs = [], faction, taxonomy, 
       evidence: "the recorded answer trail",
       commander: "the curated Commander direction",
       archetype: "the displayed archetype context",
-      mechanics: "the authored model mechanics",
+      mechanics: "the displayed Commander pattern",
     };
     const sourceCopy = sources.length
       ? sources.map((source) => sourceLabels[source] || source).join(" and ")

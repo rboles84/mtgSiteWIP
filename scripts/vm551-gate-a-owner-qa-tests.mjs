@@ -96,18 +96,17 @@ assert.match(abzanTieDossier.commanderLane.copy, /Abzan Houses/);
 assert.doesNotMatch(abzanTieDossier.commanderLane.copy, /Azorius Senate/);
 assert.match(abzanTieDossier.resultStatus, /co-leader/i);
 assert.doesNotMatch(abzanTieDossier.resultStatus, /close alternative/i);
-assert.match(indexSource, /data-tied-reading-summary/);
-assert.match(indexSource, /Two identities share the lead/);
-assert.match(indexSource, /Your answers did not separate these two readings/);
-assert.match(indexSource, /data-tied-identity-container="original-intro"/);
-assert.match(indexSource, /data-tied-identity-container="original-dossier"/);
-assert.match(indexSource, /data-tied-identity-container="other-active"/);
+assert.doesNotMatch(indexSource, /data-tied-reading-summary/);
+assert.match(indexSource, /dossier-snapshot-card--co-leader/);
+assert.match(indexSource, /Also tied with \$\{escapeHtml\(tiedPeerName\)\}/);
+assert.match(indexSource, /Your answers supported both readings without clearly separating them/);
+assert.doesNotMatch(indexSource, /data-tied-identity-container="original-intro"|data-tied-identity-container="original-dossier"|data-tied-identity-container="other-active"/);
 assert.match(indexSource, /data-dossier-identity-key="\$\{escapeAttributeValue\(dossier\.targetFactionKey\)\}"/);
 assert.match(indexSource, /includeAlternative: resultState !== "tied"/);
+assert.match(indexSource, /tiedPeerDossier: resultState === "tied" && isPrimary \? tiedPeerDossier : null/);
 assert.match(indexSource, /const adjacentMatches = resultState === "tied" \? \[\] : dossier\.adjacentFits/);
 assert.doesNotMatch(indexSource, /serialized result|stored primary|Original stored reading|identity-keyed container|plan leakage/i);
 assert.match(indexSource, /resultState === "tied" \? "Original reading"/);
-assert.match(indexSource, /Other co-leader &mdash; \$\{escapeHtml\(identityName\)\}/);
 assert.match(indexSource, /Compare this co-leader/);
 assert.doesNotMatch(buildHeroNarrative({ dossier: abzanTieDossier, faction: factions.ABZAN, result: tieResult, factions }), /Azorius Senate/);
 
@@ -251,8 +250,7 @@ assert.match(cssSource, /\.starter-grid\{[\s\S]*minmax\(min\(100%,280px\),1fr\)/
 assert.match(cssSource, /\.staple-wrap\{[^}]*width:150px/);
 assert.match(cssSource, /\.land-wrap\{[^}]*width:128px/);
 assert.match(cssSource, /@media\(max-width:700px\)[\s\S]*\.dossier-snapshot[\s\S]*grid-template-columns:1fr/);
-assert.match(cssSource, /\.tied-reading-summary\s*\{[\s\S]*border-bottom:/);
-assert.doesNotMatch(cssSource, /\.tied-reading-summary,\s*\.tied-identity-container/);
+assert.match(cssSource, /\.dossier-snapshot-card--co-leader\s*\{[\s\S]*align-content: start/);
 assert.match(cssSource, /\.dossier-mobile-tabs-shell[\s\S]*position: relative/);
 assert.match(cssSource, /\.dossier-tabs-scroll[\s\S]*position: absolute/);
 assert.match(indexSource, /scrollIntoView\?\.\(\{ block: "nearest", inline: "center" \}\)/);
@@ -260,6 +258,7 @@ assert.match(indexSource, /data-dossier-scroll-direction="left"/);
 assert.match(indexSource, /data-dossier-scroll-direction="right"/);
 assert.match(indexSource, /tablist\.scrollLeft \+= event\.deltaY/);
 assert.match(indexSource, /setPointerCapture/);
+assert.match(indexSource, /tab\.dataset\.dossierTab[\s\S]*setDossierPanel/);
 assert.match(cssSource, /\.identity-story-meta\{[^}]*margin-top:0\.35rem/);
 assert.doesNotMatch(cssSource, /\.identity-story-meta\{[^}]*margin-top:auto/);
 assert.match(cssSource, /\.how-this-plays-block\{[^}]*gap:0\.3rem/);
@@ -277,15 +276,21 @@ for (const [key, expectedSymbols, expectedLabel] of [
   assert.deepEqual([...symbols.matchAll(/ms-([wubrgc]) ms-cost/g)].map((match) => match[1]), expectedSymbols);
 }
 assert.match(cssSource, /matrix-mana-symbols[\s\S]*drop-shadow/);
+assert.match(cssSource, /#dossierOverlayLine \+ #dossierColorText\{\s*margin-top:0\.15rem/);
 
 assert.match(indexSource, /matrixFlavorSnippetsForFaction/);
 assert.match(indexSource, /APP_STATE\.scryfallLocalCardByName\.get/);
 assert.match(indexSource, /loadResultCardArt\(faction, commanderPreviewCandidates, renderableStarterCards, landRecommendations, matrixFlavorSnippets\)/);
 assert.match(indexSource, /matrixCardVoice: true/);
 assert.match(radarSource, /class="vm-card-voice-image"/);
-assert.match(radarSource, /class="vm-card-voice-action"[\s\S]*View on Scryfall/);
+assert.match(radarSource, /class="vm-card-voice-name"[\s\S]*href="\$\{escapeDossierHtml\(snippet\.scryfall_uri\)\}"/);
+assert.match(radarSource, /data-card-preview-anchor/);
+assert.match(radarSource, /data-card-preview-source/);
+assert.doesNotMatch(radarSource, /vm-card-voice-action|View on Scryfall/);
 assert.match(radarSource, /id="mcv_\$\{index\}"/);
-assert.match(radarSource, /id="mcv_action_\$\{index\}"/);
+assert.match(radarSource, /id="mcv_name_\$\{index\}"/);
+assert.match(indexSource, /\.staple-wrap, \.land-wrap, \.vm-card-voice/);
+assert.match(indexSource, /img\.staple-img, img\.land-img, img\.vm-card-voice-image/);
 assert.match(indexSource, /canonicalFlavorLookupName[\s\S]*card\.scryfall_id && card\.card_faces\?\.\[0\]\?\.name/);
 for (const name of [
   "Jerren, Corrupted Bishop // Ormendahl, the Corrupter",
@@ -295,6 +300,19 @@ for (const name of [
   assert.ok(record?.scryfall_id, `${name} must retain a canonical Scryfall ID.`);
   assert.match(record?.card_faces?.[0]?.image_uris?.normal || "", /^https:\/\/cards\.scryfall\.io\/normal\/front\//);
 }
+
+const publicCopySources = [indexSource, radarSource].join("\n");
+assert.doesNotMatch(publicCopySources, /current scoring|current ranking|authored model|placement accuracy|serialized result|stored primary/i);
+for (const copy of [
+  buildHeroNarrative({ dossier: azoriusTieDossier, faction: factions.WU, result: tieResult, factions }),
+  buildHeroNarrative({ dossier: abzanTieDossier, faction: factions.ABZAN, result: tieResult, factions }),
+  azoriusTieDossier.resultStatus,
+  abzanTieDossier.resultStatus,
+  ...azoriusTieDossier.readingOmens.map((omen) => omen.copy),
+]) {
+  assert.doesNotMatch(copy, /\bmodel\b|\bscor(?:e|ed|ing)\b|\brank(?:ed|ing)\b|serialized|stored primary|algorithm|confidence percentage|placement accuracy/i);
+}
+assert.match(cssSource, /\.precons-section\s*> \.precon-intro[\s\S]*margin: 0/);
 
 class FixtureStorage {
   constructor(values = {}) { this.values = new Map(Object.entries(values)); }

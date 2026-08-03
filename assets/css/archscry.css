@@ -566,7 +566,22 @@ body.vm-archscry-route .commander-preview-card {
 
 body.vm-archscry-route .precons-section {
   display: grid;
-  gap: 0.95rem;
+  gap: 0.55rem;
+}
+
+body.vm-archscry-route .precons-section > .section-label,
+body.vm-archscry-route .precons-section > .precon-intro,
+body.vm-archscry-route .precons-section > .precon-meta,
+body.vm-archscry-route .precons-section > .precon-empty {
+  margin: 0;
+}
+
+body.vm-archscry-route .precons-section > .section-label {
+  padding-bottom: 0.5rem;
+}
+
+body.vm-archscry-route .precons-section > .precon-grid {
+  margin-top: 0.15rem;
 }
 
 body.vm-archscry-route .precon-intro,
@@ -849,6 +864,31 @@ body.vm-archscry-route .dossier-snapshot-card--play-pattern {
   background:
     linear-gradient(135deg, rgba(216, 180, 95, 0.09), transparent 50%),
     rgba(11, 10, 13, 0.76);
+}
+
+body.vm-archscry-route .dossier-snapshot-card--co-leader {
+  display: grid;
+  align-content: start;
+  gap: 0.55rem;
+  background:
+    linear-gradient(135deg, rgba(121, 214, 208, 0.11), transparent 52%),
+    rgba(11, 10, 13, 0.76);
+}
+
+body.vm-archscry-route .dossier-snapshot-card--co-leader > span,
+body.vm-archscry-route .dossier-snapshot-card--co-leader > strong,
+body.vm-archscry-route .dossier-snapshot-card--co-leader > .dossier-snapshot-copy {
+  margin: 0;
+}
+
+body.vm-archscry-route .dossier-snapshot-card--co-leader .mana-pips {
+  margin: 0;
+}
+
+body.vm-archscry-route .dossier-snapshot-card--co-leader .btn-secondary {
+  width: max-content;
+  max-width: 100%;
+  margin-top: 0.15rem;
 }
 
 body.vm-archscry-route .dossier-snapshot-card span,
@@ -2076,11 +2116,20 @@ body::before{
   min-width:0;
 }
 .vm-card-voice-name{
+  width:max-content;
+  max-width:100%;
   color:rgba(230,208,139,0.94);
   font-family:var(--font-mono);
   font-size:0.74rem;
   letter-spacing:0.04em;
+  text-decoration:none;
   text-transform:uppercase;
+}
+.vm-card-voice-name:hover,
+.vm-card-voice-name:focus-visible{
+  color:#f8e8ad;
+  text-decoration:underline;
+  text-underline-offset:0.2em;
 }
 .vm-card-voice-text{
   color:rgba(249,244,225,0.92);
@@ -2088,24 +2137,6 @@ body::before{
   font-size:0.92rem;
   line-height:1.48;
 }
-.vm-card-voice-action{
-  width:max-content;
-  max-width:100%;
-  margin-top:auto;
-  color:var(--teal-l);
-  font-family:var(--font-mono);
-  font-size:0.64rem;
-  letter-spacing:0.08em;
-  text-decoration:none;
-  text-transform:uppercase;
-}
-.vm-card-voice-action:hover,
-.vm-card-voice-action:focus-visible{
-  color:#c8fff7;
-  text-decoration:underline;
-  text-underline-offset:0.2em;
-}
-
 @media(max-width:560px){
   .vm-card-voice{
     grid-template-columns:1fr;
@@ -2250,6 +2281,12 @@ body::before{
   gap:0.38rem;
   width:max-content;
   max-width:100%;
+}
+.vm-dossier-matrix-section #dossierOverlayLine{
+  margin-bottom:0;
+}
+.vm-dossier-matrix-section #dossierOverlayLine + #dossierColorText{
+  margin-top:0.15rem;
 }
 .vm-dossier-matrix-section .vm-component-dot{
   display:inline-flex;

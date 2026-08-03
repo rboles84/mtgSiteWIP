@@ -3,7 +3,7 @@
 
   const SCORE_KEYS = ["order", "knowledge", "ambition", "freedom", "growth"];
   const AXIS_LABELS = ["Order", "Knowledge", "Ambition", "Freedom", "Growth"];
-const MATRIX_NOTE = "Authored identity profile across Order, Knowledge, Ambition, Freedom, and Growth; not placement score or confidence.";
+const MATRIX_NOTE = "Identity context across Order, Knowledge, Ambition, Freedom, and Growth; it illustrates this reading without adding certainty to the result.";
 
   const AXIS_MEANING = Object.freeze({
     Order: "Rules, protection, teamwork",

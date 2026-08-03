@@ -2345,9 +2345,9 @@ const yoreSignalCopy = buildReadingSignalCopy({
   result: { faction: "YORE", evidence_trail: [{ answer_title: "Rebuild the limit", signal: "engineered agency", deltas: [{ faction: "YORE", delta: 1.2 }] }] },
   factions,
 });
-assert.match(yoreSignalCopy, /You selected “Rebuild the limit/);
-assert.match(yoreSignalCopy, /engineered agency toward Yore/i);
-assert.match(yoreSignalCopy, /do not prove personality, motivation, deck behavior/i);
+assert.match(yoreSignalCopy, /“Rebuild the limit” added a signal/);
+assert.match(yoreSignalCopy, /engineered agency.*Yore/i);
+assert.match(yoreSignalCopy, /do not define your personality, determine your deck/i);
 assert.doesNotMatch(yoreSignalCopy, /Commander expression|strict false-positive boundaries/i);
 const yorePressureSummary = buildTagExplanationSummaries({
   tagRefs: [{ category: "playstyle", tag: "aggro" }],
@@ -2361,7 +2361,7 @@ assert.match(yorePressureSummary[0].meaning, /forcing the table to answer/i);
 const yoreRadarProfile = getDossierRadarProfile({ faction: "YORE" }, factions.YORE, identityLayers);
 assert.deepEqual(yoreRadarProfile.data, [50, 58, 54, 56, 54]);
 assert.equal(yoreRadarProfile.note, globalThis.VMRadar.MATRIX_NOTE);
-assert.match(renderDossierRadarSection({ result: { faction: "YORE" }, faction: factions.YORE, identityLayers }), /Authored identity profile across Order, Knowledge, Ambition, Freedom, and Growth; not placement score or confidence/i);
+assert.match(renderDossierRadarSection({ result: { faction: "YORE" }, faction: factions.YORE, identityLayers }), /Identity context across Order, Knowledge, Ambition, Freedom, and Growth; it illustrates this reading without adding certainty to the result/i);
 const temurRadarProfile = getDossierRadarProfile({ faction: "TEMUR" }, factions.TEMUR, identityLayers);
 assert.deepEqual(temurRadarProfile.data, [45, 60, 44, 63, 71]);
 const temurHomeProfile = globalThis.VMRadar.resolveRadarProfile("TEMUR", identityLayers, factions.TEMUR);
@@ -2435,8 +2435,8 @@ const glintSignalCopy = buildReadingSignalCopy({
   result: { faction: "GLINT", evidence_trail: [{ answer_title: "Feed the opening", signal: "adaptive appetite", deltas: [{ faction: "GLINT", delta: 1.1 }] }] },
   factions,
 });
-assert.match(glintSignalCopy, /You selected “Feed the opening/);
-assert.match(glintSignalCopy, /adaptive appetite toward Glint/i);
+assert.match(glintSignalCopy, /“Feed the opening” added a signal/);
+assert.match(glintSignalCopy, /adaptive appetite.*Glint/i);
 assert.doesNotMatch(glintSignalCopy, /support-only|manual-fill|raw packet|Commander expression|strict non-White false-positive boundaries|\/ubrg\/|\/glint\//i);
 const glintBlackHero = buildHeroNarrative({
   dossier: { isPrimary: true, targetFactionKey: "GLINT" },
@@ -2459,8 +2459,8 @@ const glintBlackSignalCopy = buildReadingSignalCopy({
   result: { faction: "GLINT", evidence_trail: [{ answer_title: "Spend to keep agency", signal: "chosen cost", deltas: [{ faction: "GLINT", delta: 1.1 }] }] },
   factions,
 });
-assert.match(glintBlackSignalCopy, /You selected “Spend to keep agency/);
-assert.match(glintBlackSignalCopy, /chosen cost toward Glint/i);
+assert.match(glintBlackSignalCopy, /“Spend to keep agency” added a signal/);
+assert.match(glintBlackSignalCopy, /chosen cost.*Glint/i);
 assert.doesNotMatch(glintBlackSignalCopy, /Commander expression|strict non-White false-positive boundaries|turns that pressure into keep the surge alive|support-only|manual-fill|raw packet/i);
 const glintCommanderLane = buildCommanderStartingLane({
   faction: factions.GLINT,
@@ -2507,8 +2507,8 @@ const duneSignalCopy = buildReadingSignalCopy({
   result: { faction: "DUNE", evidence_trail: [{ answer_title: "Hold the common front", signal: "organized territorial pressure", deltas: [{ faction: "DUNE", delta: 1.1 }] }] },
   factions,
 });
-assert.match(duneSignalCopy, /You selected “Hold the common front/);
-assert.match(duneSignalCopy, /organized territorial pressure toward Dune/i);
+assert.match(duneSignalCopy, /“Hold the common front” added a signal/);
+assert.match(duneSignalCopy, /organized territorial pressure.*Dune/i);
 assert.doesNotMatch(duneSignalCopy, /Aggression as public alias|support-only|manual-fill|raw packet|\/brgw\/|\/wbrg\/|\/dune\//i);
 const duneCommanderLane = buildCommanderStartingLane({
   faction: factions.DUNE,
@@ -2616,7 +2616,7 @@ const yoreSummaryStrip = buildResultSummaryStrip({
 });
 assertSummaryStripComplete(yoreSummaryStrip, "Yore summary strip");
 assert.match(yoreSummaryStrip.adjacentFit.relationshipCopy, /You selected “Carry the house forward/);
-assert.match(yoreSummaryStrip.adjacentFit.relationshipCopy, /does not prove semantic adjacency or placement accuracy/);
+assert.match(yoreSummaryStrip.adjacentFit.relationshipCopy, /does not prove a fixed relationship between the identities/);
 assert.equal(yoreSummaryStrip.whereThisLeads.heading, "Rebuild the engine");
 assert.equal(yoreSummaryStrip.playPattern.heading, "Keep agency online");
 
@@ -2831,7 +2831,8 @@ const omens = buildReadingOmens({
 const omenText = omens.map((omen) => `${omen.title} ${omen.answerTitle} ${omen.copy}`).join(" ");
 assert.equal(omens[0].title, "Recorded signal 1");
 assert.match(omenText, /Follow the process/);
-assert.match(omenText, /authored|model recorded|contributed support/i);
+assert.match(omenText, /answer added.*support for/i);
+assert.doesNotMatch(omenText, /authored model|model recorded|scoring|ranking/i);
 assert.doesNotMatch(omenText, /does not prove your personality, motivation, deck behavior/i);
 assert.equal(
   omens.filter((omen) => /does not prove/i.test(omen.copy)).length,
@@ -3802,7 +3803,7 @@ assert.ok(
   "expected WUBRG personalized Maze paths to avoid stale WU or stretch residue"
 );
 
-assert.match(whiteDossier.resultStatus, /current best fit.*adaptive weighted reading/i);
+assert.match(whiteDossier.resultStatus, /current best fit in this reading/i);
 assert.equal(whiteDossier.faction.identity.expression_kind, "color");
 assertMonoBoundaryState("W", whiteGolden);
 assertMonoCommanderOwnership("W", whiteDossier);
@@ -3849,7 +3850,7 @@ const blueDossier = buildCommanderDossier({
   deckTagCatalog,
   placementResult: blueGolden,
 });
-assert.match(blueDossier.resultStatus, /current best fit.*adaptive weighted reading/i);
+assert.match(blueDossier.resultStatus, /current best fit in this reading/i);
 assert.equal(blueDossier.faction.identity.expression_kind, "color");
 assertMonoCommanderOwnership("U", blueDossier);
 assert.match(blueDossier.commanderPath.copy, /knowledge|information|draw|options|control/i);
@@ -3888,7 +3889,7 @@ const blackDossier = buildCommanderDossier({
   deckTagCatalog,
   placementResult: blackGolden,
 });
-assert.match(blackDossier.resultStatus, /current best fit.*adaptive weighted reading/i);
+assert.match(blackDossier.resultStatus, /current best fit in this reading/i);
 assert.equal(blackDossier.faction.identity.expression_kind, "color");
 assertMonoCommanderOwnership("B", blackDossier);
 assert.match(blackDossier.commanderPath.copy, /life|sacrifice|graveyard|resource|cost|shadow/i);
@@ -3930,7 +3931,7 @@ const redDossier = buildCommanderDossier({
   deckTagCatalog,
   placementResult: redGolden,
 });
-assert.match(redDossier.resultStatus, /current best fit.*adaptive weighted reading/i);
+assert.match(redDossier.resultStatus, /current best fit in this reading/i);
 assert.equal(redDossier.faction.identity.expression_kind, "color");
 assertMonoCommanderOwnership("R", redDossier);
 assert.match(redDossier.commanderPath.copy, /damage|burn|haste|impulse|treasure|action|pressure/i);
@@ -4003,7 +4004,7 @@ const greenDossier = buildCommanderDossier({
   deckTagCatalog,
   placementResult: greenGolden,
 });
-assert.match(greenDossier.resultStatus, /current best fit.*adaptive weighted reading/i);
+assert.match(greenDossier.resultStatus, /current best fit in this reading/i);
 assert.equal(greenDossier.faction.identity.expression_kind, "color");
 assertMonoCommanderOwnership("G", greenDossier);
 assert.match(greenDossier.commanderPath.copy, /organic growth|natural scale|ramp|creature/i);

@@ -992,7 +992,7 @@ export const COMMANDER_FACTION_GUIDANCE = {
     bleedWarnings: ["avoid collapsing Five-Color into generic goodstuff, mana fixing, official doctrine, Colorless proof, four-color leakage, or Commander legality and metagame claims"],
     preferredArchetypeTags: ["Five-Color", "Ramp", "Multicolor"],
     starterSearchTags: ["Five-Color", "Ramp", "Multicolor"],
-    commanderPlan: "uses all five colors deliberately: build reliable fixing, decide what each color contributes, and keep support-only Commander examples from becoming lore, legality, or ranking proof",
+    commanderPlan: "uses all five colors deliberately: build reliable fixing, decide what each color contributes, and keep support-only Commander examples from becoming lore, legality, or result proof",
     spellcraftIdentity: "Domain, converge, sunburst, WUBRG costs or activations, multicolor payoffs, basic-land-type checks, and mana infrastructure can express Five-Color texture while individual card claims remain manually verified.",
     tableCautionText: "Develop fixing with a purpose, make every color justify its slot, and treat precons, MTGDecks, Archidekt, and Scryfall links as support navigation rather than proof.",
     tableCautionReviewRule: "If text sounds like official WUBRG doctrine, generic goodstuff, Colorless proof, four-color leakage, broad legality, rankings, price, or metagame advice, rebind it to VM-367 source boundaries.",
@@ -2222,12 +2222,12 @@ export function buildReadingOmens({
     .map((entry, index) => {
       const answerTitle = entry?.answer_title || "A recorded answer";
       const delta = evidenceDeltaForFaction(entry, activeKey);
-      const observation = entry?.signal || "an authored placement signal";
-      const direction = delta > 0 ? "contributed support toward" : "counted against";
+      const observation = entry?.signal || "a reading signal";
+      const direction = delta > 0 ? "added support for" : "counted against";
       return {
         title: `Recorded signal ${index + 1}`,
         answerTitle,
-        copy: `You selected “${answerTitle}.” The model recorded ${observation}, which ${direction} this identity.`,
+        copy: `You selected “${answerTitle}.” That answer added ${observation}, which ${direction} this identity in the reading.`,
       };
     });
 }
@@ -2309,7 +2309,7 @@ export function buildCommanderStartingLane({
     details: [
       {
         label: "Suggested budget lane",
-        copy: `The saved starter preference is ${budget} budget. Use it to filter examples and upgrades; it did not affect the identity ranking.`,
+        copy: `The saved starter preference is ${budget} budget. Use it to filter examples and upgrades; it did not affect the identity result.`,
       },
       {
         label: "Experience assumption",
@@ -2468,8 +2468,8 @@ function adjacentFitsForResult({ result, factions, activeKey, isPrimary }) {
         institutionType: matchFaction.institution_type,
         world: matchFaction.world,
         reason: result?.alternative_state === "co-leader"
-          ? "The current scoring did not separate this identity from the stored primary. It is a co-leader, not an adjacent identity."
-          : `You selected “${directEvidence?.answer_title || "a recorded answer"}.” The authored model recorded ${directEvidence?.signal || "a supporting signal"} for ${matchFaction.name}. It stayed close under this reading's relative comparison rule; this does not prove semantic adjacency or placement accuracy.`,
+          ? "Your answers supported both readings without clearly separating them. This is a co-leader, not a close alternative."
+          : `You selected “${directEvidence?.answer_title || "a recorded answer"}.” That answer added ${directEvidence?.signal || "a supporting signal"} to the ${matchFaction.name} reading. This close result is a bounded comparison, not proof of a fixed relationship between the identities.`,
       };
     })
     .filter(Boolean);
@@ -2523,8 +2523,8 @@ function buildAdjacentReason({ adjacentReason, activeMatch, faction, primaryFact
     (entry) => evidenceDeltaForFaction(entry, activeKey) > 0
   );
   return evidence
-    ? `You selected “${evidence.answer_title || "a recorded answer"}.” The authored model recorded ${evidence.signal || "a supporting signal"} for ${faction.name}. This view compares that contribution without replacing or rescoring the original reading.`
-    : `${faction.name} is retained only as an internal ranked result; no direct positive answer trace is available for a public alternative claim.`;
+    ? `You selected “${evidence.answer_title || "a recorded answer"}.” That answer added ${evidence.signal || "a supporting signal"} to the ${faction.name} reading. This view compares that signal without replacing the original reading.`
+    : `${faction.name} remains available in the saved result detail, but no direct positive answer signal is available for a public alternative claim.`;
 }
 
 function summaryStripOverride(key) {
@@ -2792,9 +2792,9 @@ export function resolveSummaryAdjacentFit({
     (entry) => evidenceDeltaForFaction(entry, targetKey) > 0
   );
   const relationshipCopy = placementResult?.alternative_state === "co-leader"
-    ? "The current scoring did not separate this identity from the stored primary. The serialized primary remains unchanged for compatibility."
+    ? "Your answers supported both readings without clearly separating them."
     : isPrimary
-      ? `You selected “${directEvidence?.answer_title || "a recorded answer"}.” The authored model recorded ${directEvidence?.signal || "a supporting signal"} for ${targetName}. That contribution does not prove semantic adjacency or placement accuracy.`
+      ? `You selected “${directEvidence?.answer_title || "a recorded answer"}.” That answer added ${directEvidence?.signal || "a supporting signal"} to the ${targetName} reading. This close result does not prove a fixed relationship between the identities.`
       : reasonItStayedClose;
 
   return {
@@ -2802,8 +2802,8 @@ export function resolveSummaryAdjacentFit({
     heading: targetName,
     signalBand: placementResult?.alternative_state === "co-leader" ? "tied" : "close",
     signalLabel: placementResult?.alternative_state === "co-leader"
-      ? "The current scoring did not separate the leaders."
-      : "Close is relative within this reading, not a confidence percentage.",
+      ? "Both readings received support from your answers."
+      : "Close is relative within this reading; it is not a certainty claim.",
     relationshipCopy,
     targetKey: targetKey || "RELATED",
     targetName,
@@ -3002,11 +3002,11 @@ export function buildCommanderDossier({
     ? `Historical saved identity: ${faction.name}. Answer and evidence detail is unavailable, so no current fit or strength is claimed.`
     : isPrimary
       ? placementResult?.alternative_state === "co-leader"
-        ? "This identity is one of two co-leaders in the adaptive weighted reading."
-        : "Current best fit in this adaptive weighted reading."
+        ? "This identity is one of two co-leaders in this reading."
+        : "Current best fit in this reading."
       : placementResult?.alternative_state === "co-leader"
-        ? "Comparing the other co-leader; the serialized primary, answers, and ranking have not changed."
-        : "Comparing a close alternative with the original reading; the answers and ranking have not changed.";
+        ? "Comparing the other co-leader with the same recorded answers."
+        : "Comparing a close alternative with the original reading and the same recorded answers.";
   const reasonItStayedClose = isPrimary
     ? ""
     : buildAdjacentReason({
