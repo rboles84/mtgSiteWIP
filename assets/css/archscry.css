@@ -900,6 +900,19 @@ body.vm-archscry-route .dossier-snapshot-card--co-leader .mana-pips {
   margin: 0;
 }
 
+body.vm-archscry-route .dossier-snapshot-card--co-leader
+  .tied-co-leader-pips
+  > .ms {
+  margin: 0 !important;
+}
+
+body.vm-archscry-route .dossier-snapshot-card--co-leader
+  .tied-co-leader-pips
+  > .ms
+  + .ms {
+  margin-left: 6px !important;
+}
+
 body.vm-archscry-route .dossier-snapshot-card--co-leader .btn-secondary {
   width: max-content;
   max-width: 100%;

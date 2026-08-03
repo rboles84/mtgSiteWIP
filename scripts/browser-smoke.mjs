@@ -892,7 +892,6 @@ async function validateArchscryTiePolish(page, viewport) {
       playPatternIsolated: !(playPattern?.innerText || "").includes(peerName),
       peerSummaryIsolated: (peer?.innerText || "").includes(peerName) && !(peer?.innerText || "").includes(primaryName),
       peerPipStyle: peerPips ? {
-        gap: getComputedStyle(peerPips).gap,
         justifyContent: getComputedStyle(peerPips).justifyContent,
         justifySelf: getComputedStyle(peerPips).justifySelf,
       } : null,
@@ -908,7 +907,7 @@ async function validateArchscryTiePolish(page, viewport) {
   assert(tieState.originalEyebrows === 1, `${viewport.name} tied result duplicated the Original reading label.`);
   assert(!tieState.overflow, `${viewport.name} tied result created horizontal overflow.`);
   assert(tieState.originalHeroIsolated && tieState.narrativeIsolated && tieState.playPatternIsolated && tieState.peerSummaryIsolated, `${viewport.name} tied result mixed identity-owned content.`);
-  assert(tieState.peerPipStyle?.gap === "0px" && tieState.peerPipStyle.justifyContent === "flex-start" && tieState.peerPipStyle.justifySelf === "start", `${viewport.name} co-leader pips are not tightly grouped: ${JSON.stringify(tieState.peerPipStyle)}.`);
+  assert(tieState.peerPipStyle?.justifyContent === "flex-start" && tieState.peerPipStyle.justifySelf === "start", `${viewport.name} co-leader pips lost their established alignment: ${JSON.stringify(tieState.peerPipStyle)}.`);
   assert(tieState.peerTitleSameRow, `${viewport.name} co-leader name and mana identity did not share one aligned header row.`);
 
   await page.click('[data-tied-identity-container="other"] [data-action="switch-adjacent-view"]');
@@ -924,6 +923,64 @@ async function validateArchscryTiePolish(page, viewport) {
   assert(!compared.text.includes(tieFixture.primaryName), `${viewport.name} co-leader comparison retained original-identity content.`);
   await page.click('[data-action="return-primary-reading"]');
   await page.waitForFunction((primaryName) => document.querySelector(".guild-name")?.textContent.trim() === primaryName, {}, tieFixture.primaryName);
+
+  if (["desktop", "mobile", "narrow-mobile"].includes(viewport.name)) {
+    const tiedBaseResult = await page.evaluate(() => JSON.parse(sessionStorage.getItem("vm_last_result") || "null"));
+    const physicalGapScenarios = [
+      { label: "Selesnya W/G", key: "WG", name: "Selesnya Conclave", expectedCount: 2 },
+      { label: "Naya R/G/W", key: "NAYA", name: "Naya", expectedCount: 3 },
+      { label: "Five-Color WUBRG", key: "WUBRG", name: "Five-Color / WUBRG", expectedCount: 5 },
+    ];
+
+    for (const target of physicalGapScenarios) {
+      await page.evaluate(({ baseResult, targetIdentity }) => {
+        const result = JSON.parse(JSON.stringify(baseResult));
+        const leader = result.top_matches[0];
+        const peer = {
+          ...(result.top_matches[1] || {}),
+          faction: targetIdentity.key,
+          faction_name: targetIdentity.name,
+          score: leader.score,
+        };
+        result.top_matches = [leader, peer, ...(result.top_matches || []).slice(2).filter((match) => match.faction !== targetIdentity.key)].slice(0, 3);
+        result.adjacent_matches = [peer, ...(result.adjacent_matches || []).filter((match) => match.faction !== targetIdentity.key)].slice(0, 2);
+        result.scores = { ...(result.scores || {}), [targetIdentity.key]: leader.score };
+        result.result_state = "tied";
+        result.public_confidence_state = "tied";
+        result.alternative_state = "co-leader";
+        sessionStorage.setItem("vm_last_result", JSON.stringify(result));
+      }, { baseResult: tiedBaseResult, targetIdentity: target });
+
+      await page.reload({ waitUntil: "domcontentloaded" });
+      await waitForPageReady(page);
+      await waitForDossier(page);
+      const measurement = await page.evaluate(() => {
+        const card = document.querySelector(".dossier-snapshot-card--co-leader");
+        const group = card?.querySelector(".tied-co-leader-pips");
+        const pips = [...(group?.querySelectorAll(":scope > .ms") || [])];
+        const rects = pips.map((pip) => pip.getBoundingClientRect());
+        const gaps = rects.slice(1).map((current, index) => Number((current.left - rects[index].right).toFixed(3)));
+        const cardRect = card?.getBoundingClientRect();
+        const groupRect = group?.getBoundingClientRect();
+        return {
+          count: pips.length,
+          gaps,
+          noOverlap: gaps.every((gap) => gap >= 0),
+          groupInsideCard: Boolean(cardRect && groupRect
+            && groupRect.left >= cardRect.left - 0.5
+            && groupRect.right <= cardRect.right + 0.5
+            && groupRect.top >= cardRect.top - 0.5
+            && groupRect.bottom <= cardRect.bottom + 0.5),
+        };
+      });
+      assert(measurement.count === target.expectedCount, `${viewport.name} ${target.label} rendered ${measurement.count} pips instead of ${target.expectedCount}.`);
+      assert(measurement.gaps.length === target.expectedCount - 1, `${viewport.name} ${target.label} did not expose every adjacent physical gap.`);
+      assert(measurement.gaps.every((gap) => gap >= 5 && gap <= 8), `${viewport.name} ${target.label} physical pip gaps fell outside 5px–8px: ${JSON.stringify(measurement.gaps)}.`);
+      assert(measurement.noOverlap, `${viewport.name} ${target.label} mana symbols overlapped.`);
+      assert(measurement.groupInsideCard, `${viewport.name} ${target.label} mana-symbol group escaped the co-leader card.`);
+      console.log(`    ${viewport.name}: ${target.label} physical pip gaps ${JSON.stringify(measurement.gaps)}`);
+    }
+  }
 }
 
 async function runArchscrySmoke(page, origin, viewport) {

@@ -263,7 +263,9 @@ assert.doesNotMatch(indexSource, /const tab = target\?\.closest\?\.\("\[data-dos
 assert.match(indexSource, /case "set-dossier-panel":\s*setDossierPanel\(actionNode\.dataset\.panelId \|\| ""\);/);
 assert.match(indexSource, /dossier-snapshot-co-leader-title[\s\S]*<strong>\$\{escapeHtml\(tiedPeerName\)\}<\/strong>[\s\S]*buildManaPipsHtml/);
 assert.match(cssSource, /\.dossier-snapshot-co-leader-title \{[\s\S]*display: flex;[\s\S]*flex-wrap: nowrap;[\s\S]*align-items: center;/);
-assert.match(cssSource, /\.dossier-snapshot-card--co-leader \.mana-pips \{[\s\S]*display: inline-flex;[\s\S]*width: max-content;[\s\S]*flex: 0 0 auto;[\s\S]*justify-content: flex-start;[\s\S]*justify-self: start;[\s\S]*gap: 0;/);
+assert.match(cssSource, /\.dossier-snapshot-card--co-leader \.mana-pips \{[\s\S]*display: inline-flex;[\s\S]*width: max-content;[\s\S]*flex: 0 0 auto;[\s\S]*justify-content: flex-start;[\s\S]*justify-self: start;/);
+assert.match(cssSource, /\.dossier-snapshot-card--co-leader\s+\.tied-co-leader-pips\s+> \.ms \{\s*margin: 0 !important;/);
+assert.match(cssSource, /\.dossier-snapshot-card--co-leader\s+\.tied-co-leader-pips\s+> \.ms\s+\+ \.ms \{\s*margin-left: 6px !important;/);
 assert.match(cssSource, /\.identity-story-meta\{[^}]*margin-top:0\.35rem/);
 assert.doesNotMatch(cssSource, /\.identity-story-meta\{[^}]*margin-top:auto/);
 assert.match(cssSource, /\.how-this-plays-block\{[^}]*gap:0\.3rem/);

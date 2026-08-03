@@ -43,7 +43,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-551 — Gate A Archscry Trust Containment](in-progress/VM-551-gate-a-trust-containment-design.md) - final owner spot-check presentation candidate ready: the redundant/stranded Commander-preview label is removed, its optional block remains hidden until a verified commander card exists, and each co-leader name now shares one header row with a zero-gap mana identity. Focused static and 1440/820/390/320 browser checks pass. Previously accepted tab, preview, state, scoring, cache, Matrix-value, precon, recommendation, deck-link, and Maze behavior remains protected; Gate B1, merge, push, deployment, and certification remain excluded.
+- [VM-551 — Gate A Archscry Trust Containment](in-progress/VM-551-gate-a-trust-containment-design.md) - final owner pip-spacing correction ready: adjacent co-leader Mana Font symbols now receive a direct `6px` sibling margin. Physical rectangle checks report `[6]`, `[6,6]`, and `[6,6,6,6]` for Selesnya, Naya, and WUBRG at 1440px, 390px, and 320px. Previously accepted layout and all protected Gate A behavior remain unchanged; Gate B1, merge, push, deployment, and certification remain excluded.
 
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 

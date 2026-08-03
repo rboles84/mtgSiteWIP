@@ -39,4 +39,4 @@ On 2026-08-01, the owner approved exact design commit `c6b1c9e6940b67201c8c2f999
 
 ## Next gate
 
-The final owner spot-check presentation correction removes the redundant `Commander starting points` label and keeps its optional preview block hidden until at least one verified commander card exists. The co-leader name and mana identity now share one aligned header row, and the individual pips use zero gap instead of a separate, visibly loose grid row. Focused static and 1440/820/390/320 browser checks pass; all accepted tab, preview, state, scoring, cache, Matrix, precon, recommendation, deck-link, and Maze behavior remains protected. Owner review of the exact follow-up commit is next.
+The final owner pip-spacing correction leaves the accepted co-leader title and card layout unchanged and adds a direct `6px !important` adjacent-sibling margin to individual tied co-leader Mana Font symbols. Physical rectangle checks report exactly 6px between every adjacent symbol for Selesnya, Naya, and WUBRG at 1440px, 390px, and 320px, with no overlaps or card overflow. All other accepted Gate A behavior remains protected. Owner review of the exact follow-up commit is next.
