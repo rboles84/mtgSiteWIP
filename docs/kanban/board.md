@@ -43,8 +43,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-551 — Gate A Archscry Trust Containment](in-progress/VM-551-gate-a-trust-containment-design.md) - final co-leader Mana Font polish ready: adjacent symbols retain their verified 6px physical spacing, while narrowly scoped per-color `::before` offsets optically center only the black glyph artwork inside its existing disc. Desktop/390px/320px browser checks pass; other Mana Font surfaces and all protected Gate A behavior remain unchanged. Gate B1, merge, push, deployment, and certification remain excluded.
-
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 
 ## Blocked
@@ -58,6 +56,8 @@ Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is
 VM-429 Section 14 ID reconciliation, 2026-06-30: the early readiness plan expected route metadata as `VM-448` and public demo / strategic case study as `VM-449`, but final ID assignment shifted after intervening queue work. In the final handoff trail, `VM-448` is Critical Browser E2E Smoke and `VM-449` is Maze Return Loop Microcopy Tightening; both are complete. The originally expected route metadata and public demo / strategic case-study scopes were completed as `VM-451` and `VM-452`. VM-458 later moved VM-422/VM-446 to backlog; live private deck-link behavior remains not production-proven.
 
 - [VM-551 - Full Placement-System Audit](done/VM-551-full-placement-system-audit.md) - owner-approved exact audit content `e0e61278a7434d35f85eabb81cfcd417c2252e3c`; the accepted audit governs Gate A/B1/B2 and accepts the downstream compatibility contract plus 37-row consumer map; documentation closeout/integration is authorized, while implementation, implementation planning, deployment, and certification remain unauthorized.
+
+- [VM-551 — Gate A Archscry Trust Containment](done/VM-551-gate-a-trust-containment-design.md) - owner-approved exact implementation `471567059c876368329fd7cf9c24eacfcd6d03c1` was fast-forwarded into `main`, pushed, and verified on production across the live reading, result/dossier, narrow-mobile directory, Scryfall card action, and Maze handoff. Gate A is closed; Gate B1 was not started.
 
 - [VM-550 - Strategium After-the-Game MVP](done/VM-550-strategium-after-game-mvp.md) - exact candidate `639a63f81762450e6c87259416a0fdfa2c313681` received owner and independent exact-SHA approval, passed certification validation in the dedicated integration worktree, and is certified for controlled integration into local `main`; this certification record's commit is the local integration head. Awaiting owner verification of local `main`; push, deployment, and worktree cleanup require separate authorization.
 

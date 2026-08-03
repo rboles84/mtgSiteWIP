@@ -1,6 +1,14 @@
 # Gate A Implementation Status And Compatibility Record
 
-Status: final two-blocker owner correction complete locally; candidate pending owner review.
+Status: owner accepted, integrated, pushed, production verified, and closed.
+
+## Production closeout — 2026-08-03
+
+- Owner-approved Gate A SHA: `471567059c876368329fd7cf9c24eacfcd6d03c1`.
+- Integration: fast-forwarded into `main` with accepted ancestry preserved, then pushed to `origin/main`.
+- Production: `https://voxmana.io/archscry/` loaded; the live Quick Reading advanced to a completed Esper result; the dossier rendered; Why This Fits and Maze Discovery panel selection worked; a canonical Scryfall card action resolved; 390px navigation produced no document overflow; Maze handoff links retained Archscry return context; the browser console contained no errors.
+- Public boundaries: no numeric-confidence percentage and no Bayesian/model/scoring/ranking/softmax/serialization terminology appeared in the rendered result.
+- Gate boundary: Gate A is closed. Gate B1 was not started.
 
 Final co-leader Mana Font follow-up: tied co-leader symbols retain their accepted 6px spacing, name alignment, title wrapping, card layout, size, glow, order, and accessible labels. Per-color relative offsets now optically center only each glyph's `::before` artwork within its existing colored disc. The selector is bounded to the tied co-leader card; Matrix, hero, Layered Identity, normal dossier, recommendation, and all other Mana Font symbols are untouched. Desktop/390px/320px browser checks confirm the offsets while preserving the measured gap arrays and card containment.
 

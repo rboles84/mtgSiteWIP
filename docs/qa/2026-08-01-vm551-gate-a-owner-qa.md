@@ -186,3 +186,9 @@ Owner spot-check follow-up: `Commander starting points` was a redundant label fo
 Optical-centering follow-up: only the tied co-leader `.ms-w`, `.ms-u`, `.ms-b`, `.ms-r`, and `.ms-g` `::before` glyphs receive small per-color relative offsets measured from the owner's 500% capture. Browser checks confirm those offsets at desktop, 390px, and 320px while the physical gap arrays, colored discs, ordering, labels, and unrelated Mana Font surfaces remain unchanged.
 
 Do not create or accept a visual baseline.
+
+## Final owner acceptance and production verification — 2026-08-03
+
+The owner accepted exact Gate A SHA `471567059c876368329fd7cf9c24eacfcd6d03c1` without reopening Gate A. Final release checks passed for the owner-QA regression, 37/37 placement golden paths, persistent named-card cache, parser/source integrity, JS/HTML lint, copy boundaries, frontend/route smoke, deck links, Maze storage, and focused desktop/narrow/mobile Archscry browser journeys.
+
+Production verification at `https://voxmana.io/archscry/` completed a live seven-answer reading to an Esper dossier. The rendered result contained no numeric confidence percentage or prohibited public methodology terms; Why This Fits and Maze Discovery panels opened; a canonical Scryfall card action was present; the 390px page had no document-level overflow; Maze handoff links preserved return context; and the console reported no errors. Gate A is closed, and Gate B1 was not started. No visual baseline was created or accepted.

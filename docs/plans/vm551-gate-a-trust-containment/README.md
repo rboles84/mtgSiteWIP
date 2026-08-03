@@ -1,14 +1,14 @@
 # VM-551 Gate A — Archscry Trust Containment Design
 
-Status: bounded implementation candidate ready for owner visual QA
+Status: closed — owner accepted, integrated, pushed, and production verified
 Design base: `ec562f268181c9feb042eef9df20777730d64f0f`
 Approved design: `c6b1c9e6940b67201c8c2f999409a7103ba52b88`
-Implementation branch: `codex/vm551-gate-a-trust-containment-implementation`
+Owner-approved implementation: `471567059c876368329fd7cf9c24eacfcd6d03c1`
 Scope: Gate A public trust containment only; Gate B1 remains excluded
 
 ## Owner approval
 
-On 2026-08-01, the owner approved exact design commit `c6b1c9e6940b67201c8c2f999409a7103ba52b88` and accepted recommended defaults `OD-01` through `OD-18` without deviation. That approval authorizes only the bounded Gate A production implementation described by this package. Gate B1 work, merge, push, deployment, and certification remain unauthorized.
+On 2026-08-01, the owner approved exact design commit `c6b1c9e6940b67201c8c2f999409a7103ba52b88` and accepted recommended defaults `OD-01` through `OD-18` without deviation. On 2026-08-03, the owner accepted exact implementation SHA `471567059c876368329fd7cf9c24eacfcd6d03c1`; it was integrated into `main`, pushed, and verified on production. Gate A is closed. Gate B1 was not started or authorized by this closeout.
 
 ## Outcome
 
