@@ -179,8 +179,8 @@ localStorage.removeItem("vm_scryfall_named_cache_v2");
 1. At 390px and 320px, tap Placement, Start Here, Why It Fits, Commanders, Card Signals, Mana Notes, Maze, and View All. Every tab must reveal its named panel, and View All must reveal all panels.
 2. Mouse-drag the tab row, then immediately click a tab; click a chevron, then a tab; and use Left/Right keys. Each intended selection must happen once and remain visible.
 3. On desktop, hover a card name and its flavor copy: no preview should open. Hover only the card image or immediate image link: the established image preview should open without a caption. Moving off the image, scrolling, or changing dossier panels must close it. The source image alt text and link accessible name remain present.
-4. In a tied result, confirm the compact co-leader mana pips have a restrained local gap while their size, glow, order, and accessible identity label remain unchanged.
+4. In a tied result, confirm the co-leader name and mana identity share one compact row, with no added gap between the individual pips; their size, glow, order, and accessible identity label remain unchanged.
 
-Owner spot-check follow-up: `Commander starting points` was a redundant label for the optional commander-card preview grid and could remain stranded when no candidate resolved. It is removed; the entire optional block stays hidden until a verified preview exists and disappears when none resolve. The co-leader pip group is now left-aligned with a `0.12rem` gap. Static owner-QA assertions and the full 1440/820/390/320 Archscry browser smoke pass.
+Owner spot-check follow-up: `Commander starting points` was a redundant label for the optional commander-card preview grid and could remain stranded when no candidate resolved. It is removed; the entire optional block stays hidden until a verified preview exists and disappears when none resolve. The co-leader name and mana identity now share one aligned header row, with zero gap between individual pips. Static owner-QA assertions and the full 1440/820/390/320 Archscry browser smoke pass.
 
 Do not create or accept a visual baseline.

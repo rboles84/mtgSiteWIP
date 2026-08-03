@@ -26,7 +26,7 @@
 
 `Commander starting points` was a redundant micro-label inside the already named Start Here commander-plan card. Because preview cards begin hidden until their Scryfall metadata is validated, the label and its bordered container could appear without a card. The label is removed. The optional block begins hidden, is revealed by the first verified commander preview, and is removed if none resolve.
 
-The tied co-leader span inherited the global hero `justify-content: center` behavior and still used a visually loose local gap. The scoped rule now uses `width: max-content`, `justify-content: flex-start`, `justify-self: start`, and `gap: 0.12rem`. No Mana Font glyph, size, glow, canonical order, or accessible label changed.
+The tied co-leader span inherited both the global hero alignment and a later generic snapshot `span` display rule, so the earlier gap-only correction could not control its rendered layout. The co-leader name and span now share one non-wrapping flex header row. The scoped span explicitly restores `inline-flex`, uses `width: max-content`, left alignment, and zero internal gap. No Mana Font glyph, size, glow, canonical order, or accessible label changed.
 
 ## Tests run
 

@@ -875,16 +875,28 @@ body.vm-archscry-route .dossier-snapshot-card--co-leader {
 }
 
 body.vm-archscry-route .dossier-snapshot-card--co-leader > span,
-body.vm-archscry-route .dossier-snapshot-card--co-leader > strong,
 body.vm-archscry-route .dossier-snapshot-card--co-leader > .dossier-snapshot-copy {
   margin: 0;
 }
 
+body.vm-archscry-route .dossier-snapshot-co-leader-title {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+body.vm-archscry-route .dossier-snapshot-co-leader-title > strong {
+  margin: 0;
+}
+
 body.vm-archscry-route .dossier-snapshot-card--co-leader .mana-pips {
+  display: inline-flex;
   width: max-content;
+  flex: 0 0 auto;
   justify-content: flex-start;
   justify-self: start;
-  gap: 0.12rem;
+  gap: 0;
   margin: 0;
 }
 

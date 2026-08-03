@@ -873,6 +873,8 @@ async function validateArchscryTiePolish(page, viewport) {
     const snapshot = resultInner?.querySelector(":scope > .dossier-snapshot");
     const peer = document.querySelector('[data-tied-identity-container="other"]');
     const peerPips = peer?.querySelector(".tied-co-leader-pips");
+    const peerTitle = peer?.querySelector(".dossier-snapshot-co-leader-title");
+    const peerNameNode = peerTitle?.querySelector("strong");
     const narrative = snapshot?.querySelector('[data-summary-card="where-this-leads"]');
     const playPattern = snapshot?.querySelector('[data-summary-card="play-pattern"]');
     return {
@@ -894,6 +896,9 @@ async function validateArchscryTiePolish(page, viewport) {
         justifyContent: getComputedStyle(peerPips).justifyContent,
         justifySelf: getComputedStyle(peerPips).justifySelf,
       } : null,
+      peerTitleSameRow: peerPips && peerNameNode
+        ? Math.abs((peerPips.getBoundingClientRect().top + peerPips.getBoundingClientRect().bottom) / 2 - (peerNameNode.getBoundingClientRect().top + peerNameNode.getBoundingClientRect().bottom) / 2) <= 2
+        : false,
     };
   }, tieFixture);
   assert(/\bguild-banner\b/.test(tieState.firstComponentClass), `${viewport.name} original guild banner was not the first result component.`);
@@ -903,7 +908,8 @@ async function validateArchscryTiePolish(page, viewport) {
   assert(tieState.originalEyebrows === 1, `${viewport.name} tied result duplicated the Original reading label.`);
   assert(!tieState.overflow, `${viewport.name} tied result created horizontal overflow.`);
   assert(tieState.originalHeroIsolated && tieState.narrativeIsolated && tieState.playPatternIsolated && tieState.peerSummaryIsolated, `${viewport.name} tied result mixed identity-owned content.`);
-  assert(tieState.peerPipStyle?.gap === "1.92px" && tieState.peerPipStyle.justifyContent === "flex-start" && tieState.peerPipStyle.justifySelf === "start", `${viewport.name} co-leader pips are not tightly left-aligned: ${JSON.stringify(tieState.peerPipStyle)}.`);
+  assert(tieState.peerPipStyle?.gap === "0px" && tieState.peerPipStyle.justifyContent === "flex-start" && tieState.peerPipStyle.justifySelf === "start", `${viewport.name} co-leader pips are not tightly grouped: ${JSON.stringify(tieState.peerPipStyle)}.`);
+  assert(tieState.peerTitleSameRow, `${viewport.name} co-leader name and mana identity did not share one aligned header row.`);
 
   await page.click('[data-tied-identity-container="other"] [data-action="switch-adjacent-view"]');
   await page.waitForFunction((peerName) => document.querySelector(".guild-name")?.textContent.trim() === peerName, {}, tieFixture.peerName);

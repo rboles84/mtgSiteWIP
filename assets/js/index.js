@@ -2155,8 +2155,10 @@ function buildPlacementSnapshotHtml({ dossier, includeAlternative = true, tiedPe
   const tiedPeerCard = tiedPeerName && tiedPeerKey ? `
       <div class="dossier-snapshot-card dossier-snapshot-card--co-leader" data-summary-card="co-leader" data-tied-identity-container="other" data-identity-key="${escapeAttributeValue(tiedPeerKey)}">
         <span>Also tied with ${escapeHtml(tiedPeerName)}</span>
-        <strong>${escapeHtml(tiedPeerName)}</strong>
-        ${buildManaPipsHtml(tiedPeerDossier.faction?.colors || [], "tied-co-leader-pips")}
+        <div class="dossier-snapshot-co-leader-title">
+          <strong>${escapeHtml(tiedPeerName)}</strong>
+          ${buildManaPipsHtml(tiedPeerDossier.faction?.colors || [], "tied-co-leader-pips")}
+        </div>
         <div class="dossier-snapshot-copy">Your answers supported both readings without clearly separating them.</div>
         <button class="btn-secondary" type="button" ${buildActionAttrs("switch-adjacent-view", { viewKey: tiedPeerKey })}>Compare this co-leader</button>
       </div>` : "";
