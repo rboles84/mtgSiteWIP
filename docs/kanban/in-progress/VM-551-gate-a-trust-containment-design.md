@@ -2,7 +2,7 @@
 
 ID: VM-551 Gate A
 Title: Archscry Trust Containment
-Status: Final two-blocker correction candidate ready for owner review
+Status: Final owner spot-check presentation candidate ready for review
 Type: Production trust containment
 Area: Archscry placement
 Priority: Critical trust containment
@@ -39,4 +39,4 @@ On 2026-08-01, the owner approved exact design commit `c6b1c9e6940b67201c8c2f999
 
 ## Next gate
 
-The final bounded correction now resolves the two owner blockers from exact candidate `6fa0d0c2a2441de114d86b9fd9daf29dd211eaa4`. Mobile tabs use one delegated activation path; pointer capture begins only after a real drag threshold, so ordinary clicks are not retargeted to the tablist and post-drag clicks cannot inherit stale suppression. Card previews open only from the image or its immediate image link, close on image leave/scroll/panel change, and contain no visible caption. The compact co-leader pip gap is locally tightened without changing symbols. Real-pointer browser coverage passes every tab, View All, drag-then-click, chevron-then-click, and keyboard selection at 820px, 390px, and 320px. Owner spot-check of this exact local commit is next; Gate B1, merge, push, deployment, and certification remain excluded.
+The final owner spot-check presentation correction removes the redundant `Commander starting points` label and keeps its optional preview block hidden until at least one verified commander card exists. Compact co-leader pips are now left-aligned at `0.12rem` gap instead of inheriting the centered hero treatment. Focused static and 1440/820/390/320 browser checks pass; all accepted tab, preview, state, scoring, cache, Matrix, precon, recommendation, deck-link, and Maze behavior remains protected. Owner review of the exact follow-up commit is next.

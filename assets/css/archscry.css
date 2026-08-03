@@ -184,7 +184,6 @@ body.vm-archscry-route .deck-format,
 body.vm-archscry-route .adjacent-label,
 body.vm-archscry-route .service-name,
 body.vm-archscry-route .omen-index,
-body.vm-archscry-route .commander-preview-label,
 body.vm-archscry-route .starter-note-label,
 body.vm-archscry-route .tag-interpretation-name,
 body.vm-archscry-route .flavor-echo-kicker,
@@ -882,7 +881,10 @@ body.vm-archscry-route .dossier-snapshot-card--co-leader > .dossier-snapshot-cop
 }
 
 body.vm-archscry-route .dossier-snapshot-card--co-leader .mana-pips {
-  gap: 0.32rem;
+  width: max-content;
+  justify-content: flex-start;
+  justify-self: start;
+  gap: 0.12rem;
   margin: 0;
 }
 
@@ -2672,7 +2674,7 @@ body::before{
   font-size:0.95rem;
   line-height:1.55;
 }
-.omen-index,.commander-preview-label,.starter-note-label{
+.omen-index,.starter-note-label{
   font-family:var(--font-mono);
   font-size:0.58rem;
   letter-spacing:0.18em;
@@ -3025,7 +3027,6 @@ body.vm-archscry-route .saved-deck-link-note{
   padding-top:1rem;
   border-top:1px solid rgba(184,149,74,0.12);
 }
-.commander-preview-label{margin-bottom:0.8rem}
 .commander-preview-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));

@@ -261,7 +261,7 @@ assert.match(indexSource, /if \(!dragged && Math\.abs\(delta\) > 6\)[\s\S]*setPo
 assert.match(indexSource, /suppressSyntheticDragClick = true;[\s\S]*setTimeout\(\(\) => \{[\s\S]*suppressSyntheticDragClick = false/);
 assert.doesNotMatch(indexSource, /const tab = target\?\.closest\?\.\("\[data-dossier-tab\]"\)[\s\S]{0,240}setDossierPanel/);
 assert.match(indexSource, /case "set-dossier-panel":\s*setDossierPanel\(actionNode\.dataset\.panelId \|\| ""\);/);
-assert.match(cssSource, /\.dossier-snapshot-card--co-leader \.mana-pips \{\s*gap: 0\.32rem;/);
+assert.match(cssSource, /\.dossier-snapshot-card--co-leader \.mana-pips \{[\s\S]*width: max-content;[\s\S]*justify-content: flex-start;[\s\S]*justify-self: start;[\s\S]*gap: 0\.12rem;/);
 assert.match(cssSource, /\.identity-story-meta\{[^}]*margin-top:0\.35rem/);
 assert.doesNotMatch(cssSource, /\.identity-story-meta\{[^}]*margin-top:auto/);
 assert.match(cssSource, /\.how-this-plays-block\{[^}]*gap:0\.3rem/);
@@ -284,6 +284,10 @@ assert.match(cssSource, /#dossierOverlayLine \+ #dossierColorText\{\s*margin-top
 assert.match(indexSource, /matrixFlavorSnippetsForFaction/);
 assert.match(indexSource, /APP_STATE\.scryfallLocalCardByName\.get/);
 assert.match(indexSource, /loadResultCardArt\(faction, commanderPreviewCandidates, renderableStarterCards, landRecommendations, matrixFlavorSnippets\)/);
+assert.doesNotMatch(indexSource, /commander-preview-label|Commander starting points/);
+assert.match(indexSource, /data-commander-preview-block hidden/);
+assert.match(indexSource, /closest\("\[data-commander-preview-block\]"\)\?\.removeAttribute\("hidden"\)/);
+assert.match(indexSource, /previewGrid\?\.closest\("\[data-commander-preview-block\]"\)\?\.remove\(\)/);
 assert.match(indexSource, /matrixCardVoice: true/);
 assert.match(radarSource, /class="vm-card-voice-image"/);
 assert.match(radarSource, /class="vm-card-voice-name"[\s\S]*href="\$\{escapeDossierHtml\(snippet\.scryfall_uri\)\}"/);

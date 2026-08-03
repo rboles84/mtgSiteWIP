@@ -181,4 +181,6 @@ localStorage.removeItem("vm_scryfall_named_cache_v2");
 3. On desktop, hover a card name and its flavor copy: no preview should open. Hover only the card image or immediate image link: the established image preview should open without a caption. Moving off the image, scrolling, or changing dossier panels must close it. The source image alt text and link accessible name remain present.
 4. In a tied result, confirm the compact co-leader mana pips have a restrained local gap while their size, glow, order, and accessible identity label remain unchanged.
 
+Owner spot-check follow-up: `Commander starting points` was a redundant label for the optional commander-card preview grid and could remain stranded when no candidate resolved. It is removed; the entire optional block stays hidden until a verified preview exists and disappears when none resolve. The co-leader pip group is now left-aligned with a `0.12rem` gap. Static owner-QA assertions and the full 1440/820/390/320 Archscry browser smoke pass.
+
 Do not create or accept a visual baseline.

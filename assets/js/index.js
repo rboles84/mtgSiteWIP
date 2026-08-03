@@ -3238,8 +3238,7 @@ function renderResult(viewKey) {
   const hasStarterCardReferences = renderState.hasStarterCardReferences;
   const basicLandCopy = renderState.basicLandCopy;
   const commanderPreviewHtml = commanderPreviewCandidates.length ? `
-    <div class="commander-preview-block">
-      <div class="commander-preview-label">Commander starting points</div>
+    <div class="commander-preview-block" data-commander-preview-block hidden>
       <div class="commander-preview-grid" id="commander-preview-grid">${commanderPreviewSlots(commanderPreviewCandidates)}</div>
     </div>` : "";
 
@@ -3714,7 +3713,9 @@ async function loadResultCardArt(faction, commanderCandidates = [], starterCards
       }
 
       if (imageUrl) {
-        slot.closest("[data-commander-card]")?.classList.add("is-verified");
+        const commanderCard = slot.closest("[data-commander-card]");
+        commanderCard?.classList.add("is-verified");
+        commanderCard?.closest("[data-commander-preview-block]")?.removeAttribute("hidden");
         const linkClass = card.matrixCardVoice ? "vm-card-voice-image-link" : "";
         const previewAttrs = card.matrixCardVoice ? " data-card-preview-anchor" : "";
         const imagePreviewAttr = card.matrixCardVoice ? " data-card-preview-source" : "";
@@ -3744,7 +3745,7 @@ async function loadResultCardArt(faction, commanderCandidates = [], starterCards
   const previewGrid = document.getElementById("commander-preview-grid");
   const fallback = document.getElementById("commander-preview-fallback");
   if (commanderCandidates.length && verifiedCommanders < 1) {
-    previewGrid?.remove();
+    previewGrid?.closest("[data-commander-preview-block]")?.remove();
     fallback?.classList.add("is-visible");
   }
 }

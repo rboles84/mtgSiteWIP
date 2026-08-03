@@ -596,6 +596,10 @@ async function validateArchscryVisualPolish(page, viewport) {
       voiceNameLinkCount: voiceCards.filter((card) => card.querySelector("a.vm-card-voice-name[href]")).length,
       voiceImageLinkCount: voiceCards.filter((card) => card.querySelector("a.vm-card-voice-image-link[href]")).length,
       voicePreviewCount: voiceCards.filter((card) => card.querySelector("[data-card-preview-anchor]")).length,
+      commanderPreviewLabelCount: document.querySelectorAll(".commander-preview-label").length,
+      visibleCommanderPreviewBlocksValid: [...document.querySelectorAll("[data-commander-preview-block]")]
+        .filter((block) => !block.hidden)
+        .every((block) => Boolean(block.querySelector(".commander-preview-card.is-verified"))),
       voiceLinkPairs: voiceCards.map((card) => ({
         name: card.getAttribute("data-matrix-card-name") || "",
         nameHref: card.querySelector("a.vm-card-voice-name[href]")?.href || "",
@@ -645,6 +649,8 @@ async function validateArchscryVisualPolish(page, viewport) {
     assert(presentation.preconRhythm.metaToGrid <= 16, `${viewport.name} precon status-to-grid gap is too large: ${JSON.stringify(presentation.preconRhythm)}.`);
   }
   assert(presentation.storyMetaMarginTop !== "auto", `${viewport.name} Layered Identity mana symbols remain bottom-pinned.`);
+  assert(presentation.commanderPreviewLabelCount === 0, `${viewport.name} retained the redundant Commander starting points label.`);
+  assert(presentation.visibleCommanderPreviewBlocksValid, `${viewport.name} exposed a Commander preview block without a verified card.`);
 
   if (viewport.width > 940 && presentation.voiceCardCount) {
     await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "no-preference" }]);
@@ -866,6 +872,7 @@ async function validateArchscryTiePolish(page, viewport) {
     const hero = resultInner?.querySelector(":scope > .guild-banner");
     const snapshot = resultInner?.querySelector(":scope > .dossier-snapshot");
     const peer = document.querySelector('[data-tied-identity-container="other"]');
+    const peerPips = peer?.querySelector(".tied-co-leader-pips");
     const narrative = snapshot?.querySelector('[data-summary-card="where-this-leads"]');
     const playPattern = snapshot?.querySelector('[data-summary-card="play-pattern"]');
     return {
@@ -882,6 +889,11 @@ async function validateArchscryTiePolish(page, viewport) {
       narrativeIsolated: !(narrative?.innerText || "").includes(peerName),
       playPatternIsolated: !(playPattern?.innerText || "").includes(peerName),
       peerSummaryIsolated: (peer?.innerText || "").includes(peerName) && !(peer?.innerText || "").includes(primaryName),
+      peerPipStyle: peerPips ? {
+        gap: getComputedStyle(peerPips).gap,
+        justifyContent: getComputedStyle(peerPips).justifyContent,
+        justifySelf: getComputedStyle(peerPips).justifySelf,
+      } : null,
     };
   }, tieFixture);
   assert(/\bguild-banner\b/.test(tieState.firstComponentClass), `${viewport.name} original guild banner was not the first result component.`);
@@ -891,6 +903,7 @@ async function validateArchscryTiePolish(page, viewport) {
   assert(tieState.originalEyebrows === 1, `${viewport.name} tied result duplicated the Original reading label.`);
   assert(!tieState.overflow, `${viewport.name} tied result created horizontal overflow.`);
   assert(tieState.originalHeroIsolated && tieState.narrativeIsolated && tieState.playPatternIsolated && tieState.peerSummaryIsolated, `${viewport.name} tied result mixed identity-owned content.`);
+  assert(tieState.peerPipStyle?.gap === "1.92px" && tieState.peerPipStyle.justifyContent === "flex-start" && tieState.peerPipStyle.justifySelf === "start", `${viewport.name} co-leader pips are not tightly left-aligned: ${JSON.stringify(tieState.peerPipStyle)}.`);
 
   await page.click('[data-tied-identity-container="other"] [data-action="switch-adjacent-view"]');
   await page.waitForFunction((peerName) => document.querySelector(".guild-name")?.textContent.trim() === peerName, {}, tieFixture.peerName);
