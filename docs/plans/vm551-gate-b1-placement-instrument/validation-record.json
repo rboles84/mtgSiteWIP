@@ -1,0 +1,129 @@
+{
+  "status": "PASS",
+  "expected_base": "30bfe87171e4119a0bab1bb47318862c042977de",
+  "counts": {
+    "constructs": 15,
+    "current_questions": 113,
+    "current_answers": 356,
+    "inventory_rows": 356,
+    "pilot_questions": 34,
+    "pilot_answers": 106,
+    "stages": {
+      "Gate": 4,
+      "Hall": 12,
+      "Crucible": 18
+    },
+    "identities": 37,
+    "confusion_pairs": 123,
+    "proposed_question_dispositions": {
+      "retire": 69,
+      "retain concept only": 35,
+      "rewrite for pilot": 6,
+      "evidence needed": 3
+    },
+    "proposed_answer_row_dispositions": {
+      "retire": 225,
+      "retain concept only": 103,
+      "rewrite for pilot": 22,
+      "evidence needed": 6
+    }
+  },
+  "checks": [
+    {
+      "name": "113 current questions",
+      "status": "PASS",
+      "observed": 113
+    },
+    {
+      "name": "356 current answers",
+      "status": "PASS",
+      "observed": 356
+    },
+    {
+      "name": "37 identities",
+      "status": "PASS",
+      "observed": 37
+    },
+    {
+      "name": "4 Gate questions",
+      "status": "PASS",
+      "observed": 4
+    },
+    {
+      "name": "unique IDs",
+      "status": "PASS",
+      "observed": 140
+    },
+    {
+      "name": "stable ID format",
+      "status": "PASS",
+      "observed": 140
+    },
+    {
+      "name": "one construct per question",
+      "status": "PASS",
+      "observed": 34
+    },
+    {
+      "name": "stable answer contracts",
+      "status": "PASS",
+      "observed": 106
+    },
+    {
+      "name": "no orphan question or construct refs",
+      "status": "PASS",
+      "observed": 106
+    },
+    {
+      "name": "no orphan signals",
+      "status": "PASS",
+      "observed": 106
+    },
+    {
+      "name": "no vague-only observations",
+      "status": "PASS",
+      "observed": 106
+    },
+    {
+      "name": "jargon help",
+      "status": "PASS",
+      "observed": 34
+    },
+    {
+      "name": "non-scoring only",
+      "status": "PASS",
+      "observed": 106
+    },
+    {
+      "name": "explicit high-risk and insufficient coverage",
+      "status": "PASS",
+      "observed": 11
+    },
+    {
+      "name": "exact confusion pairs represented",
+      "status": "PASS",
+      "observed": 83
+    },
+    {
+      "name": "high-frequency confusion pairs represented",
+      "status": "PASS",
+      "observed": 28
+    }
+  ],
+  "evidence_registry": {
+    "E-AUDIT": "docs/audits/vm551-placement-system question/answer/signal/distinctiveness/sensitivity artifacts",
+    "E-CECOS": "exact CECOS draft.4 object 947bf45bf6a191839b5fb4fa6c65980ed9d5737e",
+    "E-PLAYER-COMMANDER": "docs/research/placementResearch/YT-how-to-find-the-right-commander-refined-player-evidence.md",
+    "E-PLAYER-PACE": "docs/research/placementResearch/YT-new-new-commander-brackets-refined-player-evidence.md",
+    "E-PLAYER-VARIANCE": "docs/research/placementResearch/YT-the-case-against-tutors-refined-player-evidence.md",
+    "E-PLAYER-THREAT": "docs/research/placementResearch/YT-edhrecast-real-reason-commander-players-hate-combo-refined-player-evidence.md",
+    "E-PLAYER-THEME": "docs/research/placementResearch/YT-crim-loans-me-his-casual-commander-deck-refined-player-evidence.md",
+    "E-CERTIFIED": "data/raw-factions/* placement/source records plus committed source-readiness matrices",
+    "E-VOICE": "docs/audits/2026-06-30-vox-mana-voice-audit.md and VM-551 voice/explanation audit"
+  },
+  "boundaries": [
+    "No live or Gate A file is written.",
+    "Generated artifacts remain under the B1 plan directory.",
+    "Identity associations are provisional non-scoring hypotheses."
+  ]
+}
