@@ -257,8 +257,11 @@ assert.match(indexSource, /scrollIntoView\?\.\(\{ block: "nearest", inline: "cen
 assert.match(indexSource, /data-dossier-scroll-direction="left"/);
 assert.match(indexSource, /data-dossier-scroll-direction="right"/);
 assert.match(indexSource, /tablist\.scrollLeft \+= event\.deltaY/);
-assert.match(indexSource, /setPointerCapture/);
-assert.match(indexSource, /tab\.dataset\.dossierTab[\s\S]*setDossierPanel/);
+assert.match(indexSource, /if \(!dragged && Math\.abs\(delta\) > 6\)[\s\S]*setPointerCapture/);
+assert.match(indexSource, /suppressSyntheticDragClick = true;[\s\S]*setTimeout\(\(\) => \{[\s\S]*suppressSyntheticDragClick = false/);
+assert.doesNotMatch(indexSource, /const tab = target\?\.closest\?\.\("\[data-dossier-tab\]"\)[\s\S]{0,240}setDossierPanel/);
+assert.match(indexSource, /case "set-dossier-panel":\s*setDossierPanel\(actionNode\.dataset\.panelId \|\| ""\);/);
+assert.match(cssSource, /\.dossier-snapshot-card--co-leader \.mana-pips \{\s*gap: 0\.32rem;/);
 assert.match(cssSource, /\.identity-story-meta\{[^}]*margin-top:0\.35rem/);
 assert.doesNotMatch(cssSource, /\.identity-story-meta\{[^}]*margin-top:auto/);
 assert.match(cssSource, /\.how-this-plays-block\{[^}]*gap:0\.3rem/);
@@ -289,8 +292,13 @@ assert.match(radarSource, /data-card-preview-source/);
 assert.doesNotMatch(radarSource, /vm-card-voice-action|View on Scryfall/);
 assert.match(radarSource, /id="mcv_\$\{index\}"/);
 assert.match(radarSource, /id="mcv_name_\$\{index\}"/);
-assert.match(indexSource, /\.staple-wrap, \.land-wrap, \.vm-card-voice/);
-assert.match(indexSource, /img\.staple-img, img\.land-img, img\.vm-card-voice-image/);
+assert.match(indexSource, /CARD_PREVIEW_IMAGE_SELECTOR = "img\.staple-img, img\.land-img, img\.vm-card-voice-image"/);
+assert.match(indexSource, /target\.matches\(CARD_PREVIEW_IMAGE_SELECTOR\)/);
+assert.match(indexSource, /target\.closest\("a\[href\]"\)/);
+assert.match(indexSource, /window\.addEventListener\("scroll", hideCardPreviewOverlay/);
+assert.match(indexSource, /overlay\.innerHTML = `<img alt="">`/);
+assert.doesNotMatch(indexSource, /card-preview-overlay[\s\S]{0,180}<span|overlay\.querySelector\("span"\)/);
+assert.doesNotMatch(cssSource, /\.card-preview-overlay span\s*\{/);
 assert.match(indexSource, /canonicalFlavorLookupName[\s\S]*card\.scryfall_id && card\.card_faces\?\.\[0\]\?\.name/);
 for (const name of [
   "Jerren, Corrupted Bishop // Ormendahl, the Corrupter",

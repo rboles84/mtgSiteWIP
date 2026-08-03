@@ -2335,40 +2335,54 @@ function initializeDossierMobileTabs({ revealActive = false } = {}) {
       let dragStartX = 0;
       let dragStartScroll = 0;
       let dragged = false;
+      let suppressSyntheticDragClick = false;
+      let activeDragPointerId = null;
       tablist.addEventListener("pointerdown", (event) => {
         if (event.pointerType !== "mouse" || event.button !== 0) return;
+        activeDragPointerId = event.pointerId;
         dragStartX = event.clientX;
         dragStartScroll = tablist.scrollLeft;
         dragged = false;
-        tablist.classList.add("is-dragging");
-        tablist.setPointerCapture?.(event.pointerId);
       });
       tablist.addEventListener("pointermove", (event) => {
-        if (!tablist.hasPointerCapture?.(event.pointerId)) return;
+        if (event.pointerId !== activeDragPointerId || !(event.buttons & 1)) return;
         const delta = event.clientX - dragStartX;
-        if (Math.abs(delta) > 4) dragged = true;
+        if (!dragged && Math.abs(delta) > 6) {
+          dragged = true;
+          tablist.classList.add("is-dragging");
+          tablist.setPointerCapture?.(event.pointerId);
+        }
+        if (!dragged) return;
         tablist.scrollLeft = dragStartScroll - delta;
-        if (dragged) event.preventDefault();
+        event.preventDefault();
       });
       const finishDrag = (event) => {
+        if (event.pointerId !== activeDragPointerId) return;
         if (tablist.hasPointerCapture?.(event.pointerId)) tablist.releasePointerCapture?.(event.pointerId);
         tablist.classList.remove("is-dragging");
+        activeDragPointerId = null;
+        if (dragged) {
+          suppressSyntheticDragClick = true;
+          // A click synthesized from this pointer sequence is dispatched before
+          // the next task. Clear the guard immediately afterward so a later,
+          // intentional tab click cannot inherit stale drag state.
+          globalThis.setTimeout(() => {
+            suppressSyntheticDragClick = false;
+            dragged = false;
+          }, 0);
+        } else {
+          dragged = false;
+        }
       };
       tablist.addEventListener("pointerup", finishDrag);
       tablist.addEventListener("pointercancel", finishDrag);
       tablist.addEventListener("click", (event) => {
-        if (dragged) {
+        if (suppressSyntheticDragClick) {
           event.preventDefault();
           event.stopPropagation();
+          suppressSyntheticDragClick = false;
           dragged = false;
-          return;
         }
-        const target = event.target instanceof Element ? event.target : event.target?.parentElement;
-        const tab = target?.closest?.("[data-dossier-tab]");
-        if (!(tab instanceof HTMLElement)) return;
-        event.preventDefault();
-        event.stopPropagation();
-        setDossierPanel(tab.dataset.dossierTab || "");
       }, true);
     }
 
@@ -2392,6 +2406,7 @@ function setDossierPanel(panelId, { updateUrl = true } = {}) {
   }
   APP_STATE.activeDossierPanel = activePanel;
   APP_STATE.dossierLayoutMode = "focus";
+  hideCardPreviewOverlay();
   applyDossierConsoleState();
   if (updateUrl) {
     updateDossierUrlState();
@@ -2402,6 +2417,7 @@ function setDossierPanel(panelId, { updateUrl = true } = {}) {
 function setDossierLayoutMode(layoutMode, { updateUrl = true } = {}) {
   const normalized = normalizeDossierLayoutMode(layoutMode) || DOSSIER_DEFAULT_LAYOUT_MODE;
   APP_STATE.dossierLayoutMode = normalized;
+  hideCardPreviewOverlay();
   applyDossierConsoleState();
   if (updateUrl) {
     updateDossierUrlState();
@@ -3801,7 +3817,7 @@ function ensureCardPreviewOverlay() {
   const overlay = document.createElement("div");
   overlay.className = "card-preview-overlay";
   overlay.setAttribute("aria-hidden", "true");
-  overlay.innerHTML = `<img alt=""><span></span>`;
+  overlay.innerHTML = `<img alt="">`;
   document.body.appendChild(overlay);
   cardPreviewOverlay = overlay;
   return overlay;
@@ -3830,13 +3846,9 @@ function showCardPreviewOverlay(source, event = null) {
   }
   const overlay = ensureCardPreviewOverlay();
   const image = overlay.querySelector("img");
-  const label = overlay.querySelector("span");
   if (image) {
     image.src = source.currentSrc || source.src;
     image.alt = "";
-  }
-  if (label) {
-    label.textContent = source.alt || "Card preview";
   }
   positionCardPreviewOverlay(overlay, source, event);
   overlay.classList.add("is-visible");
@@ -3846,17 +3858,27 @@ function hideCardPreviewOverlay() {
   cardPreviewOverlay?.classList.remove("is-visible");
 }
 
-function cardPreviewImageFromEvent(event) {
-  const wrap = event.target instanceof Element
-    ? event.target.closest(".staple-wrap, .land-wrap, .vm-card-voice")
-    : null;
-  return wrap?.querySelector("img.staple-img, img.land-img, img.vm-card-voice-image") || null;
+const CARD_PREVIEW_IMAGE_SELECTOR = "img.staple-img, img.land-img, img.vm-card-voice-image";
+
+function cardPreviewTriggerFromEvent(event) {
+  const target = event.target instanceof Element ? event.target : event.target?.parentElement;
+  if (!(target instanceof Element)) return null;
+
+  if (target.matches(CARD_PREVIEW_IMAGE_SELECTOR)) {
+    const imageLink = target.parentElement?.matches("a[href]") ? target.parentElement : null;
+    return { image: target, boundary: imageLink || target };
+  }
+
+  const imageLink = target.closest("a[href]");
+  if (!(imageLink instanceof HTMLAnchorElement)) return null;
+  const image = imageLink.querySelector(`:scope > ${CARD_PREVIEW_IMAGE_SELECTOR}`);
+  return image instanceof HTMLImageElement ? { image, boundary: imageLink } : null;
 }
 
 function handleCardPreviewPointerOver(event) {
-  const image = cardPreviewImageFromEvent(event);
-  if (image) {
-    showCardPreviewOverlay(image, event);
+  const trigger = cardPreviewTriggerFromEvent(event);
+  if (trigger) {
+    showCardPreviewOverlay(trigger.image, event);
   }
 }
 
@@ -3864,35 +3886,30 @@ function handleCardPreviewPointerMove(event) {
   if (!cardPreviewOverlay?.classList.contains("is-visible")) {
     return;
   }
-  const image = cardPreviewImageFromEvent(event);
-  if (image) {
-    positionCardPreviewOverlay(cardPreviewOverlay, image, event);
-  }
+  const trigger = cardPreviewTriggerFromEvent(event);
+  if (trigger) positionCardPreviewOverlay(cardPreviewOverlay, trigger.image, event);
+  else hideCardPreviewOverlay();
 }
 
 function handleCardPreviewPointerOut(event) {
-  const wrap = event.target instanceof Element
-    ? event.target.closest(".staple-wrap, .land-wrap, .vm-card-voice")
-    : null;
-  const relatedInside = event.relatedTarget instanceof Node && wrap?.contains(event.relatedTarget);
-  if (wrap && !relatedInside) {
+  const trigger = cardPreviewTriggerFromEvent(event);
+  const relatedInside = event.relatedTarget instanceof Node && trigger?.boundary.contains(event.relatedTarget);
+  if (trigger && !relatedInside) {
     hideCardPreviewOverlay();
   }
 }
 
 function handleCardPreviewFocusIn(event) {
-  const image = cardPreviewImageFromEvent(event);
-  if (image) {
-    showCardPreviewOverlay(image);
+  const trigger = cardPreviewTriggerFromEvent(event);
+  if (trigger) {
+    showCardPreviewOverlay(trigger.image);
   }
 }
 
 function handleCardPreviewFocusOut(event) {
-  const wrap = event.target instanceof Element
-    ? event.target.closest(".staple-wrap, .land-wrap, .vm-card-voice")
-    : null;
-  const relatedInside = event.relatedTarget instanceof Node && wrap?.contains(event.relatedTarget);
-  if (wrap && !relatedInside) {
+  const trigger = cardPreviewTriggerFromEvent(event);
+  const relatedInside = event.relatedTarget instanceof Node && trigger?.boundary.contains(event.relatedTarget);
+  if (trigger && !relatedInside) {
     hideCardPreviewOverlay();
   }
 }
@@ -3910,6 +3927,7 @@ function bindArchscryControls() {
   app?.addEventListener("pointerout", handleCardPreviewPointerOut);
   app?.addEventListener("focusin", handleCardPreviewFocusIn);
   app?.addEventListener("focusout", handleCardPreviewFocusOut);
+  window.addEventListener("scroll", hideCardPreviewOverlay, { passive: true, capture: true });
   window.addEventListener("resize", () => initializeDossierMobileTabs(), { passive: true });
 }
 

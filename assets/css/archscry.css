@@ -882,6 +882,7 @@ body.vm-archscry-route .dossier-snapshot-card--co-leader > .dossier-snapshot-cop
 }
 
 body.vm-archscry-route .dossier-snapshot-card--co-leader .mana-pips {
+  gap: 0.32rem;
   margin: 0;
 }
 
@@ -3242,19 +3243,6 @@ body.vm-archscry-route .saved-deck-link-note{
   border:1px solid rgba(216,194,122,0.58);
   border-radius:4.5%;
   box-shadow:0 26px 76px rgba(0,0,0,0.92),0 0 0 1px rgba(184,149,74,0.3);
-}
-.card-preview-overlay span{
-  justify-self:center;
-  max-width:100%;
-  padding:0.28rem 0.58rem;
-  border:1px solid rgba(184,149,74,0.2);
-  border-radius:999px;
-  background:rgba(8,8,10,0.9);
-  color:var(--text);
-  font-family:var(--font-mono);
-  font-size:0.68rem;
-  line-height:1.2;
-  text-align:center;
 }
 .lands-guide{background:rgba(12,11,10,0.9);border:1px solid var(--border-s);padding:1.1rem 1.25rem}
 .guide-row{display:flex;gap:1rem;padding:0.45rem 0;border-bottom:1px solid rgba(184,149,74,0.05);font-size:0.88rem;align-items:baseline}

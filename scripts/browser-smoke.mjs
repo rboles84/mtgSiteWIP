@@ -646,50 +646,179 @@ async function validateArchscryVisualPolish(page, viewport) {
   }
   assert(presentation.storyMetaMarginTop !== "auto", `${viewport.name} Layered Identity mana symbols remain bottom-pinned.`);
 
+  if (viewport.width > 940 && presentation.voiceCardCount) {
+    await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "no-preference" }]);
+    await page.hover(".vm-card-voice-name");
+    const namePreview = await page.evaluate(() => ({
+      visible: document.querySelector(".card-preview-overlay")?.classList.contains("is-visible") || false,
+      captionCount: document.querySelectorAll(".card-preview-overlay span").length,
+    }));
+    assert(!namePreview.visible, `${viewport.name} card-name hover opened the image preview.`);
+    assert(namePreview.captionCount === 0, `${viewport.name} card preview retained a visible caption node.`);
+
+    await page.hover(".vm-card-voice-image-link");
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    const imagePreview = await page.evaluate(() => ({
+      visible: document.querySelector(".card-preview-overlay")?.classList.contains("is-visible") || false,
+      captionCount: document.querySelectorAll(".card-preview-overlay span").length,
+      sourceAlt: document.querySelector(".vm-card-voice-image")?.getAttribute("alt") || "",
+      linkLabel: document.querySelector(".vm-card-voice-image-link")?.getAttribute("aria-label") || "",
+      hoverEligible: matchMedia("(hover: hover) and (pointer: fine)").matches,
+      reducedMotion: matchMedia("(prefers-reduced-motion: reduce)").matches,
+      hoveredElement: document.querySelector(".vm-card-voice-image-link:hover")?.tagName || "",
+    }));
+    assert(imagePreview.visible, `${viewport.name} card-image hover did not open the established preview: ${JSON.stringify(imagePreview)}.`);
+    assert(imagePreview.captionCount === 0, `${viewport.name} card-image preview exposed a visible caption.`);
+    assert(imagePreview.sourceAlt && imagePreview.linkLabel, `${viewport.name} source image/link lost its accessible name.`);
+
+    await page.hover(".vm-card-voice-copy");
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    const copyPreview = await page.evaluate(() => document.querySelector(".card-preview-overlay")?.classList.contains("is-visible") || false);
+    assert(!copyPreview, `${viewport.name} card flavor/copy kept the image preview open.`);
+
+    await page.hover(".vm-card-voice-image-link");
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    const previewBeforeScroll = await page.evaluate(() => document.querySelector(".card-preview-overlay")?.classList.contains("is-visible") || false);
+    assert(previewBeforeScroll, `${viewport.name} image preview did not reopen before scroll-close validation.`);
+    await page.evaluate(() => window.scrollBy(0, 1));
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    const scrollClosedPreview = await page.evaluate(() => !document.querySelector(".card-preview-overlay")?.classList.contains("is-visible"));
+    assert(scrollClosedPreview, `${viewport.name} card preview did not close on scroll.`);
+
+    await page.hover(".vm-card-voice-copy");
+    await page.hover(".vm-card-voice-image-link");
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    const previewBeforePanel = await page.evaluate(() => document.querySelector(".card-preview-overlay")?.classList.contains("is-visible") || false);
+    assert(previewBeforePanel, `${viewport.name} image preview did not reopen before panel-close validation.`);
+    await page.click('.dossier-rail-tabs [data-dossier-tab="why"]');
+    await page.waitForFunction(() => document.querySelector('[data-dossier-panel="why"]')?.hidden === false);
+    const panelClosedPreview = await page.evaluate(() => !document.querySelector(".card-preview-overlay")?.classList.contains("is-visible"));
+    assert(panelClosedPreview, `${viewport.name} card preview did not close on dossier-panel change.`);
+    await page.click('.dossier-rail-tabs [data-dossier-tab="placement"]');
+    await page.waitForFunction(() => document.querySelector('[data-dossier-panel="placement"]')?.hidden === false);
+    await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "reduce" }]);
+  }
+
   if (viewport.width <= 940) {
-    const tabs = await page.evaluate(async () => {
+    const tabInventory = await page.evaluate(() => {
       const shell = document.querySelector("[data-dossier-tabs-shell]");
       const tablist = shell?.querySelector("[data-dossier-mobile-tabs]");
       if (!shell || !tablist) return null;
       const buttons = [...tablist.querySelectorAll("[data-dossier-tab]")];
-      const results = [];
-      for (const button of buttons) {
-        button.click();
-        await new Promise((resolve) => setTimeout(resolve, 30));
-        const panelId = button.getAttribute("data-dossier-tab");
-        const panel = document.querySelector(`[data-dossier-panel="${panelId}"]`);
+      return {
+        hasOverflow: tablist.scrollWidth > tablist.clientWidth + 2,
+        firstLabel: buttons[0]?.getAttribute("aria-label") || "",
+        lastLabel: buttons.at(-1)?.getAttribute("aria-label") || "",
+        labels: buttons.map((button) => button.getAttribute("aria-label") || ""),
+        panelIds: buttons.map((button) => button.getAttribute("data-dossier-tab") || "").filter(Boolean),
+      };
+    });
+    assert(tabInventory, `${viewport.name} Dossier Directory mobile tab shell is missing.`);
+    assert(tabInventory.firstLabel && tabInventory.lastLabel, `${viewport.name} mobile tabs lost their full accessible labels.`);
+    assert(tabInventory.panelIds.length >= 7, `${viewport.name} Dossier Directory did not expose the required tab set.`);
+    ["Placement", "Start Here", "Why This Fits", "Commander Browsing Starts", "Card Signals", "Mana Notes", "Maze Discovery"].forEach((label) => {
+      assert(tabInventory.labels.includes(label), `${viewport.name} Dossier Directory omitted ${label}.`);
+    });
+
+    await page.evaluate(() => {
+      if (!window.__vmBrowserSmokeOriginalReplaceState) {
+        window.__vmBrowserSmokeOriginalReplaceState = history.replaceState.bind(history);
+        history.replaceState = (...args) => {
+          window.__vmBrowserSmokeReplaceCount = (window.__vmBrowserSmokeReplaceCount || 0) + 1;
+          return window.__vmBrowserSmokeOriginalReplaceState(...args);
+        };
+      }
+    });
+
+    const clickAndReadPanel = async (panelId) => {
+      const selector = `[data-dossier-mobile-tabs] [data-dossier-tab="${panelId}"]`;
+      console.log(`    ${viewport.name}: selecting dossier panel ${panelId}`);
+      await page.$eval(selector, (tab) => tab.scrollIntoView({ block: "nearest", inline: "center" }));
+      await page.evaluate(() => { window.__vmBrowserSmokeReplaceCount = 0; });
+      await page.click(selector);
+      await page.waitForFunction((expectedPanel) => {
+        const tab = document.querySelector(`[data-dossier-mobile-tabs] [data-dossier-tab="${expectedPanel}"]`);
+        const panel = document.querySelector(`[data-dossier-panel="${expectedPanel}"]`);
+        return tab?.getAttribute("aria-selected") === "true" && panel && !panel.hidden;
+      }, { timeout: 5000 }, panelId);
+      return page.evaluate((expectedPanel) => {
+        const tab = document.querySelector(`[data-dossier-mobile-tabs] [data-dossier-tab="${expectedPanel}"]`);
+        const panel = document.querySelector(`[data-dossier-panel="${expectedPanel}"]`);
         const otherVisible = [...document.querySelectorAll("[data-dossier-panel]")]
           .filter((candidate) => candidate !== panel && !candidate.hidden)
           .map((candidate) => candidate.getAttribute("data-dossier-panel"));
-        results.push({
-          panelId,
-          active: button.classList.contains("is-active"),
-          selected: button.getAttribute("aria-selected"),
+        return {
+          panelId: expectedPanel,
+          active: tab?.classList.contains("is-active") || false,
+          selected: tab?.getAttribute("aria-selected") || "false",
           panelVisible: Boolean(panel && !panel.hidden),
           otherVisible,
-        });
-      }
-      const viewAll = document.querySelector(".dossier-mobile-nav .dossier-view-toggle");
-      viewAll?.click();
-      await new Promise((resolve) => setTimeout(resolve, 30));
-      const allVisible = [...document.querySelectorAll("[data-dossier-panel]")].every((panel) => !panel.hidden);
-      const allPressed = viewAll?.getAttribute("aria-pressed") === "true";
-      buttons[0]?.click();
-      await new Promise((resolve) => setTimeout(resolve, 30));
-      const focusRestored = !document.querySelector('[data-dossier-panel="placement"]')?.hidden &&
-        [...document.querySelectorAll('[data-dossier-panel]:not([data-dossier-panel="placement"])')].every((panel) => panel.hidden);
-      const last = buttons.at(-1);
-      last?.click();
-      await new Promise((resolve) => setTimeout(resolve, 50));
-      const active = tablist.querySelector(".is-active");
-      const activeRect = active?.getBoundingClientRect();
-      const listRect = tablist.getBoundingClientRect();
-      const centered = activeRect
-        ? Math.abs((activeRect.left + activeRect.right) / 2 - (listRect.left + listRect.right) / 2) <= Math.max(44, listRect.width * 0.28)
-        : false;
-      const activeFullyVisible = activeRect
-        ? activeRect.left >= listRect.left && activeRect.right <= listRect.right
-        : false;
+          replaceCount: window.__vmBrowserSmokeReplaceCount || 0,
+        };
+      }, panelId);
+    };
+
+    const tabResults = [];
+    for (const panelId of tabInventory.panelIds) {
+      tabResults.push(await clickAndReadPanel(panelId));
+    }
+    tabResults.forEach((result) => {
+      assert(result.active && result.selected === "true" && result.panelVisible, `${viewport.name} ${result.panelId} tab did not reveal its panel: ${JSON.stringify(result)}.`);
+      assert(result.otherVisible.length === 0, `${viewport.name} ${result.panelId} tab left other focus panels visible: ${JSON.stringify(result)}.`);
+      assert(result.replaceCount === 1, `${viewport.name} ${result.panelId} tab activated ${result.replaceCount} times instead of once.`);
+    });
+
+    await page.click(".dossier-mobile-nav .dossier-view-toggle");
+    await page.waitForFunction(() => document.querySelector(".dossier-mobile-nav .dossier-view-toggle")?.getAttribute("aria-pressed") === "true");
+    const viewAllState = await page.evaluate(() => ({
+      allVisible: [...document.querySelectorAll("[data-dossier-panel]")].every((panel) => !panel.hidden),
+      allPressed: document.querySelector(".dossier-mobile-nav .dossier-view-toggle")?.getAttribute("aria-pressed") === "true",
+    }));
+    assert(viewAllState.allVisible && viewAllState.allPressed, `${viewport.name} View All did not reveal every dossier panel.`);
+    const focusRestored = await clickAndReadPanel("placement");
+    assert(focusRestored.otherVisible.length === 0, `${viewport.name} selecting Placement did not leave View All mode.`);
+
+    const dragRect = await page.$eval("[data-dossier-mobile-tabs]", (tablist) => {
+      const rect = tablist.getBoundingClientRect();
+      return { left: rect.left, right: rect.right, y: rect.top + rect.height / 2 };
+    });
+    await page.mouse.move(dragRect.right - 28, dragRect.y);
+    await page.mouse.down();
+    await page.mouse.move(dragRect.left + 28, dragRect.y, { steps: 5 });
+    await page.mouse.up();
+    const afterDrag = await clickAndReadPanel("why");
+    assert(afterDrag.panelVisible && afterDrag.replaceCount === 1, `${viewport.name} first intentional tab click after a pointer drag was swallowed or duplicated: ${JSON.stringify(afterDrag)}.`);
+
+    await page.mouse.move((dragRect.left + dragRect.right) / 2, dragRect.y);
+    await page.mouse.wheel({ deltaY: 140 });
+    const afterWheel = await clickAndReadPanel("starter-cards");
+    assert(afterWheel.panelVisible && afterWheel.replaceCount === 1, `${viewport.name} tab click after wheel scrolling was swallowed or duplicated: ${JSON.stringify(afterWheel)}.`);
+
+    await page.$eval("[data-dossier-mobile-tabs]", (tablist) => {
+      tablist.scrollLeft = 0;
+      tablist.dispatchEvent(new Event("scroll"));
+    });
+    await page.waitForFunction(() => {
+      const right = document.querySelector('[data-dossier-scroll-direction="right"]');
+      return right && !right.hidden && !right.disabled;
+    });
+    await page.click('[data-dossier-scroll-direction="right"]');
+    const afterChevron = await clickAndReadPanel("mana-base");
+    assert(afterChevron.panelVisible && afterChevron.replaceCount === 1, `${viewport.name} tab click after chevron scrolling was swallowed or duplicated: ${JSON.stringify(afterChevron)}.`);
+
+    await page.focus('[data-dossier-mobile-tabs] [data-dossier-tab="placement"]');
+    await page.keyboard.press("ArrowRight");
+    await page.waitForFunction(() => document.querySelector('[data-dossier-mobile-tabs] [data-dossier-tab="start"]')?.getAttribute("aria-selected") === "true");
+    const keyboardState = await page.evaluate(() => ({
+      selected: document.querySelector('[data-dossier-mobile-tabs] [data-dossier-tab="start"]')?.getAttribute("aria-selected"),
+      visible: !document.querySelector('[data-dossier-panel="start"]')?.hidden,
+    }));
+    assert(keyboardState.selected === "true" && keyboardState.visible, `${viewport.name} keyboard tab selection failed: ${JSON.stringify(keyboardState)}.`);
+
+    const overflowState = await page.evaluate(async () => {
+      const shell = document.querySelector("[data-dossier-tabs-shell]");
+      const tablist = shell?.querySelector("[data-dossier-mobile-tabs]");
+      if (!shell || !tablist) return null;
       tablist.scrollLeft = 0;
       tablist.dispatchEvent(new Event("scroll"));
       await new Promise((resolve) => setTimeout(resolve, 20));
@@ -703,40 +832,12 @@ async function validateArchscryVisualPolish(page, viewport) {
       const endState = {
         leftHidden: shell.querySelector('[data-dossier-scroll-direction="left"]')?.hidden,
         rightHidden: shell.querySelector('[data-dossier-scroll-direction="right"]')?.hidden,
-        scrollLeft: tablist.scrollLeft,
-        maxScroll: tablist.scrollWidth - tablist.clientWidth,
       };
-      return {
-        hasOverflow: tablist.scrollWidth > tablist.clientWidth + 2,
-        centered,
-        activeFullyVisible,
-        startState,
-        endState,
-        firstLabel: buttons[0]?.getAttribute("aria-label") || "",
-        lastLabel: last?.getAttribute("aria-label") || "",
-        labels: buttons.map((button) => button.getAttribute("aria-label") || ""),
-        results,
-        allVisible,
-        allPressed,
-        focusRestored,
-      };
+      return { startState, endState };
     });
-    assert(tabs, `${viewport.name} Dossier Directory mobile tab shell is missing.`);
-    assert(tabs.firstLabel && tabs.lastLabel, `${viewport.name} mobile tabs lost their full accessible labels.`);
-    assert(tabs.results.length >= 7, `${viewport.name} Dossier Directory did not expose the required tab set.`);
-    ["Placement", "Start Here", "Why This Fits", "Commander Browsing Starts", "Card Signals", "Mana Notes", "Maze Discovery"].forEach((label) => {
-      assert(tabs.labels.includes(label), `${viewport.name} Dossier Directory omitted ${label}.`);
-    });
-    tabs.results.forEach((result) => {
-      assert(result.active && result.selected === "true" && result.panelVisible, `${viewport.name} ${result.panelId} tab did not reveal its panel: ${JSON.stringify(result)}.`);
-      assert(result.otherVisible.length === 0, `${viewport.name} ${result.panelId} tab left other focus panels visible: ${JSON.stringify(result)}.`);
-    });
-    assert(tabs.allVisible && tabs.allPressed, `${viewport.name} View All did not reveal every dossier panel.`);
-    assert(tabs.focusRestored, `${viewport.name} selecting Placement did not leave View All mode.`);
-    if (tabs.hasOverflow) {
-      assert(tabs.startState.leftHidden && !tabs.startState.rightHidden, `${viewport.name} Dossier Directory start-edge indicators are incorrect: ${JSON.stringify(tabs)}.`);
-      assert(!tabs.endState.leftHidden && tabs.endState.rightHidden, `${viewport.name} Dossier Directory end-edge indicators are incorrect: ${JSON.stringify(tabs)}.`);
-      assert(tabs.centered || tabs.activeFullyVisible, `${viewport.name} active Dossier Directory tab was not revealed.`);
+    if (tabInventory.hasOverflow) {
+      assert(overflowState?.startState.leftHidden && !overflowState.startState.rightHidden, `${viewport.name} Dossier Directory start-edge indicators are incorrect: ${JSON.stringify(overflowState)}.`);
+      assert(!overflowState?.endState.leftHidden && overflowState.endState.rightHidden, `${viewport.name} Dossier Directory end-edge indicators are incorrect: ${JSON.stringify(overflowState)}.`);
     }
   }
 }

@@ -134,7 +134,7 @@ Do not accept or regenerate visual baselines. Owner acceptance is visual/copy ap
 - `node scripts/vm551-scryfall-cache-tests.mjs`: PASS without live Scryfall. It covers local-first resolution, concurrent in-flight deduplication, same-page reuse, simulated-reload reuse for Exotic Orchard and Myriad Landscape, 404 negative caching, reload-persistent 429 backoff, expiration, corrupt storage, malformed payloads, bounded eviction, product-name rejection, preserved image URI, and preserved Scryfall URI.
 - Final tied-result browser check: PASS through a real seven-answer terminal path. Desktop, narrow desktop, 390px, and 320px assertions verified that the original `.guild-banner` is the first result component; no tied-status element precedes it; the co-leader card is inside `.dossier-snapshot` after the original plan/play-pattern cards; peer comparison and return remain identity-isolated; no close/adjacent label appears; and no overflow or console error occurs.
 
-Owner accepted explicit current unknown, incomplete without a resumable question, legacy with stored confidence, legacy without stored confidence, hidden historical confidence, tie isolation/comparison/return, and persistent card-image caching. Remaining owner review is limited to the final hero-first tie hierarchy, mobile tab selection feel, Matrix/precon spacing, and card-name/image interaction. Signed-in profile/OAuth persistence remains outside this correction; its contracts and field shapes were not changed.
+Owner accepted and protected the result-state, tie hierarchy/comparison/return, Matrix/precon, card-link/cache, desktop, and general 390px behavior through candidate `6fa0d0c2a2441de114d86b9fd9daf29dd211eaa4`. The final two-blocker correction changes only mobile tab pointer arbitration, card-preview targeting/caption behavior, and the compact co-leader pip gap. Signed-in profile/OAuth persistence remains outside this correction; its contracts and field shapes were not changed.
 
 ## Exact local state-shell setup
 
@@ -165,12 +165,20 @@ Development-only cache clear command:
 localStorage.removeItem("vm_scryfall_named_cache_v2");
 ```
 
+## Final two-blocker validation
+
+- `node scripts/vm551-gate-a-owner-qa-tests.mjs`: PASS; asserts delayed drag-only pointer capture, bounded synthetic-click suppression, single delegated panel activation, all-color symbol generation, scoped co-leader spacing, image-only preview targeting, caption removal, and preview close hooks.
+- `node scripts/vm551-scryfall-cache-tests.mjs`: PASS; the accepted local-first persistent cache, TTLs, backoff, eviction, DFC handling, and reload reuse are unchanged.
+- `node scripts/browser-smoke.mjs --archscry-only`: PASS at 1440px, 820px, 390px, and 320px. All seven tabs, View All, drag-then-click, wheel-then-click, chevron-then-click, keyboard selection, preview boundary/caption/close behavior, overflow, console, Matrix, card links, and Maze handoff/return pass.
+- `npm.cmd run test:placement`, `test:bias`, and `test:gate-live-bias`: PASS; 37 golden paths and unchanged placement reports.
+- JS/HTML lint, copy boundaries, frontend/route smoke, deck-link, Maze-store, and 226 parser checks: PASS.
+- In-app 390px pointer check: PASS for all seven tabs and the first intentional tab click after a pointer drag.
+
 ## Final owner spot-check
 
-1. Install the local helper and run `vmGateAQa("tie")`. The first result component must be the normal `Original reading` identity hero. Confirm there is no banner, heading, paragraph, or wrapper above it. The compact `Also tied with …` card must appear inside the existing snapshot after `Where this leads` and `Play pattern`.
-2. Use `Compare this co-leader`, confirm all visible hero/plan/play-pattern/Matrix/dossier content belongs to the peer, then use `Back to original reading` and confirm the original identity returns.
-3. At 390px and 320px, tap Placement, Start Here, Why It Fits, Commanders, Card Signals, Mana Notes, Maze, and View All. Each focused tab must reveal its panel, and View All must reveal all panels. Confirm the row still swipes/scrolls and the active tab remains reachable.
-4. In the Matrix, confirm the mana symbols and description read as one compact block. In Precon Starting Points, confirm title, intro, status, and cards form one consistent stack.
-5. In Cards That Sound Like This, open a card from its name and image. Both must target the same canonical Scryfall page; desktop hover/focus should reuse the established card preview, while mobile tap remains sufficient.
+1. At 390px and 320px, tap Placement, Start Here, Why It Fits, Commanders, Card Signals, Mana Notes, Maze, and View All. Every tab must reveal its named panel, and View All must reveal all panels.
+2. Mouse-drag the tab row, then immediately click a tab; click a chevron, then a tab; and use Left/Right keys. Each intended selection must happen once and remain visible.
+3. On desktop, hover a card name and its flavor copy: no preview should open. Hover only the card image or immediate image link: the established image preview should open without a caption. Moving off the image, scrolling, or changing dossier panels must close it. The source image alt text and link accessible name remain present.
+4. In a tied result, confirm the compact co-leader mana pips have a restrained local gap while their size, glow, order, and accessible identity label remain unchanged.
 
-Repeat the tie and directory checks at desktop, 390px, and 320px. Do not create or accept a visual baseline.
+Do not create or accept a visual baseline.
