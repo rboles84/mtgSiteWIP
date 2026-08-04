@@ -1,107 +1,113 @@
 # VM-551 Gate B1 Owner Decisions
 
-Status: awaiting owner review. Recommendations are design proposals, not approvals.
+Status: all twelve architecture decisions answered by owner on 2026-08-04. Architecture approved by owner. Pilot question wording is approved conditionally pending this remediation pass. Answer-contract semantic review remains subject to owner review. Pilot implementation is not authorized.
+
+These decisions approve the architecture and its boundaries. They do not give final semantic approval to the remediated 34-question bank or 106 answer contracts, authorize scoring, begin player validation, or authorize implementation, migration, shadow collection, cutover, deployment, or certification.
 
 ## OD-B1-01 — Construct scope
 
-Decision: approve, reduce, or expand the 15-construct map.
+Owner decision: approve the 15-construct map. Do not reduce or expand it during this pass.
 
-Recommendation: approve 15. This is the smallest current set that keeps initiative, visibility, disruption, payoff rhythm, commander reliance, engine concentration, pressure, interaction timing, repeatability, theme, threat posture, sacrifice, public commitment, setup, and deck breadth from being silently conflated.
+Original recommendation: approve 15 because it is the smallest current set that avoids silent construct conflation.
 
-Impact: reducing the set forces categories together; expanding it increases pool and validation burden.
+Impact: construct scope is fixed for this remediation. A later change requires a new owner decision and coverage review.
 
 ## OD-B1-02 — Pilot-bank size
 
-Decision: approve the 34-item pool: 4 Gate, 12 Hall, 18 Crucible.
+Owner decision: approve the 34-question pool: 4 Gate, 12 Hall, and 18 Crucible. One reading remains exactly 4 Gate, 2 or 3 Hall, 0 or 1 Crucible, and 6 to 8 questions total.
 
-Recommendation: approve. The player sees only 6–8 questions. Pool size follows construct and confusion coverage, with one adaptive Crucible maximum.
+Original recommendation: approve the coverage-derived adaptive pool.
 
-Impact: reducing Crucible coverage leaves accepted high-risk boundaries untested; expanding before player evidence repeats the current-bank failure mode.
+Boundary: add no question unless an existing item cannot measure its construct. Any replacement must preserve the 34-item count and the item's stable pool role.
 
 ## OD-B1-03 — Personal philosophy
 
-Decision: whether philosophy remains an explicit secondary layer.
+Owner decision: retain official Magic color, guild, college, shard, wedge, and related philosophy as a source-backed interpretive and explanatory layer only.
 
-Recommendation: keep it outside B1 identity support. If retained later, collect it as an optional, clearly labeled reflection after behavior observations. Never backfill missing deck behavior with it.
+Original recommendation: keep philosophy outside B1 identity support and collect any future reflection separately.
 
-Impact: including it recreates mood/motivation inference; removing it permanently may lose a valued reflection layer.
+Approved uses: post-result explanation, why an identity may resonate with observed play, optional reflection, exploration and discovery context, and future recommendation explanation.
+
+Prohibited uses: philosophy cannot create an observation, award identity support, replace missing deck behavior, determine routing or stopping, break a tie, convert thematic affinity into gameplay preference, or strengthen a behaviorally unsupported result. Official philosophy remains part of the wider Archscry product concept.
 
 ## OD-B1-04 — Minimum evidence
 
-Decision: evidence required before naming an identity.
+Owner decision: approve the proposed independent-evidence requirements inside the existing route, with a hard maximum of eight questions.
 
-Recommendation:
+- Ordinary named exploratory result: at least 3 reasonably independent observations across at least 2 stages, including 1 relevant boundary observation.
+- High-confusion or insufficient-evidence identity: at least 4 reasonably independent observations, including a direct boundary observation.
+- Otherwise return close, tied, mixed, contradictory, or insufficient.
 
-- ordinary named exploratory result: at least 3 independent observations across at least 2 stages, including 1 relevant boundary observation;
-- high-confusion or insufficient-evidence identity: at least 4 independent observations, including a direct boundary observation;
-- otherwise use close, tied, mixed, or insufficient.
+Original recommendation: use those same minimums to prevent one-answer or dependency-only winners.
 
-Impact: a lower minimum permits one-answer/dependent winners; a higher minimum may exceed eight questions.
+Boundary: relevant independent Gate observations count. The rule does not require four special follow-ups. Never extend the route to force a name; if the threshold is unmet by question eight, preserve uncertainty.
 
 ## OD-B1-05 — Mixed and uncertain answers
 
-Decision: non-directional or midpoint support.
+Owner decision: mixed, conditional, neither, unknown, and representational-failure responses are evidence-bearing but non-directional.
 
-Recommendation: keep mixed, conditional, neither, and unknown answers non-directional. They may route another Hall item, a third Hall item, or insufficient. Add them only where conditionality or representational failure is genuine.
+Original recommendation: keep such responses non-directional and add them only where conditionality or representational failure is genuine.
 
-Impact: midpoint scoring manufactures evidence; an escape answer everywhere can weaken observation.
+They may show unstable or deck-dependent preference, option-set failure, justification for another Hall observation, lack of support for a strong name, or need for item revision. They must not give half support to both sides, manufacture midpoint identity evidence, be averaged into directional support, or weakly support every candidate.
 
 ## OD-B1-06 — Theme-first players
 
-Decision: how theme attachment affects placement.
+Owner decision: approve C10 as a theme-versus-efficiency deckbuilding tradeoff and explanation layer.
 
-Recommendation: capture C10 as a deckbuilding tradeoff and explanation layer, but do not let theme name or exclude an identity. Show when deck behavior differs from thematic attachment.
+Original recommendation: capture the tradeoff without treating theme as behavior.
 
-Impact: theme-as-behavior misplaces expressive players; ignoring theme makes recommendations feel mechanically correct but personally irrelevant.
+Boundary: theme cannot independently name or exclude an identity. Explanations should distinguish observed deck behavior from thematic attachment.
 
-## OD-B1-07 — Players without archetype terminology
+## OD-B1-07 — Terminology and player experience
 
-Decision: one layered instrument or separate skill-level quizzes.
+Owner decision: approve one layered instrument. Do not create beginner, intermediate, and advanced quizzes.
 
-Recommendation: keep one instrument. Use concrete scenarios, concise titles, plain explanations, inline definitions, and uncertainty handling. Do not create beginner/intermediate/advanced quizzes.
+Original recommendation: use concrete scenarios, concise atmosphere, plain explanations, inline definitions, and genuine uncertainty handling.
 
-Impact: separate quizzes fracture contracts and saved semantics; unexplained jargon excludes newer players.
+Boundary: experience level is not an identity signal. Every adaptively reachable question must be self-contained and use accurate terminology.
 
 ## OD-B1-08 — Shadow-test duration
 
-Decision: stop by time, participant count, or coverage.
+Owner decision: approve a future minimum of 14 days, the documented cohort and route-coverage floors, and at least 108 eligible completed journeys so every Crucible item receives at least six eligible exposures. Continue while a required cohort, item, or high-risk identity lacks coverage.
 
-Recommendation: require a minimum 14-day window and the player-validation coverage floors, including at least 108 eligible journeys so each Crucible item appears six times. Continue while any cohort, item, or high-risk identity lacks coverage.
+Original recommendation: stop by time plus coverage, not raw count alone.
 
-Impact: time alone leaves branches unobserved; raw count alone over-samples common routes.
+Boundary: this is a future validation requirement. This task does not implement shadow testing or recruit participants.
 
 ## OD-B1-09 — Migration threshold
 
-Decision: evidence required for future visible cutover.
+Owner decision: approve the documented future visible-cutover threshold.
 
-Recommendation: require item/journey thresholds, all-37 structural tests, preserved weak-evidence close/insufficient states, perturbation/order/dependency checks, legacy/downstream compatibility, rollback proof, and separate exact-candidate approval.
+The threshold requires question and journey checks, all-37 structural tests, preserved close and insufficient outcomes for weak evidence, dependency/order/perturbation tests, no one-answer strong-to-strong flips, legacy and downstream compatibility, rollback proof, and separate approval of an exact implementation candidate.
 
-Impact: a lower threshold silently reinterprets trust; a higher threshold delays learning but protects saved results and Gate A.
+Original recommendation: require the same evidence and compatibility protections.
 
-## OD-B1-10 — Edge and color-count handling
+Boundary: no migration work is authorized in this task.
 
-Decision: whether C15 can directly assign Colorless, Five-Color, mono, or multicolor.
+## OD-B1-10 — Colorless and Five-Color parity
 
-Recommendation: no. C15 is boundary evidence only. Colorless/Five-Color requires three prior independent observations plus direct Crucible. Mono/multicolor requires prior behavior evidence and cannot create a one-answer flip.
+Owner decision: Colorless and Five-Color must be as genuinely placeable as every other identity. They are eligible for ordinary named results, need positive behavioral and boundary evidence, receive full explanations and player-validation representation, and are not fallback, novelty, error, or special-channel categories.
 
-Impact: direct assignment repeats special-channel bias; no edge handling leaves the 37-identity architecture incomplete.
+Original recommendation: keep C15 as boundary evidence rather than a direct assignment channel.
+
+Boundary: C15 cannot assign Colorless, Five-Color, mono-color, or multicolor by itself. Colorless/Five-Color needs prior independent behavior plus its direct boundary. Mono/multicolor also needs prior behavior and cannot cause a one-answer flip. Route parity does not require identical paths.
 
 ## OD-B1-11 — Scoring boundary
 
-Decision: authorize weights now or keep scoring separate.
+Owner decision: approve the non-scoring separation of observation → signal → reviewed identity support → exclusions and contradictions → stopping and stability → Gate A public result state.
 
-Recommendation: keep every answer non-scoring. Approve observation → signal → identity support → contradiction → stopping → public-state separation first. Design quantitative or rule weights only after player evidence in a separate task.
+Original recommendation: keep every answer non-scoring until a separately authorized evidence-backed design.
 
-Impact: weights now would convert hypotheses into unsupported authority.
+Boundary: do not assign weights, points, probabilities, likelihoods, or score adjustments.
 
 ## OD-B1-12 — Public result states
 
-Decision: invent new B1 presentation or reuse Gate A.
+Owner decision: reuse Gate A public result states and explanation tone. A future additive implementation may add version provenance.
 
-Recommendation: reuse Gate A states and explanation tone. Add versioned provenance only in a future additive implementation. Do not reopen Gate A presentation.
+Original recommendation: reuse Gate A rather than create a separate B1 presentation.
 
-Impact: new presentation expands scope and destabilizes the production-verified trust layer.
+Boundary: do not reopen Gate A or create a B1 result presentation.
 
-## Recommended disposition
+## Current disposition
 
-Approve the design for player-validation preparation only, with all recommendations above. Do not authorize pilot implementation, live-data changes, push, merge, deployment, migration, or certification from this record.
+The architecture, 15-construct scope, and 34-item pool shape are owner approved. The owner-directed question and terminology remediation and the 106-row answer semantic adjudication now return for owner review. Six answer mappings require a substantive owner decision and 32 directional Crucible mappings remain evidence-required. No answer is scoring-authorized, and no player-validation execution or implementation is authorized.

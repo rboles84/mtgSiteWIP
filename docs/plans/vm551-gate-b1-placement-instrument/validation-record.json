@@ -8,6 +8,14 @@
     "inventory_rows": 356,
     "pilot_questions": 34,
     "pilot_answers": 106,
+    "semantic_reviews": 106,
+    "semantic_review_dispositions": {
+      "METADATA_CORRECTION": 28,
+      "APPROVE": 33,
+      "REWORD": 7,
+      "SIGNAL_REVIEW_REQUIRED": 6,
+      "EVIDENCE_REQUIRED": 32
+    },
     "stages": {
       "Gate": 4,
       "Hall": 12,
@@ -15,6 +23,12 @@
     },
     "identities": 37,
     "confusion_pairs": 123,
+    "jargon_terms": 15,
+    "jargon_classes": {
+      "COMMUNITY_STANDARD": 9,
+      "RULES_DEFINED": 3,
+      "INSTRUMENT_OPERATIONAL": 3
+    },
     "proposed_question_dispositions": {
       "retire": 69,
       "retain concept only": 35,
@@ -40,14 +54,39 @@
       "observed": 356
     },
     {
+      "name": "15 constructs",
+      "status": "PASS",
+      "observed": 15
+    },
+    {
+      "name": "34 pilot questions",
+      "status": "PASS",
+      "observed": 34
+    },
+    {
+      "name": "4 Gate / 12 Hall / 18 Crucible",
+      "status": "PASS",
+      "observed": "4/12/18"
+    },
+    {
+      "name": "106 answer contracts",
+      "status": "PASS",
+      "observed": 106
+    },
+    {
+      "name": "106 semantic reviews",
+      "status": "PASS",
+      "observed": 106
+    },
+    {
       "name": "37 identities",
       "status": "PASS",
       "observed": 37
     },
     {
-      "name": "4 Gate questions",
+      "name": "123 confusion pairs",
       "status": "PASS",
-      "observed": 4
+      "observed": 123
     },
     {
       "name": "unique IDs",
@@ -85,7 +124,62 @@
       "observed": 106
     },
     {
-      "name": "jargon help",
+      "name": "semantic reviews reference each answer once",
+      "status": "PASS",
+      "observed": 106
+    },
+    {
+      "name": "controlled review dispositions",
+      "status": "PASS",
+      "observed": "METADATA_CORRECTION,APPROVE,REWORD,SIGNAL_REVIEW_REQUIRED,EVIDENCE_REQUIRED"
+    },
+    {
+      "name": "unique jargon IDs",
+      "status": "PASS",
+      "observed": 15
+    },
+    {
+      "name": "controlled jargon classes",
+      "status": "PASS",
+      "observed": "COMMUNITY_STANDARD,RULES_DEFINED,INSTRUMENT_OPERATIONAL"
+    },
+    {
+      "name": "all jargon references resolve",
+      "status": "PASS",
+      "observed": 44
+    },
+    {
+      "name": "all glossary rows used",
+      "status": "PASS",
+      "observed": 15
+    },
+    {
+      "name": "canonical jargon definitions",
+      "status": "PASS",
+      "observed": 34
+    },
+    {
+      "name": "no help for absent terms",
+      "status": "PASS",
+      "observed": 34
+    },
+    {
+      "name": "load-bearing jargon explained",
+      "status": "PASS",
+      "observed": 34
+    },
+    {
+      "name": "no cross-reference-only help",
+      "status": "PASS",
+      "observed": 34
+    },
+    {
+      "name": "rules/community authority aligned",
+      "status": "PASS",
+      "observed": 15
+    },
+    {
+      "name": "no graveyard object called permanent",
       "status": "PASS",
       "observed": 34
     },
@@ -93,6 +187,36 @@
       "name": "non-scoring only",
       "status": "PASS",
       "observed": 106
+    },
+    {
+      "name": "no numeric confidence",
+      "status": "PASS",
+      "observed": 106
+    },
+    {
+      "name": "C01 one dependency group",
+      "status": "PASS",
+      "observed": 10
+    },
+    {
+      "name": "C05 Bant commander-specific",
+      "status": "PASS",
+      "observed": "Your commander can carry much of your plan. What role should the rest of the deck play?"
+    },
+    {
+      "name": "C15 boundary-only",
+      "status": "PASS",
+      "observed": 9
+    },
+    {
+      "name": "route hard maximum eight",
+      "status": "PASS",
+      "observed": "4 Gate + 3 Hall + 1 Crucible"
+    },
+    {
+      "name": "documentation-only changed paths",
+      "status": "PASS",
+      "observed": "docs/handoffs/HANDOFF_INDEX.md,docs/kanban/board.md,docs/kanban/in-progress/VM-551-gate-b1-placement-instrument-design.md,docs/plans/vm551-gate-b1-placement-instrument/README.md,docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv,docs/plans/vm551-gate-b1-placement-instrument/build-and-validate-design.mjs,docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv,docs/plans/vm551-gate-b1-placement-instrument/migration-and-versioning-plan.md,docs/plans/vm551-gate-b1-placement-instrument/owner-decisions.md,docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv,docs/plans/vm551-gate-b1-placement-instrument/player-validation-plan.md,docs/plans/vm551-gate-b1-placement-instrument/validation-record.json,docs/handoffs/2026-08-04-0747-codex-vm551-gate-b1-owner-review-closeout.md,docs/plans/vm551-gate-b1-placement-instrument/answer-semantic-adjudication.tsv,docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
     },
     {
       "name": "explicit high-risk and insufficient coverage",
@@ -121,9 +245,39 @@
     "E-CERTIFIED": "data/raw-factions/* placement/source records plus committed source-readiness matrices",
     "E-VOICE": "docs/audits/2026-06-30-vox-mana-voice-audit.md and VM-551 voice/explanation audit"
   },
+  "official_rules_authority": {
+    "accessed": "2026-08-04",
+    "document_effective": "2026-08-07",
+    "url": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260807.txt",
+    "rules_used": [
+      "110.1",
+      "403.1",
+      "404.1",
+      "903.4",
+      "903.5c"
+    ]
+  },
+  "changed_paths": [
+    "docs/handoffs/HANDOFF_INDEX.md",
+    "docs/kanban/board.md",
+    "docs/kanban/in-progress/VM-551-gate-b1-placement-instrument-design.md",
+    "docs/plans/vm551-gate-b1-placement-instrument/README.md",
+    "docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+    "docs/plans/vm551-gate-b1-placement-instrument/build-and-validate-design.mjs",
+    "docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv",
+    "docs/plans/vm551-gate-b1-placement-instrument/migration-and-versioning-plan.md",
+    "docs/plans/vm551-gate-b1-placement-instrument/owner-decisions.md",
+    "docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv",
+    "docs/plans/vm551-gate-b1-placement-instrument/player-validation-plan.md",
+    "docs/plans/vm551-gate-b1-placement-instrument/validation-record.json",
+    "docs/handoffs/2026-08-04-0747-codex-vm551-gate-b1-owner-review-closeout.md",
+    "docs/plans/vm551-gate-b1-placement-instrument/answer-semantic-adjudication.tsv",
+    "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
+  ],
   "boundaries": [
     "No live or Gate A file is written.",
     "Generated artifacts remain under the B1 plan directory.",
-    "Identity associations are provisional non-scoring hypotheses."
+    "Identity associations are provisional non-scoring hypotheses.",
+    "No implementation, scoring, shadow test, migration, or cutover is authorized."
   ]
 }

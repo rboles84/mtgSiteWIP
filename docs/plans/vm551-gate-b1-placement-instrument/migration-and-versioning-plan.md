@@ -1,6 +1,6 @@
 # VM-551 Gate B1 Migration and Versioning Plan
 
-Status: design only. No schema, runtime, persistence, or migration change is authorized.
+Status: versioning architecture and future cutover threshold approved by owner; design only. No schema, runtime, persistence, shadow collection, or migration change is authorized.
 
 ## Goals
 
@@ -145,7 +145,7 @@ No unresolved blocker may enter implementation.
 
 ## Cutover threshold
 
-Do not cut over because a calendar period elapsed. A future owner decision may authorize implementation only after:
+The owner approved the following as the minimum future visible-cutover threshold, not as implementation authority. Do not cut over because a calendar period elapsed. A separately authorized implementation may be considered only after:
 
 - all question and answer contracts pass;
 - every route uses recognized versions;
@@ -157,6 +157,8 @@ Do not cut over because a calendar period elapsed. A future owner decision may a
 - legacy read, saved-return, result, dossier, Matrix, recommendation, and Maze compatibility pass;
 - shadow rollback is demonstrated;
 - an exact implementation candidate receives separate owner approval.
+
+The route remains capped at eight questions. Failure to reach the approved independent-evidence minimum by question eight must preserve close, tied, mixed, contradictory, or insufficient state; migration may not force a named result to make the new instrument appear complete.
 
 ## Explicit non-migration
 

@@ -2,7 +2,7 @@
 
 ID: VM-551 Gate B1
 Title: Archscry Placement Instrument Redesign
-Status: Design complete; awaiting owner review
+Status: Architecture owner approved; remediation complete; awaiting answer-semantic owner review
 Type: Placement-instrument design / evidence plan
 Area: Archscry / Placement / Research
 Priority: P0 trust readiness
@@ -62,7 +62,7 @@ Design a smaller, clearer, Commander-grounded replacement placement instrument f
 
 ## Next Gate
 
-Owner review of the committed Gate B1 design. Stop before implementation.
+Owner review of the remediated 34-question bank, 106-row answer semantic adjudication, and substantive signal/mapping recommendations. Stop before player-validation preparation or implementation.
 
 ## Completion record
 
@@ -76,5 +76,9 @@ Owner review of the committed Gate B1 design. Stop before implementation.
 - Explicit direct coverage exists for every audit high-confusion or insufficient-distinctiveness identity.
 - Versioning, shadow evaluation, rollback, real-player validation, and 12 material owner decisions are documented.
 - Documentation validator status: PASS.
+- Owner answered all 12 architecture decisions and approved the 15 constructs, 34-item pool, route shape, evidence minimums, non-directional uncertainty rule, versioning boundary, and future validation/cutover thresholds.
+- Added a 15-term normalized jargon registry: 3 rules-defined, 9 community-standard, and 3 instrument-operational terms, with official Wizards rule references where applicable.
+- Completed exactly 106 answer semantic reviews: 33 approve, 7 reword, 28 metadata correction, 6 signal review required, 0 replace, and 32 evidence required.
+- The six signal-review answers and 32 evidence-required directional Crucible answers remain explicit owner/evidence gates; none is scoring-authorized.
 - No live questionnaire, Gate A, scoring, runtime, result, dossier, Matrix, recommendation, persistence, identity, source-map, deployment, or certification change occurred.
-- Next gate remains owner review. Pilot implementation is not authorized.
+- Next gate remains owner review of remediated semantics. Pilot implementation and player-validation execution are not authorized.

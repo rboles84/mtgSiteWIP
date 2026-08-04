@@ -1,6 +1,6 @@
 # VM-551 Gate B1 Placement Instrument Design
 
-Status: design and evidence complete for owner review; pilot implementation is not authorized.
+Status: architecture owner approved; owner-directed question/terminology remediation and 106-answer semantic adjudication complete for owner review. Pilot implementation is not authorized.
 
 Base: 30bfe87171e4119a0bab1bb47318862c042977de
 
@@ -11,6 +11,8 @@ Worktree: C:\dev\voxmana.io-vm551-gate-b1-design
 ## Outcome
 
 Gate B1 proposes one smaller, layered Archscry instrument for the existing 37-identity architecture. It preserves the current Quick Reading presentation, Gate → Hall → Crucible progression, four mandatory Gate questions, two or three adaptive Hall questions, zero or one Crucible question, six-to-eight-question journey, Gate A public result states, dossier architecture, saved-result compatibility boundary, Matrix, recommendations, and downstream surfaces.
+
+The owner approved the 15-construct architecture and 34-item pool. The question bank has completed the directed enhancement and terminology pass, and all 106 proposed answers now have one documented semantic adjudication. This remains design evidence: substantive mapping recommendations still require owner review, structural coverage is not empirical validation, and no scoring, implementation, shadow test, recruitment, migration, or production cutover is authorized.
 
 The pilot pool contains:
 
@@ -109,6 +111,8 @@ Each question has exactly one primary construct. Related constructs remain expli
 - setup duration is not payoff rhythm;
 - theme is not power, budget, experience, or deck behavior.
 
+C01 has three intentionally controlled contexts: calm/open, behind with limited time, and disrupted plan. They remain one contextual-stability hypothesis in `DG_C01`, cannot stack, and must not be averaged into midpoint support. Future player validation must compare the contexts; systematic divergence requires C01 to be split or restricted before scoring authority is considered.
+
 The detailed definitions, examples, exclusions, family relevance, confusion pairs, evidence needs, stage, overlap, and signal vocabulary are in construct-map.tsv.
 
 ## Existing-bank inventory
@@ -142,11 +146,15 @@ The four Gate questions establish broad behavior without assigning a faction:
 
 Each includes an unknown or conditional answer only where the scenario genuinely permits it. Those answers are non-directional and cannot be converted into midpoint evidence.
 
+Mixed, conditional, neither, unknown, and representational-failure responses are evidence-bearing states. They may identify unstable preference, deck dependence, option-set failure, need for another Hall item, or lack of support for a strong result. They never provide half support, averaged direction, or weak support for every candidate.
+
 Gate answers may narrow Hall eligibility in a future implementation, but they cannot name, eliminate, or strongly support an identity by themselves.
 
 ## Hall design
 
 The Hall pool observes commander reliance, engine concentration, pressure channel, mana commitment, repeatability, theme-efficiency tradeoff, threat posture, voluntary resource conversion, public commitment, setup tolerance, deck breadth, and a second dependency-controlled interaction-window scenario.
+
+The Bant C05 Crucible now refers explicitly to the commander rather than a generic creature. C10 remains a deckbuilding tradeoff and explanation layer: theme cannot name or exclude an identity. Official Magic philosophy remains available as a source-backed interpretive layer after behavioral observation, but cannot create support, determine routing or stopping, or break a tie.
 
 Hall routing must select questions for unresolved constructs and plausible family boundaries. It must not present disguised faction philosophies. It may not repeat a dependency group merely to increase evidence volume.
 
@@ -170,6 +178,37 @@ The 18-item pool covers:
 - mono/multicolor ambiguity.
 
 Every Crucible row states competitor scope, bounded observation, provenance, eligibility, and when it must not be asked. Neither, conditional, and missing-experience responses preserve representational failure instead of forcing one competitor.
+
+C15 remains boundary-only. Colorless and Five-Color are ordinary placeable identities with route parity, positive behavioral evidence, a direct boundary, full explanation, and future validation representation; neither the edge item nor mono/multicolor item may assign an identity or cause a one-answer flip by itself.
+
+## Jargon authority model
+
+`jargon-glossary.tsv` normalizes every proposed public definition and classifies it as:
+
+- `RULES_DEFINED`: verified against official Wizards rules;
+- `COMMUNITY_STANDARD`: readable Commander player vocabulary, never presented as a formal rules quotation;
+- `INSTRUMENT_OPERATIONAL`: an Archscry-specific meaning introduced with operational wording;
+- `ORDINARY_LANGUAGE`: an ordinary term only when a recorded clarification is genuinely needed;
+- `NONE`: reserved controlled value for a future registry row with no jargon role.
+
+The official authority used for this pass is the Wizards of the Coast *Magic: The Gathering Comprehensive Rules* file linked from the official rules page, accessed 2026-08-04 and effective 2026-08-07. Relevant rules are 110.1 (permanent), 403.1 (battlefield), 404.1 (graveyard), 903.4 (color identity), and 903.5c (Commander deck inclusion). The official Commander format page supplements the player-facing color-identity explanation.
+
+The registry has 15 active terms: 3 rules-defined, 9 community-standard, and 3 instrument-operational. `pilot-question-bank.tsv` uses `jargon_term_ids` to connect each self-contained item to the canonical public copy in `jargon_help`. No adaptive item relies on a definition shown only on a previous route.
+
+## Answer semantic adjudication
+
+`answer-semantic-adjudication.tsv` contains exactly one row for each of the 106 answer contracts. Review dispositions are controlled values:
+
+- `APPROVE`: semantically coherent as a non-scoring proposal;
+- `REWORD`: an applied terminology, clarity, or alignment correction with no construct/signal change;
+- `METADATA_CORRECTION`: an applied exclusion, limitation, dependency, or uncertainty-boundary correction;
+- `SIGNAL_REVIEW_REQUIRED`: a substantive signal or competitor-boundary interpretation needs owner decision;
+- `REPLACE`: the option cannot defensibly measure its assigned construct;
+- `EVIDENCE_REQUIRED`: the semantic contract is coherent, but its Crucible identity-boundary use lacks player evidence.
+
+Other controlled review values are documented in the TSV columns: `PASS`, `CLEAR`, `CONCERN`, `REMEDIATED`, `VERIFIED-OR-REMEDIATED`, `NONE`, `OWNER-REVIEW`, `BOUNDED-DIRECT-BOUNDARY`, `PROVISIONAL-NONSCORING`, `PLAYER-EVIDENCE-REQUIRED`, `SUBSTANTIVE-REVIEW-REQUIRED`, and `YES`/`NO`.
+
+Current dispositions are 33 `APPROVE`, 7 `REWORD`, 28 `METADATA_CORRECTION`, 6 `SIGNAL_REVIEW_REQUIRED`, 0 `REPLACE`, and 32 `EVIDENCE_REQUIRED`. Every answer remains non-scoring. The six signal-review rows and all evidence-required Crucible rows are proposals for owner review, not validated mappings.
 
 ## Identity and confusion coverage
 
@@ -255,6 +294,8 @@ The flow remains six to eight questions. It is one instrument with layered expla
 - question-bank-inventory.tsv: all 113 current questions and 356 answers/effects.
 - pilot-question-bank.tsv: 34 proposed questions.
 - answer-signal-contracts.tsv: 106 stable answer contracts.
+- jargon-glossary.tsv: 15 normalized public definitions with rules/community/operational authority.
+- answer-semantic-adjudication.tsv: one semantic review for each of the 106 answer contracts.
 - identity-coverage-matrix.tsv: all 37 identities.
 - confusion-pair-coverage.tsv: 123 exact, high-frequency, and mandatory boundary pairs.
 - migration-and-versioning-plan.md: additive versioning, shadow evaluation, rollback, and legacy handling.
@@ -263,10 +304,12 @@ The flow remains six to eight questions. It is one instrument with layered expla
 - build-and-validate-design.mjs: documentation-only derivation and validator.
 - validation-record.json: current PASS record.
 
-Validation proves exact source counts, 37 unique identities, four Gate questions, unique IDs, one construct per question, complete answer contracts, no orphan references/signals, no vague-mood-only observation, explained jargon, non-scoring status, and coverage of every exact/high-frequency confusion pair.
+TSV multi-value fields use semicolons. IDs themselves do not contain semicolons. Empty optional values are represented by an empty field, not a placeholder token.
+
+Validation proves exact source counts; 15 constructs; 34 questions in the approved 4/12/18 pool; 106 answer contracts and 106 one-to-one semantic reviews; 37 unique identities; 123 confusion pairs; unique IDs; one construct per question; complete answer contracts; no orphan references/signals; canonical resolved jargon; no unused or cross-reference-only help; no rules/community authority mismatch; no vague-mood-only observation; C01 dependency control; C05 commander-specific wording; C15 boundary-only handling; the eight-question hard maximum; documentation-only changed paths; and non-scoring status.
 
 No scoring implementation or live-data modification occurred.
 
 ## Stop
 
-Stop for owner review of this Gate B1 design. Do not implement the pilot.
+Stop for owner review of the remediated 34-question bank, the 106-row answer semantic adjudication, and the substantive signal/mapping recommendations. Do not prepare player validation or implement the pilot.

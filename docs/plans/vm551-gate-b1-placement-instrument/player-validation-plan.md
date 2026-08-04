@@ -32,12 +32,19 @@ Use moderated cognitive interviews before adaptive evaluation.
 - Ask participants to paraphrase the prompt and selected answer.
 - Ask which words required explanation and whether options overlap.
 - Capture free-text “none of these” even when no such live option is proposed.
+- Compare C01 paraphrases and choices across the calm/open Gate item, the behind Grixis item, and the disrupted Temur item without treating them as independent evidence.
+- For the C05 Hall and Bant items, ask whether the player interpreted the prompt as commander reliance or generic creature reliance.
+- Stratify jargon findings by `RULES_DEFINED`, `COMMUNITY_STANDARD`, and `INSTRUMENT_OPERATIONAL` rather than treating every definition as the same kind of authority.
+- Re-show community-standard terms without their proposed explanation only for comprehension research; verify that the proposed explanation, rather than prior expertise, makes the displayed item understandable.
+- Compare interpretation before and after the revised board, board-wipe, permanent, graveyard, engine, interaction, and color-identity definitions. A wording-induced construct change routes revision, not scoring compensation.
 
 Eight reviews are a qualitative routing minimum, not statistical validation. Material disagreement keeps the item provisional.
 
 ## Stage 2 — full adaptive shadow journeys
 
 Run the preserved 4 Gate + 2–3 Hall + 0–1 Crucible journey.
+
+Collection lasts at least 14 days and continues while any required cohort, item, Crucible exposure, or high-risk identity remains below its documented floor. This is a future protocol requirement, not authorization to recruit or collect data.
 
 Coverage controls sample size:
 
@@ -68,14 +75,19 @@ Because one journey shows at most one Crucible, the Crucible floor requires at l
 - option overlap;
 - missing-option frequency;
 - time to a confident answer;
-- whether the participant answered a different category than intended.
+- whether the participant answered a different category than intended;
+- whether calm, behind, and disrupted C01 responses are stable, contextually different, or misunderstood;
+- whether commander-specific questions were answered about the commander rather than a favorite creature;
+- comprehension and definition reliance by jargon authority class;
+- whether each revised definition changes interpretation of the actual construct.
 
 ### Answer confidence
 
 - 1–5 confidence after each response;
 - why it fits;
 - whether confidence concerns wording, deck context, or experience;
-- distinction between conditionality and lack of understanding.
+- distinction between conditionality and lack of understanding;
+- whether conditional answers are understood as contextual or representational evidence rather than midpoint choices.
 
 ### Perceived steering
 
@@ -90,6 +102,8 @@ Do not ask only “Did you like your result?”
 
 Ask which observations fit, which do not, which describe the tested deck but not the player, which describe a future preference, whether a close/tied/mixed/insufficient state is more honest, and what additional evidence would justify a stronger result.
 
+Ask whether Colorless and Five-Color results feel as legitimate and fully explained as other named identities rather than like fallback or novelty states.
+
 ### Result usefulness
 
 - Can the participant name a useful comparison or exploration step?
@@ -97,6 +111,7 @@ Ask which observations fit, which do not, which describe the tested deck but not
 - Does it help compare decks or commanders?
 - Does it create a browsing question without prescribing a deck?
 - Do recommendations fit observed behavior rather than only color?
+- Do color-count observations remain visibly secondary to prior behavior, or do participants believe the edge/mono-multicolor item decided the result by itself?
 
 ### Retake stability
 
@@ -122,6 +137,9 @@ These thresholds route revision; they do not establish calibration.
 - No advanced term remains unexplained for newer players.
 - Median confidence is at least 3/5 among participants with relevant experience.
 - Conditional answers are selected for stated dependency, not confusing wording.
+- C01 contextual differences are recorded rather than stacked or averaged; systematic calm/behind/disrupted divergence blocks scoring authority until C01 is split or restricted.
+- Commander-reliance items are interpreted as commander-specific, not generic creature centrality.
+- Community-standard terms are understood after the proposed explanation by players who did not already know them.
 - No Crucible is shown without its competitor set and two independent observations.
 
 Any fail returns the item to wording or construct review. Do not compensate with scoring.
@@ -134,6 +152,8 @@ Any fail returns the item to wording or construct review. Do not compensate with
 - No strong result uses only dependent observations.
 - No one-answer strong-to-strong flip; the state must pass through close, mixed, or insufficient.
 - Every high-risk identity has a reviewed direct boundary observation before a strong state.
+- Colorless and Five-Color meet the same explanation, recognition, and usefulness standards as other named identities.
+- No C15 answer overpowers prior behavioral evidence or creates a one-answer edge/mono-multicolor flip.
 - Recommendation relevance is evaluated against behavior; color-only relevance fails.
 - Unexpected results receive qualitative review and are not automatically failures.
 
