@@ -1,0 +1,85 @@
+# VM-551 Gate B1 — Product-Fit and Usefulness Pass
+
+## Controlling statement
+
+Structural placement architecture is already approved. This pass evaluates clarity, Commander authenticity, result usefulness, and discovery value. It does not validate scoring or identity mappings.
+
+This is a documentation-only recommendation pass over the owner-approved Gate B1 semantic design at `f44382271f94e9832526bbc10313f0f8c38533b9`. The approved 15 constructs, 34 questions, 106 answer contracts, stable IDs, answer meanings, signal mappings, evidence-required statuses, six-to-eight-question route, 37 identities, and 123 confusion pairs remain frozen.
+
+## Narrow objective
+
+Determine whether the approved instrument:
+
+- sounds like recognizable Commander decisions rather than a generic personality inventory;
+- remains understandable to a newer player while retaining useful distinctions for an experienced player;
+- can explain why a result appeared, name a plausible neighbor, preserve uncertainty, and offer a concrete discovery path;
+- uses motivation, aesthetic, archetype, and Commander overlays only as optional explanation after placement; and
+- offers materially more post-result utility than a seven-type result label without copying a competitor's language, taxonomy, or page structure.
+
+## Evidence and authority used
+
+### Approved repository authority
+
+- `docs/plans/vm551-gate-b1-placement-instrument/` — approved construct, question, answer, identity-coverage, confusion, glossary, and owner-decision contracts.
+- `docs/audits/vm551-placement-system/` — accepted question/answer adjudication and confusion findings.
+- `data/identity-layers.json`, certified `docs/architecture/colors/*/identity.md` records, source maps, research dossiers, and current dossier material — identity/result explanation authority.
+- Accepted CECOS repository `C:\dev\Commander_Questions_Corpus` at `947bf45bf6a191839b5fb4fa6c65980ed9d5737e` — provenance, ambiguity, contradiction, and source-role method.
+
+### Owner-controlled local sources
+
+- EDHMatch benchmark capture: `C:\Users\obake\Downloads\extracts_Corpus\EDHMatch\edhmatch-player-type-complete.txt`; 19,030 bytes; SHA-256 `840E30D685942F69F2124439CF03C718021568371DA25E04352FE554A5259033`.
+- Vox Mana Player Atlas: `C:\Users\obake\Downloads\extracts_Corpus\Profiles\Vox_Mana_The_Magic_Player_Atlas.md`; 83,123 bytes; SHA-256 `055BDD07B8DA9A7FFBFD284B2CF14607BCEEAFCE65C7088FC7ECD4AD37B6C108`.
+- Profile dossiers consulted: `vox_mana_profile_01_timmy_tammy.md`, `vox_mana_profile_02_johnny_jenny.md`, `vox_mana_profile_03_spike.md`, `vox_mana_profile_04_melvin_vorthos.md`, `vox_mana_profile_05_archetypes.md`, `vox_mana_profile_06_system_architect.md`, `vox_mana_profile_07_social_negotiator.md`, `vox_mana_profile_08_master_planner.md`, and `vox_mana_guild_college_completion.md`.
+- Refined source directories: 38 Web, 25 YouTube, and 18 manually refined files.
+
+### Source reconciliation
+
+The three refined directories contain 81 physical files and 81 unique exact SHA-256 hashes. No exact duplicate or line-ending/trailing-whitespace-normalized duplicate group was found. The accepted CECOS inventory also contains 81 refined evidence files; filename and SHA-256 comparison found zero missing and zero divergent local refined files. Eleven manually refined files have committed repository counterparts and all eleven match exactly. Existing source-role structure yielded 5 `MIXED` and 76 `UNRESOLVED` files; this pass did not invent a fresh source-role adjudication. No required source was missing or unreadable.
+
+## How each source is used
+
+- **EDHMatch** is a product-experience benchmark only. It demonstrates immediate framing, simple pacing, recognizable choices, result distribution, sharing, and Commander discovery calls to action. It is not taxonomy, placement, wording, or visual-design authority.
+- **CECOS/refined evidence** establishes whether scenarios and distinctions are recognizable in Commander language. It does not justify weights, identity assignments, or population claims.
+- **Player Atlas and profile dossiers** explain motivation, aesthetic, deck action, table mode, and engine preferences after placement. They cannot route, stop, break ties, or independently determine any of the 37 identities.
+- **Certified identity records and B1 coverage** support result explanations and limitations. Existing prose does not by itself make a result useful or validate a mapping.
+
+## Findings
+
+1. The bank is substantially more Commander-grounded than the retired live bank: 31 questions are product-fit as written, 3 benefit from exact light wording tunes, and none requires a construct or answer-contract change.
+2. Gate and Hall use high-recognition situations: open-turn posture, battlefield versus reserve, a likely board wipe, commander removal, interaction mana, repeated routes, visible threat, sacrifice, deals, setup, and color breadth.
+3. The Crucible bank appropriately becomes narrower and more controlled. Repeated structural wording is useful because the items test bounded competitor distinctions; variation for its own sake would reduce comparability.
+4. The principal product risk is not question atmosphere. It is overexplaining a provisional identity association as established truth. Thirty-seven answer-to-identity hypotheses remain non-scoring and evidence-required.
+5. Result usefulness is uneven: 15 guild/college identities have Atlas-supported identity lenses and explicit boundaries; 17 identities can support a useful but incomplete result; 5 currently lack enough distinct placement explanation or evidence to be presented without a visible gap.
+6. A result can exceed a type label by exposing the observation trace, plausible alternative, separating observation, limitation, Commander direction, and dossier/Matrix/Maze next step. It must not imply a psychographic diagnosis.
+
+## Recommended content changes
+
+Recommend three owner-reviewed prompt-only light tunes, with no ID, answer, construct, mapping, or identity-support change:
+
+- `b1.gate.initiative.v1`: replace abstract “normal turn” framing with an open Commander turn and no urgent threat.
+- `b1.gate.tempo.v1`: replace “when your deck is working” with “when your Commander deck is doing what you built it to do.”
+- `b1.crucible.wb.v1`: name an immediate shared table problem so “cost-bearing terms” and “current influence without future obligation” are easier to distinguish.
+
+Exact proposed wording and evidence are in `question-product-fit-review.tsv`. Do not apply these tunes without owner approval and separately authorized semantic-file work.
+
+## Explicitly out of scope
+
+No scoring, weights, identity validation, routing, stopping, prototype, live question edit, answer edit, player recruitment, validation execution, shadow test, migration, saved-result reinterpretation, result UI change, dossier edit, Matrix edit, recommendation change, Gate A work, production verification, deployment, or certification occurred.
+
+## Remaining owner decisions
+
+1. Approve, reject, or revise each of the three exact prompt tunes.
+2. Decide whether `PARTIAL` and `GAP` result states may enter later experience prototyping with their limitations visible, or must wait for stronger identity evidence.
+3. Approve the post-result explanation order: observations → primary identity → nearby alternative → distinction → limitation → discovery path.
+4. Decide whether optional profile enrichment appears inline after the limitation or only behind a “deepen this reading” action.
+5. Confirm that the five walkthroughs are sufficient to judge owner experience before any player-validation preparation.
+
+## File inventory
+
+- `README.md` — controlling scope, authority, findings, recommendations, and decisions.
+- `question-product-fit-review.tsv` — all 34 approved questions with evidence-specific product-fit findings.
+- `edhmatch-experience-benchmark.md` — narrow user-experience benchmark.
+- `profile-enrichment-crosswalk.tsv` — post-placement enrichment boundaries.
+- `result-usefulness-matrix.tsv` — all 37 identities and honest usefulness status.
+- `representative-result-walkthroughs.md` — five non-production result demonstrations.
+- `owner-experience-checklist.md` — owner review instrument and disposition area.
