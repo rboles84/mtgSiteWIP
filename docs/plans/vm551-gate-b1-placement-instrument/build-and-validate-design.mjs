@@ -131,10 +131,10 @@ const Q = [
     opt("narrow","A tight restriction","One color, card type, or narrow rule makes choices sharper.","Prefers narrow constraints.","NARROW"),
     opt("broad","A wide set of tools","Several color roles answer more situations.","Prefers broad tool access.","BROAD"),
     opt("concept","Whichever serves the concept","The deck idea decides whether the pool is narrow or broad.","Reports concept-conditional breadth.","CONDITIONAL","conditional")]),
-  q("b1.hall.interaction-window.v1","Hall","C08","An opponent begins the action most likely to decide the game. When should your interaction matter?","reactive/proactive boundary families","E-PLAYER-THREAT;E-PLAYER-PACE;E-CECOS","Ask only if C08 remains unresolved.","Never count independently from b1.hall.mana-window.v1.","Interaction means an answer to another player's spell, ability, attack, or permanent.",[
-    opt("before","Before the key piece resolves","Stop the enabling spell or ability before it takes effect.","Prefers an early interaction window.","EARLY_WINDOW"),
+  q("b1.hall.interaction-window.v1","Hall","C08","An opponent is building toward the action most likely to decide the game. When should your interaction matter?","reactive/proactive boundary families","E-PLAYER-THREAT;E-PLAYER-PACE;E-CECOS","Ask only if C08 remains unresolved.","Never count independently from b1.hall.mana-window.v1.","Interaction means an answer to another player's spell, ability, attack, or permanent.",[
+    opt("before","Before the decisive action begins","Stop an enabling spell or ability before the opponent commits the decisive action.","Prefers an early interaction window.","EARLY_WINDOW"),
     opt("after","After the piece is visible","Answer it once its effect on the game is clear.","Prefers a later visible interaction window.","LATE_WINDOW"),
-    opt("pressure","Make setup too costly","Use prior pressure to reduce the opponent's time.","Prefers preventive pressure.","PREVENTIVE")]),
+    opt("pressure","As they commit","Answer when the opponent commits the mana, card, or attack that makes the action decisive.","Prefers the opponent-commitment interaction window.","COMMIT_WINDOW")]),
   q("b1.crucible.ur.v1","Crucible","C04","Your spell-heavy deck has mana for a major turn. Which payoff sounds more like the plan?","UR vs PRISMARI","E-CERTIFIED;E-PLAYER-THEME;E-PLAYER-PACE;E-AUDIT;E-CECOS","Ask only when UR/PRISMARI remain close after two independent observations.","Do not ask if spell-heavy behavior was never observed.","Spell-heavy means instants or sorceries are central.",[
     opt("workshop","Improve the working engine","Several smaller spells test, copy, untap, or refine a repeatable system.","Prefers iterative spell-engine payoff.","INCREMENTAL"),
     opt("showcase","Build toward the showcase","One large spell or sequence creates the memorable turn.","Prefers concentrated expressive payoff.","CONCENTRATED"),
@@ -147,13 +147,13 @@ const Q = [
     opt("intervene","Stop the removal now","Protection or an immediate answer keeps the piece in play.","Prefers immediate intervention.","PROTECT"),
     opt("recover","Recover value from the loss","Reuse the piece or turn its prior work into later value.","Prefers recovery from prior resources.","RECOVER"),
     opt("neither","That is not the distinction","My response depends on the card.","Rejects the proposed WR-family distinction.","UNKNOWN","unknown")]),
-  q("b1.crucible.ug.v1","Crucible","C06","Your battlefield is growing and an important engine piece is removed. What structure should keep it working?","UG vs QUANDRIX","E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS","Ask only when UG/QUANDRIX remain close.","Do not ask without the engine definition.","Engine means a card or group of cards that repeatedly produces value.",[
-    opt("adapt","Other creature pieces combine","Several creature-focused pieces stay useful alone and work together.","Prefers a modular creature-centered engine.","MODULAR"),
-    opt("scale","One scaling piece drives it","A central piece makes counters, copies, or resources expand together.","Accepts a concentrated scaling engine.","CENTRAL"),
-    opt("neither","My growth plan is different","Neither route is central.","Rejects the proposed UG-family distinction.","UNKNOWN","unknown")]),
+  q("b1.crucible.ug.v1","Crucible","C06","When building a value engine, which structure fits your deck?","UG vs QUANDRIX","E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS","Ask only when UG/QUANDRIX remain close.","Do not ask without the engine definition.","Engine means a card or group of cards that repeatedly produces value.",[
+    opt("adapt","Several overlapping engines","Different groups of pieces can each keep producing value if another group is disrupted.","Prefers modular overlapping engines.","MODULAR"),
+    opt("scale","One central engine","Most pieces strengthen one main engine that compounds value over time.","Accepts a concentrated central engine.","CENTRAL"),
+    opt("neither","My engine uses another structure","Neither a central engine nor several overlapping engines describes the plan.","Rejects the proposed UG-family distinction.","UNKNOWN","unknown")]),
   q("b1.crucible.wb.v1","Crucible","C13","Before a risky table deal, what makes the agreement useful?","WB vs SILVERQUILL","E-CERTIFIED;E-PLAYER-PACE;E-AUDIT;E-CECOS","Ask only when WB/SILVERQUILL remain close.","Record unknown without relevant deal experience.","Table deal means a spoken agreement between players.",[
     opt("terms","The terms carry a cost","Obligations, consequences, or exchange terms remain clear.","Prefers obligation-centered commitment.","DURABLE"),
-    opt("influence","Reopen it as the room changes","Public changes can justify revising the agreement.","Prefers revisable public commitment.","REVISABLE"),
+    opt("influence","Change the situation now","The agreement changes the current table situation without binding anyone's later choices.","Prefers an influence-centered agreement that changes the current situation without binding later choices.","REVISABLE"),
     opt("neither","I avoid that kind of deal","I lack enough experience or preference.","Reports missing experience.","UNKNOWN","unknown")]),
   q("b1.crucible.bant.v1","Crucible","C05","Your commander can carry much of your plan. What role should the rest of the deck play?","BANT vs WITCH/INK/W/adjacent three-color","E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS","Ask only when BANT and a listed competitor remain close.","One commander-reliance observation cannot prove Bant.","",[
     opt("refine","Refine and protect the commander","The deck improves and protects the commander as its centerpiece.","Accepts a protected commander centerpiece.","CENTERPIECE"),
@@ -195,10 +195,10 @@ const Q = [
     opt("share","Do useful work early","Cards or mana influence the game while the main plan develops.","Prefers early impact during setup.","EARLY_IMPACT"),
     opt("compound","Let resources accumulate","Keep building until later turns can do more.","Accepts long setup for larger later turns.","LONG_SETUP"),
     opt("depends","Timing depends on the deck","Different decks make different setup lengths feel right.","Reports deck-conditional setup tolerance.","CONDITIONAL","conditional")]),
-  q("b1.crucible.witch-yore.v1","Crucible","C06","A key piece of a value engine is removed. What structure should keep the plan working?","WITCH vs YORE","E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS","Ask only when Witch/Yore remain close.","Do not infer nature versus artifice.","Engine means a card or group of cards that repeatedly produces value.",[
-    opt("compound","Several pieces keep adding up","Different pieces stay useful alone and combine to rebuild the engine.","Prefers modular overlapping engine pieces.","MODULAR"),
-    opt("convert","Another piece fills the same role","Replaceable pieces preserve a known chain of inputs and outputs.","Prefers redundant replaceable engine pieces.","REDUNDANT"),
-    opt("neither","My engine differs","Neither accumulation nor conversion is central.","Rejects the proposed four-color boundary.","UNKNOWN","unknown")]),
+  q("b1.crucible.witch-yore.v1","Crucible","C06","When building a value engine, which structure should organize the plan?","WITCH vs YORE","E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS","Ask only when Witch/Yore remain close.","Do not infer nature versus artifice.","Engine means a card or group of cards that repeatedly produces value.",[
+    opt("compound","One engine keeps compounding","Most pieces strengthen one central engine that builds more value over time.","Prefers one central engine that compounds value over time.","CENTRAL"),
+    opt("convert","Several pieces make the same conversion","Interchangeable pieces can each turn one resource into another, so no single piece is indispensable.","Prefers several interchangeable conversion pieces over one indispensable engine.","REDUNDANT"),
+    opt("neither","My engine differs","Neither one central engine nor several interchangeable conversion pieces describes the plan.","Rejects the proposed four-color boundary.","UNKNOWN","unknown")]),
   q("b1.crucible.colorless-wubrg.v1","Crucible","C15","You are choosing between a Colorless Commander deck and a Five-Color Commander deck to keep refining over many games. One commander's color identity uses no colors; the other's uses all five. Which deckbuilding challenge sounds more satisfying?","COLORLESS vs WUBRG","E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS","Ask only after prior independent behavioral evidence when both edge identities remain close.","Neither answer is sufficient for an edge identity.","A commander's color identity determines which colors may appear in its Commander deck. Five-Color uses all five.",[
     opt("constraint","Make a narrow pool do more","A hard restriction creates unusual solutions and tradeoffs.","Prefers narrow constraint.","NARROW"),
     opt("breadth","Make a broad pool cohere","Many color roles serve one integrated plan.","Prefers broad integration.","BROAD"),
@@ -333,18 +333,14 @@ for (const item of Q) for (const o of item.options) {
 
 const rewordedAnswerIds = new Set([
   "b1.hall.mana-window.v1.own","b1.hall.repeatability.v1.same","b1.hall.setup.v1.early","b1.hall.setup.v1.long","b1.hall.interaction-window.v1.after",
+  "b1.hall.interaction-window.v1.pressure",
   "b1.crucible.ug.v1.adapt","b1.crucible.ug.v1.scale","b1.crucible.wb.v1.influence",
   "b1.crucible.bant.v1.refine","b1.crucible.bant.v1.network","b1.crucible.bant.v1.neither",
   "b1.crucible.grixis.v1.convert","b1.crucible.sultai.v1.cycle","b1.crucible.temur.v1.adapt",
   "b1.crucible.ink-witch.v1.share","b1.crucible.ink-witch.v1.compound","b1.crucible.ink-witch.v1.depends",
   "b1.crucible.witch-yore.v1.compound","b1.crucible.witch-yore.v1.convert"
 ]);
-const signalReviewIds = new Set([
-  "b1.hall.interaction-window.v1.pressure",
-  "b1.crucible.ug.v1.adapt","b1.crucible.ug.v1.scale",
-  "b1.crucible.wb.v1.influence",
-  "b1.crucible.witch-yore.v1.compound","b1.crucible.witch-yore.v1.convert"
-]);
+const signalReviewIds = new Set([]);
 const metadataCorrectionIds = new Set(answers.filter((a) => a.construct_id === "C01" || a.construct_id === "C15" || a.construct_id === "C10" || a._kind !== "directional").map((a) => a.answer_id));
 const terminologyRemediatedQuestionIds = new Set(Object.keys(questionJargonIds));
 
@@ -354,7 +350,6 @@ const semanticReviews = answers.map((a) => {
   const evidenceRequired = a._stage === "Crucible" && a._kind === "directional" && !signalReview;
   const reworded = rewordedAnswerIds.has(a.answer_id);
   const metadataCorrected = metadataCorrectionIds.has(a.answer_id);
-  const pressureMismatch = a.answer_id === "b1.hall.interaction-window.v1.pressure";
   let review_disposition = "APPROVE";
   if (signalReview) review_disposition = "SIGNAL_REVIEW_REQUIRED";
   else if (evidenceRequired) review_disposition = "EVIDENCE_REQUIRED";
@@ -363,10 +358,7 @@ const semanticReviews = answers.map((a) => {
 
   let recommended_action = "Retain as a non-scoring semantic proposal for owner review of the complete package.";
   let rationale = `The title and sentence directly answer the scenario; '${a.plain_language_observation}' is bounded to ${a.construct_id} and maps to ${a.primary_signal}.`;
-  if (pressureMismatch) {
-    recommended_action = "Owner must replace or re-map this option before pilot authorization; preventive pressure is not an interaction-window observation.";
-    rationale = "The option is understandable, but it measures preventive pressure (C07) while the question and signal claim interaction timing (C08). The mismatch is preserved rather than silently reassigned.";
-  } else if (signalReview) {
+  if (signalReview) {
     recommended_action = "Owner must approve or reject the proposed construct signal and competitor-boundary association before pilot authorization.";
     rationale = `Applied wording now describes ${a.construct_id} and ${a.primary_signal}, but using that observation to distinguish ${qItem.scope} remains a substantive identity-boundary hypothesis without player evidence.`;
   } else if (evidenceRequired) {
@@ -382,15 +374,15 @@ const semanticReviews = answers.map((a) => {
 
   return {
     answer_id:a.answer_id, question_id:a.question_id, construct_id:a.construct_id, stage:a._stage, review_disposition,
-    construct_fidelity:pressureMismatch ? "CONCERN" : "PASS",
+    construct_fidelity:"PASS",
     scenario_fit:"PASS", option_distinguishability:"PASS",
-    compound_construct_risk:pressureMismatch ? "CONCERN" : "CLEAR",
+    compound_construct_risk:"CLEAR",
     desirability_or_skill_bias:"CLEAR",
     identity_giveaway_risk:qItem.construct === "C15" && qItem.stage === "Crucible" ? "BOUNDED-DIRECT-BOUNDARY" : "CLEAR",
     novice_clarity:terminologyRemediatedQuestionIds.has(a.question_id) ? "VERIFIED-OR-REMEDIATED" : "PASS",
     title_sentence_alignment:reworded ? "REMEDIATED" : "PASS",
     observation_alignment:reworded ? "REMEDIATED" : "PASS",
-    primary_signal_alignment:pressureMismatch ? "CONCERN" : signalReview ? "OWNER-REVIEW" : "PASS",
+    primary_signal_alignment:signalReview ? "OWNER-REVIEW" : "PASS",
     secondary_signal_alignment:a.optional_bounded_secondary_signal ? "PASS" : "NONE",
     dependency_alignment:"PASS",
     exclusion_quality:metadataCorrected ? "REMEDIATED" : "PASS",
@@ -517,6 +509,7 @@ const count = (values) => values.reduce((a,v)=>(a[v]=(a[v]||0)+1,a),{});
 const stages = count(Q.map((x)=>x.stage));
 const ids = [...Q.map((x)=>x.id),...answers.map((x)=>x.answer_id)];
 const cids = new Set(C.map((x)=>x.construct_id)), qids = new Set(Q.map((x)=>x.id));
+const answerById = new Map(answers.map((x)=>[x.answer_id,x]));
 const answerIds = new Set(answers.map((x)=>x.answer_id));
 const jargonIds = new Set(J.map((x)=>x.jargon_id));
 const semanticAnswerIds = semanticReviews.map((x)=>x.answer_id);
@@ -564,6 +557,22 @@ const checks = [
   ["C05 Bant commander-specific",Q.find((x)=>x.id==="b1.crucible.bant.v1").prompt.toLowerCase().includes("commander"),Q.find((x)=>x.id==="b1.crucible.bant.v1").prompt],
   ["C15 boundary-only",answers.filter((x)=>x.construct_id==="C15").every((x)=>x.exclusions.includes("Boundary evidence only")||x.scoring_status==="NON-DIRECTIONAL-NONSCORING"),answers.filter((x)=>x.construct_id==="C15").length],
   ["route hard maximum eight",4+3+1===8,"4 Gate + 3 Hall + 1 Crucible"],
+  ["six owner signal resolutions incorporated",
+    answerById.get("b1.hall.interaction-window.v1.pressure").primary_signal==="SIG_C08_COMMIT_WINDOW" &&
+    !/preventive pressure/i.test(`${answerById.get("b1.hall.interaction-window.v1.pressure").answer_title} ${answerById.get("b1.hall.interaction-window.v1.pressure").explanatory_sentence} ${answerById.get("b1.hall.interaction-window.v1.pressure").plain_language_observation}`) &&
+    answerById.get("b1.crucible.ug.v1.adapt").primary_signal==="SIG_C06_MODULAR" &&
+    /overlapping engines/i.test(answerById.get("b1.crucible.ug.v1.adapt").plain_language_observation) &&
+    !/creature-centered|creature-focused/i.test(`${answerById.get("b1.crucible.ug.v1.adapt").answer_title} ${answerById.get("b1.crucible.ug.v1.adapt").explanatory_sentence} ${answerById.get("b1.crucible.ug.v1.adapt").plain_language_observation}`) &&
+    answerById.get("b1.crucible.ug.v1.scale").primary_signal==="SIG_C06_CENTRAL" &&
+    /central engine/i.test(answerById.get("b1.crucible.ug.v1.scale").plain_language_observation) &&
+    answerById.get("b1.crucible.wb.v1.influence").primary_signal==="SIG_C13_REVISABLE" &&
+    /current (table )?situation without binding (anyone's )?later choices/i.test(answerById.get("b1.crucible.wb.v1.influence").explanatory_sentence) &&
+    answerById.get("b1.crucible.witch-yore.v1.compound").primary_signal==="SIG_C06_CENTRAL" &&
+    /central engine.*compounds value over time/i.test(answerById.get("b1.crucible.witch-yore.v1.compound").plain_language_observation) &&
+    answerById.get("b1.crucible.witch-yore.v1.convert").primary_signal==="SIG_C06_REDUNDANT" &&
+    /interchangeable conversion pieces.*indispensable engine/i.test(answerById.get("b1.crucible.witch-yore.v1.convert").plain_language_observation),"6/6"],
+  ["no unresolved signal reviews",semanticReviews.every((x)=>x.review_disposition!=="SIGNAL_REVIEW_REQUIRED"),semanticReviews.filter((x)=>x.review_disposition==="SIGNAL_REVIEW_REQUIRED").length],
+  ["evidence-required hypotheses remain non-scoring",semanticReviews.filter((x)=>x.review_disposition==="EVIDENCE_REQUIRED").length===37&&semanticReviews.filter((x)=>x.review_disposition==="EVIDENCE_REQUIRED").every((x)=>answerById.get(x.answer_id).scoring_status==="PILOT-HYPOTHESIS-NONSCORING"),semanticReviews.filter((x)=>x.review_disposition==="EVIDENCE_REQUIRED").length],
   ["documentation-only changed paths",documentationOnly,changedPaths.join(",")||"clean"],
   ["explicit high-risk and insufficient coverage",["BANT","GRIXIS","SULTAI","TEMUR","COLORLESS","ESPER","INK","JESKAI","LOREHOLD","UR","YORE"].every((x)=>(direct[x]||[]).length>0),11],
   ["exact confusion pairs represented",exactPairKeys.every((x)=>confusionKeys.has(x)),new Set(exactPairKeys).size],

@@ -1,8 +1,8 @@
 # VM-551 Gate B1 Owner Decisions
 
-Status: all twelve architecture decisions answered by owner on 2026-08-04. Architecture approved by owner. Pilot question wording is approved conditionally pending this remediation pass. Answer-contract semantic review remains subject to owner review. Pilot implementation is not authorized.
+Status: all twelve architecture decisions and six answer-signal decisions answered by owner on 2026-08-04. Gate B1 semantic design is owner approved after the directed corrections. Player-validation preparation requires separate authorization. Pilot implementation is not authorized.
 
-These decisions approve the architecture and its boundaries. They do not give final semantic approval to the remediated 34-question bank or 106 answer contracts, authorize scoring, begin player validation, or authorize implementation, migration, shadow collection, cutover, deployment, or certification.
+These decisions approve the architecture, remediated question wording, construct presentation, and corrected answer semantics. They do not validate identity mappings, authorize scoring, begin player-validation preparation or execution, or authorize implementation, migration, shadow collection, cutover, deployment, or certification.
 
 ## OD-B1-01 — Construct scope
 
@@ -108,6 +108,23 @@ Original recommendation: reuse Gate A rather than create a separate B1 presentat
 
 Boundary: do not reopen Gate A or create a B1 result presentation.
 
+## Answer-semantic decisions
+
+Owner decision: approve the remediated 34-question bank subject to the following corrections, now incorporated:
+
+- `b1.hall.interaction-window.v1.pressure`: rejected preventive-pressure wording and C08 mapping. The replacement asks about interacting when the opponent commits the decisive mana, card, or attack and maps to `SIG_C08_COMMIT_WINDOW` within C08.
+- `b1.crucible.ug.v1.adapt`: rejected creature-centered adaptation as evidence of modular concentration. The revised UG/Quandrix item directly contrasts overlapping engines with one central engine; this option maps to `SIG_C06_MODULAR`.
+- `b1.crucible.ug.v1.scale`: rejected abstract scaling as evidence of a central engine. The revised option explicitly observes one concentrated central engine and maps to `SIG_C06_CENTRAL`.
+- `b1.crucible.wb.v1.influence`: approved after rewording as an influence-centered agreement that changes the current table situation without binding later choices; retains `SIG_C13_REVISABLE`.
+- `b1.crucible.witch-yore.v1.compound`: approved after correction to one central engine that compounds value over time; maps to `SIG_C06_CENTRAL`.
+- `b1.crucible.witch-yore.v1.convert`: approved after correction to several interchangeable conversion pieces rather than one indispensable engine; maps to `SIG_C06_REDUNDANT`.
+
+The five corrected directional Crucible answers remain identity-association hypotheses. They join the 32 previously `EVIDENCE_REQUIRED` rows and must remain non-scoring until eligible player evidence supports, revises, or rejects them. Retention does not establish that their identity mappings are true.
+
+Approval scope: wording and construct presentation only. It does not authorize weights, scoring, implementation, player recruitment, player-validation preparation or execution, shadow testing, migration, deployment, production use, or certification.
+
 ## Current disposition
 
-The architecture, 15-construct scope, and 34-item pool shape are owner approved. The owner-directed question and terminology remediation and the 106-row answer semantic adjudication now return for owner review. Six answer mappings require a substantive owner decision and 32 directional Crucible mappings remain evidence-required. No answer is scoring-authorized, and no player-validation execution or implementation is authorized.
+The architecture, 15-construct scope, remediated 34-item pool, and corrected answer semantics are owner approved. All six signal decisions are resolved, zero rows remain `SIGNAL_REVIEW_REQUIRED`, and 37 directional Crucible mappings remain `EVIDENCE_REQUIRED`. No answer is scoring-authorized.
+
+Gate B1 semantic design may advance only to a separately authorized player-validation preparation phase. That phase has not been authorized. Pilot implementation remains unauthorized.

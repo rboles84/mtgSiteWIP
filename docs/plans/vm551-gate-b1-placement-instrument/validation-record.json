@@ -12,9 +12,8 @@
     "semantic_review_dispositions": {
       "METADATA_CORRECTION": 28,
       "APPROVE": 33,
-      "REWORD": 7,
-      "SIGNAL_REVIEW_REQUIRED": 6,
-      "EVIDENCE_REQUIRED": 32
+      "REWORD": 8,
+      "EVIDENCE_REQUIRED": 37
     },
     "stages": {
       "Gate": 4,
@@ -131,7 +130,7 @@
     {
       "name": "controlled review dispositions",
       "status": "PASS",
-      "observed": "METADATA_CORRECTION,APPROVE,REWORD,SIGNAL_REVIEW_REQUIRED,EVIDENCE_REQUIRED"
+      "observed": "METADATA_CORRECTION,APPROVE,REWORD,EVIDENCE_REQUIRED"
     },
     {
       "name": "unique jargon IDs",
@@ -214,9 +213,24 @@
       "observed": "4 Gate + 3 Hall + 1 Crucible"
     },
     {
+      "name": "six owner signal resolutions incorporated",
+      "status": "PASS",
+      "observed": "6/6"
+    },
+    {
+      "name": "no unresolved signal reviews",
+      "status": "PASS",
+      "observed": 0
+    },
+    {
+      "name": "evidence-required hypotheses remain non-scoring",
+      "status": "PASS",
+      "observed": 37
+    },
+    {
       "name": "documentation-only changed paths",
       "status": "PASS",
-      "observed": "docs/handoffs/HANDOFF_INDEX.md,docs/kanban/board.md,docs/kanban/in-progress/VM-551-gate-b1-placement-instrument-design.md,docs/plans/vm551-gate-b1-placement-instrument/README.md,docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv,docs/plans/vm551-gate-b1-placement-instrument/build-and-validate-design.mjs,docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv,docs/plans/vm551-gate-b1-placement-instrument/migration-and-versioning-plan.md,docs/plans/vm551-gate-b1-placement-instrument/owner-decisions.md,docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv,docs/plans/vm551-gate-b1-placement-instrument/player-validation-plan.md,docs/plans/vm551-gate-b1-placement-instrument/validation-record.json,docs/handoffs/2026-08-04-0747-codex-vm551-gate-b1-owner-review-closeout.md,docs/plans/vm551-gate-b1-placement-instrument/answer-semantic-adjudication.tsv,docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
+      "observed": "docs/handoffs/HANDOFF_INDEX.md,docs/kanban/board.md,docs/kanban/in-progress/VM-551-gate-b1-placement-instrument-design.md,docs/plans/vm551-gate-b1-placement-instrument/README.md,docs/plans/vm551-gate-b1-placement-instrument/answer-semantic-adjudication.tsv,docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv,docs/plans/vm551-gate-b1-placement-instrument/build-and-validate-design.mjs,docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv,docs/plans/vm551-gate-b1-placement-instrument/owner-decisions.md,docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv,docs/plans/vm551-gate-b1-placement-instrument/player-validation-plan.md,docs/plans/vm551-gate-b1-placement-instrument/validation-record.json,docs/handoffs/2026-08-04-1807-codex-vm551-gate-b1-answer-semantic-owner-decisions.md,docs/kanban/done/VM-551-gate-b1-placement-instrument-design.md"
     },
     {
       "name": "explicit high-risk and insufficient coverage",
@@ -262,17 +276,16 @@
     "docs/kanban/board.md",
     "docs/kanban/in-progress/VM-551-gate-b1-placement-instrument-design.md",
     "docs/plans/vm551-gate-b1-placement-instrument/README.md",
+    "docs/plans/vm551-gate-b1-placement-instrument/answer-semantic-adjudication.tsv",
     "docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
     "docs/plans/vm551-gate-b1-placement-instrument/build-and-validate-design.mjs",
     "docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv",
-    "docs/plans/vm551-gate-b1-placement-instrument/migration-and-versioning-plan.md",
     "docs/plans/vm551-gate-b1-placement-instrument/owner-decisions.md",
     "docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv",
     "docs/plans/vm551-gate-b1-placement-instrument/player-validation-plan.md",
     "docs/plans/vm551-gate-b1-placement-instrument/validation-record.json",
-    "docs/handoffs/2026-08-04-0747-codex-vm551-gate-b1-owner-review-closeout.md",
-    "docs/plans/vm551-gate-b1-placement-instrument/answer-semantic-adjudication.tsv",
-    "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
+    "docs/handoffs/2026-08-04-1807-codex-vm551-gate-b1-answer-semantic-owner-decisions.md",
+    "docs/kanban/done/VM-551-gate-b1-placement-instrument-design.md"
   ],
   "boundaries": [
     "No live or Gate A file is written.",

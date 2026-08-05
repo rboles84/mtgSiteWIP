@@ -1,6 +1,6 @@
 # VM-551 Gate B1 Real-Player Validation Plan
 
-Status: protocol design only. Recruitment, data collection, implementation, and consent handling require separate authorization.
+Status: Gate B1 semantic design is owner approved, but this remains protocol design only. Player-validation preparation, recruitment, data collection, implementation, and consent handling require separate authorization.
 
 ## Purpose
 

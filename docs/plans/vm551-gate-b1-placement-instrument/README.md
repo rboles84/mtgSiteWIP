@@ -1,6 +1,6 @@
 # VM-551 Gate B1 Placement Instrument Design
 
-Status: architecture owner approved; owner-directed question/terminology remediation and 106-answer semantic adjudication complete for owner review. Pilot implementation is not authorized.
+Status: Gate B1 semantic design owner approved after the six owner-directed signal corrections. Player-validation preparation requires separate authorization. Pilot implementation is not authorized.
 
 Base: 30bfe87171e4119a0bab1bb47318862c042977de
 
@@ -12,7 +12,7 @@ Worktree: C:\dev\voxmana.io-vm551-gate-b1-design
 
 Gate B1 proposes one smaller, layered Archscry instrument for the existing 37-identity architecture. It preserves the current Quick Reading presentation, Gate → Hall → Crucible progression, four mandatory Gate questions, two or three adaptive Hall questions, zero or one Crucible question, six-to-eight-question journey, Gate A public result states, dossier architecture, saved-result compatibility boundary, Matrix, recommendations, and downstream surfaces.
 
-The owner approved the 15-construct architecture and 34-item pool. The question bank has completed the directed enhancement and terminology pass, and all 106 proposed answers now have one documented semantic adjudication. This remains design evidence: substantive mapping recommendations still require owner review, structural coverage is not empirical validation, and no scoring, implementation, shadow test, recruitment, migration, or production cutover is authorized.
+The owner approved the 15-construct architecture, remediated 34-item pool, and answer semantics after six directed corrections. All 106 proposed answers have one documented semantic adjudication, with zero unresolved signal reviews. This remains design evidence: 37 directional Crucible mappings are non-scoring hypotheses that require eligible player evidence, structural coverage is not empirical validation, and no scoring, player-validation preparation or execution, implementation, shadow test, recruitment, migration, or production cutover is authorized.
 
 The pilot pool contains:
 
@@ -208,7 +208,9 @@ The registry has 15 active terms: 3 rules-defined, 9 community-standard, and 3 i
 
 Other controlled review values are documented in the TSV columns: `PASS`, `CLEAR`, `CONCERN`, `REMEDIATED`, `VERIFIED-OR-REMEDIATED`, `NONE`, `OWNER-REVIEW`, `BOUNDED-DIRECT-BOUNDARY`, `PROVISIONAL-NONSCORING`, `PLAYER-EVIDENCE-REQUIRED`, `SUBSTANTIVE-REVIEW-REQUIRED`, and `YES`/`NO`.
 
-Current dispositions are 33 `APPROVE`, 7 `REWORD`, 28 `METADATA_CORRECTION`, 6 `SIGNAL_REVIEW_REQUIRED`, 0 `REPLACE`, and 32 `EVIDENCE_REQUIRED`. Every answer remains non-scoring. The six signal-review rows and all evidence-required Crucible rows are proposals for owner review, not validated mappings.
+Current dispositions are 33 `APPROVE`, 8 `REWORD`, 28 `METADATA_CORRECTION`, 0 `SIGNAL_REVIEW_REQUIRED`, 0 `REPLACE`, and 37 `EVIDENCE_REQUIRED`. Every answer remains non-scoring. The six owner-directed corrections are incorporated: the Hall replacement now records an opponent-commitment C08 window, and the five corrected Crucible answers join the 32 previously evidence-required rows as provisional identity-boundary hypotheses.
+
+Owner approval accepts wording, construct presentation, and retention of the evidence-required rows for future validation. It does not establish that any identity mapping is true and does not authorize weights, scoring, implementation, recruitment, shadow testing, migration, deployment, or production use.
 
 ## Identity and confusion coverage
 
@@ -312,4 +314,4 @@ No scoring implementation or live-data modification occurred.
 
 ## Stop
 
-Stop for owner review of the remediated 34-question bank, the 106-row answer semantic adjudication, and the substantive signal/mapping recommendations. Do not prepare player validation or implement the pilot.
+Gate B1 semantic design is owner approved. Stop before player-validation preparation, which requires separate authorization. Do not implement the pilot.

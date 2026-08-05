@@ -43,8 +43,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-551 — Gate B1 Archscry Placement Instrument Redesign](in-progress/VM-551-gate-b1-placement-instrument-design.md) - architecture owner approved; owner-directed question/terminology remediation and 106-row answer semantic adjudication complete for owner review, with six substantive signal decisions and 32 evidence-required Crucible mappings still gated; 15 constructs, 4/12/18 pool, 6–8-question route, all-37 coverage, and Gate A/live placement/runtime/data remain frozen.
-
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 
 ## Blocked
@@ -54,6 +52,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 ## Done
 
 Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. `VM-197` also has a user-declared Abzan stack duplicate while preserving the existing Alara VM-197 card. `VM-215` has a manual-QA Abzan repair duplicate; the former Jeskai VM-215 through VM-220 reservation was repaired to VM-229 through VM-234 on 2026-05-31.
+
+- [VM-551 — Gate B1 Archscry Placement Instrument Redesign](done/VM-551-gate-b1-placement-instrument-design.md) - semantic design owner approved after all six answer-signal corrections; 15 constructs, 4/12/18 pool, 106 non-scoring contracts, 37 evidence-required identity hypotheses, all-37 structural coverage, and zero unresolved signal reviews; stopped before separately authorized player-validation preparation, with pilot implementation and every Gate A/live/runtime/data surface untouched.
 
 VM-429 Section 14 ID reconciliation, 2026-06-30: the early readiness plan expected route metadata as `VM-448` and public demo / strategic case study as `VM-449`, but final ID assignment shifted after intervening queue work. In the final handoff trail, `VM-448` is Critical Browser E2E Smoke and `VM-449` is Maze Return Loop Microcopy Tightening; both are complete. The originally expected route metadata and public demo / strategic case-study scopes were completed as `VM-451` and `VM-452`. VM-458 later moved VM-422/VM-446 to backlog; live private deck-link behavior remains not production-proven.
 
