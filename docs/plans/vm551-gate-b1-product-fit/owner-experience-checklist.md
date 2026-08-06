@@ -2,6 +2,14 @@
 
 Review the question route and result walkthroughs as an owner experience, not as proof of scoring or identity accuracy.
 
+## Owner approvals already incorporated
+
+- [x] Exact prompt-only tunes for `b1.gate.initiative.v1`, `b1.gate.tempo.v1`, and `b1.crucible.wb.v1`.
+- [x] Result order: observations, primary identity, nearby alternative, distinction, limitation, Commander discovery direction, Vox Mana next step.
+- [x] `PARTIAL` and `GAP` prototype presentation only with visible limitation and missing value and no accuracy claim.
+- [x] Player Atlas enrichment only behind **Deepen this reading**.
+- [x] Five walkthroughs as the hands-on owner-review set.
+
 ## Questions
 
 - [ ] Does every prompt describe a decision or state recognizable in Commander?
@@ -12,7 +20,7 @@ Review the question route and result walkthroughs as an owner experience, not as
 - [ ] Is any option framed as more admirable, skilled, social, or correct?
 - [ ] Does every conditional answer represent a genuinely deck-dependent distinction?
 - [ ] Does each Crucible item stay within one approved construct?
-- [ ] Do the three proposed prompt tunes improve clarity without changing answer meaning?
+- [ ] Do the three incorporated prompt tunes improve clarity without changing answer meaning?
 - [ ] Does the six-to-eight-question ceiling feel shorter and clearer than the EDHMatch benchmark?
 
 ## Results

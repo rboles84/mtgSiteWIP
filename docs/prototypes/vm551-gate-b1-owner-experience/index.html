@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gate B1 Owner Experience Prototype</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#prototype">Skip to prototype</a>
+  <header class="site-header">
+    <div class="brand-lockup" aria-label="Vox Mana Archscry review">
+      <span class="brand-mark" aria-hidden="true">◇</span>
+      <div>
+        <p class="eyebrow">Vox Mana · Archscry</p>
+        <p class="brand-title">Gate B1 owner experience</p>
+      </div>
+    </div>
+    <span class="review-chip">Documentation prototype</span>
+  </header>
+
+  <main id="prototype">
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">A bounded reading, made inspectable</p>
+      <h1 id="page-title">Can the new Archscry instrument feel clear before it is calculated?</h1>
+      <p class="hero-copy">Review the approved six-to-eight-question experience, inspect all question contracts, and examine the usefulness limits for every identity.</p>
+      <div class="hard-notice" role="note">
+        <strong>Owner review simulation — not a calculated placement.</strong>
+        <span>This prototype does not calculate placement. It demonstrates the approved question and result experience using authored review scenarios.</span>
+      </div>
+    </section>
+
+    <nav class="mode-nav" aria-label="Prototype modes">
+      <button class="mode-button is-active" type="button" data-mode="guided" aria-pressed="true">Guided walkthrough</button>
+      <button class="mode-button" type="button" data-mode="questions" aria-pressed="false">Question explorer</button>
+      <button class="mode-button" type="button" data-mode="results" aria-pressed="false">Result explorer</button>
+    </nav>
+
+    <section class="review-toolbar" aria-label="Review controls">
+      <label class="toggle-row">
+        <input id="reviewer-toggle" type="checkbox">
+        <span>Show reviewer information</span>
+      </label>
+      <p id="mode-caption">Five explicitly authored journeys. Your selections are for experience review and do not change the preauthored result.</p>
+    </section>
+
+    <div id="app" class="app-shell" aria-live="polite">
+      <p class="loading">Opening the review instrument…</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>VM-551 Gate B1 · Static owner-review artifact · No production connection</p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

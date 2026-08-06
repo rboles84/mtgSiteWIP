@@ -145,7 +145,7 @@
     {
       "name": "all jargon references resolve",
       "status": "PASS",
-      "observed": 44
+      "observed": 45
     },
     {
       "name": "all glossary rows used",
@@ -213,6 +213,11 @@
       "observed": "4 Gate + 3 Hall + 1 Crucible"
     },
     {
+      "name": "three owner-approved prompt tunes exact",
+      "status": "PASS",
+      "observed": "3/3"
+    },
+    {
       "name": "six owner signal resolutions incorporated",
       "status": "PASS",
       "observed": "6/6"
@@ -228,9 +233,79 @@
       "observed": 37
     },
     {
+      "name": "prototype core counts",
+      "status": "PASS",
+      "observed": "15/34/106/37"
+    },
+    {
+      "name": "prototype stage counts",
+      "status": "PASS",
+      "observed": "4/12/18"
+    },
+    {
+      "name": "prototype unique IDs",
+      "status": "PASS",
+      "observed": "34/106/37"
+    },
+    {
+      "name": "prototype stable answer provenance",
+      "status": "PASS",
+      "observed": 106
+    },
+    {
+      "name": "prototype answer semantics unchanged",
+      "status": "PASS",
+      "observed": 106
+    },
+    {
+      "name": "prototype five walkthroughs",
+      "status": "PASS",
+      "observed": 5
+    },
+    {
+      "name": "prototype route composition",
+      "status": "PASS",
+      "observed": "[{\"id\":\"simic-quandrix\",\"total\":7,\"Gate\":4,\"Hall\":2,\"Crucible\":1},{\"id\":\"white\",\"total\":8,\"Gate\":4,\"Hall\":3,\"Crucible\":1},{\"id\":\"bant\",\"total\":8,\"Gate\":4,\"Hall\":3,\"Crucible\":1},{\"id\":\"colorless\",\"total\":8,\"Gate\":4,\"Hall\":3,\"Crucible\":1},{\"id\":\"wubrg\",\"total\":8,\"Gate\":4,\"Hall\":3,\"Crucible\":1}]"
+    },
+    {
+      "name": "prototype route IDs resolve",
+      "status": "PASS",
+      "observed": 39
+    },
+    {
+      "name": "prototype result statuses match source",
+      "status": "PASS",
+      "observed": 37
+    },
+    {
+      "name": "prototype PARTIAL and GAP missing value preserved",
+      "status": "PASS",
+      "observed": 22
+    },
+    {
+      "name": "prototype exact prompt tunes",
+      "status": "PASS",
+      "observed": "3/3"
+    },
+    {
+      "name": "product-fit tune rows closed",
+      "status": "PASS",
+      "observed": 3
+    },
+    {
+      "name": "prototype contains no scoring value fields",
+      "status": "PASS",
+      "observed": "none"
+    },
+    {
+      "name": "prototype source references present",
+      "status": "PASS",
+      "observed": 9
+    },
+    {
       "name": "documentation-only changed paths",
       "status": "PASS",
-      "observed": "docs/handoffs/HANDOFF_INDEX.md,docs/kanban/board.md,docs/kanban/in-progress/VM-551-gate-b1-placement-instrument-design.md,docs/plans/vm551-gate-b1-placement-instrument/README.md,docs/plans/vm551-gate-b1-placement-instrument/answer-semantic-adjudication.tsv,docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv,docs/plans/vm551-gate-b1-placement-instrument/build-and-validate-design.mjs,docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv,docs/plans/vm551-gate-b1-placement-instrument/owner-decisions.md,docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv,docs/plans/vm551-gate-b1-placement-instrument/player-validation-plan.md,docs/plans/vm551-gate-b1-placement-instrument/validation-record.json,docs/handoffs/2026-08-04-1807-codex-vm551-gate-b1-answer-semantic-owner-decisions.md,docs/kanban/done/VM-551-gate-b1-placement-instrument-design.md"
+      "observed": "docs/handoffs/HANDOFF_INDEX.md,docs/kanban/board.md,docs/plans/vm551-gate-b1-placement-instrument/answer-semantic-adjudication.tsv,docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv,docs/plans/vm551-gate-b1-placement-instrument/build-and-validate-design.mjs,docs/plans/vm551-gate-b1-placement-instrument/confusion-pair-coverage.tsv,docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv,docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv,docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv,docs/plans/vm551-gate-b1-placement-instrument/owner-decisions.md,docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv,docs/plans/vm551-gate-b1-placement-instrument/question-bank-inventory.tsv,docs/plans/vm551-gate-b1-placement-instrument/validation-record.json,docs/plans/vm551-gate-b1-product-fit/README.md,docs/plans/vm551-gate-b1-product-fit/owner-experience-checklist.md,docs/plans/vm551-gate-b1-product-fit/question-product-fit-review.tsv,docs/handoffs/2026-08-05-2232-codex-vm551-gate-b1-owner-experience-prototype.md,docs/kanban/done/VM-551-gate-b1-owner-experience-prototype.md,docs/prototypes/"
     },
     {
       "name": "explicit high-risk and insufficient coverage",
@@ -274,18 +349,23 @@
   "changed_paths": [
     "docs/handoffs/HANDOFF_INDEX.md",
     "docs/kanban/board.md",
-    "docs/kanban/in-progress/VM-551-gate-b1-placement-instrument-design.md",
-    "docs/plans/vm551-gate-b1-placement-instrument/README.md",
     "docs/plans/vm551-gate-b1-placement-instrument/answer-semantic-adjudication.tsv",
     "docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
     "docs/plans/vm551-gate-b1-placement-instrument/build-and-validate-design.mjs",
+    "docs/plans/vm551-gate-b1-placement-instrument/confusion-pair-coverage.tsv",
     "docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv",
+    "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv",
+    "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv",
     "docs/plans/vm551-gate-b1-placement-instrument/owner-decisions.md",
     "docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv",
-    "docs/plans/vm551-gate-b1-placement-instrument/player-validation-plan.md",
+    "docs/plans/vm551-gate-b1-placement-instrument/question-bank-inventory.tsv",
     "docs/plans/vm551-gate-b1-placement-instrument/validation-record.json",
-    "docs/handoffs/2026-08-04-1807-codex-vm551-gate-b1-answer-semantic-owner-decisions.md",
-    "docs/kanban/done/VM-551-gate-b1-placement-instrument-design.md"
+    "docs/plans/vm551-gate-b1-product-fit/README.md",
+    "docs/plans/vm551-gate-b1-product-fit/owner-experience-checklist.md",
+    "docs/plans/vm551-gate-b1-product-fit/question-product-fit-review.tsv",
+    "docs/handoffs/2026-08-05-2232-codex-vm551-gate-b1-owner-experience-prototype.md",
+    "docs/kanban/done/VM-551-gate-b1-owner-experience-prototype.md",
+    "docs/prototypes/"
   ],
   "boundaries": [
     "No live or Gate A file is written.",

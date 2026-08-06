@@ -6,6 +6,8 @@ Structural placement architecture is already approved. This pass evaluates clari
 
 This is a documentation-only recommendation pass over the owner-approved Gate B1 semantic design at `f44382271f94e9832526bbc10313f0f8c38533b9`. The approved 15 constructs, 34 questions, 106 answer contracts, stable IDs, answer meanings, signal mappings, evidence-required statuses, six-to-eight-question route, 37 identities, and 123 confusion pairs remain frozen.
 
+Owner review has since approved all three prompt-only light tunes, the result sequence, conditional `PARTIAL`/`GAP` prototyping, Player Atlas enrichment behind **Deepen this reading**, and the five representative walkthroughs. The three prompt strings are now incorporated without changing constructs, answers, signals, mappings, hypotheses, exclusions, limitations, counts, or confusion coverage. A static owner-experience prototype demonstrates those decisions; it remains non-calculating and non-production.
+
 ## Narrow objective
 
 Determine whether the approved instrument:
@@ -52,27 +54,29 @@ The three refined directories contain 81 physical files and 81 unique exact SHA-
 5. Result usefulness is uneven: 15 guild/college identities have Atlas-supported identity lenses and explicit boundaries; 17 identities can support a useful but incomplete result; 5 currently lack enough distinct placement explanation or evidence to be presented without a visible gap.
 6. A result can exceed a type label by exposing the observation trace, plausible alternative, separating observation, limitation, Commander direction, and dossier/Matrix/Maze next step. It must not imply a psychographic diagnosis.
 
-## Recommended content changes
+## Owner-approved prompt changes
 
-Recommend three owner-reviewed prompt-only light tunes, with no ID, answer, construct, mapping, or identity-support change:
+The owner approved these three prompt-only light tunes, with no ID, answer, construct, mapping, or identity-support change:
 
 - `b1.gate.initiative.v1`: replace abstract “normal turn” framing with an open Commander turn and no urgent threat.
 - `b1.gate.tempo.v1`: replace “when your deck is working” with “when your Commander deck is doing what you built it to do.”
 - `b1.crucible.wb.v1`: name an immediate shared table problem so “cost-bearing terms” and “current influence without future obligation” are easier to distinguish.
 
-Exact proposed wording and evidence are in `question-product-fit-review.tsv`. Do not apply these tunes without owner approval and separately authorized semantic-file work.
+Exact wording and evidence are in `question-product-fit-review.tsv`. They have been applied to the authoritative question bank and its documentation generator. The added help for the ordinary Commander term “threat” uses the existing glossary authority.
 
 ## Explicitly out of scope
 
 No scoring, weights, identity validation, routing, stopping, prototype, live question edit, answer edit, player recruitment, validation execution, shadow test, migration, saved-result reinterpretation, result UI change, dossier edit, Matrix edit, recommendation change, Gate A work, production verification, deployment, or certification occurred.
 
-## Remaining owner decisions
+## Owner decisions recorded
 
-1. Approve, reject, or revise each of the three exact prompt tunes.
-2. Decide whether `PARTIAL` and `GAP` result states may enter later experience prototyping with their limitations visible, or must wait for stronger identity evidence.
-3. Approve the post-result explanation order: observations → primary identity → nearby alternative → distinction → limitation → discovery path.
-4. Decide whether optional profile enrichment appears inline after the limitation or only behind a “deepen this reading” action.
-5. Confirm that the five walkthroughs are sufficient to judge owner experience before any player-validation preparation.
+1. All three exact prompt tunes are approved and incorporated.
+2. `PARTIAL` and `GAP` identities may appear in the owner prototype only with visible limitations and missing-value statements; no accuracy claim is allowed.
+3. The result sequence is approved: observations → primary identity → nearby alternative → distinction → limitation → Commander discovery direction → Vox Mana next step.
+4. Optional Player Atlas enrichment appears only behind **Deepen this reading** and remains conditional.
+5. The five walkthroughs are approved as the hands-on owner-review set.
+
+Hands-on disposition of the prototype remains pending. Player-validation preparation and pilot implementation remain separately gated and unauthorized.
 
 ## File inventory
 

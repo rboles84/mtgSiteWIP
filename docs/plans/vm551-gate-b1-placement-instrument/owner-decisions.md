@@ -123,8 +123,22 @@ The five corrected directional Crucible answers remain identity-association hypo
 
 Approval scope: wording and construct presentation only. It does not authorize weights, scoring, implementation, player recruitment, player-validation preparation or execution, shadow testing, migration, deployment, production use, or certification.
 
+## Product-fit prompt decisions
+
+Owner decision: approve and incorporate these prompt-only changes:
+
+- `b1.gate.initiative.v1`: `Your turn begins, no urgent threat needs an answer, and you have enough mana to act. What feels best?`
+- `b1.gate.tempo.v1`: `When your Commander deck is doing what you built it to do, how do you want the advantage to arrive?`
+- `b1.crucible.wb.v1`: `A table deal could solve the immediate problem facing both you and another player. What makes it worth accepting?`
+
+The changes preserve every question and answer ID, construct, dependency group, observation, signal, identity hypothesis, exclusion, limitation, evidence-required status, count, and confusion pair. Because the initiative prompt uses the ordinary Commander term “threat,” it now resolves to the existing `JRG_THREAT` help and authority.
+
+Owner decision: approve the result sequence `what answers showed → primary identity → nearby alternative → observable distinction → honest limitation → Commander discovery direction → Vox Mana next step`; place Player Atlas enrichment behind **Deepen this reading**; and permit `PARTIAL` or `GAP` identities in the owner prototype only when missing value and limitations remain visible and no accuracy claim is made.
+
+Approval scope: prompt wording and static owner-experience prototyping only. It does not authorize calculated placement, scoring, implementation, player recruitment, player-validation preparation or execution, shadow testing, migration, deployment, production use, or certification.
+
 ## Current disposition
 
-The architecture, 15-construct scope, remediated 34-item pool, and corrected answer semantics are owner approved. All six signal decisions are resolved, zero rows remain `SIGNAL_REVIEW_REQUIRED`, and 37 directional Crucible mappings remain `EVIDENCE_REQUIRED`. No answer is scoring-authorized.
+The architecture, 15-construct scope, remediated 34-item pool, corrected answer semantics, and three product-fit prompt tunes are owner approved. All six signal decisions are resolved, zero rows remain `SIGNAL_REVIEW_REQUIRED`, and 37 directional Crucible mappings remain `EVIDENCE_REQUIRED`. No answer is scoring-authorized.
 
 Gate B1 semantic design may advance only to a separately authorized player-validation preparation phase. That phase has not been authorized. Pilot implementation remains unauthorized.

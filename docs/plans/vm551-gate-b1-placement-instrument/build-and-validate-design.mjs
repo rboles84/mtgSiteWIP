@@ -34,6 +34,15 @@ function list(value) {
   catch { return []; }
 }
 
+function tsv(text) {
+  const lines = text.replace(/^\uFEFF/, "").trimEnd().split(/\r?\n/);
+  const heads = lines.shift().split("\t");
+  return lines.filter(Boolean).map((line) => {
+    const cells = line.split("\t");
+    return Object.fromEntries(heads.map((head, index) => [head, cells[index] ?? ""]));
+  });
+}
+
 const evidence = {
   "E-AUDIT": "docs/audits/vm551-placement-system question/answer/signal/distinctiveness/sensitivity artifacts",
   "E-CECOS": "exact CECOS draft.4 object 947bf45bf6a191839b5fb4fa6c65980ed9d5737e",
@@ -67,7 +76,7 @@ const C = [
 const opt = (key,title,copy,observation,suffix,kind="directional") => ({key,title,copy,observation,suffix,kind});
 const q = (id,stage,construct,prompt,scope,evidenceIds,askWhen,doNotAskWhen,glossary,options) => ({id,stage,construct,prompt,scope,evidenceIds,askWhen,doNotAskWhen,glossary,options});
 const Q = [
-  q("b1.gate.initiative.v1","Gate","C01","On a normal turn when no one is forcing your hand, what feels best?","all identities","E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS","Always; Gate 1.","Never use alone for identity support.","",[
+  q("b1.gate.initiative.v1","Gate","C01","Your turn begins, no urgent threat needs an answer, and you have enough mana to act. What feels best?","all identities","E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS","Always; Gate 1.","Never use alone for identity support.","",[
     opt("advance","Set the pace","Commit resources to my plan and make the table respond.","Prefers proactive development on an open turn.","PROACTIVE"),
     opt("balance","Advance with a safeguard","Develop my plan while keeping one practical answer.","Prefers mixed development with bounded response.","BALANCED"),
     opt("respond","Keep options open","Wait, watch the turn develop, and answer the important move.","Prefers reactive optionality on an open turn.","REACTIVE"),
@@ -82,7 +91,7 @@ const Q = [
     opt("recover","A way to rebuild","The board can go if hand or graveyard resources restore it.","Prefers recovery after broad disruption.","RECOVER"),
     opt("limit","Less exposed in the first place","Commit fewer important pieces before the wipe.","Prefers reduced exposure to broad disruption.","LIMIT_EXPOSURE"),
     opt("depends","No usual answer","Preparation changes too much with the deck and known cards.","Reports scenario-conditionality.","CONDITIONAL","conditional")]),
-  q("b1.gate.tempo.v1","Gate","C04","When your deck is working, how do you want the advantage to arrive?","all identities","E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS","Always; Gate 4.","Do not infer game length or ending mode.","",[
+  q("b1.gate.tempo.v1","Gate","C04","When your Commander deck is doing what you built it to do, how do you want the advantage to arrive?","all identities","E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS","Always; Gate 4.","Do not infer game length or ending mode.","",[
     opt("small","A little every turn","Repeated small gains keep the deck moving.","Prefers incremental advantage.","INCREMENTAL"),
     opt("burst","One turn that changes the game","Prepare for a concentrated payoff.","Prefers a concentrated payoff turn.","CONCENTRATED"),
     opt("waves","Several distinct surges","Build, spend momentum, and build again.","Prefers cyclical advantage.","CYCLICAL"),
@@ -151,7 +160,7 @@ const Q = [
     opt("adapt","Several overlapping engines","Different groups of pieces can each keep producing value if another group is disrupted.","Prefers modular overlapping engines.","MODULAR"),
     opt("scale","One central engine","Most pieces strengthen one main engine that compounds value over time.","Accepts a concentrated central engine.","CENTRAL"),
     opt("neither","My engine uses another structure","Neither a central engine nor several overlapping engines describes the plan.","Rejects the proposed UG-family distinction.","UNKNOWN","unknown")]),
-  q("b1.crucible.wb.v1","Crucible","C13","Before a risky table deal, what makes the agreement useful?","WB vs SILVERQUILL","E-CERTIFIED;E-PLAYER-PACE;E-AUDIT;E-CECOS","Ask only when WB/SILVERQUILL remain close.","Record unknown without relevant deal experience.","Table deal means a spoken agreement between players.",[
+  q("b1.crucible.wb.v1","Crucible","C13","A table deal could solve the immediate problem facing both you and another player. What makes it worth accepting?","WB vs SILVERQUILL","E-CERTIFIED;E-PLAYER-PACE;E-AUDIT;E-CECOS","Ask only when WB/SILVERQUILL remain close.","Record unknown without relevant deal experience.","Table deal means a spoken agreement between players.",[
     opt("terms","The terms carry a cost","Obligations, consequences, or exchange terms remain clear.","Prefers obligation-centered commitment.","DURABLE"),
     opt("influence","Change the situation now","The agreement changes the current table situation without binding anyone's later choices.","Prefers an influence-centered agreement that changes the current situation without binding later choices.","REVISABLE"),
     opt("neither","I avoid that kind of deal","I lack enough experience or preference.","Reports missing experience.","UNKNOWN","unknown")]),
@@ -231,6 +240,7 @@ const J = [
 ];
 
 const questionJargonIds = {
+  "b1.gate.initiative.v1":["JRG_THREAT"],
   "b1.gate.visibility.v1":["JRG_BOARD","JRG_PERMANENT"],
   "b1.gate.disruption.v1":["JRG_BOARD_WIPE","JRG_BOARD","JRG_GRAVEYARD"],
   "b1.hall.engine-shape.v1":["JRG_ENGINE"],
@@ -526,6 +536,29 @@ const loadBearingJargon = [
   [/\bpermanents?\b/i,"JRG_PERMANENT"],[/\bgraveyard\b/i,"JRG_GRAVEYARD"],[/\btheme\b/i,"JRG_THEME"],
   [/\bthreat\b/i,"JRG_THREAT"],[/\bcolor roles\b/i,"JRG_COLOR_ROLES"],[/\bpublic commitment\b/i,"JRG_PUBLIC_COMMITMENT"]
 ];
+const prototype = JSON.parse(read("docs/prototypes/vm551-gate-b1-owner-experience/prototype-data.json"));
+const prototypeQuestionById = new Map(prototype.questions.map((question) => [question.id, question]));
+const prototypeAnswerRows = prototype.questions.flatMap((question) => question.answers);
+const prototypeAnswerById = new Map(prototypeAnswerRows.map((answer) => [answer.id, answer]));
+const productFitResults = tsv(read("docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"));
+const productFitQuestions = tsv(read("docs/plans/vm551-gate-b1-product-fit/question-product-fit-review.tsv"));
+const productResultById = new Map(productFitResults.map((result) => [result.identity_id, result]));
+const routeShape = prototype.walkthroughs.map((walkthrough) => {
+  const questions = walkthrough.steps.map((step) => prototypeQuestionById.get(step.questionId));
+  const stages = count(questions.map((question) => question?.stage));
+  return { id:walkthrough.id, total:questions.length, Gate:stages.Gate||0, Hall:stages.Hall||0, Crucible:stages.Crucible||0 };
+});
+const forbiddenPrototypeValueKeys = [];
+const visitPrototype = (value, pathParts=[]) => {
+  if (!value || typeof value !== "object") return;
+  for (const [key, child] of Object.entries(value)) {
+    const next = [...pathParts,key];
+    if (/^(weight|weights|points|score|scores|probability|probabilities)$/i.test(key)) forbiddenPrototypeValueKeys.push(next.join("."));
+    if (/confidence/i.test(key) && typeof child === "number") forbiddenPrototypeValueKeys.push(next.join("."));
+    visitPrototype(child,next);
+  }
+};
+visitPrototype(prototype);
 const checks = [
   ["113 current questions",qAudit.length===113,qAudit.length],["356 current answers",aAudit.length===356,aAudit.length],
   ["15 constructs",C.length===15,C.length],["34 pilot questions",Q.length===34,Q.length],
@@ -557,6 +590,10 @@ const checks = [
   ["C05 Bant commander-specific",Q.find((x)=>x.id==="b1.crucible.bant.v1").prompt.toLowerCase().includes("commander"),Q.find((x)=>x.id==="b1.crucible.bant.v1").prompt],
   ["C15 boundary-only",answers.filter((x)=>x.construct_id==="C15").every((x)=>x.exclusions.includes("Boundary evidence only")||x.scoring_status==="NON-DIRECTIONAL-NONSCORING"),answers.filter((x)=>x.construct_id==="C15").length],
   ["route hard maximum eight",4+3+1===8,"4 Gate + 3 Hall + 1 Crucible"],
+  ["three owner-approved prompt tunes exact",
+    Q.find((x)=>x.id==="b1.gate.initiative.v1").prompt==="Your turn begins, no urgent threat needs an answer, and you have enough mana to act. What feels best?" &&
+    Q.find((x)=>x.id==="b1.gate.tempo.v1").prompt==="When your Commander deck is doing what you built it to do, how do you want the advantage to arrive?" &&
+    Q.find((x)=>x.id==="b1.crucible.wb.v1").prompt==="A table deal could solve the immediate problem facing both you and another player. What makes it worth accepting?","3/3"],
   ["six owner signal resolutions incorporated",
     answerById.get("b1.hall.interaction-window.v1.pressure").primary_signal==="SIG_C08_COMMIT_WINDOW" &&
     !/preventive pressure/i.test(`${answerById.get("b1.hall.interaction-window.v1.pressure").answer_title} ${answerById.get("b1.hall.interaction-window.v1.pressure").explanatory_sentence} ${answerById.get("b1.hall.interaction-window.v1.pressure").plain_language_observation}`) &&
@@ -573,6 +610,23 @@ const checks = [
     /interchangeable conversion pieces.*indispensable engine/i.test(answerById.get("b1.crucible.witch-yore.v1.convert").plain_language_observation),"6/6"],
   ["no unresolved signal reviews",semanticReviews.every((x)=>x.review_disposition!=="SIGNAL_REVIEW_REQUIRED"),semanticReviews.filter((x)=>x.review_disposition==="SIGNAL_REVIEW_REQUIRED").length],
   ["evidence-required hypotheses remain non-scoring",semanticReviews.filter((x)=>x.review_disposition==="EVIDENCE_REQUIRED").length===37&&semanticReviews.filter((x)=>x.review_disposition==="EVIDENCE_REQUIRED").every((x)=>answerById.get(x.answer_id).scoring_status==="PILOT-HYPOTHESIS-NONSCORING"),semanticReviews.filter((x)=>x.review_disposition==="EVIDENCE_REQUIRED").length],
+  ["prototype core counts",prototype.counts.constructs===15&&prototype.questions.length===34&&prototypeAnswerRows.length===106&&prototype.results.length===37,`${prototype.counts.constructs}/${prototype.questions.length}/${prototypeAnswerRows.length}/${prototype.results.length}`],
+  ["prototype stage counts",prototype.counts.stages.Gate===4&&prototype.counts.stages.Hall===12&&prototype.counts.stages.Crucible===18,`${prototype.counts.stages.Gate}/${prototype.counts.stages.Hall}/${prototype.counts.stages.Crucible}`],
+  ["prototype unique IDs",new Set(prototype.questions.map((question)=>question.id)).size===34&&new Set(prototypeAnswerRows.map((answer)=>answer.id)).size===106&&new Set(prototype.results.map((result)=>result.id)).size===37,"34/106/37"],
+  ["prototype stable answer provenance",prototypeAnswerRows.every((answer)=>answer.id&&answer.sourceRef&&answer.evidence&&answer.status&&answer.limitation),prototypeAnswerRows.length],
+  ["prototype answer semantics unchanged",answers.every((answer)=>{
+    const candidate=prototypeAnswerById.get(answer.answer_id);
+    return candidate&&candidate.observation===answer.plain_language_observation&&candidate.primarySignal===answer.primary_signal&&candidate.secondarySignal===(answer.optional_bounded_secondary_signal||null)&&candidate.dependencyGroup===answer.dependency_group&&candidate.exclusions===answer.exclusions&&candidate.evidence===answer.evidence_provenance&&candidate.mappingConfidence===answer.mapping_confidence&&candidate.status===answer.scoring_status&&candidate.limitation===answer.limitation_statement;
+  }),prototypeAnswerRows.length],
+  ["prototype five walkthroughs",prototype.walkthroughs.length===5&&new Set(prototype.walkthroughs.map((walkthrough)=>walkthrough.id)).size===5,prototype.walkthroughs.length],
+  ["prototype route composition",routeShape.every((route)=>route.Gate===4&&[2,3].includes(route.Hall)&&[0,1].includes(route.Crucible)&&route.total>=6&&route.total<=8),JSON.stringify(routeShape)],
+  ["prototype route IDs resolve",prototype.walkthroughs.every((walkthrough)=>walkthrough.steps.every((step)=>prototypeQuestionById.has(step.questionId)&&prototypeAnswerById.has(step.selectedAnswerId)&&prototypeAnswerById.get(step.selectedAnswerId).id.startsWith(`${step.questionId}.`))),prototype.walkthroughs.reduce((total,walkthrough)=>total+walkthrough.steps.length,0)],
+  ["prototype result statuses match source",prototype.results.every((result)=>productResultById.get(result.id)?.usefulness_status===result.status),prototype.results.length],
+  ["prototype PARTIAL and GAP missing value preserved",prototype.results.filter((result)=>result.status!=="READY").every((result)=>result.missingValue&&result.missingValue===productResultById.get(result.id)?.missing_value),prototype.results.filter((result)=>result.status!=="READY").length],
+  ["prototype exact prompt tunes",["b1.gate.initiative.v1","b1.gate.tempo.v1","b1.crucible.wb.v1"].every((id)=>prototypeQuestionById.get(id)?.prompt===Q.find((question)=>question.id===id)?.prompt),"3/3"],
+  ["product-fit tune rows closed",productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_APPROVED_TUNE_APPLIED").length===3&&productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_APPROVED_TUNE_APPLIED").every((question)=>question.owner_review_required==="NO"),productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_APPROVED_TUNE_APPLIED").length],
+  ["prototype contains no scoring value fields",forbiddenPrototypeValueKeys.length===0,forbiddenPrototypeValueKeys.join(",")||"none"],
+  ["prototype source references present",prototype.metadata.sourceRefs.length===9&&prototype.questions.every((question)=>question.sourceRef&&question.productFit.sourceRef)&&prototype.results.every((result)=>result.sourceRef)&&prototype.walkthroughs.every((walkthrough)=>walkthrough.sourceRef),prototype.metadata.sourceRefs.length],
   ["documentation-only changed paths",documentationOnly,changedPaths.join(",")||"clean"],
   ["explicit high-risk and insufficient coverage",["BANT","GRIXIS","SULTAI","TEMUR","COLORLESS","ESPER","INK","JESKAI","LOREHOLD","UR","YORE"].every((x)=>(direct[x]||[]).length>0),11],
   ["exact confusion pairs represented",exactPairKeys.every((x)=>confusionKeys.has(x)),new Set(exactPairKeys).size],
