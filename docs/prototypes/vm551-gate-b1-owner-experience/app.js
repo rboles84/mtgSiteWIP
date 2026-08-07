@@ -27,6 +27,12 @@
   const selectedWalkthrough = () => byId(state.data.walkthroughs, state.walkthroughId);
   const questionForStep = (step) => byId(state.data.questions, step.questionId);
   const selectedAnswerForStep = (step) => state.selections[step.questionId] ?? null;
+  const selectedAnswerObjects = (walkthrough) => walkthrough.steps.map((step) => {
+    const question = questionForStep(step);
+    return question.answers.find((answer) => answer.id === selectedAnswerForStep(step));
+  }).filter(Boolean);
+  const matchesAuthoredRoute = (walkthrough) => walkthrough.steps.every((step) => selectedAnswerForStep(step) === step.selectedAnswerId);
+  const observedSummary = (walkthrough) => selectedAnswerObjects(walkthrough).map((answer) => answer.observation).join(" ");
 
   function setMode(mode) {
     state.mode = mode;
@@ -40,7 +46,7 @@
       ? "Five explicitly authored journeys. Your selections are for experience review and do not change the preauthored result."
       : mode === "questions"
         ? "All 34 approved questions. Player-facing answer copy stays separate from reviewer-only constructs, dependencies, signals, evidence, and limitations."
-        : "All 37 identities retain their READY, PARTIAL, or GAP usefulness status. Missing value remains visible.";
+      : "All 37 identities retain a CONTENT READY, CONTENT PARTIAL, or CONTENT GAP explanation status. These labels do not validate placement accuracy.";
     render();
   }
 
@@ -128,16 +134,21 @@
   }
 
   function resultSections(walkthrough, result, compact = false) {
-    const missing = result.missingValue
-      ? `<p class="missing-value"><strong>Missing value:</strong> ${escapeHtml(result.missingValue)}</p>`
+    const routeMatched = matchesAuthoredRoute(walkthrough);
+    const routeExplanation = routeMatched
+      ? walkthrough.routeSupportedDistinction
+      : "Your selections differ from the authored review path, so this static prototype does not claim that the preauthored identity distinction follows from them.";
+    const nearby = ["close", "mixed"].includes(walkthrough.state) && result.nearbyAlternative
+      ? `<section class="reading-block"><h3>A nearby path</h3><p>${escapeHtml(result.nearbyAlternative)}</p></section>`
       : "";
     return `
       <div class="reading-sections ${compact ? "is-compact" : ""}">
-        <section class="reading-block"><h3>What your answers showed</h3><p>${escapeHtml(walkthrough?.whatShown ?? result.whatAnswersShowed)}</p></section>
-        <section class="reading-block"><h3>Your reading</h3><p>${escapeHtml(result.whatAnswersShowed)}</p></section>
-        <section class="reading-block"><h3>A nearby path</h3><p>${escapeHtml(result.nearbyAlternative)}</p></section>
-        <section class="reading-block"><h3>What separated them</h3><p>${escapeHtml(result.observableDistinction)}</p></section>
-        <section class="reading-block is-limit"><h3>What this does not claim</h3><p>${escapeHtml(result.limitation)}</p>${missing}</section>
+        <section class="reading-block"><h3>What your answers showed</h3><p>${escapeHtml(observedSummary(walkthrough))}</p></section>
+        <section class="reading-block"><h3>Your reading</h3><p>${escapeHtml(walkthrough.stateNote)}</p></section>
+        ${nearby}
+        <section class="reading-block"><h3>${escapeHtml(walkthrough.routeSupportedHeading)}</h3><p>${escapeHtml(routeExplanation)}</p></section>
+        <section class="reading-block"><h3>Identity context</h3><p>${escapeHtml(walkthrough.identityContext)}</p></section>
+        <section class="reading-block is-limit"><h3>What this reading doesn’t settle</h3><p>${escapeHtml(walkthrough.publicLimitation)}</p></section>
         <section class="reading-block"><h3>Explore this in Commander</h3><p>${escapeHtml(result.commanderDirection)} ${escapeHtml(result.commanderExpression)} ${escapeHtml(result.archetypeLinks)}</p></section>
         <section class="reading-block"><h3>Continue through Vox Mana</h3><p>${escapeHtml(result.nextStep)} ${escapeHtml(result.dossierValue)}</p></section>
       </div>`;
@@ -147,7 +158,7 @@
     const result = walkthrough.result;
     return `
       <section class="result-panel" aria-labelledby="result-title">
-        <span class="status-chip status-${result.status.toLowerCase()}">${escapeHtml(result.status)} result package</span>
+        <span class="status-chip status-${result.status.toLowerCase()}">CONTENT ${escapeHtml(result.status)}</span>
         <p class="result-kicker">${escapeHtml(walkthrough.label)} · ${escapeHtml(walkthrough.state)} review state</p>
         <h2 id="result-title">${escapeHtml(resultHeading(walkthrough, result))}</h2>
         <p class="result-state-note"><strong>Owner review simulation — not a calculated placement.</strong> ${escapeHtml(walkthrough.stateNote)}</p>
@@ -160,7 +171,7 @@
           </div>
         </div>
         ${state.deepen ? `<aside class="deepen-panel"><strong>Optional reflective layer</strong><p>${escapeHtml(result.profileEnrichment)} This lens may help explain why the observed Commander pattern feels satisfying. It did not determine the authored result.</p></aside>` : ""}
-        ${state.reviewer ? `<aside class="reviewer-detail"><dl><dt>Gate A state</dt><dd>${escapeHtml(walkthrough.state)}</dd><dt>Usefulness status</dt><dd>${escapeHtml(result.status)}</dd><dt>Source</dt><dd>${escapeHtml(walkthrough.sourceRef)}; ${escapeHtml(result.sourceRef)}</dd><dt>Authored route</dt><dd>${walkthrough.steps.map((step) => escapeHtml(step.questionId)).join(" → ")}</dd></dl></aside>` : ""}
+        ${state.reviewer ? `<aside class="reviewer-detail"><p><strong>Content readiness describes whether the result explanation package is usable. It does not mean placement accuracy or identity mapping has been validated.</strong></p><dl><dt>Gate A state</dt><dd>${escapeHtml(walkthrough.state)}</dd><dt>Content readiness</dt><dd>${escapeHtml(result.status)}</dd><dt>Unresolved reviewer evidence</dt><dd>${escapeHtml(result.missingValue)}</dd><dt>Source</dt><dd>${escapeHtml(walkthrough.sourceRef)}; ${escapeHtml(result.sourceRef)}</dd><dt>Authored route</dt><dd>${walkthrough.steps.map((step) => escapeHtml(step.questionId)).join(" → ")}</dd></dl></aside>` : ""}
       </section>`;
   }
 
@@ -203,24 +214,24 @@
     return `
       <details class="result-card">
         <summary>
-          <span class="result-summary"><strong>${escapeHtml(result.name)}</strong><span class="status-chip status-${result.status.toLowerCase()}">${escapeHtml(result.status)}</span></span>
+          <span class="result-summary"><strong>${escapeHtml(result.name)}</strong>${result.subtitle ? `<span class="result-subtitle">${escapeHtml(result.subtitle)}</span>` : ""}<span class="status-chip status-${result.status.toLowerCase()}">CONTENT ${escapeHtml(result.status)}</span></span>
           <span class="card-id">${escapeHtml(result.id)}</span>
         </summary>
         <div class="explorer-content">
           <section class="reading-block"><h3>What your answers could show</h3><p>${escapeHtml(result.whatAnswersShowed)}</p></section>
           <section class="reading-block"><h3>A nearby path</h3><p>${escapeHtml(result.nearbyAlternative)}</p></section>
-          <section class="reading-block"><h3>What separates them</h3><p>${escapeHtml(result.observableDistinction)}</p></section>
-          <section class="reading-block is-limit"><h3>Honest limitation</h3><p>${escapeHtml(result.limitation)}</p>${result.missingValue ? `<p class="missing-value"><strong>Missing value:</strong> ${escapeHtml(result.missingValue)}</p>` : ""}</section>
+          <section class="reading-block"><h3>Current identity distinction</h3><p>${escapeHtml(result.observableDistinction)}</p></section>
+          <section class="reading-block is-limit"><h3>Honest limitation</h3><p>${escapeHtml(result.limitation)}</p></section>
           <section class="reading-block"><h3>Commander direction</h3><p>${escapeHtml(result.commanderDirection)} ${escapeHtml(result.commanderExpression)} ${escapeHtml(result.archetypeLinks)}</p></section>
           <section class="reading-block"><h3>Vox Mana next step</h3><p>${escapeHtml(result.nextStep)}</p></section>
-          ${state.reviewer ? `<aside class="reviewer-detail"><dl><dt>Table read</dt><dd>${escapeHtml(result.tableRead)}</dd><dt>Profile boundary</dt><dd>${escapeHtml(result.profileEnrichment)}</dd><dt>Dossier value</dt><dd>${escapeHtml(result.dossierValue)}</dd><dt>Source</dt><dd>${escapeHtml(result.sourceRef)}</dd></dl></aside>` : ""}
+          ${state.reviewer ? `<aside class="reviewer-detail"><p><strong>Content readiness describes whether the result explanation package is usable. It does not mean placement accuracy or identity mapping has been validated.</strong></p><dl><dt>Unresolved reviewer evidence</dt><dd>${escapeHtml(result.missingValue)}</dd><dt>Table read</dt><dd>${escapeHtml(result.tableRead)}</dd><dt>Profile boundary</dt><dd>${escapeHtml(result.profileEnrichment)}</dd><dt>Dossier value</dt><dd>${escapeHtml(result.dossierValue)}</dd><dt>Source</dt><dd>${escapeHtml(result.sourceRef)}</dd></dl></aside>` : ""}
         </div>
       </details>`;
   }
 
   function renderResults() {
     return `
-      <header class="explorer-head"><div><p class="eyebrow">Result explorer</p><h2>Useful where ready. Explicit where not.</h2></div><p>READY means the explanation package is usable with its limitation. It does not mean placement accuracy or identity mapping has been established.</p></header>
+      <header class="explorer-head"><div><p class="eyebrow">Result explorer</p><h2>Useful where ready. Explicit where not.</h2></div><p>Content readiness describes whether the result explanation package is usable. It does not mean placement accuracy or identity mapping has been validated.</p></header>
       <div class="result-grid">${state.data.results.map(resultCard).join("")}</div>`;
   }
 

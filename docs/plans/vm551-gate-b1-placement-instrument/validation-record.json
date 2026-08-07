@@ -145,7 +145,7 @@
     {
       "name": "all jargon references resolve",
       "status": "PASS",
-      "observed": 45
+      "observed": 41
     },
     {
       "name": "all glossary rows used",
@@ -213,6 +213,31 @@
       "observed": "4 Gate + 3 Hall + 1 Crucible"
     },
     {
+      "name": "owner remediation prompts exact",
+      "status": "PASS",
+      "observed": "8/8"
+    },
+    {
+      "name": "canonical novice-safe engine help",
+      "status": "PASS",
+      "observed": 4
+    },
+    {
+      "name": "no player-facing value-engine phrase",
+      "status": "PASS",
+      "observed": "none"
+    },
+    {
+      "name": "C15 imposed-versus-chosen boundary",
+      "status": "PASS",
+      "observed": "C15"
+    },
+    {
+      "name": "Colorless/WUBRG player copy does not reveal pair",
+      "status": "PASS",
+      "observed": "shared pair item"
+    },
+    {
       "name": "three owner-approved prompt tunes exact",
       "status": "PASS",
       "observed": "3/3"
@@ -268,6 +293,21 @@
       "observed": "[{\"id\":\"simic-quandrix\",\"total\":7,\"Gate\":4,\"Hall\":2,\"Crucible\":1},{\"id\":\"white\",\"total\":8,\"Gate\":4,\"Hall\":3,\"Crucible\":1},{\"id\":\"bant\",\"total\":8,\"Gate\":4,\"Hall\":3,\"Crucible\":1},{\"id\":\"colorless\",\"total\":8,\"Gate\":4,\"Hall\":3,\"Crucible\":1},{\"id\":\"wubrg\",\"total\":8,\"Gate\":4,\"Hall\":3,\"Crucible\":1}]"
     },
     {
+      "name": "prototype route exact-question hygiene",
+      "status": "PASS",
+      "observed": "[{\"id\":\"simic-quandrix\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"white\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"bant\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"colorless\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"wubrg\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true}]"
+    },
+    {
+      "name": "prototype route dependency hygiene",
+      "status": "PASS",
+      "observed": "[{\"id\":\"simic-quandrix\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"white\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"bant\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"colorless\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"wubrg\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true}]"
+    },
+    {
+      "name": "prototype route summaries match authored answers",
+      "status": "PASS",
+      "observed": "[{\"id\":\"simic-quandrix\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"white\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"bant\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"colorless\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"wubrg\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true}]"
+    },
+    {
       "name": "prototype route IDs resolve",
       "status": "PASS",
       "observed": 39
@@ -276,6 +316,31 @@
       "name": "prototype result statuses match source",
       "status": "PASS",
       "observed": 37
+    },
+    {
+      "name": "content readiness counts",
+      "status": "PASS",
+      "observed": "15/18/4"
+    },
+    {
+      "name": "Colorless and WUBRG content bounds",
+      "status": "PASS",
+      "observed": "PARTIAL/PARTIAL"
+    },
+    {
+      "name": "four-color subtitles",
+      "status": "PASS",
+      "observed": "5/5"
+    },
+    {
+      "name": "result truthfulness UI",
+      "status": "PASS",
+      "observed": "route observations/context/public limitation"
+    },
+    {
+      "name": "content readiness disclaimer",
+      "status": "PASS",
+      "observed": "present"
     },
     {
       "name": "prototype PARTIAL and GAP missing value preserved",
@@ -293,6 +358,11 @@
       "observed": 3
     },
     {
+      "name": "hands-on owner remediations recorded",
+      "status": "PASS",
+      "observed": 12
+    },
+    {
       "name": "prototype contains no scoring value fields",
       "status": "PASS",
       "observed": "none"
@@ -305,7 +375,7 @@
     {
       "name": "documentation-only changed paths",
       "status": "PASS",
-      "observed": "docs/handoffs/HANDOFF_INDEX.md,docs/kanban/board.md,docs/plans/vm551-gate-b1-placement-instrument/answer-semantic-adjudication.tsv,docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv,docs/plans/vm551-gate-b1-placement-instrument/build-and-validate-design.mjs,docs/plans/vm551-gate-b1-placement-instrument/confusion-pair-coverage.tsv,docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv,docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv,docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv,docs/plans/vm551-gate-b1-placement-instrument/owner-decisions.md,docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv,docs/plans/vm551-gate-b1-placement-instrument/question-bank-inventory.tsv,docs/plans/vm551-gate-b1-placement-instrument/validation-record.json,docs/plans/vm551-gate-b1-product-fit/README.md,docs/plans/vm551-gate-b1-product-fit/owner-experience-checklist.md,docs/plans/vm551-gate-b1-product-fit/question-product-fit-review.tsv,docs/handoffs/2026-08-05-2232-codex-vm551-gate-b1-owner-experience-prototype.md,docs/kanban/done/VM-551-gate-b1-owner-experience-prototype.md,docs/prototypes/"
+      "observed": "docs/handoffs/HANDOFF_INDEX.md,docs/kanban/board.md,docs/kanban/done/VM-551-gate-b1-owner-experience-prototype.md,docs/plans/vm551-gate-b1-placement-instrument/README.md,docs/plans/vm551-gate-b1-placement-instrument/answer-semantic-adjudication.tsv,docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv,docs/plans/vm551-gate-b1-placement-instrument/build-and-validate-design.mjs,docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv,docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv,docs/plans/vm551-gate-b1-placement-instrument/owner-decisions.md,docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv,docs/plans/vm551-gate-b1-placement-instrument/validation-record.json,docs/plans/vm551-gate-b1-product-fit/README.md,docs/plans/vm551-gate-b1-product-fit/owner-experience-checklist.md,docs/plans/vm551-gate-b1-product-fit/question-product-fit-review.tsv,docs/plans/vm551-gate-b1-product-fit/representative-result-walkthroughs.md,docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv,docs/prototypes/vm551-gate-b1-owner-experience/README.md,docs/prototypes/vm551-gate-b1-owner-experience/app.js,docs/prototypes/vm551-gate-b1-owner-experience/owner-review-notes.md,docs/prototypes/vm551-gate-b1-owner-experience/prototype-data.json,docs/prototypes/vm551-gate-b1-owner-experience/styles.css,docs/handoffs/2026-08-06-2254-codex-vm551-gate-b1-owner-experience-remediation.md"
     },
     {
       "name": "explicit high-risk and insufficient coverage",
@@ -349,23 +419,27 @@
   "changed_paths": [
     "docs/handoffs/HANDOFF_INDEX.md",
     "docs/kanban/board.md",
+    "docs/kanban/done/VM-551-gate-b1-owner-experience-prototype.md",
+    "docs/plans/vm551-gate-b1-placement-instrument/README.md",
     "docs/plans/vm551-gate-b1-placement-instrument/answer-semantic-adjudication.tsv",
     "docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
     "docs/plans/vm551-gate-b1-placement-instrument/build-and-validate-design.mjs",
-    "docs/plans/vm551-gate-b1-placement-instrument/confusion-pair-coverage.tsv",
     "docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv",
-    "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv",
     "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv",
     "docs/plans/vm551-gate-b1-placement-instrument/owner-decisions.md",
     "docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv",
-    "docs/plans/vm551-gate-b1-placement-instrument/question-bank-inventory.tsv",
     "docs/plans/vm551-gate-b1-placement-instrument/validation-record.json",
     "docs/plans/vm551-gate-b1-product-fit/README.md",
     "docs/plans/vm551-gate-b1-product-fit/owner-experience-checklist.md",
     "docs/plans/vm551-gate-b1-product-fit/question-product-fit-review.tsv",
-    "docs/handoffs/2026-08-05-2232-codex-vm551-gate-b1-owner-experience-prototype.md",
-    "docs/kanban/done/VM-551-gate-b1-owner-experience-prototype.md",
-    "docs/prototypes/"
+    "docs/plans/vm551-gate-b1-product-fit/representative-result-walkthroughs.md",
+    "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+    "docs/prototypes/vm551-gate-b1-owner-experience/README.md",
+    "docs/prototypes/vm551-gate-b1-owner-experience/app.js",
+    "docs/prototypes/vm551-gate-b1-owner-experience/owner-review-notes.md",
+    "docs/prototypes/vm551-gate-b1-owner-experience/prototype-data.json",
+    "docs/prototypes/vm551-gate-b1-owner-experience/styles.css",
+    "docs/handoffs/2026-08-06-2254-codex-vm551-gate-b1-owner-experience-remediation.md"
   ],
   "boundaries": [
     "No live or Gate A file is written.",

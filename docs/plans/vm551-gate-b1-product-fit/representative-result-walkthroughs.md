@@ -105,3 +105,15 @@ These are non-production demonstrations. They do not calculate scores, simulate 
 ## Owner-use conclusion
 
 The walkthroughs demonstrate the intended advantage over a type label: each result exposes an observation trace, a plausible neighbor, the actual distinction, an honest limit, and a Commander discovery action. The advantage disappears if the result hides evidence gaps, treats a rank-two score as semantic adjacency, or uses profile enrichment as placement authority.
+
+## Remediated route authority
+
+This section supersedes the earlier route compositions and any earlier wording that treated certified philosophy as route-observed evidence.
+
+- **Simic / Quandrix — 7:** Gate C01/C02/C03/C04 → Hall C09/C14 → Crucible C06. The route observes stable-purpose/tool variation, staged setup, and overlapping versus central engine structure. Organic adaptation versus mathematical scaling is identity context only.
+- **White — 8:** Gate C01/C02/C03/C04 → Hall C13/C11/C08 → Crucible C15 mono/multicolor. The route observes durable commitments, visible-threat posture, split mana commitment, and one-color challenge preference. No nearby path is displayed in the authored primary state.
+- **Bant — 8:** Gate C01/C02/C03/C04 → Hall C06/C11/C14 → Crucible C05. The route observes overlapping support, visible-threat posture, immediate setup contribution, and a functioning supporting 99 around the commander. Bant/Azorius philosophy is identity context only.
+- **Colorless — 8:** Gate C01/C02/C03/C04 → Hall C09/C06/C10 → Crucible C15. The route observes repeatability, replaceable engine pieces, a conditional theme tradeoff, and attraction to an imposed card-pool limitation. The state remains insufficient and names no placement.
+- **Five-Color / WUBRG — 8:** Gate C01/C02/C03/C04 → Hall C09/C06/C10 → Crucible C15. The route observes stable purpose with changing tools, overlapping engines, theme loyalty, and broad access followed by self-chosen limits. The state remains mixed.
+
+Across the five routes, exact duplicate question IDs are 0 and optional Hall→Crucible same-dependency repetitions are 0. These are authored review scenarios, not adaptive routing.

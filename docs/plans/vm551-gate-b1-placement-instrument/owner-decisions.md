@@ -142,3 +142,13 @@ Approval scope: prompt wording and static owner-experience prototyping only. It 
 The architecture, 15-construct scope, remediated 34-item pool, corrected answer semantics, and three product-fit prompt tunes are owner approved. All six signal decisions are resolved, zero rows remain `SIGNAL_REVIEW_REQUIRED`, and 37 directional Crucible mappings remain `EVIDENCE_REQUIRED`. No answer is scoring-authorized.
 
 Gate B1 semantic design may advance only to a separately authorized player-validation preparation phase. That phase has not been authorized. Pilot implementation remains unauthorized.
+
+## Owner-experience remediation decisions
+
+Owner disposition: **APPROVE WITH LISTED TUNES — DO NOT ADVANCE YET**.
+
+The owner accepts the opening Gate flow, Gate initiative and tempo wording, optional **Deepen this reading**, visible uncertainty, content-gap visibility, and the five route categories after correction. The owner directs the exact C06/C07/C08/C09/C10/C14 language changes and the bounded C15 refinement recorded in the question and answer contracts.
+
+C15 continues to use the same construct, question, answer, dependency, and narrow/broad/conditional signal IDs. Its meaning is refined to distinguish a boundary imposed by the available card pool from restrictions chosen after preserving broader access. The Colorless hypothesis remains imposed-limitation satisfaction; the WUBRG hypothesis remains broad access followed by a selected concept or limit. Both remain evidence-required, non-scoring, and unvalidated.
+
+The prototype must remove optional Hall→Crucible dependency repetition, derive its observation summary from answers actually shown, separate route-supported distinctions from identity context, keep exact evidence gaps reviewer-only, label READY/PARTIAL/GAP as content readiness, and add bounded four-color explanation subtitles. Completion authorizes only another short owner hands-on review.

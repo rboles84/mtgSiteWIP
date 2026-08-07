@@ -10,6 +10,17 @@ Review the question route and result walkthroughs as an owner experience, not as
 - [x] Player Atlas enrichment only behind **Deepen this reading**.
 - [x] Five walkthroughs as the hands-on owner-review set.
 
+## Hands-on owner findings incorporated in this remediation
+
+- [x] Gate opening, initiative, tempo, optional deepening, uncertainty, and content-gap visibility remain accepted.
+- [x] C06, C07, C08, C09, C10, and C14 use the owner-directed novice and decision-language tunes.
+- [x] C15 now distinguishes an imposed card-pool boundary from broad access followed by self-chosen limits without changing IDs or signal directions.
+- [x] Simic/Quandrix, White, Bant, Colorless, and WUBRG no longer repeat an optional Hall dependency in Crucible.
+- [x] Guided results separate actual answer observations, route-supported explanation, identity context, and public limitations.
+- [x] Exact internal evidence gaps remain reviewer-visible and no raw `Missing value:` label is player-facing.
+- [x] Reviewer statuses render as `CONTENT READY`, `CONTENT PARTIAL`, and `CONTENT GAP` with an explicit non-validation explanation.
+- [x] The five unfamiliar four-color names have concise Commander-expression subtitles.
+
 ## Questions
 
 - [ ] Does every prompt describe a decision or state recognizable in Commander?
@@ -52,8 +63,8 @@ Walkthrough changes:
 ## Owner disposition
 
 - [ ] APPROVE AS-IS
-- [ ] APPROVE WITH LISTED TUNES
+- [x] APPROVE WITH LISTED TUNES — REMEDIATION APPLIED; SHORT OWNER RE-REVIEW REQUIRED
 - [ ] RETURN SPECIFIC ITEMS
-- [ ] DO NOT ADVANCE
+- [x] DO NOT ADVANCE
 
 This disposition covers product-fit documentation only. It does not authorize scoring, implementation, player recruitment, shadow testing, migration, deployment, or production use.

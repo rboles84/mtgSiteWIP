@@ -78,6 +78,14 @@ No scoring, weights, identity validation, routing, stopping, prototype, live que
 
 Hands-on disposition of the prototype remains pending. Player-validation preparation and pilot implementation remain separately gated and unauthorized.
 
+## Hands-on owner remediation
+
+The completed hands-on review superseded twelve earlier `KEEP` judgments for presentation purposes without erasing the earlier evidence review. Those rows are now `OWNER_REMEDIATION_APPLIED`: Hall C06–C10, C14, C15; Crucible UG, Esper help, Witch/Yore, Colorless/WUBRG, and mono/multicolor. The underlying constructs, IDs, dependency groups, signal directions, provisional identity candidates, and evidence requirements remain unchanged except for the explicitly authorized bounded C15 definition refinement.
+
+The corrected five routes contain 4 Gate, 2–3 Hall, and 1 Crucible question; no optional Hall question shares its Crucible dependency. Guided results now separate selected-answer observations, route-supported interpretation, certified identity context, and public limitations. Internal evidence gaps remain reviewer-visible.
+
+Owner research strengthened the Colorless explanation from `GAP` to `PARTIAL`: the imposed limitation is part of the desired puzzle. WUBRG remains `PARTIAL`: broad access may support a toolbox or a unifying concept and can still be followed by severe self-chosen limits. Neither package validates placement. The resulting content-readiness distribution is 15 `READY`, 18 `PARTIAL`, and 4 `GAP`.
+
 ## File inventory
 
 - `README.md` — controlling scope, authority, findings, recommendations, and decisions.

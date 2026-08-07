@@ -30,7 +30,7 @@ Choose one of five explicitly authored owner-review scenarios:
 4. Colorless — endpoint insufficient state, 8 questions.
 5. Five-Color / WUBRG — endpoint mixed state, 8 questions.
 
-Every route contains exactly all 4 Gate questions, 2 or 3 Hall questions, 0 or 1 Crucible question, and 6–8 total questions. Selecting answers exercises the interface only. The result is preauthored from the committed walkthrough and does not change in response to selections.
+Every route contains exactly all 4 Gate questions, 2 or 3 Hall questions, 0 or 1 Crucible question, and 6–8 total questions. No optional Hall question shares the route’s Crucible dependency group. Selecting answers exercises the interface only. The result state is preauthored, while **What your answers showed** is derived from the answers actually selected. If those selections depart from the authored route, the prototype explicitly withholds the preauthored distinction.
 
 ### Question explorer
 
@@ -38,12 +38,12 @@ Inspect all 34 questions: 4 Gate, 12 Hall, and 18 Crucible. Player-facing prompt
 
 ### Result explorer
 
-Inspect all 37 certified identity names and their product-usefulness packages. The committed status distribution remains 15 `READY`, 17 `PARTIAL`, and 5 `GAP`. Every `PARTIAL` and `GAP` entry preserves its missing-value statement and limitation. `READY` describes explanation usefulness only; it does not establish placement accuracy or mapping truth.
+Inspect all 37 certified identity names and their product-usefulness packages. The remediated status distribution is 15 `CONTENT READY`, 18 `CONTENT PARTIAL`, and 4 `CONTENT GAP`; Colorless moved from GAP to PARTIAL because the owner research now supports a useful, bounded explanation package, not because its mapping was validated. Exact evidence gaps remain available in reviewer information. Content readiness describes whether the result explanation package is usable; it does not establish placement accuracy or mapping truth.
 
 ## Authored versus derived
 
 - Question wording, answer copy and contracts, construct metadata, jargon, result packages, profile boundaries, and status values are derived from the committed TSV and Markdown sources listed in `prototype-data.json`.
-- The five route compositions, selected review-answer IDs, state demonstrations, and short observation summaries are explicitly authored review metadata based on `representative-result-walkthroughs.md`.
+- The five route compositions, selected review-answer IDs, state demonstrations, route-supported distinctions, and separately labeled identity context are explicitly authored review metadata based on `representative-result-walkthroughs.md`.
 - No weights, scores, identity calculation, adaptive selection algorithm, randomization, or confidence value exists in the prototype.
 
 ## Source documents
@@ -64,7 +64,7 @@ Each derived question, answer, result, enrichment row, walkthrough, and Gate A s
 
 - The routes are demonstrations, not a route-selection design or adaptive algorithm.
 - The 37 directional identity associations remain evidence-required and non-scoring.
-- Result usefulness is intentionally uneven. Missing material is not filled with generic prose.
+- Result usefulness is intentionally uneven. Exact evidence gaps remain reviewer-visible and are translated into plain public limitations rather than exposed as raw requirements labels.
 - Player Atlas material appears only behind **Deepen this reading** and remains conditional, reflective enrichment.
 - Inert Vox Mana next-step language demonstrates information architecture only; it is not a production link or product integration.
 - Browser review establishes that the static artifact renders and its controls work. It does not validate comprehension, retake stability, result recognition, recommendation relevance, or mapping accuracy with players.
@@ -86,7 +86,7 @@ Each derived question, answer, result, enrichment row, walkthrough, and Gate A s
 4. Complete Five-Color / WUBRG and confirm the mixed result keeps breadth, theme, and behavior distinct.
 5. Open **Deepen this reading** and confirm the optional lens is visibly conditional and never described as placement evidence.
 6. Scan the Question explorer at desktop and narrow width, including all three owner-approved prompt tunes.
-7. Scan the Result explorer, especially the 5 GAP entries, and confirm every missing value remains visible.
+7. Scan the Result explorer, especially the 4 CONTENT GAP entries, and confirm exact evidence gaps remain visible with reviewer information enabled.
 8. Record decisions only in `owner-review-notes.md`. Do not infer authorization for player validation or implementation.
 
 ## Not implemented

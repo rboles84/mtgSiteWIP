@@ -281,6 +281,7 @@ footer {
 .explorer-answer p { margin: 4px 0 0; color: var(--muted); }
 
 .result-summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.result-subtitle { color: var(--muted); font-size: 0.86rem; font-weight: 400; flex: 1; }
 .status-ready { border-color: rgb(130 200 189 / 48%); color: var(--teal); }
 .status-partial { border-color: rgb(214 185 111 / 48%); color: var(--gold-pale); }
 .status-gap { border-color: rgb(226 139 136 / 48%); color: var(--red); }

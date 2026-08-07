@@ -7,6 +7,7 @@ const dir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(dir, "../../..");
 const read = (p) => fs.readFileSync(path.join(root, p), "utf8");
 const write = (p, value) => fs.writeFileSync(path.join(dir, p), value.replace(/\r\n/g, "\n"), "utf8");
+const writeRoot = (p, value) => fs.writeFileSync(path.join(root, p), value.replace(/\r\n/g, "\n"), "utf8");
 const clean = (v) => String(v ?? "").replace(/\t|\r?\n/g, " ").trim();
 const makeTsv = (heads, rows) => [heads.join("\t"), ...rows.map((r) => heads.map((h) => clean(r[h])).join("\t"))].join("\n") + "\n";
 
@@ -70,7 +71,7 @@ const C = [
   ["C12","Resource sacrifice","Willingness to spend permanents, life, cards, or position as fuel for later advantage.","Sacrifice a useful creature for cards versus preserve board presence.","Recklessness, Black identity, graveyard strategy, or risk tolerance.","all; Black; Golgari; Witherbloom; Sultai; Grixis","Golgari/Witherbloom; Black/Sultai; Grixis/Yore","E-PLAYER-THREAT;E-PLAYER-PACE;E-CECOS","Hall","Separate voluntary conversion from disruption losses."],
   ["C13","Public commitment","How much spoken table agreements should bind later choices.","Keep stated deal terms versus make short or revisable commitments.","Honesty, morality, sociability, or political skill.","all; Azorius; Orzhov; Silverquill; Ink; Mardu","Orzhov/Silverquill; Dune/Ink; White/Azorius","E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS","Hall","Table preference cannot independently place an identity."],
   ["C14","Setup tolerance","How long a deck may develop before meaningfully affecting the table.","Assemble for several turns versus require useful actions while setting up.","Desired game length, power, patience, or skill.","all; Green; Witch; Temur; Sultai","Temur/Green; Ink/Witch; Witch/Yore","E-PLAYER-PACE;E-PLAYER-COMMANDER;E-CECOS","Hall","Overlaps C04; setup duration is not payoff concentration."],
-  ["C15","Deck breadth and constraint","Preference for a narrow deckbuilding constraint or a broad combined toolset.","One color or unusual restriction versus several color roles and answers.","Colorless, Five-Color, theme, budget, or power by itself.","all; mono/multicolor; four-color; Colorless; WUBRG","Colorless/WUBRG; mono/multicolor; four-color/WUBRG","E-PLAYER-COMMANDER;E-PLAYER-PACE;E-CERTIFIED;E-CECOS","Hall/Crucible","A boundary observation only; overlaps C09/C10."]
+  ["C15","Deck breadth and constraint","Preference for how much of the deckbuilding boundary should come from the available card pool versus restrictions the builder chooses within broader access.","Work within an imposed limited card pool, or begin with broad access and choose the deck's boundaries yourself.","Colorless, Five-Color, theme, skill, complexity, budget, or power by itself.","all; mono/multicolor; four-color; Colorless; WUBRG","Colorless/WUBRG; mono/multicolor; four-color/WUBRG","E-PLAYER-COMMANDER;E-PLAYER-PACE;E-CERTIFIED;E-CECOS","Hall/Crucible","A boundary observation only; imposed limits and self-chosen limits must remain distinct; overlaps C09/C10."]
 ].map(([construct_id,name,plain_definition,commander_example,does_not_mean,applicable_identity_families,likely_confusion_pairs,required_evidence,stage,dependency_overlap]) => ({construct_id,name,plain_definition,commander_example,does_not_mean,applicable_identity_families,likely_confusion_pairs,required_evidence,stage,dependency_overlap}));
 
 const opt = (key,title,copy,observation,suffix,kind="directional") => ({key,title,copy,observation,suffix,kind});
@@ -100,23 +101,23 @@ const Q = [
     opt("function","Run the main plan","The deck should execute its plan without the commander.","Prefers a resilient 99.","RESILIENT_99"),
     opt("partial","Keep playing, less efficiently","The commander improves the plan but its loss does not stop meaningful turns.","Prefers commander relevance without binary dependence.","ROLE_PLAYER"),
     opt("center","Protect and recast the centerpiece","The deck may change sharply when the commander is unavailable.","Accepts high commander dependence.","CENTERPIECE")]),
-  q("b1.hall.engine-shape.v1","Hall","C06","When an important engine piece is removed, what structure do you want behind it?","engine families","E-PLAYER-COMMANDER;E-PLAYER-VARIANCE;E-CECOS","Ask when candidates differ in engine concentration.","Do not ask without showing the engine definition.","Engine means a card or group of cards that repeatedly produces value.",[
+  q("b1.hall.engine-shape.v1","Hall","C06","When a card that repeatedly helps your deck is removed, what do you want the rest of the deck to have behind it?","engine families","E-PLAYER-COMMANDER;E-PLAYER-VARIANCE;E-CECOS","Ask when candidates differ in engine concentration.","Do not ask without showing the engine definition.","An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",[
     opt("replace","Another piece does the same job","Several cards can replace one another.","Prefers redundant replaceable pieces.","REDUNDANT"),
     opt("overlap","Several small engines overlap","Pieces remain useful alone and combine in different ways.","Prefers modular overlapping engines.","MODULAR"),
     opt("central","One engine is worth defending","A central piece can be found and protected.","Accepts concentrated engine dependency.","CENTRAL")]),
-  q("b1.hall.pressure.v1","Hall","C07","Which progress most makes a game feel like your deck is doing its job?","combat, resource-control, and engine-ending families","E-PLAYER-THREAT;E-PLAYER-PACE;E-CECOS","Ask when candidate families use different pressure channels.","Do not ask as a power or fairness question.","Engine means a card or group of cards that repeatedly produces value.",[
+  q("b1.hall.pressure.v1","Hall","C07","Which kind of progress makes your deck feel like it’s doing its job?","combat, resource-control, and engine-ending families","E-PLAYER-THREAT;E-PLAYER-PACE;E-CECOS","Ask when candidate families use different pressure channels.","Do not ask as a power or fairness question.","An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",[
     opt("combat","Life totals are under pressure","Attacks and combat damage make opponents respond.","Prefers combat pressure.","COMBAT"),
     opt("resources","Options are getting narrower","Cards, mana, or board access become harder to use.","Prefers resource-control pressure.","RESOURCE_CONTROL"),
     opt("engine","A noncombat ending is assembling","The table can see an engine approaching an ending.","Prefers noncombat engine pressure.","NONCOMBAT_ENGINE")]),
-  q("b1.hall.mana-window.v1","Hall","C08","When both development and interaction are available, where do you prefer to spend most of your mana?","Blue, Azorius, Esper, Jeskai, and cadence boundaries","E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS","Ask when Gate initiative leaves families close.","Do not count independently from C01 when both describe one cadence.","Interaction means an answer to another player's spell, ability, attack, or permanent.",[
+  q("b1.hall.mana-window.v1","Hall","C08","If you can either spend most of your mana advancing your own plan or keep it available to answer opponents, which do you prefer?","Blue, Azorius, Esper, Jeskai, and cadence boundaries","E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS","Ask when Gate initiative leaves families close.","Do not count independently from C01 when both describe one cadence.","Interaction means an answer to another player's spell, ability, attack, or permanent.",[
     opt("own","Develop on my turn","Use the mana now to improve my battlefield or advance my main plan.","Prefers own-turn commitment.","OWN_TURN"),
     opt("others","Hold mana for opponents' turns","Keep options available until the important action appears.","Prefers opponent-turn windows.","OPPONENT_TURN"),
     opt("split","Use some and keep some","Take a smaller development step with one answer available.","Prefers split commitment.","SPLIT")]),
-  q("b1.hall.repeatability.v1","Hall","C09","Across several games with the same deck, what repetition do you want?","all identities","E-PLAYER-VARIANCE;E-PLAYER-PACE;E-CECOS","Ask when candidates differ in repeatability.","Do not reduce the answer to tutor count.","",[
+  q("b1.hall.repeatability.v1","Hall","C09","Across several games with the same deck, how much do you want the path to your main plan to repeat?","all identities","E-PLAYER-VARIANCE;E-PLAYER-PACE;E-CECOS","Ask when candidates differ in repeatability.","Do not reduce the answer to tutor count.","",[
     opt("same","The central plan appears often","Several cards can help the deck reach its intended plan consistently.","Prefers consistent access to a plan.","CONSISTENT"),
     opt("varied","The route changes each game","See the central plan less often in exchange for different games.","Prefers variance and novelty.","VARIANT"),
     opt("toolbox","The plan stays, the tool changes","Keep a dependable goal with different answers and subplans.","Prefers stable purpose with variable execution.","TOOLBOX")]),
-  q("b1.hall.theme.v1","Hall","C10","A card fits your deck's theme, but another performs the same job more reliably. Which do you keep?","theme-first players; all identities","E-PLAYER-THEME;E-PLAYER-COMMANDER;E-PLAYER-PACE;E-CECOS","Ask when attachment may explain contradictory behavior answers.","Do not use alone for identity support.","Theme means a chosen story, visual idea, creature type, or self-imposed concept.",[
+  q("b1.hall.theme.v1","Hall","C10","For one deck slot, assume you can’t get both: one card fits your theme better, while another does the same job more reliably. Which do you keep?","theme-first players; all identities","E-PLAYER-THEME;E-PLAYER-COMMANDER;E-PLAYER-PACE;E-CECOS","Ask when attachment may explain contradictory behavior answers.","Do not use alone for identity support.","Theme means a chosen story, visual idea, creature type, or self-imposed concept.",[
     opt("theme","Keep the on-theme card","Expressing the deck's idea is part of the desired result.","Prefers thematic coherence over marginal reliability.","THEME_FIRST"),
     opt("reliable","Keep the reliable card","The slot should perform its job consistently.","Prefers role reliability over theme.","EFFICIENCY_FIRST"),
     opt("gap","It depends on the gap","Keep the theme until the cost becomes noticeable in games.","Uses a conditional theme-efficiency threshold.","CONDITIONAL","conditional")]),
@@ -132,14 +133,14 @@ const Q = [
     opt("terms","Keep the stated terms","Commitments remain reliable until their stated endpoint.","Prefers durable public commitments.","DURABLE"),
     opt("reopen","Reopen when facts change","Agreements can be revised after material board changes.","Prefers revisable commitments.","REVISABLE"),
     opt("short","Make only short deals","Commitment ends with the immediate exchange.","Prefers bounded short commitments.","BOUNDED")]),
-  q("b1.hall.setup.v1","Hall","C14","How long can your deck spend setting up before it needs to influence the game?","Witch, Temur, Sultai, and engine families","E-PLAYER-PACE;E-PLAYER-COMMANDER;E-CECOS","Ask when candidates differ in development horizon.","Do not interpret as game length or patience.","",[
-    opt("early","Useful while it builds","Early plays matter before the main plan is fully working.","Prefers early utility.","EARLY_IMPACT"),
-    opt("long","A long setup is acceptable","Several turns may mainly prepare the plan.","Accepts long setup.","LONG_SETUP"),
-    opt("staged","Each setup step pays something","Build for several turns with intermediate benefits.","Prefers staged setup.","STAGED")]),
-  q("b1.hall.breadth.v1","Hall","C15","When choosing a new Commander deck, which starting constraint is more appealing?","mono/multicolor; four-color; Colorless; WUBRG","E-PLAYER-COMMANDER;E-PLAYER-PACE;E-CERTIFIED;E-CECOS","Ask when color-count families remain plausible after behavior evidence.","Never assign a color-count identity from this answer.","Color roles are broad tool families; no color-pie knowledge is required.",[
-    opt("narrow","A tight restriction","One color, card type, or narrow rule makes choices sharper.","Prefers narrow constraints.","NARROW"),
-    opt("broad","A wide set of tools","Several color roles answer more situations.","Prefers broad tool access.","BROAD"),
-    opt("concept","Whichever serves the concept","The deck idea decides whether the pool is narrow or broad.","Reports concept-conditional breadth.","CONDITIONAL","conditional")]),
+  q("b1.hall.setup.v1","Hall","C14","Early in the game, how much do you want your setup plays to matter right away?","Witch, Temur, Sultai, and engine families","E-PLAYER-PACE;E-PLAYER-COMMANDER;E-CECOS","Ask when candidates differ in development horizon.","Do not interpret as game length or patience.","",[
+    opt("early","Matter immediately","Even my setup cards should affect the board or give me useful options now.","Prefers setup plays with immediate impact.","EARLY_IMPACT"),
+    opt("long","Build first, pay off later","I’m comfortable spending several turns mostly preparing the main plan.","Accepts several turns of mostly preparatory setup.","LONG_SETUP"),
+    opt("staged","Build in stages","Setup can take time, but each step should give me something useful along the way.","Prefers staged setup with useful intermediate returns.","STAGED")]),
+  q("b1.hall.breadth.v1","Hall","C15","Once you know what you want a deck to do, how much do you want the available cards to shape the challenge?","mono/multicolor; four-color; Colorless; WUBRG","E-PLAYER-COMMANDER;E-PLAYER-PACE;E-CERTIFIED;E-CECOS","Ask when color-count families remain plausible after behavior evidence.","Never assign a color-count identity from this answer.","Available cards means the cards permitted by the format and the commander's color identity before the builder adds a theme or other self-chosen rule.",[
+    opt("narrow","Let the limits shape it","A smaller or restricted pool makes finding the solution part of the fun.","Prefers an imposed card-pool challenge.","NARROW"),
+    opt("broad","Keep more tools available","I prefer having more options available, then choosing which ones belong in the plan.","Prefers broad access followed by self-chosen boundaries.","BROAD"),
+    opt("concept","Let the concept decide","Some ideas are better with tight limits; others need broader access.","Reports concept-conditional card-pool breadth.","CONDITIONAL","conditional")]),
   q("b1.hall.interaction-window.v1","Hall","C08","An opponent is building toward the action most likely to decide the game. When should your interaction matter?","reactive/proactive boundary families","E-PLAYER-THREAT;E-PLAYER-PACE;E-CECOS","Ask only if C08 remains unresolved.","Never count independently from b1.hall.mana-window.v1.","Interaction means an answer to another player's spell, ability, attack, or permanent.",[
     opt("before","Before the decisive action begins","Stop an enabling spell or ability before the opponent commits the decisive action.","Prefers an early interaction window.","EARLY_WINDOW"),
     opt("after","After the piece is visible","Answer it once its effect on the game is clear.","Prefers a later visible interaction window.","LATE_WINDOW"),
@@ -156,7 +157,7 @@ const Q = [
     opt("intervene","Stop the removal now","Protection or an immediate answer keeps the piece in play.","Prefers immediate intervention.","PROTECT"),
     opt("recover","Recover value from the loss","Reuse the piece or turn its prior work into later value.","Prefers recovery from prior resources.","RECOVER"),
     opt("neither","That is not the distinction","My response depends on the card.","Rejects the proposed WR-family distinction.","UNKNOWN","unknown")]),
-  q("b1.crucible.ug.v1","Crucible","C06","When building a value engine, which structure fits your deck?","UG vs QUANDRIX","E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS","Ask only when UG/QUANDRIX remain close.","Do not ask without the engine definition.","Engine means a card or group of cards that repeatedly produces value.",[
+  q("b1.crucible.ug.v1","Crucible","C06","When building an engine, which structure fits your deck?","UG vs QUANDRIX","E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS","Ask only when UG/QUANDRIX remain close.","Do not ask without the engine definition.","An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",[
     opt("adapt","Several overlapping engines","Different groups of pieces can each keep producing value if another group is disrupted.","Prefers modular overlapping engines.","MODULAR"),
     opt("scale","One central engine","Most pieces strengthen one main engine that compounds value over time.","Accepts a concentrated central engine.","CENTRAL"),
     opt("neither","My engine uses another structure","Neither a central engine nor several overlapping engines describes the plan.","Rejects the proposed UG-family distinction.","UNKNOWN","unknown")]),
@@ -180,7 +181,7 @@ const Q = [
     opt("adapt","Use the board that exists","The creatures, mana, and cards already available form a new line.","Prefers immediate board-based adaptation.","PROACTIVE"),
     opt("reset","Rebuild the planned engine","Protect the core plan and restore it later.","Prefers returning to a deliberate plan.","REACTIVE"),
     opt("neither","My deck changes another way","Neither route describes the adaptation.","Rejects the proposed Temur boundary.","UNKNOWN","unknown")]),
-  q("b1.crucible.esper.v1","Crucible","C06","You have answered the immediate threat and can now turn control into advantage. What structure do you want?","ESPER vs U/YORE/JESKAI/W/WU","E-CERTIFIED;E-PLAYER-COMMANDER;E-PLAYER-THREAT;E-AUDIT;E-CECOS","Ask only when Esper and a listed competitor remain close after independent observations.","Do not treat control, artifacts, or one answer as Esper proof.","Engine means a card or group of cards that repeatedly produces value.",[
+  q("b1.crucible.esper.v1","Crucible","C06","You have answered the immediate threat and can now turn control into advantage. What structure do you want?","ESPER vs U/YORE/JESKAI/W/WU","E-CERTIFIED;E-PLAYER-COMMANDER;E-PLAYER-THREAT;E-AUDIT;E-CECOS","Ask only when Esper and a listed competitor remain close after independent observations.","Do not treat control, artifacts, or one answer as Esper proof.","An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",[
     opt("designed","Build the designed engine","Interlocking permanents repeatedly turn information and resources into control and advantage.","Prefers a designed permanent-based engine.","CENTRAL"),
     opt("flexible","Keep answers interchangeable","Cards in hand and replaceable answers matter more than a fixed battlefield engine.","Prefers flexible replaceable control resources.","REDUNDANT"),
     opt("neither","My control plan is different","Neither a designed permanent engine nor interchangeable answers is central.","Rejects the proposed Esper boundary.","UNKNOWN","unknown")]),
@@ -204,18 +205,18 @@ const Q = [
     opt("share","Do useful work early","Cards or mana influence the game while the main plan develops.","Prefers early impact during setup.","EARLY_IMPACT"),
     opt("compound","Let resources accumulate","Keep building until later turns can do more.","Accepts long setup for larger later turns.","LONG_SETUP"),
     opt("depends","Timing depends on the deck","Different decks make different setup lengths feel right.","Reports deck-conditional setup tolerance.","CONDITIONAL","conditional")]),
-  q("b1.crucible.witch-yore.v1","Crucible","C06","When building a value engine, which structure should organize the plan?","WITCH vs YORE","E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS","Ask only when Witch/Yore remain close.","Do not infer nature versus artifice.","Engine means a card or group of cards that repeatedly produces value.",[
+  q("b1.crucible.witch-yore.v1","Crucible","C06","When an engine organizes your plan, which structure do you want?","WITCH vs YORE","E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS","Ask only when Witch/Yore remain close.","Do not infer nature versus artifice.","An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",[
     opt("compound","One engine keeps compounding","Most pieces strengthen one central engine that builds more value over time.","Prefers one central engine that compounds value over time.","CENTRAL"),
     opt("convert","Several pieces make the same conversion","Interchangeable pieces can each turn one resource into another, so no single piece is indispensable.","Prefers several interchangeable conversion pieces over one indispensable engine.","REDUNDANT"),
     opt("neither","My engine differs","Neither one central engine nor several interchangeable conversion pieces describes the plan.","Rejects the proposed four-color boundary.","UNKNOWN","unknown")]),
-  q("b1.crucible.colorless-wubrg.v1","Crucible","C15","You are choosing between a Colorless Commander deck and a Five-Color Commander deck to keep refining over many games. One commander's color identity uses no colors; the other's uses all five. Which deckbuilding challenge sounds more satisfying?","COLORLESS vs WUBRG","E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS","Ask only after prior independent behavioral evidence when both edge identities remain close.","Neither answer is sufficient for an edge identity.","A commander's color identity determines which colors may appear in its Commander deck. Five-Color uses all five.",[
-    opt("constraint","Make a narrow pool do more","A hard restriction creates unusual solutions and tradeoffs.","Prefers narrow constraint.","NARROW"),
-    opt("breadth","Make a broad pool cohere","Many color roles serve one integrated plan.","Prefers broad integration.","BROAD"),
-    opt("neither","Color breadth is not my challenge","Neither reason drives my deck choice.","Rejects the edge distinction.","UNKNOWN","unknown")]),
-  q("b1.crucible.mono-multi.v1","Crucible","C15","Two decks support the same play pattern you enjoy. One commander's color identity uses a single color; the other's combines several. Which color-count constraint appeals more?","mono versus multicolor","E-CERTIFIED;E-PLAYER-COMMANDER;E-PLAYER-PACE;E-AUDIT;E-CECOS","Ask only when mono/multicolor candidates remain close after behavior evidence.","Never permit a one-answer color-count flip.","A commander's color identity determines which colors may appear in its Commander deck. Here, color count means the number of colors in the commander's color identity.",[
-    opt("mono","Explore one color's limits","Solve gaps inside a tighter toolset.","Prefers focused single-color constraint.","NARROW"),
-    opt("multi","Combine color roles","Use more kinds of tools with greater mana and choice complexity.","Prefers multicolor breadth.","BROAD"),
-    opt("pattern","The play pattern matters more","Choose whichever color count supports the behavior.","Reports no independent breadth preference.","CONDITIONAL","conditional")])
+  q("b1.crucible.colorless-wubrg.v1","Crucible","C15","When building around an idea you like, which kind of challenge sounds more satisfying?","COLORLESS vs WUBRG","E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS","Ask only after prior independent behavioral evidence when both edge identities remain close.","Neither answer is sufficient for an edge identity.","Available cards means the cards permitted by the format and the commander's color identity before the builder adds a theme or other self-chosen rule.",[
+    opt("constraint","Work within the limits","Some useful tools are unavailable, and finding unexpected solutions is part of the appeal.","Prefers an imposed card-pool limitation as part of the desired challenge.","NARROW"),
+    opt("breadth","Choose the limits myself","Keep the widest range of tools available, then decide which theme, mechanic, or rule the deck will follow.","Prefers broad access followed by self-chosen deckbuilding boundaries.","BROAD"),
+    opt("neither","The available tools aren’t the point","I care more about the deck idea than whether the starting pool is broad or narrow.","Rejects the edge distinction.","UNKNOWN","unknown")]),
+  q("b1.crucible.mono-multi.v1","Crucible","C15","Two decks play the way you like. One uses one color; the other combines several. Which deckbuilding challenge sounds more appealing?","mono versus multicolor","E-CERTIFIED;E-PLAYER-COMMANDER;E-PLAYER-PACE;E-AUDIT;E-CECOS","Ask only when mono/multicolor candidates remain close after behavior evidence.","Never permit a one-answer color-count flip.","A commander's color identity determines which colors may appear in its Commander deck.",[
+    opt("mono","Explore one color’s limits","Find solutions inside one color’s tools.","Prefers solving within one color's available tools.","NARROW"),
+    opt("multi","Combine several color roles","Keep more kinds of tools available and decide which ones belong in the plan.","Prefers access to several color roles followed by deliberate selection.","BROAD"),
+    opt("pattern","Let the play pattern decide","Choose the color count that best serves the way the deck plays.","Reports no independent breadth preference.","CONDITIONAL","conditional")])
 ];
 
 const CR_AUTHORITY = "Wizards of the Coast Magic Comprehensive Rules; accessed 2026-08-04; published file effective 2026-08-07";
@@ -224,15 +225,15 @@ const COMMANDER_URL = "https://magic.wizards.com/en/formats/commander";
 const J = [
   {jargon_id:"JRG_BOARD",term:"board",jargon_class:"COMMUNITY_STANDARD",canonical_public_definition:"Board means the cards and tokens on the battlefield.",authority_type:"COMMITTED_PLAYER_LANGUAGE",authority_reference:"E-PLAYER-PACE;E-PLAYER-THREAT",rule_or_section:"Not a Comprehensive Rules definition; compare rules 110.1 and 403.1",validation_status:"ACTIVE",notes:"Player-facing Commander shorthand; never present as a quoted rules definition."},
   {jargon_id:"JRG_BOARD_WIPE",term:"board wipe",jargon_class:"COMMUNITY_STANDARD",canonical_public_definition:"Board wipe means an effect that removes many cards and tokens from the battlefield.",authority_type:"COMMITTED_PLAYER_LANGUAGE",authority_reference:"E-PLAYER-PACE;E-PLAYER-COMMANDER",rule_or_section:"Not a Comprehensive Rules definition",validation_status:"ACTIVE",notes:"Effect is broader than spell and removal is not limited to destruction."},
-  {jargon_id:"JRG_ENGINE",term:"engine",jargon_class:"COMMUNITY_STANDARD",canonical_public_definition:"Engine means a card or group of cards that repeatedly produces value.",authority_type:"COMMITTED_PLAYER_LANGUAGE",authority_reference:"E-PLAYER-COMMANDER;E-PLAYER-VARIANCE",rule_or_section:"Not a Comprehensive Rules definition",validation_status:"ACTIVE",notes:"Owner-approved canonical operational explanation for C06 and related scenarios."},
+  {jargon_id:"JRG_ENGINE",term:"engine",jargon_class:"COMMUNITY_STANDARD",canonical_public_definition:"An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",authority_type:"COMMITTED_PLAYER_LANGUAGE",authority_reference:"E-PLAYER-COMMANDER;E-PLAYER-VARIANCE",rule_or_section:"Not a Comprehensive Rules definition",validation_status:"ACTIVE",notes:"Owner-approved canonical operational explanation for C06 and related scenarios."},
   {jargon_id:"JRG_INTERACTION",term:"interaction",jargon_class:"COMMUNITY_STANDARD",canonical_public_definition:"Interaction means an answer to another player's spell, ability, attack, or permanent.",authority_type:"COMMITTED_PLAYER_LANGUAGE",authority_reference:"E-PLAYER-PACE;E-PLAYER-THREAT",rule_or_section:"Not a Comprehensive Rules definition; constituent rules terms are covered by rules 110, 112, 113, and 508",validation_status:"ACTIVE",notes:"Intentionally includes multiple relevant response windows."},
   {jargon_id:"JRG_TABLE_DEAL",term:"table deal",jargon_class:"COMMUNITY_STANDARD",canonical_public_definition:"Table deal means a spoken agreement between players.",authority_type:"COMMITTED_PLAYER_LANGUAGE",authority_reference:"E-PLAYER-PACE;E-PLAYER-THREAT",rule_or_section:"Not a Comprehensive Rules definition",validation_status:"ACTIVE",notes:"No implication about honesty, morality, or enforceability."},
   {jargon_id:"JRG_SPELL_HEAVY",term:"spell-heavy",jargon_class:"COMMUNITY_STANDARD",canonical_public_definition:"Spell-heavy means instants or sorceries are central to the deck.",authority_type:"COMMITTED_PLAYER_LANGUAGE",authority_reference:"E-PLAYER-PACE;E-PLAYER-THEME",rule_or_section:"Not a Comprehensive Rules definition; instants rule 304 and sorceries rule 307",validation_status:"ACTIVE",notes:"Deckbuilding shorthand, not a formal archetype assignment."},
-  {jargon_id:"JRG_FIVE_COLOR",term:"Five-Color",jargon_class:"COMMUNITY_STANDARD",canonical_public_definition:"Five-Color uses all five colors in the commander's color identity.",authority_type:"OFFICIAL_COMMANDER_FORMAT_PLUS_PLAYER_LABEL",authority_reference:COMMANDER_URL,rule_or_section:"Commander format Color Identity; Comprehensive Rules 903.4 and 903.5c",validation_status:"ACTIVE",notes:"Five-Color is a player-facing label; color identity is rules-defined."},
+  {jargon_id:"JRG_FIVE_COLOR",term:"Five-Color",jargon_class:"COMMUNITY_STANDARD",canonical_public_definition:"Five-Color uses all five colors in the commander's color identity.",authority_type:"OFFICIAL_COMMANDER_FORMAT_PLUS_PLAYER_LABEL",authority_reference:COMMANDER_URL,rule_or_section:"Commander format Color Identity; Comprehensive Rules 903.4 and 903.5c",validation_status:"RESERVED",notes:"Retained for reference but removed from the remediated player-facing questions."},
   {jargon_id:"JRG_COLOR_COUNT",term:"color count",jargon_class:"COMMUNITY_STANDARD",canonical_public_definition:"Here, color count means the number of colors in the commander's color identity.",authority_type:"ARCHSCRY_OPERATION_OVER_RULES_TERM",authority_reference:CR_URL,rule_or_section:"Comprehensive Rules 903.4",validation_status:"ACTIVE",notes:"The operational count is boundary evidence only."},
   {jargon_id:"JRG_PERMANENT",term:"permanent",jargon_class:"RULES_DEFINED",canonical_public_definition:"Permanent means a card or token on the battlefield.",authority_type:"OFFICIAL_WOTC_COMPREHENSIVE_RULES",authority_reference:CR_URL,rule_or_section:"110.1",validation_status:"VERIFIED",notes:CR_AUTHORITY},
   {jargon_id:"JRG_GRAVEYARD",term:"graveyard",jargon_class:"RULES_DEFINED",canonical_public_definition:"A graveyard is a player's discard pile.",authority_type:"OFFICIAL_WOTC_COMPREHENSIVE_RULES",authority_reference:CR_URL,rule_or_section:"404.1",validation_status:"VERIFIED",notes:CR_AUTHORITY},
-  {jargon_id:"JRG_COLOR_IDENTITY",term:"color identity",jargon_class:"RULES_DEFINED",canonical_public_definition:"A commander's color identity determines which colors may appear in its Commander deck.",authority_type:"OFFICIAL_WOTC_COMPREHENSIVE_RULES_AND_FORMAT",authority_reference:CR_URL+";"+COMMANDER_URL,rule_or_section:"903.4;903.5c; Commander format Color Identity",validation_status:"VERIFIED",notes:CR_AUTHORITY},
+  {jargon_id:"JRG_COLOR_IDENTITY",term:"color identity",jargon_class:"RULES_DEFINED",canonical_public_definition:"A commander's color identity determines which colors may appear in its Commander deck.",authority_type:"OFFICIAL_WOTC_COMPREHENSIVE_RULES_AND_FORMAT",authority_reference:CR_URL+";"+COMMANDER_URL,rule_or_section:"903.4;903.5c; Commander format Color Identity",validation_status:"RESERVED",notes:"Retained for reference but removed from the remediated player-facing questions; "+CR_AUTHORITY},
   {jargon_id:"JRG_THEME",term:"theme",jargon_class:"INSTRUMENT_OPERATIONAL",canonical_public_definition:"Here, theme means a chosen story, visual idea, creature type, or self-imposed concept.",authority_type:"ARCHSCRY_OBSERVATION_CONTRACT",authority_reference:"E-PLAYER-THEME;E-PLAYER-COMMANDER",rule_or_section:"C10",validation_status:"ACTIVE",notes:"Deckbuilding tradeoff only; never identity support by itself."},
   {jargon_id:"JRG_THREAT",term:"threat",jargon_class:"COMMUNITY_STANDARD",canonical_public_definition:"Players use threat for a card, battlefield, or plan they believe they need to answer.",authority_type:"COMMITTED_PLAYER_LANGUAGE",authority_reference:"E-PLAYER-THREAT;E-PLAYER-COMMANDER",rule_or_section:"Not a Comprehensive Rules definition",validation_status:"ACTIVE",notes:"Does not assert actual power."},
   {jargon_id:"JRG_COLOR_ROLES",term:"color roles",jargon_class:"INSTRUMENT_OPERATIONAL",canonical_public_definition:"Here, color roles are broad tool families associated with colors; no color-pie knowledge is required.",authority_type:"ARCHSCRY_OBSERVATION_CONTRACT",authority_reference:"E-CERTIFIED;E-CECOS",rule_or_section:"C15",validation_status:"ACTIVE",notes:"Boundary vocabulary, not a color-identity assignment."},
@@ -245,12 +246,11 @@ const questionJargonIds = {
   "b1.gate.disruption.v1":["JRG_BOARD_WIPE","JRG_BOARD","JRG_GRAVEYARD"],
   "b1.hall.engine-shape.v1":["JRG_ENGINE"],
   "b1.hall.pressure.v1":["JRG_ENGINE","JRG_BOARD"],
-  "b1.hall.mana-window.v1":["JRG_INTERACTION"],
   "b1.hall.theme.v1":["JRG_THEME"],
   "b1.hall.threat.v1":["JRG_THREAT","JRG_BOARD"],
   "b1.hall.sacrifice.v1":["JRG_PERMANENT","JRG_BOARD"],
   "b1.hall.commitment.v1":["JRG_TABLE_DEAL","JRG_BOARD"],
-  "b1.hall.breadth.v1":["JRG_COLOR_ROLES"],
+  "b1.hall.setup.v1":["JRG_BOARD"],
   "b1.hall.interaction-window.v1":["JRG_INTERACTION"],
   "b1.crucible.ur.v1":["JRG_SPELL_HEAVY","JRG_ENGINE"],
   "b1.crucible.bg.v1":["JRG_GRAVEYARD"],
@@ -266,8 +266,8 @@ const questionJargonIds = {
   "b1.crucible.glint-dune.v1":["JRG_THREAT","JRG_BOARD"],
   "b1.crucible.dune-ink.v1":["JRG_PUBLIC_COMMITMENT","JRG_BOARD"],
   "b1.crucible.witch-yore.v1":["JRG_ENGINE"],
-  "b1.crucible.colorless-wubrg.v1":["JRG_COLOR_IDENTITY","JRG_FIVE_COLOR","JRG_COLOR_ROLES"],
-  "b1.crucible.mono-multi.v1":["JRG_COLOR_IDENTITY","JRG_COLOR_COUNT","JRG_COLOR_ROLES"]
+  "b1.crucible.colorless-wubrg.v1":["JRG_THEME"],
+  "b1.crucible.mono-multi.v1":["JRG_COLOR_COUNT","JRG_COLOR_ROLES"]
 };
 const jargonById = new Map(J.map((x) => [x.jargon_id,x]));
 for (const item of Q) {
@@ -537,17 +537,197 @@ const loadBearingJargon = [
   [/\bthreat\b/i,"JRG_THREAT"],[/\bcolor roles\b/i,"JRG_COLOR_ROLES"],[/\bpublic commitment\b/i,"JRG_PUBLIC_COMMITMENT"]
 ];
 const prototype = JSON.parse(read("docs/prototypes/vm551-gate-b1-owner-experience/prototype-data.json"));
+const productFitResults = tsv(read("docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"));
+const productFitQuestions = tsv(read("docs/plans/vm551-gate-b1-product-fit/question-product-fit-review.tsv"));
+const resultRemediations = {
+  COLORLESS: {
+    primary_behavioral_explanation:"The reading can explain attraction to an imposed card-pool limitation as part of the deckbuilding challenge",
+    observable_distinction:"Colorless provisionally represents satisfaction from solving within an imposed limitation; Five-Color preserves the broadest palette before the builder chooses a theme, mechanic, or rule",
+    honest_limitation:"This boundary remains unvalidated. A preference for restrictions does not by itself establish Colorless, and the reading must not infer artifacts, Eldrazi, big mana, combo, complexity, or difficulty",
+    commander_expression:"A Commander whose available card pool creates a limitation the player actively wants to solve; no card type or archetype is implied",
+    table_read:"The card-pool limitation is visible, but it does not reveal how the deck will behave at the table",
+    useful_archetype_links:"Constraint-led builds; no archetype inferred",
+    recommendation_direction:"Compare the same desired play pattern under different available card pools before exploring a Colorless Commander",
+    usefulness_status:"PARTIAL",
+    missing_value:"Independent behavioral evidence beyond liking an imposed limitation, plus player validation against broad-access decks with self-chosen restrictions"
+  },
+  WUBRG: {
+    primary_behavioral_explanation:"The reading can explain wanting the full color palette available before choosing a unifying theme, mechanic, collection, or rule",
+    observable_distinction:"Five-Color provisionally preserves broad access and then applies self-chosen boundaries; Colorless begins with an imposed limitation that makes unavailable tools part of the challenge",
+    honest_limitation:"This boundary remains unvalidated. Broad access does not imply playing everything, goodstuff, complexity, power, optimization, or an unwillingness to use severe self-chosen restrictions",
+    commander_expression:"A five-color Commander whose full palette serves one declared concept, including theme-, mechanic-, typal-, collection-, or favorite-card-led builds",
+    table_read:"Broad access does not reveal the plan; the chosen concept still needs to make the deck legible",
+    useful_archetype_links:"Theme-led; mechanic-led; typal; toolbox; no power level inferred",
+    recommendation_direction:"Explore five-color commanders only when the full palette serves a stated concept or chosen rule rather than standing in for one",
+    missing_value:"Independent behavioral support beyond preserving broad access, plus player validation against narrower pools and self-restricted five-color decks"
+  }
+};
+for (const row of productFitResults) Object.assign(row,resultRemediations[row.identity_id] || {});
+writeRoot("docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",makeTsv(Object.keys(productFitResults[0]),productFitResults));
+const ownerRemediationQuestionIds = new Set([
+  "b1.hall.engine-shape.v1","b1.hall.pressure.v1","b1.hall.mana-window.v1","b1.hall.repeatability.v1",
+  "b1.hall.theme.v1","b1.hall.setup.v1","b1.hall.breadth.v1","b1.crucible.ug.v1",
+  "b1.crucible.esper.v1","b1.crucible.witch-yore.v1","b1.crucible.colorless-wubrg.v1","b1.crucible.mono-multi.v1"
+]);
+for (const row of productFitQuestions) {
+  if (!ownerRemediationQuestionIds.has(row.question_id)) continue;
+  const question = Q.find((candidate) => candidate.id === row.question_id);
+  row.current_prompt = question.prompt;
+  row.product_fit_disposition = "OWNER_REMEDIATION_APPLIED";
+  row.proposed_change = question.prompt;
+  row.reason = `Hands-on owner review superseded the prior KEEP judgment; the remediated wording and help preserve ${question.construct} while improving novice comprehension.`;
+  row.owner_review_required = "NO";
+}
+writeRoot("docs/plans/vm551-gate-b1-product-fit/question-product-fit-review.tsv",makeTsv(Object.keys(productFitQuestions[0]),productFitQuestions));
+const productResultById = new Map(productFitResults.map((result) => [result.identity_id, result]));
+const questionContractById = new Map(pilot.map((question) => [question.question_id, question]));
+const constructById = new Map(constructRows.map((construct) => [construct.construct_id, construct]));
+const productQuestionById = new Map(productFitQuestions.map((question) => [question.question_id, question]));
+for (const question of prototype.questions) {
+  const design = Q.find((candidate) => candidate.id === question.id);
+  const contract = questionContractById.get(question.id);
+  const construct = constructById.get(question.constructId);
+  const product = productQuestionById.get(question.id);
+  if (!design || !contract || !construct || !product) continue;
+  question.prompt = design.prompt;
+  question.observation = contract.primary_observation;
+  question.competitorFamily = contract.competitor_pair_or_family;
+  question.evidence = contract.evidence_provenance;
+  question.dependencyGroup = contract.dependency_group;
+  question.askWhen = contract.adaptive_ask_when;
+  question.doNotAskWhen = contract.do_not_ask_when;
+  question.status = contract.scoring_status;
+  question.jargon = design.jargonIds.map((id) => {
+    const term = jargonById.get(id);
+    return {id,term:term.term,definition:term.canonical_public_definition,authority:term.authority_type,sourceRef:"docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"};
+  });
+  question.construct = {
+    id:construct.construct_id,name:construct.name,definition:construct.plain_definition,
+    doesNotMean:construct.does_not_mean,dependencyOverlap:construct.dependency_overlap,
+    sourceRef:"docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv"
+  };
+  question.productFit = {
+    commanderSituation:product.commander_situation,disposition:product.product_fit_disposition,
+    support:product.corpus_support_summary,playerSupport:product.direct_player_support,
+    noviceClarity:product.novice_clarity,experiencedDepth:product.experienced_player_depth,
+    identityGiveawayRisk:product.identity_giveaway_risk,evidenceRefs:product.source_observation_refs,
+    sourceRef:"docs/plans/vm551-gate-b1-product-fit/question-product-fit-review.tsv"
+  };
+  for (const answer of question.answers) {
+    const contractAnswer = answerById.get(answer.id);
+    if (!contractAnswer) continue;
+    answer.title = contractAnswer.answer_title;
+    answer.explanation = contractAnswer.explanatory_sentence;
+    answer.observation = contractAnswer.plain_language_observation;
+    answer.primarySignal = contractAnswer.primary_signal;
+    answer.secondarySignal = contractAnswer.optional_bounded_secondary_signal || null;
+    answer.dependencyGroup = contractAnswer.dependency_group;
+    answer.exclusions = contractAnswer.exclusions;
+    answer.evidence = contractAnswer.evidence_provenance;
+    answer.mappingConfidence = contractAnswer.mapping_confidence;
+    answer.status = contractAnswer.scoring_status;
+    answer.limitation = contractAnswer.limitation_statement;
+  }
+}
+for (const result of prototype.results) {
+  const source = productResultById.get(result.id);
+  if (!source) continue;
+  result.name = source.identity_name;
+  result.status = source.usefulness_status;
+  result.whatAnswersShowed = source.primary_behavioral_explanation;
+  result.nearbyAlternative = source.nearest_useful_alternative;
+  result.observableDistinction = source.observable_distinction;
+  result.limitation = source.honest_limitation;
+  result.commanderExpression = source.commander_expression;
+  result.tableRead = source.table_read;
+  result.archetypeLinks = source.useful_archetype_links;
+  result.profileEnrichment = source.optional_profile_enrichment;
+  result.commanderDirection = source.recommendation_direction;
+  result.dossierValue = source.dossier_learning_value;
+  result.nextStep = source.maze_or_matrix_next_step;
+  result.missingValue = source.missing_value;
+}
+const resultSubtitles = {
+  DUNE:"Four-color expression centered on visible pressure and coordinated aggression.",
+  INK:"Four-color expression centered on shared resources and mutually useful board presence.",
+  GLINT:"Four-color expression centered on improvisation, conversion, and changing lines.",
+  WITCH:"Four-color expression centered on compounding growth and durable development.",
+  YORE:"Four-color expression centered on engineered systems and repeatable conversion."
+};
+for (const result of prototype.results) if (resultSubtitles[result.id]) result.subtitle = resultSubtitles[result.id];
+const walkthroughRemediations = {
+  "simic-quandrix": {
+    answerIds:["b1.gate.initiative.v1.balance","b1.gate.visibility.v1.board","b1.gate.disruption.v1.recover","b1.gate.tempo.v1.small","b1.hall.repeatability.v1.toolbox","b1.hall.setup.v1.staged","b1.crucible.ug.v1.adapt"],
+    routeSupportedHeading:"Why this stays close",
+    routeSupportedDistinction:"Your answers favored overlapping engines rather than one central engine. The current design associates that observation more strongly with Simic, but that mapping still requires evidence.",
+    identityContext:"Simic is associated with organic adaptation and accumulation, while Quandrix emphasizes mathematical scaling and multiplication. That context is useful for comparing them, but this route did not directly test that distinction.",
+    publicLimitation:"The overlapping-engine association is provisional and the route did not test the certified organic-versus-mathematical boundary."
+  },
+  white: {
+    answerIds:["b1.gate.initiative.v1.balance","b1.gate.visibility.v1.board","b1.gate.disruption.v1.protect","b1.gate.tempo.v1.small","b1.hall.commitment.v1.terms","b1.hall.threat.v1.embrace","b1.hall.mana-window.v1.split","b1.crucible.mono-multi.v1.mono"],
+    routeSupportedHeading:"Why this route names White",
+    routeSupportedDistinction:"Your answers combined protection before disruption, visible development, durable stated terms, split mana use, and interest in solving within one color’s tools. This authored route presents White as the current fit, while the mono-color association remains provisional.",
+    identityContext:"White’s certified identity context emphasizes order, responsibility, protection, and shared structure. This route observed some related behaviors, but it did not prove a color philosophy.",
+    publicLimitation:"Broad behavior and one color-count preference do not independently separate White from its multicolor neighbors."
+  },
+  bant: {
+    answerIds:["b1.gate.initiative.v1.balance","b1.gate.visibility.v1.board","b1.gate.disruption.v1.protect","b1.gate.tempo.v1.small","b1.hall.engine-shape.v1.overlap","b1.hall.threat.v1.embrace","b1.hall.setup.v1.early","b1.crucible.bant.v1.network"],
+    routeSupportedHeading:"Why Bant remains plausible",
+    routeSupportedDistinction:"Your answers favored protection before disruption, a visible board, overlapping support, setup that matters immediately, and a network that keeps functioning around a central commander. The current design associates that bundle with Bant, but the mapping still requires player evidence.",
+    identityContext:"Bant’s certified context emphasizes accountable excellence supported by community; Azorius emphasizes procedure and managed stability. That philosophy helps explain the comparison, but the route tested deck behavior rather than asking you to choose between those ideals.",
+    publicLimitation:"Bant remains a high-confusion identity, and this route does not validate separation from Azorius, Witch, WUBRG, or Ink."
+  },
+  colorless: {
+    answerIds:["b1.gate.initiative.v1.balance","b1.gate.visibility.v1.held","b1.gate.disruption.v1.recover","b1.gate.tempo.v1.small","b1.hall.repeatability.v1.same","b1.hall.engine-shape.v1.replace","b1.hall.theme.v1.gap","b1.crucible.colorless-wubrg.v1.constraint"],
+    routeSupportedHeading:"Why this stays insufficient",
+    routeSupportedDistinction:"Your answers favored a repeatable plan, replaceable engine pieces, a conditional theme tradeoff, and an imposed card-pool limitation. The limitation is relevant to the Colorless hypothesis, but it is not enough to name an identity.",
+    identityContext:"Colorless begins with an imposed absence of colored tools. That can make constraint-solving meaningful, but it does not imply artifacts, Eldrazi, big mana, combo, complexity, or difficulty.",
+    publicLimitation:"The design lacks independent validated behavior that distinguishes Colorless from a colored deck built under a self-chosen restriction."
+  },
+  wubrg: {
+    answerIds:["b1.gate.initiative.v1.balance","b1.gate.visibility.v1.split","b1.gate.disruption.v1.recover","b1.gate.tempo.v1.waves","b1.hall.repeatability.v1.toolbox","b1.hall.engine-shape.v1.overlap","b1.hall.theme.v1.theme","b1.crucible.colorless-wubrg.v1.breadth"],
+    routeSupportedHeading:"Why this stays mixed",
+    routeSupportedDistinction:"Your answers favored a stable purpose with changing tools, overlapping engines, theme loyalty, and broad access followed by self-chosen limits. Those observations make Five-Color worth exploring, but the identity association remains provisional.",
+    identityContext:"Five-Color can use the full palette as a toolbox or unify a theme, mechanic, collection, or favorite-card concept across color boundaries. It can still use severe self-chosen restrictions; it does not imply goodstuff, complexity, power, or optimization.",
+    publicLimitation:"The route does not establish that broad access, rather than the chosen concept itself, is the identity-defining preference."
+  }
+};
+for (const walkthrough of prototype.walkthroughs) {
+  const remediation = walkthroughRemediations[walkthrough.id];
+  if (!remediation) continue;
+  Object.assign(walkthrough,remediation);
+  walkthrough.steps = remediation.answerIds.map((selectedAnswerId) => ({questionId:selectedAnswerId.slice(0,selectedAnswerId.lastIndexOf(".")),selectedAnswerId}));
+  walkthrough.whatShown = "The result screen summarizes only the observations recorded by the answers selected in this review journey.";
+  walkthrough.result = structuredClone(prototype.results.find((result) => result.id === walkthrough.resultIdentityId));
+}
+writeRoot("docs/prototypes/vm551-gate-b1-owner-experience/prototype-data.json",JSON.stringify(prototype,null,2)+"\n");
 const prototypeQuestionById = new Map(prototype.questions.map((question) => [question.id, question]));
 const prototypeAnswerRows = prototype.questions.flatMap((question) => question.answers);
 const prototypeAnswerById = new Map(prototypeAnswerRows.map((answer) => [answer.id, answer]));
-const productFitResults = tsv(read("docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"));
-const productFitQuestions = tsv(read("docs/plans/vm551-gate-b1-product-fit/question-product-fit-review.tsv"));
-const productResultById = new Map(productFitResults.map((result) => [result.identity_id, result]));
 const routeShape = prototype.walkthroughs.map((walkthrough) => {
   const questions = walkthrough.steps.map((step) => prototypeQuestionById.get(step.questionId));
   const stages = count(questions.map((question) => question?.stage));
   return { id:walkthrough.id, total:questions.length, Gate:stages.Gate||0, Hall:stages.Hall||0, Crucible:stages.Crucible||0 };
 });
+const routeDiagnostics = prototype.walkthroughs.map((walkthrough) => {
+  const questionIds = walkthrough.steps.map((step) => step.questionId);
+  const optionalSteps = walkthrough.steps.filter((step) => prototypeQuestionById.get(step.questionId)?.stage !== "Gate");
+  const crucibleStep = optionalSteps.find((step) => prototypeQuestionById.get(step.questionId)?.stage === "Crucible");
+  const crucibleDependency = crucibleStep ? prototypeAnswerById.get(crucibleStep.selectedAnswerId)?.dependencyGroup : null;
+  const repeatedOptionalDependency = crucibleDependency
+    ? optionalSteps.filter((step) => prototypeQuestionById.get(step.questionId)?.stage === "Hall" && prototypeAnswerById.get(step.selectedAnswerId)?.dependencyGroup === crucibleDependency).length
+    : 0;
+  return {
+    id:walkthrough.id,
+    duplicateQuestionIds:questionIds.length-new Set(questionIds).size,
+    duplicateHallQuestionIds:questionIds.filter((id)=>prototypeQuestionById.get(id)?.stage==="Hall").length-new Set(questionIds.filter((id)=>prototypeQuestionById.get(id)?.stage==="Hall")).size,
+    repeatedOptionalDependency,
+    answerListMatches:walkthrough.answerIds.length===walkthrough.steps.length&&walkthrough.answerIds.every((id,index)=>id===walkthrough.steps[index].selectedAnswerId),
+    truthFields:Boolean(walkthrough.routeSupportedHeading&&walkthrough.routeSupportedDistinction&&walkthrough.identityContext&&walkthrough.publicLimitation)
+  };
+});
+const prototypeApp = read("docs/prototypes/vm551-gate-b1-owner-experience/app.js");
+const contentStatusCounts = count(prototype.results.map((result)=>result.status));
 const forbiddenPrototypeValueKeys = [];
 const visitPrototype = (value, pathParts=[]) => {
   if (!value || typeof value !== "object") return;
@@ -590,6 +770,20 @@ const checks = [
   ["C05 Bant commander-specific",Q.find((x)=>x.id==="b1.crucible.bant.v1").prompt.toLowerCase().includes("commander"),Q.find((x)=>x.id==="b1.crucible.bant.v1").prompt],
   ["C15 boundary-only",answers.filter((x)=>x.construct_id==="C15").every((x)=>x.exclusions.includes("Boundary evidence only")||x.scoring_status==="NON-DIRECTIONAL-NONSCORING"),answers.filter((x)=>x.construct_id==="C15").length],
   ["route hard maximum eight",4+3+1===8,"4 Gate + 3 Hall + 1 Crucible"],
+  ["owner remediation prompts exact",Object.entries({
+    "b1.hall.pressure.v1":"Which kind of progress makes your deck feel like it’s doing its job?",
+    "b1.hall.mana-window.v1":"If you can either spend most of your mana advancing your own plan or keep it available to answer opponents, which do you prefer?",
+    "b1.hall.repeatability.v1":"Across several games with the same deck, how much do you want the path to your main plan to repeat?",
+    "b1.hall.theme.v1":"For one deck slot, assume you can’t get both: one card fits your theme better, while another does the same job more reliably. Which do you keep?",
+    "b1.hall.setup.v1":"Early in the game, how much do you want your setup plays to matter right away?",
+    "b1.hall.breadth.v1":"Once you know what you want a deck to do, how much do you want the available cards to shape the challenge?",
+    "b1.crucible.mono-multi.v1":"Two decks play the way you like. One uses one color; the other combines several. Which deckbuilding challenge sounds more appealing?",
+    "b1.crucible.colorless-wubrg.v1":"When building around an idea you like, which kind of challenge sounds more satisfying?"
+  }).every(([id,prompt])=>Q.find((question)=>question.id===id)?.prompt===prompt),"8/8"],
+  ["canonical novice-safe engine help",J.find((j)=>j.jargon_id==="JRG_ENGINE")?.canonical_public_definition==="An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters."&&Q.filter((question)=>question.construct==="C06").every((question)=>question.jargonIds.includes("JRG_ENGINE")),Q.filter((question)=>question.construct==="C06").length],
+  ["no player-facing value-engine phrase",Q.every((question)=>! /value engine/i.test(allQuestionCopy(question))),Q.filter((question)=>/value engine/i.test(allQuestionCopy(question))).map((question)=>question.id).join(",")||"none"],
+  ["C15 imposed-versus-chosen boundary",C.find((construct)=>construct.construct_id==="C15")?.plain_definition.includes("available card pool versus restrictions the builder chooses")&&answerById.get("b1.hall.breadth.v1.narrow")?.plain_language_observation.includes("imposed card-pool")&&answerById.get("b1.hall.breadth.v1.broad")?.plain_language_observation.includes("self-chosen boundaries"),"C15"],
+  ["Colorless/WUBRG player copy does not reveal pair",!/(Colorless|Five-Color|WUBRG|artifacts|Eldrazi|mana fixing)/i.test(allQuestionCopy(Q.find((question)=>question.id==="b1.crucible.colorless-wubrg.v1"))),"shared pair item"],
   ["three owner-approved prompt tunes exact",
     Q.find((x)=>x.id==="b1.gate.initiative.v1").prompt==="Your turn begins, no urgent threat needs an answer, and you have enough mana to act. What feels best?" &&
     Q.find((x)=>x.id==="b1.gate.tempo.v1").prompt==="When your Commander deck is doing what you built it to do, how do you want the advantage to arrive?" &&
@@ -620,11 +814,20 @@ const checks = [
   }),prototypeAnswerRows.length],
   ["prototype five walkthroughs",prototype.walkthroughs.length===5&&new Set(prototype.walkthroughs.map((walkthrough)=>walkthrough.id)).size===5,prototype.walkthroughs.length],
   ["prototype route composition",routeShape.every((route)=>route.Gate===4&&[2,3].includes(route.Hall)&&[0,1].includes(route.Crucible)&&route.total>=6&&route.total<=8),JSON.stringify(routeShape)],
+  ["prototype route exact-question hygiene",routeDiagnostics.every((route)=>route.duplicateQuestionIds===0&&route.duplicateHallQuestionIds===0),JSON.stringify(routeDiagnostics)],
+  ["prototype route dependency hygiene",routeDiagnostics.every((route)=>route.repeatedOptionalDependency===0),JSON.stringify(routeDiagnostics)],
+  ["prototype route summaries match authored answers",routeDiagnostics.every((route)=>route.answerListMatches&&route.truthFields),JSON.stringify(routeDiagnostics)],
   ["prototype route IDs resolve",prototype.walkthroughs.every((walkthrough)=>walkthrough.steps.every((step)=>prototypeQuestionById.has(step.questionId)&&prototypeAnswerById.has(step.selectedAnswerId)&&prototypeAnswerById.get(step.selectedAnswerId).id.startsWith(`${step.questionId}.`))),prototype.walkthroughs.reduce((total,walkthrough)=>total+walkthrough.steps.length,0)],
   ["prototype result statuses match source",prototype.results.every((result)=>productResultById.get(result.id)?.usefulness_status===result.status),prototype.results.length],
+  ["content readiness counts",contentStatusCounts.READY===15&&contentStatusCounts.PARTIAL===18&&contentStatusCounts.GAP===4,`${contentStatusCounts.READY}/${contentStatusCounts.PARTIAL}/${contentStatusCounts.GAP}`],
+  ["Colorless and WUBRG content bounds",prototype.results.find((result)=>result.id==="COLORLESS")?.status==="PARTIAL"&&prototype.results.find((result)=>result.id==="WUBRG")?.status==="PARTIAL","PARTIAL/PARTIAL"],
+  ["four-color subtitles",["DUNE","INK","GLINT","WITCH","YORE"].every((id)=>prototype.results.find((result)=>result.id===id)?.subtitle?.startsWith("Four-color expression centered on")),"5/5"],
+  ["result truthfulness UI",prototypeApp.includes("observedSummary(walkthrough)")&&prototypeApp.includes("Identity context")&&prototypeApp.includes("Current identity distinction")&&!prototypeApp.includes("<strong>Missing value:</strong>"),"route observations/context/public limitation"],
+  ["content readiness disclaimer",prototypeApp.includes("Content readiness describes whether the result explanation package is usable. It does not mean placement accuracy or identity mapping has been validated."),"present"],
   ["prototype PARTIAL and GAP missing value preserved",prototype.results.filter((result)=>result.status!=="READY").every((result)=>result.missingValue&&result.missingValue===productResultById.get(result.id)?.missing_value),prototype.results.filter((result)=>result.status!=="READY").length],
   ["prototype exact prompt tunes",["b1.gate.initiative.v1","b1.gate.tempo.v1","b1.crucible.wb.v1"].every((id)=>prototypeQuestionById.get(id)?.prompt===Q.find((question)=>question.id===id)?.prompt),"3/3"],
   ["product-fit tune rows closed",productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_APPROVED_TUNE_APPLIED").length===3&&productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_APPROVED_TUNE_APPLIED").every((question)=>question.owner_review_required==="NO"),productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_APPROVED_TUNE_APPLIED").length],
+  ["hands-on owner remediations recorded",productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_REMEDIATION_APPLIED").length===12&&productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_REMEDIATION_APPLIED").every((question)=>question.reason.startsWith("Hands-on owner review superseded the prior KEEP judgment")),productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_REMEDIATION_APPLIED").length],
   ["prototype contains no scoring value fields",forbiddenPrototypeValueKeys.length===0,forbiddenPrototypeValueKeys.join(",")||"none"],
   ["prototype source references present",prototype.metadata.sourceRefs.length===9&&prototype.questions.every((question)=>question.sourceRef&&question.productFit.sourceRef)&&prototype.results.every((result)=>result.sourceRef)&&prototype.walkthroughs.every((walkthrough)=>walkthrough.sourceRef),prototype.metadata.sourceRefs.length],
   ["documentation-only changed paths",documentationOnly,changedPaths.join(",")||"clean"],

@@ -555,7 +555,7 @@
       "stage": "Hall",
       "order": 6,
       "constructId": "C06",
-      "prompt": "When an important engine piece is removed, what structure do you want behind it?",
+      "prompt": "When a card that repeatedly helps your deck is removed, what do you want the rest of the deck to have behind it?",
       "observation": "Preference for one central engine, replaceable pieces, or overlapping small engines.",
       "competitorFamily": "engine families",
       "evidence": "E-PLAYER-COMMANDER;E-PLAYER-VARIANCE;E-CECOS;E-VOICE",
@@ -567,7 +567,7 @@
         {
           "id": "JRG_ENGINE",
           "term": "engine",
-          "definition": "Engine means a card or group of cards that repeatedly produces value.",
+          "definition": "An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",
           "authority": "COMMITTED_PLAYER_LANGUAGE",
           "sourceRef": "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
         }
@@ -582,7 +582,7 @@
       },
       "productFit": {
         "commanderSituation": "Redundant cards, overlapping engines, or one defended center after disruption",
-        "disposition": "KEEP",
+        "disposition": "OWNER_REMEDIATION_APPLIED",
         "support": "The answer explanations make the engine terminology behaviorally legible",
         "playerSupport": "DIRECT-CONDITIONAL",
         "noviceClarity": "MODERATE",
@@ -645,7 +645,7 @@
       "stage": "Hall",
       "order": 7,
       "constructId": "C07",
-      "prompt": "Which progress most makes a game feel like your deck is doing its job?",
+      "prompt": "Which kind of progress makes your deck feel like it’s doing its job?",
       "observation": "Preferred way to move the game toward an ending.",
       "competitorFamily": "combat, resource-control, and engine-ending families",
       "evidence": "E-PLAYER-THREAT;E-PLAYER-PACE;E-CECOS;E-VOICE",
@@ -657,7 +657,7 @@
         {
           "id": "JRG_ENGINE",
           "term": "engine",
-          "definition": "Engine means a card or group of cards that repeatedly produces value.",
+          "definition": "An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",
           "authority": "COMMITTED_PLAYER_LANGUAGE",
           "sourceRef": "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
         },
@@ -679,7 +679,7 @@
       },
       "productFit": {
         "commanderSituation": "Combat pressure, narrowing opponents' resources, or assembling a noncombat ending",
-        "disposition": "KEEP",
+        "disposition": "OWNER_REMEDIATION_APPLIED",
         "support": "Three recognizable progress shapes remain distinct without naming factions",
         "playerSupport": "DIRECT-CONDITIONAL",
         "noviceClarity": "STRONG",
@@ -742,7 +742,7 @@
       "stage": "Hall",
       "order": 8,
       "constructId": "C08",
-      "prompt": "When both development and interaction are available, where do you prefer to spend most of your mana?",
+      "prompt": "If you can either spend most of your mana advancing your own plan or keep it available to answer opponents, which do you prefer?",
       "observation": "Preference to commit mana on one's own turn or retain options during opponents' turns.",
       "competitorFamily": "Blue, Azorius, Esper, Jeskai, and cadence boundaries",
       "evidence": "E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS;E-VOICE",
@@ -750,15 +750,7 @@
       "askWhen": "Ask when Gate initiative leaves families close.",
       "doNotAskWhen": "Do not count independently from C01 when both describe one cadence.",
       "status": "DESIGN-ONLY-NONSCORING",
-      "jargon": [
-        {
-          "id": "JRG_INTERACTION",
-          "term": "interaction",
-          "definition": "Interaction means an answer to another player's spell, ability, attack, or permanent.",
-          "authority": "COMMITTED_PLAYER_LANGUAGE",
-          "sourceRef": "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
-        }
-      ],
+      "jargon": [],
       "construct": {
         "id": "C08",
         "name": "Mana commitment and interaction window",
@@ -769,7 +761,7 @@
       },
       "productFit": {
         "commanderSituation": "Tap out to develop, hold mana for opponents, or split resources",
-        "disposition": "KEEP",
+        "disposition": "OWNER_REMEDIATION_APPLIED",
         "support": "Natural Commander language with a genuinely mixed answer",
         "playerSupport": "DIRECT-CONDITIONAL",
         "noviceClarity": "STRONG",
@@ -832,7 +824,7 @@
       "stage": "Hall",
       "order": 9,
       "constructId": "C09",
-      "prompt": "Across several games with the same deck, what repetition do you want?",
+      "prompt": "Across several games with the same deck, how much do you want the path to your main plan to repeat?",
       "observation": "Preference for familiar access to a central plan or greater game-to-game variance.",
       "competitorFamily": "all identities",
       "evidence": "E-PLAYER-VARIANCE;E-PLAYER-PACE;E-CECOS;E-VOICE",
@@ -851,7 +843,7 @@
       },
       "productFit": {
         "commanderSituation": "Repeat a central plan, vary the route, or keep the plan while changing tools",
-        "disposition": "KEEP",
+        "disposition": "OWNER_REMEDIATION_APPLIED",
         "support": "The repeated-games frame prevents one unusual game from standing in for preference",
         "playerSupport": "DIRECT",
         "noviceClarity": "STRONG",
@@ -914,7 +906,7 @@
       "stage": "Hall",
       "order": 10,
       "constructId": "C10",
-      "prompt": "A card fits your deck's theme, but another performs the same job more reliably. Which do you keep?",
+      "prompt": "For one deck slot, assume you can’t get both: one card fits your theme better, while another does the same job more reliably. Which do you keep?",
       "observation": "Willingness to keep thematic expression when a more reliable role-player exists.",
       "competitorFamily": "theme-first players; all identities",
       "evidence": "E-PLAYER-THEME;E-PLAYER-COMMANDER;E-PLAYER-PACE;E-CECOS;E-VOICE",
@@ -941,7 +933,7 @@
       },
       "productFit": {
         "commanderSituation": "Theme loyalty compared with functional reliability for the same deck role",
-        "disposition": "KEEP",
+        "disposition": "OWNER_REMEDIATION_APPLIED",
         "support": "The same-job premise isolates theme versus reliability from deck function",
         "playerSupport": "DIRECT-CONDITIONAL",
         "noviceClarity": "STRONG",
@@ -1295,7 +1287,7 @@
       "stage": "Hall",
       "order": 14,
       "constructId": "C14",
-      "prompt": "How long can your deck spend setting up before it needs to influence the game?",
+      "prompt": "Early in the game, how much do you want your setup plays to matter right away?",
       "observation": "How long a deck may develop before meaningfully affecting the table.",
       "competitorFamily": "Witch, Temur, Sultai, and engine families",
       "evidence": "E-PLAYER-PACE;E-PLAYER-COMMANDER;E-CECOS;E-VOICE",
@@ -1303,7 +1295,15 @@
       "askWhen": "Ask when candidates differ in development horizon.",
       "doNotAskWhen": "Do not interpret as game length or patience.",
       "status": "DESIGN-ONLY-NONSCORING",
-      "jargon": [],
+      "jargon": [
+        {
+          "id": "JRG_BOARD",
+          "term": "board",
+          "definition": "Board means the cards and tokens on the battlefield.",
+          "authority": "COMMITTED_PLAYER_LANGUAGE",
+          "sourceRef": "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
+        }
+      ],
       "construct": {
         "id": "C14",
         "name": "Setup tolerance",
@@ -1314,7 +1314,7 @@
       },
       "productFit": {
         "commanderSituation": "Early contribution, long setup, or staged payoff during setup",
-        "disposition": "KEEP",
+        "disposition": "OWNER_REMEDIATION_APPLIED",
         "support": "“Influence the game” avoids equating setup with a turn-number power claim",
         "playerSupport": "DIRECT-CONDITIONAL",
         "noviceClarity": "STRONG",
@@ -1326,9 +1326,9 @@
       "answers": [
         {
           "id": "b1.hall.setup.v1.early",
-          "title": "Useful while it builds",
-          "explanation": "Early plays matter before the main plan is fully working.",
-          "observation": "Prefers early utility.",
+          "title": "Matter immediately",
+          "explanation": "Even my setup cards should affect the board or give me useful options now.",
+          "observation": "Prefers setup plays with immediate impact.",
           "primarySignal": "SIG_C14_EARLY_IMPACT",
           "secondarySignal": null,
           "dependencyGroup": "DG_C14",
@@ -1341,9 +1341,9 @@
         },
         {
           "id": "b1.hall.setup.v1.long",
-          "title": "A long setup is acceptable",
-          "explanation": "Several turns may mainly prepare the plan.",
-          "observation": "Accepts long setup.",
+          "title": "Build first, pay off later",
+          "explanation": "I’m comfortable spending several turns mostly preparing the main plan.",
+          "observation": "Accepts several turns of mostly preparatory setup.",
           "primarySignal": "SIG_C14_LONG_SETUP",
           "secondarySignal": null,
           "dependencyGroup": "DG_C14",
@@ -1356,9 +1356,9 @@
         },
         {
           "id": "b1.hall.setup.v1.staged",
-          "title": "Each setup step pays something",
-          "explanation": "Build for several turns with intermediate benefits.",
-          "observation": "Prefers staged setup.",
+          "title": "Build in stages",
+          "explanation": "Setup can take time, but each step should give me something useful along the way.",
+          "observation": "Prefers staged setup with useful intermediate returns.",
           "primarySignal": "SIG_C14_STAGED",
           "secondarySignal": null,
           "dependencyGroup": "DG_C14",
@@ -1377,34 +1377,26 @@
       "stage": "Hall",
       "order": 15,
       "constructId": "C15",
-      "prompt": "When choosing a new Commander deck, which starting constraint is more appealing?",
-      "observation": "Preference for a narrow deckbuilding constraint or a broad combined toolset.",
+      "prompt": "Once you know what you want a deck to do, how much do you want the available cards to shape the challenge?",
+      "observation": "Preference for how much of the deckbuilding boundary should come from the available card pool versus restrictions the builder chooses within broader access.",
       "competitorFamily": "mono/multicolor; four-color; Colorless; WUBRG",
       "evidence": "E-PLAYER-COMMANDER;E-PLAYER-PACE;E-CERTIFIED;E-CECOS;E-VOICE",
       "dependencyGroup": "DG_C15",
       "askWhen": "Ask when color-count families remain plausible after behavior evidence.",
       "doNotAskWhen": "Never assign a color-count identity from this answer.",
       "status": "DESIGN-ONLY-NONSCORING",
-      "jargon": [
-        {
-          "id": "JRG_COLOR_ROLES",
-          "term": "color roles",
-          "definition": "Here, color roles are broad tool families associated with colors; no color-pie knowledge is required.",
-          "authority": "ARCHSCRY_OBSERVATION_CONTRACT",
-          "sourceRef": "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
-        }
-      ],
+      "jargon": [],
       "construct": {
         "id": "C15",
         "name": "Deck breadth and constraint",
-        "definition": "Preference for a narrow deckbuilding constraint or a broad combined toolset.",
-        "doesNotMean": "Colorless, Five-Color, theme, budget, or power by itself.",
-        "dependencyOverlap": "A boundary observation only; overlaps C09/C10.",
+        "definition": "Preference for how much of the deckbuilding boundary should come from the available card pool versus restrictions the builder chooses within broader access.",
+        "doesNotMean": "Colorless, Five-Color, theme, skill, complexity, budget, or power by itself.",
+        "dependencyOverlap": "A boundary observation only; imposed limits and self-chosen limits must remain distinct; overlaps C09/C10.",
         "sourceRef": "docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv"
       },
       "productFit": {
         "commanderSituation": "Start from one color or narrow rule, broad tools, or the deck concept",
-        "disposition": "KEEP",
+        "disposition": "OWNER_REMEDIATION_APPLIED",
         "support": "Natural deckbuilding language without requiring color-pie expertise",
         "playerSupport": "DIRECT",
         "noviceClarity": "STRONG",
@@ -1416,9 +1408,9 @@
       "answers": [
         {
           "id": "b1.hall.breadth.v1.narrow",
-          "title": "A tight restriction",
-          "explanation": "One color, card type, or narrow rule makes choices sharper.",
-          "observation": "Prefers narrow constraints.",
+          "title": "Let the limits shape it",
+          "explanation": "A smaller or restricted pool makes finding the solution part of the fun.",
+          "observation": "Prefers an imposed card-pool challenge.",
           "primarySignal": "SIG_C15_NARROW",
           "secondarySignal": null,
           "dependencyGroup": "DG_C15",
@@ -1431,9 +1423,9 @@
         },
         {
           "id": "b1.hall.breadth.v1.broad",
-          "title": "A wide set of tools",
-          "explanation": "Several color roles answer more situations.",
-          "observation": "Prefers broad tool access.",
+          "title": "Keep more tools available",
+          "explanation": "I prefer having more options available, then choosing which ones belong in the plan.",
+          "observation": "Prefers broad access followed by self-chosen boundaries.",
           "primarySignal": "SIG_C15_BROAD",
           "secondarySignal": null,
           "dependencyGroup": "DG_C15",
@@ -1446,9 +1438,9 @@
         },
         {
           "id": "b1.hall.breadth.v1.concept",
-          "title": "Whichever serves the concept",
-          "explanation": "The deck idea decides whether the pool is narrow or broad.",
-          "observation": "Reports concept-conditional breadth.",
+          "title": "Let the concept decide",
+          "explanation": "Some ideas are better with tight limits; others need broader access.",
+          "observation": "Reports concept-conditional card-pool breadth.",
           "primarySignal": "SIG_C15_CONDITIONAL",
           "secondarySignal": null,
           "dependencyGroup": "DG_C15",
@@ -1576,7 +1568,7 @@
         {
           "id": "JRG_ENGINE",
           "term": "engine",
-          "definition": "Engine means a card or group of cards that repeatedly produces value.",
+          "definition": "An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",
           "authority": "COMMITTED_PLAYER_LANGUAGE",
           "sourceRef": "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
         }
@@ -1834,7 +1826,7 @@
       "stage": "Crucible",
       "order": 20,
       "constructId": "C06",
-      "prompt": "When building a value engine, which structure fits your deck?",
+      "prompt": "When building an engine, which structure fits your deck?",
       "observation": "Preference for one central engine, replaceable pieces, or overlapping small engines.",
       "competitorFamily": "UG vs QUANDRIX",
       "evidence": "E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS;E-VOICE",
@@ -1846,7 +1838,7 @@
         {
           "id": "JRG_ENGINE",
           "term": "engine",
-          "definition": "Engine means a card or group of cards that repeatedly produces value.",
+          "definition": "An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",
           "authority": "COMMITTED_PLAYER_LANGUAGE",
           "sourceRef": "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
         }
@@ -1861,7 +1853,7 @@
       },
       "productFit": {
         "commanderSituation": "Several overlapping engines versus one central compounding engine",
-        "disposition": "KEEP",
+        "disposition": "OWNER_REMEDIATION_APPLIED",
         "support": "The owner-remediated answers now observe C06 directly; controlled wording is not a style defect",
         "playerSupport": "DIRECT-PLUS-FRAMEWORK",
         "noviceClarity": "MODERATE",
@@ -2295,7 +2287,7 @@
         {
           "id": "JRG_ENGINE",
           "term": "engine",
-          "definition": "Engine means a card or group of cards that repeatedly produces value.",
+          "definition": "An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",
           "authority": "COMMITTED_PLAYER_LANGUAGE",
           "sourceRef": "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
         }
@@ -2385,7 +2377,7 @@
         {
           "id": "JRG_ENGINE",
           "term": "engine",
-          "definition": "Engine means a card or group of cards that repeatedly produces value.",
+          "definition": "An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",
           "authority": "COMMITTED_PLAYER_LANGUAGE",
           "sourceRef": "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
         },
@@ -2414,7 +2406,7 @@
       },
       "productFit": {
         "commanderSituation": "Convert control into a designed engine or keep answers interchangeable",
-        "disposition": "KEEP",
+        "disposition": "OWNER_REMEDIATION_APPLIED",
         "support": "The stabilization-to-conversion moment is experienced-player meaningful; Esper distinctiveness remains insufficient",
         "playerSupport": "SYNTHESIS-AND-FRAMEWORK",
         "noviceClarity": "MODERATE",
@@ -2579,7 +2571,7 @@
         {
           "id": "JRG_ENGINE",
           "term": "engine",
-          "definition": "Engine means a card or group of cards that repeatedly produces value.",
+          "definition": "An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",
           "authority": "COMMITTED_PLAYER_LANGUAGE",
           "sourceRef": "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
         }
@@ -2933,7 +2925,7 @@
       "stage": "Crucible",
       "order": 32,
       "constructId": "C06",
-      "prompt": "When building a value engine, which structure should organize the plan?",
+      "prompt": "When an engine organizes your plan, which structure do you want?",
       "observation": "Preference for one central engine, replaceable pieces, or overlapping small engines.",
       "competitorFamily": "WITCH vs YORE",
       "evidence": "E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS;E-VOICE",
@@ -2945,7 +2937,7 @@
         {
           "id": "JRG_ENGINE",
           "term": "engine",
-          "definition": "Engine means a card or group of cards that repeatedly produces value.",
+          "definition": "An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",
           "authority": "COMMITTED_PLAYER_LANGUAGE",
           "sourceRef": "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
         }
@@ -2960,7 +2952,7 @@
       },
       "productFit": {
         "commanderSituation": "One central compounding engine versus interchangeable conversion pieces",
-        "disposition": "KEEP",
+        "disposition": "OWNER_REMEDIATION_APPLIED",
         "support": "Owner-corrected answers now observe C06; repeated engine wording is intentional control",
         "playerSupport": "FRAMEWORK-PLUS-INDIRECT",
         "noviceClarity": "MODERATE",
@@ -3023,8 +3015,8 @@
       "stage": "Crucible",
       "order": 33,
       "constructId": "C15",
-      "prompt": "You are choosing between a Colorless Commander deck and a Five-Color Commander deck to keep refining over many games. One commander's color identity uses no colors; the other's uses all five. Which deckbuilding challenge sounds more satisfying?",
-      "observation": "Preference for a narrow deckbuilding constraint or a broad combined toolset.",
+      "prompt": "When building around an idea you like, which kind of challenge sounds more satisfying?",
+      "observation": "Preference for how much of the deckbuilding boundary should come from the available card pool versus restrictions the builder chooses within broader access.",
       "competitorFamily": "COLORLESS vs WUBRG",
       "evidence": "E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS;E-VOICE",
       "dependencyGroup": "DG_C15",
@@ -3033,23 +3025,9 @@
       "status": "DESIGN-ONLY-NONSCORING",
       "jargon": [
         {
-          "id": "JRG_COLOR_IDENTITY",
-          "term": "color identity",
-          "definition": "A commander's color identity determines which colors may appear in its Commander deck.",
-          "authority": "OFFICIAL_WOTC_COMPREHENSIVE_RULES_AND_FORMAT",
-          "sourceRef": "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
-        },
-        {
-          "id": "JRG_FIVE_COLOR",
-          "term": "Five-Color",
-          "definition": "Five-Color uses all five colors in the commander's color identity.",
-          "authority": "OFFICIAL_COMMANDER_FORMAT_PLUS_PLAYER_LABEL",
-          "sourceRef": "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
-        },
-        {
-          "id": "JRG_COLOR_ROLES",
-          "term": "color roles",
-          "definition": "Here, color roles are broad tool families associated with colors; no color-pie knowledge is required.",
+          "id": "JRG_THEME",
+          "term": "theme",
+          "definition": "Here, theme means a chosen story, visual idea, creature type, or self-imposed concept.",
           "authority": "ARCHSCRY_OBSERVATION_CONTRACT",
           "sourceRef": "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
         }
@@ -3057,14 +3035,14 @@
       "construct": {
         "id": "C15",
         "name": "Deck breadth and constraint",
-        "definition": "Preference for a narrow deckbuilding constraint or a broad combined toolset.",
-        "doesNotMean": "Colorless, Five-Color, theme, budget, or power by itself.",
-        "dependencyOverlap": "A boundary observation only; overlaps C09/C10.",
+        "definition": "Preference for how much of the deckbuilding boundary should come from the available card pool versus restrictions the builder chooses within broader access.",
+        "doesNotMean": "Colorless, Five-Color, theme, skill, complexity, budget, or power by itself.",
+        "dependencyOverlap": "A boundary observation only; imposed limits and self-chosen limits must remain distinct; overlaps C09/C10.",
         "sourceRef": "docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv"
       },
       "productFit": {
         "commanderSituation": "Solve a narrow card pool or make all five color roles cohere",
-        "disposition": "KEEP",
+        "disposition": "OWNER_REMEDIATION_APPLIED",
         "support": "Long, but the inline definition is necessary for newer players and the edge comparison",
         "playerSupport": "DIRECT-CONDITIONAL",
         "noviceClarity": "STRONG",
@@ -3076,9 +3054,9 @@
       "answers": [
         {
           "id": "b1.crucible.colorless-wubrg.v1.constraint",
-          "title": "Make a narrow pool do more",
-          "explanation": "A hard restriction creates unusual solutions and tradeoffs.",
-          "observation": "Prefers narrow constraint.",
+          "title": "Work within the limits",
+          "explanation": "Some useful tools are unavailable, and finding unexpected solutions is part of the appeal.",
+          "observation": "Prefers an imposed card-pool limitation as part of the desired challenge.",
           "primarySignal": "SIG_C15_NARROW",
           "secondarySignal": null,
           "dependencyGroup": "DG_C15",
@@ -3091,9 +3069,9 @@
         },
         {
           "id": "b1.crucible.colorless-wubrg.v1.breadth",
-          "title": "Make a broad pool cohere",
-          "explanation": "Many color roles serve one integrated plan.",
-          "observation": "Prefers broad integration.",
+          "title": "Choose the limits myself",
+          "explanation": "Keep the widest range of tools available, then decide which theme, mechanic, or rule the deck will follow.",
+          "observation": "Prefers broad access followed by self-chosen deckbuilding boundaries.",
           "primarySignal": "SIG_C15_BROAD",
           "secondarySignal": null,
           "dependencyGroup": "DG_C15",
@@ -3106,8 +3084,8 @@
         },
         {
           "id": "b1.crucible.colorless-wubrg.v1.neither",
-          "title": "Color breadth is not my challenge",
-          "explanation": "Neither reason drives my deck choice.",
+          "title": "The available tools aren’t the point",
+          "explanation": "I care more about the deck idea than whether the starting pool is broad or narrow.",
           "observation": "Rejects the edge distinction.",
           "primarySignal": "SIG_C15_UNKNOWN",
           "secondarySignal": null,
@@ -3127,8 +3105,8 @@
       "stage": "Crucible",
       "order": 34,
       "constructId": "C15",
-      "prompt": "Two decks support the same play pattern you enjoy. One commander's color identity uses a single color; the other's combines several. Which color-count constraint appeals more?",
-      "observation": "Preference for a narrow deckbuilding constraint or a broad combined toolset.",
+      "prompt": "Two decks play the way you like. One uses one color; the other combines several. Which deckbuilding challenge sounds more appealing?",
+      "observation": "Preference for how much of the deckbuilding boundary should come from the available card pool versus restrictions the builder chooses within broader access.",
       "competitorFamily": "mono versus multicolor",
       "evidence": "E-CERTIFIED;E-PLAYER-COMMANDER;E-PLAYER-PACE;E-AUDIT;E-CECOS;E-VOICE",
       "dependencyGroup": "DG_C15",
@@ -3136,13 +3114,6 @@
       "doNotAskWhen": "Never permit a one-answer color-count flip.",
       "status": "DESIGN-ONLY-NONSCORING",
       "jargon": [
-        {
-          "id": "JRG_COLOR_IDENTITY",
-          "term": "color identity",
-          "definition": "A commander's color identity determines which colors may appear in its Commander deck.",
-          "authority": "OFFICIAL_WOTC_COMPREHENSIVE_RULES_AND_FORMAT",
-          "sourceRef": "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv"
-        },
         {
           "id": "JRG_COLOR_COUNT",
           "term": "color count",
@@ -3161,14 +3132,14 @@
       "construct": {
         "id": "C15",
         "name": "Deck breadth and constraint",
-        "definition": "Preference for a narrow deckbuilding constraint or a broad combined toolset.",
-        "doesNotMean": "Colorless, Five-Color, theme, budget, or power by itself.",
-        "dependencyOverlap": "A boundary observation only; overlaps C09/C10.",
+        "definition": "Preference for how much of the deckbuilding boundary should come from the available card pool versus restrictions the builder chooses within broader access.",
+        "doesNotMean": "Colorless, Five-Color, theme, skill, complexity, budget, or power by itself.",
+        "dependencyOverlap": "A boundary observation only; imposed limits and self-chosen limits must remain distinct; overlaps C09/C10.",
         "sourceRef": "docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv"
       },
       "productFit": {
         "commanderSituation": "Hold play pattern constant while comparing one-color depth with multicolor role combination",
-        "disposition": "KEEP",
+        "disposition": "OWNER_REMEDIATION_APPLIED",
         "support": "The same-play-pattern premise separates breadth preference from archetype",
         "playerSupport": "DIRECT-CONDITIONAL",
         "noviceClarity": "STRONG",
@@ -3180,9 +3151,9 @@
       "answers": [
         {
           "id": "b1.crucible.mono-multi.v1.mono",
-          "title": "Explore one color's limits",
-          "explanation": "Solve gaps inside a tighter toolset.",
-          "observation": "Prefers focused single-color constraint.",
+          "title": "Explore one color’s limits",
+          "explanation": "Find solutions inside one color’s tools.",
+          "observation": "Prefers solving within one color's available tools.",
           "primarySignal": "SIG_C15_NARROW",
           "secondarySignal": null,
           "dependencyGroup": "DG_C15",
@@ -3195,9 +3166,9 @@
         },
         {
           "id": "b1.crucible.mono-multi.v1.multi",
-          "title": "Combine color roles",
-          "explanation": "Use more kinds of tools with greater mana and choice complexity.",
-          "observation": "Prefers multicolor breadth.",
+          "title": "Combine several color roles",
+          "explanation": "Keep more kinds of tools available and decide which ones belong in the plan.",
+          "observation": "Prefers access to several color roles followed by deliberate selection.",
           "primarySignal": "SIG_C15_BROAD",
           "secondarySignal": null,
           "dependencyGroup": "DG_C15",
@@ -3210,8 +3181,8 @@
         },
         {
           "id": "b1.crucible.mono-multi.v1.pattern",
-          "title": "The play pattern matters more",
-          "explanation": "Choose whichever color count supports the behavior.",
+          "title": "Let the play pattern decide",
+          "explanation": "Choose the color count that best serves the way the deck plays.",
           "observation": "Reports no independent breadth preference.",
           "primarySignal": "SIG_C15_CONDITIONAL",
           "secondarySignal": null,
@@ -3321,19 +3292,19 @@
     {
       "id": "COLORLESS",
       "name": "Colorless",
-      "status": "GAP",
-      "whatAnswersShowed": "The reading can explain attraction to solving a severe card-pool and mana-identity constraint",
+      "status": "PARTIAL",
+      "whatAnswersShowed": "The reading can explain attraction to an imposed card-pool limitation as part of the deckbuilding challenge",
       "nearbyAlternative": "Five-Color / WUBRG",
-      "observableDistinction": "Colorless should require satisfaction from making a narrow pool do more; Five-Color should require making broad color roles cohere",
-      "limitation": "Distinctiveness evidence is insufficient and the explicit edge question creates result-giveaway risk",
-      "commanderExpression": "Artifacts, colorless ramp, unusual mana, large threats, or commander-defined engines",
-      "tableRead": "The deck's constraints are visible before its behavioral fit is known",
-      "archetypeLinks": "Artifacts; big mana; combo; Voltron",
+      "observableDistinction": "Colorless provisionally represents satisfaction from solving within an imposed limitation; Five-Color preserves the broadest palette before the builder chooses a theme, mechanic, or rule",
+      "limitation": "This boundary remains unvalidated. A preference for restrictions does not by itself establish Colorless, and the reading must not infer artifacts, Eldrazi, big mana, combo, complexity, or difficulty",
+      "commanderExpression": "A Commander whose available card pool creates a limitation the player actively wants to solve; no card type or archetype is implied",
+      "tableRead": "The card-pool limitation is visible, but it does not reveal how the deck will behave at the table",
+      "archetypeLinks": "Constraint-led builds; no archetype inferred",
       "profileEnrichment": "System Architect may enrich constraint-solving only after placement",
-      "commanderDirection": "Explore commanders whose colorless restriction creates a concrete deckbuilding problem the player wants",
+      "commanderDirection": "Compare the same desired play pattern under different available card pools before exploring a Colorless Commander",
       "dossierValue": "Certified Colorless records can teach absence-of-color constraints and non-equivalence to generic artifacts",
       "nextStep": "Compare Colorless with WUBRG and the same play pattern in a colored identity",
-      "missingValue": "Independent behavioral evidence beyond liking the narrow pool; novice result explanation that avoids identity tautology",
+      "missingValue": "Independent behavioral evidence beyond liking an imposed limitation, plus player validation against broad-access decks with self-chosen restrictions",
       "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
     },
     {
@@ -3352,7 +3323,8 @@
       "dossierValue": "Certified four-color dossier can teach the non-Blue pressure lane and its false-positive boundaries",
       "nextStep": "Compare Dune with Ink and Naya; open public-pressure Maze paths",
       "missingValue": "Player evidence for Dune/Ink distinction and public comprehension of the expression name",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "subtitle": "Four-color expression centered on visible pressure and coordinated aggression."
     },
     {
       "id": "ESPER",
@@ -3406,7 +3378,8 @@
       "dossierValue": "Certified four-color material can teach the non-White lane and distinguish improvisation from disorder",
       "nextStep": "Compare Glint with Yore, Black, and Red; open variable-route Maze paths",
       "missingValue": "Player comprehension of the Glint label and validated engineered/improvised boundary",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "subtitle": "Four-color expression centered on improvisation, conversion, and changing lines."
     },
     {
       "id": "GRIXIS",
@@ -3442,7 +3415,8 @@
       "dossierValue": "Certified four-color material can teach the non-Black lane only if motive claims remain bounded",
       "nextStep": "Compare Ink with Dune, White, and Selesnya; open shared-resource Maze paths",
       "missingValue": "Observable distinction independent of inferred altruism; result language players can recognize without the label explanation doing all the work",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "subtitle": "Four-color expression centered on shared resources and mutually useful board presence."
     },
     {
       "id": "JESKAI",
@@ -3802,7 +3776,8 @@
       "dossierValue": "Certified four-color dossier can teach the non-Red growth lane if value-generic claims are avoided",
       "nextStep": "Compare Witch with Abzan, Bant, and Quandrix; open compounding-growth Maze paths",
       "missingValue": "Validated identity-specific boundary and comprehension of the Witch expression name",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "subtitle": "Four-color expression centered on compounding growth and durable development."
     },
     {
       "id": "WITHERBLOOM",
@@ -3862,18 +3837,18 @@
       "id": "WUBRG",
       "name": "Five-Color / WUBRG",
       "status": "PARTIAL",
-      "whatAnswersShowed": "The reading can explain satisfaction from making all five color roles serve one coherent concept",
+      "whatAnswersShowed": "The reading can explain wanting the full color palette available before choosing a unifying theme, mechanic, collection, or rule",
       "nearbyAlternative": "Colorless",
-      "observableDistinction": "Five-Color should require breadth made coherent; Colorless should require solving a narrow pool's tradeoffs",
-      "limitation": "The edge question is explicit, identity mappings are unvalidated, and broad access can reflect theme or commander text rather than preference",
-      "commanderExpression": "Five-color typal, legends, domain, goodstuff constrained by concept, or multicolor engines",
-      "tableRead": "Breadth can hide plan opacity and mana fragility",
-      "archetypeLinks": "Midrange; typal; combo; toolbox",
+      "observableDistinction": "Five-Color provisionally preserves broad access and then applies self-chosen boundaries; Colorless begins with an imposed limitation that makes unavailable tools part of the challenge",
+      "limitation": "This boundary remains unvalidated. Broad access does not imply playing everything, goodstuff, complexity, power, optimization, or an unwillingness to use severe self-chosen restrictions",
+      "commanderExpression": "A five-color Commander whose full palette serves one declared concept, including theme-, mechanic-, typal-, collection-, or favorite-card-led builds",
+      "tableRead": "Broad access does not reveal the plan; the chosen concept still needs to make the deck legible",
+      "archetypeLinks": "Theme-led; mechanic-led; typal; toolbox; no power level inferred",
       "profileEnrichment": "Johnny/Jenny or Vorthos may enrich the reason for breadth only by self-report",
-      "commanderDirection": "Explore five-color commanders whose breadth serves a stated concept rather than replacing one",
+      "commanderDirection": "Explore five-color commanders only when the full palette serves a stated concept or chosen rule rather than standing in for one",
       "dossierValue": "Certified WUBRG material can teach totality versus overload and prevent “all colors means no position”",
       "nextStep": "Compare WUBRG with Colorless and the same play pattern in fewer colors",
-      "missingValue": "Independent behavioral support beyond choosing breadth; beginner-safe result explanation and false-positive data",
+      "missingValue": "Independent behavioral support beyond preserving broad access, plus player validation against narrower pools and self-restricted five-color decks",
       "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
     },
     {
@@ -3892,7 +3867,8 @@
       "dossierValue": "Certified four-color material supports discovery but not yet a defensible placement explanation",
       "nextStep": "Compare Yore with Glint, Esper, and Black; open artifact-conversion Maze paths",
       "missingValue": "Unique observable boundary, player comprehension of Yore, and evidence separating it from generic engine decks",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "subtitle": "Four-color expression centered on engineered systems and repeatable conversion."
     }
   ],
   "enrichment": [
@@ -4091,11 +4067,11 @@
         "b1.gate.visibility.v1.board",
         "b1.gate.disruption.v1.recover",
         "b1.gate.tempo.v1.small",
-        "b1.hall.engine-shape.v1.overlap",
+        "b1.hall.repeatability.v1.toolbox",
         "b1.hall.setup.v1.staged",
         "b1.crucible.ug.v1.adapt"
       ],
-      "whatShown": "You favored visible resources, overlapping engines, incremental advantage, and setup steps that already contribute.",
+      "whatShown": "The result screen summarizes only the observations recorded by the answers selected in this review journey.",
       "stateNote": "Current best fit: Simic; close alternative: Quandrix. This is authored review copy, not a calculated outcome.",
       "sourceRef": "docs/plans/vm551-gate-b1-product-fit/representative-result-walkthroughs.md",
       "steps": [
@@ -4116,8 +4092,8 @@
           "selectedAnswerId": "b1.gate.tempo.v1.small"
         },
         {
-          "questionId": "b1.hall.engine-shape.v1",
-          "selectedAnswerId": "b1.hall.engine-shape.v1.overlap"
+          "questionId": "b1.hall.repeatability.v1",
+          "selectedAnswerId": "b1.hall.repeatability.v1.toolbox"
         },
         {
           "questionId": "b1.hall.setup.v1",
@@ -4145,7 +4121,11 @@
         "nextStep": "Compare Simic with Quandrix; open adaptive-growth Maze paths",
         "missingValue": "Player evidence connecting overlapping-engine observation to Simic rather than generic resilience",
         "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
-      }
+      },
+      "routeSupportedHeading": "Why this stays close",
+      "routeSupportedDistinction": "Your answers favored overlapping engines rather than one central engine. The current design associates that observation more strongly with Simic, but that mapping still requires evidence.",
+      "identityContext": "Simic is associated with organic adaptation and accumulation, while Quandrix emphasizes mathematical scaling and multiplication. That context is useful for comparing them, but this route did not directly test that distinction.",
+      "publicLimitation": "The overlapping-engine association is provisional and the route did not test the certified organic-versus-mathematical boundary."
     },
     {
       "id": "white",
@@ -4159,11 +4139,11 @@
         "b1.gate.disruption.v1.protect",
         "b1.gate.tempo.v1.small",
         "b1.hall.commitment.v1.terms",
-        "b1.hall.breadth.v1.narrow",
+        "b1.hall.threat.v1.embrace",
         "b1.hall.mana-window.v1.split",
         "b1.crucible.mono-multi.v1.mono"
       ],
-      "whatShown": "You favored protection, visible shared structure, durable stated terms, and the challenge of solving inside one color.",
+      "whatShown": "The result screen summarizes only the observations recorded by the answers selected in this review journey.",
       "stateNote": "Current best fit: White. No nearby identity is shown unless it independently qualifies.",
       "sourceRef": "docs/plans/vm551-gate-b1-product-fit/representative-result-walkthroughs.md",
       "steps": [
@@ -4188,8 +4168,8 @@
           "selectedAnswerId": "b1.hall.commitment.v1.terms"
         },
         {
-          "questionId": "b1.hall.breadth.v1",
-          "selectedAnswerId": "b1.hall.breadth.v1.narrow"
+          "questionId": "b1.hall.threat.v1",
+          "selectedAnswerId": "b1.hall.threat.v1.embrace"
         },
         {
           "questionId": "b1.hall.mana-window.v1",
@@ -4217,7 +4197,11 @@
         "nextStep": "Compare White with Azorius, Selesnya, and Bant; open protection Maze paths",
         "missingValue": "Direct mono discriminator and empirical separation from multicolor order identities",
         "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
-      }
+      },
+      "routeSupportedHeading": "Why this route names White",
+      "routeSupportedDistinction": "Your answers combined protection before disruption, visible development, durable stated terms, split mana use, and interest in solving within one color’s tools. This authored route presents White as the current fit, while the mono-color association remains provisional.",
+      "identityContext": "White’s certified identity context emphasizes order, responsibility, protection, and shared structure. This route observed some related behaviors, but it did not prove a color philosophy.",
+      "publicLimitation": "Broad behavior and one color-count preference do not independently separate White from its multicolor neighbors."
     },
     {
       "id": "bant",
@@ -4230,12 +4214,12 @@
         "b1.gate.visibility.v1.board",
         "b1.gate.disruption.v1.protect",
         "b1.gate.tempo.v1.small",
-        "b1.hall.commander-role.v1.function",
+        "b1.hall.engine-shape.v1.overlap",
         "b1.hall.threat.v1.embrace",
         "b1.hall.setup.v1.early",
         "b1.crucible.bant.v1.network"
       ],
-      "whatShown": "You favored a visible battlefield, protection, useful setup steps, and a supportive 99 that keeps functioning without its commander.",
+      "whatShown": "The result screen summarizes only the observations recorded by the answers selected in this review journey.",
       "stateNote": "Current best fit: Bant; close alternative: Azorius. The boundary remains provisional.",
       "sourceRef": "docs/plans/vm551-gate-b1-product-fit/representative-result-walkthroughs.md",
       "steps": [
@@ -4256,8 +4240,8 @@
           "selectedAnswerId": "b1.gate.tempo.v1.small"
         },
         {
-          "questionId": "b1.hall.commander-role.v1",
-          "selectedAnswerId": "b1.hall.commander-role.v1.function"
+          "questionId": "b1.hall.engine-shape.v1",
+          "selectedAnswerId": "b1.hall.engine-shape.v1.overlap"
         },
         {
           "questionId": "b1.hall.threat.v1",
@@ -4289,7 +4273,11 @@
         "nextStep": "Compare Bant with Azorius and Selesnya; open protected-champion Maze paths",
         "missingValue": "Validated boundary observation and false-positive data against WITCH/WUBRG/INK",
         "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
-      }
+      },
+      "routeSupportedHeading": "Why Bant remains plausible",
+      "routeSupportedDistinction": "Your answers favored protection before disruption, a visible board, overlapping support, setup that matters immediately, and a network that keeps functioning around a central commander. The current design associates that bundle with Bant, but the mapping still requires player evidence.",
+      "identityContext": "Bant’s certified context emphasizes accountable excellence supported by community; Azorius emphasizes procedure and managed stability. That philosophy helps explain the comparison, but the route tested deck behavior rather than asking you to choose between those ideals.",
+      "publicLimitation": "Bant remains a high-confusion identity, and this route does not validate separation from Azorius, Witch, WUBRG, or Ink."
     },
     {
       "id": "colorless",
@@ -4303,11 +4291,11 @@
         "b1.gate.disruption.v1.recover",
         "b1.gate.tempo.v1.small",
         "b1.hall.repeatability.v1.same",
-        "b1.hall.breadth.v1.narrow",
+        "b1.hall.engine-shape.v1.replace",
         "b1.hall.theme.v1.gap",
         "b1.crucible.colorless-wubrg.v1.constraint"
       ],
-      "whatShown": "You favored a narrow construction pool and a repeatable plan, but those observations do not independently establish a Colorless identity.",
+      "whatShown": "The result screen summarizes only the observations recorded by the answers selected in this review journey.",
       "stateNote": "Not enough evidence to distinguish a fit. Colorless remains a deliberate browse path, not a named placement.",
       "sourceRef": "docs/plans/vm551-gate-b1-product-fit/representative-result-walkthroughs.md",
       "steps": [
@@ -4332,8 +4320,8 @@
           "selectedAnswerId": "b1.hall.repeatability.v1.same"
         },
         {
-          "questionId": "b1.hall.breadth.v1",
-          "selectedAnswerId": "b1.hall.breadth.v1.narrow"
+          "questionId": "b1.hall.engine-shape.v1",
+          "selectedAnswerId": "b1.hall.engine-shape.v1.replace"
         },
         {
           "questionId": "b1.hall.theme.v1",
@@ -4347,21 +4335,25 @@
       "result": {
         "id": "COLORLESS",
         "name": "Colorless",
-        "status": "GAP",
-        "whatAnswersShowed": "The reading can explain attraction to solving a severe card-pool and mana-identity constraint",
+        "status": "PARTIAL",
+        "whatAnswersShowed": "The reading can explain attraction to an imposed card-pool limitation as part of the deckbuilding challenge",
         "nearbyAlternative": "Five-Color / WUBRG",
-        "observableDistinction": "Colorless should require satisfaction from making a narrow pool do more; Five-Color should require making broad color roles cohere",
-        "limitation": "Distinctiveness evidence is insufficient and the explicit edge question creates result-giveaway risk",
-        "commanderExpression": "Artifacts, colorless ramp, unusual mana, large threats, or commander-defined engines",
-        "tableRead": "The deck's constraints are visible before its behavioral fit is known",
-        "archetypeLinks": "Artifacts; big mana; combo; Voltron",
+        "observableDistinction": "Colorless provisionally represents satisfaction from solving within an imposed limitation; Five-Color preserves the broadest palette before the builder chooses a theme, mechanic, or rule",
+        "limitation": "This boundary remains unvalidated. A preference for restrictions does not by itself establish Colorless, and the reading must not infer artifacts, Eldrazi, big mana, combo, complexity, or difficulty",
+        "commanderExpression": "A Commander whose available card pool creates a limitation the player actively wants to solve; no card type or archetype is implied",
+        "tableRead": "The card-pool limitation is visible, but it does not reveal how the deck will behave at the table",
+        "archetypeLinks": "Constraint-led builds; no archetype inferred",
         "profileEnrichment": "System Architect may enrich constraint-solving only after placement",
-        "commanderDirection": "Explore commanders whose colorless restriction creates a concrete deckbuilding problem the player wants",
+        "commanderDirection": "Compare the same desired play pattern under different available card pools before exploring a Colorless Commander",
         "dossierValue": "Certified Colorless records can teach absence-of-color constraints and non-equivalence to generic artifacts",
         "nextStep": "Compare Colorless with WUBRG and the same play pattern in a colored identity",
-        "missingValue": "Independent behavioral evidence beyond liking the narrow pool; novice result explanation that avoids identity tautology",
+        "missingValue": "Independent behavioral evidence beyond liking an imposed limitation, plus player validation against broad-access decks with self-chosen restrictions",
         "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
-      }
+      },
+      "routeSupportedHeading": "Why this stays insufficient",
+      "routeSupportedDistinction": "Your answers favored a repeatable plan, replaceable engine pieces, a conditional theme tradeoff, and an imposed card-pool limitation. The limitation is relevant to the Colorless hypothesis, but it is not enough to name an identity.",
+      "identityContext": "Colorless begins with an imposed absence of colored tools. That can make constraint-solving meaningful, but it does not imply artifacts, Eldrazi, big mana, combo, complexity, or difficulty.",
+      "publicLimitation": "The design lacks independent validated behavior that distinguishes Colorless from a colored deck built under a self-chosen restriction."
     },
     {
       "id": "wubrg",
@@ -4375,11 +4367,11 @@
         "b1.gate.disruption.v1.recover",
         "b1.gate.tempo.v1.waves",
         "b1.hall.repeatability.v1.toolbox",
-        "b1.hall.breadth.v1.concept",
+        "b1.hall.engine-shape.v1.overlap",
         "b1.hall.theme.v1.theme",
         "b1.crucible.colorless-wubrg.v1.breadth"
       ],
-      "whatShown": "You favored one concept served by changing tools and broad color roles, while keeping theme separate from behavioral evidence.",
+      "whatShown": "The result screen summarizes only the observations recorded by the answers selected in this review journey.",
       "stateNote": "Mixed reading. Five-Color is plausible, but this review does not turn breadth into a definitive identity claim.",
       "sourceRef": "docs/plans/vm551-gate-b1-product-fit/representative-result-walkthroughs.md",
       "steps": [
@@ -4404,8 +4396,8 @@
           "selectedAnswerId": "b1.hall.repeatability.v1.toolbox"
         },
         {
-          "questionId": "b1.hall.breadth.v1",
-          "selectedAnswerId": "b1.hall.breadth.v1.concept"
+          "questionId": "b1.hall.engine-shape.v1",
+          "selectedAnswerId": "b1.hall.engine-shape.v1.overlap"
         },
         {
           "questionId": "b1.hall.theme.v1",
@@ -4420,20 +4412,24 @@
         "id": "WUBRG",
         "name": "Five-Color / WUBRG",
         "status": "PARTIAL",
-        "whatAnswersShowed": "The reading can explain satisfaction from making all five color roles serve one coherent concept",
+        "whatAnswersShowed": "The reading can explain wanting the full color palette available before choosing a unifying theme, mechanic, collection, or rule",
         "nearbyAlternative": "Colorless",
-        "observableDistinction": "Five-Color should require breadth made coherent; Colorless should require solving a narrow pool's tradeoffs",
-        "limitation": "The edge question is explicit, identity mappings are unvalidated, and broad access can reflect theme or commander text rather than preference",
-        "commanderExpression": "Five-color typal, legends, domain, goodstuff constrained by concept, or multicolor engines",
-        "tableRead": "Breadth can hide plan opacity and mana fragility",
-        "archetypeLinks": "Midrange; typal; combo; toolbox",
+        "observableDistinction": "Five-Color provisionally preserves broad access and then applies self-chosen boundaries; Colorless begins with an imposed limitation that makes unavailable tools part of the challenge",
+        "limitation": "This boundary remains unvalidated. Broad access does not imply playing everything, goodstuff, complexity, power, optimization, or an unwillingness to use severe self-chosen restrictions",
+        "commanderExpression": "A five-color Commander whose full palette serves one declared concept, including theme-, mechanic-, typal-, collection-, or favorite-card-led builds",
+        "tableRead": "Broad access does not reveal the plan; the chosen concept still needs to make the deck legible",
+        "archetypeLinks": "Theme-led; mechanic-led; typal; toolbox; no power level inferred",
         "profileEnrichment": "Johnny/Jenny or Vorthos may enrich the reason for breadth only by self-report",
-        "commanderDirection": "Explore five-color commanders whose breadth serves a stated concept rather than replacing one",
+        "commanderDirection": "Explore five-color commanders only when the full palette serves a stated concept or chosen rule rather than standing in for one",
         "dossierValue": "Certified WUBRG material can teach totality versus overload and prevent “all colors means no position”",
         "nextStep": "Compare WUBRG with Colorless and the same play pattern in fewer colors",
-        "missingValue": "Independent behavioral support beyond choosing breadth; beginner-safe result explanation and false-positive data",
+        "missingValue": "Independent behavioral support beyond preserving broad access, plus player validation against narrower pools and self-restricted five-color decks",
         "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
-      }
+      },
+      "routeSupportedHeading": "Why this stays mixed",
+      "routeSupportedDistinction": "Your answers favored a stable purpose with changing tools, overlapping engines, theme loyalty, and broad access followed by self-chosen limits. Those observations make Five-Color worth exploring, but the identity association remains provisional.",
+      "identityContext": "Five-Color can use the full palette as a toolbox or unify a theme, mechanic, collection, or favorite-card concept across color boundaries. It can still use severe self-chosen restrictions; it does not imply goodstuff, complexity, power, or optimization.",
+      "publicLimitation": "The route does not establish that broad access, rather than the chosen concept itself, is the identity-defining preference."
     }
   ],
   "gateAStates": [

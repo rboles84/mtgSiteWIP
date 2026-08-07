@@ -315,3 +315,9 @@ No scoring implementation or live-data modification occurred.
 ## Stop
 
 Gate B1 semantic design is owner approved. Stop before player-validation preparation, which requires separate authorization. Do not implement the pilot.
+
+## Owner-experience remediation record
+
+Hands-on prototype review preserved the approved architecture and required a bounded presentation remediation. C06 now uses the canonical novice-safe engine explanation; C07, C08, C09, C10, and C14 use the exact owner-directed prompts; and C15 now records imposed card-pool boundaries versus broad access followed by builder-chosen boundaries. All 15 construct IDs, 34 question IDs, 106 answer IDs, signal directions, dependency groups, 37 identities, 123 confusion pairs, and 37 evidence-required directional hypotheses remain preserved and non-scoring.
+
+The five authored review routes now have zero exact duplicate questions and zero optional Hall→Crucible dependency repetitions. This does not define adaptive routing. The corrected static prototype awaits another short owner hands-on review and does not authorize player-validation preparation or implementation.
