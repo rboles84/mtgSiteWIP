@@ -71,7 +71,8 @@ const C = [
   ["C12","Resource sacrifice","Willingness to spend permanents, life, cards, or position as fuel for later advantage.","Sacrifice a useful creature for cards versus preserve board presence.","Recklessness, Black identity, graveyard strategy, or risk tolerance.","all; Black; Golgari; Witherbloom; Sultai; Grixis","Golgari/Witherbloom; Black/Sultai; Grixis/Yore","E-PLAYER-THREAT;E-PLAYER-PACE;E-CECOS","Hall","Separate voluntary conversion from disruption losses."],
   ["C13","Public commitment","How much spoken table agreements should bind later choices.","Keep stated deal terms versus make short or revisable commitments.","Honesty, morality, sociability, or political skill.","all; Azorius; Orzhov; Silverquill; Ink; Mardu","Orzhov/Silverquill; Dune/Ink; White/Azorius","E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS","Hall","Table preference cannot independently place an identity."],
   ["C14","Setup tolerance","How long a deck may develop before meaningfully affecting the table.","Assemble for several turns versus require useful actions while setting up.","Desired game length, power, patience, or skill.","all; Green; Witch; Temur; Sultai","Temur/Green; Ink/Witch; Witch/Yore","E-PLAYER-PACE;E-PLAYER-COMMANDER;E-CECOS","Hall","Overlaps C04; setup duration is not payoff concentration."],
-  ["C15","Deck breadth and constraint","Preference for how much of the deckbuilding boundary should come from the available card pool versus restrictions the builder chooses within broader access.","Work within an imposed limited card pool, or begin with broad access and choose the deck's boundaries yourself.","Colorless, Five-Color, theme, skill, complexity, budget, or power by itself.","all; mono/multicolor; four-color; Colorless; WUBRG","Colorless/WUBRG; mono/multicolor; four-color/WUBRG","E-PLAYER-COMMANDER;E-PLAYER-PACE;E-CERTIFIED;E-CECOS","Hall/Crucible","A boundary observation only; imposed limits and self-chosen limits must remain distinct; overlaps C09/C10."]
+  ["C15","Deck breadth and constraint","Preference for how much of the deckbuilding boundary should come from the available card pool versus restrictions the builder chooses within broader access.","Work within an imposed limited card pool, or begin with broad access and choose the deck's boundaries yourself.","Colorless, Five-Color, theme, skill, complexity, budget, or power by itself.","all; mono/multicolor; four-color; Colorless; WUBRG","Colorless/WUBRG; mono/multicolor; four-color/WUBRG","E-PLAYER-COMMANDER;E-PLAYER-PACE;E-CERTIFIED;E-CECOS","Hall/Crucible","A boundary observation only; imposed limits and self-chosen limits must remain distinct; overlaps C09/C10."],
+  ["C16","Information-to-plan conversion","After interaction or new card access creates several viable options, preference to consolidate one route, retain broad optionality, or exploit the current opening.","After a dangerous play is stopped and new cards create several workable plans, choose one route, keep several open, or act on the immediate opportunity.","Intelligence, optimization, control skill, threat-assessment skill, knowledge level, combo preference, archetype, motive, or Esper philosophy.","all; Blue; Black; Azorius; Dimir; Esper; Grixis; Jeskai; control; combo; toolbox; midrange; tempo","Esper/U; Esper/B; Esper/WU; Esper/UB; Esper/Grixis; Esper/Jeskai","E-CERTIFIED;E-PLAYER-PACE;E-PLAYER-THREAT;E-PLAYER-VARIANCE;E-CECOS; targeted player comprehension and false-positive evidence","Hall","DG_C16 is independent of C01/C04/C06/C08/C09/C14/C15. C16 starts only after options exist: it records route commitment, not initiative, payoff rhythm, engine structure, interaction timing, cross-game repeatability, setup horizon, or deckbuilding breadth."]
 ].map(([construct_id,name,plain_definition,commander_example,does_not_mean,applicable_identity_families,likely_confusion_pairs,required_evidence,stage,dependency_overlap]) => ({construct_id,name,plain_definition,commander_example,does_not_mean,applicable_identity_families,likely_confusion_pairs,required_evidence,stage,dependency_overlap}));
 
 const opt = (key,title,copy,observation,suffix,kind="directional") => ({key,title,copy,observation,suffix,kind});
@@ -145,6 +146,11 @@ const Q = [
     opt("before","Before the decisive action begins","Stop an enabling spell or ability before the opponent commits the decisive action.","Prefers an early interaction window.","EARLY_WINDOW"),
     opt("after","After the piece is visible","Answer it once its effect on the game is clear.","Prefers a later visible interaction window.","LATE_WINDOW"),
     opt("pressure","As they commit","Answer when the opponent commits the mana, card, or attack that makes the action decisive.","Prefers the opponent-commitment interaction window.","COMMIT_WINDOW")]),
+  q("b1.hall.information-to-plan.v1","Hall","C16","A dangerous opposing play has been stopped, and you now have enough cards to choose among several workable plans. What do you most want to do next?","Esper; Blue; Black; Azorius; Dimir; Grixis; Jeskai; control; combo; toolbox; midrange; tempo","E-CERTIFIED;E-PLAYER-PACE;E-PLAYER-THREAT;E-PLAYER-VARIANCE;E-CECOS","Ask adaptively when remaining candidates differ in how new information becomes route commitment and at least two independent behavioral observations already exist.","Do not ask when no real choice among routes exists, when the result is already stable, or as proof of skill, archetype, or identity.","",[
+    opt("consolidate","Choose one route","Pick a specific route toward ending the game and organize the next turns around it.","Prefers to consolidate new options into one planned route.","CONSOLIDATE"),
+    opt("open","Keep several routes open","Hold multiple workable plans and decide after the table changes again.","Prefers to retain broad optionality after gaining information.","OPTIONALITY"),
+    opt("exploit","Use the opening now","Spend the new resources on the opportunity that exists before it disappears.","Prefers to exploit the current opening after gaining information.","EXPLOIT"),
+    opt("depends","Let the deck decide","Some decks commit to one route, while others stay flexible or act immediately.","Reports deck-conditional information-to-plan preference.","CONDITIONAL","conditional")]),
   q("b1.crucible.ur.v1","Crucible","C04","Your spell-heavy deck has mana for a major turn. Which payoff sounds more like the plan?","UR vs PRISMARI","E-CERTIFIED;E-PLAYER-THEME;E-PLAYER-PACE;E-AUDIT;E-CECOS","Ask only when UR/PRISMARI remain close after two independent observations.","Do not ask if spell-heavy behavior was never observed.","Spell-heavy means instants or sorceries are central.",[
     opt("workshop","Improve the working engine","Several smaller spells test, copy, untap, or refine a repeatable system.","Prefers iterative spell-engine payoff.","INCREMENTAL"),
     opt("showcase","Build toward the showcase","One large spell or sequence creates the memorable turn.","Prefers concentrated expressive payoff.","CONCENTRATED"),
@@ -363,7 +369,7 @@ const terminologyRemediatedQuestionIds = new Set(Object.keys(questionJargonIds))
 const semanticReviews = answers.map((a) => {
   const qItem = Q.find((x) => x.id === a.question_id);
   const signalReview = signalReviewIds.has(a.answer_id);
-  const evidenceRequired = a._stage === "Crucible" && a._kind === "directional" && !signalReview;
+  const evidenceRequired = (a._stage === "Crucible" || a.construct_id === "C16") && a._kind === "directional" && !signalReview;
   const reworded = rewordedAnswerIds.has(a.answer_id);
   const metadataCorrected = metadataCorrectionIds.has(a.answer_id);
   let review_disposition = "APPROVE";
@@ -419,12 +425,12 @@ const pilot = Q.map((x,i) => ({
 }));
 
 const I = {
-  W:["C03","C13","C07"],U:["C01","C08","C06"],B:["C12","C11","C09"],R:["C01","C04","C11"],G:["C03","C14","C10"],
-  WU:["C08","C13","C09"],UB:["C02","C08","C11"],BR:["C11","C12","C04"],RG:["C07","C01","C10"],WG:["C13","C03","C10"],
+  W:["C03","C13","C07"],U:["C01","C08","C16","C06"],B:["C12","C11","C16","C09"],R:["C01","C04","C11"],G:["C03","C14","C10"],
+  WU:["C08","C13","C16","C09"],UB:["C02","C08","C16","C11"],BR:["C11","C12","C04"],RG:["C07","C01","C10"],WG:["C13","C03","C10"],
   WB:["C13","C12","C09"],UR:["C06","C04","C09"],BG:["C12","C03","C06"],WR:["C03","C07","C01"],UG:["C06","C03","C14"],
   PRISMARI:["C04","C10","C11"],QUANDRIX:["C06","C09","C14"],SILVERQUILL:["C13","C11","C10"],LOREHOLD:["C03","C06","C10"],WITHERBLOOM:["C12","C06","C14"],
-  BANT:["C05","C03","C09"],ESPER:["C06","C08","C09"],GRIXIS:["C01","C12","C02"],JUND:["C01","C12","C07"],NAYA:["C07","C10","C11"],
-  ABZAN:["C03","C14","C13"],TEMUR:["C01","C07","C14"],SULTAI:["C12","C06","C14"],MARDU:["C01","C07","C13"],JESKAI:["C08","C01","C09"],
+  BANT:["C05","C03","C09"],ESPER:["C16","C06","C08","C09"],GRIXIS:["C01","C12","C16","C02"],JUND:["C01","C12","C07"],NAYA:["C07","C10","C11"],
+  ABZAN:["C03","C14","C13"],TEMUR:["C01","C07","C14"],SULTAI:["C12","C06","C14"],MARDU:["C01","C07","C13"],JESKAI:["C08","C01","C16","C09"],
   YORE:["C06","C09","C12"],GLINT:["C09","C01","C11"],DUNE:["C07","C11","C13"],INK:["C13","C03","C10"],WITCH:["C14","C06","C09"],
   COLORLESS:["C15","C06","C10"],WUBRG:["C15","C09","C10"]
 };
@@ -433,7 +439,7 @@ const direct = {
   UR:["b1.crucible.ur.v1"],PRISMARI:["b1.crucible.ur.v1"],BG:["b1.crucible.bg.v1"],WITHERBLOOM:["b1.crucible.bg.v1"],
   WR:["b1.crucible.wr.v1"],LOREHOLD:["b1.crucible.wr.v1"],UG:["b1.crucible.ug.v1"],QUANDRIX:["b1.crucible.ug.v1"],
   WB:["b1.crucible.wb.v1"],SILVERQUILL:["b1.crucible.wb.v1"],BANT:["b1.crucible.bant.v1"],GRIXIS:["b1.crucible.grixis.v1"],
-  SULTAI:["b1.crucible.sultai.v1"],TEMUR:["b1.crucible.temur.v1"],ESPER:["b1.crucible.esper.v1"],JESKAI:["b1.crucible.jeskai.v1"],YORE:["b1.crucible.yore-glint.v1","b1.crucible.witch-yore.v1"],
+  SULTAI:["b1.crucible.sultai.v1"],TEMUR:["b1.crucible.temur.v1"],ESPER:["b1.hall.information-to-plan.v1","b1.crucible.esper.v1"],JESKAI:["b1.crucible.jeskai.v1"],YORE:["b1.crucible.yore-glint.v1","b1.crucible.witch-yore.v1"],
   GLINT:["b1.crucible.yore-glint.v1","b1.crucible.glint-dune.v1"],DUNE:["b1.crucible.glint-dune.v1","b1.crucible.dune-ink.v1"],
   INK:["b1.crucible.dune-ink.v1","b1.crucible.ink-witch.v1"],WITCH:["b1.crucible.ink-witch.v1","b1.crucible.witch-yore.v1"],
   COLORLESS:["b1.crucible.colorless-wubrg.v1"],WUBRG:["b1.crucible.colorless-wubrg.v1"]
@@ -451,6 +457,15 @@ const coverage = distinct.map((r) => {
     current_evidence_quality:r.distinctiveness_disposition, pilot_question_ids:[...new Set(qids)].join(";"),
     pilot_coverage:dq.length ? "STRUCTURAL-DIRECT-HYPOTHESIS; not empirically validated" : "STRUCTURAL-BROAD-AND-FAMILY; no direct identity-specific discriminator",
     uncovered_risks:high ? "High confusion or insufficient distinctiveness; preserve close/insufficient until player evidence supports mapping." : "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+    instrument_observability:r.identity === "YORE" ? "NOT_CLEANLY_OBSERVABLE" : dq.length ? "OBSERVABLE" : "PARTIALLY_OBSERVABLE",
+    observability_rationale:r.identity === "YORE"
+      ? "C06/C09 observe engine structure and repeatability, but behavior does not establish Yore's constructed-agency identity lens; guarded self-report remains a separate evidence class."
+      : r.identity === "ESPER"
+        ? "C16 now observes information-to-plan conversion; C06 and C08 separately observe structure and interaction timing. Together they provide structural coverage without validating the Esper association."
+        : dq.length
+          ? "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+          : "The pool observes relevant broad or family behavior but has no direct identity-specific discriminator.",
+    mapping_validation:"MAPPING_HYPOTHESIS",
     evidence_provenance:"E-AUDIT;E-CERTIFIED;E-CECOS"
   };
 });
@@ -461,7 +476,13 @@ const pairQuestions = new Map([
   ["QUANDRIX|UG","b1.crucible.ug.v1"],["SILVERQUILL|WB","b1.crucible.wb.v1"],["BANT|WITCH","b1.crucible.bant.v1"],
   ["B|GRIXIS","b1.crucible.grixis.v1"],["GLINT|GRIXIS","b1.crucible.grixis.v1"],["B|SULTAI","b1.crucible.sultai.v1"],
   ["BG|SULTAI","b1.crucible.sultai.v1"],["G|TEMUR","b1.crucible.temur.v1"],["GLINT|TEMUR","b1.crucible.temur.v1"],
-  ["ESPER|U","b1.crucible.esper.v1"],["ESPER|YORE","b1.crucible.esper.v1"],["ESPER|JESKAI","b1.crucible.esper.v1"],
+  ["B|ESPER","b1.hall.information-to-plan.v1;b1.crucible.esper.v1"],
+  ["ESPER|U","b1.hall.information-to-plan.v1;b1.crucible.esper.v1"],
+  ["ESPER|WU","b1.hall.information-to-plan.v1;b1.crucible.esper.v1"],
+  ["ESPER|UB","b1.hall.information-to-plan.v1;b1.crucible.esper.v1"],
+  ["ESPER|GRIXIS","b1.hall.information-to-plan.v1;b1.crucible.esper.v1"],
+  ["ESPER|YORE","b1.hall.information-to-plan.v1;b1.crucible.esper.v1"],
+  ["ESPER|JESKAI","b1.hall.information-to-plan.v1;b1.crucible.esper.v1"],
   ["INK|JESKAI","b1.crucible.jeskai.v1"],["JESKAI|LOREHOLD","b1.crucible.jeskai.v1"],["JESKAI|NAYA","b1.crucible.jeskai.v1"],
   ["GLINT|YORE","b1.crucible.yore-glint.v1"],["DUNE|GLINT","b1.crucible.glint-dune.v1"],["DUNE|INK","b1.crucible.dune-ink.v1"],
   ["INK|WITCH","b1.crucible.ink-witch.v1"],["WITCH|YORE","b1.crucible.witch-yore.v1"],["COLORLESS|WUBRG","b1.crucible.colorless-wubrg.v1"]
@@ -516,7 +537,7 @@ write("pilot-question-bank.tsv",makeTsv(["question_id","stage","pool_order","pri
 write("answer-signal-contracts.tsv",makeTsv(["answer_id","question_id","construct_id","answer_title","explanatory_sentence","plain_language_observation","primary_signal","optional_bounded_secondary_signal","dependency_group","exclusions","evidence_provenance","mapping_confidence","scoring_status","limitation_statement"],answers));
 write("jargon-glossary.tsv",makeTsv(["jargon_id","term","jargon_class","canonical_public_definition","authority_type","authority_reference","rule_or_section","question_ids","validation_status","notes"],J));
 write("answer-semantic-adjudication.tsv",makeTsv(["answer_id","question_id","construct_id","stage","review_disposition","construct_fidelity","scenario_fit","option_distinguishability","compound_construct_risk","desirability_or_skill_bias","identity_giveaway_risk","novice_clarity","title_sentence_alignment","observation_alignment","primary_signal_alignment","secondary_signal_alignment","dependency_alignment","exclusion_quality","evidence_authority","jargon_issue","limitation_quality","recommended_action","rationale","owner_review_required"],semanticReviews));
-write("identity-coverage-matrix.tsv",makeTsv(["identity_id","identity_name","identity_family","supporting_constructs","boundary_constructs","strongest_likely_competitors","minimum_independent_observations","current_evidence_quality","pilot_question_ids","pilot_coverage","uncovered_risks","evidence_provenance"],coverage));
+write("identity-coverage-matrix.tsv",makeTsv(["identity_id","identity_name","identity_family","supporting_constructs","boundary_constructs","strongest_likely_competitors","minimum_independent_observations","current_evidence_quality","pilot_question_ids","pilot_coverage","uncovered_risks","instrument_observability","observability_rationale","mapping_validation","evidence_provenance"],coverage));
 write("confusion-pair-coverage.tsv",makeTsv(["identity_a","identity_b","audit_basis","audit_path_count_or_marker","coverage_category","observable_behavioral_distinction","pilot_question_ids","why_defensible","when_not_to_ask","pilot_coverage_status","evidence_provenance"],confusion));
 
 const qDisp = new Map();
@@ -552,14 +573,14 @@ const productFitQuestions = tsv(read("docs/plans/vm551-gate-b1-product-fit/quest
 const identityLayers = JSON.parse(read("data/identity-layers.json"));
 const resultRemediations = {
   ESPER: {
-    primary_behavioral_explanation:"The reading can describe using held interaction and a designed engine to turn a stabilized game into controlled advantage",
-    observable_distinction:"Esper's certified context turns knowledge, ordered improvement, and focused control into designed change; Azorius centers public procedure and managed stability",
-    honest_limitation:"The approved C06 observation distinguishes engine structure, not Esper's full knowledge-and-control cluster, so generic control and artifact decks remain false positives",
+    primary_behavioral_explanation:"The reading can describe using new information to choose a specific route, then supporting it with held interaction and a designed engine",
+    observable_distinction:"Esper's structural hypothesis combines information-to-plan consolidation, organized engine structure, and timed interaction; Azorius centers public procedure and managed stability",
+    honest_limitation:"C16, C06, and C08 now make the boundary structurally observable, but their Esper association remains unvalidated and generic control, combo, toolbox, and artifact decks remain false positives",
     commander_expression:"Control or artifact-oriented decks where information and structure feed a named closing plan",
     useful_archetype_links:"Control; engine-control; artifacts; combo",
     recommendation_direction:"Explore commanders that make interaction feed a repeatable advantage system with an explicit finish",
     usefulness_status:"GAP",
-    missing_value:"A B1 observation that reaches Esper's full knowledge, ordered-improvement, and focused-control boundary rather than generic engine-control"
+    missing_value:"Eligible player evidence that information-to-plan consolidation plus independent structure and interaction observations distinguish Esper from Blue, Black, Azorius, Dimir, Grixis, Jeskai, and generic control/combo/toolbox patterns"
   },
   INK: {
     primary_behavioral_explanation:"The reading can describe keeping a shared resource available and protecting it from capture by one player",
@@ -647,8 +668,9 @@ const resultAlternativeFolders = {
 };
 const firstSentence = (value) => String(value || "").split(/(?<=[.!?])\s+/)[0];
 const identityLayerFor = (id) => identityLayers.expressions?.[id] || identityLayers.colors?.[id] || null;
+const coverageByIdentity = new Map(coverage.map((row) => [row.identity_id,row]));
 for (const row of productFitResults) {
-  const previousStatus = row.usefulness_status;
+  const previousStatus = row.content_readiness || row.usefulness_status;
   Object.assign(row,resultRemediations[row.identity_id] || {});
   const folder = resultIdentityFolders[row.identity_id];
   const alternativeFolder = resultAlternativeFolders[row.identity_id];
@@ -658,13 +680,19 @@ for (const row of productFitResults) {
   row.answer_observation_sources = "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv";
   row.certified_identity_sources = `data/raw-factions/${folder}/${folder}.placement.json;data/raw-factions/${folder}/${folder}.profile.json;data/identity-layers.json;data/factions.json`;
   row.nearest_alternative_sources = `data/raw-factions/${alternativeFolder}/${alternativeFolder}.placement.json;data/raw-factions/${alternativeFolder}/${alternativeFolder}.profile.json`;
-  row.status_rationale = previousStatus !== row.usefulness_status
-    ? `${previousStatus}→${row.usefulness_status}: ${row.identity_id === "INK" ? "durable shared access is observable in C13 and matches the certified protected-commons boundary without inferring motive" : "pressure-plus-response timing is observable in C08 and matches the certified disciplined-action boundary without treating one answer as identity proof"}.`
-    : row.usefulness_status === "READY"
-      ? "Content package remains useful, distinct, source-backed, and bounded; answer-to-identity mapping remains evidence-required."
-      : row.usefulness_status === "GAP"
-        ? `Remains GAP: ${row.missing_value}.`
-        : `Remains PARTIAL: ${row.missing_value}.`;
+  const unresolved = row.unresolved_validation_need || row.missing_value || "Eligible player evidence is required for every observation-to-identity association.";
+  const identityCoverage = coverageByIdentity.get(row.identity_id);
+  row.content_readiness = "CONTENT_READY";
+  row.instrument_observability = identityCoverage.instrument_observability;
+  row.mapping_validation = "MAPPING_HYPOTHESIS";
+  row.content_rationale = previousStatus === "READY" || previousStatus === "CONTENT_READY"
+    ? "The result package remains useful, distinct, source-backed, bounded, and complete; mapping evidence is tracked separately."
+    : `Normalized from ${previousStatus}: the previously named gap is an observability or validation need, while the result package itself is complete and honest.`;
+  row.observability_rationale = identityCoverage.observability_rationale;
+  row.unresolved_validation_need = unresolved;
+  delete row.usefulness_status;
+  delete row.missing_value;
+  delete row.status_rationale;
 }
 writeRoot("docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",makeTsv(Object.keys(productFitResults[0]),productFitResults));
 const ownerRemediationQuestionIds = new Set([
@@ -673,6 +701,31 @@ const ownerRemediationQuestionIds = new Set([
   "b1.hall.theme.v1","b1.hall.setup.v1","b1.hall.breadth.v1","b1.crucible.ug.v1",
   "b1.crucible.esper.v1","b1.crucible.witch-yore.v1","b1.crucible.colorless-wubrg.v1","b1.crucible.mono-multi.v1"
 ]);
+if (!productFitQuestions.some((row) => row.question_id === "b1.hall.information-to-plan.v1")) productFitQuestions.push({
+  question_id:"b1.hall.information-to-plan.v1",
+  stage:"Hall",
+  construct_id:"C16",
+  current_prompt:Q.find((question) => question.id === "b1.hall.information-to-plan.v1").prompt,
+  commander_situation:"A dangerous opposing play has been stopped and new cards create several workable plans",
+  cecos_source_refs:"E-CECOS | exact accepted draft.4 object 947bf45bf6a191839b5fb4fa6c65980ed9d5737e | evidence before product and counterexample review",
+  source_observation_refs:"docs/plans/vm551-gate-b1-product-fit/esper-yore-evidence-recovery.md | accepted information-to-plan kernel and false-positive analysis; E-PLAYER-PACE; E-PLAYER-THREAT; E-PLAYER-VARIANCE",
+  source_role:"MIXED-SCENARIO-VOCABULARY",
+  direct_player_support:"DIRECT-WITH-COUNTEREXAMPLES",
+  contradiction_or_variation:"Control, combo, toolbox, midrange, tempo, Blue, Black, Azorius, Dimir, Grixis, and Jeskai players can use the same posture for different reasons",
+  corpus_support_summary:"Commander players recognize post-interaction choices between commitment, optionality, and immediate exploitation; no option establishes an identity",
+  player_language_fit:"Concrete post-threat Commander decision with neutral route choices",
+  commander_recognizability:"STRONG",
+  novice_clarity:"STRONG-PENDING-PLAYER-VALIDATION",
+  experienced_player_depth:"STRONG",
+  answer_distinguishability:"STRONG",
+  identity_giveaway_risk:"LOW",
+  clinical_or_generic_risk:"LOW",
+  edhmatch_clarity_comparison:"Comparable directness while keeping behavior separate from identity",
+  product_fit_disposition:"OWNER_APPROVED_ARCHITECTURE_ADDITION",
+  proposed_change:"Add one adaptive C16 question; do not make it mandatory or identity-specific",
+  reason:"The owner-approved construct is atomic, nonredundant, cross-identity useful, and required to observe what happens after new information creates viable routes.",
+  owner_review_required:"YES"
+});
 for (const row of productFitQuestions) {
   if (!ownerRemediationQuestionIds.has(row.question_id)) continue;
   const question = Q.find((candidate) => candidate.id === row.question_id);
@@ -687,6 +740,25 @@ const productResultById = new Map(productFitResults.map((result) => [result.iden
 const questionContractById = new Map(pilot.map((question) => [question.question_id, question]));
 const constructById = new Map(constructRows.map((construct) => [construct.construct_id, construct]));
 const productQuestionById = new Map(productFitQuestions.map((question) => [question.question_id, question]));
+for (const design of Q) if (!prototype.questions.some((question) => question.id === design.id)) prototype.questions.push({
+  id:design.id,
+  stage:design.stage,
+  order:Q.indexOf(design)+1,
+  constructId:design.construct,
+  prompt:design.prompt,
+  observation:"",
+  competitorFamily:design.scope,
+  evidence:design.evidenceIds+";E-VOICE",
+  dependencyGroup:"DG_"+design.construct,
+  askWhen:design.askWhen,
+  doNotAskWhen:design.doNotAskWhen,
+  status:"DESIGN-ONLY-NONSCORING",
+  jargon:[],
+  construct:{},
+  productFit:{},
+  answers:design.options.map((option) => ({id:`${design.id}.${option.key}`,sourceRef:"docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv"})),
+  sourceRef:"docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv"
+});
 for (const question of prototype.questions) {
   const design = Q.find((candidate) => candidate.id === question.id);
   const contract = questionContractById.get(question.id);
@@ -737,7 +809,9 @@ for (const result of prototype.results) {
   const source = productResultById.get(result.id);
   if (!source) continue;
   result.name = source.identity_name;
-  result.status = source.usefulness_status;
+  result.contentReadiness = source.content_readiness;
+  result.instrumentObservability = source.instrument_observability;
+  result.mappingValidation = source.mapping_validation;
   result.whatAnswersShowed = source.primary_behavioral_explanation;
   result.identityContext = source.certified_identity_context;
   result.nearbyAlternative = source.nearest_useful_alternative;
@@ -750,11 +824,15 @@ for (const result of prototype.results) {
   result.commanderDirection = source.recommendation_direction;
   result.dossierValue = source.dossier_learning_value;
   result.nextStep = source.maze_or_matrix_next_step;
-  result.missingValue = source.missing_value;
+  result.unresolvedValidationNeed = source.unresolved_validation_need;
   result.answerObservationSources = source.answer_observation_sources;
   result.certifiedIdentitySources = source.certified_identity_sources;
   result.nearestAlternativeSources = source.nearest_alternative_sources;
-  result.statusRationale = source.status_rationale;
+  result.contentRationale = source.content_rationale;
+  result.observabilityRationale = source.observability_rationale;
+  delete result.status;
+  delete result.missingValue;
+  delete result.statusRationale;
 }
 const resultSubtitles = {
   DUNE:"Four-color expression centered on coordinated visible pressure.",
@@ -769,7 +847,57 @@ const edgeBoundaryCopy = {
   WUBRG:{label:"Self-chosen boundary",summary:"The widest access is preserved first, then the builder decides what the deck will restrict itself around."}
 };
 for (const result of prototype.results) Object.assign(result,edgeBoundaryCopy[result.id] || {});
-prototype.counts.resultStatuses = count(prototype.results.map((result) => result.status));
+prototype.metadata.version = "owner-review-final-architecture-v1";
+prototype.metadata.generatedFromCommit = "Owner-approved final B1 architecture integration candidate; no production connection";
+prototype.metadata.notice = "This prototype does not calculate placement. It demonstrates a non-scoring 16-construct design, three independent status axes, and authored behavioral/lens evidence scenarios.";
+prototype.metadata.routeContract = "Exactly 4 broad Gate + 2 or 3 adaptive Hall + 0 or 1 targeted Crucible; 6–8 total; hard maximum 8. Crucible means targeted unresolved evidence.";
+const lensContractRef = "docs/plans/vm551-gate-b1-placement-instrument/identity-lens-self-report-contract.md";
+if (!prototype.metadata.sourceRefs.includes(lensContractRef)) prototype.metadata.sourceRefs.push(lensContractRef);
+prototype.counts.constructs = C.length;
+prototype.counts.questions = Q.length;
+prototype.counts.stages = count(Q.map((question) => question.stage));
+prototype.counts.answers = answers.length;
+prototype.counts.identities = prototype.results.length;
+prototype.evidenceClasses = [
+  {
+    id:"BEHAVIORAL_OBSERVATION",
+    role:"Primary evidence from a bounded Commander scenario or preference.",
+    placementUse:"May narrow candidates only through separately reviewed, currently hypothetical mappings.",
+    auditBoundary:"Never imports unstated motive, philosophy, skill, power, budget, or personality."
+  },
+  {
+    id:"IDENTITY_LENS_SELF_REPORT",
+    role:"Optional explicit affinity for a color/setting identity lens that behavior cannot honestly infer.",
+    placementUse:"May add secondary boundary evidence only inside an already plausible bounded candidate set after at least two independent behavioral observations.",
+    auditBoundary:"Never behavioral evidence, never sole support, never a faction selector, never a one-answer flip, and never validation evidence for a behavioral mapping."
+  }
+];
+for (const question of prototype.questions) question.evidenceClass = "BEHAVIORAL_OBSERVATION";
+prototype.lensQuestions = [{
+  id:"b1.lens.yore-glint.v1",
+  stage:"Crucible",
+  presentationLabel:"Optional identity lens · not a behavior question",
+  evidenceClass:"IDENTITY_LENS_SELF_REPORT",
+  prompt:"Two identity lenses still fit the Commander patterns you chose. Which relationship to a deck’s tools feels more personally resonant?",
+  help:"This optional question asks what idea resonates with you. It does not change what your Commander answers showed.",
+  askWhen:"Only after at least two independent behavioral observations leave Yore and Glint as a bounded plausible pair and behavior cannot resolve their identity-lens boundary.",
+  doNotAskWhen:"Do not ask when the candidate set is broader, either candidate is excluded or strongly contradicted, a behavioral result is already stable, or another lens question was asked.",
+  dependencyGroup:"DG_IDENTITY_LENS_SELF_REPORT",
+  candidateSet:["YORE","GLINT"],
+  maxPerJourney:1,
+  status:"DESIGN-EXAMPLE-NONSCORING",
+  sourceRef:lensContractRef,
+  answers:[
+    {id:"b1.lens.yore-glint.v1.constructed",title:"Shape a system deliberately",explanation:"I’m drawn to tools assembled into a system that can remake its route when limits appear.",observation:"Explicitly reports resonance with deliberate constructed agency.",evidenceClass:"IDENTITY_LENS_SELF_REPORT",direction:"YORE_LENS_ONLY",status:"SECONDARY-NONSCORING",limitation:"Cannot introduce Yore, override contradictory behavior, create a named result, or validate a behavioral mapping.",sourceRef:lensContractRef},
+    {id:"b1.lens.yore-glint.v1.adaptive",title:"Let the route emerge",explanation:"I’m drawn to a deck whose route changes with the pieces and conditions that appear.",observation:"Explicitly reports resonance with emergent adaptive routes.",evidenceClass:"IDENTITY_LENS_SELF_REPORT",direction:"GLINT_LENS_ONLY",status:"SECONDARY-NONSCORING",limitation:"Cannot introduce Glint, override contradictory behavior, create a named result, or validate a behavioral mapping.",sourceRef:lensContractRef},
+    {id:"b1.lens.yore-glint.v1.skip",title:"Neither, or I’m not sure",explanation:"That difference is not part of how I choose a deck, or I do not have a stable preference.",observation:"Reports no directional identity-lens preference.",evidenceClass:"IDENTITY_LENS_SELF_REPORT",direction:"NON_DIRECTIONAL",status:"NON-DIRECTIONAL-NONSCORING",limitation:"Leaves the behavioral reading unchanged and is never penalized.",sourceRef:lensContractRef}
+  ]
+}];
+prototype.counts.lensQuestions = prototype.lensQuestions.length;
+prototype.counts.contentReadiness = count(prototype.results.map((result) => result.contentReadiness));
+prototype.counts.observability = count(prototype.results.map((result) => result.instrumentObservability));
+prototype.counts.mappingValidation = count(prototype.results.map((result) => result.mappingValidation));
+delete prototype.counts.resultStatuses;
 const walkthroughRemediations = {
   "simic-quandrix": {
     answerIds:["b1.gate.initiative.v1.balance","b1.gate.visibility.v1.board","b1.gate.disruption.v1.recover","b1.gate.tempo.v1.small","b1.hall.repeatability.v1.toolbox","b1.hall.setup.v1.staged","b1.crucible.ug.v1.adapt"],
@@ -815,10 +943,82 @@ for (const walkthrough of prototype.walkthroughs) {
   walkthrough.whatShown = "The result screen summarizes only the observations recorded by the answers selected in this review journey.";
   walkthrough.result = structuredClone(prototype.results.find((result) => result.id === walkthrough.resultIdentityId));
 }
+const walkthroughSource = "docs/plans/vm551-gate-b1-product-fit/representative-result-walkthroughs.md";
+const architectureWalkthroughs = [
+  {
+    id:"esper-information-to-plan",label:"Esper architecture",subtitle:"Adaptive C16 · provisional observable state",resultIdentityId:"ESPER",state:"close",
+    answerIds:["b1.gate.initiative.v1.balance","b1.gate.visibility.v1.held","b1.gate.disruption.v1.protect","b1.gate.tempo.v1.small","b1.hall.mana-window.v1.split","b1.hall.engine-shape.v1.central","b1.hall.information-to-plan.v1.consolidate"],
+    stateNote:"Esper is structurally observable in this authored route, but every observation-to-identity association remains a non-scoring hypothesis.",
+    routeSupportedHeading:"Why Esper becomes structurally observable",
+    routeSupportedDistinction:"Your behavioral answers combined route consolidation after new information, organized engine structure, and retained interaction. The design can now observe that bundle, but player evidence has not validated its Esper association.",
+    identityContext:"Esper's certified context treats knowledge as useful when it becomes ordered, focused change. That context interprets the behavioral bundle; it was not smuggled into the answers.",
+    publicLimitation:"Generic control, combo, toolbox, artifact, Blue, Black, Azorius, Dimir, Grixis, and Jeskai patterns can produce parts of the same bundle. The result remains provisional.",
+    lensEligibility:{eligible:false,reason:"The unresolved evidence is behavioral and C16 is the appropriate adaptive observation; no identity-lens question is needed.",candidateSet:["ESPER","U","B","WU","UB","GRIXIS","JESKAI"],independentBehavioralObservations:3},
+    contradictionStatus:"NONE"
+  },
+  {
+    id:"yore-no-lens",label:"Yore unresolved · no lens",subtitle:"Candidate set too broad · insufficient",resultIdentityId:"YORE",state:"insufficient",
+    answerIds:["b1.gate.initiative.v1.balance","b1.gate.visibility.v1.held","b1.gate.disruption.v1.recover","b1.gate.tempo.v1.waves","b1.hall.engine-shape.v1.replace","b1.hall.repeatability.v1.same","b1.hall.sacrifice.v1.convert"],
+    stateNote:"The behavior suggests repeatable conversion, but the candidate set is not a bounded Yore/Glint layer boundary.",
+    routeSupportedHeading:"Why the lens is not eligible",
+    routeSupportedDistinction:"Your behavioral answers describe replaceable pieces, repeatability, and conversion. Those patterns remain plausible for Yore, Glint, Black, Witch, Grixis, artifact, recursion, and combo decks.",
+    identityContext:"Yore's certified constructed-agency lens remains useful context, but behavior did not narrow the reading enough to ask about it.",
+    publicLimitation:"The candidate set is too broad. The architecture preserves an insufficient state instead of introducing Yore through a philosophy answer.",
+    lensEligibility:{eligible:false,reason:"Behavior has not produced a bounded unresolved candidate set; a lens question could introduce or steer an identity.",candidateSet:["YORE","GLINT","B","WITCH","GRIXIS"],independentBehavioralObservations:3},
+    contradictionStatus:"NONE"
+  },
+  {
+    id:"yore-lens-skipped",label:"Yore unresolved · lens skipped",subtitle:"Eligible optional lens · unchanged behavior",resultIdentityId:"YORE",state:"close",
+    answerIds:["b1.gate.initiative.v1.balance","b1.gate.visibility.v1.held","b1.gate.disruption.v1.recover","b1.gate.tempo.v1.waves","b1.hall.engine-shape.v1.replace","b1.hall.repeatability.v1.same","b1.lens.yore-glint.v1.skip"],
+    stateNote:"Behavior narrowed the authored candidate set to Yore and Glint. The optional lens was skipped, so the behavioral reading is unchanged.",
+    routeSupportedHeading:"Why this remains close",
+    routeSupportedDistinction:"Your behavioral answers support a repeatable route built from replaceable pieces. That narrows the authored comparison, but it does not establish Yore's constructed-agency lens over Glint's emergent adaptation.",
+    identityContext:"Yore and Glint remain useful lenses for exploring the same behavioral evidence from different certified contexts.",
+    publicLimitation:"You did not state a directional lens preference. The close behavioral reading remains exactly as it was before the optional question.",
+    lensEligibility:{eligible:true,reason:"Two independent behavioral observations leave a bounded Yore/Glint pair with a documented identity-lens boundary that behavior cannot cleanly resolve.",candidateSet:["YORE","GLINT"],independentBehavioralObservations:2},
+    lensEvidence:{questionId:"b1.lens.yore-glint.v1",answerId:"b1.lens.yore-glint.v1.skip",evidenceClass:"IDENTITY_LENS_SELF_REPORT",source:"explicit optional self-report",candidateSet:["YORE","GLINT"],effect:"NON_DIRECTIONAL_BEHAVIOR_UNCHANGED",contradictionStatus:"NONE",nonScoringStatus:"NON-DIRECTIONAL-NONSCORING"},
+    contradictionStatus:"NONE"
+  },
+  {
+    id:"yore-lens-answered",label:"Yore unresolved · lens answered",subtitle:"Secondary resonance · no one-answer flip",resultIdentityId:"YORE",state:"close",
+    answerIds:["b1.gate.initiative.v1.balance","b1.gate.visibility.v1.held","b1.gate.disruption.v1.recover","b1.gate.tempo.v1.waves","b1.hall.engine-shape.v1.replace","b1.hall.repeatability.v1.same","b1.lens.yore-glint.v1.constructed"],
+    stateNote:"Behavior already made Yore and Glint plausible. The stated lens adds secondary context but cannot name Yore by itself.",
+    routeSupportedHeading:"Why Yore is worth exploring",
+    routeSupportedDistinction:"Your behavioral answers support a repeatable route built from replaceable pieces. Separately, you said deliberate constructed agency resonates more than an emergent route.",
+    identityContext:"Yore's certified context can explain that stated resonance, while the Commander-behavior mapping remains unvalidated.",
+    publicLimitation:"The self-report does not become behavioral proof, does not erase Glint, and cannot create a named result without the prior independent behavior.",
+    lensEligibility:{eligible:true,reason:"Two independent behavioral observations leave a bounded Yore/Glint pair with a documented identity-lens boundary that behavior cannot cleanly resolve.",candidateSet:["YORE","GLINT"],independentBehavioralObservations:2},
+    lensEvidence:{questionId:"b1.lens.yore-glint.v1",answerId:"b1.lens.yore-glint.v1.constructed",evidenceClass:"IDENTITY_LENS_SELF_REPORT",source:"explicit optional self-report",candidateSet:["YORE","GLINT"],effect:"SECONDARY_SUPPORT_WITHIN_PLAUSIBLE_SET",contradictionStatus:"NONE",nonScoringStatus:"SECONDARY-NONSCORING"},
+    contradictionStatus:"NONE"
+  },
+  {
+    id:"yore-lens-contradictory",label:"Yore lens contradiction",subtitle:"Behavior governs · contradiction preserved",resultIdentityId:"GLINT",state:"contradictory",
+    answerIds:["b1.gate.initiative.v1.advance","b1.gate.visibility.v1.held","b1.gate.disruption.v1.recover","b1.gate.tempo.v1.waves","b1.hall.repeatability.v1.varied","b1.hall.threat.v1.pivot","b1.lens.yore-glint.v1.constructed"],
+    stateNote:"Behavior strongly favors changing routes and adaptive pressure, while the player explicitly reports resonance with deliberate construction. Neither channel overwrites the other.",
+    routeSupportedHeading:"Why this remains contradictory",
+    routeSupportedDistinction:"Your behavioral answers favor changing routes and adapting as attention shifts. Separately, you said deliberate constructed agency resonates. The self-report cannot override the behavioral conflict.",
+    identityContext:"Glint and Yore remain the bounded comparison, but the two evidence classes point in different directions.",
+    publicLimitation:"The architecture preserves a contradictory result. It does not convert one lens answer into a Yore flip or hide the behavior that pointed elsewhere.",
+    lensEligibility:{eligible:true,reason:"The authored route begins with a bounded Yore/Glint comparison; the lens is shown only to test contradiction handling, never to override behavior.",candidateSet:["YORE","GLINT"],independentBehavioralObservations:2},
+    lensEvidence:{questionId:"b1.lens.yore-glint.v1",answerId:"b1.lens.yore-glint.v1.constructed",evidenceClass:"IDENTITY_LENS_SELF_REPORT",source:"explicit optional self-report",candidateSet:["YORE","GLINT"],effect:"CONTRADICTED_NO_OVERRIDE",contradictionStatus:"STRONG_BEHAVIORAL_CONTRADICTION",nonScoringStatus:"SECONDARY-NONSCORING"},
+    contradictionStatus:"STRONG_BEHAVIORAL_CONTRADICTION"
+  }
+];
+for (const candidate of architectureWalkthroughs) {
+  candidate.whatShown = "Behavioral observations and explicit lens self-report are displayed as separate evidence classes; the result remains authored and non-calculating.";
+  candidate.sourceRef = walkthroughSource;
+  candidate.steps = candidate.answerIds.map((selectedAnswerId) => ({questionId:selectedAnswerId.slice(0,selectedAnswerId.lastIndexOf(".")),selectedAnswerId}));
+  candidate.result = structuredClone(prototype.results.find((result) => result.id === candidate.resultIdentityId));
+  const index = prototype.walkthroughs.findIndex((walkthrough) => walkthrough.id === candidate.id);
+  if (index >= 0) prototype.walkthroughs[index] = candidate;
+  else prototype.walkthroughs.push(candidate);
+}
+prototype.counts.walkthroughs = prototype.walkthroughs.length;
 writeRoot("docs/prototypes/vm551-gate-b1-owner-experience/prototype-data.json",JSON.stringify(prototype,null,2)+"\n");
-const prototypeQuestionById = new Map(prototype.questions.map((question) => [question.id, question]));
+const prototypeQuestionById = new Map([...prototype.questions,...prototype.lensQuestions].map((question) => [question.id, question]));
 const prototypeAnswerRows = prototype.questions.flatMap((question) => question.answers);
-const prototypeAnswerById = new Map(prototypeAnswerRows.map((answer) => [answer.id, answer]));
+const prototypeLensAnswerRows = prototype.lensQuestions.flatMap((question) => question.answers);
+const prototypeAnswerById = new Map([...prototypeAnswerRows,...prototypeLensAnswerRows].map((answer) => [answer.id, answer]));
 const routeShape = prototype.walkthroughs.map((walkthrough) => {
   const questions = walkthrough.steps.map((step) => prototypeQuestionById.get(step.questionId));
   const stages = count(questions.map((question) => question?.stage));
@@ -842,7 +1042,9 @@ const routeDiagnostics = prototype.walkthroughs.map((walkthrough) => {
   };
 });
 const prototypeApp = read("docs/prototypes/vm551-gate-b1-owner-experience/app.js");
-const contentStatusCounts = count(prototype.results.map((result)=>result.status));
+const contentReadinessCounts = count(prototype.results.map((result)=>result.contentReadiness));
+const observabilityCounts = count(prototype.results.map((result)=>result.instrumentObservability));
+const mappingValidationCounts = count(prototype.results.map((result)=>result.mappingValidation));
 const forbiddenPrototypeValueKeys = [];
 const visitPrototype = (value, pathParts=[]) => {
   if (!value || typeof value !== "object") return;
@@ -856,9 +1058,9 @@ const visitPrototype = (value, pathParts=[]) => {
 visitPrototype(prototype);
 const checks = [
   ["113 current questions",qAudit.length===113,qAudit.length],["356 current answers",aAudit.length===356,aAudit.length],
-  ["15 constructs",C.length===15,C.length],["34 pilot questions",Q.length===34,Q.length],
-  ["4 Gate / 12 Hall / 18 Crucible",stages.Gate===4&&stages.Hall===12&&stages.Crucible===18,`${stages.Gate}/${stages.Hall}/${stages.Crucible}`],
-  ["106 answer contracts",answers.length===106,answers.length],["106 semantic reviews",semanticReviews.length===106,semanticReviews.length],
+  ["16 constructs",C.length===16,C.length],["35 pilot questions",Q.length===35,Q.length],
+  ["4 Gate / 13 Hall / 18 Crucible",stages.Gate===4&&stages.Hall===13&&stages.Crucible===18,`${stages.Gate}/${stages.Hall}/${stages.Crucible}`],
+  ["110 answer contracts",answers.length===110,answers.length],["110 semantic reviews",semanticReviews.length===110,semanticReviews.length],
   ["37 identities",coverage.length===37&&new Set(coverage.map((x)=>x.identity_id)).size===37,coverage.length],
   ["123 confusion pairs",confusion.length===123,confusion.length],["unique IDs",new Set(ids).size===ids.length,ids.length],
   ["stable ID format",ids.every((x)=>/^[a-z0-9._-]+$/.test(x)),ids.length],
@@ -881,6 +1083,10 @@ const checks = [
   ["no graveyard object called permanent",Q.every((x)=>!/permanents? (?:in|reached|went to) (?:your |a |the )?graveyard/i.test(allQuestionCopy(x))),Q.length],
   ["non-scoring only",answers.every((x)=>x.scoring_status.includes("NONSCORING")),answers.length],
   ["no numeric confidence",answers.every((x)=>["LOW-PROVISIONAL","DIRECT-UNCERTAINTY"].includes(x.mapping_confidence)),answers.length],
+  ["106 existing answer IDs preserved",answers.filter((answer)=>answer.construct_id!=="C16").length===106,answers.filter((answer)=>answer.construct_id!=="C16").length],
+  ["four expected C16 answer IDs only",new Set(answers.filter((answer)=>answer.construct_id==="C16").map((answer)=>answer.answer_id)).size===4&&["b1.hall.information-to-plan.v1.consolidate","b1.hall.information-to-plan.v1.open","b1.hall.information-to-plan.v1.exploit","b1.hall.information-to-plan.v1.depends"].every((id)=>answerIds.has(id)),answers.filter((answer)=>answer.construct_id==="C16").map((answer)=>answer.answer_id).join(",")],
+  ["C16 atomic non-overlap contract",C.find((construct)=>construct.construct_id==="C16")?.dependency_overlap.includes("independent of C01/C04/C06/C08/C09/C14/C15")&&C.find((construct)=>construct.construct_id==="C16")?.does_not_mean.includes("Intelligence")&&Q.find((question)=>question.id==="b1.hall.information-to-plan.v1")?.stage==="Hall","C16"],
+  ["C16 cross-identity and non-scoring",["Esper","Blue","Black","Azorius","Dimir","Grixis","Jeskai","control","combo","toolbox","midrange","tempo"].every((term)=>C.find((construct)=>construct.construct_id==="C16")?.applicable_identity_families.includes(term))&&answers.filter((answer)=>answer.construct_id==="C16").every((answer)=>answer.scoring_status.includes("NONSCORING")&&!/ESPER/i.test(answer.primary_signal)),answers.filter((answer)=>answer.construct_id==="C16").length],
   ["C01 one dependency group",answers.filter((x)=>x.construct_id==="C01").every((x)=>x.dependency_group==="DG_C01"),answers.filter((x)=>x.construct_id==="C01").length],
   ["C05 Bant commander-specific",Q.find((x)=>x.id==="b1.crucible.bant.v1").prompt.toLowerCase().includes("commander"),Q.find((x)=>x.id==="b1.crucible.bant.v1").prompt],
   ["C15 boundary-only",answers.filter((x)=>x.construct_id==="C15").every((x)=>x.exclusions.includes("Boundary evidence only")||x.scoring_status==="NON-DIRECTIONAL-NONSCORING"),answers.filter((x)=>x.construct_id==="C15").length],
@@ -918,25 +1124,34 @@ const checks = [
     answerById.get("b1.crucible.witch-yore.v1.convert").primary_signal==="SIG_C06_REDUNDANT" &&
     /interchangeable conversion pieces.*indispensable engine/i.test(answerById.get("b1.crucible.witch-yore.v1.convert").plain_language_observation),"6/6"],
   ["no unresolved signal reviews",semanticReviews.every((x)=>x.review_disposition!=="SIGNAL_REVIEW_REQUIRED"),semanticReviews.filter((x)=>x.review_disposition==="SIGNAL_REVIEW_REQUIRED").length],
-  ["evidence-required hypotheses remain non-scoring",semanticReviews.filter((x)=>x.review_disposition==="EVIDENCE_REQUIRED").length===37&&semanticReviews.filter((x)=>x.review_disposition==="EVIDENCE_REQUIRED").every((x)=>answerById.get(x.answer_id).scoring_status==="PILOT-HYPOTHESIS-NONSCORING"),semanticReviews.filter((x)=>x.review_disposition==="EVIDENCE_REQUIRED").length],
-  ["prototype core counts",prototype.counts.constructs===15&&prototype.questions.length===34&&prototypeAnswerRows.length===106&&prototype.results.length===37,`${prototype.counts.constructs}/${prototype.questions.length}/${prototypeAnswerRows.length}/${prototype.results.length}`],
-  ["prototype stage counts",prototype.counts.stages.Gate===4&&prototype.counts.stages.Hall===12&&prototype.counts.stages.Crucible===18,`${prototype.counts.stages.Gate}/${prototype.counts.stages.Hall}/${prototype.counts.stages.Crucible}`],
-  ["prototype unique IDs",new Set(prototype.questions.map((question)=>question.id)).size===34&&new Set(prototypeAnswerRows.map((answer)=>answer.id)).size===106&&new Set(prototype.results.map((result)=>result.id)).size===37,"34/106/37"],
+  ["evidence-required hypotheses remain non-scoring",semanticReviews.filter((x)=>x.review_disposition==="EVIDENCE_REQUIRED").length===40&&semanticReviews.filter((x)=>x.review_disposition==="EVIDENCE_REQUIRED").every((x)=>answerById.get(x.answer_id).scoring_status==="PILOT-HYPOTHESIS-NONSCORING"),semanticReviews.filter((x)=>x.review_disposition==="EVIDENCE_REQUIRED").length],
+  ["prototype core counts",prototype.counts.constructs===16&&prototype.questions.length===35&&prototypeAnswerRows.length===110&&prototype.results.length===37&&prototype.lensQuestions.length===1,`${prototype.counts.constructs}/${prototype.questions.length}/${prototypeAnswerRows.length}/${prototype.results.length}/${prototype.lensQuestions.length}`],
+  ["prototype stage counts",prototype.counts.stages.Gate===4&&prototype.counts.stages.Hall===13&&prototype.counts.stages.Crucible===18,`${prototype.counts.stages.Gate}/${prototype.counts.stages.Hall}/${prototype.counts.stages.Crucible}`],
+  ["prototype unique IDs",new Set(prototype.questions.map((question)=>question.id)).size===35&&new Set(prototypeAnswerRows.map((answer)=>answer.id)).size===110&&new Set(prototype.results.map((result)=>result.id)).size===37&&new Set(prototypeLensAnswerRows.map((answer)=>answer.id)).size===3,"35/110/37/3 lens answers"],
   ["prototype stable answer provenance",prototypeAnswerRows.every((answer)=>answer.id&&answer.sourceRef&&answer.evidence&&answer.status&&answer.limitation),prototypeAnswerRows.length],
   ["prototype answer semantics unchanged",answers.every((answer)=>{
     const candidate=prototypeAnswerById.get(answer.answer_id);
     return candidate&&candidate.observation===answer.plain_language_observation&&candidate.primarySignal===answer.primary_signal&&candidate.secondarySignal===(answer.optional_bounded_secondary_signal||null)&&candidate.dependencyGroup===answer.dependency_group&&candidate.exclusions===answer.exclusions&&candidate.evidence===answer.evidence_provenance&&candidate.mappingConfidence===answer.mapping_confidence&&candidate.status===answer.scoring_status&&candidate.limitation===answer.limitation_statement;
   }),prototypeAnswerRows.length],
-  ["prototype five walkthroughs",prototype.walkthroughs.length===5&&new Set(prototype.walkthroughs.map((walkthrough)=>walkthrough.id)).size===5,prototype.walkthroughs.length],
+  ["prototype ten walkthroughs",prototype.walkthroughs.length===10&&new Set(prototype.walkthroughs.map((walkthrough)=>walkthrough.id)).size===10,prototype.walkthroughs.length],
+  ["required architecture walkthroughs",["simic-quandrix","esper-information-to-plan","yore-no-lens","yore-lens-skipped","yore-lens-answered","yore-lens-contradictory"].every((id)=>prototype.walkthroughs.some((walkthrough)=>walkthrough.id===id)),prototype.walkthroughs.map((walkthrough)=>walkthrough.id).join(",")],
+  ["lens evidence class separate",prototype.evidenceClasses.some((item)=>item.id==="IDENTITY_LENS_SELF_REPORT")&&prototype.lensQuestions.length===1&&prototype.lensQuestions[0].evidenceClass==="IDENTITY_LENS_SELF_REPORT"&&!prototype.lensQuestions[0].constructId,"separate evidence class"],
+  ["lens never broad and max one",prototype.lensQuestions.every((question)=>question.stage==="Crucible"&&question.maxPerJourney===1)&&prototype.walkthroughs.every((walkthrough)=>walkthrough.steps.filter((step)=>step.questionId.startsWith("b1.lens.")).length<=1),prototype.lensQuestions.length],
+  ["lens eligibility bounded",prototype.walkthroughs.filter((walkthrough)=>walkthrough.lensEligibility?.eligible).every((walkthrough)=>walkthrough.lensEligibility.independentBehavioralObservations>=2&&walkthrough.lensEligibility.candidateSet.length===2)&&prototype.walkthroughs.find((walkthrough)=>walkthrough.id==="yore-no-lens")?.lensEligibility?.eligible===false,"at least two observations and bounded pair"],
+  ["lens skip non-directional",prototypeAnswerById.get("b1.lens.yore-glint.v1.skip")?.direction==="NON_DIRECTIONAL"&&prototypeAnswerById.get("b1.lens.yore-glint.v1.skip")?.status==="NON-DIRECTIONAL-NONSCORING"&&prototype.walkthroughs.find((walkthrough)=>walkthrough.id==="yore-lens-skipped")?.lensEvidence?.effect==="NON_DIRECTIONAL_BEHAVIOR_UNCHANGED","skip leaves behavior unchanged"],
+  ["lens cannot introduce or override",prototype.lensQuestions[0].doNotAskWhen.includes("either candidate is excluded or strongly contradicted")&&prototype.walkthroughs.find((walkthrough)=>walkthrough.id==="yore-lens-contradictory")?.lensEvidence?.effect==="CONTRADICTED_NO_OVERRIDE"&&prototype.walkthroughs.find((walkthrough)=>walkthrough.id==="yore-lens-contradictory")?.state==="contradictory","contradiction preserved"],
+  ["lens question does not reveal faction",!/(Yore|Glint|faction|missing.Green|civilization.*nature)/i.test(`${prototype.lensQuestions[0].prompt} ${prototype.lensQuestions[0].answers.map((answer)=>`${answer.title} ${answer.explanation}`).join(" ")}`),prototype.lensQuestions[0].prompt],
   ["prototype route composition",routeShape.every((route)=>route.Gate===4&&[2,3].includes(route.Hall)&&[0,1].includes(route.Crucible)&&route.total>=6&&route.total<=8),JSON.stringify(routeShape)],
   ["prototype route exact-question hygiene",routeDiagnostics.every((route)=>route.duplicateQuestionIds===0&&route.duplicateHallQuestionIds===0),JSON.stringify(routeDiagnostics)],
   ["prototype route dependency hygiene",routeDiagnostics.every((route)=>route.repeatedOptionalDependency===0),JSON.stringify(routeDiagnostics)],
   ["prototype route summaries match authored answers",routeDiagnostics.every((route)=>route.answerListMatches&&route.truthFields),JSON.stringify(routeDiagnostics)],
   ["prototype route IDs resolve",prototype.walkthroughs.every((walkthrough)=>walkthrough.steps.every((step)=>prototypeQuestionById.has(step.questionId)&&prototypeAnswerById.has(step.selectedAnswerId)&&prototypeAnswerById.get(step.selectedAnswerId).id.startsWith(`${step.questionId}.`))),prototype.walkthroughs.reduce((total,walkthrough)=>total+walkthrough.steps.length,0)],
-  ["prototype result statuses match source",prototype.results.every((result)=>productResultById.get(result.id)?.usefulness_status===result.status),prototype.results.length],
-  ["content readiness counts",contentStatusCounts.READY===15&&contentStatusCounts.PARTIAL===20&&contentStatusCounts.GAP===2,`${contentStatusCounts.READY}/${contentStatusCounts.PARTIAL}/${contentStatusCounts.GAP}`],
-  ["content promotions are bounded",productResultById.get("INK")?.usefulness_status==="PARTIAL"&&productResultById.get("JESKAI")?.usefulness_status==="PARTIAL"&&productResultById.get("ESPER")?.usefulness_status==="GAP"&&productResultById.get("YORE")?.usefulness_status==="GAP","INK/JESKAI PARTIAL; ESPER/YORE GAP"],
-  ["Colorless and WUBRG content bounds",prototype.results.find((result)=>result.id==="COLORLESS")?.status==="PARTIAL"&&prototype.results.find((result)=>result.id==="WUBRG")?.status==="PARTIAL","PARTIAL/PARTIAL"],
+  ["prototype three-axis states match source",prototype.results.every((result)=>{const source=productResultById.get(result.id);return source?.content_readiness===result.contentReadiness&&source?.instrument_observability===result.instrumentObservability&&source?.mapping_validation===result.mappingValidation;}),prototype.results.length],
+  ["37 content ready",contentReadinessCounts.CONTENT_READY===37&&Object.keys(contentReadinessCounts).length===1,JSON.stringify(contentReadinessCounts)],
+  ["final observability counts",observabilityCounts.OBSERVABLE===22&&observabilityCounts.PARTIALLY_OBSERVABLE===14&&observabilityCounts.NOT_CLEANLY_OBSERVABLE===1,JSON.stringify(observabilityCounts)],
+  ["37 mapping hypotheses",mappingValidationCounts.MAPPING_HYPOTHESIS===37&&Object.keys(mappingValidationCounts).length===1,JSON.stringify(mappingValidationCounts)],
+  ["Esper observability reassessed",productResultById.get("ESPER")?.instrument_observability==="OBSERVABLE"&&productResultById.get("ESPER")?.observability_rationale.includes("C16"),productResultById.get("ESPER")?.instrument_observability],
+  ["Yore three-axis state",productResultById.get("YORE")?.content_readiness==="CONTENT_READY"&&productResultById.get("YORE")?.instrument_observability==="NOT_CLEANLY_OBSERVABLE"&&productResultById.get("YORE")?.mapping_validation==="MAPPING_HYPOTHESIS","CONTENT_READY/NOT_CLEANLY_OBSERVABLE/MAPPING_HYPOTHESIS"],
   ["four-color subtitles",["DUNE","INK","GLINT","WITCH","YORE"].every((id)=>prototype.results.find((result)=>result.id===id)?.subtitle?.startsWith("Four-color expression centered on")),"5/5"],
   ["C03 duplicate definition removed",Q.find((question)=>question.id==="b1.gate.disruption.v1")?.prompt.includes("an effect that removes many cards and tokens")&&Q.find((question)=>question.id==="b1.gate.disruption.v1")?.glossary==="A graveyard is a player's discard pile."&&prototypeApp.includes('["JRG_BOARD_WIPE", "JRG_BOARD"].includes(item.id)'),"prompt definition plus graveyard helper only"],
   ["no exact prompt-helper definition duplication",duplicateQuestionHelperPairs.length===0,duplicateQuestionHelperPairs.join(",")||"none"],
@@ -944,15 +1159,16 @@ const checks = [
   ["result truthfulness UI",prototypeApp.includes("groupedObservations(walkthrough)")&&prototypeApp.includes("Why this identity is plausible")&&prototypeApp.includes("What distinguishes the two")&&prototypeApp.includes("What remains unsettled")&&!prototypeApp.includes("<strong>Missing value:</strong>"),"grouped observations/context/distinction/public limitation"],
   ["authored mismatch reviewer-only",prototypeApp.includes("Authored-path check")&&!prototypeApp.includes("Your selections differ from the authored review path, so this static prototype"),"reviewer-only safeguard"],
   ["compact continuation UI",prototypeApp.includes("Open dossier")&&prototypeApp.includes("Compare in Matrix")&&prototypeApp.includes("Explore in Maze")&&prototypeApp.includes("See Commander directions"),"4 inert prototype destinations"],
-  ["result source traceability",productFitResults.every((result)=>result.certified_identity_context&&result.answer_observation_sources&&result.certified_identity_sources&&result.nearest_alternative_sources&&result.status_rationale),productFitResults.length],
-  ["prototype result source traceability",prototype.results.every((result)=>result.identityContext&&result.answerObservationSources&&result.certifiedIdentitySources&&result.nearestAlternativeSources&&result.statusRationale),prototype.results.length],
+  ["result source traceability",productFitResults.every((result)=>result.certified_identity_context&&result.answer_observation_sources&&result.certified_identity_sources&&result.nearest_alternative_sources&&result.content_rationale&&result.observability_rationale&&result.unresolved_validation_need),productFitResults.length],
+  ["prototype result source traceability",prototype.results.every((result)=>result.identityContext&&result.answerObservationSources&&result.certifiedIdentitySources&&result.nearestAlternativeSources&&result.contentRationale&&result.observabilityRationale&&result.unresolvedValidationNeed),prototype.results.length],
   ["content readiness disclaimer",prototypeApp.includes("Content readiness describes whether the result explanation package is usable. It does not mean placement accuracy or identity mapping has been validated."),"present"],
-  ["prototype PARTIAL and GAP missing value preserved",prototype.results.filter((result)=>result.status!=="READY").every((result)=>result.missingValue&&result.missingValue===productResultById.get(result.id)?.missing_value),prototype.results.filter((result)=>result.status!=="READY").length],
+  ["lens result explanation separated",prototypeApp.includes("What your Commander answers showed")&&prototypeApp.includes("What you said resonates")&&prototypeApp.includes("Evidence class")&&prototypeApp.includes("Contradiction status"),"behavior and self-report separated"],
+  ["prototype unresolved validation needs preserved",prototype.results.every((result)=>result.unresolvedValidationNeed&&result.unresolvedValidationNeed===productResultById.get(result.id)?.unresolved_validation_need),prototype.results.length],
   ["prototype exact prompt tunes",["b1.gate.initiative.v1","b1.gate.tempo.v1","b1.crucible.wb.v1"].every((id)=>prototypeQuestionById.get(id)?.prompt===Q.find((question)=>question.id===id)?.prompt),"3/3"],
   ["product-fit tune rows closed",productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_APPROVED_TUNE_APPLIED").length===3&&productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_APPROVED_TUNE_APPLIED").every((question)=>question.owner_review_required==="NO"),productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_APPROVED_TUNE_APPLIED").length],
   ["hands-on owner remediations recorded",productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_REMEDIATION_APPLIED").length===13&&productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_REMEDIATION_APPLIED").every((question)=>question.reason.startsWith("Hands-on owner review superseded the prior KEEP judgment")),productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_REMEDIATION_APPLIED").length],
   ["prototype contains no scoring value fields",forbiddenPrototypeValueKeys.length===0,forbiddenPrototypeValueKeys.join(",")||"none"],
-  ["prototype source references present",prototype.metadata.sourceRefs.length===9&&prototype.questions.every((question)=>question.sourceRef&&question.productFit.sourceRef)&&prototype.results.every((result)=>result.sourceRef)&&prototype.walkthroughs.every((walkthrough)=>walkthrough.sourceRef),prototype.metadata.sourceRefs.length],
+  ["prototype source references present",prototype.metadata.sourceRefs.length===10&&prototype.questions.every((question)=>question.sourceRef&&question.productFit.sourceRef)&&prototype.results.every((result)=>result.sourceRef)&&prototype.walkthroughs.every((walkthrough)=>walkthrough.sourceRef)&&prototype.lensQuestions.every((question)=>question.sourceRef),prototype.metadata.sourceRefs.length],
   ["documentation-only changed paths",documentationOnly,changedPaths.join(",")||"clean"],
   ["explicit high-risk and insufficient coverage",["BANT","GRIXIS","SULTAI","TEMUR","COLORLESS","ESPER","INK","JESKAI","LOREHOLD","UR","YORE"].every((x)=>(direct[x]||[]).length>0),11],
   ["exact confusion pairs represented",exactPairKeys.every((x)=>confusionKeys.has(x)),new Set(exactPairKeys).size],

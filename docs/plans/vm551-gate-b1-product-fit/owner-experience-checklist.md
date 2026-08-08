@@ -6,9 +6,9 @@ Review the question route and result walkthroughs as an owner experience, not as
 
 - [x] Exact prompt-only tunes for `b1.gate.initiative.v1`, `b1.gate.tempo.v1`, and `b1.crucible.wb.v1`.
 - [x] Result order: observations, primary identity, nearby alternative, distinction, limitation, Commander discovery direction, Vox Mana next step.
-- [x] `PARTIAL` and `GAP` prototype presentation only with visible limitation and missing value and no accuracy claim.
+- [x] Content readiness, instrument observability, and mapping validation presented as independent axes.
 - [x] Player Atlas enrichment only behind **Deepen this reading**.
-- [x] Five walkthroughs as the hands-on owner-review set.
+- [x] Ten walkthroughs covering ordinary behavior, Esper/C16, Yore lens eligibility/skip/answer, and contradiction.
 
 ## Hands-on owner findings incorporated in this remediation
 
@@ -18,7 +18,7 @@ Review the question route and result walkthroughs as an owner experience, not as
 - [x] Simic/Quandrix, White, Bant, Colorless, and WUBRG no longer repeat an optional Hall dependency in Crucible.
 - [x] Guided results separate actual answer observations, route-supported explanation, identity context, and public limitations.
 - [x] Exact internal evidence gaps remain reviewer-visible and no raw `Missing value:` label is player-facing.
-- [x] Reviewer statuses render as `CONTENT READY`, `CONTENT PARTIAL`, and `CONTENT GAP` with an explicit non-validation explanation.
+- [x] Reviewer information renders all three status axes and explicitly states that no mapping is validated.
 - [x] The five unfamiliar four-color names have concise Commander-expression subtitles.
 
 ## Questions
@@ -33,6 +33,8 @@ Review the question route and result walkthroughs as an owner experience, not as
 - [ ] Does each Crucible item stay within one approved construct?
 - [ ] Do the three incorporated prompt tunes improve clarity without changing answer meaning?
 - [ ] Does the six-to-eight-question ceiling feel shorter and clearer than the EDHMatch benchmark?
+- [ ] Does C16 measure only what happens after new information creates options, without implying skill or Esper identity?
+- [ ] Is the optional lens visibly self-report, never a disguised Commander-behavior question?
 
 ## Results
 
@@ -43,7 +45,9 @@ Review the question route and result walkthroughs as an owner experience, not as
 - [ ] Does every limitation state what the result does not claim?
 - [ ] Does every named result provide a Commander pattern worth exploring?
 - [ ] Does the next action point to a specific dossier, Matrix comparison, Maze path, or recommendation direction?
-- [ ] Are `PARTIAL` and `GAP` identities visibly less complete than `READY` identities?
+- [ ] Are content readiness, observability, and mapping validation never collapsed into a single quality label?
+- [ ] When lens evidence exists, are Commander behavior and explicit resonance explained separately?
+- [ ] Does skip preserve the behavioral result, and does contradiction block lens override?
 - [ ] Is every profile lens optional enrichment rather than placement rationale?
 - [ ] Does the experience feel like Vox Mana—Commander-first, atmospheric but plain—rather than a generic personality quiz?
 - [ ] Is every added sentence earning its place?

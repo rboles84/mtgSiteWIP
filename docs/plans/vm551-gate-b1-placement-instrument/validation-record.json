@@ -2,22 +2,22 @@
   "status": "PASS",
   "expected_base": "30bfe87171e4119a0bab1bb47318862c042977de",
   "counts": {
-    "constructs": 15,
+    "constructs": 16,
     "current_questions": 113,
     "current_answers": 356,
     "inventory_rows": 356,
-    "pilot_questions": 34,
-    "pilot_answers": 106,
-    "semantic_reviews": 106,
+    "pilot_questions": 35,
+    "pilot_answers": 110,
+    "semantic_reviews": 110,
     "semantic_review_dispositions": {
-      "METADATA_CORRECTION": 28,
+      "METADATA_CORRECTION": 29,
       "APPROVE": 33,
       "REWORD": 8,
-      "EVIDENCE_REQUIRED": 37
+      "EVIDENCE_REQUIRED": 40
     },
     "stages": {
       "Gate": 4,
-      "Hall": 12,
+      "Hall": 13,
       "Crucible": 18
     },
     "identities": 37,
@@ -53,29 +53,29 @@
       "observed": 356
     },
     {
-      "name": "15 constructs",
+      "name": "16 constructs",
       "status": "PASS",
-      "observed": 15
+      "observed": 16
     },
     {
-      "name": "34 pilot questions",
+      "name": "35 pilot questions",
       "status": "PASS",
-      "observed": 34
+      "observed": 35
     },
     {
-      "name": "4 Gate / 12 Hall / 18 Crucible",
+      "name": "4 Gate / 13 Hall / 18 Crucible",
       "status": "PASS",
-      "observed": "4/12/18"
+      "observed": "4/13/18"
     },
     {
-      "name": "106 answer contracts",
+      "name": "110 answer contracts",
       "status": "PASS",
-      "observed": 106
+      "observed": 110
     },
     {
-      "name": "106 semantic reviews",
+      "name": "110 semantic reviews",
       "status": "PASS",
-      "observed": 106
+      "observed": 110
     },
     {
       "name": "37 identities",
@@ -90,42 +90,42 @@
     {
       "name": "unique IDs",
       "status": "PASS",
-      "observed": 140
+      "observed": 145
     },
     {
       "name": "stable ID format",
       "status": "PASS",
-      "observed": 140
+      "observed": 145
     },
     {
       "name": "one construct per question",
       "status": "PASS",
-      "observed": 34
+      "observed": 35
     },
     {
       "name": "stable answer contracts",
       "status": "PASS",
-      "observed": 106
+      "observed": 110
     },
     {
       "name": "no orphan question or construct refs",
       "status": "PASS",
-      "observed": 106
+      "observed": 110
     },
     {
       "name": "no orphan signals",
       "status": "PASS",
-      "observed": 106
+      "observed": 110
     },
     {
       "name": "no vague-only observations",
       "status": "PASS",
-      "observed": 106
+      "observed": 110
     },
     {
       "name": "semantic reviews reference each answer once",
       "status": "PASS",
-      "observed": 106
+      "observed": 110
     },
     {
       "name": "controlled review dispositions",
@@ -155,22 +155,22 @@
     {
       "name": "canonical jargon definitions",
       "status": "PASS",
-      "observed": 34
+      "observed": 35
     },
     {
       "name": "no help for absent terms",
       "status": "PASS",
-      "observed": 34
+      "observed": 35
     },
     {
       "name": "load-bearing jargon explained",
       "status": "PASS",
-      "observed": 34
+      "observed": 35
     },
     {
       "name": "no cross-reference-only help",
       "status": "PASS",
-      "observed": 34
+      "observed": 35
     },
     {
       "name": "rules/community authority aligned",
@@ -180,17 +180,37 @@
     {
       "name": "no graveyard object called permanent",
       "status": "PASS",
-      "observed": 34
+      "observed": 35
     },
     {
       "name": "non-scoring only",
       "status": "PASS",
-      "observed": 106
+      "observed": 110
     },
     {
       "name": "no numeric confidence",
       "status": "PASS",
+      "observed": 110
+    },
+    {
+      "name": "106 existing answer IDs preserved",
+      "status": "PASS",
       "observed": 106
+    },
+    {
+      "name": "four expected C16 answer IDs only",
+      "status": "PASS",
+      "observed": "b1.hall.information-to-plan.v1.consolidate,b1.hall.information-to-plan.v1.open,b1.hall.information-to-plan.v1.exploit,b1.hall.information-to-plan.v1.depends"
+    },
+    {
+      "name": "C16 atomic non-overlap contract",
+      "status": "PASS",
+      "observed": "C16"
+    },
+    {
+      "name": "C16 cross-identity and non-scoring",
+      "status": "PASS",
+      "observed": 4
     },
     {
       "name": "C01 one dependency group",
@@ -255,82 +275,127 @@
     {
       "name": "evidence-required hypotheses remain non-scoring",
       "status": "PASS",
-      "observed": 37
+      "observed": 40
     },
     {
       "name": "prototype core counts",
       "status": "PASS",
-      "observed": "15/34/106/37"
+      "observed": "16/35/110/37/1"
     },
     {
       "name": "prototype stage counts",
       "status": "PASS",
-      "observed": "4/12/18"
+      "observed": "4/13/18"
     },
     {
       "name": "prototype unique IDs",
       "status": "PASS",
-      "observed": "34/106/37"
+      "observed": "35/110/37/3 lens answers"
     },
     {
       "name": "prototype stable answer provenance",
       "status": "PASS",
-      "observed": 106
+      "observed": 110
     },
     {
       "name": "prototype answer semantics unchanged",
       "status": "PASS",
-      "observed": 106
+      "observed": 110
     },
     {
-      "name": "prototype five walkthroughs",
+      "name": "prototype ten walkthroughs",
       "status": "PASS",
-      "observed": 5
+      "observed": 10
+    },
+    {
+      "name": "required architecture walkthroughs",
+      "status": "PASS",
+      "observed": "simic-quandrix,white,bant,colorless,wubrg,esper-information-to-plan,yore-no-lens,yore-lens-skipped,yore-lens-answered,yore-lens-contradictory"
+    },
+    {
+      "name": "lens evidence class separate",
+      "status": "PASS",
+      "observed": "separate evidence class"
+    },
+    {
+      "name": "lens never broad and max one",
+      "status": "PASS",
+      "observed": 1
+    },
+    {
+      "name": "lens eligibility bounded",
+      "status": "PASS",
+      "observed": "at least two observations and bounded pair"
+    },
+    {
+      "name": "lens skip non-directional",
+      "status": "PASS",
+      "observed": "skip leaves behavior unchanged"
+    },
+    {
+      "name": "lens cannot introduce or override",
+      "status": "PASS",
+      "observed": "contradiction preserved"
+    },
+    {
+      "name": "lens question does not reveal faction",
+      "status": "PASS",
+      "observed": "Two identity lenses still fit the Commander patterns you chose. Which relationship to a deck’s tools feels more personally resonant?"
     },
     {
       "name": "prototype route composition",
       "status": "PASS",
-      "observed": "[{\"id\":\"simic-quandrix\",\"total\":7,\"Gate\":4,\"Hall\":2,\"Crucible\":1},{\"id\":\"white\",\"total\":8,\"Gate\":4,\"Hall\":3,\"Crucible\":1},{\"id\":\"bant\",\"total\":8,\"Gate\":4,\"Hall\":3,\"Crucible\":1},{\"id\":\"colorless\",\"total\":8,\"Gate\":4,\"Hall\":3,\"Crucible\":1},{\"id\":\"wubrg\",\"total\":8,\"Gate\":4,\"Hall\":3,\"Crucible\":1}]"
+      "observed": "[{\"id\":\"simic-quandrix\",\"total\":7,\"Gate\":4,\"Hall\":2,\"Crucible\":1},{\"id\":\"white\",\"total\":8,\"Gate\":4,\"Hall\":3,\"Crucible\":1},{\"id\":\"bant\",\"total\":8,\"Gate\":4,\"Hall\":3,\"Crucible\":1},{\"id\":\"colorless\",\"total\":8,\"Gate\":4,\"Hall\":3,\"Crucible\":1},{\"id\":\"wubrg\",\"total\":8,\"Gate\":4,\"Hall\":3,\"Crucible\":1},{\"id\":\"esper-information-to-plan\",\"total\":7,\"Gate\":4,\"Hall\":3,\"Crucible\":0},{\"id\":\"yore-no-lens\",\"total\":7,\"Gate\":4,\"Hall\":3,\"Crucible\":0},{\"id\":\"yore-lens-skipped\",\"total\":7,\"Gate\":4,\"Hall\":2,\"Crucible\":1},{\"id\":\"yore-lens-answered\",\"total\":7,\"Gate\":4,\"Hall\":2,\"Crucible\":1},{\"id\":\"yore-lens-contradictory\",\"total\":7,\"Gate\":4,\"Hall\":2,\"Crucible\":1}]"
     },
     {
       "name": "prototype route exact-question hygiene",
       "status": "PASS",
-      "observed": "[{\"id\":\"simic-quandrix\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"white\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"bant\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"colorless\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"wubrg\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true}]"
+      "observed": "[{\"id\":\"simic-quandrix\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"white\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"bant\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"colorless\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"wubrg\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"esper-information-to-plan\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"yore-no-lens\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"yore-lens-skipped\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"yore-lens-answered\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"yore-lens-contradictory\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true}]"
     },
     {
       "name": "prototype route dependency hygiene",
       "status": "PASS",
-      "observed": "[{\"id\":\"simic-quandrix\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"white\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"bant\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"colorless\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"wubrg\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true}]"
+      "observed": "[{\"id\":\"simic-quandrix\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"white\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"bant\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"colorless\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"wubrg\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"esper-information-to-plan\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"yore-no-lens\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"yore-lens-skipped\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"yore-lens-answered\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"yore-lens-contradictory\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true}]"
     },
     {
       "name": "prototype route summaries match authored answers",
       "status": "PASS",
-      "observed": "[{\"id\":\"simic-quandrix\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"white\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"bant\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"colorless\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"wubrg\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true}]"
+      "observed": "[{\"id\":\"simic-quandrix\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"white\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"bant\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"colorless\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"wubrg\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"esper-information-to-plan\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"yore-no-lens\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"yore-lens-skipped\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"yore-lens-answered\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true},{\"id\":\"yore-lens-contradictory\",\"duplicateQuestionIds\":0,\"duplicateHallQuestionIds\":0,\"repeatedOptionalDependency\":0,\"answerListMatches\":true,\"truthFields\":true}]"
     },
     {
       "name": "prototype route IDs resolve",
       "status": "PASS",
-      "observed": 39
+      "observed": 74
     },
     {
-      "name": "prototype result statuses match source",
+      "name": "prototype three-axis states match source",
       "status": "PASS",
       "observed": 37
     },
     {
-      "name": "content readiness counts",
+      "name": "37 content ready",
       "status": "PASS",
-      "observed": "15/20/2"
+      "observed": "{\"CONTENT_READY\":37}"
     },
     {
-      "name": "content promotions are bounded",
+      "name": "final observability counts",
       "status": "PASS",
-      "observed": "INK/JESKAI PARTIAL; ESPER/YORE GAP"
+      "observed": "{\"PARTIALLY_OBSERVABLE\":14,\"OBSERVABLE\":22,\"NOT_CLEANLY_OBSERVABLE\":1}"
     },
     {
-      "name": "Colorless and WUBRG content bounds",
+      "name": "37 mapping hypotheses",
       "status": "PASS",
-      "observed": "PARTIAL/PARTIAL"
+      "observed": "{\"MAPPING_HYPOTHESIS\":37}"
+    },
+    {
+      "name": "Esper observability reassessed",
+      "status": "PASS",
+      "observed": "OBSERVABLE"
+    },
+    {
+      "name": "Yore three-axis state",
+      "status": "PASS",
+      "observed": "CONTENT_READY/NOT_CLEANLY_OBSERVABLE/MAPPING_HYPOTHESIS"
     },
     {
       "name": "four-color subtitles",
@@ -383,9 +448,14 @@
       "observed": "present"
     },
     {
-      "name": "prototype PARTIAL and GAP missing value preserved",
+      "name": "lens result explanation separated",
       "status": "PASS",
-      "observed": 22
+      "observed": "behavior and self-report separated"
+    },
+    {
+      "name": "prototype unresolved validation needs preserved",
+      "status": "PASS",
+      "observed": 37
     },
     {
       "name": "prototype exact prompt tunes",
@@ -410,12 +480,12 @@
     {
       "name": "prototype source references present",
       "status": "PASS",
-      "observed": 9
+      "observed": 10
     },
     {
       "name": "documentation-only changed paths",
       "status": "PASS",
-      "observed": "docs/handoffs/HANDOFF_INDEX.md,docs/kanban/board.md,docs/plans/vm551-gate-b1-placement-instrument/build-and-validate-design.mjs,docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv,docs/plans/vm551-gate-b1-placement-instrument/validation-record.json,docs/plans/vm551-gate-b1-product-fit/README.md,docs/plans/vm551-gate-b1-product-fit/question-product-fit-review.tsv,docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv,docs/prototypes/vm551-gate-b1-owner-experience/README.md,docs/prototypes/vm551-gate-b1-owner-experience/app.js,docs/prototypes/vm551-gate-b1-owner-experience/owner-review-notes.md,docs/prototypes/vm551-gate-b1-owner-experience/prototype-data.json,docs/prototypes/vm551-gate-b1-owner-experience/styles.css,docs/handoffs/2026-08-07-2322-codex-vm551-gate-b1-final-content-usefulness.md,docs/kanban/done/VM-551-gate-b1-final-content-usefulness-remediation.md"
+      "observed": "docs/handoffs/HANDOFF_INDEX.md,docs/kanban/board.md,docs/plans/vm551-gate-b1-placement-instrument/README.md,docs/plans/vm551-gate-b1-placement-instrument/answer-semantic-adjudication.tsv,docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv,docs/plans/vm551-gate-b1-placement-instrument/build-and-validate-design.mjs,docs/plans/vm551-gate-b1-placement-instrument/confusion-pair-coverage.tsv,docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv,docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv,docs/plans/vm551-gate-b1-placement-instrument/owner-decisions.md,docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv,docs/plans/vm551-gate-b1-placement-instrument/validation-record.json,docs/plans/vm551-gate-b1-product-fit/README.md,docs/plans/vm551-gate-b1-product-fit/final-b1-architecture-decision.md,docs/plans/vm551-gate-b1-product-fit/owner-experience-checklist.md,docs/plans/vm551-gate-b1-product-fit/question-product-fit-review.tsv,docs/plans/vm551-gate-b1-product-fit/representative-result-walkthroughs.md,docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv,docs/prototypes/vm551-gate-b1-owner-experience/README.md,docs/prototypes/vm551-gate-b1-owner-experience/app.js,docs/prototypes/vm551-gate-b1-owner-experience/index.html,docs/prototypes/vm551-gate-b1-owner-experience/owner-review-notes.md,docs/prototypes/vm551-gate-b1-owner-experience/prototype-data.json,docs/prototypes/vm551-gate-b1-owner-experience/styles.css,docs/handoffs/2026-08-08-1353-codex-vm551-final-instrument-architecture-integration.md,docs/kanban/done/VM-551-gate-b1-final-instrument-architecture-integration.md,docs/plans/vm551-gate-b1-placement-instrument/identity-lens-self-report-contract.md"
     },
     {
       "name": "explicit high-risk and insufficient coverage",
@@ -459,19 +529,31 @@
   "changed_paths": [
     "docs/handoffs/HANDOFF_INDEX.md",
     "docs/kanban/board.md",
+    "docs/plans/vm551-gate-b1-placement-instrument/README.md",
+    "docs/plans/vm551-gate-b1-placement-instrument/answer-semantic-adjudication.tsv",
+    "docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
     "docs/plans/vm551-gate-b1-placement-instrument/build-and-validate-design.mjs",
+    "docs/plans/vm551-gate-b1-placement-instrument/confusion-pair-coverage.tsv",
+    "docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv",
+    "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv",
+    "docs/plans/vm551-gate-b1-placement-instrument/owner-decisions.md",
     "docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv",
     "docs/plans/vm551-gate-b1-placement-instrument/validation-record.json",
     "docs/plans/vm551-gate-b1-product-fit/README.md",
+    "docs/plans/vm551-gate-b1-product-fit/final-b1-architecture-decision.md",
+    "docs/plans/vm551-gate-b1-product-fit/owner-experience-checklist.md",
     "docs/plans/vm551-gate-b1-product-fit/question-product-fit-review.tsv",
+    "docs/plans/vm551-gate-b1-product-fit/representative-result-walkthroughs.md",
     "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
     "docs/prototypes/vm551-gate-b1-owner-experience/README.md",
     "docs/prototypes/vm551-gate-b1-owner-experience/app.js",
+    "docs/prototypes/vm551-gate-b1-owner-experience/index.html",
     "docs/prototypes/vm551-gate-b1-owner-experience/owner-review-notes.md",
     "docs/prototypes/vm551-gate-b1-owner-experience/prototype-data.json",
     "docs/prototypes/vm551-gate-b1-owner-experience/styles.css",
-    "docs/handoffs/2026-08-07-2322-codex-vm551-gate-b1-final-content-usefulness.md",
-    "docs/kanban/done/VM-551-gate-b1-final-content-usefulness-remediation.md"
+    "docs/handoffs/2026-08-08-1353-codex-vm551-final-instrument-architecture-integration.md",
+    "docs/kanban/done/VM-551-gate-b1-final-instrument-architecture-integration.md",
+    "docs/plans/vm551-gate-b1-placement-instrument/identity-lens-self-report-contract.md"
   ],
   "boundaries": [
     "No live or Gate A file is written.",

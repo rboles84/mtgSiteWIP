@@ -233,6 +233,9 @@ footer {
 .reviewer-detail dt { color: var(--teal); font-weight: 700; }
 .reviewer-detail dd { margin: 0; overflow-wrap: anywhere; }
 .reviewer-answer { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+.lens-review { border-color: rgb(157 129 214 / 55%); background: rgb(157 129 214 / 7%); }
+.lens-chip { border-color: rgb(157 129 214 / 55%); color: #d8c7ff; }
+.lens-help { margin: -8px 0 24px; padding: 12px 14px; color: #d8c7ff; background: rgb(157 129 214 / 8%); border-left: 3px solid #9d81d6; }
 
 .panel-actions { display: flex; justify-content: space-between; gap: 12px; padding: 20px clamp(20px, 5vw, 52px); border-top: 1px solid var(--line); background: #0d1015; }
 .action-group { display: flex; gap: 10px; }
@@ -245,6 +248,7 @@ footer {
 .text-button { padding: 8px 4px; color: var(--gold-pale); border: 0; border-bottom: 1px solid rgb(214 185 111 / 35%); background: transparent; }
 
 .result-panel { padding: clamp(24px, 5vw, 56px); }
+.axis-row { display: flex; flex-wrap: wrap; gap: 8px; }
 .result-kicker { margin: 8px 0; color: var(--gold); font-weight: 700; }
 .result-panel > h2 { max-width: 760px; font-size: clamp(2.3rem, 5vw, 4.5rem); }
 .result-state-note { max-width: 800px; padding: 14px 16px; border-left: 3px solid var(--gold); color: var(--muted); background: rgb(214 185 111 / 7%); }
@@ -253,6 +257,8 @@ footer {
 .reading-block h3 { margin: 0 0 9px; color: var(--gold-pale); font-family: Georgia, serif; font-size: 1.15rem; }
 .reading-block p { margin: 0; color: var(--muted); }
 .reading-block.is-limit { border-color: rgb(226 139 136 / 40%); }
+.reading-block.lens-evidence { border-color: rgb(157 129 214 / 48%); background: rgb(157 129 214 / 6%); }
+.evidence-note { margin-top: 10px !important; color: #d8c7ff !important; font-size: .8rem; }
 .identity-context { padding-left: 12px; border-left: 2px solid rgb(130 200 189 / 45%); }
 .observation-groups { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; color: var(--muted); }
 .observation-groups strong { color: var(--text); }
@@ -268,6 +274,8 @@ footer {
 .explorer-head p { max-width: 660px; margin: 0; color: var(--muted); }
 .stage-section + .stage-section { margin-top: 42px; }
 .stage-section > h3 { display: flex; align-items: center; gap: 10px; font-family: Georgia, serif; font-size: 1.65rem; font-weight: 500; }
+.section-note { margin: -8px 0 16px; color: var(--muted); }
+.lens-section { padding-top: 8px; border-top: 1px solid rgb(157 129 214 / 35%); }
 .explorer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
 .explorer-card,
 .result-card { box-shadow: none; }

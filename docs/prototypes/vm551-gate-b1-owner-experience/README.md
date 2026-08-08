@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This is a static, non-production owner-review artifact for the owner-approved Gate B1 semantic design. It demonstrates how the remediated Archscry question bank and uneven all-37 result packages may feel in use before any calculation, player validation, or implementation is authorized.
+This is a static, non-production owner-review artifact for the final Gate B1 instrument architecture. It demonstrates the 16-construct behavioral pool, three-axis result inventory, and guarded secondary lens channel before any calculation, player validation, or implementation is authorized.
 
 > **This prototype does not calculate placement. It demonstrates the approved question and result experience using authored review scenarios.**
 
@@ -22,23 +22,28 @@ Then open `http://127.0.0.1:4173/`. Direct `file://` opening is not supported be
 
 ### Guided walkthrough
 
-Choose one of five explicitly authored owner-review scenarios:
+Choose one of ten explicitly authored owner-review scenarios:
 
 1. Simic / Quandrix — same-color close state, 7 questions.
 2. White — mono-color primary state, 8 questions.
 3. Bant — three-color close state, 8 questions.
 4. Colorless — endpoint insufficient state, 8 questions.
 5. Five-Color / WUBRG — endpoint mixed state, 8 questions.
+6. Esper — C16 information-to-plan route, 7 questions.
+7. Yore unresolved — no lens eligible, 7 questions.
+8. Yore unresolved — eligible lens skipped, 7 questions.
+9. Yore unresolved — eligible lens answered, 7 questions.
+10. Yore unresolved — contradictory lens, 7 questions.
 
-Every route contains exactly all 4 Gate questions, 2 or 3 Hall questions, 0 or 1 Crucible question, and 6–8 total questions. No optional Hall question shares the route’s Crucible dependency group. Selecting answers exercises the interface only. The result state is preauthored, while **What your answers showed** is derived from the answers actually selected. Any departure from the authored review path appears only in reviewer information; it is never presented as player result copy.
+Every route contains exactly all 4 Gate questions, 2 or 3 Hall questions, 0 or 1 targeted unresolved-evidence question, and 6–8 total questions. The targeted slot may contain a competitor boundary or the single eligible lens example. No optional behavioral question repeats a dependency. Selecting answers exercises the interface only. The result state is preauthored, while **What your Commander answers showed** is derived from behavioral answers actually selected. Lens self-report, when present, appears separately under **What you said resonates**. Any departure from the authored review path appears only in reviewer information.
 
 ### Question explorer
 
-Inspect all 34 questions: 4 Gate, 12 Hall, and 18 Crucible. Player-facing prompts, answer titles, explanations, and jargon help are visible by default. The reviewer toggle reveals the declared construct, dependency group, Commander situation, disposition, provisional non-scoring signals, evidence provenance, exclusions, and limitations. Identity support is not placed beside player answers.
+Inspect all 35 behavioral questions: 4 Gate, 13 Hall, and 18 Crucible, plus the separately labeled prototype-only lens item. Player-facing prompts, answer titles, explanations, and jargon help are visible by default. The reviewer toggle reveals the declared construct or evidence class, dependency group, Commander situation, disposition, provisional non-scoring signals, evidence provenance, eligibility, candidate set, exclusions, and limitations. Identity support is not placed beside behavioral answers.
 
 ### Result explorer
 
-Inspect all 37 certified identity names and their product-usefulness packages. The final remediated distribution is 15 `CONTENT READY`, 20 `CONTENT PARTIAL`, and 2 `CONTENT GAP`. Ink and Jeskai moved from GAP to PARTIAL after certified-source reconciliation produced useful but still bounded explanations; Esper and Yore remain GAP because the approved constructs do not yet observe their distinctive identity boundaries. Colorless remains PARTIAL after the owner research supported a bounded imposed-boundary explanation. Exact evidence gaps remain available in reviewer information. Content readiness describes whether the result explanation package is usable; it does not establish placement accuracy or mapping truth.
+Inspect all 37 certified identity names across three independent axes. Content readiness is 37 `CONTENT_READY`. Instrument observability is 22 `OBSERVABLE`, 14 `PARTIALLY_OBSERVABLE`, and 1 `NOT_CLEANLY_OBSERVABLE` (Yore). Mapping validation is 37 `MAPPING_HYPOTHESIS`; none is validated. Exact observability and validation needs remain available in reviewer information.
 
 ### Compact result structure
 
@@ -56,7 +61,7 @@ Exact answer IDs, provisional signals, authored-path mismatch, source paths, tec
 ## Authored versus derived
 
 - Question wording, answer copy and contracts, construct metadata, jargon, result packages, profile boundaries, and status values are derived from the committed TSV and Markdown sources listed in `prototype-data.json`.
-- The five route compositions, selected review-answer IDs, state demonstrations, route-supported distinctions, and separately labeled identity context are explicitly authored review metadata based on `representative-result-walkthroughs.md`.
+- The ten route compositions, selected review-answer IDs, state demonstrations, route-supported distinctions, lens eligibility states, and separately labeled identity context are explicitly authored review metadata.
 - No weights, scores, identity calculation, adaptive selection algorithm, randomization, or confidence value exists in the prototype.
 
 ## Source documents
@@ -65,6 +70,7 @@ Exact answer IDs, provisional signals, authored-path mismatch, source paths, tec
 - `docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv`
 - `docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv`
 - `docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv`
+- `docs/plans/vm551-gate-b1-placement-instrument/identity-lens-self-report-contract.md`
 - `docs/plans/vm551-gate-b1-product-fit/question-product-fit-review.tsv`
 - `docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv`
 - `docs/plans/vm551-gate-b1-product-fit/profile-enrichment-crosswalk.tsv`
@@ -76,8 +82,9 @@ Each derived question, answer, result, enrichment row, walkthrough, and Gate A s
 ## Limitations
 
 - The routes are demonstrations, not a route-selection design or adaptive algorithm.
-- The 37 directional identity associations remain evidence-required and non-scoring.
-- Result usefulness is intentionally uneven. Exact evidence gaps remain reviewer-visible and are translated into plain public limitations rather than exposed as raw requirements labels.
+- All identity mappings remain hypotheses and non-scoring; the three C16 directional mappings are also evidence-required.
+- Content readiness does not imply observability or validation. Exact observability and validation needs remain reviewer-visible and are translated into plain public limitations rather than exposed as raw requirements labels.
+- The lens question is an authored evidence-class demonstration, not a production question or behavioral mapping.
 - Player Atlas material appears only behind **Deepen this reading** and remains conditional, reflective enrichment.
 - Inert Vox Mana next-step language demonstrates information architecture only; it is not a production link or product integration.
 - Browser review establishes that the static artifact renders and its controls work. It does not validate comprehension, retake stability, result recognition, recommendation relevance, or mapping accuracy with players.
@@ -93,13 +100,13 @@ Each derived question, answer, result, enrichment row, walkthrough, and Gate A s
 
 ## Owner review procedure
 
-1. Complete the Simic / Quandrix route with reviewer information off, then reopen its last question with reviewer information on.
-2. Complete White and compare its primary presentation with Bant's close presentation.
-3. Complete Colorless and confirm the artifact refuses to name Colorless as a placement while still offering a useful browse direction.
-4. Complete Five-Color / WUBRG and confirm the mixed result keeps breadth, theme, and behavior distinct.
-5. Open **Deepen this reading** and confirm the optional lens is visibly conditional and never described as placement evidence.
-6. Scan the Question explorer at desktop and narrow width, including all three owner-approved prompt tunes.
-7. Scan the Result explorer in the order in `owner-review-notes.md`, especially Ink and Jeskai as PARTIAL and Esper and Yore as the two remaining CONTENT GAP entries. Confirm exact evidence gaps remain visible with reviewer information enabled.
+1. Complete Simic / Quandrix as the behavior-only baseline.
+2. Complete Esper and confirm C16 appears adaptively while its mapping remains provisional.
+3. Compare Yore no-lens, lens-skipped, lens-answered, and contradictory-lens routes.
+4. Confirm skip leaves the behavioral reading unchanged and contradiction prevents override.
+5. Open **Deepen this reading** and confirm Player Atlas enrichment remains conditional and separate from placement evidence.
+6. Scan Question Explorer at desktop and narrow width, including C16 and the separate lens section.
+7. Scan Result Explorer with reviewer information enabled and confirm all three status axes appear independently.
 8. Record decisions only in `owner-review-notes.md`. Do not infer authorization for player validation or implementation.
 
 ## Not implemented

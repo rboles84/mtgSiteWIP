@@ -152,3 +152,33 @@ The owner accepts the opening Gate flow, Gate initiative and tempo wording, opti
 C15 continues to use the same construct, question, answer, dependency, and narrow/broad/conditional signal IDs. Its meaning is refined to distinguish a boundary imposed by the available card pool from restrictions chosen after preserving broader access. The Colorless hypothesis remains imposed-limitation satisfaction; the WUBRG hypothesis remains broad access followed by a selected concept or limit. Both remain evidence-required, non-scoring, and unvalidated.
 
 The prototype must remove optional Hall→Crucible dependency repetition, derive its observation summary from answers actually shown, separate route-supported distinctions from identity context, keep exact evidence gaps reviewer-only, label READY/PARTIAL/GAP as content readiness, and add bounded four-color explanation subtitles. Completion authorizes only another short owner hands-on review.
+
+## Final instrument architecture decisions
+
+The owner approved the final architecture on 2026-08-08. This approval authorizes design-document and isolated owner-prototype integration only. It does not authorize production implementation, scoring, routing, stopping, player validation, recruitment, shadow testing, migration, deployment, or certification.
+
+### OD-B1-FINAL-01 — Three-axis status model
+
+Approved. Content readiness, instrument observability, and mapping validation are independent. The stable states are `CONTENT_READY` / `CONTENT_PARTIAL` / `CONTENT_GAP`; `OBSERVABLE` / `PARTIALLY_OBSERVABLE` / `NOT_CLEANLY_OBSERVABLE`; and `MAPPING_HYPOTHESIS` / `MAPPING_VALIDATION_IN_PROGRESS` / `MAPPING_VALIDATED`. All 37 current mappings remain `MAPPING_HYPOTHESIS`.
+
+### OD-B1-FINAL-02 — Content normalization
+
+Approved conceptually and for the documentation inventory: 37 `CONTENT_READY`, 0 `CONTENT_PARTIAL`, and 0 `CONTENT_GAP`. This means the result package is ready if sufficient evidence reaches it; it does not mean the identity is observable, validated, scoring-ready, or production-ready.
+
+### OD-B1-FINAL-03 — Information-to-plan conversion
+
+Approved as the only new behavioral dimension in this pass. It observes what a player prefers to do after interaction or card access creates several viable options: consolidate a route, retain broad optionality, or exploit the current opening. It does not infer intelligence, optimization, control skill, threat-assessment skill, knowledge, combo preference, or Esper philosophy.
+
+Design integration decision: **Option 2 — add one construct and one adaptive item**. Reusing the current Esper C06 item would mislabel engine concentration; replacing it would discard a valid, bounded C06 observation and break stable answer contracts. The final design therefore has 16 constructs, 35 questions, and 110 answer contracts. All 106 existing answer IDs remain unchanged. The added item is adaptive and does not lengthen the six-to-eight-question journey.
+
+### OD-B1-FINAL-04 — Guarded identity/lens self-report
+
+Approved as optional secondary evidence under the separate `IDENTITY_LENS_SELF_REPORT` class. It is never a behavioral construct, never a faction selector, never sole support for a named identity, and never eligible validation evidence for a behavioral mapping. It may appear at most once after at least two independent behavioral observations have produced a bounded unresolved candidate set with a documented layer boundary. Skip/unknown is non-directional and non-penalizing; contradiction and uncertainty states remain available.
+
+### OD-B1-FINAL-05 — Option B journey semantics
+
+Approved. One journey remains exactly four broad Gate observations, two or three adaptive Hall observations, zero or one targeted Crucible observation, six to eight total, with a hard maximum of eight. “Crucible” now means targeted unresolved evidence. The targeted slot may hold a competitor-boundary behavior, an unresolved cross-identity behavior, an eligible identity/lens self-report, or nothing. It cannot force closure.
+
+## Final integration stop gate
+
+After the design records, isolated prototype, validation record, Kanban, and handoff are committed, stop for final owner review. Production-fidelity preview, production implementation, and player validation remain separately gated.

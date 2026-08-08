@@ -4,9 +4,9 @@
 
 Structural placement architecture is already approved. This pass evaluates clarity, Commander authenticity, result usefulness, and discovery value. It does not validate scoring or identity mappings.
 
-This is a documentation-only recommendation pass over the owner-approved Gate B1 semantic design at `f44382271f94e9832526bbc10313f0f8c38533b9`. The approved 15 constructs, 34 questions, 106 answer contracts, stable IDs, answer meanings, signal mappings, evidence-required statuses, six-to-eight-question route, 37 identities, and 123 confusion pairs remain frozen.
+This documentation-only pass now incorporates the final owner-approved instrument architecture. It preserves every previously approved ID and adds C16 plus one four-answer adaptive Hall question: 16 constructs, 35 behavioral questions, 110 behavioral answer contracts, a six-to-eight-question route, 37 identities, and 123 unchanged confusion pairs.
 
-Owner review has since approved all three prompt-only light tunes, the result sequence, conditional `PARTIAL`/`GAP` prototyping, Player Atlas enrichment behind **Deepen this reading**, and the five representative walkthroughs. The three prompt strings are now incorporated without changing constructs, answers, signals, mappings, hypotheses, exclusions, limitations, counts, or confusion coverage. A static owner-experience prototype demonstrates those decisions; it remains non-calculating and non-production.
+Owner review has since approved the three-axis status model, 37 content-ready packages, information-to-plan conversion, a guarded secondary `IDENTITY_LENS_SELF_REPORT` class, and Option B journey semantics. The isolated prototype demonstrates those decisions through ten authored routes; it remains non-calculating and non-production.
 
 ## Narrow objective
 
@@ -50,8 +50,8 @@ The three refined directories contain 81 physical files and 81 unique exact SHA-
 1. The bank is substantially more Commander-grounded than the retired live bank: 31 questions are product-fit as written, 3 benefit from exact light wording tunes, and none requires a construct or answer-contract change.
 2. Gate and Hall use high-recognition situations: open-turn posture, battlefield versus reserve, a likely board wipe, commander removal, interaction mana, repeated routes, visible threat, sacrifice, deals, setup, and color breadth.
 3. The Crucible bank appropriately becomes narrower and more controlled. Repeated structural wording is useful because the items test bounded competitor distinctions; variation for its own sake would reduce comparability.
-4. The principal product risk is not question atmosphere. It is overexplaining a provisional identity association as established truth. Thirty-seven answer-to-identity hypotheses remain non-scoring and evidence-required.
-5. Result usefulness remains intentionally uneven after the final source reconciliation: 15 identities are `READY`, 20 are `PARTIAL`, and 2 remain `GAP`. These are explanation-package states, never placement-validation findings.
+4. The principal product risk is not question atmosphere. It is overexplaining a provisional identity association as established truth. All 37 mappings remain `MAPPING_HYPOTHESIS`; none is validated.
+5. Content readiness is now separate from observability and validation: 37 packages are `CONTENT_READY`; observability is 22 `OBSERVABLE`, 14 `PARTIALLY_OBSERVABLE`, and 1 `NOT_CLEANLY_OBSERVABLE`; all 37 mappings remain hypotheses.
 6. A result can exceed a type label by exposing the observation trace, plausible alternative, separating observation, limitation, Commander direction, and dossier/Matrix/Maze next step. It must not imply a psychographic diagnosis.
 
 ## Owner-approved prompt changes
@@ -74,7 +74,7 @@ No scoring, weights, identity validation, routing, stopping, prototype, live que
 2. `PARTIAL` and `GAP` identities may appear in the owner prototype only with visible limitations and missing-value statements; no accuracy claim is allowed.
 3. The result sequence is approved: observations → primary identity → nearby alternative → distinction → limitation → Commander discovery direction → Vox Mana next step.
 4. Optional Player Atlas enrichment appears only behind **Deepen this reading** and remains conditional.
-5. The five walkthroughs are approved as the hands-on owner-review set.
+5. Ten authored walkthroughs now exercise the final architecture without implementing routing or scoring.
 
 Hands-on disposition of the prototype remains pending. Player-validation preparation and pilot implementation remain separately gated and unauthorized.
 
@@ -92,12 +92,26 @@ Certified source reconciliation moves Ink and Jeskai from `GAP` to `PARTIAL`. In
 
 All 37 result rows now carry separate answer-observation, certified-identity, nearest-alternative, and status-rationale provenance. Bant wording was reconciled to its certified White-centered accountable-excellence and communal-support authority without claiming that B1 directly observes worthiness or public honor. Colorless and WUBRG now receive a parallel, compact boundary treatment: an imposed card-pool boundary versus broad access followed by a self-chosen boundary.
 
+## Final governing architecture
+
+This section supersedes the earlier single-axis readiness and five-route inventory above without erasing the historical product-fit record.
+
+- **Content readiness:** 37 `CONTENT_READY`, 0 `CONTENT_PARTIAL`, 0 `CONTENT_GAP`. This says the package is ready if sufficient evidence reaches it.
+- **Instrument observability:** 22 `OBSERVABLE`, 14 `PARTIALLY_OBSERVABLE`, 1 `NOT_CLEANLY_OBSERVABLE`. Esper is now structurally observable after C16; Yore remains the single not-cleanly-observable identity.
+- **Mapping validation:** 37 `MAPPING_HYPOTHESIS`, 0 in progress, 0 validated.
+- **Behavioral inventory:** 16 constructs, 35 questions (4 Gate / 13 Hall / 18 Crucible), and 110 answer contracts. Every one of the original 106 answer IDs remains unchanged.
+- **Journey:** exactly 4 broad observations, 2 or 3 adaptive observations, and 0 or 1 targeted unresolved-evidence observation; 6 to 8 total, hard maximum 8.
+- **Secondary evidence:** `IDENTITY_LENS_SELF_REPORT` is optional, non-scoring, separately auditable, and allowed only after bounded behavioral narrowing. It is not a behavioral construct and cannot independently name or flip an identity.
+- **Prototype:** ten authored, non-calculating demonstrations cover ordinary behavior-only use, Esper/C16, Yore without a lens, Yore lens skip, Yore lens response, and contradiction handling.
+
+No status above authorizes scoring, implementation, player validation, recruitment, shadow testing, migration, deployment, or production use.
+
 ## File inventory
 
 - `README.md` — controlling scope, authority, findings, recommendations, and decisions.
-- `question-product-fit-review.tsv` — all 34 approved questions with evidence-specific product-fit findings.
+- `question-product-fit-review.tsv` — all 35 behavioral questions with evidence-specific product-fit findings.
 - `edhmatch-experience-benchmark.md` — narrow user-experience benchmark.
 - `profile-enrichment-crosswalk.tsv` — post-placement enrichment boundaries.
-- `result-usefulness-matrix.tsv` — all 37 identities and honest usefulness status.
-- `representative-result-walkthroughs.md` — five non-production result demonstrations.
+- `result-usefulness-matrix.tsv` — all 37 identities across content readiness, observability, and mapping validation.
+- `representative-result-walkthroughs.md` — ten non-production result demonstrations.
 - `owner-experience-checklist.md` — owner review instrument and disposition area.

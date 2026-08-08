@@ -1,6 +1,6 @@
 # VM-551 Gate B1 Placement Instrument Design
 
-Status: Gate B1 semantic design owner approved after the six owner-directed signal corrections. Player-validation preparation requires separate authorization. Pilot implementation is not authorized.
+Status: Final Gate B1 instrument architecture integrated for owner review. Player-validation preparation requires separate authorization. Pilot implementation is not authorized.
 
 Base: 30bfe87171e4119a0bab1bb47318862c042977de
 
@@ -12,22 +12,22 @@ Worktree: C:\dev\voxmana.io-vm551-gate-b1-design
 
 Gate B1 proposes one smaller, layered Archscry instrument for the existing 37-identity architecture. It preserves the current Quick Reading presentation, Gate → Hall → Crucible progression, four mandatory Gate questions, two or three adaptive Hall questions, zero or one Crucible question, six-to-eight-question journey, Gate A public result states, dossier architecture, saved-result compatibility boundary, Matrix, recommendations, and downstream surfaces.
 
-The owner approved the 15-construct architecture, remediated 34-item pool, and answer semantics after six directed corrections. All 106 proposed answers have one documented semantic adjudication, with zero unresolved signal reviews. This remains design evidence: 37 directional Crucible mappings are non-scoring hypotheses that require eligible player evidence, structural coverage is not empirical validation, and no scoring, player-validation preparation or execution, implementation, shadow test, recruitment, migration, or production cutover is authorized.
+The final owner-approved design direction uses 16 constructs and a 35-item behavioral pool. The original 15 constructs, 34 questions, and 106 answer IDs remain intact; C16 and one four-answer Hall item add information-to-plan conversion as a cross-identity observation. All 110 answers have one semantic adjudication, zero signal reviews remain unresolved, and 40 directional mappings remain evidence-required, non-scoring hypotheses. Structural coverage is not empirical validation, and no scoring, player-validation preparation or execution, implementation, shadow test, recruitment, migration, or production cutover is authorized.
 
 The pilot pool contains:
 
 | Stage | Current bank | Proposed pilot pool | Asked in one journey |
 |---|---:|---:|---:|
 | Gate | 4 | 4 replacement questions | exactly 4 |
-| Hall | 58 | 12 adaptive questions | 2 or 3 |
+| Hall | 58 | 13 adaptive questions | 2 or 3 |
 | Crucible | 51 | 18 focused questions | 0 or 1 |
-| Total | 113 | 34 | 6 to 8 |
+| Total | 113 | 35 | 6 to 8 |
 
 The count follows the coverage analysis:
 
-- 15 bounded constructs keep deck behavior, table preference, theme, and edge-family boundaries separate.
+- 16 bounded constructs keep deck behavior, table preference, theme, information-to-plan conversion, and edge-family boundaries separate.
 - Four constructs are broad enough for mandatory Gate observation.
-- Twelve Hall items cover the remaining constructs plus one dependency-controlled alternative interaction-window item.
+- Thirteen Hall items cover the remaining constructs, one dependency-controlled alternative interaction-window item, and the optional cross-identity C16 observation.
 - Eighteen Crucible items cover five same-color guild/college boundaries, four high-confusion identities, direct Esper and Jeskai insufficient-evidence probes, five adjacent four-color boundaries, Colorless/Five-Color, and mono/multicolor ambiguity.
 - Only one Crucible item is shown in a journey. The pool is larger than the journey because it is adaptive.
 
@@ -84,7 +84,7 @@ Player discussion is never treated as a weight, likelihood, prevalence estimate,
 
 ## Construct architecture
 
-The 15 constructs are:
+The 16 constructs are:
 
 1. initiative posture;
 2. resource visibility;
@@ -101,8 +101,9 @@ The 15 constructs are:
 13. public commitment;
 14. setup tolerance;
 15. deck breadth and constraint.
+16. information-to-plan conversion.
 
-Each question has exactly one primary construct. Related constructs remain explicitly separate, and dependency groups prevent repeated observations from being counted as new evidence. For example:
+Each behavioral question has exactly one primary construct. Related constructs remain explicitly separate, and dependency groups prevent repeated observations from being counted as new evidence. For example:
 
 - proactive/reactive posture and open-mana timing may describe one cadence and therefore share dependency review;
 - visible resources and willingness to attract attention are not the same construct;
@@ -110,6 +111,7 @@ Each question has exactly one primary construct. Related constructs remain expli
 - consistency is not tutor count;
 - setup duration is not payoff rhythm;
 - theme is not power, budget, experience, or deck behavior.
+- information-to-plan conversion begins only after new information or options exist; it is not initiative, payoff tempo, engine concentration, interaction timing, repeatability, setup tolerance, intelligence, or optimization skill.
 
 C01 has three intentionally controlled contexts: calm/open, behind with limited time, and disrupted plan. They remain one contextual-stability hypothesis in `DG_C01`, cannot stack, and must not be averaged into midpoint support. Future player validation must compare the contexts; systematic divergence requires C01 to be split or restricted before scoring authority is considered.
 
@@ -152,7 +154,9 @@ Gate answers may narrow Hall eligibility in a future implementation, but they ca
 
 ## Hall design
 
-The Hall pool observes commander reliance, engine concentration, pressure channel, mana commitment, repeatability, theme-efficiency tradeoff, threat posture, voluntary resource conversion, public commitment, setup tolerance, deck breadth, and a second dependency-controlled interaction-window scenario.
+The Hall pool observes commander reliance, engine concentration, pressure channel, mana commitment, repeatability, theme-efficiency tradeoff, threat posture, voluntary resource conversion, public commitment, setup tolerance, deck breadth, information-to-plan conversion, and a second dependency-controlled interaction-window scenario.
+
+C16 asks what the player wants to do after a decisive threat has been stopped and several workable plans are available: consolidate one route, keep several routes open, exploit the opening now, or defer to the deck. It is adaptive rather than mandatory, cross-identity rather than Esper-specific, and remains non-scoring and evidence-required.
 
 The Bant C05 Crucible now refers explicitly to the commander rather than a generic creature. C10 remains a deckbuilding tradeoff and explanation layer: theme cannot name or exclude an identity. Official Magic philosophy remains available as a source-backed interpretive layer after behavioral observation, but cannot create support, determine routing or stopping, or break a tie.
 
@@ -197,7 +201,7 @@ The registry has 15 active terms: 3 rules-defined, 9 community-standard, and 3 i
 
 ## Answer semantic adjudication
 
-`answer-semantic-adjudication.tsv` contains exactly one row for each of the 106 answer contracts. Review dispositions are controlled values:
+`answer-semantic-adjudication.tsv` contains exactly one row for each of the 110 answer contracts. Review dispositions are controlled values:
 
 - `APPROVE`: semantically coherent as a non-scoring proposal;
 - `REWORD`: an applied terminology, clarity, or alignment correction with no construct/signal change;
@@ -208,7 +212,7 @@ The registry has 15 active terms: 3 rules-defined, 9 community-standard, and 3 i
 
 Other controlled review values are documented in the TSV columns: `PASS`, `CLEAR`, `CONCERN`, `REMEDIATED`, `VERIFIED-OR-REMEDIATED`, `NONE`, `OWNER-REVIEW`, `BOUNDED-DIRECT-BOUNDARY`, `PROVISIONAL-NONSCORING`, `PLAYER-EVIDENCE-REQUIRED`, `SUBSTANTIVE-REVIEW-REQUIRED`, and `YES`/`NO`.
 
-Current dispositions are 33 `APPROVE`, 8 `REWORD`, 28 `METADATA_CORRECTION`, 0 `SIGNAL_REVIEW_REQUIRED`, 0 `REPLACE`, and 37 `EVIDENCE_REQUIRED`. Every answer remains non-scoring. The six owner-directed corrections are incorporated: the Hall replacement now records an opponent-commitment C08 window, and the five corrected Crucible answers join the 32 previously evidence-required rows as provisional identity-boundary hypotheses.
+Current dispositions preserve the 106 approved reviews and add four C16 reviews: three directional answers are `EVIDENCE_REQUIRED`, while the deck-dependent answer is non-directional. Zero rows are `SIGNAL_REVIEW_REQUIRED` or `REPLACE`; 40 rows total are `EVIDENCE_REQUIRED`. Every answer remains non-scoring. The six earlier owner-directed corrections remain incorporated.
 
 Owner approval accepts wording, construct presentation, and retention of the evidence-required rows for future validation. It does not establish that any identity mapping is true and does not authorize weights, scoring, implementation, recruitment, shadow testing, migration, deployment, or production use.
 
@@ -280,44 +284,46 @@ This contract avoids arbitrary additive stacking, one-answer flips, duplicated d
 
 ## Instrument flow
 
-    4 Gate observations
-      -> 2 Hall observations
+    4 broad Gate observations
+      -> 2 adaptive Hall observations
       -> check independence, boundary coverage, contradictions, and unknowns
           -> enough evidence: stop at 6 or ask one bounded Hall confirmation
           -> unresolved construct: ask third Hall
-          -> exact reviewed competitor remains: ask one Crucible
+          -> unresolved targeted evidence: ask one Crucible slot
+               -> competitor boundary, cross-identity behavior, or eligible identity/lens self-report
       -> Gate A public state: named exploratory / close / tied / mixed / insufficient
 
-The flow remains six to eight questions. It is one instrument with layered explanation.
+The flow remains six to eight questions. The final slot is targeted unresolved evidence, not necessarily an identity-specific behavioral discriminator. It is one instrument with layered explanation and does not force closure.
 
 ## Files and validation
 
-- construct-map.tsv: 15 construct contracts.
+- construct-map.tsv: 16 construct contracts.
 - question-bank-inventory.tsv: all 113 current questions and 356 answers/effects.
-- pilot-question-bank.tsv: 34 proposed questions.
-- answer-signal-contracts.tsv: 106 stable answer contracts.
+- pilot-question-bank.tsv: 35 proposed behavioral questions.
+- answer-signal-contracts.tsv: 110 stable behavioral answer contracts.
 - jargon-glossary.tsv: 15 normalized public definitions with rules/community/operational authority.
-- answer-semantic-adjudication.tsv: one semantic review for each of the 106 answer contracts.
+- answer-semantic-adjudication.tsv: one semantic review for each of the 110 answer contracts.
 - identity-coverage-matrix.tsv: all 37 identities.
 - confusion-pair-coverage.tsv: 123 exact, high-frequency, and mandatory boundary pairs.
 - migration-and-versioning-plan.md: additive versioning, shadow evaluation, rollback, and legacy handling.
 - player-validation-plan.md: real-player comprehension, steering, recognition, stability, and explanation protocol.
 - owner-decisions.md: material owner choices and recommendations.
+- identity-lens-self-report-contract.md: separate secondary-evidence eligibility, safeguards, and result-explanation contract.
 - build-and-validate-design.mjs: documentation-only derivation and validator.
 - validation-record.json: current PASS record.
 
 TSV multi-value fields use semicolons. IDs themselves do not contain semicolons. Empty optional values are represented by an empty field, not a placeholder token.
 
-Validation proves exact source counts; 15 constructs; 34 questions in the approved 4/12/18 pool; 106 answer contracts and 106 one-to-one semantic reviews; 37 unique identities; 123 confusion pairs; unique IDs; one construct per question; complete answer contracts; no orphan references/signals; canonical resolved jargon; no unused or cross-reference-only help; no rules/community authority mismatch; no vague-mood-only observation; C01 dependency control; C05 commander-specific wording; C15 boundary-only handling; the eight-question hard maximum; documentation-only changed paths; and non-scoring status.
+Validation proves exact source counts; 16 constructs; 35 behavioral questions in the 4/13/18 pool; all 106 existing answer IDs preserved plus four expected C16 IDs; 110 one-to-one semantic reviews; 37 unique identities; 123 unchanged confusion pairs; three-axis status coverage; 10 authored prototype routes; separate lens evidence; unique IDs; one construct per behavioral question; complete answer contracts; no orphan references/signals; the eight-question hard maximum; documentation-only changed paths; and non-scoring status.
 
 No scoring implementation or live-data modification occurred.
 
 ## Stop
 
-Gate B1 semantic design is owner approved. Stop before player-validation preparation, which requires separate authorization. Do not implement the pilot.
+The final Gate B1 architecture is integrated for owner review. Stop before player-validation preparation, which requires separate authorization. Do not implement the pilot.
 
 ## Owner-experience remediation record
 
-Hands-on prototype review preserved the approved architecture and required a bounded presentation remediation. C06 now uses the canonical novice-safe engine explanation; C07, C08, C09, C10, and C14 use the exact owner-directed prompts; and C15 now records imposed card-pool boundaries versus broad access followed by builder-chosen boundaries. All 15 construct IDs, 34 question IDs, 106 answer IDs, signal directions, dependency groups, 37 identities, 123 confusion pairs, and 37 evidence-required directional hypotheses remain preserved and non-scoring.
+Hands-on prototype review preserved every prior behavioral ID and required a bounded architecture addition. C16 adds one adaptive cross-identity question without replacing a weaker item because every existing question still carries distinct structural or boundary coverage. The pool is now 16 constructs, 35 behavioral questions, 110 behavioral answer IDs, 37 identities, and 123 unchanged confusion pairs. Forty directional hypotheses remain evidence-required and non-scoring.
 
-The five authored review routes now have zero exact duplicate questions and zero optional Hall→Crucible dependency repetitions. This does not define adaptive routing. The corrected static prototype awaits another short owner hands-on review and does not authorize player-validation preparation or implementation.
+The ten authored review routes have zero exact duplicate questions and zero optional behavioral dependency repetitions. They cover behavior-only, Esper/C16, Yore-without-lens, Yore-skip, Yore-answered, and contradiction states. This does not define adaptive routing. The static prototype awaits final owner review and does not authorize player-validation preparation or implementation.

@@ -1,10 +1,12 @@
 # VM-551 Gate B1 — Final Architecture Decision
 
-Status: proposed for owner architecture decision. Documentation only. No instrument, status inventory, prototype, scoring, routing, runtime, or production artifact is changed by this packet.
+Status: owner approved and integrated into design documentation plus the isolated owner prototype. No scoring, routing, runtime, player validation, or production artifact is changed.
 
 Starting commit: `f5b030e12871e4a5ca7706d29d25c096a0d51748`
 
 ## 1. Executive decision
+
+Owner disposition (2026-08-08): all five recommendations below are approved. The integration uses Option 2 for C16: one added adaptive construct/item, preserving every prior behavioral ID and the six-to-eight-question journey. The final design inventory is 16 constructs, 35 behavioral questions, 110 behavioral answer contracts, 37 identities, and 123 unchanged confusion pairs.
 
 | Question | Recommendation | Confidence | Owner decision required |
 |---|---|---:|---|

@@ -117,3 +117,49 @@ This section supersedes the earlier route compositions and any earlier wording t
 - **Five-Color / WUBRG — 8:** Gate C01/C02/C03/C04 → Hall C09/C06/C10 → Crucible C15. The route observes stable purpose with changing tools, overlapping engines, theme loyalty, and broad access followed by self-chosen limits. The state remains mixed.
 
 Across the five routes, exact duplicate question IDs are 0 and optional Hall→Crucible same-dependency repetitions are 0. These are authored review scenarios, not adaptive routing.
+
+## Final-architecture walkthrough additions
+
+These five authored simulations extend the earlier owner-review set. Together, all ten routes retain exactly four broad questions, two or three adaptive questions, zero or one targeted unresolved-evidence question, and six to eight total questions. They do not define routing or calculate results.
+
+### 6. Esper — information becomes a plan
+
+**Route:** Gate C01/C02/C03/C04 → Hall C06/C08/C16. No targeted question is required; total 7.
+
+**Demonstration:** after an opposing threat is stopped and several workable plans exist, the player chooses one route and organizes the available tools around it. The route also observes a designed central structure and interaction at the opponent's decisive commitment point.
+
+**State:** authored `close`. Esper is structurally `OBSERVABLE` because the final pool can represent information-to-plan conversion, White-structure, and Black-focused implementation components. The association remains `MAPPING_HYPOTHESIS`; generic control, combo, toolbox, card draw, or a single C16 answer cannot establish Esper.
+
+### 7. Yore — no lens eligible
+
+**Route:** Gate C01/C02/C03/C04 → Hall C03/C06/C09. No targeted question; total 7.
+
+**Demonstration:** behavior shows rebuilding, replaceable engine pieces, and a repeatable purpose, but the evidence does not produce the required bounded layer-boundary candidate set. No self-report is asked.
+
+**State:** authored `insufficient`. Yore remains `NOT_CLEANLY_OBSERVABLE`, and generic artifacts, recursion, conversion, or combo cannot introduce it.
+
+### 8. Yore — eligible lens skipped
+
+**Route:** Gate C01/C02/C03/C04 → Hall C06/C09 → one `IDENTITY_LENS_SELF_REPORT`; total 7.
+
+**Demonstration:** independent behavior has already left Yore and Glint as a bounded unresolved pair. The player chooses “Neither, or I'm not sure.” The response is non-directional and the behavioral reading remains unchanged.
+
+**State:** authored `close`. No identity is added, removed, promoted, or validated by the skip.
+
+### 9. Yore — eligible lens answered
+
+**Route:** same composition as walkthrough 8.
+
+**Demonstration:** after behavior narrows to Yore/Glint, the player says that deliberately shaping a system resonates more than letting the route emerge. The result explains the behavioral observations under **What your Commander answers showed** and the explicit response under **What you said resonates**.
+
+**State:** authored `close`. The lens adds bounded secondary evidence but cannot become sole support or create a one-answer flip.
+
+### 10. Yore — contradictory lens
+
+**Route:** same composition as walkthrough 8.
+
+**Demonstration:** behavior strongly favors adaptive route variance, while self-report says deliberate constructed structure resonates. Reviewer information exposes the contradiction and separate ledgers.
+
+**State:** authored `contradictory`. Self-report does not override behavior, and question eight cannot force closure.
+
+Across all ten routes, exact duplicate question IDs are 0, repeated optional behavioral dependency groups are 0, lens questions per route never exceed 1, and all states remain authored demonstrations.
