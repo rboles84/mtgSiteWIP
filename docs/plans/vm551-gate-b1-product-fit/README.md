@@ -8,6 +8,8 @@ This documentation-only pass now incorporates the final owner-approved instrumen
 
 Owner review has since approved the three-axis status model, 37 content-ready packages, information-to-plan conversion, a guarded secondary `IDENTITY_LENS_SELF_REPORT` class, and Option B journey semantics. The isolated prototype demonstrates those decisions through ten authored routes; it remains non-calculating and non-production.
 
+The [production-fidelity owner review](./production-fidelity-owner-review.md) now evaluates the same approved architecture inside an isolated preview built from the current Archscry shell, styles, dossier builder, Matrix renderer, Commander/precon data, and Maze paths. Its deterministic branches and results remain authored demonstrations, not placement logic.
+
 ## Narrow objective
 
 Determine whether the approved instrument:
@@ -115,3 +117,4 @@ No status above authorizes scoring, implementation, player validation, recruitme
 - `result-usefulness-matrix.tsv` — all 37 identities across content readiness, observability, and mapping validation.
 - `representative-result-walkthroughs.md` — ten non-production result demonstrations.
 - `owner-experience-checklist.md` — owner review instrument and disposition area.
+- `production-fidelity-owner-review.md` — launch instructions, hands-on review order, fidelity audit, and owner disposition boundary for the production-fidelity preview.

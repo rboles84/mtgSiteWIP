@@ -1,0 +1,104 @@
+{
+  "version": "vm551-gate-b1-production-preview-branching-v1",
+  "status": "AUTHORED_UX_DEMONSTRATION_NONSCORING",
+  "disclaimer": "Authored preview branching demonstrates the proposed adaptive experience. It is not the final placement algorithm and does not validate identity mappings.",
+  "universalGateQuestionIds": [
+    "b1.gate.initiative.v1",
+    "b1.gate.visibility.v1",
+    "b1.gate.disruption.v1",
+    "b1.gate.tempo.v1"
+  ],
+  "branchStates": [
+    {
+      "id": "held-deliberate-options",
+      "match": { "initiative": ["balance", "respond"], "visibility": ["held", "split"], "disruption": ["protect"], "tempo": ["small"] },
+      "unresolvedConstruct": "C08 — mana commitment and interaction window",
+      "questionIds": ["b1.hall.mana-window.v1", "b1.hall.engine-shape.v1", "b1.hall.information-to-plan.v1"],
+      "resultIdentityId": "ESPER",
+      "candidateSet": ["ESPER", "U", "WU", "UB", "GRIXIS", "JESKAI"],
+      "reason": "The four-answer baseline combines held resources, protection, incremental progress, and a non-all-in initiative posture. The preview asks how mana is committed before examining structure and information use.",
+      "dependencyAvoided": "Avoids repeating C01–C04; Question 5 opens DG_C08 rather than treating held resources as a faction choice."
+    },
+    {
+      "id": "visible-recovery-growth",
+      "match": { "initiative": ["advance", "balance"], "visibility": ["board"], "disruption": ["recover"], "tempo": ["small", "waves"] },
+      "unresolvedConstruct": "C09 — repeatability preference",
+      "questionIds": ["b1.hall.repeatability.v1", "b1.hall.setup.v1", "b1.crucible.ug.v1"],
+      "resultIdentityId": "UG",
+      "candidateSet": ["UG", "QUANDRIX", "G", "BANT"],
+      "reason": "The baseline shows visible development that expects to rebuild and compound. The unresolved question is whether the deck should repeat one route or adapt among overlapping routes.",
+      "dependencyAvoided": "Avoids another disruption or tempo item; Question 5 opens DG_C09 after all four Gate observations."
+    },
+    {
+      "id": "visible-burst-pressure",
+      "match": { "initiative": ["advance"], "visibility": ["board", "split"], "disruption": ["limit"], "tempo": ["burst"] },
+      "unresolvedConstruct": "C07 — pressure channel",
+      "questionIds": ["b1.hall.pressure.v1", "b1.hall.threat.v1", "b1.crucible.ur.v1"],
+      "resultIdentityId": "UR",
+      "candidateSet": ["UR", "PRISMARI", "R", "JESKAI"],
+      "reason": "The baseline combines initiative, visible commitment, limiting damage, and explosive progress. The preview asks what kind of pressure feels like real progress rather than naming a color family.",
+      "dependencyAvoided": "Avoids stacking C01 or C04; Question 5 opens DG_C07."
+    },
+    {
+      "id": "rebuild-through-conversion",
+      "match": { "initiative": ["advance", "balance"], "visibility": ["board", "split"], "disruption": ["recover"], "tempo": ["burst", "waves"] },
+      "unresolvedConstruct": "C12 — resource sacrifice",
+      "questionIds": ["b1.hall.sacrifice.v1", "b1.hall.commander-role.v1", "b1.crucible.bg.v1"],
+      "resultIdentityId": "BG",
+      "candidateSet": ["BG", "WITHERBLOOM", "B", "SULTAI"],
+      "reason": "The baseline expects visible resources to be rebuilt across larger swings. The next unresolved behavior is whether useful permanents are willingly converted into lasting resources.",
+      "dependencyAvoided": "Avoids another C03 recovery prompt; Question 5 opens DG_C12."
+    },
+    {
+      "id": "protected-patient-setup",
+      "match": { "initiative": ["balance", "respond"], "visibility": ["board", "split"], "disruption": ["protect"], "tempo": ["waves"] },
+      "unresolvedConstruct": "C14 — setup tolerance",
+      "questionIds": ["b1.hall.setup.v1", "b1.hall.engine-shape.v1", "b1.crucible.witch-yore.v1"],
+      "resultIdentityId": "WITCH",
+      "candidateSet": ["WITCH", "YORE", "INK", "BANT"],
+      "reason": "The baseline favors protecting a visible or mixed position and building across waves. The preview asks how long setup may wait before doing useful work.",
+      "dependencyAvoided": "Avoids repeating protection or tempo; Question 5 opens DG_C14."
+    },
+    {
+      "id": "conditional-constraint",
+      "match": { "initiative": ["unsure", "balance"], "visibility": ["depends"], "disruption": ["depends", "limit"], "tempo": ["depends", "small"] },
+      "unresolvedConstruct": "C15 — deck breadth and constraint",
+      "questionIds": ["b1.hall.breadth.v1", "b1.hall.theme.v1", "b1.crucible.colorless-wubrg.v1"],
+      "resultIdentityId": "COLORLESS",
+      "candidateSet": ["COLORLESS", "WUBRG", "W", "U", "B", "R", "G"],
+      "reason": "Several broad preferences are deck-conditional, so the preview asks about the chosen card-pool boundary instead of inventing directional evidence from uncertainty.",
+      "dependencyAvoided": "Does not average unknown or conditional Gate responses; Question 5 opens DG_C15."
+    },
+    {
+      "id": "measured-public-position",
+      "match": { "initiative": ["balance", "respond"], "visibility": ["split", "held"], "disruption": ["limit", "protect"], "tempo": ["waves", "burst"] },
+      "unresolvedConstruct": "C13 — public commitment",
+      "questionIds": ["b1.hall.commitment.v1", "b1.hall.threat.v1", "b1.crucible.wb.v1"],
+      "resultIdentityId": "WB",
+      "candidateSet": ["WB", "SILVERQUILL", "W", "B", "MARDU"],
+      "reason": "The baseline combines restraint, partly held resources, and a position that expects larger swings. The preview asks how public agreements should survive a changed board.",
+      "dependencyAvoided": "Avoids repeating resource visibility or initiative; Question 5 opens DG_C13."
+    },
+    {
+      "id": "balanced-open-baseline",
+      "match": { "fallback": true },
+      "unresolvedConstruct": "C05 — commander reliance",
+      "questionIds": ["b1.hall.commander-role.v1", "b1.hall.repeatability.v1"],
+      "resultIdentityId": "BANT",
+      "candidateSet": ["BANT", "WITCH", "INK", "W", "UG"],
+      "reason": "No narrower authored pattern is complete across all four Gate observations. The preview asks how independently the ninety-nine cards should function before any targeted boundary is considered.",
+      "dependencyAvoided": "Falls forward into DG_C05 without assigning meaning to a single Gate answer."
+    }
+  ],
+  "reviewJourneys": [
+    { "id": "simic-quandrix", "label": "A · Simic / Quandrix — behavior only" },
+    { "id": "esper-information-to-plan", "label": "B · Esper — C16" },
+    { "id": "colorless", "label": "C1 · Colorless — imposed boundary" },
+    { "id": "wubrg", "label": "C2 · WUBRG — chosen breadth" },
+    { "id": "white", "label": "D · Mono / multicolor — C15 modifier" },
+    { "id": "yore-no-lens", "label": "E · Yore — broad uncertainty, no lens" },
+    { "id": "yore-lens-skipped", "label": "F · Yore / Glint — lens skipped" },
+    { "id": "yore-lens-answered", "label": "G · Yore / Glint — lens answered" },
+    { "id": "yore-lens-contradictory", "label": "H · Lens contradiction preserved" }
+  ]
+}

@@ -51,6 +51,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-551 — Gate B1 Production-Fidelity Archscry Preview](done/VM-551-gate-b1-production-fidelity-preview.md) - built an isolated non-scoring Archscry preview from production shell/styles, dossier/precon builders, Matrix, identity, and Maze data; eight composite branches and nine review journeys pass desktop/mobile/browser validation; stopped for owner experience review with production, scoring, player validation, push, merge, and deployment frozen.
+
 - [VM-551 — Gate B1 Final Instrument Architecture Integration](done/VM-551-gate-b1-final-instrument-architecture-integration.md) - integrated the approved three-axis inventory, C16 information-to-plan construct, guarded identity/lens evidence, Option B journey semantics, and ten isolated prototype scenarios; validation passes at 16 constructs, 35 behavioral questions, 110 answer contracts, 37 identities, and 123 confusion pairs; stopped for owner review with production, Gate A, scoring, routing, and player validation frozen.
 
 - [VM-551 — Gate B1 Final Architecture Decision](done/VM-551-gate-b1-final-architecture-decision.md) - separated content readiness, instrument observability, and mapping validation across all 37; recommended 37/0/0 content, 21/14/2 observability, a cross-identity information-to-plan dimension, guarded secondary identity/lens self-report, and the preserved short route with looser targeted semantics; stopped for owner architecture review with all instrument and production work frozen.

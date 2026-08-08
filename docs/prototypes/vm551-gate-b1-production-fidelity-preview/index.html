@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Gate B1 Production-Fidelity Preview · Vox Mana</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/img/vox-mana-header-logo.svg">
+  <link rel="stylesheet" href="../../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../../assets/css/fonts.css">
+  <link rel="stylesheet" href="../../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../../assets/css/topbar.css">
+  <link rel="stylesheet" href="../../../assets/css/atmosphere.css">
+  <link rel="stylesheet" href="../../../assets/css/components.css">
+  <link rel="stylesheet" href="../../../assets/vendor/mana/css/mana.min.css">
+  <link rel="stylesheet" href="../../../assets/css/archscry.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="vm-archscry-route" data-page="archscry" data-vm-current="archscry" data-bg="medium" data-vm-atmosphere="rich">
+  <div class="vm-bg" aria-hidden="true">
+    <picture class="vm-bg__picture">
+      <source type="image/webp" srcset="../../../assets/img/backgrounds/background-vox-gateway-clean-13.webp 2560w" sizes="100vw">
+      <img src="../../../assets/img/backgrounds/background-vox-gateway-clean-13.webp" alt="" width="1672" height="941" decoding="async">
+    </picture>
+    <div class="vm-bg__nebula"></div>
+    <canvas class="vm-bg__stars" aria-hidden="true"></canvas>
+  </div>
+
+  <div class="app">
+    <header class="vm-topbar" role="banner" id="topbar">
+      <a class="vm-brand" href="../../../index.html" aria-label="Vox Mana home">
+        <span class="vm-brand-mark" aria-hidden="true"><img src="../../../assets/img/vox-mana-header-logo.svg" alt="" width="44" height="44"></span>
+        <span class="vm-brand-text">Vox Mana</span>
+      </a>
+      <nav class="vm-nav" aria-label="Preview navigation">
+        <a class="vm-nav-link" href="../../../index.html">Home</a>
+        <a class="vm-nav-link is-active" href="#landing" aria-current="page">Archscry</a>
+        <a class="vm-nav-link" href="../../../maze/index.html">The Implicit Maze</a>
+        <a class="vm-nav-link" href="../../../apocrypha/index.html">Apocrypha</a>
+        <a class="vm-nav-link" href="../../../strategium/index.html">Strategium</a>
+      </nav>
+      <div class="vm-utility">
+        <button class="tb-btn" id="restart-top" type="button">Begin Again</button>
+        <button class="vm-menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-haspopup="true" aria-controls="vm-menu-panel" data-vm-menu-trigger>
+          <span class="vm-menu-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <div id="vm-menu-panel" class="vm-menu-panel" data-open="false" data-vm-menu-panel>
+          <nav class="vm-menu-nav" aria-label="Mobile navigation" data-vm-menu-nav></nav>
+          <button class="vm-menu-item" type="button" data-vm-toggle="reduce-motion" data-vm-tooltip-on="Stillness - on" data-vm-tooltip-off="Quiet the motion"><span>Reduce motion</span><span class="vm-menu-item-status" data-vm-status>Off</span></button>
+        </div>
+      </div>
+    </header>
+
+    <aside class="preview-tools" aria-label="Internal preview controls">
+      <span class="preview-badge">Internal preview</span>
+      <label class="review-toggle"><input id="reviewer-toggle" type="checkbox"> Reviewer information</label>
+      <label class="review-journey" hidden>Review case
+        <select id="journey-select"><option value="">Free answer journey</option></select>
+      </label>
+    </aside>
+
+    <main id="archscry-main" class="app-main" aria-labelledby="archscry-landing-title">
+      <section class="section" id="landing" aria-labelledby="archscry-landing-title">
+        <div class="landing-wrap">
+          <div class="hero-band">
+            <div class="eyebrow">Commander identity reading</div>
+            <h1 class="landing-title" id="archscry-landing-title">Find the Commander identity that fits how you approach the table.</h1>
+            <p class="landing-sub">Answer a short sequence of recognizable Commander moments. Everyone begins with the same four questions; the Hall then responds to the behavioral picture you have built.</p>
+            <p class="landing-note">This internal preview demonstrates the proposed experience with authored branching and authored readings. It does not calculate placement or validate an identity mapping.</p>
+            <div class="landing-actions">
+              <button class="btn-primary" id="start-free" type="button">Start the Quick Reading</button>
+              <button class="btn-secondary reviewer-only" id="start-review-case" type="button" hidden>Open selected review case</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section hidden" id="quick" aria-labelledby="archscry-quick-title">
+        <div class="quick-shell">
+          <div class="quick-header">
+            <div class="eyebrow">Quick Reading</div>
+            <h2 class="quick-title" id="archscry-quick-title">One table moment at a time.</h2>
+            <div class="quick-sub">Choose the answer that feels most natural for the deck or games you have in mind.</div>
+          </div>
+          <div class="progress-row">
+            <div class="progress-copy" id="progress-copy">Gate · Question 1</div>
+            <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
+          </div>
+          <div class="question-card" id="question-card">
+            <div class="question-eyebrow" id="question-eyebrow">The Gate</div>
+            <h3 class="question-title" id="question-title"></h3>
+            <div class="question-help" id="question-help" hidden></div>
+            <div class="answer-grid" id="answer-grid"></div>
+          </div>
+          <details class="reviewer-panel reviewer-only" id="question-reviewer" hidden>
+            <summary>Reviewer information</summary>
+            <div id="question-reviewer-content"></div>
+          </details>
+          <div class="quick-footer">
+            <button class="btn-secondary" id="back-btn" type="button">Back</button>
+            <button class="btn-secondary" id="restart-btn" type="button">Begin Again</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section hidden" id="transition" aria-live="polite" aria-labelledby="transition-title">
+        <div class="transition-shell">
+          <div class="transition-sigil" aria-hidden="true"><img src="../../../assets/img/vox-mana-header-logo.svg" alt=""></div>
+          <div class="eyebrow" id="transition-eyebrow">The Hall opens</div>
+          <h2 id="transition-title">Building your reading</h2>
+          <p id="transition-copy">Your first four answers form a baseline. Archscry is choosing the next Commander situation to clarify.</p>
+        </div>
+      </section>
+
+      <section class="section hidden" id="result" aria-labelledby="archscry-result-title">
+        <h2 class="visually-hidden" id="archscry-result-title">Archscry result dossier</h2>
+        <div class="result-inner" id="result-inner"></div>
+      </section>
+    </main>
+
+    <footer class="app-footer"><p>Vox Mana is an unofficial fan project. Magic: The Gathering is © Wizards of the Coast LLC.</p></footer>
+  </div>
+
+  <script src="../../../assets/js/graph.js"></script>
+  <script src="../../../assets/js/vm-radar.js"></script>
+  <script type="module" src="./app.js"></script>
+  <script src="../../../assets/js/reduce-motion.js" defer></script>
+  <script src="../../../assets/js/vm-rich-atmosphere.js" defer></script>
+  <script src="../../../assets/js/vm-topbar.js" defer></script>
+</body>
+</html>
