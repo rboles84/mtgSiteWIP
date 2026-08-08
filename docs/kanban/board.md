@@ -51,6 +51,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-551 — Gate B1 Final Architecture Decision](done/VM-551-gate-b1-final-architecture-decision.md) - separated content readiness, instrument observability, and mapping validation across all 37; recommended 37/0/0 content, 21/14/2 observability, a cross-identity information-to-plan dimension, guarded secondary identity/lens self-report, and the preserved short route with looser targeted semantics; stopped for owner architecture review with all instrument and production work frozen.
+
 - [VM-551 — Gate B1 Esper/Yore Evidence Recovery](done/VM-551-gate-b1-esper-yore-evidence-recovery.md) - certified-truth-first review complete: Esper needs an information-to-plan observation for architecture review, while Yore remains an explicit GAP because player-natural rebuilding and engine questions do not reach its constructed-agency boundary; no instrument, prototype, scoring, validation, or production change.
 
 - [VM-551 — Gate B1 Final Content-Usefulness Remediation](done/VM-551-gate-b1-final-content-usefulness-remediation.md) - final concise result packages, certified-source traceability, C03 helper cleanup, mono-color wording, Ink/Jeskai bounded PARTIAL promotions, 15/20/2 readiness inventory, and isolated prototype validation complete; stopped for owner review with scoring, player validation, Gate A, and production frozen.
