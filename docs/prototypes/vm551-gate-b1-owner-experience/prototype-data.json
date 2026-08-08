@@ -29,9 +29,9 @@
     "identities": 37,
     "walkthroughs": 5,
     "resultStatuses": {
+      "PARTIAL": 20,
       "READY": 15,
-      "PARTIAL": 17,
-      "GAP": 5
+      "GAP": 2
     }
   },
   "questions": [
@@ -298,7 +298,7 @@
       },
       "productFit": {
         "commanderSituation": "Preparing protection, recovery, or reduced exposure before broad removal",
-        "disposition": "KEEP",
+        "disposition": "OWNER_REMEDIATION_APPLIED",
         "support": "Board-wipe resilience is familiar, the jargon is defined inline, and no answer is universally best",
         "playerSupport": "DIRECT-CONDITIONAL",
         "noviceClarity": "STRONG",
@@ -3105,7 +3105,7 @@
       "stage": "Crucible",
       "order": 34,
       "constructId": "C15",
-      "prompt": "Two decks play the way you like. One uses one color; the other combines several. Which deckbuilding challenge sounds more appealing?",
+      "prompt": "Two decks play the way you like. One is mono-color; the other combines several colors. Which deckbuilding challenge sounds more appealing?",
       "observation": "Preference for how much of the deckbuilding boundary should come from the available card pool versus restrictions the builder chooses within broader access.",
       "competitorFamily": "mono versus multicolor",
       "evidence": "E-CERTIFIED;E-PLAYER-COMMANDER;E-PLAYER-PACE;E-AUDIT;E-CECOS;E-VOICE",
@@ -3215,7 +3215,12 @@
       "dossierValue": "Certified identity language can teach accountable endurance and the risk of rigidity",
       "nextStep": "Compare Abzan with Witch and White in Matrix; open recovery-oriented Maze paths",
       "missingValue": "Direct identity-specific observation and validated Abzan/Witch boundary",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Abzan treats survival as a duty carried by family, ancestor memory, and the living house.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/abzan/abzan.placement.json;data/raw-factions/abzan/abzan.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/witch/witch.placement.json;data/raw-factions/witch/witch.profile.json",
+      "statusRationale": "Remains PARTIAL: Direct identity-specific observation and validated Abzan/Witch boundary."
     },
     {
       "id": "B",
@@ -3233,16 +3238,21 @@
       "dossierValue": "Certified mono identity can teach ambition, cost, and recursion without diagnosing personality",
       "nextStep": "Compare Black with Golgari and Glint; use Maze for sacrifice or recursion starts",
       "missingValue": "Direct mono-versus-neighbor discriminator and empirical mono-color evidence",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Black believes the world offers no guaranteed fairness.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/black/black.placement.json;data/raw-factions/black/black.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json;data/raw-factions/golgari_swarm/golgari_swarm.profile.json",
+      "statusRationale": "Remains PARTIAL: Direct mono-versus-neighbor discriminator and empirical mono-color evidence."
     },
     {
       "id": "BANT",
       "name": "Bant",
       "status": "PARTIAL",
-      "whatAnswersShowed": "The reading can explain a commander-centered plan supported by a functional, protective 99",
+      "whatAnswersShowed": "The reading can describe a central commander elevated by a 99 that still functions as a visible support network",
       "nearbyAlternative": "Azorius Senate",
-      "observableDistinction": "Bant should concentrate visible communal support behind a worthy line; Azorius should prioritize procedure and managed stability",
-      "limitation": "Bant is high-confusion and its direct C05 association is not player-validated",
+      "observableDistinction": "Bant concentrates living communal support behind a central line; Azorius prioritizes procedure, preparation, and managed stability",
+      "limitation": "C05 observes commander reliance and support structure, not Bant's certified public-honor or accountable-excellence context, and the boundary remains high-confusion",
       "commanderExpression": "Exalted or Voltron support, creature-forward value, enchantress, blink, or protected boards",
       "tableRead": "Visible champion plus supporting network",
       "archetypeLinks": "Voltron; midrange; enchantress; blink",
@@ -3250,8 +3260,13 @@
       "commanderDirection": "Explore commanders whose 99 can still function while elevating a central piece",
       "dossierValue": "Certified dossier material gives a strong learning path around accountable excellence",
       "nextStep": "Compare Bant with Azorius and Selesnya; open protected-champion Maze paths",
-      "missingValue": "Validated boundary observation and false-positive data against WITCH/WUBRG/INK",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "missingValue": "Validated C05 boundary evidence and false-positive data against Azorius, Witch, WUBRG, and Ink",
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Bant treats excellence as honorable when it remains answerable to the whole.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/bant/bant.placement.json;data/raw-factions/bant/bant.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/azorius_senate/azorius_senate.placement.json;data/raw-factions/azorius_senate/azorius_senate.profile.json",
+      "statusRationale": "Remains PARTIAL: Validated C05 boundary evidence and false-positive data against Azorius, Witch, WUBRG, and Ink."
     },
     {
       "id": "BG",
@@ -3269,7 +3284,12 @@
       "dossierValue": "Atlas and certified identity records can teach the graveyard-versus-life boundary",
       "nextStep": "Compare Golgari with Witherbloom; open graveyard-reuse Maze paths",
       "missingValue": "Player validation of answer-to-identity direction; content explanation is ready",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Golgari blends Black ambition with Green growth.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json;data/raw-factions/golgari_swarm/golgari_swarm.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/witherbloom/witherbloom.placement.json;data/raw-factions/witherbloom/witherbloom.profile.json",
+      "statusRationale": "Content package remains useful, distinct, source-backed, and bounded; answer-to-identity mapping remains evidence-required."
     },
     {
       "id": "BR",
@@ -3287,7 +3307,12 @@
       "dossierValue": "Atlas lens can explain spectacle without equating chaos with randomness",
       "nextStep": "Compare Rakdos with Black and Red; open sacrifice-pressure Maze paths",
       "missingValue": "Direct pilot discriminator is absent, but result explanation and discovery value are available",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Rakdos blends Black ambition with Red freedom.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json;data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/prismari/prismari.placement.json;data/raw-factions/prismari/prismari.profile.json",
+      "statusRationale": "Content package remains useful, distinct, source-backed, and bounded; answer-to-identity mapping remains evidence-required."
     },
     {
       "id": "COLORLESS",
@@ -3295,7 +3320,7 @@
       "status": "PARTIAL",
       "whatAnswersShowed": "The reading can explain attraction to an imposed card-pool limitation as part of the deckbuilding challenge",
       "nearbyAlternative": "Five-Color / WUBRG",
-      "observableDistinction": "Colorless provisionally represents satisfaction from solving within an imposed limitation; Five-Color preserves the broadest palette before the builder chooses a theme, mechanic, or rule",
+      "observableDistinction": "Colorless begins with an imposed boundary: the available pool is already constrained, and solving within it is part of the challenge. Five-Color preserves broad access first and then chooses its boundary",
       "limitation": "This boundary remains unvalidated. A preference for restrictions does not by itself establish Colorless, and the reading must not infer artifacts, Eldrazi, big mana, combo, complexity, or difficulty",
       "commanderExpression": "A Commander whose available card pool creates a limitation the player actively wants to solve; no card type or archetype is implied",
       "tableRead": "The card-pool limitation is visible, but it does not reveal how the deck will behave at the table",
@@ -3305,7 +3330,14 @@
       "dossierValue": "Certified Colorless records can teach absence-of-color constraints and non-equivalence to generic artifacts",
       "nextStep": "Compare Colorless with WUBRG and the same play pattern in a colored identity",
       "missingValue": "Independent behavioral evidence beyond liking an imposed limitation, plus player validation against broad-access decks with self-chosen restrictions",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Colorless explores what remains when the five colors are not the grammar of the answer.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/colorless/colorless.placement.json;data/raw-factions/colorless/colorless.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/wubrg/wubrg.placement.json;data/raw-factions/wubrg/wubrg.profile.json",
+      "statusRationale": "Remains PARTIAL: Independent behavioral evidence beyond liking an imposed limitation, plus player validation against broad-access decks with self-chosen restrictions.",
+      "label": "Imposed boundary",
+      "summary": "The available pool is already constrained, and solving within it is part of the challenge."
     },
     {
       "id": "DUNE",
@@ -3324,25 +3356,35 @@
       "nextStep": "Compare Dune with Ink and Naya; open public-pressure Maze paths",
       "missingValue": "Player evidence for Dune/Ink distinction and public comprehension of the expression name",
       "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
-      "subtitle": "Four-color expression centered on visible pressure and coordinated aggression."
+      "subtitle": "Four-color expression centered on coordinated visible pressure.",
+      "identityContext": "Dune believes presence should claim ground before detached contemplation can cool the moment.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/dune/dune.placement.json;data/raw-factions/dune/dune.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/ink/ink.placement.json;data/raw-factions/ink/ink.profile.json",
+      "statusRationale": "Remains PARTIAL: Player evidence for Dune/Ink distinction and public comprehension of the expression name."
     },
     {
       "id": "ESPER",
       "name": "Esper",
       "status": "GAP",
-      "whatAnswersShowed": "The reading can explain converting stabilization into a designed engine rather than leaving answers as isolated trades",
+      "whatAnswersShowed": "The reading can describe using held interaction and a designed engine to turn a stabilized game into controlled advantage",
       "nearbyAlternative": "Azorius Senate",
-      "observableDistinction": "Esper should turn control into an internal advantage machine; Azorius should center procedure and continued stability",
-      "limitation": "Identity distinctiveness evidence is insufficient and C06 alone does not separate Esper from many engine-control decks",
-      "commanderExpression": "Artifacts, control engines, recursion, blink, or compact protected conversion",
+      "observableDistinction": "Esper's certified context turns knowledge, ordered improvement, and focused control into designed change; Azorius centers public procedure and managed stability",
+      "limitation": "The approved C06 observation distinguishes engine structure, not Esper's full knowledge-and-control cluster, so generic control and artifact decks remain false positives",
+      "commanderExpression": "Control or artifact-oriented decks where information and structure feed a named closing plan",
       "tableRead": "Hidden inevitability may matter more than visible board size",
-      "archetypeLinks": "Control; engine-control; combo; midrange",
+      "archetypeLinks": "Control; engine-control; artifacts; combo",
       "profileEnrichment": "System Architect may enrich mechanism coherence after placement",
-      "commanderDirection": "Explore commanders that make answers feed a repeatable engine and name the closing plan",
+      "commanderDirection": "Explore commanders that make interaction feed a repeatable advantage system with an explicit finish",
       "dossierValue": "Certified dossier material can teach engineered inevitability if the placement boundary is made honest",
       "nextStep": "Compare Esper with Azorius, Dimir, and Yore; open control-to-engine Maze paths",
-      "missingValue": "Defensible direct boundary and non-negative evidence distinguishing Esper from generic control",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "missingValue": "A B1 observation that reaches Esper's full knowledge, ordered-improvement, and focused-control boundary rather than generic engine-control",
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Esper treats potential as a design problem.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/esper/esper.placement.json;data/raw-factions/esper/esper.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/azorius_senate/azorius_senate.placement.json;data/raw-factions/azorius_senate/azorius_senate.profile.json",
+      "statusRationale": "Remains GAP: A B1 observation that reaches Esper's full knowledge, ordered-improvement, and focused-control boundary rather than generic engine-control."
     },
     {
       "id": "G",
@@ -3360,7 +3402,12 @@
       "dossierValue": "Certified mono identity can teach growth and interdependence without assuming simplicity",
       "nextStep": "Compare Green with Naya, Simic, and Quandrix; open growth Maze paths",
       "missingValue": "Direct mono-color discriminator and validated separation from multicolor growth identities",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Green believes the world is not an unsolved machine.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/green/green.placement.json;data/raw-factions/green/green.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/naya/naya.placement.json;data/raw-factions/naya/naya.profile.json",
+      "statusRationale": "Remains PARTIAL: Direct mono-color discriminator and validated separation from multicolor growth identities."
     },
     {
       "id": "GLINT",
@@ -3379,7 +3426,12 @@
       "nextStep": "Compare Glint with Yore, Black, and Red; open variable-route Maze paths",
       "missingValue": "Player comprehension of the Glint label and validated engineered/improvised boundary",
       "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
-      "subtitle": "Four-color expression centered on improvisation, conversion, and changing lines."
+      "subtitle": "Four-color expression centered on adaptive routes under changing pressure.",
+      "identityContext": "Glint believes the world should stay alive long enough to learn from pressure.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/glint/glint.placement.json;data/raw-factions/glint/glint.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/yore/yore.placement.json;data/raw-factions/yore/yore.profile.json",
+      "statusRationale": "Remains PARTIAL: Player comprehension of the Glint label and validated engineered/improvised boundary."
     },
     {
       "id": "GRIXIS",
@@ -3397,44 +3449,59 @@
       "dossierValue": "Certified dossier material offers strong Commander directions despite placement uncertainty",
       "nextStep": "Compare Grixis with Dimir, Black, and Yore; open hidden-resource Maze paths",
       "missingValue": "Independent observations separating Grixis from mono-Black and four-color conversion",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Grixis treats survival as the first law.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/grixis/grixis.placement.json;data/raw-factions/grixis/grixis.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/house_dimir/house_dimir.placement.json;data/raw-factions/house_dimir/house_dimir.profile.json",
+      "statusRationale": "Remains PARTIAL: Independent observations separating Grixis from mono-Black and four-color conversion."
     },
     {
       "id": "INK",
       "name": "Ink / Altruism",
-      "status": "GAP",
-      "whatAnswersShowed": "The reading can explain preserving shared access, early usefulness, and public commitments that keep options open for several players",
+      "status": "PARTIAL",
+      "whatAnswersShowed": "The reading can describe keeping a shared resource available and protecting it from capture by one player",
       "nearbyAlternative": "Dune / Aggression",
-      "observableDistinction": "Ink maintains commons or broad benefit; Dune coordinates an immediate shared push",
-      "limitation": "Distinctiveness evidence is insufficient and apparent generosity cannot prove motive or identity",
-      "commanderExpression": "Group benefit, protection, political value, shared resources, or broad multicolor support",
-      "tableRead": "Benefits to opponents can be strategic without being altruistic",
-      "archetypeLinks": "Group hug; political midrange; control",
+      "observableDistinction": "Ink keeps a protected commons available across turns; Dune turns a public commitment into immediate coordinated pressure",
+      "limitation": "The route can observe durable shared access, but it cannot establish generous motive or the full four-color missing-Black frame",
+      "commanderExpression": "Political or group-benefit decks that keep shared resources useful while retaining guardrails and an independent plan",
+      "tableRead": "Shared access is visible at the table; motive, fairness, and altruism are not",
+      "archetypeLinks": "Political midrange; shared resources; protection; group benefit",
       "profileEnrichment": "Social Negotiator can enrich table mode but cannot validate altruism",
-      "commanderDirection": "Explore commanders that create shared resources while retaining an independent game plan",
+      "commanderDirection": "Explore commanders that let resources circulate while preventing one player from capturing the entire benefit",
       "dossierValue": "Certified four-color material can teach the non-Black lane only if motive claims remain bounded",
       "nextStep": "Compare Ink with Dune, White, and Selesnya; open shared-resource Maze paths",
-      "missingValue": "Observable distinction independent of inferred altruism; result language players can recognize without the label explanation doing all the work",
+      "missingValue": "Player evidence that durable protected access distinguishes Ink from generic group benefit and from Dune's immediate coordinated pressure",
       "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
-      "subtitle": "Four-color expression centered on shared resources and mutually useful board presence."
+      "subtitle": "Four-color expression centered on protected shared resources and open access.",
+      "identityContext": "Ink believes abundance should circulate through a defended commons rather than become private leverage.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/ink/ink.placement.json;data/raw-factions/ink/ink.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/dune/dune.placement.json;data/raw-factions/dune/dune.profile.json",
+      "statusRationale": "Remains PARTIAL: Player evidence that durable protected access distinguishes Ink from generic group benefit and from Dune's immediate coordinated pressure."
     },
     {
       "id": "JESKAI",
       "name": "Jeskai Way",
-      "status": "GAP",
-      "whatAnswersShowed": "The reading can explain preserving initiative through precise interaction while still applying present pressure",
+      "status": "PARTIAL",
+      "whatAnswersShowed": "The reading can describe advancing a threat while keeping a response for the opponent's decisive action",
       "nearbyAlternative": "Boros Legion",
-      "observableDistinction": "Jeskai should sequence pressure with an answer window; Boros should commit more openly to direct intervention",
-      "limitation": "Distinctiveness evidence is insufficient and C08 can also describe Azorius, Izzet, or generic tempo",
-      "commanderExpression": "Spellslinger, prowess, tempo, monk/combat triggers, or control with a proactive clock",
-      "tableRead": "Small threats plus open mana can be more consequential than board size suggests",
-      "archetypeLinks": "Tempo; spellslinger; control; aggro-control",
+      "observableDistinction": "Jeskai advances while preserving a response window; Boros commits more openly to present intervention and protection",
+      "limitation": "C08 observes timing, but the same pattern appears in generic tempo, Azorius, and Izzet decks; one timing answer cannot establish Jeskai's disciplined-action context",
+      "commanderExpression": "Attack, prowess, or spellslinger decks that keep one meaningful response available while advancing",
+      "tableRead": "A modest attack plus open mana can represent both present pressure and a protected response window",
+      "archetypeLinks": "Tempo; prowess; spellslinger; aggro-control",
       "profileEnrichment": "Mel may enrich timing elegance; never infer it from interaction",
-      "commanderDirection": "Explore commanders that reward attacking or casting while preserving a precise answer",
+      "commanderDirection": "Explore commanders that reward acting now without spending every answer before the decisive opposing play",
       "dossierValue": "Certified dossier material can teach discipline, motion, and timing once the boundary is supported",
       "nextStep": "Compare Jeskai with Boros, Izzet, and Azorius; open pressure-plus-answer Maze paths",
-      "missingValue": "Validated identity-specific discriminator and a non-jargon explanation for newer players",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "missingValue": "Player evidence that pressure-plus-response timing distinguishes Jeskai from generic tempo and its Boros, Azorius, and Izzet neighbors",
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Jeskai treats action as something that should be trained before it is released.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/jeskai/jeskai.placement.json;data/raw-factions/jeskai/jeskai.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/boros_legion/boros_legion.placement.json;data/raw-factions/boros_legion/boros_legion.profile.json",
+      "statusRationale": "Remains PARTIAL: Player evidence that pressure-plus-response timing distinguishes Jeskai from generic tempo and its Boros, Azorius, and Izzet neighbors."
     },
     {
       "id": "JUND",
@@ -3452,7 +3519,12 @@
       "dossierValue": "Certified shard material can teach predation and renewal without claiming every sacrifice deck is Jund",
       "nextStep": "Compare Jund with Golgari, Rakdos, and Glint; open pressure-conversion Maze paths",
       "missingValue": "Direct Jund boundary observation and empirical false-positive evidence",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Jund treats feeling as a compass.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/jund/jund.placement.json;data/raw-factions/jund/jund.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json;data/raw-factions/golgari_swarm/golgari_swarm.profile.json",
+      "statusRationale": "Remains PARTIAL: Direct Jund boundary observation and empirical false-positive evidence."
     },
     {
       "id": "LOREHOLD",
@@ -3470,7 +3542,12 @@
       "dossierValue": "Atlas gives a clear same-color boundary and a useful learning route",
       "nextStep": "Compare Lorehold with Boros; open artifact-and-graveyard Maze paths",
       "missingValue": "Player validation of the protection/recovery direction; result content is ready",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Lorehold overlays Red freedom and White order through history, artifacts, memory, rhetoric, spirits, and action through legacy.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/lorehold/lorehold.placement.json;data/raw-factions/lorehold/lorehold.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/boros_legion/boros_legion.placement.json;data/raw-factions/boros_legion/boros_legion.profile.json",
+      "statusRationale": "Content package remains useful, distinct, source-backed, and bounded; answer-to-identity mapping remains evidence-required."
     },
     {
       "id": "MARDU",
@@ -3488,7 +3565,12 @@
       "dossierValue": "Certified wedge material can teach action, honor, and ambition when caveats remain visible",
       "nextStep": "Compare Mardu with Boros, Rakdos, and Dune; open decisive-pressure Maze paths",
       "missingValue": "Direct identity-specific observation and validated Mardu/Boros/Rakdos boundaries",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Mardu treats identity as action under pressure.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/mardu/mardu.placement.json;data/raw-factions/mardu/mardu.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/boros_legion/boros_legion.placement.json;data/raw-factions/boros_legion/boros_legion.profile.json",
+      "statusRationale": "Remains PARTIAL: Direct identity-specific observation and validated Mardu/Boros/Rakdos boundaries."
     },
     {
       "id": "NAYA",
@@ -3506,7 +3588,12 @@
       "dossierValue": "Certified shard material supports strong discovery language despite boundary uncertainty",
       "nextStep": "Compare Naya with Gruul, Selesnya, and Dune; open creature-pressure Maze paths",
       "missingValue": "Direct Naya discriminator and evidence separating spectacle, theme, and combat identity",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Naya treats life as belonging in a larger natural whole.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/naya/naya.placement.json;data/raw-factions/naya/naya.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/gruul_clans/gruul_clans.placement.json;data/raw-factions/gruul_clans/gruul_clans.profile.json",
+      "statusRationale": "Remains PARTIAL: Direct Naya discriminator and evidence separating spectacle, theme, and combat identity."
     },
     {
       "id": "PRISMARI",
@@ -3524,7 +3611,12 @@
       "dossierValue": "Atlas gives a clear same-color boundary and a concrete growth tension",
       "nextStep": "Compare Prismari with Izzet; open major-spell Maze paths",
       "missingValue": "Player validation of process/showcase direction; result content is ready",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Prismari overlays Blue knowledge and Red freedom through elemental art, spectacle, inspiration, creativity, and expressive mastery.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/prismari/prismari.placement.json;data/raw-factions/prismari/prismari.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/izzet_league/izzet_league.placement.json;data/raw-factions/izzet_league/izzet_league.profile.json",
+      "statusRationale": "Content package remains useful, distinct, source-backed, and bounded; answer-to-identity mapping remains evidence-required."
     },
     {
       "id": "QUANDRIX",
@@ -3542,7 +3634,12 @@
       "dossierValue": "Atlas provides a strong conceptual lens, but the pilot-result rationale must disclose the C06 mismatch risk",
       "nextStep": "Compare Quandrix with Simic; open scaling-system Maze paths",
       "missingValue": "Player evidence connecting approved C06 observation to this same-color distinction",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Quandrix overlays Green growth and Blue knowledge through mathematics, pattern, scale, nature as equation, and impossible geometry.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/quandrix/quandrix.placement.json;data/raw-factions/quandrix/quandrix.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/simic_combine/simic_combine.placement.json;data/raw-factions/simic_combine/simic_combine.profile.json",
+      "statusRationale": "Content package remains useful, distinct, source-backed, and bounded; answer-to-identity mapping remains evidence-required."
     },
     {
       "id": "R",
@@ -3560,7 +3657,12 @@
       "dossierValue": "Certified mono identity can teach freedom and action without equating Red with recklessness",
       "nextStep": "Compare Red with Rakdos, Gruul, and Prismari; open proactive Maze paths",
       "missingValue": "Direct mono discriminator and validated separation from multicolor proactive identities",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Red believes feeling is a form of truth.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/red/red.placement.json;data/raw-factions/red/red.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.placement.json;data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json",
+      "statusRationale": "Remains PARTIAL: Direct mono discriminator and validated separation from multicolor proactive identities."
     },
     {
       "id": "RG",
@@ -3578,7 +3680,12 @@
       "dossierValue": "Atlas supplies concrete Commander expression and a useful transparency tension",
       "nextStep": "Compare Gruul with Naya and Red; open direct-growth Maze paths",
       "missingValue": "Direct pilot discriminator absent; explanation value remains strong",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Gruul blends Red directness with Green memory of place.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/gruul_clans/gruul_clans.placement.json;data/raw-factions/gruul_clans/gruul_clans.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/naya/naya.placement.json;data/raw-factions/naya/naya.profile.json",
+      "statusRationale": "Content package remains useful, distinct, source-backed, and bounded; answer-to-identity mapping remains evidence-required."
     },
     {
       "id": "SILVERQUILL",
@@ -3596,7 +3703,12 @@
       "dossierValue": "Atlas gives a direct same-color boundary and an ethical tablecraft path",
       "nextStep": "Compare Silverquill with Orzhov; open political-pressure Maze paths",
       "missingValue": "Player validation of revisable-influence direction; result content is ready",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Silverquill overlays White leadership and Black pressure through eloquence, rhetoric, word magic, and visible social influence.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/silverquill/silverquill.placement.json;data/raw-factions/silverquill/silverquill.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json;data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json",
+      "statusRationale": "Content package remains useful, distinct, source-backed, and bounded; answer-to-identity mapping remains evidence-required."
     },
     {
       "id": "SULTAI",
@@ -3614,7 +3726,12 @@
       "dossierValue": "Certified wedge dossier can teach resource mastery if the prompt evidence gap is stated",
       "nextStep": "Compare Sultai with Golgari, Black, and Glint; open cross-zone Maze paths",
       "missingValue": "Direct player support for the C12 split and validated boundary against generic graveyard decks",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Sultai treats opportunity as material for power.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/sultai/sultai.placement.json;data/raw-factions/sultai/sultai.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json;data/raw-factions/golgari_swarm/golgari_swarm.profile.json",
+      "statusRationale": "Remains PARTIAL: Direct player support for the C12 split and validated boundary against generic graveyard decks."
     },
     {
       "id": "TEMUR",
@@ -3632,7 +3749,12 @@
       "dossierValue": "Certified wedge material offers discovery value but not a unique B1 signature",
       "nextStep": "Compare Temur with Green, Glint, and Prismari; open adaptive-action Maze paths",
       "missingValue": "Identity-specific observation separating Temur from generic flexible midrange",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Temur treats survival as relationship with terrain, instinct, memory, and the living world.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/temur/temur.placement.json;data/raw-factions/temur/temur.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/green/green.placement.json;data/raw-factions/green/green.profile.json",
+      "statusRationale": "Remains PARTIAL: Identity-specific observation separating Temur from generic flexible midrange."
     },
     {
       "id": "U",
@@ -3650,7 +3772,12 @@
       "dossierValue": "Certified mono identity can teach preparation and refinement without diagnosing intellect",
       "nextStep": "Compare Blue with Azorius, Dimir, and Quandrix; open timing Maze paths",
       "missingValue": "Direct mono discriminator and validated separation from multicolor knowledge identities",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Blue believes no one is finished by default.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/blue/blue.placement.json;data/raw-factions/blue/blue.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/azorius_senate/azorius_senate.placement.json;data/raw-factions/azorius_senate/azorius_senate.profile.json",
+      "statusRationale": "Remains PARTIAL: Direct mono discriminator and validated separation from multicolor knowledge identities."
     },
     {
       "id": "UB",
@@ -3668,7 +3795,12 @@
       "dossierValue": "Atlas supplies a clear table-perception tension and Commander directions",
       "nextStep": "Compare Dimir with Blue and Grixis; open hidden-information Maze paths",
       "missingValue": "Direct pilot discriminator absent; result explanation remains useful",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Dimir blends Blue knowledge with Black ambition.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/house_dimir/house_dimir.placement.json;data/raw-factions/house_dimir/house_dimir.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/blue/blue.placement.json;data/raw-factions/blue/blue.profile.json",
+      "statusRationale": "Content package remains useful, distinct, source-backed, and bounded; answer-to-identity mapping remains evidence-required."
     },
     {
       "id": "UG",
@@ -3686,7 +3818,12 @@
       "dossierValue": "Atlas gives a strong same-color boundary and threat-trajectory lesson",
       "nextStep": "Compare Simic with Quandrix; open adaptive-growth Maze paths",
       "missingValue": "Player evidence connecting overlapping-engine observation to Simic rather than generic resilience",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Simic studies life as living systems to heal, adapt, and improve through biology, clades, and public health.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/simic_combine/simic_combine.placement.json;data/raw-factions/simic_combine/simic_combine.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/quandrix/quandrix.placement.json;data/raw-factions/quandrix/quandrix.profile.json",
+      "statusRationale": "Content package remains useful, distinct, source-backed, and bounded; answer-to-identity mapping remains evidence-required."
     },
     {
       "id": "UR",
@@ -3704,7 +3841,12 @@
       "dossierValue": "Atlas gives a clear same-color boundary and a concrete process-versus-showcase lesson",
       "nextStep": "Compare Izzet with Prismari; open iterative-spell Maze paths",
       "missingValue": "Player validation of C04 direction and stronger direct distinctiveness evidence",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Izzet blends Blue knowledge with Red freedom.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/izzet_league/izzet_league.placement.json;data/raw-factions/izzet_league/izzet_league.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/prismari/prismari.placement.json;data/raw-factions/prismari/prismari.profile.json",
+      "statusRationale": "Content package remains useful, distinct, source-backed, and bounded; answer-to-identity mapping remains evidence-required."
     },
     {
       "id": "W",
@@ -3722,7 +3864,12 @@
       "dossierValue": "Certified mono identity can teach order and responsibility without moral ranking",
       "nextStep": "Compare White with Azorius, Selesnya, and Bant; open protection Maze paths",
       "missingValue": "Direct mono discriminator and empirical separation from multicolor order identities",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "White believes peace is not a mood.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/white/white.placement.json;data/raw-factions/white/white.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/azorius_senate/azorius_senate.placement.json;data/raw-factions/azorius_senate/azorius_senate.profile.json",
+      "statusRationale": "Remains PARTIAL: Direct mono discriminator and empirical separation from multicolor order identities."
     },
     {
       "id": "WB",
@@ -3740,7 +3887,12 @@
       "dossierValue": "Atlas gives a strong same-color distinction and a useful “make accumulation visible” lesson",
       "nextStep": "Compare Orzhov with Silverquill; open obligation-and-drain Maze paths",
       "missingValue": "Player validation of cost-bearing-terms direction; result content is ready",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Orzhov blends White structure with Black ambition.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json;data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/silverquill/silverquill.placement.json;data/raw-factions/silverquill/silverquill.profile.json",
+      "statusRationale": "Content package remains useful, distinct, source-backed, and bounded; answer-to-identity mapping remains evidence-required."
     },
     {
       "id": "WG",
@@ -3758,7 +3910,12 @@
       "dossierValue": "Atlas provides clear Commander expression and a useful overcommitment tension",
       "nextStep": "Compare Selesnya with Naya and Bant; open network-growth Maze paths",
       "missingValue": "Direct pilot discriminator absent; result explanation remains useful",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Selesnya blends Green growth with White order.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/selesnya_conclave/selesnya_conclave.placement.json;data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/naya/naya.placement.json;data/raw-factions/naya/naya.profile.json",
+      "statusRationale": "Content package remains useful, distinct, source-backed, and bounded; answer-to-identity mapping remains evidence-required."
     },
     {
       "id": "WITCH",
@@ -3777,7 +3934,12 @@
       "nextStep": "Compare Witch with Abzan, Bant, and Quandrix; open compounding-growth Maze paths",
       "missingValue": "Validated identity-specific boundary and comprehension of the Witch expression name",
       "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
-      "subtitle": "Four-color expression centered on compounding growth and durable development."
+      "subtitle": "Four-color expression centered on patient compounding development.",
+      "identityContext": "Witch believes the future should be cultivated before it is claimed.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/witch/witch.placement.json;data/raw-factions/witch/witch.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/abzan/abzan.placement.json;data/raw-factions/abzan/abzan.profile.json",
+      "statusRationale": "Remains PARTIAL: Validated identity-specific boundary and comprehension of the Witch expression name."
     },
     {
       "id": "WITHERBLOOM",
@@ -3795,7 +3957,12 @@
       "dossierValue": "Atlas gives a strong same-color distinction and a practical resource-tracking lesson",
       "nextStep": "Compare Witherbloom with Golgari; open life-conversion Maze paths",
       "missingValue": "Player validation of exchange direction; result content is ready",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Witherbloom overlays Black ambition and Green growth through life-death craft, medicine, decay, nourishment, pests, and resource exchange.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/witherbloom/witherbloom.placement.json;data/raw-factions/witherbloom/witherbloom.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json;data/raw-factions/golgari_swarm/golgari_swarm.profile.json",
+      "statusRationale": "Content package remains useful, distinct, source-backed, and bounded; answer-to-identity mapping remains evidence-required."
     },
     {
       "id": "WR",
@@ -3813,7 +3980,12 @@
       "dossierValue": "Atlas gives a clear same-color boundary and a useful recovery tension",
       "nextStep": "Compare Boros with Lorehold; open direct-intervention Maze paths",
       "missingValue": "Player validation of protection/recovery direction; result content is ready",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Boros blends Red freedom with White order.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/boros_legion/boros_legion.placement.json;data/raw-factions/boros_legion/boros_legion.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/lorehold/lorehold.placement.json;data/raw-factions/lorehold/lorehold.profile.json",
+      "statusRationale": "Content package remains useful, distinct, source-backed, and bounded; answer-to-identity mapping remains evidence-required."
     },
     {
       "id": "WU",
@@ -3831,7 +4003,12 @@
       "dossierValue": "Atlas supplies a strong identity lens and an actionable “stability must convert” lesson",
       "nextStep": "Compare Azorius with Bant, Blue, and White; open stability-and-timing Maze paths",
       "missingValue": "Direct pilot discriminator absent; result explanation remains useful",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Azorius blends White order with Blue planning.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/azorius_senate/azorius_senate.placement.json;data/raw-factions/azorius_senate/azorius_senate.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/bant/bant.placement.json;data/raw-factions/bant/bant.profile.json",
+      "statusRationale": "Content package remains useful, distinct, source-backed, and bounded; answer-to-identity mapping remains evidence-required."
     },
     {
       "id": "WUBRG",
@@ -3839,7 +4016,7 @@
       "status": "PARTIAL",
       "whatAnswersShowed": "The reading can explain wanting the full color palette available before choosing a unifying theme, mechanic, collection, or rule",
       "nearbyAlternative": "Colorless",
-      "observableDistinction": "Five-Color provisionally preserves broad access and then applies self-chosen boundaries; Colorless begins with an imposed limitation that makes unavailable tools part of the challenge",
+      "observableDistinction": "Five-Color begins with a self-chosen boundary: broad access is preserved first, then the builder chooses the theme, mechanic, collection, or rule. Colorless starts from an imposed boundary",
       "limitation": "This boundary remains unvalidated. Broad access does not imply playing everything, goodstuff, complexity, power, optimization, or an unwillingness to use severe self-chosen restrictions",
       "commanderExpression": "A five-color Commander whose full palette serves one declared concept, including theme-, mechanic-, typal-, collection-, or favorite-card-led builds",
       "tableRead": "Broad access does not reveal the plan; the chosen concept still needs to make the deck legible",
@@ -3849,26 +4026,38 @@
       "dossierValue": "Certified WUBRG material can teach totality versus overload and prevent “all colors means no position”",
       "nextStep": "Compare WUBRG with Colorless and the same play pattern in fewer colors",
       "missingValue": "Independent behavioral support beyond preserving broad access, plus player validation against narrower pools and self-restricted five-color decks",
-      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+      "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+      "identityContext": "Five-Color asks what happens when every color is allowed to speak without any one color becoming the whole answer.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/wubrg/wubrg.placement.json;data/raw-factions/wubrg/wubrg.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/colorless/colorless.placement.json;data/raw-factions/colorless/colorless.profile.json",
+      "statusRationale": "Remains PARTIAL: Independent behavioral support beyond preserving broad access, plus player validation against narrower pools and self-restricted five-color decks.",
+      "label": "Self-chosen boundary",
+      "summary": "The widest access is preserved first, then the builder decides what the deck will restrict itself around."
     },
     {
       "id": "YORE",
       "name": "Yore / Artifice",
       "status": "GAP",
-      "whatAnswersShowed": "The reading can explain engineered repeatability and interchangeable conversion pieces across a complex four-color machine",
+      "whatAnswersShowed": "The reading can describe a repeatable conversion system built from replaceable pieces",
       "nearbyAlternative": "Glint / Chaos",
-      "observableDistinction": "Yore should favor repeatable architecture and stable conversion; Glint should redirect through changing available pieces",
-      "limitation": "Distinctiveness evidence is insufficient and C06/C09 patterns are common to many artifact or combo decks",
-      "commanderExpression": "Artifacts, recursion, tokens, sacrifice, engine-combo, or modular conversion",
-      "tableRead": "A complex board may be legible to its pilot but opaque to the table",
-      "archetypeLinks": "Artifacts; engine-combo; midrange",
+      "observableDistinction": "Yore's certified context centers constructed agency that rebuilds around natural limits; Glint centers adaptive living volatility. Stable architecture versus a changing route only approximates that boundary",
+      "limitation": "C06 and C09 observe engine structure and repeatability, not Yore's full constructed-agency or missing-Green frame; generic artifacts and combo remain false positives",
+      "commanderExpression": "Artifact, recursion, or conversion decks where replaceable parts keep a constructed system operating",
+      "tableRead": "A repeatable machine can look inevitable, but engine legibility does not establish why the player wants it",
+      "archetypeLinks": "Artifacts; recursion; engine-combo; conversion",
       "profileEnrichment": "System Architect may enrich mechanism coherence after placement",
-      "commanderDirection": "Explore commanders whose non-Green breadth supports an engineered conversion system with clear shortcuts",
+      "commanderDirection": "Explore commanders that rebuild a conversion system through replaceable parts while keeping the closing line explainable",
       "dossierValue": "Certified four-color material supports discovery but not yet a defensible placement explanation",
       "nextStep": "Compare Yore with Glint, Esper, and Black; open artifact-conversion Maze paths",
-      "missingValue": "Unique observable boundary, player comprehension of Yore, and evidence separating it from generic engine decks",
+      "missingValue": "An approved B1 observation of constructed agency against natural limits, plus evidence separating Yore from generic artifact and combo engines",
       "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
-      "subtitle": "Four-color expression centered on engineered systems and repeatable conversion."
+      "subtitle": "Four-color expression centered on constructed agency and repeatable conversion.",
+      "identityContext": "Yore believes the given world is not the final world.",
+      "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+      "certifiedIdentitySources": "data/raw-factions/yore/yore.placement.json;data/raw-factions/yore/yore.profile.json;data/identity-layers.json;data/factions.json",
+      "nearestAlternativeSources": "data/raw-factions/glint/glint.placement.json;data/raw-factions/glint/glint.profile.json",
+      "statusRationale": "Remains GAP: An approved B1 observation of constructed agency against natural limits, plus evidence separating Yore from generic artifact and combo engines."
     }
   ],
   "enrichment": [
@@ -4120,7 +4309,12 @@
         "dossierValue": "Atlas gives a strong same-color boundary and threat-trajectory lesson",
         "nextStep": "Compare Simic with Quandrix; open adaptive-growth Maze paths",
         "missingValue": "Player evidence connecting overlapping-engine observation to Simic rather than generic resilience",
-        "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+        "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+        "identityContext": "Simic studies life as living systems to heal, adapt, and improve through biology, clades, and public health.",
+        "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+        "certifiedIdentitySources": "data/raw-factions/simic_combine/simic_combine.placement.json;data/raw-factions/simic_combine/simic_combine.profile.json;data/identity-layers.json;data/factions.json",
+        "nearestAlternativeSources": "data/raw-factions/quandrix/quandrix.placement.json;data/raw-factions/quandrix/quandrix.profile.json",
+        "statusRationale": "Content package remains useful, distinct, source-backed, and bounded; answer-to-identity mapping remains evidence-required."
       },
       "routeSupportedHeading": "Why this stays close",
       "routeSupportedDistinction": "Your answers favored overlapping engines rather than one central engine. The current design associates that observation more strongly with Simic, but that mapping still requires evidence.",
@@ -4196,7 +4390,12 @@
         "dossierValue": "Certified mono identity can teach order and responsibility without moral ranking",
         "nextStep": "Compare White with Azorius, Selesnya, and Bant; open protection Maze paths",
         "missingValue": "Direct mono discriminator and empirical separation from multicolor order identities",
-        "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+        "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+        "identityContext": "White believes peace is not a mood.",
+        "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+        "certifiedIdentitySources": "data/raw-factions/white/white.placement.json;data/raw-factions/white/white.profile.json;data/identity-layers.json;data/factions.json",
+        "nearestAlternativeSources": "data/raw-factions/azorius_senate/azorius_senate.placement.json;data/raw-factions/azorius_senate/azorius_senate.profile.json",
+        "statusRationale": "Remains PARTIAL: Direct mono discriminator and empirical separation from multicolor order identities."
       },
       "routeSupportedHeading": "Why this route names White",
       "routeSupportedDistinction": "Your answers combined protection before disruption, visible development, durable stated terms, split mana use, and interest in solving within one color’s tools. This authored route presents White as the current fit, while the mono-color association remains provisional.",
@@ -4260,10 +4459,10 @@
         "id": "BANT",
         "name": "Bant",
         "status": "PARTIAL",
-        "whatAnswersShowed": "The reading can explain a commander-centered plan supported by a functional, protective 99",
+        "whatAnswersShowed": "The reading can describe a central commander elevated by a 99 that still functions as a visible support network",
         "nearbyAlternative": "Azorius Senate",
-        "observableDistinction": "Bant should concentrate visible communal support behind a worthy line; Azorius should prioritize procedure and managed stability",
-        "limitation": "Bant is high-confusion and its direct C05 association is not player-validated",
+        "observableDistinction": "Bant concentrates living communal support behind a central line; Azorius prioritizes procedure, preparation, and managed stability",
+        "limitation": "C05 observes commander reliance and support structure, not Bant's certified public-honor or accountable-excellence context, and the boundary remains high-confusion",
         "commanderExpression": "Exalted or Voltron support, creature-forward value, enchantress, blink, or protected boards",
         "tableRead": "Visible champion plus supporting network",
         "archetypeLinks": "Voltron; midrange; enchantress; blink",
@@ -4271,8 +4470,13 @@
         "commanderDirection": "Explore commanders whose 99 can still function while elevating a central piece",
         "dossierValue": "Certified dossier material gives a strong learning path around accountable excellence",
         "nextStep": "Compare Bant with Azorius and Selesnya; open protected-champion Maze paths",
-        "missingValue": "Validated boundary observation and false-positive data against WITCH/WUBRG/INK",
-        "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+        "missingValue": "Validated C05 boundary evidence and false-positive data against Azorius, Witch, WUBRG, and Ink",
+        "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+        "identityContext": "Bant treats excellence as honorable when it remains answerable to the whole.",
+        "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+        "certifiedIdentitySources": "data/raw-factions/bant/bant.placement.json;data/raw-factions/bant/bant.profile.json;data/identity-layers.json;data/factions.json",
+        "nearestAlternativeSources": "data/raw-factions/azorius_senate/azorius_senate.placement.json;data/raw-factions/azorius_senate/azorius_senate.profile.json",
+        "statusRationale": "Remains PARTIAL: Validated C05 boundary evidence and false-positive data against Azorius, Witch, WUBRG, and Ink."
       },
       "routeSupportedHeading": "Why Bant remains plausible",
       "routeSupportedDistinction": "Your answers favored protection before disruption, a visible board, overlapping support, setup that matters immediately, and a network that keeps functioning around a central commander. The current design associates that bundle with Bant, but the mapping still requires player evidence.",
@@ -4338,7 +4542,7 @@
         "status": "PARTIAL",
         "whatAnswersShowed": "The reading can explain attraction to an imposed card-pool limitation as part of the deckbuilding challenge",
         "nearbyAlternative": "Five-Color / WUBRG",
-        "observableDistinction": "Colorless provisionally represents satisfaction from solving within an imposed limitation; Five-Color preserves the broadest palette before the builder chooses a theme, mechanic, or rule",
+        "observableDistinction": "Colorless begins with an imposed boundary: the available pool is already constrained, and solving within it is part of the challenge. Five-Color preserves broad access first and then chooses its boundary",
         "limitation": "This boundary remains unvalidated. A preference for restrictions does not by itself establish Colorless, and the reading must not infer artifacts, Eldrazi, big mana, combo, complexity, or difficulty",
         "commanderExpression": "A Commander whose available card pool creates a limitation the player actively wants to solve; no card type or archetype is implied",
         "tableRead": "The card-pool limitation is visible, but it does not reveal how the deck will behave at the table",
@@ -4348,7 +4552,14 @@
         "dossierValue": "Certified Colorless records can teach absence-of-color constraints and non-equivalence to generic artifacts",
         "nextStep": "Compare Colorless with WUBRG and the same play pattern in a colored identity",
         "missingValue": "Independent behavioral evidence beyond liking an imposed limitation, plus player validation against broad-access decks with self-chosen restrictions",
-        "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+        "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+        "identityContext": "Colorless explores what remains when the five colors are not the grammar of the answer.",
+        "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+        "certifiedIdentitySources": "data/raw-factions/colorless/colorless.placement.json;data/raw-factions/colorless/colorless.profile.json;data/identity-layers.json;data/factions.json",
+        "nearestAlternativeSources": "data/raw-factions/wubrg/wubrg.placement.json;data/raw-factions/wubrg/wubrg.profile.json",
+        "statusRationale": "Remains PARTIAL: Independent behavioral evidence beyond liking an imposed limitation, plus player validation against broad-access decks with self-chosen restrictions.",
+        "label": "Imposed boundary",
+        "summary": "The available pool is already constrained, and solving within it is part of the challenge."
       },
       "routeSupportedHeading": "Why this stays insufficient",
       "routeSupportedDistinction": "Your answers favored a repeatable plan, replaceable engine pieces, a conditional theme tradeoff, and an imposed card-pool limitation. The limitation is relevant to the Colorless hypothesis, but it is not enough to name an identity.",
@@ -4414,7 +4625,7 @@
         "status": "PARTIAL",
         "whatAnswersShowed": "The reading can explain wanting the full color palette available before choosing a unifying theme, mechanic, collection, or rule",
         "nearbyAlternative": "Colorless",
-        "observableDistinction": "Five-Color provisionally preserves broad access and then applies self-chosen boundaries; Colorless begins with an imposed limitation that makes unavailable tools part of the challenge",
+        "observableDistinction": "Five-Color begins with a self-chosen boundary: broad access is preserved first, then the builder chooses the theme, mechanic, collection, or rule. Colorless starts from an imposed boundary",
         "limitation": "This boundary remains unvalidated. Broad access does not imply playing everything, goodstuff, complexity, power, optimization, or an unwillingness to use severe self-chosen restrictions",
         "commanderExpression": "A five-color Commander whose full palette serves one declared concept, including theme-, mechanic-, typal-, collection-, or favorite-card-led builds",
         "tableRead": "Broad access does not reveal the plan; the chosen concept still needs to make the deck legible",
@@ -4424,7 +4635,14 @@
         "dossierValue": "Certified WUBRG material can teach totality versus overload and prevent “all colors means no position”",
         "nextStep": "Compare WUBRG with Colorless and the same play pattern in fewer colors",
         "missingValue": "Independent behavioral support beyond preserving broad access, plus player validation against narrower pools and self-restricted five-color decks",
-        "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"
+        "sourceRef": "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
+        "identityContext": "Five-Color asks what happens when every color is allowed to speak without any one color becoming the whole answer.",
+        "answerObservationSources": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+        "certifiedIdentitySources": "data/raw-factions/wubrg/wubrg.placement.json;data/raw-factions/wubrg/wubrg.profile.json;data/identity-layers.json;data/factions.json",
+        "nearestAlternativeSources": "data/raw-factions/colorless/colorless.placement.json;data/raw-factions/colorless/colorless.profile.json",
+        "statusRationale": "Remains PARTIAL: Independent behavioral support beyond preserving broad access, plus player validation against narrower pools and self-restricted five-color decks.",
+        "label": "Self-chosen boundary",
+        "summary": "The widest access is preserved first, then the builder decides what the deck will restrict itself around."
       },
       "routeSupportedHeading": "Why this stays mixed",
       "routeSupportedDistinction": "Your answers favored a stable purpose with changing tools, overlapping engines, theme loyalty, and broad access followed by self-chosen limits. Those observations make Five-Color worth exploring, but the identity association remains provisional.",

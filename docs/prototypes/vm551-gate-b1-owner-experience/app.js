@@ -29,10 +29,32 @@
   const selectedAnswerForStep = (step) => state.selections[step.questionId] ?? null;
   const selectedAnswerObjects = (walkthrough) => walkthrough.steps.map((step) => {
     const question = questionForStep(step);
-    return question.answers.find((answer) => answer.id === selectedAnswerForStep(step));
+    const answer = question.answers.find((item) => item.id === selectedAnswerForStep(step));
+    return answer ? { question, answer } : null;
   }).filter(Boolean);
   const matchesAuthoredRoute = (walkthrough) => walkthrough.steps.every((step) => selectedAnswerForStep(step) === step.selectedAnswerId);
-  const observedSummary = (walkthrough) => selectedAnswerObjects(walkthrough).map((answer) => answer.observation).join(" ");
+  const observationGroups = [
+    { label: "How you tend to develop", constructs: new Set(["C01", "C02", "C04", "C06", "C07", "C09", "C11", "C14"]) },
+    { label: "How you protect, recover, or respond", constructs: new Set(["C03", "C05", "C08", "C12", "C13"]) },
+    { label: "What kind of plan or boundary you accept", constructs: new Set(["C10", "C15"]) }
+  ];
+  const observationClause = (value) => {
+    const text = String(value || "").replace(/^(Prefers|Accepts|Reports|Rejects|Uses)\s+/i, "").replace(/[.]$/, "");
+    return text ? `${text.charAt(0).toLowerCase()}${text.slice(1)}` : "";
+  };
+  const groupedObservations = (walkthrough) => {
+    const selected = selectedAnswerObjects(walkthrough);
+    return observationGroups.map((group) => ({
+      label: group.label,
+      clauses: selected.filter(({ question }) => group.constructs.has(question.constructId)).map(({ answer }) => observationClause(answer.observation)).filter(Boolean)
+    })).filter((group) => group.clauses.length);
+  };
+  const observedSummary = (walkthrough) => `<ul class="observation-groups">${groupedObservations(walkthrough).map((group) => `<li><strong>${escapeHtml(group.label)}:</strong> ${group.clauses.map(escapeHtml).join("; ")}.</li>`).join("")}</ul>`;
+  const playerJargon = (question) => question.jargon.filter((item) => {
+    if (question.id === "b1.gate.disruption.v1" && ["JRG_BOARD_WIPE", "JRG_BOARD"].includes(item.id)) return false;
+    const core = String(item.definition || "").replace(/^(?:Here,\s*)?[^.?!]+?\s+means\s+/i, "").replace(/[.!?]+$/, "").trim().toLowerCase();
+    return !(core.length >= 24 && question.prompt.toLowerCase().includes(core));
+  });
 
   function setMode(mode) {
     state.mode = mode;
@@ -105,7 +127,7 @@
         <div class="question-body">
           <p class="eyebrow">${escapeHtml(walkthrough.label)} review route</p>
           <h2 id="question-title">${escapeHtml(question.prompt)}</h2>
-          ${question.jargon.length ? `<p class="jargon-help">${question.jargon.map((item) => escapeHtml(item.definition)).join(" ")}</p>` : ""}
+          ${playerJargon(question).length ? `<p class="jargon-help">${playerJargon(question).map((item) => escapeHtml(item.definition)).join(" ")}</p>` : ""}
           <div class="answer-list" role="radiogroup" aria-label="Answer choices">
             ${question.answers.map((answer) => `
               <label class="answer-option ${selected === answer.id ? "is-selected" : ""}">
@@ -128,29 +150,29 @@
 
   function resultHeading(walkthrough, result) {
     if (walkthrough.state === "insufficient") return "Not enough evidence to distinguish a fit";
-    if (walkthrough.state === "mixed") return "A mixed reading with Five-Color worth exploring";
-    if (walkthrough.state === "close") return `Close result: ${result.name}, with ${result.nearbyAlternative} also supported`;
-    return `Current best fit: ${result.name}`;
+    if (walkthrough.state === "mixed") return `${result.name} is worth exploring`;
+    return result.name;
   }
 
   function resultSections(walkthrough, result, compact = false) {
     const routeMatched = matchesAuthoredRoute(walkthrough);
-    const routeExplanation = routeMatched
-      ? walkthrough.routeSupportedDistinction
-      : "Your selections differ from the authored review path, so this static prototype does not claim that the preauthored identity distinction follows from them.";
-    const nearby = ["close", "mixed"].includes(walkthrough.state) && result.nearbyAlternative
-      ? `<section class="reading-block"><h3>A nearby path</h3><p>${escapeHtml(result.nearbyAlternative)}</p></section>`
+    const routeExplanation = routeMatched ? `<p>${escapeHtml(walkthrough.routeSupportedDistinction)}</p>` : "";
+    const nearby = result.nearbyAlternative
+      ? `<section class="reading-block"><h3>Closest alternative</h3><p>${escapeHtml(result.nearbyAlternative)}</p></section>`
+      : "";
+    const boundary = result.label && result.summary
+      ? `<section class="reading-block boundary-contrast"><span>${escapeHtml(result.label)}</span><p>${escapeHtml(result.summary)}</p></section>`
       : "";
     return `
       <div class="reading-sections ${compact ? "is-compact" : ""}">
-        <section class="reading-block"><h3>What your answers showed</h3><p>${escapeHtml(observedSummary(walkthrough))}</p></section>
-        <section class="reading-block"><h3>Your reading</h3><p>${escapeHtml(walkthrough.stateNote)}</p></section>
+        <section class="reading-block"><h3>What your answers showed</h3>${observedSummary(walkthrough)}</section>
+        <section class="reading-block"><h3>Why this identity is plausible</h3>${routeExplanation}<p class="identity-context">${escapeHtml(result.identityContext || walkthrough.identityContext)}</p></section>
         ${nearby}
-        <section class="reading-block"><h3>${escapeHtml(walkthrough.routeSupportedHeading)}</h3><p>${escapeHtml(routeExplanation)}</p></section>
-        <section class="reading-block"><h3>Identity context</h3><p>${escapeHtml(walkthrough.identityContext)}</p></section>
-        <section class="reading-block is-limit"><h3>What this reading doesn’t settle</h3><p>${escapeHtml(walkthrough.publicLimitation)}</p></section>
-        <section class="reading-block"><h3>Explore this in Commander</h3><p>${escapeHtml(result.commanderDirection)} ${escapeHtml(result.commanderExpression)} ${escapeHtml(result.archetypeLinks)}</p></section>
-        <section class="reading-block"><h3>Continue through Vox Mana</h3><p>${escapeHtml(result.nextStep)} ${escapeHtml(result.dossierValue)}</p></section>
+        <section class="reading-block"><h3>What distinguishes the two</h3><p>${escapeHtml(result.observableDistinction)}</p></section>
+        ${boundary}
+        <section class="reading-block is-limit"><h3>What remains unsettled</h3><p>${escapeHtml(walkthrough.publicLimitation)}</p></section>
+        <section class="reading-block"><h3>Explore this in Commander</h3><p>${escapeHtml(result.commanderDirection)}</p></section>
+        <section class="reading-block"><h3>Continue through Vox Mana</h3><p>${escapeHtml(result.nextStep)}</p><div class="destination-row"><span>Open dossier</span><span>Compare in Matrix</span><span>Explore in Maze</span><span>See Commander directions</span></div></section>
       </div>`;
   }
 
@@ -161,7 +183,7 @@
         <span class="status-chip status-${result.status.toLowerCase()}">CONTENT ${escapeHtml(result.status)}</span>
         <p class="result-kicker">${escapeHtml(walkthrough.label)} · ${escapeHtml(walkthrough.state)} review state</p>
         <h2 id="result-title">${escapeHtml(resultHeading(walkthrough, result))}</h2>
-        <p class="result-state-note"><strong>Owner review simulation — not a calculated placement.</strong> ${escapeHtml(walkthrough.stateNote)}</p>
+        <p class="result-state-note"><strong>Owner review simulation — not a calculated placement.</strong></p>
         ${resultSections(walkthrough, result)}
         <div class="panel-actions">
           <button class="text-button" type="button" data-action="restart">Restart journey</button>
@@ -171,7 +193,7 @@
           </div>
         </div>
         ${state.deepen ? `<aside class="deepen-panel"><strong>Optional reflective layer</strong><p>${escapeHtml(result.profileEnrichment)} This lens may help explain why the observed Commander pattern feels satisfying. It did not determine the authored result.</p></aside>` : ""}
-        ${state.reviewer ? `<aside class="reviewer-detail"><p><strong>Content readiness describes whether the result explanation package is usable. It does not mean placement accuracy or identity mapping has been validated.</strong></p><dl><dt>Gate A state</dt><dd>${escapeHtml(walkthrough.state)}</dd><dt>Content readiness</dt><dd>${escapeHtml(result.status)}</dd><dt>Unresolved reviewer evidence</dt><dd>${escapeHtml(result.missingValue)}</dd><dt>Source</dt><dd>${escapeHtml(walkthrough.sourceRef)}; ${escapeHtml(result.sourceRef)}</dd><dt>Authored route</dt><dd>${walkthrough.steps.map((step) => escapeHtml(step.questionId)).join(" → ")}</dd></dl></aside>` : ""}
+        ${state.reviewer ? `<aside class="reviewer-detail"><p><strong>Content readiness describes whether the result explanation package is usable. It does not mean placement accuracy or identity mapping has been validated.</strong></p><dl><dt>Gate A state</dt><dd>${escapeHtml(walkthrough.state)} · ${escapeHtml(walkthrough.stateNote)}</dd><dt>Content readiness</dt><dd>${escapeHtml(result.status)} · ${escapeHtml(result.statusRationale)}</dd><dt>Authored-path check</dt><dd>${matchesAuthoredRoute(walkthrough) ? "Selections match the authored review path." : "Selections differ from the authored review path; the preauthored distinction is withheld from player copy."}</dd><dt>Unresolved reviewer evidence</dt><dd>${escapeHtml(result.missingValue)}</dd><dt>Observation sources</dt><dd>${escapeHtml(result.answerObservationSources)}</dd><dt>Identity sources</dt><dd>${escapeHtml(result.certifiedIdentitySources)}</dd><dt>Alternative sources</dt><dd>${escapeHtml(result.nearestAlternativeSources)}</dd><dt>Prototype source</dt><dd>${escapeHtml(walkthrough.sourceRef)}; ${escapeHtml(result.sourceRef)}</dd><dt>Authored route</dt><dd>${walkthrough.steps.map((step) => escapeHtml(step.questionId)).join(" → ")}</dd></dl></aside>` : ""}
       </section>`;
   }
 
@@ -189,7 +211,7 @@
           <span class="card-prompt">${escapeHtml(question.prompt)}</span>
         </summary>
         <div class="explorer-content">
-          ${question.jargon.length ? `<p class="jargon-help">${question.jargon.map((item) => escapeHtml(item.definition)).join(" ")}</p>` : ""}
+          ${playerJargon(question).length ? `<p class="jargon-help">${playerJargon(question).map((item) => escapeHtml(item.definition)).join(" ")}</p>` : ""}
           ${question.answers.map((answer) => `
             <section class="explorer-answer">
               <strong>${escapeHtml(answer.title)}</strong>
@@ -219,12 +241,14 @@
         </summary>
         <div class="explorer-content">
           <section class="reading-block"><h3>What your answers could show</h3><p>${escapeHtml(result.whatAnswersShowed)}</p></section>
-          <section class="reading-block"><h3>A nearby path</h3><p>${escapeHtml(result.nearbyAlternative)}</p></section>
-          <section class="reading-block"><h3>Current identity distinction</h3><p>${escapeHtml(result.observableDistinction)}</p></section>
-          <section class="reading-block is-limit"><h3>Honest limitation</h3><p>${escapeHtml(result.limitation)}</p></section>
-          <section class="reading-block"><h3>Commander direction</h3><p>${escapeHtml(result.commanderDirection)} ${escapeHtml(result.commanderExpression)} ${escapeHtml(result.archetypeLinks)}</p></section>
-          <section class="reading-block"><h3>Vox Mana next step</h3><p>${escapeHtml(result.nextStep)}</p></section>
-          ${state.reviewer ? `<aside class="reviewer-detail"><p><strong>Content readiness describes whether the result explanation package is usable. It does not mean placement accuracy or identity mapping has been validated.</strong></p><dl><dt>Unresolved reviewer evidence</dt><dd>${escapeHtml(result.missingValue)}</dd><dt>Table read</dt><dd>${escapeHtml(result.tableRead)}</dd><dt>Profile boundary</dt><dd>${escapeHtml(result.profileEnrichment)}</dd><dt>Dossier value</dt><dd>${escapeHtml(result.dossierValue)}</dd><dt>Source</dt><dd>${escapeHtml(result.sourceRef)}</dd></dl></aside>` : ""}
+          <section class="reading-block"><h3>Why this identity is plausible</h3><p class="identity-context">${escapeHtml(result.identityContext)}</p></section>
+          <section class="reading-block"><h3>Closest alternative</h3><p>${escapeHtml(result.nearbyAlternative)}</p></section>
+          <section class="reading-block"><h3>What distinguishes the two</h3><p>${escapeHtml(result.observableDistinction)}</p></section>
+          ${result.label && result.summary ? `<section class="reading-block boundary-contrast"><span>${escapeHtml(result.label)}</span><p>${escapeHtml(result.summary)}</p></section>` : ""}
+          <section class="reading-block is-limit"><h3>What remains unsettled</h3><p>${escapeHtml(result.limitation)}</p></section>
+          <section class="reading-block"><h3>Explore this in Commander</h3><p>${escapeHtml(result.commanderDirection)}</p></section>
+          <section class="reading-block"><h3>Continue through Vox Mana</h3><p>${escapeHtml(result.nextStep)}</p><div class="destination-row"><span>Open dossier</span><span>Compare in Matrix</span><span>Explore in Maze</span><span>See Commander directions</span></div></section>
+          ${state.reviewer ? `<aside class="reviewer-detail"><p><strong>Content readiness describes whether the result explanation package is usable. It does not mean placement accuracy or identity mapping has been validated.</strong></p><dl><dt>Status rationale</dt><dd>${escapeHtml(result.statusRationale)}</dd><dt>Unresolved reviewer evidence</dt><dd>${escapeHtml(result.missingValue)}</dd><dt>Table read</dt><dd>${escapeHtml(result.tableRead)}</dd><dt>Profile boundary</dt><dd>${escapeHtml(result.profileEnrichment)}</dd><dt>Dossier value</dt><dd>${escapeHtml(result.dossierValue)}</dd><dt>Observation sources</dt><dd>${escapeHtml(result.answerObservationSources)}</dd><dt>Identity sources</dt><dd>${escapeHtml(result.certifiedIdentitySources)}</dd><dt>Alternative sources</dt><dd>${escapeHtml(result.nearestAlternativeSources)}</dd><dt>Prototype source</dt><dd>${escapeHtml(result.sourceRef)}</dd></dl></aside>` : ""}
         </div>
       </details>`;
   }

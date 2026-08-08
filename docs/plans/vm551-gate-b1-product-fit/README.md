@@ -51,7 +51,7 @@ The three refined directories contain 81 physical files and 81 unique exact SHA-
 2. Gate and Hall use high-recognition situations: open-turn posture, battlefield versus reserve, a likely board wipe, commander removal, interaction mana, repeated routes, visible threat, sacrifice, deals, setup, and color breadth.
 3. The Crucible bank appropriately becomes narrower and more controlled. Repeated structural wording is useful because the items test bounded competitor distinctions; variation for its own sake would reduce comparability.
 4. The principal product risk is not question atmosphere. It is overexplaining a provisional identity association as established truth. Thirty-seven answer-to-identity hypotheses remain non-scoring and evidence-required.
-5. Result usefulness is uneven: 15 guild/college identities have Atlas-supported identity lenses and explicit boundaries; 17 identities can support a useful but incomplete result; 5 currently lack enough distinct placement explanation or evidence to be presented without a visible gap.
+5. Result usefulness remains intentionally uneven after the final source reconciliation: 15 identities are `READY`, 20 are `PARTIAL`, and 2 remain `GAP`. These are explanation-package states, never placement-validation findings.
 6. A result can exceed a type label by exposing the observation trace, plausible alternative, separating observation, limitation, Commander direction, and dossier/Matrix/Maze next step. It must not imply a psychographic diagnosis.
 
 ## Owner-approved prompt changes
@@ -84,7 +84,13 @@ The completed hands-on review superseded twelve earlier `KEEP` judgments for pre
 
 The corrected five routes contain 4 Gate, 2–3 Hall, and 1 Crucible question; no optional Hall question shares its Crucible dependency. Guided results now separate selected-answer observations, route-supported interpretation, certified identity context, and public limitations. Internal evidence gaps remain reviewer-visible.
 
-Owner research strengthened the Colorless explanation from `GAP` to `PARTIAL`: the imposed limitation is part of the desired puzzle. WUBRG remains `PARTIAL`: broad access may support a toolbox or a unifying concept and can still be followed by severe self-chosen limits. Neither package validates placement. The resulting content-readiness distribution is 15 `READY`, 18 `PARTIAL`, and 4 `GAP`.
+Owner research strengthened the Colorless explanation from `GAP` to `PARTIAL`: the imposed limitation is part of the desired puzzle. WUBRG remains `PARTIAL`: broad access may support a toolbox or a unifying concept and can still be followed by severe self-chosen limits. Neither package validates placement.
+
+The final content-usefulness remediation compresses player-facing results into at most three answer-derived observation groups, one source-backed identity context, one useful alternative, one observable distinction, one specific limitation, one Commander direction, and existing Vox Mana continuation choices. Raw IDs, signals, authored-path mismatch, source paths, and technical readiness rationale remain reviewer-only.
+
+Certified source reconciliation moves Ink and Jeskai from `GAP` to `PARTIAL`. Ink now describes protected shared access without inferring altruistic motive and distinguishes that behavior from Dune's immediate coordinated pressure. Jeskai now describes advancing while preserving a response to the opponent's decisive action and distinguishes that timing posture from Boros's more open present intervention. Neither promotion validates the answer-to-identity association. Esper and Yore remain `GAP`: C06 still observes generic engine structure rather than Esper's full knowledge-and-control boundary or Yore's constructed-agency boundary. The final distribution is 15 `READY`, 20 `PARTIAL`, and 2 `GAP`.
+
+All 37 result rows now carry separate answer-observation, certified-identity, nearest-alternative, and status-rationale provenance. Bant wording was reconciled to its certified White-centered accountable-excellence and communal-support authority without claiming that B1 directly observes worthiness or public honor. Colorless and WUBRG now receive a parallel, compact boundary treatment: an imposed card-pool boundary versus broad access followed by a self-chosen boundary.
 
 ## File inventory
 

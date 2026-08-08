@@ -51,6 +51,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-551 — Gate B1 Final Content-Usefulness Remediation](done/VM-551-gate-b1-final-content-usefulness-remediation.md) - final concise result packages, certified-source traceability, C03 helper cleanup, mono-color wording, Ink/Jeskai bounded PARTIAL promotions, 15/20/2 readiness inventory, and isolated prototype validation complete; stopped for owner review with scoring, player validation, Gate A, and production frozen.
+
 Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. `VM-197` also has a user-declared Abzan stack duplicate while preserving the existing Alara VM-197 card. `VM-215` has a manual-QA Abzan repair duplicate; the former Jeskai VM-215 through VM-220 reservation was repaired to VM-229 through VM-234 on 2026-05-31.
 - [VM-551 — Gate B1 Owner Experience Prototype](done/VM-551-gate-b1-owner-experience-prototype.md) - owner-directed novice language, bounded C15 semantics, route dependency hygiene, observation/context truthfulness, content-readiness labels, and Colorless/WUBRG explanation remediation complete; stop for short owner re-review with architecture, Gate A, production, scoring, and player validation frozen.
 

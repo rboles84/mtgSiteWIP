@@ -320,7 +320,12 @@
     {
       "name": "content readiness counts",
       "status": "PASS",
-      "observed": "15/18/4"
+      "observed": "15/20/2"
+    },
+    {
+      "name": "content promotions are bounded",
+      "status": "PASS",
+      "observed": "INK/JESKAI PARTIAL; ESPER/YORE GAP"
     },
     {
       "name": "Colorless and WUBRG content bounds",
@@ -333,9 +338,44 @@
       "observed": "5/5"
     },
     {
+      "name": "C03 duplicate definition removed",
+      "status": "PASS",
+      "observed": "prompt definition plus graveyard helper only"
+    },
+    {
+      "name": "no exact prompt-helper definition duplication",
+      "status": "PASS",
+      "observed": "none"
+    },
+    {
+      "name": "mono-color wording",
+      "status": "PASS",
+      "observed": "Two decks play the way you like. One is mono-color; the other combines several colors. Which deckbuilding challenge sounds more appealing?"
+    },
+    {
       "name": "result truthfulness UI",
       "status": "PASS",
-      "observed": "route observations/context/public limitation"
+      "observed": "grouped observations/context/distinction/public limitation"
+    },
+    {
+      "name": "authored mismatch reviewer-only",
+      "status": "PASS",
+      "observed": "reviewer-only safeguard"
+    },
+    {
+      "name": "compact continuation UI",
+      "status": "PASS",
+      "observed": "4 inert prototype destinations"
+    },
+    {
+      "name": "result source traceability",
+      "status": "PASS",
+      "observed": 37
+    },
+    {
+      "name": "prototype result source traceability",
+      "status": "PASS",
+      "observed": 37
     },
     {
       "name": "content readiness disclaimer",
@@ -360,7 +400,7 @@
     {
       "name": "hands-on owner remediations recorded",
       "status": "PASS",
-      "observed": 12
+      "observed": 13
     },
     {
       "name": "prototype contains no scoring value fields",
@@ -375,7 +415,7 @@
     {
       "name": "documentation-only changed paths",
       "status": "PASS",
-      "observed": "docs/handoffs/HANDOFF_INDEX.md,docs/kanban/board.md,docs/kanban/done/VM-551-gate-b1-owner-experience-prototype.md,docs/plans/vm551-gate-b1-placement-instrument/README.md,docs/plans/vm551-gate-b1-placement-instrument/answer-semantic-adjudication.tsv,docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv,docs/plans/vm551-gate-b1-placement-instrument/build-and-validate-design.mjs,docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv,docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv,docs/plans/vm551-gate-b1-placement-instrument/owner-decisions.md,docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv,docs/plans/vm551-gate-b1-placement-instrument/validation-record.json,docs/plans/vm551-gate-b1-product-fit/README.md,docs/plans/vm551-gate-b1-product-fit/owner-experience-checklist.md,docs/plans/vm551-gate-b1-product-fit/question-product-fit-review.tsv,docs/plans/vm551-gate-b1-product-fit/representative-result-walkthroughs.md,docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv,docs/prototypes/vm551-gate-b1-owner-experience/README.md,docs/prototypes/vm551-gate-b1-owner-experience/app.js,docs/prototypes/vm551-gate-b1-owner-experience/owner-review-notes.md,docs/prototypes/vm551-gate-b1-owner-experience/prototype-data.json,docs/prototypes/vm551-gate-b1-owner-experience/styles.css,docs/handoffs/2026-08-06-2254-codex-vm551-gate-b1-owner-experience-remediation.md"
+      "observed": "docs/handoffs/HANDOFF_INDEX.md,docs/kanban/board.md,docs/plans/vm551-gate-b1-placement-instrument/build-and-validate-design.mjs,docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv,docs/plans/vm551-gate-b1-placement-instrument/validation-record.json,docs/plans/vm551-gate-b1-product-fit/README.md,docs/plans/vm551-gate-b1-product-fit/question-product-fit-review.tsv,docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv,docs/prototypes/vm551-gate-b1-owner-experience/README.md,docs/prototypes/vm551-gate-b1-owner-experience/app.js,docs/prototypes/vm551-gate-b1-owner-experience/owner-review-notes.md,docs/prototypes/vm551-gate-b1-owner-experience/prototype-data.json,docs/prototypes/vm551-gate-b1-owner-experience/styles.css,docs/handoffs/2026-08-07-2322-codex-vm551-gate-b1-final-content-usefulness.md,docs/kanban/done/VM-551-gate-b1-final-content-usefulness-remediation.md"
     },
     {
       "name": "explicit high-risk and insufficient coverage",
@@ -419,27 +459,19 @@
   "changed_paths": [
     "docs/handoffs/HANDOFF_INDEX.md",
     "docs/kanban/board.md",
-    "docs/kanban/done/VM-551-gate-b1-owner-experience-prototype.md",
-    "docs/plans/vm551-gate-b1-placement-instrument/README.md",
-    "docs/plans/vm551-gate-b1-placement-instrument/answer-semantic-adjudication.tsv",
-    "docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
     "docs/plans/vm551-gate-b1-placement-instrument/build-and-validate-design.mjs",
-    "docs/plans/vm551-gate-b1-placement-instrument/construct-map.tsv",
-    "docs/plans/vm551-gate-b1-placement-instrument/jargon-glossary.tsv",
-    "docs/plans/vm551-gate-b1-placement-instrument/owner-decisions.md",
     "docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv",
     "docs/plans/vm551-gate-b1-placement-instrument/validation-record.json",
     "docs/plans/vm551-gate-b1-product-fit/README.md",
-    "docs/plans/vm551-gate-b1-product-fit/owner-experience-checklist.md",
     "docs/plans/vm551-gate-b1-product-fit/question-product-fit-review.tsv",
-    "docs/plans/vm551-gate-b1-product-fit/representative-result-walkthroughs.md",
     "docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",
     "docs/prototypes/vm551-gate-b1-owner-experience/README.md",
     "docs/prototypes/vm551-gate-b1-owner-experience/app.js",
     "docs/prototypes/vm551-gate-b1-owner-experience/owner-review-notes.md",
     "docs/prototypes/vm551-gate-b1-owner-experience/prototype-data.json",
     "docs/prototypes/vm551-gate-b1-owner-experience/styles.css",
-    "docs/handoffs/2026-08-06-2254-codex-vm551-gate-b1-owner-experience-remediation.md"
+    "docs/handoffs/2026-08-07-2322-codex-vm551-gate-b1-final-content-usefulness.md",
+    "docs/kanban/done/VM-551-gate-b1-final-content-usefulness-remediation.md"
   ],
   "boundaries": [
     "No live or Gate A file is written.",

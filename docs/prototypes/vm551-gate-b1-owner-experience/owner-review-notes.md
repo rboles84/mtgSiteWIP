@@ -1,60 +1,76 @@
-# VM-551 Gate B1 Owner Experience — Hands-on Review Record
+# VM-551 Gate B1 Owner Experience — Final Concise Review
 
 ## Disposition
 
-**APPROVE WITH LISTED TUNES — DO NOT ADVANCE YET**
+**AWAITING FINAL OWNER REVIEW — DO NOT ADVANCE**
 
-This disposition covers the owner-experience artifact only. It does not approve scoring, identity mappings, player validation, recruitment, shadow testing, migration, implementation, deployment, production use, or certification.
+This review covers only the isolated, non-calculating content prototype. It does not approve scoring, identity mappings, player validation, recruitment, shadow testing, migration, implementation, deployment, production use, or certification.
 
-## Accepted experience
+## Review order
 
-- Gate opening flow — accepted.
-- Gate initiative wording — accepted.
-- Gate tempo wording — accepted.
-- **Deepen this reading** — accepted as optional enrichment only.
-- Visible uncertainty — accepted.
-- Content-gap visibility — accepted.
-- Five route categories — sufficient after the listed remediation.
+### 1. Question Explorer
 
-## Required question remediation
+- Gate C03: confirm “board wipe” is defined once in the prompt and only independently useful graveyard help remains.
+- Mono/multicolor Crucible: confirm the prompt says, “One is mono-color; the other combines several colors.”
 
-- C06 language — tune with the canonical novice-safe engine explanation; remove unnecessary “value engine” wording.
-- C07 — light prompt tune.
-- C08 — replace clinical “development” framing while preserving opponent-answer timing.
-- C09 — clarify repetition as the path to the main plan.
-- C10 — make the theme-versus-reliability tradeoff explicitly forced.
-- C14 — distinguish immediate impact, delayed payoff, and staged returns.
-- C15 Hall framing — replace assumed starting-constraint framing with available-card boundaries.
-- C15 mono/multicolor — simplify to one color versus several while preserving existing directions.
-- C15 Colorless/WUBRG — rewrite around imposed limitation versus broad access followed by self-chosen limits.
-- Colorless and WUBRG must continue to share one Crucible item.
+### 2. Result Explorer — repaired gaps
 
-## Required route remediation
+- Esper: confirm the generic engine-control limitation is explicit and the result remains `CONTENT GAP`.
+- Ink: confirm the result describes protected shared access, never altruistic motive, and compares only with Dune’s immediate coordinated pressure.
+- Jeskai: confirm the result describes advancing while preserving a response to the decisive opposing action, does not claim one timing answer establishes Jeskai, and compares only with Boros.
+- Yore: confirm generic artifacts/engines are not treated as identity proof and the result remains `CONTENT GAP`.
 
-- C06 Hall → Crucible repetition — remove from Simic/Quandrix.
-- C15 Hall → Crucible repetition — remove from White, Colorless, and WUBRG.
-- Bant C05 Hall → Crucible repetition — remove.
-- Keep 4 Gate, 2–3 Hall, 0–1 Crucible, and 6–8 total questions.
-- Optional Hall and Crucible questions must not share a dependency group in the five authored routes.
+### 3. Result Explorer — boundary controls
 
-## Required result remediation
+- Colorless: confirm the compact “Imposed boundary” treatment makes no archetype, skill, complexity, power, or budget inference.
+- Five-Color / WUBRG: confirm the parallel “Self-chosen boundary” treatment preserves both broad access and severe voluntary restrictions.
+- Bant: confirm the explanation agrees with certified Bant authority without claiming the route measured morality, worthiness, or accountable excellence.
+- Azorius: confirm it remains a useful behavioral comparison rather than a philosophy summary.
 
-- Separate route-observed behavior from certified identity philosophy or Atlas context.
-- Simic/Quandrix organic-versus-mathematical language belongs under **Identity context**, not as a route-tested distinction.
-- Bant/Azorius route explanation must use only the route’s protection, setup, engine/support, threat, and commander-role observations.
-- Show nearby paths only for authored close or mixed states.
-- Keep exact internal evidence gaps in reviewer information; remove raw “Missing value:” labels from player-facing result copy.
-- Display READY/PARTIAL/GAP as content readiness, not placement validation.
-- Add plain Commander-expression subtitles to the five unfamiliar four-color result names without turning them into placement claims.
+### 4. Family scan
 
-## C15 research interpretation
+- Five mono colors: confirm mono-color preference appears only as a deckbuilding-boundary modifier and never selects a color by itself.
+- Three-color `PARTIAL` results: confirm each uses one observable comparison and one specific limitation.
+- Dune / Glint / Witch: confirm the official identity name remains while the subtitle leads with Commander behavior rather than inferred motive.
 
-- Colorless hypothesis: the imposed card-pool limitation is part of the desired puzzle.
-- WUBRG hypothesis: preserve broad access first, then choose the deck’s theme, mechanic, collection, or other restriction.
-- Liking restrictions does not establish Colorless; a Five-Color deck may use severe self-chosen restrictions.
-- Neither direction implies skill, complexity, power, budget, difficulty, optimization, or a specific archetype.
-- Both identity associations remain evidence-required and non-scoring.
+### 5. Guided journeys
 
-## Review status after remediation
+Review guided journeys only after accepting the Result Explorer copy. Change at least one authored answer and confirm the mismatch notice appears only behind **Reviewer information**. Open **Deepen this reading** and confirm optional Player Atlas enrichment does not enter the primary placement explanation.
 
-The listed tunes have been applied in the remediation commit and await one short owner hands-on review. Advancement remains unauthorized until that review is complete.
+## Acceptance checks
+
+For every changed result:
+
+- no repeated definition;
+- no more than three grouped answer-observation sentences;
+- no repeated “Prefers…” instrumentation cadence;
+- answer observations are visibly separate from certified identity context;
+- the single nearby alternative is behaviorally useful;
+- a newer player could restate the distinction in their own words;
+- the limitation names the actual unsupported boundary;
+- the Commander direction remains worthwhile even while placement is provisional;
+- the result visibly continues into dossier, Matrix, Maze, or Commander directions; and
+- no motive, morality, intelligence, skill, experience, budget, power, or aesthetic taste is inferred.
+
+## Content-readiness inventory
+
+- `CONTENT READY`: 15
+- `CONTENT PARTIAL`: 20
+- `CONTENT GAP`: 2 — Esper and Yore
+
+Ink and Jeskai moved from GAP to PARTIAL because certified authority now supports a bounded, behaviorally useful content package. Their answer-to-identity mappings remain evidence-required and non-scoring.
+
+## Owner decision
+
+Choose exactly one:
+
+- `PROTOTYPE OWNER APPROVED`
+- `APPROVE WITH NAMED TUNES`
+- `RETURN SPECIFIC RESULT`
+- `DO NOT ADVANCE`
+
+Record any named tune or returned result below. Do not infer authorization for the next gate from silence.
+
+### Owner notes
+
+_Pending owner review._

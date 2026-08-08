@@ -30,7 +30,7 @@ Choose one of five explicitly authored owner-review scenarios:
 4. Colorless — endpoint insufficient state, 8 questions.
 5. Five-Color / WUBRG — endpoint mixed state, 8 questions.
 
-Every route contains exactly all 4 Gate questions, 2 or 3 Hall questions, 0 or 1 Crucible question, and 6–8 total questions. No optional Hall question shares the route’s Crucible dependency group. Selecting answers exercises the interface only. The result state is preauthored, while **What your answers showed** is derived from the answers actually selected. If those selections depart from the authored route, the prototype explicitly withholds the preauthored distinction.
+Every route contains exactly all 4 Gate questions, 2 or 3 Hall questions, 0 or 1 Crucible question, and 6–8 total questions. No optional Hall question shares the route’s Crucible dependency group. Selecting answers exercises the interface only. The result state is preauthored, while **What your answers showed** is derived from the answers actually selected. Any departure from the authored review path appears only in reviewer information; it is never presented as player result copy.
 
 ### Question explorer
 
@@ -38,7 +38,20 @@ Inspect all 34 questions: 4 Gate, 12 Hall, and 18 Crucible. Player-facing prompt
 
 ### Result explorer
 
-Inspect all 37 certified identity names and their product-usefulness packages. The remediated status distribution is 15 `CONTENT READY`, 18 `CONTENT PARTIAL`, and 4 `CONTENT GAP`; Colorless moved from GAP to PARTIAL because the owner research now supports a useful, bounded explanation package, not because its mapping was validated. Exact evidence gaps remain available in reviewer information. Content readiness describes whether the result explanation package is usable; it does not establish placement accuracy or mapping truth.
+Inspect all 37 certified identity names and their product-usefulness packages. The final remediated distribution is 15 `CONTENT READY`, 20 `CONTENT PARTIAL`, and 2 `CONTENT GAP`. Ink and Jeskai moved from GAP to PARTIAL after certified-source reconciliation produced useful but still bounded explanations; Esper and Yore remain GAP because the approved constructs do not yet observe their distinctive identity boundaries. Colorless remains PARTIAL after the owner research supported a bounded imposed-boundary explanation. Exact evidence gaps remain available in reviewer information. Content readiness describes whether the result explanation package is usable; it does not establish placement accuracy or mapping truth.
+
+### Compact result structure
+
+The primary result is intentionally an opening into the existing Archscry experience rather than a miniature dossier. It shows:
+
+- up to three grouped observations derived only from the selected answers;
+- one separately sourced identity context;
+- one nearby alternative and one observable distinction;
+- one specific unresolved limitation;
+- one Commander exploration direction; and
+- inert dossier, Matrix, Maze, or Commander-direction continuations.
+
+Exact answer IDs, provisional signals, authored-path mismatch, source paths, technical readiness rationale, and internal missing-value detail stay behind **Reviewer information**. Player Atlas enrichment remains behind **Deepen this reading**.
 
 ## Authored versus derived
 
@@ -86,7 +99,7 @@ Each derived question, answer, result, enrichment row, walkthrough, and Gate A s
 4. Complete Five-Color / WUBRG and confirm the mixed result keeps breadth, theme, and behavior distinct.
 5. Open **Deepen this reading** and confirm the optional lens is visibly conditional and never described as placement evidence.
 6. Scan the Question explorer at desktop and narrow width, including all three owner-approved prompt tunes.
-7. Scan the Result explorer, especially the 4 CONTENT GAP entries, and confirm exact evidence gaps remain visible with reviewer information enabled.
+7. Scan the Result explorer in the order in `owner-review-notes.md`, especially Ink and Jeskai as PARTIAL and Esper and Yore as the two remaining CONTENT GAP entries. Confirm exact evidence gaps remain visible with reviewer information enabled.
 8. Record decisions only in `owner-review-notes.md`. Do not infer authorization for player validation or implementation.
 
 ## Not implemented

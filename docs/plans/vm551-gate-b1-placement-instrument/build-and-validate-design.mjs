@@ -87,7 +87,7 @@ const Q = [
     opt("held","Resources in reserve","Cards in hand and mana remain available until their use is clear.","Prefers held or less visible resources.","HELD"),
     opt("split","Some of each","A useful board is present with at least one option held back.","Prefers a mixed visible/held position.","MIXED"),
     opt("depends","That depends on the deck","My decks require such different positions that I cannot name one preference.","Reports genuine deck-conditionality.","CONDITIONAL","conditional")]),
-  q("b1.gate.disruption.v1","Gate","C03","A board wipe—an effect that removes many cards and tokens from the battlefield—is likely next turn. What would you rather have prepared?","all identities","E-PLAYER-PACE;E-PLAYER-COMMANDER;E-CECOS","Always; Gate 3.","Do not treat the answer as proof the deck is resilient.","Board wipe means an effect that removes many cards and tokens from the battlefield.",[
+  q("b1.gate.disruption.v1","Gate","C03","A board wipe—an effect that removes many cards and tokens from the battlefield—is likely next turn. What would you rather have prepared?","all identities","E-PLAYER-PACE;E-PLAYER-COMMANDER;E-CECOS","Always; Gate 3.","Do not treat the answer as proof the deck is resilient.","A graveyard is a player's discard pile.",[
     opt("protect","A way to keep the board","Protection or a response lets important pieces survive.","Prefers protection before broad disruption.","PROTECT"),
     opt("recover","A way to rebuild","The board can go if hand or graveyard resources restore it.","Prefers recovery after broad disruption.","RECOVER"),
     opt("limit","Less exposed in the first place","Commit fewer important pieces before the wipe.","Prefers reduced exposure to broad disruption.","LIMIT_EXPOSURE"),
@@ -213,7 +213,7 @@ const Q = [
     opt("constraint","Work within the limits","Some useful tools are unavailable, and finding unexpected solutions is part of the appeal.","Prefers an imposed card-pool limitation as part of the desired challenge.","NARROW"),
     opt("breadth","Choose the limits myself","Keep the widest range of tools available, then decide which theme, mechanic, or rule the deck will follow.","Prefers broad access followed by self-chosen deckbuilding boundaries.","BROAD"),
     opt("neither","The available tools aren’t the point","I care more about the deck idea than whether the starting pool is broad or narrow.","Rejects the edge distinction.","UNKNOWN","unknown")]),
-  q("b1.crucible.mono-multi.v1","Crucible","C15","Two decks play the way you like. One uses one color; the other combines several. Which deckbuilding challenge sounds more appealing?","mono versus multicolor","E-CERTIFIED;E-PLAYER-COMMANDER;E-PLAYER-PACE;E-AUDIT;E-CECOS","Ask only when mono/multicolor candidates remain close after behavior evidence.","Never permit a one-answer color-count flip.","A commander's color identity determines which colors may appear in its Commander deck.",[
+  q("b1.crucible.mono-multi.v1","Crucible","C15","Two decks play the way you like. One is mono-color; the other combines several colors. Which deckbuilding challenge sounds more appealing?","mono versus multicolor","E-CERTIFIED;E-PLAYER-COMMANDER;E-PLAYER-PACE;E-AUDIT;E-CECOS","Ask only when mono/multicolor candidates remain close after behavior evidence.","Never permit a one-answer color-count flip.","A commander's color identity determines which colors may appear in its Commander deck.",[
     opt("mono","Explore one color’s limits","Find solutions inside one color’s tools.","Prefers solving within one color's available tools.","NARROW"),
     opt("multi","Combine several color roles","Keep more kinds of tools available and decide which ones belong in the plan.","Prefers access to several color roles followed by deliberate selection.","BROAD"),
     opt("pattern","Let the play pattern decide","Choose the color count that best serves the way the deck plays.","Reports no independent breadth preference.","CONDITIONAL","conditional")])
@@ -270,9 +270,15 @@ const questionJargonIds = {
   "b1.crucible.mono-multi.v1":["JRG_COLOR_COUNT","JRG_COLOR_ROLES"]
 };
 const jargonById = new Map(J.map((x) => [x.jargon_id,x]));
+const definitionCore = (value) => String(value || "").replace(/^(?:Here,\s*)?[^.?!]+?\s+means\s+/i, "").replace(/[.!?]+$/, "").trim().toLowerCase();
+const helperDefinitionsFor = (item) => item.jargonIds.map((id) => jargonById.get(id).canonical_public_definition).filter((definition) => {
+  const core = definitionCore(definition);
+  if (item.id === "b1.gate.disruption.v1" && definition.startsWith("Board means")) return false;
+  return !(core.length >= 24 && item.prompt.toLowerCase().includes(core));
+});
 for (const item of Q) {
   item.jargonIds = questionJargonIds[item.id] || [];
-  item.glossary = item.jargonIds.map((id) => jargonById.get(id).canonical_public_definition).join(" ");
+  item.glossary = helperDefinitionsFor(item).join(" ");
 }
 for (const jargon of J) {
   jargon.question_ids = Q.filter((item) => item.jargonIds.includes(jargon.jargon_id)).map((item) => item.id).join(";");
@@ -524,6 +530,10 @@ const answerIds = new Set(answers.map((x)=>x.answer_id));
 const jargonIds = new Set(J.map((x)=>x.jargon_id));
 const semanticAnswerIds = semanticReviews.map((x)=>x.answer_id);
 const allQuestionCopy = (x) => `${x.prompt} ${x.options.map((o)=>`${o.title} ${o.copy}`).join(" ")}`;
+const duplicateQuestionHelperPairs = Q.filter((question) => String(question.glossary || "").split(/(?<=[.!?])\s+/).some((sentence) => {
+  const core = sentence.replace(/^(?:Here,\s*)?[^.?!]+?\s+means\s+/i, "").replace(/[.!?]+$/, "").trim().toLowerCase();
+  return core.length >= 24 && question.prompt.toLowerCase().includes(core);
+})).map((question) => question.id);
 const changedPaths = execFileSync("git",["status","--porcelain"],{cwd:root,encoding:"utf8"})
   .split(/\r?\n/).filter(Boolean).map((line)=>line.slice(3).replace(/^"|"$/g,""));
 const documentationOnly = changedPaths.every((p)=>p.startsWith("docs/"));
@@ -539,10 +549,64 @@ const loadBearingJargon = [
 const prototype = JSON.parse(read("docs/prototypes/vm551-gate-b1-owner-experience/prototype-data.json"));
 const productFitResults = tsv(read("docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv"));
 const productFitQuestions = tsv(read("docs/plans/vm551-gate-b1-product-fit/question-product-fit-review.tsv"));
+const identityLayers = JSON.parse(read("data/identity-layers.json"));
 const resultRemediations = {
+  ESPER: {
+    primary_behavioral_explanation:"The reading can describe using held interaction and a designed engine to turn a stabilized game into controlled advantage",
+    observable_distinction:"Esper's certified context turns knowledge, ordered improvement, and focused control into designed change; Azorius centers public procedure and managed stability",
+    honest_limitation:"The approved C06 observation distinguishes engine structure, not Esper's full knowledge-and-control cluster, so generic control and artifact decks remain false positives",
+    commander_expression:"Control or artifact-oriented decks where information and structure feed a named closing plan",
+    useful_archetype_links:"Control; engine-control; artifacts; combo",
+    recommendation_direction:"Explore commanders that make interaction feed a repeatable advantage system with an explicit finish",
+    usefulness_status:"GAP",
+    missing_value:"A B1 observation that reaches Esper's full knowledge, ordered-improvement, and focused-control boundary rather than generic engine-control"
+  },
+  INK: {
+    primary_behavioral_explanation:"The reading can describe keeping a shared resource available and protecting it from capture by one player",
+    nearest_useful_alternative:"Dune / Aggression",
+    observable_distinction:"Ink keeps a protected commons available across turns; Dune turns a public commitment into immediate coordinated pressure",
+    honest_limitation:"The route can observe durable shared access, but it cannot establish generous motive or the full four-color missing-Black frame",
+    commander_expression:"Political or group-benefit decks that keep shared resources useful while retaining guardrails and an independent plan",
+    table_read:"Shared access is visible at the table; motive, fairness, and altruism are not",
+    useful_archetype_links:"Political midrange; shared resources; protection; group benefit",
+    recommendation_direction:"Explore commanders that let resources circulate while preventing one player from capturing the entire benefit",
+    usefulness_status:"PARTIAL",
+    missing_value:"Player evidence that durable protected access distinguishes Ink from generic group benefit and from Dune's immediate coordinated pressure"
+  },
+  JESKAI: {
+    primary_behavioral_explanation:"The reading can describe advancing a threat while keeping a response for the opponent's decisive action",
+    nearest_useful_alternative:"Boros Legion",
+    observable_distinction:"Jeskai advances while preserving a response window; Boros commits more openly to present intervention and protection",
+    honest_limitation:"C08 observes timing, but the same pattern appears in generic tempo, Azorius, and Izzet decks; one timing answer cannot establish Jeskai's disciplined-action context",
+    commander_expression:"Attack, prowess, or spellslinger decks that keep one meaningful response available while advancing",
+    table_read:"A modest attack plus open mana can represent both present pressure and a protected response window",
+    useful_archetype_links:"Tempo; prowess; spellslinger; aggro-control",
+    recommendation_direction:"Explore commanders that reward acting now without spending every answer before the decisive opposing play",
+    usefulness_status:"PARTIAL",
+    missing_value:"Player evidence that pressure-plus-response timing distinguishes Jeskai from generic tempo and its Boros, Azorius, and Izzet neighbors"
+  },
+  YORE: {
+    primary_behavioral_explanation:"The reading can describe a repeatable conversion system built from replaceable pieces",
+    nearest_useful_alternative:"Glint / Chaos",
+    observable_distinction:"Yore's certified context centers constructed agency that rebuilds around natural limits; Glint centers adaptive living volatility. Stable architecture versus a changing route only approximates that boundary",
+    honest_limitation:"C06 and C09 observe engine structure and repeatability, not Yore's full constructed-agency or missing-Green frame; generic artifacts and combo remain false positives",
+    commander_expression:"Artifact, recursion, or conversion decks where replaceable parts keep a constructed system operating",
+    table_read:"A repeatable machine can look inevitable, but engine legibility does not establish why the player wants it",
+    useful_archetype_links:"Artifacts; recursion; engine-combo; conversion",
+    recommendation_direction:"Explore commanders that rebuild a conversion system through replaceable parts while keeping the closing line explainable",
+    usefulness_status:"GAP",
+    missing_value:"An approved B1 observation of constructed agency against natural limits, plus evidence separating Yore from generic artifact and combo engines"
+  },
+  BANT: {
+    primary_behavioral_explanation:"The reading can describe a central commander elevated by a 99 that still functions as a visible support network",
+    observable_distinction:"Bant concentrates living communal support behind a central line; Azorius prioritizes procedure, preparation, and managed stability",
+    honest_limitation:"C05 observes commander reliance and support structure, not Bant's certified public-honor or accountable-excellence context, and the boundary remains high-confusion",
+    missing_value:"Validated C05 boundary evidence and false-positive data against Azorius, Witch, WUBRG, and Ink"
+  },
   COLORLESS: {
+    certified_identity_context:"Colorless explores what remains when the five colors are not the grammar of the answer.",
     primary_behavioral_explanation:"The reading can explain attraction to an imposed card-pool limitation as part of the deckbuilding challenge",
-    observable_distinction:"Colorless provisionally represents satisfaction from solving within an imposed limitation; Five-Color preserves the broadest palette before the builder chooses a theme, mechanic, or rule",
+    observable_distinction:"Colorless begins with an imposed boundary: the available pool is already constrained, and solving within it is part of the challenge. Five-Color preserves broad access first and then chooses its boundary",
     honest_limitation:"This boundary remains unvalidated. A preference for restrictions does not by itself establish Colorless, and the reading must not infer artifacts, Eldrazi, big mana, combo, complexity, or difficulty",
     commander_expression:"A Commander whose available card pool creates a limitation the player actively wants to solve; no card type or archetype is implied",
     table_read:"The card-pool limitation is visible, but it does not reveal how the deck will behave at the table",
@@ -552,8 +616,9 @@ const resultRemediations = {
     missing_value:"Independent behavioral evidence beyond liking an imposed limitation, plus player validation against broad-access decks with self-chosen restrictions"
   },
   WUBRG: {
+    certified_identity_context:"Five-Color asks what happens when every color is allowed to speak without any one color becoming the whole answer.",
     primary_behavioral_explanation:"The reading can explain wanting the full color palette available before choosing a unifying theme, mechanic, collection, or rule",
-    observable_distinction:"Five-Color provisionally preserves broad access and then applies self-chosen boundaries; Colorless begins with an imposed limitation that makes unavailable tools part of the challenge",
+    observable_distinction:"Five-Color begins with a self-chosen boundary: broad access is preserved first, then the builder chooses the theme, mechanic, collection, or rule. Colorless starts from an imposed boundary",
     honest_limitation:"This boundary remains unvalidated. Broad access does not imply playing everything, goodstuff, complexity, power, optimization, or an unwillingness to use severe self-chosen restrictions",
     commander_expression:"A five-color Commander whose full palette serves one declared concept, including theme-, mechanic-, typal-, collection-, or favorite-card-led builds",
     table_read:"Broad access does not reveal the plan; the chosen concept still needs to make the deck legible",
@@ -562,9 +627,48 @@ const resultRemediations = {
     missing_value:"Independent behavioral support beyond preserving broad access, plus player validation against narrower pools and self-restricted five-color decks"
   }
 };
-for (const row of productFitResults) Object.assign(row,resultRemediations[row.identity_id] || {});
+const resultIdentityFolders = {
+  ABZAN:"abzan",B:"black",BANT:"bant",BG:"golgari_swarm",BR:"cult_of_rakdos",COLORLESS:"colorless",
+  DUNE:"dune",ESPER:"esper",G:"green",GLINT:"glint",GRIXIS:"grixis",INK:"ink",JESKAI:"jeskai",
+  JUND:"jund",LOREHOLD:"lorehold",MARDU:"mardu",NAYA:"naya",PRISMARI:"prismari",QUANDRIX:"quandrix",
+  R:"red",RG:"gruul_clans",SILVERQUILL:"silverquill",SULTAI:"sultai",TEMUR:"temur",U:"blue",
+  UB:"house_dimir",UG:"simic_combine",UR:"izzet_league",W:"white",WB:"orzhov_syndicate",
+  WG:"selesnya_conclave",WITCH:"witch",WITHERBLOOM:"witherbloom",WR:"boros_legion",
+  WU:"azorius_senate",WUBRG:"wubrg",YORE:"yore"
+};
+const resultAlternativeFolders = {
+  ABZAN:"witch",B:"golgari_swarm",BANT:"azorius_senate",BG:"witherbloom",BR:"prismari",
+  COLORLESS:"wubrg",DUNE:"ink",ESPER:"azorius_senate",G:"naya",GLINT:"yore",GRIXIS:"house_dimir",
+  INK:"dune",JESKAI:"boros_legion",JUND:"golgari_swarm",LOREHOLD:"boros_legion",MARDU:"boros_legion",
+  NAYA:"gruul_clans",PRISMARI:"izzet_league",QUANDRIX:"simic_combine",R:"cult_of_rakdos",RG:"naya",
+  SILVERQUILL:"orzhov_syndicate",SULTAI:"golgari_swarm",TEMUR:"green",U:"azorius_senate",UB:"blue",
+  UG:"quandrix",UR:"prismari",W:"azorius_senate",WB:"silverquill",WG:"naya",WITCH:"abzan",
+  WITHERBLOOM:"golgari_swarm",WR:"lorehold",WU:"bant",WUBRG:"colorless",YORE:"glint"
+};
+const firstSentence = (value) => String(value || "").split(/(?<=[.!?])\s+/)[0];
+const identityLayerFor = (id) => identityLayers.expressions?.[id] || identityLayers.colors?.[id] || null;
+for (const row of productFitResults) {
+  const previousStatus = row.usefulness_status;
+  Object.assign(row,resultRemediations[row.identity_id] || {});
+  const folder = resultIdentityFolders[row.identity_id];
+  const alternativeFolder = resultAlternativeFolders[row.identity_id];
+  const layer = identityLayerFor(row.identity_id);
+  const display = layer?.display || layer || {};
+  row.certified_identity_context = resultRemediations[row.identity_id]?.certified_identity_context || firstSentence(display.philosophy || display.preview_text || layer?.identity_blend || row.dossier_learning_value);
+  row.answer_observation_sources = "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv;docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv";
+  row.certified_identity_sources = `data/raw-factions/${folder}/${folder}.placement.json;data/raw-factions/${folder}/${folder}.profile.json;data/identity-layers.json;data/factions.json`;
+  row.nearest_alternative_sources = `data/raw-factions/${alternativeFolder}/${alternativeFolder}.placement.json;data/raw-factions/${alternativeFolder}/${alternativeFolder}.profile.json`;
+  row.status_rationale = previousStatus !== row.usefulness_status
+    ? `${previousStatus}→${row.usefulness_status}: ${row.identity_id === "INK" ? "durable shared access is observable in C13 and matches the certified protected-commons boundary without inferring motive" : "pressure-plus-response timing is observable in C08 and matches the certified disciplined-action boundary without treating one answer as identity proof"}.`
+    : row.usefulness_status === "READY"
+      ? "Content package remains useful, distinct, source-backed, and bounded; answer-to-identity mapping remains evidence-required."
+      : row.usefulness_status === "GAP"
+        ? `Remains GAP: ${row.missing_value}.`
+        : `Remains PARTIAL: ${row.missing_value}.`;
+}
 writeRoot("docs/plans/vm551-gate-b1-product-fit/result-usefulness-matrix.tsv",makeTsv(Object.keys(productFitResults[0]),productFitResults));
 const ownerRemediationQuestionIds = new Set([
+  "b1.gate.disruption.v1",
   "b1.hall.engine-shape.v1","b1.hall.pressure.v1","b1.hall.mana-window.v1","b1.hall.repeatability.v1",
   "b1.hall.theme.v1","b1.hall.setup.v1","b1.hall.breadth.v1","b1.crucible.ug.v1",
   "b1.crucible.esper.v1","b1.crucible.witch-yore.v1","b1.crucible.colorless-wubrg.v1","b1.crucible.mono-multi.v1"
@@ -635,6 +739,7 @@ for (const result of prototype.results) {
   result.name = source.identity_name;
   result.status = source.usefulness_status;
   result.whatAnswersShowed = source.primary_behavioral_explanation;
+  result.identityContext = source.certified_identity_context;
   result.nearbyAlternative = source.nearest_useful_alternative;
   result.observableDistinction = source.observable_distinction;
   result.limitation = source.honest_limitation;
@@ -646,15 +751,25 @@ for (const result of prototype.results) {
   result.dossierValue = source.dossier_learning_value;
   result.nextStep = source.maze_or_matrix_next_step;
   result.missingValue = source.missing_value;
+  result.answerObservationSources = source.answer_observation_sources;
+  result.certifiedIdentitySources = source.certified_identity_sources;
+  result.nearestAlternativeSources = source.nearest_alternative_sources;
+  result.statusRationale = source.status_rationale;
 }
 const resultSubtitles = {
-  DUNE:"Four-color expression centered on visible pressure and coordinated aggression.",
-  INK:"Four-color expression centered on shared resources and mutually useful board presence.",
-  GLINT:"Four-color expression centered on improvisation, conversion, and changing lines.",
-  WITCH:"Four-color expression centered on compounding growth and durable development.",
-  YORE:"Four-color expression centered on engineered systems and repeatable conversion."
+  DUNE:"Four-color expression centered on coordinated visible pressure.",
+  INK:"Four-color expression centered on protected shared resources and open access.",
+  GLINT:"Four-color expression centered on adaptive routes under changing pressure.",
+  WITCH:"Four-color expression centered on patient compounding development.",
+  YORE:"Four-color expression centered on constructed agency and repeatable conversion."
 };
 for (const result of prototype.results) if (resultSubtitles[result.id]) result.subtitle = resultSubtitles[result.id];
+const edgeBoundaryCopy = {
+  COLORLESS:{label:"Imposed boundary",summary:"The available pool is already constrained, and solving within it is part of the challenge."},
+  WUBRG:{label:"Self-chosen boundary",summary:"The widest access is preserved first, then the builder decides what the deck will restrict itself around."}
+};
+for (const result of prototype.results) Object.assign(result,edgeBoundaryCopy[result.id] || {});
+prototype.counts.resultStatuses = count(prototype.results.map((result) => result.status));
 const walkthroughRemediations = {
   "simic-quandrix": {
     answerIds:["b1.gate.initiative.v1.balance","b1.gate.visibility.v1.board","b1.gate.disruption.v1.recover","b1.gate.tempo.v1.small","b1.hall.repeatability.v1.toolbox","b1.hall.setup.v1.staged","b1.crucible.ug.v1.adapt"],
@@ -758,7 +873,7 @@ const checks = [
   ["controlled jargon classes",J.every((x)=>glossaryClasses.has(x.jargon_class)),[...new Set(J.map((x)=>x.jargon_class))].join(",")],
   ["all jargon references resolve",Q.every((x)=>x.jargonIds.every((id)=>jargonIds.has(id))),Q.reduce((n,x)=>n+x.jargonIds.length,0)],
   ["all glossary rows used",J.every((j)=>j.question_ids||j.validation_status==="RESERVED"),J.length],
-  ["canonical jargon definitions",Q.every((x)=>x.glossary===x.jargonIds.map((id)=>jargonById.get(id).canonical_public_definition).join(" ")),Q.length],
+  ["canonical jargon definitions",Q.every((x)=>x.glossary===helperDefinitionsFor(x).join(" ")),Q.length],
   ["no help for absent terms",Q.every((x)=>x.jargonIds.every((id)=>allQuestionCopy(x).toLowerCase().includes(jargonById.get(id).term.toLowerCase()))),Q.filter((x)=>x.jargonIds.some((id)=>!allQuestionCopy(x).toLowerCase().includes(jargonById.get(id).term.toLowerCase()))).map((x)=>x.id).join(",")||Q.length],
   ["load-bearing jargon explained",Q.every((x)=>loadBearingJargon.every(([pattern,id])=>!pattern.test(allQuestionCopy(x))||x.jargonIds.includes(id))),Q.filter((x)=>loadBearingJargon.some(([pattern,id])=>pattern.test(allQuestionCopy(x))&&!x.jargonIds.includes(id))).map((x)=>x.id).join(",")||Q.length],
   ["no cross-reference-only help",Q.every((x)=>!/defined in (Hall|Gate|Crucible)|defined earlier/i.test(x.glossary)),Q.length],
@@ -777,7 +892,7 @@ const checks = [
     "b1.hall.theme.v1":"For one deck slot, assume you can’t get both: one card fits your theme better, while another does the same job more reliably. Which do you keep?",
     "b1.hall.setup.v1":"Early in the game, how much do you want your setup plays to matter right away?",
     "b1.hall.breadth.v1":"Once you know what you want a deck to do, how much do you want the available cards to shape the challenge?",
-    "b1.crucible.mono-multi.v1":"Two decks play the way you like. One uses one color; the other combines several. Which deckbuilding challenge sounds more appealing?",
+    "b1.crucible.mono-multi.v1":"Two decks play the way you like. One is mono-color; the other combines several colors. Which deckbuilding challenge sounds more appealing?",
     "b1.crucible.colorless-wubrg.v1":"When building around an idea you like, which kind of challenge sounds more satisfying?"
   }).every(([id,prompt])=>Q.find((question)=>question.id===id)?.prompt===prompt),"8/8"],
   ["canonical novice-safe engine help",J.find((j)=>j.jargon_id==="JRG_ENGINE")?.canonical_public_definition==="An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters."&&Q.filter((question)=>question.construct==="C06").every((question)=>question.jargonIds.includes("JRG_ENGINE")),Q.filter((question)=>question.construct==="C06").length],
@@ -819,15 +934,23 @@ const checks = [
   ["prototype route summaries match authored answers",routeDiagnostics.every((route)=>route.answerListMatches&&route.truthFields),JSON.stringify(routeDiagnostics)],
   ["prototype route IDs resolve",prototype.walkthroughs.every((walkthrough)=>walkthrough.steps.every((step)=>prototypeQuestionById.has(step.questionId)&&prototypeAnswerById.has(step.selectedAnswerId)&&prototypeAnswerById.get(step.selectedAnswerId).id.startsWith(`${step.questionId}.`))),prototype.walkthroughs.reduce((total,walkthrough)=>total+walkthrough.steps.length,0)],
   ["prototype result statuses match source",prototype.results.every((result)=>productResultById.get(result.id)?.usefulness_status===result.status),prototype.results.length],
-  ["content readiness counts",contentStatusCounts.READY===15&&contentStatusCounts.PARTIAL===18&&contentStatusCounts.GAP===4,`${contentStatusCounts.READY}/${contentStatusCounts.PARTIAL}/${contentStatusCounts.GAP}`],
+  ["content readiness counts",contentStatusCounts.READY===15&&contentStatusCounts.PARTIAL===20&&contentStatusCounts.GAP===2,`${contentStatusCounts.READY}/${contentStatusCounts.PARTIAL}/${contentStatusCounts.GAP}`],
+  ["content promotions are bounded",productResultById.get("INK")?.usefulness_status==="PARTIAL"&&productResultById.get("JESKAI")?.usefulness_status==="PARTIAL"&&productResultById.get("ESPER")?.usefulness_status==="GAP"&&productResultById.get("YORE")?.usefulness_status==="GAP","INK/JESKAI PARTIAL; ESPER/YORE GAP"],
   ["Colorless and WUBRG content bounds",prototype.results.find((result)=>result.id==="COLORLESS")?.status==="PARTIAL"&&prototype.results.find((result)=>result.id==="WUBRG")?.status==="PARTIAL","PARTIAL/PARTIAL"],
   ["four-color subtitles",["DUNE","INK","GLINT","WITCH","YORE"].every((id)=>prototype.results.find((result)=>result.id===id)?.subtitle?.startsWith("Four-color expression centered on")),"5/5"],
-  ["result truthfulness UI",prototypeApp.includes("observedSummary(walkthrough)")&&prototypeApp.includes("Identity context")&&prototypeApp.includes("Current identity distinction")&&!prototypeApp.includes("<strong>Missing value:</strong>"),"route observations/context/public limitation"],
+  ["C03 duplicate definition removed",Q.find((question)=>question.id==="b1.gate.disruption.v1")?.prompt.includes("an effect that removes many cards and tokens")&&Q.find((question)=>question.id==="b1.gate.disruption.v1")?.glossary==="A graveyard is a player's discard pile."&&prototypeApp.includes('["JRG_BOARD_WIPE", "JRG_BOARD"].includes(item.id)'),"prompt definition plus graveyard helper only"],
+  ["no exact prompt-helper definition duplication",duplicateQuestionHelperPairs.length===0,duplicateQuestionHelperPairs.join(",")||"none"],
+  ["mono-color wording",Q.find((question)=>question.id==="b1.crucible.mono-multi.v1")?.prompt.includes("One is mono-color; the other combines several colors"),Q.find((question)=>question.id==="b1.crucible.mono-multi.v1")?.prompt],
+  ["result truthfulness UI",prototypeApp.includes("groupedObservations(walkthrough)")&&prototypeApp.includes("Why this identity is plausible")&&prototypeApp.includes("What distinguishes the two")&&prototypeApp.includes("What remains unsettled")&&!prototypeApp.includes("<strong>Missing value:</strong>"),"grouped observations/context/distinction/public limitation"],
+  ["authored mismatch reviewer-only",prototypeApp.includes("Authored-path check")&&!prototypeApp.includes("Your selections differ from the authored review path, so this static prototype"),"reviewer-only safeguard"],
+  ["compact continuation UI",prototypeApp.includes("Open dossier")&&prototypeApp.includes("Compare in Matrix")&&prototypeApp.includes("Explore in Maze")&&prototypeApp.includes("See Commander directions"),"4 inert prototype destinations"],
+  ["result source traceability",productFitResults.every((result)=>result.certified_identity_context&&result.answer_observation_sources&&result.certified_identity_sources&&result.nearest_alternative_sources&&result.status_rationale),productFitResults.length],
+  ["prototype result source traceability",prototype.results.every((result)=>result.identityContext&&result.answerObservationSources&&result.certifiedIdentitySources&&result.nearestAlternativeSources&&result.statusRationale),prototype.results.length],
   ["content readiness disclaimer",prototypeApp.includes("Content readiness describes whether the result explanation package is usable. It does not mean placement accuracy or identity mapping has been validated."),"present"],
   ["prototype PARTIAL and GAP missing value preserved",prototype.results.filter((result)=>result.status!=="READY").every((result)=>result.missingValue&&result.missingValue===productResultById.get(result.id)?.missing_value),prototype.results.filter((result)=>result.status!=="READY").length],
   ["prototype exact prompt tunes",["b1.gate.initiative.v1","b1.gate.tempo.v1","b1.crucible.wb.v1"].every((id)=>prototypeQuestionById.get(id)?.prompt===Q.find((question)=>question.id===id)?.prompt),"3/3"],
   ["product-fit tune rows closed",productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_APPROVED_TUNE_APPLIED").length===3&&productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_APPROVED_TUNE_APPLIED").every((question)=>question.owner_review_required==="NO"),productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_APPROVED_TUNE_APPLIED").length],
-  ["hands-on owner remediations recorded",productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_REMEDIATION_APPLIED").length===12&&productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_REMEDIATION_APPLIED").every((question)=>question.reason.startsWith("Hands-on owner review superseded the prior KEEP judgment")),productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_REMEDIATION_APPLIED").length],
+  ["hands-on owner remediations recorded",productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_REMEDIATION_APPLIED").length===13&&productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_REMEDIATION_APPLIED").every((question)=>question.reason.startsWith("Hands-on owner review superseded the prior KEEP judgment")),productFitQuestions.filter((question)=>question.product_fit_disposition==="OWNER_REMEDIATION_APPLIED").length],
   ["prototype contains no scoring value fields",forbiddenPrototypeValueKeys.length===0,forbiddenPrototypeValueKeys.join(",")||"none"],
   ["prototype source references present",prototype.metadata.sourceRefs.length===9&&prototype.questions.every((question)=>question.sourceRef&&question.productFit.sourceRef)&&prototype.results.every((result)=>result.sourceRef)&&prototype.walkthroughs.every((walkthrough)=>walkthrough.sourceRef),prototype.metadata.sourceRefs.length],
   ["documentation-only changed paths",documentationOnly,changedPaths.join(",")||"clean"],
