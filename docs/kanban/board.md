@@ -51,6 +51,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-551 — Gate B1 Esper/Yore Evidence Recovery](done/VM-551-gate-b1-esper-yore-evidence-recovery.md) - certified-truth-first review complete: Esper needs an information-to-plan observation for architecture review, while Yore remains an explicit GAP because player-natural rebuilding and engine questions do not reach its constructed-agency boundary; no instrument, prototype, scoring, validation, or production change.
+
 - [VM-551 — Gate B1 Final Content-Usefulness Remediation](done/VM-551-gate-b1-final-content-usefulness-remediation.md) - final concise result packages, certified-source traceability, C03 helper cleanup, mono-color wording, Ink/Jeskai bounded PARTIAL promotions, 15/20/2 readiness inventory, and isolated prototype validation complete; stopped for owner review with scoring, player validation, Gate A, and production frozen.
 
 Historical note: `VM-044` is a preserved historical duplicate ID and `VM-049` is an intentional preserved duplicate pairing per the handoff trail. `VM-197` also has a user-declared Abzan stack duplicate while preserving the existing Alara VM-197 card. `VM-215` has a manual-QA Abzan repair duplicate; the former Jeskai VM-215 through VM-220 reservation was repaired to VM-229 through VM-234 on 2026-05-31.
