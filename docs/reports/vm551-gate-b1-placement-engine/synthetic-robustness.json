@@ -1,0 +1,566 @@
+{
+  "label": "IN-MODEL ROBUSTNESS — NOT EMPIRICAL PLAYER ACCURACY",
+  "status": "COMPLETE_NOT_EMPIRICAL",
+  "variants": [
+    "clean",
+    "partial",
+    "one_neutral",
+    "multiple_neutral",
+    "one_contradiction",
+    "mild_noise",
+    "overlap",
+    "blended",
+    "sparse"
+  ],
+  "runs_per_identity": 180,
+  "total_runs": 6660,
+  "rows": [
+    {
+      "identity": "ABZAN",
+      "runs": 180,
+      "primary_frequency": 0.8722222222222222,
+      "top_2_frequency": 0.9833333333333333,
+      "top_3_frequency": 1,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.9833333333333333,
+      "most_common_competing_identity": "BANT",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "B",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0.13333333333333333,
+      "top_3_frequency": 0.24444444444444444,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.9777777777777777,
+      "most_common_competing_identity": "JESKAI",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "count": 156
+        },
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "count": 132
+        }
+      ]
+    },
+    {
+      "identity": "BANT",
+      "runs": 180,
+      "primary_frequency": 0.12222222222222222,
+      "top_2_frequency": 1,
+      "top_3_frequency": 1,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 1,
+      "most_common_competing_identity": "ABZAN",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "BG",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.24444444444444444,
+      "most_common_competing_identity": "DUNE",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "BR",
+      "runs": 180,
+      "primary_frequency": 0.12222222222222222,
+      "top_2_frequency": 0.8777777777777778,
+      "top_3_frequency": 0.8777777777777778,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.9888888888888889,
+      "most_common_competing_identity": "BANT",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "COLORLESS",
+      "runs": 180,
+      "primary_frequency": 0.6555555555555556,
+      "top_2_frequency": 0.7666666666666667,
+      "top_3_frequency": 0.7666666666666667,
+      "responsible_named_primary_frequency": 0.6333333333333333,
+      "insufficient_frequency": 0.25555555555555554,
+      "most_common_competing_identity": "SULTAI",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.crucible.colorless-wubrg.v1",
+          "count": 114
+        }
+      ]
+    },
+    {
+      "identity": "DUNE",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.25555555555555554,
+      "most_common_competing_identity": "WUBRG",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "ESPER",
+      "runs": 180,
+      "primary_frequency": 0.8777777777777778,
+      "top_2_frequency": 0.8777777777777778,
+      "top_3_frequency": 0.8777777777777778,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.9888888888888889,
+      "most_common_competing_identity": "QUANDRIX",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "count": 158
+        }
+      ]
+    },
+    {
+      "identity": "G",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.24444444444444444,
+      "most_common_competing_identity": "INK",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "GLINT",
+      "runs": 180,
+      "primary_frequency": 0.8888888888888888,
+      "top_2_frequency": 0.8888888888888888,
+      "top_3_frequency": 0.8888888888888888,
+      "responsible_named_primary_frequency": 0.7555555555555555,
+      "insufficient_frequency": 0.24444444444444444,
+      "most_common_competing_identity": "BANT",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.crucible.yore-glint.v1",
+          "count": 136
+        }
+      ]
+    },
+    {
+      "identity": "GRIXIS",
+      "runs": 180,
+      "primary_frequency": 0.8666666666666667,
+      "top_2_frequency": 0.8666666666666667,
+      "top_3_frequency": 0.8888888888888888,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 1,
+      "most_common_competing_identity": "JESKAI",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "count": 156
+        },
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "count": 132
+        }
+      ]
+    },
+    {
+      "identity": "INK",
+      "runs": 180,
+      "primary_frequency": 0.7388888888888889,
+      "top_2_frequency": 0.8666666666666667,
+      "top_3_frequency": 0.8666666666666667,
+      "responsible_named_primary_frequency": 0.7388888888888889,
+      "insufficient_frequency": 0.2388888888888889,
+      "most_common_competing_identity": "ABZAN",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.crucible.dune-ink.v1",
+          "count": 133
+        }
+      ]
+    },
+    {
+      "identity": "JESKAI",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0.8666666666666667,
+      "top_3_frequency": 0.8666666666666667,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 1,
+      "most_common_competing_identity": "GRIXIS",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "count": 156
+        },
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "count": 134
+        }
+      ]
+    },
+    {
+      "identity": "JUND",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.8888888888888888,
+      "most_common_competing_identity": "YORE",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "LOREHOLD",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.24444444444444444,
+      "most_common_competing_identity": "INK",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "MARDU",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 1,
+      "most_common_competing_identity": "YORE",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "NAYA",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.25555555555555554,
+      "most_common_competing_identity": "WUBRG",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "PRISMARI",
+      "runs": 180,
+      "primary_frequency": 0.6333333333333333,
+      "top_2_frequency": 0.7666666666666667,
+      "top_3_frequency": 0.8777777777777778,
+      "responsible_named_primary_frequency": 0.6333333333333333,
+      "insufficient_frequency": 0.24444444444444444,
+      "most_common_competing_identity": "BR",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.crucible.ur.v1",
+          "count": 114
+        }
+      ]
+    },
+    {
+      "identity": "QUANDRIX",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.25,
+      "most_common_competing_identity": "WUBRG",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "R",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 1,
+      "most_common_competing_identity": "UR",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "RG",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 1,
+      "most_common_competing_identity": "YORE",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "SILVERQUILL",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.25555555555555554,
+      "most_common_competing_identity": "WUBRG",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "SULTAI",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0.011111111111111112,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.24444444444444444,
+      "most_common_competing_identity": "WUBRG",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "TEMUR",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.8888888888888888,
+      "most_common_competing_identity": "YORE",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "U",
+      "runs": 180,
+      "primary_frequency": 0.8666666666666667,
+      "top_2_frequency": 0.8666666666666667,
+      "top_3_frequency": 0.8666666666666667,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 1,
+      "most_common_competing_identity": "UB",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "count": 156
+        },
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "count": 134
+        }
+      ]
+    },
+    {
+      "identity": "UB",
+      "runs": 180,
+      "primary_frequency": 0.8666666666666667,
+      "top_2_frequency": 0.8666666666666667,
+      "top_3_frequency": 0.8666666666666667,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.9777777777777777,
+      "most_common_competing_identity": "U",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "count": 156
+        },
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "count": 134
+        }
+      ]
+    },
+    {
+      "identity": "UG",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.23333333333333334,
+      "most_common_competing_identity": "INK",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "UR",
+      "runs": 180,
+      "primary_frequency": 0.6444444444444445,
+      "top_2_frequency": 0.6444444444444445,
+      "top_3_frequency": 0.7666666666666667,
+      "responsible_named_primary_frequency": 0.6444444444444445,
+      "insufficient_frequency": 0.34444444444444444,
+      "most_common_competing_identity": "BR",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.crucible.ur.v1",
+          "count": 116
+        }
+      ]
+    },
+    {
+      "identity": "W",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.24444444444444444,
+      "most_common_competing_identity": "INK",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "WB",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.24444444444444444,
+      "most_common_competing_identity": "PRISMARI",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "WG",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.24444444444444444,
+      "most_common_competing_identity": "INK",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "WITCH",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.24444444444444444,
+      "most_common_competing_identity": "PRISMARI",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "WITHERBLOOM",
+      "runs": 180,
+      "primary_frequency": 0.12222222222222222,
+      "top_2_frequency": 0.12222222222222222,
+      "top_3_frequency": 0.12222222222222222,
+      "responsible_named_primary_frequency": 0.12222222222222222,
+      "insufficient_frequency": 0.7611111111111111,
+      "most_common_competing_identity": "BR",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.crucible.bg.v1",
+          "count": 22
+        }
+      ]
+    },
+    {
+      "identity": "WR",
+      "runs": 180,
+      "primary_frequency": 0.7611111111111111,
+      "top_2_frequency": 0.8722222222222222,
+      "top_3_frequency": 0.8722222222222222,
+      "responsible_named_primary_frequency": 0.6277777777777778,
+      "insufficient_frequency": 0.2611111111111111,
+      "most_common_competing_identity": "BANT",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.crucible.wr.v1",
+          "count": 113
+        }
+      ]
+    },
+    {
+      "identity": "WU",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0.13333333333333333,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 1,
+      "most_common_competing_identity": "UB",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "count": 156
+        },
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "count": 132
+        }
+      ]
+    },
+    {
+      "identity": "WUBRG",
+      "runs": 180,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.26666666666666666,
+      "most_common_competing_identity": "ESPER",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": []
+    },
+    {
+      "identity": "YORE",
+      "runs": 180,
+      "primary_frequency": 0.022222222222222223,
+      "top_2_frequency": 0.022222222222222223,
+      "top_3_frequency": 0.022222222222222223,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.9888888888888889,
+      "most_common_competing_identity": "GRIXIS",
+      "common_insufficient_condition": "no_responsible_named_placement",
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "count": 20
+        },
+        {
+          "question_id": "b1.crucible.yore-glint.v1",
+          "count": 4
+        }
+      ]
+    }
+  ]
+}

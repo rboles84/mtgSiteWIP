@@ -1,0 +1,2965 @@
+{
+  "status": "PASS_WITH_EXPLICIT_GAPS",
+  "pairs": 123,
+  "routable_direct": 41,
+  "direct_not_reached": 9,
+  "bounded_no_direct": 73,
+  "rows": [
+    {
+      "pair_id": "ABZAN__MARDU",
+      "identities": [
+        "ABZAN",
+        "MARDU"
+      ],
+      "category": "adjacent three-color",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C13"
+      ],
+      "approved_question_ids": [
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "ABZAN uses Disruption response evidence; MARDU uses Initiative posture evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "ABZAN__SILVERQUILL",
+      "identities": [
+        "ABZAN",
+        "SILVERQUILL"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C13"
+      ],
+      "approved_question_ids": [
+        "b1.gate.disruption.v1",
+        "b1.hall.threat.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "ABZAN uses Disruption response evidence; SILVERQUILL uses Threat posture evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "ABZAN__SULTAI",
+      "identities": [
+        "ABZAN",
+        "SULTAI"
+      ],
+      "category": "adjacent three-color",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C14"
+      ],
+      "approved_question_ids": [
+        "b1.gate.disruption.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "ABZAN uses Disruption response evidence; SULTAI uses Resource sacrifice evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "ABZAN__WITCH",
+      "identities": [
+        "ABZAN",
+        "WITCH"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C14"
+      ],
+      "approved_question_ids": [
+        "b1.gate.disruption.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "ABZAN uses Disruption response evidence; WITCH uses Engine concentration evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "ABZAN__YORE",
+      "identities": [
+        "ABZAN",
+        "YORE"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.disruption.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "ABZAN uses Disruption response evidence; YORE uses Engine concentration evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "B__ESPER",
+      "identities": [
+        "B",
+        "ESPER"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C16",
+        "C09"
+      ],
+      "approved_question_ids": [
+        "b1.hall.information-to-plan.v1",
+        "b1.crucible.esper.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.hall.information-to-plan.v1",
+        "b1.crucible.esper.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "B__GLINT",
+      "identities": [
+        "B",
+        "GLINT"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C11",
+        "C09"
+      ],
+      "approved_question_ids": [
+        "b1.hall.sacrifice.v1",
+        "b1.gate.initiative.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "B uses Resource sacrifice evidence; GLINT uses Initiative posture evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "B__PRISMARI",
+      "identities": [
+        "B",
+        "PRISMARI"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C11"
+      ],
+      "approved_question_ids": [
+        "b1.hall.sacrifice.v1",
+        "b1.gate.tempo.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "B uses Resource sacrifice evidence; PRISMARI uses Advantage tempo evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "B__R",
+      "identities": [
+        "B",
+        "R"
+      ],
+      "category": "accepted exact tie;>=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C11"
+      ],
+      "approved_question_ids": [
+        "b1.hall.sacrifice.v1",
+        "b1.gate.initiative.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "B uses Resource sacrifice evidence; R uses Initiative posture evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "B__RG",
+      "identities": [
+        "B",
+        "RG"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.hall.sacrifice.v1",
+        "b1.hall.pressure.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "B uses Resource sacrifice evidence; RG uses Pressure channel evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "B__SULTAI",
+      "identities": [
+        "B",
+        "SULTAI"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C12"
+      ],
+      "approved_question_ids": [
+        "b1.crucible.sultai.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.sultai.v1"
+      ],
+      "routing_can_reach_listed_question": false,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "APPROVED_DISCRIMINATOR_NOT_REACHED_IN_STRONGEST_SEARCH"
+    },
+    {
+      "pair_id": "B__U",
+      "identities": [
+        "B",
+        "U"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C16"
+      ],
+      "approved_question_ids": [
+        "b1.hall.sacrifice.v1",
+        "b1.gate.initiative.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "B uses Resource sacrifice evidence; U uses Initiative posture evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "B__UB",
+      "identities": [
+        "B",
+        "UB"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C11",
+        "C16"
+      ],
+      "approved_question_ids": [
+        "b1.hall.sacrifice.v1",
+        "b1.gate.visibility.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "B uses Resource sacrifice evidence; UB uses Resource visibility evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "B__W",
+      "identities": [
+        "B",
+        "W"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.hall.sacrifice.v1",
+        "b1.gate.disruption.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "B uses Resource sacrifice evidence; W uses Disruption response evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "B__WITHERBLOOM",
+      "identities": [
+        "B",
+        "WITHERBLOOM"
+      ],
+      "category": "accepted exact tie;>=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C12"
+      ],
+      "approved_question_ids": [
+        "b1.hall.threat.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "B uses Threat posture evidence; WITHERBLOOM uses Engine concentration evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "B__YORE",
+      "identities": [
+        "B",
+        "YORE"
+      ],
+      "category": "accepted exact tie;>=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C12",
+        "C09"
+      ],
+      "approved_question_ids": [
+        "b1.hall.threat.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "B uses Threat posture evidence; YORE uses Engine concentration evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "BANT__ESPER",
+      "identities": [
+        "BANT",
+        "ESPER"
+      ],
+      "category": "adjacent three-color",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C09"
+      ],
+      "approved_question_ids": [
+        "b1.hall.commander-role.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.hall.information-to-plan.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "BANT uses Commander reliance evidence; ESPER uses Information-to-plan conversion evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "BANT__GLINT",
+      "identities": [
+        "BANT",
+        "GLINT"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C09"
+      ],
+      "approved_question_ids": [
+        "b1.hall.commander-role.v1",
+        "b1.gate.initiative.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "BANT uses Commander reliance evidence; GLINT uses Initiative posture evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "BANT__INK",
+      "identities": [
+        "BANT",
+        "INK"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C03"
+      ],
+      "approved_question_ids": [
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "BANT uses Commander reliance evidence; INK uses Public commitment evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "BANT__JUND",
+      "identities": [
+        "BANT",
+        "JUND"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.hall.commander-role.v1",
+        "b1.gate.initiative.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "BANT uses Commander reliance evidence; JUND uses Initiative posture evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "BANT__TEMUR",
+      "identities": [
+        "BANT",
+        "TEMUR"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.hall.commander-role.v1",
+        "b1.gate.initiative.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "BANT uses Commander reliance evidence; TEMUR uses Initiative posture evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "BANT__W",
+      "identities": [
+        "BANT",
+        "W"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C03"
+      ],
+      "approved_question_ids": [
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "BANT uses Commander reliance evidence; W uses Public commitment evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "BG__GLINT",
+      "identities": [
+        "BG",
+        "GLINT"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.hall.sacrifice.v1",
+        "b1.hall.repeatability.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "BG uses Resource sacrifice evidence; GLINT uses Repeatability preference evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "BG__WITHERBLOOM",
+      "identities": [
+        "BG",
+        "WITHERBLOOM"
+      ],
+      "category": "same-color guild/college",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C12",
+        "C06"
+      ],
+      "approved_question_ids": [
+        "b1.crucible.bg.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.bg.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "BR__GLINT",
+      "identities": [
+        "BR",
+        "GLINT"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C11"
+      ],
+      "approved_question_ids": [
+        "b1.hall.sacrifice.v1",
+        "b1.hall.repeatability.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "BR uses Resource sacrifice evidence; GLINT uses Repeatability preference evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "BR__JUND",
+      "identities": [
+        "BR",
+        "JUND"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C12"
+      ],
+      "approved_question_ids": [
+        "b1.hall.threat.v1",
+        "b1.gate.initiative.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "BR uses Threat posture evidence; JUND uses Initiative posture evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "BR__SULTAI",
+      "identities": [
+        "BR",
+        "SULTAI"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C12"
+      ],
+      "approved_question_ids": [
+        "b1.hall.threat.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "BR uses Threat posture evidence; SULTAI uses Engine concentration evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "BR__UB",
+      "identities": [
+        "BR",
+        "UB"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C11"
+      ],
+      "approved_question_ids": [
+        "b1.hall.sacrifice.v1",
+        "b1.gate.visibility.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "BR uses Resource sacrifice evidence; UB uses Resource visibility evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "BR__WU",
+      "identities": [
+        "BR",
+        "WU"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.hall.threat.v1",
+        "b1.hall.interaction-window.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "BR uses Threat posture evidence; WU uses Mana commitment and interaction window evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "BR__YORE",
+      "identities": [
+        "BR",
+        "YORE"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C12"
+      ],
+      "approved_question_ids": [
+        "b1.hall.threat.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "BR uses Threat posture evidence; YORE uses Engine concentration evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "COLORLESS__WUBRG",
+      "identities": [
+        "COLORLESS",
+        "WUBRG"
+      ],
+      "category": "edge identity",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C15",
+        "C10"
+      ],
+      "approved_question_ids": [
+        "b1.crucible.colorless-wubrg.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.colorless-wubrg.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "DUNE__GLINT",
+      "identities": [
+        "DUNE",
+        "GLINT"
+      ],
+      "category": "adjacent four-color",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C11"
+      ],
+      "approved_question_ids": [
+        "b1.crucible.glint-dune.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.glint-dune.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "DUNE__GRIXIS",
+      "identities": [
+        "DUNE",
+        "GRIXIS"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.hall.pressure.v1",
+        "b1.gate.initiative.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "DUNE uses Pressure channel evidence; GRIXIS uses Initiative posture evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "DUNE__INK",
+      "identities": [
+        "DUNE",
+        "INK"
+      ],
+      "category": "adjacent four-color",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C13"
+      ],
+      "approved_question_ids": [
+        "b1.crucible.dune-ink.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.dune-ink.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "DUNE__LOREHOLD",
+      "identities": [
+        "DUNE",
+        "LOREHOLD"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.hall.pressure.v1",
+        "b1.gate.disruption.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "DUNE uses Pressure channel evidence; LOREHOLD uses Disruption response evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "DUNE__NAYA",
+      "identities": [
+        "DUNE",
+        "NAYA"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C07",
+        "C11"
+      ],
+      "approved_question_ids": [
+        "b1.hall.commitment.v1",
+        "b1.hall.theme.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "DUNE uses Public commitment evidence; NAYA uses Theme-efficiency tradeoff evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "DUNE__PRISMARI",
+      "identities": [
+        "DUNE",
+        "PRISMARI"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C11"
+      ],
+      "approved_question_ids": [
+        "b1.hall.pressure.v1",
+        "b1.gate.tempo.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "DUNE uses Pressure channel evidence; PRISMARI uses Advantage tempo evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "ESPER__GRIXIS",
+      "identities": [
+        "ESPER",
+        "GRIXIS"
+      ],
+      "category": "adjacent three-color",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C16"
+      ],
+      "approved_question_ids": [
+        "b1.hall.information-to-plan.v1",
+        "b1.crucible.esper.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.hall.information-to-plan.v1",
+        "b1.crucible.esper.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "ESPER__JESKAI",
+      "identities": [
+        "ESPER",
+        "JESKAI"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C16",
+        "C08",
+        "C09"
+      ],
+      "approved_question_ids": [
+        "b1.hall.information-to-plan.v1",
+        "b1.crucible.esper.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.hall.information-to-plan.v1",
+        "b1.crucible.esper.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "ESPER__MARDU",
+      "identities": [
+        "ESPER",
+        "MARDU"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.hall.information-to-plan.v1",
+        "b1.gate.initiative.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.hall.information-to-plan.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "ESPER uses Information-to-plan conversion evidence; MARDU uses Initiative posture evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "ESPER__PRISMARI",
+      "identities": [
+        "ESPER",
+        "PRISMARI"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.hall.information-to-plan.v1",
+        "b1.gate.tempo.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.hall.information-to-plan.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "ESPER uses Information-to-plan conversion evidence; PRISMARI uses Advantage tempo evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "ESPER__SULTAI",
+      "identities": [
+        "ESPER",
+        "SULTAI"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C06"
+      ],
+      "approved_question_ids": [
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.hall.information-to-plan.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "ESPER uses Information-to-plan conversion evidence; SULTAI uses Resource sacrifice evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "ESPER__WB",
+      "identities": [
+        "ESPER",
+        "WB"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C09"
+      ],
+      "approved_question_ids": [
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.commitment.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.hall.information-to-plan.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "ESPER uses Information-to-plan conversion evidence; WB uses Public commitment evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "ESPER__WITCH",
+      "identities": [
+        "ESPER",
+        "WITCH"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C06",
+        "C09"
+      ],
+      "approved_question_ids": [
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.setup.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.hall.information-to-plan.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "ESPER uses Information-to-plan conversion evidence; WITCH uses Setup tolerance evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "G__NAYA",
+      "identities": [
+        "G",
+        "NAYA"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C10"
+      ],
+      "approved_question_ids": [
+        "b1.gate.disruption.v1",
+        "b1.hall.pressure.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "G uses Disruption response evidence; NAYA uses Pressure channel evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "G__R",
+      "identities": [
+        "G",
+        "R"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "G uses Disruption response evidence; R uses Initiative posture evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "G__U",
+      "identities": [
+        "G",
+        "U"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "G uses Disruption response evidence; U uses Initiative posture evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "G__W",
+      "identities": [
+        "G",
+        "W"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C03"
+      ],
+      "approved_question_ids": [
+        "b1.hall.setup.v1",
+        "b1.hall.commitment.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "G uses Setup tolerance evidence; W uses Public commitment evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "GLINT__GRIXIS",
+      "identities": [
+        "GLINT",
+        "GRIXIS"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C01"
+      ],
+      "approved_question_ids": [
+        "b1.crucible.grixis.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.grixis.v1"
+      ],
+      "routing_can_reach_listed_question": false,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "APPROVED_DISCRIMINATOR_NOT_REACHED_IN_STRONGEST_SEARCH"
+    },
+    {
+      "pair_id": "GLINT__JUND",
+      "identities": [
+        "GLINT",
+        "JUND"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C01"
+      ],
+      "approved_question_ids": [
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "GLINT uses Repeatability preference evidence; JUND uses Resource sacrifice evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "GLINT__PRISMARI",
+      "identities": [
+        "GLINT",
+        "PRISMARI"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C11"
+      ],
+      "approved_question_ids": [
+        "b1.hall.repeatability.v1",
+        "b1.gate.tempo.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "GLINT uses Repeatability preference evidence; PRISMARI uses Advantage tempo evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "GLINT__R",
+      "identities": [
+        "GLINT",
+        "R"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C01",
+        "C11"
+      ],
+      "approved_question_ids": [
+        "b1.hall.repeatability.v1",
+        "b1.gate.tempo.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "GLINT uses Repeatability preference evidence; R uses Advantage tempo evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "GLINT__SULTAI",
+      "identities": [
+        "GLINT",
+        "SULTAI"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "GLINT uses Repeatability preference evidence; SULTAI uses Resource sacrifice evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "GLINT__TEMUR",
+      "identities": [
+        "GLINT",
+        "TEMUR"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C01"
+      ],
+      "approved_question_ids": [
+        "b1.crucible.temur.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.temur.v1"
+      ],
+      "routing_can_reach_listed_question": false,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "APPROVED_DISCRIMINATOR_NOT_REACHED_IN_STRONGEST_SEARCH"
+    },
+    {
+      "pair_id": "GLINT__U",
+      "identities": [
+        "GLINT",
+        "U"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C01"
+      ],
+      "approved_question_ids": [
+        "b1.hall.repeatability.v1",
+        "b1.hall.interaction-window.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "GLINT uses Repeatability preference evidence; U uses Mana commitment and interaction window evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "GLINT__UB",
+      "identities": [
+        "GLINT",
+        "UB"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C11"
+      ],
+      "approved_question_ids": [
+        "b1.hall.repeatability.v1",
+        "b1.gate.visibility.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "GLINT uses Repeatability preference evidence; UB uses Resource visibility evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "GLINT__UR",
+      "identities": [
+        "GLINT",
+        "UR"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C09"
+      ],
+      "approved_question_ids": [
+        "b1.gate.initiative.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "GLINT uses Initiative posture evidence; UR uses Engine concentration evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "GLINT__YORE",
+      "identities": [
+        "GLINT",
+        "YORE"
+      ],
+      "category": "adjacent four-color",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C09"
+      ],
+      "approved_question_ids": [
+        "b1.crucible.yore-glint.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.yore-glint.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "GRIXIS__JESKAI",
+      "identities": [
+        "GRIXIS",
+        "JESKAI"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C01",
+        "C16"
+      ],
+      "approved_question_ids": [
+        "b1.hall.sacrifice.v1",
+        "b1.hall.interaction-window.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "GRIXIS uses Resource sacrifice evidence; JESKAI uses Mana commitment and interaction window evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "GRIXIS__JUND",
+      "identities": [
+        "GRIXIS",
+        "JUND"
+      ],
+      "category": "adjacent three-color",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C01",
+        "C12"
+      ],
+      "approved_question_ids": [
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.pressure.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.hall.information-to-plan.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "GRIXIS uses Information-to-plan conversion evidence; JUND uses Pressure channel evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "GRIXIS__SILVERQUILL",
+      "identities": [
+        "GRIXIS",
+        "SILVERQUILL"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.initiative.v1",
+        "b1.hall.commitment.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "GRIXIS uses Initiative posture evidence; SILVERQUILL uses Public commitment evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "GRIXIS__SULTAI",
+      "identities": [
+        "GRIXIS",
+        "SULTAI"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C12"
+      ],
+      "approved_question_ids": [
+        "b1.gate.initiative.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "GRIXIS uses Initiative posture evidence; SULTAI uses Engine concentration evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "GRIXIS__UG",
+      "identities": [
+        "GRIXIS",
+        "UG"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.initiative.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "GRIXIS uses Initiative posture evidence; UG uses Engine concentration evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "GRIXIS__WUBRG",
+      "identities": [
+        "GRIXIS",
+        "WUBRG"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.initiative.v1",
+        "b1.hall.breadth.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "GRIXIS uses Initiative posture evidence; WUBRG uses Deck breadth and constraint evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "INK__JESKAI",
+      "identities": [
+        "INK",
+        "JESKAI"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.crucible.jeskai.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.jeskai.v1"
+      ],
+      "routing_can_reach_listed_question": false,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "APPROVED_DISCRIMINATOR_NOT_REACHED_IN_STRONGEST_SEARCH"
+    },
+    {
+      "pair_id": "INK__NAYA",
+      "identities": [
+        "INK",
+        "NAYA"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C10"
+      ],
+      "approved_question_ids": [
+        "b1.hall.commitment.v1",
+        "b1.hall.pressure.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "INK uses Public commitment evidence; NAYA uses Pressure channel evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "INK__WG",
+      "identities": [
+        "INK",
+        "WG"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C13",
+        "C03",
+        "C10"
+      ],
+      "approved_question_ids": [
+        "b1.hall.commitment.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "INK uses Public commitment evidence; WG uses Public commitment evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "INK__WITCH",
+      "identities": [
+        "INK",
+        "WITCH"
+      ],
+      "category": "adjacent four-color",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.crucible.ink-witch.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.ink-witch.v1"
+      ],
+      "routing_can_reach_listed_question": false,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "APPROVED_DISCRIMINATOR_NOT_REACHED_IN_STRONGEST_SEARCH"
+    },
+    {
+      "pair_id": "JESKAI__LOREHOLD",
+      "identities": [
+        "JESKAI",
+        "LOREHOLD"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.crucible.jeskai.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.jeskai.v1"
+      ],
+      "routing_can_reach_listed_question": false,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "APPROVED_DISCRIMINATOR_NOT_REACHED_IN_STRONGEST_SEARCH"
+    },
+    {
+      "pair_id": "JESKAI__MARDU",
+      "identities": [
+        "JESKAI",
+        "MARDU"
+      ],
+      "category": "adjacent three-color",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C01"
+      ],
+      "approved_question_ids": [
+        "b1.hall.interaction-window.v1",
+        "b1.hall.pressure.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "JESKAI uses Mana commitment and interaction window evidence; MARDU uses Pressure channel evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "JESKAI__NAYA",
+      "identities": [
+        "JESKAI",
+        "NAYA"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.crucible.jeskai.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.jeskai.v1"
+      ],
+      "routing_can_reach_listed_question": false,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "APPROVED_DISCRIMINATOR_NOT_REACHED_IN_STRONGEST_SEARCH"
+    },
+    {
+      "pair_id": "JESKAI__QUANDRIX",
+      "identities": [
+        "JESKAI",
+        "QUANDRIX"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C09"
+      ],
+      "approved_question_ids": [
+        "b1.hall.interaction-window.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "JESKAI uses Mana commitment and interaction window evidence; QUANDRIX uses Engine concentration evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "JESKAI__R",
+      "identities": [
+        "JESKAI",
+        "R"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C01"
+      ],
+      "approved_question_ids": [
+        "b1.hall.interaction-window.v1",
+        "b1.gate.tempo.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "JESKAI uses Mana commitment and interaction window evidence; R uses Advantage tempo evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "JESKAI__TEMUR",
+      "identities": [
+        "JESKAI",
+        "TEMUR"
+      ],
+      "category": "adjacent three-color",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C01"
+      ],
+      "approved_question_ids": [
+        "b1.hall.interaction-window.v1",
+        "b1.hall.pressure.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "JESKAI uses Mana commitment and interaction window evidence; TEMUR uses Pressure channel evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "JESKAI__U",
+      "identities": [
+        "JESKAI",
+        "U"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C08",
+        "C01",
+        "C16"
+      ],
+      "approved_question_ids": [
+        "b1.hall.repeatability.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "JESKAI uses Repeatability preference evidence; U uses Engine concentration evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "JESKAI__UR",
+      "identities": [
+        "JESKAI",
+        "UR"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C09"
+      ],
+      "approved_question_ids": [
+        "b1.hall.interaction-window.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "JESKAI uses Mana commitment and interaction window evidence; UR uses Engine concentration evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "JESKAI__W",
+      "identities": [
+        "JESKAI",
+        "W"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.hall.interaction-window.v1",
+        "b1.gate.disruption.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "JESKAI uses Mana commitment and interaction window evidence; W uses Disruption response evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "JESKAI__WR",
+      "identities": [
+        "JESKAI",
+        "WR"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C01"
+      ],
+      "approved_question_ids": [
+        "b1.hall.interaction-window.v1",
+        "b1.gate.disruption.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "JESKAI uses Mana commitment and interaction window evidence; WR uses Disruption response evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "JESKAI__WU",
+      "identities": [
+        "JESKAI",
+        "WU"
+      ],
+      "category": "accepted exact tie;>=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C08",
+        "C16",
+        "C09"
+      ],
+      "approved_question_ids": [
+        "b1.gate.initiative.v1",
+        "b1.hall.commitment.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "JESKAI uses Initiative posture evidence; WU uses Public commitment evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "JUND__NAYA",
+      "identities": [
+        "JUND",
+        "NAYA"
+      ],
+      "category": "adjacent three-color",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C07"
+      ],
+      "approved_question_ids": [
+        "b1.gate.initiative.v1",
+        "b1.hall.theme.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "JUND uses Initiative posture evidence; NAYA uses Theme-efficiency tradeoff evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "JUND__PRISMARI",
+      "identities": [
+        "JUND",
+        "PRISMARI"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "JUND uses Initiative posture evidence; PRISMARI uses Advantage tempo evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "JUND__UB",
+      "identities": [
+        "JUND",
+        "UB"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.initiative.v1",
+        "b1.gate.visibility.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "JUND uses Initiative posture evidence; UB uses Resource visibility evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "JUND__WUBRG",
+      "identities": [
+        "JUND",
+        "WUBRG"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.initiative.v1",
+        "b1.hall.breadth.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "JUND uses Initiative posture evidence; WUBRG uses Deck breadth and constraint evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "LOREHOLD__NAYA",
+      "identities": [
+        "LOREHOLD",
+        "NAYA"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C10"
+      ],
+      "approved_question_ids": [
+        "b1.gate.disruption.v1",
+        "b1.hall.pressure.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "LOREHOLD uses Disruption response evidence; NAYA uses Pressure channel evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "LOREHOLD__R",
+      "identities": [
+        "LOREHOLD",
+        "R"
+      ],
+      "category": "accepted exact tie;>=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "LOREHOLD uses Disruption response evidence; R uses Initiative posture evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "LOREHOLD__WR",
+      "identities": [
+        "LOREHOLD",
+        "WR"
+      ],
+      "category": "same-color guild/college",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C03"
+      ],
+      "approved_question_ids": [
+        "b1.crucible.wr.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.wr.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "MARDU__R",
+      "identities": [
+        "MARDU",
+        "R"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C01"
+      ],
+      "approved_question_ids": [
+        "b1.hall.pressure.v1",
+        "b1.gate.tempo.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "MARDU uses Pressure channel evidence; R uses Advantage tempo evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "NAYA__R",
+      "identities": [
+        "NAYA",
+        "R"
+      ],
+      "category": "accepted exact tie;>=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C11"
+      ],
+      "approved_question_ids": [
+        "b1.hall.pressure.v1",
+        "b1.gate.initiative.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "NAYA uses Pressure channel evidence; R uses Initiative posture evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "NAYA__RG",
+      "identities": [
+        "NAYA",
+        "RG"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C07",
+        "C10"
+      ],
+      "approved_question_ids": [
+        "b1.hall.threat.v1",
+        "b1.gate.initiative.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "NAYA uses Threat posture evidence; RG uses Initiative posture evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "NAYA__W",
+      "identities": [
+        "NAYA",
+        "W"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C07"
+      ],
+      "approved_question_ids": [
+        "b1.hall.theme.v1",
+        "b1.gate.disruption.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "NAYA uses Theme-efficiency tradeoff evidence; W uses Disruption response evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "NAYA__WG",
+      "identities": [
+        "NAYA",
+        "WG"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C10"
+      ],
+      "approved_question_ids": [
+        "b1.hall.pressure.v1",
+        "b1.hall.commitment.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "NAYA uses Pressure channel evidence; WG uses Public commitment evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "NAYA__WUBRG",
+      "identities": [
+        "NAYA",
+        "WUBRG"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C10"
+      ],
+      "approved_question_ids": [
+        "b1.hall.pressure.v1",
+        "b1.hall.breadth.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "NAYA uses Pressure channel evidence; WUBRG uses Deck breadth and constraint evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "NAYA__YORE",
+      "identities": [
+        "NAYA",
+        "YORE"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.hall.pressure.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "NAYA uses Pressure channel evidence; YORE uses Engine concentration evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "PRISMARI__UB",
+      "identities": [
+        "PRISMARI",
+        "UB"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C11"
+      ],
+      "approved_question_ids": [
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "PRISMARI uses Advantage tempo evidence; UB uses Resource visibility evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "PRISMARI__UR",
+      "identities": [
+        "PRISMARI",
+        "UR"
+      ],
+      "category": "same-color guild/college",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C04"
+      ],
+      "approved_question_ids": [
+        "b1.crucible.ur.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.ur.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "PRISMARI__WR",
+      "identities": [
+        "PRISMARI",
+        "WR"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.tempo.v1",
+        "b1.gate.disruption.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "PRISMARI uses Advantage tempo evidence; WR uses Disruption response evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "QUANDRIX__UG",
+      "identities": [
+        "QUANDRIX",
+        "UG"
+      ],
+      "category": "same-color guild/college",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C06",
+        "C14"
+      ],
+      "approved_question_ids": [
+        "b1.crucible.ug.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.ug.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "QUANDRIX__WG",
+      "identities": [
+        "QUANDRIX",
+        "WG"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.hall.engine-shape.v1",
+        "b1.hall.commitment.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "QUANDRIX uses Engine concentration evidence; WG uses Public commitment evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "QUANDRIX__WITCH",
+      "identities": [
+        "QUANDRIX",
+        "WITCH"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C06",
+        "C09",
+        "C14"
+      ],
+      "approved_question_ids": [
+        "b1.hall.engine-shape.v1",
+        "b1.hall.setup.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "QUANDRIX uses Engine concentration evidence; WITCH uses Setup tolerance evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "R__W",
+      "identities": [
+        "R",
+        "W"
+      ],
+      "category": "accepted exact tie;>=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.initiative.v1",
+        "b1.gate.disruption.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "R uses Initiative posture evidence; W uses Disruption response evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "R__YORE",
+      "identities": [
+        "R",
+        "YORE"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.initiative.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "R uses Initiative posture evidence; YORE uses Engine concentration evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "RG__U",
+      "identities": [
+        "RG",
+        "U"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C01"
+      ],
+      "approved_question_ids": [
+        "b1.hall.pressure.v1",
+        "b1.hall.interaction-window.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "RG uses Pressure channel evidence; U uses Mana commitment and interaction window evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "SILVERQUILL__TEMUR",
+      "identities": [
+        "SILVERQUILL",
+        "TEMUR"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.hall.commitment.v1",
+        "b1.gate.initiative.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "SILVERQUILL uses Public commitment evidence; TEMUR uses Initiative posture evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "SILVERQUILL__WB",
+      "identities": [
+        "SILVERQUILL",
+        "WB"
+      ],
+      "category": "same-color guild/college",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C13"
+      ],
+      "approved_question_ids": [
+        "b1.crucible.wb.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.wb.v1"
+      ],
+      "routing_can_reach_listed_question": false,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "APPROVED_DISCRIMINATOR_NOT_REACHED_IN_STRONGEST_SEARCH"
+    },
+    {
+      "pair_id": "SULTAI__TEMUR",
+      "identities": [
+        "SULTAI",
+        "TEMUR"
+      ],
+      "category": "adjacent three-color",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C14"
+      ],
+      "approved_question_ids": [
+        "b1.hall.sacrifice.v1",
+        "b1.gate.initiative.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "SULTAI uses Resource sacrifice evidence; TEMUR uses Initiative posture evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "SULTAI__UB",
+      "identities": [
+        "SULTAI",
+        "UB"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.hall.sacrifice.v1",
+        "b1.gate.visibility.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "SULTAI uses Resource sacrifice evidence; UB uses Resource visibility evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "SULTAI__WUBRG",
+      "identities": [
+        "SULTAI",
+        "WUBRG"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.hall.sacrifice.v1",
+        "b1.hall.breadth.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "SULTAI uses Resource sacrifice evidence; WUBRG uses Deck breadth and constraint evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "TEMUR__UB",
+      "identities": [
+        "TEMUR",
+        "UB"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.initiative.v1",
+        "b1.gate.visibility.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "TEMUR uses Initiative posture evidence; UB uses Resource visibility evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "TEMUR__WUBRG",
+      "identities": [
+        "TEMUR",
+        "WUBRG"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.initiative.v1",
+        "b1.hall.breadth.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "TEMUR uses Initiative posture evidence; WUBRG uses Deck breadth and constraint evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "U__UB",
+      "identities": [
+        "U",
+        "UB"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C08",
+        "C16"
+      ],
+      "approved_question_ids": [
+        "b1.gate.initiative.v1",
+        "b1.gate.visibility.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "U uses Initiative posture evidence; UB uses Resource visibility evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "U__W",
+      "identities": [
+        "U",
+        "W"
+      ],
+      "category": "accepted exact tie;>=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.initiative.v1",
+        "b1.gate.disruption.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "U uses Initiative posture evidence; W uses Disruption response evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "UB__WITCH",
+      "identities": [
+        "UB",
+        "WITCH"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.visibility.v1",
+        "b1.hall.setup.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "UB uses Resource visibility evidence; WITCH uses Setup tolerance evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "UB__WUBRG",
+      "identities": [
+        "UB",
+        "WUBRG"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "UB uses Resource visibility evidence; WUBRG uses Deck breadth and constraint evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "UB__YORE",
+      "identities": [
+        "UB",
+        "YORE"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.visibility.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "UB uses Resource visibility evidence; YORE uses Engine concentration evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "UG__WITCH",
+      "identities": [
+        "UG",
+        "WITCH"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C06",
+        "C14"
+      ],
+      "approved_question_ids": [
+        "b1.gate.disruption.v1",
+        "b1.hall.repeatability.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "UG uses Disruption response evidence; WITCH uses Repeatability preference evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "UR__YORE",
+      "identities": [
+        "UR",
+        "YORE"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C06",
+        "C09"
+      ],
+      "approved_question_ids": [
+        "b1.gate.tempo.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "UR uses Advantage tempo evidence; YORE uses Resource sacrifice evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "W__WU",
+      "identities": [
+        "W",
+        "WU"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C13"
+      ],
+      "approved_question_ids": [
+        "b1.gate.disruption.v1",
+        "b1.hall.interaction-window.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "W uses Disruption response evidence; WU uses Mana commitment and interaction window evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "W__WUBRG",
+      "identities": [
+        "W",
+        "WUBRG"
+      ],
+      "category": ">=100 authored paths; not player prevalence",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.disruption.v1",
+        "b1.hall.breadth.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "W uses Disruption response evidence; WUBRG uses Deck breadth and constraint evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "W__YORE",
+      "identities": [
+        "W",
+        "YORE"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.disruption.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "W uses Disruption response evidence; YORE uses Engine concentration evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "WB__WITCH",
+      "identities": [
+        "WB",
+        "WITCH"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [
+        "C09"
+      ],
+      "approved_question_ids": [
+        "b1.hall.commitment.v1",
+        "b1.hall.setup.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "WB uses Public commitment evidence; WITCH uses Setup tolerance evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "WB__WR",
+      "identities": [
+        "WB",
+        "WR"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.hall.commitment.v1",
+        "b1.gate.disruption.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "WB uses Public commitment evidence; WR uses Disruption response evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    },
+    {
+      "pair_id": "WITCH__YORE",
+      "identities": [
+        "WITCH",
+        "YORE"
+      ],
+      "category": "adjacent four-color",
+      "can_coexist_as_candidates": true,
+      "shared_constructs": [
+        "C06",
+        "C09"
+      ],
+      "approved_question_ids": [
+        "b1.crucible.witch-yore.v1"
+      ],
+      "direct_discriminating_question_ids": [
+        "b1.crucible.witch-yore.v1"
+      ],
+      "routing_can_reach_listed_question": false,
+      "discriminator_changes_relative_support": true,
+      "bounded_when_no_direct_discriminator": false,
+      "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
+      "coverage_status": "DIRECT-PROVISIONAL",
+      "resolution": "APPROVED_DISCRIMINATOR_NOT_REACHED_IN_STRONGEST_SEARCH"
+    },
+    {
+      "pair_id": "WR__YORE",
+      "identities": [
+        "WR",
+        "YORE"
+      ],
+      "category": "accepted exact tie",
+      "can_coexist_as_candidates": false,
+      "shared_constructs": [],
+      "approved_question_ids": [
+        "b1.gate.disruption.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "direct_discriminating_question_ids": [],
+      "routing_can_reach_listed_question": true,
+      "discriminator_changes_relative_support": false,
+      "bounded_when_no_direct_discriminator": true,
+      "observable_distinction": "WR uses Disruption response evidence; YORE uses Engine concentration evidence. No direct pair claim is made.",
+      "coverage_status": "INDIRECT-STRUCTURAL; close/insufficient expected",
+      "resolution": "BOUNDED_NO_DIRECT_DISCRIMINATOR"
+    }
+  ]
+}

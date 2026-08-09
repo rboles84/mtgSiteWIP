@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "model_version": "vm551-gate-b1-placement-engine-v1",
+  "invariants": {
+    "constructs": 16,
+    "questions": 35,
+    "stage_counts": {
+      "gate": 4,
+      "hall": 13,
+      "crucible": 18
+    },
+    "answers": 110,
+    "identities": 37,
+    "confusion_pairs": 123,
+    "directional_mapping_uses": 40,
+    "lens_questions": 1,
+    "duplicate_question_ids": 0,
+    "duplicate_answer_ids": 0,
+    "duplicate_identity_ids": 0,
+    "duplicate_pair_ids": 0,
+    "orphan_signals": [],
+    "missing_constructs": [],
+    "answers_missing_provenance": [],
+    "lens_changes_behavioral_ranking": false,
+    "numeric_public_confidence_authorized": false
+  }
+}

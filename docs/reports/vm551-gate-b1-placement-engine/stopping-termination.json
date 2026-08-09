@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "generated_journeys": 5000,
+  "deterministic_replays": 5000,
+  "maximum_questions_observed": 8,
+  "loops": 0,
+  "repeated_questions": 0,
+  "stale_routes": 0,
+  "stop_reasons": {
+    "no_responsible_named_placement": 3506,
+    "clear_separation": 313,
+    "single_named_direction_with_unresolved_alternatives": 1178,
+    "supported_candidate_has_conflicting_dependencies": 3
+  },
+  "result_states": {
+    "insufficient": 3506,
+    "primary": 313,
+    "close": 1178,
+    "contradictory": 3
+  },
+  "insufficient_cases": 3506
+}

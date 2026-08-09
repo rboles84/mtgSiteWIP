@@ -9,7 +9,7 @@
   replayAdaptiveSelections,
   selectNextAdaptiveQuestion,
   shouldFinishAdaptiveReading,
-} from "./adaptive-placement.js";
+} from "./gate-b1-placement-engine.js";
 import {
   buildCommanderDossier,
   buildCommanderDeckStartFallbackCandidates,
@@ -86,17 +86,20 @@ import { createScryfallNamedCardLookup } from "./scryfall-card-cache.js";
 const SESSION = VM_SESSION;
 const DATA_BASE_URL = new URL("../../data/", import.meta.url);
 const CORE_DATA_FETCH_OPTIONS = Object.freeze({ cache: "no-store" });
-const LIVE_GATE_COMPRESSION_CONTRACT = Object.freeze({
+const LIVE_GATE_B1_CONTRACT = Object.freeze({
   questionIds: [
-    "gate_v2_locus_of_trust",
-    "gate_v2_pressure_becomes",
-    "gate_v2_first_signal",
-    "gate_v2_cost_of_oath",
+    "b1.gate.initiative.v1",
+    "b1.gate.visibility.v1",
+    "b1.gate.disruption.v1",
+    "b1.gate.tempo.v1",
   ],
-  oldMarduGateAnswer: "The charge before the gap closes",
-  requiredHallQuestionIds: {
-    MARDU: ["hall_MARDU_total_commitment", "hall_MARDU_war_name_oath"],
-  },
+  constructs: 16,
+  questions: 35,
+  answers: 110,
+  identities: 37,
+  confusionPairs: 123,
+  hallQuestions: 13,
+  crucibleQuestions: 18,
 });
 
 const APP_STATE = {
@@ -237,43 +240,29 @@ function validateQuickReadingReachability() {
     ...Object.keys(liveExpressions),
   ]);
   const model = APP_STATE.placementModel || {};
-  const modelFactions = model.factions || {};
   const gateQuestions = model.question_bank?.gate || [];
   const hallQuestions = model.question_bank?.hall || [];
+  const crucibleQuestions = model.question_bank?.crucible || [];
+  const questions = [...gateQuestions, ...hallQuestions, ...crucibleQuestions];
   const gateIds = gateQuestions.map((question) => question.id);
-  const expectedGateIds = LIVE_GATE_COMPRESSION_CONTRACT.questionIds;
-  const hasCompactGate =
+  const expectedGateIds = LIVE_GATE_B1_CONTRACT.questionIds;
+  const hasApprovedGate =
     gateQuestions.length === expectedGateIds.length &&
     expectedGateIds.every((id, index) => gateIds[index] === id) &&
-    gateQuestions.every((question) => {
-      const answerCount = (question.answers || []).length;
-      return answerCount >= 4 && answerCount <= 5 && question.lateral_inhibition === false;
-    });
-  const hasOldMarduGateAnswer = gateQuestions.some((question) =>
-    (question.answers || []).some((answer) => answer.title === LIVE_GATE_COMPRESSION_CONTRACT.oldMarduGateAnswer)
-  );
-  const gateMeta = model._meta?.gate_compression || {};
-  const hasLiveGateMeta = gateMeta.enabled === true && gateMeta.related_card === "VM-384";
+    gateQuestions.every((question) => (question.answers || []).length === 4);
+  const countsMatch =
+    model._meta?.counts?.constructs === LIVE_GATE_B1_CONTRACT.constructs &&
+    questions.length === LIVE_GATE_B1_CONTRACT.questions &&
+    questions.reduce((sum, question) => sum + (question.answers || []).length, 0) === LIVE_GATE_B1_CONTRACT.answers &&
+    (model.identities || []).length === LIVE_GATE_B1_CONTRACT.identities &&
+    (model.confusion_pairs || []).length === LIVE_GATE_B1_CONTRACT.confusionPairs &&
+    hallQuestions.length === LIVE_GATE_B1_CONTRACT.hallQuestions &&
+    crucibleQuestions.length === LIVE_GATE_B1_CONTRACT.crucibleQuestions;
+  const identitiesResolve = (model.identities || []).every((identity) => liveFactionKeys.has(identity.id));
 
-  if (!hasCompactGate || hasOldMarduGateAnswer || !hasLiveGateMeta) {
-    throw new Error("Archscry placement data is stale. Reload the page so the compact Gate can load.");
+  if (!hasApprovedGate || !countsMatch || !identitiesResolve) {
+    throw new Error("Archscry placement data is stale or incomplete for Gate B1. Reload the page and try again.");
   }
-
-  Object.entries(LIVE_GATE_COMPRESSION_CONTRACT.requiredHallQuestionIds).forEach(([key, requiredHallIds]) => {
-    if (!liveFactionKeys.has(key)) {
-      return;
-    }
-
-    const hasModelFaction = Boolean(modelFactions[key]);
-    const hallQuestionIdSet = new Set(hallQuestions.map((question) => question.id));
-    const hasHallSupport = requiredHallIds.every((id) => hallQuestionIdSet.has(id));
-
-    if (!hasModelFaction || !hasHallSupport) {
-      throw new Error(
-        `Archscry placement data is stale. Reload the page so the ${key} quick-reading path can load.`
-      );
-    }
-  });
 }
 
 /**
@@ -309,7 +298,7 @@ async function loadFactionData() {
  * @returns {Promise<object>} Generated placement model.
  */
 async function loadPlacementModel() {
-  APP_STATE.placementModel = await loadCoreJson("placement-model.json", "placement model");
+  APP_STATE.placementModel = await loadCoreJson("gate-b1-placement-model.json", "Gate B1 placement model");
   return APP_STATE.placementModel;
 }
 

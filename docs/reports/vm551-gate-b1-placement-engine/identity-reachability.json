@@ -1,0 +1,3494 @@
+{
+  "status": "BLOCKING_EVIDENCE_GAPS",
+  "identities": 37,
+  "candidate_set_reachable": 37,
+  "primary_reachable": 13,
+  "top_2_reachable": 28,
+  "top_3_reachable": 30,
+  "cannot_become_primary": [
+    "ABZAN",
+    "B",
+    "BANT",
+    "BR",
+    "G",
+    "GRIXIS",
+    "JESKAI",
+    "JUND",
+    "MARDU",
+    "NAYA",
+    "R",
+    "RG",
+    "SILVERQUILL",
+    "SULTAI",
+    "TEMUR",
+    "U",
+    "UB",
+    "UG",
+    "W",
+    "WB",
+    "WG",
+    "WITCH",
+    "WU",
+    "YORE"
+  ],
+  "rows": [
+    {
+      "identity": "ABZAN",
+      "identity_name": "Abzan Houses",
+      "observability": "PARTIALLY_OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.unsure"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.limit"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.commander-role.v1",
+          "answer_id": "b1.hall.commander-role.v1.center"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.reopen"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.early"
+        },
+        {
+          "question_id": "b1.crucible.dune-ink.v1",
+          "answer_id": "b1.crucible.dune-ink.v1.neither"
+        }
+      ],
+      "supporting_constructs": [
+        "C03",
+        "C14",
+        "C13"
+      ],
+      "strongest_competitors": [
+        "BANT",
+        "INK",
+        "G",
+        "UG",
+        "W"
+      ],
+      "major_confusion_pairs": [
+        "ABZAN__MARDU",
+        "ABZAN__SILVERQUILL",
+        "ABZAN__SULTAI",
+        "ABZAN__WITCH",
+        "ABZAN__YORE"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.dune-ink.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool observes relevant broad or family behavior but has no direct identity-specific discriminator."
+      ],
+      "blocking_reason": "Approved B1 evidence supplies structural/family coverage but no identity-specific naming discriminator."
+    },
+    {
+      "identity": "B",
+      "identity_name": "Black",
+      "observability": "PARTIALLY_OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.exploit"
+        },
+        {
+          "question_id": "b1.hall.mana-window.v1",
+          "answer_id": "b1.hall.mana-window.v1.others"
+        },
+        {
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.convert"
+        },
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "answer_id": "b1.crucible.mono-multi.v1.mono"
+        }
+      ],
+      "supporting_constructs": [
+        "C12",
+        "C11",
+        "C16",
+        "C09"
+      ],
+      "strongest_competitors": [
+        "GRIXIS",
+        "JESKAI",
+        "U",
+        "R",
+        "G"
+      ],
+      "major_confusion_pairs": [
+        "B__ESPER",
+        "B__GLINT",
+        "B__PRISMARI",
+        "B__R",
+        "B__RG",
+        "B__SULTAI",
+        "B__U",
+        "B__UB",
+        "B__W",
+        "B__WITHERBLOOM",
+        "B__YORE"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "best_internal_rank": 4,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.hall.information-to-plan.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.mono-multi.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool observes relevant broad or family behavior but has no direct identity-specific discriminator."
+      ],
+      "blocking_reason": "Approved B1 evidence supplies structural/family coverage but no identity-specific naming discriminator."
+    },
+    {
+      "identity": "BANT",
+      "identity_name": "Bant",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.limit"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
+        },
+        {
+          "question_id": "b1.hall.repeatability.v1",
+          "answer_id": "b1.hall.repeatability.v1.same"
+        },
+        {
+          "question_id": "b1.hall.commander-role.v1",
+          "answer_id": "b1.hall.commander-role.v1.center"
+        },
+        {
+          "question_id": "b1.crucible.glint-dune.v1",
+          "answer_id": "b1.crucible.glint-dune.v1.neither"
+        }
+      ],
+      "supporting_constructs": [
+        "C05",
+        "C03",
+        "C09"
+      ],
+      "strongest_competitors": [
+        "GLINT",
+        "UR",
+        "WR",
+        "WUBRG",
+        "R"
+      ],
+      "major_confusion_pairs": [
+        "BANT__ESPER",
+        "BANT__GLINT",
+        "BANT__INK",
+        "BANT__JUND",
+        "BANT__TEMUR",
+        "BANT__W"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.bant.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.dune-ink.v1",
+        "b1.crucible.glint-dune.v1",
+        "b1.crucible.wr.v1",
+        "b1.crucible.yore-glint.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "High confusion or insufficient distinctiveness; preserve close/insufficient until player evidence supports mapping.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
+    },
+    {
+      "identity": "BG",
+      "identity_name": "Golgari Swarm",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.unsure"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.protect"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.commander-role.v1",
+          "answer_id": "b1.hall.commander-role.v1.center"
+        },
+        {
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.convert"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.central"
+        },
+        {
+          "question_id": "b1.crucible.bg.v1",
+          "answer_id": "b1.crucible.bg.v1.reclaim"
+        }
+      ],
+      "supporting_constructs": [
+        "C12",
+        "C03",
+        "C06"
+      ],
+      "strongest_competitors": [
+        "BANT",
+        "SULTAI",
+        "BR",
+        "LOREHOLD",
+        "UG"
+      ],
+      "major_confusion_pairs": [
+        "BG__GLINT",
+        "BG__WITHERBLOOM"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": true,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.wr.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1"
+      ],
+      "unresolved_authority_gaps": [],
+      "blocking_reason": null
+    },
+    {
+      "identity": "BR",
+      "identity_name": "Cult of Rakdos",
+      "observability": "PARTIALLY_OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.unsure"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
+        },
+        {
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.convert"
+        },
+        {
+          "question_id": "b1.crucible.ur.v1",
+          "answer_id": "b1.crucible.ur.v1.neither"
+        }
+      ],
+      "supporting_constructs": [
+        "C11",
+        "C12",
+        "C04"
+      ],
+      "strongest_competitors": [
+        "GRIXIS",
+        "PRISMARI",
+        "SULTAI",
+        "WITHERBLOOM",
+        "BG"
+      ],
+      "major_confusion_pairs": [
+        "BR__GLINT",
+        "BR__JUND",
+        "BR__SULTAI",
+        "BR__UB",
+        "BR__WU",
+        "BR__YORE"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.wr.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool observes relevant broad or family behavior but has no direct identity-specific discriminator."
+      ],
+      "blocking_reason": "Approved B1 evidence supplies structural/family coverage but no identity-specific naming discriminator."
+    },
+    {
+      "identity": "COLORLESS",
+      "identity_name": "Colorless",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.limit"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.narrow"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.consolidate"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.central"
+        },
+        {
+          "question_id": "b1.crucible.colorless-wubrg.v1",
+          "answer_id": "b1.crucible.colorless-wubrg.v1.constraint"
+        }
+      ],
+      "supporting_constructs": [
+        "C15",
+        "C06",
+        "C10"
+      ],
+      "strongest_competitors": [
+        "ESPER",
+        "U",
+        "R",
+        "BG",
+        "LOREHOLD"
+      ],
+      "major_confusion_pairs": [
+        "COLORLESS__WUBRG"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": true,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.colorless-wubrg.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.colorless-wubrg.v1",
+        "b1.crucible.esper.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.wr.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1",
+        "b1.hall.theme.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [],
+      "blocking_reason": null
+    },
+    {
+      "identity": "DUNE",
+      "identity_name": "Dune / Aggression",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.unsure"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.limit"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.commander-role.v1",
+          "answer_id": "b1.hall.commander-role.v1.center"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.reopen"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.early"
+        },
+        {
+          "question_id": "b1.crucible.dune-ink.v1",
+          "answer_id": "b1.crucible.dune-ink.v1.front"
+        }
+      ],
+      "supporting_constructs": [
+        "C07",
+        "C11",
+        "C13"
+      ],
+      "strongest_competitors": [
+        "ABZAN",
+        "BANT",
+        "G",
+        "UG",
+        "W"
+      ],
+      "major_confusion_pairs": [
+        "DUNE__GLINT",
+        "DUNE__GRIXIS",
+        "DUNE__INK",
+        "DUNE__LOREHOLD",
+        "DUNE__NAYA",
+        "DUNE__PRISMARI"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": true,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.glint-dune.v1",
+        "b1.crucible.dune-ink.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.colorless-wubrg.v1",
+        "b1.crucible.dune-ink.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [],
+      "blocking_reason": null
+    },
+    {
+      "identity": "ESPER",
+      "identity_name": "Esper",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.consolidate"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.central"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
+        },
+        {
+          "question_id": "b1.crucible.esper.v1",
+          "answer_id": "b1.crucible.esper.v1.designed"
+        }
+      ],
+      "supporting_constructs": [
+        "C16",
+        "C06",
+        "C08",
+        "C09"
+      ],
+      "strongest_competitors": [
+        "GRIXIS",
+        "U",
+        "UR",
+        "COLORLESS",
+        "R"
+      ],
+      "major_confusion_pairs": [
+        "B__ESPER",
+        "BANT__ESPER",
+        "ESPER__GRIXIS",
+        "ESPER__JESKAI",
+        "ESPER__MARDU",
+        "ESPER__PRISMARI",
+        "ESPER__SULTAI",
+        "ESPER__WB",
+        "ESPER__WITCH"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": true,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.hall.information-to-plan.v1",
+        "b1.crucible.esper.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.colorless-wubrg.v1",
+        "b1.crucible.esper.v1",
+        "b1.crucible.ink-witch.v1",
+        "b1.crucible.ug.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.wr.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1"
+      ],
+      "unresolved_authority_gaps": [],
+      "blocking_reason": null
+    },
+    {
+      "identity": "G",
+      "identity_name": "Green",
+      "observability": "PARTIALLY_OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.limit"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.waves"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.narrow"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.early"
+        },
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "answer_id": "b1.crucible.mono-multi.v1.mono"
+        }
+      ],
+      "supporting_constructs": [
+        "C03",
+        "C14",
+        "C10"
+      ],
+      "strongest_competitors": [
+        "R",
+        "W",
+        "U",
+        "B",
+        "TEMUR"
+      ],
+      "major_confusion_pairs": [
+        "G__NAYA",
+        "G__R",
+        "G__U",
+        "G__W"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.colorless-wubrg.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.wr.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.pressure.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1",
+        "b1.hall.theme.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool observes relevant broad or family behavior but has no direct identity-specific discriminator."
+      ],
+      "blocking_reason": "Approved B1 evidence supplies structural/family coverage but no identity-specific naming discriminator."
+    },
+    {
+      "identity": "GLINT",
+      "identity_name": "Glint / Chaos",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.repeatability.v1",
+          "answer_id": "b1.hall.repeatability.v1.same"
+        },
+        {
+          "question_id": "b1.hall.threat.v1",
+          "answer_id": "b1.hall.threat.v1.avoid"
+        },
+        {
+          "question_id": "b1.crucible.yore-glint.v1",
+          "answer_id": "b1.crucible.yore-glint.v1.improvise"
+        }
+      ],
+      "supporting_constructs": [
+        "C09",
+        "C01",
+        "C11"
+      ],
+      "strongest_competitors": [
+        "R",
+        "PRISMARI",
+        "BR",
+        "UR",
+        "GRIXIS"
+      ],
+      "major_confusion_pairs": [
+        "B__GLINT",
+        "BANT__GLINT",
+        "BG__GLINT",
+        "BR__GLINT",
+        "DUNE__GLINT",
+        "GLINT__GRIXIS",
+        "GLINT__JUND",
+        "GLINT__PRISMARI",
+        "GLINT__R",
+        "GLINT__SULTAI",
+        "GLINT__TEMUR",
+        "GLINT__U",
+        "GLINT__UB",
+        "GLINT__UR",
+        "GLINT__YORE"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": true,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.yore-glint.v1",
+        "b1.crucible.glint-dune.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.glint-dune.v1",
+        "b1.crucible.yore-glint.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [],
+      "blocking_reason": null
+    },
+    {
+      "identity": "GRIXIS",
+      "identity_name": "Grixis",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.exploit"
+        },
+        {
+          "question_id": "b1.hall.mana-window.v1",
+          "answer_id": "b1.hall.mana-window.v1.others"
+        },
+        {
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.convert"
+        },
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "answer_id": "b1.crucible.mono-multi.v1.multi"
+        }
+      ],
+      "supporting_constructs": [
+        "C01",
+        "C12",
+        "C16",
+        "C02"
+      ],
+      "strongest_competitors": [
+        "JESKAI",
+        "B",
+        "UB",
+        "BR",
+        "JUND"
+      ],
+      "major_confusion_pairs": [
+        "DUNE__GRIXIS",
+        "ESPER__GRIXIS",
+        "GLINT__GRIXIS",
+        "GRIXIS__JESKAI",
+        "GRIXIS__JUND",
+        "GRIXIS__SILVERQUILL",
+        "GRIXIS__SULTAI",
+        "GRIXIS__UG",
+        "GRIXIS__WUBRG"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.hall.information-to-plan.v1",
+        "b1.crucible.grixis.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.mono-multi.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "High confusion or insufficient distinctiveness; preserve close/insufficient until player evidence supports mapping.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
+    },
+    {
+      "identity": "INK",
+      "identity_name": "Ink / Altruism",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.unsure"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.limit"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.commander-role.v1",
+          "answer_id": "b1.hall.commander-role.v1.center"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.reopen"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.early"
+        },
+        {
+          "question_id": "b1.crucible.dune-ink.v1",
+          "answer_id": "b1.crucible.dune-ink.v1.commons"
+        }
+      ],
+      "supporting_constructs": [
+        "C13",
+        "C03",
+        "C10"
+      ],
+      "strongest_competitors": [
+        "ABZAN",
+        "BANT",
+        "G",
+        "UG",
+        "W"
+      ],
+      "major_confusion_pairs": [
+        "BANT__INK",
+        "DUNE__INK",
+        "INK__JESKAI",
+        "INK__NAYA",
+        "INK__WG",
+        "INK__WITCH"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": true,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.dune-ink.v1",
+        "b1.crucible.ink-witch.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.dune-ink.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1"
+      ],
+      "unresolved_authority_gaps": [],
+      "blocking_reason": null
+    },
+    {
+      "identity": "JESKAI",
+      "identity_name": "Jeskai Way",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.repeatability.v1",
+          "answer_id": "b1.hall.repeatability.v1.same"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.exploit"
+        },
+        {
+          "question_id": "b1.hall.mana-window.v1",
+          "answer_id": "b1.hall.mana-window.v1.others"
+        },
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "answer_id": "b1.crucible.mono-multi.v1.multi"
+        }
+      ],
+      "supporting_constructs": [
+        "C08",
+        "C01",
+        "C16",
+        "C09"
+      ],
+      "strongest_competitors": [
+        "B",
+        "ESPER",
+        "WU",
+        "GRIXIS",
+        "GLINT"
+      ],
+      "major_confusion_pairs": [
+        "ESPER__JESKAI",
+        "GRIXIS__JESKAI",
+        "INK__JESKAI",
+        "JESKAI__LOREHOLD",
+        "JESKAI__MARDU",
+        "JESKAI__NAYA",
+        "JESKAI__QUANDRIX",
+        "JESKAI__R",
+        "JESKAI__TEMUR",
+        "JESKAI__U",
+        "JESKAI__UR",
+        "JESKAI__W",
+        "JESKAI__WR",
+        "JESKAI__WU"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.hall.information-to-plan.v1",
+        "b1.crucible.jeskai.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.mono-multi.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "High confusion or insufficient distinctiveness; preserve close/insufficient until player evidence supports mapping.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
+    },
+    {
+      "identity": "JUND",
+      "identity_name": "Jund",
+      "observability": "PARTIALLY_OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.limit"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.commander-role.v1",
+          "answer_id": "b1.hall.commander-role.v1.center"
+        },
+        {
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.convert"
+        },
+        {
+          "question_id": "b1.crucible.bg.v1",
+          "answer_id": "b1.crucible.bg.v1.exchange"
+        }
+      ],
+      "supporting_constructs": [
+        "C01",
+        "C12",
+        "C07"
+      ],
+      "strongest_competitors": [
+        "WITHERBLOOM",
+        "BANT",
+        "WR",
+        "GRIXIS",
+        "SULTAI"
+      ],
+      "major_confusion_pairs": [
+        "BANT__JUND",
+        "BR__JUND",
+        "GLINT__JUND",
+        "GRIXIS__JUND",
+        "JUND__NAYA",
+        "JUND__PRISMARI",
+        "JUND__UB",
+        "JUND__WUBRG"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": true,
+      "best_internal_rank": 3,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.esper.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.wr.v1",
+        "b1.crucible.yore-glint.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool observes relevant broad or family behavior but has no direct identity-specific discriminator."
+      ],
+      "blocking_reason": "Approved B1 evidence supplies structural/family coverage but no identity-specific naming discriminator."
+    },
+    {
+      "identity": "LOREHOLD",
+      "identity_name": "Lorehold College",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.recover"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.consolidate"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.central"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
+        },
+        {
+          "question_id": "b1.crucible.wr.v1",
+          "answer_id": "b1.crucible.wr.v1.recover"
+        }
+      ],
+      "supporting_constructs": [
+        "C03",
+        "C06",
+        "C10"
+      ],
+      "strongest_competitors": [
+        "ESPER",
+        "U",
+        "BG",
+        "UG",
+        "UR"
+      ],
+      "major_confusion_pairs": [
+        "DUNE__LOREHOLD",
+        "JESKAI__LOREHOLD",
+        "LOREHOLD__NAYA",
+        "LOREHOLD__R",
+        "LOREHOLD__WR"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": true,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.wr.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.colorless-wubrg.v1",
+        "b1.crucible.esper.v1",
+        "b1.crucible.wr.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1"
+      ],
+      "unresolved_authority_gaps": [],
+      "blocking_reason": null
+    },
+    {
+      "identity": "MARDU",
+      "identity_name": "Mardu Horde",
+      "observability": "PARTIALLY_OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.repeatability.v1",
+          "answer_id": "b1.hall.repeatability.v1.toolbox"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.commander-role.v1",
+          "answer_id": "b1.hall.commander-role.v1.center"
+        },
+        {
+          "question_id": "b1.crucible.yore-glint.v1",
+          "answer_id": "b1.crucible.yore-glint.v1.engineered"
+        }
+      ],
+      "supporting_constructs": [
+        "C01",
+        "C07",
+        "C13"
+      ],
+      "strongest_competitors": [
+        "YORE",
+        "BANT",
+        "JESKAI",
+        "JUND",
+        "QUANDRIX"
+      ],
+      "major_confusion_pairs": [
+        "ABZAN__MARDU",
+        "ESPER__MARDU",
+        "JESKAI__MARDU",
+        "MARDU__R"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "best_internal_rank": 5,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.glint-dune.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.yore-glint.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool observes relevant broad or family behavior but has no direct identity-specific discriminator."
+      ],
+      "blocking_reason": "Approved B1 evidence supplies structural/family coverage but no identity-specific naming discriminator."
+    },
+    {
+      "identity": "NAYA",
+      "identity_name": "Naya",
+      "observability": "PARTIALLY_OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.unsure"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.open"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
+        },
+        {
+          "question_id": "b1.hall.threat.v1",
+          "answer_id": "b1.hall.threat.v1.avoid"
+        },
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "answer_id": "b1.crucible.mono-multi.v1.multi"
+        }
+      ],
+      "supporting_constructs": [
+        "C07",
+        "C10",
+        "C11"
+      ],
+      "strongest_competitors": [
+        "UB",
+        "U",
+        "WU",
+        "BR",
+        "DUNE"
+      ],
+      "major_confusion_pairs": [
+        "DUNE__NAYA",
+        "G__NAYA",
+        "INK__NAYA",
+        "JESKAI__NAYA",
+        "JUND__NAYA",
+        "LOREHOLD__NAYA",
+        "NAYA__R",
+        "NAYA__RG",
+        "NAYA__W",
+        "NAYA__WG",
+        "NAYA__WUBRG",
+        "NAYA__YORE"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "best_internal_rank": 7,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.colorless-wubrg.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.ur.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool observes relevant broad or family behavior but has no direct identity-specific discriminator."
+      ],
+      "blocking_reason": "Approved B1 evidence supplies structural/family coverage but no identity-specific naming discriminator."
+    },
+    {
+      "identity": "PRISMARI",
+      "identity_name": "Prismari College",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.unsure"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
+        },
+        {
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.convert"
+        },
+        {
+          "question_id": "b1.crucible.ur.v1",
+          "answer_id": "b1.crucible.ur.v1.showcase"
+        }
+      ],
+      "supporting_constructs": [
+        "C04",
+        "C10",
+        "C11"
+      ],
+      "strongest_competitors": [
+        "BR",
+        "GRIXIS",
+        "SULTAI",
+        "WITHERBLOOM",
+        "BG"
+      ],
+      "major_confusion_pairs": [
+        "B__PRISMARI",
+        "DUNE__PRISMARI",
+        "ESPER__PRISMARI",
+        "GLINT__PRISMARI",
+        "JUND__PRISMARI",
+        "PRISMARI__UB",
+        "PRISMARI__UR",
+        "PRISMARI__WR"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": true,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.ur.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.colorless-wubrg.v1",
+        "b1.crucible.glint-dune.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.wr.v1",
+        "b1.crucible.yore-glint.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1",
+        "b1.hall.theme.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [],
+      "blocking_reason": null
+    },
+    {
+      "identity": "QUANDRIX",
+      "identity_name": "Quandrix College",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.repeatability.v1",
+          "answer_id": "b1.hall.repeatability.v1.same"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.central"
+        },
+        {
+          "question_id": "b1.crucible.ug.v1",
+          "answer_id": "b1.crucible.ug.v1.scale"
+        }
+      ],
+      "supporting_constructs": [
+        "C06",
+        "C09",
+        "C14"
+      ],
+      "strongest_competitors": [
+        "WITCH",
+        "YORE",
+        "GLINT",
+        "UR",
+        "ESPER"
+      ],
+      "major_confusion_pairs": [
+        "JESKAI__QUANDRIX",
+        "QUANDRIX__UG",
+        "QUANDRIX__WG",
+        "QUANDRIX__WITCH"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": true,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.ug.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.colorless-wubrg.v1",
+        "b1.crucible.esper.v1",
+        "b1.crucible.ink-witch.v1",
+        "b1.crucible.ug.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.yore-glint.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1",
+        "b1.hall.threat.v1",
+        "b1.lens.yore-glint.v1"
+      ],
+      "unresolved_authority_gaps": [],
+      "blocking_reason": null
+    },
+    {
+      "identity": "R",
+      "identity_name": "Red",
+      "observability": "PARTIALLY_OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.limit"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.narrow"
+        },
+        {
+          "question_id": "b1.hall.threat.v1",
+          "answer_id": "b1.hall.threat.v1.avoid"
+        },
+        {
+          "question_id": "b1.crucible.ur.v1",
+          "answer_id": "b1.crucible.ur.v1.neither"
+        }
+      ],
+      "supporting_constructs": [
+        "C01",
+        "C04",
+        "C11"
+      ],
+      "strongest_competitors": [
+        "PRISMARI",
+        "BR",
+        "GLINT",
+        "WR",
+        "GRIXIS"
+      ],
+      "major_confusion_pairs": [
+        "B__R",
+        "G__R",
+        "GLINT__R",
+        "JESKAI__R",
+        "LOREHOLD__R",
+        "MARDU__R",
+        "NAYA__R",
+        "R__W",
+        "R__YORE"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.glint-dune.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.wr.v1",
+        "b1.crucible.yore-glint.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.pressure.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1",
+        "b1.hall.theme.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool observes relevant broad or family behavior but has no direct identity-specific discriminator."
+      ],
+      "blocking_reason": "Approved B1 evidence supplies structural/family coverage but no identity-specific naming discriminator."
+    },
+    {
+      "identity": "RG",
+      "identity_name": "Gruul Clans",
+      "observability": "PARTIALLY_OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.repeatability.v1",
+          "answer_id": "b1.hall.repeatability.v1.toolbox"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.commander-role.v1",
+          "answer_id": "b1.hall.commander-role.v1.center"
+        },
+        {
+          "question_id": "b1.crucible.yore-glint.v1",
+          "answer_id": "b1.crucible.yore-glint.v1.engineered"
+        }
+      ],
+      "supporting_constructs": [
+        "C07",
+        "C01",
+        "C10"
+      ],
+      "strongest_competitors": [
+        "YORE",
+        "BANT",
+        "JESKAI",
+        "JUND",
+        "MARDU"
+      ],
+      "major_confusion_pairs": [
+        "B__RG",
+        "NAYA__RG",
+        "RG__U"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "best_internal_rank": 8,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.glint-dune.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.wr.v1",
+        "b1.crucible.yore-glint.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool observes relevant broad or family behavior but has no direct identity-specific discriminator."
+      ],
+      "blocking_reason": "Approved B1 evidence supplies structural/family coverage but no identity-specific naming discriminator."
+    },
+    {
+      "identity": "SILVERQUILL",
+      "identity_name": "Silverquill College",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.unsure"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.limit"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.commander-role.v1",
+          "answer_id": "b1.hall.commander-role.v1.center"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.reopen"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.early"
+        },
+        {
+          "question_id": "b1.crucible.dune-ink.v1",
+          "answer_id": "b1.crucible.dune-ink.v1.commons"
+        }
+      ],
+      "supporting_constructs": [
+        "C13",
+        "C11",
+        "C10"
+      ],
+      "strongest_competitors": [
+        "INK",
+        "ABZAN",
+        "BANT",
+        "G",
+        "UG"
+      ],
+      "major_confusion_pairs": [
+        "ABZAN__SILVERQUILL",
+        "GRIXIS__SILVERQUILL",
+        "SILVERQUILL__TEMUR",
+        "SILVERQUILL__WB"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "best_internal_rank": 8,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.wb.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.dune-ink.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
+    },
+    {
+      "identity": "SULTAI",
+      "identity_name": "Sultai Brood",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.unsure"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.protect"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.commander-role.v1",
+          "answer_id": "b1.hall.commander-role.v1.function"
+        },
+        {
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.convert"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.central"
+        },
+        {
+          "question_id": "b1.crucible.bg.v1",
+          "answer_id": "b1.crucible.bg.v1.exchange"
+        }
+      ],
+      "supporting_constructs": [
+        "C12",
+        "C06",
+        "C14"
+      ],
+      "strongest_competitors": [
+        "WITHERBLOOM",
+        "BANT",
+        "BR",
+        "LOREHOLD",
+        "UG"
+      ],
+      "major_confusion_pairs": [
+        "ABZAN__SULTAI",
+        "B__SULTAI",
+        "BR__SULTAI",
+        "ESPER__SULTAI",
+        "GLINT__SULTAI",
+        "GRIXIS__SULTAI",
+        "SULTAI__TEMUR",
+        "SULTAI__UB",
+        "SULTAI__WUBRG"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 2,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.sultai.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.colorless-wubrg.v1",
+        "b1.crucible.dune-ink.v1",
+        "b1.crucible.esper.v1",
+        "b1.crucible.ink-witch.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.ug.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.wr.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "High confusion or insufficient distinctiveness; preserve close/insufficient until player evidence supports mapping.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
+    },
+    {
+      "identity": "TEMUR",
+      "identity_name": "Temur Frontier",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.limit"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.narrow"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.early"
+        },
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "answer_id": "b1.crucible.mono-multi.v1.multi"
+        }
+      ],
+      "supporting_constructs": [
+        "C01",
+        "C07",
+        "C14"
+      ],
+      "strongest_competitors": [
+        "ABZAN",
+        "UG",
+        "WR",
+        "GRIXIS",
+        "INK"
+      ],
+      "major_confusion_pairs": [
+        "BANT__TEMUR",
+        "GLINT__TEMUR",
+        "JESKAI__TEMUR",
+        "SILVERQUILL__TEMUR",
+        "SULTAI__TEMUR",
+        "TEMUR__UB",
+        "TEMUR__WUBRG"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.temur.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.esper.v1",
+        "b1.crucible.glint-dune.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.wr.v1",
+        "b1.crucible.yore-glint.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1",
+        "b1.hall.theme.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "High confusion or insufficient distinctiveness; preserve close/insufficient until player evidence supports mapping.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
+    },
+    {
+      "identity": "U",
+      "identity_name": "Blue",
+      "observability": "PARTIALLY_OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.open"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.narrow"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.central"
+        },
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "answer_id": "b1.crucible.mono-multi.v1.mono"
+        }
+      ],
+      "supporting_constructs": [
+        "C01",
+        "C08",
+        "C16",
+        "C06"
+      ],
+      "strongest_competitors": [
+        "UB",
+        "WU",
+        "R",
+        "B",
+        "G"
+      ],
+      "major_confusion_pairs": [
+        "B__U",
+        "G__U",
+        "GLINT__U",
+        "JESKAI__U",
+        "RG__U",
+        "U__UB",
+        "U__W"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.hall.information-to-plan.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.mono-multi.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool observes relevant broad or family behavior but has no direct identity-specific discriminator."
+      ],
+      "blocking_reason": "Approved B1 evidence supplies structural/family coverage but no identity-specific naming discriminator."
+    },
+    {
+      "identity": "UB",
+      "identity_name": "House Dimir",
+      "observability": "PARTIALLY_OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.open"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
+        },
+        {
+          "question_id": "b1.hall.threat.v1",
+          "answer_id": "b1.hall.threat.v1.avoid"
+        },
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "answer_id": "b1.crucible.mono-multi.v1.multi"
+        }
+      ],
+      "supporting_constructs": [
+        "C02",
+        "C08",
+        "C16",
+        "C11"
+      ],
+      "strongest_competitors": [
+        "U",
+        "GRIXIS",
+        "PRISMARI",
+        "BR",
+        "GLINT"
+      ],
+      "major_confusion_pairs": [
+        "B__UB",
+        "BR__UB",
+        "GLINT__UB",
+        "JUND__UB",
+        "PRISMARI__UB",
+        "SULTAI__UB",
+        "TEMUR__UB",
+        "U__UB",
+        "UB__WITCH",
+        "UB__WUBRG",
+        "UB__YORE"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.hall.information-to-plan.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.mono-multi.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool observes relevant broad or family behavior but has no direct identity-specific discriminator."
+      ],
+      "blocking_reason": "Approved B1 evidence supplies structural/family coverage but no identity-specific naming discriminator."
+    },
+    {
+      "identity": "UG",
+      "identity_name": "Simic Combine",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.unsure"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.protect"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.commander-role.v1",
+          "answer_id": "b1.hall.commander-role.v1.function"
+        },
+        {
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.convert"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.overlap"
+        },
+        {
+          "question_id": "b1.crucible.bg.v1",
+          "answer_id": "b1.crucible.bg.v1.exchange"
+        }
+      ],
+      "supporting_constructs": [
+        "C06",
+        "C03",
+        "C14"
+      ],
+      "strongest_competitors": [
+        "WITHERBLOOM",
+        "SULTAI",
+        "BANT",
+        "BR",
+        "LOREHOLD"
+      ],
+      "major_confusion_pairs": [
+        "GRIXIS__UG",
+        "QUANDRIX__UG",
+        "UG__WITCH"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": true,
+      "best_internal_rank": 3,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.ug.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.dune-ink.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
+    },
+    {
+      "identity": "UR",
+      "identity_name": "Izzet League",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.small"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.repeatability.v1",
+          "answer_id": "b1.hall.repeatability.v1.same"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.central"
+        },
+        {
+          "question_id": "b1.crucible.ur.v1",
+          "answer_id": "b1.crucible.ur.v1.workshop"
+        }
+      ],
+      "supporting_constructs": [
+        "C06",
+        "C04",
+        "C09"
+      ],
+      "strongest_competitors": [
+        "QUANDRIX",
+        "WITCH",
+        "YORE",
+        "GLINT",
+        "R"
+      ],
+      "major_confusion_pairs": [
+        "GLINT__UR",
+        "JESKAI__UR",
+        "PRISMARI__UR",
+        "UR__YORE"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": true,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.ur.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.colorless-wubrg.v1",
+        "b1.crucible.esper.v1",
+        "b1.crucible.glint-dune.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.yore-glint.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [],
+      "blocking_reason": null
+    },
+    {
+      "identity": "W",
+      "identity_name": "White",
+      "observability": "PARTIALLY_OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.unsure"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.limit"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.commander-role.v1",
+          "answer_id": "b1.hall.commander-role.v1.function"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.short"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.narrow"
+        },
+        {
+          "question_id": "b1.crucible.dune-ink.v1",
+          "answer_id": "b1.crucible.dune-ink.v1.neither"
+        }
+      ],
+      "supporting_constructs": [
+        "C03",
+        "C13",
+        "C07"
+      ],
+      "strongest_competitors": [
+        "ABZAN",
+        "BANT",
+        "INK",
+        "WG",
+        "COLORLESS"
+      ],
+      "major_confusion_pairs": [
+        "B__W",
+        "BANT__W",
+        "G__W",
+        "JESKAI__W",
+        "NAYA__W",
+        "R__W",
+        "U__W",
+        "W__WU",
+        "W__WUBRG",
+        "W__YORE"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.dune-ink.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1",
+        "b1.hall.theme.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool observes relevant broad or family behavior but has no direct identity-specific discriminator."
+      ],
+      "blocking_reason": "Approved B1 evidence supplies structural/family coverage but no identity-specific naming discriminator."
+    },
+    {
+      "identity": "WB",
+      "identity_name": "Orzhov Syndicate",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.unsure"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
+        },
+        {
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.convert"
+        },
+        {
+          "question_id": "b1.crucible.bg.v1",
+          "answer_id": "b1.crucible.bg.v1.exchange"
+        }
+      ],
+      "supporting_constructs": [
+        "C13",
+        "C12",
+        "C09"
+      ],
+      "strongest_competitors": [
+        "WITHERBLOOM",
+        "GRIXIS",
+        "SULTAI",
+        "BR",
+        "JUND"
+      ],
+      "major_confusion_pairs": [
+        "ESPER__WB",
+        "SILVERQUILL__WB",
+        "WB__WITCH",
+        "WB__WR"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "best_internal_rank": 6,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.wb.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.glint-dune.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.yore-glint.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
+    },
+    {
+      "identity": "WG",
+      "identity_name": "Selesnya Conclave",
+      "observability": "PARTIALLY_OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.unsure"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.limit"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.commander-role.v1",
+          "answer_id": "b1.hall.commander-role.v1.center"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.short"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
+        },
+        {
+          "question_id": "b1.crucible.dune-ink.v1",
+          "answer_id": "b1.crucible.dune-ink.v1.commons"
+        }
+      ],
+      "supporting_constructs": [
+        "C13",
+        "C03",
+        "C10"
+      ],
+      "strongest_competitors": [
+        "INK",
+        "BANT",
+        "ABZAN",
+        "W",
+        "WB"
+      ],
+      "major_confusion_pairs": [
+        "INK__WG",
+        "NAYA__WG",
+        "QUANDRIX__WG"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "best_internal_rank": 4,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.dune-ink.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool observes relevant broad or family behavior but has no direct identity-specific discriminator."
+      ],
+      "blocking_reason": "Approved B1 evidence supplies structural/family coverage but no identity-specific naming discriminator."
+    },
+    {
+      "identity": "WITCH",
+      "identity_name": "Witch / Growth",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.repeatability.v1",
+          "answer_id": "b1.hall.repeatability.v1.same"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.central"
+        },
+        {
+          "question_id": "b1.crucible.ug.v1",
+          "answer_id": "b1.crucible.ug.v1.adapt"
+        }
+      ],
+      "supporting_constructs": [
+        "C14",
+        "C06",
+        "C09"
+      ],
+      "strongest_competitors": [
+        "UG",
+        "YORE",
+        "GLINT",
+        "UR",
+        "ESPER"
+      ],
+      "major_confusion_pairs": [
+        "ABZAN__WITCH",
+        "ESPER__WITCH",
+        "INK__WITCH",
+        "QUANDRIX__WITCH",
+        "UB__WITCH",
+        "UG__WITCH",
+        "WB__WITCH",
+        "WITCH__YORE"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 2,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.ink-witch.v1",
+        "b1.crucible.witch-yore.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.colorless-wubrg.v1",
+        "b1.crucible.esper.v1",
+        "b1.crucible.glint-dune.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.ug.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.yore-glint.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.threat.v1",
+        "b1.lens.yore-glint.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
+    },
+    {
+      "identity": "WITHERBLOOM",
+      "identity_name": "Witherbloom College",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.limit"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
+        },
+        {
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.convert"
+        },
+        {
+          "question_id": "b1.crucible.bg.v1",
+          "answer_id": "b1.crucible.bg.v1.exchange"
+        }
+      ],
+      "supporting_constructs": [
+        "C12",
+        "C06",
+        "C14"
+      ],
+      "strongest_competitors": [
+        "GRIXIS",
+        "BR",
+        "JUND",
+        "WR",
+        "R"
+      ],
+      "major_confusion_pairs": [
+        "B__WITHERBLOOM",
+        "BG__WITHERBLOOM"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": true,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.esper.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.wr.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [],
+      "blocking_reason": null
+    },
+    {
+      "identity": "WR",
+      "identity_name": "Boros Legion",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.protect"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.small"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.narrow"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.combat"
+        },
+        {
+          "question_id": "b1.crucible.wr.v1",
+          "answer_id": "b1.crucible.wr.v1.intervene"
+        }
+      ],
+      "supporting_constructs": [
+        "C03",
+        "C07",
+        "C01"
+      ],
+      "strongest_competitors": [
+        "R",
+        "W",
+        "JUND",
+        "MARDU",
+        "RG"
+      ],
+      "major_confusion_pairs": [
+        "JESKAI__WR",
+        "LOREHOLD__WR",
+        "PRISMARI__WR",
+        "WB__WR",
+        "WR__YORE"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": true,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.wr.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.glint-dune.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.wr.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.pressure.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [],
+      "blocking_reason": null
+    },
+    {
+      "identity": "WU",
+      "identity_name": "Azorius Senate",
+      "observability": "PARTIALLY_OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.unsure"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.open"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
+        },
+        {
+          "question_id": "b1.hall.threat.v1",
+          "answer_id": "b1.hall.threat.v1.avoid"
+        },
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "answer_id": "b1.crucible.mono-multi.v1.mono"
+        }
+      ],
+      "supporting_constructs": [
+        "C08",
+        "C13",
+        "C16",
+        "C09"
+      ],
+      "strongest_competitors": [
+        "UB",
+        "B",
+        "U",
+        "R",
+        "G"
+      ],
+      "major_confusion_pairs": [
+        "BR__WU",
+        "JESKAI__WU",
+        "W__WU"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 2,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.hall.information-to-plan.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.mono-multi.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool observes relevant broad or family behavior but has no direct identity-specific discriminator."
+      ],
+      "blocking_reason": "Approved B1 evidence supplies structural/family coverage but no identity-specific naming discriminator."
+    },
+    {
+      "identity": "WUBRG",
+      "identity_name": "Five-Color / WUBRG",
+      "observability": "OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.recover"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.narrow"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.theme.v1",
+          "answer_id": "b1.hall.theme.v1.reliable"
+        },
+        {
+          "question_id": "b1.crucible.colorless-wubrg.v1",
+          "answer_id": "b1.crucible.colorless-wubrg.v1.breadth"
+        }
+      ],
+      "supporting_constructs": [
+        "C15",
+        "C09",
+        "C10"
+      ],
+      "strongest_competitors": [
+        "LOREHOLD",
+        "PRISMARI",
+        "G",
+        "INK",
+        "R"
+      ],
+      "major_confusion_pairs": [
+        "COLORLESS__WUBRG",
+        "GRIXIS__WUBRG",
+        "JUND__WUBRG",
+        "NAYA__WUBRG",
+        "SULTAI__WUBRG",
+        "TEMUR__WUBRG",
+        "UB__WUBRG",
+        "W__WUBRG"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": true,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.colorless-wubrg.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.colorless-wubrg.v1",
+        "b1.crucible.esper.v1",
+        "b1.crucible.glint-dune.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.wr.v1",
+        "b1.crucible.yore-glint.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1",
+        "b1.hall.theme.v1",
+        "b1.hall.threat.v1"
+      ],
+      "unresolved_authority_gaps": [],
+      "blocking_reason": null
+    },
+    {
+      "identity": "YORE",
+      "identity_name": "Yore / Artifice",
+      "observability": "NOT_CLEANLY_OBSERVABLE",
+      "mapping_validation": "MAPPING_HYPOTHESIS",
+      "strongest_approved_evidence_path": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.repeatability.v1",
+          "answer_id": "b1.hall.repeatability.v1.same"
+        },
+        {
+          "question_id": "b1.hall.threat.v1",
+          "answer_id": "b1.hall.threat.v1.avoid"
+        },
+        {
+          "question_id": "b1.crucible.yore-glint.v1",
+          "answer_id": "b1.crucible.yore-glint.v1.engineered"
+        }
+      ],
+      "supporting_constructs": [
+        "C06",
+        "C09",
+        "C12"
+      ],
+      "strongest_competitors": [
+        "R",
+        "PRISMARI",
+        "BR",
+        "UR",
+        "GRIXIS"
+      ],
+      "major_confusion_pairs": [
+        "ABZAN__YORE",
+        "B__YORE",
+        "BR__YORE",
+        "GLINT__YORE",
+        "NAYA__YORE",
+        "R__YORE",
+        "UB__YORE",
+        "UR__YORE",
+        "W__YORE",
+        "WITCH__YORE",
+        "WR__YORE"
+      ],
+      "can_enter_candidate_set": true,
+      "can_become_primary": false,
+      "can_appear_top_2": true,
+      "can_appear_top_3": true,
+      "best_internal_rank": 1,
+      "minimum_evidence_needed": 8,
+      "discriminating_questions": [
+        "b1.crucible.yore-glint.v1",
+        "b1.crucible.witch-yore.v1",
+        "b1.crucible.mono-multi.v1"
+      ],
+      "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
+        "b1.crucible.colorless-wubrg.v1",
+        "b1.crucible.esper.v1",
+        "b1.crucible.glint-dune.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.ug.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.wr.v1",
+        "b1.crucible.yore-glint.v1",
+        "b1.gate.disruption.v1",
+        "b1.gate.initiative.v1",
+        "b1.gate.tempo.v1",
+        "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
+        "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
+        "b1.hall.mana-window.v1",
+        "b1.hall.repeatability.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.threat.v1",
+        "b1.lens.yore-glint.v1"
+      ],
+      "unresolved_authority_gaps": [
+        "High confusion or insufficient distinctiveness; preserve close/insufficient until player evidence supports mapping.",
+        "C06/C09 observe engine structure and repeatability, but behavior does not establish Yore's constructed-agency identity lens; guarded self-report remains a separate evidence class."
+      ],
+      "blocking_reason": "Certified identity truth cannot be cleanly observed from Commander behavior; the lens is secondary and cannot name or flip a result."
+    }
+  ]
+}

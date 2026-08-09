@@ -714,6 +714,13 @@ export function deriveGateAResultState({ result, placementModel = null, factions
   if (!result.faction || !knownFaction(factions, result.faction)) return "invalid";
   if (!Array.isArray(result.top_matches) || !result.top_matches.length) return "incomplete";
 
+  if (
+    result.model_kind === "gate-b1-evidence-ranking-v1" &&
+    ["primary", "tied", "close"].includes(explicit)
+  ) {
+    return explicit;
+  }
+
   const [first, second] = result.top_matches;
   if (
     first &&
@@ -752,7 +759,7 @@ export function withGateAPublicState({ result, placementModel = null, factions =
     public_confidence_state: resultState === "primary" ? "current-best-fit" : resultState,
     alternative_state: resultState === "tied" ? "co-leader" : resultState === "close" ? "close" : "none",
     confidence_display_mode: "bounded-state",
-    model_kind: "adaptive-weighted-scoring",
+    model_kind: result.model_kind || "adaptive-weighted-scoring",
     legacy_result: isLegacyGateAResult(result),
     limitations: Array.isArray(result.limitations) ? result.limitations : [],
     compatibility_version: "gate-a-v1",

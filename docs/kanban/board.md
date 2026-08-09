@@ -53,6 +53,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-551 — Gate B1 Real Placement Engine](done/VM-551-gate-b1-real-placement-engine.md) - deterministic evidence engine and exhaustive model validation complete: all 37 can enter a candidate set, but approved evidence permits responsible named primaries for only 13/37; 24 primary paths and 689 unique insufficient states with no approved discriminator remain blocking evidence findings for owner decision, with no mappings fabricated and no UI, player-validation, push, merge, or deployment work.
+
 - [VM-551 — Gate B1 Authored Review-Route Truthfulness Remediation](done/VM-551-gate-b1-authored-review-route-truth.md) - OWNER PASS: all nine review paths are self-guiding from committed walkthrough steps, exact and one-answer-divergence coverage preserves authored result states, reviewer data remains isolated from player/free mode, and the truthfulness remediation is closed without validating mappings, scoring, routing, stopping, or the real placement engine.
 
 - [VM-551 — Gate B1 Production-Fidelity Experience Remediation](done/VM-551-gate-b1-production-fidelity-experience-remediation.md) - completed the owner-named bounded repair: full-width answer layouts, user-paced transitions, stage-truthful progress, selected-answer summaries, exact adaptive Q5 paths, boot-stripped production dossier authority reuse, all-section DOM parity, one production endcap, and byte-identical storage protection; stopped for owner visual re-review with architecture, production, scoring, player validation, push, merge, deployment, and certification frozen.

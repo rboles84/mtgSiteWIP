@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "deterministic_tie_ordering": true,
+  "unknown_and_conditional_are_neutral": true,
+  "excessive_uncertainty_is_insufficient": true,
+  "one_answer_cannot_create_clear_primary": true,
+  "supported_primary_stable_under_neutral_evidence": true,
+  "unsupported_tertiary_not_fabricated": true,
+  "gate_a_bounded_and_named_states_preserved": true,
+  "contradiction_reduces_support_and_returns_contradictory": true,
+  "negative_only_winner_blocked": true,
+  "meaningful_evidence_can_reorder": true,
+  "adaptive_positive_utility_cases": 1997,
+  "lens_eligibility_enforced": true,
+  "lens_answers_ranking_neutral": [
+    "b1.lens.yore-glint.v1.constructed",
+    "b1.lens.yore-glint.v1.adaptive",
+    "b1.lens.yore-glint.v1.skip"
+  ],
+  "behavioral_and_lens_ledgers_separate": true,
+  "numeric_public_confidence_authorized": false
+}

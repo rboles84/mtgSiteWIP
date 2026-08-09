@@ -1,0 +1,391 @@
+{
+  "version": "vm551-gate-b1-mapping-v1",
+  "instrument_version": "vm551-gate-b1-instrument-v1",
+  "authority": {
+    "questions": "docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv",
+    "answers": "docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
+    "semantic_adjudication": "docs/plans/vm551-gate-b1-placement-instrument/answer-semantic-adjudication.tsv",
+    "identity_coverage": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv",
+    "confusion_pairs": "docs/plans/vm551-gate-b1-placement-instrument/confusion-pair-coverage.tsv",
+    "lens": "docs/plans/vm551-gate-b1-placement-instrument/identity-lens-self-report-contract.md"
+  },
+  "scoring_contract": {
+    "description": "Internal deterministic evidence ranking, not calibrated confidence or empirical player accuracy.",
+    "minimum_main_questions": 6,
+    "maximum_main_questions": 8,
+    "minimum_hall_questions": 2,
+    "maximum_hall_questions": 3,
+    "maximum_targeted_questions": 1,
+    "candidate_limit": 8,
+    "structural_weight": 0.25,
+    "directional_weight": 0.75,
+    "contradiction_multiplier": 0.75,
+    "clear_minimum_directional_dependencies": 2,
+    "clear_minimum_independent_constructs": 2,
+    "clear_separation": 0.2,
+    "meaningful_alternative_window": 0.2,
+    "route_candidate_window": 0.3
+  },
+  "mapping_rules": [
+    {
+      "answer_id": "b1.hall.information-to-plan.v1.consolidate",
+      "support": ["ESPER"],
+      "contradict": [],
+      "strength": 0.6,
+      "naming_evidence": false,
+      "mapping_role": "cross_identity_direction",
+      "provenance": "answer-semantic-adjudication.tsv C16 evidence-required hypothesis; esper-yore-evidence-recovery.md"
+    },
+    {
+      "answer_id": "b1.hall.information-to-plan.v1.open",
+      "support": ["U", "UB", "WU"],
+      "contradict": [],
+      "strength": 0.5,
+      "naming_evidence": false,
+      "mapping_role": "cross_identity_direction",
+      "provenance": "answer-semantic-adjudication.tsv C16 evidence-required hypothesis; final-b1-architecture-decision.md"
+    },
+    {
+      "answer_id": "b1.hall.information-to-plan.v1.exploit",
+      "support": ["B", "GRIXIS", "JESKAI"],
+      "contradict": [],
+      "strength": 0.5,
+      "naming_evidence": false,
+      "mapping_role": "cross_identity_direction",
+      "provenance": "answer-semantic-adjudication.tsv C16 evidence-required hypothesis; final-b1-architecture-decision.md"
+    },
+    {
+      "answer_id": "b1.crucible.ur.v1.workshop",
+      "support": ["UR"],
+      "contradict": ["PRISMARI"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv UR vs PRISMARI evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.ur.v1.showcase",
+      "support": ["PRISMARI"],
+      "contradict": ["UR"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv UR vs PRISMARI evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.bg.v1.reclaim",
+      "support": ["BG"],
+      "contradict": ["WITHERBLOOM"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv BG vs WITHERBLOOM evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.bg.v1.exchange",
+      "support": ["WITHERBLOOM"],
+      "contradict": ["BG"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv BG vs WITHERBLOOM evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.wr.v1.intervene",
+      "support": ["WR"],
+      "contradict": ["LOREHOLD"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv WR vs LOREHOLD evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.wr.v1.recover",
+      "support": ["LOREHOLD"],
+      "contradict": ["WR"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv WR vs LOREHOLD evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.ug.v1.adapt",
+      "support": ["UG"],
+      "contradict": ["QUANDRIX"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv UG vs QUANDRIX evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.ug.v1.scale",
+      "support": ["QUANDRIX"],
+      "contradict": ["UG"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv UG vs QUANDRIX evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.wb.v1.terms",
+      "support": ["WB"],
+      "contradict": ["SILVERQUILL"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv WB vs SILVERQUILL evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.wb.v1.influence",
+      "support": ["SILVERQUILL"],
+      "contradict": ["WB"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv WB vs SILVERQUILL evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.bant.v1.refine",
+      "support": ["BANT"],
+      "contradict": [],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "bounded_target_direction",
+      "provenance": "answer-semantic-adjudication.tsv BANT boundary evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.bant.v1.network",
+      "support": [],
+      "contradict": ["BANT"],
+      "strength": 1,
+      "naming_evidence": false,
+      "mapping_role": "bounded_target_rejection",
+      "provenance": "answer-semantic-adjudication.tsv BANT boundary evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.grixis.v1.calculate",
+      "support": [],
+      "contradict": ["GRIXIS"],
+      "strength": 1,
+      "naming_evidence": false,
+      "mapping_role": "bounded_target_rejection",
+      "provenance": "certified Grixis requires calculation joined to urgent action; answer-semantic-adjudication.tsv"
+    },
+    {
+      "answer_id": "b1.crucible.grixis.v1.convert",
+      "support": ["GRIXIS"],
+      "contradict": [],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "bounded_target_direction",
+      "provenance": "certified Grixis decisive-opening boundary; answer-semantic-adjudication.tsv"
+    },
+    {
+      "answer_id": "b1.crucible.sultai.v1.best",
+      "support": ["SULTAI"],
+      "contradict": [],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "bounded_target_direction",
+      "provenance": "answer-semantic-adjudication.tsv SULTAI boundary evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.sultai.v1.cycle",
+      "support": [],
+      "contradict": ["SULTAI"],
+      "strength": 1,
+      "naming_evidence": false,
+      "mapping_role": "bounded_target_rejection",
+      "provenance": "answer-semantic-adjudication.tsv SULTAI boundary evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.temur.v1.adapt",
+      "support": ["TEMUR"],
+      "contradict": [],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "bounded_target_direction",
+      "provenance": "answer-semantic-adjudication.tsv TEMUR boundary evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.temur.v1.reset",
+      "support": [],
+      "contradict": ["TEMUR"],
+      "strength": 1,
+      "naming_evidence": false,
+      "mapping_role": "bounded_target_rejection",
+      "provenance": "answer-semantic-adjudication.tsv TEMUR boundary evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.esper.v1.designed",
+      "support": ["ESPER"],
+      "contradict": [],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "bounded_target_direction",
+      "provenance": "answer-semantic-adjudication.tsv ESPER boundary evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.esper.v1.flexible",
+      "support": [],
+      "contradict": ["ESPER"],
+      "strength": 1,
+      "naming_evidence": false,
+      "mapping_role": "bounded_target_rejection",
+      "provenance": "answer-semantic-adjudication.tsv ESPER boundary evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.jeskai.v1.sequence",
+      "support": ["JESKAI"],
+      "contradict": [],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "bounded_target_direction",
+      "provenance": "answer-semantic-adjudication.tsv JESKAI boundary evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.jeskai.v1.commit",
+      "support": [],
+      "contradict": ["JESKAI"],
+      "strength": 1,
+      "naming_evidence": false,
+      "mapping_role": "bounded_target_rejection",
+      "provenance": "answer-semantic-adjudication.tsv JESKAI boundary evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.jeskai.v1.wait",
+      "support": [],
+      "contradict": ["JESKAI"],
+      "strength": 1,
+      "naming_evidence": false,
+      "mapping_role": "bounded_target_rejection",
+      "provenance": "answer-semantic-adjudication.tsv JESKAI boundary evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.yore-glint.v1.engineered",
+      "support": ["YORE"],
+      "contradict": ["GLINT"],
+      "strength": 1,
+      "naming_evidence": false,
+      "mapping_role": "approximate_not_cleanly_observable",
+      "provenance": "Yore/Glint C09 hypothesis; Yore remains NOT_CLEANLY_OBSERVABLE"
+    },
+    {
+      "answer_id": "b1.crucible.yore-glint.v1.improvise",
+      "support": ["GLINT"],
+      "contradict": ["YORE"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv YORE vs GLINT evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.glint-dune.v1.shifting",
+      "support": ["GLINT"],
+      "contradict": ["DUNE"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv GLINT vs DUNE evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.glint-dune.v1.front",
+      "support": ["DUNE"],
+      "contradict": ["GLINT"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv GLINT vs DUNE evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.dune-ink.v1.front",
+      "support": ["DUNE"],
+      "contradict": ["INK"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv DUNE vs INK evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.dune-ink.v1.commons",
+      "support": ["INK"],
+      "contradict": ["DUNE"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv DUNE vs INK evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.ink-witch.v1.share",
+      "support": ["INK"],
+      "contradict": ["WITCH"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv INK vs WITCH evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.ink-witch.v1.compound",
+      "support": ["WITCH"],
+      "contradict": ["INK"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv INK vs WITCH evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.witch-yore.v1.compound",
+      "support": ["WITCH"],
+      "contradict": ["YORE"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv WITCH vs YORE evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.witch-yore.v1.convert",
+      "support": ["YORE"],
+      "contradict": ["WITCH"],
+      "strength": 1,
+      "naming_evidence": false,
+      "mapping_role": "approximate_not_cleanly_observable",
+      "provenance": "Witch/Yore C06 hypothesis; Yore remains NOT_CLEANLY_OBSERVABLE"
+    },
+    {
+      "answer_id": "b1.crucible.colorless-wubrg.v1.constraint",
+      "support": ["COLORLESS"],
+      "contradict": ["WUBRG"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv COLORLESS vs WUBRG evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.colorless-wubrg.v1.breadth",
+      "support": ["WUBRG"],
+      "contradict": ["COLORLESS"],
+      "strength": 1,
+      "naming_evidence": true,
+      "mapping_role": "exact_pair_direction",
+      "provenance": "answer-semantic-adjudication.tsv COLORLESS vs WUBRG evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.mono-multi.v1.mono",
+      "support": ["W", "U", "B", "R", "G"],
+      "contradict": [],
+      "strength": 0.35,
+      "naming_evidence": false,
+      "mapping_role": "boundary_only_group",
+      "provenance": "answer-semantic-adjudication.tsv mono-versus-multicolor evidence-required hypothesis"
+    },
+    {
+      "answer_id": "b1.crucible.mono-multi.v1.multi",
+      "support": ["ABZAN", "BANT", "BG", "BR", "DUNE", "ESPER", "GLINT", "GRIXIS", "INK", "JESKAI", "JUND", "LOREHOLD", "MARDU", "NAYA", "PRISMARI", "QUANDRIX", "RG", "SILVERQUILL", "SULTAI", "TEMUR", "UB", "UG", "UR", "WB", "WG", "WITCH", "WITHERBLOOM", "WR", "WU", "WUBRG", "YORE"],
+      "contradict": [],
+      "strength": 0.35,
+      "naming_evidence": false,
+      "mapping_role": "boundary_only_group",
+      "provenance": "answer-semantic-adjudication.tsv mono-versus-multicolor evidence-required hypothesis"
+    }
+  ]
+}
