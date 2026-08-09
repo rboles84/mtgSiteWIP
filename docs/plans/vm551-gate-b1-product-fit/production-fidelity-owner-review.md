@@ -106,3 +106,27 @@ Changing one marked answer is the negative control: the route must report false,
 Before every automated preview case, seed sentinel values into `vm_last_result` and `vm_profile`, record every existing `localStorage` key/value, exercise the requested surface, and prove every pre-existing value is byte-identical afterward. Any future preview payload must use a preview-only namespace and be consumed and deleted; the current bridge uses no storage payload.
 
 Compare one named preview dossier against production at the tab, panel, ARIA, and section reachability contract. Every production section available for that identity must remain reachable. Intentional section omissions: none. Account-saving actions and Scryfall card-art fetch/cache decoration are disabled in the internal preview to prevent persistence; their parent production sections remain present.
+
+## Final owner disposition — authored review-route truthfulness
+
+**OWNER PASS.** The authored review-route truthfulness remediation at `5336a5f3573331cef2904f58691a39539340b390` is accepted. No additional manual retest is required for this remediation.
+
+### Owner acceptance evidence
+
+- **Yore authored route: PASS.** The exact authored selections matched; `Selections match authored route: true`; all 7/7 expected question/answer pairs matched; no divergence warning appeared; and the intentional **Not enough evidence to distinguish** result remained unchanged.
+- **WUBRG authored route: PASS.** The exact authored selections matched; `Selections match authored route: true`; all 8/8 expected question/answer pairs matched; no divergence warning appeared; and the intentional **Mixed reading** result remained unchanged.
+- **One-answer divergence behavior: PASS.** A deliberate valid deviation produced a route mismatch and divergence warning, suppressed route-supported claims, and left the underlying authored Gate A/result state unchanged. Automated regression coverage confirms exact question, expected-answer, and actual-answer mismatch diagnostics. No conflicting owner evidence exists against that validation.
+- **Player/free-mode reviewer-data isolation: PASS.** With Reviewer Information disabled, authored-selection cues, stable answer IDs, route-match metadata, and mismatch diagnostics are absent. Reviewer-only evidence remains isolated.
+- **Internal preview toolbar visibility: expected.** The toolbar is internal preview chrome, not a defect, and no UI change is requested.
+
+### Authority and scope preserved
+
+- `docs/prototypes/vm551-gate-b1-owner-experience/prototype-data.json` `walkthrough.steps` and stable answer IDs remain the sole authored-route authority.
+- Prior manual Yore and WUBRG recipes were not authoritative and are not alternate route definitions.
+- The matcher was not the original semantic defect. The corrected defect was reviewer-guidance and authority drift combined with incomplete regression coverage.
+- Runtime reviewer cues derive from committed route authority. All nine exposed review cases have positive exact-route and one-answer-negative regression coverage.
+- The accepted preview lineage is `21ef260b400aca581d1a8f8535baa6d83e0719ff` (initial production-fidelity preview), `bd5cc61a415703e690ce58577e6760972fabb048` (production-fidelity experience remediation), and `5336a5f3573331cef2904f58691a39539340b390` (authored route truthfulness remediation).
+- This acceptance does not validate identity mappings, scoring, routing, stopping, or the real placement engine. `MAPPING_HYPOTHESIS` remains appropriate.
+- No player-validation work is authorized or implied.
+
+The separately recorded preview follow-ups remain outside this acceptance: blank or placeholder card-signal and Mana Notes presentation, inert preview Maze links, a clipped Commander-lane tooltip, and the insufficient-result continue/revise product question. They are not truthfulness-closeout blockers and are not authorized for repair here.

@@ -53,7 +53,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
-- [VM-551 — Gate B1 Authored Review-Route Truthfulness Remediation](done/VM-551-gate-b1-authored-review-route-truth.md) - made all nine review paths self-guiding from committed walkthrough steps, added exact per-step diagnostics and positive/negative browser coverage, preserved every authored result state, and stopped for owner harness re-review.
+- [VM-551 — Gate B1 Authored Review-Route Truthfulness Remediation](done/VM-551-gate-b1-authored-review-route-truth.md) - OWNER PASS: all nine review paths are self-guiding from committed walkthrough steps, exact and one-answer-divergence coverage preserves authored result states, reviewer data remains isolated from player/free mode, and the truthfulness remediation is closed without validating mappings, scoring, routing, stopping, or the real placement engine.
 
 - [VM-551 — Gate B1 Production-Fidelity Experience Remediation](done/VM-551-gate-b1-production-fidelity-experience-remediation.md) - completed the owner-named bounded repair: full-width answer layouts, user-paced transitions, stage-truthful progress, selected-answer summaries, exact adaptive Q5 paths, boot-stripped production dossier authority reuse, all-section DOM parity, one production endcap, and byte-identical storage protection; stopped for owner visual re-review with architecture, production, scoring, player validation, push, merge, deployment, and certification frozen.
 
