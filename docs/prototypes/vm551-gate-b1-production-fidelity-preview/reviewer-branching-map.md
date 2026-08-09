@@ -26,6 +26,10 @@ Every branch asks two or three adaptive/targeted behavioral questions, for seven
 
 ## Authored review cases
 
+The nine review cases exposed here define the production-fidelity regression scope. Their authored question order and selections come only from `../vm551-gate-b1-owner-experience/prototype-data.json` `walkthrough.steps` and stable answer IDs. `branching-map.json` identifies the cases; it does not independently define route steps, expected answers, or result semantics.
+
+With Reviewer Information enabled, each question marks the runtime-derived **Authored review selection** and stable answer ID. The result reports a complete match or exact per-step differences, so no separate copied answer recipe is required.
+
 Reviewer mode exposes nine focused cases sourced from the approved owner prototype:
 
 1. Simic / Quandrix — behavior only.

@@ -13,6 +13,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
+- [VM-551 — Gate B1 Preview Owner Follow-ups](backlog/VM-551-gate-b1-preview-owner-followups.md) - separately records blank/placeholder preview content, inert Maze actions, a clipped Commander-lane tooltip, and the insufficient-result continuation question; no repair or result-recovery redesign is authorized.
+
 - [VM-541 - Token And Reasoning Cost Control Governance](backlog/VM-541-token-reasoning-cost-control-governance.md) - centralized efficiency policy for agent reasoning, context retrieval, tool usage, and escalation while preserving stricter governance controls.
 
 - [VM-502 through VM-538 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Identity Semantic Recovery](../incidents/CRIT-001-identity-recovery-ledger.md) - standardized one-card-per-identity recovery queue; execution order and status live in the CRIT-001 ledger.
@@ -50,6 +52,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-551 — Gate B1 Authored Review-Route Truthfulness Remediation](done/VM-551-gate-b1-authored-review-route-truth.md) - made all nine review paths self-guiding from committed walkthrough steps, added exact per-step diagnostics and positive/negative browser coverage, preserved every authored result state, and stopped for owner harness re-review.
 
 - [VM-551 — Gate B1 Production-Fidelity Experience Remediation](done/VM-551-gate-b1-production-fidelity-experience-remediation.md) - completed the owner-named bounded repair: full-width answer layouts, user-paced transitions, stage-truthful progress, selected-answer summaries, exact adaptive Q5 paths, boot-stripped production dossier authority reuse, all-section DOM parity, one production endcap, and byte-identical storage protection; stopped for owner visual re-review with architecture, production, scoring, player validation, push, merge, deployment, and certification frozen.
 

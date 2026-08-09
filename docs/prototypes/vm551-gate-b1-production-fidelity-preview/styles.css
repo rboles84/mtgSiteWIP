@@ -71,6 +71,27 @@ body.vm-archscry-route .answer-grid[data-answer-count="3"] { grid-template-colum
   background: linear-gradient(135deg, rgba(184, 149, 74, .18), rgba(26, 170, 150, .08)), rgba(17, 16, 20, .94) !important;
 }
 
+.answer-card.is-authored-target {
+  border-color: rgba(26, 170, 150, .62);
+  box-shadow: inset 0 0 0 1px rgba(26, 170, 150, .16);
+}
+
+.authored-review-target {
+  display: grid;
+  gap: .25rem;
+  margin-top: .8rem;
+  padding-top: .65rem;
+  border-top: 1px dashed rgba(96, 191, 176, .4);
+  color: rgba(179, 235, 225, .9);
+  font: .68rem/1.4 var(--font-mono);
+  text-align: left;
+}
+
+.authored-review-target code {
+  color: rgba(236, 232, 222, .68);
+  overflow-wrap: anywhere;
+}
+
 .answer-card.is-lens {
   border-color: rgba(96, 191, 176, .32);
   background: radial-gradient(circle at top right, rgba(26, 170, 150, .14), transparent 10rem), rgba(12, 15, 17, .92);
@@ -96,6 +117,10 @@ body.vm-archscry-route .answer-grid[data-answer-count="3"] { grid-template-colum
 .reviewer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem 1rem; margin-top: .8rem; }
 .reviewer-grid dt { color: rgba(240, 197, 106, .78); }
 .reviewer-grid dd { margin: .12rem 0 0; color: rgba(236, 232, 222, .8); overflow-wrap: anywhere; }
+.route-audit-summary { margin: .9rem 0 0; color: rgba(179, 235, 225, .9); }
+.route-audit-mismatches { margin-top: .9rem; padding-top: .75rem; border-top: 1px solid rgba(184, 149, 74, .2); }
+.route-audit-mismatches ol { display: grid; gap: .65rem; margin: .65rem 0 0; padding-left: 1.25rem; }
+.route-audit-mismatches li span { display: block; overflow-wrap: anywhere; }
 
 .transition-shell {
   width: min(660px, 100%);

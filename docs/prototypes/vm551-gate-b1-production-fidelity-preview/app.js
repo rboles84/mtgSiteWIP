@@ -13,6 +13,7 @@ const els = {
   restartTop: document.querySelector("#restart-top"),
   progressCopy: document.querySelector("#progress-copy"),
   progressFill: document.querySelector("#progress-fill"),
+  questionCard: document.querySelector("#question-card"),
   eyebrow: document.querySelector("#question-eyebrow"),
   title: document.querySelector("#question-title"),
   help: document.querySelector("#question-help"),
@@ -133,8 +134,10 @@ function stageProgress(question) {
 function renderQuestion() {
   const question = currentQuestion();
   if (!question) return finishQuestions();
+  const authoredStep = state.route?.steps.find((step) => step.questionId === question.id);
   const lens = question.evidenceClass === "IDENTITY_LENS_SELF_REPORT";
   const progress = stageProgress(question);
+  els.questionCard.dataset.questionId = question.id;
   els.progressCopy.textContent = `${progress.stage} · ${progress.current} of ${progress.total}`;
   els.progressFill.style.width = `${Math.round((progress.current / progress.total) * 100)}%`;
   els.eyebrow.textContent = questionStage(question);
@@ -144,13 +147,17 @@ function renderQuestion() {
   els.help.textContent = help;
   const selectedId = state.answers.get(question.id);
   els.answerGrid.dataset.answerCount = String((question.answers || []).length);
-  els.answerGrid.innerHTML = (question.answers || []).map((answer) => `
-    <div class="answer-card${selectedId === answer.id ? " is-selected" : ""}${lens ? " is-lens" : ""}">
+  els.answerGrid.innerHTML = (question.answers || []).map((answer) => {
+    const isAuthoredTarget = Boolean(state.reviewer && authoredStep?.selectedAnswerId === answer.id);
+    return `
+    <div class="answer-card${selectedId === answer.id ? " is-selected" : ""}${lens ? " is-lens" : ""}${isAuthoredTarget ? " is-authored-target" : ""}"${isAuthoredTarget ? ' data-authored-target="true"' : ""}>
       <button type="button" data-answer-id="${escapeHtml(answer.id)}" aria-pressed="${selectedId === answer.id}">
         <div class="answer-title">${escapeHtml(answer.title)}</div>
         <div class="answer-copy">${escapeHtml(answer.explanation)}</div>
+        ${isAuthoredTarget ? `<div class="authored-review-target" data-authored-target-cue><span>Authored review selection: ${escapeHtml(answer.title)}</span><code>${escapeHtml(answer.id)}</code></div>` : ""}
       </button>
-    </div>`).join("");
+    </div>`;
+  }).join("");
   document.querySelector("#lens-intro")?.remove();
   if (lens) {
     els.answerGrid.insertAdjacentHTML("beforebegin", '<p class="lens-intro" id="lens-intro">Your Commander answers got us this far. This optional question asks which of two remaining ideas resonates more with you.</p>');
@@ -260,15 +267,60 @@ function normalizedResultState(value) {
   return ({ best: "primary", "best-fit": "primary" })[value] || value || "close";
 }
 
+function answerLabel(questionId, answerId) {
+  if (!answerId) return "No answer recorded";
+  const answer = questionById(questionId)?.answers?.find((candidate) => candidate.id === answerId);
+  return answer ? `${answer.title} (${answer.id})` : answerId;
+}
+
+function routeSelectionAudit() {
+  if (!state.route) return [];
+  const size = Math.max(state.route.steps.length, state.sequence.length);
+  return Array.from({ length: size }, (_, index) => {
+    const expectedStep = state.route.steps[index] || null;
+    const actualQuestionId = state.sequence[index] || null;
+    const expectedQuestionId = expectedStep?.questionId || null;
+    const expectedAnswerId = expectedStep?.selectedAnswerId || null;
+    const actualAnswerId = actualQuestionId ? state.answers.get(actualQuestionId) || null : null;
+    const questionMatches = expectedQuestionId === actualQuestionId;
+    const answerMatches = questionMatches && expectedAnswerId === actualAnswerId;
+    return {
+      index,
+      expectedQuestionId,
+      actualQuestionId,
+      expectedAnswerId,
+      actualAnswerId,
+      questionMatches,
+      answerMatches,
+      matches: questionMatches && answerMatches,
+    };
+  });
+}
+
 function routeSelectionsMatch() {
-  if (!state.route) return false;
-  return state.route.steps.every((step) => state.answers.get(step.questionId) === step.selectedAnswerId);
+  const audit = routeSelectionAudit();
+  return Boolean(state.route) && audit.length === state.route.steps.length && audit.every((entry) => entry.matches);
+}
+
+function routeAuditReviewerHtml(audit, routeMatches) {
+  if (!state.route) return "";
+  if (routeMatches) {
+    return `<p class="route-audit-summary" data-route-audit-summary>Every expected question/answer pair matched (${audit.length} of ${audit.length}).</p>`;
+  }
+  const mismatches = audit.filter((entry) => !entry.matches);
+  return `<div class="route-audit-mismatches" data-route-mismatches><strong>${mismatches.length} authored route mismatch${mismatches.length === 1 ? "" : "es"}</strong><ol>${mismatches.map((entry) => {
+    const questionDetail = entry.questionMatches
+      ? escapeHtml(entry.expectedQuestionId)
+      : `${escapeHtml(entry.expectedQuestionId || "No expected question")} (rendered ${escapeHtml(entry.actualQuestionId || "none")})`;
+    return `<li><span>${questionDetail}</span><span>Expected: ${escapeHtml(answerLabel(entry.expectedQuestionId, entry.expectedAnswerId))}</span><span>Actual: ${escapeHtml(answerLabel(entry.actualQuestionId, entry.actualAnswerId))}</span></li>`;
+  }).join("")}</ol></div>`;
 }
 
 function b1SummaryHtml(resultPackage) {
   const selected = selectedAnswerRecords();
   const behavioral = selected.filter(({ question }) => question.evidenceClass !== "IDENTITY_LENS_SELF_REPORT");
   const lens = selected.find(({ question }) => question.evidenceClass === "IDENTITY_LENS_SELF_REPORT");
+  const routeAudit = routeSelectionAudit();
   const routeMatches = routeSelectionsMatch();
   const contradiction = state.route?.contradictionStatus && state.route.contradictionStatus !== "NONE";
   const branchOrRoute = state.route || state.branch;
@@ -287,12 +339,12 @@ function b1SummaryHtml(resultPackage) {
     <div class="preview-limitation">${escapeHtml(state.route?.publicLimitation || resultPackage.limitation)}</div>
     <p class="preview-persistence-note" data-preview-persistence-note hidden>Saving and account changes are disabled in this internal preview.</p>
     <details class="reviewer-panel reviewer-result reviewer-only" ${state.reviewer ? "" : "hidden"}><summary>Reviewer information</summary><dl class="reviewer-grid">
-      <div><dt>Preview route</dt><dd>${escapeHtml(branchOrRoute?.id)}</dd></div><div><dt>Selections match authored route</dt><dd>${escapeHtml(state.route ? String(routeMatches) : "Not an authored route")}</dd></div>
+      <div><dt>Preview route</dt><dd>${escapeHtml(branchOrRoute?.id)}</dd></div><div><dt>Selections match authored route</dt><dd data-route-match="${escapeHtml(state.route ? String(routeMatches) : "not-authored")}">${escapeHtml(state.route ? String(routeMatches) : "Not an authored route")}</dd></div>
       <div><dt>Composite branch</dt><dd>${escapeHtml(state.branch?.id || "Not resolved")}</dd></div><div><dt>Branch status</dt><dd>${escapeHtml(state.branchMap.status)}</dd></div>
       <div><dt>Content readiness</dt><dd>${escapeHtml(resultPackage.contentReadiness)}</dd></div><div><dt>Instrument observability</dt><dd>${escapeHtml(resultPackage.instrumentObservability)}</dd></div>
       <div><dt>Mapping validation</dt><dd>${escapeHtml(resultPackage.mappingValidation)}</dd></div><div><dt>Unresolved validation need</dt><dd>${escapeHtml(resultPackage.unresolvedValidationNeed)}</dd></div>
       <div><dt>Disclaimer</dt><dd>${escapeHtml(state.branchMap.disclaimer)}</dd></div>
-    </dl></details>
+    </dl>${routeAuditReviewerHtml(routeAudit, routeMatches)}</details>
   </section>`;
 }
 
@@ -336,7 +388,7 @@ function applyReviewerMode() {
     element.hidden = !state.reviewer;
     element.style.display = state.reviewer ? "" : "none";
   });
-  if (!els.quick.classList.contains("hidden")) renderQuestionReviewer(currentQuestion());
+  if (!els.quick.classList.contains("hidden") && currentQuestion()) renderQuestion();
 }
 
 async function boot() {

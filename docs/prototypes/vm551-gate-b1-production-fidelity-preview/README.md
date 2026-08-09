@@ -25,10 +25,12 @@ Do not open `index.html` through `file://`; the preview loads approved JSON and 
 ## Owner review modes
 
 - **Free answer journey** is the default. Every run begins with the same C01–C04 Gate questions. After Question 4, one of eight authored composite states chooses a Hall construct. Restart and change the Gate answers to see Question 5 change.
-- **Reviewer information** reveals question, dependency, branch, candidate-set, three-axis, eligibility, and contradiction metadata. It also reveals the nine required authored review cases.
+- **Reviewer information** reveals question, dependency, branch, candidate-set, three-axis, eligibility, and contradiction metadata. It also reveals the nine required authored review cases. On every review-case question, the exact expected option is marked **Authored review selection** with its stable answer ID; the cue is guidance only and never selects the answer.
 - **Normal player mode** hides IDs, constructs, signals, provenance, evidence status, mapping status, branch rationale, candidate sets, and the review-case selector.
 
 The review cases cover Simic/Quandrix, Esper/C16, Colorless, WUBRG, mono/multicolor, Yore without a lens, Yore/Glint lens skipped, lens answered, and contradiction preserved.
+
+For these nine cases, `../vm551-gate-b1-owner-experience/prototype-data.json` `walkthrough.steps` and stable answer IDs are the sole authority for expected order and selections. `branching-map.json` exposes the cases but does not define or override their semantics. The result reviewer panel reports either that every expected pair matched or lists each question, expected answer, and actual answer that differed.
 
 ## Production reuse
 
@@ -66,6 +68,8 @@ node docs/prototypes/vm551-gate-b1-production-fidelity-preview/validate-preview-
 ```
 
 The validators check the approved 16/35/110/37 baseline, 4/13/18 pool, all three result-governance axes, shared four-question Gate, eight authored free-answer branch states, nine owner-review journeys, 6–8 length, lens eligibility, skip, contradiction, hard maximum eight, both exact adaptive Q5 paths, user-paced transitions, selected-answer truthfulness, responsive answer layouts, production dossier DOM parity, and byte-identical storage preservation through result rendering and **Begin Again**.
+
+The browser validator additionally executes all nine exact authored routes and one valid one-answer divergence for each route. It verifies rendered question order, runtime target cues, exact diagnostics, route-supported prose gating, and unchanged authored result states.
 
 ## Fidelity risks
 

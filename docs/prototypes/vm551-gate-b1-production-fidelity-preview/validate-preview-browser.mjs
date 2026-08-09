@@ -11,6 +11,13 @@ const host = "127.0.0.1";
 const port = 4174;
 const previewUrl = `http://${host}:${port}/docs/prototypes/vm551-gate-b1-production-fidelity-preview/`;
 const productionUrl = `http://${host}:${port}/archscry/`;
+const prototypeData = JSON.parse(fs.readFileSync(path.join(here, "../vm551-gate-b1-owner-experience/prototype-data.json"), "utf8"));
+const branchingMap = JSON.parse(fs.readFileSync(path.join(here, "branching-map.json"), "utf8"));
+const reviewRoutes = branchingMap.reviewJourneys.map(({ id }) => {
+  const route = prototypeData.walkthroughs.find((candidate) => candidate.id === id);
+  if (!route) throw new Error(`Missing authored walkthrough ${id}.`);
+  return route;
+});
 const browserCandidates = [
   process.env.LIGHTHOUSE_CHROME_PATH,
   "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe",
@@ -130,12 +137,56 @@ async function answerGateAndContinue(page, answerIds) {
   await page.locator("#transition-action").click();
 }
 
-async function openReading(page) {
+async function openReading(page, verifyPlayerPacing = true) {
   await page.waitForFunction(() => document.querySelector("#transition-action")?.textContent === "Open my reading");
-  await new Promise((resolve) => setTimeout(resolve, 1300));
-  assert(await page.$eval("#transition-action", (node) => Boolean(node.offsetWidth || node.offsetHeight || node.getClientRects().length)), "Result transition advanced without player action.");
+  if (verifyPlayerPacing) {
+    await new Promise((resolve) => setTimeout(resolve, 1300));
+    assert(await page.$eval("#transition-action", (node) => Boolean(node.offsetWidth || node.offsetHeight || node.getClientRects().length)), "Result transition advanced without player action.");
+  }
   await page.locator("#transition-action").click();
   await page.waitForSelector("[data-preview-b1-summary]");
+}
+
+function questionForRouteStep(step) {
+  return [...prototypeData.questions, ...(prototypeData.lensQuestions || [])].find((question) => question.id === step.questionId);
+}
+
+async function completeAuthoredRoute(page, route, answerOverride = new Map()) {
+  for (let index = 0; index < route.steps.length; index += 1) {
+    const step = route.steps[index];
+    await page.waitForFunction((questionId) => document.querySelector("#question-card")?.dataset.questionId === questionId, {}, step.questionId);
+    const target = await page.$eval('[data-authored-target="true"]', (node) => ({
+      answerId: node.querySelector("[data-answer-id]")?.dataset.answerId,
+      cue: node.querySelector("[data-authored-target-cue]")?.textContent || "",
+    }));
+    assert(target.answerId === step.selectedAnswerId, `${route.id} step ${index + 1}: reviewer target ${target.answerId} did not match ${step.selectedAnswerId}.`);
+    const expectedAnswer = questionForRouteStep(step)?.answers?.find((answer) => answer.id === step.selectedAnswerId);
+    assert(target.cue.includes(`Authored review selection: ${expectedAnswer?.title}`) && target.cue.includes(step.selectedAnswerId), `${route.id} step ${index + 1}: reviewer target cue is incomplete.`);
+    await clickAnswer(page, answerOverride.get(step.questionId) || step.selectedAnswerId);
+    if (index === 3) {
+      await page.waitForFunction(() => document.querySelector("#transition-action")?.textContent === "Continue into the Hall");
+      await page.locator("#transition-action").click();
+    }
+  }
+  await openReading(page, false);
+}
+
+async function assertAuthoredState(page, route) {
+  await page.waitForSelector(`[data-result-state="${route.state}"]`);
+  assert(await page.$eval(`[data-result-state="${route.state}"]`, (node) => Boolean(node.offsetWidth || node.offsetHeight || node.getClientRects().length)), `${route.id}: authored ${route.state} state is not visible.`);
+}
+
+async function beginAgainFromResult(page) {
+  const selector = await page.evaluate(() => {
+    const bounded = document.querySelector('.bounded-result-shell [data-action="start-quick-flow"]');
+    if (bounded && (bounded.offsetWidth || bounded.offsetHeight || bounded.getClientRects().length)) return '.bounded-result-shell [data-action="start-quick-flow"]';
+    const dossier = document.querySelector('.dossier-rail [data-action="retake"]');
+    if (dossier && (dossier.offsetWidth || dossier.offsetHeight || dossier.getClientRects().length)) return '.dossier-rail [data-action="retake"]';
+    return "";
+  });
+  assert(selector, "No production Begin Again action was available.");
+  await page.locator(selector).click();
+  await page.waitForSelector("#start-free");
 }
 
 async function dossierContract(page) {
@@ -271,6 +322,54 @@ async function runColorlessTruth(browser) {
   } finally { await context.close(); }
 }
 
+async function runAuthoredRoutePositive(browser, route) {
+  const { context, page, errors } = await newPreviewPage(browser);
+  try {
+    await openReviewRoute(page, route.id);
+    await completeAuthoredRoute(page, route);
+    const summary = await page.$eval("[data-preview-b1-summary]", (node) => node.innerText);
+    assert(await page.$eval('[data-route-match="true"]', (node) => node.textContent.trim() === "true"), `${route.id}: exact authored selections did not report a match.`);
+    assert(await page.$eval("[data-route-audit-summary]", (node) => node.textContent).then((text) => text.includes(`Every expected question/answer pair matched (${route.steps.length} of ${route.steps.length}).`)), `${route.id}: exact-match audit summary is missing.`);
+    assert((await page.$$('[data-route-mismatches]')).length === 0, `${route.id}: exact route rendered mismatch diagnostics.`);
+    assert(!summary.includes("This run diverged from the authored review path"), `${route.id}: exact route rendered a divergence warning.`);
+    assert(summary.includes(route.routeSupportedDistinction), `${route.id}: exact route withheld its authored context.`);
+    await assertAuthoredState(page, route);
+    await beginAgainFromResult(page);
+    await assertStorageUnchanged(page, `${route.id} exact authored route and Begin Again`);
+    assert(errors.length === 0, `${route.id} positive console errors: ${errors.join(" | ")}`);
+  } finally { await context.close(); }
+}
+
+async function runAuthoredRouteNegative(browser, route) {
+  const firstStep = route.steps[0];
+  const question = questionForRouteStep(firstStep);
+  const alternate = question?.answers?.find((answer) => answer.id !== firstStep.selectedAnswerId);
+  assert(alternate, `${route.id}: no valid alternate answer exists for negative testing.`);
+  const { context, page, errors } = await newPreviewPage(browser);
+  try {
+    await openReviewRoute(page, route.id);
+    await completeAuthoredRoute(page, route, new Map([[firstStep.questionId, alternate.id]]));
+    const summary = await page.$eval("[data-preview-b1-summary]", (node) => node.innerText);
+    assert(await page.$eval('[data-route-match="false"]', (node) => node.textContent.trim() === "false"), `${route.id}: one-answer divergence did not report false.`);
+    const mismatches = await page.$$eval("[data-route-mismatches] li", (nodes) => nodes.map((node) => node.textContent));
+    assert(mismatches.length === 1, `${route.id}: expected one exact mismatch, found ${mismatches.length}.`);
+    assert(mismatches[0].includes(firstStep.questionId) && mismatches[0].includes(firstStep.selectedAnswerId) && mismatches[0].includes(alternate.id), `${route.id}: mismatch diagnostic omitted the question, expected answer, or actual answer.`);
+    assert(summary.includes("This run diverged from the authored review path"), `${route.id}: genuine divergence warning is missing.`);
+    assert(!summary.includes(route.routeSupportedDistinction), `${route.id}: route-supported context survived a genuine divergence.`);
+    await assertAuthoredState(page, route);
+    await beginAgainFromResult(page);
+    await assertStorageUnchanged(page, `${route.id} one-answer divergence and Begin Again`);
+    assert(errors.length === 0, `${route.id} negative console errors: ${errors.join(" | ")}`);
+  } finally { await context.close(); }
+}
+
+async function runAllAuthoredRouteTruth(browser) {
+  for (const route of reviewRoutes) {
+    await runAuthoredRoutePositive(browser, route);
+    await runAuthoredRouteNegative(browser, route);
+  }
+}
+
 async function runMobileLayout(browser) {
   const { context, page, errors } = await newPreviewPage(browser, { width: 390, height: 844 });
   try {
@@ -290,10 +389,12 @@ try {
   await runAdaptiveB(browser);
   await runEsperAndParity(browser);
   await runColorlessTruth(browser);
+  await runAllAuthoredRouteTruth(browser);
   await runMobileLayout(browser);
   console.log("VM-551 Gate B1 production-fidelity browser validation: PASS");
   console.log("Adaptive: visible-recovery-growth -> C09; visible-burst-pressure -> C07.");
   console.log("Truth: Esper and Colorless summaries derive from selected answers; bounded states remain bounded.");
+  console.log(`Authored routes: ${reviewRoutes.length} exact paths and ${reviewRoutes.length} one-answer divergences passed with per-step diagnostics and unchanged result states.`);
   console.log("Parity: named preview dossier matches production section/DOM contracts; intentional section omissions: none.");
   console.log("Storage: vm_last_result, vm_profile, and all pre-existing localStorage keys/values remained byte-identical in every preview case.");
 } finally {

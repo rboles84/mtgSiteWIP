@@ -48,10 +48,21 @@ for (const branch of branches.branchStates) {
 }
 
 const requiredJourneys = ["simic-quandrix", "esper-information-to-plan", "colorless", "wubrg", "white", "yore-no-lens", "yore-lens-skipped", "yore-lens-answered", "yore-lens-contradictory"];
+const requiredJourneyStates = { "simic-quandrix": "close", "esper-information-to-plan": "close", colorless: "insufficient", wubrg: "mixed", white: "primary", "yore-no-lens": "insufficient", "yore-lens-skipped": "close", "yore-lens-answered": "close", "yore-lens-contradictory": "contradictory" };
+assert(branches.reviewJourneys.length === requiredJourneys.length, "Expected exactly nine production-fidelity review cases.");
+assert(new Set(branches.reviewJourneys.map((journey) => journey.id)).size === requiredJourneys.length, "Production-fidelity review case IDs must be unique.");
 assert(requiredJourneys.every((id) => branches.reviewJourneys.some((journey) => journey.id === id)), "A required owner-review journey is missing.");
 for (const review of branches.reviewJourneys) {
+  assert(!review.steps && !review.answerIds && !review.selectedAnswerIds, `${review.id}: branching-map.json must not define authored route semantics.`);
   const route = data.walkthroughs.find((walkthrough) => walkthrough.id === review.id);
   assert(route, `Missing authored walkthrough ${review.id}.`);
+  assert(route.state === requiredJourneyStates[review.id], `${review.id} authored result state changed from ${requiredJourneyStates[review.id]}.`);
+  assert(new Set(route.steps.map((step) => step.questionId)).size === route.steps.length, `${review.id} repeats an authored question ID.`);
+  for (const step of route.steps) {
+    const question = questionMap.get(step.questionId);
+    assert(question, `${review.id} has orphan authored question ${step.questionId}.`);
+    assert(question.answers?.some((answer) => answer.id === step.selectedAnswerId), `${review.id} answer ${step.selectedAnswerId} does not belong to ${step.questionId}.`);
+  }
   assert(route.steps.length >= 6 && route.steps.length <= 8, `${review.id} must contain 6–8 questions.`);
   assert(route.steps.slice(0, 4).every((step, index) => step.questionId === branches.universalGateQuestionIds[index]), `${review.id} does not preserve the shared first four questions.`);
   const lensSteps = route.steps.filter((step) => questionMap.get(step.questionId)?.evidenceClass === "IDENTITY_LENS_SELF_REPORT");
@@ -72,9 +83,11 @@ assert(appSource.includes("Continue into the Hall") && appSource.includes("Open 
 assert(!appSource.includes("setTimeout(renderResult") && !appSource.includes("setTimeout(() => { state.index = 4"), "Transition auto-advance remains in the preview.");
 assert(appSource.includes("stageProgress(question)") && !appSource.includes("Math.min(8"), "Progress must be derived by stage, not a fixed overall total.");
 assert(appSource.includes('new Set(["board wipe"])'), "Q3 duplicate board-wipe helper suppression is missing.");
-assert(appSource.includes("routeSelectionsMatch") && appSource.includes("data-selected-answer"), "Result summary must derive from actual selected answers.");
+assert(appSource.includes("routeSelectionAudit") && appSource.includes("routeSelectionsMatch") && appSource.includes("data-selected-answer"), "Result summary must derive from an exact route audit and actual selected answers.");
+assert(appSource.includes("data-authored-target") && appSource.includes("data-route-match") && appSource.includes("data-route-mismatches"), "Reviewer route cues or diagnostics are missing.");
 assert(browserSource.includes("vm_last_result") && browserSource.includes("vm_profile") && browserSource.includes("localStorage"), "Browser validation must protect saved storage state.");
 assert(browserSource.includes("dossierContract") && browserSource.includes("productionUrl"), "Browser validation must compare a named preview dossier with production DOM contracts.");
+assert(browserSource.includes("runAllAuthoredRouteTruth") && browserSource.includes("runAuthoredRoutePositive") && browserSource.includes("runAuthoredRouteNegative"), "Browser validation must cover every exposed authored route positively and negatively.");
 
 console.log("VM-551 Gate B1 production-fidelity preview validation: PASS");
 console.log(`Architecture: ${data.counts.constructs} constructs; ${data.questions.length} questions (${stageCounts.Gate}/${stageCounts.Hall}/${stageCounts.Crucible}); ${answers.length} answers; ${data.results.length} identities.`);

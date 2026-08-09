@@ -72,6 +72,14 @@ Ask:
 - Every result remains `CONTENT_READY`; observability and mapping status stay reviewer metadata. Player copy states only the limitation that matters.
 - Production dossier functions are loaded through a preview-only source adapter that cuts the boot/session-controller boundary before module evaluation. The live questionnaire, routing, stopping, session restore, persistence, and saved-result behavior are not initialized.
 
+## Authored route truth procedure
+
+The nine review cases exposed by this preview are the regression scope. For every case, `docs/prototypes/vm551-gate-b1-owner-experience/prototype-data.json` `walkthrough.steps` and stable answer IDs are the sole authority for expected question order and authored selections. `branching-map.json` may expose a case but may not define or override its route semantics.
+
+Enable Reviewer Information and choose a review case. Every question marks the expected option as **Authored review selection** and shows its stable answer ID. Select that option to execute the exact authored path. The final reviewer panel must either state that every expected question/answer pair matched or list the exact question, expected answer, and actual answer that differed.
+
+Changing one marked answer is the negative control: the route must report false, show the exact mismatch, suppress route-supported prose, and retain the case's existing Gate A/result state.
+
 ## Owner disposition
 
 **APPROVE WITH NAMED EXPERIENCE REMEDIATION.** The questionnaire and branching architecture remain approved; the preview must complete the named result/dossier experience repair before another owner visual review. This decision does not authorize the real placement engine or outside-player work.
