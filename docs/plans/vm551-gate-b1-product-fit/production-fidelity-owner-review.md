@@ -58,11 +58,11 @@ Ask:
 | Questionnaire | Production quick-shell, progress, question-card, answer-card, help, and buttons | Local state controller and selected/lens styling | Medium; live controller is intentionally excluded |
 | Result summary | Production Gate A copy function, guild banner, snapshot and result-state classes, identity hero art/data | Authored result object and answer-observation summary | Medium; no placement engine produced the result |
 | Identity hero | Production faction records, colors, mana symbols, art, philosophy, and banner grammar | Local hero-asset slug adapter | Low |
-| Dossier | Production `buildCommanderDossier`, current faction/model data, dossier console/panel classes | Six-panel local controller instead of full live account/save controller | Medium |
+| Dossier | Production `assets/js/index.js` result/dossier functions, panel definitions, current faction/model/discovery data, and dossier controls | Boot-stripped in-memory adapter; save/account actions disabled | Low; production questionnaire and persistence boot are not initialized |
 | Matrix | Production renderer, initializer, radar scripts, data, and CSS | Inserted into the preview reading panel | Low |
 | Maze | Production dossier Maze link records and production Maze route | Local relative-path translation; no persisted handoff context | Medium |
-| Commander direction | Production dossier builder and faction Commander guidance | Compact panel rendering | Medium |
-| Commander/card/precon | Production commander recommendations, starter-card records, precon builder/catalog/taxonomy | Compact cards; no Scryfall image fetch | Medium |
+| Commander direction | Production dossier renderer and faction Commander guidance | None | Low |
+| Commander/card/precon | Production Commander recommendations, starter-card records, precon builder/catalog/taxonomy, and section contracts | Account persistence and Scryfall card-art fetch/cache decoration disabled | Low; avoids preview storage writes while preserving section reachability |
 | Responsive rules | Production Archscry breakpoints and dossier behavior | Narrow rules for reviewer toolbar and compact adapter grids | Low–medium |
 
 ## Known preview-only truths
@@ -70,8 +70,31 @@ Ask:
 - The eight free-answer branches are composite authored demonstrations. Their candidate context is reviewer-only and has no scoring effect.
 - The nine focused review cases reuse approved authored walkthroughs.
 - Every result remains `CONTENT_READY`; observability and mapping status stay reviewer metadata. Player copy states only the limitation that matters.
-- The live controller is not imported because it would cross into production placement, routing, stopping, persistence, and saved-result behavior.
+- Production dossier functions are loaded through a preview-only source adapter that cuts the boot/session-controller boundary before module evaluation. The live questionnaire, routing, stopping, session restore, persistence, and saved-result behavior are not initialized.
 
 ## Owner disposition
 
-Record one of: **approve production-fidelity direction**, **approve with named experience remediation**, or **return for architecture review**. This decision does not authorize the real placement engine or outside-player work.
+**APPROVE WITH NAMED EXPERIENCE REMEDIATION.** The questionnaire and branching architecture remain approved; the preview must complete the named result/dossier experience repair before another owner visual review. This decision does not authorize the real placement engine or outside-player work.
+
+## Named experience remediation
+
+- Use the full question-panel width: three balanced desktop columns for three answers, a full-width third card at intermediate widths, 2×2 for four answers, and a normal mobile collapse.
+- Make **Continue into the Hall** and **Open my reading** explicit, user-paced actions.
+- Show stage-local progress while keeping the overall expectation at 6–8 moments.
+- Present the board-wipe explanation once.
+- Derive the B1 summary from the answers actually selected; authored route prose may appear only when every expected selection matches.
+- Render the current production Dossier Directory and all identity-available production sections below the B1 summary. Do not copy or independently redefine dossier sections, and do not boot the live questionnaire/session/persistence controller.
+- Preserve the production bounded shell for mixed, contradictory, and insufficient states.
+- Use the production endcap without adding a second oversized result restart block.
+- Resolve reviewer branch metadata from all four Gate answers on authored and free journeys.
+
+## Exact adaptive acceptance paths
+
+- Run A: **Set the pace → A board people can see → A way to rebuild → A little every turn**. Q5 must be C09 Repeatability and reviewer branch `visible-recovery-growth`.
+- Run B: **Set the pace → A board people can see → Less exposed in the first place → One turn that changes the game**. Q5 must be C07 Pressure and reviewer branch `visible-burst-pressure`.
+
+## Storage and dossier parity acceptance
+
+Before every automated preview case, seed sentinel values into `vm_last_result` and `vm_profile`, record every existing `localStorage` key/value, exercise the requested surface, and prove every pre-existing value is byte-identical afterward. Any future preview payload must use a preview-only namespace and be consumed and deleted; the current bridge uses no storage payload.
+
+Compare one named preview dossier against production at the tab, panel, ARIA, and section reachability contract. Every production section available for that identity must remain reachable. Intentional section omissions: none. Account-saving actions and Scryfall card-art fetch/cache decoration are disabled in the internal preview to prevent persistence; their parent production sections remain present.

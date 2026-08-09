@@ -42,7 +42,9 @@ The preview directly loads the current production:
 - `renderDossierRadarSection` and `initDossierManaRadar` from `assets/js/dossier-radar.js`;
 - current `data/factions.json`, `data/placement-model.json`, precon catalog, precon theme taxonomy, identity hero art, and Maze link data.
 
-The preview adapter owns only journey state, authored branch selection, selected-answer observation display, review metadata, optional-lens presentation, simplified dossier panel switching, and local path translation. Production `assets/js/index.js` is intentionally not loaded because it owns the live questionnaire, scoring, persistence, routing, and stopping behavior.
+The preview adapter owns only journey state, authored branch selection, selected-answer observation display, review metadata, optional-lens presentation, and safe result actions. For the dossier, it fetches the current production `assets/js/index.js`, removes the production boot/session-controller boundary in memory, rewrites module/data locators to their canonical files, and invokes the production result and dossier functions directly. It does not copy dossier panel definitions and never initializes the live questionnaire, scoring, session restore, persistence, routing, or stopping controller.
+
+The result bridge uses in-memory input only. It does not create a preview session payload or write `vm_last_result`, `vm_profile`, or `localStorage`. Saving and account mutations are disabled; production **Begin Again** returns to the preview landing page.
 
 ## Approved instrument source
 
@@ -59,15 +61,17 @@ Run:
 ```powershell
 node docs/prototypes/vm551-gate-b1-production-fidelity-preview/validate-preview.mjs
 node --check docs/prototypes/vm551-gate-b1-production-fidelity-preview/app.js
+node --check docs/prototypes/vm551-gate-b1-production-fidelity-preview/production-dossier-bridge.js
+node docs/prototypes/vm551-gate-b1-production-fidelity-preview/validate-preview-browser.mjs
 ```
 
-The validator checks the approved 16/35/110/37 baseline, 4/13/18 pool, all three result-governance axes, shared four-question Gate, eight authored free-answer branch states, nine owner-review journeys, 6–8 length, lens eligibility, skip, contradiction, and hard maximum eight.
+The validators check the approved 16/35/110/37 baseline, 4/13/18 pool, all three result-governance axes, shared four-question Gate, eight authored free-answer branch states, nine owner-review journeys, 6–8 length, lens eligibility, skip, contradiction, hard maximum eight, both exact adaptive Q5 paths, user-paced transitions, selected-answer truthfulness, responsive answer layouts, production dossier DOM parity, and byte-identical storage preservation through result rendering and **Begin Again**.
 
 ## Fidelity risks
 
-- The live Archscry controller is not reused because doing so would execute production placement, routing, persistence, and result behavior. The preview controller is therefore the main drift surface.
-- Dossier content comes from the real builder, but the preview uses six simplified dossier panels rather than the production controller's full account/save/card-image state management.
-- Commander, card, precon, and Maze content uses production records and builders, but the preview does not make Scryfall image requests or persist Maze handoff context.
+- The live Archscry controller is not reused because doing so would execute production placement, routing, persistence, and result behavior. The preview journey controller remains the main drift surface.
+- Dossier rendering comes from the current production source at runtime. Account persistence and Scryfall card-art cache/fetch decoration are intentionally disabled; no production dossier section is omitted.
+- Production Maze links remain available. The preview does not save account data, write card-art cache entries, or create a placement/Maze handoff payload.
 - Results and Gate A states are authored demonstrations, not the output of a placement engine.
 
 ## Not authorized or implemented

@@ -51,6 +51,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-551 — Gate B1 Production-Fidelity Experience Remediation](done/VM-551-gate-b1-production-fidelity-experience-remediation.md) - completed the owner-named bounded repair: full-width answer layouts, user-paced transitions, stage-truthful progress, selected-answer summaries, exact adaptive Q5 paths, boot-stripped production dossier authority reuse, all-section DOM parity, one production endcap, and byte-identical storage protection; stopped for owner visual re-review with architecture, production, scoring, player validation, push, merge, deployment, and certification frozen.
+
 - [VM-551 — Gate B1 Production-Fidelity Archscry Preview](done/VM-551-gate-b1-production-fidelity-preview.md) - built an isolated non-scoring Archscry preview from production shell/styles, dossier/precon builders, Matrix, identity, and Maze data; eight composite branches and nine review journeys pass desktop/mobile/browser validation; stopped for owner experience review with production, scoring, player validation, push, merge, and deployment frozen.
 
 - [VM-551 — Gate B1 Final Instrument Architecture Integration](done/VM-551-gate-b1-final-instrument-architecture-integration.md) - integrated the approved three-axis inventory, C16 information-to-plan construct, guarded identity/lens evidence, Option B journey semantics, and ten isolated prototype scenarios; validation passes at 16 constructs, 35 behavioral questions, 110 answer contracts, 37 identities, and 123 confusion pairs; stopped for owner review with production, Gate A, scoring, routing, and player validation frozen.

@@ -5,6 +5,9 @@ import { fileURLToPath } from "node:url";
 const here = path.dirname(fileURLToPath(import.meta.url));
 const data = JSON.parse(fs.readFileSync(path.join(here, "../vm551-gate-b1-owner-experience/prototype-data.json"), "utf8"));
 const branches = JSON.parse(fs.readFileSync(path.join(here, "branching-map.json"), "utf8"));
+const appSource = fs.readFileSync(path.join(here, "app.js"), "utf8");
+const bridgeSource = fs.readFileSync(path.join(here, "production-dossier-bridge.js"), "utf8");
+const browserSource = fs.readFileSync(path.join(here, "validate-preview-browser.mjs"), "utf8");
 const fail = (message) => { throw new Error(message); };
 const assert = (condition, message) => { if (!condition) fail(message); };
 
@@ -58,8 +61,20 @@ for (const review of branches.reviewJourneys) {
   if (review.id === "yore-lens-contradictory") assert(route.contradictionStatus === "STRONG_BEHAVIORAL_CONTRADICTION", "Contradiction route must preserve its contradiction state.");
 }
 
-const requiredFiles = ["index.html", "styles.css", "app.js", "branching-map.json", "README.md"];
+const requiredFiles = ["index.html", "styles.css", "app.js", "production-dossier-bridge.js", "branching-map.json", "README.md", "validate-preview-browser.mjs"];
 for (const file of requiredFiles) assert(fs.existsSync(path.join(here, file)), `Missing preview file ${file}.`);
+
+assert(!appSource.includes("panelConfig") && !appSource.includes("preview-dossier-panel"), "Preview must not independently define production dossier sections.");
+assert(appSource.includes("renderProductionDossier") && bridgeSource.includes("assets/js/index.js"), "Preview result must use the production dossier authority bridge.");
+assert(bridgeSource.includes("Boot, restore, compatibility exports, and session events"), "Authority bridge must strip the production boot/controller boundary.");
+assert(!bridgeSource.includes("vm_resumeSession()") && !bridgeSource.includes("bindArchscryControls()"), "Authority bridge must not initialize live session, questionnaire, or persistence controllers.");
+assert(appSource.includes("Continue into the Hall") && appSource.includes("Open my reading"), "Both transitions must be player-paced.");
+assert(!appSource.includes("setTimeout(renderResult") && !appSource.includes("setTimeout(() => { state.index = 4"), "Transition auto-advance remains in the preview.");
+assert(appSource.includes("stageProgress(question)") && !appSource.includes("Math.min(8"), "Progress must be derived by stage, not a fixed overall total.");
+assert(appSource.includes('new Set(["board wipe"])'), "Q3 duplicate board-wipe helper suppression is missing.");
+assert(appSource.includes("routeSelectionsMatch") && appSource.includes("data-selected-answer"), "Result summary must derive from actual selected answers.");
+assert(browserSource.includes("vm_last_result") && browserSource.includes("vm_profile") && browserSource.includes("localStorage"), "Browser validation must protect saved storage state.");
+assert(browserSource.includes("dossierContract") && browserSource.includes("productionUrl"), "Browser validation must compare a named preview dossier with production DOM contracts.");
 
 console.log("VM-551 Gate B1 production-fidelity preview validation: PASS");
 console.log(`Architecture: ${data.counts.constructs} constructs; ${data.questions.length} questions (${stageCounts.Gate}/${stageCounts.Hall}/${stageCounts.Crucible}); ${answers.length} answers; ${data.results.length} identities.`);

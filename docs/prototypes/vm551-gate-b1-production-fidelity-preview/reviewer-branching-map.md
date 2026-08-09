@@ -19,6 +19,11 @@ The map is deterministic owner-review scaffolding, not scoring, calibration, ide
 
 Every branch asks two or three adaptive/targeted behavioral questions, for seven total except the six-question fallback. No free-answer branch introduces the identity lens.
 
+## Exact adaptive-feel acceptance
+
+- `visible-recovery-growth`: Set the pace → A board people can see → A way to rebuild → A little every turn → C09 Repeatability.
+- `visible-burst-pressure`: Set the pace → A board people can see → Less exposed in the first place → One turn that changes the game → C07 Pressure.
+
 ## Authored review cases
 
 Reviewer mode exposes nine focused cases sourced from the approved owner prototype:
