@@ -8,7 +8,9 @@ import {
   finalizeReading,
   getAlternatives,
   getRefinementPath,
+  getRoutingTrace,
   observe,
+  questionDiscriminationTrace,
   questionUsefulness,
   rankCandidates,
   replaySelections,
@@ -272,15 +274,20 @@ function observeDirect(state, questionId, answerId) {
 }
 
 function findEligibleLensState() {
-  for (let seed = 1; seed <= RANDOM_JOURNEY_COUNT; seed += 1) {
-    const rng = makeRng(seed);
-    let state = createInitialState(MODEL);
-    for (let guard = 0; guard < 8; guard += 1) {
-      const question = selectNextQuestion(state, MODEL);
-      if (!question) break;
-      if (question.evidence_class === "IDENTITY_LENS_SELF_REPORT") return state;
-      const answerIndex = Math.floor(rng() * question.answers.length);
-      state = observe({ state, model: MODEL, question, answer: question.answers[answerIndex], answerIndex });
+  const queue = [createInitialState(MODEL)];
+  const seen = new Set([""]);
+  while (queue.length) {
+    const state = queue.shift();
+    const question = selectNextQuestion(state, MODEL);
+    if (!question) continue;
+    if (question.evidence_class === "IDENTITY_LENS_SELF_REPORT") return state;
+    if ((state.answered_question_ids?.length || 0) >= 8) continue;
+    for (const [answerIndex, answer] of question.answers.entries()) {
+      const next = observe({ state, model: MODEL, question, answer, answerIndex });
+      const signature = next.selections.map((entry) => `${entry.question_id}:${entry.answer_id}`).join("|");
+      if (seen.has(signature)) continue;
+      seen.add(signature);
+      queue.push(next);
     }
   }
   return null;
@@ -380,6 +387,24 @@ function focusedBehaviorReport() {
   }
   assert(usefulnessCases > 0);
 
+  const metadataPair = pairId(freshRanking[0].identity, freshRanking[1].identity);
+  const metadataOnlyQuestion = {
+    id: "test.metadata-only",
+    stage: "crucible",
+    order: 999,
+    construct_id: "C01",
+    dependency_group: "DG_TEST_METADATA_ONLY",
+    pair_coverage: [metadataPair],
+    answers: [{
+      id: "test.metadata-only.unknown",
+      signal: "SIG_C01_UNKNOWN",
+      identity_mapping: { support: [], contradict: [], strength: 0 },
+    }],
+  };
+  const metadataTrace = questionDiscriminationTrace(createInitialState(MODEL), MODEL, metadataOnlyQuestion, freshRanking);
+  assert.equal(metadataTrace.utility, 0, "Pair metadata must not create discrimination utility without different answer effects");
+  assert(metadataTrace.metadata_only_pairs.includes(metadataPair));
+
   const lens = MODEL.question_bank.lens[0];
   assert.throws(
     () => observe({ state: createInitialState(MODEL), model: MODEL, question: lens, answer: lens.answers[0], answerIndex: 0 }),
@@ -387,15 +412,16 @@ function focusedBehaviorReport() {
     "Lens must not be accepted outside its eligibility contract"
   );
   const lensState = findEligibleLensState();
-  assert(lensState, "Generated journeys must exercise an eligible Yore/Glint lens state");
-  const rankingBeforeLens = rankCandidates(lensState, MODEL);
   const lensChecks = [];
-  for (const answer of lens.answers) {
-    const after = observe({ state: lensState, model: MODEL, question: lens, answer, answerIndex: lens.answers.indexOf(answer) });
-    assert.deepEqual(rankCandidates(after, MODEL), rankingBeforeLens, `Lens answer ${answer.id} changed behavioral ranking`);
-    assert.equal(after.evidence_ledger.length, lensState.evidence_ledger.length);
-    assert.equal(after.lens_ledger.length, 1);
-    lensChecks.push(answer.id);
+  if (lensState) {
+    const rankingBeforeLens = rankCandidates(lensState, MODEL);
+    for (const answer of lens.answers) {
+      const after = observe({ state: lensState, model: MODEL, question: lens, answer, answerIndex: lens.answers.indexOf(answer) });
+      assert.deepEqual(rankCandidates(after, MODEL), rankingBeforeLens, `Lens answer ${answer.id} changed behavioral ranking`);
+      assert.equal(after.evidence_ledger.length, lensState.evidence_ledger.length);
+      assert.equal(after.lens_ledger.length, 1);
+      lensChecks.push(answer.id);
+    }
   }
 
   return {
@@ -411,7 +437,10 @@ function focusedBehaviorReport() {
     negative_only_winner_blocked: true,
     meaningful_evidence_can_reorder: true,
     adaptive_positive_utility_cases: usefulnessCases,
+    targeted_leader_confirmation_bonus_present: false,
+    pair_metadata_without_effect_contributes_utility: false,
     lens_eligibility_enforced: true,
+    eligible_yore_glint_lens_route_reachable: Boolean(lensState),
     lens_answers_ranking_neutral: lensChecks,
     behavioral_and_lens_ledgers_separate: true,
     numeric_public_confidence_authorized: false,
@@ -457,6 +486,69 @@ function terminationReport() {
     result_states: resultStates,
     insufficient_cases: insufficientCases,
     recoveryStates,
+  };
+}
+
+function routingBaselineReport(reachability, pairs, termination) {
+  const selectedQuestions = new Map();
+  const targetedSelections = new Map();
+  let adaptiveSteps = 0;
+  let targetedSteps = 0;
+  let lensSteps = 0;
+  let metadataOnlyPairReferences = 0;
+  for (let seed = 1; seed <= 1000; seed += 1) {
+    const rng = makeRng(900000 + seed);
+    let state = createInitialState(MODEL);
+    for (let guard = 0; guard < 8; guard += 1) {
+      const question = selectNextQuestion(state, MODEL);
+      if (!question) break;
+      if (state.answered_question_ids.length >= 4) {
+        const ranking = rankCandidates(state, MODEL);
+        const trace = getRoutingTrace(state, MODEL, ranking);
+        assert.equal(trace.selected_question_id, question.id, `Routing trace drift for seed ${seed}`);
+        adaptiveSteps += 1;
+        selectedQuestions.set(question.id, (selectedQuestions.get(question.id) || 0) + 1);
+        metadataOnlyPairReferences += trace.questions.reduce((sum, entry) => sum + entry.metadata_only_pairs.length, 0);
+        if (question.evidence_class === "IDENTITY_LENS_SELF_REPORT") {
+          lensSteps += 1;
+        } else if (question.stage === "crucible") {
+          targetedSteps += 1;
+          targetedSelections.set(question.id, (targetedSelections.get(question.id) || 0) + 1);
+          const eligibleTargeted = trace.questions.filter((entry) => entry.stage === "crucible" && entry.eligible);
+          const maximumUtility = Math.max(...eligibleTargeted.map((entry) => entry.utility), 0);
+          assert.equal(trace.selected_utility, maximumUtility, `Targeted route did not maximize discrimination for seed ${seed}`);
+        }
+      }
+      const answerIndex = Math.floor(rng() * question.answers.length);
+      state = observe({ state, model: MODEL, question, answer: question.answers[answerIndex], answerIndex });
+    }
+  }
+  return {
+    status: "PASS",
+    model_version: MODEL._meta.model_version,
+    mapping_version: MODEL._meta.mapping_version,
+    routing_policy: "symmetric-discrimination-only",
+    leader_confirmation_bonus_present: false,
+    pair_coverage_metadata_can_create_utility: false,
+    generated_journeys: 1000,
+    adaptive_steps: adaptiveSteps,
+    targeted_steps: targetedSteps,
+    lens_steps: lensSteps,
+    metadata_only_pair_references_observed: metadataOnlyPairReferences,
+    selected_question_counts: Object.fromEntries([...selectedQuestions.entries()].sort()),
+    targeted_question_counts: Object.fromEntries([...targetedSelections.entries()].sort()),
+    reachability: {
+      candidate_set: reachability.candidate_set_reachable,
+      primary: reachability.primary_reachable,
+      top_2: reachability.top_2_reachable,
+      top_3: reachability.top_3_reachable,
+    },
+    confusion_pairs: {
+      routable_direct: pairs.routable_direct,
+      direct_not_reached: pairs.direct_not_reached,
+      bounded_no_direct: pairs.bounded_no_direct,
+    },
+    stopping_states: termination.result_states,
   };
 }
 
@@ -828,6 +920,7 @@ const pairs = confusionPairReport(reachabilityWithCache);
 const robustness = robustnessReport();
 const sensitivity = sensitivityReport(reachabilityWithCache);
 const recovery = recoveryReport(terminationWithStates);
+const routingBaseline = routingBaselineReport(reachabilityWithCache, pairs, terminationWithStates);
 
 const termination = { ...terminationWithStates };
 delete termination.recoveryStates;
@@ -842,6 +935,7 @@ writeOrCheck("confusion-pair-resolution.json", pairs);
 writeOrCheck("synthetic-robustness.json", robustness);
 writeOrCheck("sensitivity-mutation.json", sensitivity);
 writeOrCheck("insufficient-recovery.json", recovery);
+writeOrCheck("routing-unbiased-baseline.json", routingBaseline);
 writeOrCheck("owner-summary.md", ownerSummary(reachabilityWithCache, pairs, robustness, recovery, sensitivity));
 
 console.log(

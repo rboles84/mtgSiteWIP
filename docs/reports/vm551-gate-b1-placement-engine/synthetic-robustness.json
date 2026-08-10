@@ -18,11 +18,11 @@
     {
       "identity": "ABZAN",
       "runs": 180,
-      "primary_frequency": 0.8722222222222222,
-      "top_2_frequency": 0.9833333333333333,
-      "top_3_frequency": 1,
+      "primary_frequency": 0,
+      "top_2_frequency": 0.1111111111111111,
+      "top_3_frequency": 0.8722222222222222,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.9833333333333333,
+      "insufficient_frequency": 0.8722222222222222,
       "most_common_competing_identity": "BANT",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
@@ -31,8 +31,8 @@
       "identity": "B",
       "runs": 180,
       "primary_frequency": 0,
-      "top_2_frequency": 0.13333333333333333,
-      "top_3_frequency": 0.24444444444444444,
+      "top_2_frequency": 0.15555555555555556,
+      "top_3_frequency": 0.26666666666666666,
       "responsible_named_primary_frequency": 0,
       "insufficient_frequency": 0.9777777777777777,
       "most_common_competing_identity": "JESKAI",
@@ -51,35 +51,40 @@
     {
       "identity": "BANT",
       "runs": 180,
-      "primary_frequency": 0.12222222222222222,
-      "top_2_frequency": 1,
-      "top_3_frequency": 1,
+      "primary_frequency": 0.9888888888888889,
+      "top_2_frequency": 0.9888888888888889,
+      "top_3_frequency": 0.9888888888888889,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 1,
-      "most_common_competing_identity": "ABZAN",
+      "insufficient_frequency": 0.9888888888888889,
+      "most_common_competing_identity": "BG",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
     },
     {
       "identity": "BG",
       "runs": 180,
-      "primary_frequency": 0,
-      "top_2_frequency": 0,
-      "top_3_frequency": 0,
-      "responsible_named_primary_frequency": 0,
+      "primary_frequency": 0.7444444444444445,
+      "top_2_frequency": 0.8777777777777778,
+      "top_3_frequency": 0.8777777777777778,
+      "responsible_named_primary_frequency": 0.7444444444444445,
       "insufficient_frequency": 0.24444444444444444,
-      "most_common_competing_identity": "DUNE",
+      "most_common_competing_identity": "BANT",
       "common_insufficient_condition": "no_responsible_named_placement",
-      "questions_most_responsible_for_separation": []
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.crucible.bg.v1",
+          "count": 134
+        }
+      ]
     },
     {
       "identity": "BR",
       "runs": 180,
-      "primary_frequency": 0.12222222222222222,
-      "top_2_frequency": 0.8777777777777778,
-      "top_3_frequency": 0.8777777777777778,
+      "primary_frequency": 0.13333333333333333,
+      "top_2_frequency": 0.8888888888888888,
+      "top_3_frequency": 0.8888888888888888,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.9888888888888889,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "BANT",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
@@ -87,31 +92,36 @@
     {
       "identity": "COLORLESS",
       "runs": 180,
-      "primary_frequency": 0.6555555555555556,
+      "primary_frequency": 0.7666666666666667,
       "top_2_frequency": 0.7666666666666667,
       "top_3_frequency": 0.7666666666666667,
-      "responsible_named_primary_frequency": 0.6333333333333333,
+      "responsible_named_primary_frequency": 0.7444444444444445,
       "insufficient_frequency": 0.25555555555555554,
-      "most_common_competing_identity": "SULTAI",
+      "most_common_competing_identity": "B",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
         {
           "question_id": "b1.crucible.colorless-wubrg.v1",
-          "count": 114
+          "count": 134
         }
       ]
     },
     {
       "identity": "DUNE",
       "runs": 180,
-      "primary_frequency": 0,
-      "top_2_frequency": 0,
-      "top_3_frequency": 0,
-      "responsible_named_primary_frequency": 0,
+      "primary_frequency": 0.7666666666666667,
+      "top_2_frequency": 0.7666666666666667,
+      "top_3_frequency": 0.7666666666666667,
+      "responsible_named_primary_frequency": 0.7444444444444445,
       "insufficient_frequency": 0.25555555555555554,
-      "most_common_competing_identity": "WUBRG",
+      "most_common_competing_identity": "BR",
       "common_insufficient_condition": "no_responsible_named_placement",
-      "questions_most_responsible_for_separation": []
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.crucible.glint-dune.v1",
+          "count": 134
+        }
+      ]
     },
     {
       "identity": "ESPER",
@@ -121,7 +131,7 @@
       "top_3_frequency": 0.8777777777777778,
       "responsible_named_primary_frequency": 0,
       "insufficient_frequency": 0.9888888888888889,
-      "most_common_competing_identity": "QUANDRIX",
+      "most_common_competing_identity": "U",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
         {
@@ -134,13 +144,18 @@
       "identity": "G",
       "runs": 180,
       "primary_frequency": 0,
-      "top_2_frequency": 0,
-      "top_3_frequency": 0,
+      "top_2_frequency": 0.5055555555555555,
+      "top_3_frequency": 0.5277777777777778,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.24444444444444444,
-      "most_common_competing_identity": "INK",
+      "insufficient_frequency": 0.7555555555555555,
+      "most_common_competing_identity": "W",
       "common_insufficient_condition": "no_responsible_named_placement",
-      "questions_most_responsible_for_separation": []
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "count": 91
+        }
+      ]
     },
     {
       "identity": "GLINT",
@@ -150,19 +165,23 @@
       "top_3_frequency": 0.8888888888888888,
       "responsible_named_primary_frequency": 0.7555555555555555,
       "insufficient_frequency": 0.24444444444444444,
-      "most_common_competing_identity": "BANT",
+      "most_common_competing_identity": "R",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
         {
+          "question_id": "b1.crucible.glint-dune.v1",
+          "count": 116
+        },
+        {
           "question_id": "b1.crucible.yore-glint.v1",
-          "count": 136
+          "count": 20
         }
       ]
     },
     {
       "identity": "GRIXIS",
       "runs": 180,
-      "primary_frequency": 0.8666666666666667,
+      "primary_frequency": 0.8555555555555555,
       "top_2_frequency": 0.8666666666666667,
       "top_3_frequency": 0.8888888888888888,
       "responsible_named_primary_frequency": 0,
@@ -183,24 +202,19 @@
     {
       "identity": "INK",
       "runs": 180,
-      "primary_frequency": 0.7388888888888889,
-      "top_2_frequency": 0.8666666666666667,
-      "top_3_frequency": 0.8666666666666667,
-      "responsible_named_primary_frequency": 0.7388888888888889,
-      "insufficient_frequency": 0.2388888888888889,
-      "most_common_competing_identity": "ABZAN",
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 0.8666666666666667,
+      "most_common_competing_identity": "BANT",
       "common_insufficient_condition": "no_responsible_named_placement",
-      "questions_most_responsible_for_separation": [
-        {
-          "question_id": "b1.crucible.dune-ink.v1",
-          "count": 133
-        }
-      ]
+      "questions_most_responsible_for_separation": []
     },
     {
       "identity": "JESKAI",
       "runs": 180,
-      "primary_frequency": 0,
+      "primary_frequency": 0.8666666666666667,
       "top_2_frequency": 0.8666666666666667,
       "top_3_frequency": 0.8666666666666667,
       "responsible_named_primary_frequency": 0,
@@ -225,8 +239,8 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.8888888888888888,
-      "most_common_competing_identity": "YORE",
+      "insufficient_frequency": 0.34444444444444444,
+      "most_common_competing_identity": "DUNE",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
     },
@@ -235,10 +249,10 @@
       "runs": 180,
       "primary_frequency": 0,
       "top_2_frequency": 0,
-      "top_3_frequency": 0,
+      "top_3_frequency": 0.8722222222222222,
       "responsible_named_primary_frequency": 0,
       "insufficient_frequency": 0.24444444444444444,
-      "most_common_competing_identity": "INK",
+      "most_common_competing_identity": "WITHERBLOOM",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
     },
@@ -249,8 +263,8 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 1,
-      "most_common_competing_identity": "YORE",
+      "insufficient_frequency": 0.35555555555555557,
+      "most_common_competing_identity": "DUNE",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
     },
@@ -259,27 +273,27 @@
       "runs": 180,
       "primary_frequency": 0,
       "top_2_frequency": 0,
-      "top_3_frequency": 0,
+      "top_3_frequency": 0.7444444444444445,
       "responsible_named_primary_frequency": 0,
       "insufficient_frequency": 0.25555555555555554,
-      "most_common_competing_identity": "WUBRG",
+      "most_common_competing_identity": "DUNE",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
     },
     {
       "identity": "PRISMARI",
       "runs": 180,
-      "primary_frequency": 0.6333333333333333,
-      "top_2_frequency": 0.7666666666666667,
+      "primary_frequency": 0.7444444444444445,
+      "top_2_frequency": 0.8777777777777778,
       "top_3_frequency": 0.8777777777777778,
-      "responsible_named_primary_frequency": 0.6333333333333333,
+      "responsible_named_primary_frequency": 0.7444444444444445,
       "insufficient_frequency": 0.24444444444444444,
       "most_common_competing_identity": "BR",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
         {
           "question_id": "b1.crucible.ur.v1",
-          "count": 114
+          "count": 134
         }
       ]
     },
@@ -291,19 +305,19 @@
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
       "insufficient_frequency": 0.25,
-      "most_common_competing_identity": "WUBRG",
+      "most_common_competing_identity": "DUNE",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
     },
     {
       "identity": "R",
       "runs": 180,
-      "primary_frequency": 0,
-      "top_2_frequency": 0,
-      "top_3_frequency": 0,
+      "primary_frequency": 0.8555555555555555,
+      "top_2_frequency": 0.8888888888888888,
+      "top_3_frequency": 0.8888888888888888,
       "responsible_named_primary_frequency": 0,
       "insufficient_frequency": 1,
-      "most_common_competing_identity": "UR",
+      "most_common_competing_identity": "PRISMARI",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
     },
@@ -314,8 +328,8 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 1,
-      "most_common_competing_identity": "YORE",
+      "insufficient_frequency": 0.35555555555555557,
+      "most_common_competing_identity": "DUNE",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
     },
@@ -327,7 +341,7 @@
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
       "insufficient_frequency": 0.25555555555555554,
-      "most_common_competing_identity": "WUBRG",
+      "most_common_competing_identity": "DUNE",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
     },
@@ -339,7 +353,7 @@
       "top_3_frequency": 0.011111111111111112,
       "responsible_named_primary_frequency": 0,
       "insufficient_frequency": 0.24444444444444444,
-      "most_common_competing_identity": "WUBRG",
+      "most_common_competing_identity": "DUNE",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
     },
@@ -350,7 +364,7 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.8888888888888888,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "YORE",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
@@ -405,38 +419,43 @@
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
       "insufficient_frequency": 0.23333333333333334,
-      "most_common_competing_identity": "INK",
+      "most_common_competing_identity": "WITHERBLOOM",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
     },
     {
       "identity": "UR",
       "runs": 180,
-      "primary_frequency": 0.6444444444444445,
-      "top_2_frequency": 0.6444444444444445,
-      "top_3_frequency": 0.7666666666666667,
-      "responsible_named_primary_frequency": 0.6444444444444445,
-      "insufficient_frequency": 0.34444444444444444,
+      "primary_frequency": 0.7555555555555555,
+      "top_2_frequency": 0.7555555555555555,
+      "top_3_frequency": 0.7555555555555555,
+      "responsible_named_primary_frequency": 0.7555555555555555,
+      "insufficient_frequency": 0.23333333333333334,
       "most_common_competing_identity": "BR",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
         {
           "question_id": "b1.crucible.ur.v1",
-          "count": 116
+          "count": 136
         }
       ]
     },
     {
       "identity": "W",
       "runs": 180,
-      "primary_frequency": 0,
-      "top_2_frequency": 0,
-      "top_3_frequency": 0,
+      "primary_frequency": 0.5055555555555555,
+      "top_2_frequency": 0.6388888888888888,
+      "top_3_frequency": 0.75,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.24444444444444444,
-      "most_common_competing_identity": "INK",
+      "insufficient_frequency": 0.8611111111111112,
+      "most_common_competing_identity": "G",
       "common_insufficient_condition": "no_responsible_named_placement",
-      "questions_most_responsible_for_separation": []
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "count": 91
+        }
+      ]
     },
     {
       "identity": "WB",
@@ -458,7 +477,7 @@
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
       "insufficient_frequency": 0.24444444444444444,
-      "most_common_competing_identity": "INK",
+      "most_common_competing_identity": "WITHERBLOOM",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
     },
@@ -477,34 +496,34 @@
     {
       "identity": "WITHERBLOOM",
       "runs": 180,
-      "primary_frequency": 0.12222222222222222,
-      "top_2_frequency": 0.12222222222222222,
-      "top_3_frequency": 0.12222222222222222,
-      "responsible_named_primary_frequency": 0.12222222222222222,
-      "insufficient_frequency": 0.7611111111111111,
-      "most_common_competing_identity": "BR",
+      "primary_frequency": 0.022222222222222223,
+      "top_2_frequency": 0.022222222222222223,
+      "top_3_frequency": 0.022222222222222223,
+      "responsible_named_primary_frequency": 0.022222222222222223,
+      "insufficient_frequency": 0.24444444444444444,
+      "most_common_competing_identity": "PRISMARI",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
         {
           "question_id": "b1.crucible.bg.v1",
-          "count": 22
+          "count": 4
         }
       ]
     },
     {
       "identity": "WR",
       "runs": 180,
-      "primary_frequency": 0.7611111111111111,
+      "primary_frequency": 0.8722222222222222,
       "top_2_frequency": 0.8722222222222222,
       "top_3_frequency": 0.8722222222222222,
-      "responsible_named_primary_frequency": 0.6277777777777778,
+      "responsible_named_primary_frequency": 0.7388888888888889,
       "insufficient_frequency": 0.2611111111111111,
-      "most_common_competing_identity": "BANT",
+      "most_common_competing_identity": "JUND",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
         {
           "question_id": "b1.crucible.wr.v1",
-          "count": 113
+          "count": 133
         }
       ]
     },
@@ -515,7 +534,7 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0.13333333333333333,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 1,
+      "insufficient_frequency": 0.9777777777777777,
       "most_common_competing_identity": "UB",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
@@ -536,7 +555,7 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.26666666666666666,
+      "insufficient_frequency": 0.24444444444444444,
       "most_common_competing_identity": "ESPER",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
@@ -544,21 +563,17 @@
     {
       "identity": "YORE",
       "runs": 180,
-      "primary_frequency": 0.022222222222222223,
-      "top_2_frequency": 0.022222222222222223,
-      "top_3_frequency": 0.022222222222222223,
+      "primary_frequency": 0,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.9888888888888889,
+      "insufficient_frequency": 0.9666666666666667,
       "most_common_competing_identity": "GRIXIS",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
         {
           "question_id": "b1.crucible.mono-multi.v1",
           "count": 20
-        },
-        {
-          "question_id": "b1.crucible.yore-glint.v1",
-          "count": 4
         }
       ]
     }

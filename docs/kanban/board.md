@@ -45,6 +45,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-551 — Gate B1 Evidence and Routing Remediation](in-progress/VM-551-gate-b1-evidence-routing-remediation.md) - removing targeted leader-confirmation bias, freezing an unchanged-model routing baseline, and applying only existing-authority naming/routing fixes across the 15 zero-naming identities, 9 unreachable-naming identities, and 73 no-direct confusion pairs.
+
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 
 ## Blocked

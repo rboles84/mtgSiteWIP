@@ -1,9 +1,9 @@
 {
   "status": "BLOCKING_EVIDENCE_GAPS",
   "identities": 37,
-  "candidate_set_reachable": 37,
+  "candidate_set_reachable": 36,
   "primary_reachable": 13,
-  "top_2_reachable": 28,
+  "top_2_reachable": 27,
   "top_3_reachable": 30,
   "cannot_become_primary": [
     "ABZAN",
@@ -56,19 +56,19 @@
         },
         {
           "question_id": "b1.hall.commander-role.v1",
-          "answer_id": "b1.hall.commander-role.v1.center"
+          "answer_id": "b1.hall.commander-role.v1.function"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.narrow"
         },
         {
           "question_id": "b1.hall.commitment.v1",
           "answer_id": "b1.hall.commitment.v1.reopen"
         },
         {
-          "question_id": "b1.hall.setup.v1",
-          "answer_id": "b1.hall.setup.v1.early"
-        },
-        {
-          "question_id": "b1.crucible.dune-ink.v1",
-          "answer_id": "b1.crucible.dune-ink.v1.neither"
+          "question_id": "b1.crucible.mono-multi.v1",
+          "answer_id": "b1.crucible.mono-multi.v1.multi"
         }
       ],
       "supporting_constructs": [
@@ -79,9 +79,9 @@
       "strongest_competitors": [
         "BANT",
         "INK",
-        "G",
-        "UG",
-        "W"
+        "WG",
+        "SILVERQUILL",
+        "BG"
       ],
       "major_confusion_pairs": [
         "ABZAN__MARDU",
@@ -100,7 +100,11 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
         "b1.crucible.dune-ink.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.wb.v1",
+        "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -109,9 +113,8 @@
         "b1.hall.commander-role.v1",
         "b1.hall.commitment.v1",
         "b1.hall.information-to-plan.v1",
-        "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
-        "b1.hall.setup.v1"
+        "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [
         "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
@@ -139,7 +142,7 @@
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.burst"
+          "answer_id": "b1.gate.tempo.v1.depends"
         },
         {
           "question_id": "b1.hall.information-to-plan.v1",
@@ -150,8 +153,8 @@
           "answer_id": "b1.hall.mana-window.v1.others"
         },
         {
-          "question_id": "b1.hall.sacrifice.v1",
-          "answer_id": "b1.hall.sacrifice.v1.convert"
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.narrow"
         },
         {
           "question_id": "b1.crucible.mono-multi.v1",
@@ -202,12 +205,11 @@
         "b1.gate.visibility.v1",
         "b1.hall.breadth.v1",
         "b1.hall.commander-role.v1",
-        "b1.hall.commitment.v1",
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
-        "b1.hall.repeatability.v1",
-        "b1.hall.sacrifice.v1"
+        "b1.hall.sacrifice.v1",
+        "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [
         "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
@@ -223,11 +225,11 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.balance"
+          "answer_id": "b1.gate.initiative.v1.unsure"
         },
         {
           "question_id": "b1.gate.visibility.v1",
-          "answer_id": "b1.gate.visibility.v1.depends"
+          "answer_id": "b1.gate.visibility.v1.board"
         },
         {
           "question_id": "b1.gate.disruption.v1",
@@ -235,23 +237,23 @@
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.burst"
-        },
-        {
-          "question_id": "b1.hall.breadth.v1",
-          "answer_id": "b1.hall.breadth.v1.broad"
-        },
-        {
-          "question_id": "b1.hall.repeatability.v1",
-          "answer_id": "b1.hall.repeatability.v1.same"
+          "answer_id": "b1.gate.tempo.v1.depends"
         },
         {
           "question_id": "b1.hall.commander-role.v1",
           "answer_id": "b1.hall.commander-role.v1.center"
         },
         {
-          "question_id": "b1.crucible.glint-dune.v1",
-          "answer_id": "b1.crucible.glint-dune.v1.neither"
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.narrow"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.reopen"
+        },
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "answer_id": "b1.crucible.mono-multi.v1.multi"
         }
       ],
       "supporting_constructs": [
@@ -260,11 +262,11 @@
         "C09"
       ],
       "strongest_competitors": [
-        "GLINT",
-        "UR",
-        "WR",
-        "WUBRG",
-        "R"
+        "ABZAN",
+        "INK",
+        "WG",
+        "SILVERQUILL",
+        "BG"
       ],
       "major_confusion_pairs": [
         "BANT__ESPER",
@@ -287,9 +289,9 @@
       "routing_questions_encountered": [
         "b1.crucible.bg.v1",
         "b1.crucible.dune-ink.v1",
-        "b1.crucible.glint-dune.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.wb.v1",
         "b1.crucible.wr.v1",
-        "b1.crucible.yore-glint.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -299,7 +301,6 @@
         "b1.hall.commitment.v1",
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
-        "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
         "b1.hall.setup.v1"
       ],
@@ -317,23 +318,23 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.unsure"
+          "answer_id": "b1.gate.initiative.v1.advance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
-          "answer_id": "b1.gate.visibility.v1.depends"
+          "answer_id": "b1.gate.visibility.v1.board"
         },
         {
           "question_id": "b1.gate.disruption.v1",
-          "answer_id": "b1.gate.disruption.v1.protect"
+          "answer_id": "b1.gate.disruption.v1.limit"
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.burst"
+          "answer_id": "b1.gate.tempo.v1.depends"
         },
         {
-          "question_id": "b1.hall.commander-role.v1",
-          "answer_id": "b1.hall.commander-role.v1.center"
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
         },
         {
           "question_id": "b1.hall.sacrifice.v1",
@@ -354,9 +355,9 @@
         "C06"
       ],
       "strongest_competitors": [
-        "BANT",
+        "GRIXIS",
         "SULTAI",
-        "BR",
+        "JUND",
         "LOREHOLD",
         "UG"
       ],
@@ -376,6 +377,8 @@
       ],
       "routing_questions_encountered": [
         "b1.crucible.bg.v1",
+        "b1.crucible.dune-ink.v1",
+        "b1.crucible.wb.v1",
         "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -386,8 +389,9 @@
         "b1.hall.commitment.v1",
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
-        "b1.hall.repeatability.v1",
-        "b1.hall.sacrifice.v1"
+        "b1.hall.pressure.v1",
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1"
       ],
       "unresolved_authority_gaps": [],
       "blocking_reason": null
@@ -420,15 +424,15 @@
         },
         {
           "question_id": "b1.hall.breadth.v1",
-          "answer_id": "b1.hall.breadth.v1.broad"
+          "answer_id": "b1.hall.breadth.v1.concept"
         },
         {
           "question_id": "b1.hall.sacrifice.v1",
           "answer_id": "b1.hall.sacrifice.v1.convert"
         },
         {
-          "question_id": "b1.crucible.ur.v1",
-          "answer_id": "b1.crucible.ur.v1.neither"
+          "question_id": "b1.crucible.bg.v1",
+          "answer_id": "b1.crucible.bg.v1.neither"
         }
       ],
       "supporting_constructs": [
@@ -462,8 +466,9 @@
       ],
       "routing_questions_encountered": [
         "b1.crucible.bg.v1",
+        "b1.crucible.glint-dune.v1",
         "b1.crucible.ur.v1",
-        "b1.crucible.wr.v1",
+        "b1.crucible.yore-glint.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -475,7 +480,10 @@
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
         "b1.hall.repeatability.v1",
-        "b1.hall.sacrifice.v1"
+        "b1.hall.sacrifice.v1",
+        "b1.hall.setup.v1",
+        "b1.hall.theme.v1",
+        "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [
         "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
@@ -499,7 +507,7 @@
         },
         {
           "question_id": "b1.gate.disruption.v1",
-          "answer_id": "b1.gate.disruption.v1.limit"
+          "answer_id": "b1.gate.disruption.v1.depends"
         },
         {
           "question_id": "b1.gate.tempo.v1",
@@ -531,8 +539,8 @@
         "ESPER",
         "U",
         "R",
-        "BG",
-        "LOREHOLD"
+        "UR",
+        "GRIXIS"
       ],
       "major_confusion_pairs": [
         "COLORLESS__WUBRG"
@@ -547,7 +555,6 @@
         "b1.crucible.colorless-wubrg.v1"
       ],
       "routing_questions_encountered": [
-        "b1.crucible.bg.v1",
         "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.esper.v1",
         "b1.crucible.mono-multi.v1",
@@ -563,9 +570,7 @@
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
-        "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
-        "b1.hall.setup.v1",
         "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
@@ -580,7 +585,7 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.unsure"
+          "answer_id": "b1.gate.initiative.v1.advance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -588,27 +593,27 @@
         },
         {
           "question_id": "b1.gate.disruption.v1",
-          "answer_id": "b1.gate.disruption.v1.limit"
+          "answer_id": "b1.gate.disruption.v1.depends"
         },
         {
           "question_id": "b1.gate.tempo.v1",
           "answer_id": "b1.gate.tempo.v1.depends"
         },
         {
-          "question_id": "b1.hall.commander-role.v1",
-          "answer_id": "b1.hall.commander-role.v1.center"
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
         },
         {
-          "question_id": "b1.hall.commitment.v1",
-          "answer_id": "b1.hall.commitment.v1.reopen"
+          "question_id": "b1.hall.threat.v1",
+          "answer_id": "b1.hall.threat.v1.embrace"
         },
         {
-          "question_id": "b1.hall.setup.v1",
-          "answer_id": "b1.hall.setup.v1.early"
+          "question_id": "b1.hall.repeatability.v1",
+          "answer_id": "b1.hall.repeatability.v1.same"
         },
         {
-          "question_id": "b1.crucible.dune-ink.v1",
-          "answer_id": "b1.crucible.dune-ink.v1.front"
+          "question_id": "b1.crucible.glint-dune.v1",
+          "answer_id": "b1.crucible.glint-dune.v1.front"
         }
       ],
       "supporting_constructs": [
@@ -617,11 +622,11 @@
         "C13"
       ],
       "strongest_competitors": [
-        "ABZAN",
-        "BANT",
-        "G",
-        "UG",
-        "W"
+        "R",
+        "GRIXIS",
+        "B",
+        "JESKAI",
+        "UB"
       ],
       "major_confusion_pairs": [
         "DUNE__GLINT",
@@ -644,9 +649,11 @@
       ],
       "routing_questions_encountered": [
         "b1.crucible.bg.v1",
-        "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.dune-ink.v1",
+        "b1.crucible.glint-dune.v1",
         "b1.crucible.mono-multi.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.yore-glint.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -659,7 +666,7 @@
         "b1.hall.mana-window.v1",
         "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
-        "b1.hall.setup.v1",
+        "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [],
@@ -743,9 +750,9 @@
         "b1.crucible.bg.v1",
         "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.esper.v1",
-        "b1.crucible.ink-witch.v1",
         "b1.crucible.ug.v1",
         "b1.crucible.ur.v1",
+        "b1.crucible.witch-yore.v1",
         "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -753,13 +760,10 @@
         "b1.gate.visibility.v1",
         "b1.hall.breadth.v1",
         "b1.hall.commander-role.v1",
-        "b1.hall.commitment.v1",
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
-        "b1.hall.repeatability.v1",
-        "b1.hall.sacrifice.v1",
-        "b1.hall.setup.v1"
+        "b1.hall.sacrifice.v1"
       ],
       "unresolved_authority_gaps": [],
       "blocking_reason": null
@@ -772,7 +776,7 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.advance"
+          "answer_id": "b1.gate.initiative.v1.unsure"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -784,19 +788,19 @@
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.waves"
+          "answer_id": "b1.gate.tempo.v1.depends"
         },
         {
-          "question_id": "b1.hall.information-to-plan.v1",
-          "answer_id": "b1.hall.information-to-plan.v1.depends"
+          "question_id": "b1.hall.commander-role.v1",
+          "answer_id": "b1.hall.commander-role.v1.center"
         },
         {
           "question_id": "b1.hall.breadth.v1",
           "answer_id": "b1.hall.breadth.v1.narrow"
         },
         {
-          "question_id": "b1.hall.setup.v1",
-          "answer_id": "b1.hall.setup.v1.early"
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.reopen"
         },
         {
           "question_id": "b1.crucible.mono-multi.v1",
@@ -809,11 +813,11 @@
         "C10"
       ],
       "strongest_competitors": [
-        "R",
         "W",
-        "U",
         "B",
-        "TEMUR"
+        "R",
+        "U",
+        "BANT"
       ],
       "major_confusion_pairs": [
         "G__NAYA",
@@ -825,7 +829,7 @@
       "can_become_primary": false,
       "can_appear_top_2": true,
       "can_appear_top_3": true,
-      "best_internal_rank": 1,
+      "best_internal_rank": 2,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
         "b1.crucible.mono-multi.v1"
@@ -833,6 +837,7 @@
       "routing_questions_encountered": [
         "b1.crucible.bg.v1",
         "b1.crucible.colorless-wubrg.v1",
+        "b1.crucible.dune-ink.v1",
         "b1.crucible.mono-multi.v1",
         "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
@@ -845,7 +850,6 @@
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.pressure.v1",
-        "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
         "b1.hall.setup.v1",
         "b1.hall.theme.v1",
@@ -877,19 +881,19 @@
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.burst"
+          "answer_id": "b1.gate.tempo.v1.depends"
         },
         {
           "question_id": "b1.hall.information-to-plan.v1",
           "answer_id": "b1.hall.information-to-plan.v1.depends"
         },
         {
-          "question_id": "b1.hall.repeatability.v1",
-          "answer_id": "b1.hall.repeatability.v1.same"
-        },
-        {
           "question_id": "b1.hall.threat.v1",
           "answer_id": "b1.hall.threat.v1.avoid"
+        },
+        {
+          "question_id": "b1.hall.repeatability.v1",
+          "answer_id": "b1.hall.repeatability.v1.same"
         },
         {
           "question_id": "b1.crucible.yore-glint.v1",
@@ -903,10 +907,10 @@
       ],
       "strongest_competitors": [
         "R",
-        "PRISMARI",
-        "BR",
-        "UR",
-        "GRIXIS"
+        "GRIXIS",
+        "B",
+        "JESKAI",
+        "UB"
       ],
       "major_confusion_pairs": [
         "B__GLINT",
@@ -938,6 +942,7 @@
       ],
       "routing_questions_encountered": [
         "b1.crucible.glint-dune.v1",
+        "b1.crucible.ur.v1",
         "b1.crucible.yore-glint.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -986,8 +991,8 @@
           "answer_id": "b1.hall.mana-window.v1.others"
         },
         {
-          "question_id": "b1.hall.sacrifice.v1",
-          "answer_id": "b1.hall.sacrifice.v1.convert"
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
         },
         {
           "question_id": "b1.crucible.mono-multi.v1",
@@ -1002,10 +1007,10 @@
       ],
       "strongest_competitors": [
         "JESKAI",
-        "B",
         "UB",
-        "BR",
-        "JUND"
+        "B",
+        "ESPER",
+        "WU"
       ],
       "major_confusion_pairs": [
         "DUNE__GRIXIS",
@@ -1040,8 +1045,8 @@
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
-        "b1.hall.repeatability.v1",
-        "b1.hall.sacrifice.v1"
+        "b1.hall.sacrifice.v1",
+        "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [
         "High confusion or insufficient distinctiveness; preserve close/insufficient until player evidence supports mapping.",
@@ -1076,12 +1081,12 @@
           "answer_id": "b1.hall.commander-role.v1.center"
         },
         {
-          "question_id": "b1.hall.commitment.v1",
-          "answer_id": "b1.hall.commitment.v1.reopen"
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.narrow"
         },
         {
-          "question_id": "b1.hall.setup.v1",
-          "answer_id": "b1.hall.setup.v1.early"
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.short"
         },
         {
           "question_id": "b1.crucible.dune-ink.v1",
@@ -1094,11 +1099,11 @@
         "C10"
       ],
       "strongest_competitors": [
-        "ABZAN",
         "BANT",
-        "G",
-        "UG",
-        "W"
+        "W",
+        "ABZAN",
+        "WG",
+        "COLORLESS"
       ],
       "major_confusion_pairs": [
         "BANT__INK",
@@ -1122,6 +1127,8 @@
       "routing_questions_encountered": [
         "b1.crucible.bg.v1",
         "b1.crucible.dune-ink.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.wb.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -1130,7 +1137,6 @@
         "b1.hall.commander-role.v1",
         "b1.hall.commitment.v1",
         "b1.hall.information-to-plan.v1",
-        "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
         "b1.hall.setup.v1"
       ],
@@ -1145,7 +1151,7 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.balance"
+          "answer_id": "b1.gate.initiative.v1.advance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -1160,16 +1166,16 @@
           "answer_id": "b1.gate.tempo.v1.burst"
         },
         {
-          "question_id": "b1.hall.repeatability.v1",
-          "answer_id": "b1.hall.repeatability.v1.same"
-        },
-        {
           "question_id": "b1.hall.information-to-plan.v1",
           "answer_id": "b1.hall.information-to-plan.v1.exploit"
         },
         {
           "question_id": "b1.hall.mana-window.v1",
           "answer_id": "b1.hall.mana-window.v1.others"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
         },
         {
           "question_id": "b1.crucible.mono-multi.v1",
@@ -1183,11 +1189,11 @@
         "C09"
       ],
       "strongest_competitors": [
+        "GRIXIS",
         "B",
         "ESPER",
-        "WU",
-        "GRIXIS",
-        "GLINT"
+        "UB",
+        "WU"
       ],
       "major_confusion_pairs": [
         "ESPER__JESKAI",
@@ -1226,9 +1232,7 @@
         "b1.hall.commander-role.v1",
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
-        "b1.hall.mana-window.v1",
-        "b1.hall.repeatability.v1",
-        "b1.hall.sacrifice.v1"
+        "b1.hall.mana-window.v1"
       ],
       "unresolved_authority_gaps": [
         "High confusion or insufficient distinctiveness; preserve close/insufficient until player evidence supports mapping.",
@@ -1248,11 +1252,11 @@
         },
         {
           "question_id": "b1.gate.visibility.v1",
-          "answer_id": "b1.gate.visibility.v1.depends"
+          "answer_id": "b1.gate.visibility.v1.board"
         },
         {
           "question_id": "b1.gate.disruption.v1",
-          "answer_id": "b1.gate.disruption.v1.limit"
+          "answer_id": "b1.gate.disruption.v1.protect"
         },
         {
           "question_id": "b1.gate.tempo.v1",
@@ -1263,16 +1267,16 @@
           "answer_id": "b1.hall.information-to-plan.v1.depends"
         },
         {
-          "question_id": "b1.hall.commander-role.v1",
-          "answer_id": "b1.hall.commander-role.v1.center"
-        },
-        {
           "question_id": "b1.hall.sacrifice.v1",
           "answer_id": "b1.hall.sacrifice.v1.convert"
         },
         {
-          "question_id": "b1.crucible.bg.v1",
-          "answer_id": "b1.crucible.bg.v1.exchange"
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.combat"
+        },
+        {
+          "question_id": "b1.crucible.wr.v1",
+          "answer_id": "b1.crucible.wr.v1.intervene"
         }
       ],
       "supporting_constructs": [
@@ -1281,11 +1285,11 @@
         "C07"
       ],
       "strongest_competitors": [
-        "WITHERBLOOM",
-        "BANT",
         "WR",
         "GRIXIS",
-        "SULTAI"
+        "TEMUR",
+        "BG",
+        "MARDU"
       ],
       "major_confusion_pairs": [
         "BANT__JUND",
@@ -1299,9 +1303,9 @@
       ],
       "can_enter_candidate_set": true,
       "can_become_primary": false,
-      "can_appear_top_2": false,
+      "can_appear_top_2": true,
       "can_appear_top_3": true,
-      "best_internal_rank": 3,
+      "best_internal_rank": 2,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
         "b1.crucible.mono-multi.v1"
@@ -1311,7 +1315,6 @@
         "b1.crucible.esper.v1",
         "b1.crucible.mono-multi.v1",
         "b1.crucible.wr.v1",
-        "b1.crucible.yore-glint.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -1321,6 +1324,7 @@
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
+        "b1.hall.pressure.v1",
         "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
         "b1.hall.threat.v1"
@@ -1403,6 +1407,7 @@
         "b1.crucible.bg.v1",
         "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.esper.v1",
+        "b1.crucible.ug.v1",
         "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -1414,7 +1419,6 @@
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
-        "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1"
       ],
       "unresolved_authority_gaps": [],
@@ -1428,7 +1432,7 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.balance"
+          "answer_id": "b1.gate.initiative.v1.advance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -1440,23 +1444,23 @@
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.depends"
-        },
-        {
-          "question_id": "b1.hall.repeatability.v1",
-          "answer_id": "b1.hall.repeatability.v1.toolbox"
+          "answer_id": "b1.gate.tempo.v1.burst"
         },
         {
           "question_id": "b1.hall.information-to-plan.v1",
           "answer_id": "b1.hall.information-to-plan.v1.depends"
         },
         {
-          "question_id": "b1.hall.commander-role.v1",
-          "answer_id": "b1.hall.commander-role.v1.center"
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
         },
         {
-          "question_id": "b1.crucible.yore-glint.v1",
-          "answer_id": "b1.crucible.yore-glint.v1.engineered"
+          "question_id": "b1.hall.threat.v1",
+          "answer_id": "b1.hall.threat.v1.avoid"
+        },
+        {
+          "question_id": "b1.crucible.glint-dune.v1",
+          "answer_id": "b1.crucible.glint-dune.v1.front"
         }
       ],
       "supporting_constructs": [
@@ -1465,11 +1469,11 @@
         "C13"
       ],
       "strongest_competitors": [
-        "YORE",
-        "BANT",
-        "JESKAI",
-        "JUND",
-        "QUANDRIX"
+        "DUNE",
+        "R",
+        "PRISMARI",
+        "BR",
+        "TEMUR"
       ],
       "major_confusion_pairs": [
         "ABZAN__MARDU",
@@ -1481,7 +1485,7 @@
       "can_become_primary": false,
       "can_appear_top_2": false,
       "can_appear_top_3": false,
-      "best_internal_rank": 5,
+      "best_internal_rank": 7,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
         "b1.crucible.mono-multi.v1"
@@ -1534,7 +1538,7 @@
         },
         {
           "question_id": "b1.hall.information-to-plan.v1",
-          "answer_id": "b1.hall.information-to-plan.v1.open"
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
         },
         {
           "question_id": "b1.hall.breadth.v1",
@@ -1545,8 +1549,8 @@
           "answer_id": "b1.hall.threat.v1.avoid"
         },
         {
-          "question_id": "b1.crucible.mono-multi.v1",
-          "answer_id": "b1.crucible.mono-multi.v1.multi"
+          "question_id": "b1.crucible.glint-dune.v1",
+          "answer_id": "b1.crucible.glint-dune.v1.front"
         }
       ],
       "supporting_constructs": [
@@ -1555,11 +1559,11 @@
         "C11"
       ],
       "strongest_competitors": [
-        "UB",
-        "U",
-        "WU",
+        "DUNE",
         "BR",
-        "DUNE"
+        "PRISMARI",
+        "SILVERQUILL",
+        "WUBRG"
       ],
       "major_confusion_pairs": [
         "DUNE__NAYA",
@@ -1578,17 +1582,18 @@
       "can_enter_candidate_set": true,
       "can_become_primary": false,
       "can_appear_top_2": false,
-      "can_appear_top_3": false,
-      "best_internal_rank": 7,
+      "can_appear_top_3": true,
+      "best_internal_rank": 3,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
-        "b1.crucible.bg.v1",
         "b1.crucible.colorless-wubrg.v1",
+        "b1.crucible.glint-dune.v1",
         "b1.crucible.mono-multi.v1",
         "b1.crucible.ur.v1",
+        "b1.crucible.yore-glint.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -1601,7 +1606,7 @@
         "b1.hall.mana-window.v1",
         "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
-        "b1.hall.setup.v1",
+        "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [
@@ -1618,7 +1623,7 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.unsure"
+          "answer_id": "b1.gate.initiative.v1.advance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -1638,11 +1643,11 @@
         },
         {
           "question_id": "b1.hall.breadth.v1",
-          "answer_id": "b1.hall.breadth.v1.broad"
+          "answer_id": "b1.hall.breadth.v1.narrow"
         },
         {
-          "question_id": "b1.hall.sacrifice.v1",
-          "answer_id": "b1.hall.sacrifice.v1.convert"
+          "question_id": "b1.hall.threat.v1",
+          "answer_id": "b1.hall.threat.v1.avoid"
         },
         {
           "question_id": "b1.crucible.ur.v1",
@@ -1655,11 +1660,11 @@
         "C11"
       ],
       "strongest_competitors": [
+        "R",
         "BR",
+        "GLINT",
         "GRIXIS",
-        "SULTAI",
-        "WITHERBLOOM",
-        "BG"
+        "UB"
       ],
       "major_confusion_pairs": [
         "B__PRISMARI",
@@ -1687,7 +1692,6 @@
         "b1.crucible.glint-dune.v1",
         "b1.crucible.mono-multi.v1",
         "b1.crucible.ur.v1",
-        "b1.crucible.wr.v1",
         "b1.crucible.yore-glint.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -1699,9 +1703,9 @@
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
+        "b1.hall.pressure.v1",
         "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
-        "b1.hall.setup.v1",
         "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
@@ -1716,11 +1720,11 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.balance"
+          "answer_id": "b1.gate.initiative.v1.unsure"
         },
         {
           "question_id": "b1.gate.visibility.v1",
-          "answer_id": "b1.gate.visibility.v1.board"
+          "answer_id": "b1.gate.visibility.v1.depends"
         },
         {
           "question_id": "b1.gate.disruption.v1",
@@ -1732,15 +1736,15 @@
         },
         {
           "question_id": "b1.hall.information-to-plan.v1",
-          "answer_id": "b1.hall.information-to-plan.v1.depends"
-        },
-        {
-          "question_id": "b1.hall.repeatability.v1",
-          "answer_id": "b1.hall.repeatability.v1.same"
+          "answer_id": "b1.hall.information-to-plan.v1.consolidate"
         },
         {
           "question_id": "b1.hall.engine-shape.v1",
           "answer_id": "b1.hall.engine-shape.v1.central"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.concept"
         },
         {
           "question_id": "b1.crucible.ug.v1",
@@ -1753,11 +1757,11 @@
         "C14"
       ],
       "strongest_competitors": [
+        "ESPER",
+        "U",
         "WITCH",
-        "YORE",
-        "GLINT",
-        "UR",
-        "ESPER"
+        "BG",
+        "COLORLESS"
       ],
       "major_confusion_pairs": [
         "JESKAI__QUANDRIX",
@@ -1776,13 +1780,12 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
-        "b1.crucible.bg.v1",
         "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.esper.v1",
-        "b1.crucible.ink-witch.v1",
+        "b1.crucible.mono-multi.v1",
         "b1.crucible.ug.v1",
         "b1.crucible.ur.v1",
-        "b1.crucible.yore-glint.v1",
+        "b1.crucible.witch-yore.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -1793,11 +1796,9 @@
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
-        "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
-        "b1.hall.setup.v1",
-        "b1.hall.threat.v1",
-        "b1.lens.yore-glint.v1"
+        "b1.hall.theme.v1",
+        "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [],
       "blocking_reason": null
@@ -1810,7 +1811,7 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.balance"
+          "answer_id": "b1.gate.initiative.v1.advance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -1818,7 +1819,7 @@
         },
         {
           "question_id": "b1.gate.disruption.v1",
-          "answer_id": "b1.gate.disruption.v1.limit"
+          "answer_id": "b1.gate.disruption.v1.depends"
         },
         {
           "question_id": "b1.gate.tempo.v1",
@@ -1830,15 +1831,15 @@
         },
         {
           "question_id": "b1.hall.breadth.v1",
-          "answer_id": "b1.hall.breadth.v1.narrow"
+          "answer_id": "b1.hall.breadth.v1.broad"
         },
         {
           "question_id": "b1.hall.threat.v1",
           "answer_id": "b1.hall.threat.v1.avoid"
         },
         {
-          "question_id": "b1.crucible.ur.v1",
-          "answer_id": "b1.crucible.ur.v1.neither"
+          "question_id": "b1.crucible.glint-dune.v1",
+          "answer_id": "b1.crucible.glint-dune.v1.neither"
         }
       ],
       "supporting_constructs": [
@@ -1850,8 +1851,8 @@
         "PRISMARI",
         "BR",
         "GLINT",
-        "WR",
-        "GRIXIS"
+        "GRIXIS",
+        "UB"
       ],
       "major_confusion_pairs": [
         "B__R",
@@ -1875,9 +1876,8 @@
       ],
       "routing_questions_encountered": [
         "b1.crucible.glint-dune.v1",
-        "b1.crucible.mono-multi.v1",
+        "b1.crucible.grixis.v1",
         "b1.crucible.ur.v1",
-        "b1.crucible.wr.v1",
         "b1.crucible.yore-glint.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -1890,7 +1890,6 @@
         "b1.hall.pressure.v1",
         "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
-        "b1.hall.setup.v1",
         "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
@@ -1908,7 +1907,7 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.balance"
+          "answer_id": "b1.gate.initiative.v1.advance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -1920,23 +1919,23 @@
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.depends"
-        },
-        {
-          "question_id": "b1.hall.repeatability.v1",
-          "answer_id": "b1.hall.repeatability.v1.toolbox"
+          "answer_id": "b1.gate.tempo.v1.burst"
         },
         {
           "question_id": "b1.hall.information-to-plan.v1",
           "answer_id": "b1.hall.information-to-plan.v1.depends"
         },
         {
-          "question_id": "b1.hall.commander-role.v1",
-          "answer_id": "b1.hall.commander-role.v1.center"
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
         },
         {
-          "question_id": "b1.crucible.yore-glint.v1",
-          "answer_id": "b1.crucible.yore-glint.v1.engineered"
+          "question_id": "b1.hall.threat.v1",
+          "answer_id": "b1.hall.threat.v1.avoid"
+        },
+        {
+          "question_id": "b1.crucible.glint-dune.v1",
+          "answer_id": "b1.crucible.glint-dune.v1.front"
         }
       ],
       "supporting_constructs": [
@@ -1945,32 +1944,30 @@
         "C10"
       ],
       "strongest_competitors": [
-        "YORE",
-        "BANT",
-        "JESKAI",
-        "JUND",
-        "MARDU"
+        "DUNE",
+        "R",
+        "PRISMARI",
+        "BR",
+        "TEMUR"
       ],
       "major_confusion_pairs": [
         "B__RG",
         "NAYA__RG",
         "RG__U"
       ],
-      "can_enter_candidate_set": true,
+      "can_enter_candidate_set": false,
       "can_become_primary": false,
       "can_appear_top_2": false,
       "can_appear_top_3": false,
-      "best_internal_rank": 8,
+      "best_internal_rank": 9,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
-        "b1.crucible.bg.v1",
         "b1.crucible.glint-dune.v1",
         "b1.crucible.mono-multi.v1",
         "b1.crucible.ur.v1",
-        "b1.crucible.wr.v1",
         "b1.crucible.yore-glint.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -2003,31 +2000,31 @@
         },
         {
           "question_id": "b1.gate.visibility.v1",
-          "answer_id": "b1.gate.visibility.v1.board"
+          "answer_id": "b1.gate.visibility.v1.depends"
         },
         {
           "question_id": "b1.gate.disruption.v1",
-          "answer_id": "b1.gate.disruption.v1.limit"
+          "answer_id": "b1.gate.disruption.v1.depends"
         },
         {
           "question_id": "b1.gate.tempo.v1",
           "answer_id": "b1.gate.tempo.v1.depends"
         },
         {
-          "question_id": "b1.hall.commander-role.v1",
-          "answer_id": "b1.hall.commander-role.v1.center"
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
         },
         {
-          "question_id": "b1.hall.commitment.v1",
-          "answer_id": "b1.hall.commitment.v1.reopen"
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
         },
         {
-          "question_id": "b1.hall.setup.v1",
-          "answer_id": "b1.hall.setup.v1.early"
+          "question_id": "b1.hall.threat.v1",
+          "answer_id": "b1.hall.threat.v1.avoid"
         },
         {
-          "question_id": "b1.crucible.dune-ink.v1",
-          "answer_id": "b1.crucible.dune-ink.v1.commons"
+          "question_id": "b1.crucible.glint-dune.v1",
+          "answer_id": "b1.crucible.glint-dune.v1.front"
         }
       ],
       "supporting_constructs": [
@@ -2036,11 +2033,11 @@
         "C10"
       ],
       "strongest_competitors": [
-        "INK",
-        "ABZAN",
-        "BANT",
-        "G",
-        "UG"
+        "DUNE",
+        "BR",
+        "NAYA",
+        "PRISMARI",
+        "WUBRG"
       ],
       "major_confusion_pairs": [
         "ABZAN__SILVERQUILL",
@@ -2052,15 +2049,18 @@
       "can_become_primary": false,
       "can_appear_top_2": false,
       "can_appear_top_3": false,
-      "best_internal_rank": 8,
+      "best_internal_rank": 5,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
         "b1.crucible.wb.v1",
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.dune-ink.v1",
+        "b1.crucible.glint-dune.v1",
         "b1.crucible.mono-multi.v1",
+        "b1.crucible.ur.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -2073,7 +2073,7 @@
         "b1.hall.mana-window.v1",
         "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
-        "b1.hall.setup.v1",
+        "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [
@@ -2098,11 +2098,11 @@
         },
         {
           "question_id": "b1.gate.disruption.v1",
-          "answer_id": "b1.gate.disruption.v1.protect"
+          "answer_id": "b1.gate.disruption.v1.limit"
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.burst"
+          "answer_id": "b1.gate.tempo.v1.waves"
         },
         {
           "question_id": "b1.hall.commander-role.v1",
@@ -2113,12 +2113,12 @@
           "answer_id": "b1.hall.sacrifice.v1.convert"
         },
         {
-          "question_id": "b1.hall.engine-shape.v1",
-          "answer_id": "b1.hall.engine-shape.v1.central"
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.early"
         },
         {
           "question_id": "b1.crucible.bg.v1",
-          "answer_id": "b1.crucible.bg.v1.exchange"
+          "answer_id": "b1.crucible.bg.v1.neither"
         }
       ],
       "supporting_constructs": [
@@ -2128,10 +2128,10 @@
       ],
       "strongest_competitors": [
         "WITHERBLOOM",
+        "ABZAN",
         "BANT",
-        "BR",
-        "LOREHOLD",
-        "UG"
+        "BG",
+        "BR"
       ],
       "major_confusion_pairs": [
         "ABZAN__SULTAI",
@@ -2148,7 +2148,7 @@
       "can_become_primary": false,
       "can_appear_top_2": true,
       "can_appear_top_3": true,
-      "best_internal_rank": 2,
+      "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
         "b1.crucible.sultai.v1",
@@ -2157,12 +2157,11 @@
       "routing_questions_encountered": [
         "b1.crucible.bg.v1",
         "b1.crucible.colorless-wubrg.v1",
-        "b1.crucible.dune-ink.v1",
         "b1.crucible.esper.v1",
-        "b1.crucible.ink-witch.v1",
         "b1.crucible.mono-multi.v1",
         "b1.crucible.ug.v1",
         "b1.crucible.ur.v1",
+        "b1.crucible.witch-yore.v1",
         "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -2174,7 +2173,7 @@
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
-        "b1.hall.repeatability.v1",
+        "b1.hall.pressure.v1",
         "b1.hall.sacrifice.v1",
         "b1.hall.setup.v1",
         "b1.hall.threat.v1"
@@ -2216,12 +2215,12 @@
           "answer_id": "b1.hall.breadth.v1.narrow"
         },
         {
-          "question_id": "b1.hall.setup.v1",
-          "answer_id": "b1.hall.setup.v1.early"
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.combat"
         },
         {
-          "question_id": "b1.crucible.mono-multi.v1",
-          "answer_id": "b1.crucible.mono-multi.v1.multi"
+          "question_id": "b1.crucible.wr.v1",
+          "answer_id": "b1.crucible.wr.v1.intervene"
         }
       ],
       "supporting_constructs": [
@@ -2230,11 +2229,11 @@
         "C14"
       ],
       "strongest_competitors": [
-        "ABZAN",
-        "UG",
         "WR",
-        "GRIXIS",
-        "INK"
+        "R",
+        "W",
+        "JUND",
+        "MARDU"
       ],
       "major_confusion_pairs": [
         "BANT__TEMUR",
@@ -2247,15 +2246,16 @@
       ],
       "can_enter_candidate_set": true,
       "can_become_primary": false,
-      "can_appear_top_2": true,
+      "can_appear_top_2": false,
       "can_appear_top_3": true,
-      "best_internal_rank": 1,
+      "best_internal_rank": 3,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
         "b1.crucible.temur.v1",
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
         "b1.crucible.esper.v1",
         "b1.crucible.glint-dune.v1",
         "b1.crucible.mono-multi.v1",
@@ -2271,9 +2271,9 @@
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
+        "b1.hall.pressure.v1",
         "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
-        "b1.hall.setup.v1",
         "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
@@ -2364,8 +2364,7 @@
         "b1.hall.commander-role.v1",
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
-        "b1.hall.mana-window.v1",
-        "b1.hall.repeatability.v1"
+        "b1.hall.mana-window.v1"
       ],
       "unresolved_authority_gaps": [
         "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
@@ -2459,7 +2458,6 @@
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
-        "b1.hall.repeatability.v1",
         "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [
@@ -2537,6 +2535,7 @@
       "routing_questions_encountered": [
         "b1.crucible.bg.v1",
         "b1.crucible.dune-ink.v1",
+        "b1.crucible.mono-multi.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -2546,7 +2545,6 @@
         "b1.hall.commitment.v1",
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
-        "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
         "b1.hall.setup.v1"
       ],
@@ -2564,11 +2562,11 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.balance"
+          "answer_id": "b1.gate.initiative.v1.advance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
-          "answer_id": "b1.gate.visibility.v1.board"
+          "answer_id": "b1.gate.visibility.v1.depends"
         },
         {
           "question_id": "b1.gate.disruption.v1",
@@ -2580,15 +2578,15 @@
         },
         {
           "question_id": "b1.hall.information-to-plan.v1",
-          "answer_id": "b1.hall.information-to-plan.v1.depends"
-        },
-        {
-          "question_id": "b1.hall.repeatability.v1",
-          "answer_id": "b1.hall.repeatability.v1.same"
+          "answer_id": "b1.hall.information-to-plan.v1.consolidate"
         },
         {
           "question_id": "b1.hall.engine-shape.v1",
           "answer_id": "b1.hall.engine-shape.v1.central"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
         },
         {
           "question_id": "b1.crucible.ur.v1",
@@ -2601,11 +2599,11 @@
         "C09"
       ],
       "strongest_competitors": [
-        "QUANDRIX",
-        "WITCH",
-        "YORE",
-        "GLINT",
-        "R"
+        "ESPER",
+        "U",
+        "COLORLESS",
+        "R",
+        "GRIXIS"
       ],
       "major_confusion_pairs": [
         "GLINT__UR",
@@ -2627,9 +2625,10 @@
         "b1.crucible.bg.v1",
         "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.esper.v1",
-        "b1.crucible.glint-dune.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.ug.v1",
         "b1.crucible.ur.v1",
-        "b1.crucible.yore-glint.v1",
+        "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -2640,8 +2639,8 @@
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
-        "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
+        "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [],
@@ -2671,19 +2670,19 @@
         },
         {
           "question_id": "b1.hall.commander-role.v1",
-          "answer_id": "b1.hall.commander-role.v1.function"
-        },
-        {
-          "question_id": "b1.hall.commitment.v1",
-          "answer_id": "b1.hall.commitment.v1.short"
+          "answer_id": "b1.hall.commander-role.v1.center"
         },
         {
           "question_id": "b1.hall.breadth.v1",
           "answer_id": "b1.hall.breadth.v1.narrow"
         },
         {
-          "question_id": "b1.crucible.dune-ink.v1",
-          "answer_id": "b1.crucible.dune-ink.v1.neither"
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.reopen"
+        },
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "answer_id": "b1.crucible.mono-multi.v1.mono"
         }
       ],
       "supporting_constructs": [
@@ -2692,11 +2691,11 @@
         "C07"
       ],
       "strongest_competitors": [
-        "ABZAN",
-        "BANT",
-        "INK",
-        "WG",
-        "COLORLESS"
+        "G",
+        "B",
+        "R",
+        "U",
+        "BANT"
       ],
       "major_confusion_pairs": [
         "B__W",
@@ -2722,6 +2721,9 @@
       "routing_questions_encountered": [
         "b1.crucible.bg.v1",
         "b1.crucible.dune-ink.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.wb.v1",
+        "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -2732,7 +2734,7 @@
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
-        "b1.hall.repeatability.v1",
+        "b1.hall.pressure.v1",
         "b1.hall.sacrifice.v1",
         "b1.hall.setup.v1",
         "b1.hall.theme.v1"
@@ -2812,9 +2814,10 @@
       ],
       "routing_questions_encountered": [
         "b1.crucible.bg.v1",
+        "b1.crucible.dune-ink.v1",
         "b1.crucible.glint-dune.v1",
-        "b1.crucible.mono-multi.v1",
         "b1.crucible.ur.v1",
+        "b1.crucible.wr.v1",
         "b1.crucible.yore-glint.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -2822,11 +2825,14 @@
         "b1.gate.visibility.v1",
         "b1.hall.breadth.v1",
         "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
+        "b1.hall.pressure.v1",
         "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
+        "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [
@@ -2862,16 +2868,16 @@
           "answer_id": "b1.hall.commander-role.v1.center"
         },
         {
-          "question_id": "b1.hall.commitment.v1",
-          "answer_id": "b1.hall.commitment.v1.short"
-        },
-        {
           "question_id": "b1.hall.breadth.v1",
-          "answer_id": "b1.hall.breadth.v1.broad"
+          "answer_id": "b1.hall.breadth.v1.narrow"
         },
         {
-          "question_id": "b1.crucible.dune-ink.v1",
-          "answer_id": "b1.crucible.dune-ink.v1.commons"
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.reopen"
+        },
+        {
+          "question_id": "b1.crucible.mono-multi.v1",
+          "answer_id": "b1.crucible.mono-multi.v1.multi"
         }
       ],
       "supporting_constructs": [
@@ -2880,11 +2886,11 @@
         "C10"
       ],
       "strongest_competitors": [
-        "INK",
         "BANT",
         "ABZAN",
-        "W",
-        "WB"
+        "INK",
+        "SILVERQUILL",
+        "BG"
       ],
       "major_confusion_pairs": [
         "INK__WG",
@@ -2901,7 +2907,10 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
         "b1.crucible.dune-ink.v1",
+        "b1.crucible.mono-multi.v1",
+        "b1.crucible.wb.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -2912,7 +2921,6 @@
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
-        "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
         "b1.hall.setup.v1"
       ],
@@ -2930,7 +2938,7 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.balance"
+          "answer_id": "b1.gate.initiative.v1.unsure"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -2946,19 +2954,19 @@
         },
         {
           "question_id": "b1.hall.information-to-plan.v1",
-          "answer_id": "b1.hall.information-to-plan.v1.depends"
-        },
-        {
-          "question_id": "b1.hall.repeatability.v1",
-          "answer_id": "b1.hall.repeatability.v1.same"
+          "answer_id": "b1.hall.information-to-plan.v1.consolidate"
         },
         {
           "question_id": "b1.hall.engine-shape.v1",
           "answer_id": "b1.hall.engine-shape.v1.central"
         },
         {
-          "question_id": "b1.crucible.ug.v1",
-          "answer_id": "b1.crucible.ug.v1.adapt"
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.concept"
+        },
+        {
+          "question_id": "b1.crucible.esper.v1",
+          "answer_id": "b1.crucible.esper.v1.flexible"
         }
       ],
       "supporting_constructs": [
@@ -2967,11 +2975,11 @@
         "C09"
       ],
       "strongest_competitors": [
-        "UG",
-        "YORE",
-        "GLINT",
-        "UR",
-        "ESPER"
+        "GRIXIS",
+        "U",
+        "UB",
+        "QUANDRIX",
+        "YORE"
       ],
       "major_confusion_pairs": [
         "ABZAN__WITCH",
@@ -2985,9 +2993,9 @@
       ],
       "can_enter_candidate_set": true,
       "can_become_primary": false,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
-      "best_internal_rank": 2,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "best_internal_rank": 5,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
         "b1.crucible.ink-witch.v1",
@@ -2995,11 +3003,12 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bg.v1",
         "b1.crucible.colorless-wubrg.v1",
+        "b1.crucible.dune-ink.v1",
         "b1.crucible.esper.v1",
         "b1.crucible.glint-dune.v1",
         "b1.crucible.mono-multi.v1",
-        "b1.crucible.ug.v1",
         "b1.crucible.ur.v1",
         "b1.crucible.yore-glint.v1",
         "b1.gate.disruption.v1",
@@ -3008,13 +3017,14 @@
         "b1.gate.visibility.v1",
         "b1.hall.breadth.v1",
         "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
         "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
-        "b1.hall.threat.v1",
-        "b1.lens.yore-glint.v1"
+        "b1.hall.theme.v1",
+        "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [
         "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
@@ -3030,7 +3040,7 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.balance"
+          "answer_id": "b1.gate.initiative.v1.advance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -3042,19 +3052,19 @@
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.burst"
+          "answer_id": "b1.gate.tempo.v1.depends"
         },
         {
           "question_id": "b1.hall.information-to-plan.v1",
           "answer_id": "b1.hall.information-to-plan.v1.depends"
         },
         {
-          "question_id": "b1.hall.breadth.v1",
-          "answer_id": "b1.hall.breadth.v1.broad"
-        },
-        {
           "question_id": "b1.hall.sacrifice.v1",
           "answer_id": "b1.hall.sacrifice.v1.convert"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.central"
         },
         {
           "question_id": "b1.crucible.bg.v1",
@@ -3068,10 +3078,10 @@
       ],
       "strongest_competitors": [
         "GRIXIS",
-        "BR",
+        "SULTAI",
         "JUND",
-        "WR",
-        "R"
+        "LOREHOLD",
+        "UG"
       ],
       "major_confusion_pairs": [
         "B__WITHERBLOOM",
@@ -3089,6 +3099,7 @@
       ],
       "routing_questions_encountered": [
         "b1.crucible.bg.v1",
+        "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.esper.v1",
         "b1.crucible.mono-multi.v1",
         "b1.crucible.ur.v1",
@@ -3103,8 +3114,10 @@
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
+        "b1.hall.pressure.v1",
         "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
+        "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [],
@@ -3118,7 +3131,7 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.balance"
+          "answer_id": "b1.gate.initiative.v1.advance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -3130,7 +3143,7 @@
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.small"
+          "answer_id": "b1.gate.tempo.v1.burst"
         },
         {
           "question_id": "b1.hall.information-to-plan.v1",
@@ -3156,10 +3169,10 @@
       ],
       "strongest_competitors": [
         "R",
+        "TEMUR",
         "W",
         "JUND",
-        "MARDU",
-        "RG"
+        "MARDU"
       ],
       "major_confusion_pairs": [
         "JESKAI__WR",
@@ -3180,8 +3193,6 @@
       ],
       "routing_questions_encountered": [
         "b1.crucible.bg.v1",
-        "b1.crucible.glint-dune.v1",
-        "b1.crucible.ur.v1",
         "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -3189,13 +3200,11 @@
         "b1.gate.visibility.v1",
         "b1.hall.breadth.v1",
         "b1.hall.commander-role.v1",
-        "b1.hall.commitment.v1",
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.pressure.v1",
-        "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
-        "b1.hall.setup.v1",
+        "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [],
@@ -3279,7 +3288,6 @@
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
-        "b1.hall.repeatability.v1",
         "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [
@@ -3296,11 +3304,11 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.balance"
+          "answer_id": "b1.gate.initiative.v1.advance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
-          "answer_id": "b1.gate.visibility.v1.depends"
+          "answer_id": "b1.gate.visibility.v1.board"
         },
         {
           "question_id": "b1.gate.disruption.v1",
@@ -3311,12 +3319,12 @@
           "answer_id": "b1.gate.tempo.v1.burst"
         },
         {
-          "question_id": "b1.hall.breadth.v1",
-          "answer_id": "b1.hall.breadth.v1.narrow"
-        },
-        {
           "question_id": "b1.hall.information-to-plan.v1",
           "answer_id": "b1.hall.information-to-plan.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.narrow"
         },
         {
           "question_id": "b1.hall.theme.v1",
@@ -3361,7 +3369,7 @@
       ],
       "routing_questions_encountered": [
         "b1.crucible.colorless-wubrg.v1",
-        "b1.crucible.esper.v1",
+        "b1.crucible.dune-ink.v1",
         "b1.crucible.glint-dune.v1",
         "b1.crucible.mono-multi.v1",
         "b1.crucible.ur.v1",
@@ -3373,12 +3381,13 @@
         "b1.gate.visibility.v1",
         "b1.hall.breadth.v1",
         "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
+        "b1.hall.pressure.v1",
         "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
-        "b1.hall.setup.v1",
         "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
@@ -3393,11 +3402,11 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.advance"
+          "answer_id": "b1.gate.initiative.v1.balance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
-          "answer_id": "b1.gate.visibility.v1.board"
+          "answer_id": "b1.gate.visibility.v1.depends"
         },
         {
           "question_id": "b1.gate.disruption.v1",
@@ -3408,16 +3417,16 @@
           "answer_id": "b1.gate.tempo.v1.burst"
         },
         {
-          "question_id": "b1.hall.information-to-plan.v1",
-          "answer_id": "b1.hall.information-to-plan.v1.depends"
-        },
-        {
-          "question_id": "b1.hall.repeatability.v1",
-          "answer_id": "b1.hall.repeatability.v1.same"
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
         },
         {
           "question_id": "b1.hall.threat.v1",
           "answer_id": "b1.hall.threat.v1.avoid"
+        },
+        {
+          "question_id": "b1.hall.repeatability.v1",
+          "answer_id": "b1.hall.repeatability.v1.same"
         },
         {
           "question_id": "b1.crucible.yore-glint.v1",
@@ -3434,7 +3443,7 @@
         "PRISMARI",
         "BR",
         "UR",
-        "GRIXIS"
+        "WUBRG"
       ],
       "major_confusion_pairs": [
         "ABZAN__YORE",
@@ -3466,7 +3475,6 @@
         "b1.crucible.esper.v1",
         "b1.crucible.glint-dune.v1",
         "b1.crucible.mono-multi.v1",
-        "b1.crucible.ug.v1",
         "b1.crucible.ur.v1",
         "b1.crucible.wr.v1",
         "b1.crucible.yore-glint.v1",
@@ -3476,13 +3484,14 @@
         "b1.gate.visibility.v1",
         "b1.hall.breadth.v1",
         "b1.hall.commander-role.v1",
+        "b1.hall.commitment.v1",
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1",
+        "b1.hall.pressure.v1",
         "b1.hall.repeatability.v1",
         "b1.hall.sacrifice.v1",
-        "b1.hall.threat.v1",
-        "b1.lens.yore-glint.v1"
+        "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [
         "High confusion or insufficient distinctiveness; preserve close/insufficient until player evidence supports mapping.",

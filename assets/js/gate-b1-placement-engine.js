@@ -364,28 +364,77 @@ function answerRoutingEffect(answer, question, identity) {
   return effect;
 }
 
-export function questionUsefulness(state, model, question, ranked = rankCandidates(state, model)) {
+export function questionDiscriminationTrace(state, model, question, ranked = rankCandidates(state, model)) {
   const identities = identityById(model);
   const candidates = routingCandidates(state, model, ranked);
-  if (candidates.length < 2) return 0;
+  if (candidates.length < 2) {
+    return {
+      question_id: question.id,
+      candidate_frontier: candidates.map((candidate) => candidate.identity),
+      utility: 0,
+      discriminating_pairs: 0,
+      metadata_only_pairs: [],
+      pair_traces: [],
+    };
+  }
   let utility = 0;
+  let discriminatingPairs = 0;
+  const metadataOnlyPairs = [];
+  const pairTraces = [];
   for (let left = 0; left < candidates.length; left += 1) {
     for (let right = left + 1; right < candidates.length; right += 1) {
       const a = identities.get(candidates[left].identity);
       const b = identities.get(candidates[right].identity);
       let bestDifference = 0;
+      const answerDifferences = [];
       for (const answer of question.answers || []) {
+        if (neutralAnswer(answer)) continue;
+        const leftEffect = answerRoutingEffect(answer, question, a);
+        const rightEffect = answerRoutingEffect(answer, question, b);
+        const difference = Math.abs(leftEffect - rightEffect);
         bestDifference = Math.max(
           bestDifference,
-          Math.abs(answerRoutingEffect(answer, question, a) - answerRoutingEffect(answer, question, b))
+          difference
         );
+        answerDifferences.push({
+          answer_id: answer.id,
+          left_effect: round(leftEffect),
+          right_effect: round(rightEffect),
+          difference: round(difference),
+        });
       }
       const rankWeight = 1 / (1 + left + right);
-      const covered = (question.pair_coverage || []).includes(pairId(a.id, b.id)) ? 0.35 : 0;
-      utility += (bestDifference + covered) * rankWeight;
+      const id = pairId(a.id, b.id);
+      const metadataCovered = (question.pair_coverage || []).includes(id);
+      if (bestDifference > EPSILON) {
+        utility += bestDifference * rankWeight;
+        discriminatingPairs += 1;
+      } else if (metadataCovered) {
+        metadataOnlyPairs.push(id);
+      }
+      pairTraces.push({
+        pair_id: id,
+        candidates: [a.id, b.id],
+        rank_weight: round(rankWeight),
+        metadata_covered: metadataCovered,
+        best_effect_difference: round(bestDifference),
+        contributes_utility: bestDifference > EPSILON,
+        answer_differences: answerDifferences,
+      });
     }
   }
-  return round(utility / candidates.length);
+  return {
+    question_id: question.id,
+    candidate_frontier: candidates.map((candidate) => candidate.identity),
+    utility: round(utility / candidates.length),
+    discriminating_pairs: discriminatingPairs,
+    metadata_only_pairs: metadataOnlyPairs.sort(),
+    pair_traces: pairTraces,
+  };
+}
+
+export function questionUsefulness(state, model, question, ranked = rankCandidates(state, model)) {
+  return questionDiscriminationTrace(state, model, question, ranked).utility;
 }
 
 function usedDependencies(state) {
@@ -426,21 +475,45 @@ function selectBestQuestion(state, model, questions, ranked) {
 }
 
 function selectBestTargetedQuestion(state, model, questions, ranked) {
-  const leading = routingCandidates(state, model, ranked).slice(0, 4);
-  return questions
-    .map((question) => {
-      const baseUtility = questionUsefulness(state, model, question, ranked);
-      const positiveTestBonus = leading.reduce((sum, candidate, index) => {
-        const canPositivelyTest = (question.answers || []).some((answer) =>
-          answer.identity_mapping?.naming_evidence === true &&
-          answer.identity_mapping?.support?.includes(candidate.identity)
-        );
-        return sum + (canPositivelyTest ? 2 / (index + 1) : 0);
-      }, 0);
-      return { question, utility: round(baseUtility + positiveTestBonus) };
-    })
-    .filter((entry) => entry.utility > EPSILON)
-    .sort((left, right) => right.utility - left.utility || left.question.order - right.question.order || left.question.id.localeCompare(right.question.id))[0] || null;
+  return selectBestQuestion(state, model, questions, ranked);
+}
+
+function questionRoutingStatus(state, model, question, ranked, eligibleIds) {
+  const asked = new Set(state.answered_question_ids || []);
+  const used = usedDependencies(state);
+  const trace = questionDiscriminationTrace(state, model, question, ranked);
+  let exclusionReason = null;
+  if (asked.has(question.id)) exclusionReason = "already_answered";
+  else if (question.stage === "hall" && used.has(question.dependency_group)) exclusionReason = "dependency_already_observed";
+  else if (!eligibleIds.has(question.id)) exclusionReason = "candidate_frontier_not_eligible";
+  else if (trace.utility <= EPSILON) exclusionReason = "zero_discrimination_utility";
+  return {
+    question_id: question.id,
+    stage: question.stage,
+    eligible: exclusionReason === null,
+    exclusion_reason: exclusionReason,
+    utility: trace.utility,
+    discriminating_pairs: trace.discriminating_pairs,
+    metadata_only_pairs: trace.metadata_only_pairs,
+  };
+}
+
+export function getRoutingTrace(state, model, ranked = rankCandidates(state, model)) {
+  const hallEligible = eligibleHallQuestions(state, model);
+  const targetedEligible = eligibleTargetedQuestions(state, model, ranked);
+  const hallIds = new Set(hallEligible.map((question) => question.id));
+  const targetedIds = new Set(targetedEligible.map((question) => question.id));
+  const selected = nextUsefulQuestion(state, model, ranked);
+  return {
+    answered_question_ids: [...(state.answered_question_ids || [])],
+    candidate_frontier: routingCandidates(state, model, ranked).map((candidate) => candidate.identity),
+    selected_question_id: selected?.question.id || null,
+    selected_utility: selected?.utility || 0,
+    questions: [
+      ...(model.question_bank?.hall || []).map((question) => questionRoutingStatus(state, model, question, ranked, hallIds)),
+      ...(model.question_bank?.crucible || []).map((question) => questionRoutingStatus(state, model, question, ranked, targetedIds)),
+    ],
+  };
 }
 
 function lensEligibility(state, model, ranked) {
