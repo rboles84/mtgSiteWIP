@@ -45,8 +45,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-551 — Gate B1 Instrument Completion](in-progress/VM-551-gate-b1-instrument-completion.md) - completing the approved B1 behavioral instrument, independent naming, adaptive routing, Ink diagnosis, and no-stall refinement for the 36 behaviorally observable identities while preserving Yore as an explicit bounded/lens identity unless non-proxy evidence emerges.
-
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 
 ## Blocked
@@ -54,6 +52,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-551 — Gate B1 Instrument Completion](done/VM-551-gate-b1-instrument-completion.md) - completed the minimum defensible B1 instrument at 16 constructs, 36 questions, and 124 answers; 37/37 identities enter the candidate frontier, all 36 behaviorally observable identities have responsible-primary and public-alternative paths, Yore remains intentionally bounded, and the 5,000-journey/all-123-pair torture suite passes.
 
 - [VM-555 - B1 Identity Evidence-Gap Bridge](done/VM-555-b1-identity-evidence-gap-bridge.md) - completed the documentation-only semantic-to-observation bridge: corrected all 11 guide findings, produced a 37-row gap matrix, separated question and routing deficits, retained Ink/Yore safeguards, and proposed six non-implemented boundary candidates without changing code, B1 bank files, scoring, or runtime.
 
