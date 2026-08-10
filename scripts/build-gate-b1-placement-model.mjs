@@ -18,7 +18,7 @@ const MAPPING_PATH = path.join(ROOT, "data", "placement", "gate-b1-mapping.sourc
 const OUTPUT_PATH = path.join(ROOT, "data", "gate-b1-placement-model.json");
 
 function readText(filePath) {
-  return fs.readFileSync(filePath, "utf8").replace(/^\uFEFF/, "");
+  return fs.readFileSync(filePath, "utf8").replace(/^\uFEFF/, "").replace(/\r\n/g, "\n");
 }
 
 function parseTsv(filePath) {
@@ -38,8 +38,16 @@ function splitList(value) {
     .filter(Boolean);
 }
 
+function hash(value) {
+  return crypto.createHash("sha256").update(value).digest("hex");
+}
+
 function sha256(filePath) {
-  return crypto.createHash("sha256").update(fs.readFileSync(filePath)).digest("hex");
+  return hash(readText(filePath));
+}
+
+function rawSha256(filePath) {
+  return hash(fs.readFileSync(filePath));
 }
 
 function stableJson(value) {
@@ -369,7 +377,17 @@ const model = {
 const output = stableJson(model);
 if (process.argv.includes("--check")) {
   assert(fs.existsSync(OUTPUT_PATH), `Missing generated model ${path.relative(ROOT, OUTPUT_PATH)}`);
-  assert.equal(readText(OUTPUT_PATH), output, "Generated Gate B1 placement model is stale");
+  const committedModel = JSON.parse(readText(OUTPUT_PATH));
+  for (const [key, filePath] of Object.entries(sourcePaths)) {
+    const committedHash = committedModel?._meta?.source_sha256?.[key];
+    assert(
+      [sha256(filePath), rawSha256(filePath)].includes(committedHash),
+      `Generated Gate B1 placement model source is stale: ${key}`
+    );
+  }
+  const comparisonModel = structuredClone(model);
+  comparisonModel._meta.source_sha256 = committedModel._meta.source_sha256;
+  assert.equal(readText(OUTPUT_PATH), stableJson(comparisonModel), "Generated Gate B1 placement model is stale");
   console.log(`Gate B1 placement model is current: ${constructs.length} constructs, ${questions.length} questions, ${answerRows.length} answers, 37 identities, 123 pairs, ${combinedMappingRules.length} directional uses.`);
 } else {
   fs.writeFileSync(OUTPUT_PATH, output);

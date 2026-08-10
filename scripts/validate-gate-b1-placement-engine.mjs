@@ -48,7 +48,7 @@ function writeOrCheck(name, value) {
     fs.writeFileSync(filePath, content);
   } else {
     assert(fs.existsSync(filePath), `Missing engine report ${path.relative(ROOT, filePath)}`);
-    assert.equal(fs.readFileSync(filePath, "utf8"), content, `Stale engine report ${name}`);
+    assert.equal(fs.readFileSync(filePath, "utf8").replace(/\r\n/g, "\n"), content, `Stale engine report ${name}`);
   }
 }
 

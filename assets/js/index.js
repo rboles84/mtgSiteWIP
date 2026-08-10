@@ -10,6 +10,7 @@
   selectNextAdaptiveQuestion,
   shouldFinishAdaptiveReading,
 } from "./gate-b1-placement-engine.js";
+import { validateGateB1RuntimeModel } from "./gate-b1-runtime-contract.js";
 import {
   buildCommanderDossier,
   buildCommanderDeckStartFallbackCandidates,
@@ -86,22 +87,6 @@ import { createScryfallNamedCardLookup } from "./scryfall-card-cache.js";
 const SESSION = VM_SESSION;
 const DATA_BASE_URL = new URL("../../data/", import.meta.url);
 const CORE_DATA_FETCH_OPTIONS = Object.freeze({ cache: "no-store" });
-const LIVE_GATE_B1_CONTRACT = Object.freeze({
-  questionIds: [
-    "b1.gate.initiative.v1",
-    "b1.gate.visibility.v1",
-    "b1.gate.disruption.v1",
-    "b1.gate.tempo.v1",
-  ],
-  constructs: 16,
-  questions: 35,
-  answers: 110,
-  identities: 37,
-  confusionPairs: 123,
-  hallQuestions: 13,
-  crucibleQuestions: 18,
-});
-
 const APP_STATE = {
   factions: {},
   placementModel: null,
@@ -239,30 +224,7 @@ function validateQuickReadingReachability() {
     ...Object.keys(APP_STATE.factions || {}),
     ...Object.keys(liveExpressions),
   ]);
-  const model = APP_STATE.placementModel || {};
-  const gateQuestions = model.question_bank?.gate || [];
-  const hallQuestions = model.question_bank?.hall || [];
-  const crucibleQuestions = model.question_bank?.crucible || [];
-  const questions = [...gateQuestions, ...hallQuestions, ...crucibleQuestions];
-  const gateIds = gateQuestions.map((question) => question.id);
-  const expectedGateIds = LIVE_GATE_B1_CONTRACT.questionIds;
-  const hasApprovedGate =
-    gateQuestions.length === expectedGateIds.length &&
-    expectedGateIds.every((id, index) => gateIds[index] === id) &&
-    gateQuestions.every((question) => (question.answers || []).length === 4);
-  const countsMatch =
-    model._meta?.counts?.constructs === LIVE_GATE_B1_CONTRACT.constructs &&
-    questions.length === LIVE_GATE_B1_CONTRACT.questions &&
-    questions.reduce((sum, question) => sum + (question.answers || []).length, 0) === LIVE_GATE_B1_CONTRACT.answers &&
-    (model.identities || []).length === LIVE_GATE_B1_CONTRACT.identities &&
-    (model.confusion_pairs || []).length === LIVE_GATE_B1_CONTRACT.confusionPairs &&
-    hallQuestions.length === LIVE_GATE_B1_CONTRACT.hallQuestions &&
-    crucibleQuestions.length === LIVE_GATE_B1_CONTRACT.crucibleQuestions;
-  const identitiesResolve = (model.identities || []).every((identity) => liveFactionKeys.has(identity.id));
-
-  if (!hasApprovedGate || !countsMatch || !identitiesResolve) {
-    throw new Error("Archscry placement data is stale or incomplete for Gate B1. Reload the page and try again.");
-  }
+  validateGateB1RuntimeModel(APP_STATE.placementModel, liveFactionKeys);
 }
 
 /**

@@ -2,6 +2,7 @@ import { spawnSync } from "node:child_process";
 import { readFile } from "node:fs/promises";
 
 const files = [
+  "assets/js/gate-b1-runtime-contract.js",
   "assets/js/index.js",
   "assets/js/home.js",
   "assets/js/strategium.js",

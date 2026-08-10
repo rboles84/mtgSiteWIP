@@ -85,6 +85,7 @@ const factionContextText = await readFile(
   "utf8"
 );
 const archscryIndexSource = await readFile(new URL("./index.js", import.meta.url), "utf8");
+const gateB1RuntimeContractSource = await readFile(new URL("./gate-b1-runtime-contract.js", import.meta.url), "utf8");
 const deckTagData = JSON.parse(
   await readFile(new URL("../../data/deck-tags_expanded.json", import.meta.url), "utf8")
 );
@@ -3195,9 +3196,9 @@ assert.match(
   "Archscry should validate live quick-reading reachability after core data loads."
 );
 assert.match(
-  archscryIndexSource,
+  gateB1RuntimeContractSource,
   /Archscry placement data is stale/,
-  "Archscry should surface a clear stale placement model error."
+  "The shared Archscry runtime contract should surface a clear stale placement model error."
 );
 assert.ok(
   marduGolden.evidence_trail.some((entry) => entry.question_id === "hall_MARDU_total_commitment"),
