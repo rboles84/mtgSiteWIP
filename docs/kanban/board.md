@@ -45,8 +45,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-551 — Gate B1 Evidence and Routing Remediation](in-progress/VM-551-gate-b1-evidence-routing-remediation.md) - removing targeted leader-confirmation bias, freezing an unchanged-model routing baseline, and applying only existing-authority naming/routing fixes across the 15 zero-naming identities, 9 unreachable-naming identities, and 73 no-direct confusion pairs.
-
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 
 ## Blocked
@@ -54,6 +52,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-551 — Gate B1 Evidence and Routing Remediation](done/VM-551-gate-b1-evidence-routing-remediation.md) - removed leader-confirmation bias, froze the unbiased 40-rule baseline, enforced independent responsible naming, adjudicated all 15/9/73 gaps plus 12 formerly under-qualified close names, and stopped with 36/37 internal frontier reachability but only Esper/Grixis/Jeskai responsibly public-nameable; zero unsupported mappings promoted.
 
 - [VM-551 — Gate B1 Real Placement Engine](done/VM-551-gate-b1-real-placement-engine.md) - deterministic evidence engine and exhaustive model validation complete: all 37 can enter a candidate set, but approved evidence permits responsible named primaries for only 13/37; 24 primary paths and 689 unique insufficient states with no approved discriminator remain blocking evidence findings for owner decision, with no mappings fabricated and no UI, player-validation, push, merge, or deployment work.
 
