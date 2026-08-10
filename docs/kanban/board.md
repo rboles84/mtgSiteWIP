@@ -53,6 +53,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-551 — Gate B1 Qualified Alternatives Result Contract Repair](done/VM-551-gate-b1-qualified-alternatives-result-contract-repair.md) - normalized independently qualified Gate B1 alternatives into complete Gate A match objects, enforced state/cardinality agreement, adapted native B1 observations into existing dossier explanations, and verified 5,000 deterministic journeys plus a calculated close-result runtime smoke without changing placement semantics.
+
 - [VM-551 — Gate B1 Runtime Startup Integration Repair](done/VM-551-gate-b1-runtime-integration-repair.md) - replaced the stale 35-question/110-answer/18-Crucible startup predicate with a shared versioned structural contract, retained safe rejection of incomplete data, and verified real Archscry reaches and waits at approved C01 without changing placement outcomes.
 
 - [VM-551 — Gate B1 Instrument Completion](done/VM-551-gate-b1-instrument-completion.md) - completed the minimum defensible B1 instrument at 16 constructs, 36 questions, and 124 answers; 37/37 identities enter the candidate frontier, all 36 behaviorally observable identities have responsible-primary and public-alternative paths, Yore remains intentionally bounded, and the 5,000-journey/all-123-pair torture suite passes.

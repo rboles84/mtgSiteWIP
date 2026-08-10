@@ -678,11 +678,215 @@ function evidenceDeltaForFaction(entry, factionKey) {
   return Number(entry?.deltas?.[factionKey] || 0);
 }
 
+function gateB1QuestionAndAnswerLookup(placementModel) {
+  const questions = [
+    ...(placementModel?.question_bank?.gate || []),
+    ...(placementModel?.question_bank?.hall || []),
+    ...(placementModel?.question_bank?.crucible || []),
+    ...(placementModel?.question_bank?.lens || []),
+  ];
+  const lookup = new Map();
+  questions.forEach((question) => {
+    (question.answers || []).forEach((answer) => lookup.set(answer.id, { question, answer }));
+  });
+  return lookup;
+}
+
+/**
+ * Adds the legacy presentation view of Gate B1 evidence without changing the
+ * native auditable evidence ledger.
+ *
+ * @param {object[]} evidenceTrail Native or legacy evidence entries.
+ * @param {object} placementModel Gate B1 generated model.
+ * @returns {object[]} Presentation-compatible evidence entries.
+ */
+export function adaptGateB1EvidenceTrail(evidenceTrail = [], placementModel = null) {
+  const lookup = gateB1QuestionAndAnswerLookup(placementModel);
+  return (evidenceTrail || []).map((entry) => {
+    if (Array.isArray(entry?.deltas) || entry?.evidence_class !== "BEHAVIORAL_OBSERVATION") {
+      return entry;
+    }
+    const canonical = lookup.get(entry.answer_id) || {};
+    const effects = new Map();
+    if (!entry.neutral) {
+      (entry.positive_support || []).forEach((identity) => {
+        effects.set(identity, Number(entry.mapping_strength || 0));
+      });
+      (entry.contradiction || []).forEach((identity) => {
+        effects.set(identity, Number(effects.get(identity) || 0) - Number(entry.mapping_strength || 0));
+      });
+    }
+    return {
+      ...entry,
+      answer_title: entry.answer_title || canonical.answer?.title || entry.bounded_observation || "",
+      prompt: entry.prompt || canonical.question?.prompt || "",
+      observation: entry.observation || entry.bounded_observation || canonical.answer?.observation || "",
+      deltas: [...effects.entries()]
+        .filter(([, delta]) => delta !== 0)
+        .map(([faction, delta]) => ({ faction, delta })),
+    };
+  });
+}
+
+function isGateB1Result(result) {
+  return result?.model_kind === "gate-b1-evidence-ranking-v1";
+}
+
+function matchIdentity(match) {
+  if (typeof match?.faction === "string") return match.faction;
+  if (typeof match?.identity === "string") return match.identity;
+  return null;
+}
+
+function canonicalGateB1Match(result, identity, factions) {
+  const existing = [...(result?.top_matches || []), ...(result?.adjacent_matches || [])]
+    .find((match) => matchIdentity(match) === identity);
+  const internal = (result?.internal_candidate_order || []).find((candidate) => candidate.identity === identity);
+  const faction = factions?.[identity];
+  const score = Number(existing?.score ?? internal?.score);
+  const name = existing?.faction_name || existing?.identity_name || faction?.name || "";
+  if (!knownFaction(factions, identity) || !name || !Number.isFinite(score)) return null;
+  return {
+    ...(existing || {}),
+    faction: identity,
+    faction_name: name,
+    institution_type: existing?.institution_type ?? faction?.institution_type ?? null,
+    world: existing?.world ?? faction?.world ?? null,
+    identity: typeof existing?.identity === "object" ? existing.identity : faction?.identity ?? null,
+    score,
+  };
+}
+
+function gateB1PrimaryQualification(result, identity) {
+  return (result?.internal_candidate_order || [])
+    .find((candidate) => candidate.identity === identity)?.naming_qualification || null;
+}
+
+function gateB1QualifiedAlternatives(result, factions, evidenceTrail) {
+  const evidenceResult = { ...result, evidence_trail: evidenceTrail };
+  return (result?.alternatives || [])
+    .filter((alternative) =>
+      alternative?.meaningful_support === true &&
+      alternative?.naming_qualification?.qualified === true
+    )
+    .map((alternative) => {
+      const identity = alternative.faction || alternative.identity;
+      const match = canonicalGateB1Match(result, identity, factions);
+      const evidence = match ? directPositiveEvidenceFor(evidenceResult, identity) : null;
+      if (!match || !evidence) return null;
+      return {
+        alternative: {
+          ...alternative,
+          identity,
+          identity_name: alternative.identity_name || match.faction_name,
+          faction: identity,
+          faction_name: match.faction_name,
+          match,
+        },
+        match,
+        evidence,
+      };
+    })
+    .filter(Boolean);
+}
+
+/**
+ * Reconciles the native Gate B1 result with the Gate A public cardinality and
+ * match-object contract. Scoring, ranking, qualification, and stopping remain
+ * engine-owned; this layer only decides which already-qualified identities may
+ * be public for the declared state.
+ */
+export function normalizeGateB1PublicResult({ result, placementModel = null, factions = {} } = {}) {
+  if (!isGateB1Result(result)) return result;
+  const engineState = String(result.engine_result_state || result.result_state || "").toLowerCase();
+  const primaryIdentity = result.faction || matchIdentity(result.top_matches?.[0]);
+  const primaryMatch = canonicalGateB1Match(result, primaryIdentity, factions);
+  const primaryQualified = gateB1PrimaryQualification(result, primaryIdentity)?.qualified === true;
+  const evidenceTrail = adaptGateB1EvidenceTrail(result.evidence_trail || result.evidence_ledger || [], placementModel);
+  const qualifiedAlternatives = gateB1QualifiedAlternatives(result, factions, evidenceTrail);
+  let resultState = engineState;
+  let publicAlternatives = [];
+
+  if (resultState === "primary") {
+    if (!primaryQualified || !primaryMatch) resultState = "insufficient";
+  } else if (resultState === "close") {
+    publicAlternatives = qualifiedAlternatives.slice(0, 1);
+    if (!primaryQualified || !primaryMatch) {
+      resultState = "insufficient";
+      publicAlternatives = [];
+    } else if (publicAlternatives.length !== 1) {
+      resultState = "primary";
+      publicAlternatives = [];
+    }
+  } else if (resultState === "tied") {
+    publicAlternatives = qualifiedAlternatives
+      .filter(({ match }) => primaryMatch && match.score === primaryMatch.score)
+      .slice(0, 1);
+    if (!primaryQualified || !primaryMatch) {
+      resultState = "insufficient";
+      publicAlternatives = [];
+    } else if (publicAlternatives.length !== 1) {
+      resultState = "primary";
+      publicAlternatives = [];
+    }
+  } else if (resultState === "mixed") {
+    publicAlternatives = primaryQualified && primaryMatch ? qualifiedAlternatives.slice(0, 2) : [];
+  } else {
+    publicAlternatives = [];
+  }
+
+  const namedState = ["primary", "close", "tied", "mixed"].includes(resultState);
+  const publicMatches = namedState && primaryQualified && primaryMatch
+    ? [primaryMatch, ...publicAlternatives.map((entry) => entry.match)]
+    : [];
+  const topMatches = publicMatches.map((match, index) => ({ ...match, rank: index + 1 }));
+  const alternativeMatches = resultState === "tied" ? [] : topMatches.slice(1);
+  const alternatives = publicAlternatives.map((entry) => ({
+    ...entry.alternative,
+    match: topMatches.find((match) => match.faction === entry.match.faction) || entry.match,
+  }));
+
+  return {
+    ...result,
+    engine_result_state: engineState,
+    result_state: resultState,
+    top_matches: topMatches,
+    adjacent_matches: alternativeMatches,
+    alternatives,
+    evidence_trail: evidenceTrail,
+    alternative_state: resultState === "tied"
+      ? "co-leader"
+      : resultState === "close"
+        ? "close"
+        : resultState === "mixed" && alternatives.length
+          ? "mixed"
+          : "none",
+  };
+}
+
 function directPositiveEvidenceFor(result, factionKey) {
   return (result?.evidence_trail || []).find((entry) => evidenceDeltaForFaction(entry, factionKey) > 0) || null;
 }
 
 export function closeAlternativeForResult(result, placementModel, factions = {}) {
+  if (isGateB1Result(result)) {
+    const publicResult = normalizeGateB1PublicResult({ result, placementModel, factions });
+    const first = publicResult?.top_matches?.[0];
+    const second = publicResult?.top_matches?.[1];
+    const evidence = second ? directPositiveEvidenceFor(publicResult, second.faction) : null;
+    if (
+      publicResult?.result_state !== "close" ||
+      publicResult?.alternative_state !== "close" ||
+      publicResult?.top_matches?.length !== 2 ||
+      publicResult?.adjacent_matches?.length !== 1 ||
+      !knownFaction(factions, first?.faction) ||
+      !knownFaction(factions, second?.faction) ||
+      !evidence
+    ) {
+      return null;
+    }
+    return { match: second, evidence };
+  }
   const topTwo = result?.top_matches?.slice(0, 2) || [];
   const second = topTwo[1];
   const gapLimit = placementModel?.scoring_rules?.crucible_probability_gap;
@@ -708,6 +912,9 @@ export function closeAlternativeForResult(result, placementModel, factions = {})
 
 export function deriveGateAResultState({ result, placementModel = null, factions = {} } = {}) {
   if (!result || typeof result !== "object") return "invalid";
+  if (isGateB1Result(result)) {
+    return normalizeGateB1PublicResult({ result, placementModel, factions }).result_state;
+  }
   const explicit = String(result.result_state || "").toLowerCase();
   if (GATE_A_EXPLICIT_STATES.has(explicit)) return explicit;
   if (result.legacy_result === true || result.source_mode === "legacy") return "unknown";
@@ -752,12 +959,19 @@ export function isResumableGateAQuestion({ placementModel, adaptiveState, questi
 
 export function withGateAPublicState({ result, placementModel = null, factions = {} } = {}) {
   if (!result || typeof result !== "object") return result;
-  const resultState = deriveGateAResultState({ result, placementModel, factions });
+  const normalizedResult = isGateB1Result(result)
+    ? normalizeGateB1PublicResult({ result, placementModel, factions })
+    : result;
+  const resultState = deriveGateAResultState({ result: normalizedResult, placementModel, factions });
   return {
-    ...result,
+    ...normalizedResult,
     result_state: resultState,
     public_confidence_state: resultState === "primary" ? "current-best-fit" : resultState,
-    alternative_state: resultState === "tied" ? "co-leader" : resultState === "close" ? "close" : "none",
+    alternative_state: normalizedResult.alternative_state ||
+      (resultState === "tied" ? "co-leader" : resultState === "close" ? "close" : "none"),
+    decree: isGateB1Result(result) && resultState !== String(result.result_state || "").toLowerCase()
+      ? gateAStatePresentation(resultState)[1]
+      : normalizedResult.decree,
     confidence_display_mode: "bounded-state",
     model_kind: result.model_kind || "adaptive-weighted-scoring",
     legacy_result: isLegacyGateAResult(result),
