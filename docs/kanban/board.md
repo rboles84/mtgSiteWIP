@@ -45,6 +45,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-551 — Gate B1 Instrument Completion](in-progress/VM-551-gate-b1-instrument-completion.md) - completing the approved B1 behavioral instrument, independent naming, adaptive routing, Ink diagnosis, and no-stall refinement for the 36 behaviorally observable identities while preserving Yore as an explicit bounded/lens identity unless non-proxy evidence emerges.
+
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 
 ## Blocked
@@ -52,6 +54,12 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-555 - B1 Identity Evidence-Gap Bridge](done/VM-555-b1-identity-evidence-gap-bridge.md) - completed the documentation-only semantic-to-observation bridge: corrected all 11 guide findings, produced a 37-row gap matrix, separated question and routing deficits, retained Ink/Yore safeguards, and proposed six non-implemented boundary candidates without changing code, B1 bank files, scoring, or runtime.
+
+- [VM-554 - 37-Identity Guide Source-Hardening Audit](done/VM-554-37-identity-guide-source-hardening-audit.md) - completed a frozen, claim-level source-hardening audit: 174 of 185 statements preservable, 11 guide-only `Connects` corrections required, zero upstream identity-semantic defects, and no source/runtime/data changes.
+
+- [VM-553 - 37-Identity Player Relationship Guide](done/VM-553-37-identity-player-relationship-guide.md) - completed a documentation-only all-37 guide with resonance, connection, pushback, and rejection boundaries grounded in certified identity sources and the supplied player/color-pie materials; no placement, runtime, generated-data, or semantic-source changes.
 
 - [VM-551 — Gate B1 Evidence and Routing Remediation](done/VM-551-gate-b1-evidence-routing-remediation.md) - removed leader-confirmation bias, froze the unbiased 40-rule baseline, enforced independent responsible naming, adjudicated all 15/9/73 gaps plus 12 formerly under-qualified close names, and stopped with 36/37 internal frontier reachability but only Esper/Grixis/Jeskai responsibly public-nameable; zero unsupported mappings promoted.
 
