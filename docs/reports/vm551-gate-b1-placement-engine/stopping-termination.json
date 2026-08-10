@@ -7,16 +7,22 @@
   "repeated_questions": 0,
   "stale_routes": 0,
   "stop_reasons": {
-    "no_responsible_named_placement": 4130,
-    "single_named_direction_with_unresolved_alternatives": 233,
-    "clear_separation": 457,
-    "supported_candidate_has_conflicting_dependencies": 180
+    "no_responsible_named_placement": 1783,
+    "clear_separation": 1298,
+    "next_question_cannot_improve_responsible_top_boundary": 764,
+    "single_named_direction_with_unresolved_alternatives": 77,
+    "highest_responsible_candidate_trails_unqualified_internal_candidate": 450,
+    "independent_supported_directions": 353,
+    "equal_supported_leaders": 19,
+    "supported_candidate_has_conflicting_dependencies": 256
   },
   "result_states": {
-    "insufficient": 4130,
-    "close": 233,
-    "primary": 457,
-    "contradictory": 180
+    "insufficient": 1783,
+    "primary": 1298,
+    "close": 1291,
+    "mixed": 353,
+    "tied": 19,
+    "contradictory": 256
   },
-  "insufficient_cases": 4130
+  "insufficient_cases": 1783
 }

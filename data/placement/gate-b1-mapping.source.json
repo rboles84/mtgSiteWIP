@@ -1,6 +1,6 @@
 {
-  "version": "vm551-gate-b1-mapping-v1",
-  "instrument_version": "vm551-gate-b1-instrument-v1",
+  "version": "vm551-gate-b1-mapping-v2-instrument-completion",
+  "instrument_version": "vm551-gate-b1-instrument-v2",
   "authority": {
     "questions": "docs/plans/vm551-gate-b1-placement-instrument/pilot-question-bank.tsv",
     "answers": "docs/plans/vm551-gate-b1-placement-instrument/answer-signal-contracts.tsv",
@@ -8,7 +8,9 @@
     "identity_coverage": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv",
     "confusion_pairs": "docs/plans/vm551-gate-b1-placement-instrument/confusion-pair-coverage.tsv",
     "lens": "docs/plans/vm551-gate-b1-placement-instrument/identity-lens-self-report-contract.md",
-    "remediation_adjudication": "docs/plans/vm551-gate-b1-evidence-routing-remediation/evidence-adjudication.md"
+    "remediation_adjudication": "docs/plans/vm551-gate-b1-evidence-routing-remediation/evidence-adjudication.md",
+    "instrument_completion": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv",
+    "vm555_gap_bridge": "docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv"
   },
   "scoring_contract": {
     "description": "Internal deterministic evidence ranking, not calibrated confidence or empirical player accuracy.",
@@ -39,15 +41,736 @@
     "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity."
   },
   "remediation_overlay": {
-    "version": "vm551-gate-b1-evidence-routing-remediation-v1",
-    "status": "ADJUDICATED_NO_PROMOTIONS",
-    "adjudication": "docs/plans/vm551-gate-b1-evidence-routing-remediation/evidence-adjudication.md",
-    "rules": []
+    "version": "vm551-gate-b1-instrument-completion-v1",
+    "status": "INSTRUMENT_COMPLETION_MAPPING_HYPOTHESES",
+    "adjudication": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv",
+    "rules": [
+      {
+        "answer_id": "b1.gate.initiative.v1.advance",
+        "support": [
+          "R",
+          "RG",
+          "JUND"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "R",
+          "RG",
+          "JUND"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-001",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.gate.initiative.v1.advance;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.gate.initiative.v1.balance",
+        "support": [
+          "JESKAI"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "JESKAI"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-002",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.gate.initiative.v1.balance;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.gate.disruption.v1.protect",
+        "support": [
+          "W",
+          "WG",
+          "ABZAN"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "W",
+          "WG",
+          "ABZAN"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-003",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.gate.disruption.v1.protect;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.gate.disruption.v1.recover",
+        "support": [
+          "G",
+          "RG"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "G",
+          "RG"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-004",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.gate.disruption.v1.recover;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.sacrifice.v1.convert",
+        "support": [
+          "B",
+          "JUND"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "B",
+          "JUND"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-005",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.sacrifice.v1.convert;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.threat.v1.embrace",
+        "support": [
+          "BR",
+          "PRISMARI"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "BR",
+          "PRISMARI"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-006",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.threat.v1.embrace;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.threat.v1.pivot",
+        "support": [
+          "SILVERQUILL"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "SILVERQUILL"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-007",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.threat.v1.pivot;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.repeatability.v1.same",
+        "support": [
+          "WITCH"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "WITCH"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-008",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.repeatability.v1.same;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.commitment.v1.procedure",
+        "support": [
+          "W",
+          "WU"
+        ],
+        "contradict": [],
+        "strength": 1,
+        "naming_support": [
+          "W",
+          "WU"
+        ],
+        "naming_evidence": true,
+        "qualification_support": [
+          "W",
+          "WU"
+        ],
+        "mapping_role": "completion_boundary_direction",
+        "adjudication_id": "IC-MAP-009",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.commitment.v1.procedure;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.commitment.v1.access",
+        "support": [
+          "WG",
+          "BANT",
+          "WUBRG"
+        ],
+        "contradict": [],
+        "strength": 1,
+        "naming_support": [
+          "WG"
+        ],
+        "naming_evidence": true,
+        "qualification_support": [
+          "WG",
+          "BANT",
+          "WUBRG"
+        ],
+        "mapping_role": "completion_boundary_direction",
+        "adjudication_id": "IC-MAP-010",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.commitment.v1.access;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.commitment.v1.terms",
+        "support": [
+          "ABZAN"
+        ],
+        "contradict": [],
+        "strength": 1,
+        "naming_support": [
+          "ABZAN"
+        ],
+        "naming_evidence": true,
+        "qualification_support": [
+          "ABZAN"
+        ],
+        "mapping_role": "completion_boundary_direction",
+        "adjudication_id": "IC-MAP-011",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.commitment.v1.terms;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.commitment.v1.short",
+        "support": [
+          "MARDU",
+          "WR",
+          "DUNE"
+        ],
+        "contradict": [],
+        "strength": 1,
+        "naming_support": [
+          "MARDU"
+        ],
+        "naming_evidence": true,
+        "qualification_support": [
+          "MARDU",
+          "WR",
+          "DUNE"
+        ],
+        "mapping_role": "completion_boundary_direction",
+        "adjudication_id": "IC-MAP-012",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.commitment.v1.short;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.commitment.v1.reopen",
+        "support": [
+          "SILVERQUILL"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-013",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.commitment.v1.reopen;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.pressure.v1.coordinate",
+        "support": [
+          "WR",
+          "DUNE",
+          "MARDU"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "WR",
+          "DUNE",
+          "MARDU"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-014",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.pressure.v1.coordinate;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.pressure.v1.combat",
+        "support": [
+          "R",
+          "RG",
+          "JUND"
+        ],
+        "contradict": [],
+        "strength": 1,
+        "naming_support": [
+          "R",
+          "RG",
+          "JUND"
+        ],
+        "naming_evidence": true,
+        "qualification_support": [
+          "R",
+          "RG",
+          "JUND"
+        ],
+        "mapping_role": "completion_boundary_direction",
+        "adjudication_id": "IC-MAP-015",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.pressure.v1.combat;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.pressure.v1.abundance",
+        "support": [
+          "NAYA"
+        ],
+        "contradict": [],
+        "strength": 1,
+        "naming_support": [
+          "NAYA"
+        ],
+        "naming_evidence": true,
+        "qualification_support": [
+          "NAYA"
+        ],
+        "mapping_role": "completion_boundary_direction",
+        "adjudication_id": "IC-MAP-016",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.pressure.v1.abundance;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.pressure.v1.burst",
+        "support": [
+          "BR",
+          "PRISMARI"
+        ],
+        "contradict": [],
+        "strength": 1,
+        "naming_support": [
+          "BR"
+        ],
+        "naming_evidence": true,
+        "qualification_support": [
+          "BR",
+          "PRISMARI"
+        ],
+        "mapping_role": "completion_boundary_direction",
+        "adjudication_id": "IC-MAP-017",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.pressure.v1.burst;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.pressure.v1.resources",
+        "support": [
+          "WB"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "WB"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-018",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.pressure.v1.resources;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.pressure.v1.engine",
+        "support": [
+          "UR",
+          "COLORLESS"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "UR",
+          "COLORLESS"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-019",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.pressure.v1.engine;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.engine-shape.v1.central",
+        "support": [
+          "U",
+          "ESPER",
+          "QUANDRIX"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "U",
+          "ESPER",
+          "QUANDRIX"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-020",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.engine-shape.v1.central;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.engine-shape.v1.replace",
+        "support": [
+          "COLORLESS",
+          "LOREHOLD",
+          "YORE"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "COLORLESS",
+          "LOREHOLD"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-021",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.engine-shape.v1.replace;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.engine-shape.v1.overlap",
+        "support": [
+          "UR",
+          "BG",
+          "WITHERBLOOM"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "UR",
+          "BG",
+          "WITHERBLOOM"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-022",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.engine-shape.v1.overlap;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.engine-shape.v1.purpose",
+        "support": [
+          "UB",
+          "SULTAI",
+          "WUBRG"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "UB",
+          "SULTAI",
+          "WUBRG"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-023",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.engine-shape.v1.purpose;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.interaction-window.v1.before",
+        "support": [
+          "WU"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "WU"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-024",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.interaction-window.v1.before;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.interaction-window.v1.after",
+        "support": [
+          "U"
+        ],
+        "contradict": [],
+        "strength": 1,
+        "naming_support": [
+          "U"
+        ],
+        "naming_evidence": true,
+        "qualification_support": [
+          "U"
+        ],
+        "mapping_role": "completion_boundary_direction",
+        "adjudication_id": "IC-MAP-025",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.interaction-window.v1.after;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.interaction-window.v1.pressure",
+        "support": [
+          "UB",
+          "GRIXIS",
+          "GLINT"
+        ],
+        "contradict": [],
+        "strength": 1,
+        "naming_support": [
+          "UB"
+        ],
+        "naming_evidence": true,
+        "qualification_support": [
+          "UB",
+          "GRIXIS",
+          "GLINT"
+        ],
+        "mapping_role": "completion_boundary_direction",
+        "adjudication_id": "IC-MAP-026",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.interaction-window.v1.pressure;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.interaction-window.v1.split",
+        "support": [
+          "UR",
+          "JESKAI"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "UR",
+          "JESKAI"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-027",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.interaction-window.v1.split;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.setup.v1.early",
+        "support": [
+          "BANT",
+          "INK",
+          "WG"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "BANT",
+          "INK",
+          "WG"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-028",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.setup.v1.early;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.setup.v1.staged",
+        "support": [
+          "G",
+          "BG",
+          "ABZAN",
+          "WITHERBLOOM",
+          "UG",
+          "NAYA"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "G",
+          "BG",
+          "ABZAN",
+          "WITHERBLOOM",
+          "UG",
+          "NAYA"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-029",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.setup.v1.staged;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.setup.v1.long",
+        "support": [
+          "QUANDRIX",
+          "WITCH"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "QUANDRIX",
+          "WITCH"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-030",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.setup.v1.long;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.hall.setup.v1.change",
+        "support": [
+          "TEMUR",
+          "GLINT"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "TEMUR",
+          "GLINT"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-031",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.setup.v1.change;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.crucible.disruption-boundary.v1.convert",
+        "support": [
+          "B"
+        ],
+        "contradict": [],
+        "strength": 1,
+        "naming_support": [
+          "B"
+        ],
+        "naming_evidence": true,
+        "qualification_support": [
+          "B"
+        ],
+        "mapping_role": "completion_boundary_direction",
+        "adjudication_id": "IC-MAP-032",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.crucible.disruption-boundary.v1.convert;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.crucible.disruption-boundary.v1.adapt",
+        "support": [
+          "G",
+          "RG"
+        ],
+        "contradict": [],
+        "strength": 1,
+        "naming_support": [
+          "G"
+        ],
+        "naming_evidence": true,
+        "qualification_support": [
+          "G",
+          "RG"
+        ],
+        "mapping_role": "completion_boundary_direction",
+        "adjudication_id": "IC-MAP-033",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.crucible.disruption-boundary.v1.adapt;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.crucible.disruption-boundary.v1.reuse",
+        "support": [
+          "BG",
+          "LOREHOLD"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "BG",
+          "LOREHOLD"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-034",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.crucible.disruption-boundary.v1.reuse;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.crucible.disruption-boundary.v1.act",
+        "support": [
+          "R"
+        ],
+        "contradict": [],
+        "strength": 1,
+        "naming_support": [
+          "R"
+        ],
+        "naming_evidence": true,
+        "qualification_support": [
+          "R"
+        ],
+        "mapping_role": "completion_boundary_direction",
+        "adjudication_id": "IC-MAP-035",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.crucible.disruption-boundary.v1.act;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      },
+      {
+        "answer_id": "b1.crucible.disruption-boundary.v1.reconstruct",
+        "support": [
+          "U",
+          "ESPER"
+        ],
+        "contradict": [],
+        "strength": 0.5,
+        "naming_support": [],
+        "naming_evidence": false,
+        "qualification_support": [
+          "U",
+          "ESPER"
+        ],
+        "mapping_role": "completion_corroboration_direction",
+        "adjudication_id": "IC-MAP-036",
+        "provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.crucible.disruption-boundary.v1.reconstruct;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+        "limitation": "MAPPING_HYPOTHESIS; the observation remains subject to player validation and cannot name an identity without an independent qualifying observation."
+      }
+    ]
   },
   "mapping_rules": [
     {
       "answer_id": "b1.hall.information-to-plan.v1.consolidate",
-      "support": ["ESPER"],
+      "support": [
+        "ESPER"
+      ],
       "contradict": [],
       "strength": 0.6,
       "naming_evidence": false,
@@ -56,7 +779,11 @@
     },
     {
       "answer_id": "b1.hall.information-to-plan.v1.open",
-      "support": ["U", "UB", "WU"],
+      "support": [
+        "U",
+        "UB",
+        "WU"
+      ],
       "contradict": [],
       "strength": 0.5,
       "naming_evidence": false,
@@ -65,7 +792,11 @@
     },
     {
       "answer_id": "b1.hall.information-to-plan.v1.exploit",
-      "support": ["B", "GRIXIS", "JESKAI"],
+      "support": [
+        "B",
+        "GRIXIS",
+        "JESKAI"
+      ],
       "contradict": [],
       "strength": 0.5,
       "naming_evidence": false,
@@ -74,8 +805,12 @@
     },
     {
       "answer_id": "b1.crucible.ur.v1.workshop",
-      "support": ["UR"],
-      "contradict": ["PRISMARI"],
+      "support": [
+        "UR"
+      ],
+      "contradict": [
+        "PRISMARI"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -83,8 +818,12 @@
     },
     {
       "answer_id": "b1.crucible.ur.v1.showcase",
-      "support": ["PRISMARI"],
-      "contradict": ["UR"],
+      "support": [
+        "PRISMARI"
+      ],
+      "contradict": [
+        "UR"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -92,8 +831,12 @@
     },
     {
       "answer_id": "b1.crucible.bg.v1.reclaim",
-      "support": ["BG"],
-      "contradict": ["WITHERBLOOM"],
+      "support": [
+        "BG"
+      ],
+      "contradict": [
+        "WITHERBLOOM"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -101,8 +844,12 @@
     },
     {
       "answer_id": "b1.crucible.bg.v1.exchange",
-      "support": ["WITHERBLOOM"],
-      "contradict": ["BG"],
+      "support": [
+        "WITHERBLOOM"
+      ],
+      "contradict": [
+        "BG"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -110,8 +857,12 @@
     },
     {
       "answer_id": "b1.crucible.wr.v1.intervene",
-      "support": ["WR"],
-      "contradict": ["LOREHOLD"],
+      "support": [
+        "WR"
+      ],
+      "contradict": [
+        "LOREHOLD"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -119,8 +870,12 @@
     },
     {
       "answer_id": "b1.crucible.wr.v1.recover",
-      "support": ["LOREHOLD"],
-      "contradict": ["WR"],
+      "support": [
+        "LOREHOLD"
+      ],
+      "contradict": [
+        "WR"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -128,8 +883,12 @@
     },
     {
       "answer_id": "b1.crucible.ug.v1.adapt",
-      "support": ["UG"],
-      "contradict": ["QUANDRIX"],
+      "support": [
+        "UG"
+      ],
+      "contradict": [
+        "QUANDRIX"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -137,8 +896,12 @@
     },
     {
       "answer_id": "b1.crucible.ug.v1.scale",
-      "support": ["QUANDRIX"],
-      "contradict": ["UG"],
+      "support": [
+        "QUANDRIX"
+      ],
+      "contradict": [
+        "UG"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -146,8 +909,12 @@
     },
     {
       "answer_id": "b1.crucible.wb.v1.terms",
-      "support": ["WB"],
-      "contradict": ["SILVERQUILL"],
+      "support": [
+        "WB"
+      ],
+      "contradict": [
+        "SILVERQUILL"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -155,8 +922,12 @@
     },
     {
       "answer_id": "b1.crucible.wb.v1.influence",
-      "support": ["SILVERQUILL"],
-      "contradict": ["WB"],
+      "support": [
+        "SILVERQUILL"
+      ],
+      "contradict": [
+        "WB"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -164,7 +935,9 @@
     },
     {
       "answer_id": "b1.crucible.bant.v1.refine",
-      "support": ["BANT"],
+      "support": [
+        "BANT"
+      ],
       "contradict": [],
       "strength": 1,
       "naming_evidence": true,
@@ -174,7 +947,9 @@
     {
       "answer_id": "b1.crucible.bant.v1.network",
       "support": [],
-      "contradict": ["BANT"],
+      "contradict": [
+        "BANT"
+      ],
       "strength": 1,
       "naming_evidence": false,
       "mapping_role": "bounded_target_rejection",
@@ -183,7 +958,9 @@
     {
       "answer_id": "b1.crucible.grixis.v1.calculate",
       "support": [],
-      "contradict": ["GRIXIS"],
+      "contradict": [
+        "GRIXIS"
+      ],
       "strength": 1,
       "naming_evidence": false,
       "mapping_role": "bounded_target_rejection",
@@ -191,7 +968,9 @@
     },
     {
       "answer_id": "b1.crucible.grixis.v1.convert",
-      "support": ["GRIXIS"],
+      "support": [
+        "GRIXIS"
+      ],
       "contradict": [],
       "strength": 1,
       "naming_evidence": true,
@@ -200,7 +979,9 @@
     },
     {
       "answer_id": "b1.crucible.sultai.v1.best",
-      "support": ["SULTAI"],
+      "support": [
+        "SULTAI"
+      ],
       "contradict": [],
       "strength": 1,
       "naming_evidence": true,
@@ -210,7 +991,9 @@
     {
       "answer_id": "b1.crucible.sultai.v1.cycle",
       "support": [],
-      "contradict": ["SULTAI"],
+      "contradict": [
+        "SULTAI"
+      ],
       "strength": 1,
       "naming_evidence": false,
       "mapping_role": "bounded_target_rejection",
@@ -218,7 +1001,9 @@
     },
     {
       "answer_id": "b1.crucible.temur.v1.adapt",
-      "support": ["TEMUR"],
+      "support": [
+        "TEMUR"
+      ],
       "contradict": [],
       "strength": 1,
       "naming_evidence": true,
@@ -228,7 +1013,9 @@
     {
       "answer_id": "b1.crucible.temur.v1.reset",
       "support": [],
-      "contradict": ["TEMUR"],
+      "contradict": [
+        "TEMUR"
+      ],
       "strength": 1,
       "naming_evidence": false,
       "mapping_role": "bounded_target_rejection",
@@ -236,7 +1023,9 @@
     },
     {
       "answer_id": "b1.crucible.esper.v1.designed",
-      "support": ["ESPER"],
+      "support": [
+        "ESPER"
+      ],
       "contradict": [],
       "strength": 1,
       "naming_evidence": true,
@@ -246,7 +1035,9 @@
     {
       "answer_id": "b1.crucible.esper.v1.flexible",
       "support": [],
-      "contradict": ["ESPER"],
+      "contradict": [
+        "ESPER"
+      ],
       "strength": 1,
       "naming_evidence": false,
       "mapping_role": "bounded_target_rejection",
@@ -254,7 +1045,9 @@
     },
     {
       "answer_id": "b1.crucible.jeskai.v1.sequence",
-      "support": ["JESKAI"],
+      "support": [
+        "JESKAI"
+      ],
       "contradict": [],
       "strength": 1,
       "naming_evidence": true,
@@ -264,7 +1057,9 @@
     {
       "answer_id": "b1.crucible.jeskai.v1.commit",
       "support": [],
-      "contradict": ["JESKAI"],
+      "contradict": [
+        "JESKAI"
+      ],
       "strength": 1,
       "naming_evidence": false,
       "mapping_role": "bounded_target_rejection",
@@ -273,7 +1068,9 @@
     {
       "answer_id": "b1.crucible.jeskai.v1.wait",
       "support": [],
-      "contradict": ["JESKAI"],
+      "contradict": [
+        "JESKAI"
+      ],
       "strength": 1,
       "naming_evidence": false,
       "mapping_role": "bounded_target_rejection",
@@ -281,8 +1078,12 @@
     },
     {
       "answer_id": "b1.crucible.yore-glint.v1.engineered",
-      "support": ["YORE"],
-      "contradict": ["GLINT"],
+      "support": [
+        "YORE"
+      ],
+      "contradict": [
+        "GLINT"
+      ],
       "strength": 1,
       "naming_evidence": false,
       "mapping_role": "approximate_not_cleanly_observable",
@@ -290,8 +1091,12 @@
     },
     {
       "answer_id": "b1.crucible.yore-glint.v1.improvise",
-      "support": ["GLINT"],
-      "contradict": ["YORE"],
+      "support": [
+        "GLINT"
+      ],
+      "contradict": [
+        "YORE"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -299,8 +1104,12 @@
     },
     {
       "answer_id": "b1.crucible.glint-dune.v1.shifting",
-      "support": ["GLINT"],
-      "contradict": ["DUNE"],
+      "support": [
+        "GLINT"
+      ],
+      "contradict": [
+        "DUNE"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -308,8 +1117,12 @@
     },
     {
       "answer_id": "b1.crucible.glint-dune.v1.front",
-      "support": ["DUNE"],
-      "contradict": ["GLINT"],
+      "support": [
+        "DUNE"
+      ],
+      "contradict": [
+        "GLINT"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -317,8 +1130,12 @@
     },
     {
       "answer_id": "b1.crucible.dune-ink.v1.front",
-      "support": ["DUNE"],
-      "contradict": ["INK"],
+      "support": [
+        "DUNE"
+      ],
+      "contradict": [
+        "INK"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -326,8 +1143,12 @@
     },
     {
       "answer_id": "b1.crucible.dune-ink.v1.commons",
-      "support": ["INK"],
-      "contradict": ["DUNE"],
+      "support": [
+        "INK"
+      ],
+      "contradict": [
+        "DUNE"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -335,8 +1156,12 @@
     },
     {
       "answer_id": "b1.crucible.ink-witch.v1.share",
-      "support": ["INK"],
-      "contradict": ["WITCH"],
+      "support": [
+        "INK"
+      ],
+      "contradict": [
+        "WITCH"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -344,8 +1169,12 @@
     },
     {
       "answer_id": "b1.crucible.ink-witch.v1.compound",
-      "support": ["WITCH"],
-      "contradict": ["INK"],
+      "support": [
+        "WITCH"
+      ],
+      "contradict": [
+        "INK"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -353,8 +1182,12 @@
     },
     {
       "answer_id": "b1.crucible.witch-yore.v1.compound",
-      "support": ["WITCH"],
-      "contradict": ["YORE"],
+      "support": [
+        "WITCH"
+      ],
+      "contradict": [
+        "YORE"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -362,8 +1195,12 @@
     },
     {
       "answer_id": "b1.crucible.witch-yore.v1.convert",
-      "support": ["YORE"],
-      "contradict": ["WITCH"],
+      "support": [
+        "YORE"
+      ],
+      "contradict": [
+        "WITCH"
+      ],
       "strength": 1,
       "naming_evidence": false,
       "mapping_role": "approximate_not_cleanly_observable",
@@ -371,8 +1208,12 @@
     },
     {
       "answer_id": "b1.crucible.colorless-wubrg.v1.constraint",
-      "support": ["COLORLESS"],
-      "contradict": ["WUBRG"],
+      "support": [
+        "COLORLESS"
+      ],
+      "contradict": [
+        "WUBRG"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -380,8 +1221,12 @@
     },
     {
       "answer_id": "b1.crucible.colorless-wubrg.v1.breadth",
-      "support": ["WUBRG"],
-      "contradict": ["COLORLESS"],
+      "support": [
+        "WUBRG"
+      ],
+      "contradict": [
+        "COLORLESS"
+      ],
       "strength": 1,
       "naming_evidence": true,
       "mapping_role": "exact_pair_direction",
@@ -389,7 +1234,13 @@
     },
     {
       "answer_id": "b1.crucible.mono-multi.v1.mono",
-      "support": ["W", "U", "B", "R", "G"],
+      "support": [
+        "W",
+        "U",
+        "B",
+        "R",
+        "G"
+      ],
       "contradict": [],
       "strength": 0.35,
       "naming_evidence": false,
@@ -398,12 +1249,51 @@
     },
     {
       "answer_id": "b1.crucible.mono-multi.v1.multi",
-      "support": ["ABZAN", "BANT", "BG", "BR", "DUNE", "ESPER", "GLINT", "GRIXIS", "INK", "JESKAI", "JUND", "LOREHOLD", "MARDU", "NAYA", "PRISMARI", "QUANDRIX", "RG", "SILVERQUILL", "SULTAI", "TEMUR", "UB", "UG", "UR", "WB", "WG", "WITCH", "WITHERBLOOM", "WR", "WU", "WUBRG", "YORE"],
+      "support": [
+        "ABZAN",
+        "BANT",
+        "BG",
+        "BR",
+        "DUNE",
+        "ESPER",
+        "GLINT",
+        "GRIXIS",
+        "INK",
+        "JESKAI",
+        "JUND",
+        "LOREHOLD",
+        "MARDU",
+        "NAYA",
+        "PRISMARI",
+        "QUANDRIX",
+        "RG",
+        "SILVERQUILL",
+        "SULTAI",
+        "TEMUR",
+        "UB",
+        "UG",
+        "UR",
+        "WB",
+        "WG",
+        "WITCH",
+        "WITHERBLOOM",
+        "WR",
+        "WU",
+        "WUBRG",
+        "YORE"
+      ],
       "contradict": [],
       "strength": 0.35,
       "naming_evidence": false,
       "mapping_role": "boundary_only_group",
       "provenance": "answer-semantic-adjudication.tsv mono-versus-multicolor evidence-required hypothesis"
     }
-  ]
+  ],
+  "instrument_contract": {
+    "constructs": 16,
+    "questions": 36,
+    "answers": 124,
+    "identities": 37,
+    "confusion_pairs": 123
+  }
 }

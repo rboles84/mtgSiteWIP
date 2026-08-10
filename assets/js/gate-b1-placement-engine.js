@@ -95,6 +95,10 @@ function observationRecord(question, answer) {
     affected_identities: [],
     strength: 0,
     naming_evidence: false,
+    qualification_eligible: false,
+    qualification_support: [],
+    naming_support: [],
+    naming_rule_ids_by_identity: {},
     role: "observation_only",
     provenance: answer.evidence_provenance || null,
     status: "OBSERVATION_ONLY",
@@ -115,9 +119,10 @@ function observationRecord(question, answer) {
     neutral,
     mapping_strength: neutral ? 0 : Number(mapping.strength || 0),
     naming_evidence: neutral ? false : mapping.naming_evidence === true,
-    naming_rule_ids: neutral || mapping.naming_evidence !== true
-      ? []
-      : [...(mapping.naming_rule_ids || [`baseline-answer:${answer.id}`])],
+    qualification_eligible: neutral ? false : mapping.qualification_eligible === true,
+    qualification_support: neutral ? [] : [...(mapping.qualification_support || (mapping.qualification_eligible ? mapping.support || [] : []))],
+    naming_support: neutral ? [] : [...(mapping.naming_support || (mapping.naming_evidence ? mapping.support || [] : []))],
+    naming_rule_ids_by_identity: neutral ? {} : clone(mapping.naming_rule_ids_by_identity || {}),
     mapping_role: mapping.role,
     mapping_status: mapping.status,
     mapping_provenance: mapping.provenance,
@@ -172,7 +177,7 @@ export function observe({ state, model, question, answer, answerIndex = 0 }) {
 
   const next = clone(state);
   const isLens = canonical.question.evidence_class === "IDENTITY_LENS_SELF_REPORT";
-  if (isLens && lensEligibility(state, model, rankCandidates(state, model))?.id !== canonical.question.id) {
+  if (isLens && lensEligibility(state, model, rankCandidates(state, model), { ignoreMainTargetLimit: true })?.id !== canonical.question.id) {
     throw new Error(`Lens question is not eligible for the current behavioral state: ${canonical.question.id}`);
   }
   next.asked_question_ids.push(canonical.question.id);
@@ -221,14 +226,25 @@ function strongestDependencyEffects(identityId, ledger, contradictionMultiplier)
       positive: 0,
       contradiction: 0,
       naming: false,
+      qualificationPositive: 0,
       namingRuleIds: new Set(),
       constructs: new Set(),
+      qualificationConstructs: new Set(),
       answers: [],
     };
     if (entry.positive_support.includes(identityId)) {
       current.positive = Math.max(current.positive, entry.mapping_strength);
-      current.naming ||= entry.naming_evidence;
-      for (const ruleId of entry.naming_rule_ids || []) current.namingRuleIds.add(ruleId);
+      if (entry.qualification_eligible && entry.qualification_support.includes(identityId)) {
+        current.qualificationPositive = Math.max(current.qualificationPositive, entry.mapping_strength);
+        current.qualificationConstructs.add(entry.construct);
+      }
+      const namingSupport = entry.naming_support || (entry.naming_evidence ? entry.positive_support : []);
+      const authorizesIdentity = namingSupport.includes(identityId);
+      current.naming ||= authorizesIdentity;
+      if (authorizesIdentity) {
+        const ruleIds = entry.naming_rule_ids_by_identity?.[identityId] || [`baseline-answer:${entry.answer_id}:${identityId}`];
+        for (const ruleId of ruleIds) current.namingRuleIds.add(ruleId);
+      }
       current.constructs.add(entry.construct);
       current.answers.push(entry.answer_id);
     }
@@ -271,11 +287,12 @@ export function rankCandidates(state, model) {
       const effects = strongestDependencyEffects(identity.id, ledger, contradictionMultiplier);
       const effectValues = [...effects.values()];
       const positiveDependencies = effectValues.filter((effect) => effect.positive > 0).length;
+      const qualificationDependencies = effectValues.filter((effect) => effect.qualificationPositive > 0).length;
       const namingDependencies = effectValues.filter((effect) => effect.positive > 0 && effect.naming).length;
       const contradictionDependencies = effectValues.filter((effect) => effect.contradiction > 0).length;
       const positiveConstructs = unique(effectValues
-        .filter((effect) => effect.positive > 0)
-        .flatMap((effect) => [...effect.constructs]))
+        .filter((effect) => effect.qualificationPositive > 0)
+        .flatMap((effect) => [...effect.qualificationConstructs]))
         .sort();
       const namingRuleIds = unique(effectValues
         .filter((effect) => effect.positive > 0 && effect.naming)
@@ -304,6 +321,7 @@ export function rankCandidates(state, model) {
         structural_coverage: round(structuralCoverage),
         route_affinity: round(affinity),
         positive_dependencies: positiveDependencies,
+        qualification_dependencies: qualificationDependencies,
         naming_dependencies: namingDependencies,
         contradiction_dependencies: contradictionDependencies,
         positive_constructs: positiveConstructs,
@@ -351,7 +369,15 @@ function routingCandidates(state, model, ranked = rankCandidates(state, model)) 
     const withinWindow = ranked
       .filter((candidate) => candidate.score >= topScore - window)
       .slice(0, limit);
-    return withinWindow.length >= 2 ? withinWindow : ranked.slice(0, Math.min(limit, 4));
+    const included = new Set(withinWindow.map((candidate) => candidate.identity));
+    const supportedOutsideWindow = ranked.filter(
+      (candidate) =>
+        !included.has(candidate.identity) &&
+        candidate.positive_strength > 0 &&
+        candidate.contradiction_strength < candidate.positive_strength + contradictionAllowance(candidate)
+    );
+    const frontier = [...withinWindow, ...supportedOutsideWindow].slice(0, limit);
+    return frontier.length >= 2 ? frontier : ranked.slice(0, Math.min(limit, 4));
   }
   return [...ranked]
     .sort((left, right) =>
@@ -379,6 +405,71 @@ function answerRoutingEffect(answer, question, identity) {
   return effect;
 }
 
+function directMappingEffect(answer, identityId) {
+  const mapping = answer.identity_mapping || {};
+  let effect = 0;
+  if ((mapping.support || []).includes(identityId)) effect += Number(mapping.strength || 0);
+  if ((mapping.contradict || []).includes(identityId)) effect -= Number(mapping.strength || 0) * 0.75;
+  return effect;
+}
+
+function questionCanImproveBoundary(question, leftId, rightId) {
+  return (question.answers || []).some(
+    (answer) => !neutralAnswer(answer) && Math.abs(directMappingEffect(answer, leftId) - directMappingEffect(answer, rightId)) > EPSILON
+  );
+}
+
+function questionQualificationUtility(state, model, question, candidates) {
+  const contradictionMultiplier = Number(model.scoring_rules?.contradiction_multiplier || 0.75);
+  let utility = 0;
+  for (let index = 0; index < candidates.length; index += 1) {
+    const candidate = candidates[index];
+    const effects = strongestDependencyEffects(candidate.identity, state.evidence_ledger || [], contradictionMultiplier);
+    const hasPositiveDependency = (effects.get(question.dependency_group)?.qualificationPositive || 0) > 0;
+    const hasConstruct = candidate.positive_constructs.includes(question.construct_id);
+    let bestGain = 0;
+    for (const answer of question.answers || []) {
+      if (neutralAnswer(answer) || !answer.identity_mapping?.support?.includes(candidate.identity)) continue;
+      const namingSupport = answer.identity_mapping.naming_support || [];
+      const namingGain = candidate.satisfied_naming_rule_ids.length === 0 && namingSupport.includes(candidate.identity) ? 1 : 0;
+      if (answer.identity_mapping.qualification_eligible !== true || !answer.identity_mapping.qualification_support?.includes(candidate.identity)) continue;
+      const dependencyGain = !hasPositiveDependency
+        ? candidate.qualification_dependencies < Number(model.scoring_rules?.naming_minimum_positive_dependencies || 2) ? 0.75 : 0.2
+        : 0;
+      const constructGain = !hasConstruct
+        ? candidate.positive_constructs.length < Number(model.scoring_rules?.naming_minimum_positive_constructs || 2) ? 0.5 : 0.1
+        : 0;
+      bestGain = Math.max(bestGain, namingGain + dependencyGain + constructGain);
+    }
+    utility += bestGain / (index + 1);
+  }
+  return round(utility / Math.max(1, candidates.length));
+}
+
+function questionQualificationCompletionUtility(state, model, question, candidates) {
+  const contradictionMultiplier = Number(model.scoring_rules?.contradiction_multiplier || 0.75);
+  const minimumDependencies = Number(model.scoring_rules?.naming_minimum_positive_dependencies || 2);
+  const minimumConstructs = Number(model.scoring_rules?.naming_minimum_positive_constructs || 2);
+  let utility = 0;
+  for (let index = 0; index < candidates.length; index += 1) {
+    const candidate = candidates[index];
+    if (!candidate.can_name_from_behavior || conflictForCandidate(candidate)) continue;
+    const effects = strongestDependencyEffects(candidate.identity, state.evidence_ledger || [], contradictionMultiplier);
+    const hasPositiveDependency = (effects.get(question.dependency_group)?.qualificationPositive || 0) > 0;
+    const hasConstruct = candidate.positive_constructs.includes(question.construct_id);
+    const canComplete = (question.answers || []).some((answer) => {
+      const mapping = answer.identity_mapping || {};
+      if (neutralAnswer(answer) || !mapping.qualification_support?.includes(candidate.identity)) return false;
+      const dependencies = candidate.qualification_dependencies + (hasPositiveDependency ? 0 : 1);
+      const constructs = candidate.positive_constructs.length + (hasConstruct ? 0 : 1);
+      const hasNamingRule = candidate.satisfied_naming_rule_ids.length > 0 || mapping.naming_support?.includes(candidate.identity);
+      return hasNamingRule && dependencies >= minimumDependencies && constructs >= minimumConstructs;
+    });
+    if (canComplete) utility += 1 / (index + 1);
+  }
+  return round(utility / Math.max(1, candidates.length));
+}
+
 export function questionDiscriminationTrace(state, model, question, ranked = rankCandidates(state, model)) {
   const identities = identityById(model);
   const candidates = routingCandidates(state, model, ranked);
@@ -392,7 +483,7 @@ export function questionDiscriminationTrace(state, model, question, ranked = ran
       pair_traces: [],
     };
   }
-  let utility = 0;
+  let discriminationUtility = 0;
   let discriminatingPairs = 0;
   const metadataOnlyPairs = [];
   const pairTraces = [];
@@ -422,7 +513,7 @@ export function questionDiscriminationTrace(state, model, question, ranked = ran
       const id = pairId(a.id, b.id);
       const metadataCovered = (question.pair_coverage || []).includes(id);
       if (bestDifference > EPSILON) {
-        utility += bestDifference * rankWeight;
+        discriminationUtility += bestDifference * rankWeight;
         discriminatingPairs += 1;
       } else if (metadataCovered) {
         metadataOnlyPairs.push(id);
@@ -438,10 +529,16 @@ export function questionDiscriminationTrace(state, model, question, ranked = ran
       });
     }
   }
+  const normalizedDiscrimination = round(discriminationUtility / candidates.length);
+  const qualificationUtility = questionQualificationUtility(state, model, question, candidates);
+  const qualificationCompletionUtility = questionQualificationCompletionUtility(state, model, question, candidates);
   return {
     question_id: question.id,
     candidate_frontier: candidates.map((candidate) => candidate.identity),
-    utility: round(utility / candidates.length),
+    utility: round(normalizedDiscrimination + qualificationUtility + qualificationCompletionUtility * 2),
+    discrimination_utility: normalizedDiscrimination,
+    qualification_utility: qualificationUtility,
+    qualification_completion_utility: qualificationCompletionUtility,
     discriminating_pairs: discriminatingPairs,
     metadata_only_pairs: metadataOnlyPairs.sort(),
     pair_traces: pairTraces,
@@ -504,6 +601,9 @@ function questionRoutingStatus(state, model, question, ranked, eligibleIds) {
     eligible: exclusionReason === null,
     exclusion_reason: exclusionReason,
     utility: trace.utility,
+    discrimination_utility: trace.discrimination_utility,
+    qualification_utility: trace.qualification_utility,
+    qualification_completion_utility: trace.qualification_completion_utility,
     discriminating_pairs: trace.discriminating_pairs,
     metadata_only_pairs: trace.metadata_only_pairs,
   };
@@ -527,10 +627,10 @@ export function getRoutingTrace(state, model, ranked = rankCandidates(state, mod
   };
 }
 
-function lensEligibility(state, model, ranked) {
+function lensEligibility(state, model, ranked, { ignoreMainTargetLimit = false } = {}) {
   const lens = model.question_bank?.lens?.[0];
   if (!lens || (state.lens_ledger || []).length) return null;
-  if ((state.stage_counts?.crucible || 0) >= (model.stages?.crucible?.max_questions || 1)) return null;
+  if (!ignoreMainTargetLimit && (state.stage_counts?.crucible || 0) >= (model.stages?.crucible?.max_questions || 1)) return null;
   const independent = independentBehavioralConstructs(state);
   if (independent.length < 2) return null;
   const candidates = routingCandidates(state, model, ranked);
@@ -570,7 +670,7 @@ export function getNamingQualification(candidate, model) {
   const requirements = {
     behaviorally_observable: candidate.can_name_from_behavior === true,
     approved_naming_rule: candidate.satisfied_naming_rule_ids.length > 0,
-    independent_positive_dependencies: candidate.positive_dependencies >= minimumDependencies,
+    independent_positive_dependencies: candidate.qualification_dependencies >= minimumDependencies,
     independent_positive_constructs: candidate.positive_constructs.length >= minimumConstructs,
     no_disqualifying_contradiction: !conflictForCandidate(candidate),
   };
@@ -590,15 +690,17 @@ export function evaluateStopping(state, model, ranked = rankCandidates(state, mo
   const minimum = model.stages?.min_total_questions || 6;
   const maximum = model.stages?.max_total_questions || 8;
   const top = ranked[0];
-  const second = ranked[1];
+  const named = ranked.filter((candidate) => getNamingQualification(candidate, model).qualified);
+  const publicTop = named[0] || null;
+  const publicSecond = named[1] || null;
   const useful = total < maximum ? nextUsefulQuestion(state, model, ranked) : null;
-  const gap = top && second ? round(top.score - second.score) : 1;
+  const gap = publicTop && publicSecond ? round(publicTop.score - publicSecond.score) : 1;
   const clear = Boolean(
-    top && getNamingQualification(top, model).qualified &&
-    top.positive_dependencies >= (model.scoring_rules?.clear_minimum_directional_dependencies || 2) &&
-    top.independent_constructs.length >= (model.scoring_rules?.clear_minimum_independent_constructs || 3) &&
+    publicTop && top?.identity === publicTop.identity &&
+    publicTop.qualification_dependencies >= (model.scoring_rules?.clear_minimum_directional_dependencies || 2) &&
+    publicTop.independent_constructs.length >= (model.scoring_rules?.clear_minimum_independent_constructs || 3) &&
     gap >= (model.scoring_rules?.clear_separation || 0.2) &&
-    !conflictForCandidate(top)
+    !conflictForCandidate(publicTop)
   );
 
   if (total < minimum) {
@@ -606,6 +708,18 @@ export function evaluateStopping(state, model, ranked = rankCandidates(state, mo
   }
   if (clear) {
     return { stop: true, state: "primary", reason: "clear_separation", can_improve: Boolean(useful), next_question_id: useful?.question.id || null };
+  }
+  if (
+    publicTop && top && top.identity !== publicTop.identity && useful &&
+    !questionCanImproveBoundary(useful.question, top.identity, publicTop.identity)
+  ) {
+    return {
+      stop: true,
+      state: "close",
+      reason: "next_question_cannot_improve_responsible_top_boundary",
+      can_improve: false,
+      next_question_id: null,
+    };
   }
   if (total < maximum && useful) {
     return { stop: false, state: "incomplete", reason: "useful_evidence_remains", can_improve: true, next_question_id: useful.question.id };
@@ -615,18 +729,20 @@ export function evaluateStopping(state, model, ranked = rankCandidates(state, mo
   if (conflicting.length) {
     return { stop: true, state: "contradictory", reason: "supported_candidate_has_conflicting_dependencies", can_improve: false, next_question_id: null };
   }
-  const named = ranked.filter((candidate) => getNamingQualification(candidate, model).qualified);
-  if (!named.length || !top || !getNamingQualification(top, model).qualified) {
+  if (!named.length || !top) {
     return { stop: true, state: "insufficient", reason: "no_responsible_named_placement", can_improve: false, next_question_id: null };
   }
   const supportedNearTop = named.filter(
-    (candidate) => candidate.score >= top.score - (model.scoring_rules?.meaningful_alternative_window || 0.2)
+    (candidate) => candidate.score >= publicTop.score - (model.scoring_rules?.meaningful_alternative_window || 0.2)
   );
   if (supportedNearTop.length >= 2 && Math.abs(supportedNearTop[0].score - supportedNearTop[1].score) <= EPSILON) {
     return { stop: true, state: "tied", reason: "equal_supported_leaders", can_improve: false, next_question_id: null };
   }
   if (supportedNearTop.length >= 2 && supportedNearTop.slice(0, 2).every((candidate) => candidate.positive_dependencies > 0)) {
     return { stop: true, state: "mixed", reason: "independent_supported_directions", can_improve: false, next_question_id: null };
+  }
+  if (top.identity !== publicTop.identity) {
+    return { stop: true, state: "close", reason: "highest_responsible_candidate_trails_unqualified_internal_candidate", can_improve: false, next_question_id: null };
   }
   return { stop: true, state: "close", reason: "single_named_direction_with_unresolved_alternatives", can_improve: false, next_question_id: null };
 }
@@ -679,12 +795,12 @@ function bestSeparatingQuestion(state, model, leftId, rightId) {
 }
 
 export function getAlternatives(state, model, ranked = rankCandidates(state, model)) {
-  const primary = ranked[0];
+  const primary = ranked.find((candidate) => getNamingQualification(candidate, model).qualified);
   if (!primary) return [];
   const window = model.scoring_rules?.meaningful_alternative_window || 0.2;
   return ranked
-    .slice(1)
     .filter((candidate) =>
+      candidate.identity !== primary.identity &&
       candidate.score >= primary.score - window &&
       getNamingQualification(candidate, model).qualified
     )
@@ -731,17 +847,34 @@ function revisitCandidate(state, model, candidateIds) {
 export function getRefinementPath(state, model, ranked = rankCandidates(state, model)) {
   const candidates = plausibleCandidates(state, model, ranked);
   const candidateIds = candidates.map((candidate) => candidate.identity);
-  const targeted = selectBestTargetedQuestion(state, model, eligibleTargetedQuestions(state, model, ranked), ranked);
-  if (targeted) {
+  const hall = eligibleHallQuestions(state, model);
+  const targeted = eligibleTargetedQuestions(state, model, ranked);
+  const nextMeasurement = selectBestQuestion(state, model, [...hall, ...targeted], ranked);
+  if (nextMeasurement) {
     return {
       kind: "ask_targeted_question",
       can_reduce_ambiguity: true,
       remaining_candidates: candidateIds,
       unresolved_boundaries: unresolvedBoundaries(model, candidateIds),
       missing_constructs: missingConstructs(model, state, candidateIds),
-      question_id: targeted.question.id,
+      question_id: nextMeasurement.question.id,
+      question_stage: nextMeasurement.question.stage,
       revisit: null,
-      limitation: "This is an optional refinement after the bounded main reading and does not extend the eight-question main journey.",
+      limitation: "This is an optional targeted refinement after the bounded main reading and does not extend the eight-question main journey.",
+    };
+  }
+  const lens = lensEligibility(state, model, ranked, { ignoreMainTargetLimit: true });
+  if (lens) {
+    return {
+      kind: "ask_targeted_question",
+      can_reduce_ambiguity: true,
+      remaining_candidates: candidateIds,
+      unresolved_boundaries: unresolvedBoundaries(model, candidateIds),
+      missing_constructs: missingConstructs(model, state, candidateIds),
+      question_id: lens.id,
+      question_stage: "lens",
+      revisit: null,
+      limitation: "This optional identity-lens refinement remains separate from behavioral naming and cannot flip or name Yore.",
     };
   }
   const revisit = revisitCandidate(state, model, candidateIds);
@@ -818,12 +951,18 @@ export function finalizeReading({ state, model, factions = {}, starterProfile = 
   const ranked = rankCandidates(state, model);
   if (!ranked.length) throw new Error("Gate B1 reading requires 37 identity candidates.");
   const stopping = evaluateStopping(state, model, ranked);
-  const primary = ranked[0];
+  const internalPrimary = ranked[0];
+  const qualifiedPrimary = ranked.find((candidate) => getNamingQualification(candidate, model).qualified) || null;
   const alternatives = getAlternatives(state, model, ranked);
   const refinement = getRefinementPath(state, model, ranked);
-  const publicAlternativeIds = new Set(alternatives.map((alternative) => alternative.identity));
-  const topMatches = ranked
-    .filter((candidate, index) => index === 0 || publicAlternativeIds.has(candidate.identity))
+  const resultState = stopping.stop ? stopping.state : "incomplete";
+  const exposesResponsibleName = ["primary", "close", "tied", "mixed"].includes(resultState) && qualifiedPrimary;
+  const primary = exposesResponsibleName ? qualifiedPrimary : internalPrimary;
+  const candidateLookup = new Map(ranked.map((candidate) => [candidate.identity, candidate]));
+  const publicOrder = [primary.identity, ...alternatives.map((alternative) => alternative.identity)];
+  const topMatches = publicOrder
+    .map((identity) => candidateLookup.get(identity))
+    .filter(Boolean)
     .slice(0, 3)
     .map((candidate, index) => {
       const faction = factions?.[candidate.identity] || {};
@@ -841,7 +980,6 @@ export function finalizeReading({ state, model, factions = {}, starterProfile = 
     });
   const top = topMatches[0];
   const runner = topMatches[1] || null;
-  const resultState = stopping.stop ? stopping.state : "incomplete";
   const limitations = [
     "Identity mappings are in-model hypotheses, not empirical player accuracy.",
     "Internal scores are ranking aids and are not public confidence percentages.",
@@ -873,6 +1011,7 @@ export function finalizeReading({ state, model, factions = {}, starterProfile = 
       identity: candidate.identity,
       score: candidate.score,
       positive_dependencies: candidate.positive_dependencies,
+      qualification_dependencies: candidate.qualification_dependencies,
       naming_dependencies: candidate.naming_dependencies,
       positive_constructs: candidate.positive_constructs,
       satisfied_naming_rule_ids: candidate.satisfied_naming_rule_ids,

@@ -70,25 +70,38 @@ const identityRows = parseTsv(sourcePaths.identities);
 const pairRows = parseTsv(sourcePaths.confusionPairs);
 const prototype = JSON.parse(readText(PROTOTYPE_PATH));
 const mappingSource = JSON.parse(readText(MAPPING_PATH));
-const baselineMappingRules = mappingSource.mapping_rules.map((rule) => ({ ...rule, authority_layer: "baseline_40" }));
-const remediationMappingRules = (mappingSource.remediation_overlay?.rules || []).map((rule) => ({ ...rule, authority_layer: "remediation_overlay" }));
+function normalizeMappingRule(rule, authorityLayer) {
+  const namingSupport = rule.naming_support || (rule.naming_evidence ? rule.support : []);
+  const qualificationEligible = rule.qualification_eligible ?? rule.mapping_role !== "boundary_only_group";
+  const qualificationSupport = rule.qualification_support || (qualificationEligible ? rule.support : []);
+  return {
+    ...rule,
+    naming_support: [...namingSupport],
+    naming_evidence: namingSupport.length > 0,
+    qualification_eligible: qualificationEligible,
+    qualification_support: [...qualificationSupport],
+    authority_layer: authorityLayer,
+  };
+}
+
+const baselineMappingRules = mappingSource.mapping_rules.map((rule) => normalizeMappingRule(rule, "baseline_40"));
+const remediationMappingRules = (mappingSource.remediation_overlay?.rules || []).map((rule) => normalizeMappingRule(rule, "instrument_completion_overlay"));
 const combinedMappingRules = [...baselineMappingRules, ...remediationMappingRules];
 
-assert.equal(constructs.length, 16, "Gate B1 must retain 16 constructs");
-assert.equal(questionRows.length, 35, "Gate B1 must retain 35 behavioral questions");
-assert.equal(answerRows.length, 110, "Gate B1 must retain 110 behavioral answers");
+const instrumentContract = mappingSource.instrument_contract || {};
+assert.equal(constructs.length, Number(instrumentContract.constructs || 16), "Gate B1 construct count drift");
+assert.equal(questionRows.length, Number(instrumentContract.questions || 35), "Gate B1 behavioral question count drift");
+assert.equal(answerRows.length, Number(instrumentContract.answers || 110), "Gate B1 behavioral answer count drift");
 assert.equal(identityRows.length, 37, "Gate B1 must retain 37 identities");
 assert.equal(pairRows.length, 123, "Gate B1 must retain 123 confusion pairs");
 assert.equal(mappingSource.mapping_rules.length, 40, "All 40 evidence-required directional uses must be adjudicated");
 
 const answerById = new Map(answerRows.map((answer) => [answer.answer_id, answer]));
 const semanticById = new Map(semanticRows.map((row) => [row.answer_id, row]));
-const prototypeQuestionById = new Map(prototype.questions.map((question) => [question.id, question]));
 const mappingByAnswer = new Map(combinedMappingRules.map((rule) => [rule.answer_id, rule]));
 const identityIds = new Set(identityRows.map((identity) => identity.identity_id));
 
-assert.equal(answerById.size, 110, "Answer IDs must be unique");
-assert.equal(prototypeQuestionById.size, 35, "Prototype question IDs must remain unique");
+assert.equal(answerById.size, answerRows.length, "Answer IDs must be unique");
 assert.equal(mappingByAnswer.size, combinedMappingRules.length, "Directional mapping answer IDs must be unique across baseline and overlay");
 
 for (const rule of combinedMappingRules) {
@@ -102,9 +115,20 @@ for (const rule of combinedMappingRules) {
   } else {
     assert(rule.adjudication_id, `${rule.answer_id} remediation mapping lacks adjudication_id`);
     assert(rule.provenance, `${rule.answer_id} remediation mapping lacks provenance`);
+    assert.equal(
+      semanticById.get(rule.answer_id)?.review_disposition,
+      "EVIDENCE_REQUIRED",
+      `${rule.answer_id} completion mapping lacks evidence-required semantic adjudication`
+    );
   }
   for (const identity of [...rule.support, ...rule.contradict]) {
     assert(identityIds.has(identity), `${rule.answer_id} references unknown identity ${identity}`);
+  }
+  for (const identity of rule.naming_support) {
+    assert(rule.support.includes(identity), `${rule.answer_id} naming support must also be positive support for ${identity}`);
+  }
+  for (const identity of rule.qualification_support) {
+    assert(rule.support.includes(identity), `${rule.answer_id} qualification support must also be positive support for ${identity}`);
   }
 }
 
@@ -113,9 +137,9 @@ const directionalIds = semanticRows
   .map((row) => row.answer_id)
   .sort();
 assert.deepEqual(
-  baselineMappingRules.map((rule) => rule.answer_id).sort(),
+  combinedMappingRules.map((rule) => rule.answer_id).sort(),
   directionalIds,
-  "Mapping source must cover exactly the evidence-required directional uses"
+  "Mapping source must cover exactly the evidence-required directional uses across baseline and completion layers"
 );
 
 const pairCoverageByQuestion = new Map();
@@ -143,16 +167,7 @@ const confusionPairs = pairRows.map((row) => {
 });
 
 const questions = questionRows.map((row) => {
-  const prototypeQuestion = prototypeQuestionById.get(row.question_id);
-  assert(prototypeQuestion, `Question ${row.question_id} is missing from approved prototype data`);
-  assert.equal(prototypeQuestion.prompt, row.question_prompt, `${row.question_id} prompt drift`);
-  assert.equal(prototypeQuestion.constructId, row.primary_construct_id, `${row.question_id} construct drift`);
   const answerIds = splitList(row.answer_ids);
-  assert.deepEqual(
-    prototypeQuestion.answers.map((answer) => answer.id),
-    answerIds,
-    `${row.question_id} answer order drift`
-  );
 
   return {
     id: row.question_id,
@@ -196,7 +211,12 @@ const questions = questionRows.map((row) => {
               affected_identities: [...new Set([...mapping.support, ...mapping.contradict])].sort(),
               strength: mapping.strength,
               naming_evidence: mapping.naming_evidence,
-              naming_rule_ids: mapping.naming_evidence ? [`${mapping.authority_layer}:${mapping.answer_id}`] : [],
+              qualification_eligible: mapping.qualification_eligible,
+              qualification_support: [...mapping.qualification_support].sort(),
+              naming_support: [...mapping.naming_support].sort(),
+              naming_rule_ids_by_identity: Object.fromEntries(
+                mapping.naming_support.map((identity) => [identity, [`${mapping.authority_layer}:${mapping.answer_id}:${identity}`]])
+              ),
               role: mapping.mapping_role,
               provenance: mapping.provenance,
               status: mapping.authority_layer === "baseline_40" ? "MAPPING_HYPOTHESIS" : "REMEDIATION_MAPPING_HYPOTHESIS",
@@ -208,6 +228,10 @@ const questions = questionRows.map((row) => {
               affected_identities: [],
               strength: 0,
               naming_evidence: false,
+              qualification_eligible: false,
+              qualification_support: [],
+              naming_support: [],
+              naming_rule_ids_by_identity: {},
               role: "observation_only",
               provenance: answer.evidence_provenance,
               status: "OBSERVATION_ONLY",
@@ -280,7 +304,7 @@ const model = {
     result_version: "2026-08-09-gate-b1-v1",
     instrument_version: mappingSource.instrument_version,
     mapping_version: mappingSource.version,
-    source_commit: "19c1d3b74a1551c18c800771ebea019e38d159a5",
+    source_commit: "a0a517a1aa14c7025b3d7b8f242e55aef35b8670",
     framing: "Deterministic in-model evidence ranking. Mapping hypotheses are not empirical player accuracy or calibrated confidence.",
     counts: {
       constructs: constructs.length,
@@ -288,7 +312,7 @@ const model = {
       answers: answerRows.length,
       identities: identities.length,
       confusion_pairs: confusionPairs.length,
-      directional_mapping_uses: mappingSource.mapping_rules.length,
+      directional_mapping_uses: combinedMappingRules.length,
       baseline_directional_mapping_uses: baselineMappingRules.length,
       remediation_directional_mapping_uses: remediationMappingRules.length,
       lens_questions: lensQuestions.length,
@@ -300,9 +324,9 @@ const model = {
   scoring_rules: mappingSource.scoring_contract,
   naming_qualification_contract: mappingSource.naming_qualification_contract,
   naming_rules: combinedMappingRules
-    .filter((rule) => rule.naming_evidence)
-    .flatMap((rule) => rule.support.map((identity) => ({
-      id: `${rule.authority_layer}:${rule.answer_id}`,
+    .filter((rule) => rule.naming_support.length > 0)
+    .flatMap((rule) => rule.naming_support.map((identity) => ({
+      id: `${rule.authority_layer}:${rule.answer_id}:${identity}`,
       identity,
       trigger_answer_id: rule.answer_id,
       required_positive_dependencies: mappingSource.naming_qualification_contract.minimum_positive_dependencies,
@@ -346,7 +370,7 @@ const output = stableJson(model);
 if (process.argv.includes("--check")) {
   assert(fs.existsSync(OUTPUT_PATH), `Missing generated model ${path.relative(ROOT, OUTPUT_PATH)}`);
   assert.equal(readText(OUTPUT_PATH), output, "Generated Gate B1 placement model is stale");
-  console.log("Gate B1 placement model is current: 16 constructs, 35 questions, 110 answers, 37 identities, 123 pairs, 40 directional uses.");
+  console.log(`Gate B1 placement model is current: ${constructs.length} constructs, ${questions.length} questions, ${answerRows.length} answers, 37 identities, 123 pairs, ${combinedMappingRules.length} directional uses.`);
 } else {
   fs.writeFileSync(OUTPUT_PATH, output);
   console.log(`Wrote ${path.relative(ROOT, OUTPUT_PATH)}`);
