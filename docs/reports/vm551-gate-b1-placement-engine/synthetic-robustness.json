@@ -19,32 +19,28 @@
       "identity": "ABZAN",
       "runs": 180,
       "primary_frequency": 0,
-      "top_2_frequency": 0.1111111111111111,
+      "top_2_frequency": 0.7388888888888889,
       "top_3_frequency": 0.8722222222222222,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.8722222222222222,
-      "most_common_competing_identity": "BANT",
+      "insufficient_frequency": 1,
+      "most_common_competing_identity": "BG",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
     },
     {
       "identity": "B",
       "runs": 180,
-      "primary_frequency": 0,
-      "top_2_frequency": 0.15555555555555556,
-      "top_3_frequency": 0.26666666666666666,
+      "primary_frequency": 0.8666666666666667,
+      "top_2_frequency": 0.8888888888888888,
+      "top_3_frequency": 1,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.9777777777777777,
-      "most_common_competing_identity": "JESKAI",
+      "insufficient_frequency": 0.13333333333333333,
+      "most_common_competing_identity": "GRIXIS",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
         {
           "question_id": "b1.hall.information-to-plan.v1",
           "count": 156
-        },
-        {
-          "question_id": "b1.crucible.mono-multi.v1",
-          "count": 132
         }
       ]
     },
@@ -55,10 +51,15 @@
       "top_2_frequency": 0.9888888888888889,
       "top_3_frequency": 0.9888888888888889,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.9888888888888889,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "BG",
       "common_insufficient_condition": "no_responsible_named_placement",
-      "questions_most_responsible_for_separation": []
+      "questions_most_responsible_for_separation": [
+        {
+          "question_id": "b1.crucible.bant.v1",
+          "count": 40
+        }
+      ]
     },
     {
       "identity": "BG",
@@ -66,14 +67,14 @@
       "primary_frequency": 0.7444444444444445,
       "top_2_frequency": 0.8777777777777778,
       "top_3_frequency": 0.8777777777777778,
-      "responsible_named_primary_frequency": 0.7444444444444445,
-      "insufficient_frequency": 0.24444444444444444,
-      "most_common_competing_identity": "BANT",
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 1,
+      "most_common_competing_identity": "ABZAN",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
         {
           "question_id": "b1.crucible.bg.v1",
-          "count": 134
+          "count": 20
         }
       ]
     },
@@ -95,8 +96,8 @@
       "primary_frequency": 0.7666666666666667,
       "top_2_frequency": 0.7666666666666667,
       "top_3_frequency": 0.7666666666666667,
-      "responsible_named_primary_frequency": 0.7444444444444445,
-      "insufficient_frequency": 0.25555555555555554,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "B",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
@@ -112,8 +113,8 @@
       "primary_frequency": 0.7666666666666667,
       "top_2_frequency": 0.7666666666666667,
       "top_3_frequency": 0.7666666666666667,
-      "responsible_named_primary_frequency": 0.7444444444444445,
-      "insufficient_frequency": 0.25555555555555554,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "BR",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
@@ -129,14 +130,18 @@
       "primary_frequency": 0.8777777777777778,
       "top_2_frequency": 0.8777777777777778,
       "top_3_frequency": 0.8777777777777778,
-      "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.9888888888888889,
+      "responsible_named_primary_frequency": 0.7444444444444445,
+      "insufficient_frequency": 0.25555555555555554,
       "most_common_competing_identity": "U",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
         {
           "question_id": "b1.hall.information-to-plan.v1",
           "count": 158
+        },
+        {
+          "question_id": "b1.crucible.esper.v1",
+          "count": 134
         }
       ]
     },
@@ -144,18 +149,13 @@
       "identity": "G",
       "runs": 180,
       "primary_frequency": 0,
-      "top_2_frequency": 0.5055555555555555,
-      "top_3_frequency": 0.5277777777777778,
+      "top_2_frequency": 0,
+      "top_3_frequency": 0.022222222222222223,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.7555555555555555,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "W",
       "common_insufficient_condition": "no_responsible_named_placement",
-      "questions_most_responsible_for_separation": [
-        {
-          "question_id": "b1.crucible.mono-multi.v1",
-          "count": 91
-        }
-      ]
+      "questions_most_responsible_for_separation": []
     },
     {
       "identity": "GLINT",
@@ -163,8 +163,8 @@
       "primary_frequency": 0.8888888888888888,
       "top_2_frequency": 0.8888888888888888,
       "top_3_frequency": 0.8888888888888888,
-      "responsible_named_primary_frequency": 0.7555555555555555,
-      "insufficient_frequency": 0.24444444444444444,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "R",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
@@ -181,11 +181,11 @@
     {
       "identity": "GRIXIS",
       "runs": 180,
-      "primary_frequency": 0.8555555555555555,
+      "primary_frequency": 0.8666666666666667,
       "top_2_frequency": 0.8666666666666667,
       "top_3_frequency": 0.8888888888888888,
-      "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 1,
+      "responsible_named_primary_frequency": 0.7222222222222222,
+      "insufficient_frequency": 0.26666666666666666,
       "most_common_competing_identity": "JESKAI",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
@@ -194,8 +194,8 @@
           "count": 156
         },
         {
-          "question_id": "b1.crucible.mono-multi.v1",
-          "count": 132
+          "question_id": "b1.crucible.grixis.v1",
+          "count": 130
         }
       ]
     },
@@ -206,8 +206,8 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.8666666666666667,
-      "most_common_competing_identity": "BANT",
+      "insufficient_frequency": 1,
+      "most_common_competing_identity": "BG",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
     },
@@ -217,18 +217,18 @@
       "primary_frequency": 0.8666666666666667,
       "top_2_frequency": 0.8666666666666667,
       "top_3_frequency": 0.8666666666666667,
-      "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 1,
+      "responsible_named_primary_frequency": 0.8666666666666667,
+      "insufficient_frequency": 0.13333333333333333,
       "most_common_competing_identity": "GRIXIS",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
         {
-          "question_id": "b1.hall.information-to-plan.v1",
+          "question_id": "b1.crucible.jeskai.v1",
           "count": 156
         },
         {
-          "question_id": "b1.crucible.mono-multi.v1",
-          "count": 134
+          "question_id": "b1.hall.information-to-plan.v1",
+          "count": 156
         }
       ]
     },
@@ -239,7 +239,7 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.34444444444444444,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "DUNE",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
@@ -248,10 +248,10 @@
       "identity": "LOREHOLD",
       "runs": 180,
       "primary_frequency": 0,
-      "top_2_frequency": 0,
+      "top_2_frequency": 0.2222222222222222,
       "top_3_frequency": 0.8722222222222222,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.24444444444444444,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "WITHERBLOOM",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
@@ -263,7 +263,7 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.35555555555555557,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "DUNE",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
@@ -275,7 +275,7 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0.7444444444444445,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.25555555555555554,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "DUNE",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
@@ -286,8 +286,8 @@
       "primary_frequency": 0.7444444444444445,
       "top_2_frequency": 0.8777777777777778,
       "top_3_frequency": 0.8777777777777778,
-      "responsible_named_primary_frequency": 0.7444444444444445,
-      "insufficient_frequency": 0.24444444444444444,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "BR",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
@@ -304,7 +304,7 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.25,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "DUNE",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
@@ -328,7 +328,7 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.35555555555555557,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "DUNE",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
@@ -340,7 +340,7 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.25555555555555554,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "DUNE",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
@@ -350,9 +350,9 @@
       "runs": 180,
       "primary_frequency": 0,
       "top_2_frequency": 0,
-      "top_3_frequency": 0.011111111111111112,
+      "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.24444444444444444,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "DUNE",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
@@ -397,7 +397,7 @@
       "top_2_frequency": 0.8666666666666667,
       "top_3_frequency": 0.8666666666666667,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.9777777777777777,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "U",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
@@ -418,8 +418,8 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.23333333333333334,
-      "most_common_competing_identity": "WITHERBLOOM",
+      "insufficient_frequency": 1,
+      "most_common_competing_identity": "BG",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
     },
@@ -429,8 +429,8 @@
       "primary_frequency": 0.7555555555555555,
       "top_2_frequency": 0.7555555555555555,
       "top_3_frequency": 0.7555555555555555,
-      "responsible_named_primary_frequency": 0.7555555555555555,
-      "insufficient_frequency": 0.23333333333333334,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "BR",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
@@ -444,18 +444,13 @@
       "identity": "W",
       "runs": 180,
       "primary_frequency": 0.5055555555555555,
-      "top_2_frequency": 0.6388888888888888,
+      "top_2_frequency": 0.75,
       "top_3_frequency": 0.75,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.8611111111111112,
-      "most_common_competing_identity": "G",
+      "insufficient_frequency": 1,
+      "most_common_competing_identity": "ABZAN",
       "common_insufficient_condition": "no_responsible_named_placement",
-      "questions_most_responsible_for_separation": [
-        {
-          "question_id": "b1.crucible.mono-multi.v1",
-          "count": 91
-        }
-      ]
+      "questions_most_responsible_for_separation": []
     },
     {
       "identity": "WB",
@@ -464,7 +459,7 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.24444444444444444,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "PRISMARI",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
@@ -476,8 +471,8 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.24444444444444444,
-      "most_common_competing_identity": "WITHERBLOOM",
+      "insufficient_frequency": 1,
+      "most_common_competing_identity": "BG",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
     },
@@ -488,7 +483,7 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.24444444444444444,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "PRISMARI",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
@@ -499,8 +494,8 @@
       "primary_frequency": 0.022222222222222223,
       "top_2_frequency": 0.022222222222222223,
       "top_3_frequency": 0.022222222222222223,
-      "responsible_named_primary_frequency": 0.022222222222222223,
-      "insufficient_frequency": 0.24444444444444444,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "PRISMARI",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
@@ -516,8 +511,8 @@
       "primary_frequency": 0.8722222222222222,
       "top_2_frequency": 0.8722222222222222,
       "top_3_frequency": 0.8722222222222222,
-      "responsible_named_primary_frequency": 0.7388888888888889,
-      "insufficient_frequency": 0.2611111111111111,
+      "responsible_named_primary_frequency": 0,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "JUND",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
@@ -534,7 +529,7 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0.13333333333333333,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.9777777777777777,
+      "insufficient_frequency": 1,
       "most_common_competing_identity": "UB",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": [
@@ -555,7 +550,7 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.24444444444444444,
+      "insufficient_frequency": 0.26666666666666666,
       "most_common_competing_identity": "ESPER",
       "common_insufficient_condition": "no_responsible_named_placement",
       "questions_most_responsible_for_separation": []
@@ -567,15 +562,10 @@
       "top_2_frequency": 0,
       "top_3_frequency": 0,
       "responsible_named_primary_frequency": 0,
-      "insufficient_frequency": 0.9666666666666667,
+      "insufficient_frequency": 0.8888888888888888,
       "most_common_competing_identity": "GRIXIS",
       "common_insufficient_condition": "no_responsible_named_placement",
-      "questions_most_responsible_for_separation": [
-        {
-          "question_id": "b1.crucible.mono-multi.v1",
-          "count": 20
-        }
-      ]
+      "questions_most_responsible_for_separation": []
     }
   ]
 }

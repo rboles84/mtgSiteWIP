@@ -7,7 +7,8 @@
     "semantic_adjudication": "docs/plans/vm551-gate-b1-placement-instrument/answer-semantic-adjudication.tsv",
     "identity_coverage": "docs/plans/vm551-gate-b1-placement-instrument/identity-coverage-matrix.tsv",
     "confusion_pairs": "docs/plans/vm551-gate-b1-placement-instrument/confusion-pair-coverage.tsv",
-    "lens": "docs/plans/vm551-gate-b1-placement-instrument/identity-lens-self-report-contract.md"
+    "lens": "docs/plans/vm551-gate-b1-placement-instrument/identity-lens-self-report-contract.md",
+    "remediation_adjudication": "docs/plans/vm551-gate-b1-evidence-routing-remediation/evidence-adjudication.md"
   },
   "scoring_contract": {
     "description": "Internal deterministic evidence ranking, not calibrated confidence or empirical player accuracy.",
@@ -22,9 +23,26 @@
     "contradiction_multiplier": 0.75,
     "clear_minimum_directional_dependencies": 2,
     "clear_minimum_independent_constructs": 2,
+    "naming_minimum_positive_dependencies": 2,
+    "naming_minimum_positive_constructs": 2,
     "clear_separation": 0.2,
     "meaningful_alternative_window": 0.2,
     "route_candidate_window": 0.3
+  },
+  "naming_qualification_contract": {
+    "minimum_positive_dependencies": 2,
+    "minimum_positive_constructs": 2,
+    "requires_approved_naming_trigger": true,
+    "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+    "scoring_effect": "Authorization only; satisfying a naming rule adds no score.",
+    "alternative_boundary": "Every public alternative must qualify independently but need not satisfy the primary separation threshold.",
+    "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity."
+  },
+  "remediation_overlay": {
+    "version": "vm551-gate-b1-evidence-routing-remediation-v1",
+    "status": "ADJUDICATED_NO_PROMOTIONS",
+    "adjudication": "docs/plans/vm551-gate-b1-evidence-routing-remediation/evidence-adjudication.md",
+    "rules": []
   },
   "mapping_rules": [
     {

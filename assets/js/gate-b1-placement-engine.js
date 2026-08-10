@@ -115,6 +115,9 @@ function observationRecord(question, answer) {
     neutral,
     mapping_strength: neutral ? 0 : Number(mapping.strength || 0),
     naming_evidence: neutral ? false : mapping.naming_evidence === true,
+    naming_rule_ids: neutral || mapping.naming_evidence !== true
+      ? []
+      : [...(mapping.naming_rule_ids || [`baseline-answer:${answer.id}`])],
     mapping_role: mapping.role,
     mapping_status: mapping.status,
     mapping_provenance: mapping.provenance,
@@ -218,12 +221,14 @@ function strongestDependencyEffects(identityId, ledger, contradictionMultiplier)
       positive: 0,
       contradiction: 0,
       naming: false,
+      namingRuleIds: new Set(),
       constructs: new Set(),
       answers: [],
     };
     if (entry.positive_support.includes(identityId)) {
       current.positive = Math.max(current.positive, entry.mapping_strength);
       current.naming ||= entry.naming_evidence;
+      for (const ruleId of entry.naming_rule_ids || []) current.namingRuleIds.add(ruleId);
       current.constructs.add(entry.construct);
       current.answers.push(entry.answer_id);
     }
@@ -268,6 +273,14 @@ export function rankCandidates(state, model) {
       const positiveDependencies = effectValues.filter((effect) => effect.positive > 0).length;
       const namingDependencies = effectValues.filter((effect) => effect.positive > 0 && effect.naming).length;
       const contradictionDependencies = effectValues.filter((effect) => effect.contradiction > 0).length;
+      const positiveConstructs = unique(effectValues
+        .filter((effect) => effect.positive > 0)
+        .flatMap((effect) => [...effect.constructs]))
+        .sort();
+      const namingRuleIds = unique(effectValues
+        .filter((effect) => effect.positive > 0 && effect.naming)
+        .flatMap((effect) => [...effect.namingRuleIds]))
+        .sort();
       const directionalNet = effectValues.length
         ? effectValues.reduce((sum, effect) => sum + effect.positive - effect.contradiction, 0) / effectValues.length
         : 0;
@@ -293,6 +306,8 @@ export function rankCandidates(state, model) {
         positive_dependencies: positiveDependencies,
         naming_dependencies: namingDependencies,
         contradiction_dependencies: contradictionDependencies,
+        positive_constructs: positiveConstructs,
+        satisfied_naming_rule_ids: namingRuleIds,
         independent_constructs: observedSupporting.sort(),
         boundary_constructs: observedBoundary.sort(),
         can_name_from_behavior: identity.can_name_from_behavior === true,
@@ -459,11 +474,7 @@ function eligibleTargetedQuestions(state, model, ranked = rankCandidates(state, 
     );
     const overlap = [...affected].filter((identity) => candidates.has(identity));
     if (!overlap.length) return false;
-    const hasCandidateContrast = [...affected].some((identity) => !candidates.has(identity)) || overlap.length >= 2;
-    return hasCandidateContrast || (question.pair_coverage || []).some((id) => {
-      const [left, right] = id.split("__");
-      return candidates.has(left) && candidates.has(right);
-    });
+    return questionDiscriminationTrace(state, model, question, ranked).utility > EPSILON;
   });
 }
 
@@ -552,6 +563,28 @@ function conflictForCandidate(candidate) {
   return candidate.positive_dependencies > 0 && candidate.contradiction_dependencies > 0 && candidate.contradiction_strength >= 0.5;
 }
 
+export function getNamingQualification(candidate, model) {
+  const rules = model.scoring_rules || {};
+  const minimumDependencies = Number(rules.naming_minimum_positive_dependencies || 2);
+  const minimumConstructs = Number(rules.naming_minimum_positive_constructs || 2);
+  const requirements = {
+    behaviorally_observable: candidate.can_name_from_behavior === true,
+    approved_naming_rule: candidate.satisfied_naming_rule_ids.length > 0,
+    independent_positive_dependencies: candidate.positive_dependencies >= minimumDependencies,
+    independent_positive_constructs: candidate.positive_constructs.length >= minimumConstructs,
+    no_disqualifying_contradiction: !conflictForCandidate(candidate),
+  };
+  return {
+    identity: candidate.identity,
+    qualified: Object.values(requirements).every(Boolean),
+    satisfied_naming_rule_ids: [...candidate.satisfied_naming_rule_ids],
+    requirements,
+    minimum_positive_dependencies: minimumDependencies,
+    minimum_positive_constructs: minimumConstructs,
+    limitation: "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold.",
+  };
+}
+
 export function evaluateStopping(state, model, ranked = rankCandidates(state, model)) {
   const total = state.answered_question_ids?.length || 0;
   const minimum = model.stages?.min_total_questions || 6;
@@ -561,8 +594,7 @@ export function evaluateStopping(state, model, ranked = rankCandidates(state, mo
   const useful = total < maximum ? nextUsefulQuestion(state, model, ranked) : null;
   const gap = top && second ? round(top.score - second.score) : 1;
   const clear = Boolean(
-    top?.can_name_from_behavior &&
-    top.naming_dependencies >= 1 &&
+    top && getNamingQualification(top, model).qualified &&
     top.positive_dependencies >= (model.scoring_rules?.clear_minimum_directional_dependencies || 2) &&
     top.independent_constructs.length >= (model.scoring_rules?.clear_minimum_independent_constructs || 3) &&
     gap >= (model.scoring_rules?.clear_separation || 0.2) &&
@@ -583,8 +615,8 @@ export function evaluateStopping(state, model, ranked = rankCandidates(state, mo
   if (conflicting.length) {
     return { stop: true, state: "contradictory", reason: "supported_candidate_has_conflicting_dependencies", can_improve: false, next_question_id: null };
   }
-  const named = ranked.filter((candidate) => candidate.can_name_from_behavior && candidate.naming_dependencies > 0);
-  if (!named.length || !top?.can_name_from_behavior || top.naming_dependencies === 0) {
+  const named = ranked.filter((candidate) => getNamingQualification(candidate, model).qualified);
+  if (!named.length || !top || !getNamingQualification(top, model).qualified) {
     return { stop: true, state: "insufficient", reason: "no_responsible_named_placement", can_improve: false, next_question_id: null };
   }
   const supportedNearTop = named.filter(
@@ -654,7 +686,7 @@ export function getAlternatives(state, model, ranked = rankCandidates(state, mod
     .slice(1)
     .filter((candidate) =>
       candidate.score >= primary.score - window &&
-      candidate.positive_dependencies > 0
+      getNamingQualification(candidate, model).qualified
     )
     .slice(0, 2)
     .map((candidate) => {
@@ -670,6 +702,7 @@ export function getAlternatives(state, model, ranked = rankCandidates(state, mod
         strongest_unresolved_boundary: boundary?.observable_distinction || "No approved direct boundary is recorded.",
         best_approved_question_id: question?.id || null,
         meaningful_support: true,
+        naming_qualification: getNamingQualification(candidate, model),
       };
     });
 }
@@ -841,6 +874,9 @@ export function finalizeReading({ state, model, factions = {}, starterProfile = 
       score: candidate.score,
       positive_dependencies: candidate.positive_dependencies,
       naming_dependencies: candidate.naming_dependencies,
+      positive_constructs: candidate.positive_constructs,
+      satisfied_naming_rule_ids: candidate.satisfied_naming_rule_ids,
+      naming_qualification: getNamingQualification(candidate, model),
       contradiction_dependencies: candidate.contradiction_dependencies,
       independent_constructs: candidate.independent_constructs,
     })),

@@ -1,8 +1,8 @@
 {
   "status": "PASS_WITH_EXPLICIT_GAPS",
   "pairs": 123,
-  "routable_direct": 41,
-  "direct_not_reached": 9,
+  "routable_direct": 44,
+  "direct_not_reached": 6,
   "bounded_no_direct": 73,
   "rows": [
     {
@@ -130,7 +130,7 @@
         "ESPER"
       ],
       "category": "accepted exact tie",
-      "can_coexist_as_candidates": false,
+      "can_coexist_as_candidates": true,
       "shared_constructs": [
         "C16",
         "C09"
@@ -184,7 +184,7 @@
         "PRISMARI"
       ],
       "category": "accepted exact tie",
-      "can_coexist_as_candidates": false,
+      "can_coexist_as_candidates": true,
       "shared_constructs": [
         "C11"
       ],
@@ -210,7 +210,7 @@
         "R"
       ],
       "category": "accepted exact tie;>=100 authored paths; not player prevalence",
-      "can_coexist_as_candidates": true,
+      "can_coexist_as_candidates": false,
       "shared_constructs": [
         "C11"
       ],
@@ -333,7 +333,7 @@
         "W"
       ],
       "category": "accepted exact tie",
-      "can_coexist_as_candidates": true,
+      "can_coexist_as_candidates": false,
       "shared_constructs": [],
       "approved_question_ids": [
         "b1.hall.sacrifice.v1",
@@ -482,7 +482,7 @@
         "JUND"
       ],
       "category": "accepted exact tie",
-      "can_coexist_as_candidates": false,
+      "can_coexist_as_candidates": true,
       "shared_constructs": [],
       "approved_question_ids": [
         "b1.hall.commander-role.v1",
@@ -526,7 +526,7 @@
         "W"
       ],
       "category": "accepted exact tie",
-      "can_coexist_as_candidates": true,
+      "can_coexist_as_candidates": false,
       "shared_constructs": [
         "C03"
       ],
@@ -1192,12 +1192,12 @@
       "direct_discriminating_question_ids": [
         "b1.crucible.grixis.v1"
       ],
-      "routing_can_reach_listed_question": false,
+      "routing_can_reach_listed_question": true,
       "discriminator_changes_relative_support": true,
       "bounded_when_no_direct_discriminator": false,
       "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
       "coverage_status": "DIRECT-PROVISIONAL",
-      "resolution": "APPROVED_DISCRIMINATOR_NOT_REACHED_IN_STRONGEST_SEARCH"
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
     },
     {
       "pair_id": "GLINT__JUND",
@@ -1575,12 +1575,12 @@
       "direct_discriminating_question_ids": [
         "b1.crucible.jeskai.v1"
       ],
-      "routing_can_reach_listed_question": false,
+      "routing_can_reach_listed_question": true,
       "discriminator_changes_relative_support": true,
       "bounded_when_no_direct_discriminator": false,
       "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
       "coverage_status": "DIRECT-PROVISIONAL",
-      "resolution": "APPROVED_DISCRIMINATOR_NOT_REACHED_IN_STRONGEST_SEARCH"
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
     },
     {
       "pair_id": "INK__NAYA",
@@ -1668,12 +1668,12 @@
       "direct_discriminating_question_ids": [
         "b1.crucible.jeskai.v1"
       ],
-      "routing_can_reach_listed_question": false,
+      "routing_can_reach_listed_question": true,
       "discriminator_changes_relative_support": true,
       "bounded_when_no_direct_discriminator": false,
       "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
       "coverage_status": "DIRECT-PROVISIONAL",
-      "resolution": "APPROVED_DISCRIMINATOR_NOT_REACHED_IN_STRONGEST_SEARCH"
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
     },
     {
       "pair_id": "JESKAI__MARDU",
@@ -1692,7 +1692,7 @@
         "b1.crucible.mono-multi.v1"
       ],
       "direct_discriminating_question_ids": [],
-      "routing_can_reach_listed_question": true,
+      "routing_can_reach_listed_question": false,
       "discriminator_changes_relative_support": false,
       "bounded_when_no_direct_discriminator": true,
       "observable_distinction": "JESKAI uses Mana commitment and interaction window evidence; MARDU uses Pressure channel evidence. No direct pair claim is made.",
@@ -1714,12 +1714,12 @@
       "direct_discriminating_question_ids": [
         "b1.crucible.jeskai.v1"
       ],
-      "routing_can_reach_listed_question": false,
+      "routing_can_reach_listed_question": true,
       "discriminator_changes_relative_support": true,
       "bounded_when_no_direct_discriminator": false,
       "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
       "coverage_status": "DIRECT-PROVISIONAL",
-      "resolution": "APPROVED_DISCRIMINATOR_NOT_REACHED_IN_STRONGEST_SEARCH"
+      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
     },
     {
       "pair_id": "JESKAI__QUANDRIX",
@@ -1752,7 +1752,7 @@
         "R"
       ],
       "category": ">=100 authored paths; not player prevalence",
-      "can_coexist_as_candidates": false,
+      "can_coexist_as_candidates": true,
       "shared_constructs": [
         "C01"
       ],
@@ -1778,7 +1778,7 @@
         "TEMUR"
       ],
       "category": "adjacent three-color",
-      "can_coexist_as_candidates": true,
+      "can_coexist_as_candidates": false,
       "shared_constructs": [
         "C01"
       ],
@@ -1802,7 +1802,7 @@
         "U"
       ],
       "category": "accepted exact tie",
-      "can_coexist_as_candidates": false,
+      "can_coexist_as_candidates": true,
       "shared_constructs": [
         "C08",
         "C01",
@@ -1830,7 +1830,7 @@
         "UR"
       ],
       "category": ">=100 authored paths; not player prevalence",
-      "can_coexist_as_candidates": true,
+      "can_coexist_as_candidates": false,
       "shared_constructs": [
         "C09"
       ],
@@ -2066,7 +2066,7 @@
         "WR"
       ],
       "category": "same-color guild/college",
-      "can_coexist_as_candidates": false,
+      "can_coexist_as_candidates": true,
       "shared_constructs": [
         "C03"
       ],
@@ -2344,12 +2344,12 @@
       "direct_discriminating_question_ids": [
         "b1.crucible.ug.v1"
       ],
-      "routing_can_reach_listed_question": true,
+      "routing_can_reach_listed_question": false,
       "discriminator_changes_relative_support": true,
       "bounded_when_no_direct_discriminator": false,
       "observable_distinction": "Direct scenario tests one bounded Commander behavior.",
       "coverage_status": "DIRECT-PROVISIONAL",
-      "resolution": "ROUTABLE_APPROVED_DISCRIMINATOR"
+      "resolution": "APPROVED_DISCRIMINATOR_NOT_REACHED_IN_STRONGEST_SEARCH"
     },
     {
       "pair_id": "QUANDRIX__WG",
@@ -2406,7 +2406,7 @@
         "W"
       ],
       "category": "accepted exact tie;>=100 authored paths; not player prevalence",
-      "can_coexist_as_candidates": true,
+      "can_coexist_as_candidates": false,
       "shared_constructs": [],
       "approved_question_ids": [
         "b1.gate.initiative.v1",

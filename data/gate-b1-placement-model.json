@@ -13,6 +13,8 @@
       "identities": 37,
       "confusion_pairs": 123,
       "directional_mapping_uses": 40,
+      "baseline_directional_mapping_uses": 40,
+      "remediation_directional_mapping_uses": 0,
       "lens_questions": 1
     },
     "source_sha256": {
@@ -24,7 +26,7 @@
       "confusionPairs": "efc3003a998c98d0f3b6aec507643731e9eca479ed3bcb757f6b780265f92e66",
       "resultContent": "7b9e250dc09325b837b747da27a8b8c41bce4c607832aa326941f84dcf2b5b7f",
       "prototype": "09b1ac673a564fdfd71a9b9d7bd4309fe0c18a767b1442a6dbdf0f370f375f1e",
-      "mapping": "022f90f8411cea78cece8352957b6ff6d5e2d7277a380b307e54b8fe87366dc9"
+      "mapping": "1b601c91cbd40cfd5bddfa602ce6f8b96b1bd3e213b811e88416e56ded63c594"
     }
   },
   "scoring_rules": {
@@ -40,10 +42,309 @@
     "contradiction_multiplier": 0.75,
     "clear_minimum_directional_dependencies": 2,
     "clear_minimum_independent_constructs": 2,
+    "naming_minimum_positive_dependencies": 2,
+    "naming_minimum_positive_constructs": 2,
     "clear_separation": 0.2,
     "meaningful_alternative_window": 0.2,
     "route_candidate_window": 0.3
   },
+  "naming_qualification_contract": {
+    "minimum_positive_dependencies": 2,
+    "minimum_positive_constructs": 2,
+    "requires_approved_naming_trigger": true,
+    "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+    "scoring_effect": "Authorization only; satisfying a naming rule adds no score.",
+    "alternative_boundary": "Every public alternative must qualify independently but need not satisfy the primary separation threshold.",
+    "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity."
+  },
+  "naming_rules": [
+    {
+      "id": "baseline_40:b1.crucible.ur.v1.workshop",
+      "identity": "UR",
+      "trigger_answer_id": "b1.crucible.ur.v1.workshop",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv UR vs PRISMARI evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.ur.v1.showcase",
+      "identity": "PRISMARI",
+      "trigger_answer_id": "b1.crucible.ur.v1.showcase",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv UR vs PRISMARI evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.bg.v1.reclaim",
+      "identity": "BG",
+      "trigger_answer_id": "b1.crucible.bg.v1.reclaim",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv BG vs WITHERBLOOM evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.bg.v1.exchange",
+      "identity": "WITHERBLOOM",
+      "trigger_answer_id": "b1.crucible.bg.v1.exchange",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv BG vs WITHERBLOOM evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.wr.v1.intervene",
+      "identity": "WR",
+      "trigger_answer_id": "b1.crucible.wr.v1.intervene",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv WR vs LOREHOLD evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.wr.v1.recover",
+      "identity": "LOREHOLD",
+      "trigger_answer_id": "b1.crucible.wr.v1.recover",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv WR vs LOREHOLD evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.ug.v1.adapt",
+      "identity": "UG",
+      "trigger_answer_id": "b1.crucible.ug.v1.adapt",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv UG vs QUANDRIX evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.ug.v1.scale",
+      "identity": "QUANDRIX",
+      "trigger_answer_id": "b1.crucible.ug.v1.scale",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv UG vs QUANDRIX evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.wb.v1.terms",
+      "identity": "WB",
+      "trigger_answer_id": "b1.crucible.wb.v1.terms",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv WB vs SILVERQUILL evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.wb.v1.influence",
+      "identity": "SILVERQUILL",
+      "trigger_answer_id": "b1.crucible.wb.v1.influence",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv WB vs SILVERQUILL evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.bant.v1.refine",
+      "identity": "BANT",
+      "trigger_answer_id": "b1.crucible.bant.v1.refine",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv BANT boundary evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.grixis.v1.convert",
+      "identity": "GRIXIS",
+      "trigger_answer_id": "b1.crucible.grixis.v1.convert",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "certified Grixis decisive-opening boundary; answer-semantic-adjudication.tsv",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.sultai.v1.best",
+      "identity": "SULTAI",
+      "trigger_answer_id": "b1.crucible.sultai.v1.best",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv SULTAI boundary evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.temur.v1.adapt",
+      "identity": "TEMUR",
+      "trigger_answer_id": "b1.crucible.temur.v1.adapt",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv TEMUR boundary evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.esper.v1.designed",
+      "identity": "ESPER",
+      "trigger_answer_id": "b1.crucible.esper.v1.designed",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv ESPER boundary evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.jeskai.v1.sequence",
+      "identity": "JESKAI",
+      "trigger_answer_id": "b1.crucible.jeskai.v1.sequence",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv JESKAI boundary evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.yore-glint.v1.improvise",
+      "identity": "GLINT",
+      "trigger_answer_id": "b1.crucible.yore-glint.v1.improvise",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv YORE vs GLINT evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.glint-dune.v1.shifting",
+      "identity": "GLINT",
+      "trigger_answer_id": "b1.crucible.glint-dune.v1.shifting",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv GLINT vs DUNE evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.glint-dune.v1.front",
+      "identity": "DUNE",
+      "trigger_answer_id": "b1.crucible.glint-dune.v1.front",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv GLINT vs DUNE evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.dune-ink.v1.front",
+      "identity": "DUNE",
+      "trigger_answer_id": "b1.crucible.dune-ink.v1.front",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv DUNE vs INK evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.dune-ink.v1.commons",
+      "identity": "INK",
+      "trigger_answer_id": "b1.crucible.dune-ink.v1.commons",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv DUNE vs INK evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.ink-witch.v1.share",
+      "identity": "INK",
+      "trigger_answer_id": "b1.crucible.ink-witch.v1.share",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv INK vs WITCH evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.ink-witch.v1.compound",
+      "identity": "WITCH",
+      "trigger_answer_id": "b1.crucible.ink-witch.v1.compound",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv INK vs WITCH evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.witch-yore.v1.compound",
+      "identity": "WITCH",
+      "trigger_answer_id": "b1.crucible.witch-yore.v1.compound",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv WITCH vs YORE evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.colorless-wubrg.v1.constraint",
+      "identity": "COLORLESS",
+      "trigger_answer_id": "b1.crucible.colorless-wubrg.v1.constraint",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv COLORLESS vs WUBRG evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    },
+    {
+      "id": "baseline_40:b1.crucible.colorless-wubrg.v1.breadth",
+      "identity": "WUBRG",
+      "trigger_answer_id": "b1.crucible.colorless-wubrg.v1.breadth",
+      "required_positive_dependencies": 2,
+      "required_positive_constructs": 2,
+      "contradiction_guard": "No disqualifying contradiction under the engine conflict contract.",
+      "provenance": "answer-semantic-adjudication.tsv COLORLESS vs WUBRG evidence-required hypothesis",
+      "limitation": "Structural similarity or numerical rank alone cannot authorize a public identity.",
+      "authority_layer": "baseline_40"
+    }
+  ],
   "stages": {
     "gate": {
       "min_questions": 4,
@@ -3855,9 +4156,11 @@
               ],
               "strength": 0.6,
               "naming_evidence": false,
+              "naming_rule_ids": [],
               "role": "cross_identity_direction",
               "provenance": "answer-semantic-adjudication.tsv C16 evidence-required hypothesis; esper-yore-evidence-recovery.md",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -3889,9 +4192,11 @@
               ],
               "strength": 0.5,
               "naming_evidence": false,
+              "naming_rule_ids": [],
               "role": "cross_identity_direction",
               "provenance": "answer-semantic-adjudication.tsv C16 evidence-required hypothesis; final-b1-architecture-decision.md",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -3923,9 +4228,11 @@
               ],
               "strength": 0.5,
               "naming_evidence": false,
+              "naming_rule_ids": [],
               "role": "cross_identity_direction",
               "provenance": "answer-semantic-adjudication.tsv C16 evidence-required hypothesis; final-b1-architecture-decision.md",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4004,9 +4311,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.ur.v1.workshop"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv UR vs PRISMARI evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4037,9 +4348,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.ur.v1.showcase"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv UR vs PRISMARI evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4116,9 +4431,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.bg.v1.reclaim"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv BG vs WITHERBLOOM evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4149,9 +4468,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.bg.v1.exchange"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv BG vs WITHERBLOOM evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4228,9 +4551,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.wr.v1.intervene"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv WR vs LOREHOLD evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4261,9 +4588,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.wr.v1.recover"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv WR vs LOREHOLD evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4340,9 +4671,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.ug.v1.adapt"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv UG vs QUANDRIX evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4373,9 +4708,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.ug.v1.scale"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv UG vs QUANDRIX evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4452,9 +4791,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.wb.v1.terms"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv WB vs SILVERQUILL evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4485,9 +4828,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.wb.v1.influence"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv WB vs SILVERQUILL evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4559,9 +4906,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.bant.v1.refine"
+              ],
               "role": "bounded_target_direction",
               "provenance": "answer-semantic-adjudication.tsv BANT boundary evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4589,9 +4940,11 @@
               ],
               "strength": 1,
               "naming_evidence": false,
+              "naming_rule_ids": [],
               "role": "bounded_target_rejection",
               "provenance": "answer-semantic-adjudication.tsv BANT boundary evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4665,9 +5018,11 @@
               ],
               "strength": 1,
               "naming_evidence": false,
+              "naming_rule_ids": [],
               "role": "bounded_target_rejection",
               "provenance": "certified Grixis requires calculation joined to urgent action; answer-semantic-adjudication.tsv",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4695,9 +5050,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.grixis.v1.convert"
+              ],
               "role": "bounded_target_direction",
               "provenance": "certified Grixis decisive-opening boundary; answer-semantic-adjudication.tsv",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4771,9 +5130,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.sultai.v1.best"
+              ],
               "role": "bounded_target_direction",
               "provenance": "answer-semantic-adjudication.tsv SULTAI boundary evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4801,9 +5164,11 @@
               ],
               "strength": 1,
               "naming_evidence": false,
+              "naming_rule_ids": [],
               "role": "bounded_target_rejection",
               "provenance": "answer-semantic-adjudication.tsv SULTAI boundary evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4877,9 +5242,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.temur.v1.adapt"
+              ],
               "role": "bounded_target_direction",
               "provenance": "answer-semantic-adjudication.tsv TEMUR boundary evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4907,9 +5276,11 @@
               ],
               "strength": 1,
               "naming_evidence": false,
+              "naming_rule_ids": [],
               "role": "bounded_target_rejection",
               "provenance": "answer-semantic-adjudication.tsv TEMUR boundary evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -4985,9 +5356,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.esper.v1.designed"
+              ],
               "role": "bounded_target_direction",
               "provenance": "answer-semantic-adjudication.tsv ESPER boundary evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -5015,9 +5390,11 @@
               ],
               "strength": 1,
               "naming_evidence": false,
+              "naming_rule_ids": [],
               "role": "bounded_target_rejection",
               "provenance": "answer-semantic-adjudication.tsv ESPER boundary evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -5093,9 +5470,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.jeskai.v1.sequence"
+              ],
               "role": "bounded_target_direction",
               "provenance": "answer-semantic-adjudication.tsv JESKAI boundary evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -5123,9 +5504,11 @@
               ],
               "strength": 1,
               "naming_evidence": false,
+              "naming_rule_ids": [],
               "role": "bounded_target_rejection",
               "provenance": "answer-semantic-adjudication.tsv JESKAI boundary evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -5153,9 +5536,11 @@
               ],
               "strength": 1,
               "naming_evidence": false,
+              "naming_rule_ids": [],
               "role": "bounded_target_rejection",
               "provenance": "answer-semantic-adjudication.tsv JESKAI boundary evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           }
         ]
@@ -5206,9 +5591,11 @@
               ],
               "strength": 1,
               "naming_evidence": false,
+              "naming_rule_ids": [],
               "role": "approximate_not_cleanly_observable",
               "provenance": "Yore/Glint C09 hypothesis; Yore remains NOT_CLEANLY_OBSERVABLE",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -5239,9 +5626,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.yore-glint.v1.improvise"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv YORE vs GLINT evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -5318,9 +5709,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.glint-dune.v1.shifting"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv GLINT vs DUNE evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -5351,9 +5746,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.glint-dune.v1.front"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv GLINT vs DUNE evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -5430,9 +5829,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.dune-ink.v1.front"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv DUNE vs INK evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -5463,9 +5866,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.dune-ink.v1.commons"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv DUNE vs INK evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -5542,9 +5949,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.ink-witch.v1.share"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv INK vs WITCH evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -5575,9 +5986,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.ink-witch.v1.compound"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv INK vs WITCH evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -5654,9 +6069,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.witch-yore.v1.compound"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv WITCH vs YORE evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -5687,9 +6106,11 @@
               ],
               "strength": 1,
               "naming_evidence": false,
+              "naming_rule_ids": [],
               "role": "approximate_not_cleanly_observable",
               "provenance": "Witch/Yore C06 hypothesis; Yore remains NOT_CLEANLY_OBSERVABLE",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -5766,9 +6187,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.colorless-wubrg.v1.constraint"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv COLORLESS vs WUBRG evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -5799,9 +6224,13 @@
               ],
               "strength": 1,
               "naming_evidence": true,
+              "naming_rule_ids": [
+                "baseline_40:b1.crucible.colorless-wubrg.v1.breadth"
+              ],
               "role": "exact_pair_direction",
               "provenance": "answer-semantic-adjudication.tsv COLORLESS vs WUBRG evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -5985,9 +6414,11 @@
               ],
               "strength": 0.35,
               "naming_evidence": false,
+              "naming_rule_ids": [],
               "role": "boundary_only_group",
               "provenance": "answer-semantic-adjudication.tsv mono-versus-multicolor evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {
@@ -6075,9 +6506,11 @@
               ],
               "strength": 0.35,
               "naming_evidence": false,
+              "naming_rule_ids": [],
               "role": "boundary_only_group",
               "provenance": "answer-semantic-adjudication.tsv mono-versus-multicolor evidence-required hypothesis",
-              "status": "MAPPING_HYPOTHESIS"
+              "status": "MAPPING_HYPOTHESIS",
+              "authority_layer": "baseline_40"
             }
           },
           {

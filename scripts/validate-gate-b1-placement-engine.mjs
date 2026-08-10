@@ -7,6 +7,7 @@ import {
   evaluateStopping,
   finalizeReading,
   getAlternatives,
+  getNamingQualification,
   getRefinementPath,
   getRoutingTrace,
   observe,
@@ -203,7 +204,11 @@ function beamSearchIdentity(identityId) {
     const result = finalizeReading({ state: node.state, model: MODEL, factions: FACTIONS });
     const target = ranking[rank - 1];
     const publicPrimary = result.faction === identityId && ["primary", "close", "tied"].includes(result.result_state);
-    return { ...node, ranking, rank, result, target, publicPrimary };
+    const publicNamed = ["primary", "close", "tied", "mixed"].includes(result.result_state)
+      ? result.top_matches.map((match) => match.faction)
+      : [];
+    const publicRank = publicNamed.indexOf(identityId) + 1;
+    return { ...node, ranking, rank, result, target, publicPrimary, publicRank };
   });
   evaluated.sort((left, right) =>
     Number(right.publicPrimary) - Number(left.publicPrimary) ||
@@ -212,7 +217,12 @@ function beamSearchIdentity(identityId) {
     (right.target?.score || -99) - (left.target?.score || -99) ||
     JSON.stringify(left.selections).localeCompare(JSON.stringify(right.selections))
   );
-  return { best: evaluated[0], encounteredQuestions: [...encounteredQuestions].sort() };
+  const publicRanks = evaluated.map((node) => node.publicRank).filter((rank) => rank > 0);
+  return {
+    best: evaluated[0],
+    bestPublicRank: publicRanks.length ? Math.min(...publicRanks) : null,
+    encounteredQuestions: [...encounteredQuestions].sort(),
+  };
 }
 
 function structuralReport() {
@@ -228,6 +238,7 @@ function structuralReport() {
     .filter((answer) => !allowedSignals.get(question.construct_id)?.has(answer.signal))
     .map((answer) => answer.id));
   const mappingUses = answers.filter((answer) => answer.identity_mapping.status === "MAPPING_HYPOTHESIS");
+  const remediationMappingUses = answers.filter((answer) => answer.identity_mapping.status === "REMEDIATION_MAPPING_HYPOTHESIS");
   const invariants = {
     constructs: MODEL.constructs.length,
     questions: questions.length,
@@ -236,6 +247,9 @@ function structuralReport() {
     identities: MODEL.identities.length,
     confusion_pairs: MODEL.confusion_pairs.length,
     directional_mapping_uses: mappingUses.length,
+    baseline_directional_mapping_uses: mappingUses.length,
+    remediation_directional_mapping_uses: remediationMappingUses.length,
+    naming_qualification_rules: MODEL.naming_rules.length,
     lens_questions: MODEL.question_bank.lens.length,
     duplicate_question_ids: questionIds.length - new Set(questionIds).size,
     duplicate_answer_ids: answerIds.length - new Set(answerIds).size,
@@ -253,6 +267,8 @@ function structuralReport() {
   );
   assert.deepEqual(invariants.stage_counts, { gate: 4, hall: 13, crucible: 18 });
   assert.equal(invariants.directional_mapping_uses, 40);
+  assert.equal(invariants.baseline_directional_mapping_uses, 40);
+  assert.equal(invariants.remediation_directional_mapping_uses, 0);
   assert.equal(invariants.duplicate_question_ids + invariants.duplicate_answer_ids + invariants.duplicate_identity_ids + invariants.duplicate_pair_ids, 0);
   assert.deepEqual(invariants.orphan_signals, []);
   assert.deepEqual(invariants.missing_constructs, []);
@@ -405,6 +421,22 @@ function focusedBehaviorReport() {
   assert.equal(metadataTrace.utility, 0, "Pair metadata must not create discrimination utility without different answer effects");
   assert(metadataTrace.metadata_only_pairs.includes(metadataPair));
 
+  let oneSidedTargetState = createInitialState(MODEL);
+  for (const [questionId, answerId] of [
+    ["b1.gate.initiative.v1", "b1.gate.initiative.v1.unsure"],
+    ["b1.gate.visibility.v1", "b1.gate.visibility.v1.board"],
+    ["b1.gate.disruption.v1", "b1.gate.disruption.v1.limit"],
+    ["b1.gate.tempo.v1", "b1.gate.tempo.v1.depends"],
+    ["b1.hall.commander-role.v1", "b1.hall.commander-role.v1.center"],
+    ["b1.hall.breadth.v1", "b1.hall.breadth.v1.narrow"],
+    ["b1.hall.commitment.v1", "b1.hall.commitment.v1.reopen"],
+  ]) oneSidedTargetState = observeDirect(oneSidedTargetState, questionId, answerId);
+  const oneSidedTarget = getRoutingTrace(oneSidedTargetState, MODEL).questions.find(
+    (question) => question.question_id === "b1.crucible.bant.v1"
+  );
+  assert(oneSidedTarget?.eligible, "A one-sided bounded target with real frontier discrimination must remain eligible");
+  assert(oneSidedTarget.utility > 0);
+
   const lens = MODEL.question_bank.lens[0];
   assert.throws(
     () => observe({ state: createInitialState(MODEL), model: MODEL, question: lens, answer: lens.answers[0], answerIndex: 0 }),
@@ -439,6 +471,7 @@ function focusedBehaviorReport() {
     adaptive_positive_utility_cases: usefulnessCases,
     targeted_leader_confirmation_bonus_present: false,
     pair_metadata_without_effect_contributes_utility: false,
+    one_sided_bounded_target_with_real_discrimination_is_eligible: true,
     lens_eligibility_enforced: true,
     eligible_yore_glint_lens_route_reachable: Boolean(lensState),
     lens_answers_ranking_neutral: lensChecks,
@@ -457,6 +490,10 @@ function terminationReport() {
   for (let seed = 1; seed <= RANDOM_JOURNEY_COUNT; seed += 1) {
     const run = runRandomJourney(seed);
     const count = run.state.answered_question_ids.length;
+    for (const alternative of run.snapshot.result.alternatives || []) {
+      const candidate = run.snapshot.ranking.find((entry) => entry.identity === alternative.identity);
+      assert(candidate && getNamingQualification(candidate, MODEL).qualified, `Public alternative ${alternative.identity} was not independently naming-qualified`);
+    }
     maxQuestions = Math.max(maxQuestions, count);
     assert(count <= 8, `Journey ${seed} exceeded eight questions`);
     assert.equal(new Set(run.state.answered_question_ids).size, count, `Journey ${seed} repeated a question`);
@@ -468,6 +505,12 @@ function terminationReport() {
     assert(stopping.stop, `Journey ${seed} ended without a legal stopping state`);
     stopReasons[stopping.reason] = (stopReasons[stopping.reason] || 0) + 1;
     const resultState = run.snapshot.result.result_state;
+    if (["primary", "close", "tied", "mixed"].includes(resultState)) {
+      assert(
+        getNamingQualification(run.snapshot.ranking[0], MODEL).qualified,
+        `Named public state ${resultState} used an unqualified primary`
+      );
+    }
     resultStates[resultState] = (resultStates[resultState] || 0) + 1;
     if (resultState === "insufficient") {
       insufficientCases += 1;
@@ -539,6 +582,7 @@ function routingBaselineReport(reachability, pairs, termination) {
     targeted_question_counts: Object.fromEntries([...targetedSelections.entries()].sort()),
     reachability: {
       candidate_set: reachability.candidate_set_reachable,
+      responsible_public_candidate: reachability.responsible_public_candidate_reachable,
       primary: reachability.primary_reachable,
       top_2: reachability.top_2_reachable,
       top_3: reachability.top_3_reachable,
@@ -577,9 +621,12 @@ function reachabilityReport() {
       strongest_competitors: strongestCompetitors,
       major_confusion_pairs: MODEL.confusion_pairs.filter((pair) => pair.identities.includes(identity.id)).map((pair) => pair.id),
       can_enter_candidate_set: best.result.candidate_set.includes(identity.id) || best.rank <= 8,
+      can_become_responsible_public_candidate: search.bestPublicRank !== null,
       can_become_primary: best.publicPrimary,
-      can_appear_top_2: internalOrder.slice(0, 2).includes(identity.id),
-      can_appear_top_3: internalOrder.slice(0, 3).includes(identity.id),
+      can_appear_top_2: search.bestPublicRank !== null && search.bestPublicRank <= 2,
+      can_appear_top_3: search.bestPublicRank !== null && search.bestPublicRank <= 3,
+      can_appear_internal_top_2: internalOrder.slice(0, 2).includes(identity.id),
+      can_appear_internal_top_3: internalOrder.slice(0, 3).includes(identity.id),
       best_internal_rank: best.rank,
       minimum_evidence_needed: minimumEvidence,
       discriminating_questions: discriminatingQuestions,
@@ -601,6 +648,7 @@ function reachabilityReport() {
     status: rows.every((row) => row.can_become_primary) ? "PASS" : "BLOCKING_EVIDENCE_GAPS",
     identities: 37,
     candidate_set_reachable: rows.filter((row) => row.can_enter_candidate_set).length,
+    responsible_public_candidate_reachable: rows.filter((row) => row.can_become_responsible_public_candidate).length,
     primary_reachable: rows.filter((row) => row.can_become_primary).length,
     top_2_reachable: rows.filter((row) => row.can_appear_top_2).length,
     top_3_reachable: rows.filter((row) => row.can_appear_top_3).length,
@@ -875,7 +923,8 @@ function ownerSummary(reachability, pairs, robustness, recovery, sensitivity) {
     "",
     "## Direct answers",
     "",
-    `- **Can all 37 identities be reached responsibly?** ${reachability.candidate_set_reachable === 37 ? "Yes as internal candidates." : `No. ${37 - reachability.candidate_set_reachable} cannot enter a plausible candidate set.`}`,
+    `- **Can all 37 identities enter the internal candidate frontier?** ${reachability.candidate_set_reachable === 37 ? "Yes." : `No. ${37 - reachability.candidate_set_reachable} cannot enter a plausible candidate set.`}`,
+    `- **Can all 37 identities be named as responsible public candidates?** ${reachability.responsible_public_candidate_reachable === 37 ? "Yes." : `No. ${reachability.responsible_public_candidate_reachable}/37 have a qualified public path.`}`,
     `- **Can all 37 become primary?** No. ${reachability.primary_reachable}/37 can become a responsible named primary under the approved evidence.`,
     `- **Cannot become primary:** ${unreachable.map((row) => row.identity).join(", ") || "None"}.`,
     `- **Can every insufficient result go somewhere useful?** ${recovery.counts.ask_targeted_question + recovery.counts.revisit_prior_answer > 0 ? "Some can; not all." : "No."} Targeted question: ${recovery.counts.ask_targeted_question}; useful revisit: ${recovery.counts.revisit_prior_answer}; no approved discriminator: ${recovery.counts.no_approved_discriminator}.`,
@@ -920,7 +969,7 @@ const pairs = confusionPairReport(reachabilityWithCache);
 const robustness = robustnessReport();
 const sensitivity = sensitivityReport(reachabilityWithCache);
 const recovery = recoveryReport(terminationWithStates);
-const routingBaseline = routingBaselineReport(reachabilityWithCache, pairs, terminationWithStates);
+const routingCurrent = routingBaselineReport(reachabilityWithCache, pairs, terminationWithStates);
 
 const termination = { ...terminationWithStates };
 delete termination.recoveryStates;
@@ -935,7 +984,7 @@ writeOrCheck("confusion-pair-resolution.json", pairs);
 writeOrCheck("synthetic-robustness.json", robustness);
 writeOrCheck("sensitivity-mutation.json", sensitivity);
 writeOrCheck("insufficient-recovery.json", recovery);
-writeOrCheck("routing-unbiased-baseline.json", routingBaseline);
+writeOrCheck("routing-current.json", routingCurrent);
 writeOrCheck("owner-summary.md", ownerSummary(reachabilityWithCache, pairs, robustness, recovery, sensitivity));
 
 console.log(

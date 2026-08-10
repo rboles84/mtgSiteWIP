@@ -2,20 +2,27 @@
   "status": "BLOCKING_EVIDENCE_GAPS",
   "identities": 37,
   "candidate_set_reachable": 36,
-  "primary_reachable": 13,
-  "top_2_reachable": 27,
-  "top_3_reachable": 30,
+  "responsible_public_candidate_reachable": 3,
+  "primary_reachable": 3,
+  "top_2_reachable": 3,
+  "top_3_reachable": 3,
   "cannot_become_primary": [
     "ABZAN",
     "B",
     "BANT",
+    "BG",
     "BR",
+    "COLORLESS",
+    "DUNE",
     "G",
-    "GRIXIS",
-    "JESKAI",
+    "GLINT",
+    "INK",
     "JUND",
+    "LOREHOLD",
     "MARDU",
     "NAYA",
+    "PRISMARI",
+    "QUANDRIX",
     "R",
     "RG",
     "SILVERQUILL",
@@ -24,11 +31,15 @@
     "U",
     "UB",
     "UG",
+    "UR",
     "W",
     "WB",
     "WG",
     "WITCH",
+    "WITHERBLOOM",
+    "WR",
     "WU",
+    "WUBRG",
     "YORE"
   ],
   "rows": [
@@ -48,27 +59,27 @@
         },
         {
           "question_id": "b1.gate.disruption.v1",
-          "answer_id": "b1.gate.disruption.v1.limit"
+          "answer_id": "b1.gate.disruption.v1.recover"
         },
         {
           "question_id": "b1.gate.tempo.v1",
           "answer_id": "b1.gate.tempo.v1.depends"
         },
         {
-          "question_id": "b1.hall.commander-role.v1",
-          "answer_id": "b1.hall.commander-role.v1.function"
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
         },
         {
-          "question_id": "b1.hall.breadth.v1",
-          "answer_id": "b1.hall.breadth.v1.narrow"
+          "question_id": "b1.hall.commander-role.v1",
+          "answer_id": "b1.hall.commander-role.v1.center"
         },
         {
           "question_id": "b1.hall.commitment.v1",
           "answer_id": "b1.hall.commitment.v1.reopen"
         },
         {
-          "question_id": "b1.crucible.mono-multi.v1",
-          "answer_id": "b1.crucible.mono-multi.v1.multi"
+          "question_id": "b1.crucible.bant.v1",
+          "answer_id": "b1.crucible.bant.v1.network"
         }
       ],
       "supporting_constructs": [
@@ -77,11 +88,11 @@
         "C13"
       ],
       "strongest_competitors": [
-        "BANT",
         "INK",
         "WG",
-        "SILVERQUILL",
-        "BG"
+        "W",
+        "LOREHOLD",
+        "SILVERQUILL"
       ],
       "major_confusion_pairs": [
         "ABZAN__MARDU",
@@ -91,18 +102,22 @@
         "ABZAN__YORE"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
         "b1.crucible.bg.v1",
         "b1.crucible.dune-ink.v1",
-        "b1.crucible.mono-multi.v1",
+        "b1.crucible.grixis.v1",
         "b1.crucible.wb.v1",
         "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
@@ -130,11 +145,11 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.advance"
+          "answer_id": "b1.gate.initiative.v1.unsure"
         },
         {
           "question_id": "b1.gate.visibility.v1",
-          "answer_id": "b1.gate.visibility.v1.board"
+          "answer_id": "b1.gate.visibility.v1.depends"
         },
         {
           "question_id": "b1.gate.disruption.v1",
@@ -142,23 +157,23 @@
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.depends"
+          "answer_id": "b1.gate.tempo.v1.burst"
         },
         {
           "question_id": "b1.hall.information-to-plan.v1",
           "answer_id": "b1.hall.information-to-plan.v1.exploit"
         },
         {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.concept"
+        },
+        {
           "question_id": "b1.hall.mana-window.v1",
           "answer_id": "b1.hall.mana-window.v1.others"
         },
         {
-          "question_id": "b1.hall.breadth.v1",
-          "answer_id": "b1.hall.breadth.v1.narrow"
-        },
-        {
-          "question_id": "b1.crucible.mono-multi.v1",
-          "answer_id": "b1.crucible.mono-multi.v1.mono"
+          "question_id": "b1.crucible.jeskai.v1",
+          "answer_id": "b1.crucible.jeskai.v1.commit"
         }
       ],
       "supporting_constructs": [
@@ -169,10 +184,10 @@
       ],
       "strongest_competitors": [
         "GRIXIS",
-        "JESKAI",
+        "ESPER",
         "U",
-        "R",
-        "G"
+        "UB",
+        "WU"
       ],
       "major_confusion_pairs": [
         "B__ESPER",
@@ -188,17 +203,21 @@
         "B__YORE"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
       "can_appear_top_2": false,
       "can_appear_top_3": false,
-      "best_internal_rank": 4,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
+      "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
         "b1.hall.information-to-plan.v1",
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
-        "b1.crucible.mono-multi.v1",
+        "b1.crucible.grixis.v1",
+        "b1.crucible.jeskai.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -225,11 +244,11 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.unsure"
+          "answer_id": "b1.gate.initiative.v1.balance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
-          "answer_id": "b1.gate.visibility.v1.board"
+          "answer_id": "b1.gate.visibility.v1.depends"
         },
         {
           "question_id": "b1.gate.disruption.v1",
@@ -237,23 +256,23 @@
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.depends"
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
         },
         {
           "question_id": "b1.hall.commander-role.v1",
           "answer_id": "b1.hall.commander-role.v1.center"
         },
         {
-          "question_id": "b1.hall.breadth.v1",
-          "answer_id": "b1.hall.breadth.v1.narrow"
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.convert"
         },
         {
-          "question_id": "b1.hall.commitment.v1",
-          "answer_id": "b1.hall.commitment.v1.reopen"
-        },
-        {
-          "question_id": "b1.crucible.mono-multi.v1",
-          "answer_id": "b1.crucible.mono-multi.v1.multi"
+          "question_id": "b1.crucible.bant.v1",
+          "answer_id": "b1.crucible.bant.v1.refine"
         }
       ],
       "supporting_constructs": [
@@ -262,11 +281,11 @@
         "C09"
       ],
       "strongest_competitors": [
-        "ABZAN",
-        "INK",
-        "WG",
-        "SILVERQUILL",
-        "BG"
+        "BG",
+        "BR",
+        "JUND",
+        "WR",
+        "R"
       ],
       "major_confusion_pairs": [
         "BANT__ESPER",
@@ -277,9 +296,12 @@
         "BANT__W"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -287,10 +309,9 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
         "b1.crucible.bg.v1",
         "b1.crucible.dune-ink.v1",
-        "b1.crucible.mono-multi.v1",
-        "b1.crucible.wb.v1",
         "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -366,9 +387,12 @@
         "BG__WITHERBLOOM"
       ],
       "can_enter_candidate_set": true,
-      "can_become_primary": true,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_become_responsible_public_candidate": false,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -376,9 +400,10 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
         "b1.crucible.bg.v1",
         "b1.crucible.dune-ink.v1",
-        "b1.crucible.wb.v1",
+        "b1.crucible.grixis.v1",
         "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -393,8 +418,11 @@
         "b1.hall.sacrifice.v1",
         "b1.hall.setup.v1"
       ],
-      "unresolved_authority_gaps": [],
-      "blocking_reason": null
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
     },
     {
       "identity": "BR",
@@ -456,15 +484,19 @@
         "BR__YORE"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
         "b1.crucible.bg.v1",
         "b1.crucible.glint-dune.v1",
         "b1.crucible.ur.v1",
@@ -507,7 +539,7 @@
         },
         {
           "question_id": "b1.gate.disruption.v1",
-          "answer_id": "b1.gate.disruption.v1.depends"
+          "answer_id": "b1.gate.disruption.v1.limit"
         },
         {
           "question_id": "b1.gate.tempo.v1",
@@ -519,11 +551,11 @@
         },
         {
           "question_id": "b1.hall.information-to-plan.v1",
-          "answer_id": "b1.hall.information-to-plan.v1.consolidate"
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
         },
         {
-          "question_id": "b1.hall.engine-shape.v1",
-          "answer_id": "b1.hall.engine-shape.v1.central"
+          "question_id": "b1.hall.theme.v1",
+          "answer_id": "b1.hall.theme.v1.reliable"
         },
         {
           "question_id": "b1.crucible.colorless-wubrg.v1",
@@ -536,19 +568,22 @@
         "C10"
       ],
       "strongest_competitors": [
-        "ESPER",
-        "U",
+        "G",
+        "PRISMARI",
         "R",
-        "UR",
-        "GRIXIS"
+        "INK",
+        "LOREHOLD"
       ],
       "major_confusion_pairs": [
         "COLORLESS__WUBRG"
       ],
       "can_enter_candidate_set": true,
-      "can_become_primary": true,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_become_responsible_public_candidate": false,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -558,7 +593,6 @@
         "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.esper.v1",
         "b1.crucible.mono-multi.v1",
-        "b1.crucible.ur.v1",
         "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -574,8 +608,11 @@
         "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
-      "unresolved_authority_gaps": [],
-      "blocking_reason": null
+      "unresolved_authority_gaps": [
+        "High confusion or insufficient distinctiveness; preserve close/insufficient until player evidence supports mapping.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
     },
     {
       "identity": "DUNE",
@@ -637,9 +674,12 @@
         "DUNE__PRISMARI"
       ],
       "can_enter_candidate_set": true,
-      "can_become_primary": true,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_become_responsible_public_candidate": false,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -648,7 +688,7 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
-        "b1.crucible.bg.v1",
+        "b1.crucible.bant.v1",
         "b1.crucible.dune-ink.v1",
         "b1.crucible.glint-dune.v1",
         "b1.crucible.mono-multi.v1",
@@ -669,8 +709,11 @@
         "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
-      "unresolved_authority_gaps": [],
-      "blocking_reason": null
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
     },
     {
       "identity": "ESPER",
@@ -736,9 +779,12 @@
         "ESPER__WITCH"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": true,
       "can_become_primary": true,
       "can_appear_top_2": true,
       "can_appear_top_3": true,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -747,13 +793,8 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
-        "b1.crucible.bg.v1",
-        "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.esper.v1",
-        "b1.crucible.ug.v1",
         "b1.crucible.ur.v1",
-        "b1.crucible.witch-yore.v1",
-        "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -776,7 +817,7 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.unsure"
+          "answer_id": "b1.gate.initiative.v1.balance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -784,27 +825,27 @@
         },
         {
           "question_id": "b1.gate.disruption.v1",
-          "answer_id": "b1.gate.disruption.v1.limit"
+          "answer_id": "b1.gate.disruption.v1.recover"
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.depends"
+          "answer_id": "b1.gate.tempo.v1.waves"
         },
         {
-          "question_id": "b1.hall.commander-role.v1",
-          "answer_id": "b1.hall.commander-role.v1.center"
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.depends"
         },
         {
           "question_id": "b1.hall.breadth.v1",
           "answer_id": "b1.hall.breadth.v1.narrow"
         },
         {
-          "question_id": "b1.hall.commitment.v1",
-          "answer_id": "b1.hall.commitment.v1.reopen"
+          "question_id": "b1.hall.theme.v1",
+          "answer_id": "b1.hall.theme.v1.reliable"
         },
         {
-          "question_id": "b1.crucible.mono-multi.v1",
-          "answer_id": "b1.crucible.mono-multi.v1.mono"
+          "question_id": "b1.crucible.colorless-wubrg.v1",
+          "answer_id": "b1.crucible.colorless-wubrg.v1.constraint"
         }
       ],
       "supporting_constructs": [
@@ -813,11 +854,11 @@
         "C10"
       ],
       "strongest_competitors": [
-        "W",
-        "B",
+        "COLORLESS",
+        "LOREHOLD",
         "R",
-        "U",
-        "BANT"
+        "INK",
+        "PRISMARI"
       ],
       "major_confusion_pairs": [
         "G__NAYA",
@@ -826,19 +867,23 @@
         "G__W"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 2,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
         "b1.crucible.bg.v1",
         "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.dune-ink.v1",
-        "b1.crucible.mono-multi.v1",
+        "b1.crucible.grixis.v1",
         "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -930,9 +975,12 @@
         "GLINT__YORE"
       ],
       "can_enter_candidate_set": true,
-      "can_become_primary": true,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_become_responsible_public_candidate": false,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -957,8 +1005,11 @@
         "b1.hall.sacrifice.v1",
         "b1.hall.threat.v1"
       ],
-      "unresolved_authority_gaps": [],
-      "blocking_reason": null
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
     },
     {
       "identity": "GRIXIS",
@@ -995,8 +1046,8 @@
           "answer_id": "b1.hall.breadth.v1.broad"
         },
         {
-          "question_id": "b1.crucible.mono-multi.v1",
-          "answer_id": "b1.crucible.mono-multi.v1.multi"
+          "question_id": "b1.crucible.grixis.v1",
+          "answer_id": "b1.crucible.grixis.v1.convert"
         }
       ],
       "supporting_constructs": [
@@ -1007,10 +1058,10 @@
       ],
       "strongest_competitors": [
         "JESKAI",
-        "UB",
         "B",
-        "ESPER",
-        "WU"
+        "UB",
+        "U",
+        "R"
       ],
       "major_confusion_pairs": [
         "DUNE__GRIXIS",
@@ -1024,9 +1075,12 @@
         "GRIXIS__WUBRG"
       ],
       "can_enter_candidate_set": true,
-      "can_become_primary": false,
+      "can_become_responsible_public_candidate": true,
+      "can_become_primary": true,
       "can_appear_top_2": true,
       "can_appear_top_3": true,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -1035,7 +1089,7 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
-        "b1.crucible.mono-multi.v1",
+        "b1.crucible.grixis.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -1048,11 +1102,8 @@
         "b1.hall.sacrifice.v1",
         "b1.hall.threat.v1"
       ],
-      "unresolved_authority_gaps": [
-        "High confusion or insufficient distinctiveness; preserve close/insufficient until player evidence supports mapping.",
-        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
-      ],
-      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
+      "unresolved_authority_gaps": [],
+      "blocking_reason": null
     },
     {
       "identity": "INK",
@@ -1114,9 +1165,12 @@
         "INK__WITCH"
       ],
       "can_enter_candidate_set": true,
-      "can_become_primary": true,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_become_responsible_public_candidate": false,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -1125,9 +1179,9 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
         "b1.crucible.bg.v1",
         "b1.crucible.dune-ink.v1",
-        "b1.crucible.mono-multi.v1",
         "b1.crucible.wb.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -1140,8 +1194,11 @@
         "b1.hall.sacrifice.v1",
         "b1.hall.setup.v1"
       ],
-      "unresolved_authority_gaps": [],
-      "blocking_reason": null
+      "unresolved_authority_gaps": [
+        "High confusion or insufficient distinctiveness; preserve close/insufficient until player evidence supports mapping.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
     },
     {
       "identity": "JESKAI",
@@ -1178,8 +1235,8 @@
           "answer_id": "b1.hall.breadth.v1.broad"
         },
         {
-          "question_id": "b1.crucible.mono-multi.v1",
-          "answer_id": "b1.crucible.mono-multi.v1.multi"
+          "question_id": "b1.crucible.jeskai.v1",
+          "answer_id": "b1.crucible.jeskai.v1.sequence"
         }
       ],
       "supporting_constructs": [
@@ -1191,9 +1248,9 @@
       "strongest_competitors": [
         "GRIXIS",
         "B",
-        "ESPER",
-        "UB",
-        "WU"
+        "U",
+        "R",
+        "ESPER"
       ],
       "major_confusion_pairs": [
         "ESPER__JESKAI",
@@ -1212,9 +1269,12 @@
         "JESKAI__WU"
       ],
       "can_enter_candidate_set": true,
-      "can_become_primary": false,
+      "can_become_responsible_public_candidate": true,
+      "can_become_primary": true,
       "can_appear_top_2": true,
       "can_appear_top_3": true,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -1223,7 +1283,7 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
-        "b1.crucible.mono-multi.v1",
+        "b1.crucible.jeskai.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -1234,11 +1294,8 @@
         "b1.hall.information-to-plan.v1",
         "b1.hall.mana-window.v1"
       ],
-      "unresolved_authority_gaps": [
-        "High confusion or insufficient distinctiveness; preserve close/insufficient until player evidence supports mapping.",
-        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
-      ],
-      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
+      "unresolved_authority_gaps": [],
+      "blocking_reason": null
     },
     {
       "identity": "JUND",
@@ -1302,18 +1359,22 @@
         "JUND__WUBRG"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 2,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
         "b1.crucible.bg.v1",
         "b1.crucible.esper.v1",
-        "b1.crucible.mono-multi.v1",
+        "b1.crucible.grixis.v1",
         "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -1370,8 +1431,8 @@
           "answer_id": "b1.hall.breadth.v1.broad"
         },
         {
-          "question_id": "b1.crucible.wr.v1",
-          "answer_id": "b1.crucible.wr.v1.recover"
+          "question_id": "b1.crucible.esper.v1",
+          "answer_id": "b1.crucible.esper.v1.flexible"
         }
       ],
       "supporting_constructs": [
@@ -1380,11 +1441,11 @@
         "C10"
       ],
       "strongest_competitors": [
-        "ESPER",
         "U",
         "BG",
         "UG",
-        "UR"
+        "UR",
+        "WR"
       ],
       "major_confusion_pairs": [
         "DUNE__LOREHOLD",
@@ -1394,21 +1455,22 @@
         "LOREHOLD__WR"
       ],
       "can_enter_candidate_set": true,
-      "can_become_primary": true,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
-      "best_internal_rank": 1,
+      "can_become_responsible_public_candidate": false,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
+      "best_internal_rank": 2,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
         "b1.crucible.wr.v1",
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
         "b1.crucible.bg.v1",
-        "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.esper.v1",
-        "b1.crucible.ug.v1",
-        "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -1421,8 +1483,11 @@
         "b1.hall.mana-window.v1",
         "b1.hall.sacrifice.v1"
       ],
-      "unresolved_authority_gaps": [],
-      "blocking_reason": null
+      "unresolved_authority_gaps": [
+        "High confusion or insufficient distinctiveness; preserve close/insufficient until player evidence supports mapping.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
     },
     {
       "identity": "MARDU",
@@ -1482,9 +1547,12 @@
         "MARDU__R"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
       "can_appear_top_2": false,
       "can_appear_top_3": false,
+      "can_appear_internal_top_2": false,
+      "can_appear_internal_top_3": false,
       "best_internal_rank": 7,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -1492,7 +1560,8 @@
       ],
       "routing_questions_encountered": [
         "b1.crucible.glint-dune.v1",
-        "b1.crucible.mono-multi.v1",
+        "b1.crucible.grixis.v1",
+        "b1.crucible.jeskai.v1",
         "b1.crucible.ur.v1",
         "b1.crucible.yore-glint.v1",
         "b1.gate.disruption.v1",
@@ -1580,9 +1649,12 @@
         "NAYA__YORE"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
       "can_appear_top_2": false,
-      "can_appear_top_3": true,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": false,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 3,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -1677,9 +1749,12 @@
         "PRISMARI__WR"
       ],
       "can_enter_candidate_set": true,
-      "can_become_primary": true,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_become_responsible_public_candidate": false,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -1709,8 +1784,11 @@
         "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
-      "unresolved_authority_gaps": [],
-      "blocking_reason": null
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
     },
     {
       "identity": "QUANDRIX",
@@ -1747,8 +1825,8 @@
           "answer_id": "b1.hall.breadth.v1.concept"
         },
         {
-          "question_id": "b1.crucible.ug.v1",
-          "answer_id": "b1.crucible.ug.v1.scale"
+          "question_id": "b1.crucible.esper.v1",
+          "answer_id": "b1.crucible.esper.v1.flexible"
         }
       ],
       "supporting_constructs": [
@@ -1757,9 +1835,9 @@
         "C14"
       ],
       "strongest_competitors": [
-        "ESPER",
         "U",
         "WITCH",
+        "YORE",
         "BG",
         "COLORLESS"
       ],
@@ -1770,22 +1848,22 @@
         "QUANDRIX__WITCH"
       ],
       "can_enter_candidate_set": true,
-      "can_become_primary": true,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
-      "best_internal_rank": 1,
+      "can_become_responsible_public_candidate": false,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
+      "best_internal_rank": 2,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
         "b1.crucible.ug.v1",
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
-        "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.esper.v1",
         "b1.crucible.mono-multi.v1",
-        "b1.crucible.ug.v1",
         "b1.crucible.ur.v1",
-        "b1.crucible.witch-yore.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -1800,8 +1878,11 @@
         "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
-      "unresolved_authority_gaps": [],
-      "blocking_reason": null
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
     },
     {
       "identity": "R",
@@ -1866,9 +1947,12 @@
         "R__YORE"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -1956,9 +2040,12 @@
         "RG__U"
       ],
       "can_enter_candidate_set": false,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
       "can_appear_top_2": false,
       "can_appear_top_3": false,
+      "can_appear_internal_top_2": false,
+      "can_appear_internal_top_3": false,
       "best_internal_rank": 9,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -1966,7 +2053,8 @@
       ],
       "routing_questions_encountered": [
         "b1.crucible.glint-dune.v1",
-        "b1.crucible.mono-multi.v1",
+        "b1.crucible.grixis.v1",
+        "b1.crucible.jeskai.v1",
         "b1.crucible.ur.v1",
         "b1.crucible.yore-glint.v1",
         "b1.gate.disruption.v1",
@@ -2046,9 +2134,12 @@
         "SILVERQUILL__WB"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
       "can_appear_top_2": false,
       "can_appear_top_3": false,
+      "can_appear_internal_top_2": false,
+      "can_appear_internal_top_3": false,
       "best_internal_rank": 5,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -2056,6 +2147,7 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
         "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.dune-ink.v1",
         "b1.crucible.glint-dune.v1",
@@ -2145,9 +2237,12 @@
         "SULTAI__WUBRG"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -2155,13 +2250,12 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
         "b1.crucible.bg.v1",
-        "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.esper.v1",
+        "b1.crucible.grixis.v1",
         "b1.crucible.mono-multi.v1",
-        "b1.crucible.ug.v1",
         "b1.crucible.ur.v1",
-        "b1.crucible.witch-yore.v1",
         "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -2245,9 +2339,12 @@
         "TEMUR__WUBRG"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
       "can_appear_top_2": false,
-      "can_appear_top_3": true,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": false,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 3,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -2255,9 +2352,11 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
         "b1.crucible.bg.v1",
         "b1.crucible.esper.v1",
         "b1.crucible.glint-dune.v1",
+        "b1.crucible.grixis.v1",
         "b1.crucible.mono-multi.v1",
         "b1.crucible.ur.v1",
         "b1.crucible.wr.v1",
@@ -2345,9 +2444,12 @@
         "U__W"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -2438,9 +2540,12 @@
         "UB__YORE"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -2523,9 +2628,12 @@
         "UG__WITCH"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
       "can_appear_top_2": false,
-      "can_appear_top_3": true,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": false,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 3,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -2533,9 +2641,9 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
         "b1.crucible.bg.v1",
         "b1.crucible.dune-ink.v1",
-        "b1.crucible.mono-multi.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -2562,7 +2670,7 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.advance"
+          "answer_id": "b1.gate.initiative.v1.unsure"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -2574,7 +2682,7 @@
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.small"
+          "answer_id": "b1.gate.tempo.v1.burst"
         },
         {
           "question_id": "b1.hall.information-to-plan.v1",
@@ -2586,7 +2694,7 @@
         },
         {
           "question_id": "b1.hall.breadth.v1",
-          "answer_id": "b1.hall.breadth.v1.broad"
+          "answer_id": "b1.hall.breadth.v1.concept"
         },
         {
           "question_id": "b1.crucible.ur.v1",
@@ -2601,9 +2709,9 @@
       "strongest_competitors": [
         "ESPER",
         "U",
-        "COLORLESS",
-        "R",
-        "GRIXIS"
+        "QUANDRIX",
+        "WITCH",
+        "BG"
       ],
       "major_confusion_pairs": [
         "GLINT__UR",
@@ -2612,9 +2720,12 @@
         "UR__YORE"
       ],
       "can_enter_candidate_set": true,
-      "can_become_primary": true,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_become_responsible_public_candidate": false,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -2626,9 +2737,7 @@
         "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.esper.v1",
         "b1.crucible.mono-multi.v1",
-        "b1.crucible.ug.v1",
         "b1.crucible.ur.v1",
-        "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
@@ -2643,8 +2752,11 @@
         "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
-      "unresolved_authority_gaps": [],
-      "blocking_reason": null
+      "unresolved_authority_gaps": [
+        "High confusion or insufficient distinctiveness; preserve close/insufficient until player evidence supports mapping.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
     },
     {
       "identity": "W",
@@ -2681,8 +2793,8 @@
           "answer_id": "b1.hall.commitment.v1.reopen"
         },
         {
-          "question_id": "b1.crucible.mono-multi.v1",
-          "answer_id": "b1.crucible.mono-multi.v1.mono"
+          "question_id": "b1.crucible.bant.v1",
+          "answer_id": "b1.crucible.bant.v1.network"
         }
       ],
       "supporting_constructs": [
@@ -2691,11 +2803,11 @@
         "C07"
       ],
       "strongest_competitors": [
-        "G",
-        "B",
-        "R",
-        "U",
-        "BANT"
+        "ABZAN",
+        "INK",
+        "WG",
+        "COLORLESS",
+        "G"
       ],
       "major_confusion_pairs": [
         "B__W",
@@ -2710,18 +2822,21 @@
         "W__YORE"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
         "b1.crucible.bg.v1",
         "b1.crucible.dune-ink.v1",
-        "b1.crucible.mono-multi.v1",
         "b1.crucible.wb.v1",
         "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
@@ -2803,9 +2918,12 @@
         "WB__WR"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
       "can_appear_top_2": false,
       "can_appear_top_3": false,
+      "can_appear_internal_top_2": false,
+      "can_appear_internal_top_3": false,
       "best_internal_rank": 6,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -2813,9 +2931,11 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
         "b1.crucible.bg.v1",
         "b1.crucible.dune-ink.v1",
         "b1.crucible.glint-dune.v1",
+        "b1.crucible.grixis.v1",
         "b1.crucible.ur.v1",
         "b1.crucible.wr.v1",
         "b1.crucible.yore-glint.v1",
@@ -2857,27 +2977,27 @@
         },
         {
           "question_id": "b1.gate.disruption.v1",
-          "answer_id": "b1.gate.disruption.v1.limit"
+          "answer_id": "b1.gate.disruption.v1.recover"
         },
         {
           "question_id": "b1.gate.tempo.v1",
           "answer_id": "b1.gate.tempo.v1.depends"
         },
         {
-          "question_id": "b1.hall.commander-role.v1",
-          "answer_id": "b1.hall.commander-role.v1.center"
+          "question_id": "b1.hall.breadth.v1",
+          "answer_id": "b1.hall.breadth.v1.broad"
         },
         {
-          "question_id": "b1.hall.breadth.v1",
-          "answer_id": "b1.hall.breadth.v1.narrow"
+          "question_id": "b1.hall.commander-role.v1",
+          "answer_id": "b1.hall.commander-role.v1.center"
         },
         {
           "question_id": "b1.hall.commitment.v1",
           "answer_id": "b1.hall.commitment.v1.reopen"
         },
         {
-          "question_id": "b1.crucible.mono-multi.v1",
-          "answer_id": "b1.crucible.mono-multi.v1.multi"
+          "question_id": "b1.crucible.bant.v1",
+          "answer_id": "b1.crucible.bant.v1.network"
         }
       ],
       "supporting_constructs": [
@@ -2886,11 +3006,11 @@
         "C10"
       ],
       "strongest_competitors": [
-        "BANT",
         "ABZAN",
         "INK",
-        "SILVERQUILL",
-        "BG"
+        "W",
+        "LOREHOLD",
+        "SILVERQUILL"
       ],
       "major_confusion_pairs": [
         "INK__WG",
@@ -2898,18 +3018,21 @@
         "QUANDRIX__WG"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
       "can_appear_top_2": false,
       "can_appear_top_3": false,
-      "best_internal_rank": 4,
+      "can_appear_internal_top_2": false,
+      "can_appear_internal_top_3": true,
+      "best_internal_rank": 3,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
         "b1.crucible.bg.v1",
         "b1.crucible.dune-ink.v1",
-        "b1.crucible.mono-multi.v1",
         "b1.crucible.wb.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -2992,9 +3115,12 @@
         "WITCH__YORE"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
       "can_appear_top_2": false,
       "can_appear_top_3": false,
+      "can_appear_internal_top_2": false,
+      "can_appear_internal_top_3": false,
       "best_internal_rank": 5,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -3003,11 +3129,14 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
         "b1.crucible.bg.v1",
         "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.dune-ink.v1",
         "b1.crucible.esper.v1",
         "b1.crucible.glint-dune.v1",
+        "b1.crucible.grixis.v1",
+        "b1.crucible.jeskai.v1",
         "b1.crucible.mono-multi.v1",
         "b1.crucible.ur.v1",
         "b1.crucible.yore-glint.v1",
@@ -3088,9 +3217,12 @@
         "BG__WITHERBLOOM"
       ],
       "can_enter_candidate_set": true,
-      "can_become_primary": true,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_become_responsible_public_candidate": false,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -3099,8 +3231,8 @@
       ],
       "routing_questions_encountered": [
         "b1.crucible.bg.v1",
-        "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.esper.v1",
+        "b1.crucible.grixis.v1",
         "b1.crucible.mono-multi.v1",
         "b1.crucible.ur.v1",
         "b1.crucible.wr.v1",
@@ -3120,8 +3252,11 @@
         "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
-      "unresolved_authority_gaps": [],
-      "blocking_reason": null
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
     },
     {
       "identity": "WR",
@@ -3182,9 +3317,12 @@
         "WR__YORE"
       ],
       "can_enter_candidate_set": true,
-      "can_become_primary": true,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_become_responsible_public_candidate": false,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -3192,7 +3330,9 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
         "b1.crucible.bg.v1",
+        "b1.crucible.grixis.v1",
         "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
@@ -3207,8 +3347,11 @@
         "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
-      "unresolved_authority_gaps": [],
-      "blocking_reason": null
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
     },
     {
       "identity": "WU",
@@ -3268,9 +3411,12 @@
         "W__WU"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 2,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -3358,9 +3504,12 @@
         "W__WUBRG"
       ],
       "can_enter_candidate_set": true,
-      "can_become_primary": true,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_become_responsible_public_candidate": false,
+      "can_become_primary": false,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -3368,6 +3517,7 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
         "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.dune-ink.v1",
         "b1.crucible.glint-dune.v1",
@@ -3391,8 +3541,11 @@
         "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
-      "unresolved_authority_gaps": [],
-      "blocking_reason": null
+      "unresolved_authority_gaps": [
+        "No empirical confusion, reliability, or false-positive data; broad constructs may not separate nearest competitors.",
+        "The pool contains at least one direct bounded boundary hypothesis; empirical mapping and false-positive evidence remain absent."
+      ],
+      "blocking_reason": "The deterministic route did not reach sufficient independent approved naming evidence."
     },
     {
       "identity": "YORE",
@@ -3459,9 +3612,12 @@
         "WR__YORE"
       ],
       "can_enter_candidate_set": true,
+      "can_become_responsible_public_candidate": false,
       "can_become_primary": false,
-      "can_appear_top_2": true,
-      "can_appear_top_3": true,
+      "can_appear_top_2": false,
+      "can_appear_top_3": false,
+      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
       "minimum_evidence_needed": 8,
       "discriminating_questions": [
@@ -3471,12 +3627,10 @@
       ],
       "routing_questions_encountered": [
         "b1.crucible.bg.v1",
-        "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.esper.v1",
         "b1.crucible.glint-dune.v1",
         "b1.crucible.mono-multi.v1",
         "b1.crucible.ur.v1",
-        "b1.crucible.wr.v1",
         "b1.crucible.yore-glint.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",

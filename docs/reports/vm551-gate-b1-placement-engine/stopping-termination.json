@@ -7,14 +7,16 @@
   "repeated_questions": 0,
   "stale_routes": 0,
   "stop_reasons": {
-    "no_responsible_named_placement": 3389,
-    "clear_separation": 298,
-    "single_named_direction_with_unresolved_alternatives": 1313
+    "no_responsible_named_placement": 4130,
+    "single_named_direction_with_unresolved_alternatives": 233,
+    "clear_separation": 457,
+    "supported_candidate_has_conflicting_dependencies": 180
   },
   "result_states": {
-    "insufficient": 3389,
-    "primary": 298,
-    "close": 1313
+    "insufficient": 4130,
+    "close": 233,
+    "primary": 457,
+    "contradictory": 180
   },
-  "insufficient_cases": 3389
+  "insufficient_cases": 4130
 }

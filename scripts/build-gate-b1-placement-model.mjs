@@ -70,6 +70,9 @@ const identityRows = parseTsv(sourcePaths.identities);
 const pairRows = parseTsv(sourcePaths.confusionPairs);
 const prototype = JSON.parse(readText(PROTOTYPE_PATH));
 const mappingSource = JSON.parse(readText(MAPPING_PATH));
+const baselineMappingRules = mappingSource.mapping_rules.map((rule) => ({ ...rule, authority_layer: "baseline_40" }));
+const remediationMappingRules = (mappingSource.remediation_overlay?.rules || []).map((rule) => ({ ...rule, authority_layer: "remediation_overlay" }));
+const combinedMappingRules = [...baselineMappingRules, ...remediationMappingRules];
 
 assert.equal(constructs.length, 16, "Gate B1 must retain 16 constructs");
 assert.equal(questionRows.length, 35, "Gate B1 must retain 35 behavioral questions");
@@ -81,20 +84,25 @@ assert.equal(mappingSource.mapping_rules.length, 40, "All 40 evidence-required d
 const answerById = new Map(answerRows.map((answer) => [answer.answer_id, answer]));
 const semanticById = new Map(semanticRows.map((row) => [row.answer_id, row]));
 const prototypeQuestionById = new Map(prototype.questions.map((question) => [question.id, question]));
-const mappingByAnswer = new Map(mappingSource.mapping_rules.map((rule) => [rule.answer_id, rule]));
+const mappingByAnswer = new Map(combinedMappingRules.map((rule) => [rule.answer_id, rule]));
 const identityIds = new Set(identityRows.map((identity) => identity.identity_id));
 
 assert.equal(answerById.size, 110, "Answer IDs must be unique");
 assert.equal(prototypeQuestionById.size, 35, "Prototype question IDs must remain unique");
-assert.equal(mappingByAnswer.size, 40, "Directional mapping answer IDs must be unique");
+assert.equal(mappingByAnswer.size, combinedMappingRules.length, "Directional mapping answer IDs must be unique across baseline and overlay");
 
-for (const rule of mappingSource.mapping_rules) {
+for (const rule of combinedMappingRules) {
   assert(answerById.has(rule.answer_id), `Mapping references unknown answer ${rule.answer_id}`);
-  assert.equal(
-    semanticById.get(rule.answer_id)?.review_disposition,
-    "EVIDENCE_REQUIRED",
-    `${rule.answer_id} is not an approved evidence-required directional use`
-  );
+  if (rule.authority_layer === "baseline_40") {
+    assert.equal(
+      semanticById.get(rule.answer_id)?.review_disposition,
+      "EVIDENCE_REQUIRED",
+      `${rule.answer_id} is not an approved evidence-required directional use`
+    );
+  } else {
+    assert(rule.adjudication_id, `${rule.answer_id} remediation mapping lacks adjudication_id`);
+    assert(rule.provenance, `${rule.answer_id} remediation mapping lacks provenance`);
+  }
   for (const identity of [...rule.support, ...rule.contradict]) {
     assert(identityIds.has(identity), `${rule.answer_id} references unknown identity ${identity}`);
   }
@@ -105,7 +113,7 @@ const directionalIds = semanticRows
   .map((row) => row.answer_id)
   .sort();
 assert.deepEqual(
-  [...mappingByAnswer.keys()].sort(),
+  baselineMappingRules.map((rule) => rule.answer_id).sort(),
   directionalIds,
   "Mapping source must cover exactly the evidence-required directional uses"
 );
@@ -188,9 +196,11 @@ const questions = questionRows.map((row) => {
               affected_identities: [...new Set([...mapping.support, ...mapping.contradict])].sort(),
               strength: mapping.strength,
               naming_evidence: mapping.naming_evidence,
+              naming_rule_ids: mapping.naming_evidence ? [`${mapping.authority_layer}:${mapping.answer_id}`] : [],
               role: mapping.mapping_role,
               provenance: mapping.provenance,
-              status: "MAPPING_HYPOTHESIS",
+              status: mapping.authority_layer === "baseline_40" ? "MAPPING_HYPOTHESIS" : "REMEDIATION_MAPPING_HYPOTHESIS",
+              authority_layer: mapping.authority_layer,
             }
           : {
               support: [],
@@ -279,6 +289,8 @@ const model = {
       identities: identities.length,
       confusion_pairs: confusionPairs.length,
       directional_mapping_uses: mappingSource.mapping_rules.length,
+      baseline_directional_mapping_uses: baselineMappingRules.length,
+      remediation_directional_mapping_uses: remediationMappingRules.length,
       lens_questions: lensQuestions.length,
     },
     source_sha256: Object.fromEntries(
@@ -286,6 +298,20 @@ const model = {
     ),
   },
   scoring_rules: mappingSource.scoring_contract,
+  naming_qualification_contract: mappingSource.naming_qualification_contract,
+  naming_rules: combinedMappingRules
+    .filter((rule) => rule.naming_evidence)
+    .flatMap((rule) => rule.support.map((identity) => ({
+      id: `${rule.authority_layer}:${rule.answer_id}`,
+      identity,
+      trigger_answer_id: rule.answer_id,
+      required_positive_dependencies: mappingSource.naming_qualification_contract.minimum_positive_dependencies,
+      required_positive_constructs: mappingSource.naming_qualification_contract.minimum_positive_constructs,
+      contradiction_guard: mappingSource.naming_qualification_contract.contradiction_guard,
+      provenance: rule.provenance,
+      limitation: mappingSource.naming_qualification_contract.limitation,
+      authority_layer: rule.authority_layer,
+    }))),
   stages: {
     gate: { min_questions: 4, max_questions: 4 },
     hall: {
