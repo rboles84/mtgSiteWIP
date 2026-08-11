@@ -45,6 +45,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-551 — Repository Consolidation To One Canonical Branch](in-progress/VM-551-repository-consolidation-one-canonical-branch.md) - preserving the linear VM-551 checkpoint history while consolidating seven clean local branches/worktrees into the existing latest functional branch and one canonical worktree; no product changes authorized.
+
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 
 ## Blocked
