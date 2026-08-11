@@ -45,8 +45,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-551 — Repository Consolidation To One Canonical Branch](in-progress/VM-551-repository-consolidation-one-canonical-branch.md) - preserving the linear VM-551 checkpoint history while consolidating seven clean local branches/worktrees into the existing latest functional branch and one canonical worktree; no product changes authorized.
-
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 
 ## Blocked
@@ -54,6 +52,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-551 — Repository Consolidation To One Canonical Branch](done/VM-551-repository-consolidation-one-canonical-branch.md) - consolidated the linear accepted VM-551 lineage into existing branch `codex/vm551` and worktree `C:\dev\voxmana.io-vm551`, removed six clean obsolete worktrees and ancestral branch names safely, and preserved all checkpoint history with no product change.
 
 - [VM-551 — Gate B1 Qualified Alternatives Result Contract Repair](done/VM-551-gate-b1-qualified-alternatives-result-contract-repair.md) - normalized independently qualified Gate B1 alternatives into complete Gate A match objects, enforced state/cardinality agreement, adapted native B1 observations into existing dossier explanations, and verified 5,000 deterministic journeys plus a calculated close-result runtime smoke without changing placement semantics.
 
