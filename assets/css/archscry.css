@@ -305,7 +305,7 @@ body.vm-archscry-route .question-card {
 }
 
 body.vm-archscry-route .question-title {
-  max-width: 28ch;
+  max-width: min(100%, 68ch);
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 2.4vw, 1.85rem);
   line-height: 1.28;
@@ -313,6 +313,42 @@ body.vm-archscry-route .question-title {
 
 body.vm-archscry-route .answer-grid {
   gap: 14px;
+}
+
+body.vm-archscry-route .answer-grid[data-answer-count="3"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+body.vm-archscry-route .question-help {
+  max-width: 72ch;
+  margin: -0.35rem 0 1.25rem;
+  padding: 0.75rem 0.9rem;
+  border-left: 2px solid rgba(212, 180, 97, 0.46);
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+body.vm-archscry-route .quick-transition-card {
+  display: grid;
+  justify-items: start;
+  gap: 0.9rem;
+  min-height: 16rem;
+  align-content: center;
+}
+
+body.vm-archscry-route .quick-transition-card.hidden {
+  display: none;
+}
+
+body.vm-archscry-route .quick-transition-card .question-title {
+  margin-bottom: 0;
+}
+
+body.vm-archscry-route .quick-transition-copy {
+  max-width: 62ch;
+  color: var(--text-dim);
+  line-height: 1.6;
 }
 
 body.vm-archscry-route .answer-card {
@@ -3354,10 +3390,18 @@ body.vm-archscry-route .saved-deck-link-note{
 
 @media(max-width:900px){
   .landing-wrap{width:100%}
+  body.vm-archscry-route .answer-grid[data-answer-count="3"]{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  body.vm-archscry-route .answer-grid[data-answer-count="3"] .answer-card:last-child{
+    grid-column:1 / -1;
+  }
 }
 @media(max-width:700px){
   #landing,#quick,#interview{padding-top:5rem}
   .answer-grid{grid-template-columns:1fr}
+  body.vm-archscry-route .answer-grid[data-answer-count]{grid-template-columns:1fr}
+  body.vm-archscry-route .answer-grid[data-answer-count="3"] .answer-card:last-child{grid-column:auto}
   .result-context-bar{align-items:flex-start;flex-direction:column}
   .context-actions{justify-content:flex-start}
   .land-wrap{width:105px}

@@ -115,10 +115,10 @@ function assertPublicResultContract(result) {
   });
 
   if (result.result_state === "primary") {
-    assert.equal(top.length, 1);
-    assert.equal(adjacent.length, 0);
-    assert.equal(alternatives.length, 0);
-    assert.equal(result.alternative_state, "none");
+    assert(top.length >= 1 && top.length <= 3);
+    assert.equal(adjacent.length, alternatives.length);
+    assert.equal(top.length, alternatives.length + 1);
+    assert.equal(result.alternative_state, alternatives.length ? "exploration" : "none");
   } else if (result.result_state === "close") {
     assert.equal(top.length, 2);
     assert.equal(adjacent.length, 1);
@@ -145,12 +145,91 @@ function assertPublicResultContract(result) {
     assert.equal(result.alternative_state, "none");
     assert.equal(top.length, 0);
   }
-  if (top.length === 3) assert.equal(result.result_state, "mixed", "Only mixed may expose a tertiary identity");
+  if (top.length === 3) {
+    assert(
+      ["primary", "mixed"].includes(result.result_state),
+      "Only primary exploration or mixed may expose a tertiary identity"
+    );
+  }
 }
 
-const primary = calculatedResult(ROUTES.primary).result;
+function restrictQualifiedIdentities(rawResult, allowedIdentities) {
+  const allowed = new Set(allowedIdentities);
+  const result = structuredClone(rawResult);
+  result.internal_candidate_order = result.internal_candidate_order.map((candidate) => allowed.has(candidate.identity)
+    ? candidate
+    : {
+        ...candidate,
+        naming_qualification: {
+          ...(candidate.naming_qualification || {}),
+          qualified: false,
+        },
+      });
+  result.alternatives = (result.alternatives || []).filter((alternative) =>
+    allowed.has(alternative.identity || alternative.faction)
+  );
+  return result;
+}
+
+const primarySource = calculatedResult(ROUTES.primary).raw;
+const primary = withGateAPublicState({
+  result: restrictQualifiedIdentities(primarySource, [primarySource.faction]),
+  placementModel: MODEL,
+  factions: FACTIONS,
+});
 assert.equal(primary.result_state, "primary");
+assert.equal(primary.top_matches.length, 1);
 assertPublicResultContract(primary);
+
+const primaryAlternativeSource = calculatedResult(ROUTES.closeWithTwoAlternatives).raw;
+assert.equal(primaryAlternativeSource.alternatives.length, 2);
+const oneAlternativeIdentity = primaryAlternativeSource.alternatives[0].identity;
+const primaryWithOneAlternative = withGateAPublicState({
+  result: {
+    ...restrictQualifiedIdentities(primaryAlternativeSource, [primaryAlternativeSource.faction, oneAlternativeIdentity]),
+    engine_result_state: "primary",
+    result_state: "primary",
+    alternatives: primaryAlternativeSource.alternatives.slice(0, 1),
+  },
+  placementModel: MODEL,
+  factions: FACTIONS,
+});
+assert.equal(primaryWithOneAlternative.result_state, "primary");
+assert.equal(primaryWithOneAlternative.top_matches.length, 2);
+assert.equal(primaryWithOneAlternative.alternative_state, "exploration");
+assertPublicResultContract(primaryWithOneAlternative);
+
+const primaryWithTwoAlternatives = withGateAPublicState({
+  result: {
+    ...structuredClone(primaryAlternativeSource),
+    engine_result_state: "primary",
+    result_state: "primary",
+  },
+  placementModel: MODEL,
+  factions: FACTIONS,
+});
+assert.equal(primaryWithTwoAlternatives.result_state, "primary");
+assert.equal(primaryWithTwoAlternatives.top_matches.length, 3);
+assert.equal(primaryWithTwoAlternatives.alternatives.length, 2);
+assert.equal(primaryWithTwoAlternatives.alternative_state, "exploration");
+assertPublicResultContract(primaryWithTwoAlternatives);
+const explorationDossier = buildCommanderDossier({
+  factions: FACTIONS,
+  placementModel: MODEL,
+  placementResult: primaryWithTwoAlternatives,
+  targetFactionKey: primaryWithTwoAlternatives.faction,
+});
+assert.equal(explorationDossier.mode, "primary");
+assert.equal(explorationDossier.adjacentFits.length, 2);
+assert(explorationDossier.adjacentFits.every((fit) => !fit.reason.includes("no direct positive answer signal")));
+const explorationComparison = buildCommanderDossier({
+  factions: FACTIONS,
+  placementModel: MODEL,
+  placementResult: primaryWithTwoAlternatives,
+  targetFactionKey: primaryWithTwoAlternatives.alternatives[0].faction,
+});
+assert.equal(explorationComparison.mode, "adjacent");
+assert(explorationComparison.adjacentLabel.startsWith("Supported comparison:"));
 
 const orphanClose = calculatedResult(ROUTES.closeWithoutSecondary);
 assert.equal(orphanClose.raw.result_state, "close");
@@ -199,8 +278,22 @@ injectedUnqualified.top_matches.push({
 });
 injectedUnqualified.adjacent_matches = injectedUnqualified.top_matches.slice(1);
 const guardedPrimary = withGateAPublicState({ result: injectedUnqualified, placementModel: MODEL, factions: FACTIONS });
-assert.deepEqual(guardedPrimary.top_matches.map((match) => match.faction), [primary.faction]);
+assert(!guardedPrimary.top_matches.some((match) => match.faction === internalRunner.identity));
 assertPublicResultContract(guardedPrimary);
+
+for (const boundedState of ["contradictory", "insufficient", "unknown", "invalid", "incomplete"]) {
+  const guardedBounded = withGateAPublicState({
+    result: {
+      ...structuredClone(primaryAlternativeSource),
+      engine_result_state: boundedState,
+      result_state: boundedState,
+    },
+    placementModel: MODEL,
+    factions: FACTIONS,
+  });
+  assert.equal(guardedBounded.result_state, boundedState);
+  assertPublicResultContract(guardedBounded);
+}
 
 const primarySignalCopy = buildReadingSignalCopy({
   dossier: { targetFactionKey: primary.faction },
@@ -221,6 +314,7 @@ function makeRng(seed) {
 
 const random = makeRng(0x551b1);
 const stateCounts = {};
+const primaryAlternativeCounts = {};
 for (let run = 0; run < RANDOM_JOURNEYS; run += 1) {
   let state = createInitialState(MODEL);
   for (let step = 0; step < 8; step += 1) {
@@ -239,13 +333,19 @@ for (let run = 0; run < RANDOM_JOURNEYS; run += 1) {
   const result = withGateAPublicState({ result: raw, placementModel: MODEL, factions: FACTIONS });
   assertPublicResultContract(result);
   stateCounts[result.result_state] = (stateCounts[result.result_state] || 0) + 1;
+  if (result.result_state === "primary") {
+    const alternativeCount = result.alternatives.length;
+    primaryAlternativeCounts[alternativeCount] = (primaryAlternativeCounts[alternativeCount] || 0) + 1;
+  }
 }
 
 assert(stateCounts.primary > 0);
 assert(stateCounts.close > 0);
 assert(stateCounts.mixed > 0);
 assert(stateCounts.insufficient > 0);
+assert(primaryAlternativeCounts[0] > 0, "Generated primary readings must still permit a singular result");
+assert(primaryAlternativeCounts[1] > 0, "Generated primary readings must expose a qualified comparison when available");
 
 console.log(
-  `PASS Gate B1 qualified-alternatives contract: focused primary/close/tied/mixed/evidence cases and ${RANDOM_JOURNEYS} deterministic valid journeys; states ${JSON.stringify(stateCounts)}.`
+  `PASS Gate B1 qualified-alternatives contract: focused primary 0/1/2 exploration, close/tied/mixed/evidence cases and ${RANDOM_JOURNEYS} deterministic valid journeys; states ${JSON.stringify(stateCounts)}; primary alternatives ${JSON.stringify(primaryAlternativeCounts)}.`
 );

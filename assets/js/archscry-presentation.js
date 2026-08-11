@@ -762,9 +762,30 @@ function gateB1PrimaryQualification(result, identity) {
     .find((candidate) => candidate.identity === identity)?.naming_qualification || null;
 }
 
-function gateB1QualifiedAlternatives(result, factions, evidenceTrail) {
+function gateB1QualifiedAlternatives(result, factions, evidenceTrail, { includeQualifiedInternal = false } = {}) {
   const evidenceResult = { ...result, evidence_trail: evidenceTrail };
-  return (result?.alternatives || [])
+  const sourceAlternatives = [...(result?.alternatives || [])];
+  if (includeQualifiedInternal) {
+    const existingIds = new Set(sourceAlternatives.map((alternative) => alternative.faction || alternative.identity));
+    const primaryIdentity = result.faction || matchIdentity(result.top_matches?.[0]);
+    (result?.internal_candidate_order || []).forEach((candidate) => {
+      if (
+        candidate.identity === primaryIdentity ||
+        existingIds.has(candidate.identity) ||
+        candidate.naming_qualification?.qualified !== true
+      ) {
+        return;
+      }
+      sourceAlternatives.push({
+        identity: candidate.identity,
+        identity_name: candidate.identity_name,
+        meaningful_support: true,
+        naming_qualification: candidate.naming_qualification,
+      });
+      existingIds.add(candidate.identity);
+    });
+  }
+  return sourceAlternatives
     .filter((alternative) =>
       alternative?.meaningful_support === true &&
       alternative?.naming_qualification?.qualified === true
@@ -803,12 +824,18 @@ export function normalizeGateB1PublicResult({ result, placementModel = null, fac
   const primaryMatch = canonicalGateB1Match(result, primaryIdentity, factions);
   const primaryQualified = gateB1PrimaryQualification(result, primaryIdentity)?.qualified === true;
   const evidenceTrail = adaptGateB1EvidenceTrail(result.evidence_trail || result.evidence_ledger || [], placementModel);
-  const qualifiedAlternatives = gateB1QualifiedAlternatives(result, factions, evidenceTrail);
+  const qualifiedAlternatives = gateB1QualifiedAlternatives(result, factions, evidenceTrail, {
+    includeQualifiedInternal: engineState === "primary",
+  });
   let resultState = engineState;
   let publicAlternatives = [];
 
   if (resultState === "primary") {
-    if (!primaryQualified || !primaryMatch) resultState = "insufficient";
+    if (!primaryQualified || !primaryMatch) {
+      resultState = "insufficient";
+    } else {
+      publicAlternatives = qualifiedAlternatives.slice(0, 2);
+    }
   } else if (resultState === "close") {
     publicAlternatives = qualifiedAlternatives.slice(0, 1);
     if (!primaryQualified || !primaryMatch) {
@@ -860,6 +887,8 @@ export function normalizeGateB1PublicResult({ result, placementModel = null, fac
         ? "close"
         : resultState === "mixed" && alternatives.length
           ? "mixed"
+          : resultState === "primary" && alternatives.length
+            ? "exploration"
           : "none",
   };
 }
@@ -1013,6 +1042,8 @@ export function adjacentMatchForSummary(result, activeKey) {
     ? (result?.top_matches || []).slice(1, 2)
     : result?.alternative_state === "close"
       ? (result?.adjacent_matches || []).slice(0, 1)
+      : result?.alternative_state === "exploration"
+        ? (result?.adjacent_matches || []).slice(0, 2)
       : [];
   if (activeKey && activeKey !== result?.faction) {
     return primaryMatch(result);
@@ -1087,7 +1118,9 @@ export function buildHeroNarrative({ dossier, faction, result, factions = {} }) 
   }
 
   const closeCopy = adjacentFaction
-    ? ` ${adjacentFaction.name} also received direct support and met the reading's bounded close rule; that is a comparison path, not a second diagnosis or semantic-adjacency claim.`
+    ? result?.alternative_state === "exploration"
+      ? ` ${adjacentFaction.name} also received independent support and is available as a comparison direction without changing this clear primary reading.`
+      : ` ${adjacentFaction.name} also received direct support and met the reading's bounded close rule; that is a comparison path, not a second diagnosis or semantic-adjacency claim.`
     : "";
   return `${presentation.thesis}${closeCopy}`;
 }

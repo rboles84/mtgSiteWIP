@@ -2450,6 +2450,8 @@ function adjacentFitsForResult({ result, factions, activeKey, isPrimary }) {
     ? (result?.top_matches || []).slice(1, 2)
     : result?.alternative_state === "close"
       ? (result?.adjacent_matches || []).slice(0, 1)
+      : result?.alternative_state === "exploration"
+        ? (result?.adjacent_matches || []).slice(0, 2)
       : [];
   return publicMatches
     .filter((match) => isPrimary || match.faction !== activeKey)
@@ -2469,7 +2471,9 @@ function adjacentFitsForResult({ result, factions, activeKey, isPrimary }) {
         world: matchFaction.world,
         reason: result?.alternative_state === "co-leader"
           ? "Your answers supported both readings without clearly separating them. This is a co-leader, not a close alternative."
-          : `You selected “${directEvidence?.answer_title || "a recorded answer"}.” That answer added ${directEvidence?.signal || "a supporting signal"} to the ${matchFaction.name} reading. This close result is a bounded comparison, not proof of a fixed relationship between the identities.`,
+          : result?.alternative_state === "exploration"
+            ? `You selected “${directEvidence?.answer_title || "a recorded answer"}.” That answer added ${directEvidence?.signal || "a supporting signal"} to the ${matchFaction.name} reading. It remains a comparison direction; the primary reading is unchanged.`
+            : `You selected “${directEvidence?.answer_title || "a recorded answer"}.” That answer added ${directEvidence?.signal || "a supporting signal"} to the ${matchFaction.name} reading. This close result is a bounded comparison, not proof of a fixed relationship between the identities.`,
       };
     })
     .filter(Boolean);
@@ -2767,6 +2771,8 @@ export function resolveSummaryAdjacentFit({
     ? (placementResult?.top_matches || []).slice(1, 2)
     : placementResult?.alternative_state === "close"
       ? (placementResult?.adjacent_matches || []).slice(0, 1)
+      : placementResult?.alternative_state === "exploration"
+        ? (placementResult?.adjacent_matches || []).slice(0, 2)
       : [];
 
   if (!adjacentMatches.length && isPrimary) {
@@ -2794,15 +2800,27 @@ export function resolveSummaryAdjacentFit({
   const relationshipCopy = placementResult?.alternative_state === "co-leader"
     ? "Your answers supported both readings without clearly separating them."
     : isPrimary
-      ? `You selected “${directEvidence?.answer_title || "a recorded answer"}.” That answer added ${directEvidence?.signal || "a supporting signal"} to the ${targetName} reading. This close result does not prove a fixed relationship between the identities.`
+      ? placementResult?.alternative_state === "exploration"
+        ? `You selected “${directEvidence?.answer_title || "a recorded answer"}.” That answer added ${directEvidence?.signal || "a supporting signal"} to the ${targetName} reading. This supported comparison does not change the primary result.`
+        : `You selected “${directEvidence?.answer_title || "a recorded answer"}.” That answer added ${directEvidence?.signal || "a supporting signal"} to the ${targetName} reading. This close result does not prove a fixed relationship between the identities.`
       : reasonItStayedClose;
 
   return {
-    label: placementResult?.alternative_state === "co-leader" ? "Co-leader" : "Close alternative",
+    label: placementResult?.alternative_state === "co-leader"
+      ? "Co-leader"
+      : placementResult?.alternative_state === "exploration"
+        ? "Also plausible"
+        : "Close alternative",
     heading: targetName,
-    signalBand: placementResult?.alternative_state === "co-leader" ? "tied" : "close",
+    signalBand: placementResult?.alternative_state === "co-leader"
+      ? "tied"
+      : placementResult?.alternative_state === "exploration"
+        ? "supported"
+        : "close",
     signalLabel: placementResult?.alternative_state === "co-leader"
       ? "Both readings received support from your answers."
+      : placementResult?.alternative_state === "exploration"
+        ? "This direction independently qualified for comparison; the primary remains clear."
       : "Close is relative within this reading; it is not a certainty claim.",
     relationshipCopy,
     targetKey: targetKey || "RELATED",
@@ -3006,7 +3024,9 @@ export function buildCommanderDossier({
         : "Current best fit in this reading."
       : placementResult?.alternative_state === "co-leader"
         ? "Comparing the other co-leader with the same recorded answers."
-        : "Comparing a close alternative with the original reading and the same recorded answers.";
+        : placementResult?.alternative_state === "exploration"
+          ? "Comparing another independently supported direction with the original reading and the same recorded answers."
+          : "Comparing a close alternative with the original reading and the same recorded answers.";
   const reasonItStayedClose = isPrimary
     ? ""
     : buildAdjacentReason({
@@ -3042,7 +3062,9 @@ export function buildCommanderDossier({
       ? ""
       : placementResult?.alternative_state === "co-leader"
         ? `Co-leader: ${getExpressionKindLabel(faction)}`
-        : `Close alternative: ${getExpressionKindLabel(faction)}`,
+        : placementResult?.alternative_state === "exploration"
+          ? `Supported comparison: ${getExpressionKindLabel(faction)}`
+          : `Close alternative: ${getExpressionKindLabel(faction)}`,
     faction: {
       key: activeKey,
       name: faction.name,

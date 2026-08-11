@@ -189,6 +189,8 @@ const questions = questionRows.map((row) => {
     dependency_group: row.dependency_group,
     ask_when: row.adaptive_ask_when,
     do_not_ask_when: row.do_not_ask_when,
+    jargon_term_ids: splitList(row.jargon_term_ids),
+    jargon_help: row.jargon_help || "",
     evidence_provenance: row.evidence_provenance,
     scoring_status: row.scoring_status,
     pair_coverage: (pairCoverageByQuestion.get(row.question_id) || []).sort(),

@@ -24,8 +24,8 @@
       "semantic": "19ce0741163ad0f46ef649d2f13358061a3fcbca90fb39ac3fff1db5660cd2e0",
       "identities": "5f4f64ae910f1c228c7126d5a3dea8ca24bd106355d46b45fa9cbbcd6741a6ec",
       "confusionPairs": "59b75a95f1647f987b8fa60fb24e67fcfc3c5abd41b27efc70ac0dd35640e7fc",
-      "resultContent": "7b9e250dc09325b837b747da27a8b8c41bce4c607832aa326941f84dcf2b5b7f",
-      "prototype": "09b1ac673a564fdfd71a9b9d7bd4309fe0c18a767b1442a6dbdf0f370f375f1e",
+      "resultContent": "cc7adeee2d947215cafae5330598dedac41af4fc016787a69d7a80b6ecb18873",
+      "prototype": "28d2e63d448691c9e932c082c7465a4c4f55f514ee89b204239c87eb4b9632ef",
       "mapping": "84a82c1fb4ed6b47412096f383b32ca2488268830efe6234c8a229f28a54c07d"
     }
   },
@@ -2538,6 +2538,10 @@
         "dependency_group": "DG_C01",
         "ask_when": "Always; Gate 1.",
         "do_not_ask_when": "Never use alone for identity support.",
+        "jargon_term_ids": [
+          "JRG_THREAT"
+        ],
+        "jargon_help": "Players use threat for a card, battlefield, or plan they believe they need to answer.",
         "evidence_provenance": "E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -2749,6 +2753,11 @@
         "dependency_group": "DG_C02",
         "ask_when": "Always; Gate 2.",
         "do_not_ask_when": "Do not infer actual threat level.",
+        "jargon_term_ids": [
+          "JRG_BOARD",
+          "JRG_PERMANENT"
+        ],
+        "jargon_help": "Board means the cards and tokens on the battlefield. Permanent means a card or token on the battlefield.",
         "evidence_provenance": "E-PLAYER-THREAT;E-PLAYER-PACE;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -2899,6 +2908,12 @@
         "dependency_group": "DG_C03",
         "ask_when": "Always; Gate 3.",
         "do_not_ask_when": "Do not treat the answer as proof the deck is resilient.",
+        "jargon_term_ids": [
+          "JRG_BOARD_WIPE",
+          "JRG_BOARD",
+          "JRG_GRAVEYARD"
+        ],
+        "jargon_help": "A graveyard is a player's discard pile.",
         "evidence_provenance": "E-PLAYER-PACE;E-PLAYER-COMMANDER;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -3093,6 +3108,8 @@
         "dependency_group": "DG_C04",
         "ask_when": "Always; Gate 4.",
         "do_not_ask_when": "Do not infer game length or ending mode.",
+        "jargon_term_ids": [],
+        "jargon_help": "",
         "evidence_provenance": "E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -3245,6 +3262,8 @@
         "dependency_group": "DG_C05",
         "ask_when": "Ask when commander reliance could separate remaining candidates.",
         "do_not_ask_when": "Do not test commander affection or deck quality.",
+        "jargon_term_ids": [],
+        "jargon_help": "",
         "evidence_provenance": "E-PLAYER-COMMANDER;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -3360,6 +3379,10 @@
         "dependency_group": "DG_C06",
         "ask_when": "Ask when engine structure remains a live separator and DG_C06 has not been observed.",
         "do_not_ask_when": "Do not ask after another C06 observation; artifacts, machinery, redundancy, or toolbox play cannot establish Colorless or Yore.",
+        "jargon_term_ids": [
+          "JRG_ENGINE"
+        ],
+        "jargon_help": "An engine is a repeatable set of cards whose pieces create more value together than they do alone.",
         "evidence_provenance": "E-VM555;E-CERTIFIED;E-CECOS;E-PLAYER-LANGUAGE",
         "scoring_status": "ENGINE-MAPPING-HYPOTHESIS",
         "pair_coverage": [
@@ -3612,6 +3635,8 @@
         "dependency_group": "DG_C07",
         "ask_when": "Ask when live candidates agree on proactive play but differ in coordinated, embodied, abundant, burst, restrictive, or engine pressure.",
         "do_not_ask_when": "Do not ask after DG_C07 is observed; combat, a large turn, or a noncombat engine never establishes identity by itself.",
+        "jargon_term_ids": [],
+        "jargon_help": "",
         "evidence_provenance": "E-VM555;E-CERTIFIED;E-CECOS;E-PLAYER-LANGUAGE",
         "scoring_status": "ENGINE-MAPPING-HYPOTHESIS",
         "pair_coverage": [
@@ -3959,6 +3984,8 @@
         "dependency_group": "DG_C08",
         "ask_when": "Ask when Gate initiative leaves families close.",
         "do_not_ask_when": "Do not count independently from C01 when both describe one cadence.",
+        "jargon_term_ids": [],
+        "jargon_help": "",
         "evidence_provenance": "E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [],
@@ -4067,6 +4094,8 @@
         "dependency_group": "DG_C09",
         "ask_when": "Ask when candidates differ in repeatability.",
         "do_not_ask_when": "Do not reduce the answer to tutor count.",
+        "jargon_term_ids": [],
+        "jargon_help": "",
         "evidence_provenance": "E-PLAYER-VARIANCE;E-PLAYER-PACE;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -4200,6 +4229,10 @@
         "dependency_group": "DG_C10",
         "ask_when": "Ask when attachment may explain contradictory behavior answers.",
         "do_not_ask_when": "Do not use alone for identity support.",
+        "jargon_term_ids": [
+          "JRG_THEME"
+        ],
+        "jargon_help": "Here, theme means a chosen story, visual idea, creature type, or self-imposed concept.",
         "evidence_provenance": "E-PLAYER-THEME;E-PLAYER-COMMANDER;E-PLAYER-PACE;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -4312,6 +4345,11 @@
         "dependency_group": "DG_C11",
         "ask_when": "Ask when visibility separates candidates.",
         "do_not_ask_when": "Do not infer actual power or social conduct.",
+        "jargon_term_ids": [
+          "JRG_THREAT",
+          "JRG_BOARD"
+        ],
+        "jargon_help": "Players use threat for a card, battlefield, or plan they believe they need to answer. Board means the cards and tokens on the battlefield.",
         "evidence_provenance": "E-PLAYER-THREAT;E-PLAYER-COMMANDER;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -4459,6 +4497,11 @@
         "dependency_group": "DG_C12",
         "ask_when": "Ask when candidates differ in voluntary conversion.",
         "do_not_ask_when": "Do not equate sacrifice with graveyard or Black identity.",
+        "jargon_term_ids": [
+          "JRG_PERMANENT",
+          "JRG_BOARD"
+        ],
+        "jargon_help": "Permanent means a card or token on the battlefield. Board means the cards and tokens on the battlefield.",
         "evidence_provenance": "E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -4608,6 +4651,10 @@
         "dependency_group": "DG_C13",
         "ask_when": "Ask when public procedure, shared access, durable obligation, bounded coordination, or revisable influence separates the live frontier.",
         "do_not_ask_when": "Do not ask when the player lacks a recognizable table-agreement context or DG_C13 is already observed; a deal preference cannot name an identity alone.",
+        "jargon_term_ids": [
+          "JRG_REPEATABLE"
+        ],
+        "jargon_help": "Repeatable means a card or engine that can create the same threat again if the table leaves it in place.",
         "evidence_provenance": "E-VM555;E-CERTIFIED;E-CECOS;E-PLAYER-LANGUAGE",
         "scoring_status": "ENGINE-MAPPING-HYPOTHESIS",
         "pair_coverage": [
@@ -4904,6 +4951,10 @@
         "dependency_group": "DG_C14",
         "ask_when": "Ask when development horizon separates the live frontier and DG_C14 has not been observed.",
         "do_not_ask_when": "Do not ask after another C14 observation; long setup, early help, or incremental value cannot establish an identity alone.",
+        "jargon_term_ids": [
+          "JRG_SETUP"
+        ],
+        "jargon_help": "Setup means the turns and cards a plan needs before it can produce its main payoff.",
         "evidence_provenance": "E-VM555;E-CERTIFIED;E-CECOS;E-PLAYER-LANGUAGE",
         "scoring_status": "ENGINE-MAPPING-HYPOTHESIS",
         "pair_coverage": [
@@ -5155,6 +5206,8 @@
         "dependency_group": "DG_C15",
         "ask_when": "Ask when color-count families remain plausible after behavior evidence.",
         "do_not_ask_when": "Never assign a color-count identity from this answer.",
+        "jargon_term_ids": [],
+        "jargon_help": "",
         "evidence_provenance": "E-PLAYER-COMMANDER;E-PLAYER-PACE;E-CERTIFIED;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -5271,6 +5324,8 @@
         "dependency_group": "DG_C08",
         "ask_when": "Ask when information use and interaction timing separate the live frontier and DG_C08 has not been observed.",
         "do_not_ask_when": "Do not ask after another C08 observation; waiting, prevention, or split mana alone cannot establish a color or faction.",
+        "jargon_term_ids": [],
+        "jargon_help": "",
         "evidence_provenance": "E-VM555;E-CERTIFIED;E-CECOS;E-PLAYER-LANGUAGE",
         "scoring_status": "ENGINE-MAPPING-HYPOTHESIS",
         "pair_coverage": [
@@ -5512,6 +5567,8 @@
         "dependency_group": "DG_C16",
         "ask_when": "Ask adaptively when remaining candidates differ in how new information becomes route commitment and at least two independent behavioral observations already exist.",
         "do_not_ask_when": "Do not ask when no real choice among routes exists, when the result is already stable, or as proof of skill, archetype, or identity.",
+        "jargon_term_ids": [],
+        "jargon_help": "",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-PACE;E-PLAYER-THREAT;E-PLAYER-VARIANCE;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -5739,6 +5796,11 @@
         "dependency_group": "DG_C04",
         "ask_when": "Ask only when UR/PRISMARI remain close after two independent observations.",
         "do_not_ask_when": "Do not ask if spell-heavy behavior was never observed.",
+        "jargon_term_ids": [
+          "JRG_SPELL_HEAVY",
+          "JRG_ENGINE"
+        ],
+        "jargon_help": "Spell-heavy means instants or sorceries are central to the deck. An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-THEME;E-PLAYER-PACE;E-AUDIT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -5891,6 +5953,10 @@
         "dependency_group": "DG_C12",
         "ask_when": "Ask only when BG/WITHERBLOOM remain close.",
         "do_not_ask_when": "Do not ask if graveyard use was never observed.",
+        "jargon_term_ids": [
+          "JRG_GRAVEYARD"
+        ],
+        "jargon_help": "A graveyard is a player's discard pile.",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-PACE;E-AUDIT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -6035,6 +6101,8 @@
         "dependency_group": "DG_C03",
         "ask_when": "Ask only when disruption response is the highest-value unresolved boundary and DG_C03 detail can change the responsible result.",
         "do_not_ask_when": "Do not count independently from Gate C03; do not ask merely to add evidence or when another eligible question separates the frontier better.",
+        "jargon_term_ids": [],
+        "jargon_help": "",
         "evidence_provenance": "E-VM555;E-CERTIFIED;E-CECOS;E-PLAYER-LANGUAGE",
         "scoring_status": "ENGINE-MAPPING-HYPOTHESIS",
         "pair_coverage": [
@@ -6356,6 +6424,10 @@
         "dependency_group": "DG_C03",
         "ask_when": "Ask only when WR/LOREHOLD remain close.",
         "do_not_ask_when": "Do not ask from one Gate answer alone.",
+        "jargon_term_ids": [
+          "JRG_PERMANENT"
+        ],
+        "jargon_help": "Permanent means a card or token on the battlefield.",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -6506,6 +6578,10 @@
         "dependency_group": "DG_C06",
         "ask_when": "Ask only when UG/QUANDRIX remain close.",
         "do_not_ask_when": "Do not ask without the engine definition.",
+        "jargon_term_ids": [
+          "JRG_ENGINE"
+        ],
+        "jargon_help": "An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -6653,6 +6729,10 @@
         "dependency_group": "DG_C13",
         "ask_when": "Ask only when WB/SILVERQUILL remain close.",
         "do_not_ask_when": "Record unknown without relevant deal experience.",
+        "jargon_term_ids": [
+          "JRG_TABLE_DEAL"
+        ],
+        "jargon_help": "Table deal means a spoken agreement between players.",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-PACE;E-AUDIT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -6801,6 +6881,8 @@
         "dependency_group": "DG_C05",
         "ask_when": "Ask only when BANT and a listed competitor remain close.",
         "do_not_ask_when": "One commander-reliance observation cannot prove Bant.",
+        "jargon_term_ids": [],
+        "jargon_help": "",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -6934,6 +7016,10 @@
         "dependency_group": "DG_C01",
         "ask_when": "Ask only when Grixis and a listed competitor remain close.",
         "do_not_ask_when": "Do not infer survival motive.",
+        "jargon_term_ids": [
+          "JRG_INTERACTION"
+        ],
+        "jargon_help": "Interaction means an answer to another player's spell, ability, attack, or permanent.",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-PACE;E-AUDIT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -7070,6 +7156,10 @@
         "dependency_group": "DG_C12",
         "ask_when": "Ask only when Sultai and a listed competitor remain close.",
         "do_not_ask_when": "Do not test ruthlessness or values.",
+        "jargon_term_ids": [
+          "JRG_BOARD"
+        ],
+        "jargon_help": "Board means the cards and tokens on the battlefield.",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-PACE;E-AUDIT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -7206,6 +7296,11 @@
         "dependency_group": "DG_C01",
         "ask_when": "Ask only when Temur and a listed competitor remain close.",
         "do_not_ask_when": "Do not equate improvisation with personality.",
+        "jargon_term_ids": [
+          "JRG_BOARD",
+          "JRG_ENGINE"
+        ],
+        "jargon_help": "Board means the cards and tokens on the battlefield. An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-PACE;E-AUDIT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -7340,6 +7435,12 @@
         "dependency_group": "DG_C06",
         "ask_when": "Ask only when Esper and a listed competitor remain close after independent observations.",
         "do_not_ask_when": "Do not treat control, artifacts, or one answer as Esper proof.",
+        "jargon_term_ids": [
+          "JRG_ENGINE",
+          "JRG_PERMANENT",
+          "JRG_THREAT"
+        ],
+        "jargon_help": "An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters. Permanent means a card or token on the battlefield. Players use threat for a card, battlefield, or plan they believe they need to answer.",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-COMMANDER;E-PLAYER-THREAT;E-AUDIT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -7476,6 +7577,10 @@
         "dependency_group": "DG_C08",
         "ask_when": "Ask only when Jeskai and a listed competitor remain close after independent observations.",
         "do_not_ask_when": "Do not treat combat, open mana, or one answer as Jeskai proof.",
+        "jargon_term_ids": [
+          "JRG_INTERACTION"
+        ],
+        "jargon_help": "Interaction means an answer to another player's spell, ability, attack, or permanent.",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-PACE;E-PLAYER-THREAT;E-AUDIT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -7622,6 +7727,10 @@
         "dependency_group": "DG_C09",
         "ask_when": "Ask only when Yore/Glint remain close.",
         "do_not_ask_when": "Do not infer missing-color philosophy.",
+        "jargon_term_ids": [
+          "JRG_ENGINE"
+        ],
+        "jargon_help": "An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-VARIANCE;E-AUDIT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -7782,6 +7891,11 @@
         "dependency_group": "DG_C11",
         "ask_when": "Ask only when Glint/Dune remain close.",
         "do_not_ask_when": "Do not infer aggression or color absence.",
+        "jargon_term_ids": [
+          "JRG_THREAT",
+          "JRG_BOARD"
+        ],
+        "jargon_help": "Players use threat for a card, battlefield, or plan they believe they need to answer. Board means the cards and tokens on the battlefield.",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-THREAT;E-AUDIT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -7943,6 +8057,11 @@
         "dependency_group": "DG_C13",
         "ask_when": "Ask only when Dune/Ink remain close.",
         "do_not_ask_when": "Do not infer altruism, force, or morality.",
+        "jargon_term_ids": [
+          "JRG_PUBLIC_COMMITMENT",
+          "JRG_BOARD"
+        ],
+        "jargon_help": "Here, public commitment means an agreement stated so the table can hear it. Board means the cards and tokens on the battlefield.",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-PACE;E-AUDIT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -8095,6 +8214,8 @@
         "dependency_group": "DG_C14",
         "ask_when": "Ask only when Ink/Witch remain close.",
         "do_not_ask_when": "Do not infer generosity or selfishness.",
+        "jargon_term_ids": [],
+        "jargon_help": "",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-PACE;E-AUDIT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -8249,6 +8370,10 @@
         "dependency_group": "DG_C06",
         "ask_when": "Ask only when Witch/Yore remain close.",
         "do_not_ask_when": "Do not infer nature versus artifice.",
+        "jargon_term_ids": [
+          "JRG_ENGINE"
+        ],
+        "jargon_help": "An engine is a card or group of cards that repeatedly helps your deck—for example by drawing cards, making mana or tokens, or building counters.",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -8402,6 +8527,10 @@
         "dependency_group": "DG_C15",
         "ask_when": "Ask only after prior independent behavioral evidence when both edge identities remain close.",
         "do_not_ask_when": "Neither answer is sufficient for an edge identity.",
+        "jargon_term_ids": [
+          "JRG_THEME"
+        ],
+        "jargon_help": "Here, theme means a chosen story, visual idea, creature type, or self-imposed concept.",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [
@@ -8551,6 +8680,11 @@
         "dependency_group": "DG_C15",
         "ask_when": "Ask only when mono/multicolor candidates remain close after behavior evidence.",
         "do_not_ask_when": "Never permit a one-answer color-count flip.",
+        "jargon_term_ids": [
+          "JRG_COLOR_COUNT",
+          "JRG_COLOR_ROLES"
+        ],
+        "jargon_help": "Here, color count means the number of colors in the commander's color identity. Here, color roles are broad tool families associated with colors; no color-pie knowledge is required.",
         "evidence_provenance": "E-CERTIFIED;E-PLAYER-COMMANDER;E-PLAYER-PACE;E-AUDIT;E-CECOS;E-VOICE",
         "scoring_status": "DESIGN-ONLY-NONSCORING",
         "pair_coverage": [

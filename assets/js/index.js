@@ -12,6 +12,10 @@
 } from "./gate-b1-placement-engine.js";
 import { validateGateB1RuntimeModel } from "./gate-b1-runtime-contract.js";
 import {
+  buildAdaptiveProgress,
+  helperTextForQuestion,
+} from "./archscry-question-presentation.js";
+import {
   buildCommanderDossier,
   buildCommanderDeckStartFallbackCandidates,
   buildPreconRecommendations,
@@ -95,6 +99,7 @@ const APP_STATE = {
   quickSelections: [],
   adaptiveState: null,
   currentQuickQuestion: null,
+  quickTransition: null,
   activeResult: null,
   activeViewKey: null,
   resultSource: "quick",
@@ -807,6 +812,7 @@ function resetLocalFlow() {
     ? createInitialAdaptiveState(APP_STATE.placementModel)
     : null;
   APP_STATE.currentQuickQuestion = null;
+  APP_STATE.quickTransition = null;
   APP_STATE.activeResult = null;
   APP_STATE.activeViewKey = null;
   APP_STATE.interviewState = "idle";
@@ -873,6 +879,7 @@ function startQuickFlow() {
   APP_STATE.quickSelections = [];
   APP_STATE.quickAnswers = [];
   APP_STATE.quickIndex = 0;
+  APP_STATE.quickTransition = null;
   showSection("quick");
   renderQuickQuestion();
   window.setTimeout(() => {
@@ -914,6 +921,7 @@ function goBackQuickQuestion() {
     APP_STATE.placementModel
   );
   APP_STATE.quickIndex = APP_STATE.quickSelections.length;
+  APP_STATE.quickTransition = null;
   renderQuickQuestion();
   window.setTimeout(() => {
     document.getElementById("quick")?.scrollIntoView({ block: "start", inline: "nearest" });
@@ -930,7 +938,7 @@ function renderQuickQuestion() {
   const backButton = document.getElementById("quick-back-btn");
 
   if (!question) {
-    finalizeQuickReading();
+    showQuickTransition("reading");
     return;
   }
 
@@ -938,12 +946,34 @@ function renderQuickQuestion() {
   const stageCounts = APP_STATE.adaptiveState?.stage_counts || {};
   const stageQuestionNumber = (stageCounts[question.stage] || 0) + 1;
   const questionNumber = APP_STATE.quickSelections.length + 1;
+  const minimumQuestions = APP_STATE.placementModel?.stages?.min_total_questions || 6;
   const maxQuestions = APP_STATE.placementModel?.stages?.max_total_questions || 8;
+  const stageMaximum = APP_STATE.placementModel?.stages?.[question.stage]?.max_questions || stageQuestionNumber;
+  const progress = buildAdaptiveProgress({
+    stageLabel,
+    stageQuestionNumber,
+    stageMaximum,
+    questionNumber,
+    minimumQuestions,
+    maximumQuestions: maxQuestions,
+  });
+  const questionCard = document.getElementById("question-card");
+  const transitionCard = document.getElementById("quick-transition");
+  const questionHelp = document.getElementById("question-help");
+  const answerGrid = document.getElementById("answer-grid");
+  const helperText = helperTextForQuestion(question);
+
+  APP_STATE.quickTransition = null;
+  questionCard.classList.remove("hidden");
+  transitionCard.classList.add("hidden");
 
   document.getElementById("question-eyebrow").textContent =
     question.eyebrow || `${stageLabel} ${stageQuestionNumber}`;
   document.getElementById("question-title").textContent = question.prompt;
-  document.getElementById("answer-grid").innerHTML = question.answers
+  questionHelp.textContent = helperText;
+  questionHelp.hidden = !helperText;
+  answerGrid.dataset.answerCount = String(question.answers.length);
+  answerGrid.innerHTML = question.answers
     .map((answer, index) => {
       return `
         <div class="answer-card">
@@ -955,9 +985,56 @@ function renderQuickQuestion() {
     })
     .join("");
 
-  progressCopy.textContent = `${stageLabel} ${stageQuestionNumber} - Question ${questionNumber} of up to ${maxQuestions}`;
-  progressFill.style.width = `${Math.min(100, (questionNumber / maxQuestions) * 100)}%`;
+  progressCopy.textContent = progress.label;
+  progressFill.style.width = `${progress.percentage}%`;
   backButton.textContent = APP_STATE.quickSelections.length === 0 ? "Return to landing" : "Back";
+}
+
+function showQuickTransition(kind) {
+  const questionCard = document.getElementById("question-card");
+  const transitionCard = document.getElementById("quick-transition");
+  const progressFill = document.getElementById("progress-fill");
+  const progressCopy = document.getElementById("progress-copy");
+  const transitionEyebrow = document.getElementById("quick-transition-eyebrow");
+  const transitionTitle = document.getElementById("quick-transition-title");
+  const transitionCopy = document.getElementById("quick-transition-copy");
+  const transitionAction = document.getElementById("quick-transition-action");
+  const answered = APP_STATE.quickSelections.length;
+  const minimumQuestions = APP_STATE.placementModel?.stages?.min_total_questions || 6;
+  const maximumQuestions = APP_STATE.placementModel?.stages?.max_total_questions || 8;
+
+  APP_STATE.quickTransition = kind;
+  questionCard.classList.add("hidden");
+  transitionCard.classList.remove("hidden");
+  document.getElementById("quick-back-btn").textContent = "Back";
+
+  if (kind === "hall") {
+    transitionEyebrow.textContent = "Gate complete";
+    transitionTitle.textContent = "The next question responds to your reading.";
+    transitionCopy.textContent = "The four shared Gate moments are complete. The Hall now follows the distinctions still visible in your answers.";
+    transitionAction.textContent = "Continue into the Hall";
+    progressCopy.textContent = `Gate · 4 of 4 · Reading moment ${answered} of ${minimumQuestions}–${maximumQuestions}`;
+    progressFill.style.width = `${Math.min(100, (answered / maximumQuestions) * 100)}%`;
+  } else {
+    transitionEyebrow.textContent = "Reading complete";
+    transitionTitle.textContent = "Building your reading.";
+    transitionCopy.textContent = "Your answers are ready. Open the result when you are ready to compare the strongest supported direction and its limits.";
+    transitionAction.textContent = "Open my reading";
+    progressCopy.textContent = `Reading complete · ${answered} moments`;
+    progressFill.style.width = "100%";
+  }
+
+  window.setTimeout(() => transitionAction.focus(), 0);
+}
+
+function continueQuickTransition() {
+  if (APP_STATE.quickTransition === "reading") {
+    APP_STATE.quickTransition = null;
+    finalizeQuickReading();
+    return;
+  }
+  APP_STATE.quickTransition = null;
+  renderQuickQuestion();
 }
 
 /**
@@ -984,14 +1061,19 @@ function answerQuickQuestion(answerIndex) {
   APP_STATE.quickIndex = APP_STATE.quickSelections.length;
 
   if (shouldFinishAdaptiveReading(APP_STATE.adaptiveState, APP_STATE.placementModel)) {
-    finalizeQuickReading();
+    showQuickTransition("reading");
     return;
   }
 
-  APP_STATE.currentQuickQuestion = selectNextAdaptiveQuestion(
+  const nextQuestion = selectNextAdaptiveQuestion(
     APP_STATE.adaptiveState,
     APP_STATE.placementModel
   );
+  APP_STATE.currentQuickQuestion = nextQuestion;
+  if (question.stage === "gate" && nextQuestion?.stage === "hall") {
+    showQuickTransition("hall");
+    return;
+  }
   renderQuickQuestion();
 }
 
@@ -3019,11 +3101,15 @@ function renderResult(viewKey) {
   });
   const closeAlternative = closeAlternativeForResult(result, APP_STATE.placementModel, APP_STATE.factions);
   const tiedAlternative = resultState === "tied" ? result?.top_matches?.[1] : null;
+  const explorationAlternatives = resultState === "primary" && result?.alternative_state === "exploration"
+    ? (result?.adjacent_matches || []).slice(0, 2)
+    : [];
   const requestedKey = viewKey || context.viewKey;
   const allowedAlternativeKeys = new Set([
     result?.faction,
     closeAlternative?.match?.faction,
     tiedAlternative?.faction,
+    ...explorationAlternatives.map((match) => match?.faction),
   ].filter(Boolean));
   const activeKey = allowedAlternativeKeys.has(requestedKey) ? requestedKey : result?.faction;
   const terminalEnabled = isScryingTerminalEnabled();
@@ -3198,15 +3284,25 @@ function renderResult(viewKey) {
   const adjacentMatches = resultState === "tied" ? [] : dossier.adjacentFits || [];
   const adjacentHtml = adjacentMatches.length
     ? adjacentMatches
-        .map((fit) => {
+        .map((fit, index) => {
           return `
             <div class="adjacent-card ${fit.factionKey === activeKey ? "active" : ""}">
-              <div class="adjacent-label">${fit.world}</div>
+              <div class="adjacent-label">${result?.alternative_state === "exploration"
+                ? `${index === 0 ? "Also plausible" : "Worth comparing"} · ${fit.world}`
+                : fit.world}</div>
               <div class="adjacent-name">${fit.name}</div>
               <div class="adjacent-copy">${fit.reason || fit.tagline}</div>
-              <div class="adjacent-copy">${resultState === "tied" ? "Your answers supported both readings without clearly separating them." : "Close is relative within this reading; it is not a certainty claim."}</div>
+              <div class="adjacent-copy">${resultState === "tied"
+                ? "Your answers supported both readings without clearly separating them."
+                : result?.alternative_state === "exploration"
+                  ? "This independently supported comparison does not change the clear primary result."
+                  : "Close is relative within this reading; it is not a certainty claim."}</div>
               <div class="adjacent-actions">
-                <button class="adjacent-btn" type="button" ${buildActionAttrs("switch-adjacent-view", { viewKey: fit.factionKey })}>${resultState === "tied" ? "Compare this co-leader" : "Compare this alternative"}</button>
+                <button class="adjacent-btn" type="button" ${buildActionAttrs("switch-adjacent-view", { viewKey: fit.factionKey })}>${resultState === "tied"
+                  ? "Compare this co-leader"
+                  : result?.alternative_state === "exploration"
+                    ? "Compare this direction"
+                    : "Compare this alternative"}</button>
               </div>
             </div>`;
         })
@@ -3214,7 +3310,11 @@ function renderResult(viewKey) {
     : "";
   const adjacentSectionHtml = adjacentHtml ? `
     <div class="adjacent-section" id="adjacent-fits">
-      <div class="section-label">${resultState === "tied" ? "Co-leaders" : "Close alternative"}</div>
+      <div class="section-label">${resultState === "tied"
+        ? "Co-leaders"
+        : result?.alternative_state === "exploration"
+          ? "Other supported directions"
+          : "Close alternative"}</div>
       <div class="adjacent-grid">${adjacentHtml}</div>
     </div>` : "";
   const returnToPrimaryButton = !isPrimary
@@ -3923,6 +4023,9 @@ async function handleArchscryActionClick(event) {
       return;
     case "answer-quick-question":
       answerQuickQuestion(Number(actionNode.dataset.answerIndex));
+      return;
+    case "continue-quick-transition":
+      continueQuickTransition();
       return;
     case "switch-adjacent-view":
       switchAdjacentView(actionNode.dataset.viewKey || "");

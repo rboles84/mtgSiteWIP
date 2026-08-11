@@ -53,6 +53,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-551 — Gate B1 Live Questionnaire And Qualified Alternatives Carry-Forward](done/VM-551-gate-b1-live-questionnaire-qualified-alternatives-carry-forward.md) - carried approved responsive question geometry, selective Q3 helper copy, user-paced transitions, truthful adaptive progress, and independently qualified primary exploration alternatives into live Archscry while preserving all engine and Gate A boundaries.
+
 - [VM-551 — Repository Consolidation To One Canonical Branch](done/VM-551-repository-consolidation-one-canonical-branch.md) - consolidated the linear accepted VM-551 lineage into existing branch `codex/vm551` and worktree `C:\dev\voxmana.io-vm551`, removed six clean obsolete worktrees and ancestral branch names safely, and preserved all checkpoint history with no product change.
 
 - [VM-551 — Gate B1 Qualified Alternatives Result Contract Repair](done/VM-551-gate-b1-qualified-alternatives-result-contract-repair.md) - normalized independently qualified Gate B1 alternatives into complete Gate A match objects, enforced state/cardinality agreement, adapted native B1 observations into existing dossier explanations, and verified 5,000 deterministic journeys plus a calculated close-result runtime smoke without changing placement semantics.
