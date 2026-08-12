@@ -2384,7 +2384,11 @@ const temurRadarHtml = renderDossierRadarSection({
   identityLayers,
 });
 assert.match(temurRadarHtml, /Selected Synthesis/);
-assert.match(temurRadarHtml, /Cards That Sound Like This/);
+assert.doesNotMatch(
+  temurRadarHtml,
+  /Cards That Sound Like This/,
+  "The Matrix panel should not repeat card text that is already available through card previews."
+);
 const yoreSnippetNames = (archscryFlavorSnippets.snippets.YORE || []).map((snippet) => snippet.card_name);
 assert.ok(yoreSnippetNames.includes("Ayara, Widow of the Realm // Ayara, Furnace Queen"));
 assert.ok(yoreSnippetNames.includes("Abandoned Sarcophagus"));
@@ -2557,7 +2561,12 @@ const yoreSummaryResult = {
   confidence: 0.63,
   alternative_state: "close",
   adjacent_matches: [{ faction: "ABZAN", faction_name: "Abzan Houses", confidence: 0.45 }],
-  evidence_trail: [{ answer_title: "Carry the house forward", signal: "inherited continuity", deltas: [{ faction: "ABZAN", delta: 1.1 }] }],
+  evidence_trail: [{
+    answer_title: "Carry the house forward",
+    signal: "inherited continuity",
+    bounded_observation: "You preferred to preserve what the deck had already built.",
+    deltas: [{ faction: "ABZAN", delta: 1.1 }],
+  }],
   starter_profile: { budget_band: "mid", experience_level: "returning" },
   identity: { expression_key: "YORE" },
 };
@@ -2616,8 +2625,9 @@ const yoreSummaryStrip = buildResultSummaryStrip({
   buildContrastCopy,
 });
 assertSummaryStripComplete(yoreSummaryStrip, "Yore summary strip");
-assert.match(yoreSummaryStrip.adjacentFit.relationshipCopy, /You selected “Carry the house forward/);
-assert.match(yoreSummaryStrip.adjacentFit.relationshipCopy, /does not prove a fixed relationship between the identities/);
+assert.match(yoreSummaryStrip.adjacentFit.relationshipCopy, /Your answer “Carry the house forward/);
+assert.match(yoreSummaryStrip.adjacentFit.relationshipCopy, /preferred to preserve what the deck had already built/i);
+assert.doesNotMatch(yoreSummaryStrip.adjacentFit.relationshipCopy, /signal|mapping|fixed relationship/i);
 assert.equal(yoreSummaryStrip.whereThisLeads.heading, "Rebuild the engine");
 assert.equal(yoreSummaryStrip.playPattern.heading, "Keep agency online");
 
@@ -2626,7 +2636,12 @@ const glintSummaryResult = {
   confidence: 0.64,
   alternative_state: "close",
   adjacent_matches: [{ faction: "B", faction_name: "Black", confidence: 0.45 }],
-  evidence_trail: [{ answer_title: "Keep the opening live", signal: "chosen cost", deltas: [{ faction: "B", delta: 1.1 }] }],
+  evidence_trail: [{
+    answer_title: "Keep the opening live",
+    signal: "chosen cost",
+    bounded_observation: "You preferred to keep the current opening available.",
+    deltas: [{ faction: "B", delta: 1.1 }],
+  }],
   starter_profile: { budget_band: "mid", experience_level: "returning" },
   identity: { expression_key: "GLINT" },
 };
@@ -2639,7 +2654,8 @@ const glintSummaryDossier = buildCommanderDossier({
   summaryContrastCopyBuilder: buildContrastCopy,
 });
 assertSummaryStripComplete(glintSummaryDossier.resultSummaryStrip, "Glint dossier summary strip");
-assert.match(glintSummaryDossier.resultSummaryStrip.adjacentFit.relationshipCopy, /You selected “Keep the opening live/);
+assert.match(glintSummaryDossier.resultSummaryStrip.adjacentFit.relationshipCopy, /Your answer “Keep the opening live/);
+assert.match(glintSummaryDossier.resultSummaryStrip.adjacentFit.relationshipCopy, /preferred to keep the current opening available/i);
 assert.equal(glintSummaryDossier.resultSummaryStrip.whereThisLeads.heading, "Feed the opening");
 assert.equal(glintSummaryDossier.resultSummaryStrip.playPattern.heading, "Keep the pressure live");
 
@@ -2816,12 +2832,18 @@ const omens = buildReadingOmens({
     {
       stage: "gate",
       signal: "fairness through process",
+      bounded_observation: "You preferred to follow the agreed process.",
+      question_id: "legacy.test.q1",
+      answer_id: "legacy.test.q1.process",
       answer_title: "Follow the process",
       deltas: [{ faction: "WU", delta: 1.2 }],
     },
     {
       stage: "crucible",
       signal: "graveyard recursion",
+      bounded_observation: "You preferred to reuse cards from the graveyard.",
+      question_id: "legacy.test.q2",
+      answer_id: "legacy.test.q2.graveyard",
       answer_title: "Use the graveyard",
       deltas: [{ faction: "BG", delta: 1.1 }],
     },
@@ -2830,10 +2852,10 @@ const omens = buildReadingOmens({
   activeFactionKey: "WU",
 });
 const omenText = omens.map((omen) => `${omen.title} ${omen.answerTitle} ${omen.copy}`).join(" ");
-assert.equal(omens[0].title, "Recorded signal 1");
+assert.equal(omens[0].title, "From your answers 1");
 assert.match(omenText, /Follow the process/);
-assert.match(omenText, /answer added.*support for/i);
-assert.doesNotMatch(omenText, /authored model|model recorded|scoring|ranking/i);
+assert.match(omenText, /preferred to follow the agreed process/i);
+assert.doesNotMatch(omenText, /answer added.*support for|authored model|model recorded|scoring|ranking|SIG_|DG_|MAPPING_/i);
 assert.doesNotMatch(omenText, /does not prove your personality, motivation, deck behavior/i);
 assert.equal(
   omens.filter((omen) => /does not prove/i.test(omen.copy)).length,

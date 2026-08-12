@@ -17,10 +17,8 @@ import {
 } from "./archscry-question-presentation.js";
 import {
   buildCommanderDossier,
-  buildCommanderDeckStartFallbackCandidates,
   buildPreconRecommendations,
   createArchidektTagCatalog,
-  buildMtgDecksCommanderUrl,
   getExternalDeckRoutingAlias,
   getColorIdentity,
   getCommanderFactionGuidance,
@@ -34,9 +32,6 @@ import {
   buildHeroNarrative,
   MAZE_PATH_LABELS,
   buildPersonalizedMazePaths,
-  buildReadingSignalCopy,
-  buildTagExplanationSummaries,
-  adjacentMatchForSummary,
   classifyResultArtRecord,
   closeAlternativeForResult,
   deriveGateAResultState,
@@ -114,6 +109,7 @@ const APP_STATE = {
   archscryFlavorSnippets: null,
   preconCatalog: null,
   preconThemeTaxonomy: null,
+  commanderProviderValidation: null,
   scryfallCommanderIndex: null,
   scryfallCommanderByName: new Map(),
   scryfallLocalCardByName: new Map(),
@@ -301,6 +297,7 @@ async function loadDiscoveryData() {
     archscryFlavorSnippets,
     preconCatalog,
     preconThemeTaxonomy,
+    commanderProviderValidation,
     flavorIndex,
     commanderIndex,
     colorThemeIndex,
@@ -310,6 +307,7 @@ async function loadDiscoveryData() {
     loadOptionalJson(resolveDataUrl("archscry-flavor-snippets.json"), "Archscry flavor snippets"),
     loadOptionalJson(resolveDataUrl("precons/vox-mana-precon-catalog.json"), "precon catalog"),
     loadOptionalJson(resolveDataUrl("taxonomy/vox-mana-precon-themes.json"), "precon theme taxonomy"),
+    loadOptionalJson(resolveDataUrl("placement/commander-provider-validation.json"), "commander provider validation"),
     loadOptionalJson(resolveDataUrl("scryfall/indexes/card-flavor-index.json"), "Scryfall flavor index"),
     loadOptionalJson(resolveDataUrl("scryfall/indexes/commander-index.json"), "Scryfall commander index"),
     loadOptionalJson(resolveDataUrl("scryfall/indexes/color-theme-index.json"), "Scryfall color theme index"),
@@ -320,6 +318,7 @@ async function loadDiscoveryData() {
   APP_STATE.archscryFlavorSnippets = archscryFlavorSnippets;
   APP_STATE.preconCatalog = preconCatalog;
   APP_STATE.preconThemeTaxonomy = preconThemeTaxonomy;
+  APP_STATE.commanderProviderValidation = commanderProviderValidation;
   APP_STATE.tagTaxonomyByKey = buildTaxonomyLookup(taxonomy);
   APP_STATE.scryfallFlavorIndex = flavorIndex;
   APP_STATE.scryfallCommanderIndex = commanderIndex;
@@ -614,14 +613,7 @@ function resolveIdentityTension(identity, faction) {
 
 function buildSelfCheckCopy(faction) {
   const presentation = presentationForFaction(faction);
-  if (presentation.selfCheck) {
-    return presentation.selfCheck;
-  }
-  const reason = presentation.closeReason || presentation.tableExperience || faction?.tagline || "";
-  if (!reason) {
-    return "This may fit if the values in this reading feel like the kind of deck identity you want to explore.";
-  }
-  return `This may fit if ${reason} feel like values you want a Commander deck to express.`;
+  return presentation.selfCheck || "";
 }
 
 function buildIdentityStoryCard({ title, headline, copy, meta = "", className = "" }) {
@@ -634,49 +626,36 @@ function buildIdentityStoryCard({ title, headline, copy, meta = "", className = 
     </div>`;
 }
 
-function buildLayeredIdentityHtml({ dossier, faction }) {
+function buildTestTheFitHtml({ dossier, faction, comparisonFaction = null }) {
+  const selfCheck = buildSelfCheckCopy(faction);
   const identity = layeredIdentityForDisplay(faction, dossier?.faction?.identity);
-  const coreEntry = identityColorEntry(identity.core_color);
-  const expressionName = identity.expression_name || faction?.name || colorIdentityNames(identity.colors || faction?.colors || []);
-  const identityColors = (faction?.colors || [identity.core_color, ...(identity.secondary_colors || [])])
-    .filter((color) => MANA_SYMBOL_NAMES[String(color || "").toUpperCase()]);
-  const beliefCopy = faction?.philosophy || coreEntry?.philosophy || "This reading has not yet been annotated with a belief statement.";
-  const tensionCopy = shortIdentityTension(resolveIdentityTension(identity, faction));
-  const tensionTitle = identity.secondary_color ? "Tension" : "Undivided";
-  const identityMeta = [
-    buildManaPipsHtml(identityColors, "mana-pips-inline"),
-  ].filter(Boolean).join("");
-
-  const beliefCard = buildIdentityStoryCard({
-    title: "Belief",
-    headline: expressionName,
-    copy: beliefCopy,
-    meta: identityMeta,
-    className: "identity-story-card--belief",
-  });
-
-  const tensionCard = buildIdentityStoryCard({
-    title: tensionTitle,
-    headline: identity.secondary_color ? "Where it pulls" : "Clear signal",
-    copy: tensionCopy || "This identity has a clear center; no unsupported tension is added to the reading.",
-    className: "identity-story-card--support",
-  });
-
-  const selfCheckCard = buildIdentityStoryCard({
-    title: "Self-Check",
-    headline: "Notice the pull",
-    copy: buildSelfCheckCopy(faction),
-    className: "identity-story-card--support",
-  });
-
+  const tension = shortIdentityTension(resolveIdentityTension(identity, faction));
+  const contrast = comparisonFaction ? buildContrastCopy(faction, comparisonFaction) : "";
+  const cards = [
+    selfCheck ? buildIdentityStoryCard({
+      title: "This may fit if",
+      headline: "Notice what resonates",
+      copy: selfCheck,
+      className: "identity-story-card--support",
+    }) : "",
+    tension ? buildIdentityStoryCard({
+      title: "Where it can pull too far",
+      headline: "Keep the tension visible",
+      copy: tension,
+      className: "identity-story-card--support",
+    }) : "",
+    contrast ? buildIdentityStoryCard({
+      title: `Compare ${comparisonFaction.name}`,
+      headline: "Where the nearby reading differs",
+      copy: contrast,
+      className: "identity-story-card--support",
+    }) : "",
+  ].filter(Boolean);
+  if (!cards.length) return "";
   return `
-    <div class="starter-section">
-      <div class="section-label">Layered Identity</div>
-      <div class="identity-story-grid">
-        ${beliefCard}
-        ${tensionCard}
-        ${selfCheckCard}
-      </div>
+    <div class="starter-section" data-test-the-fit>
+      <div class="section-label">Test the Fit</div>
+      <div class="identity-story-grid public-three-item-grid">${cards.join("")}</div>
     </div>`;
 }
 
@@ -1475,44 +1454,10 @@ function dedupeLinks(links = []) {
   });
 }
 
-function searchSlug(value) {
-  return normalizeCardName(value).replace(/\s+/g, "-");
-}
-
-function siteSearchUrl(service, query) {
-  const encoded = encodeURIComponent(query);
-  // Source search patterns are intentionally conservative where stable deep links are uncertain.
-  if (service === "moxfield") return `https://www.moxfield.com/decks/public/advanced?format=commander&filter=${encoded}`;
-  if (service === "mtgdecks") return `https://mtgdecks.net/Commander?search=${encoded}`;
-  return `https://www.google.com/search?q=${encoded}`;
-}
-
-function buildCommanderSpecificLinks(candidates = [], service) {
-  return (candidates || []).slice(0, 2).map((candidate) => {
-    const name = candidate?.name || candidate?.display_name || "";
-    if (!name) return null;
-    if (service === "edhrec" && candidate.edhrec) {
-      return { service, label: name, url: candidate.edhrec };
-    }
-    if (service === "scryfall" && candidate.scryfall) {
-      return { service, label: name, url: candidate.scryfall };
-    }
-    if (service === "edhrec") {
-      return { service, label: name, url: `https://edhrec.com/commanders/${searchSlug(name)}` };
-    }
-    if (service === "mtgdecks") {
-      return { service, label: name, url: buildMtgDecksCommanderUrl(name) };
-    }
-    return { service, label: name, url: siteSearchUrl(service, `${name} Commander`) };
-  }).filter(Boolean);
-}
-
 function buildDeckDiscoveryGroups({
   faction,
   archidektLinks,
   commanderDirectoryLinks,
-  commanderCandidates,
-  commanderFallbackCandidates,
   tagRefs,
 }) {
   const identity = getColorIdentity(faction?.colors || faction?.key || "");
@@ -1520,10 +1465,6 @@ function buildDeckDiscoveryGroups({
   const topTag = uniqueTagRefs(tagRefs)[0];
   const tagEntry = topTag ? taxonomyEntry(topTag.category, topTag.tag) : null;
   const routingAlias = getExternalDeckRoutingAlias(faction);
-  const deckStartCommanderCandidates = routingAlias.suppressDirectoryLinks && !(commanderCandidates || []).length
-    ? (commanderFallbackCandidates || [])
-    : (commanderCandidates || []);
-
   return [
     {
       service: "edhrec",
@@ -1532,7 +1473,6 @@ function buildDeckDiscoveryGroups({
       links: dedupeLinks([
         ...commanderDirectoryLinks.filter((link) => getServiceChipMeta(link).key === "edhrec"),
         { service: "edhrec", label: `${routingAlias.label} commanders`, url: routingAlias.edhrecUrl },
-        ...buildCommanderSpecificLinks(deckStartCommanderCandidates, "edhrec"),
       ]).slice(0, 4),
     },
     {
@@ -1547,7 +1487,6 @@ function buildDeckDiscoveryGroups({
       desc: "Start with the color lane, then search commander names when you want tournament-adjacent deck examples.",
       links: dedupeLinks([
         ...commanderDirectoryLinks.filter((link) => getServiceChipMeta(link).key === "mtgdecks"),
-        ...buildCommanderSpecificLinks(deckStartCommanderCandidates, "mtgdecks"),
       ]).slice(0, 4),
     },
   ].filter((group) => group.links.length);
@@ -1561,10 +1500,6 @@ function buildDeckDiscoveryHtml(groups = []) {
       <div class="deck-desc">${escapeHtml(group.desc)}</div>
       <div class="deck-links">${buildLinkButtons(group.links)}</div>
     </div>`).join("");
-}
-
-function buildScryfallCommanderUrl(name) {
-  return `https://scryfall.com/search?q=${encodeURIComponent(`!"${name}"`)}`;
 }
 
 const VALIDATED_EDHREC_PRECON_URLS = Object.freeze({
@@ -1582,25 +1517,31 @@ function validatedEdhrecPreconUrl(deckName) {
   return VALIDATED_EDHREC_PRECON_URLS[normalized] || "";
 }
 
-function buildPreconLinks(precon) {
+function verifiedCommanderProviderLinks(commanderName) {
+  const record = APP_STATE.commanderProviderValidation?.commanders?.[commanderName];
+  return Array.isArray(record?.links)
+    ? record.links.filter((link) => link?.verified === true && /^https:\/\//.test(link?.url || ""))
+    : [];
+}
+
+function buildPreconResearchLinks(precon) {
   return dedupeLinks([
     validatedEdhrecPreconUrl(precon.deckName) ? {
       service: "edhrec",
-      label: "Research this precon",
+      label: "View precon",
       url: validatedEdhrecPreconUrl(precon.deckName),
     } : null,
-
-    {
-      service: "scryfall",
-      label: "Research commander",
-      url: buildScryfallCommanderUrl(precon.mainCommander),
-    },
-    {
-      service: "mtgdecks",
-      label: "Browse examples",
-      url: buildMtgDecksCommanderUrl(precon.mainCommander),
-    },
   ]);
+}
+
+function buildCommanderProviderDetails(precon) {
+  const links = verifiedCommanderProviderLinks(precon.mainCommander);
+  if (!links.length) return "";
+  return `
+    <details class="precon-provider-menu">
+      <summary>Decks <span>Browse builds</span></summary>
+      <div class="precon-provider-links">${buildLinkButtons(links)}</div>
+    </details>`;
 }
 
 const PRECON_BADGE_META = {
@@ -1655,25 +1596,31 @@ function preconPreviewChips(precon) {
 function buildPreconCardHtml(precon) {
   const previewGroup = precon?.previewGroup || precon?.group || (precon?.lane === "stretch" ? "stretch" : "otherExact");
   const badge = PRECON_BADGE_META[previewGroup] || PRECON_BADGE_META.otherExact;
-  const fitSummarySource = precon?.deckName === "First Flight"
-    ? "A flying-creature starting point led by Isperia. Isperia may draw when any creature attacks you or a planeswalker you control; the attacker need not have flying."
-    : precon?.fitSummary || precon?.tablePerception || "";
-  const fitSummary = wordExcerpt(fitSummarySource, 30);
-  const startingLaneFor = wordExcerpt(precon?.recommendedForOverride || precon?.recommendationProfile?.recommendedFor || "", 18);
+  const publicRationale = precon?.publicRationale?.text || "";
+  const rationaleProvenance = precon?.publicRationale?.provenance || null;
   const chips = preconPreviewChips(precon);
+  const commanderRationale = `This card appears because it is the cataloged main commander of ${precon.deckName}.`;
+  const commanderProvenance = `data/precons/vox-mana-precons.source.json#${precon.deckName}.mainCommander`;
+  const commanderButtonAttrs = buildActionAttrs("open-card-detail", {
+    cardName: precon.mainCommander,
+    cardRationale: commanderRationale,
+    cardProvenance: commanderProvenance,
+    cardTags: chips.join("|"),
+  });
+  const researchLinks = buildPreconResearchLinks(precon);
 
   return `
-    <div class="precon-card is-compact" data-precon-card data-precon-group="${escapeHtml(previewGroup)}">
+    <div class="precon-card is-compact" data-precon-card data-precon-group="${escapeHtml(previewGroup)}"${rationaleProvenance ? ` data-rationale-provenance="${escapeAttributeValue(JSON.stringify(rationaleProvenance))}"` : ""}>
       <div class="precon-topline">
         <span class="precon-badge ${escapeHtml(badge.className)}" title="${escapeHtml(badge.description)}" aria-label="${escapeHtml(`${badge.label}: ${badge.description}`)}">${escapeHtml(badge.label)}</span>
         <span class="precon-product">${escapeHtml(precon.productSection)}</span>
       </div>
       <div class="precon-title">${escapeHtml(precon.deckName)}</div>
-      <div class="precon-commander">Main commander: ${escapeHtml(precon.mainCommander)}</div>
+      <div class="precon-commander">Main commander: <button class="precon-commander-trigger" type="button" data-card-preview-name="${escapeAttributeValue(precon.mainCommander)}" ${commanderButtonAttrs}>${escapeHtml(precon.mainCommander)}</button></div>
       ${chips.length ? `<div class="precon-chip-row">${chips.map((chip) => `<span class="precon-chip">${escapeHtml(chip)}</span>`).join("")}</div>` : ""}
-      ${fitSummary ? `<div class="precon-copy">${escapeHtml(fitSummary)}</div>` : ""}
-      ${startingLaneFor ? `<div class="precon-best-for"><span>Good starting lane for:</span> ${escapeHtml(startingLaneFor)}</div>` : ""}
-      <div class="precon-links">${buildLinkButtons(buildPreconLinks(precon))}</div>
+      ${publicRationale ? `<div class="precon-copy">${escapeHtml(publicRationale)}</div>` : ""}
+      ${researchLinks.length ? `<div class="precon-links">${buildLinkButtons(researchLinks)}</div>` : ""}
+      ${buildCommanderProviderDetails(precon)}
     </div>`;
 }
 
@@ -1701,8 +1648,8 @@ function buildPreconSectionHtml(preconRecommendations) {
   return `
     <div class="precons-section">
       <div class="section-label">Precon Starting Points</div>
-      <div class="precon-intro">Ready-made Commander decks from the support pool that share this dossier's color identity, faction pressure, or validated mechanics.</div>
-      <div class="precon-meta">Showing the closest available starting points from the support pool.</div>
+      <div class="precon-intro">Ready-made Commander decks compared through verified color identity and cataloged deck facts.</div>
+      <div class="precon-meta">Use the recorded themes and mechanics to decide whether each deck is worth a closer look.</div>
       <div class="precon-grid is-compact" data-precon-preview-grid="primary">${preview.visible.map((precon) => buildPreconCardHtml(precon)).join("")}</div>
       ${canExpand ? `<div class="precon-grid is-compact" data-precon-preview-grid="remaining" hidden>${preview.remaining.map((precon) => buildPreconCardHtml(precon)).join("")}</div>` : ""}
       ${canExpand ? `
@@ -2554,7 +2501,7 @@ function renderEducationalText(value) {
   return text.split(matcher).map((part) => {
     const canonical = terms.find((term) => term.toLowerCase() === part.toLowerCase());
     if (!canonical) return escapeHtml(part);
-    const help = ARCHSCRY_TERM_HELP[canonical].join(" ");
+    const help = ARCHSCRY_TERM_HELP[canonical].slice(0, 2).join(" ");
     return `<span class="vm-gloss archscry-term-help" tabindex="0" data-gloss="${escapeAttributeValue(help)}">${escapeHtml(part)}</span>`;
   }).join("");
 }
@@ -2614,23 +2561,6 @@ function renderTagInterpretations(tagRefs = [], limit = 3) {
         </div>`;
     })
     .join("");
-}
-
-function buildTagExplanationCards(tagRefs = [], faction, limit = 4) {
-  return buildTagExplanationSummaries({
-    tagRefs,
-    faction,
-    taxonomy: APP_STATE.tagTaxonomy,
-    limit,
-  }).map((entry) => {
-    return `
-      <div class="starter-card tag-explainer-card">
-        <div class="starter-title">${renderEducationalText(entry.title)}</div>
-        <div class="tag-meaning">${renderEducationalText(entry.meaning)}</div>
-        <div class="starter-copy">${renderEducationalText(entry.copy)}</div>
-        ${entry.helper ? `<div class="tag-helper">${renderEducationalText(entry.helper)}</div>` : ""}
-      </div>`;
-  }).join("");
 }
 
 function isColorIdentitySubset(cardIdentity = [], factionColors = []) {
@@ -2769,66 +2699,83 @@ export function selectFlavorEchoes({
     .slice(0, 3);
 }
 
-function buildDiscoverySummaryHtml({ dossier, faction, result }) {
-  const signalCopy = buildReadingSignalCopy({ dossier, faction, result, factions: APP_STATE.factions });
-
+function buildDiscoverySummaryHtml({ dossier, faction }) {
+  const observations = (dossier?.readingOmens || []).slice(0, 3);
+  if (!observations.length) return "";
   return `
-    <div class="starter-section">
-      <div class="section-label">The Shape of the Reading</div>
-      <div class="starter-grid">
-        <div class="starter-card starter-card-wide">
-          <div class="starter-title">${escapeHtml(dossier.isPrimary ? `What Moved This Reading Toward ${faction.name}` : `Comparing ${faction.name}`)}</div>
-          <div class="starter-copy">${escapeHtml(signalCopy)}</div>
-        </div>
+    <div class="starter-section" data-public-fit-reasons>
+      <div class="section-label">Why This Fit</div>
+      <p class="signals-intro">These are the answer-derived observations that moved this reading toward ${escapeHtml(faction.name)}.</p>
+      <div class="starter-grid public-three-item-grid">
+        ${observations.map((observation) => `
+          <div class="starter-card omen-card">
+            <div class="starter-title">${escapeHtml(observation.answerTitle)}</div>
+            <div class="starter-copy">${escapeHtml(observation.copy)}</div>
+          </div>`).join("")}
       </div>
     </div>`;
 }
 
-function buildDossierInterpretationHtml({ dossier, faction, result, tagRefs }) {
-  const adjacent = result?.alternative_state === "co-leader"
-    ? null
-    : adjacentMatchForSummary(result, dossier.targetFactionKey);
-  const adjacentFaction = adjacent?.faction ? getFaction(adjacent.faction) : null;
-  const contrastCopy = adjacentFaction
-    ? buildContrastCopy(dossier.isPrimary ? faction : getFaction(dossier.primaryFactionKey), dossier.isPrimary ? adjacentFaction : faction)
-    : "";
-  const forkHtml = contrastCopy
-    ? `<div class="starter-section">
-        <div class="section-label">Faction Fork</div>
-        <div class="starter-grid">
-          <div class="starter-card starter-card-wide">
-            <div class="starter-title">Where This Path Divides</div>
-            <div class="starter-copy">${escapeHtml(contrastCopy)}</div>
-          </div>
-        </div>
-      </div>`
-    : "";
+function buildDossierInterpretationHtml({ dossier, faction, result }) {
+  const publicMatches = [
+    ...(result?.top_matches || []),
+    ...(result?.adjacent_matches || []),
+  ];
+  const comparisonMatch = publicMatches.find((match) =>
+    match?.faction && match.faction !== dossier.targetFactionKey
+  );
+  const comparisonFaction = comparisonMatch?.faction ? getFaction(comparisonMatch.faction) : null;
 
   return `
-    ${forkHtml}
-    ${buildLayeredIdentityHtml({ dossier, faction })}
+    ${buildTestTheFitHtml({ dossier, faction, comparisonFaction })}
     <div class="starter-section">
       <div class="section-label">How This Plays</div>
       <div class="starter-grid">${buildHowThisPlaysCardHtml(faction)}</div>
-    </div>
-    <div class="starter-section">
-      <div class="section-label">Why This Fit Appeared Here</div>
-      <div class="starter-grid">${buildTagExplanationCards(tagRefs, faction, 3)}</div>
     </div>`;
 }
 
-function buildFlavorEchoWhy({ card, tagMatches, faction, curatedSnippet = false }) {
-  const cardName = card?.name || "This card";
-  const normalizedName = normalizeCardName(cardName);
-  if (normalizedName === "isperia supreme judge") return "Isperia can turn creatures attacking you or a planeswalker you control into optional card draw. It illustrates reactive card advantage, not a promise that opponents will attack or that every Azorius list is control.";
-  if (normalizedName === "lavinia azorius renegade") return "Lavinia restricts oversized noncreature spells and counters spells cast without mana. It illustrates proactive rule-setting, not a universal Stax package or a judgment about the player.";
-  if (normalizedName === "grand arbiter augustin iv") return "Grand Arbiter reduces the cost of your White and Blue spells and adds one generic mana to opponents' spells. It is a concrete taxation example, not proof that every Azorius reading should tax the table.";
-  const bestRef = tagMatches.find((ref) => ref.category === "identity" || ref.category === "lore-tone") || tagMatches[0];
-  const entry = bestRef ? taxonomyEntry(bestRef.category, bestRef.tag) : null;
-  const rules = wordExcerpt(sanitizeUserFacingCopy(card?.oracle_excerpt || ""), 20);
-  if (rules && entry) return `${cardName} was selected because its rules text includes ?${rules}? and its local index carries the ${entry.display_name} tag. It is one example of expression, not a required card or proof of placement.`;
-  if (entry) return `${cardName} was selected through the local ${entry.display_name} tag. That makes it an editorial example for ${presentationForFaction(faction).shortName}, not a required card or factual claim about the player.`;
-  return curatedSnippet ? `${cardName} is a curated card-voice example for this identity. Flavor illustrates tone; it does not establish Commander behavior.` : "";
+const INTERNAL_CARD_RATIONALE_RE = /\b(auxiliary|source[- ]backed|canon(?:ical)?|proof|product texture|operator texture|support (?:row|context)|local (?:commander|exact-color|enhanced)|official decklist|packet|claim(?:s)?|evidence)\b/i;
+
+export function approvedCardRationaleForFaction(card, faction) {
+  const compass = faction?.commander_compass;
+  const groups = [
+    ["native_fit_commanders", compass?.native_fit_commanders],
+    ["weird_stretch_commanders", compass?.weird_stretch_commanders],
+    ["budget_friendly_commanders", compass?.budget_friendly_commanders],
+    ["advanced_complexity_commanders", compass?.advanced_complexity_commanders],
+    ["iconic_lore_forward_commanders", compass?.iconic_lore_forward_commanders],
+  ];
+  const normalizedName = normalizeCardName(card?.name);
+  for (const [group, candidates] of groups) {
+    const candidate = (candidates || []).find((entry) =>
+      normalizeCardName(entry?.exact_card_name || entry?.display_name) === normalizedName
+    );
+    const claimIds = candidate?.source_basis?.existing_repo_claim_ids || [];
+    const sourceIds = candidate?.source_basis?.existing_repo_source_ids || [];
+    if (
+      !candidate?.why_this_fits ||
+      INTERNAL_CARD_RATIONALE_RE.test(candidate.why_this_fits) ||
+      !claimIds.length ||
+      !sourceIds.length ||
+      !compass?.source_research_file
+    ) {
+      continue;
+    }
+    return {
+      text: candidate.why_this_fits,
+      tags: Array.isArray(candidate.archetype_tags) ? candidate.archetype_tags : [],
+      provenance: {
+        sourceResearchFile: compass.source_research_file,
+        group,
+        cardName: candidate.exact_card_name || candidate.display_name,
+        claimIds,
+        sourceIds,
+        cardData: candidate.source_basis.card_data || [],
+        evidenceRole: "approved-commander-guidance",
+      },
+    };
+  }
+  return null;
 }
 
 function cardImageUrl(record = {}) {
@@ -2846,34 +2793,38 @@ function canonicalFlavorLookupName(card = {}) {
 }
 
 export function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}) {
-  if (flavorEchoes.length < 2) return "";
+  if (!flavorEchoes.length) return "";
   const groundedEchoes = flavorEchoes
     .map((entry) => ({
       ...entry,
-      why: buildFlavorEchoWhy({ card: entry.card, tagMatches: entry.tagMatches, faction, curatedSnippet: entry.curatedSnippet }),
+      rationale: approvedCardRationaleForFaction(entry.card, faction),
     }))
-    .filter((entry) => entry.why);
-  if (groundedEchoes.length < 2) return "";
+    .filter((entry) => entry.rationale);
+  if (!groundedEchoes.length) return "";
   return `
-    <div class="starter-section">
-      <div class="section-label">What This Looks Like In Cards</div>
-      <div class="flavor-echo-intro">These are examples of the reading's feel in actual cards, not mandatory pickups.</div>
+    <div class="starter-section" data-card-rationale-section>
+      <div class="section-label">Why These Cards Echo This Reading</div>
+      <div class="flavor-echo-intro">Each example below has an approved card-to-identity explanation in the repository.</div>
       <div class="flavor-echo-grid">
-        ${groundedEchoes.map(({ card, tagMatches, why }) => {
-          const excerpt = wordExcerpt(sanitizeUserFacingCopy(flavorExcerptForCard(card)), 18);
+        ${groundedEchoes.map(({ card, rationale }) => {
           const image = card.image_uris?.art_crop || card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.art_crop || "";
+          const actionAttrs = buildActionAttrs("open-card-detail", {
+            cardName: card.name,
+            cardRationale: rationale.text,
+            cardProvenance: JSON.stringify(rationale.provenance),
+            cardTags: rationale.tags.join("|"),
+          });
           return `
-            <a class="flavor-echo-card" href="${escapeHtml(card.scryfall_uri || "#")}" target="_blank" rel="noopener">
-              ${image ? `<img src="${escapeHtml(image)}" alt="${escapeAttributeValue(`${card.name} card art`)}" loading="lazy">` : `<span class="flavor-echo-image-fallback" aria-label="Card image unavailable">Image unavailable</span>`}
+            <button class="flavor-echo-card" type="button" data-card-preview-name="${escapeAttributeValue(card.name)}" data-rationale-provenance="${escapeAttributeValue(JSON.stringify(rationale.provenance))}" ${actionAttrs}>
+              ${image ? `<img class="vm-card-rationale-image" src="${escapeHtml(image)}" alt="${escapeAttributeValue(`${card.name} card art`)}" loading="lazy">` : `<span class="flavor-echo-image-fallback" aria-label="Card image unavailable">Image unavailable</span>`}
               <span class="flavor-echo-body">
                 <span class="flavor-echo-name">${escapeHtml(card.name)}</span>
-                <span class="flavor-echo-kicker">Card-specific example</span>
-                <span class="flavor-echo-text">${escapeHtml(excerpt)}</span>
-                <span class="flavor-echo-why">${escapeHtml(why)}</span>
-                <span class="vm-tag-row">${renderTagChips(tagMatches, 3)}</span>
-                <span class="flavor-echo-action">Open this card on Scryfall <span aria-hidden="true">?</span></span>
+                <span class="flavor-echo-kicker">Why it appears</span>
+                <span class="flavor-echo-why">${escapeHtml(rationale.text)}</span>
+                ${rationale.tags.length ? `<span class="vm-tag-row">${renderStaticTagChips(rationale.tags, 3)}</span>` : ""}
+                <span class="flavor-echo-action">View card details</span>
               </span>
-            </a>`;
+            </button>`;
         }).join("")}
       </div>
     </div>`;
@@ -3188,19 +3139,12 @@ function renderResult(viewKey) {
     preconCatalog: APP_STATE.preconCatalog,
     preconThemeTaxonomy: APP_STATE.preconThemeTaxonomy,
   });
-  const commanderDeckStartFallbackCandidates = buildCommanderDeckStartFallbackCandidates(preconRecommendations);
   const matrixFlavorSnippets = matrixFlavorSnippetsForFaction(faction);
-  const hasMatrixCardVoiceSurface =
-    String(faction?.key || "").toUpperCase() !== "COLORLESS" &&
-    matrixFlavorSnippets.length >= 2;
-  const matrixCardNames = hasMatrixCardVoiceSurface
-    ? matrixFlavorSnippets.map((snippet) => snippet.card_name)
-    : [];
   const flavorEchoes = selectFlavorEchoes({
     faction,
     tagRefs: readingTagRefs,
-    excludedCardNames: matrixCardNames,
-    includeCurated: !hasMatrixCardVoiceSurface,
+    excludedCardNames: [],
+    includeCurated: true,
   });
   const mazeContext = buildArchscryMazeContext({ result, dossier, faction });
   writeArchscryDossierHandoff(result, mazeContext);
@@ -3221,8 +3165,8 @@ function renderResult(viewKey) {
     .filter((entry) => entry?.active !== false);
   const activeExpressionCount = activeExpressionEntries.length || Object.keys(APP_STATE.factions || {}).length || 15;
   const atlasFrontierCopy = `The complete ${activeExpressionCount}-identity atlas is available for exploration. This reading is one bounded path through it, not a claim that every identity was equally tested by these answers.`;
-  const archetypeHtml = (dossier.archetypes || [])
-    .map((item) => `<div class="arch-card"><div class="arch-name">${renderEducationalText(item.name)}</div><div class="arch-desc">${renderEducationalText(item.desc)}</div></div>`)
+  const archetypeHtml = (dossier.whatToLookFor || [])
+    .map((item) => `<div class="arch-card" data-guidance-provenance="${escapeAttributeValue(JSON.stringify(item.provenance))}"><div class="arch-name">${renderEducationalText(item.name)}</div><div class="arch-desc">${renderEducationalText(item.desc)}</div></div>`)
     .join("");
 
   function cardSlots(items, prefix, placeholderClass, imageClass) {
@@ -3327,25 +3271,11 @@ function renderResult(viewKey) {
       ? `<button class="btn-secondary" type="button" ${buildActionAttrs("return-interview-source")}>Return to the Terminal</button>`
       : "";
   const decreeCopy = dossier.decreeCopy;
-  const readingOmens = dossier.readingOmens || [];
-  const evidenceHtml = readingOmens.length
-    ? readingOmens
-        .map((omen) => `
-          <div class="starter-card omen-card">
-            <div class="omen-index">${omen.title}</div>
-            <div class="starter-title">${omen.answerTitle}</div>
-            <div class="starter-copy">${omen.copy}</div>
-          </div>`)
-        .join("")
-    : "";
-
   const pipsHtml = buildManaPipsHtml(faction.colors || [], "guild-mana-symbols");
   const decksHtml = buildDeckDiscoveryHtml(buildDeckDiscoveryGroups({
     faction,
     archidektLinks: archidektSearchLinks,
     commanderDirectoryLinks,
-    commanderCandidates: commanderPreviewCandidates,
-    commanderFallbackCandidates: commanderDeckStartFallbackCandidates,
     tagRefs: readingTagRefs,
   }));
   const preconSectionHtml = Array.isArray(APP_STATE.preconCatalog?.precons)
@@ -3437,16 +3367,10 @@ function renderResult(viewKey) {
     </div>`}
     ${resultState === "unknown" ? `<div class="result-limitation-notice" role="note">Legacy reading — ${escapeHtml(faction.name)} was saved, but answer/evidence detail is unavailable. Matrix content is identity context, not confirmation of the reading. Retake if you want an answer-grounded result.</div>` : ""}
     ${returnToPrimaryButton}
-    ${renderDossierRadarSection({ result, faction, dossier, flavorSnippets: matrixFlavorSnippets, identityLayers: APP_STATE.identityLayers })}
-    ${discoverySummaryHtml}`;
+    ${discoverySummaryHtml}
+    ${renderDossierRadarSection({ result, faction, dossier, flavorSnippets: matrixFlavorSnippets, identityLayers: APP_STATE.identityLayers })}`;
   const whyPanelHtml = `
     ${dossierInterpretationHtml}
-    ${evidenceHtml ? `
-      <div class="starter-section">
-        <div class="section-label">Signals From Your Answers</div>
-        <p class="signals-intro">Each card names a recorded answer, the bounded observation attached to it, and how that signal affected this identity. These signals help explain the result, but they do not define your personality, determine your deck, or predict how a table will respond.</p>
-        <div class="starter-grid">${evidenceHtml}</div>
-      </div>` : ""}
     ${flavorEchoesHtml}`;
   const startPanelHtml = `
     <div class="starter-section">
@@ -3475,7 +3399,7 @@ function renderResult(viewKey) {
     </div>
     ${archetypeHtml ? `
       <div class="archetypes-section">
-        <div class="section-label">Commander Lanes</div>
+        <div class="section-label">What to Look For</div>
         <div class="archetypes-grid">${archetypeHtml}</div>
       </div>` : ""}`;
   const accountDeckLinksPanelHtml = ACCOUNT_DECK_LINKS_ENABLED
@@ -3769,10 +3693,11 @@ async function loadResultCardArt(faction, commanderCandidates = [], starterCards
         const commanderCard = slot.closest("[data-commander-card]");
         commanderCard?.classList.add("is-verified");
         commanderCard?.closest("[data-commander-preview-block]")?.removeAttribute("hidden");
-        const linkClass = card.matrixCardVoice ? "vm-card-voice-image-link" : "";
-        const previewAttrs = card.matrixCardVoice ? " data-card-preview-anchor" : "";
-        const imagePreviewAttr = card.matrixCardVoice ? " data-card-preview-source" : "";
-        slot.outerHTML = `<a class="${linkClass}" href="${linkUrl}" target="_blank" rel="noopener" aria-label="Open ${escapeAttributeValue(card.displayName || data.name)} on Scryfall"${previewAttrs}><img class="${card.imageClass}" src="${imageUrl}" alt="${escapeAttributeValue(`${data.name} card image`)}" loading="lazy"${imagePreviewAttr}></a>`;
+        const groundedRationale = approvedCardRationaleForFaction(data, faction);
+        const rationale = groundedRationale?.rationale || "";
+        const provenance = groundedRationale ? JSON.stringify(groundedRationale.provenance) : "";
+        const tags = groundedRationale?.tags?.join("|") || "";
+        slot.outerHTML = `<button class="card-detail-image-trigger" type="button" aria-label="View ${escapeAttributeValue(card.displayName || data.name)} card details" data-card-preview-name="${escapeAttributeValue(card.displayName || data.name)}" data-action="open-card-detail" data-card-name="${escapeAttributeValue(card.displayName || data.name)}" data-card-rationale="${escapeAttributeValue(rationale)}" data-card-provenance="${escapeAttributeValue(provenance)}" data-card-tags="${escapeAttributeValue(tags)}"><img class="${card.imageClass}" src="${imageUrl}" alt="${escapeAttributeValue(`${data.name} card image`)}" loading="lazy"></button>`;
         const nameLink = card.nameLinkId ? document.getElementById(card.nameLinkId) : null;
         if (nameLink instanceof HTMLAnchorElement) nameLink.href = linkUrl;
         if (card.commanderPreview) {
@@ -3855,13 +3780,15 @@ async function saveCurrentResult() {
 }
 
 let cardPreviewOverlay = null;
+let cardPreviewRequestId = 0;
+let cardDetailDialog = null;
+let cardDetailInvoker = null;
+let glossaryTooltip = null;
+let glossaryTooltipTarget = null;
 
 function canShowCardPreviewOverlay() {
-  const supportsHover = typeof window.matchMedia !== "function" ||
+  return typeof window.matchMedia !== "function" ||
     window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-  const allowsMotion = typeof window.matchMedia !== "function" ||
-    !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  return supportsHover && allowsMotion;
 }
 
 function ensureCardPreviewOverlay() {
@@ -3894,25 +3821,39 @@ function positionCardPreviewOverlay(overlay, source, event = null) {
   overlay.style.top = `${top}px`;
 }
 
-function showCardPreviewOverlay(source, event = null) {
-  if (!canShowCardPreviewOverlay() || !(source instanceof HTMLImageElement)) {
+async function showCardPreviewOverlay(trigger, event = null) {
+  if (!canShowCardPreviewOverlay() || !trigger?.boundary) {
     return;
   }
+  const requestId = ++cardPreviewRequestId;
+  let imageUrl = trigger.image instanceof HTMLImageElement
+    ? (trigger.image.currentSrc || trigger.image.src)
+    : "";
+  if (!imageUrl && trigger.cardName) {
+    try {
+      const card = await loadCachedScryfallNamedCard(trigger.cardName);
+      imageUrl = cardImageUrl(card);
+    } catch (_) {
+      return;
+    }
+  }
+  if (!imageUrl || requestId !== cardPreviewRequestId) return;
   const overlay = ensureCardPreviewOverlay();
   const image = overlay.querySelector("img");
   if (image) {
-    image.src = source.currentSrc || source.src;
+    image.src = imageUrl;
     image.alt = "";
   }
-  positionCardPreviewOverlay(overlay, source, event);
+  positionCardPreviewOverlay(overlay, trigger.boundary, event);
   overlay.classList.add("is-visible");
 }
 
 function hideCardPreviewOverlay() {
+  cardPreviewRequestId += 1;
   cardPreviewOverlay?.classList.remove("is-visible");
 }
 
-const CARD_PREVIEW_IMAGE_SELECTOR = "img.staple-img, img.land-img, img.vm-card-voice-image";
+const CARD_PREVIEW_IMAGE_SELECTOR = "img.staple-img, img.land-img, img.vm-card-voice-image, img.vm-card-rationale-image";
 
 function cardPreviewTriggerFromEvent(event) {
   const target = event.target instanceof Element ? event.target : event.target?.parentElement;
@@ -3920,7 +3861,22 @@ function cardPreviewTriggerFromEvent(event) {
 
   if (target.matches(CARD_PREVIEW_IMAGE_SELECTOR)) {
     const imageLink = target.parentElement?.matches("a[href]") ? target.parentElement : null;
-    return { image: target, boundary: imageLink || target };
+    const namedBoundary = target.closest("[data-card-preview-name]");
+    return {
+      image: target,
+      boundary: namedBoundary || imageLink || target,
+      cardName: namedBoundary?.dataset.cardPreviewName || "",
+    };
+  }
+
+  const namedBoundary = target.closest("[data-card-preview-name]");
+  if (namedBoundary instanceof HTMLElement) {
+    const image = namedBoundary.querySelector(CARD_PREVIEW_IMAGE_SELECTOR);
+    return {
+      image: image instanceof HTMLImageElement ? image : null,
+      boundary: namedBoundary,
+      cardName: namedBoundary.dataset.cardPreviewName || "",
+    };
   }
 
   const imageLink = target.closest("a[href]");
@@ -3932,7 +3888,7 @@ function cardPreviewTriggerFromEvent(event) {
 function handleCardPreviewPointerOver(event) {
   const trigger = cardPreviewTriggerFromEvent(event);
   if (trigger) {
-    showCardPreviewOverlay(trigger.image, event);
+    void showCardPreviewOverlay(trigger, event);
   }
 }
 
@@ -3941,7 +3897,7 @@ function handleCardPreviewPointerMove(event) {
     return;
   }
   const trigger = cardPreviewTriggerFromEvent(event);
-  if (trigger) positionCardPreviewOverlay(cardPreviewOverlay, trigger.image, event);
+  if (trigger) positionCardPreviewOverlay(cardPreviewOverlay, trigger.boundary, event);
   else hideCardPreviewOverlay();
 }
 
@@ -3956,7 +3912,89 @@ function handleCardPreviewPointerOut(event) {
 function handleCardPreviewFocusIn(event) {
   const trigger = cardPreviewTriggerFromEvent(event);
   if (trigger) {
-    showCardPreviewOverlay(trigger.image);
+    void showCardPreviewOverlay(trigger);
+  }
+}
+
+function cardRulesText(card = {}) {
+  if (card.oracle_text) return card.oracle_text;
+  return (card.card_faces || [])
+    .map((face) => [face.name, face.oracle_text].filter(Boolean).join(" — "))
+    .filter(Boolean)
+    .join("\n\n");
+}
+
+function ensureCardDetailDialog() {
+  if (cardDetailDialog) return cardDetailDialog;
+  const dialog = document.createElement("dialog");
+  dialog.className = "archscry-card-dialog";
+  dialog.setAttribute("aria-labelledby", "archscryCardDialogTitle");
+  dialog.innerHTML = `
+    <div class="archscry-card-dialog-shell">
+      <button class="archscry-card-dialog-close" type="button" aria-label="Close card details" ${buildActionAttrs("close-card-detail")}>×</button>
+      <div class="archscry-card-dialog-content" data-card-dialog-content></div>
+    </div>`;
+  dialog.addEventListener("click", (event) => {
+    if (event.target instanceof Element && event.target.closest('[data-action="close-card-detail"]')) {
+      dialog.close();
+      return;
+    }
+    if (event.target === dialog) dialog.close();
+  });
+  dialog.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && dialog.open) {
+      event.preventDefault();
+      dialog.close();
+    }
+  });
+  dialog.addEventListener("close", () => {
+    const invoker = cardDetailInvoker;
+    cardDetailInvoker = null;
+    if (invoker?.isConnected) invoker.focus();
+  });
+  document.body.appendChild(dialog);
+  cardDetailDialog = dialog;
+  return dialog;
+}
+
+async function openCardDetail(actionNode) {
+  const cardName = String(actionNode?.dataset.cardName || "").trim();
+  const rationale = String(actionNode?.dataset.cardRationale || "").trim();
+  const provenance = String(actionNode?.dataset.cardProvenance || "").trim();
+  if (!cardName) return;
+  hideCardPreviewOverlay();
+  const dialog = ensureCardDetailDialog();
+  const content = dialog.querySelector("[data-card-dialog-content]");
+  if (!content) return;
+  cardDetailInvoker = actionNode;
+  content.innerHTML = `<p class="archscry-card-dialog-status">Loading verified card data…</p>`;
+  if (!dialog.open) dialog.showModal();
+
+  try {
+    const card = await loadCachedScryfallNamedCard(cardName);
+    const image = cardImageUrl(card);
+    const manaCost = card.mana_cost || card.card_faces?.map((face) => face.mana_cost).filter(Boolean).join(" // ") || "";
+    const typeLine = card.type_line || card.card_faces?.map((face) => face.type_line).filter(Boolean).join(" // ") || "";
+    const oracleText = cardRulesText(card);
+    const scryfallUrl = /^https:\/\/scryfall\.com\//.test(card.scryfall_uri || "") ? card.scryfall_uri : "";
+    const tags = String(actionNode.dataset.cardTags || "").split("|").map((tag) => tag.trim()).filter(Boolean);
+    content.innerHTML = `
+      <div class="archscry-card-dialog-grid" data-card-dialog-ready>
+        ${image ? `<img class="archscry-card-dialog-image" src="${escapeAttributeValue(image)}" alt="${escapeAttributeValue(`${card.name || cardName} card image`)}">` : ""}
+        <div class="archscry-card-dialog-copy">
+          <div class="section-label">Card Details</div>
+          <h2 id="archscryCardDialogTitle">${escapeHtml(card.name || cardName)}</h2>
+          ${manaCost ? `<div class="archscry-card-dialog-mana">${escapeHtml(manaCost)}</div>` : ""}
+          ${typeLine ? `<div class="archscry-card-dialog-type">${escapeHtml(typeLine)}</div>` : ""}
+          ${oracleText ? `<div class="archscry-card-dialog-rules">${escapeHtml(oracleText).replace(/\n/g, "<br>")}</div>` : ""}
+          ${rationale && provenance ? `<div class="archscry-card-dialog-why"><strong>Why it appears</strong><span>${escapeHtml(rationale)}</span></div>` : ""}
+          ${tags.length ? `<div class="vm-tag-row">${renderStaticTagChips(tags, 4)}</div>` : ""}
+          ${scryfallUrl ? `<a class="btn-secondary archscry-card-dialog-external" href="${escapeAttributeValue(scryfallUrl)}" target="_blank" rel="noopener">Open on Scryfall</a>` : ""}
+        </div>
+      </div>`;
+    if (rationale && provenance) content.dataset.rationaleProvenance = provenance;
+  } catch (_) {
+    content.innerHTML = `<p class="archscry-card-dialog-status">Verified card details are unavailable. No fallback description was generated.</p>`;
   }
 }
 
@@ -3966,6 +4004,84 @@ function handleCardPreviewFocusOut(event) {
   if (trigger && !relatedInside) {
     hideCardPreviewOverlay();
   }
+}
+
+function ensureGlossaryTooltip() {
+  if (glossaryTooltip) return glossaryTooltip;
+  const tooltip = document.createElement("div");
+  tooltip.id = "archscryGlossaryTooltip";
+  tooltip.className = "archscry-glossary-tooltip";
+  tooltip.setAttribute("role", "tooltip");
+  tooltip.hidden = true;
+  document.body.appendChild(tooltip);
+  glossaryTooltip = tooltip;
+  return tooltip;
+}
+
+function positionGlossaryTooltip(target, tooltip) {
+  const rect = target.getBoundingClientRect();
+  const gap = 10;
+  const margin = 12;
+  const maxWidth = Math.min(360, window.innerWidth - margin * 2);
+  tooltip.style.maxWidth = `${maxWidth}px`;
+  tooltip.style.left = `${margin}px`;
+  tooltip.style.top = `${margin}px`;
+  const tooltipRect = tooltip.getBoundingClientRect();
+  let left = rect.left + rect.width / 2 - tooltipRect.width / 2;
+  left = Math.max(margin, Math.min(window.innerWidth - tooltipRect.width - margin, left));
+  let top = rect.bottom + gap;
+  if (top + tooltipRect.height > window.innerHeight - margin) {
+    top = rect.top - tooltipRect.height - gap;
+  }
+  top = Math.max(margin, Math.min(window.innerHeight - tooltipRect.height - margin, top));
+  tooltip.style.left = `${Math.round(left)}px`;
+  tooltip.style.top = `${Math.round(top)}px`;
+}
+
+function showGlossaryTooltip(target) {
+  const copy = String(target?.dataset.gloss || "").trim();
+  if (!copy) return;
+  const tooltip = ensureGlossaryTooltip();
+  glossaryTooltipTarget?.removeAttribute("aria-describedby");
+  glossaryTooltipTarget = target;
+  tooltip.textContent = copy;
+  tooltip.hidden = false;
+  target.setAttribute("aria-describedby", tooltip.id);
+  positionGlossaryTooltip(target, tooltip);
+}
+
+function hideGlossaryTooltip(target = null) {
+  if (target && target !== glossaryTooltipTarget) return;
+  glossaryTooltipTarget?.removeAttribute("aria-describedby");
+  glossaryTooltipTarget = null;
+  if (glossaryTooltip) glossaryTooltip.hidden = true;
+}
+
+function glossaryTargetFromEvent(event) {
+  const target = event.target instanceof Element ? event.target : event.target?.parentElement;
+  return target?.closest?.(".archscry-term-help[data-gloss]") || null;
+}
+
+function handleGlossaryPointerOver(event) {
+  const target = glossaryTargetFromEvent(event);
+  if (target) showGlossaryTooltip(target);
+}
+
+function handleGlossaryPointerOut(event) {
+  const target = glossaryTargetFromEvent(event);
+  if (!target) return;
+  if (event.relatedTarget instanceof Node && target.contains(event.relatedTarget)) return;
+  hideGlossaryTooltip(target);
+}
+
+function handleGlossaryFocusIn(event) {
+  const target = glossaryTargetFromEvent(event);
+  if (target) showGlossaryTooltip(target);
+}
+
+function handleGlossaryFocusOut(event) {
+  const target = glossaryTargetFromEvent(event);
+  if (target) hideGlossaryTooltip(target);
 }
 
 // Delegated route controls. Keep data-action behavior centralized here.
@@ -3981,8 +4097,18 @@ function bindArchscryControls() {
   app?.addEventListener("pointerout", handleCardPreviewPointerOut);
   app?.addEventListener("focusin", handleCardPreviewFocusIn);
   app?.addEventListener("focusout", handleCardPreviewFocusOut);
-  window.addEventListener("scroll", hideCardPreviewOverlay, { passive: true, capture: true });
-  window.addEventListener("resize", () => initializeDossierMobileTabs(), { passive: true });
+  app?.addEventListener("pointerover", handleGlossaryPointerOver);
+  app?.addEventListener("pointerout", handleGlossaryPointerOut);
+  app?.addEventListener("focusin", handleGlossaryFocusIn);
+  app?.addEventListener("focusout", handleGlossaryFocusOut);
+  window.addEventListener("scroll", () => {
+    hideCardPreviewOverlay();
+    hideGlossaryTooltip();
+  }, { passive: true, capture: true });
+  window.addEventListener("resize", () => {
+    initializeDossierMobileTabs();
+    hideGlossaryTooltip();
+  }, { passive: true });
 }
 
 async function handleArchscryActionClick(event) {
@@ -4062,6 +4188,12 @@ async function handleArchscryActionClick(event) {
       return;
     case "toggle-precon-preview":
       togglePreconPreview(actionNode);
+      return;
+    case "open-card-detail":
+      await openCardDetail(actionNode);
+      return;
+    case "close-card-detail":
+      cardDetailDialog?.close();
       return;
     default:
   }

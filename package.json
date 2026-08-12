@@ -56,6 +56,7 @@
     "test:gate-b1-runtime": "node scripts/vm551-gate-b1-runtime-integration-tests.mjs",
     "test:gate-b1-result-contract": "node scripts/vm551-gate-b1-qualified-alternatives-tests.mjs",
     "test:gate-b1-questionnaire-presentation": "node scripts/vm551-gate-b1-questionnaire-presentation-tests.mjs",
+    "test:vm551-dossier-integrity": "node scripts/vm551-dossier-content-integrity-tests.mjs",
     "build:gate-b1-reports": "node scripts/validate-gate-b1-placement-engine.mjs --write",
     "test:gate-b1-engine": "node scripts/build-gate-b1-placement-model.mjs --check && node scripts/validate-gate-b1-placement-engine.mjs --check",
     "test:presentation-snapshots": "node research/presentation-snapshot-tests.js",

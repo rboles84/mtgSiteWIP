@@ -1,0 +1,1997 @@
+{
+  "schema_version": "vm551-commander-provider-validation-v1",
+  "validated_at": "2026-08-11",
+  "scope": {
+    "source": "data/precons/vox-mana-precon-catalog.json",
+    "unique_commanders": 155
+  },
+  "providers": {
+    "edhrec": {
+      "enabled": true,
+      "verified": 143,
+      "suppressed": 12,
+      "method": "Live HTTP validation of every exact commander destination; Captain N'ghathrod uses its verified provider-specific slug override."
+    },
+    "archidekt": {
+      "enabled": false,
+      "reason": "The exact-commander search contract was confirmed for sampled names, but the complete sweep was rate-limited (HTTP 429 for 135 of 155 rows)."
+    },
+    "mtgdecks": {
+      "enabled": false,
+      "reason": "The complete automated sweep returned HTTP 403, so links are not exposed despite a manually discoverable sample route."
+    },
+    "mtggoldfish": {
+      "enabled": false,
+      "reason": "No stable exact-commander search contract was established for this remediation."
+    }
+  },
+  "commanders": {
+    "Abaddon the Despoiler": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/abaddon-the-despoiler",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Admiral Brass, Unsinkable": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/admiral-brass-unsinkable",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Adrix and Nev, Twincasters": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/adrix-and-nev-twincasters",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Aesi, Tyrant of Gyre Strait": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/aesi-tyrant-of-gyre-strait",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Aminatou, Veil Piercer": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/aminatou-veil-piercer",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Aminatou, the Fateshifter": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/aminatou-the-fateshifter",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Anhelo, the Painter": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/anhelo-the-painter",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Anikthea, Hand of Erebos": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/anikthea-hand-of-erebos",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Anje Falkenrath": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/anje-falkenrath",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Anowon, the Ruin Thief": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/anowon-the-ruin-thief",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Arahbo, Roar of the World": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/arahbo-roar-of-the-world",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Ashling, the Limitless": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/ashling-the-limitless",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Atarka, World Render": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/atarka-world-render",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Atraxa, Praetors' Voice": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/atraxa-praetors-voice",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Auntie Ool, Cursewretch": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/auntie-ool-cursewretch",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Bello, Bard of the Brambles": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/bello-bard-of-the-brambles",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Breena, the Demagogue": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/breena-the-demagogue",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Breya, Etherium Shaper": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/breya-etherium-shaper",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Bright-Palm, Soul Awakener": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/bright-palm-soul-awakener",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Brimaz, Blight of Oreskos": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/brimaz-blight-of-oreskos",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Caesar, Legion's Emperor": {
+      "links": [],
+      "suppressed": [
+        {
+          "service": "edhrec",
+          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+        }
+      ]
+    },
+    "Captain N'ghathrod": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/captain-nghathrod",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Chishiro, the Shattered Blade": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/chishiro-the-shattered-blade",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Clavileño, First of the Blessed": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/clavileno-first-of-the-blessed",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Cloud, Ex-SOLDIER": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/cloud-ex-soldier",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Commodore Guff": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/commodore-guff",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Daretti, Scrap Savant": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/daretti-scrap-savant",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Davros, Dalek Creator": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/davros-dalek-creator",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Daxos the Returned": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/daxos-the-returned",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Derevi, Empyrial Tactician": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/derevi-empyrial-tactician",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Dihada, Binder of Wills": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/dihada-binder-of-wills",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Dina, Essence Brewer": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/dina-essence-brewer",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Disa the Restless": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/disa-the-restless",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Dogmeat, Ever Loyal": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/dogmeat-ever-loyal",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Dr. Madison Li": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/dr-madison-li",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Edgar Markov": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/edgar-markov",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Ellivere of the Wild Court": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/ellivere-of-the-wild-court",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Emmara, Soul of the Accord": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/emmara-soul-of-the-accord",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Eowyn, Shieldmaiden": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/eowyn-shieldmaiden",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Eshki, Temur's Roar": {
+      "links": [],
+      "suppressed": [
+        {
+          "service": "edhrec",
+          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+        }
+      ]
+    },
+    "Estrid, the Masked": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/estrid-the-masked",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Ezuri, Claw of Progress": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/ezuri-claw-of-progress",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Faldorn, Dread Wolf Herald": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/faldorn-dread-wolf-herald",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Felothar the Steadfast": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/felothar-the-steadfast",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Firkraag, Cunning Instigator": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/firkraag-cunning-instigator",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Freyalise, Llanowar's Fury": {
+      "links": [],
+      "suppressed": [
+        {
+          "service": "edhrec",
+          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+        }
+      ]
+    },
+    "Frodo, Adventurous Hobbit / Sam, Loyal Attendant": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/frodo-adventurous-hobbit-sam-loyal-attendant",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Galadriel, Elven-Queen": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/galadriel-elven-queen",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Galea, Kindler of Hope": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/galea-kindler-of-hope",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Gavi, Nest Warden": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/gavi-nest-warden",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Ghave, Guru of Spores": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/ghave-guru-of-spores",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Ghired, Conclave Exile": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/ghired-conclave-exile",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Gimbal, Gremlin Prodigy": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/gimbal-gremlin-prodigy",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Gisa and Geralf": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/gisa-and-geralf",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Gonti, Canny Acquisitor": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/gonti-canny-acquisitor",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Hakbal of the Surging Soul": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/hakbal-of-the-surging-soul",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Hazel of the Rootbloom": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/hazel-of-the-rootbloom",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Hearthhull, the Worldseed": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/hearthhull-the-worldseed",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Henzie \"Toolbox\" Torre": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/henzie-toolbox-torre",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Heroes in a Half Shell": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/heroes-in-a-half-shell",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Inalla, Archmage Ritualist": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/inalla-archmage-ritualist",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Inquisitor Greyfax": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/inquisitor-greyfax",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Inspirit, Flagship Vessel": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/inspirit-flagship-vessel",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Isperia, Supreme Judge": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/isperia-supreme-judge",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Ixhel, Scion of Atraxa": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/ixhel-scion-of-atraxa",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Jared Carthalion": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/jared-carthalion",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Jeleva, Nephalia's Scourge": {
+      "links": [],
+      "suppressed": [
+        {
+          "service": "edhrec",
+          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+        }
+      ]
+    },
+    "Jirina Kudro": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/jirina-kudro",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Kaalia of the Vast": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/kaalia-of-the-vast",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Kadena, Slinking Sorcerer": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/kadena-slinking-sorcerer",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Kalamax, the Stormsire": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/kalamax-the-stormsire",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Kalemne, Disciple of Iroas": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/kalemne-disciple-of-iroas",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Kamiz, Obscura Oculus": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/kamiz-obscura-oculus",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Kardur, Doomscourge": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/kardur-doomscourge",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Kasla, the Broken Halo": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/kasla-the-broken-halo",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Kathril, Aspect Warper": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/kathril-aspect-warper",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Kaust, Eyes of the Glade": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/kaust-eyes-of-the-glade",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Killian, Decisive Mentor": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/killian-decisive-mentor",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Kitt Kanto, Mayhem Diva": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/kitt-kanto-mayhem-diva",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Kotis, Sibsig Champion": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/kotis-sibsig-champion",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Kotori, Pilot Prodigy": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/kotori-pilot-prodigy",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Kynaios and Tiro of Meletis": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/kynaios-and-tiro-of-meletis",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Lathril, Blade of the Elves": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/lathril-blade-of-the-elves",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Leinore, Autumn Sovereign": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/leinore-autumn-sovereign",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Lord Windgrace": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/lord-windgrace",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Marath, Will of the Wild": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/marath-will-of-the-wild",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Meren of Clan Nel Toth": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/meren-of-clan-nel-toth",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Millicent, Restless Revenant": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/millicent-restless-revenant",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Mirko, Obsessive Theorist": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/mirko-obsessive-theorist",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Mishra, Eminent One": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/mishra-eminent-one",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Mizzix of the Izmagnus": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/mizzix-of-the-izmagnus",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Morska, Undersea Sleuth": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/morska-undersea-sleuth",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Ms. Bumbleflower": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/ms-bumbleflower",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Nahiri, the Lithomancer": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/nahiri-the-lithomancer",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Nalia de'Arnise": {
+      "links": [],
+      "suppressed": [
+        {
+          "service": "edhrec",
+          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+        }
+      ]
+    },
+    "Nelly Borca, Impulsive Accuser": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/nelly-borca-impulsive-accuser",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Neyali, Sun's Vanguard": {
+      "links": [],
+      "suppressed": [
+        {
+          "service": "edhrec",
+          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+        }
+      ]
+    },
+    "Ob Nixilis of the Black Oath": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/ob-nixilis-of-the-black-oath",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Obuun, Mul Daya Ancestor": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/obuun-mul-daya-ancestor",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Olivia, Opulent Outlaw": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/olivia-opulent-outlaw",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Oloro, Ageless Ascetic": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/oloro-ageless-ascetic",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Omo, Queen of Vesuva": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/omo-queen-of-vesuva",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Osgir, the Reconstructor": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/osgir-the-reconstructor",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Otrimi, the Ever-Playful": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/otrimi-the-ever-playful",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Pantlaza, Sun-Favored": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/pantlaza-sun-favored",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Perrie, the Pulverizer": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/perrie-the-pulverizer",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Prosper, Tome-Bound": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/prosper-tome-bound",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Prossh, Skyraider of Kher": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/prossh-skyraider-of-kher",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Quintorius, History Chaser": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/quintorius-history-chaser",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Ranar, the Ever-Watchful": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/ranar-the-ever-watchful",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Riku of Two Reflections": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/riku-of-two-reflections",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Rootha, Mastering the Moment": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/rootha-mastering-the-moment",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Saheeli, Radiant Creator": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/saheeli-radiant-creator",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Saheeli, the Gifted": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/saheeli-the-gifted",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Saskia the Unyielding": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/saskia-the-unyielding",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Satya, Aetherflux Genius": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/satya-aetherflux-genius",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Sauron, Lord of the Rings": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/sauron-lord-of-the-rings",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Sefris of the Hidden Ways": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/sefris-of-the-hidden-ways",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Sevinne, the Chronoclasm": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/sevinne-the-chronoclasm",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Shiko and Narset, Unified": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/shiko-and-narset-unified",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Sidar Jabari of Zhalfir": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/sidar-jabari-of-zhalfir",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Sliver Gravemother": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/sliver-gravemother",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Stella, Wild Card": {
+      "links": [],
+      "suppressed": [
+        {
+          "service": "edhrec",
+          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+        }
+      ]
+    },
+    "Strefan, Maurer Progenitor": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/strefan-maurer-progenitor",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Szarekh, the Silent King": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/szarekh-the-silent-king",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Teferi, Temporal Archmage": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/teferi-temporal-archmage",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Tegwyll, Duke of Splendor": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/tegwyll-duke-of-splendor",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Temmet, Naktamun's Will": {
+      "links": [],
+      "suppressed": [
+        {
+          "service": "edhrec",
+          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+        }
+      ]
+    },
+    "Terra, Herald of Hope": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/terra-herald-of-hope",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "The Fourth Doctor / Sarah Jane Smith": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/the-fourth-doctor-sarah-jane-smith",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "The Mimeoplasm": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/the-mimeoplasm",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "The Swarmlord": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/the-swarmlord",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "The Tenth Doctor / Rose Tyler": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/the-tenth-doctor-rose-tyler",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "The Thirteenth Doctor / Yasmin Khan": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/the-thirteenth-doctor-yasmin-khan",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "The Ur-Dragon": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/the-ur-dragon",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "The Wise Mothman": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/the-wise-mothman",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Tidus, Yuna's Guardian": {
+      "links": [],
+      "suppressed": [
+        {
+          "service": "edhrec",
+          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+        }
+      ]
+    },
+    "Ulalek, Fused Atrocity": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/ulalek-fused-atrocity",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Urza, Chief Artificer": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/urza-chief-artificer",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Valgavoth, Harvester of Souls": {
+      "links": [],
+      "suppressed": [
+        {
+          "service": "edhrec",
+          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+        }
+      ]
+    },
+    "Vrondiss, Rage of Ancients": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/vrondiss-rage-of-ancients",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Wilhelt, the Rotcleaver": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/wilhelt-the-rotcleaver",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Willowdusk, Essence Seer": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/willowdusk-essence-seer",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Winter, Cynical Opportunist": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/winter-cynical-opportunist",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Wyleth, Soul of Steel": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/wyleth-soul-of-steel",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Y'shtola, Night's Blessed": {
+      "links": [],
+      "suppressed": [
+        {
+          "service": "edhrec",
+          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+        }
+      ]
+    },
+    "Yidris, Maelstrom Wielder": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/yidris-maelstrom-wielder",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Yuma, Proud Protector": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/yuma-proud-protector",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Zaffai, Thunder Conductor": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/zaffai-thunder-conductor",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Zedruu the Greathearted": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/zedruu-the-greathearted",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Zhulodok, Void Gorger": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/zhulodok-void-gorger",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Zimone, Infinite Analyst": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/zimone-infinite-analyst",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Zimone, Mystery Unraveler": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/zimone-mystery-unraveler",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    },
+    "Zinnia, Valley's Voice": {
+      "links": [],
+      "suppressed": [
+        {
+          "service": "edhrec",
+          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+        }
+      ]
+    },
+    "Zurgo Stormrender": {
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/zurgo-stormrender",
+          "verified": true,
+          "verified_at": "2026-08-11",
+          "verification": "HTTP 200"
+        }
+      ],
+      "suppressed": []
+    }
+  }
+}

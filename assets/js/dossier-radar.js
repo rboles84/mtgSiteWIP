@@ -109,42 +109,6 @@ function renderDossierAxisDetail(profile, axisIndex = RADAR.dominantAxisIndex(pr
     <span>${escapeDossierHtml(axis.meaning)}</span>`;
 }
 
-function renderDossierCardVoicesPanel(snippets = []) {
-  const items = (snippets || [])
-    .filter((snippet) => snippet?.card_name && snippet?.flavor_excerpt && snippet?.scryfall_uri)
-    .slice(0, 3);
-  if (items.length < 2) return "";
-  return `
-    <div class="vm-card-voice-panel" data-archscry-card-voices>
-      <div class="vm-card-voice-heading">
-        <span>Cards That Sound Like This</span>
-        <p>Short source-grounded card voices that echo the reading's feel. They are examples, not required pickups.</p>
-      </div>
-      <div class="vm-card-voice-list">
-        ${items.map((snippet, index) => `
-          <article class="vm-card-voice" data-matrix-card-name="${escapeDossierHtml(snippet.card_name)}" data-record-type="CARD">
-            ${snippet.image_uri
-              ? `<a class="vm-card-voice-image-link" id="mcv_${index}" href="${escapeDossierHtml(snippet.scryfall_uri)}" target="_blank" rel="noopener" aria-label="Open ${escapeDossierHtml(snippet.card_name)} on Scryfall" data-card-preview-anchor><img class="vm-card-voice-image" src="${escapeDossierHtml(snippet.image_uri)}" alt="${escapeDossierHtml(`${snippet.card_name} card image`)}" loading="lazy" data-card-preview-source></a>`
-              : `<span class="vm-card-voice-image-fallback" id="mcv_${index}" aria-label="Card image unavailable"><span aria-hidden="true">Image unavailable</span></span>`}
-            <div class="vm-card-voice-copy">
-              <a class="vm-card-voice-name" id="mcv_name_${index}" href="${escapeDossierHtml(snippet.scryfall_uri)}" target="_blank" rel="noopener" aria-label="Open ${escapeDossierHtml(snippet.card_name)} on Scryfall" data-card-preview-anchor>${escapeDossierHtml(snippet.card_name)}</a>
-              <span class="vm-card-voice-text">${escapeDossierHtml(snippet.flavor_excerpt)}</span>
-            </div>
-          </article>`).join("")}
-      </div>
-    </div>`;
-}
-
-function renderColorlessCardVoiceBoundaryPanel() {
-  return `
-    <div class="vm-card-voice-panel" data-archscry-card-voices>
-      <div class="vm-card-voice-heading">
-        <span>Colorless Matrix Boundary</span>
-        <p>Colorless stays outside the five-color grammar. Its card examples stay in the main card section so artifacts, Wastes, Eldrazi, true {C}, generic costs, and five-color Eldrazi do not repeat as one interchangeable voice.</p>
-      </div>
-    </div>`;
-}
-
 function renderOptionalTextBlock(className, label, text) {
   if (!text) return "";
   return `
@@ -155,8 +119,8 @@ function renderOptionalTextBlock(className, label, text) {
 }
 
 function renderDossierRadarSection({ result, faction, flavorSnippets = [], identityLayers = null }) {
+  void flavorSnippets;
   const profile = getDossierRadarProfile(result, faction, identityLayers);
-  const factionKey = String(profile.key || faction?.key || result?.primary || result?.top || "").toUpperCase();
   const multiColor = (profile.components || []).length > 1;
   const controlsHtml = multiColor
     ? `
@@ -208,7 +172,6 @@ function renderDossierRadarSection({ result, faction, flavorSnippets = [], ident
             </div>
           </div>
         </div>
-        ${factionKey === "COLORLESS" ? renderColorlessCardVoiceBoundaryPanel() : renderDossierCardVoicesPanel(flavorSnippets)}
       </div>
     </div>`;
 }

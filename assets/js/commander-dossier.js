@@ -2217,19 +2217,29 @@ export function buildReadingOmens({
   const activeKey = String(activeFactionKey || "").toUpperCase();
   void factions;
   return (evidenceTrail || [])
-    .filter((entry) => evidenceDeltaForFaction(entry, activeKey) !== 0)
+    .filter((entry) => evidenceDeltaForFaction(entry, activeKey) > 0)
     .slice(-limit)
     .map((entry, index) => {
       const answerTitle = entry?.answer_title || "A recorded answer";
-      const delta = evidenceDeltaForFaction(entry, activeKey);
-      const observation = entry?.signal || "a reading signal";
-      const direction = delta > 0 ? "added support for" : "counted against";
+      const observation = entry?.observation || entry?.bounded_observation || "";
       return {
-        title: `Recorded signal ${index + 1}`,
+        title: `From your answers ${index + 1}`,
         answerTitle,
-        copy: `You selected “${answerTitle}.” That answer added ${observation}, which ${direction} this identity in the reading.`,
+        copy: observation,
+        questionId: entry?.question_id || "",
+        answerId: entry?.answer_id || "",
+        provenance: entry?.evidence_provenance || entry?.mapping_provenance || null,
       };
-    });
+    })
+    .filter((entry) => entry.copy);
+}
+
+function publicObservationForEvidence(entry) {
+  return String(entry?.observation || entry?.bounded_observation || "").trim();
+}
+
+function publicObservationSentenceStem(entry) {
+  return publicObservationForEvidence(entry).replace(/[.!?]+$/, "");
 }
 
 function colorlessOmenCopy(entry = {}) {
@@ -2438,6 +2448,36 @@ function buildArchetypes(faction) {
     }));
 }
 
+const INTERNAL_COMMANDER_GUIDANCE_RE = /\b(texture|source-backed|public-surface|guardrail|evidence-required|naming|mapping|boundary-only|routing|taxonomy|support lane)\b/i;
+
+export function buildWhatToLookFor(faction) {
+  const compass = faction?.commander_compass;
+  const identityBasis = compass?.identity_basis;
+  const sourceIds = Array.isArray(identityBasis?.supporting_source_ids)
+    ? identityBasis.supporting_source_ids.filter(Boolean)
+    : [];
+  const claimIds = Array.isArray(identityBasis?.supporting_claim_ids)
+    ? identityBasis.supporting_claim_ids.filter(Boolean)
+    : [];
+  if (!compass?.source_research_file || !sourceIds.length || !claimIds.length) {
+    return [];
+  }
+
+  return uniqueObjectsBy(compass?.archetype_lanes || [], (item) => normalizeDisplayName(item?.lane_name || ""))
+    .filter((item) => item?.lane_name && item?.description)
+    .filter((item) => !INTERNAL_COMMANDER_GUIDANCE_RE.test(`${item.lane_name} ${item.description}`))
+    .map((item) => ({
+      name: applyCardDisplayNames(item.lane_name),
+      desc: applyCardDisplayNames(item.description),
+      provenance: {
+        sourceResearchFile: compass.source_research_file,
+        claimIds,
+        sourceIds,
+        evidenceRole: "approved-commander-guidance",
+      },
+    }));
+}
+
 function buildManaAlignment(placementResult = {}) {
   return MANA_ORDER.map((color) => ({
     color,
@@ -2463,6 +2503,7 @@ function adjacentFitsForResult({ result, factions, activeKey, isPrimary }) {
       const directEvidence = (result?.evidence_trail || []).find(
         (entry) => evidenceDeltaForFaction(entry, match.faction) > 0
       );
+      const publicObservation = publicObservationSentenceStem(directEvidence);
       return {
         factionKey: match.faction,
         name: matchFaction.name,
@@ -2471,9 +2512,11 @@ function adjacentFitsForResult({ result, factions, activeKey, isPrimary }) {
         world: matchFaction.world,
         reason: result?.alternative_state === "co-leader"
           ? "Your answers supported both readings without clearly separating them. This is a co-leader, not a close alternative."
+          : !publicObservation
+            ? "This comparison is present in the calculated result, but its answer detail is unavailable in this saved reading."
           : result?.alternative_state === "exploration"
-            ? `You selected “${directEvidence?.answer_title || "a recorded answer"}.” That answer added ${directEvidence?.signal || "a supporting signal"} to the ${matchFaction.name} reading. It remains a comparison direction; the primary reading is unchanged.`
-            : `You selected “${directEvidence?.answer_title || "a recorded answer"}.” That answer added ${directEvidence?.signal || "a supporting signal"} to the ${matchFaction.name} reading. This close result is a bounded comparison, not proof of a fixed relationship between the identities.`,
+            ? `Your answer “${directEvidence?.answer_title || "a recorded answer"}” recorded: ${publicObservation}. That is one reason ${matchFaction.name} remains worth comparing; the primary reading is unchanged.`
+            : `Your answer “${directEvidence?.answer_title || "a recorded answer"}” recorded: ${publicObservation}. That is one reason ${matchFaction.name} remained close in this reading.`,
       };
     })
     .filter(Boolean);
@@ -2483,18 +2526,6 @@ function targetEvidenceTrail(evidenceTrail = [], targetFactionKey) {
   return (evidenceTrail || []).filter((entry) =>
     (entry?.deltas || []).some((delta) => delta.faction === targetFactionKey && Number(delta.delta) > 0)
   );
-}
-
-function fallbackAdjacentOmen(faction, guidance, reasonItStayedClose, index = 1) {
-  const themes = (guidance?.ownedThemes || []).slice(0, 3).join(", ");
-  return {
-    title: `Adjacent Signal ${index}`,
-    answerTitle: index === 1 ? "A neighboring Commander lens" : "Target identity translation",
-    copy: index === 1
-      ? (reasonItStayedClose ||
-          `${faction.name} stayed near the reading because ${themes || "its Commander identity"} offered a neighboring way to build the same pressure.`)
-      : `${faction.name} translates this lens through ${themes || "its Commander identity"}, so the deck path belongs to the adjacent target rather than the primary result.`,
-  };
 }
 
 function buildDossierReadingOmens({ placementResult, factions, activeKey, faction, guidance, isPrimary, reasonItStayedClose }) {
@@ -2526,9 +2557,10 @@ function buildAdjacentReason({ adjacentReason, activeMatch, faction, primaryFact
   const evidence = (placementResult?.evidence_trail || []).find(
     (entry) => evidenceDeltaForFaction(entry, activeKey) > 0
   );
-  return evidence
-    ? `You selected “${evidence.answer_title || "a recorded answer"}.” That answer added ${evidence.signal || "a supporting signal"} to the ${faction.name} reading. This view compares that signal without replacing the original reading.`
-    : `${faction.name} remains available in the saved result detail, but no direct positive answer signal is available for a public alternative claim.`;
+  const publicObservation = publicObservationSentenceStem(evidence);
+  return publicObservation
+    ? `Your answer “${evidence.answer_title || "a recorded answer"}” recorded: ${publicObservation}. This view compares that observation without replacing the original reading.`
+    : "The saved result does not include enough answer detail for a more specific public comparison.";
 }
 
 function summaryStripOverride(key) {
@@ -2797,12 +2829,15 @@ export function resolveSummaryAdjacentFit({
   const directEvidence = (placementResult?.evidence_trail || []).find(
     (entry) => evidenceDeltaForFaction(entry, targetKey) > 0
   );
+  const publicObservation = publicObservationSentenceStem(directEvidence);
   const relationshipCopy = placementResult?.alternative_state === "co-leader"
     ? "Your answers supported both readings without clearly separating them."
+    : !publicObservation
+      ? "This comparison is present in the calculated result, but its answer detail is unavailable in this saved reading."
     : isPrimary
       ? placementResult?.alternative_state === "exploration"
-        ? `You selected “${directEvidence?.answer_title || "a recorded answer"}.” That answer added ${directEvidence?.signal || "a supporting signal"} to the ${targetName} reading. This supported comparison does not change the primary result.`
-        : `You selected “${directEvidence?.answer_title || "a recorded answer"}.” That answer added ${directEvidence?.signal || "a supporting signal"} to the ${targetName} reading. This close result does not prove a fixed relationship between the identities.`
+        ? `Your answer “${directEvidence?.answer_title || "a recorded answer"}” recorded: ${publicObservation}. That is one reason ${targetName} remains worth comparing; the primary reading is unchanged.`
+        : `Your answer “${directEvidence?.answer_title || "a recorded answer"}” recorded: ${publicObservation}. That is one reason ${targetName} remained close in this reading.`
       : reasonItStayedClose;
 
   return {
@@ -3121,6 +3156,7 @@ export function buildCommanderDossier({
       guidance,
     },
     archetypes: buildArchetypes(faction),
+    whatToLookFor: buildWhatToLookFor(faction),
     starterCards,
     landRecommendations: buildCommanderLandRecommendations(faction),
     commanderRecommendations,
@@ -3756,6 +3792,57 @@ export function buildCommanderDeckStartFallbackCandidates(preconRecommendations 
   return candidates;
 }
 
+function preconColorIdentityLabel(identityKey) {
+  const colors = String(identityKey || "")
+    .split("")
+    .map((code) => PRECON_CODE_TO_COLOR.get(code))
+    .filter(Boolean);
+  if (!colors.length) return "Colorless";
+  if (colors.length === 1) return colors[0];
+  if (colors.length === 2) return `${colors[0]}-${colors[1]}`;
+  return `${colors.slice(0, -1).join(", ")}, and ${colors.at(-1)}`;
+}
+
+function verifiedPreconFacts(precon) {
+  return unique([
+    precon?.normalizedThemes?.primary?.displayName,
+    precon?.normalizedThemes?.secondary?.displayName,
+    ...(Array.isArray(precon?.mechanics) ? precon.mechanics : []),
+  ].map((entry) => String(entry || "").trim()).filter(Boolean)).slice(0, 4);
+}
+
+export function buildPublicPreconRationale({
+  precon,
+  lane,
+  activeIdentity,
+  candidateIdentity,
+  stretchColors = [],
+} = {}) {
+  if (!precon?.deckName || !precon?.mainCommander || !candidateIdentity) return null;
+  const facts = verifiedPreconFacts(precon);
+  const factCopy = facts.length ? ` The precon catalog records ${facts.join(", ")}.` : "";
+  const relationshipCopy = lane === "stretch"
+    ? `This nearby option adds ${stretchColors.join(" and ") || "another color"} to the reading's ${preconColorIdentityLabel(activeIdentity)} color identity.`
+    : `This deck shares the reading's ${preconColorIdentityLabel(candidateIdentity)} color identity.`;
+  return {
+    text: `${relationshipCopy}${factCopy}`,
+    facts,
+    provenance: {
+      authority: "data/precons/vox-mana-precons.source.json",
+      generatedRecord: "data/precons/vox-mana-precon-catalog.json",
+      deckName: precon.deckName,
+      fields: [
+        "mainCommander",
+        "colors",
+        "normalizedThemes.primary",
+        "normalizedThemes.secondary",
+        "mechanics",
+      ],
+      limitation: "Color identity and cataloged deck facts are browsing context, not identity proof or inferred player preference.",
+    },
+  };
+}
+
 export function buildPreconRecommendations({
   faction,
   dossier,
@@ -3810,12 +3897,20 @@ export function buildPreconRecommendations({
         Array.isArray(precon?.factionRefs) &&
         precon.factionRefs.includes(activeFactionKey));
       const group = lane === "stretch" ? "stretch" : (nativeExact ? "nativeExact" : "otherExact");
+      const publicRationale = buildPublicPreconRationale({
+        precon,
+        lane,
+        activeIdentity,
+        candidateIdentity,
+        stretchColors,
+      });
 
       return {
         ...precon,
         lane,
         group,
         score,
+        publicRationale,
         fitSummary: buildPreconFitSummary({
           precon,
           lane,
