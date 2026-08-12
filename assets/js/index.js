@@ -107,6 +107,7 @@ const APP_STATE = {
   tagTaxonomyByKey: new Map(),
   scryfallFlavorIndex: null,
   archscryFlavorSnippets: null,
+  cardRationaleCatalog: null,
   preconCatalog: null,
   preconThemeTaxonomy: null,
   commanderProviderValidation: null,
@@ -295,6 +296,7 @@ async function loadDiscoveryData() {
   const [
     taxonomy,
     archscryFlavorSnippets,
+    cardRationaleCatalog,
     preconCatalog,
     preconThemeTaxonomy,
     commanderProviderValidation,
@@ -305,6 +307,7 @@ async function loadDiscoveryData() {
   ] = await Promise.all([
     loadOptionalJson(resolveDataUrl("taxonomy/vox-mana-tags.json"), "tag taxonomy"),
     loadOptionalJson(resolveDataUrl("archscry-flavor-snippets.json"), "Archscry flavor snippets"),
+    loadOptionalJson(resolveDataUrl("dossier/card-rationale-catalog.json"), "card rationale catalog"),
     loadOptionalJson(resolveDataUrl("precons/vox-mana-precon-catalog.json"), "precon catalog"),
     loadOptionalJson(resolveDataUrl("taxonomy/vox-mana-precon-themes.json"), "precon theme taxonomy"),
     loadOptionalJson(resolveDataUrl("placement/commander-provider-validation.json"), "commander provider validation"),
@@ -316,6 +319,7 @@ async function loadDiscoveryData() {
 
   APP_STATE.tagTaxonomy = taxonomy;
   APP_STATE.archscryFlavorSnippets = archscryFlavorSnippets;
+  APP_STATE.cardRationaleCatalog = cardRationaleCatalog;
   APP_STATE.preconCatalog = preconCatalog;
   APP_STATE.preconThemeTaxonomy = preconThemeTaxonomy;
   APP_STATE.commanderProviderValidation = commanderProviderValidation;
@@ -2734,48 +2738,54 @@ function buildDossierInterpretationHtml({ dossier, faction, result }) {
     </div>`;
 }
 
-const INTERNAL_CARD_RATIONALE_RE = /\b(auxiliary|source[- ]backed|canon(?:ical)?|proof|product texture|operator texture|support (?:row|context)|local (?:commander|exact-color|enhanced)|official decklist|packet|claim(?:s)?|evidence)\b/i;
+function factionCardRationaleRecords(faction, catalog = APP_STATE.cardRationaleCatalog) {
+  const identityKey = faction?.key || faction?.identity?.expression_key || "";
+  return (catalog?.records || [])
+    .filter((record) => record?.identity_key === identityKey && record?.rationale && record?.card?.name)
+    .sort((left, right) =>
+      Number(left.display_priority || 0) - Number(right.display_priority || 0) ||
+      String(left.card.name).localeCompare(String(right.card.name))
+    )
+    .slice(0, 3);
+}
 
-export function approvedCardRationaleForFaction(card, faction) {
-  const compass = faction?.commander_compass;
-  const groups = [
-    ["native_fit_commanders", compass?.native_fit_commanders],
-    ["weird_stretch_commanders", compass?.weird_stretch_commanders],
-    ["budget_friendly_commanders", compass?.budget_friendly_commanders],
-    ["advanced_complexity_commanders", compass?.advanced_complexity_commanders],
-    ["iconic_lore_forward_commanders", compass?.iconic_lore_forward_commanders],
-  ];
+export function approvedCardRationaleForFaction(card, faction, catalog = APP_STATE.cardRationaleCatalog) {
   const normalizedName = normalizeCardName(card?.name);
-  for (const [group, candidates] of groups) {
-    const candidate = (candidates || []).find((entry) =>
-      normalizeCardName(entry?.exact_card_name || entry?.display_name) === normalizedName
-    );
-    const claimIds = candidate?.source_basis?.existing_repo_claim_ids || [];
-    const sourceIds = candidate?.source_basis?.existing_repo_source_ids || [];
-    if (
-      !candidate?.why_this_fits ||
-      INTERNAL_CARD_RATIONALE_RE.test(candidate.why_this_fits) ||
-      !claimIds.length ||
-      !sourceIds.length ||
-      !compass?.source_research_file
-    ) {
-      continue;
-    }
-    return {
-      text: candidate.why_this_fits,
-      tags: Array.isArray(candidate.archetype_tags) ? candidate.archetype_tags : [],
-      provenance: {
-        sourceResearchFile: compass.source_research_file,
-        group,
-        cardName: candidate.exact_card_name || candidate.display_name,
-        claimIds,
-        sourceIds,
-        cardData: candidate.source_basis.card_data || [],
-        evidenceRole: "approved-commander-guidance",
-      },
-    };
-  }
-  return null;
+  const record = factionCardRationaleRecords(faction, catalog).find((entry) =>
+    normalizeCardName(entry.card.name) === normalizedName
+  );
+  if (!record) return null;
+  return {
+    text: record.rationale,
+    tags: Array.isArray(record.tags) ? record.tags : [],
+    provenance: {
+      relationshipId: record.relationship_id,
+      relationshipClass: record.relationship_class,
+      cardData: record.card.data_locator,
+      claimIds: record.provenance?.claim_ids || [],
+      sourceIds: record.provenance?.source_ids || [],
+      relationshipEvidenceLocator: record.provenance?.relationship_evidence_locator || "",
+      evidenceRole: "approved-card-rationale-catalog",
+    },
+  };
+}
+
+export function selectApprovedCardRationales({
+  faction,
+  catalog = APP_STATE.cardRationaleCatalog,
+  cardByName = APP_STATE.scryfallLocalCardByName,
+} = {}) {
+  return factionCardRationaleRecords(faction, catalog)
+    .map((record) => {
+      const card = cardByName?.get?.(normalizeCardName(record.card.name)) || null;
+      if (!card || (record.card.oracle_id && card.oracle_id !== record.card.oracle_id)) return null;
+      return {
+        card,
+        rationale: approvedCardRationaleForFaction(card, faction, catalog),
+        relationshipId: record.relationship_id,
+      };
+    })
+    .filter((entry) => entry?.rationale);
 }
 
 function cardImageUrl(record = {}) {
@@ -2792,12 +2802,12 @@ function canonicalFlavorLookupName(card = {}) {
   return card.name || "";
 }
 
-export function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}) {
+export function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}, catalog = APP_STATE.cardRationaleCatalog) {
   if (!flavorEchoes.length) return "";
   const groundedEchoes = flavorEchoes
     .map((entry) => ({
       ...entry,
-      rationale: approvedCardRationaleForFaction(entry.card, faction),
+      rationale: entry.rationale || approvedCardRationaleForFaction(entry.card, faction, catalog),
     }))
     .filter((entry) => entry.rationale);
   if (!groundedEchoes.length) return "";
@@ -3140,12 +3150,7 @@ function renderResult(viewKey) {
     preconThemeTaxonomy: APP_STATE.preconThemeTaxonomy,
   });
   const matrixFlavorSnippets = matrixFlavorSnippetsForFaction(faction);
-  const flavorEchoes = selectFlavorEchoes({
-    faction,
-    tagRefs: readingTagRefs,
-    excludedCardNames: [],
-    includeCurated: true,
-  });
+  const flavorEchoes = selectApprovedCardRationales({ faction });
   const mazeContext = buildArchscryMazeContext({ result, dossier, faction });
   writeArchscryDossierHandoff(result, mazeContext);
   const personalizedMazePaths = withArchscryMazeContext(

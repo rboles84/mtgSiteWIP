@@ -12,6 +12,8 @@ const factions = (await readJson("../data/factions.json")).factions;
 const precons = (await readJson("../data/precons/vox-mana-precon-catalog.json")).precons;
 const providerValidation = await readJson("../data/placement/commander-provider-validation.json");
 const commanderIndex = (await readJson("../data/scryfall/indexes/commander-index.json")).commanders;
+const cardRationaleSource = await readJson("../data/dossier/card-rationale-relationships.source.json");
+const cardRationaleCatalog = await readJson("../data/dossier/card-rationale-catalog.json");
 const indexSource = await readFile(new URL("../assets/js/index.js", import.meta.url), "utf8");
 const radarSource = await readFile(new URL("../assets/js/dossier-radar.js", import.meta.url), "utf8");
 const cssSource = await readFile(new URL("../assets/css/archscry.css", import.meta.url), "utf8");
@@ -127,37 +129,17 @@ globalThis.document = {
 };
 
 const { approvedCardRationaleForFaction, buildFlavorEchoesHtml } = await import("../assets/js/index.js");
-const INTERNAL_CARD_COPY_RE = /\b(?:auxiliary|source[- ]backed|canon(?:ical)?|proof|product texture|operator texture|support (?:row|context)|local (?:commander|exact-color|enhanced)|official decklist|packet|claim(?:s)?|evidence)\b/i;
-let publicCardRationaleCount = 0;
-for (const faction of Object.values(factions)) {
-  const compass = faction.commander_compass || {};
-  for (const group of ["native_fit_commanders", "weird_stretch_commanders", "budget_friendly_commanders", "advanced_complexity_commanders", "iconic_lore_forward_commanders"]) {
-    for (const candidate of compass[group] || []) {
-      const cardName = candidate.exact_card_name || candidate.display_name;
-      const rationale = approvedCardRationaleForFaction({ name: cardName }, faction);
-      if (!rationale) continue;
-      publicCardRationaleCount += 1;
-      assert.doesNotMatch(rationale.text, INTERNAL_CARD_COPY_RE, `${cardName} should not expose reviewer provenance language`);
-      assert.ok(rationale.provenance.claimIds.length && rationale.provenance.sourceIds.length);
-    }
-  }
-}
-assert.ok(publicCardRationaleCount > 0, "expected clean approved card rationales to remain available");
+assert.equal(cardRationaleSource.records.length, 26, "expected only provenance-complete native-anchor proposals to remain reviewable");
+assert.ok(cardRationaleSource.records.every((record) => record.review_status === "REVIEW_REQUIRED"));
+assert.equal(cardRationaleCatalog.records.length, 0, "review-required rationale must fail closed in player runtime");
 const isperia = commanderIndex.find((card) => card.name === "Isperia, Supreme Judge");
 const genericAzoriusCard = commanderIndex.find((card) => card.name === "Brago, King Eternal");
-const approvedRationale = approvedCardRationaleForFaction(isperia, factions.WU);
-assert.ok(approvedRationale?.text, "expected an approved Isperia rationale");
-assert.ok(approvedRationale.provenance.claimIds.length);
-assert.ok(approvedRationale.provenance.sourceIds.length);
-assert.equal(approvedCardRationaleForFaction(genericAzoriusCard, factions.WU), null, "generic same-color overlap must not create a rationale");
-
-const approvedCardHtml = buildFlavorEchoesHtml([{ card: isperia }], factions.WU);
-assert.match(approvedCardHtml, /Why These Cards Echo This Reading/);
-assert.match(approvedCardHtml, /data-rationale-provenance=/);
-assert.match(approvedCardHtml, /data-action="open-card-detail"/);
-assert.match(approvedCardHtml, /Why it appears/);
-assert.doesNotMatch(approvedCardHtml, INTERNAL_TOKEN_RE);
+assert.equal(approvedCardRationaleForFaction(isperia, factions.WU, cardRationaleCatalog), null, "owner-review copy must not be treated as approved");
+assert.equal(approvedCardRationaleForFaction(genericAzoriusCard, factions.WU, cardRationaleCatalog), null, "generic same-color overlap must not create a rationale");
+assert.equal(buildFlavorEchoesHtml([{ card: isperia }], factions.WU, cardRationaleCatalog), "", "unapproved card rationale should omit the card section");
 assert.equal(buildFlavorEchoesHtml([{ card: genericAzoriusCard }], factions.WU), "", "unsupported card rationale should omit the card section");
+assert.match(indexSource, /dossier\/card-rationale-catalog\.json/);
+assert.match(indexSource, /selectApprovedCardRationales\(\{ faction \}\)/);
 
 assert.match(indexSource, /Why This Fit/);
 assert.match(indexSource, /Test the Fit/);
@@ -187,7 +169,7 @@ console.log(JSON.stringify({
   precon_rationales: precons.length,
   public_commander_guidance_items: publicGuidanceCount,
   card_rationale_guard: "PASS",
-  public_card_rationales: publicCardRationaleCount,
+  public_card_rationales: cardRationaleCatalog.records.length,
   internal_token_guard: "PASS",
   modal_contract: "PASS",
   tooltip_contract: "PASS",
