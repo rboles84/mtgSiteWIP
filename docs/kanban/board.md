@@ -45,6 +45,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-551 — All-37 Card-Rationale Source Hardening](in-progress/VM-551-all-37-card-rationale-source-hardening.md) - re-adjudicating every existing card candidate, establishing a provenance-complete source authority and approved-only runtime catalog, and preserving explicit gaps instead of generating unsupported rationale.
+
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 
 ## Blocked

@@ -1,0 +1,1300 @@
+{
+  "schema_version": "1.0.0",
+  "authority": "Vox Mana source-first dossier card relationship adjudication",
+  "generated_from_baseline": false,
+  "review_policy": "New or newly surfaced public rationale remains REVIEW_REQUIRED until explicit owner approval. Runtime receives only APPROVED_PUBLIC records.",
+  "records": [
+    {
+      "relationship_id": "cardrel_wu_c46718dc",
+      "identity_key": "WU",
+      "identity_name": "Azorius Senate",
+      "canonical_card_name": "Isperia, Supreme Judge",
+      "canonical_card_id": "c46718dc-24dc-4b77-b455-aa4c89570b8d",
+      "scryfall_id": "1e3b82a7-ebef-4190-9f50-40b992ba89c9",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "azorius_senate_claim_005"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
+        "src_mtg_stories_rallying_the_reluctant_d21b8009",
+        "src_mtg_stories_ashes_6ede4fea",
+        "src_mtg_stories_desperate_operatives_6c6a580b",
+        "src_mtg_stories_fblthp_e26059d7"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07"
+        },
+        {
+          "source_id": "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
+          "locator": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/036%20-%20Guilds%20of%20Ravnica/009_The%20Gathering%20Storm%3A%20Chapter%203.typ"
+        },
+        {
+          "source_id": "src_mtg_stories_rallying_the_reluctant_d21b8009",
+          "locator": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/038%20-%20War%20of%20the%20Spark/003_Rallying%20the%20Reluctant.typ"
+        },
+        {
+          "source_id": "src_mtg_stories_ashes_6ede4fea",
+          "locator": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/038%20-%20War%20of%20the%20Spark/006_Ashes.typ"
+        },
+        {
+          "source_id": "src_mtg_stories_desperate_operatives_6c6a580b",
+          "locator": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/038%20-%20War%20of%20the%20Spark/004_Desperate%20Operatives.typ"
+        },
+        {
+          "source_id": "src_mtg_stories_fblthp_e26059d7",
+          "locator": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/003%20-%20Gatecrash/009_Fblthp.typ"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=c46718dc-24dc-4b77-b455-aa4c89570b8d",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/azorius_senate/azorius_senate.profile.json#/commander_compass/native_fit_commanders/0",
+        "exact_text": "Directly represents the guild's leadership and punishes those who dare attack the law (you)."
+      },
+      "limitation": "You prefer a proactive, aggressive strategy rather than reactive defense.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 1,
+      "proposed_public_rationale": "Directly represents the guild's leadership and punishes those who dare attack the law (you).",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Control",
+        "Card Draw",
+        "Pillowfort"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_wu_1f8d4d5f",
+      "identity_key": "WU",
+      "identity_name": "Azorius Senate",
+      "canonical_card_name": "Grand Arbiter Augustin IV",
+      "canonical_card_id": "1f8d4d5f-e82f-45f3-823e-1bb6b536eb18",
+      "scryfall_id": "f43748ea-1d65-4ee8-9c66-221412a284c0",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "azorius_senate_claim_001",
+        "azorius_senate_claim_002",
+        "azorius_senate_claim_006",
+        "azorius_senate_claim_007"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07"
+        },
+        {
+          "source_id": "src_wotc_ravnica_allegiance_mechanics_2018",
+          "locator": "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=1f8d4d5f-e82f-45f3-823e-1bb6b536eb18",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/azorius_senate/azorius_senate.profile.json#/commander_compass/advanced_complexity_commanders/0",
+        "exact_text": "The ultimate expression of Azorius tax-based gameplay; he slows the game down to a crawl."
+      },
+      "limitation": "High salt score on EDHREC. Use with caution. Your playgroup dislikes 'Stax' or games that take 3+ hours.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 3,
+      "proposed_public_rationale": "The ultimate expression of Azorius tax-based gameplay; he slows the game down to a crawl.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Stax",
+        "Taxing",
+        "Control"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_ub_8027a610",
+      "identity_key": "UB",
+      "identity_name": "House Dimir",
+      "canonical_card_name": "Lazav, Dimir Mastermind",
+      "canonical_card_id": "8027a610-613e-4640-9840-c8778694f312",
+      "scryfall_id": "003dc436-a3af-4e65-b4f8-387155fbcb85",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "house_dimir_claim_001",
+        "house_dimir_claim_002",
+        "house_dimir_claim_004",
+        "house_dimir_claim_0017"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator": "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=8027a610-613e-4640-9840-c8778694f312",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/house_dimir/house_dimir.profile.json#/commander_compass/native_fit_commanders/0",
+        "exact_text": "Auxiliary product fit for players who want a Lazav-led Dimir deck; the canonical proof is Lazav as guildmaster, not the deck mechanics."
+      },
+      "limitation": "Commander/card/product material remains auxiliary and is not authoritative Dimir semantic proof. Skip if you want a transparent table plan or a commander whose appeal does not depend on opponents' graveyards.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 1,
+      "proposed_public_rationale": "Lazav appears because the certified House Dimir record identifies him as the guildmaster of the guild associated with secrecy, spies, assassins, and backroom deals.",
+      "proposal_origin": "NEW_SOURCE_BOUNDED_DRAFT",
+      "proposed_tags": [
+        "Clones",
+        "Hidden information",
+        "Graveyard interaction"
+      ],
+      "rationale_support_note": "The draft narrows the internal Commander guidance to the direct native figure relationship stated by the cited substantive claim. It deliberately makes no gameplay, player-motivation, or personality inference."
+    },
+    {
+      "relationship_id": "cardrel_br_143a269a",
+      "identity_key": "BR",
+      "identity_name": "Cult of Rakdos",
+      "canonical_card_name": "Rakdos, Lord of Riots",
+      "canonical_card_id": "143a269a-b9ee-48ba-bd7b-4aa46eb36778",
+      "scryfall_id": "3d0d5a41-8251-437c-a4a0-3b712281ebb0",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_003",
+        "cult_of_rakdos_claim_004",
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07"
+        },
+        {
+          "source_id": "src_wotc_ravnica_allegiance_mechanics_2018",
+          "locator": "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=143a269a-b9ee-48ba-bd7b-4aa46eb36778",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json#/commander_compass/native_fit_commanders/0",
+        "exact_text": "Rakdos is the native demon-headliner choice: opponents must lose life before the show begins, then life-loss discounts enormous creatures."
+      },
+      "limitation": "Discovery-only story-corpus claim IDs removed from this auxiliary support chain. Commander/card/product material remains auxiliary and is not authoritative Rakdos semantic proof. Skip if you want consistent early casting, low variance, or a commander that avoids big threat perception.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 1,
+      "proposed_public_rationale": "Rakdos is the native demon-headliner choice: opponents must lose life before the show begins, then life-loss discounts enormous creatures.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Demons",
+        "Big Mana",
+        "Damage Gate"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_br_03a4b997",
+      "identity_key": "BR",
+      "identity_name": "Cult of Rakdos",
+      "canonical_card_name": "Rakdos, the Showstopper",
+      "canonical_card_id": "03a4b997-4738-41a9-933f-e1f765e3a75a",
+      "scryfall_id": "210d07ab-7608-4fda-adb6-562cf194192f",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "cult_of_rakdos_claim_001",
+        "cult_of_rakdos_claim_002",
+        "cult_of_rakdos_claim_003",
+        "cult_of_rakdos_claim_004",
+        "cult_of_rakdos_claim_005",
+        "cult_of_rakdos_claim_006"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07"
+        },
+        {
+          "source_id": "src_wotc_ravnica_allegiance_mechanics_2018",
+          "locator": "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=03a4b997-4738-41a9-933f-e1f765e3a75a",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json#/commander_compass/iconic_lore_forward_commanders/0",
+        "exact_text": "This is a pure flavor-forward Rakdos performance: the demon arrives, the stage erupts, and survival becomes a coin-flip spectacle."
+      },
+      "limitation": "High-variance by design. Discovery-only story-corpus claim IDs removed from this auxiliary support chain. Commander/card/product material remains auxiliary and is not authoritative Rakdos semantic proof. Skip if you want reliability, low variance, or table-safe board states.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 6,
+      "proposed_public_rationale": "This is a pure flavor-forward Rakdos performance: the demon arrives, the stage erupts, and survival becomes a coin-flip spectacle.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Demons",
+        "volatility",
+        "Board Wipe"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_rg_b7505737",
+      "identity_key": "RG",
+      "identity_name": "Gruul Clans",
+      "canonical_card_name": "Borborygmos Enraged",
+      "canonical_card_id": "b7505737-1fc8-4ee8-8b1d-5dde73b6a76d",
+      "scryfall_id": "02df18c5-07b9-4e85-9c4b-58b63fa59437",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "claim_gruul_clans_key_figure_0012",
+        "claim_gruul_clans_key_figure_0013",
+        "claim_gruul_clans_key_figure_0035",
+        "claim_gruul_clans_key_figure_0036",
+        "claim_gruul_clans_key_figure_0046"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_gruul_clans_0002",
+        "src_gruul_clans_0003",
+        "src_gruul_clans_0009"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_gruul_clans_0002",
+          "locator": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-gatecrash-part-2"
+        },
+        {
+          "source_id": "src_gruul_clans_0003",
+          "locator": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07"
+        },
+        {
+          "source_id": "src_gruul_clans_0009",
+          "locator": "https://magic.wizards.com/en/news/magic-story/war-spark-ravnica-path-opulent-2019-05-15"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=b7505737-1fc8-4ee8-8b1d-5dde73b6a76d",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/gruul_clans/gruul_clans.profile.json#/commander_compass/native_fit_commanders/0",
+        "exact_text": "A Burning-Tree-linked Gruul figure whose lands-matter damage gameplay can echo direct Rubblebelt force as auxiliary Commander texture."
+      },
+      "limitation": "You don't want to play an 8-mana commander.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 1,
+      "proposed_public_rationale": "Borborygmos appears because the certified Gruul record identifies him as the leader of the Burning-Tree clan.",
+      "proposal_origin": "NEW_SOURCE_BOUNDED_DRAFT",
+      "proposed_tags": [
+        "Lands",
+        "Discard",
+        "Large-Creature Pressure"
+      ],
+      "rationale_support_note": "The draft narrows the internal Commander guidance to the direct native figure relationship stated by the cited substantive claim. It deliberately makes no gameplay, player-motivation, or personality inference."
+    },
+    {
+      "relationship_id": "cardrel_rg_ebf3fd80",
+      "identity_key": "RG",
+      "identity_name": "Gruul Clans",
+      "canonical_card_name": "Nikya of the Old Ways",
+      "canonical_card_id": "ebf3fd80-9574-489b-9428-f4251834bdc4",
+      "scryfall_id": "0dcdad71-323e-41e0-a1b3-9fd5b753e71c",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "claim_gruul_clans_key_figure_0023",
+        "claim_gruul_clans_structure_0021",
+        "claim_gruul_clans_philosophy_0022"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_gruul_clans_0002"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_gruul_clans_0002",
+          "locator": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-gatecrash-part-2"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=ebf3fd80-9574-489b-9428-f4251834bdc4",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/gruul_clans/gruul_clans.profile.json#/commander_compass/budget_friendly_commanders/0",
+        "exact_text": "She forces you to abandon 'civilized' noncreature spells in exchange for massive mana for monsters."
+      },
+      "limitation": "Requires a very specific deck composition. You like playing instants, sorceries, or artifacts.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 3,
+      "proposed_public_rationale": "She forces you to abandon 'civilized' noncreature spells in exchange for massive mana for monsters.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Creatures Only",
+        "Big Mana"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_rg_6ed13a89",
+      "identity_key": "RG",
+      "identity_name": "Gruul Clans",
+      "canonical_card_name": "Ruric Thar, the Unbowed",
+      "canonical_card_id": "6ed13a89-4284-4c01-8099-75e2d68c8c63",
+      "scryfall_id": "aa828bdc-221e-4e81-9e71-6f288690ddcd",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "claim_gruul_clans_key_figure_0016",
+        "claim_gruul_clans_structure_0017"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_gruul_clans_0002"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_gruul_clans_0002",
+          "locator": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-gatecrash-part-2"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=6ed13a89-4284-4c01-8099-75e2d68c8c63",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/gruul_clans/gruul_clans.profile.json#/commander_compass/iconic_lore_forward_commanders/0",
+        "exact_text": "A severe Gruul pressure piece against noncreature spell plans; creature-first tables punish players who try to solve everything with spells."
+      },
+      "limitation": "You want to play a deck with more than 5-10 noncreature spells.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 4,
+      "proposed_public_rationale": "A severe Gruul pressure piece against noncreature spell plans; creature-first tables punish players who try to solve everything with spells.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Hatebears",
+        "Punisher",
+        "Creature Pressure"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_wg_e94ef397",
+      "identity_key": "WG",
+      "identity_name": "Selesnya Conclave",
+      "canonical_card_name": "Trostani, Selesnya's Voice",
+      "canonical_card_id": "e94ef397-f5c5-4b8d-ae27-528352fa1d1e",
+      "scryfall_id": "34ea44f2-cb2f-4b86-83fc-fe507f05bb9d",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "selesnya_conclave_claim_005",
+        "selesnya_conclave_claim_006",
+        "selesnya_conclave_claim_007",
+        "selesnya_conclave_claim_0018",
+        "selesnya_conclave_claim_0020"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator": "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_prerelease_primer_2018",
+          "locator": "https://magic.wizards.com/en/news/feature/guilds-of-ravnica-prerelease-primer"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=e94ef397-f5c5-4b8d-ae27-528352fa1d1e",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json#/commander_compass/native_fit_commanders/0",
+        "exact_text": "Trostani has source-backed Selesnya leadership context, while her token/populate/lifegain card play is auxiliary Commander texture rather than independent lore proof."
+      },
+      "limitation": "Skip if you dislike token bookkeeping, longer board-development games, or populate needing good token targets.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 1,
+      "proposed_public_rationale": "Trostani appears because the certified Selesnya record identifies the three dryads as Mat'Selesnya's speaker for Life, Order, and Harmony.",
+      "proposal_origin": "NEW_SOURCE_BOUNDED_DRAFT",
+      "proposed_tags": [
+        "Tokens",
+        "Populate",
+        "Lifegain"
+      ],
+      "rationale_support_note": "The draft narrows the internal Commander guidance to the direct native figure relationship stated by the cited substantive claim. It deliberately makes no gameplay, player-motivation, or personality inference."
+    },
+    {
+      "relationship_id": "cardrel_wb_644eeefd",
+      "identity_key": "WB",
+      "identity_name": "Orzhov Syndicate",
+      "canonical_card_name": "Teysa Karlov",
+      "canonical_card_id": "644eeefd-e684-4ca8-8aef-a892ca130c07",
+      "scryfall_id": "cd14f1ce-7fcd-485c-b7ca-01c5b45fdc01",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "orzhov_syndicate_claim_005",
+        "orzhov_syndicate_claim_006",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0020"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07"
+        },
+        {
+          "source_id": "src_wotc_ravnica_allegiance_mechanics_2018",
+          "locator": "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=644eeefd-e684-4ca8-8aef-a892ca130c07",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/commander_compass/native_fit_commanders/0",
+        "exact_text": "Teysa is the clearest native Orzhov product fit: she doubles death-trigger value and turns token bodies into a more threatening spiritual workforce."
+      },
+      "limitation": "Discovery-only story-corpus claim IDs removed from this auxiliary support chain. Commander/card/product material remains auxiliary and is not authoritative Orzhov semantic proof. Skip if you dislike sacrifice loops, death-trigger stacks, or incremental value engines.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 1,
+      "proposed_public_rationale": "Teysa is the clearest native Orzhov product fit: she doubles death-trigger value and turns token bodies into a more threatening spiritual workforce.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Aristocrats",
+        "Death Triggers",
+        "Tokens"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_wb_8191342b",
+      "identity_key": "WB",
+      "identity_name": "Orzhov Syndicate",
+      "canonical_card_name": "Teysa, Orzhov Scion",
+      "canonical_card_id": "8191342b-b25e-4c4d-8f69-aee662148ff4",
+      "scryfall_id": "b8ca900d-767d-4461-aba3-107dd17d8326",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_006",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0020"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07"
+        },
+        {
+          "source_id": "src_wotc_ravnica_allegiance_mechanics_2018",
+          "locator": "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=8191342b-b25e-4c4d-8f69-aee662148ff4",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/commander_compass/native_fit_commanders/1",
+        "exact_text": "This version of Teysa strongly expresses Orzhov transaction logic: sacrifice, death, replacement bodies, and exile removal all feed the same contract engine."
+      },
+      "limitation": "Discovery-only story-corpus claim IDs removed from this auxiliary support chain. Commander/card/product material remains auxiliary and is not authoritative Orzhov semantic proof. Skip if you want a simple precon-style gameplan or dislike combo-adjacent sacrifice engines.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 2,
+      "proposed_public_rationale": "This version of Teysa strongly expresses Orzhov transaction logic: sacrifice, death, replacement bodies, and exile removal all feed the same contract engine.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Aristocrats",
+        "Tokens",
+        "Removal"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_wb_647d7988",
+      "identity_key": "WB",
+      "identity_name": "Orzhov Syndicate",
+      "canonical_card_name": "Karlov of the Ghost Council",
+      "canonical_card_id": "647d7988-9a5d-4700-9238-938d0d5fae12",
+      "scryfall_id": "f7c41011-a9eb-451c-a76d-67d2dcf47c52",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "orzhov_syndicate_claim_004",
+        "orzhov_syndicate_claim_006",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0020"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07"
+        },
+        {
+          "source_id": "src_wotc_ravnica_allegiance_mechanics_2018",
+          "locator": "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=647d7988-9a5d-4700-9238-938d0d5fae12",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/commander_compass/advanced_complexity_commanders/0",
+        "exact_text": "Karlov converts lifegain into visible authority: counters become removal, making every payment and tithe a future sentence."
+      },
+      "limitation": "Can become removal-heavy and commander-centric. Discovery-only story-corpus claim IDs removed from this auxiliary support chain. Commander/card/product material remains auxiliary and is not authoritative Orzhov semantic proof. Skip if you want a token-sacrifice deck or dislike commander-damage pressure backed by cheap lifegain triggers.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 5,
+      "proposed_public_rationale": "Karlov converts lifegain into visible authority: counters become removal, making every payment and tithe a future sentence.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Lifegain",
+        "Counters",
+        "Removal"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_wb_6c3df703",
+      "identity_key": "WB",
+      "identity_name": "Orzhov Syndicate",
+      "canonical_card_name": "Obzedat, Ghost Council",
+      "canonical_card_id": "6c3df703-e96a-4ee4-b449-b8e1e3460bd3",
+      "scryfall_id": "4029c3a0-a999-453a-a838-7adb81e481ee",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "orzhov_syndicate_claim_004",
+        "orzhov_syndicate_claim_006",
+        "orzhov_syndicate_claim_007",
+        "orzhov_syndicate_claim_0018",
+        "orzhov_syndicate_claim_0020"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07"
+        },
+        {
+          "source_id": "src_wotc_ravnica_allegiance_mechanics_2018",
+          "locator": "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=6c3df703-e96a-4ee4-b449-b8e1e3460bd3",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/commander_compass/iconic_lore_forward_commanders/0",
+        "exact_text": "Obzedat is the iconic old Orzhov power structure: deathless elites draining value, dodging consequences, and returning to collect again."
+      },
+      "limitation": "Discovery-only story-corpus claim IDs removed from this auxiliary support chain. Commander/card/product material remains auxiliary and is not authoritative Orzhov semantic proof. Skip if you need a fast engine or dislike high-mana commanders that win through slow drain.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 6,
+      "proposed_public_rationale": "Obzedat is the iconic old Orzhov power structure: deathless elites draining value, dodging consequences, and returning to collect again.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Drain",
+        "Blink",
+        "Control"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_ur_33666a98",
+      "identity_key": "UR",
+      "identity_name": "Izzet League",
+      "canonical_card_name": "Niv-Mizzet, Parun",
+      "canonical_card_id": "33666a98-812f-4892-9f8d-33e0cbecc340",
+      "scryfall_id": "86c5c337-d25f-4c3e-9762-09ed0c2d36d7",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "claim_izzet_league_0008",
+        "claim_izzet_league_0009",
+        "claim_izzet_league_0025",
+        "claim_izzet_league_0036",
+        "claim_izzet_league_0037",
+        "claim_izzet_league_0039",
+        "claim_izzet_league_0045"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0012",
+        "src_izzet_league_0010",
+        "src_izzet_league_0011"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-return-to-ravnica-part-2"
+        },
+        {
+          "source_id": "src_izzet_league_0003",
+          "locator": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03"
+        },
+        {
+          "source_id": "src_izzet_league_0012",
+          "locator": "https://magic.wizards.com/en/news/magic-story/war-spark-ravnica-operation-desperation-2019-06-05"
+        },
+        {
+          "source_id": "src_izzet_league_0010",
+          "locator": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-murders-at-karlov-manor"
+        },
+        {
+          "source_id": "src_izzet_league_0011",
+          "locator": "https://magic.wizards.com/en/news/feature/the-legends-and-characters-of-murders-at-karlov-manor"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=33666a98-812f-4892-9f8d-33e0cbecc340",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/izzet_league/izzet_league.profile.json#/commander_compass/native_fit_commanders/0",
+        "exact_text": "He is the cleanest native Izzet bridge: a Ravnican Izzet leader whose gameplay rewards instant/sorcery exchanges with cards and turns card draw into precise damage."
+      },
+      "limitation": "Skip if your table dislikes compact draw-damage combos, repeated triggers, or commanders that become the whole deck plan.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 1,
+      "proposed_public_rationale": "He is the cleanest native Izzet bridge: a Ravnican Izzet leader whose gameplay rewards instant/sorcery exchanges with cards and turns card draw into precise damage.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Spellslinger",
+        "Draw-Burn",
+        "Control"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_ur_095d9719",
+      "identity_key": "UR",
+      "identity_name": "Izzet League",
+      "canonical_card_name": "Melek, Izzet Paragon",
+      "canonical_card_id": "095d9719-0db6-43de-8e4f-a0035a4c65ed",
+      "scryfall_id": "66011fe8-8c5d-4990-a324-5839515dcacb",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "claim_izzet_league_0101"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_izzet_league_0014"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_izzet_league_0014",
+          "locator": "https://magic.wizards.com/en/news/magic-story/project-lightning-bug-2015-05-27"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=095d9719-0db6-43de-8e4f-a0035a4c65ed",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/izzet_league/izzet_league.profile.json#/commander_compass/native_fit_commanders/1",
+        "exact_text": "Melek preserves the lab-experiment feel without defaulting to the dragon. Revealing the top card and copying spells feels like an unstable experiment becoming repeatable technique."
+      },
+      "limitation": "Skip if you want a low-curve commander or dislike playing with the top of your library revealed.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 2,
+      "proposed_public_rationale": "Melek preserves the lab-experiment feel without defaulting to the dragon. Revealing the top card and copying spells feels like an unstable experiment becoming repeatable technique.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Spellslinger",
+        "Spell Copy",
+        "Topdeck"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_ur_f787c6cf",
+      "identity_key": "UR",
+      "identity_name": "Izzet League",
+      "canonical_card_name": "Mizzix of the Izmagnus",
+      "canonical_card_id": "f787c6cf-a4ff-487b-a7b0-0f516e68510a",
+      "scryfall_id": "82f949d0-41a0-4491-9057-bfb2bb20bdb3",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "claim_izzet_league_0102"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_izzet_league_0014"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_izzet_league_0014",
+          "locator": "https://magic.wizards.com/en/news/magic-story/project-lightning-bug-2015-05-27"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=f787c6cf-a4ff-487b-a7b0-0f516e68510a",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/izzet_league/izzet_league.profile.json#/commander_compass/advanced_complexity_commanders/0",
+        "exact_text": "Mizzix captures the escalating experiment: every correctly sequenced spell makes the next experiment cheaper and more dangerous."
+      },
+      "limitation": "Can drift into high-power combo if tuned aggressively. Skip if your group dislikes storm turns, long sequencing, or commanders that snowball from cost reduction.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 5,
+      "proposed_public_rationale": "Mizzix captures the escalating experiment: every correctly sequenced spell makes the next experiment cheaper and more dangerous.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Experience Counters",
+        "Spellslinger",
+        "Combo"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_ur_899d58dc",
+      "identity_key": "UR",
+      "identity_name": "Izzet League",
+      "canonical_card_name": "Niv-Mizzet, Dracogenius",
+      "canonical_card_id": "899d58dc-60b2-4013-9f91-c1888c585d66",
+      "scryfall_id": "1b1c4bed-9b6b-42f9-939d-ece0f959a0a3",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "claim_izzet_league_0008",
+        "claim_izzet_league_0009",
+        "claim_izzet_league_0025",
+        "claim_izzet_league_0036",
+        "claim_izzet_league_0037",
+        "claim_izzet_league_0039",
+        "claim_izzet_league_0045"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_izzet_league_0002",
+        "src_izzet_league_0003",
+        "src_izzet_league_0012",
+        "src_izzet_league_0010",
+        "src_izzet_league_0011"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_izzet_league_0002",
+          "locator": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-return-to-ravnica-part-2"
+        },
+        {
+          "source_id": "src_izzet_league_0003",
+          "locator": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03"
+        },
+        {
+          "source_id": "src_izzet_league_0012",
+          "locator": "https://magic.wizards.com/en/news/magic-story/war-spark-ravnica-operation-desperation-2019-06-05"
+        },
+        {
+          "source_id": "src_izzet_league_0010",
+          "locator": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-murders-at-karlov-manor"
+        },
+        {
+          "source_id": "src_izzet_league_0011",
+          "locator": "https://magic.wizards.com/en/news/feature/the-legends-and-characters-of-murders-at-karlov-manor"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=899d58dc-60b2-4013-9f91-c1888c585d66",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/izzet_league/izzet_league.profile.json#/commander_compass/iconic_lore_forward_commanders/0",
+        "exact_text": "This is a slower, more table-readable way to center Niv-Mizzet as Izzet identity: intellect, fire, and repeatable resource conversion."
+      },
+      "limitation": "Skip if you need modern efficiency or want the strongest Niv-Mizzet Commander option.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 6,
+      "proposed_public_rationale": "This is a slower, more table-readable way to center Niv-Mizzet as Izzet identity: intellect, fire, and repeatable resource conversion.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Dragon",
+        "Card Draw",
+        "Ping Damage"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_bg_87e65e36",
+      "identity_key": "BG",
+      "identity_name": "Golgari Swarm",
+      "canonical_card_name": "Jarad, Golgari Lich Lord",
+      "canonical_card_id": "87e65e36-9483-49fe-b644-2caca092107f",
+      "scryfall_id": "6870b355-e53d-4fa2-887b-0f0445bcd9c5",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_006",
+        "golgari_swarm_claim_0018"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_guilds_ravnica_mechanics_2018",
+        "src_wotc_guilds_ravnica_prerelease_primer_2018"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator": "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04"
+        },
+        {
+          "source_id": "src_wotc_guilds_ravnica_prerelease_primer_2018",
+          "locator": "https://magic.wizards.com/en/news/feature/guilds-of-ravnica-prerelease-primer"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=87e65e36-9483-49fe-b644-2caca092107f",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/golgari_swarm/golgari_swarm.profile.json#/commander_compass/native_fit_commanders/0",
+        "exact_text": "A classic Golgari leader who scales with the size of your graveyard and allows you to 'recycle' creatures into direct damage."
+      },
+      "limitation": "Discovery-only story-corpus claim IDs removed from this auxiliary support chain. Commander/card/product material remains auxiliary and is not authoritative Golgari semantic proof. You don't like 'glass cannon' combos or graveyard hate.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 1,
+      "proposed_public_rationale": "A classic Golgari leader who scales with the size of your graveyard and allows you to 'recycle' creatures into direct damage.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Sacrifice",
+        "Graveyard Matters"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_ug_311e9368",
+      "identity_key": "UG",
+      "identity_name": "Simic Combine",
+      "canonical_card_name": "Prime Speaker Zegana",
+      "canonical_card_id": "311e9368-696a-47e7-aa2f-3ef1b1a92e2b",
+      "scryfall_id": "d2f007b0-b578-44f8-be65-cd9e2ac56e09",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "simic_combine_claim_005",
+        "simic_combine_claim_006",
+        "simic_combine_claim_0018"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+        "src_wotc_ravnica_allegiance_mechanics_2018"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "locator": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07"
+        },
+        {
+          "source_id": "src_wotc_ravnica_allegiance_mechanics_2018",
+          "locator": "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=311e9368-696a-47e7-aa2f-3ef1b1a92e2b",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/simic_combine/simic_combine.profile.json#/commander_compass/native_fit_commanders/0",
+        "exact_text": "Zegana has source-backed Simic leadership context, while her size-to-cards gameplay is auxiliary Commander texture for improvement and knowledge rather than independent lore proof."
+      },
+      "limitation": "Skip if you want a low-curve commander or a deck that does not rely on having another large creature first.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 1,
+      "proposed_public_rationale": "Prime Speaker Zegana appears because the certified Simic record identifies her as the former Prime Speaker associated with Utopian incremental change.",
+      "proposal_origin": "NEW_SOURCE_BOUNDED_DRAFT",
+      "proposed_tags": [
+        "Big Creatures",
+        "Card Draw",
+        "Counters"
+      ],
+      "rationale_support_note": "The draft narrows the internal Commander guidance to the direct native figure relationship stated by the cited substantive claim. It deliberately makes no gameplay, player-motivation, or personality inference."
+    },
+    {
+      "relationship_id": "cardrel_wr_0f5a3a09",
+      "identity_key": "WR",
+      "identity_name": "Boros Legion",
+      "canonical_card_name": "Aurelia, the Warleader",
+      "canonical_card_id": "0f5a3a09-2f07-4774-9e0f-e99d9a444166",
+      "scryfall_id": "bc6ffc1c-575b-4116-83c9-d13b29886c35",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "boros_legion_claim_004",
+        "boros_legion_claim_009",
+        "boros_legion_claim_026"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_flavorful_guide_guilds_ravnica_2018",
+        "src_wotc_gatecrash_boros_lore_2013"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "locator": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03"
+        },
+        {
+          "source_id": "src_wotc_gatecrash_boros_lore_2013",
+          "locator": "https://magic.wizards.com/en/news/feature/boros-legion"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=0f5a3a09-2f07-4774-9e0f-e99d9a444166",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/boros_legion/boros_legion.profile.json#/commander_compass/native_fit_commanders/0",
+        "exact_text": "She is the definitive Boros Guildmaster, focused on overwhelming the opponent through sheer military force."
+      },
+      "limitation": "Discovery-only story-corpus claims removed from this support chain during Gate 3. Commander/card/product material remains auxiliary and is not authoritative Boros semantic proof. You prefer a slow, reactive deck or don't enjoy the combat phase.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 1,
+      "proposed_public_rationale": "She is the definitive Boros Guildmaster, focused on overwhelming the opponent through sheer military force.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Extra Combats",
+        "Aggro"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_wr_ae6f21a2",
+      "identity_key": "WR",
+      "identity_name": "Boros Legion",
+      "canonical_card_name": "Tajic, Legion's Edge",
+      "canonical_card_id": "ae6f21a2-e6b6-4793-8343-e27310c0bea1",
+      "scryfall_id": "45c4c3b3-be18-4d74-99d8-f137498673d7",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "boros_legion_claim_006",
+        "boros_legion_claim_026"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_guilds_ravnica_mechanics_2018"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_guilds_ravnica_mechanics_2018",
+          "locator": "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=ae6f21a2-e6b6-4793-8343-e27310c0bea1",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/boros_legion/boros_legion.profile.json#/commander_compass/budget_friendly_commanders/0",
+        "exact_text": "A low-cost commander that protects your team from damage and encourages offensive growth."
+      },
+      "limitation": "Tajic is retained only as auxiliary Commander/card support, not as authoritative key-figure proof. Commander/card/product material remains auxiliary and is not authoritative Boros semantic proof. You are playing against decks with lots of targeted 'destroy' effects rather than 'damage' effects.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 3,
+      "proposed_public_rationale": "A low-cost commander that protects your team from damage and encourages offensive growth.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Aggro",
+        "Protection",
+        "Mentor"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_wr_aa219936",
+      "identity_key": "WR",
+      "identity_name": "Boros Legion",
+      "canonical_card_name": "Feather, the Redeemed",
+      "canonical_card_id": "aa219936-661b-4ccb-8741-78b70cff2b1a",
+      "scryfall_id": "e4a2d2c6-8eaa-4760-b620-921b807baa2e",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "boros_legion_claim_009"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_ravnica_novel_2005",
+        "src_wotc_gatecrash_boros_lore_2013"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_ravnica_novel_2005",
+          "locator": "N/A"
+        },
+        {
+          "source_id": "src_wotc_gatecrash_boros_lore_2013",
+          "locator": "https://magic.wizards.com/en/news/feature/boros-legion"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=aa219936-661b-4ccb-8741-78b70cff2b1a",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/boros_legion/boros_legion.profile.json#/commander_compass/advanced_complexity_commanders/0",
+        "exact_text": "A unique Boros 'spellslinger' engine that turns single-target buffs into recurring value."
+      },
+      "limitation": "Feather is retained only through bounded leadership-transition support; story-corpus claims removed. Commander/card/product material remains auxiliary and is not authoritative Boros semantic proof. You dislike tracking many triggers per turn.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 4,
+      "proposed_public_rationale": "A unique Boros 'spellslinger' engine that turns single-target buffs into recurring value.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Spellslinger",
+        "Voltron"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_lorehold_61a41cf1",
+      "identity_key": "LOREHOLD",
+      "identity_name": "Lorehold College",
+      "canonical_card_name": "Lorehold, the Historian",
+      "canonical_card_id": "61a41cf1-60cc-45ba-aa98-493c14e87d9d",
+      "scryfall_id": "71a6701f-40f1-43ef-bff5-a5907fd67cd6",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "claim_lorehold_figure_0001",
+        "claim_lorehold_figure_0002",
+        "claim_lorehold_figure_0003",
+        "claim_lorehold_figure_0004",
+        "claim_lorehold_mechanic_0011",
+        "claim_lorehold_mechanic_0012"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_lorehold_0009",
+        "src_lorehold_0002",
+        "src_lorehold_0005"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator": "https://magic.wizards.com/en/news/magic-story/the-legends-of-secrets-of-strixhaven"
+        },
+        {
+          "source_id": "src_lorehold_0002",
+          "locator": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-strixhaven-2021-04-01"
+        },
+        {
+          "source_id": "src_lorehold_0005",
+          "locator": "https://magic.wizards.com/en/news/feature/strixhaven-school-mages-and-commander-2021-edition-release-notes-2021-04-16"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=61a41cf1-60cc-45ba-aa98-493c14e87d9d",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/lorehold/lorehold.profile.json#/commander_compass/native_fit_commanders/0",
+        "exact_text": "Directly embodies the 'Eureka' moment of discovery by granting Miracle to all instants and sorceries in hand."
+      },
+      "limitation": "Requires specific top-deck manipulation (Scroll Rack, Sensei's Divining Top) to maximize Miracle. Your deck is primarily permanent-based (artifacts/creatures) rather than instants and sorceries.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 1,
+      "proposed_public_rationale": "Directly embodies the 'Eureka' moment of discovery by granting Miracle to all instants and sorceries in hand.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Miracle",
+        "Spellslinger",
+        "Card Draw"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_lorehold_5c40a8d4",
+      "identity_key": "LOREHOLD",
+      "identity_name": "Lorehold College",
+      "canonical_card_name": "Quintorius, History Chaser",
+      "canonical_card_id": "5c40a8d4-6969-4d71-aba5-5c7e4109b7d5",
+      "scryfall_id": "0742f19d-179c-43c4-ab95-4160c56b4384",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "claim_lorehold_figure_0005",
+        "claim_lorehold_figure_0006",
+        "claim_lorehold_figure_0007",
+        "claim_lorehold_location_0006",
+        "claim_lorehold_timeline_0006",
+        "claim_lorehold_figure_0021",
+        "claim_lorehold_figure_0015"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_lorehold_0009",
+        "src_lorehold_0010",
+        "src_lorehold_0008",
+        "src_lorehold_0006",
+        "src_lorehold_0007",
+        "src_lorehold_0013"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator": "https://magic.wizards.com/en/news/magic-story/the-legends-of-secrets-of-strixhaven"
+        },
+        {
+          "source_id": "src_lorehold_0010",
+          "locator": "https://magic.wizards.com/en/news/magic-story/secrets-of-strixhaven-field-studies-in-a-future-tense"
+        },
+        {
+          "source_id": "src_lorehold_0008",
+          "locator": "https://magic.wizards.com/en/news/magic-story/planeswalkers-guide-to-secrets-of-strixhaven"
+        },
+        {
+          "source_id": "src_lorehold_0006",
+          "locator": "https://magic.wizards.com/en/news/magic-story/mentor-2021-04-16"
+        },
+        {
+          "source_id": "src_lorehold_0007",
+          "locator": "https://magic.wizards.com/en/news/magic-story/a-radiant-heart"
+        },
+        {
+          "source_id": "src_lorehold_0013",
+          "locator": "stories/042 - Strixhaven: School of Mages/007_The Mentor.typ"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=5c40a8d4-6969-4d71-aba5-5c7e4109b7d5",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/lorehold/lorehold.profile.json#/commander_compass/budget_friendly_commanders/0",
+        "exact_text": "Represent's the college's main protagonist in his 2026 iteration, focusing on the spirit-driven historical research."
+      },
+      "limitation": "Commander eligibility comes from explicit Oracle text, not from the planeswalker type line alone. You are building a high-power non-creature storm deck.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 2,
+      "proposed_public_rationale": "Represent's the college's main protagonist in his 2026 iteration, focusing on the spirit-driven historical research.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Spirit Tribal",
+        "Recursion"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_lorehold_43832745",
+      "identity_key": "LOREHOLD",
+      "identity_name": "Lorehold College",
+      "canonical_card_name": "Velomachus Lorehold",
+      "canonical_card_id": "43832745-5d7d-4957-8e30-2072ad012564",
+      "scryfall_id": "523d8fe6-1efd-4278-82fe-ea4517e6665c",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "claim_lorehold_figure_0001",
+        "claim_lorehold_figure_0002",
+        "claim_lorehold_figure_0003",
+        "claim_lorehold_figure_0004",
+        "claim_lorehold_mechanic_0011",
+        "claim_lorehold_mechanic_0012"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_lorehold_0009",
+        "src_lorehold_0002",
+        "src_lorehold_0005"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_lorehold_0009",
+          "locator": "https://magic.wizards.com/en/news/magic-story/the-legends-of-secrets-of-strixhaven"
+        },
+        {
+          "source_id": "src_lorehold_0002",
+          "locator": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-strixhaven-2021-04-01"
+        },
+        {
+          "source_id": "src_lorehold_0005",
+          "locator": "https://magic.wizards.com/en/news/feature/strixhaven-school-mages-and-commander-2021-edition-release-notes-2021-04-16"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=43832745-5d7d-4957-8e30-2072ad012564",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/lorehold/lorehold.profile.json#/commander_compass/iconic_lore_forward_commanders/0",
+        "exact_text": "The founder of the college and the original face of Lorehold's spellslinger-aggro identity."
+      },
+      "limitation": "You want a lower mana-value commander; 7 mana is a steep investment in Boros.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 3,
+      "proposed_public_rationale": "The founder of the college and the original face of Lorehold's spellslinger-aggro identity.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Spellslinger",
+        "Attack Triggers"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    },
+    {
+      "relationship_id": "cardrel_bant_c6e17443",
+      "identity_key": "BANT",
+      "identity_name": "Bant",
+      "canonical_card_name": "Rafiq of the Many",
+      "canonical_card_id": "c6e17443-2379-419d-8c32-13ea9bf52993",
+      "scryfall_id": "ebdd967d-b364-47ad-a1c2-49b155f72c5b",
+      "relationship_class": "NATIVE_IDENTITY_ANCHOR",
+      "certified_identity_claim_ids": [
+        "bant_claim_0006",
+        "bant_claim_0008"
+      ],
+      "supporting_record_ids": [
+        "bant_claim_0017"
+      ],
+      "source_ids": [
+        "src_vm_bant_evidence_ledger_20260528",
+        "src_vm_bant_manual_fill_20260529"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_vm_bant_evidence_ledger_20260528",
+          "locator": "docs/research/bant/bant-evidence-ledger.md"
+        },
+        {
+          "source_id": "src_vm_bant_manual_fill_20260529",
+          "locator": "docs/research/bant/bant-manual-fill.md"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=c6e17443-2379-419d-8c32-13ea9bf52993",
+      "relationship_evidence": {
+        "evidence_class": "EXISTING_COMMANDER_GUIDANCE_ASSERTION",
+        "locator": "data/raw-factions/bant/bant.profile.json#/commander_compass/native_fit_commanders/0",
+        "exact_text": "Rafiq is the clearest Bant champion expression: one worthy attacker receives the force and recognition of the whole."
+      },
+      "limitation": "Card data and deck guidance require live verification before runtime Commander Compass use. The player wants broad go-wide tokens, prison control, or ramp with no champion frame.",
+      "review_status": "REVIEW_REQUIRED",
+      "display_priority": 1,
+      "proposed_public_rationale": "Rafiq is the clearest Bant champion expression: one worthy attacker receives the force and recognition of the whole.",
+      "proposal_origin": "EXISTING_REPOSITORY_COPY",
+      "proposed_tags": [
+        "Exalted",
+        "Voltron",
+        "Single Champion"
+      ],
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+    }
+  ]
+}

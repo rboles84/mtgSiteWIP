@@ -29,6 +29,8 @@ Durable placement and claim-backed profile authoring belongs in:
 
 Generated/runtime display surfaces may be inspected to identify symptoms, drift, and UX gaps. They do not prove source backing.
 
+Archscry card rationales use the same boundary. `data/dossier/card-rationale-relationships.source.json` may consolidate only relationships whose raw identity claims, raw source IDs, committed canonical card record, direct relationship evidence, limitation, and review state resolve. `data/dossier/card-rationale-catalog.json` is generated output and may contain only explicit `APPROVED_PUBLIC` records. Flavor snippets, generated faction Commander Compass output, same-color legality, generic mechanics, tags, and product membership are never relationship authority.
+
 Non-canonical comparison targets include:
 
 - `data/factions.json`

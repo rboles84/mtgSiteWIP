@@ -12,6 +12,8 @@ Vox Mana now uses a raw-plus-generated data flow:
 - `data/taxonomy/vox-mana-precon-themes.schema.json` describes the hand-authored precon theme taxonomy shape.
 - `data/precons/vox-mana-precon-catalog.json` is the generated runtime precon catalog used by dossier rendering.
 - `data/precons/vox-mana-precon-catalog.schema.json` describes the generated precon catalog shape.
+- `data/dossier/card-rationale-relationships.source.json` is the canonical reviewed card-to-identity relationship authority for Archscry card rationales. Records retain claim, source, card, limitation, review-state, and owner-approval provenance.
+- `data/dossier/card-rationale-catalog.json` is the generated runtime catalog. It contains only source records explicitly marked `APPROVED_PUBLIC`; review-required, evidence-needed, rejected, and missing records never enter runtime.
 - `data/raw-factions/` keeps the raw faction folders, claims, placement guidance, and source metadata for provenance.
 - `data/factions.json` is the generated display surface used by dossier rendering.
 - `data/placement-model.json` is the generated adaptive placement model used by Archscry.
@@ -126,6 +128,12 @@ Each generated precon entry contains:
 `factionRefs` uses current Vox Mana expression keys from the active placement atlas. It lets the dossier distinguish faction-native decks such as `SILVERQUILL`, `UG`, or `BANT` from generic same-color alternatives.
 
 The dossier presenter layer decides `nativeExact`, `otherExact`, and `stretch` lanes at runtime from the active dossier view. That grouping result is not stored back into the generated catalog.
+
+## Card-rationale artifacts
+
+`research/build-card-rationale-artifacts.mjs` validates canonical relationship records against raw faction claim/source packets and the committed Scryfall Commander index, then emits the approved-only runtime catalog and all-37 audit artifacts. Generated faction records, flavor snippets, tag overlap, color identity, and UI selection order cannot create a card relationship.
+
+Newly surfaced or newly written rationale remains `REVIEW_REQUIRED` until an explicit owner decision is recorded in the source record. Runtime ordering is deterministic and limited to three approved records per identity; zero is valid and causes the section to omit safely.
 
 ## Adaptive placement model
 

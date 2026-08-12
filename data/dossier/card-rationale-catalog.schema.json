@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voxmana.io/schemas/card-rationale-catalog.schema.json",
+  "title": "Generated approved Archscry card-rationale catalog",
+  "type": "object",
+  "required": ["schema_version", "source_path", "source_sha256", "generated_policy", "records"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "source_path": { "const": "data/dossier/card-rationale-relationships.source.json" },
+    "source_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "generated_policy": { "type": "string", "minLength": 1 },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["relationship_id", "identity_key", "card", "rationale", "display_priority", "provenance"],
+        "properties": {
+          "relationship_id": { "type": "string" },
+          "identity_key": { "type": "string" },
+          "card": { "type": "object" },
+          "rationale": { "type": "string", "minLength": 1 },
+          "display_priority": { "type": "integer", "minimum": 1 },
+          "provenance": { "type": "object" }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}
