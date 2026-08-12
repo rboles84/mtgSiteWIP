@@ -45,8 +45,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-551 — All-37 Card-Rationale Source Hardening](in-progress/VM-551-all-37-card-rationale-source-hardening.md) - re-adjudicating every existing card candidate, establishing a provenance-complete source authority and approved-only runtime catalog, and preserving explicit gaps instead of generating unsupported rationale.
-
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 
 ## Blocked
@@ -54,6 +52,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-551 — All-37 Card-Rationale Source Hardening](done/VM-551-all-37-card-rationale-source-hardening.md) - audited 125 candidates across all 37 identities, retained 26 direct native anchors for owner review, rejected three generated-only rows, left 96 evidence gaps explicit, and replaced the selector mismatch with an approved-only deterministic catalog that currently renders no unapproved rationale.
 
 - [VM-551 — Gate B1 Dossier Usefulness And Content Integrity](done/VM-551-gate-b1-dossier-usefulness-content-integrity.md) - completed provenance-gated player explanations, verified card/precon discovery, accessible card details and tooltips, responsive no-filler layouts, and public internal-token guards while preserving all placement semantics; awaiting owner hands-on review on the canonical branch.
 

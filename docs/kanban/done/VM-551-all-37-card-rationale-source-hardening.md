@@ -1,6 +1,6 @@
 # VM-551 — All-37 Card-Rationale Source Hardening
 
-Status: In progress
+Status: Done — source authority and owner-review packet complete; zero rationale self-promoted
 
 ## Objective
 
@@ -34,3 +34,12 @@ Establish a source-first, provenance-complete card-to-identity relationship auth
 ## Stop Condition
 
 Stop after the all-37 evidence pass, approved-only catalog integration, tests, focused browser QA, scoped local commits, and owner handoff.
+
+## Completed Result
+
+- Audited 125 current candidates across exactly 37 identities.
+- Preserved 26 direct native-anchor relationships as `REVIEW_REQUIRED`; 96 remain `EVIDENCE_NEEDED`; three generated-only Naya rows are `REJECTED`.
+- Produced an approved-only runtime catalog with zero records because no newly surfaced rationale has owner approval.
+- Replaced the flavor-selector intersection for this section with deterministic catalog consumption and safe zero-card omission.
+- Passed provenance negative fixtures, dossier integrity, legacy placement, Gate B1 model/runtime/presentation/result, exhaustive engine, whitespace, and focused responsive browser checks.
+- Stopped for owner approval/rejection of the review packet and review of the 25 identities with no defensible review-ready example.
