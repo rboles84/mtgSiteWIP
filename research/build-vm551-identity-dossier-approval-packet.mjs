@@ -271,7 +271,30 @@ const pairRows = pairTsv.trim().split(/\r?\n/).slice(1).map((line) => {
 });
 if (pairRows.length !== 123) throw new Error(`Expected 123 confusion pairs, found ${pairRows.length}`);
 
-const comparisonRecords = pairRows.map((pair) => {
+const liveEmittablePairRows = [
+  {
+    identity_a: "BR",
+    identity_b: "R",
+    observable_behavioral_distinction: "Rakdos's paired spectacle-and-cost posture versus Red's broader commitment to immediate self-directed action.",
+  },
+  {
+    identity_a: "G",
+    identity_b: "WITHERBLOOM",
+    observable_behavioral_distinction: "Green's acceptance of the living world's existing order versus Witherbloom's deliberate use of life, death, and renewal as an exchange.",
+  },
+  {
+    identity_a: "JUND",
+    identity_b: "RG",
+    observable_behavioral_distinction: "Jund's predatory resource hierarchy versus Gruul's resistance to imposed structure through direct, unrestrained action.",
+  },
+];
+
+const publicPairRows = [
+  ...pairRows.map((pair) => ({ ...pair, authority_role: "MANDATORY_CONFUSION_PAIR" })),
+  ...liveEmittablePairRows.map((pair) => ({ ...pair, authority_role: "LIVE_RUNTIME_PAIR" })),
+];
+
+const comparisonRecords = publicPairRows.map((pair) => {
   const a = factionRegistry.factions[pair.identity_a];
   const b = factionRegistry.factions[pair.identity_b];
   const guideA = guideByIdentity.get(pair.identity_a);
@@ -293,15 +316,21 @@ const comparisonRecords = pairRows.map((pair) => {
       relationship_guide_a: `docs/reference/37-identity-player-relationship-guide.md#L${guideA.line}`,
       relationship_guide_b: `docs/reference/37-identity-player-relationship-guide.md#L${guideB.line}`,
       instrument_boundary: {
-        locator: `docs/plans/vm551-gate-b1-placement-instrument/confusion-pair-coverage.tsv#${pair.identity_a}::${pair.identity_b}`,
+        locator: pair.authority_role === "MANDATORY_CONFUSION_PAIR"
+          ? `docs/plans/vm551-gate-b1-placement-instrument/confusion-pair-coverage.tsv#${pair.identity_a}::${pair.identity_b}`
+          : `docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json#${pair.identity_a}::${pair.identity_b}`,
         observable_behavioral_distinction: pair.observable_behavioral_distinction,
-        use_restriction: "Routing and overlap context only; it cannot independently authorize public identity meaning.",
+        use_restriction: pair.authority_role === "MANDATORY_CONFUSION_PAIR"
+          ? "Routing and overlap context only; it cannot independently authorize public identity meaning."
+          : "Current-engine result reachability only; it cannot independently authorize public identity meaning.",
       },
       certified_claims_a: resolveClaims(pair.identity_a, certifiedClaimIds(profileByIdentity.get(pair.identity_a).profile)),
       certified_claims_b: resolveClaims(pair.identity_b, certifiedClaimIds(profileByIdentity.get(pair.identity_b).profile)),
       evidence_roles: {
         identity_meaning: "certified_claims_and_relationship_guide",
-        overlap_context: "approved_b1_confusion_pair",
+        overlap_context: pair.authority_role === "MANDATORY_CONFUSION_PAIR"
+          ? "approved_b1_confusion_pair"
+          : "current_engine_runtime_pair",
         proposed_bridge: "evidence_validation_required",
       },
     },

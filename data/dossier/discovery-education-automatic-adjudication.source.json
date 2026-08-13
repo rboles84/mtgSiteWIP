@@ -626,6 +626,40 @@
       }
     },
     {
+      "record_id": "glossary_self_mill",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Self-mill",
+      "aliases": [
+        "self mill",
+        "mill yourself",
+        "stock the graveyard"
+      ],
+      "proposed_copy": "Putting cards from your own library into your graveyard on purpose.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#self-mill",
+        "supporting_locators": []
+      },
+      "limitations": "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_self_mill",
+      "copy_sha256": "b9fcdd31859504212451f4b8f54a94eba98d98e495e9ffcc1d16225715fe0498",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "data/taxonomy/vox-mana-tags.json#self-mill"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
       "record_id": "glossary_spell_copying",
       "record_type": "GLOSSARY_TERM",
       "term": "Spell copying",

@@ -63,6 +63,7 @@ const taxonomyReview = [
   ["mana_rocks", "Mana rocks", ["mana rock"], "ramp"],
   ["ramp", "Ramp", ["mana acceleration"], "ramp"],
   ["etb", "ETB", ["enters the battlefield", "enter-the-battlefield"], "etb"],
+  ["self_mill", "Self-mill", ["self mill", "mill yourself", "stock the graveyard"], "self-mill"],
 ].map(([termId, term, aliases, tag]) => ({
   record_id: `glossary_${termId}`,
   record_type: "GLOSSARY_TERM",

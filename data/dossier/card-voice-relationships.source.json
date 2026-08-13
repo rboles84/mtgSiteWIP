@@ -764,19 +764,18 @@
       }
     },
     {
-      "relationship_id": "cardvoice_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a",
+      "relationship_id": "cardvoice_prismari_47ee6837_2e2f_4344_ab9f_6b8887874f77",
       "identity_key": "PRISMARI",
       "identity_name": "Prismari College",
-      "canonical_card_name": "Rootha, Mastering the Moment",
-      "canonical_card_id": "348c67ef-9ccc-4651-9038-efdf1ad1b36a",
-      "scryfall_id": "a5b3dbb2-c090-4118-9e47-56c16202572c",
-      "exact_excerpt": "\"The great thrill of perfection is that we'll always be chasing it.\"",
-      "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
+      "canonical_card_name": "Colorstorm Stallion",
+      "canonical_card_id": "47ee6837-2e2f-4344-ab9f-6b8887874f77",
+      "scryfall_id": "f5b54d46-2caf-4d1b-8be1-dbd9e9dce058",
+      "exact_excerpt": "Prismari students are never afraid to let their imaginations run wild.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "prismari_claim_002",
         "prismari_claim_004",
-        "prismari_claim_006",
-        "prismari_claim_0025"
+        "prismari_claim_006"
       ],
       "source_ids": [
         "src_wotc_planeswalkers_guide_strixhaven_2021",
@@ -798,22 +797,14 @@
         {
           "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
           "locator": "Prismari - The College of Elemental Arts"
-        },
-        {
-          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
-          "locator": "Prismari College and The Dichotomy of Prismari"
-        },
-        {
-          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
-          "locator": "Prismari - Field Studies"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=348c67ef-9ccc-4651-9038-efdf1ad1b36a",
-      "why_voice_belongs": "Rootha, Mastering the Moment's exact excerpt provides a bounded voice echo of a certified Prismari figure voicing perfection as an endless artistic pursuit.",
-      "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims prismari_claim_002, prismari_claim_004, prismari_claim_006, prismari_claim_0025; the relationship does not arise from card color, product membership, tags, or mechanics.",
-      "false_positive_analysis": "Izzet, Quandrix, and Blue also pursue improvement; Prismari's technique-in-service-of-expression is the required distinction.",
-      "adjacent_identity_confusion_risk": "Izzet, Quandrix, and Blue also pursue improvement; Prismari's technique-in-service-of-expression is the required distinction.",
-      "limitation": "Exact card text is verified, but Public use is limited to this validated voice relationship. Izzet, Quandrix, and Blue also pursue improvement; Prismari's technique-in-service-of-expression is the required distinction.",
+      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=47ee6837-2e2f-4344-ab9f-6b8887874f77",
+      "why_voice_belongs": "Colorstorm Stallion's exact excerpt provides a bounded voice echo of Prismari students named directly through imagination allowed to run wild.",
+      "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims prismari_claim_002, prismari_claim_004, prismari_claim_006; the relationship does not arise from card color, product membership, tags, or mechanics.",
+      "false_positive_analysis": "Izzet, Quandrix, and Red can also value imagination or experimentation; the explicit Prismari student reference and art-as-magic authority provide the bounded relationship.",
+      "adjacent_identity_confusion_risk": "Izzet, Quandrix, and Red can also value imagination or experimentation; the explicit Prismari student reference and art-as-magic authority provide the bounded relationship.",
+      "limitation": "Exact card text is verified, but Public use is limited to this validated voice relationship. Izzet, Quandrix, and Red can also value imagination or experimentation; the explicit Prismari student reference and art-as-magic authority provide the bounded relationship.",
       "review_status": "APPROVED_PUBLIC",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
@@ -825,17 +816,15 @@
           "identity_claim_ids": [
             "prismari_claim_002",
             "prismari_claim_004",
-            "prismari_claim_006",
-            "prismari_claim_0025"
+            "prismari_claim_006"
           ],
           "identity_source_locators": [
             "data/raw-factions/prismari/prismari.claims.json#prismari_claim_002",
             "data/raw-factions/prismari/prismari.claims.json#prismari_claim_004",
-            "data/raw-factions/prismari/prismari.claims.json#prismari_claim_006",
-            "data/raw-factions/prismari/prismari.claims.json#prismari_claim_0025"
+            "data/raw-factions/prismari/prismari.claims.json#prismari_claim_006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/commander-index.json#oracle_id=348c67ef-9ccc-4651-9038-efdf1ad1b36a"
+            "data/scryfall/indexes/card-flavor-index.json#oracle_id=47ee6837-2e2f-4344-ab9f-6b8887874f77"
           ]
         }
       },
@@ -1268,18 +1257,18 @@
       }
     },
     {
-      "relationship_id": "cardvoice_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a",
+      "relationship_id": "cardvoice_r_c363f338_0777_45e6_b13c_f15ba026b63a",
       "identity_key": "R",
       "identity_name": "Red",
-      "canonical_card_name": "Torbran, Thane of Red Fell",
-      "canonical_card_id": "8c3495bf-02e7-4ad9-949d-92eb3d2b662a",
-      "scryfall_id": "79f591cd-d277-4ba5-b1bf-1c09cac9cb8a",
-      "exact_excerpt": "A dwarf's grudge runs deeper than the mountains' roots.",
+      "canonical_card_name": "Built to Smash",
+      "canonical_card_id": "c363f338-0777-45e6-b13c-f15ba026b63a",
+      "scryfall_id": "6f054978-446c-4565-b51e-8f1f0e0f01e2",
+      "exact_excerpt": "Free from Consulate regulations, renegade-built automatons push performance to the limit.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
         "red_claim_0002",
-        "red_claim_0004",
-        "red_claim_0006"
+        "red_claim_0003",
+        "red_claim_0005"
       ],
       "source_ids": [
         "MONO-R-2015",
@@ -1296,27 +1285,27 @@
         },
         {
           "source_id": "MONO-R-2015",
-          "locator": "docs/research/mono_upgrade/13_red.md#R2015-Q3;R2015-Q4"
+          "locator": "docs/research/mono_upgrade/13_red.md#R2015-Q2"
         },
         {
           "source_id": "MONO-R-2025",
-          "locator": "docs/research/mono_upgrade/13_red.md#R2025-g"
+          "locator": "docs/research/mono_upgrade/13_red.md#R2025-b;R2025-c;R2025-e"
         },
         {
           "source_id": "MONO-R-2015",
-          "locator": "docs/research/mono_upgrade/13_red.md#R2015-Q6"
+          "locator": "docs/research/mono_upgrade/13_red.md#R2015-Q5;R2015-Q5b"
         },
         {
           "source_id": "MONO-R-2025",
-          "locator": "docs/research/mono_upgrade/13_red.md#R2025-i"
+          "locator": "docs/research/mono_upgrade/13_red.md#R2025-d;R2025-e;R2025-f;R2025-h"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=8c3495bf-02e7-4ad9-949d-92eb3d2b662a",
-      "why_voice_belongs": "Torbran, Thane of Red Fell's exact excerpt provides a bounded voice echo of emotion held as a deep, active grudge rather than suppressed.",
-      "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims red_claim_0002, red_claim_0004, red_claim_0006; the relationship does not arise from card color, product membership, tags, or mechanics.",
-      "false_positive_analysis": "Black, Rakdos, Gruul, and Jund also express anger or grievance. This is a bounded mono-Red emotional-intensity echo, not identity proof from the card's color.",
-      "adjacent_identity_confusion_risk": "Black, Rakdos, Gruul, and Jund also express anger or grievance. This is a bounded mono-Red emotional-intensity echo, not identity proof from the card's color.",
-      "limitation": "Exact card text is verified, but Public use is limited to this validated voice relationship. Black, Rakdos, Gruul, and Jund also express anger or grievance. This is a bounded mono-Red emotional-intensity echo, not identity proof from the card's color.",
+      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=c363f338-0777-45e6-b13c-f15ba026b63a",
+      "why_voice_belongs": "Built to Smash's exact excerpt provides a bounded voice echo of freedom from imposed regulation joined to immediate action and pushing performance to its limit.",
+      "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims red_claim_0002, red_claim_0003, red_claim_0005; the relationship does not arise from card color, product membership, tags, or mechanics.",
+      "false_positive_analysis": "Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting.",
+      "adjacent_identity_confusion_risk": "Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting.",
+      "limitation": "Exact card text is verified, but Public use is limited to this validated voice relationship. Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting.",
       "review_status": "APPROVED_PUBLIC",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
@@ -1327,16 +1316,16 @@
         "evidence_chain": {
           "identity_claim_ids": [
             "red_claim_0002",
-            "red_claim_0004",
-            "red_claim_0006"
+            "red_claim_0003",
+            "red_claim_0005"
           ],
           "identity_source_locators": [
             "data/raw-factions/red/red.claims.json#red_claim_0002",
-            "data/raw-factions/red/red.claims.json#red_claim_0004",
-            "data/raw-factions/red/red.claims.json#red_claim_0006"
+            "data/raw-factions/red/red.claims.json#red_claim_0003",
+            "data/raw-factions/red/red.claims.json#red_claim_0005"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/commander-index.json#oracle_id=8c3495bf-02e7-4ad9-949d-92eb3d2b662a"
+            "data/scryfall/indexes/card-flavor-index.json#oracle_id=c363f338-0777-45e6-b13c-f15ba026b63a"
           ]
         }
       },

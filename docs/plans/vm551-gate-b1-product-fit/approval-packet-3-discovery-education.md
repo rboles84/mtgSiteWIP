@@ -2,7 +2,7 @@
 
 Status: **AUTOMATIC ADJUDICATION COMPLETE** — zero owner exceptions.
 
-The prior owner-review procedure below is retained as historical context. The final authority contains 32 approved glossary definitions and four verified discovery/Maze microcopy records. Nineteen Commander/rules terms and four instructional records passed `vm551-education-validator-v1`; 13 unchanged baseline definitions remain approved. None authorizes identity meaning or placement semantics.
+The prior owner-review procedure below is retained as historical context. The final authority contains 33 approved glossary definitions and four verified discovery/Maze microcopy records. Twenty Commander/rules terms and four instructional records passed `vm551-education-validator-v1`; 13 unchanged baseline definitions remain approved. None authorizes identity meaning or placement semantics.
 
 - `EVIDENCE_NEEDED`: 0.
 - `REVIEW_REQUIRED`: 0.
@@ -26,13 +26,13 @@ The exact owner decision table is [approval-packet-3-discovery-education.tsv](..
 - Colorless terms use the committed official-rules digest and its cited Comprehensive Rules.
 - Discovery and Maze explanations describe verified runtime contracts; they do not establish identity meaning.
 
-The source contains 13 unchanged current-player definitions as `APPROVED_PUBLIC` baseline migrations. They preserve existing meaning and do not require a new owner decision. The packet contains only 23 new or substantively changed rows.
+The source contains 13 unchanged current-player definitions as `APPROVED_PUBLIC` baseline migrations. They preserve existing meaning and do not require a new owner decision. The packet contains 24 new or substantively changed rows, including the existing-taxonomy Self-mill definition needed by the Sultai dossier.
 
 ## Coverage
 
 | Contract | Rows |
 |---|---:|
-| Canonical source records | 36 |
+| Canonical source records | 37 |
 | Unchanged approved baseline migrations | 13 |
 | New glossary review rows | 19 |
 | Discovery/Maze instructional review rows | 4 |
@@ -56,7 +56,7 @@ These sources explain game behavior only. They do not authorize a Vox Mana ident
 
 ## Owner decision rule
 
-For each of the 23 review rows, set:
+For each of the 24 review rows, set:
 
 - `APPROVE` — exact copy may be promoted;
 - `REVISE` — provide exact replacement copy;
@@ -72,9 +72,9 @@ This research commit does not replace `ARCHSCRY_TERM_HELP`, change rendered labe
 
 ## Validation
 
-- 36/36 records generated deterministically: PASS.
+- 37/37 records generated deterministically: PASS.
 - 13 unchanged baseline migrations: PASS.
-- 23/23 review rows have provenance, limitations, copy hashes, and null owner decisions: PASS.
+- 24/24 review rows have provenance, limitations, copy hashes, and null owner decisions: PASS.
 - 19/19 requested vocabulary entries represented: PASS.
 - 8/8 formal rules terms use Wizards authority: PASS.
 - Duplicate IDs: 0.

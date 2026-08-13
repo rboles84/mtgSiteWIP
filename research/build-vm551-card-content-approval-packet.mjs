@@ -288,6 +288,87 @@ const rationaleProposals = proposalIdentityKeys.map((identityKey) => {
   };
 });
 
+const colorlessSupplement = {
+  name: "Omarthis, Ghostfire Initiate",
+  copy: "Omarthis is a bounded example of Colorless growth support: it grows when another colorless creature receives +1/+1 counters, then manifests cards equal to its counters when it dies.",
+  claim_ids: ["colorless_claim_0005", "colorless_claim_0006"],
+  locator: "data/raw-factions/colorless/colorless.profile.json#/commander_compass/native_fit_commanders/1",
+};
+{
+  const identityKey = "COLORLESS";
+  const card = resolveCard(colorlessSupplement.name);
+  const claims = claimsByIdentity.get(identityKey);
+  if (!card?.oracle_excerpt) throw new Error(`Packet 1 supplemental rationale does not resolve: ${identityKey} / ${colorlessSupplement.name}`);
+  const resolvedClaims = colorlessSupplement.claim_ids.map((claimId) => {
+    const claim = claims?.byId.get(claimId);
+    if (!claim) throw new Error(`Packet 1 supplemental claim does not resolve: ${identityKey} / ${claimId}`);
+    return { claim_id: claim.claim_id, statement: claim.statement };
+  });
+  rationaleProposals.push({
+    proposal_id: stableId("packet1_rationale", identityKey, card.oracle_id),
+    proposal_type: "CARD_RATIONALE",
+    identity_key: identityKey,
+    canonical_card_name: card.name,
+    canonical_card_id: card.oracle_id,
+    proposed_copy: colorlessSupplement.copy,
+    copy_sha256: digest(colorlessSupplement.copy),
+    verified_card_observation: card.oracle_excerpt,
+    provenance: {
+      identity_authority: claims.authorityPath,
+      certified_identity_claims: resolvedClaims,
+      relationship_lead: colorlessSupplement.locator,
+      canonical_card_data: `data/scryfall/indexes/commander-index.json#oracle_id=${card.oracle_id}`,
+      evidence_roles: {
+        identity_ownership: "certified_identity_claims",
+        card_behavior: "canonical_card_data",
+        proposed_bridge: "automatic_validation_required",
+      },
+    },
+    limitations: "This bounded example covers Colorless growth support inside the certified outside-WUBRG and Commander-support frame. Counters, manifest, card color, or product membership do not independently prove Colorless identity.",
+    disposition: "REVIEW_REQUIRED",
+    owner_decision: null,
+    replacement_locator: "data/dossier/card-rationale-relationships.source.json#pending-colorless-omarthis",
+  });
+}
+
+const rationaleProposalById = new Map(rationaleProposals.map((proposal) => [proposal.proposal_id, proposal]));
+for (const record of relationshipSource.records) {
+  if (!record.proposal_origin?.startsWith("packet1_rationale_") || rationaleProposalById.has(record.proposal_origin)) continue;
+  const claims = claimsByIdentity.get(record.identity_key);
+  const resolvedClaims = record.certified_identity_claim_ids.map((claimId) => {
+    const claim = claims?.byId.get(claimId);
+    if (!claim) throw new Error(`Prior Packet 1 rationale claim no longer resolves: ${record.identity_key} / ${claimId}`);
+    return { claim_id: claim.claim_id, statement: claim.statement };
+  });
+  rationaleProposalById.set(record.proposal_origin, {
+    proposal_id: record.proposal_origin,
+    proposal_type: "CARD_RATIONALE",
+    identity_key: record.identity_key,
+    canonical_card_name: record.canonical_card_name,
+    canonical_card_id: record.canonical_card_id,
+    proposed_copy: record.proposed_public_rationale,
+    copy_sha256: digest(record.proposed_public_rationale),
+    verified_card_observation: record.relationship_evidence.verified_card_observation,
+    provenance: {
+      identity_authority: claims.authorityPath,
+      certified_identity_claims: resolvedClaims,
+      relationship_lead: record.relationship_evidence.locator,
+      canonical_card_data: record.canonical_card_data_locator,
+      evidence_roles: {
+        identity_ownership: "certified_identity_claims",
+        card_behavior: "canonical_card_data",
+        proposed_bridge: "automatic_validation_required",
+      },
+    },
+    limitations: record.limitation,
+    disposition: "REVIEW_REQUIRED",
+    owner_decision: null,
+    replacement_locator: `data/dossier/card-rationale-relationships.source.json#${record.relationship_id}`,
+  });
+}
+rationaleProposals.splice(0, rationaleProposals.length, ...[...rationaleProposalById.values()]
+  .sort((left, right) => left.identity_key.localeCompare(right.identity_key) || left.proposal_id.localeCompare(right.proposal_id)));
+
 const originalVoiceCandidates = Object.entries(snippets.snippets)
   .flatMap(([identityKey, entries]) => entries.map((entry, index) => {
     const card = resolveCard(entry.card_name, { preferFlavor: true });
@@ -331,9 +412,9 @@ const voicePolicies = {
   LOREHOLD: { card: "Campus Renovation", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["claim_lorehold_placement_0001", "claim_lorehold_placement_0002", "claim_lorehold_placement_0009"], focus: "Lorehold named directly through reconstructing and actively using the past", neighbors: "White, Red, and generic artifact recursion can preserve objects; the explicit Lorehold historical-reconstruction purpose is required." },
   MARDU: { card: "Bloodsoaked Champion", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["mardu_claim_0002", "mardu_claim_0003", "mardu_claim_0005"], focus: "the Mardu named directly through meeting death as another opponent", neighbors: "Rakdos, Jund, and Black also speak in violent or death-facing terms; the explicit Mardu honor-and-action context is the bridge." },
   NAYA: { card: "Cradle of Vitality", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["naya_claim_0003", "naya_claim_0004", "naya_claim_0007"], focus: "Naya named directly through abundant natural growth and gathering", neighbors: "Selesnya and Green share growth and community; the explicit Naya ecosystem and abundance context prevents generic token or lifegain inference." },
-  PRISMARI: { card: "Rootha, Mastering the Moment", class: "NATIVE_FIGURE_OR_LOCATION", claims: ["prismari_claim_002", "prismari_claim_004", "prismari_claim_006", "prismari_claim_0025"], focus: "a certified Prismari figure voicing perfection as an endless artistic pursuit", neighbors: "Izzet, Quandrix, and Blue also pursue improvement; Prismari's technique-in-service-of-expression is the required distinction." },
+  PRISMARI: { card: "Colorstorm Stallion", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["prismari_claim_002", "prismari_claim_004", "prismari_claim_006"], focus: "Prismari students named directly through imagination allowed to run wild", neighbors: "Izzet, Quandrix, and Red can also value imagination or experimentation; the explicit Prismari student reference and art-as-magic authority provide the bounded relationship." },
   QUANDRIX: { card: "Additive Evolution", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["quandrix_claim_002", "quandrix_claim_006", "quandrix_claim_0019", "quandrix_claim_0020"], focus: "a Quandrix student explicitly joining unbounded numbers to living nature", neighbors: "Simic and Green also scale living systems; the explicit mathematical/natural synthesis makes this Quandrix rather than generic growth." },
-  R: { card: "Torbran, Thane of Red Fell", class: "CERTIFIED_SEMANTIC_ECHO", claims: ["red_claim_0002", "red_claim_0004", "red_claim_0006"], focus: "emotion held as a deep, active grudge rather than suppressed", neighbors: "Black, Rakdos, Gruul, and Jund also express anger or grievance. This is a bounded mono-Red emotional-intensity echo, not identity proof from the card's color." },
+  R: { card: "Built to Smash", class: "CERTIFIED_SEMANTIC_ECHO", claims: ["red_claim_0002", "red_claim_0003", "red_claim_0005"], focus: "freedom from imposed regulation joined to immediate action and pushing performance to its limit", neighbors: "Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting." },
   RG: { card: "Burning-Tree Emissary", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["claim_gruul_clans_core_identity_0002", "claim_gruul_clans_philosophy_0004", "claim_gruul_clans_placement_0001"], focus: "the Gruul named directly while rejecting the assumption that their wildness lacks subtle power", neighbors: "Red, Green, and Temur can sound instinctive or wild; the explicit Gruul anti-civilization and shaman context supplies the relationship." },
   SILVERQUILL: { card: "Beaming Defiance", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["silverquill_claim_0019", "silverquill_claim_0020", "silverquill_claim_0021"], focus: "a Silverquill student using language of shadow, light, self-definition, and visible presence", neighbors: "Prismari and mono-White can also value expression or confidence; Silverquill requires word/social influence and power-awareness rather than art alone." },
   SULTAI: { card: "Aggressive Negotiations", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["sultai_claim_0002", "sultai_claim_0004", "sultai_claim_0007"], focus: "a Sultai ambassador explicitly treating alliances as tools with an expiration point", neighbors: "Black, Dimir, Grixis, and Orzhov can all sound calculating; the explicit Sultai ruthlessness and instrumental alliance frame is required." },
@@ -357,6 +438,7 @@ const replacementVoiceCards = new Map([
   ["B", "Ancient Craving"],
   ["GLINT", "Aberrant Return"],
   ["INK", "Command Tower"],
+  ["R", "Built to Smash"],
   ["W", "Aligned Heart"],
   ["WITCH", "Animation Module"],
   ["WITHERBLOOM", "Death Begets Life"],

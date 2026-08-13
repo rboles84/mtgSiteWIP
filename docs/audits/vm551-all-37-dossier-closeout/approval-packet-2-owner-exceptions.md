@@ -4,7 +4,9 @@
 - Test the Fit roles approved: **111**
 - How This Plays fields approved: **222**
 - What to Look For entries approved: **111**
-- Bidirectional comparison pairs approved: **123/123**
+- Mandatory confusion-pair comparisons approved: **123/123**
+- Additional current-engine runtime pairs approved: **3**
+- Total bidirectional public comparisons approved: **126**
 - Internal/audit vocabulary flags: **0**
 - Owner exceptions: **0**
 

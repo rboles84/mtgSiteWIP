@@ -7,9 +7,9 @@ Status: **AUTOMATIC ADJUDICATION COMPLETE** — zero owner exceptions.
 Packet 1 now uses `certified identity truth → canonical card facts or exact flavor text → explicit bounded relationship → evidence validation → public catalog`. Records that pass `vm551-evidence-validator-v1` carry `approval_basis: EVIDENCE_VALIDATED_AUTOMATIC`; no human approval is fabricated.
 
 - 26 prior owner-approved rationale relationships retained.
-- 25 former rationale gaps automatically approved with bounded, source-complete bridges.
+- 25 former rationale gaps automatically approved with bounded, source-complete bridges; a second non-colliding Colorless example was subsequently approved from the same certified and canonical authority so its rationale section remains useful beside the required Zhulodok precon.
 - 37 source-complete voice relationships automatically approved, covering 37/37 identities.
-- 81 weak voice candidates remain rejected in the audit trail.
+- 82 weak voice candidates remain rejected in the audit trail.
 - Zero `EVIDENCE_NEEDED`, zero `REVIEW_REQUIRED`, and zero owner exceptions.
 
 The generated rationale and voice catalogs consume only `APPROVED_PUBLIC`. Color, mechanic, tag, product membership, popularity, or mood alone never authorizes a relationship. The historical owner-review procedure below is retained only as the record of the superseded operating model; it is not a current gate.
@@ -33,7 +33,7 @@ The authority chain remains:
 | Surface | Existing approved | Terminal rejected historical rows | New review rows | Identity coverage in review packet |
 |---|---:|---:|---:|---:|
 | Card rationale | 26 relationships / 24 displayed records | 99 of 125 historical candidates | 25 | 25 current Gap identities |
-| Card voice | 0 newly promoted | 81 rejected after relationship review | 37 source-complete proposals | 37 identities, one owner-decision row each |
+| Card voice | 0 newly promoted | 82 rejected after relationship review | 37 source-complete proposals | 37 identities, one owner-decision row each |
 
 Historical unresolved state is now zero: no historical row remains `EVIDENCE_NEEDED` or `REVIEW_REQUIRED`. Rejection is of the historical row in its current evidence form; a rejected row can be replaced only by a separately provenance-complete proposal.
 
@@ -57,9 +57,9 @@ The proposed wording is deliberately bounded. Four-color and WUBRG rows retain t
 
 ## Card-voice proposals
 
-All 111 original exact-excerpt candidates were relationship-adjudicated. Seven source-complete replacement candidates were added where the original heuristic set could not cleanly reach certified identity meaning. The complete 118-row audit now records relationship class, exact certified claim IDs, the semantic bridge, false-positive analysis, adjacent-identity risk, and an agent recommendation.
+All 111 original exact-excerpt candidates were relationship-adjudicated. Eight source-complete replacement candidates were added where the original heuristic set could not cleanly reach certified identity meaning or would collide with another required public card role. The complete 119-row audit now records relationship class, exact certified claim IDs, the semantic bridge, false-positive analysis, adjacent-identity risk, and an agent recommendation.
 
-Only 37 source-complete proposals—one genuinely useful candidate per identity—remain in the owner decision workload. The other 81 rows are terminally `REJECTED` and remain visible in [the voice adjudication audit](../../audits/vm551-all-37-dossier-closeout/approval-packet-1-voice-adjudication.tsv). No `GENERIC_THEMATIC_ANALOGY` row reaches owner review. Exact excerpts remain unchanged; this hardening supplies the missing relationship authority without promoting public content.
+Only 37 source-complete proposals—one genuinely useful candidate per identity—remain in the approved runtime authority. The other 82 rows are terminally `REJECTED` and remain visible in [the voice adjudication audit](../../audits/vm551-all-37-dossier-closeout/approval-packet-1-voice-adjudication.tsv). No `GENERIC_THEMATIC_ANALOGY` row reaches public runtime. Exact excerpts remain unchanged; this hardening supplies the missing relationship authority without promoting weak content.
 
 The restored public surface remains semantically separate:
 
@@ -93,9 +93,9 @@ Current runtime remains unchanged at 24 displayed card-rationale records from 26
 - Historical unresolved: 0.
 - New rationale review rows: 25.
 - Original exact voice candidates adjudicated: 111.
-- Source-complete replacement candidates researched: 7.
+- Source-complete replacement candidates researched: 8.
 - Voice review rows: 37.
-- Terminal rejected voice rows: 81.
+- Terminal rejected voice rows: 82.
 - Voice review coverage: 37/37 identities, exactly one source-complete owner-decision row per identity.
 - Generic thematic analogies in owner workload: 0.
 - Duplicate proposal IDs: 0.

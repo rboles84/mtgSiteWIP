@@ -3622,6 +3622,102 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_colorless_50676eba_a55a_4749_bb07_74a30e015781",
+      "identity_key": "COLORLESS",
+      "identity_name": "Colorless",
+      "canonical_card_name": "Omarthis, Ghostfire Initiate",
+      "canonical_card_id": "50676eba-a55a-4749-bb07-74a30e015781",
+      "scryfall_id": "985e16ac-8e0f-4e2e-9b74-d6a77dddf274",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "colorless_claim_0005",
+        "colorless_claim_0006"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "COLORLESS-SRC-018",
+        "COLORLESS-CANON-001",
+        "COLORLESS-SCOPE-005"
+      ],
+      "source_locators": [
+        {
+          "source_id": "COLORLESS-SRC-018",
+          "locator": "docs/research/colorless/source-material/colorless_mtg_notes_sourced_v2.md#modern-horizons-3-eldrazi-deck"
+        },
+        {
+          "source_id": "COLORLESS-CANON-001",
+          "locator": "docs/research/canon/misc/mtg_five_color_and_colorless_dossier.md#five-color-vs-colorless-through-artifacts-eldrazi-and-wastes-as-separate-colorless-branches"
+        },
+        {
+          "source_id": "COLORLESS-SCOPE-005",
+          "locator": "docs/architecture/colors/colorless/product-decision-gate.md#vm-372-support-only-controlled-richness-addendum"
+        },
+        {
+          "source_id": "COLORLESS-SRC-018",
+          "locator": "docs/research/colorless/source-material/colorless_mtg_notes_sourced_v2.md#why-players-choose-colorless-through-strategy-mapping-why-the-player-selects-the-strategy"
+        },
+        {
+          "source_id": "COLORLESS-CANON-001",
+          "locator": "docs/research/canon/misc/mtg_five_color_and_colorless_dossier.md#how-these-identities-work-for-vox-mana-placement"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=50676eba-a55a-4749-bb07-74a30e015781",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_colorless_50676eba_a55a_4749_bb07_74a30e015781",
+        "exact_text": "Omarthis is a bounded example of Colorless growth support: it grows when another colorless creature receives +1/+1 counters, then manifests cards equal to its counters when it dies.",
+        "verified_card_observation": "Omarthis enters with X +1/+1 counters on it. Whenever you put one or more +1/+1 counters on another colorless creature, you may put a +1/+1 counter on Omarthis. When Omarthis di...",
+        "relationship_bridge": "Omarthis is a bounded example of Colorless growth support: it grows when another colorless creature receives +1/+1 counters, then manifests cards equal to its counters when it dies. The relationship is limited to the verified card action and certified claims colorless_claim_0005, colorless_claim_0006.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "colorless_claim_0005",
+            "colorless_claim_0006"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/colorless/colorless.claims.json#colorless_claim_0005",
+            "data/raw-factions/colorless/colorless.claims.json#colorless_claim_0006"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=50676eba-a55a-4749-bb07-74a30e015781"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Omarthis is a bounded example of Colorless growth support: it grows when another colorless creature receives +1/+1 counters, then manifests cards equal to its counters when it dies.",
+      "proposal_origin": "packet1_rationale_colorless_50676eba_a55a_4749_bb07_74a30e015781",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "colorless_claim_0005",
+            "colorless_claim_0006"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=50676eba-a55a-4749-bb07-74a30e015781"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_colorless_50676eba_a55a_4749_bb07_74a30e015781"
+        }
+      }
+    },
+    {
       "relationship_id": "cardrel_auto_colorless_ec726c54_987b_48ed_8ffa_ec73a5e35333",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
@@ -3693,7 +3789,7 @@
           ]
         }
       },
-      "display_priority": 1,
+      "display_priority": 2,
       "proposed_public_rationale": "Zhulodok is a bounded example of Colorless's Eldrazi-scale branch: colorless spells cast from hand with mana value seven or greater receive cascade twice.",
       "proposal_origin": "packet1_rationale_colorless_ec726c54_987b_48ed_8ffa_ec73a5e35333",
       "proposed_tags": [],
@@ -4208,6 +4304,7 @@
       "classification": "Full",
       "meaningful_unresolved_defect": false,
       "approved_relationship_ids": [
+        "cardrel_auto_colorless_50676eba_a55a_4749_bb07_74a30e015781",
         "cardrel_auto_colorless_ec726c54_987b_48ed_8ffa_ec73a5e35333"
       ],
       "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",

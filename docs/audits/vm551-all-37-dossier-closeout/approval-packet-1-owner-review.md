@@ -1,12 +1,12 @@
 # VM-551 Packet 1 Automatic Adjudication
 
 - Validator: `vm551-evidence-validator-v1`
-- Automatically approved rationale proposals: **25**
+- Automatically approved rationale proposals: **26**
 - Previously approved rationale relationships retained: **26**
 - Approved rationale identity coverage: **37/37**
 - Automatically approved voice relationships: **37**
 - Approved voice identity coverage: **37/37**
-- Rejected voice candidates retained in audit trail: **81**
+- Rejected voice candidates retained in audit trail: **82**
 - Owner exceptions: **0**
 
 No human approval was fabricated. Every automatic approval records its evidence chain and validator result. The identity sections below are an audit view, not an approval workload.
@@ -297,17 +297,17 @@ No human approval was fabricated. Every automatic approval records its evidence 
 
 ### Source-complete voice proposal(s)
 
-- **Rootha, Mastering the Moment:** “"The great thrill of perfection is that we'll always be chasing it."”
-  - Relationship class: `NATIVE_FIGURE_OR_LOCATION`
-  - Certified claims: `prismari_claim_002`, `prismari_claim_004`, `prismari_claim_006`, `prismari_claim_0025`
-  - Why it belongs: Rootha, Mastering the Moment's exact excerpt provides a bounded voice echo of a certified Prismari figure voicing perfection as an endless artistic pursuit.
-  - False-positive / neighbor limit: Izzet, Quandrix, and Blue also pursue improvement; Prismari's technique-in-service-of-expression is the required distinction. Izzet, Quandrix, and Blue also pursue improvement; Prismari's technique-in-service-of-expression is the required distinction.
-  - Source: `data/scryfall/indexes/commander-index.json#oracle_id=348c67ef-9ccc-4651-9038-efdf1ad1b36a`
+- **Colorstorm Stallion:** “Prismari students are never afraid to let their imaginations run wild.”
+  - Relationship class: `EXPLICIT_IDENTITY_REFERENCE`
+  - Certified claims: `prismari_claim_002`, `prismari_claim_004`, `prismari_claim_006`
+  - Why it belongs: Colorstorm Stallion's exact excerpt provides a bounded voice echo of Prismari students named directly through imagination allowed to run wild.
+  - False-positive / neighbor limit: Izzet, Quandrix, and Red can also value imagination or experimentation; the explicit Prismari student reference and art-as-magic authority provide the bounded relationship. Izzet, Quandrix, and Red can also value imagination or experimentation; the explicit Prismari student reference and art-as-magic authority provide the bounded relationship.
+  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=47ee6837-2e2f-4344-ab9f-6b8887874f77`
 
 ### Other candidates considered and terminal disposition
 
 - **Coastal Peak:** `REJECTED` — No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.
-- **Colorstorm Stallion:** `REJECTED` — No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.
+- **Rootha, Mastering the Moment:** `REJECTED` — No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.
 
 ### Automatic disposition
 
@@ -468,16 +468,17 @@ No human approval was fabricated. Every automatic approval records its evidence 
 
 ### Source-complete voice proposal(s)
 
-- **Torbran, Thane of Red Fell:** “A dwarf's grudge runs deeper than the mountains' roots.”
+- **Built to Smash:** “Free from Consulate regulations, renegade-built automatons push performance to the limit.”
   - Relationship class: `CERTIFIED_SEMANTIC_ECHO`
-  - Certified claims: `red_claim_0002`, `red_claim_0004`, `red_claim_0006`
-  - Why it belongs: Torbran, Thane of Red Fell's exact excerpt provides a bounded voice echo of emotion held as a deep, active grudge rather than suppressed.
-  - False-positive / neighbor limit: Black, Rakdos, Gruul, and Jund also express anger or grievance. This is a bounded mono-Red emotional-intensity echo, not identity proof from the card's color. Black, Rakdos, Gruul, and Jund also express anger or grievance. This is a bounded mono-Red emotional-intensity echo, not identity proof from the card's color.
-  - Source: `data/scryfall/indexes/commander-index.json#oracle_id=8c3495bf-02e7-4ad9-949d-92eb3d2b662a`
+  - Certified claims: `red_claim_0002`, `red_claim_0003`, `red_claim_0005`
+  - Why it belongs: Built to Smash's exact excerpt provides a bounded voice echo of freedom from imposed regulation joined to immediate action and pushing performance to its limit.
+  - False-positive / neighbor limit: Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting. Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting.
+  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=c363f338-0777-45e6-b13c-f15ba026b63a`
 
 ### Other candidates considered and terminal disposition
 
 - **Krenko, Mob Boss:** `REJECTED` — No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.
+- **Torbran, Thane of Red Fell:** `REJECTED` — No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.
 - **General Kreat, the Boltbringer:** `REJECTED` — No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.
 
 ### Automatic disposition
@@ -876,6 +877,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
 
 ### Existing approved rationale(s)
 
+- **Omarthis, Ghostfire Initiate:** Omarthis is a bounded example of Colorless growth support: it grows when another colorless creature receives +1/+1 counters, then manifests cards equal to its counters when it dies. (`EVIDENCE_VALIDATED_AUTOMATIC`)
 - **Zhulodok, Void Gorger:** Zhulodok is a bounded example of Colorless's Eldrazi-scale branch: colorless spells cast from hand with mana value seven or greater receive cascade twice. (`EVIDENCE_VALIDATED_AUTOMATIC`)
 
 ### Source-complete voice proposal(s)

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "source_path": "data/dossier/card-voice-relationships.source.json",
-  "source_sha256": "bfd4734b4bdc7fe57518ff520d51ece7efa762330435ea740e059832808f13fc",
+  "source_sha256": "0003a987d79c26c7d5d5f574e0207ce5b56dfab2daa7b8e6ad8a927f536aa6e2",
   "generated_policy": "APPROVED_PUBLIC only; exact excerpt and approved relationship bridge; no heuristic or fallback selection",
   "records": [
     {
@@ -361,17 +361,17 @@
       }
     },
     {
-      "relationship_id": "cardvoice_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a",
+      "relationship_id": "cardvoice_prismari_47ee6837_2e2f_4344_ab9f_6b8887874f77",
       "identity_key": "PRISMARI",
       "card": {
-        "name": "Rootha, Mastering the Moment",
-        "oracle_id": "348c67ef-9ccc-4651-9038-efdf1ad1b36a",
-        "scryfall_id": "a5b3dbb2-c090-4118-9e47-56c16202572c",
-        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=348c67ef-9ccc-4651-9038-efdf1ad1b36a"
+        "name": "Colorstorm Stallion",
+        "oracle_id": "47ee6837-2e2f-4344-ab9f-6b8887874f77",
+        "scryfall_id": "f5b54d46-2caf-4d1b-8be1-dbd9e9dce058",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=47ee6837-2e2f-4344-ab9f-6b8887874f77"
       },
-      "excerpt": "\"The great thrill of perfection is that we'll always be chasing it.\"",
-      "why_it_echoes": "Rootha, Mastering the Moment's exact excerpt provides a bounded voice echo of a certified Prismari figure voicing perfection as an endless artistic pursuit.",
-      "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
+      "excerpt": "Prismari students are never afraid to let their imaginations run wild.",
+      "why_it_echoes": "Colorstorm Stallion's exact excerpt provides a bounded voice echo of Prismari students named directly through imagination allowed to run wild.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -381,8 +381,7 @@
         "claim_ids": [
           "prismari_claim_002",
           "prismari_claim_004",
-          "prismari_claim_006",
-          "prismari_claim_0025"
+          "prismari_claim_006"
         ],
         "source_ids": [
           "src_wotc_planeswalkers_guide_strixhaven_2021",
@@ -579,16 +578,16 @@
       }
     },
     {
-      "relationship_id": "cardvoice_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a",
+      "relationship_id": "cardvoice_r_c363f338_0777_45e6_b13c_f15ba026b63a",
       "identity_key": "R",
       "card": {
-        "name": "Torbran, Thane of Red Fell",
-        "oracle_id": "8c3495bf-02e7-4ad9-949d-92eb3d2b662a",
-        "scryfall_id": "79f591cd-d277-4ba5-b1bf-1c09cac9cb8a",
-        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=8c3495bf-02e7-4ad9-949d-92eb3d2b662a"
+        "name": "Built to Smash",
+        "oracle_id": "c363f338-0777-45e6-b13c-f15ba026b63a",
+        "scryfall_id": "6f054978-446c-4565-b51e-8f1f0e0f01e2",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=c363f338-0777-45e6-b13c-f15ba026b63a"
       },
-      "excerpt": "A dwarf's grudge runs deeper than the mountains' roots.",
-      "why_it_echoes": "Torbran, Thane of Red Fell's exact excerpt provides a bounded voice echo of emotion held as a deep, active grudge rather than suppressed.",
+      "excerpt": "Free from Consulate regulations, renegade-built automatons push performance to the limit.",
+      "why_it_echoes": "Built to Smash's exact excerpt provides a bounded voice echo of freedom from imposed regulation joined to immediate action and pushing performance to its limit.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "display_priority": 1,
       "critical_repeat": {
@@ -598,8 +597,8 @@
       "provenance": {
         "claim_ids": [
           "red_claim_0002",
-          "red_claim_0004",
-          "red_claim_0006"
+          "red_claim_0003",
+          "red_claim_0005"
         ],
         "source_ids": [
           "MONO-R-2015",

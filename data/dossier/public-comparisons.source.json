@@ -21653,6 +21653,627 @@
           "fact_source_locators": []
         }
       }
+    },
+    {
+      "record_id": "packet2_comparison_br_r",
+      "record_type": "PUBLIC_COMPARISON",
+      "pair_key": "BR::R",
+      "identity_a": "BR",
+      "identity_b": "R",
+      "proposed_public_copy": {
+        "a_to_b": "Cult of Rakdos centers a path that values performance, provocation, sensation, release, and an act whose audience can see both intensity and cost. By contrast, Red centers a path that trusts emotion as information, acts before overthinking kills the moment, and values freedom from artificial restraint.",
+        "b_to_a": "Red centers a path that trusts emotion as information, acts before overthinking kills the moment, and values freedom from artificial restraint. By contrast, Cult of Rakdos centers a path that values performance, provocation, sensation, release, and an act whose audience can see both intensity and cost."
+      },
+      "copy_sha256": "7ceb52796d293be409085863aef2bf73f19cadff5cc092a467c9bdfc8e1d63f9",
+      "provenance": {
+        "relationship_guide_a": "docs/reference/37-identity-player-relationship-guide.md#L53",
+        "relationship_guide_b": "docs/reference/37-identity-player-relationship-guide.md#L151",
+        "instrument_boundary": {
+          "locator": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json#BR::R",
+          "observable_behavioral_distinction": "Rakdos's paired spectacle-and-cost posture versus Red's broader commitment to immediate self-directed action.",
+          "use_restriction": "Current-engine result reachability only; it cannot independently authorize public identity meaning."
+        },
+        "certified_claims_a": [
+          {
+            "claim_id": "cult_of_rakdos_claim_001",
+            "statement": "Rakdos is the black-red guild of Ravnica, associated with performance, dangerous spectacle, anti-authoritarian provocation, and public transgression."
+          },
+          {
+            "claim_id": "cult_of_rakdos_claim_002",
+            "statement": "The official guide describes the Cult of Rakdos as entertainers and hosts whose performances may be destructive or hedonistic."
+          },
+          {
+            "claim_id": "cult_of_rakdos_claim_004",
+            "statement": "The guide identifies the ancient demon Rakdos as founder, namesake, and object of cultic worship."
+          },
+          {
+            "claim_id": "cult_of_rakdos_claim_005",
+            "statement": "Spectacle is the Ravnica Allegiance signature mechanic associated with Rakdos."
+          },
+          {
+            "claim_id": "cult_of_rakdos_claim_006",
+            "statement": "Rakdos placement signals should require performance, spectacle, transgression, sensation, danger, or a visible audience/cost/consequence cluster rather than generic black-red aggression or random disruption."
+          },
+          {
+            "claim_id": "cult_of_rakdos_claim_0017",
+            "statement": "Rakdos motivation is source-bounded as public release through performance, appetite, provocation, and sensation, with spectacle or visible cost distinguishing it from private leverage or mere impulse."
+          },
+          {
+            "claim_id": "cult_of_rakdos_claim_0018",
+            "statement": "Mature Rakdos guidance should read performance, spectacle, and transgression as a way to make appetite, cost, or social pressure visible, not as harm or shock detached from an act."
+          },
+          {
+            "claim_id": "cult_of_rakdos_claim_0021",
+            "statement": "Generic black-red aggression, evil-party styling, or unbounded disruption is not enough for Rakdos; the Cult-specific proof must include performance, spectacle, audience, provocation, or visible cost."
+          },
+          {
+            "claim_id": "cult_of_rakdos_claim_0019",
+            "statement": "Unhealthy Rakdos guidance is bounded to consequence-blind indulgence, disruption, or harm when the performance/audience/cost frame disappears."
+          },
+          {
+            "claim_id": "cult_of_rakdos_claim_0020",
+            "statement": "Under pressure, Rakdos should remain adjacent unless the answer chooses public spectacle, release, provocation, or visible consequence; generic violence, private ambition, or random disruption should not certify Rakdos."
+          },
+          {
+            "claim_id": "cult_of_rakdos_claim_003",
+            "statement": "The guide says Rakdos was loosely organized into Rings and later pushed toward travelling theater-troupe behavior."
+          }
+        ],
+        "certified_claims_b": [
+          {
+            "claim_id": "red_claim_0002",
+            "statement": "Red seeks freedom by listening to emotion, living fully in the moment, and acting on desire rather than suppressing it."
+          },
+          {
+            "claim_id": "red_claim_0003",
+            "statement": "Red's means are action, speed, emotional honesty, destruction when barriers must be broken, and a willingness to learn through doing."
+          },
+          {
+            "claim_id": "red_claim_0004",
+            "statement": "Red centers emotion, impulse, passion, humor, spontaneity, romance, violence, destruction, and vivid experience; it despises frustration, restriction, boredom, and inaction."
+          },
+          {
+            "claim_id": "red_claim_0005",
+            "statement": "Red is allied with Black through action, risk, destruction, and self-directed desire and with Green through instinct, wildness, and natural action; it opposes White's rules and Blue's overthinking."
+          },
+          {
+            "claim_id": "red_claim_0006",
+            "statement": "Red's strength is clarity, passion, speed, aggression, and willingness to act; its weakness is short-sightedness and dealing with consequences after the fact."
+          },
+          {
+            "claim_id": "red_claim_0007",
+            "statement": "Red's mechanical texture includes direct damage, artifact destruction, haste, first strike, extra attacks, forced attacks, temporary mana, impulsive draw, rummaging, Treasure, copying spells, and temporary theft."
+          }
+        ],
+        "evidence_roles": {
+          "identity_meaning": "certified_claims_and_relationship_guide",
+          "overlap_context": "current_engine_runtime_pair",
+          "proposed_bridge": "evidence_validated_automatic"
+        }
+      },
+      "limitations": "This pair copy states distinct identity centers but does not claim that both survived a particular player's answers. A future co-leader introduction must add only the actual shared answer-derived observations.",
+      "review_flags": [],
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/public-comparisons.source.json#pending-br-r",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "cult_of_rakdos_claim_001",
+            "cult_of_rakdos_claim_002",
+            "cult_of_rakdos_claim_004",
+            "cult_of_rakdos_claim_005",
+            "cult_of_rakdos_claim_006",
+            "cult_of_rakdos_claim_0017",
+            "cult_of_rakdos_claim_0018",
+            "cult_of_rakdos_claim_0021",
+            "cult_of_rakdos_claim_0019",
+            "cult_of_rakdos_claim_0020",
+            "cult_of_rakdos_claim_003",
+            "red_claim_0002",
+            "red_claim_0003",
+            "red_claim_0004",
+            "red_claim_0005",
+            "red_claim_0006",
+            "red_claim_0007"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_001",
+            "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_002",
+            "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_004",
+            "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_005",
+            "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_006",
+            "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_0017",
+            "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_0018",
+            "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_0021",
+            "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_0019",
+            "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_0020",
+            "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_003",
+            "data/raw-factions/red/red.claims.json#red_claim_0002",
+            "data/raw-factions/red/red.claims.json#red_claim_0003",
+            "data/raw-factions/red/red.claims.json#red_claim_0004",
+            "data/raw-factions/red/red.claims.json#red_claim_0005",
+            "data/raw-factions/red/red.claims.json#red_claim_0006",
+            "data/raw-factions/red/red.claims.json#red_claim_0007",
+            "docs/reference/37-identity-player-relationship-guide.md#L53",
+            "docs/reference/37-identity-player-relationship-guide.md#L151"
+          ],
+          "fact_source_locators": []
+        }
+      }
+    },
+    {
+      "record_id": "packet2_comparison_g_witherbloom",
+      "record_type": "PUBLIC_COMPARISON",
+      "pair_key": "G::WITHERBLOOM",
+      "identity_a": "G",
+      "identity_b": "WITHERBLOOM",
+      "proposed_public_copy": {
+        "a_to_b": "Green centers a path that trusts organic growth, old patterns, land, kinship, patience, and the living order more than redesign for its own sake. By contrast, Witherbloom College centers a path that learns through bodies, remedies, poisons, medicine, mortuary practice, and cost-aware movement of life energy.",
+        "b_to_a": "Witherbloom College centers a path that learns through bodies, remedies, poisons, medicine, mortuary practice, and cost-aware movement of life energy. By contrast, Green centers a path that trusts organic growth, old patterns, land, kinship, patience, and the living order more than redesign for its own sake."
+      },
+      "copy_sha256": "6001ec5d86353ed798de2e952cf1f87b9f9b42fed8783b844c2c5ba2b2712eca",
+      "provenance": {
+        "relationship_guide_a": "docs/reference/37-identity-player-relationship-guide.md#L157",
+        "relationship_guide_b": "docs/reference/37-identity-player-relationship-guide.md#L113",
+        "instrument_boundary": {
+          "locator": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json#G::WITHERBLOOM",
+          "observable_behavioral_distinction": "Green's acceptance of the living world's existing order versus Witherbloom's deliberate use of life, death, and renewal as an exchange.",
+          "use_restriction": "Current-engine result reachability only; it cannot independently authorize public identity meaning."
+        },
+        "certified_claims_a": [
+          {
+            "claim_id": "green_claim_0002",
+            "statement": "Green seeks acceptance of what is: the natural order, the web of life, and the innate role each being is born to discover and fulfill."
+          },
+          {
+            "claim_id": "green_claim_0003",
+            "statement": "Green's means are participation in nature's interconnected system: discovering innate skills, finding a role through lived trial and error, helping others find theirs, and trusting slow purposeful evolution rather than blank-slate reinvention."
+          },
+          {
+            "claim_id": "green_claim_0004",
+            "statement": "Green centers life, growth, nature, reality, community, interdependence, past wisdom, ancestry, tradition, instinct, animals, and plants; it resists unnatural change that creates what was not meant to exist or disrupts ecosystems, while allowing slow purposeful evolution."
+          },
+          {
+            "claim_id": "green_claim_0005",
+            "statement": "Green is allied with White through community and faith in the group and with Red through instinct and the wild side; it opposes Blue's blank-slate artifice and future-facing proof demands and Black's self-interest/free-will assertion against responsibility and purpose within the web."
+          },
+          {
+            "claim_id": "green_claim_0006",
+            "statement": "Green's strength is certainty in the natural system, interconnection, primal power, mana, and efficient creatures; its weakness is over-reliance on what it cares about, especially when creatures or familiar natural systems are not the answer."
+          },
+          {
+            "claim_id": "green_claim_0007",
+            "statement": "Green's mechanical texture includes efficient creatures, +1/+1 counters, mana and lands, Fight/Bite, reach, trample, artifact and enchantment destruction, card draw or filtering tied to creatures and lands, and anti-flying tools."
+          }
+        ],
+        "certified_claims_b": [
+          {
+            "claim_id": "witherbloom_claim_001",
+            "statement": "Witherbloom is Strixhaven's black-green College of Essence Studies."
+          },
+          {
+            "claim_id": "witherbloom_claim_002",
+            "statement": "The 2021 guide says Witherbloom mages draw power from opposing forces of life and death."
+          },
+          {
+            "claim_id": "witherbloom_claim_003",
+            "statement": "The 2021 guide describes Witherbloom magic as brewing spells from natural components and living essence to heal, harm, raise, or entreat the dead."
+          },
+          {
+            "claim_id": "witherbloom_claim_004",
+            "statement": "The 2021 guide frames black-aligned Witherbloom mages as exploiting life energy and green-aligned mages as encouraging life energy to blossom and grow."
+          },
+          {
+            "claim_id": "witherbloom_claim_0019",
+            "statement": "Witherbloom identity is practical life/death craft: living essence, natural components, healing, harm, medicine, toxicology, mortuary practice, and other embodied studies matter when they show life and death as usable forces rather than abstract mood."
+          },
+          {
+            "claim_id": "witherbloom_claim_0020",
+            "statement": "Witherbloom internal tension is the difference between cultivating life energy and extracting it: growth, remedy, and care can sit beside exploitation, harm, and death-facing use of living essence."
+          },
+          {
+            "claim_id": "witherbloom_claim_0023",
+            "statement": "Mature Witherbloom expression uses life/death knowledge to heal, nourish, study, brew, cultivate, and survive while acknowledging that every exchange has a cost."
+          },
+          {
+            "claim_id": "witherbloom_claim_0024",
+            "statement": "Unhealthy Witherbloom expression treats living systems only as extractable material or reduces life/death craft to consumption, exploitation, poison, harm, or death-facing use without reciprocal cultivation or care."
+          },
+          {
+            "claim_id": "witherbloom_claim_005",
+            "statement": "The 2026 guide lists Witherbloom study areas including alchemy, medicine, biomancy, pathology, toxicology, mortuary science, and necromancy."
+          },
+          {
+            "claim_id": "witherbloom_claim_0022",
+            "statement": "Witherbloom mechanics-facing identity may use life gain, life loss, Pests, sacrifice, healing, harm, and death triggers when those mechanics express biological exchange, living essence, or practical life/death craft."
+          },
+          {
+            "claim_id": "witherbloom_claim_006",
+            "statement": "Witherbloom placement signals should weight embodied knowledge, life/death exchange, fieldwork, remedies, poisons, ecology, and practical magic."
+          },
+          {
+            "claim_id": "witherbloom_claim_0021",
+            "statement": "Witherbloom method is embodied and practical: it learns through ingredients, living essence, medicine, toxins, bodies, pathology, mortuary practice, necromancy, and applied magical study rather than detached abstraction alone."
+          }
+        ],
+        "evidence_roles": {
+          "identity_meaning": "certified_claims_and_relationship_guide",
+          "overlap_context": "current_engine_runtime_pair",
+          "proposed_bridge": "evidence_validated_automatic"
+        }
+      },
+      "limitations": "This pair copy states distinct identity centers but does not claim that both survived a particular player's answers. A future co-leader introduction must add only the actual shared answer-derived observations.",
+      "review_flags": [],
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/public-comparisons.source.json#pending-g-witherbloom",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "green_claim_0002",
+            "green_claim_0003",
+            "green_claim_0004",
+            "green_claim_0005",
+            "green_claim_0006",
+            "green_claim_0007",
+            "witherbloom_claim_001",
+            "witherbloom_claim_002",
+            "witherbloom_claim_003",
+            "witherbloom_claim_004",
+            "witherbloom_claim_0019",
+            "witherbloom_claim_0020",
+            "witherbloom_claim_0023",
+            "witherbloom_claim_0024",
+            "witherbloom_claim_005",
+            "witherbloom_claim_0022",
+            "witherbloom_claim_006",
+            "witherbloom_claim_0021"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/green/green.claims.json#green_claim_0002",
+            "data/raw-factions/green/green.claims.json#green_claim_0003",
+            "data/raw-factions/green/green.claims.json#green_claim_0004",
+            "data/raw-factions/green/green.claims.json#green_claim_0005",
+            "data/raw-factions/green/green.claims.json#green_claim_0006",
+            "data/raw-factions/green/green.claims.json#green_claim_0007",
+            "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_001",
+            "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_002",
+            "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_003",
+            "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_004",
+            "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0019",
+            "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0020",
+            "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0023",
+            "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0024",
+            "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_005",
+            "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0022",
+            "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_006",
+            "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0021",
+            "docs/reference/37-identity-player-relationship-guide.md#L157",
+            "docs/reference/37-identity-player-relationship-guide.md#L113"
+          ],
+          "fact_source_locators": []
+        }
+      }
+    },
+    {
+      "record_id": "packet2_comparison_jund_rg",
+      "record_type": "PUBLIC_COMPARISON",
+      "pair_key": "JUND::RG",
+      "identity_a": "JUND",
+      "identity_b": "RG",
+      "proposed_public_copy": {
+        "a_to_b": "Jund centers a path that treats gut feeling as honest information, accepts appetite and consequence, and acts without polite permission. By contrast, Gruul Clans centers a path that trusts instinct, authenticity, clan, territory, and direct action rooted in a concrete loss or endangered wild place.",
+        "b_to_a": "Gruul Clans centers a path that trusts instinct, authenticity, clan, territory, and direct action rooted in a concrete loss or endangered wild place. By contrast, Jund centers a path that treats gut feeling as honest information, accepts appetite and consequence, and acts without polite permission."
+      },
+      "copy_sha256": "5d1510663f7defbcdfa53c698deb25fd389fee0bc8483ceb667ffa6c78fc6d3d",
+      "provenance": {
+        "relationship_guide_a": "docs/reference/37-identity-player-relationship-guide.md#L183",
+        "relationship_guide_b": "docs/reference/37-identity-player-relationship-guide.md#L59",
+        "instrument_boundary": {
+          "locator": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json#JUND::RG",
+          "observable_behavioral_distinction": "Jund's predatory resource hierarchy versus Gruul's resistance to imposed structure through direct, unrestrained action.",
+          "use_restriction": "Current-engine result reachability only; it cannot independently authorize public identity meaning."
+        },
+        "certified_claims_a": [
+          {
+            "claim_id": "jund_claim_0001",
+            "statement": "Jund is the black-red-green Alara shard discussed in the local official Jund design article."
+          },
+          {
+            "claim_id": "jund_claim_0002",
+            "statement": "Jund's color-direction metadata is BRG, and VM-176 frames Red as the center/design lens."
+          },
+          {
+            "claim_id": "jund_claim_0003",
+            "statement": "Red's Jund frame centers being true to oneself, following gut instinct, and doing what feels right."
+          },
+          {
+            "claim_id": "jund_claim_0004",
+            "statement": "Red's Jund frame treats emotion as a powerful primal guide rather than something to deny, repress, or over-rationalize."
+          },
+          {
+            "claim_id": "jund_claim_0005",
+            "statement": "The Jund design frame describes a world of total freedom where action and survival carry consequences."
+          },
+          {
+            "claim_id": "jund_claim_0006",
+            "statement": "Black supports Red's Jund frame through self-interest, personal needs, contentment, and opposition to White's constraints."
+          },
+          {
+            "claim_id": "jund_claim_0007",
+            "statement": "Green supports Red's Jund frame by making feeling embodied, unrestrained, and less overthought, turning instinct into force without becoming generic savage nature."
+          },
+          {
+            "claim_id": "jund_claim_0008",
+            "statement": "Black and Green back Red's destructive and letting-loose side only inside the design-philosophy frame, so consequence-bearing action must not become generic cruelty or unbounded destruction."
+          },
+          {
+            "claim_id": "jund_claim_0011",
+            "statement": "Official Alara captures may support Jund setting pressure, including hunting-ground conditions and dragon-dominated danger, but those details serve the identity only when tied to consequence-bearing instinct rather than as standalone lore trivia."
+          },
+          {
+            "claim_id": "jund_claim_0012",
+            "statement": "Jund should distinguish native survival pressure from Grixis-style death magic: necromancy is framed as unknown on pre-Conflux Jund and later appears as an outside rupture rather than Jund core identity."
+          },
+          {
+            "claim_id": "jund_claim_0009",
+            "statement": "White and Blue are absent enemy-color pressures at design-philosophy scope only, not a new lore, geography, or story claim."
+          },
+          {
+            "claim_id": "jund_claim_0010",
+            "statement": "Jund must not flatten into generic Red violence, anger, savage nature, devour, or Modern Jund midrange."
+          }
+        ],
+        "certified_claims_b": [
+          {
+            "claim_id": "claim_gruul_clans_core_identity_0002",
+            "statement": "The Gruul are identified as red-green on the official Ravnica plane page."
+          },
+          {
+            "claim_id": "claim_gruul_clans_core_identity_0003",
+            "statement": "The official Ravnica plane page describes Gruul as a guild of beggars, gangs, and raiding parties."
+          },
+          {
+            "claim_id": "claim_gruul_clans_philosophy_0004",
+            "statement": "The official Ravnica plane page describes Gruul as driven by base urges and instinct."
+          },
+          {
+            "claim_id": "claim_gruul_clans_structure_0005",
+            "statement": "The Gruul are a loose affiliation of clans that squat in Ravnica's alleyways, abandoned zones, and ruins."
+          },
+          {
+            "claim_id": "claim_gruul_clans_philosophy_0010",
+            "statement": "The Gatecrash-era official guide describes the Gruul as the most disenfranchised and most anti-civilization of Ravnica's guilds."
+          },
+          {
+            "claim_id": "claim_gruul_clans_timeline_0029",
+            "statement": "The Ravnica Allegiance flavor guide states that when the Guildpact was written, the Gruul were given stewardship over Ravnica's wild places and natural beauty."
+          },
+          {
+            "claim_id": "claim_gruul_clans_timeline_0030",
+            "statement": "The Ravnica Allegiance flavor guide states that as the city sprawled, the other nine guilds ignored Gruul warnings while destroying more wilderness, and the Gruul were ignored, marginalized, and enslaved."
+          },
+          {
+            "claim_id": "claim_gruul_clans_philosophy_0033",
+            "statement": "The Ravnica Allegiance flavor guide states that Gruul clans are united in their belief that civilization must be obliterated so the natural world can take root again on Ravnica."
+          },
+          {
+            "claim_id": "claim_gruul_clans_philosophy_0041",
+            "statement": "The Ravnica Allegiance mechanics article describes the Gruul Clans as a loosely affiliated group of rampaging conquerors reacting to Ravnica's political climate by rioting."
+          },
+          {
+            "claim_id": "claim_gruul_clans_placement_0001",
+            "statement": "A placement model can interpret Gruul as strongly anti-institutional and freedom-oriented because official sources repeatedly emphasize anti-civilization beliefs, clan looseness, rioting, and resistance to encroachment."
+          },
+          {
+            "claim_id": "claim_gruul_clans_placement_0003",
+            "statement": "A placement model can interpret Gruul's nature-protection impulse as a sanctity-of-the-wild signal because official sources frame the guild as former stewards of wild places reacting to the destruction of wilderness and sacred groves."
+          },
+          {
+            "claim_id": "claim_gruul_clans_placement_0004",
+            "statement": "A placement model can treat love of bureaucracy, deference to title-based authority, and comfort with urban expansion as poor-fit indicators for Gruul because official sources emphasize anti-civilization, strength-based leadership, and conflict with encroaching guilds."
+          },
+          {
+            "claim_id": "claim_gruul_clans_placement_0072",
+            "statement": "A placement model can treat Gruul Rage as protective and ecological anger rather than only generalized aggression, because story evidence ties Rage to the dying Rubblebelt, land-draining magic, and erased stories."
+          },
+          {
+            "claim_id": "claim_gruul_clans_philosophy_0008",
+            "statement": "Warfare among the Gruul is described as constant and almost ritualistic in the Gatecrash-era official guide."
+          },
+          {
+            "claim_id": "claim_gruul_clans_mechanic_0040",
+            "statement": "Riot is the Gruul-associated Ravnica Allegiance keyword that lets a creature enter with either a +1/+1 counter or haste, chosen by its controller."
+          },
+          {
+            "claim_id": "claim_gruul_clans_mechanic_0043",
+            "statement": "Bloodrush is a Gruul-associated Gatecrash ability word used from a creature card in hand by paying a cost and discarding the card to target an attacking creature."
+          },
+          {
+            "claim_id": "claim_gruul_clans_placement_0002",
+            "statement": "A placement model can interpret Gruul as valuing embodied strength and direct action over formal authority because official sources emphasize strongest-rule leadership, warfare, bloodrush, riot, and Domri's combat-based rise."
+          },
+          {
+            "claim_id": "claim_gruul_clans_structure_0032",
+            "statement": "The Ravnica Allegiance flavor guide states that there were seven different clans within the Gruul at that time, while noting that the number has changed many times."
+          },
+          {
+            "claim_id": "claim_gruul_clans_philosophy_0049",
+            "statement": "In 'Rage of the Unsung,' a Gruul narrator says that a Gruul without a clan is days from becoming wurm food, indicating the importance of clan belonging in that story context."
+          },
+          {
+            "claim_id": "claim_gruul_clans_location_0024",
+            "statement": "Skarrg is described as a Gruul reunion turf where clans periodically converge, roast giant boars, fight great battles, and find something akin to camaraderie."
+          },
+          {
+            "claim_id": "claim_gruul_clans_philosophy_0056",
+            "statement": "In 'Gruul Ingenuity,' Nikya invokes Gruul law and right to claim bloodcrime and seek vengeance after blood is spilled, innocents are slaughtered, and territory is defiled."
+          },
+          {
+            "claim_id": "claim_gruul_clans_philosophy_0063",
+            "statement": "In 'Rage of the Unsung,' Arrus frames the Gruul fight as not only destruction but also as curing Ravnica of gratuitous construction and institutional corruption."
+          },
+          {
+            "claim_id": "claim_gruul_clans_relationship_0064",
+            "statement": "In 'Rage of the Unsung,' Arrus concludes that Selesnya used accelerated growth magic to create a barrier while leaching magic from Gruul lands."
+          },
+          {
+            "claim_id": "claim_gruul_clans_timeline_0065",
+            "statement": "In 'Rage of the Unsung,' Arrus publicly challenges Ruric and Thar to address the dying Rubblebelt, and Ruric and Thar answer that Selesnya will get war."
+          },
+          {
+            "claim_id": "claim_gruul_clans_placement_0073",
+            "statement": "A placement model can represent Gruul contribution as broader than front-line brawling because Kal, Arrus, and Baas contribute through scouting, magic, tattoo-art, shamanic practice, or rallying as well as combat."
+          },
+          {
+            "claim_id": "claim_gruul_clans_relationship_0026",
+            "statement": "Other guilds often attempt to encroach on the Rubblebelt and reclaim it, generating endless conflict with the Gruul."
+          },
+          {
+            "claim_id": "claim_gruul_clans_timeline_0027",
+            "statement": "Before the guilds were formed, the Gruul were a collection of druids and shamans who celebrated and claimed the wilds of Ravnica."
+          },
+          {
+            "claim_id": "claim_gruul_clans_philosophy_0028",
+            "statement": "The Gatecrash-era official guide frames the Gruul's outrage as a reaction to the fall of wild places such as druid-trees and sacred groves to civilization and progress."
+          },
+          {
+            "claim_id": "claim_gruul_clans_timeline_0031",
+            "statement": "The Ravnica Allegiance flavor guide states that the Gruul leadership structure crumbled and the Gruul became agents of chaos and destruction after centuries of being ignored and oppressed."
+          },
+          {
+            "claim_id": "claim_gruul_clans_philosophy_0050",
+            "statement": "In 'Rage of the Unsung,' Rage spreads among Gruul warriors during a destructive tribute to the Raze-Boar, and Dryzek says Rage is not only fighting and destruction."
+          },
+          {
+            "claim_id": "claim_gruul_clans_philosophy_0051",
+            "statement": "In 'Rage of the Unsung,' Arrus identifies anger at Selesnya, civilization, industrialization, and the loss of his people's stories as sources of his Rage."
+          }
+        ],
+        "evidence_roles": {
+          "identity_meaning": "certified_claims_and_relationship_guide",
+          "overlap_context": "current_engine_runtime_pair",
+          "proposed_bridge": "evidence_validated_automatic"
+        }
+      },
+      "limitations": "This pair copy states distinct identity centers but does not claim that both survived a particular player's answers. A future co-leader introduction must add only the actual shared answer-derived observations.",
+      "review_flags": [],
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/public-comparisons.source.json#pending-jund-rg",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "jund_claim_0001",
+            "jund_claim_0002",
+            "jund_claim_0003",
+            "jund_claim_0004",
+            "jund_claim_0005",
+            "jund_claim_0006",
+            "jund_claim_0007",
+            "jund_claim_0008",
+            "jund_claim_0011",
+            "jund_claim_0012",
+            "jund_claim_0009",
+            "jund_claim_0010",
+            "claim_gruul_clans_core_identity_0002",
+            "claim_gruul_clans_core_identity_0003",
+            "claim_gruul_clans_philosophy_0004",
+            "claim_gruul_clans_structure_0005",
+            "claim_gruul_clans_philosophy_0010",
+            "claim_gruul_clans_timeline_0029",
+            "claim_gruul_clans_timeline_0030",
+            "claim_gruul_clans_philosophy_0033",
+            "claim_gruul_clans_philosophy_0041",
+            "claim_gruul_clans_placement_0001",
+            "claim_gruul_clans_placement_0003",
+            "claim_gruul_clans_placement_0004",
+            "claim_gruul_clans_placement_0072",
+            "claim_gruul_clans_philosophy_0008",
+            "claim_gruul_clans_mechanic_0040",
+            "claim_gruul_clans_mechanic_0043",
+            "claim_gruul_clans_placement_0002",
+            "claim_gruul_clans_structure_0032",
+            "claim_gruul_clans_philosophy_0049",
+            "claim_gruul_clans_location_0024",
+            "claim_gruul_clans_philosophy_0056",
+            "claim_gruul_clans_philosophy_0063",
+            "claim_gruul_clans_relationship_0064",
+            "claim_gruul_clans_timeline_0065",
+            "claim_gruul_clans_placement_0073",
+            "claim_gruul_clans_relationship_0026",
+            "claim_gruul_clans_timeline_0027",
+            "claim_gruul_clans_philosophy_0028",
+            "claim_gruul_clans_timeline_0031",
+            "claim_gruul_clans_philosophy_0050",
+            "claim_gruul_clans_philosophy_0051"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/jund/jund.claims.json#jund_claim_0001",
+            "data/raw-factions/jund/jund.claims.json#jund_claim_0002",
+            "data/raw-factions/jund/jund.claims.json#jund_claim_0003",
+            "data/raw-factions/jund/jund.claims.json#jund_claim_0004",
+            "data/raw-factions/jund/jund.claims.json#jund_claim_0005",
+            "data/raw-factions/jund/jund.claims.json#jund_claim_0006",
+            "data/raw-factions/jund/jund.claims.json#jund_claim_0007",
+            "data/raw-factions/jund/jund.claims.json#jund_claim_0008",
+            "data/raw-factions/jund/jund.claims.json#jund_claim_0011",
+            "data/raw-factions/jund/jund.claims.json#jund_claim_0012",
+            "data/raw-factions/jund/jund.claims.json#jund_claim_0009",
+            "data/raw-factions/jund/jund.claims.json#jund_claim_0010",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_core_identity_0002",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_core_identity_0003",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_philosophy_0004",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_structure_0005",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_philosophy_0010",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_timeline_0029",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_timeline_0030",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_philosophy_0033",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_philosophy_0041",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_placement_0001",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_placement_0003",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_placement_0004",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_placement_0072",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_philosophy_0008",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_mechanic_0040",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_mechanic_0043",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_placement_0002",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_structure_0032",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_philosophy_0049",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_location_0024",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_philosophy_0056",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_philosophy_0063",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_relationship_0064",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_timeline_0065",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_placement_0073",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_relationship_0026",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_timeline_0027",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_philosophy_0028",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_timeline_0031",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_philosophy_0050",
+            "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_philosophy_0051",
+            "docs/reference/37-identity-player-relationship-guide.md#L183",
+            "docs/reference/37-identity-player-relationship-guide.md#L59"
+          ],
+          "fact_source_locators": []
+        }
+      }
     }
   ]
 }

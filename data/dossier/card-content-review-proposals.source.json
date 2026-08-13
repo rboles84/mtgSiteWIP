@@ -10,9 +10,9 @@
   },
   "voice_adjudication": {
     "original_candidates": 111,
-    "replacement_candidates": 7,
+    "replacement_candidates": 8,
     "review_required": 0,
-    "rejected": 81,
+    "rejected": 82,
     "review_identity_coverage": 0,
     "approved_public": 37,
     "approved_identity_coverage": 37
@@ -39,18 +39,18 @@
             "statement": "The official Tarkir: Dragonstorm Commander Decklists page verifies Abzan Armor as a White; Black; Green Commander deck with Felothar the Steadfast as face commander and Betor, Ancestor's Voice as featured commander."
           }
         ],
-        "relationship_lead": "data/raw-factions/abzan/abzan.claims.json#abzan_claim_0011",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_abzan_2b3f791a_d672_46fb_a03a_96e19f2c3121",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=2b3f791a-d672-46fb-a03a-96e19f2c3121",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-abzan",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_abzan_2b3f791a_d672_46fb_a03a_96e19f2c3121",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -93,18 +93,18 @@
             "statement": "Black's mechanical texture includes unconditional creature destruction, discard, sacrifice, reanimation, graveyard use, life as a cost, drain, deathtouch, menace, and card draw paid for with resources."
           }
         ],
-        "relationship_lead": "data/raw-factions/black/black.claims.json#black_claim_0007",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_b_cbe3a4e7_5dbe_4f58_8ee6_a1762b65acfd",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=cbe3a4e7-5dbe-4f58-8ee6-a1762b65acfd",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-b",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_b_cbe3a4e7_5dbe_4f58_8ee6_a1762b65acfd",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -122,6 +122,60 @@
           ],
           "fact_source_locators": [
             "data/scryfall/indexes/commander-index.json#oracle_id=cbe3a4e7-5dbe-4f58-8ee6-a1762b65acfd"
+          ]
+        }
+      }
+    },
+    {
+      "proposal_id": "packet1_rationale_colorless_50676eba_a55a_4749_bb07_74a30e015781",
+      "proposal_type": "CARD_RATIONALE",
+      "identity_key": "COLORLESS",
+      "canonical_card_name": "Omarthis, Ghostfire Initiate",
+      "canonical_card_id": "50676eba-a55a-4749-bb07-74a30e015781",
+      "proposed_copy": "Omarthis is a bounded example of Colorless growth support: it grows when another colorless creature receives +1/+1 counters, then manifests cards equal to its counters when it dies.",
+      "copy_sha256": "d21862447720be230a57d217d9faa00aa7bc3292fbef5d61666de404b6d06ecd",
+      "verified_card_observation": "Omarthis enters with X +1/+1 counters on it. Whenever you put one or more +1/+1 counters on another colorless creature, you may put a +1/+1 counter on Omarthis. When Omarthis di...",
+      "provenance": {
+        "identity_authority": "data/raw-factions/colorless/colorless.claims.json",
+        "certified_identity_claims": [
+          {
+            "claim_id": "colorless_claim_0005",
+            "statement": "Commander, five-color Eldrazi, and Phyrexia material must remain bounded: Eldrazi Unbound is support-only Colorless Commander texture, Eldrazi Incursion is five-color comparator support, Phyrexia is distinction-only context, and none of these independently authorizes broad Commander viability, lore proof, placement eligibility, or raw claim expansion."
+          },
+          {
+            "claim_id": "colorless_claim_0006",
+            "statement": "Colorless can be used as controlled placement attraction for players drawn to a chosen restriction outside WUBRG: artifact-machine problem solving, Eldrazi scale, Wastes or terrain austerity, clean mana systems, resource denial, or engine-expression play. This is Vox Mana placement synthesis, not official MTG color philosophy."
+          }
+        ],
+        "relationship_lead": "data/raw-factions/colorless/colorless.profile.json#/commander_compass/native_fit_commanders/1",
+        "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=50676eba-a55a-4749-bb07-74a30e015781",
+        "evidence_roles": {
+          "identity_ownership": "certified_identity_claims",
+          "card_behavior": "canonical_card_data",
+          "proposed_bridge": "automatic_validation_required"
+        }
+      },
+      "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-colorless-omarthis",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "colorless_claim_0005",
+            "colorless_claim_0006"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/colorless/colorless.claims.json#colorless_claim_0005",
+            "data/raw-factions/colorless/colorless.claims.json#colorless_claim_0006"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=50676eba-a55a-4749-bb07-74a30e015781"
           ]
         }
       }
@@ -147,18 +201,18 @@
             "statement": "Colorless can be used as controlled placement attraction for players drawn to a chosen restriction outside WUBRG: artifact-machine problem solving, Eldrazi scale, Wastes or terrain austerity, clean mana systems, resource denial, or engine-expression play. This is Vox Mana placement synthesis, not official MTG color philosophy."
           }
         ],
-        "relationship_lead": "data/raw-factions/colorless/colorless.claims.json#colorless_claim_0005",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_colorless_ec726c54_987b_48ed_8ffa_ec73a5e35333",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=ec726c54-987b-48ed-8ffa-ec73a5e35333",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-colorless",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_colorless_ec726c54_987b_48ed_8ffa_ec73a5e35333",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -201,18 +255,18 @@
             "statement": "The current Dune / Aggression frame may discuss direct action, physical momentum, territorial pressure, organized force, and rejection of detached contemplation, but detailed metaphysical, Commander, strategic, or competitive claims should remain bounded beyond the approved evidence floor."
           }
         ],
-        "relationship_lead": "data/raw-factions/dune/dune.claims.json#dune_claim_0005",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_dune_e54d207c_51b8_458e_86a1_2633ac064c8e",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=e54d207c-51b8-458e-86a1-2633ac064c8e",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-dune",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_dune_e54d207c_51b8_458e_86a1_2633ac064c8e",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -255,18 +309,18 @@
             "statement": "Black supports Esper's Blue center through control, information value, focus, and vision, while introducing ethical risk."
           }
         ],
-        "relationship_lead": "data/raw-factions/esper/esper.claims.json#esper_claim_0003",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_esper_3268251a_8292_44f9_9267_c961b182f739",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=3268251a-8292-44f9-9267-c961b182f739",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-esper",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_esper_3268251a_8292_44f9_9267_c961b182f739",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -309,18 +363,18 @@
             "statement": "Green's mechanical texture includes efficient creatures, +1/+1 counters, mana and lands, Fight/Bite, reach, trample, artifact and enchantment destruction, card draw or filtering tied to creatures and lands, and anti-flying tools."
           }
         ],
-        "relationship_lead": "data/raw-factions/green/green.claims.json#green_claim_0007",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_g_6c2c8bf3_9bf8_4a86_89d3_3bb36260dc51",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=6c2c8bf3-9bf8-4a86-89d3-3bb36260dc51",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-g",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_g_6c2c8bf3_9bf8_4a86_89d3_3bb36260dc51",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -363,18 +417,18 @@
             "statement": "The current Glint / Chaos frame may discuss rejection of White-style imposed order, communal obligation, and civic restraint in favor of appetite, adaptation, force, and volatility, but detailed psychology remains bounded and should not be canonized beyond the approved evidence floor."
           }
         ],
-        "relationship_lead": "data/raw-factions/glint/glint.claims.json#glint_claim_0005",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_glint_9efe8aff_9a7d_4397_b5fd_c1a0fad7c15f",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=9efe8aff-9a7d-4397-b5fd-c1a0fad7c15f",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-glint",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_glint_9efe8aff_9a7d_4397_b5fd_c1a0fad7c15f",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -421,18 +475,18 @@
             "statement": "The UBR synthesis is Black mixing Red zeal with Blue manipulation and smarts into an actively conniving survival world."
           }
         ],
-        "relationship_lead": "data/raw-factions/grixis/grixis.claims.json#grixis_claim_0004",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_grixis_f5092c14_eec4_472c_999c_ba96c36b2fbb",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=f5092c14-eec4-472c-999c-ba96c36b2fbb",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-grixis",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_grixis_f5092c14_eec4_472c_999c_ba96c36b2fbb",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -477,18 +531,18 @@
             "statement": "The current Ink / Altruism frame may discuss shared prosperity, community benefit, protected generosity, and open knowledge, but detailed metaphysical, Commander, strategic, comparative, or symbolic claims should remain bounded beyond the approved evidence floor."
           }
         ],
-        "relationship_lead": "data/raw-factions/ink/ink.claims.json#ink_claim_0005",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_ink_53ee4254_fef7_49ec_aafc_0320987764e6",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=53ee4254-fef7-49ec-aafc-0320987764e6",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-ink",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_ink_53ee4254_fef7_49ec_aafc_0320987764e6",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -535,18 +589,18 @@
             "statement": "The official Tarkir: Dragonstorm Commander Decklists page verifies Jeskai Striker as a White; Blue; Red Commander deck with Shiko and Narset, Unified as face commander and Elsha, Threefold Master as featured commander."
           }
         ],
-        "relationship_lead": "data/raw-factions/jeskai/jeskai.claims.json#jeskai_claim_0003",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_jeskai_40ed32a6_ad56_48c7_aecf_b4238c34c212",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=40ed32a6-ad56-48c7-aecf-b4238c34c212",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-jeskai",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_jeskai_40ed32a6_ad56_48c7_aecf_b4238c34c212",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -591,18 +645,18 @@
             "statement": "Black and Green back Red's destructive and letting-loose side only inside the design-philosophy frame, so consequence-bearing action must not become generic cruelty or unbounded destruction."
           }
         ],
-        "relationship_lead": "data/raw-factions/jund/jund.claims.json#jund_claim_0005",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_jund_868882d2_ed4e_4171_a17c_478a341080fb",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=868882d2-ed4e-4171-a17c-478a341080fb",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-jund",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_jund_868882d2_ed4e_4171_a17c_478a341080fb",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -645,18 +699,18 @@
             "statement": "The official Tarkir: Dragonstorm Commander Decklists page verifies Mardu Surge as a Red; White; Black Commander deck with Zurgo Stormrender as face commander and Neriv, Crackling Vanguard as featured commander."
           }
         ],
-        "relationship_lead": "data/raw-factions/mardu/mardu.claims.json#mardu_claim_0002",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_mardu_0f93d88c_9d2e_416d_a10b_99483360b1fb",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=0f93d88c-9d2e-416d-a10b-99483360b1fb",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-mardu",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_mardu_0f93d88c_9d2e_416d_a10b_99483360b1fb",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -703,18 +757,18 @@
             "statement": "Red supports Naya through feral instinct, immediacy, loyalty, and bond language."
           }
         ],
-        "relationship_lead": "data/raw-factions/naya/naya.claims.json#naya_claim_0004",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_naya_e7604cd9_d00d_4957_82c9_46a7cdb88209",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=e7604cd9-d00d-4957-82c9-46a7cdb88209",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-naya",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_naya_e7604cd9_d00d_4957_82c9_46a7cdb88209",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -767,18 +821,18 @@
             "statement": "The official Secrets of Strixhaven Commander Decklists page verifies Prismari Artistry as a Blue-Red Commander deck with Rootha, Mastering the Moment as face commander and Muddle, the Ever-Changing as featured commander."
           }
         ],
-        "relationship_lead": "data/raw-factions/prismari/prismari.claims.json#prismari_claim_003",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=348c67ef-9ccc-4651-9038-efdf1ad1b36a",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-prismari",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -833,18 +887,18 @@
             "statement": "Quandrix turns mathematical structure into magical action: its mages study patterns, summon fractal creatures, and make abstract theories visible through spiraling or expanding forms."
           }
         ],
-        "relationship_lead": "data/raw-factions/quandrix/quandrix.claims.json#quandrix_claim_0019",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=977f9390-e01d-4e9d-8e9c-e543b1266972",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-quandrix",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -891,18 +945,18 @@
             "statement": "Red's mechanical texture includes direct damage, artifact destruction, haste, first strike, extra attacks, forced attacks, temporary mana, impulsive draw, rummaging, Treasure, copying spells, and temporary theft."
           }
         ],
-        "relationship_lead": "data/raw-factions/red/red.claims.json#red_claim_0007",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=8c3495bf-02e7-4ad9-949d-92eb3d2b662a",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-r",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -949,18 +1003,18 @@
             "statement": "Silverquill positive placement evidence may treat language as action when an answer centers spoken, written, signed, or ink-and-light expression as the tool that changes a social situation."
           }
         ],
-        "relationship_lead": "docs/research/VM-378-379-380_source-intake.md#silverquill",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_silverquill_d11e627b_8a48_411d_a261_2c9a02a758ba",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=d11e627b-8a48-411d-a261-2c9a02a758ba",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-silverquill",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_silverquill_d11e627b_8a48_411d_a261_2c9a02a758ba",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -1009,18 +1063,18 @@
             "statement": "The official Tarkir: Dragonstorm Commander Decklists page verifies Sultai Arisen as a Black; Green; Blue Commander deck with Kotis, Sibsig Champion as face commander and Teval, the Balanced Scale as featured commander."
           }
         ],
-        "relationship_lead": "data/raw-factions/sultai/sultai.claims.json#sultai_claim_0003",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_sultai_0177b410_b559_491f_b393_ac3ed774653c",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=0177b410-b559-491f-b393-ac3ed774653c",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-sultai",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_sultai_0177b410_b559_491f_b393_ac3ed774653c",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -1069,18 +1123,18 @@
             "statement": "The official Tarkir: Dragonstorm Commander Decklists page verifies Temur Roar as a Green; Blue; Red Commander deck with Eshki, Temur's Roar as face commander and Ureni of the Unwritten as featured commander."
           }
         ],
-        "relationship_lead": "data/raw-factions/temur/temur.claims.json#temur_claim_0002",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_temur_1b162dd3_3be6_406d_bf86_f7cc9eff098d",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=1b162dd3-3be6-406d-bf86-f7cc9eff098d",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-temur",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_temur_1b162dd3_3be6_406d_bf86_f7cc9eff098d",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -1125,18 +1179,18 @@
             "statement": "Blue's mechanical texture includes card draw and filtering, counterspells, copying, bounce, theft, flying, artifacts, instants and sorceries, and avoiding direct creature destruction."
           }
         ],
-        "relationship_lead": "data/raw-factions/blue/blue.claims.json#blue_claim_0007",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_u_ea1eb902_a23c_44ff_9169_19baf71de238",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=ea1eb902-a23c-44ff-9169-19baf71de238",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-u",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_u_ea1eb902_a23c_44ff_9169_19baf71de238",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -1179,18 +1233,18 @@
             "statement": "White's mechanical texture includes rules-setting, taxing, protection, lifegain, small-creature/team play, exile or conditional creature answers, enchantment ties, and slow once-per-turn card draw as a modern Commander-aware adjustment."
           }
         ],
-        "relationship_lead": "data/raw-factions/white/white.claims.json#white_claim_0007",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_w_48e6d3d8_2f27_4017_acdd_40bce8cdbc02",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=48e6d3d8-2f27-4017-acdd-40bce8cdbc02",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-w",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_w_48e6d3d8_2f27_4017_acdd_40bce8cdbc02",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -1233,18 +1287,18 @@
             "statement": "The current Witch / Growth frame may discuss patient development, calculated expansion, systematic accumulation, proliferate/counter scaling, and bounded Atraxa / Breed Lethality Commander texture, but detailed metaphysical, Commander, strategic, comparative, popularity, or Phyrexia-collapse claims should remain bounded beyond the approved evidence floor."
           }
         ],
-        "relationship_lead": "data/raw-factions/witch/witch.claims.json#witch_claim_0005",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_witch_7e6b9b59_cd68_4e3c_827b_38833c92d6eb",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=7e6b9b59-cd68-4e3c-827b-38833c92d6eb",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-witch",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_witch_7e6b9b59_cd68_4e3c_827b_38833c92d6eb",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -1287,18 +1341,18 @@
             "statement": "Witherbloom mechanics-facing identity may use life gain, life loss, Pests, sacrifice, healing, harm, and death triggers when those mechanics express biological exchange, living essence, or practical life/death craft."
           }
         ],
-        "relationship_lead": "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0022",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=f61c1dc4-2f09-4b50-957f-ee656c659072",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-witherbloom",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -1345,18 +1399,18 @@
             "statement": "Official WUBRG Commander product and decklist anchors may support named examples, deck/product texture, and source coverage only; they do not by themselves support color philosophy, metaphysics, lore proof, placement proof, legality, popularity, ranking, metagame, or deck-quality claims."
           }
         ],
-        "relationship_lead": "data/raw-factions/wubrg/wubrg.claims.json#wubrg_claim_0006",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=9f6828e3-39d9-45d9-9bf1-0e3737a0321e",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-wubrg",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -1401,18 +1455,18 @@
             "statement": "The current Yore / Artifice frame centers civilization, technology, artifice, and progress over natural acceptance and organic limits."
           }
         ],
-        "relationship_lead": "data/raw-factions/yore/yore.claims.json#yore_claim_0004",
+        "relationship_lead": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_yore_d460a9e2_5a7d_4562_880e_45174be19a9d",
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=d460a9e2-5a7d-4562-880e-45174be19a9d",
         "evidence_roles": {
           "identity_ownership": "certified_identity_claims",
           "card_behavior": "canonical_card_data",
-          "proposed_bridge": "owner_review_required"
+          "proposed_bridge": "automatic_validation_required"
         }
       },
       "limitations": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#pending-yore",
+      "replacement_locator": "data/dossier/card-rationale-relationships.source.json#cardrel_auto_yore_d460a9e2_5a7d_4562_880e_45174be19a9d",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
@@ -3497,8 +3551,8 @@
       "certified_identity_claims": [],
       "why_voice_belongs": "The excerpt is authentic, but the prior heuristic assignment does not establish a specific relationship to the certified identity.",
       "relationship_bridge": "No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.",
-      "false_positive_analysis": "This candidate can sound plausible through broad mood or theme alone. Without the selected identity-specific bridge, it could be reassigned by intuition to Izzet, Quandrix, and Blue also pursue improvement; Prismari's technique-in-service-of-expression is the required distinction.",
-      "adjacent_identity_confusion_risk": "Izzet, Quandrix, and Blue also pursue improvement; Prismari's technique-in-service-of-expression is the required distinction.",
+      "false_positive_analysis": "This candidate can sound plausible through broad mood or theme alone. Without the selected identity-specific bridge, it could be reassigned by intuition to Izzet, Quandrix, and Red can also value imagination or experimentation; the explicit Prismari student reference and art-as-magic authority provide the bounded relationship.",
+      "adjacent_identity_confusion_risk": "Izzet, Quandrix, and Red can also value imagination or experimentation; the explicit Prismari student reference and art-as-magic authority provide the bounded relationship.",
       "agent_recommendation": "REJECTED",
       "approval_basis": "NOT_APPLICABLE"
     },
@@ -3515,64 +3569,19 @@
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=348c67ef-9ccc-4651-9038-efdf1ad1b36a",
         "identity_authority": "data/raw-factions/prismari/prismari.claims.json"
       },
-      "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Izzet, Quandrix, and Blue also pursue improvement; Prismari's technique-in-service-of-expression is the required distinction.",
-      "disposition": "APPROVED_PUBLIC",
+      "limitations": "Rejected from owner decision workload because exact text provenance alone does not establish a source-complete identity relationship.",
+      "disposition": "REJECTED",
       "owner_decision": null,
       "replacement_locator": "data/dossier/card-voice-relationships.source.json#pending-prismari",
-      "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
-      "certified_identity_claim_ids": [
-        "prismari_claim_002",
-        "prismari_claim_004",
-        "prismari_claim_006",
-        "prismari_claim_0025"
-      ],
-      "certified_identity_claims": [
-        {
-          "claim_id": "prismari_claim_002",
-          "statement": "The 2021 guide says Prismari mages see no difference between magic and art."
-        },
-        {
-          "claim_id": "prismari_claim_004",
-          "statement": "The 2021 guide frames Prismari's blue side around training, study, visualization, technique, and artistic theory, while its red side emphasizes passion and expression."
-        },
-        {
-          "claim_id": "prismari_claim_006",
-          "statement": "Prismari placement signals should weight expression, dramatic transformation, technique under emotion, and the need to make an answer felt."
-        },
-        {
-          "claim_id": "prismari_claim_0025",
-          "statement": "Vox Mana models mature Prismari as practiced technique carrying expressive purpose into a chosen artistic or elemental form, with revision and awareness of collaborators or audience."
-        }
-      ],
-      "why_voice_belongs": "Rootha, Mastering the Moment's exact excerpt provides a bounded voice echo of a certified Prismari figure voicing perfection as an endless artistic pursuit.",
-      "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims prismari_claim_002, prismari_claim_004, prismari_claim_006, prismari_claim_0025; the relationship does not arise from card color, product membership, tags, or mechanics.",
-      "false_positive_analysis": "Izzet, Quandrix, and Blue also pursue improvement; Prismari's technique-in-service-of-expression is the required distinction.",
-      "adjacent_identity_confusion_risk": "Izzet, Quandrix, and Blue also pursue improvement; Prismari's technique-in-service-of-expression is the required distinction.",
-      "agent_recommendation": "APPROVED_PUBLIC",
-      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
-      "validation": {
-        "validator_version": "vm551-evidence-validator-v1",
-        "passed": true,
-        "failures": [],
-        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
-        "evidence_chain": {
-          "identity_claim_ids": [
-            "prismari_claim_002",
-            "prismari_claim_004",
-            "prismari_claim_006",
-            "prismari_claim_0025"
-          ],
-          "identity_source_locators": [
-            "data/raw-factions/prismari/prismari.claims.json#prismari_claim_002",
-            "data/raw-factions/prismari/prismari.claims.json#prismari_claim_004",
-            "data/raw-factions/prismari/prismari.claims.json#prismari_claim_006",
-            "data/raw-factions/prismari/prismari.claims.json#prismari_claim_0025"
-          ],
-          "fact_source_locators": [
-            "data/scryfall/indexes/commander-index.json#oracle_id=348c67ef-9ccc-4651-9038-efdf1ad1b36a"
-          ]
-        }
-      }
+      "relationship_class": "GENERIC_THEMATIC_ANALOGY",
+      "certified_identity_claim_ids": [],
+      "certified_identity_claims": [],
+      "why_voice_belongs": "The excerpt is authentic, but the prior heuristic assignment does not establish a specific relationship to the certified identity.",
+      "relationship_bridge": "No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.",
+      "false_positive_analysis": "This candidate can sound plausible through broad mood or theme alone. Without the selected identity-specific bridge, it could be reassigned by intuition to Izzet, Quandrix, and Red can also value imagination or experimentation; the explicit Prismari student reference and art-as-magic authority provide the bounded relationship.",
+      "adjacent_identity_confusion_risk": "Izzet, Quandrix, and Red can also value imagination or experimentation; the explicit Prismari student reference and art-as-magic authority provide the bounded relationship.",
+      "agent_recommendation": "REJECTED",
+      "approval_basis": "NOT_APPLICABLE"
     },
     {
       "proposal_id": "packet1_voice_prismari_47ee6837_2e2f_4344_ab9f_6b8887874f77_1",
@@ -3587,19 +3596,57 @@
         "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=47ee6837-2e2f-4344-ab9f-6b8887874f77",
         "identity_authority": "data/raw-factions/prismari/prismari.claims.json"
       },
-      "limitations": "Rejected from owner decision workload because exact text provenance alone does not establish a source-complete identity relationship.",
-      "disposition": "REJECTED",
+      "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Izzet, Quandrix, and Red can also value imagination or experimentation; the explicit Prismari student reference and art-as-magic authority provide the bounded relationship.",
+      "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
       "replacement_locator": "data/dossier/card-voice-relationships.source.json#pending-prismari",
-      "relationship_class": "GENERIC_THEMATIC_ANALOGY",
-      "certified_identity_claim_ids": [],
-      "certified_identity_claims": [],
-      "why_voice_belongs": "The excerpt is authentic, but the prior heuristic assignment does not establish a specific relationship to the certified identity.",
-      "relationship_bridge": "No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.",
-      "false_positive_analysis": "This candidate can sound plausible through broad mood or theme alone. Without the selected identity-specific bridge, it could be reassigned by intuition to Izzet, Quandrix, and Blue also pursue improvement; Prismari's technique-in-service-of-expression is the required distinction.",
-      "adjacent_identity_confusion_risk": "Izzet, Quandrix, and Blue also pursue improvement; Prismari's technique-in-service-of-expression is the required distinction.",
-      "agent_recommendation": "REJECTED",
-      "approval_basis": "NOT_APPLICABLE"
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "certified_identity_claim_ids": [
+        "prismari_claim_002",
+        "prismari_claim_004",
+        "prismari_claim_006"
+      ],
+      "certified_identity_claims": [
+        {
+          "claim_id": "prismari_claim_002",
+          "statement": "The 2021 guide says Prismari mages see no difference between magic and art."
+        },
+        {
+          "claim_id": "prismari_claim_004",
+          "statement": "The 2021 guide frames Prismari's blue side around training, study, visualization, technique, and artistic theory, while its red side emphasizes passion and expression."
+        },
+        {
+          "claim_id": "prismari_claim_006",
+          "statement": "Prismari placement signals should weight expression, dramatic transformation, technique under emotion, and the need to make an answer felt."
+        }
+      ],
+      "why_voice_belongs": "Colorstorm Stallion's exact excerpt provides a bounded voice echo of Prismari students named directly through imagination allowed to run wild.",
+      "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims prismari_claim_002, prismari_claim_004, prismari_claim_006; the relationship does not arise from card color, product membership, tags, or mechanics.",
+      "false_positive_analysis": "Izzet, Quandrix, and Red can also value imagination or experimentation; the explicit Prismari student reference and art-as-magic authority provide the bounded relationship.",
+      "adjacent_identity_confusion_risk": "Izzet, Quandrix, and Red can also value imagination or experimentation; the explicit Prismari student reference and art-as-magic authority provide the bounded relationship.",
+      "agent_recommendation": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "prismari_claim_002",
+            "prismari_claim_004",
+            "prismari_claim_006"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/prismari/prismari.claims.json#prismari_claim_002",
+            "data/raw-factions/prismari/prismari.claims.json#prismari_claim_004",
+            "data/raw-factions/prismari/prismari.claims.json#prismari_claim_006"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/card-flavor-index.json#oracle_id=47ee6837-2e2f-4344-ab9f-6b8887874f77"
+          ]
+        }
+      }
     },
     {
       "proposal_id": "packet1_voice_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972_1",
@@ -3749,8 +3796,8 @@
       "certified_identity_claims": [],
       "why_voice_belongs": "The excerpt is authentic, but the prior heuristic assignment does not establish a specific relationship to the certified identity.",
       "relationship_bridge": "No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.",
-      "false_positive_analysis": "This candidate can sound plausible through broad mood or theme alone. Without the selected identity-specific bridge, it could be reassigned by intuition to Black, Rakdos, Gruul, and Jund also express anger or grievance. This is a bounded mono-Red emotional-intensity echo, not identity proof from the card's color.",
-      "adjacent_identity_confusion_risk": "Black, Rakdos, Gruul, and Jund also express anger or grievance. This is a bounded mono-Red emotional-intensity echo, not identity proof from the card's color.",
+      "false_positive_analysis": "This candidate can sound plausible through broad mood or theme alone. Without the selected identity-specific bridge, it could be reassigned by intuition to Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting.",
+      "adjacent_identity_confusion_risk": "Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting.",
       "agent_recommendation": "REJECTED",
       "approval_basis": "NOT_APPLICABLE"
     },
@@ -3767,15 +3814,42 @@
         "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=8c3495bf-02e7-4ad9-949d-92eb3d2b662a",
         "identity_authority": "data/raw-factions/red/red.claims.json"
       },
-      "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Black, Rakdos, Gruul, and Jund also express anger or grievance. This is a bounded mono-Red emotional-intensity echo, not identity proof from the card's color.",
+      "limitations": "Rejected from owner decision workload because exact text provenance alone does not establish a source-complete identity relationship.",
+      "disposition": "REJECTED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/card-voice-relationships.source.json#pending-r",
+      "relationship_class": "GENERIC_THEMATIC_ANALOGY",
+      "certified_identity_claim_ids": [],
+      "certified_identity_claims": [],
+      "why_voice_belongs": "The excerpt is authentic, but the prior heuristic assignment does not establish a specific relationship to the certified identity.",
+      "relationship_bridge": "No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.",
+      "false_positive_analysis": "This candidate can sound plausible through broad mood or theme alone. Without the selected identity-specific bridge, it could be reassigned by intuition to Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting.",
+      "adjacent_identity_confusion_risk": "Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting.",
+      "agent_recommendation": "REJECTED",
+      "approval_basis": "NOT_APPLICABLE"
+    },
+    {
+      "proposal_id": "packet1_voice_r_c363f338_0777_45e6_b13c_f15ba026b63a_replacement",
+      "proposal_type": "CARD_VOICE",
+      "identity_key": "R",
+      "canonical_card_name": "Built to Smash",
+      "canonical_card_id": "c363f338-0777-45e6-b13c-f15ba026b63a",
+      "proposed_copy": "Free from Consulate regulations, renegade-built automatons push performance to the limit.",
+      "copy_sha256": "931f5e2edf466c3f8b4aeb36cc17d16434e99782a256b81c8e02e4e37215765c",
+      "provenance": {
+        "candidate_inventory": "data/scryfall/indexes/card-flavor-index.json#oracle_id=c363f338-0777-45e6-b13c-f15ba026b63a",
+        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=c363f338-0777-45e6-b13c-f15ba026b63a",
+        "identity_authority": "data/raw-factions/red/red.claims.json"
+      },
+      "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting.",
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
       "replacement_locator": "data/dossier/card-voice-relationships.source.json#pending-r",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
         "red_claim_0002",
-        "red_claim_0004",
-        "red_claim_0006"
+        "red_claim_0003",
+        "red_claim_0005"
       ],
       "certified_identity_claims": [
         {
@@ -3783,18 +3857,18 @@
           "statement": "Red seeks freedom by listening to emotion, living fully in the moment, and acting on desire rather than suppressing it."
         },
         {
-          "claim_id": "red_claim_0004",
-          "statement": "Red centers emotion, impulse, passion, humor, spontaneity, romance, violence, destruction, and vivid experience; it despises frustration, restriction, boredom, and inaction."
+          "claim_id": "red_claim_0003",
+          "statement": "Red's means are action, speed, emotional honesty, destruction when barriers must be broken, and a willingness to learn through doing."
         },
         {
-          "claim_id": "red_claim_0006",
-          "statement": "Red's strength is clarity, passion, speed, aggression, and willingness to act; its weakness is short-sightedness and dealing with consequences after the fact."
+          "claim_id": "red_claim_0005",
+          "statement": "Red is allied with Black through action, risk, destruction, and self-directed desire and with Green through instinct, wildness, and natural action; it opposes White's rules and Blue's overthinking."
         }
       ],
-      "why_voice_belongs": "Torbran, Thane of Red Fell's exact excerpt provides a bounded voice echo of emotion held as a deep, active grudge rather than suppressed.",
-      "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims red_claim_0002, red_claim_0004, red_claim_0006; the relationship does not arise from card color, product membership, tags, or mechanics.",
-      "false_positive_analysis": "Black, Rakdos, Gruul, and Jund also express anger or grievance. This is a bounded mono-Red emotional-intensity echo, not identity proof from the card's color.",
-      "adjacent_identity_confusion_risk": "Black, Rakdos, Gruul, and Jund also express anger or grievance. This is a bounded mono-Red emotional-intensity echo, not identity proof from the card's color.",
+      "why_voice_belongs": "Built to Smash's exact excerpt provides a bounded voice echo of freedom from imposed regulation joined to immediate action and pushing performance to its limit.",
+      "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims red_claim_0002, red_claim_0003, red_claim_0005; the relationship does not arise from card color, product membership, tags, or mechanics.",
+      "false_positive_analysis": "Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting.",
+      "adjacent_identity_confusion_risk": "Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting.",
       "agent_recommendation": "APPROVED_PUBLIC",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
@@ -3805,16 +3879,16 @@
         "evidence_chain": {
           "identity_claim_ids": [
             "red_claim_0002",
-            "red_claim_0004",
-            "red_claim_0006"
+            "red_claim_0003",
+            "red_claim_0005"
           ],
           "identity_source_locators": [
             "data/raw-factions/red/red.claims.json#red_claim_0002",
-            "data/raw-factions/red/red.claims.json#red_claim_0004",
-            "data/raw-factions/red/red.claims.json#red_claim_0006"
+            "data/raw-factions/red/red.claims.json#red_claim_0003",
+            "data/raw-factions/red/red.claims.json#red_claim_0005"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/commander-index.json#oracle_id=8c3495bf-02e7-4ad9-949d-92eb3d2b662a"
+            "data/scryfall/indexes/card-flavor-index.json#oracle_id=c363f338-0777-45e6-b13c-f15ba026b63a"
           ]
         }
       }
@@ -3841,8 +3915,8 @@
       "certified_identity_claims": [],
       "why_voice_belongs": "The excerpt is authentic, but the prior heuristic assignment does not establish a specific relationship to the certified identity.",
       "relationship_bridge": "No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.",
-      "false_positive_analysis": "This candidate can sound plausible through broad mood or theme alone. Without the selected identity-specific bridge, it could be reassigned by intuition to Black, Rakdos, Gruul, and Jund also express anger or grievance. This is a bounded mono-Red emotional-intensity echo, not identity proof from the card's color.",
-      "adjacent_identity_confusion_risk": "Black, Rakdos, Gruul, and Jund also express anger or grievance. This is a bounded mono-Red emotional-intensity echo, not identity proof from the card's color.",
+      "false_positive_analysis": "This candidate can sound plausible through broad mood or theme alone. Without the selected identity-specific bridge, it could be reassigned by intuition to Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting.",
+      "adjacent_identity_confusion_risk": "Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting.",
       "agent_recommendation": "REJECTED",
       "approval_basis": "NOT_APPLICABLE"
     },

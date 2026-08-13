@@ -2,7 +2,7 @@
 
 Status: **AUTOMATIC ADJUDICATION COMPLETE** — zero owner exceptions.
 
-The prior owner-review procedure below is retained as historical context. Current authority is exception-only: all 37 identity records and 123 bidirectional comparison records passed `vm551-evidence-validator-v1` as bounded restatements of existing certified identity claims and the approved relationship guide. No new identity meaning, placement semantic, or generic fallback was introduced.
+The prior owner-review procedure below is retained as historical context. Current authority is exception-only: all 37 identity records, all 123 mandatory confusion-pair comparisons, and three additional current-engine runtime comparisons passed `vm551-evidence-validator-v1` as bounded restatements of existing certified identity claims and the approved relationship guide. No new identity meaning, placement semantic, or generic fallback was introduced.
 
 - Test the Fit: 111 approved semantic roles.
 - How This Plays: 222 approved identity-specific fields.
@@ -36,7 +36,9 @@ Certified claim records and the approved relationship guide establish identity m
 | Test the Fit semantic roles | 111 (3 per identity) |
 | How This Plays fields | 222 (6 per identity) |
 | What to Look For items | 111 (3 per identity) |
-| Pair-specific bidirectional comparisons | 123 |
+| Mandatory confusion-pair comparisons | 123 |
+| Additional current-engine comparisons | 3 |
+| Total pair-specific bidirectional comparisons | 126 |
 | Runtime promotions | 0 |
 
 Each Test the Fit proposal has three distinct roles:
@@ -85,7 +87,8 @@ This research commit does not edit `FACTION_PRESENTATION`, `buildContrastCopy()`
 - Exactly three Test the Fit roles per identity: PASS.
 - Exactly six How This Plays fields per identity: PASS.
 - At least three What to Look For items per identity: PASS.
-- 123/123 pair records, both directions: PASS.
+- 123/123 mandatory confusion-pair records, both directions: PASS.
+- 3/3 additional current-engine runtime pair records, both directions: PASS.
 - Certified claim resolution: PASS.
 - Duplicate IDs/pairs: 0.
 - Known generic mono fallbacks identified: `U`, `B`, `R`, `G`.

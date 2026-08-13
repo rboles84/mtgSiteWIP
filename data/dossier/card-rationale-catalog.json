@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "source_path": "data/dossier/card-rationale-relationships.source.json",
-  "source_sha256": "fcfbc286765792908dc253495f9a82a2e26e4ee288abc09835794f97c25392b7",
+  "source_sha256": "a2e05a29c972444f3016075d7af3bfbbd02acea8c820a87992e03f8e25afbe6d",
   "generated_policy": "APPROVED_PUBLIC only; no fallback or inferred relationship",
   "records": [
     {
@@ -1358,6 +1358,32 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_colorless_50676eba_a55a_4749_bb07_74a30e015781",
+      "identity_key": "COLORLESS",
+      "card": {
+        "name": "Omarthis, Ghostfire Initiate",
+        "oracle_id": "50676eba-a55a-4749-bb07-74a30e015781",
+        "scryfall_id": "985e16ac-8e0f-4e2e-9b74-d6a77dddf274",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=50676eba-a55a-4749-bb07-74a30e015781"
+      },
+      "rationale": "Omarthis is a bounded example of Colorless growth support: it grows when another colorless creature receives +1/+1 counters, then manifests cards equal to its counters when it dies.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "colorless_claim_0005",
+          "colorless_claim_0006"
+        ],
+        "source_ids": [
+          "COLORLESS-SRC-018",
+          "COLORLESS-CANON-001",
+          "COLORLESS-SCOPE-005"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_colorless_50676eba_a55a_4749_bb07_74a30e015781"
+      }
+    },
+    {
       "relationship_id": "cardrel_auto_colorless_ec726c54_987b_48ed_8ffa_ec73a5e35333",
       "identity_key": "COLORLESS",
       "card": {
@@ -1369,7 +1395,7 @@
       "rationale": "Zhulodok is a bounded example of Colorless's Eldrazi-scale branch: colorless spells cast from hand with mana value seven or greater receive cascade twice.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
-      "display_priority": 1,
+      "display_priority": 2,
       "provenance": {
         "claim_ids": [
           "colorless_claim_0005",

@@ -41,7 +41,7 @@ Full means approved examples provide genuinely useful coverage and no meaningful
 - **DUNE:** 1 approved public; 0 review-required; 1 evidence-needed; 0 rejected.
 - **INK:** 1 approved public; 0 review-required; 1 evidence-needed; 0 rejected.
 - **WITCH:** 1 approved public; 0 review-required; 1 evidence-needed; 0 rejected.
-- **COLORLESS:** 1 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
+- **COLORLESS:** 2 approved public; 0 review-required; 2 evidence-needed; 0 rejected.
 - **WUBRG:** 1 approved public; 0 review-required; 6 evidence-needed; 0 rejected.
 
 ## Partial

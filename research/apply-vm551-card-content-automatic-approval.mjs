@@ -187,7 +187,8 @@ for (const proposal of packetInput.proposals) {
   }
 }
 
-const retainedRationaleRecords = rationaleSourceInput.records.filter((record) => record.approval_basis !== VM551_AUTOMATIC_APPROVAL_BASIS);
+const proposalRationalePairs = new Set(newRationaleRecords.map((record) => `${record.identity_key}|${record.canonical_card_id}`));
+const retainedRationaleRecords = rationaleSourceInput.records.filter((record) => !proposalRationalePairs.has(`${record.identity_key}|${record.canonical_card_id}`));
 const existingPairs = new Set(retainedRationaleRecords.map((record) => `${record.identity_key}|${record.canonical_card_id}`));
 for (const record of newRationaleRecords) {
   if (existingPairs.has(`${record.identity_key}|${record.canonical_card_id}`)) throw new Error(`Automatic rationale duplicates existing authority: ${record.identity_key} / ${record.canonical_card_name}`);

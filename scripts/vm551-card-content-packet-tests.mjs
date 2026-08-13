@@ -24,8 +24,8 @@ assert.equal(packet.status, "AUTOMATIC_ADJUDICATION_COMPLETE");
 assert.equal(adjudication.schema_version, "vm551-card-rationale-candidate-adjudication-v1");
 assert.equal(adjudication.records.length, 125);
 assert.equal(adjudication.records.filter((row) => /EVIDENCE_NEEDED|REVIEW_REQUIRED/.test(row.final_research_disposition)).length, 0);
-assert.equal(adjudication.records.filter((row) => row.final_research_disposition === "APPROVED_PUBLIC").length, 26);
-assert.equal(adjudication.records.filter((row) => row.final_research_disposition === "REJECTED").length, 99);
+assert.equal(adjudication.records.filter((row) => row.final_research_disposition === "APPROVED_PUBLIC").length, 51);
+assert.equal(adjudication.records.filter((row) => row.final_research_disposition === "REJECTED").length, 74);
 
 const identities = Object.keys(factions.factions).sort();
 assert.equal(identities.length, 37);
@@ -37,13 +37,17 @@ const rationales = packet.proposals.filter((row) => row.proposal_type === "CARD_
 const voices = packet.proposals.filter((row) => row.proposal_type === "CARD_VOICE");
 const reviewVoices = voices.filter((row) => row.disposition === "APPROVED_PUBLIC");
 const rejectedVoices = voices.filter((row) => row.disposition === "REJECTED");
-assert.equal(rationales.length, 25);
-assert.equal(createHash("sha256").update(JSON.stringify(rationales.map((row) => ({ id: row.proposal_id, copy: row.proposed_copy, hash: row.copy_sha256 })))).digest("hex"), "110a9448ebb9b157f262c588c3cf8b01a501fa334215d9764745ef7dc4793766", "the 25 rationale proposal copy changed");
+assert.equal(rationales.length, 26);
+const supplementalRationaleId = "packet1_rationale_colorless_50676eba_a55a_4749_bb07_74a30e015781";
+const originalRationales = rationales.filter((row) => row.proposal_id !== supplementalRationaleId);
+assert.equal(originalRationales.length, 25);
+assert.equal(createHash("sha256").update(JSON.stringify(originalRationales.map((row) => ({ id: row.proposal_id, copy: row.proposed_copy, hash: row.copy_sha256 })))).digest("hex"), "110a9448ebb9b157f262c588c3cf8b01a501fa334215d9764745ef7dc4793766", "the original 25 rationale proposal copies changed");
+assert.equal(rationales.find((row) => row.proposal_id === supplementalRationaleId)?.proposed_copy, "Omarthis is a bounded example of Colorless growth support: it grows when another colorless creature receives +1/+1 counters, then manifests cards equal to its counters when it dies.");
 assert.equal(packet.voice_adjudication.original_candidates, 111);
-assert.equal(packet.voice_adjudication.replacement_candidates, 7);
-assert.equal(voices.length, 118);
+assert.equal(packet.voice_adjudication.replacement_candidates, 8);
+assert.equal(voices.length, 119);
 assert.equal(reviewVoices.length, 37);
-assert.equal(rejectedVoices.length, 81);
+assert.equal(rejectedVoices.length, 82);
 assert.equal(new Set(reviewVoices.map((row) => row.identity_key)).size, 37);
 for (const identity of identities) {
   assert.equal(reviewVoices.filter((row) => row.identity_key === identity).length, 1, `${identity} must have exactly one source-complete owner-review voice`);
@@ -51,12 +55,12 @@ for (const identity of identities) {
 }
 
 for (const expected of [
-  "Automatically approved rationale proposals: **25**",
+  "Automatically approved rationale proposals: **26**",
   "Previously approved rationale relationships retained: **26**",
   "Approved rationale identity coverage: **37/37**",
   "Automatically approved voice relationships: **37**",
   "Approved voice identity coverage: **37/37**",
-  "Rejected voice candidates retained in audit trail: **81**",
+  "Rejected voice candidates retained in audit trail: **82**",
   "Owner exceptions: **0**",
 ]) assert(ownerView.includes(expected), `owner summary is missing: ${expected}`);
 
@@ -105,8 +109,8 @@ for (const row of rejectedVoices) {
 const approvedPairs = new Set(relationships.records
   .filter((row) => row.review_status === "APPROVED_PUBLIC")
   .map((row) => `${row.identity_key}|${row.canonical_card_id}`));
-assert.equal(approvedPairs.size, 51);
-assert.equal(catalog.records.length, 49);
+assert.equal(approvedPairs.size, 52);
+assert.equal(catalog.records.length, 50);
 assert.ok(catalog.records.every((row) => approvedPairs.has(`${row.identity_key}|${row.card.oracle_id}`)));
 for (const row of rationales) {
   assert.ok(catalog.records.some((record) =>
@@ -125,7 +129,7 @@ console.log(JSON.stringify({
   historical_unresolved: 0,
   rationale_automatic_rows: rationales.length,
   original_voice_candidates: 111,
-  replacement_voice_candidates: 7,
+  replacement_voice_candidates: 8,
   voice_automatic_rows: reviewVoices.length,
   voice_rejected_rows: rejectedVoices.length,
   runtime_approved_rows: catalog.records.length,

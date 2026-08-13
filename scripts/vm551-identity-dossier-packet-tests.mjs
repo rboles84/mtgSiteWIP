@@ -19,7 +19,7 @@ assert.equal(packet.schema_version, "vm551-identity-dossier-approval-packet-v1")
 assert.equal(packet.status, "AUTOMATIC_VALIDATION_INPUT");
 assert.equal(adjudication.status, "AUTOMATIC_ADJUDICATION_COMPLETE");
 assert.equal(packet.identity_records.length, 37);
-assert.equal(packet.comparison_records.length, 123);
+assert.equal(packet.comparison_records.length, 126);
 
 const knownIdentities = new Set(Object.keys(factions.factions));
 assert.equal(knownIdentities.size, 37);
@@ -28,7 +28,7 @@ assert.equal(new Set(allRecords.map((row) => row.record_id)).size, allRecords.le
 assert.ok(allRecords.every((row) => row.disposition === "PENDING_AUTOMATIC_VALIDATION" && row.owner_decision === null));
 assert.ok([...adjudication.identity_records, ...adjudication.comparison_records].every((row) => row.disposition === "APPROVED_PUBLIC" && row.approval_basis === "EVIDENCE_VALIDATED_AUTOMATIC" && row.validation?.passed === true && row.owner_decision === null));
 assert.equal(identityCatalog.records.length, 37);
-assert.equal(comparisonCatalog.records.length, 123);
+assert.equal(comparisonCatalog.records.length, 126);
 
 for (const row of packet.identity_records) {
   assert.ok(knownIdentities.has(row.identity_key));
