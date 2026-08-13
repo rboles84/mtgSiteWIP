@@ -1543,7 +1543,7 @@ function buildCommanderProviderDetails(precon) {
   if (!links.length) return "";
   return `
     <details class="precon-provider-menu">
-      <summary>Decks <span>Browse builds</span></summary>
+      <summary class="precon-provider-trigger"><strong>Decks</strong><span>Browse builds</span></summary>
       <div class="precon-provider-links">${buildLinkButtons(links)}</div>
     </details>`;
 }

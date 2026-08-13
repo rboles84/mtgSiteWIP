@@ -1,16 +1,18 @@
 {
-  "schema_version": "vm551-commander-provider-validation-v1",
-  "validated_at": "2026-08-11",
+  "schema_version": "vm551-commander-provider-validation-v2",
+  "validated_at": "2026-08-13",
   "scope": {
     "source": "data/precons/vox-mana-precon-catalog.json",
-    "unique_commanders": 155
+    "canonical_card_source": "data/scryfall/indexes/commander-index.json",
+    "unique_commanders": 155,
+    "validation_contract": "HTTP success plus exact commander page title/name match"
   },
   "providers": {
     "edhrec": {
       "enabled": true,
-      "verified": 143,
-      "suppressed": 12,
-      "method": "Live HTTP validation of every exact commander destination; Captain N'ghathrod uses its verified provider-specific slug override."
+      "verified": 155,
+      "suppressed": 0,
+      "method": "Live validation of every exact commander destination against the canonical commander name."
     },
     "archidekt": {
       "enabled": false,
@@ -27,1968 +29,2171 @@
   },
   "commanders": {
     "Abaddon the Despoiler": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/abaddon-the-despoiler",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Admiral Brass, Unsinkable": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/admiral-brass-unsinkable",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Adrix and Nev, Twincasters": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/adrix-and-nev-twincasters",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Aesi, Tyrant of Gyre Strait": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/aesi-tyrant-of-gyre-strait",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
-        }
-      ],
-      "suppressed": []
-    },
-    "Aminatou, Veil Piercer": {
-      "links": [
-        {
-          "service": "edhrec",
-          "label": "EDHREC",
-          "url": "https://edhrec.com/commanders/aminatou-veil-piercer",
-          "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Aminatou, the Fateshifter": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/aminatou-the-fateshifter",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
+        }
+      ],
+      "suppressed": []
+    },
+    "Aminatou, Veil Piercer": {
+      "canonical_card_source_status": "MATCHED",
+      "links": [
+        {
+          "service": "edhrec",
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/aminatou-veil-piercer",
+          "verified": true,
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Anhelo, the Painter": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/anhelo-the-painter",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Anikthea, Hand of Erebos": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/anikthea-hand-of-erebos",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Anje Falkenrath": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/anje-falkenrath",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Anowon, the Ruin Thief": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/anowon-the-ruin-thief",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Arahbo, Roar of the World": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/arahbo-roar-of-the-world",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Ashling, the Limitless": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/ashling-the-limitless",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Atarka, World Render": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/atarka-world-render",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Atraxa, Praetors' Voice": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/atraxa-praetors-voice",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Auntie Ool, Cursewretch": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/auntie-ool-cursewretch",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Bello, Bard of the Brambles": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/bello-bard-of-the-brambles",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Breena, the Demagogue": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/breena-the-demagogue",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Breya, Etherium Shaper": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/breya-etherium-shaper",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Bright-Palm, Soul Awakener": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/bright-palm-soul-awakener",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Brimaz, Blight of Oreskos": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/brimaz-blight-of-oreskos",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Caesar, Legion's Emperor": {
-      "links": [],
-      "suppressed": [
+      "canonical_card_source_status": "MATCHED",
+      "links": [
         {
           "service": "edhrec",
-          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/caesar-legions-emperor",
+          "verified": true,
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
-      ]
+      ],
+      "suppressed": []
     },
     "Captain N'ghathrod": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/captain-nghathrod",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Chishiro, the Shattered Blade": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/chishiro-the-shattered-blade",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Clavileño, First of the Blessed": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/clavileno-first-of-the-blessed",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Cloud, Ex-SOLDIER": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/cloud-ex-soldier",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Commodore Guff": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/commodore-guff",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Daretti, Scrap Savant": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/daretti-scrap-savant",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Davros, Dalek Creator": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/davros-dalek-creator",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Daxos the Returned": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/daxos-the-returned",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Derevi, Empyrial Tactician": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/derevi-empyrial-tactician",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Dihada, Binder of Wills": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/dihada-binder-of-wills",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Dina, Essence Brewer": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/dina-essence-brewer",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Disa the Restless": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/disa-the-restless",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Dogmeat, Ever Loyal": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/dogmeat-ever-loyal",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Dr. Madison Li": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/dr-madison-li",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Edgar Markov": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/edgar-markov",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Ellivere of the Wild Court": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/ellivere-of-the-wild-court",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Emmara, Soul of the Accord": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/emmara-soul-of-the-accord",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Eowyn, Shieldmaiden": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/eowyn-shieldmaiden",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Eshki, Temur's Roar": {
-      "links": [],
-      "suppressed": [
+      "canonical_card_source_status": "MATCHED",
+      "links": [
         {
           "service": "edhrec",
-          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/eshki-temurs-roar",
+          "verified": true,
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
-      ]
+      ],
+      "suppressed": []
     },
     "Estrid, the Masked": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/estrid-the-masked",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Ezuri, Claw of Progress": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/ezuri-claw-of-progress",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Faldorn, Dread Wolf Herald": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/faldorn-dread-wolf-herald",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Felothar the Steadfast": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/felothar-the-steadfast",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Firkraag, Cunning Instigator": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/firkraag-cunning-instigator",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Freyalise, Llanowar's Fury": {
-      "links": [],
-      "suppressed": [
+      "canonical_card_source_status": "MATCHED",
+      "links": [
         {
           "service": "edhrec",
-          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/freyalise-llanowars-fury",
+          "verified": true,
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
-      ]
+      ],
+      "suppressed": []
     },
     "Frodo, Adventurous Hobbit / Sam, Loyal Attendant": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/frodo-adventurous-hobbit-sam-loyal-attendant",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Galadriel, Elven-Queen": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/galadriel-elven-queen",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Galea, Kindler of Hope": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/galea-kindler-of-hope",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Gavi, Nest Warden": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/gavi-nest-warden",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Ghave, Guru of Spores": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/ghave-guru-of-spores",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Ghired, Conclave Exile": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/ghired-conclave-exile",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Gimbal, Gremlin Prodigy": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/gimbal-gremlin-prodigy",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Gisa and Geralf": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/gisa-and-geralf",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Gonti, Canny Acquisitor": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/gonti-canny-acquisitor",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Hakbal of the Surging Soul": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/hakbal-of-the-surging-soul",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Hazel of the Rootbloom": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/hazel-of-the-rootbloom",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Hearthhull, the Worldseed": {
+      "canonical_card_source_status": "MISSING_LOCAL_RECORD",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/hearthhull-the-worldseed",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Henzie \"Toolbox\" Torre": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/henzie-toolbox-torre",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Heroes in a Half Shell": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/heroes-in-a-half-shell",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Inalla, Archmage Ritualist": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/inalla-archmage-ritualist",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Inquisitor Greyfax": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/inquisitor-greyfax",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Inspirit, Flagship Vessel": {
+      "canonical_card_source_status": "MISSING_LOCAL_RECORD",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/inspirit-flagship-vessel",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Isperia, Supreme Judge": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/isperia-supreme-judge",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Ixhel, Scion of Atraxa": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/ixhel-scion-of-atraxa",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Jared Carthalion": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/jared-carthalion",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Jeleva, Nephalia's Scourge": {
-      "links": [],
-      "suppressed": [
+      "canonical_card_source_status": "MATCHED",
+      "links": [
         {
           "service": "edhrec",
-          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/jeleva-nephalias-scourge",
+          "verified": true,
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
-      ]
+      ],
+      "suppressed": []
     },
     "Jirina Kudro": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/jirina-kudro",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Kaalia of the Vast": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/kaalia-of-the-vast",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Kadena, Slinking Sorcerer": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/kadena-slinking-sorcerer",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Kalamax, the Stormsire": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/kalamax-the-stormsire",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Kalemne, Disciple of Iroas": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/kalemne-disciple-of-iroas",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Kamiz, Obscura Oculus": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/kamiz-obscura-oculus",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Kardur, Doomscourge": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/kardur-doomscourge",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Kasla, the Broken Halo": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/kasla-the-broken-halo",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Kathril, Aspect Warper": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/kathril-aspect-warper",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Kaust, Eyes of the Glade": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/kaust-eyes-of-the-glade",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Killian, Decisive Mentor": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/killian-decisive-mentor",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Kitt Kanto, Mayhem Diva": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/kitt-kanto-mayhem-diva",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Kotis, Sibsig Champion": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/kotis-sibsig-champion",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Kotori, Pilot Prodigy": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/kotori-pilot-prodigy",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Kynaios and Tiro of Meletis": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/kynaios-and-tiro-of-meletis",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Lathril, Blade of the Elves": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/lathril-blade-of-the-elves",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Leinore, Autumn Sovereign": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/leinore-autumn-sovereign",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Lord Windgrace": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/lord-windgrace",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Marath, Will of the Wild": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/marath-will-of-the-wild",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Meren of Clan Nel Toth": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/meren-of-clan-nel-toth",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Millicent, Restless Revenant": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/millicent-restless-revenant",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Mirko, Obsessive Theorist": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/mirko-obsessive-theorist",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Mishra, Eminent One": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/mishra-eminent-one",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Mizzix of the Izmagnus": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/mizzix-of-the-izmagnus",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Morska, Undersea Sleuth": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/morska-undersea-sleuth",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Ms. Bumbleflower": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/ms-bumbleflower",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Nahiri, the Lithomancer": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/nahiri-the-lithomancer",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Nalia de'Arnise": {
-      "links": [],
-      "suppressed": [
+      "canonical_card_source_status": "MATCHED",
+      "links": [
         {
           "service": "edhrec",
-          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/nalia-dearnise",
+          "verified": true,
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
-      ]
+      ],
+      "suppressed": []
     },
     "Nelly Borca, Impulsive Accuser": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/nelly-borca-impulsive-accuser",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
-    "Neyali, Sun's Vanguard": {
-      "links": [],
-      "suppressed": [
+    "Neyali, Suns' Vanguard": {
+      "canonical_card_source_status": "MATCHED",
+      "links": [
         {
           "service": "edhrec",
-          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/neyali-suns-vanguard",
+          "verified": true,
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
-      ]
+      ],
+      "suppressed": []
     },
     "Ob Nixilis of the Black Oath": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/ob-nixilis-of-the-black-oath",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Obuun, Mul Daya Ancestor": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/obuun-mul-daya-ancestor",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Olivia, Opulent Outlaw": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/olivia-opulent-outlaw",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Oloro, Ageless Ascetic": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/oloro-ageless-ascetic",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Omo, Queen of Vesuva": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/omo-queen-of-vesuva",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Osgir, the Reconstructor": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/osgir-the-reconstructor",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Otrimi, the Ever-Playful": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/otrimi-the-ever-playful",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Pantlaza, Sun-Favored": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/pantlaza-sun-favored",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Perrie, the Pulverizer": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/perrie-the-pulverizer",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Prosper, Tome-Bound": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/prosper-tome-bound",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Prossh, Skyraider of Kher": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/prossh-skyraider-of-kher",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Quintorius, History Chaser": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/quintorius-history-chaser",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Ranar, the Ever-Watchful": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/ranar-the-ever-watchful",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Riku of Two Reflections": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/riku-of-two-reflections",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Rootha, Mastering the Moment": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/rootha-mastering-the-moment",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Saheeli, Radiant Creator": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/saheeli-radiant-creator",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Saheeli, the Gifted": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/saheeli-the-gifted",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Saskia the Unyielding": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/saskia-the-unyielding",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Satya, Aetherflux Genius": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/satya-aetherflux-genius",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Sauron, Lord of the Rings": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/sauron-lord-of-the-rings",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Sefris of the Hidden Ways": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/sefris-of-the-hidden-ways",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Sevinne, the Chronoclasm": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/sevinne-the-chronoclasm",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Shiko and Narset, Unified": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/shiko-and-narset-unified",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Sidar Jabari of Zhalfir": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/sidar-jabari-of-zhalfir",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Sliver Gravemother": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/sliver-gravemother",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
-    "Stella, Wild Card": {
-      "links": [],
-      "suppressed": [
+    "Stella Lee, Wild Card": {
+      "canonical_card_source_status": "MATCHED",
+      "links": [
         {
           "service": "edhrec",
-          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/stella-lee-wild-card",
+          "verified": true,
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
-      ]
+      ],
+      "suppressed": []
     },
     "Strefan, Maurer Progenitor": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/strefan-maurer-progenitor",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Szarekh, the Silent King": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/szarekh-the-silent-king",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Teferi, Temporal Archmage": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/teferi-temporal-archmage",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Tegwyll, Duke of Splendor": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/tegwyll-duke-of-splendor",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Temmet, Naktamun's Will": {
-      "links": [],
-      "suppressed": [
+      "canonical_card_source_status": "MATCHED",
+      "links": [
         {
           "service": "edhrec",
-          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/temmet-naktamuns-will",
+          "verified": true,
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
-      ]
+      ],
+      "suppressed": []
     },
     "Terra, Herald of Hope": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/terra-herald-of-hope",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "The Fourth Doctor / Sarah Jane Smith": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/the-fourth-doctor-sarah-jane-smith",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "The Mimeoplasm": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/the-mimeoplasm",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "The Swarmlord": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/the-swarmlord",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "The Tenth Doctor / Rose Tyler": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/the-tenth-doctor-rose-tyler",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "The Thirteenth Doctor / Yasmin Khan": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/the-thirteenth-doctor-yasmin-khan",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "The Ur-Dragon": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/the-ur-dragon",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "The Wise Mothman": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/the-wise-mothman",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Tidus, Yuna's Guardian": {
-      "links": [],
-      "suppressed": [
+      "canonical_card_source_status": "MATCHED",
+      "links": [
         {
           "service": "edhrec",
-          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/tidus-yunas-guardian",
+          "verified": true,
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
-      ]
+      ],
+      "suppressed": []
     },
     "Ulalek, Fused Atrocity": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/ulalek-fused-atrocity",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Urza, Chief Artificer": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/urza-chief-artificer",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
-    "Valgavoth, Harvester of Souls": {
-      "links": [],
-      "suppressed": [
+    "Valgavoth, Harrower of Souls": {
+      "canonical_card_source_status": "MATCHED",
+      "links": [
         {
           "service": "edhrec",
-          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/valgavoth-harrower-of-souls",
+          "verified": true,
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
-      ]
+      ],
+      "suppressed": []
     },
     "Vrondiss, Rage of Ancients": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/vrondiss-rage-of-ancients",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Wilhelt, the Rotcleaver": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/wilhelt-the-rotcleaver",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Willowdusk, Essence Seer": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/willowdusk-essence-seer",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Winter, Cynical Opportunist": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/winter-cynical-opportunist",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Wyleth, Soul of Steel": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/wyleth-soul-of-steel",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Y'shtola, Night's Blessed": {
-      "links": [],
-      "suppressed": [
+      "canonical_card_source_status": "MATCHED",
+      "links": [
         {
           "service": "edhrec",
-          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/yshtola-nights-blessed",
+          "verified": true,
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
-      ]
+      ],
+      "suppressed": []
     },
     "Yidris, Maelstrom Wielder": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/yidris-maelstrom-wielder",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Yuma, Proud Protector": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/yuma-proud-protector",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Zaffai, Thunder Conductor": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/zaffai-thunder-conductor",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Zedruu the Greathearted": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/zedruu-the-greathearted",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Zhulodok, Void Gorger": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/zhulodok-void-gorger",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Zimone, Infinite Analyst": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/zimone-infinite-analyst",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Zimone, Mystery Unraveler": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/zimone-mystery-unraveler",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []
     },
     "Zinnia, Valley's Voice": {
-      "links": [],
-      "suppressed": [
+      "canonical_card_source_status": "MATCHED",
+      "links": [
         {
           "service": "edhrec",
-          "reason": "Live validation returned HTTP 404 on 2026-08-11."
+          "label": "EDHREC",
+          "url": "https://edhrec.com/commanders/zinnia-valleys-voice",
+          "verified": true,
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
-      ]
+      ],
+      "suppressed": []
     },
     "Zurgo Stormrender": {
+      "canonical_card_source_status": "MATCHED",
       "links": [
         {
           "service": "edhrec",
           "label": "EDHREC",
           "url": "https://edhrec.com/commanders/zurgo-stormrender",
           "verified": true,
-          "verified_at": "2026-08-11",
-          "verification": "HTTP 200"
+          "verified_at": "2026-08-13",
+          "verification": "EXACT_COMMANDER_NAME_MATCH"
         }
       ],
       "suppressed": []

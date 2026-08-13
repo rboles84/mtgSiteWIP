@@ -227,7 +227,7 @@ async function runMazeDomMetadataCases() {
     "expected Loom autocomplete to include dictionary-derived keyword suggestions"
   );
   const commanderPath = document.getElementById("reading-path-list").children[0];
-  assert.match(commanderPath.dataset.query, /^id=bg is:commander f:commander /);
+  assert.match(commanderPath.dataset.query, /^id=bg is:commander f:commander$/);
   assert.match(commanderPath.dataset.plainReadingQuery, /Witherbloom College commanders with exactly black-green identity/i);
   assert.doesNotMatch(commanderPath.dataset.plainReadingQuery, /\bRed\b/);
   assert.equal(commanderPath.dataset.origin, "path");
@@ -848,7 +848,7 @@ async function runLiveShardDossierSidebarCases() {
     const readingPaths = document.getElementById("reading-path-list").children;
     assert.equal(readingPaths.length, testCase.expectedPaths, `expected ${testCase.key} sidebar path count to match shard policy`);
     assert.equal(readingPaths[0].children.at(-1).textContent, testCase.visibleHint);
-    assert.match(readingPaths[0].dataset.query, new RegExp(`^id=${testCase.identity} is:commander f:commander `));
+    assert.match(readingPaths[0].dataset.query, new RegExp(`^id=${testCase.identity} is:commander f:commander$`));
     assert.match(
       readingPaths[0].dataset.plainReadingQuery,
       new RegExp(`${testCase.name} commanders with exactly ${testCase.words} identity`, "i")
@@ -1267,7 +1267,7 @@ async function runTemurQueryInferredSidebarCase() {
   const sidebarText = readingPaths.map((path) => `${path.textContent} ${path.dataset.query} ${path.dataset.plainReadingQuery}`).join(" ");
   assert.equal(readingPaths.length, 3);
   assert.equal(readingPaths[0].children.at(-1).textContent, "Temur");
-  assert.match(readingPaths[0].dataset.query, /^id=gur is:commander f:commander /);
+  assert.match(readingPaths[0].dataset.query, /^id=gur is:commander f:commander$/);
   assert.doesNotMatch(sidebarText, /\bWB\b|Orzhov|outside-color commander stretch|stretch lane/i);
 }
 
@@ -1313,7 +1313,7 @@ async function runMarduArchscryOperatorPrecedenceCase() {
 
   const readingPaths = [...document.getElementById("reading-path-list").children];
   assert.equal(readingPaths.length, 3);
-  assert.match(readingPaths[0].dataset.query, /^id=rwb is:commander f:commander /);
+  assert.match(readingPaths[0].dataset.query, /^id=rwb is:commander f:commander$/);
   assert.match(readingPaths[0].dataset.plainReadingQuery, /red-white-black identity/i);
   assert.ok(readingPaths.every((path) => !/\bid(?:<)?=wbr\b/i.test(path.dataset.query)));
 }

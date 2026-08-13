@@ -31,15 +31,15 @@ assert.deepEqual(Object.keys(providerValidation.commanders).sort(), uniqueComman
 const providerRows = Object.values(providerValidation.commanders);
 const verifiedLinks = providerRows.flatMap((row) => row.links || []);
 const suppressedRows = providerRows.filter((row) => !(row.links || []).length);
-assert.equal(verifiedLinks.length, 143, "expected only live-verified EDHREC destinations to be enabled");
-assert.equal(suppressedRows.length, 12, "expected all 404 provider destinations to remain suppressed");
-assert.ok(verifiedLinks.every((link) => link.verified === true && link.verification === "HTTP 200"));
+assert.equal(verifiedLinks.length, 155, "expected every displayed main commander to have one exact-build destination");
+assert.equal(suppressedRows.length, 0, "no displayed main commander may retain a provider gap");
+assert.ok(verifiedLinks.every((link) => link.verified === true && link.verification === "EXACT_COMMANDER_NAME_MATCH"));
 assert.ok(verifiedLinks.every((link) => /^https:\/\/edhrec\.com\/commanders\//.test(link.url)));
 assert.equal(providerValidation.providers.archidekt.enabled, false);
 assert.equal(providerValidation.providers.mtgdecks.enabled, false);
 assert.equal(providerValidation.providers.mtggoldfish.enabled, false);
 assert.match(providerValidation.commanders["Captain N'ghathrod"].links[0].url, /captain-nghathrod$/);
-assert.equal(providerValidation.commanders["Y'shtola, Night's Blessed"].links.length, 0);
+assert.equal(providerValidation.commanders["Y'shtola, Night's Blessed"].links.length, 1);
 assert.ok(uniqueCommanders.some((name) => /['’]/.test(name)), "expected apostrophe coverage");
 assert.ok(uniqueCommanders.some((name) => /,/.test(name)), "expected comma coverage");
 assert.ok(uniqueCommanders.some((name) => /-/.test(name)), "expected hyphen coverage");
@@ -179,7 +179,7 @@ assert.doesNotMatch(indexSource, /length\s*[<=>]+\s*4[^\n]*reason/i, "layout mus
 
 console.log(JSON.stringify({
   status: "PASS",
-  provider_matrix: { commanders: uniqueCommanders.length, enabled_edhrec: verifiedLinks.length, suppressed: suppressedRows.length },
+  provider_matrix: { commanders: uniqueCommanders.length, exact_destinations: verifiedLinks.length, suppressed: suppressedRows.length },
   precon_rationales: precons.length,
   public_commander_guidance_items: publicGuidanceCount,
   card_rationale_guard: "PASS",

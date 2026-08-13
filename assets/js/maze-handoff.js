@@ -184,7 +184,7 @@ export function buildDossierMazePathEntries({
       sidebarLabel: "Commanders that fit this reading",
       hint: identityLabel,
       pathType: "commanders-that-fit",
-      query: `id=${normalizedIdentity} is:commander f:commander ${oracleGroup}`,
+      query: `id=${normalizedIdentity} is:commander f:commander`,
       plainReadingQuery: `${readingName} commanders with exactly ${identityText} identity`
     },
     {

@@ -3701,16 +3701,31 @@ body.vm-archscry-route .precon-provider-menu{
 }
 
 body.vm-archscry-route .precon-provider-menu summary{
+  display:inline-flex;
+  align-items:center;
+  gap:0.55rem;
   width:max-content;
+  min-height:40px;
+  padding:0.55rem 0.82rem;
+  border:1px solid rgba(216,194,122,0.34);
+  border-radius:8px;
+  background:rgba(184,149,74,0.09);
   color:rgba(236,217,153,0.92);
   font-family:var(--font-mono);
-  font-size:0.72rem;
+  font-size:0.76rem;
   letter-spacing:0.04em;
   cursor:pointer;
 }
 
+body.vm-archscry-route .precon-provider-menu summary:hover,
+body.vm-archscry-route .precon-provider-menu summary:focus-visible{
+  border-color:rgba(240,197,106,0.72);
+  background:rgba(184,149,74,0.16);
+  outline:none;
+}
+
 body.vm-archscry-route .precon-provider-menu summary span{
-  color:var(--text-dim);
+  color:var(--text);
 }
 
 body.vm-archscry-route .precon-provider-links{
