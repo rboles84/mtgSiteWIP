@@ -17,6 +17,8 @@ const cardRationaleCatalog = await readJson("../data/dossier/card-rationale-cata
 const indexSource = await readFile(new URL("../assets/js/index.js", import.meta.url), "utf8");
 const radarSource = await readFile(new URL("../assets/js/dossier-radar.js", import.meta.url), "utf8");
 const cssSource = await readFile(new URL("../assets/css/archscry.css", import.meta.url), "utf8");
+const preconSourceText = await readFile(new URL("../data/precons/vox-mana-precons.source.json", import.meta.url), "utf8");
+const factionsSourceText = await readFile(new URL("../data/factions.json", import.meta.url), "utf8");
 
 const INTERNAL_TOKEN_RE = /\b(?:SIG_[A-Z0-9_]+|DG_[A-Z0-9_]+|MAPPING_[A-Z0-9_]+|b1\.[a-z0-9_.-]+|naming qualification|mapping hypothesis|bounded observation|question_id|answer_id)\b/i;
 const INTERNAL_GUIDANCE_RE = /\b(?:source-backed|public-surface|guardrail|evidence-required|boundary-only|routing|taxonomy|support lane)\b/i;
@@ -88,6 +90,9 @@ for (const faction of Object.values(factions)) {
   }
 }
 assert.ok(publicGuidanceCount > 0, "expected approved Commander guidance to remain available where supported");
+assert.doesNotMatch(preconSourceText, /Spell magnitide payoffs/i, "public precon authority must not retain the spell-magnitude typo");
+assert.doesNotMatch(factionsSourceText, /volatility Theater/, "public taxonomy labels must use approved capitalization");
+assert.doesNotMatch(factionsSourceText, /Represent's the college's main protagonist/, "the owner-approved Quintorius editorial correction must propagate");
 
 const publicOmens = buildReadingOmens({
   activeFactionKey: "UB",
