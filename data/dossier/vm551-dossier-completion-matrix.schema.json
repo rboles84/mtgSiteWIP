@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020/schema",
+  "$id": "https://voxmana.io/schemas/vm551-dossier-completion-matrix.schema.json",
+  "title": "VM-551 All-37 Dossier Completion Matrix",
+  "type": "object",
+  "required": ["schema_version", "status_policy", "surfaces", "identities"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "status_policy": {
+      "const": "PASS requires exact evidence; NOT_APPLICABLE requires a product-contract reason; missing work is FAIL."
+    },
+    "surfaces": {
+      "type": "array",
+      "minItems": 17,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "identities": {
+      "type": "array",
+      "minItems": 37,
+      "maxItems": 37,
+      "items": {
+        "type": "object",
+        "required": ["identity_key", "identity_name", "cells"],
+        "additionalProperties": false,
+        "properties": {
+          "identity_key": { "type": "string", "pattern": "^[A-Z0-9_]+$" },
+          "identity_name": { "type": "string", "minLength": 1 },
+          "cells": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "required": ["status", "evidence", "reason"],
+              "additionalProperties": false,
+              "properties": {
+                "status": { "enum": ["PASS", "NOT_APPLICABLE", "FAIL"] },
+                "evidence": { "type": "array", "items": { "type": "string" } },
+                "reason": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

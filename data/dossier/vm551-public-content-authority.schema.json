@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voxmana.io/schemas/vm551-public-content-authority.schema.json",
+  "title": "VM-551 Public Dossier Content Authority",
+  "type": "object",
+  "required": ["schema_version", "authority_type", "records"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "authority_type": {
+      "enum": [
+        "CARD_RATIONALE",
+        "CARD_VOICE",
+        "IDENTITY_DOSSIER",
+        "PUBLIC_COMPARISON",
+        "GLOSSARY_EDUCATION"
+      ]
+    },
+    "authority": { "type": "string", "minLength": 1 },
+    "records": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/record" }
+    }
+  },
+  "$defs": {
+    "decision": {
+      "type": "object",
+      "required": ["status"],
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": ["NOT_REVIEWED", "APPROVE", "APPROVE_AFTER_REVISION", "REVISE", "REJECT", "NOT_APPLICABLE"]
+        },
+        "decided_by": { "type": "string" },
+        "decision_locator": { "type": "string" },
+        "decided_on": { "type": "string" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["evidence_role", "source_locator"],
+      "additionalProperties": false,
+      "properties": {
+        "evidence_role": { "type": "string", "minLength": 1 },
+        "source_locator": { "type": "string", "minLength": 1 },
+        "claim_ids": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "source_ids": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        }
+      }
+    },
+    "record": {
+      "type": "object",
+      "required": [
+        "id",
+        "public_surface",
+        "disposition",
+        "proposed_public_copy",
+        "provenance",
+        "limitation",
+        "replaces",
+        "owner_decision"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$" },
+        "identity_key": { "type": "string", "pattern": "^[A-Z0-9_]+$" },
+        "pair_key": { "type": "string", "pattern": "^[A-Z0-9_]+::[A-Z0-9_]+$" },
+        "term_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$" },
+        "public_surface": { "type": "string", "minLength": 1 },
+        "semantic_role": { "type": "string" },
+        "subject": { "type": "object" },
+        "disposition": {
+          "enum": ["EVIDENCE_NEEDED", "REVIEW_REQUIRED", "APPROVED_PUBLIC", "REJECTED", "NOT_APPLICABLE"]
+        },
+        "proposed_public_copy": {
+          "oneOf": [
+            { "type": "string" },
+            { "type": "object" },
+            { "type": "array" }
+          ]
+        },
+        "provenance": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/provenance" }
+        },
+        "limitation": { "type": "string" },
+        "replaces": { "type": "string" },
+        "critical_repeat": {
+          "type": "object",
+          "required": ["allowed", "reason"],
+          "additionalProperties": false,
+          "properties": {
+            "allowed": { "type": "boolean" },
+            "reason": { "type": "string" }
+          }
+        },
+        "owner_decision": { "$ref": "#/$defs/decision" }
+      },
+      "anyOf": [
+        { "required": ["identity_key"] },
+        { "required": ["pair_key"] },
+        { "required": ["term_id"] }
+      ]
+    }
+  }
+}
