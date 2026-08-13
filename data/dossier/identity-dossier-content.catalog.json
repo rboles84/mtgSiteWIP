@@ -1,0 +1,1671 @@
+{
+  "schema_version": "vm551-identity-dossier-catalog-v1",
+  "generated_from": "data/dossier/identity-dossier-content.source.json",
+  "records": [
+    {
+      "identity_key": "WU",
+      "identity_name": "Azorius Senate",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you trust documented rules, precedent, enforceable fairness, and institutions that prevent harm before crisis.",
+        "tension_failure_mode": "Watch for this tension: It distrusts private exceptions, impulsive intervention, and justice that cannot be made legible to everyone.",
+        "certified_boundary_self_check": "This is less likely to fit when a successful rule-breaker, secret broker, or battlefield protector is not Azorius when public procedure is treated as disposable."
+      },
+      "how_this_plays": {
+        "role": "The arbiter",
+        "how_opponents_read_it": "A rule-setting Azorius list can ask opponents to plan around visible taxes, held mana, or timing constraints; the actual experience depends on the cards, pilot, and pod.",
+        "emotional_pressure": "Can create pressure through permission and timing, without proving that the pilot wants a long game or that opponents will react in one fixed way.",
+        "lore_role": "senate, judiciary, and lawkeeping bureaucracy",
+        "mechanical_expression": "Detain, taxation, permission, sweepers, tempo, and rule-setting permanents",
+        "table_experience": "restricted action, procedural pressure, and clean enforcement"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_wu_1_draw_go_control",
+          "title": "Draw-Go Control",
+          "copy": "Hold up mana every turn. Counter threats at instant speed. Win with one resilient finisher after the opponent exhausts their resources.",
+          "source_locator": "data/factions.json#/factions/WU/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_wu_2_prison_control",
+          "title": "Prison Control",
+          "copy": "Deploy asymmetric restrictions - Thalia, Detention Sphere, Rule of Law - that prevent opponents from executing their game plan.",
+          "source_locator": "data/factions.json#/factions/WU/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_wu_3_tempo_spirits",
+          "title": "Tempo / Spirits",
+          "copy": "Flash threats and counterspells in the same turn. Deploy a creature, protect it, answer opposition with open mana.",
+          "source_locator": "data/factions.json#/factions/WU/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_wu",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "UB",
+      "identity_name": "House Dimir",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you observe first, control disclosure, value anonymity, and prefer advantage that does not require public credit.",
+        "tension_failure_mode": "Watch for this tension: It resists transparency as an automatic virtue and visible legitimacy as the only valid form of power.",
+        "certified_boundary_self_check": "This is less likely to fit when generic control, mill, theft, or evasive play is not Dimir without secrecy or information asymmetry as the active method."
+      },
+      "how_this_plays": {
+        "role": "The concealed hand",
+        "how_opponents_read_it": "Opponents rarely know which card matters until it has already taken their best line away.",
+        "emotional_pressure": "Pressure through uncertainty, hidden advantage, and delayed reveal.",
+        "lore_role": "couriers, archivists, spies, and memory manipulators",
+        "mechanical_expression": "Surveil, mill, discard, theft, evasive threats, and control",
+        "table_experience": "hidden pressure, information advantage, and wins that arrive before the table understands them"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_ub_1_hidden_information_leverage",
+          "title": "Hidden Information Leverage",
+          "copy": "Use Dimir when secrecy, backroom positioning, observation, and selective disclosure lead over generic UB mechanics.",
+          "source_locator": "data/factions.json#/factions/UB/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_ub_2_surveil_texture",
+          "title": "Information Filtering",
+          "copy": "Use surveil as verified information filtering, not as a claim that mill or graveyard gameplay defines the guild.",
+          "source_locator": "data/factions.json#/factions/UB/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_ub_3_public_surface_guardrail",
+          "title": "Visible-Plan Boundary",
+          "copy": "Keep Dimir adjacent when the answer is mainly public law, visible obligation, spectacle, rhetoric, or biological optimization.",
+          "source_locator": "data/factions.json#/factions/UB/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_ub",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "BR",
+      "identity_name": "Cult of Rakdos",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you value performance, provocation, sensation, release, and an act whose audience can see both intensity and cost.",
+        "tension_failure_mode": "Watch for this tension: It rejects respectability, hidden pressure, and restraint that disguises what people actually want.",
+        "certified_boundary_self_check": "This is less likely to fit when private cruelty, ordinary aggression, sacrifice mechanics, or random chaos are not Rakdos when there is no act, audience, or consequence."
+      },
+      "how_this_plays": {
+        "role": "The spectacle engine",
+        "how_opponents_read_it": "Opponents feel the deck as a dare: life totals, resources, and caution all become part of the show.",
+        "emotional_pressure": "Pressure through risk, damage, sacrifice, and ecstatic escalation.",
+        "lore_role": "performance cult, riotous stage, and thrill economy",
+        "mechanical_expression": "Spectacle, sacrifice, impulse draw, menace, damage triggers, and reckless advantage",
+        "table_experience": "volatile pressure, public risk, and turns that make the room react"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_br_1_rakdos_midrange",
+          "title": "Rakdos Midrange",
+          "copy": "Thoughtseize into Bloodtithe Harvester into Fable of the Mirror-Breaker. Efficient threats, precise removal, pressure from every angle.",
+          "source_locator": "data/factions.json#/factions/BR/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_br_2_aristocrats",
+          "title": "Aristocrats",
+          "copy": "Blood Artist and Mayhem Devil drain the table one sacrifice trigger at a time. Every creature dying generates value.",
+          "source_locator": "data/factions.json#/factions/BR/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_br_3_sacrifice_aggro",
+          "title": "Sacrifice Aggro",
+          "copy": "Generate cheap fodder, feed it to sac outlets for damage payoffs, and kill before the opponent stabilizes.",
+          "source_locator": "data/factions.json#/factions/BR/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_br",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "RG",
+      "identity_name": "Gruul Clans",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you trust instinct, authenticity, clan, territory, and direct action rooted in a concrete loss or endangered wild place.",
+        "tension_failure_mode": "Watch for this tension: It distrusts institutions that broke their promises, abstraction that ignores material damage, and patience demanded by beneficiaries of the system.",
+        "certified_boundary_self_check": "This is less likely to fit when generic rage, stompy play, or destruction is not Gruul without wildness, territory, clan, or resistance to imposed order."
+      },
+      "how_this_plays": {
+        "role": "The breaker of gates",
+        "how_opponents_read_it": "Opponents see the deck as pressure from outside the city walls: fast, physical, and hard to civilize.",
+        "emotional_pressure": "Pressure through instinct, oversized threats, and refusal of imposed order.",
+        "lore_role": "clans, wild places, razed boundaries, and anti-civilized resistance",
+        "mechanical_expression": "Riot, bloodrush, ramp, trample, fight spells, and creature pressure",
+        "table_experience": "immediate combat, land-fed force, and damage that refuses delay"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_rg_1_zoo_aggro",
+          "title": "Zoo / Aggro",
+          "copy": "Wild Nacatl, Bloodbraid Elf, Questing Beast. The most efficient bodies at each cost, ending games before midrange finds its footing.",
+          "source_locator": "data/factions.json#/factions/RG/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_rg_2_ramp",
+          "title": "Ramp",
+          "copy": "Accelerate mana with dorks and land spells, then deploy threats your opponent simply cannot race.",
+          "source_locator": "data/factions.json#/factions/RG/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_rg_3_ponza_land_denial",
+          "title": "Ponza / Land Denial",
+          "copy": "Blood Moon and Stone Rain lock opponents out of their mana base, then slam threats into a field they can't answer.",
+          "source_locator": "data/factions.json#/factions/RG/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_rg",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "WG",
+      "identity_name": "Selesnya Conclave",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want harmony, collective care, nature, preservation, consensus, and a community larger than private ambition.",
+        "tension_failure_mode": "Watch for this tension: It resists self-only ambition, conflict for its own sake, and procedure, debt, or force replacing belonging.",
+        "certified_boundary_self_check": "This is less likely to fit when tokens, counters, enchantments, or pleasant company are not Selesnya when individual distinction remains more important than shared care."
+      },
+      "how_this_plays": {
+        "role": "The chorus",
+        "how_opponents_read_it": "Opponents feel the deck as a board that becomes a community before it becomes a threat.",
+        "emotional_pressure": "Pressure through belonging, protection, and many small pieces becoming one large promise.",
+        "lore_role": "conclave, communal faith, and living civic body",
+        "mechanical_expression": "Convoke, populate, tokens, anthem effects, lifegain, and board protection",
+        "table_experience": "collective momentum, shared growth, and combat math that multiplies"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_wg_1_convoke_community",
+          "title": "Convoke Community",
+          "copy": "Use creatures working together as gameplay play pattern for shared labor and communal purpose.",
+          "source_locator": "data/factions.json#/factions/WG/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_wg_2_go_wide_caretaking",
+          "title": "Go-Wide Caretaking",
+          "copy": "Build a board that feels like a protected community, while remembering tokens alone are not lore proof.",
+          "source_locator": "data/factions.json#/factions/WG/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_wg_3_harmony_and_preservation",
+          "title": "Harmony And Preservation",
+          "copy": "Favor play patterns that express mutual care, protection, and shared purpose over individual glory.",
+          "source_locator": "data/factions.json#/factions/WG/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_wg",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "WB",
+      "identity_name": "Orzhov Syndicate",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you treat deals, hierarchy, status, repayment, and long consequences as real sources of power.",
+        "tension_failure_mode": "Watch for this tension: It distrusts obligation-free sentiment, chaotic power that cannot be collected, and impartial rules that ignore available leverage.",
+        "certified_boundary_self_check": "This is less likely to fit when lifegain, drain, sacrifice, taxes, or recursion are not Orzhov without debt, deal, tithe, hierarchy, or enforceable obligation."
+      },
+      "how_this_plays": {
+        "role": "The creditor",
+        "how_opponents_read_it": "Opponents feel the deck as a ledger: every attack, death, and favor creates a debt that comes due.",
+        "emotional_pressure": "Pressure through obligation, drain, taxation, and deals that keep their receipts.",
+        "lore_role": "church-bank hierarchy, contracts, afterlife debt, and inherited power",
+        "mechanical_expression": "Extort, afterlife, aristocrats, lifedrain, sacrifice, taxes, and recursion",
+        "table_experience": "transactional pressure, slow drain, and resource exchanges that stop being equal"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_wb_1_obligation_engines",
+          "title": "Obligation Engines",
+          "copy": "Sacrifice or death-trigger shells can be Orzhov-flavored only when framed as contract, repayment, afterlife play pattern, or institutional leverage rather than automatic lore proof.",
+          "source_locator": "data/factions.json#/factions/WB/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_wb_2_payment_pressure",
+          "title": "Payment Pressure",
+          "copy": "Taxing, drain, and control cards are Commander play pattern; they need debt, deal, payment, or hierarchy framing before they become Orzhov-adjacent.",
+          "source_locator": "data/factions.json#/factions/WB/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_wb_3_afterlife_tokens",
+          "title": "Afterlife Tokens",
+          "copy": "Spirit or token play echoes Orzhov only when tied to afterlife mechanics and obligation context, not all death or spirit decks.",
+          "source_locator": "data/factions.json#/factions/WB/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_wb",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "UR",
+      "identity_name": "Izzet League",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you follow questions, enjoy prototypes and repeated testing, treat being wrong as information, and prefer the next experiment to the finished answer.",
+        "tension_failure_mode": "Watch for this tension: It resists premature closure, untested repetition, and emotional certainty that substitutes for investigation.",
+        "certified_boundary_self_check": "This is less likely to fit when spellslinger volume, artifacts, or novelty are not Izzet when there is no experiment, discovery, prototype, or useful breakthrough."
+      },
+      "how_this_plays": {
+        "role": "The live experiment",
+        "how_opponents_read_it": "Opponents feel the deck accelerating in public, where every cantrip might become the turn that matters.",
+        "emotional_pressure": "Pressure through velocity, improvisation, and spell sequences that refuse to sit still.",
+        "lore_role": "inventors, engineers, experimenters, and dangerous civic infrastructure",
+        "mechanical_expression": "Jump-start, overload, spellslinger, copying, cantrips, artifacts, and tempo",
+        "table_experience": "spell velocity, explosive pivots, and the sense that the device is running while it is built"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_ur_1_tempo_delver",
+          "title": "Tempo / Delver",
+          "copy": "Delver of Secrets backed by Daze and Force of Will. Deploy a threat, protect it with single mana, answer everything else for free.",
+          "source_locator": "data/factions.json#/factions/UR/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_ur_2_storm",
+          "title": "Storm",
+          "copy": "Chain rituals and cantrips until a Storm spell copies itself enough times to kill the table in one turn.",
+          "source_locator": "data/factions.json#/factions/UR/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_ur_3_spells_matter_phoenix",
+          "title": "Spells-Matter / Phoenix",
+          "copy": "Faithless Looting and cantrips fuel Arclight Phoenix, which returns from the graveyard every time you cast three spells.",
+          "source_locator": "data/factions.json#/factions/UR/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_ur",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "BG",
+      "identity_name": "Golgari Swarm",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you find meaning in reclamation, patience, discarded material, self-sustaining cycles, and life emerging from death.",
+        "tension_failure_mode": "Watch for this tension: It resists denial of mortality, preservation that blocks renewal, and hierarchies pretending they do not decay.",
+        "certified_boundary_self_check": "This is less likely to fit when graveyard value, morbidity, resilience, or sacrifice is not Golgari without a death-to-life cycle that feeds continued survival."
+      },
+      "how_this_plays": {
+        "role": "The survivor",
+        "how_opponents_read_it": "Opponents learn that removal is not an ending; it is the next material the deck will use.",
+        "emotional_pressure": "Pressure through endurance, reclamation, and the certainty that nothing is wasted.",
+        "lore_role": "waste, agriculture, rot, undercity survival, and reclamation",
+        "mechanical_expression": "Dredge, scavenge, undergrowth, recursion, sacrifice, and graveyard value",
+        "table_experience": "loss converted into future pressure and a board that keeps returning"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_bg_1_rock_bgx_midrange",
+          "title": "Rock / BGx Midrange",
+          "copy": "Thoughtseize strips threats. Tarmogoyf wins combat. Liliana grinds. Simply the best individual cards in black and green.",
+          "source_locator": "data/factions.json#/factions/BG/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_bg_2_graveyard_value",
+          "title": "Graveyard Value",
+          "copy": "Grim Flayer fills the graveyard, Traverse the Ulvenwald tutors into threats, and every card recurs from the bin.",
+          "source_locator": "data/factions.json#/factions/BG/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_bg_3_dredge",
+          "title": "Dredge",
+          "copy": "Stinkweed Imp replaces draws with massive milling - Narcomoeba and Prized Amalgam enter for free, Creeping Chill deals damage before a single attack.",
+          "source_locator": "data/factions.json#/factions/BG/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_bg",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "UG",
+      "identity_name": "Simic Combine",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you study organisms, iterate pragmatically, and accept biological intervention when it helps life adapt, heal, or endure.",
+        "tension_failure_mode": "Watch for this tension: It resists untouched-nature absolutism, disposable-life engineering, and abstraction detached from living consequences.",
+        "certified_boundary_self_check": "This is less likely to fit when counters, ramp, card draw, lands, or optimization are not Simic without biological study, adaptation, medicine, clade, or organism-level change."
+      },
+      "how_this_plays": {
+        "role": "The adapter",
+        "how_opponents_read_it": "Opponents see the deck changing shape until yesterday's answer no longer fits today's board.",
+        "emotional_pressure": "Pressure through adaptation, counters, ramp, and creatures that keep improving.",
+        "lore_role": "biomancers, laboratories, evolutionary projects, and living infrastructure",
+        "mechanical_expression": "Graft, evolve, adapt, counters, ramp, card draw, and creature upgrades",
+        "table_experience": "incremental growth, biological scaling, and threats that outgrow old answers"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_ug_1_living_system_value",
+          "title": "Living-System Value",
+          "copy": "Ramp, card draw, and creature scale are Commander-adjacent tools; they need organism-level adaptation context before they read as Simic identity.",
+          "source_locator": "data/factions.json#/factions/UG/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_ug_2_biological_adaptation",
+          "title": "Biological Adaptation",
+          "copy": "+1/+1 counters, evolve, graft, proliferate, mutate, and Adapt are play pattern only unless they express source-bounded biological improvement.",
+          "source_locator": "data/factions.json#/factions/UG/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_ug_3_clade_research_and_pressure_response",
+          "title": "Clade Research And Pressure Response",
+          "copy": "Creature experimentation fits Simic when it stays tied to clades, medicine, living systems, and adaptation under pressure.",
+          "source_locator": "data/factions.json#/factions/UG/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_ug",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "WR",
+      "identity_name": "Boros Legion",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want visible harm answered now, value loyalty and moral clarity, and accept discipline when it makes protection effective.",
+        "tension_failure_mode": "Watch for this tension: It resists bureaucratic delay, moral ambiguity used as an excuse, and rules that shield the wrong people.",
+        "certified_boundary_self_check": "This is less likely to fit when combat, equipment, soldiers, or righteous anger are not Boros when force is no longer answerable to protection and public duty."
+      },
+      "how_this_plays": {
+        "role": "The responder",
+        "how_opponents_read_it": "Opponents see the deck coming. That is part of the point: the line is public, and crossing it has consequences.",
+        "emotional_pressure": "Pressure through action, retaliation, combat, and visible protection.",
+        "lore_role": "security force, constabulary, and army",
+        "mechanical_expression": "Battalion, mentor, tactical combat, equipment, burn, and protection",
+        "table_experience": "coordinated pressure, righteous retaliation, and visible action"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_wr_1_go_wide_aggro",
+          "title": "Go-Wide Aggro",
+          "copy": "Raise the Alarm, Legion's Landing, Rally the Peasants. Flood the board with tokens and win through an alpha strike.",
+          "source_locator": "data/factions.json#/factions/WR/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_wr_2_burn_heroic",
+          "title": "Burn / Heroic",
+          "copy": "Monastery Swiftspear and Goblin Guide backed by Lightning Bolt and Boros Charm - the fastest possible clock.",
+          "source_locator": "data/factions.json#/factions/WR/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_wr_3_equipment_voltron",
+          "title": "Equipment Voltron",
+          "copy": "Sram and Puresteel Paladin draw cards off every equipment, closing games with one overwhelming threat.",
+          "source_locator": "data/factions.json#/factions/WR/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_wr",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "LOREHOLD",
+      "identity_name": "Lorehold College",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you study ruins, records, relics, and the dead because the past contains usable lessons for the present.",
+        "tension_failure_mode": "Watch for this tension: It resists sanitized history, purely theoretical learning, and dismissal of old knowledge as irrelevant.",
+        "certified_boundary_self_check": "This is less likely to fit when red-White action, graveyard value, artifacts, or Spirits are not Lorehold without history, archaeology, records, relics, or learning from the past."
+      },
+      "how_this_plays": {
+        "role": "The field historian",
+        "how_opponents_read_it": "Opponents feel the deck turning old material into present danger: relics, spirits, and remembered battles.",
+        "emotional_pressure": "Pressure through history, evidence, artifact recursion, and memory that refuses to stay still.",
+        "lore_role": "archaeologists, spirit scholars, and combat historians",
+        "mechanical_expression": "Spirit tokens, artifact recursion, graveyard artifacts, combat value, and historic payoffs",
+        "table_experience": "history fighting back and old resources becoming live pressure"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_lorehold_1_spirit_tribal",
+          "title": "Spirit Tribal",
+          "copy": "Hofri Ghostforge and graveyard recursion fuel an army of spirits that grow stronger every time they die and return.",
+          "source_locator": "data/factions.json#/factions/LOREHOLD/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_lorehold_2_boros_artifacts",
+          "title": "Boros Artifacts",
+          "copy": "Osgir the Reconstructor doubles artifacts from the graveyard, turning every discarded relic into an army.",
+          "source_locator": "data/factions.json#/factions/LOREHOLD/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_lorehold_3_historic_sagas",
+          "title": "Historic / Sagas",
+          "copy": "Lorehold's saga synergies accumulate value through history - each chapter a lesson, each lesson a threat.",
+          "source_locator": "data/factions.json#/factions/LOREHOLD/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_lorehold",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "PRISMARI",
+      "identity_name": "Prismari College",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want an idea or emotion to be felt through a chosen medium and accept practice, technique, and revision as part of authentic expression.",
+        "tension_failure_mode": "Watch for this tension: It resists technique without feeling, feeling without form, and usefulness or proof treated as the only standards of seriousness.",
+        "certified_boundary_self_check": "This is less likely to fit when big spells, spectacle, novelty, or performance are not Prismari when expressive purpose and disciplined medium are absent."
+      },
+      "how_this_plays": {
+        "role": "The crescendo",
+        "how_opponents_read_it": "Opponents feel the deck building toward a visible turn where expression and impact become the same thing.",
+        "emotional_pressure": "Pressure through spectacle, spellcraft, and large expressive turns.",
+        "lore_role": "artists, elemental performers, and spellcraft prodigies",
+        "mechanical_expression": "Magecraft, big instants and sorceries, treasures, copying, and expressive spell turns",
+        "table_experience": "performance pressure, elemental swing turns, and spells that announce themselves"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_prismari_1_big_spell_storm",
+          "title": "Big Spell Storm",
+          "copy": "Galazeth Prismari converts artifacts to mana - chain massive instants and sorceries, generate elemental tokens, close out the game in one explosive turn.",
+          "source_locator": "data/factions.json#/factions/PRISMARI/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_prismari_2_spells_matter_tokens",
+          "title": "Spells-Matter Tokens",
+          "copy": "Every spell you cast creates an elemental. Cast enough spells, attack with enough elementals, and the game ends.",
+          "source_locator": "data/factions.json#/factions/PRISMARI/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_prismari_3_izzet_control_tempo",
+          "title": "Izzet Control / Tempo",
+          "copy": "Counter the threats that matter, answer everything else with removal, and close with one resilient threat backed by open mana.",
+          "source_locator": "data/factions.json#/factions/PRISMARI/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_prismari",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "identity_name": "Witherbloom College",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you learn through bodies, remedies, poisons, medicine, mortuary practice, and cost-aware movement of life energy.",
+        "tension_failure_mode": "Watch for this tension: It resists sanitized abstraction, optimization blind to bodily cost, and graveyard aesthetics with no living-essence practice.",
+        "certified_boundary_self_check": "This is less likely to fit when lifegain, life payment, pests, sacrifice, decay, or nature are not Witherbloom without study, brewing, healing/harm, or vitality exchange."
+      },
+      "how_this_plays": {
+        "role": "The life-exchanger",
+        "how_opponents_read_it": "Opponents feel the deck converting bodies, pests, and life totals into a working engine.",
+        "emotional_pressure": "Pressure through life exchange, sacrifice, drain, and practical survival.",
+        "lore_role": "pest mages, essence workers, bog naturalists, and life-cycle scholars",
+        "mechanical_expression": "Pest tokens, sacrifice, lifegain, lifedrain, recursion, and essence exchange",
+        "table_experience": "metabolic pressure where every gain, loss, and small body feeds the engine"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_witherbloom_1_essence_exchange",
+          "title": "Essence Exchange",
+          "copy": "Life gain, life loss, Pests, sacrifice, healing, harm, and death triggers are Witherbloom signals when they express embodied life/death exchange.",
+          "source_locator": "data/factions.json#/factions/WITHERBLOOM/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_witherbloom_2_remedies_and_poisons",
+          "title": "Remedies and Poisons",
+          "copy": "Brewing, medicine, toxicology, and mortuary practice show Witherbloom when they turn living essence into practical craft.",
+          "source_locator": "data/factions.json#/factions/WITHERBLOOM/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_witherbloom_3_field_biology_and_cost",
+          "title": "Field Biology and Cost",
+          "copy": "Witherbloom becomes clearest when biological, ecological, or body-level evidence matters more than abstract proof alone.",
+          "source_locator": "data/factions.json#/factions/WITHERBLOOM/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_witherbloom",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "identity_name": "Quandrix College",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you find beauty in proof, patterns, symmetry, models, precision, and problems whose underlying structure takes patience to reveal.",
+        "tension_failure_mode": "Watch for this tension: It resists approximation when rigor is available, intuition replacing evidence, and commitment before proof.",
+        "certified_boundary_self_check": "This is less likely to fit when doubling, X spells, tokens, counters, or scaling are not Quandrix without mathematics, pattern, model, proof, or abstract structure."
+      },
+      "how_this_plays": {
+        "role": "The pattern engine",
+        "how_opponents_read_it": "Opponents feel the deck scaling from small proofs into board states that become hard to calculate.",
+        "emotional_pressure": "Pressure through structure, doubling, counters, and math that becomes physical.",
+        "lore_role": "mathematicians, theorists, fractal mages, and pattern seekers",
+        "mechanical_expression": "Fractals, doubling, counters, ramp, tokens, and exponential scaling",
+        "table_experience": "mathematical inevitability and advantages that compound past ordinary answers"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_quandrix_1_fractal_counters",
+          "title": "Fractal Counters",
+          "copy": "Tanazir Quandrix doubles +1/+1 counters on entry and scales every creature to his power when attacking - mathematical inevitability made physical.",
+          "source_locator": "data/factions.json#/factions/QUANDRIX/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_quandrix_2_token_doubling",
+          "title": "Token Doubling",
+          "copy": "Adrix and Nev double every token you create - one Fractal becomes two, two become four, the math compounds until combat ends the game.",
+          "source_locator": "data/factions.json#/factions/QUANDRIX/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_quandrix_3_simic_ramp_big_threats",
+          "title": "Simic Ramp / Big Threats",
+          "copy": "Green ramp accelerates past the curve into enormous blue-green threats backed by countermagic - the oldest and most reliable Simic strategy.",
+          "source_locator": "data/factions.json#/factions/QUANDRIX/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_quandrix",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "identity_name": "Silverquill College",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you lead, persuade, inspire, criticize, or pressure through precise spoken, written, signed, or magical expression.",
+        "tension_failure_mode": "Watch for this tension: It resists vague communication, words dismissed as decoration, and influence hidden behind debt, secrecy, or procedure.",
+        "certified_boundary_self_check": "This is less likely to fit when ambition, politics, counters, aggression, or charisma are not Silverquill without language or rhetoric doing the work."
+      },
+      "how_this_plays": {
+        "role": "The table speaker",
+        "how_opponents_read_it": "Opponents feel the deck turning attacks, deals, and words into pressure.",
+        "emotional_pressure": "Pressure through rhetoric, politics, counters, and social combat.",
+        "lore_role": "orators, duelists, poets, and social power brokers",
+        "mechanical_expression": "Inkling tokens, counters, combat negotiation, goad-like pressure, and life-drain politics",
+        "table_experience": "public pressure, sharpened alliances, and words that become damage"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_silverquill_1_word_magic_and_rhetorical_influence",
+          "title": "Word-Magic and Rhetorical Influence",
+          "copy": "Use Silverquill evidence when language, rhetoric, signed/spoken/written expression, or ink-and-light word magic is the active method. Do not treat generic black-white power as Silverquill proof.",
+          "source_locator": "data/factions.json#/factions/SILVERQUILL/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_silverquill_2_leadership_critique_and_social_pressure",
+          "title": "Leadership, Critique, and Social Pressure",
+          "copy": "Silverquill can lead, inspire, intimidate, or compete through precise communication; keep that reading bounded to language-centered evidence.",
+          "source_locator": "data/factions.json#/factions/SILVERQUILL/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_silverquill_3_support_only_product_navigation",
+          "title": "Support-Only Product Navigation",
+          "copy": "Killian and Scriv are official Silverquill Influence product anchors for navigation/support only, not independent lore, popularity, legality, or metagame proof.",
+          "source_locator": "data/factions.json#/factions/SILVERQUILL/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_silverquill",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "W",
+      "identity_name": "White",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you value shared standards, protection of the vulnerable, dependable obligations, and group safety over private exception.",
+        "tension_failure_mode": "Watch for this tension: White challenges Black's self-priority and Red's unrestrained immediacy, while Green can question whether White's systems listen to living reality.",
+        "certified_boundary_self_check": "This is less likely to fit when if rules are inherently oppression, private power owes nothing to others, or impulse should outrank communal safety, mono-White is a false center."
+      },
+      "how_this_plays": {
+        "role": "The shelter-builder",
+        "how_opponents_read_it": "Opponents feel the deck as a standard made tangible: removal, protection, and board presence all answer the same question of safety.",
+        "emotional_pressure": "Pressure through protection, structure, and the feeling that someone thought about what happens after the hit lands.",
+        "lore_role": "shelter, duty, standards, and collective protection",
+        "mechanical_expression": "Board wipes, token makers, protection spells, taxes, and equipment that turns safety into enforceable tempo",
+        "table_experience": "reliable protection, disciplined pressure, and structure that keeps returning to the board"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_w_1_protective_tokens",
+          "title": "Protective Tokens",
+          "copy": "Build a resilient board, widen the field, and make combat answer shared protection.",
+          "source_locator": "data/factions.json#/factions/W/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_w_2_taxes_and_rules",
+          "title": "Taxes and Rules",
+          "copy": "Set costs, slow greedy lines, and force the table to play through standards.",
+          "source_locator": "data/factions.json#/factions/W/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_w_3_equipment_and_guardians",
+          "title": "Equipment and Guardians",
+          "copy": "Suit up one clean threat, protect it, and turn structure into pressure.",
+          "source_locator": "data/factions.json#/factions/W/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_w",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "U",
+      "identity_name": "Blue",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you study before committing, build models, practice deliberately, and want tools or education to overcome starting limits.",
+        "tension_failure_mode": "Watch for this tension: Blue challenges Red's immediate feeling and Green's acceptance of the given, while Black asks whether knowledge produces usable agency.",
+        "certified_boundary_self_check": "This is less likely to fit when if instinct, fate, or the present impulse should be final and further understanding only delays truth, mono-Blue is a false center."
+      },
+      "how_this_plays": {
+        "role": "The patient planner",
+        "how_opponents_read_it": "Opponents see cards held back, information gathered, and answers used at the moment they matter.",
+        "emotional_pressure": "Pressure through open mana, card selection, and flexible answers that keep several routes available.",
+        "lore_role": "knowledge, information, education, experimentation, tools, and deliberate improvement",
+        "mechanical_expression": "Card draw and filtering, counterspells, copying, bounce, theft, flying, artifacts, and instant-and-sorcery play",
+        "table_experience": "held mana, careful selection, flexible interaction, and turns shaped by timing rather than raw force"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_u_1_draw_go_control",
+          "title": "Draw-Go Control",
+          "copy": "Hold mana, gather cards, answer threats on the stack, and win once the table runs out of clean openings.",
+          "source_locator": "data/factions.json#/factions/U/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_u_2_spellslinger_tokens",
+          "title": "Spellslinger Tokens",
+          "copy": "Turn instants and sorceries into repeatable pressure while keeping interaction available.",
+          "source_locator": "data/factions.json#/factions/U/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_u_3_artifacts_and_clones",
+          "title": "Artifacts and Clones",
+          "copy": "Use tools, copies, and engines to turn observed structures into your own advantage.",
+          "source_locator": "data/factions.json#/factions/U/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_u",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "B",
+      "identity_name": "Black",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you accept hard costs, refuse to wait for fairness, and convert resources, loss, loyalty, or death into self-determination.",
+        "tension_failure_mode": "Watch for this tension: Black challenges White's group-first morality and Green's destiny/acceptance, while Red shares individualism but rejects excessive calculation.",
+        "certified_boundary_self_check": "This is less likely to fit when if power must never serve the self, paying a cost is inherently corrupt, or dependence is always more virtuous than agency, mono-Black is a false center."
+      },
+      "how_this_plays": {
+        "role": "The resource converter",
+        "how_opponents_read_it": "Opponents see life, cards, creatures, and the graveyard treated as resources whose costs are chosen deliberately.",
+        "emotional_pressure": "Pressure through sacrifice, life payment, removal, recursion, and the willingness to pay for leverage.",
+        "lore_role": "agency, opportunity, calculated cost, self-advocacy, and resource conversion",
+        "mechanical_expression": "Creature destruction, discard, sacrifice, reanimation, graveyard use, life as a cost, drain, and paid card draw",
+        "table_experience": "costs converted into options, lost pieces returned to use, and leverage preserved through difficult exchanges"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_b_1_life_payment_engines",
+          "title": "Life Payment Engines",
+          "copy": "Spend life as fuel, draw deeper than the table expects, and convert risk into reach.",
+          "source_locator": "data/factions.json#/factions/B/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_b_2_aristocrats_and_sacrifice",
+          "title": "Aristocrats and Sacrifice",
+          "copy": "Turn creatures into cards, drain, removal, and inevitability through repeated exchange.",
+          "source_locator": "data/factions.json#/factions/B/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_b_3_reanimator_control",
+          "title": "Reanimator Control",
+          "copy": "Treat the graveyard as a second resource line and make death feel temporary.",
+          "source_locator": "data/factions.json#/factions/B/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_b",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "R",
+      "identity_name": "Red",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you trust emotion as information, act before overthinking kills the moment, and value freedom from artificial restraint.",
+        "tension_failure_mode": "Watch for this tension: Red challenges White's security and Blue's deliberation, while Black can sharpen its self-interest and Green can root its intuition.",
+        "certified_boundary_self_check": "This is less likely to fit when if every variable must be approved, feeling is unreliable by definition, or safety always outranks the living moment, mono-Red is a false center."
+      },
+      "how_this_plays": {
+        "role": "The first mover",
+        "how_opponents_read_it": "Opponents see damage, haste, and temporary openings turned into action before the table can settle.",
+        "emotional_pressure": "Pressure through immediacy, direct damage, speed, impulse access, and short windows that demand an answer now.",
+        "lore_role": "freedom, emotion, impulse, authenticity, and direct action",
+        "mechanical_expression": "Direct damage, haste, temporary mana and power, impulse draw, attack pressure, and effects that matter immediately",
+        "table_experience": "fast commitment, visible momentum, and turns that use the available opening before it closes"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_r_1_burn_and_damage",
+          "title": "Burn and Damage",
+          "copy": "Turn feeling into direct pressure with clean damage, fast clocks, and threat math the table cannot ignore.",
+          "source_locator": "data/factions.json#/factions/R/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_r_2_haste_aggro",
+          "title": "Haste Aggro",
+          "copy": "Commit quickly, attack before the table stabilizes, and make the first honest move matter.",
+          "source_locator": "data/factions.json#/factions/R/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_r_3_impulse_draw_and_treasures",
+          "title": "Impulse Draw and Treasures",
+          "copy": "Use cards and mana in the moment, converting temporary windows into explosive Commander turns.",
+          "source_locator": "data/factions.json#/factions/R/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_r",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "G",
+      "identity_name": "Green",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you trust organic growth, old patterns, land, kinship, patience, and the living order more than redesign for its own sake.",
+        "tension_failure_mode": "Watch for this tension: Green challenges Blue's nurture/engineering and Black's free-will domination, while White shares responsibility and Red shares intuition.",
+        "certified_boundary_self_check": "This is less likely to fit when if every limit must be engineered away, life and land are merely fuel, or belonging is only a constraint on individual will, mono-Green is a false center."
+      },
+      "how_this_plays": {
+        "role": "The rooted grower",
+        "how_opponents_read_it": "Opponents see lands, creatures, and an established board turn patient development into larger threats.",
+        "emotional_pressure": "Pressure through mana growth, efficient creatures, trample, counters, and a board that becomes harder to contain over time.",
+        "lore_role": "nature, growth, interdependence, instinct, ancestry, and acceptance of the living system",
+        "mechanical_expression": "Mana and lands, efficient creatures, +1/+1 counters, fight and bite effects, reach, trample, and creature-or-land-based card flow",
+        "table_experience": "land-fed development, creature-centered value, and patient growth becoming visible board strength"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_g_1_ramp_and_big_mana",
+          "title": "Ramp and Big Mana",
+          "copy": "Root into lands, widen your resource base, and let patience become overwhelming scale.",
+          "source_locator": "data/factions.json#/factions/G/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_g_2_apex_creatures",
+          "title": "Apex Creatures",
+          "copy": "Cast massive living threats, trample through stalled boards, and make physical presence answer the table.",
+          "source_locator": "data/factions.json#/factions/G/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_g_3_landfall_and_creature_value",
+          "title": "Landfall and Creature Value",
+          "copy": "Treat land drops and creatures as a living engine that draws cards, grows boards, and keeps flourishing.",
+          "source_locator": "data/factions.json#/factions/G/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_g",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "BANT",
+      "identity_name": "Bant",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want a Commander deck that chooses a worthy threat or board plan, surrounds it with support, protects it carefully, and makes excellence feel accountable to the whole.",
+        "tension_failure_mode": "Watch for this tension: It resists Black-style private leverage and Red-style unsanctioned impulse; internally it must keep discipline open to correction.",
+        "certified_boundary_self_check": "This is less likely to fit when generic value, denial control, hierarchy for its own sake, or a lone champion with no communal trust is not Bant."
+      },
+      "how_this_plays": {
+        "role": "The supported champion",
+        "how_opponents_read_it": "Opponents feel the deck choosing one line, protecting it carefully, and making every support piece look like public trust made visible.",
+        "emotional_pressure": "Pressure through honor, refinement, protection, and the question of whether strength can remain worthy while others stand behind it.",
+        "lore_role": "Alara shard context read through source-grounded White-centered order, Blue refinement, Green belonging, sigils, exalted support, and communal honor",
+        "mechanical_expression": "Exalted, auras, equipment, blink, ETB value, enchantress, Clues, counters, and protection as Commander examples, not new lore-canon claims",
+        "table_experience": "one protected champion, refined support, living order, and communal trust becoming visible pressure"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_bant_1_exalted_champion",
+          "title": "Exalted Champion",
+          "copy": "Protect and elevate one clean attacker while the rest of the board makes that line worthy.",
+          "source_locator": "data/factions.json#/factions/BANT/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_bant_2_creature_forward_value",
+          "title": "Creature-Forward Value",
+          "copy": "Use creatures, blink, Clues, and protective growth as a communal engine rather than detached efficiency.",
+          "source_locator": "data/factions.json#/factions/BANT/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_bant_3_enchantress_and_aura_order",
+          "title": "Enchantress and Aura Order",
+          "copy": "Turn enchantments, auras, and equipment into visible support for a creature-centered plan.",
+          "source_locator": "data/factions.json#/factions/BANT/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_bant",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "ESPER",
+      "identity_name": "Esper",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want a Commander deck that sets up carefully, keeps answers ready, and turns knowledge into advantage before the table realizes its best line has narrowed.",
+        "tension_failure_mode": "Watch for this tension: It rejects Red impulse and Green acceptance as final answers; internally it must keep improvement from turning the unoptimized into an error to erase.",
+        "certified_boundary_self_check": "This is less likely to fit when generic control, artifacts as decoration, or power without an applied-knowledge improvement project is not Esper."
+      },
+      "how_this_plays": {
+        "role": "The system refiner",
+        "how_opponents_read_it": "Opponents feel the deck making the future smaller and cleaner: cards turn into options, options turn into answers, and answers arrive exactly when the table thought it had room.",
+        "emotional_pressure": "Pressure through precision, planning, information advantage, and the sense that the game is being redesigned while it is still happening.",
+        "lore_role": "Alara shard context read through source-grounded Blue-centered perfectibility, White ordered improvement, and Black focused control",
+        "mechanical_expression": "Control, card advantage, library setup, artifacts, lifegain, reanimation value, tokens, and evasive pressure as Commander examples for planned refinement and controlled change",
+        "table_experience": "careful setup, protected engines, clean answers, and a future that narrows as Esper understands the table"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_esper_1_perfectibility_control",
+          "title": "Perfectibility Control",
+          "copy": "Use knowledge, timing, and structure to make the table's future narrower and cleaner.",
+          "source_locator": "data/factions.json#/factions/ESPER/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_esper_2_information_engines",
+          "title": "Information Engines",
+          "copy": "Turn cards, libraries, and planning into the resources that decide what may happen next.",
+          "source_locator": "data/factions.json#/factions/ESPER/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_esper_3_artifact_oriented_value",
+          "title": "Artifact-Oriented Value",
+          "copy": "Use artifact language as support for designed improvement, not as the whole identity by itself.",
+          "source_locator": "data/factions.json#/factions/ESPER/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_esper",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "GRIXIS",
+      "identity_name": "Grixis",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want a Commander deck that treats removal, discard, recursion, sacrifice, and spell pressure as tools for staying alive and converting one narrow opening into control of the table.",
+        "tension_failure_mode": "Watch for this tension: It rejects White moral/order permission and Green renewal/acceptance as governing constraints; internally it risks treating every weakness as exploitable.",
+        "certified_boundary_self_check": "This is less likely to fit when generic evil, villain aesthetics, spellslinger, control, graveyards, or aggression are not Grixis without calculated survival and urgent leverage."
+      },
+      "how_this_plays": {
+        "role": "The survival strategist",
+        "how_opponents_read_it": "Opponents feel the deck measuring weak points, preserving the answer that matters, and taking the opening before the table can close it.",
+        "emotional_pressure": "Pressure through scarcity, calculation, urgency, and the feeling that every delayed answer becomes someone else's advantage.",
+        "lore_role": "Alara shard context read through source-grounded Black-centered survival, Blue calculation, and Red immediacy",
+        "mechanical_expression": "Removal, discard, sacrifice, recursion, card draw, and spell pressure as Commander examples, not lore-canon proof or the whole identity",
+        "table_experience": "survival control, calculated pressure, and urgent openings that make each answer feel spent for a reason"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_grixis_1_survival_control",
+          "title": "Survival Control",
+          "copy": "Use information, removal, and timing to stay alive long enough to decide which opening matters.",
+          "source_locator": "data/factions.json#/factions/GRIXIS/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_grixis_2_leverage_engines",
+          "title": "Leverage Engines",
+          "copy": "Turn cards, life, resources, and table pressure into the next survivable advantage.",
+          "source_locator": "data/factions.json#/factions/GRIXIS/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_grixis_3_volatile_spell_pressure",
+          "title": "Volatile Spell Pressure",
+          "copy": "Act quickly when the window opens, pairing calculation with decisive red-black force.",
+          "source_locator": "data/factions.json#/factions/GRIXIS/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_grixis",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "JUND",
+      "identity_name": "Jund",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want a Commander deck that acts from pressure instead of waiting for permission: attacking, feeding resources, forcing blocks, using the graveyard, and accepting consequences as part of the plan.",
+        "tension_failure_mode": "Watch for this tension: It rejects White order and Blue overthinking; internally it must distinguish honest instinct from overconsumption.",
+        "certified_boundary_self_check": "This is less likely to fit when generic violence, monsters, sacrifice, devour, or competitive \"Jund\" play is not the shard identity without Red-led self-truth fed by Black appetite and Green instinct."
+      },
+      "how_this_plays": {
+        "role": "The appetite engine",
+        "how_opponents_read_it": "Opponents feel the deck as pressure made visible: the board asks what they can survive before they know which piece matters most.",
+        "emotional_pressure": "Pressure through instinct, appetite, survival, and consequences that arrive before the table finishes bargaining.",
+        "lore_role": "Alara shard, Red-centered self-truth, Black appetite, Green instinct, and consequence under pressure",
+        "mechanical_expression": "Combat, sacrifice, graveyard value, counters, damage, and resource conversion as mechanical echoes, not lore-canon examples",
+        "table_experience": "pressure becoming visible through attacks, spent resources, graveyards, and consequences that force the table to show what it can survive"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_jund_1_instinctive_pressure",
+          "title": "Instinctive Pressure",
+          "copy": "Act from gut truth and force the table to answer the motion while the window is still alive.",
+          "source_locator": "data/factions.json#/factions/JUND/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_jund_2_appetite_engines",
+          "title": "Appetite Engines",
+          "copy": "Turn resources, bodies, graveyards, and combat pressure into consequence-bearing momentum.",
+          "source_locator": "data/factions.json#/factions/JUND/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_jund_3_feral_value",
+          "title": "Feral Value",
+          "copy": "Use Green instinct and Black self-interest to keep pressure alive after the first strike.",
+          "source_locator": "data/factions.json#/factions/JUND/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_jund",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "NAYA",
+      "identity_name": "Naya",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want a Commander deck that grows mana, protects a living board, and turns creature-forward scale into pressure without losing the bond that holds the whole together.",
+        "tension_failure_mode": "Watch for this tension: It rejects Blue control and Black extraction; internally it must keep abundance from becoming mere size or overgrowth.",
+        "certified_boundary_self_check": "This is less likely to fit when big creatures, tokens, go-wide play, or nature aesthetics are not Naya without care, bond, place, and Green-centered belonging."
+      },
+      "how_this_plays": {
+        "role": "The living-world guardian",
+        "how_opponents_read_it": "Opponents feel the deck as a protected board becoming a habitat: mana grows, creatures gather, and scale turns belonging into pressure.",
+        "emotional_pressure": "Pressure through abundance, instinct, protection, and the sense that the whole living world is moving at once.",
+        "lore_role": "Alara shard, Green-centered living abundance, White care for the whole, Red instinct, and belonging inside a larger natural world",
+        "mechanical_expression": "Ramp, protection, creature engines, tokens, counters, lands, and combat patterns as support-only ways to show abundance, instinct, and creature-forward scale",
+        "table_experience": "grow mana, guard the living whole, build a protected board, and let creature-forward scale make the table answer abundance"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_naya_1_living_abundance",
+          "title": "Living Abundance",
+          "copy": "Let growth become a board presence that feels rooted in place, relation, and the larger natural whole.",
+          "source_locator": "data/factions.json#/factions/NAYA/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_naya_2_instinctive_protection",
+          "title": "Instinctive Protection",
+          "copy": "Move quickly when the bond is threatened, with Red immediacy held by White care.",
+          "source_locator": "data/factions.json#/factions/NAYA/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_naya_3_creature_forward_scale",
+          "title": "Creature-Forward Scale",
+          "copy": "Use scale as an expression of life and belonging rather than a generic size contest.",
+          "source_locator": "data/factions.json#/factions/NAYA/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_naya",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "ABZAN",
+      "identity_name": "Abzan Houses",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want a Commander deck that builds a durable board, protects its long-game engine, and turns counters, life, bodies, and recursion into the feeling of a house that will not fall.",
+        "tension_failure_mode": "Watch for this tension: It rejects Red immediacy; internally it must keep inherited duty from becoming exclusion, rigidity, or obligation without consent.",
+        "certified_boundary_self_check": "This is less likely to fit when toughness, counters, recursion, family language, or same-color goodstuff is not Abzan without White-led house continuity and ancestor responsibility."
+      },
+      "how_this_plays": {
+        "role": "The ancestral bulwark",
+        "how_opponents_read_it": "Opponents feel the deck as a wall that keeps learning from every exchange: counters settle, life returns, bodies become resources, and the house is still standing after the first answer.",
+        "emotional_pressure": "Pressure through patience, obligation, defensive endurance, and the sense that the past and next generation are both present at the table.",
+        "lore_role": "Tarkir wedge, White-centered family endurance, Black ancestor obligation, Green perennation, and house continuity",
+        "mechanical_expression": "Counters, tokens, lifegain, sacrifice, graveyard enchantments, Food, proliferate, and defensive board play pattern as support-only ways to show endurance, not lore-canon proof",
+        "table_experience": "build a durable board, protect the family engine, let counters and life totals accumulate, and make the long game answerable only through real commitment"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_abzan_1_family_endurance",
+          "title": "Family Endurance",
+          "copy": "Build the durable board as a house that can carry pressure across turns.",
+          "source_locator": "data/factions.json#/factions/ABZAN/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_abzan_2_ancestor_obligation",
+          "title": "Ancestor Obligation",
+          "copy": "Let death, memory, and duty shape the next choice without turning supporting play patterns into canon proof.",
+          "source_locator": "data/factions.json#/factions/ABZAN/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_abzan_3_perennial_defense",
+          "title": "Perennial Defense",
+          "copy": "Use counters, life, bodies, and recursion as support for continuity that keeps returning.",
+          "source_locator": "data/factions.json#/factions/ABZAN/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_abzan",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "TEMUR",
+      "identity_name": "Temur Frontier",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want a Commander deck that grows resources, watches for the right signal, and turns dragons, copying, counters, or huge force into recognizable table pattern for survival through attunement.",
+        "tension_failure_mode": "Watch for this tension: It rejects White imposed order and Black opportunism; internally it must keep hard-earned strength from becoming isolation or force without wisdom.",
+        "certified_boundary_self_check": "This is less likely to fit when monsters, ferocity, elements, ramp, or same-color goodstuff is not Temur without Green-led attunement, mental fortitude, and action after listening."
+      },
+      "how_this_plays": {
+        "role": "The elemental survivor",
+        "how_opponents_read_it": "Opponents feel the deck listening before it strikes: mana gathers, the board watches for the right signal, and strength arrives as terrain, instinct, and storm move together.",
+        "emotional_pressure": "Pressure through survival, attunement, mental fortitude, and the sense that the wild has already answered before the action lands.",
+        "lore_role": "Tarkir wedge, Green-centered survival, Blue mental fortitude, Red direct action, Qal Sisma endurance, shamanic listening, and elemental memory",
+        "mechanical_expression": "Dragons, ramp, copying, energy, artifacts, counters, X-spells, and ravenous lines as Commander-facing ways to show force, scale, and adaptive timing without turning deck mechanics into Tarkir lore",
+        "table_experience": "listen for the opening, grow the mana and board, then let instinct and elemental force make one clean turn matter"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_temur_1_survival_through_attunement",
+          "title": "Survival Through Attunement",
+          "copy": "Read the land, weather, memory, and body before committing force.",
+          "source_locator": "data/factions.json#/factions/TEMUR/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_temur_2_instinct_with_mental_fortitude",
+          "title": "Instinct With Mental Fortitude",
+          "copy": "Let direct action follow perception rather than collapse into impulse alone.",
+          "source_locator": "data/factions.json#/factions/TEMUR/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_temur_3_elemental_memory",
+          "title": "Elemental Memory",
+          "copy": "Treat ancestors, stone, ice, and song as support for survival without turning deferred mechanics into claims.",
+          "source_locator": "data/factions.json#/factions/TEMUR/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_temur",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "SULTAI",
+      "identity_name": "Sultai Brood",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want a Commander deck where graveyards, secrets, and stolen options become calculated advantage under Sultai's ruthless opportunity and Sidisi-era ambition.",
+        "tension_failure_mode": "Watch for this tension: It rejects White moral order and Red impulsive release; internally it must stop calculation and ambition from becoming domination.",
+        "certified_boundary_self_check": "This is less likely to fit when graveyard value, ramp, control, poison, or same-color goodstuff is not Sultai without Black-led opportunism and planned conversion."
+      },
+      "how_this_plays": {
+        "role": "The ruthless resource converter",
+        "how_opponents_read_it": "Opponents feel the deck turning every cost into advantage: graveyards stay useful, stolen options become pressure, and the table's discarded resources rarely stay dead for long.",
+        "emotional_pressure": "Pressure through opportunity, secrecy, necromantic utility, and the sense that every body, secret, or opening can become power before anyone else names it.",
+        "lore_role": "Tarkir wedge, Black-centered ruthless opportunity, Green life/death resources, Blue calculation, Sidisi-era ambition, and strict Silumgar and Dragonstorm boundaries",
+        "mechanical_expression": "Graveyard value, theft, self-mill, morph, mutate, recursion, and resource denial as Commander-facing examples, not Tarkir setting evidence",
+        "table_experience": "convert graveyards, stolen options, and hidden costs into table advantage while keeping the table story anchored in Sultai source notes"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_sultai_1_resource_conversion",
+          "title": "Resource Conversion",
+          "copy": "Turn costs, secrets, bodies, land, and openings into leverage before the table names their value.",
+          "source_locator": "data/factions.json#/factions/SULTAI/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_sultai_2_necromantic_utility",
+          "title": "Necromantic Utility",
+          "copy": "Make the dead useful while keeping Silumgar and Dragonstorm material in separate timeline lanes.",
+          "source_locator": "data/factions.json#/factions/SULTAI/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_sultai_3_calculated_ruthlessness",
+          "title": "Calculated Ruthlessness",
+          "copy": "Let ambition move through planning, theft, denial, selective timing, and resource conversion under ruthless opportunity and Sidisi-era ambition.",
+          "source_locator": "data/factions.json#/factions/SULTAI/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_sultai",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "MARDU",
+      "identity_name": "Mardu Horde",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want a Commander deck that attacks early, keeps formation under pressure, and turns sacrifice, removal, or recursion into the feeling of a war band taking the opening now.",
+        "tension_failure_mode": "Watch for this tension: It rejects Blue delay; internally it must keep speed from outrunning oath into conquest, cruelty, or overextension.",
+        "certified_boundary_self_check": "This is less likely to fit when aggro, warriors, tokens, sacrifice, or same-color goodstuff is not Mardu without Red-led commitment disciplined by martial identity."
+      },
+      "how_this_plays": {
+        "role": "The oathbound raider",
+        "how_opponents_read_it": "Opponents feel the deck commit before the table stabilizes: attackers line up, resources turn into pressure, and the next opening rarely survives long enough to be negotiated.",
+        "emotional_pressure": "Pressure through speed, total commitment, martial order, and the sense that hesitation itself is losing ground.",
+        "lore_role": "Tarkir wedge, Red-centered speed, White martial order, Black ruthless opportunity, war names, and strict Kolaghan and Dragonstorm boundaries",
+        "mechanical_expression": "Combat pressure, tokens, sacrifice, recursion, sacrifice-and-death-trigger play, attack triggers, and removal as Commander-facing ways to show speed, formation, and ruthless openings without turning deck mechanics into Tarkir lore",
+        "table_experience": "commit early, keep the attack coordinated, convert each opening into pressure, and make the table answer the charge before it can settle"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_mardu_1_raid_momentum",
+          "title": "Raid Momentum",
+          "copy": "Commit early, keep pressure coordinated, and make the table answer the charge before it stabilizes.",
+          "source_locator": "data/factions.json#/factions/MARDU/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_mardu_2_war_name_oath",
+          "title": "War-Name Oath",
+          "copy": "Let formation, code, and named commitment give speed its shape.",
+          "source_locator": "data/factions.json#/factions/MARDU/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_mardu_3_ruthless_opening",
+          "title": "Ruthless Opening",
+          "copy": "Take the immediate advantage while keeping Kolaghan, Dragonstorm, and Commander support material in bounded lanes.",
+          "source_locator": "data/factions.json#/factions/MARDU/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_mardu",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "JESKAI",
+      "identity_name": "Jeskai Way",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want a Commander deck that holds the right spell, protects the critical stance, and turns tempo, copies, or martial pressure into recognizable table pattern for disciplined action.",
+        "tension_failure_mode": "Watch for this tension: It rejects Green acceptance; internally it must keep discipline from becoming empty delay that never serves the moment.",
+        "certified_boundary_self_check": "This is less likely to fit when prowess, spells, monks, control, martial aesthetics, or same-color goodstuff is not Jeskai without Blue-led trained action and restraint."
+      },
+      "how_this_plays": {
+        "role": "The disciplined cunning adept",
+        "how_opponents_read_it": "Opponents feel the deck measuring the line before it moves: spells are held until timing matters, protection keeps the stance intact, and the decisive turn lands with practiced precision.",
+        "emotional_pressure": "Pressure through discipline, insight, martial timing, and the sense that action has been trained before it reaches the table.",
+        "lore_role": "Tarkir wedge, Blue-centered cunning, Red action, White shared form, monastery discipline, Narset and Shu Yun boundaries, and strict Ojutai and revival-era separation",
+        "mechanical_expression": "Tempo, protection, copies, spells, artifacts, prowess-like pressure, energy, cycling, and time counters as Commander-facing ways to show trained insight becoming action without turning deck mechanics into Tarkir lore",
+        "table_experience": "study the line, protect the stance, turn spells and timing into pressure, and move only when the action can keep its form"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_jeskai_1_disciplined_tempo",
+          "title": "Disciplined Tempo",
+          "copy": "Use timing, protection, and selective pressure so each move feels trained rather than merely fast.",
+          "source_locator": "data/factions.json#/factions/JESKAI/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_jeskai_2_cunning_in_motion",
+          "title": "Cunning In Motion",
+          "copy": "Turn knowledge, copies, spells, and precision into recognizable table pattern for insight becoming action.",
+          "source_locator": "data/factions.json#/factions/JESKAI/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_jeskai_3_monastery_practice",
+          "title": "Monastery Practice",
+          "copy": "Let martial discipline, restraint, and compassion frame the deck's momentum while keeping Ojutai and modern revival material in separate timeline lanes.",
+          "source_locator": "data/factions.json#/factions/JESKAI/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_jeskai",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "YORE",
+      "identity_name": "Yore / Artifice",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want a Commander deck that builds a careful engine, turns costs into continuity, and keeps progress alive without mistaking every artifact shell for Yore.",
+        "tension_failure_mode": "Watch for this tension: Green asks Yore to respect cycles, organic belonging, and limits that may contain wisdom; Yore replies that nature is not the final blueprint.",
+        "certified_boundary_self_check": "This is less likely to fit when generic artifacts, recursion, optimization, or four-color breadth is not Yore without a deliberate missing-Green commitment to constructed agency over natural acceptance."
+      },
+      "how_this_plays": {
+        "role": "The engineered agency architect",
+        "how_opponents_read_it": "Opponents feel the deck assemble a machine around the table's limits: artifacts, archives, costs, and heat become a system that keeps choice alive.",
+        "emotional_pressure": "Pressure through artifice, progress, constructed continuity, and the sense that natural surrender is not allowed to close the case.",
+        "lore_role": "Vox Mana four-color without Green expression for artifice, civilization, and engineered agency, with adjacent artifacts and recursion kept carefully separated",
+        "mechanical_expression": "Artifacts, sacrifice, recursion, control, value engines, and precise combo structure as Commander-facing ways to show artifice and constructed continuity",
+        "table_experience": "build a system that keeps choice alive, protect the archive, turn loss into a reusable engine, and make the table answer a constructed future"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_yore_1_engineered_agency",
+          "title": "Engineered Agency",
+          "copy": "Builds systems that let structure, knowledge, ambition, and heat push past natural surrender.",
+          "source_locator": "data/factions.json#/factions/YORE/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_yore_2_artifice_and_archive",
+          "title": "Artifice And Archive",
+          "copy": "Turns tools, records, costs, and memories into machinery for a future that can still be chosen.",
+          "source_locator": "data/factions.json#/factions/YORE/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_yore_3_controlled_overreach",
+          "title": "Controlled Overreach",
+          "copy": "Carries the shadow risk of treating every limit as raw material.",
+          "source_locator": "data/factions.json#/factions/YORE/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_yore",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "GLINT",
+      "identity_name": "Glint / Chaos",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want a Commander deck that stays volatile, learns under pressure, and turns living force into table pressure without mistaking every Yidris shell, cascade turn, or same-color pile for Glint.",
+        "tension_failure_mode": "Watch for this tension: White asks who protects the public from appetite and power; Glint asks whether civic safety has become a cage around honest possibility.",
+        "certified_boundary_self_check": "This is less likely to fit when chaos, cascade, value, or four-color goodstuff is not Glint without a deliberate missing-White rejection of peace-through-law, duty, and civic restraint."
+      },
+      "how_this_plays": {
+        "role": "The storm-fed opportunist",
+        "how_opponents_read_it": "Opponents feel the deck learning in motion: pressure changes shape, the live opening gets exploited, and volatility never arrives without appetite or force behind it.",
+        "emotional_pressure": "Pressure through adaptive hunger, improvisation, living force, and the sense that stable civic restraint has already lost the moment.",
+        "lore_role": "Vox Mana four-color without White expression for adaptive appetite, storm-fed growth, and living pressure that keeps learning before order can pin it down",
+        "mechanical_expression": "Volatile sequencing, pressure-based value, combat-damage spell momentum, adaptive creature play, and cascade-adjacent turns as Commander-facing ways to show appetite and living force without mistaking the loudest turn for the whole identity",
+        "table_experience": "a live surge that keeps learning, feeds on the opening, and forces the table to answer before order turns it harmless"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_glint_1_adaptive_appetite",
+          "title": "Adaptive Appetite",
+          "copy": "Learns, feeds, and grows under pressure before civic restraint can stabilize the field.",
+          "source_locator": "data/factions.json#/factions/GLINT/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_glint_2_storm_fed_opportunity",
+          "title": "Storm-Fed Opportunity",
+          "copy": "Turns volatility, leverage, and living force into momentum that keeps changing where the safe line is.",
+          "source_locator": "data/factions.json#/factions/GLINT/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_glint_3_predatory_overreach",
+          "title": "Predatory Overreach",
+          "copy": "Carries the shadow risk of letting appetite and improvisation become destabilizing.",
+          "source_locator": "data/factions.json#/factions/GLINT/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_glint",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "DUNE",
+      "identity_name": "Dune / Aggression",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want a Commander deck that coordinates pressure, spends resources to keep the line live, and multiplies presence without mistaking every go-wide or same-color combat shell for Dune.",
+        "tension_failure_mode": "Watch for this tension: Blue asks for distance, models, and scenario planning; Dune answers that presence and coordinated motion can themselves establish truth.",
+        "certified_boundary_self_check": "This is less likely to fit when tokens, combat, go-wide pressure, or four-color goodstuff is not Dune without a deliberate missing-Blue commitment to embodied action over detached contemplation."
+      },
+      "how_this_plays": {
+        "role": "The common-front linebreaker",
+        "how_opponents_read_it": "Opponents feel the deck take the field before distance can cool it: bodies, cost, ignition, and persistence turn pressure into claimed ground.",
+        "emotional_pressure": "Pressure through organized territorial force, cost-bearing solidarity, and the sense that contemplation arrived too late to stop the line.",
+        "lore_role": "Vox Mana four-color without Blue expression for organized territorial pressure, direct action, survival-minded multiplication, and strict separation from generic go-wide combat shells and nearby shard or wedge readings",
+        "mechanical_expression": "Go-wide pressure, attack triggers, token-like multiplication, multi-front combat, and disciplined threat sequencing as Commander-facing ways to show line, cost, ignition, and persistence without mistaking generic combat patterns for the whole identity",
+        "table_experience": "take the field early, keep the line moving, and make the table answer force-backed solidarity before distance can cool it"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_dune_1_organized_territorial_pressure",
+          "title": "Organized Territorial Pressure",
+          "copy": "Turns line, cost, ignition, and multiplication into force that claims ground before distance can cool it.",
+          "source_locator": "data/factions.json#/factions/DUNE/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_dune_2_common_front_momentum",
+          "title": "Common-Front Momentum",
+          "copy": "Builds a shared front where solidarity matters because it is backed by bodily pressure and consequence-bearing action.",
+          "source_locator": "data/factions.json#/factions/DUNE/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_dune_3_conquest_overreach",
+          "title": "Conquest Overreach",
+          "copy": "Carries the shadow risk of mistaking every opening, body, or common cause for ground that must be taken.",
+          "source_locator": "data/factions.json#/factions/DUNE/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_dune",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "INK",
+      "identity_name": "Ink / Altruism",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want a Commander deck that shares resources, negotiates openly, and protects the commons without mistaking every group-hug shell, Kynaios deck, Ink-Treader card, or same-color pile for Ink.",
+        "tension_failure_mode": "Watch for this tension: Black asks whether the individual may keep enough power to remain free; Ink asks when private accumulation breaks the living circuit of the commons.",
+        "certified_boundary_self_check": "This is less likely to fit when group hug, friendliness, generosity, politics, or four-color goodstuff is not Ink without a deliberate missing-Black resistance to hoarding and self-first leverage."
+      },
+      "how_this_plays": {
+        "role": "The commons keeper",
+        "how_opponents_read_it": "Opponents feel the deck keep resources and knowledge circulating while the table learns that the gift is guarded, not free for capture.",
+        "emotional_pressure": "Pressure through protected generosity, open knowledge, public abundance, and the sense that private hoarding cannot claim the center.",
+        "lore_role": "Vox Mana four-color without Black expression for protected public abundance, open knowledge, guarded generosity, and strict separation from generic group-hug or public-archive readings",
+        "mechanical_expression": "Group-hug exchanges, political incentives, ramp, draw, shared-resource play, and guarded reciprocity as Commander-facing ways to show open knowledge and public commons without mistaking one card or commander for the whole identity",
+        "table_experience": "guard the commons, keep the gift moving, and make the table answer whether shared abundance can stay open without becoming private control"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_ink_1_protected_public_abundance",
+          "title": "Protected Public Abundance",
+          "copy": "Keeps resources, knowledge, and care circulating through a defended commons.",
+          "source_locator": "data/factions.json#/factions/INK/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_ink_2_open_knowledge_pact",
+          "title": "Open Knowledge Pact",
+          "copy": "Treats archives, maps, memory, and learning as public goods that still need boundaries.",
+          "source_locator": "data/factions.json#/factions/INK/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_ink_3_self_erasure_risk",
+          "title": "Self-Erasure Risk",
+          "copy": "Carries the shadow risk of mistaking every private need for selfish capture.",
+          "source_locator": "data/factions.json#/factions/INK/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_ink",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "WITCH",
+      "identity_name": "Witch / Growth",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want a Commander deck that protects small investments, grows through counters or proliferate play, and turns patience into inevitability without mistaking every Atraxa, counters, or same-color pile for Witch.",
+        "tension_failure_mode": "Watch for this tension: Red asks whether the plan is still alive if it cannot answer the present moment; Witch asks why a momentary feeling should be allowed to burn the future.",
+        "certified_boundary_self_check": "This is less likely to fit when counters, proliferate, control, value, or four-color goodstuff is not Witch without a deliberate missing-Red commitment to patient, calculated cultivation."
+      },
+      "how_this_plays": {
+        "role": "The patient cultivation schemer",
+        "how_opponents_read_it": "Opponents feel the deck keep every small investment alive until the table realizes the garden was a machine all along.",
+        "emotional_pressure": "Pressure through protected growth, long-horizon calculation, ritual patience, and the sense that impulse was never allowed to steer.",
+        "lore_role": "Vox Mana four-color without Red expression for patient cultivation, calculated expansion, protected accumulation, and strict separation from generic Atraxa, proliferate, counters, Phyrexia-only, or same-color goodstuff readings",
+        "mechanical_expression": "Counters, proliferate play, protected engines, value accumulation, recursion-adjacent resources, and scaling board development as Commander-facing ways to show cultivated inevitability without mistaking mechanics for the identity",
+        "table_experience": "cultivate the board patiently, protect the growing engine, and make every small counter, card, and resource become part of a plan too rooted to uproot"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_witch_1_patient_cultivation",
+          "title": "Patient Cultivation",
+          "copy": "Protects small advantages, tends them through structure, and lets time make the table answer.",
+          "source_locator": "data/factions.json#/factions/WITCH/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_witch_2_calculated_expansion",
+          "title": "Calculated Expansion",
+          "copy": "Turns knowledge, ambition, and patient growth into a plan that scales before it reveals itself.",
+          "source_locator": "data/factions.json#/factions/WITCH/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_witch_3_sterile_control_risk",
+          "title": "Sterile Control Risk",
+          "copy": "Carries the shadow risk of excluding impulse so completely that living growth becomes control.",
+          "source_locator": "data/factions.json#/factions/WITCH/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_witch",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "COLORLESS",
+      "identity_name": "Colorless",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want the deck-building constraint itself to matter, with Wastes and true {C} serving the plan instead of generic costs or five-color Eldrazi blurring it.",
+        "tension_failure_mode": "Watch for this tension: Every color asks which value guides the answer; Colorless asks whether the answer must be expressed in that value grammar at all.",
+        "certified_boundary_self_check": "This is less likely to fit when generic artifacts, generic mana, Eldrazi, Devoid, Phyrexia, or lack of colored pips do not prove Colorless; superiority over WUBRG is an explicit false fit."
+      },
+      "how_this_plays": {
+        "role": "The Engine Builder",
+        "how_opponents_read_it": "Opponents see the deck assemble infrastructure before the threat: clean {C}, mana rocks, utility lands, and one payoff large enough to test every answer.",
+        "emotional_pressure": "Pressure through outside-WUBRG precision, chosen restriction, machine logic, and the sense that every resource has to justify its slot.",
+        "lore_role": "Vox Mana Colorless expression for outside-WUBRG precision, chosen restriction, artifacts, Wastes, Eldrazi scale, and strict generic/colorless separation",
+        "mechanical_expression": "Reliable {C}, Wastes, artifact engines, big mana, utility lands, and colorless finishers as Commander examples that support the reading without collapsing artifacts, Eldrazi, Devoid, or five-color Eldrazi into Colorless",
+        "table_experience": "infrastructure first, then one oversized threat, artifact engine, or inevitability piece at a time"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_colorless_1_chosen_restriction",
+          "title": "Chosen Restriction",
+          "copy": "Finds creativity in the strict outside-WUBRG constraint and the precision it demands.",
+          "source_locator": "data/factions.json#/factions/COLORLESS/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_colorless_2_machine_and_void",
+          "title": "Machine And Void",
+          "copy": "Keeps artifact function, Eldrazi alienness, Wastes austerity, and clean mana systems distinct.",
+          "source_locator": "data/factions.json#/factions/COLORLESS/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_colorless_3_boundary_discipline",
+          "title": "Boundary Discipline",
+          "copy": "Refuses to let generic mana, cards asking for a color, artifacts, Devoid, five-color Eldrazi, or Phyrexia become Colorless proof.",
+          "source_locator": "data/factions.json#/factions/COLORLESS/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_colorless",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    },
+    {
+      "identity_key": "WUBRG",
+      "identity_name": "Five-Color / WUBRG",
+      "test_the_fit": {
+        "positive_self_check": "This may fit if you want a Commander deck where every color matters, mana infrastructure is part of the discipline, and support links remain browsing aids rather than lore, legality, or result proof.",
+        "tension_failure_mode": "Watch for this tension: Each color must accept limits imposed by the other four: order must listen, knowledge must act, agency must coexist, freedom must take responsibility, and belonging must permit change.",
+        "certified_boundary_self_check": "This is less likely to fit when generic goodstuff, access for its own sake, accumulation, superiority, or a deck where one color is decorative rather than meaningful is not the Five-Color synthesis."
+      },
+      "how_this_plays": {
+        "role": "The full-spectrum integrator",
+        "how_opponents_read_it": "Opponents feel the deck as breadth under discipline: every color is available, but each tool still has to justify its place.",
+        "emotional_pressure": "Pressure through coalition, full access, mana discipline, and the sense that every shortcut gets asked why it belongs.",
+        "lore_role": "Vox Mana Five-Color expression for all five colors present, coalition, synthesis, and strict separation from official-faction, goodstuff-only, Colorless, and four-color leakage",
+        "mechanical_expression": "Domain, converge, sunburst, WUBRG costs or activations, multicolor payoffs, basic-land-type checks, and mana infrastructure as supporting play patterns, not unverified card claims",
+        "table_experience": "full color access, deliberate fixing, many kinds of answers, and a plan that keeps breadth from becoming drift"
+      },
+      "what_to_look_for": [
+        {
+          "item_id": "lookfor_wubrg_1_full_spectrum_integrator",
+          "title": "Full-Spectrum Integrator",
+          "copy": "Uses every color because the problem needs every mode of answer, not because every card is automatically welcome.",
+          "source_locator": "data/factions.json#/factions/WUBRG/archetypes/0",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_wubrg_2_coalition_builder",
+          "title": "Coalition Builder",
+          "copy": "Turns difference into a working table where structure, insight, agency, motion, and belonging can each matter.",
+          "source_locator": "data/factions.json#/factions/WUBRG/archetypes/1",
+          "source_role": "existing_authored_commander_guidance"
+        },
+        {
+          "item_id": "lookfor_wubrg_3_boundary_keeper",
+          "title": "Boundary Keeper",
+          "copy": "Refuses to let five-color breadth become superiority, Colorless proof, four-color leakage, or unsupported Commander claims.",
+          "source_locator": "data/factions.json#/factions/WUBRG/archetypes/2",
+          "source_role": "existing_authored_commander_guidance"
+        }
+      ],
+      "provenance": {
+        "record_id": "packet2_identity_wubrg",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "validator_version": "vm551-evidence-validator-v1"
+      }
+    }
+  ]
+}

@@ -24,7 +24,8 @@ export function validateAutomaticApproval(record) {
   if (!identityLocators.length || identityLocators.some((locator) => !CERTIFIED_IDENTITY_LOCATOR.test(locator))) {
     failures.push("INVALID_IDENTITY_AUTHORITY");
   }
-  if (!factLocators.length || factLocators.some((locator) => !FACT_LOCATOR.test(locator))) {
+  const certifiedRestatement = record.content_class === "CERTIFIED_IDENTITY_RESTATEMENT";
+  if ((!factLocators.length && !certifiedRestatement) || factLocators.some((locator) => !FACT_LOCATOR.test(locator))) {
     failures.push("INVALID_FACT_AUTHORITY");
   }
   if (!nonEmpty(record.relationship_bridge) || VAGUE_BRIDGE.test(record.relationship_bridge)) failures.push("MISSING_OR_VAGUE_RELATIONSHIP_BRIDGE");

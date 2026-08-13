@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voxmana.io/schemas/public-comparisons.catalog.schema.json",
+  "title": "VM-551 approved public comparison runtime catalog",
+  "type": "object",
+  "required": ["schema_version", "generated_from", "records"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "vm551-public-comparison-catalog-v1" },
+    "generated_from": { "const": "data/dossier/public-comparisons.source.json" },
+    "records": { "type": "array", "minItems": 123, "maxItems": 123 }
+  }
+}

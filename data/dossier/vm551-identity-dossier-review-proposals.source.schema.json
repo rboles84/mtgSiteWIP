@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://voxmana.io/schemas/vm551-identity-dossier-review-proposals.source.schema.json",
-  "title": "VM-551 Packet 2 identity-dossier owner-review proposals",
+  "title": "VM-551 Packet 2 identity-dossier automatic-validation input",
   "type": "object",
   "required": [
     "schema_version", "status", "authority_chain", "promotion_rule",
@@ -10,7 +10,7 @@
   "additionalProperties": false,
   "properties": {
     "schema_version": { "const": "vm551-identity-dossier-approval-packet-v1" },
-    "status": { "const": "OWNER_REVIEW_REQUIRED" },
+    "status": { "const": "AUTOMATIC_VALIDATION_INPUT" },
     "authority_chain": { "type": "string", "minLength": 1 },
     "promotion_rule": { "type": "string", "minLength": 1 },
     "identity_records": {
@@ -54,7 +54,7 @@
             "provenance": { "type": "object" },
             "limitations": { "type": "string", "minLength": 1 },
             "review_flags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
-            "disposition": { "const": "REVIEW_REQUIRED" },
+            "disposition": { "const": "PENDING_AUTOMATIC_VALIDATION" },
             "owner_decision": { "type": "null" },
             "replacement_locator": { "type": "string", "minLength": 1 }
           },
@@ -87,7 +87,7 @@
             "provenance": { "type": "object" },
             "limitations": { "type": "string", "minLength": 1 },
             "review_flags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
-            "disposition": { "const": "REVIEW_REQUIRED" },
+            "disposition": { "const": "PENDING_AUTOMATIC_VALIDATION" },
             "owner_decision": { "type": "null" },
             "replacement_locator": { "type": "string", "minLength": 1 }
           },

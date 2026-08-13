@@ -109,6 +109,8 @@ const APP_STATE = {
   archscryFlavorSnippets: null,
   cardRationaleCatalog: null,
   cardVoiceCatalog: null,
+  identityDossierCatalog: null,
+  publicComparisonCatalog: null,
   preconCatalog: null,
   preconThemeTaxonomy: null,
   commanderProviderValidation: null,
@@ -284,6 +286,19 @@ async function loadDeckTagCatalog() {
 async function loadIdentityLayerData() {
   APP_STATE.identityLayers = await loadCoreJson("identity-layers.json", "identity layers");
   return APP_STATE.identityLayers;
+}
+
+async function loadDossierContentAuthority() {
+  const [identityDossierCatalog, publicComparisonCatalog] = await Promise.all([
+    loadCoreJson("dossier/identity-dossier-content.catalog.json", "identity dossier content"),
+    loadCoreJson("dossier/public-comparisons.catalog.json", "public identity comparisons"),
+  ]);
+  const identities = new Set((identityDossierCatalog?.records || []).map((record) => record.identity_key));
+  if (identities.size !== 37 || (publicComparisonCatalog?.records || []).length !== 123) {
+    throw new Error("Archscry dossier content is stale or incomplete.");
+  }
+  APP_STATE.identityDossierCatalog = identityDossierCatalog;
+  APP_STATE.publicComparisonCatalog = publicComparisonCatalog;
 }
 
 /**
@@ -619,9 +634,24 @@ function resolveIdentityTension(identity, faction) {
   return faction?.core_tension || expressionEntry?.core_tension || colorEntry?.core_tension || "";
 }
 
+function dossierContentForFaction(factionOrKey) {
+  const key = typeof factionOrKey === "string" ? factionOrKey : factionOrKey?.key;
+  return (APP_STATE.identityDossierCatalog?.records || []).find((record) => record.identity_key === key) || null;
+}
+
+function approvedComparisonCopy(primaryFaction, adjacentFaction) {
+  const primaryKey = primaryFaction?.key;
+  const adjacentKey = adjacentFaction?.key;
+  const record = (APP_STATE.publicComparisonCatalog?.records || []).find((entry) =>
+    (entry.identity_a === primaryKey && entry.identity_b === adjacentKey) ||
+    (entry.identity_a === adjacentKey && entry.identity_b === primaryKey)
+  );
+  if (!record) return "";
+  return record.identity_a === primaryKey ? record.a_to_b : record.b_to_a;
+}
+
 function buildSelfCheckCopy(faction) {
-  const presentation = presentationForFaction(faction);
-  return presentation.selfCheck || "";
+  return dossierContentForFaction(faction)?.test_the_fit?.positive_self_check || "";
 }
 
 function buildIdentityStoryCard({ title, headline, copy, meta = "", className = "" }) {
@@ -635,10 +665,13 @@ function buildIdentityStoryCard({ title, headline, copy, meta = "", className = 
 }
 
 function buildTestTheFitHtml({ dossier, faction, comparisonFaction = null }) {
-  const selfCheck = buildSelfCheckCopy(faction);
-  const identity = layeredIdentityForDisplay(faction, dossier?.faction?.identity);
-  const tension = shortIdentityTension(resolveIdentityTension(identity, faction));
-  const contrast = comparisonFaction ? buildContrastCopy(faction, comparisonFaction) : "";
+  const content = dossierContentForFaction(faction);
+  if (!content) return "";
+  const selfCheck = content.test_the_fit.positive_self_check;
+  const tension = content.test_the_fit.tension_failure_mode;
+  const contrast = comparisonFaction
+    ? approvedComparisonCopy(faction, comparisonFaction)
+    : content.test_the_fit.certified_boundary_self_check;
   const cards = [
     selfCheck ? buildIdentityStoryCard({
       title: "This may fit if",
@@ -653,8 +686,8 @@ function buildTestTheFitHtml({ dossier, faction, comparisonFaction = null }) {
       className: "identity-story-card--support",
     }) : "",
     contrast ? buildIdentityStoryCard({
-      title: `Compare ${comparisonFaction.name}`,
-      headline: "Where the nearby reading differs",
+      title: comparisonFaction ? `Compare ${comparisonFaction.name}` : "Check the boundary",
+      headline: comparisonFaction ? "Where the nearby reading differs" : "What this reading does not claim",
       copy: contrast,
       className: "identity-story-card--support",
     }) : "",
@@ -668,27 +701,29 @@ function buildTestTheFitHtml({ dossier, faction, comparisonFaction = null }) {
 }
 
 function buildTableIdentityCardHtml(faction) {
-  const presentation = presentationForFaction(faction);
+  const presentation = dossierContentForFaction(faction)?.how_this_plays;
+  if (!presentation) return "";
   return `
     <div class="how-this-plays-block">
       <div class="how-this-plays-label">At the table</div>
       <div class="table-identity-list">
-        <div><span>Role</span>${renderPlayerCopy(presentation.tableRole)}</div>
-        <div><span>How opponents read it</span>${renderPlayerCopy(presentation.opponentRead)}</div>
-        <div><span>Emotional pressure</span>${renderPlayerCopy(presentation.emotionalPressure)}</div>
+        <div><span>Role</span>${renderPlayerCopy(presentation.role)}</div>
+        <div><span>How opponents read it</span>${renderPlayerCopy(presentation.how_opponents_read_it)}</div>
+        <div><span>Emotional pressure</span>${renderPlayerCopy(presentation.emotional_pressure)}</div>
       </div>
     </div>`;
 }
 
 function buildLoreToMechanicCardHtml(faction) {
-  const presentation = presentationForFaction(faction);
+  const presentation = dossierContentForFaction(faction)?.how_this_plays;
+  if (!presentation) return "";
   return `
     <div class="how-this-plays-block">
       <div class="how-this-plays-label">In play</div>
       <div class="table-identity-list">
-        <div><span>Lore role</span>${renderPlayerCopy(presentation.loreRole)}</div>
-        <div><span>Mechanical expression</span>${renderPlayerCopy(presentation.mechanics)}</div>
-        <div><span>Table experience</span>${renderPlayerCopy(presentation.tableExperience)}</div>
+        <div><span>Lore role</span>${renderPlayerCopy(presentation.lore_role)}</div>
+        <div><span>Mechanical expression</span>${renderPlayerCopy(presentation.mechanical_expression)}</div>
+        <div><span>Table experience</span>${renderPlayerCopy(presentation.table_experience)}</div>
       </div>
     </div>`;
 }
@@ -3187,7 +3222,7 @@ function renderResult(viewKey) {
     targetFactionKey: activeKey,
     starterProfile,
     summaryPresentationForFaction: presentationForFaction,
-    summaryContrastCopyBuilder: buildContrastCopy,
+    summaryContrastCopyBuilder: approvedComparisonCopy,
   });
   const tiedPeerDossier = resultState === "tied" && activeKey === result.faction && tiedAlternative?.faction
     ? buildCommanderDossier({
@@ -3198,7 +3233,7 @@ function renderResult(viewKey) {
         targetFactionKey: tiedAlternative.faction,
         starterProfile,
         summaryPresentationForFaction: presentationForFaction,
-        summaryContrastCopyBuilder: buildContrastCopy,
+        summaryContrastCopyBuilder: approvedComparisonCopy,
       })
     : null;
   const faction = dossier.faction.record;
@@ -3247,7 +3282,15 @@ function renderResult(viewKey) {
     .filter((entry) => entry?.active !== false);
   const activeExpressionCount = activeExpressionEntries.length || Object.keys(APP_STATE.factions || {}).length || 15;
   const atlasFrontierCopy = `The complete ${activeExpressionCount}-identity atlas is available for exploration. This reading is one bounded path through it, not a claim that every identity was equally tested by these answers.`;
-  const archetypeItems = dossier.whatToLookFor || [];
+  const archetypeItems = dossierContentForFaction(faction)?.what_to_look_for.map((item) => ({
+    name: item.title,
+    desc: item.copy,
+    provenance: {
+      record_id: dossierContentForFaction(faction)?.provenance?.record_id,
+      item_id: item.item_id,
+      source_locator: item.source_locator,
+    },
+  })) || [];
   const archetypeHtml = archetypeItems
     .map((item) => `<div class="arch-card" data-guidance-provenance="${escapeAttributeValue(JSON.stringify(item.provenance))}"><div class="arch-name">${renderEducationalText(item.name)}</div><div class="arch-desc">${renderEducationalText(item.desc)}</div></div>`)
     .join("");
@@ -4460,6 +4503,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadPlacementModel();
     await loadDeckTagCatalog();
     await loadIdentityLayerData();
+    await loadDossierContentAuthority();
     validateQuickReadingReachability();
     await loadDiscoveryData();
   } catch (error) {

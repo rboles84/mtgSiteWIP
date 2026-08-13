@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voxmana.io/schemas/identity-dossier-content.catalog.schema.json",
+  "title": "VM-551 approved identity dossier runtime catalog",
+  "type": "object",
+  "required": ["schema_version", "generated_from", "records"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "vm551-identity-dossier-catalog-v1" },
+    "generated_from": { "const": "data/dossier/identity-dossier-content.source.json" },
+    "records": { "type": "array", "minItems": 37, "maxItems": 37 }
+  }
+}

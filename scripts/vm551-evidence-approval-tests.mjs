@@ -26,6 +26,15 @@ assert.equal(pass.passed, true);
 assert.equal(pass.approval_basis, VM551_AUTOMATIC_APPROVAL_BASIS);
 assert.equal(pass.validator_version, VM551_EVIDENCE_VALIDATOR_VERSION);
 
+const certifiedRestatement = validateAutomaticApproval({
+  ...valid,
+  content_class: "CERTIFIED_IDENTITY_RESTATEMENT",
+  fact_source_locators: [],
+  relationship_bridge: "The public wording is a bounded restatement of the cited certified identity claims and adds no external fact.",
+});
+assert.equal(certifiedRestatement.passed, true);
+assert.equal(validateAutomaticApproval({ ...valid, fact_source_locators: [] }).passed, false);
+
 for (const [field, value, failure] of [
   ["identity_claim_ids", [], "NO_CERTIFIED_IDENTITY_CLAIMS"],
   ["identity_source_locators", ["https://example.com/wiki"], "INVALID_IDENTITY_AUTHORITY"],

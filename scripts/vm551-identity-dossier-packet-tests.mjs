@@ -7,13 +7,17 @@ import { FACTION_PRESENTATION } from "../assets/js/archscry-presentation.js";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const readJson = async (relativePath) => JSON.parse(await readFile(path.join(root, relativePath), "utf8"));
 
-const [packet, factions] = await Promise.all([
+const [packet, adjudication, factions, identityCatalog, comparisonCatalog] = await Promise.all([
   readJson("data/dossier/identity-dossier-review-proposals.source.json"),
+  readJson("data/dossier/identity-dossier-automatic-adjudication.source.json"),
   readJson("data/factions.json"),
+  readJson("data/dossier/identity-dossier-content.catalog.json"),
+  readJson("data/dossier/public-comparisons.catalog.json"),
 ]);
 
 assert.equal(packet.schema_version, "vm551-identity-dossier-approval-packet-v1");
-assert.equal(packet.status, "OWNER_REVIEW_REQUIRED");
+assert.equal(packet.status, "AUTOMATIC_VALIDATION_INPUT");
+assert.equal(adjudication.status, "AUTOMATIC_ADJUDICATION_COMPLETE");
 assert.equal(packet.identity_records.length, 37);
 assert.equal(packet.comparison_records.length, 123);
 
@@ -21,7 +25,10 @@ const knownIdentities = new Set(Object.keys(factions.factions));
 assert.equal(knownIdentities.size, 37);
 const allRecords = [...packet.identity_records, ...packet.comparison_records];
 assert.equal(new Set(allRecords.map((row) => row.record_id)).size, allRecords.length);
-assert.ok(allRecords.every((row) => row.disposition === "REVIEW_REQUIRED" && row.owner_decision === null));
+assert.ok(allRecords.every((row) => row.disposition === "PENDING_AUTOMATIC_VALIDATION" && row.owner_decision === null));
+assert.ok([...adjudication.identity_records, ...adjudication.comparison_records].every((row) => row.disposition === "APPROVED_PUBLIC" && row.approval_basis === "EVIDENCE_VALIDATED_AUTOMATIC" && row.validation?.passed === true && row.owner_decision === null));
+assert.equal(identityCatalog.records.length, 37);
+assert.equal(comparisonCatalog.records.length, 123);
 
 for (const row of packet.identity_records) {
   assert.ok(knownIdentities.has(row.identity_key));
@@ -76,5 +83,7 @@ console.log(JSON.stringify({
   comparison_pairs: pairKeys.size,
   known_runtime_generic_mono_fallbacks: runtimeMissingPresentation,
   packet_replacements_for_generic_mono_fallbacks: 4,
-  review_rows_in_runtime: 0,
+  approved_identity_rows_in_runtime: identityCatalog.records.length,
+  approved_comparison_rows_in_runtime: comparisonCatalog.records.length,
+  owner_exceptions: 0,
 }, null, 2));

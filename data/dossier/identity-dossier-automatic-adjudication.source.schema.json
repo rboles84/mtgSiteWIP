@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voxmana.io/schemas/identity-dossier-automatic-adjudication.source.schema.json",
+  "title": "VM-551 Packet 2 automatic adjudication source",
+  "type": "object",
+  "required": ["schema_version", "status", "authority_chain", "promotion_rule", "identity_records", "comparison_records"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "vm551-identity-dossier-approval-packet-v1" },
+    "status": { "const": "AUTOMATIC_ADJUDICATION_COMPLETE" },
+    "authority_chain": { "type": "string", "minLength": 1 },
+    "promotion_rule": { "type": "string", "minLength": 1 },
+    "identity_records": { "type": "array", "minItems": 37, "maxItems": 37 },
+    "comparison_records": { "type": "array", "minItems": 123, "maxItems": 123 }
+  }
+}

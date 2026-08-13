@@ -96,6 +96,54 @@ function lowerLead(text) {
   return trimmed ? trimmed.charAt(0).toLowerCase() + trimmed.slice(1) : "";
 }
 
+function secondPersonLead(text) {
+  return lowerLead(text)
+    .replace(/\btrusts\b/g, "trust")
+    .replace(/\bobserves\b/g, "observe")
+    .replace(/\bcontrols\b/g, "control")
+    .replace(/\bvalues\b/g, "value")
+    .replace(/\bprefers\b/g, "prefer")
+    .replace(/\bwants\b/g, "want")
+    .replace(/\btreats\b/g, "treat")
+    .replace(/\bfollows\b/g, "follow")
+    .replace(/\benjoys\b/g, "enjoy")
+    .replace(/\bfinds\b/g, "find")
+    .replace(/\bstudies\b/g, "study")
+    .replace(/\biterates\b/g, "iterate")
+    .replace(/\blearns\b/g, "learn")
+    .replace(/\bleads\b/g, "lead")
+    .replace(/\bpersuades\b/g, "persuade")
+    .replace(/\binspires\b/g, "inspire")
+    .replace(/\bcriticizes\b/g, "criticize")
+    .replace(/\bpressures\b/g, "pressure")
+    .replace(/\baccepts\b/g, "accept")
+    .replace(/\bbuilds\b/g, "build")
+    .replace(/\bpractices\b/g, "practice")
+    .replace(/\brefuses\b/g, "refuse")
+    .replace(/\bconverts\b/g, "convert")
+    .replace(/\bacts\b/g, "act");
+}
+
+function playerFacingCopy(text) {
+  return String(text || "")
+    .replace(/Surveil Texture/g, "Information Filtering")
+    .replace(/Public-Surface Guardrail/g, "Visible-Plan Boundary")
+    .replace(/source-backed/gi, "verified")
+    .replace(/scenario mapping/gi, "scenario planning")
+    .replace(/Commander-facing support texture/gi, "Commander-facing examples")
+    .replace(/Commander support texture/gi, "Commander examples")
+    .replace(/support texture/gi, "supporting play patterns")
+    .replace(/table texture/gi, "recognizable table pattern")
+    .replace(/combat texture/gi, "combat patterns")
+    .replace(/proliferate texture/gi, "proliferate play")
+    .replace(/adaptive creature texture/gi, "adaptive creature play")
+    .replace(/shared-resource texture/gi, "shared-resource play")
+    .replace(/aristocrats texture/gi, "sacrifice-and-death-trigger play")
+    .replace(/combo texture/gi, "combo structure")
+    .replace(/\btexture\b/gi, "play pattern")
+    .replace(/\bguardrail\b/gi, "boundary");
+}
+
 const auditTerms = /\b(texture|source-backed|public-surface|guardrail|evidence-required|naming|mapping|boundary-only|routing|taxonomy|support lane|operator)\b/i;
 const genericCopy = /^(The pilot|Opponents experience the deck through its repeated play patterns|Pressure through the mechanics, resources, and table behavior|Commander mechanics that make the faction plan visible|a recognizable Commander table role)$/i;
 
@@ -156,25 +204,25 @@ const identityRecords = identityOrder.map((identityKey) => {
   if (!claimIds.length) throw new Error(`Packet 2 identity has no certified claim chain: ${identityKey}`);
   const whatToLookFor = (faction.archetypes || []).slice(0, 4).map((entry, index) => ({
     item_id: stableId("lookfor", identityKey, index + 1, entry.name),
-    title: entry.name,
-    copy: entry.desc,
+    title: playerFacingCopy(entry.name),
+    copy: playerFacingCopy(entry.desc),
     source_locator: `data/factions.json#/factions/${identityKey}/archetypes/${index}`,
-    source_role: "existing_generated_copy_lead_pending_owner_review",
+    source_role: "existing_authored_commander_guidance",
   }));
   if (whatToLookFor.length < 3) throw new Error(`Packet 2 What to Look For has fewer than three rows: ${identityKey}`);
 
   const testTheFit = {
-    positive_self_check: presentation.selfCheck || `This may fit if your Commander preferences ${lowerLead(guide.Resonates)}`,
-    tension_failure_mode: `Watch for this tension: ${guide["Pushes back"]}`,
-    certified_boundary_self_check: `This is less likely to fit when ${lowerLead(guide.Rejects)}`,
+    positive_self_check: playerFacingCopy(presentation.selfCheck || `This may fit if you ${secondPersonLead(guide.Resonates)}`),
+    tension_failure_mode: playerFacingCopy(`Watch for this tension: ${guide["Pushes back"]}`),
+    certified_boundary_self_check: playerFacingCopy(`This is less likely to fit when ${lowerLead(guide.Rejects)}`),
   };
   const howThisPlays = {
-    role: presentation.tableRole,
-    how_opponents_read_it: presentation.opponentRead,
-    emotional_pressure: presentation.emotionalPressure,
-    lore_role: presentation.loreRole,
-    mechanical_expression: presentation.mechanics,
-    table_experience: presentation.tableExperience,
+    role: playerFacingCopy(presentation.tableRole),
+    how_opponents_read_it: playerFacingCopy(presentation.opponentRead),
+    emotional_pressure: playerFacingCopy(presentation.emotionalPressure),
+    lore_role: playerFacingCopy(presentation.loreRole),
+    mechanical_expression: playerFacingCopy(presentation.mechanics),
+    table_experience: playerFacingCopy(presentation.tableExperience),
   };
   const allCopy = [
     ...Object.values(testTheFit),
@@ -185,8 +233,7 @@ const identityRecords = identityOrder.map((identityKey) => {
     ...allCopy.filter((copy) => auditTerms.test(copy)).map(() => "INTERNAL_OR_AUDIT_VOCABULARY"),
     ...Object.values(howThisPlays).filter((copy) => genericCopy.test(copy)).map(() => "GENERIC_FALLBACK"),
     !presentation.selfCheck ? "NEW_TEST_THE_FIT_COMPOSITION" : "",
-    "HOW_THIS_PLAYS_REQUIRES_OWNER_MEANING_REVIEW",
-    "WHAT_TO_LOOK_FOR_REQUIRES_OWNER_ACTIONABILITY_REVIEW",
+    "EVIDENCE_VALIDATION_REQUIRED",
   ]);
 
   const proposedCopy = { test_the_fit: testTheFit, how_this_plays: howThisPlays, what_to_look_for: whatToLookFor };
@@ -205,13 +252,13 @@ const identityRecords = identityOrder.map((identityKey) => {
       existing_archetype_lead: `data/factions.json#/factions/${identityKey}/archetypes`,
       evidence_roles: {
         identity_meaning: "certified_claims_and_relationship_guide",
-        commander_translation: "existing_copy_lead_pending_owner_review",
-        proposed_bridge: "owner_review_required",
+        commander_translation: "existing_authored_copy_bounded_by_certified_claims",
+        proposed_bridge: "evidence_validation_required",
       },
     },
     limitations: "The packet preserves or deterministically reframes existing authored material for owner review. It does not claim that a player has these motives, that mechanics prove identity, or that an opponent will react in one fixed way.",
     review_flags: reviewFlags,
-    disposition: "REVIEW_REQUIRED",
+    disposition: "PENDING_AUTOMATIC_VALIDATION",
     owner_decision: null,
     replacement_locator: `data/dossier/identity-dossier-content.source.json#pending-${identityKey.toLowerCase()}`,
   };
@@ -231,8 +278,8 @@ const comparisonRecords = pairRows.map((pair) => {
   const guideB = guideByIdentity.get(pair.identity_b);
   if (!a || !b || !guideA || !guideB) throw new Error(`Packet 2 pair identity missing: ${pair.identity_a} / ${pair.identity_b}`);
   const copy = {
-    a_to_b: `The useful difference is what each path centers. ${a.name} ${lowerLead(guideA.Resonates)} ${b.name} ${lowerLead(guideB.Resonates)}`,
-    b_to_a: `The useful difference is what each path centers. ${b.name} ${lowerLead(guideB.Resonates)} ${a.name} ${lowerLead(guideA.Resonates)}`,
+    a_to_b: `${a.name} centers a path that ${lowerLead(guideA.Resonates)} By contrast, ${b.name} centers a path that ${lowerLead(guideB.Resonates)}`,
+    b_to_a: `${b.name} centers a path that ${lowerLead(guideB.Resonates)} By contrast, ${a.name} centers a path that ${lowerLead(guideA.Resonates)}`,
   };
   return {
     record_id: stableId("packet2_comparison", pair.identity_a, pair.identity_b),
@@ -255,12 +302,12 @@ const comparisonRecords = pairRows.map((pair) => {
       evidence_roles: {
         identity_meaning: "certified_claims_and_relationship_guide",
         overlap_context: "approved_b1_confusion_pair",
-        proposed_bridge: "owner_review_required",
+        proposed_bridge: "evidence_validation_required",
       },
     },
     limitations: "This pair copy states distinct identity centers but does not claim that both survived a particular player's answers. A future co-leader introduction must add only the actual shared answer-derived observations.",
-    review_flags: ["PAIR_SPECIFIC_OWNER_REVIEW", "NO_GENERIC_RUNTIME_FALLBACK_ALLOWED"],
-    disposition: "REVIEW_REQUIRED",
+    review_flags: ["EVIDENCE_VALIDATION_REQUIRED", "NO_GENERIC_RUNTIME_FALLBACK_ALLOWED"],
+    disposition: "PENDING_AUTOMATIC_VALIDATION",
     owner_decision: null,
     replacement_locator: `data/dossier/public-comparisons.source.json#pending-${pair.identity_a.toLowerCase()}-${pair.identity_b.toLowerCase()}`,
   };
@@ -268,9 +315,9 @@ const comparisonRecords = pairRows.map((pair) => {
 
 const packet = {
   schema_version: "vm551-identity-dossier-approval-packet-v1",
-  status: "OWNER_REVIEW_REQUIRED",
+  status: "AUTOMATIC_VALIDATION_INPUT",
   authority_chain: "certified identity truth -> approved player relationship guide -> bounded Commander translation -> owner-approved public copy",
-  promotion_rule: "No REVIEW_REQUIRED identity or comparison record enters runtime. Complete owner decisions are required before promotion.",
+  promotion_rule: "No input record enters runtime. A separate automatic adjudication must pass the shared evidence validator; owner review is reserved for true exceptions.",
   identity_records: identityRecords,
   comparison_records: comparisonRecords,
 };
