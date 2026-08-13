@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voxmana.io/schemas/vm551-identity-dossier-review-proposals.source.schema.json",
+  "title": "VM-551 Packet 2 identity-dossier owner-review proposals",
+  "type": "object",
+  "required": [
+    "schema_version", "status", "authority_chain", "promotion_rule",
+    "identity_records", "comparison_records"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "vm551-identity-dossier-approval-packet-v1" },
+    "status": { "const": "OWNER_REVIEW_REQUIRED" },
+    "authority_chain": { "type": "string", "minLength": 1 },
+    "promotion_rule": { "type": "string", "minLength": 1 },
+    "identity_records": {
+      "type": "array",
+      "minItems": 37,
+      "maxItems": 37,
+      "items": { "$ref": "#/$defs/identityRecord" }
+    },
+    "comparison_records": {
+      "type": "array",
+      "minItems": 123,
+      "maxItems": 123,
+      "items": { "$ref": "#/$defs/comparisonRecord" }
+    }
+  },
+  "$defs": {
+    "reviewFields": {
+      "type": "object",
+      "required": [
+        "record_id", "record_type", "proposed_public_copy", "copy_sha256",
+        "provenance", "limitations", "review_flags", "disposition",
+        "owner_decision", "replacement_locator"
+      ]
+    },
+    "identityRecord": {
+      "allOf": [
+        { "$ref": "#/$defs/reviewFields" },
+        {
+          "type": "object",
+          "required": ["identity_key", "identity_name"],
+          "properties": {
+            "record_id": { "type": "string", "pattern": "^packet2_identity_[a-z0-9_]+$" },
+            "record_type": { "const": "IDENTITY_DOSSIER" },
+            "identity_key": { "type": "string", "pattern": "^[A-Z0-9_]+$" },
+            "identity_name": { "type": "string", "minLength": 1 },
+            "proposed_public_copy": {
+              "type": "object",
+              "required": ["test_the_fit", "how_this_plays", "what_to_look_for"]
+            },
+            "copy_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+            "provenance": { "type": "object" },
+            "limitations": { "type": "string", "minLength": 1 },
+            "review_flags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+            "disposition": { "const": "REVIEW_REQUIRED" },
+            "owner_decision": { "type": "null" },
+            "replacement_locator": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": true
+        }
+      ]
+    },
+    "comparisonRecord": {
+      "allOf": [
+        { "$ref": "#/$defs/reviewFields" },
+        {
+          "type": "object",
+          "required": ["pair_key", "identity_a", "identity_b"],
+          "properties": {
+            "record_id": { "type": "string", "pattern": "^packet2_comparison_[a-z0-9_]+$" },
+            "record_type": { "const": "PUBLIC_COMPARISON" },
+            "pair_key": { "type": "string", "pattern": "^[A-Z0-9_]+::[A-Z0-9_]+$" },
+            "identity_a": { "type": "string", "pattern": "^[A-Z0-9_]+$" },
+            "identity_b": { "type": "string", "pattern": "^[A-Z0-9_]+$" },
+            "proposed_public_copy": {
+              "type": "object",
+              "required": ["a_to_b", "b_to_a"],
+              "additionalProperties": false,
+              "properties": {
+                "a_to_b": { "type": "string", "minLength": 1 },
+                "b_to_a": { "type": "string", "minLength": 1 }
+              }
+            },
+            "copy_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+            "provenance": { "type": "object" },
+            "limitations": { "type": "string", "minLength": 1 },
+            "review_flags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+            "disposition": { "const": "REVIEW_REQUIRED" },
+            "owner_decision": { "type": "null" },
+            "replacement_locator": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": true
+        }
+      ]
+    }
+  }
+}

@@ -44,8 +44,8 @@ Complete every applicable public Archscry dossier surface for all 37 identities 
 - Foundation and deterministic interaction/layout repairs: committed.
 - Provider and Maze truthfulness: committed; 155/155 exact provider routes verified and all-37 basic Commander Maze paths parity-checked.
 - Packet 1 card-content research: complete and awaiting owner decisions. Historical candidate state is 125/125 terminal; 25 rationale and 111 exact voice proposals remain `REVIEW_REQUIRED` and absent from runtime.
-- Packet 2 identity/dossier research: next.
-- Packet 3 discovery/education research: pending.
+- Packet 2 identity/dossier research: complete and awaiting owner decisions. All 37 identities have three Test the Fit roles, six How This Plays fields, three What to Look For entries, and all 123 confusion pairs have bidirectional review records; 19 identity rows are flagged for internal-language cleanup.
+- Packet 3 discovery/education research: next.
 
 ## Boundaries
 
