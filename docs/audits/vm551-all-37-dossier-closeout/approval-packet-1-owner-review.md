@@ -9,8 +9,11 @@ Status: **OWNER REVIEW REQUIRED** — no Packet 1 review row is public or runtim
 - Existing `APPROVED_PUBLIC` retained: **26**
 - New rationale proposals requiring owner review: **25**
 - Identities represented by new rationale proposals: **25/25 former gaps**
-- Voice proposals requiring owner review: **111**
-- Voice coverage: **37/37 identities**
+- Original voice candidates hardened: **111**
+- Stronger exact-text replacements added: **7**
+- Voice proposals requiring owner review: **37**
+- Weak voice candidates rejected from decision workload: **81**
+- Source-complete voice coverage: **37/37 identities**
 - Runtime promotions from this packet before approval: **0**
 
 Every decision is bound to the exact proposal ID and copy hash in the canonical source. `REVISE` requires exact replacement content; no generated fallback is authorized.
@@ -52,39 +55,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 - **Betor, Ancestor's Voice** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/abzan/abzan.profile.json#/commander_compass/native_fit_commanders/1`
 
-### Voice candidate 1: Abzan Devotee
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “The Kin-Trees rediscovered after Dromoka's fall are tended by carefully chosen wardens.”
-- Proposal: `packet1_voice_abzan_3d02ee2f_b7bd_40b0_b9be_2420991b2be0_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/ABZAN/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=3d02ee2f-b7bd-40b0-b9be-2420991b2be0`
-- Identity authority: `data/raw-factions/abzan/abzan.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Abzan Banner
-
-- Exact excerpt: “Stone to endure, roots to remember.”
-- Proposal: `packet1_voice_abzan_46535f8e_1bcd_4588_ac6c_a4bc89c379c8_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/ABZAN/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=46535f8e-1bcd-4588-ac6c-a4bc89c379c8`
-- Identity authority: `data/raw-factions/abzan/abzan.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Abzan Guide
-
-- Exact excerpt: “"These roads are desolate and changeable. Follow me, or die in the wastes."”
-- Proposal: `packet1_voice_abzan_85b2fb89_5ebe_4c13_bc12_38d1417e5880_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/ABZAN/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=85b2fb89-5ebe-4c13-bc12-38d1417e5880`
-- Identity authority: `data/raw-factions/abzan/abzan.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Abzan Banner | “Stone to endure, roots to remember.” | `NATIVE_FIGURE_OR_LOCATION` | `abzan_claim_0003`<br>`abzan_claim_0008` | Abzan Banner's exact excerpt provides a bounded voice echo of endurance joined to roots, memory, and Kin-Tree continuity. The excerpt is admissible for owner review only because its language corresponds to certified claims abzan_claim_0003, abzan_claim_0008; the relationship does not arise from card color, product membership, tags, or mechanics. | Bant, Selesnya, and Golgari can also sound enduring or communal; the Kin-Tree and ancestor-continuity frame is the bounded Abzan bridge. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=46535f8e-1bcd-4588-ac6c-a4bc89c379c8` | **APPROVE / REVISE / REJECT** (`packet1_voice_abzan_46535f8e_1bcd_4588_ac6c_a4bc89c379c8_1`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_abzan_2b3f791a_d672_46fb_a03a_96e19f2c3121`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_abzan_3d02ee2f_b7bd_40b0_b9be_2420991b2be0_2`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_abzan_46535f8e_1bcd_4588_ac6c_a4bc89c379c8_1`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_abzan_85b2fb89_5ebe_4c13_bc12_38d1417e5880_3`: **APPROVE / REVISE / REJECT**
 ## Azorius Senate (`WU`)
 
 ### Existing approved rationale(s)
@@ -128,39 +108,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Kwain, Itinerant Meddler** — `REJECTED`: Rejected in its current form: Current relationship bridge depends on generic color, product, or mechanical analogy rather than a direct native identity/card anchor. Source: `data/raw-factions/azorius_senate/azorius_senate.profile.json#/commander_compass/weird_stretch_commanders/0`
 - **Lavinia, Azorius Renegade** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/azorius_senate/azorius_senate.profile.json#/commander_compass/iconic_lore_forward_commanders/0`
 
-### Voice candidate 1: Azorius Aethermage
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “In her single metasphere are bound the records of every Ætheric transaction since the time of Azor.”
-- Proposal: `packet1_voice_wu_12971527_aa8e_4517_9b00_71474caebfd0_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WU/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=12971527-aa8e-4517-9b00-71474caebfd0`
-- Identity authority: `data/raw-factions/azorius_senate/azorius_senate.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Azorius Cluestone
-
-- Exact excerpt: “Its three sides represent the Sova, judges and arbitrators; the Jelenn, scribes and elocutors; and the Lyev, lawmages...”
-- Proposal: `packet1_voice_wu_27e04c41_f42c_4d60_8a71_ec2d7c326f64_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WU/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=27e04c41-f42c-4d60-8a71-ec2d7c326f64`
-- Identity authority: `data/raw-factions/azorius_senate/azorius_senate.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Azorius Guildgate
-
-- Exact excerpt: “Enter the Senate, the seat of justice and the foundation of Ravnican society.”
-- Proposal: `packet1_voice_wu_ad1712d8_809f_410c_8b91_ffe6fb8a69a1_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WU/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=ad1712d8-809f-410c-8b91-ffe6fb8a69a1`
-- Identity authority: `data/raw-factions/azorius_senate/azorius_senate.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Azorius Cluestone | “Its three sides represent the Sova, judges and arbitrators; the Jelenn, scribes and elocutors; and the Lyev, lawmages...” | `EXPLICIT_IDENTITY_REFERENCE` | `azorius_senate_claim_001`<br>`azorius_senate_claim_002`<br>`azorius_senate_claim_003`<br>`azorius_senate_claim_007` | Azorius Cluestone's exact excerpt provides a bounded voice echo of Azorius named directly through its judges, scribes, and lawmages. The excerpt is admissible for owner review only because its language corresponds to certified claims azorius_senate_claim_001, azorius_senate_claim_002, azorius_senate_claim_003, azorius_senate_claim_007; the relationship does not arise from card color, product membership, tags, or mechanics. | White, Blue, and Esper also use systems and records; the explicit civic/legal institution makes this Azorius. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=27e04c41-f42c-4d60-8a71-ec2d7c326f64` | **APPROVE / REVISE / REJECT** (`packet1_voice_wu_27e04c41_f42c_4d60_8a71_ec2d7c326f64_2`) |
 
 ### Owner decision
 
 - rationale: **RETAINED APPROVED AUTHORITY — no new decision**
-- voice `packet1_voice_wu_12971527_aa8e_4517_9b00_71474caebfd0_1`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_wu_27e04c41_f42c_4d60_8a71_ec2d7c326f64_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_wu_ad1712d8_809f_410c_8b91_ffe6fb8a69a1_3`: **APPROVE / REVISE / REJECT**
 ## Bant (`BANT`)
 
 ### Existing approved rationale(s)
@@ -202,39 +159,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Roon of the Hidden Realm** — `REJECTED`: Rejected in its current form: Candidate resolves only to support records, not a substantive certified identity claim. Source: `data/raw-factions/bant/bant.profile.json#/commander_compass/advanced_complexity_commanders/0`
 - **Jenara, Asura of War** — `REJECTED`: Rejected in its current form: Candidate resolves only to support records, not a substantive certified identity claim. Source: `data/raw-factions/bant/bant.profile.json#/commander_compass/iconic_lore_forward_commanders/0`
 
-### Voice candidate 1: Bant Sureblade
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “Soldiers who fought through Grixis learned to hit first, recite the prayer of Asha later.”
-- Proposal: `packet1_voice_bant_610adb2b_9d52_4b70_92d1_0c7adeb93552_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/BANT/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=610adb2b-9d52-4b70-92d1-0c7adeb93552`
-- Identity authority: `data/raw-factions/bant/bant.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Bant Sojourners
-
-- Exact excerpt: “"We must spread Bant's light before we are shadowed over."”
-- Proposal: `packet1_voice_bant_67ceffa4_2fdb_499c_88cd_49fb5eb9be59_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/BANT/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=67ceffa4-2fdb-499c-88cd-49fb5eb9be59`
-- Identity authority: `data/raw-factions/bant/bant.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Bant Battlemage
-
-- Exact excerpt: “"A night attack will be easy. We'll make an air raid over the Akrasan border. Just get me some flint to light the war...”
-- Proposal: `packet1_voice_bant_92d8b956_87db_43e4_bbb5_436ba01b5714_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/BANT/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=92d8b956-87db-43e4-bbb5-436ba01b5714`
-- Identity authority: `data/raw-factions/bant/bant.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Bant Sojourners | “"We must spread Bant's light before we are shadowed over."” | `EXPLICIT_IDENTITY_REFERENCE` | `bant_claim_0004`<br>`bant_claim_0007` | Bant Sojourners's exact excerpt provides a bounded voice echo of Bant named directly through an idealized light meant to extend beyond the shard. The excerpt is admissible for owner review only because its language corresponds to certified claims bant_claim_0004, bant_claim_0007; the relationship does not arise from card color, product membership, tags, or mechanics. | Azorius and Selesnya can also sound orderly or communal; the explicit Bant reference and its idealized public-honor frame prevent a generic WUG inference. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=67ceffa4-2fdb-499c-88cd-49fb5eb9be59` | **APPROVE / REVISE / REJECT** (`packet1_voice_bant_67ceffa4_2fdb_499c_88cd_49fb5eb9be59_2`) |
 
 ### Owner decision
 
 - rationale: **RETAINED APPROVED AUTHORITY — no new decision**
-- voice `packet1_voice_bant_610adb2b_9d52_4b70_92d1_0c7adeb93552_3`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_bant_67ceffa4_2fdb_499c_88cd_49fb5eb9be59_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_bant_92d8b956_87db_43e4_bbb5_436ba01b5714_1`: **APPROVE / REVISE / REJECT**
 ## Black (`B`)
 
 ### Existing approved rationale(s)
@@ -273,39 +207,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Ayara, First of Locthwain** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/black/black.profile.json#/commander_compass/native_fit_commanders/1`
 - **Chainer, Dementia Master** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/black/black.profile.json#/commander_compass/native_fit_commanders/2`
 
-### Voice candidate 1: Jerren, Corrupted Bishop // Ormendahl, the Corrupter
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “"Ah, Jerren. You've been such a faithful, useful insect."”
-- Proposal: `packet1_voice_b_20d0df30_013c_47c0_b70b_d628d427d30b_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/B/1`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=20d0df30-013c-47c0-b70b-d628d427d30b`
-- Identity authority: `data/raw-factions/black/black.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Ayara, First of Locthwain
-
-- Exact excerpt: “Mourning shifts seamlessly to celebration as she chooses her next suitor.”
-- Proposal: `packet1_voice_b_388168b3_ec68_4af2_b88c_6a5ec88c15f6_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/B/0`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=388168b3-ec68-4af2-b88c-6a5ec88c15f6`
-- Identity authority: `data/raw-factions/black/black.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Egon, God of Death // Throne of Death
-
-- Exact excerpt: “Egon ages backward, his wisdom soured by youthful spite.”
-- Proposal: `packet1_voice_b_8fa7bd8f_f712_4dd1_9ffb_e30dfe744389_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/B/2`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=8fa7bd8f-f712-4dd1-9ffb-e30dfe744389`
-- Identity authority: `data/raw-factions/black/black.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Ancient Craving | “Knowledge demands sacrifice.” | `CERTIFIED_SEMANTIC_ECHO` | `black_claim_0003`<br>`black_claim_0004` | Ancient Craving's exact excerpt provides a bounded voice echo of knowledge made available through an explicit sacrifice. The excerpt is admissible for owner review only because its language corresponds to certified claims black_claim_0003, black_claim_0004; the relationship does not arise from card color, product membership, tags, or mechanics. | Blue and Dimir also value knowledge, while Orzhov values payment; this echo belongs here only because the line makes sacrifice the price of access rather than secrecy or institutional debt. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=78725353-9274-420a-b722-add0f43c444e` | **APPROVE / REVISE / REJECT** (`packet1_voice_b_78725353_9274_420a_b722_add0f43c444e_replacement`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_b_cbe3a4e7_5dbe_4f58_8ee6_a1762b65acfd`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_b_20d0df30_013c_47c0_b70b_d628d427d30b_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_b_388168b3_ec68_4af2_b88c_6a5ec88c15f6_1`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_b_8fa7bd8f_f712_4dd1_9ffb_e30dfe744389_3`: **APPROVE / REVISE / REJECT**
+- voice `packet1_voice_b_78725353_9274_420a_b722_add0f43c444e_replacement`: **APPROVE / REVISE / REJECT**
 ## Blue (`U`)
 
 ### Existing approved rationale(s)
@@ -344,39 +255,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Azami, Lady of Scrolls** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/blue/blue.profile.json#/commander_compass/native_fit_commanders/1`
 - **Minn, Wily Illusionist** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/blue/blue.profile.json#/commander_compass/native_fit_commanders/2`
 
-### Voice candidate 1: Azami, Lady of Scrolls
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “"Choices belong to those with the luxuries of time and distance. We have neither. I recommend we proceed with the plan to destroy all shrines of the kami." —Lady Azami, letter t...”
-- Proposal: `packet1_voice_u_0f8b97fe_3e5e_47c2_9a9d_7f77482aa159_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/U/1`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=0f8b97fe-3e5e-47c2-9a9d-7f77482aa159`
-- Identity authority: `data/raw-factions/blue/blue.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: April O'Neil, Live on the Scene
-
-- Exact excerpt: “"This is great! I must really be onto something hot if they're trying to kill me!"”
-- Proposal: `packet1_voice_u_4900c157_8d9f_4f92_aaca_5246b6e2832e_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/U/2`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=4900c157-8d9f-4f92-aaca-5246b6e2832e`
-- Identity authority: `data/raw-factions/blue/blue.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Talrand, Sky Summoner
-
-- Exact excerpt: “"The seas are vast, but the skies are even more so. Why be content with one kingdom when I can rule them both?"”
-- Proposal: `packet1_voice_u_ea1eb902_a23c_44ff_9169_19baf71de238_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/U/0`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=ea1eb902-a23c-44ff-9169-19baf71de238`
-- Identity authority: `data/raw-factions/blue/blue.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Azami, Lady of Scrolls | “"Choices belong to those with the luxuries of time and distance. We have neither. I recommend we proceed with the plan to destroy all shrines of the kami." —Lady Azami, letter t...” | `CERTIFIED_SEMANTIC_ECHO` | `blue_claim_0002`<br>`blue_claim_0003`<br>`blue_claim_0006` | Azami, Lady of Scrolls's exact excerpt provides a bounded voice echo of a constrained decision answered with information, planning, and a deliberate course. The excerpt is admissible for owner review only because its language corresponds to certified claims blue_claim_0002, blue_claim_0003, blue_claim_0006; the relationship does not arise from card color, product membership, tags, or mechanics. | Azorius, Esper, Dimir, and Jeskai also plan; this is a mono-Blue knowledge-and-deliberation echo without secrecy, law, or faction doctrine. | `data/scryfall/indexes/commander-index.json#oracle_id=0f8b97fe-3e5e-47c2-9a9d-7f77482aa159` | **APPROVE / REVISE / REJECT** (`packet1_voice_u_0f8b97fe_3e5e_47c2_9a9d_7f77482aa159_2`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_u_ea1eb902_a23c_44ff_9169_19baf71de238`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_u_0f8b97fe_3e5e_47c2_9a9d_7f77482aa159_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_u_4900c157_8d9f_4f92_aaca_5246b6e2832e_3`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_u_ea1eb902_a23c_44ff_9169_19baf71de238_1`: **APPROVE / REVISE / REJECT**
 ## Boros Legion (`WR`)
 
 ### Existing approved rationale(s)
@@ -423,39 +311,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 - **Osgir, the Reconstructor** — `REJECTED`: Rejected in its current form: Current relationship bridge depends on generic color, product, or mechanical analogy rather than a direct native identity/card anchor. Source: `data/raw-factions/boros_legion/boros_legion.profile.json#/commander_compass/weird_stretch_commanders/0`
 
-### Voice candidate 1: Boros Strike-Captain
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “"Keep up with me, comrades, or I cannot guarantee you a fair share of the fracas."”
-- Proposal: `packet1_voice_wr_30b20932_0d9a_447f_b934_1daa8c44a678_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WR/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=30b20932-0d9a-447f-b934-1daa8c44a678`
-- Identity authority: `data/raw-factions/boros_legion/boros_legion.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Blaze Commando
-
-- Exact excerpt: “A true Boros commando only calls for reinforcements so they can clean up the mess.”
-- Proposal: `packet1_voice_wr_92e2f982_f8b9_4c3b_ab50_14c025370e5c_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WR/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=92e2f982-f8b9-4c3b-ab50-14c025370e5c`
-- Identity authority: `data/raw-factions/boros_legion/boros_legion.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Boros Battleshaper
-
-- Exact excerpt: “Leaders shape the minds of their allies. It takes a master to shape the minds of enemies.”
-- Proposal: `packet1_voice_wr_cf5bf1ef_e40b_4fb5_8148_d4ca7a307501_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WR/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=cf5bf1ef-e40b-4fb5-8148-d4ca7a307501`
-- Identity authority: `data/raw-factions/boros_legion/boros_legion.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Boros Strike-Captain | “"Keep up with me, comrades, or I cannot guarantee you a fair share of the fracas."” | `EXPLICIT_IDENTITY_REFERENCE` | `boros_legion_claim_001`<br>`boros_legion_claim_004`<br>`boros_legion_claim_007`<br>`boros_legion_claim_012` | Boros Strike-Captain's exact excerpt provides a bounded voice echo of a Boros commander explicitly addressing comrades through coordinated front-line action. The excerpt is admissible for owner review only because its language corresponds to certified claims boros_legion_claim_001, boros_legion_claim_004, boros_legion_claim_007, boros_legion_claim_012; the relationship does not arise from card color, product membership, tags, or mechanics. | Mardu and mono-Red also coordinate attacks; Boros requires public duty, teamwork, and accountable martial action. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=30b20932-0d9a-447f-b934-1daa8c44a678` | **APPROVE / REVISE / REJECT** (`packet1_voice_wr_30b20932_0d9a_447f_b934_1daa8c44a678_2`) |
 
 ### Owner decision
 
 - rationale: **RETAINED APPROVED AUTHORITY — no new decision**
 - voice `packet1_voice_wr_30b20932_0d9a_447f_b934_1daa8c44a678_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_wr_92e2f982_f8b9_4c3b_ab50_14c025370e5c_3`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_wr_cf5bf1ef_e40b_4fb5_8148_d4ca7a307501_1`: **APPROVE / REVISE / REJECT**
 ## Colorless (`COLORLESS`)
 
 ### Existing approved rationale(s)
@@ -493,39 +358,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 - **Omarthis, Ghostfire Initiate** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/colorless/colorless.profile.json#/commander_compass/native_fit_commanders/1`
 
-### Voice candidate 1: All Is Dust
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “"The emergence of the Eldrazi isn't necessarily a bad thing, as long as you've already lived a fulfilling and complet...”
-- Proposal: `packet1_voice_colorless_14693689_d087_43b6_9c3f_63ab0648fc20_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/COLORLESS/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=14693689-d087-43b6-9c3f-63ab0648fc20`
-- Identity authority: `data/raw-factions/colorless/colorless.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Bane of Bala Ged
-
-- Exact excerpt: “The continent of Bala Ged was ravaged by massive Eldrazi of Ulamog's lineage, its lush jungles and cascading rivers r...”
-- Proposal: `packet1_voice_colorless_38839894_1706_4e11_8310_5ea8dd8866d9_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/COLORLESS/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=38839894-1706-4e11-8310-5ea8dd8866d9`
-- Identity authority: `data/raw-factions/colorless/colorless.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Adarkar Sentinel
-
-- Exact excerpt: “"We encountered the sentinels in the wastes, near no living thing. Their purpose was inscrutable." —Disa the Restless...”
-- Proposal: `packet1_voice_colorless_bd372a53_48f9_4e9a_ab00_0f9c4606d452_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/COLORLESS/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=bd372a53-48f9-4e9a-ab00-0f9c4606d452`
-- Identity authority: `data/raw-factions/colorless/colorless.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| All Is Dust | “"The emergence of the Eldrazi isn't necessarily a bad thing, as long as you've already lived a fulfilling and complet...” | `CERTIFIED_SEMANTIC_ECHO` | `colorless_claim_0004`<br>`colorless_claim_0005`<br>`colorless_claim_0006` | All Is Dust's exact excerpt provides a bounded voice echo of Eldrazi-scale emergence and an outside-WUBRG sense of completion and erasure. The excerpt is admissible for owner review only because its language corresponds to certified claims colorless_claim_0004, colorless_claim_0005, colorless_claim_0006; the relationship does not arise from card color, product membership, tags, or mechanics. | Eldrazi flavor can also occur in Five-Color or Devoid decks. This is a bounded Eldrazi branch, not proof that every Eldrazi card or artifact belongs to Colorless. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=14693689-d087-43b6-9c3f-63ab0648fc20` | **APPROVE / REVISE / REJECT** (`packet1_voice_colorless_14693689_d087_43b6_9c3f_63ab0648fc20_1`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_colorless_ec726c54_987b_48ed_8ffa_ec73a5e35333`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_colorless_14693689_d087_43b6_9c3f_63ab0648fc20_1`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_colorless_38839894_1706_4e11_8310_5ea8dd8866d9_3`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_colorless_bd372a53_48f9_4e9a_ab00_0f9c4606d452_2`: **APPROVE / REVISE / REJECT**
 ## Cult of Rakdos (`BR`)
 
 ### Existing approved rationale(s)
@@ -578,39 +420,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Juri, Master of the Revue** — `REJECTED`: Rejected in its current form: Current relationship bridge depends on generic color, product, or mechanical analogy rather than a direct native identity/card anchor. Source: `data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json#/commander_compass/budget_friendly_commanders/0`
 - **Prosper, Tome-Bound** — `REJECTED`: Rejected in its current form: Current relationship bridge depends on generic color, product, or mechanical analogy rather than a direct native identity/card anchor. Source: `data/raw-factions/cult_of_rakdos/cult_of_rakdos.profile.json#/commander_compass/advanced_complexity_commanders/0`
 
-### Voice candidate 1: Avatar of Discord
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “Such is the power of Rakdos that even his shadow takes on a cruel life of its own.”
-- Proposal: `packet1_voice_br_3f806353_592e_431c_a7dd_a4c64034f94d_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/BR/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=3f806353-592e-431c-a7dd-a4c64034f94d`
-- Identity authority: `data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Blightning
-
-- Exact excerpt: “While the smell of burning flesh is common in Grixis, the odor of smoldering brain matter is a rare treat.”
-- Proposal: `packet1_voice_br_a6496440_dc0c_4d9b_bf37_f537b6f0187b_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/BR/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=a6496440-dc0c-4d9b-bf37-f537b6f0187b`
-- Identity authority: `data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Judith, the Scourge Diva
-
-- Exact excerpt: “At the end of the show, she stands alone on a stage brilliant with blood.”
-- Proposal: `packet1_voice_br_c01516e0_eec3_4370_b935_7674982e8850_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/BR/1`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=c01516e0-eec3-4370-b935-7674982e8850`
-- Identity authority: `data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Avatar of Discord | “Such is the power of Rakdos that even his shadow takes on a cruel life of its own.” | `EXPLICIT_IDENTITY_REFERENCE` | `cult_of_rakdos_claim_001`<br>`cult_of_rakdos_claim_002`<br>`cult_of_rakdos_claim_006` | Avatar of Discord's exact excerpt provides a bounded voice echo of Rakdos named directly through cruelty made vivid and performative. The excerpt is admissible for owner review only because its language corresponds to certified claims cult_of_rakdos_claim_001, cult_of_rakdos_claim_002, cult_of_rakdos_claim_006; the relationship does not arise from card color, product membership, tags, or mechanics. | Mono-Red, Black, and Gruul can express danger or cruelty; only the explicit Rakdos spectacle/transgression frame supports this relationship. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=3f806353-592e-431c-a7dd-a4c64034f94d` | **APPROVE / REVISE / REJECT** (`packet1_voice_br_3f806353_592e_431c_a7dd_a4c64034f94d_1`) |
 
 ### Owner decision
 
 - rationale: **RETAINED APPROVED AUTHORITY — no new decision**
 - voice `packet1_voice_br_3f806353_592e_431c_a7dd_a4c64034f94d_1`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_br_a6496440_dc0c_4d9b_bf37_f537b6f0187b_3`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_br_c01516e0_eec3_4370_b935_7674982e8850_2`: **APPROVE / REVISE / REJECT**
 ## Dune / Aggression (`DUNE`)
 
 ### Existing approved rationale(s)
@@ -648,39 +467,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 - None beyond the selected or retained card relationship(s).
 
-### Voice candidate 1: Aurelia, the Warleader
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “Where Razia was aloof and untouchable, Aurelia is on the frontlines, calling for war.”
-- Proposal: `packet1_voice_dune_0f5a3a09_2f07_4774_9e0f_e99d9a444166_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/DUNE/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=0f5a3a09-2f07-4774-9e0f-e99d9a444166`
-- Identity authority: `data/raw-factions/dune/dune.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Apprentice Sharpshooter
-
-- Exact excerpt: “Innistrad's best archers are trained by the Quiver of Kessig, an order of cathars who specialize in ranged combat.”
-- Proposal: `packet1_voice_dune_40d6e1ff_995b_42fc_8146_8d5e5f1adcd9_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/DUNE/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=40d6e1ff-995b-42fc-8146-8d5e5f1adcd9`
-- Identity authority: `data/raw-factions/dune/dune.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Augusta, Order Returned
-
-- Exact excerpt: “"I won't leave my students without a guide."”
-- Proposal: `packet1_voice_dune_a80a1f84_ea49_4c8d_912d_c7036b814a6c_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/DUNE/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=a80a1f84-ea49-4c8d-912d-c7036b814a6c`
-- Identity authority: `data/raw-factions/dune/dune.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Aurelia, the Warleader | “Where Razia was aloof and untouchable, Aurelia is on the frontlines, calling for war.” | `CERTIFIED_SEMANTIC_ECHO` | `dune_claim_0005` | Aurelia, the Warleader's exact excerpt provides a bounded voice echo of front-line leadership, immediate action, and organized force. The excerpt is admissible for owner review only because its language corresponds to certified claims dune_claim_0005; the relationship does not arise from card color, product membership, tags, or mechanics. | This excerpt is canonically Boros and therefore carries a high Boros/Mardu confusion risk. It is only a cross-identity voice echo for Dune's bounded direct-action frame. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=0f5a3a09-2f07-4774-9e0f-e99d9a444166` | **APPROVE / REVISE / REJECT** (`packet1_voice_dune_0f5a3a09_2f07_4774_9e0f_e99d9a444166_1`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_dune_e54d207c_51b8_458e_86a1_2633ac064c8e`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_dune_0f5a3a09_2f07_4774_9e0f_e99d9a444166_1`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_dune_40d6e1ff_995b_42fc_8146_8d5e5f1adcd9_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_dune_a80a1f84_ea49_4c8d_912d_c7036b814a6c_3`: **APPROVE / REVISE / REJECT**
 ## Esper (`ESPER`)
 
 ### Existing approved rationale(s)
@@ -722,38 +518,15 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Aminatou, the Fateshifter** — `REJECTED`: Rejected in its current form: Current relationship bridge depends on generic color, product, or mechanical analogy rather than a direct native identity/card anchor. Source: `data/raw-factions/esper/esper.profile.json#/commander_compass/advanced_complexity_commanders/0`
 - **Urza, Chief Artificer** — `REJECTED`: Rejected in its current form: Current relationship bridge depends on generic color, product, or mechanical analogy rather than a direct native identity/card anchor. Source: `data/raw-factions/esper/esper.profile.json#/commander_compass/advanced_complexity_commanders/1`
 
-### Voice candidate 1: Aven Trailblazer
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “"The bird wore the form of a man, bereft of filigree. Why do the Texts not speak of it?" —Belator of Esper”
-- Proposal: `packet1_voice_esper_518115c9_0f0f_4249_81ff_e79b27dda1be_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/ESPER/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=518115c9-0f0f-4249-81ff-e79b27dda1be`
-- Identity authority: `data/raw-factions/esper/esper.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Desperate Farmer // Depraved Harvester
-
-- Exact excerpt: “A tragic moment pushed him to a blasphemous act.”
-- Proposal: `packet1_voice_esper_60d591f6_6d84_45d2_9d78_a2ef07a3e403_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/ESPER/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=60d591f6-6d84-45d2-9d78-a2ef07a3e403`
-- Identity authority: `data/raw-factions/esper/esper.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Brainbite
-
-- Exact excerpt: “An Esper mage will leave a hole in your memory with surgical precision. A Grixis mage sees no reason to be so kind.”
-- Proposal: `packet1_voice_esper_fef94125_aa8d_4147_a609_1e990961bde2_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/ESPER/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=fef94125-aa8d-4147-a609-1e990961bde2`
-- Identity authority: `data/raw-factions/esper/esper.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Brainbite | “An Esper mage will leave a hole in your memory with surgical precision. A Grixis mage sees no reason to be so kind.” | `EXPLICIT_IDENTITY_REFERENCE` | `esper_claim_0003`<br>`esper_claim_0004`<br>`esper_claim_0006` | Brainbite's exact excerpt provides a bounded voice echo of Esper named directly through precise, controlled use of information. The excerpt is admissible for owner review only because its language corresponds to certified claims esper_claim_0003, esper_claim_0004, esper_claim_0006; the relationship does not arise from card color, product membership, tags, or mechanics. | Blue, Dimir, Azorius, and Grixis also use information or control; the excerpt explicitly contrasts Esper's surgical precision with Grixis. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=fef94125-aa8d-4147-a609-1e990961bde2` | **APPROVE / REVISE / REJECT** (`packet1_voice_esper_fef94125_aa8d_4147_a609_1e990961bde2_3`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_esper_3268251a_8292_44f9_9267_c961b182f739`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_esper_518115c9_0f0f_4249_81ff_e79b27dda1be_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_esper_60d591f6_6d84_45d2_9d78_a2ef07a3e403_1`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_esper_fef94125_aa8d_4147_a609_1e990961bde2_3`: **APPROVE / REVISE / REJECT**
 ## Five-Color / WUBRG (`WUBRG`)
 
@@ -797,38 +570,15 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Heroes in a Half Shell** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/wubrg/wubrg.profile.json#/commander_compass/native_fit_commanders/4`
 - **Ashling, the Limitless** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/wubrg/wubrg.profile.json#/commander_compass/native_fit_commanders/5`
 
-### Voice candidate 1: Command Tower
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “Knowledge is wasted if not shared.”
-- Proposal: `packet1_voice_wubrg_0895c9b7_ae7d_4bb3_af17_3b75deb50a25_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WUBRG/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=0895c9b7-ae7d-4bb3-af17-3b75deb50a25`
-- Identity authority: `data/raw-factions/wubrg/wubrg.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Heroes in a Half Shell
-
-- Exact excerpt: “They're the world's most fearsome fighting team!”
-- Proposal: `packet1_voice_wubrg_9f2f12cc_0adb_482d_bbce_05e4ce8850c4_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WUBRG/2`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=9f2f12cc-0adb-482d-bbce-05e4ce8850c4`
-- Identity authority: `data/raw-factions/wubrg/wubrg.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Coalition Victory
-
-- Exact excerpt: “"You can build a perfect machine out of imperfect parts." —Urza”
-- Proposal: `packet1_voice_wubrg_e9e25800_9ee7_40c9_b22d_611c7281c125_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WUBRG/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=e9e25800-9ee7-40c9-b22d-611c7281c125`
-- Identity authority: `data/raw-factions/wubrg/wubrg.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Coalition Victory | “"You can build a perfect machine out of imperfect parts." —Urza” | `CERTIFIED_SEMANTIC_ECHO` | `wubrg_claim_0002`<br>`wubrg_claim_0003`<br>`wubrg_claim_0004`<br>`wubrg_claim_0007` | Coalition Victory's exact excerpt provides a bounded voice echo of a complete construction made from distinct imperfect parts. The excerpt is admissible for owner review only because its language corresponds to certified claims wubrg_claim_0002, wubrg_claim_0003, wubrg_claim_0004, wubrg_claim_0007; the relationship does not arise from card color, product membership, tags, or mechanics. | Artifacts, Yore, and modular engines can also sound like assembled machines. This is only an integration metaphor for Five-Color access and must not become mastery, completion, or faction lore. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=e9e25800-9ee7-40c9-b22d-611c7281c125` | **APPROVE / REVISE / REJECT** (`packet1_voice_wubrg_e9e25800_9ee7_40c9_b22d_611c7281c125_1`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_wubrg_0895c9b7_ae7d_4bb3_af17_3b75deb50a25_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_wubrg_9f2f12cc_0adb_482d_bbce_05e4ce8850c4_3`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_wubrg_e9e25800_9ee7_40c9_b22d_611c7281c125_1`: **APPROVE / REVISE / REJECT**
 ## Glint / Chaos (`GLINT`)
 
@@ -867,39 +617,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 - None beyond the selected or retained card relationship(s).
 
-### Voice candidate 1: Adaptive Snapjaw
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “"Eh, needs more toad." —Gulistan, Simic biomancer”
-- Proposal: `packet1_voice_glint_0a56e2ad_684d_45a7_9145_479d1505bba2_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/GLINT/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=0a56e2ad-684d-45a7-9145-479d1505bba2`
-- Identity authority: `data/raw-factions/glint/glint.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Cyclops Electromancer
-
-- Exact excerpt: “Every storm has an eye.”
-- Proposal: `packet1_voice_glint_638ecc20_a275_4810_9669_89a0730c5362_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/GLINT/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=638ecc20-a275-4810-9669-89a0730c5362`
-- Identity authority: `data/raw-factions/glint/glint.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Aether Storm
-
-- Exact excerpt: “"I do love the rain . . . but this storm feels somehow wrong, Taysir." —Daria”
-- Proposal: `packet1_voice_glint_ff4297d3_3d96_4bd6_a606_1bdc20a6df2b_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/GLINT/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=ff4297d3-3d96-4bd6-a606-1bdc20a6df2b`
-- Identity authority: `data/raw-factions/glint/glint.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Aberrant Return | “Shadowmoor is rife with wild magic—powerful but as volatile as the plane itself.” | `CERTIFIED_SEMANTIC_ECHO` | `glint_claim_0005` | Aberrant Return's exact excerpt provides a bounded voice echo of wild magic described as powerful and volatile. The excerpt is admissible for owner review only because its language corresponds to certified claims glint_claim_0005; the relationship does not arise from card color, product membership, tags, or mechanics. | Prismari, Izzet, Rakdos, and Red can also sound volatile. The excerpt reaches only Glint's bounded volatility/force edge, not its appetite or anti-order boundary. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=3a92b235-196b-4f46-9d20-06f4d3653d36` | **APPROVE / REVISE / REJECT** (`packet1_voice_glint_3a92b235_196b_4f46_9d20_06f4d3653d36_replacement`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_glint_9efe8aff_9a7d_4397_b5fd_c1a0fad7c15f`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_glint_0a56e2ad_684d_45a7_9145_479d1505bba2_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_glint_638ecc20_a275_4810_9669_89a0730c5362_1`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_glint_ff4297d3_3d96_4bd6_a606_1bdc20a6df2b_3`: **APPROVE / REVISE / REJECT**
+- voice `packet1_voice_glint_3a92b235_196b_4f46_9d20_06f4d3653d36_replacement`: **APPROVE / REVISE / REJECT**
 ## Golgari Swarm (`BG`)
 
 ### Existing approved rationale(s)
@@ -940,38 +667,15 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **The Gitrog Monster** — `REJECTED`: Rejected in its current form: Current relationship bridge depends on generic color, product, or mechanical analogy rather than a direct native identity/card anchor. Source: `data/raw-factions/golgari_swarm/golgari_swarm.profile.json#/commander_compass/weird_stretch_commanders/0`
 - **Meren of Clan Nel Toth** — `REJECTED`: Rejected in its current form: Current relationship bridge depends on generic color, product, or mechanical analogy rather than a direct native identity/card anchor. Source: `data/raw-factions/golgari_swarm/golgari_swarm.profile.json#/commander_compass/advanced_complexity_commanders/0`
 
-### Voice candidate 1: Awaken the Erstwhile
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “In preparation for the conflict all foresaw, the Golgari called upon an army that had slept for millennia beneath the...”
-- Proposal: `packet1_voice_bg_06fa6719_aa4f_4857_8029_e42d01232645_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/BG/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=06fa6719-aa4f-4857-8029-e42d01232645`
-- Identity authority: `data/raw-factions/golgari_swarm/golgari_swarm.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Contaminated Ground
-
-- Exact excerpt: “"No one cares about pollution until they can see it." —Gurras, Golgari rot farmer”
-- Proposal: `packet1_voice_bg_55e04860_f4f5_445b_81f2_b500fa9b456a_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/BG/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=55e04860-f4f5-445b-81f2-b500fa9b456a`
-- Identity authority: `data/raw-factions/golgari_swarm/golgari_swarm.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Bloodbond March
-
-- Exact excerpt: “The Golgari support a vast army because death never ends its soldiers' service.”
-- Proposal: `packet1_voice_bg_fc17d8dd_887f_405e_a195_777aa3da36f5_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/BG/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=fc17d8dd-887f-405e-a195-777aa3da36f5`
-- Identity authority: `data/raw-factions/golgari_swarm/golgari_swarm.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Bloodbond March | “The Golgari support a vast army because death never ends its soldiers' service.” | `EXPLICIT_IDENTITY_REFERENCE` | `golgari_swarm_claim_001`<br>`golgari_swarm_claim_007`<br>`golgari_swarm_claim_0018` | Bloodbond March's exact excerpt provides a bounded voice echo of the Golgari named directly through death continuing as useful service. The excerpt is admissible for owner review only because its language corresponds to certified claims golgari_swarm_claim_001, golgari_swarm_claim_007, golgari_swarm_claim_0018; the relationship does not arise from card color, product membership, tags, or mechanics. | Witherbloom and generic graveyard decks also join life and death; the explicit Golgari reclamation-and-service frame is required. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=fc17d8dd-887f-405e-a195-777aa3da36f5` | **APPROVE / REVISE / REJECT** (`packet1_voice_bg_fc17d8dd_887f_405e_a195_777aa3da36f5_1`) |
 
 ### Owner decision
 
 - rationale: **RETAINED APPROVED AUTHORITY — no new decision**
-- voice `packet1_voice_bg_06fa6719_aa4f_4857_8029_e42d01232645_3`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_bg_55e04860_f4f5_445b_81f2_b500fa9b456a_2`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_bg_fc17d8dd_887f_405e_a195_777aa3da36f5_1`: **APPROVE / REVISE / REJECT**
 ## Green (`G`)
 
@@ -1011,39 +715,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Selvala, Heart of the Wilds** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/green/green.profile.json#/commander_compass/native_fit_commanders/1`
 - **Goreclaw, Terror of Qal Sisma** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/green/green.profile.json#/commander_compass/native_fit_commanders/2`
 
-### Voice candidate 1: Azusa, Lost but Seeking
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “"I do not miss Jukai Forest. It is not my home. My home is Kamigawa, its people my family. Wherever I set my pack and rest my head, I am home."”
-- Proposal: `packet1_voice_g_6c2c8bf3_9bf8_4a86_89d3_3bb36260dc51_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/G/0`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=6c2c8bf3-9bf8-4a86-89d3-3bb36260dc51`
-- Identity authority: `data/raw-factions/green/green.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Ghalta, Primal Hunger
-
-- Exact excerpt: “The earth walks, strongest of all.”
-- Proposal: `packet1_voice_g_b0b6be0c_41cf_4757_9f0e_87227b6ba6b3_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/G/2`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=b0b6be0c-41cf-4757-9f0e-87227b6ba6b3`
-- Identity authority: `data/raw-factions/green/green.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Goreclaw, Terror of Qal Sisma
-
-- Exact excerpt: “You don't want to know how she got that name.”
-- Proposal: `packet1_voice_g_befb211f_37ca_4083_98d4_9ff1f28be3f2_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/G/1`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=befb211f-37ca-4083-98d4-9ff1f28be3f2`
-- Identity authority: `data/raw-factions/green/green.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Ghalta, Primal Hunger | “The earth walks, strongest of all.” | `CERTIFIED_SEMANTIC_ECHO` | `green_claim_0002`<br>`green_claim_0004`<br>`green_claim_0006` | Ghalta, Primal Hunger's exact excerpt provides a bounded voice echo of the earth itself embodied as primal strength. The excerpt is admissible for owner review only because its language corresponds to certified claims green_claim_0002, green_claim_0004, green_claim_0006; the relationship does not arise from card color, product membership, tags, or mechanics. | Gruul, Naya, and Temur also use primal nature; this is a mono-Green voice echo only, not proof from creature size or card color. | `data/scryfall/indexes/commander-index.json#oracle_id=b0b6be0c-41cf-4757-9f0e-87227b6ba6b3` | **APPROVE / REVISE / REJECT** (`packet1_voice_g_b0b6be0c_41cf_4757_9f0e_87227b6ba6b3_3`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_g_6c2c8bf3_9bf8_4a86_89d3_3bb36260dc51`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_g_6c2c8bf3_9bf8_4a86_89d3_3bb36260dc51_1`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_g_b0b6be0c_41cf_4757_9f0e_87227b6ba6b3_3`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_g_befb211f_37ca_4083_98d4_9ff1f28be3f2_2`: **APPROVE / REVISE / REJECT**
 ## Grixis (`GRIXIS`)
 
 ### Existing approved rationale(s)
@@ -1085,38 +766,15 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Anhelo, the Painter** — `REJECTED`: Rejected in its current form: Unresolved provenance IDs: src_vm_second_commander_recommendations_ubr, src_scryfall_commander_index_local. Source: `data/raw-factions/grixis/grixis.profile.json#/commander_compass/weird_stretch_commanders/0`
 - **Mishra, Eminent One** — `REJECTED`: Rejected in its current form: Unresolved provenance IDs: src_vm_second_commander_recommendations_ubr, src_scryfall_commander_index_local. Source: `data/raw-factions/grixis/grixis.profile.json#/commander_compass/advanced_complexity_commanders/0`
 
-### Voice candidate 1: Nekusar, the Mindrazer
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “His enemies wondered if the lich king's brutal death and unnatural rebirth had been his plan all along.”
-- Proposal: `packet1_voice_grixis_8a5e3c8e_8e22_49b9_8ee5_4a36361f0da6_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/GRIXIS/1`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=8a5e3c8e-8e22-49b9-8ee5-4a36361f0da6`
-- Identity authority: `data/raw-factions/grixis/grixis.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Kess, Dissident Mage
-
-- Exact excerpt: “"Loss has no meaning here. You cannot take from those who have nothing."”
-- Proposal: `packet1_voice_grixis_f5092c14_eec4_472c_999c_ba96c36b2fbb_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/GRIXIS/0`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=f5092c14-eec4-472c-999c-ba96c36b2fbb`
-- Identity authority: `data/raw-factions/grixis/grixis.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Brainbite
-
-- Exact excerpt: “An Esper mage will leave a hole in your memory with surgical precision. A Grixis mage sees no reason to be so kind.”
-- Proposal: `packet1_voice_grixis_fef94125_aa8d_4147_a609_1e990961bde2_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/GRIXIS/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=fef94125-aa8d-4147-a609-1e990961bde2`
-- Identity authority: `data/raw-factions/grixis/grixis.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Brainbite | “An Esper mage will leave a hole in your memory with surgical precision. A Grixis mage sees no reason to be so kind.” | `EXPLICIT_IDENTITY_REFERENCE` | `grixis_claim_0003`<br>`grixis_claim_0004`<br>`grixis_claim_0006` | Brainbite's exact excerpt provides a bounded voice echo of Grixis named directly as harsher than Esper in its use of information and harm. The excerpt is admissible for owner review only because its language corresponds to certified claims grixis_claim_0003, grixis_claim_0004, grixis_claim_0006; the relationship does not arise from card color, product membership, tags, or mechanics. | Esper and Dimir share precision and information leverage; the explicit Esper/Grixis contrast makes the Grixis ruthlessness distinction visible. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=fef94125-aa8d-4147-a609-1e990961bde2` | **APPROVE / REVISE / REJECT** (`packet1_voice_grixis_fef94125_aa8d_4147_a609_1e990961bde2_3`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_grixis_f5092c14_eec4_472c_999c_ba96c36b2fbb`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_grixis_8a5e3c8e_8e22_49b9_8ee5_4a36361f0da6_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_grixis_f5092c14_eec4_472c_999c_ba96c36b2fbb_1`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_grixis_fef94125_aa8d_4147_a609_1e990961bde2_3`: **APPROVE / REVISE / REJECT**
 ## Gruul Clans (`RG`)
 
@@ -1136,16 +794,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 ### Certified identity evidence
 
-- `claim_gruul_clans_key_figure_0012`
-- `claim_gruul_clans_key_figure_0013`
-- `claim_gruul_clans_key_figure_0035`
-- `claim_gruul_clans_key_figure_0036`
-- `claim_gruul_clans_key_figure_0046`
-- `claim_gruul_clans_key_figure_0023`
-- `claim_gruul_clans_structure_0021`
-- `claim_gruul_clans_philosophy_0022`
-- `claim_gruul_clans_key_figure_0016`
-- `claim_gruul_clans_structure_0017`
+- `claim_gruul_clans_key_figure_0012`: Borborygmos is an unusually massive cyclops and the savage leader of the Burning Tree clan in the Gatecrash-era official guide.
+- `claim_gruul_clans_key_figure_0013`: Borborygmos had defended his position as the Gruul's mightiest clan leader for several decades in the Gatecrash-era official guide.
+- `claim_gruul_clans_key_figure_0035`: The Ravnica Allegiance flavor guide states that Borborygmos was considered the Gruul's de facto leader by most Ravnicans because Burning Tree was the largest and most powerful clan.
+- `claim_gruul_clans_key_figure_0036`: The Ravnica Allegiance flavor guide states that Domri Rade bested Borborygmos in combat and became in charge of the Gruul Clans.
+- `claim_gruul_clans_key_figure_0046`: In War of the Spark, Domri Rade is described as having replaced Borborygmos as the Gruul's new guildmaster.
+- `claim_gruul_clans_key_figure_0023`: Nikya of the Old Ways is identified as the Zhur-Taa leader and a powerful shaman in the Gatecrash-era official guide.
+- `claim_gruul_clans_structure_0021`: The Zhur-Taa clan claims to follow the old ways and is close to its beasts, with shamans adept at summoning and training beasts for war-companions and mounts.
+- `claim_gruul_clans_philosophy_0022`: The Zhur-Taa worship the Utmungr, gods of the deep earth, and await an ancient boar god who will raze the over-civilized world.
+- `claim_gruul_clans_key_figure_0016`: Ruric Thar is identified as the leader of the Ghor clan in the Gatecrash-era official guide.
+- `claim_gruul_clans_structure_0017`: The Ghor clan is described as executing the most frequent and savage assaults on Ravnican citizenry among the stable Gruul clans.
 
 ### Canonical card evidence
 
@@ -1168,39 +826,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 - **Hallar, the Firefletcher** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/gruul_clans/gruul_clans.profile.json#/commander_compass/weird_stretch_commanders/0`
 
-### Voice candidate 1: Burning-Tree Emissary
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “Those who regard the Gruul as savage simpletons underestimate the subtle power of their shamans.”
-- Proposal: `packet1_voice_rg_327d9679_0049_4401_8dab_e0fb362306bd_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/RG/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=327d9679-0049-4401-8dab-e0fb362306bd`
-- Identity authority: `data/raw-factions/gruul_clans/gruul_clans.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Burning-Tree Shaman
-
-- Exact excerpt: “Gruul shamans are bent on punishing the civilized. Any act more complex than rubbing sticks together or eating with u...”
-- Proposal: `packet1_voice_rg_8593e899_8e6f_4d40_96ab_98788b3d9486_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/RG/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=8593e899-8e6f-4d40-96ab-98788b3d9486`
-- Identity authority: `data/raw-factions/gruul_clans/gruul_clans.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Bolrac-Clan Crusher
-
-- Exact excerpt: “Jaharg discovered that the shapes and symmetries so pleasing to the sculptor's eye also yielded a well-balanced bludg...”
-- Proposal: `packet1_voice_rg_dbfa5409_5706_4de8_8152_e74b8d93910a_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/RG/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=dbfa5409-5706-4de8-8152-e74b8d93910a`
-- Identity authority: `data/raw-factions/gruul_clans/gruul_clans.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Burning-Tree Emissary | “Those who regard the Gruul as savage simpletons underestimate the subtle power of their shamans.” | `EXPLICIT_IDENTITY_REFERENCE` | `claim_gruul_clans_core_identity_0002`<br>`claim_gruul_clans_philosophy_0004`<br>`claim_gruul_clans_placement_0001` | Burning-Tree Emissary's exact excerpt provides a bounded voice echo of the Gruul named directly while rejecting the assumption that their wildness lacks subtle power. The excerpt is admissible for owner review only because its language corresponds to certified claims claim_gruul_clans_core_identity_0002, claim_gruul_clans_philosophy_0004, claim_gruul_clans_placement_0001; the relationship does not arise from card color, product membership, tags, or mechanics. | Red, Green, and Temur can sound instinctive or wild; the explicit Gruul anti-civilization and shaman context supplies the relationship. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=327d9679-0049-4401-8dab-e0fb362306bd` | **APPROVE / REVISE / REJECT** (`packet1_voice_rg_327d9679_0049_4401_8dab_e0fb362306bd_2`) |
 
 ### Owner decision
 
 - rationale: **RETAINED APPROVED AUTHORITY — no new decision**
 - voice `packet1_voice_rg_327d9679_0049_4401_8dab_e0fb362306bd_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_rg_8593e899_8e6f_4d40_96ab_98788b3d9486_3`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_rg_dbfa5409_5706_4de8_8152_e74b8d93910a_1`: **APPROVE / REVISE / REJECT**
 ## House Dimir (`UB`)
 
 ### Existing approved rationale(s)
@@ -1239,39 +874,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 - **Etrata, the Silencer** — `REJECTED`: Rejected in its current form: Existing wording contains reviewer/source-method language and is not eligible as player copy. Source: `data/raw-factions/house_dimir/house_dimir.profile.json#/commander_compass/weird_stretch_commanders/0`
 
-### Voice candidate 1: Bontu's Last Reckoning
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “To the last, Bontu wanted only to be first among the God-Pharaoh's subjects.”
-- Proposal: `packet1_voice_ub_c010d833_1873_4132_b4ff_8d78b3d7c2d7_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/UB/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=c010d833-1873-4132-b4ff-8d78b3d7c2d7`
-- Identity authority: `data/raw-factions/house_dimir/house_dimir.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Consult the Necrosages
-
-- Exact excerpt: “Dimir rank and file never see nor hear their guildmaster. All orders are given through mysterious necrosages who appe...”
-- Proposal: `packet1_voice_ub_c9edddb4_0d60_4d21_8887_51d943c6a31f_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/UB/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=c9edddb4-0d60-4d21-8887-51d943c6a31f`
-- Identity authority: `data/raw-factions/house_dimir/house_dimir.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Artful Takedown
-
-- Exact excerpt: “Dimir assassinations are choreographed like dance routines. Each challenge is anticipated and countered with graceful...”
-- Proposal: `packet1_voice_ub_edc193bf_2987_4c7b_9cf3_69089ff13764_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/UB/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=edc193bf-2987-4c7b-9cf3-69089ff13764`
-- Identity authority: `data/raw-factions/house_dimir/house_dimir.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Consult the Necrosages | “Dimir rank and file never see nor hear their guildmaster. All orders are given through mysterious necrosages who appe...” | `EXPLICIT_IDENTITY_REFERENCE` | `house_dimir_claim_0017`<br>`house_dimir_claim_0018`<br>`house_dimir_claim_0019` | Consult the Necrosages's exact excerpt provides a bounded voice echo of Dimir named directly through unseen hierarchy and orders delivered by mysterious intermediaries. The excerpt is admissible for owner review only because its language corresponds to certified claims house_dimir_claim_0017, house_dimir_claim_0018, house_dimir_claim_0019; the relationship does not arise from card color, product membership, tags, or mechanics. | Azorius and Orzhov also use hierarchy, while Blue/Black use information; the hidden backroom delivery is the Dimir distinction. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=c9edddb4-0d60-4d21-8887-51d943c6a31f` | **APPROVE / REVISE / REJECT** (`packet1_voice_ub_c9edddb4_0d60_4d21_8887_51d943c6a31f_2`) |
 
 ### Owner decision
 
 - rationale: **RETAINED APPROVED AUTHORITY — no new decision**
-- voice `packet1_voice_ub_c010d833_1873_4132_b4ff_8d78b3d7c2d7_3`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_ub_c9edddb4_0d60_4d21_8887_51d943c6a31f_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_ub_edc193bf_2987_4c7b_9cf3_69089ff13764_1`: **APPROVE / REVISE / REJECT**
 ## Ink / Altruism (`INK`)
 
 ### Existing approved rationale(s)
@@ -1309,39 +921,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 - None beyond the selected or retained card relationship(s).
 
-### Voice candidate 1: Access Denied
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “The Saiba Futurists guard their secret experiments with ever-evolving networks of cutting-edge defensive technology.”
-- Proposal: `packet1_voice_ink_353dd446_2ea6_41c9_a10f_5a03e4de19b4_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/INK/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=353dd446-2ea6-41c9-a10f-5a03e4de19b4`
-- Identity authority: `data/raw-factions/ink/ink.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Aberrant Manawurm
-
-- Exact excerpt: “"What is the equation for terror?" —Lost research note, Paradox Gardens”
-- Proposal: `packet1_voice_ink_a0657586_0404_4bb0_a92d_25f040d560c1_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/INK/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=a0657586-0404-4bb0-a92d-25f040d560c1`
-- Identity authority: `data/raw-factions/ink/ink.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Ancestral Anger
-
-- Exact excerpt: “An incautious Lorehold student may learn more about the unbound rage of the Blood Age than they wanted to.”
-- Proposal: `packet1_voice_ink_e0828e8d_f01f_4088_9123_6d923ddb3242_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/INK/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=e0828e8d-f01f-4088-9123-6d923ddb3242`
-- Identity authority: `data/raw-factions/ink/ink.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Command Tower | “Knowledge is wasted if not shared.” | `CERTIFIED_SEMANTIC_ECHO` | `ink_claim_0005` | Command Tower's exact excerpt provides a bounded voice echo of knowledge treated as wasted unless it is shared. The excerpt is admissible for owner review only because its language corresponds to certified claims ink_claim_0005; the relationship does not arise from card color, product membership, tags, or mechanics. | White, Blue, Selesnya, and Five-Color can all value sharing. This proposal is limited to Ink's certified open-knowledge and community-benefit frame and does not prove the four-color identity. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=0895c9b7-ae7d-4bb3-af17-3b75deb50a25` | **APPROVE / REVISE / REJECT** (`packet1_voice_ink_0895c9b7_ae7d_4bb3_af17_3b75deb50a25_replacement`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_ink_53ee4254_fef7_49ec_aafc_0320987764e6`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_ink_353dd446_2ea6_41c9_a10f_5a03e4de19b4_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_ink_a0657586_0404_4bb0_a92d_25f040d560c1_1`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_ink_e0828e8d_f01f_4088_9123_6d923ddb3242_3`: **APPROVE / REVISE / REJECT**
+- voice `packet1_voice_ink_0895c9b7_ae7d_4bb3_af17_3b75deb50a25_replacement`: **APPROVE / REVISE / REJECT**
 ## Izzet League (`UR`)
 
 ### Existing approved rationale(s)
@@ -1361,22 +950,22 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 ### Certified identity evidence
 
-- `claim_izzet_league_0008`
-- `claim_izzet_league_0009`
-- `claim_izzet_league_0025`
-- `claim_izzet_league_0036`
-- `claim_izzet_league_0037`
-- `claim_izzet_league_0039`
-- `claim_izzet_league_0045`
-- `claim_izzet_league_0101`
-- `claim_izzet_league_0102`
-- `claim_izzet_league_0008`
-- `claim_izzet_league_0009`
-- `claim_izzet_league_0025`
-- `claim_izzet_league_0036`
-- `claim_izzet_league_0037`
-- `claim_izzet_league_0039`
-- `claim_izzet_league_0045`
+- `claim_izzet_league_0008`: Niv-Mizzet, the Firemind, is the original parun of the Izzet League.
+- `claim_izzet_league_0009`: Niv-Mizzet rarely concerns himself with the day-to-day running of the Izzet guild.
+- `claim_izzet_league_0025`: Niv-Mizzet compartmentalizes information among the members of his guild.
+- `claim_izzet_league_0036`: Operation Desperation sought to resurrect Niv-Mizzet as the new Living Guildpact.
+- `claim_izzet_league_0037`: Under the terms described by Ral Zarek during Operation Desperation, Niv-Mizzet would step down as guildmaster of the Izzet if resurrected as Living Guildpact.
+- `claim_izzet_league_0039`: Niv-Mizzet is the current embodiment of the Living Guildpact after taking over during War of the Spark.
+- `claim_izzet_league_0045`: Niv-Mizzet is described in Murders at Karlov Manor character guidance as the most intelligent being on Ravnica.
+- `claim_izzet_league_0101`: Project Lightning Bug states that Chamberlain Maree impressed Niv-Mizzet with her work on Melek.
+- `claim_izzet_league_0102`: Project Lightning Bug states that Maree and Mizzix calibrated Ral Zarek’s detector spell and improved its range.
+- `claim_izzet_league_0008`: Niv-Mizzet, the Firemind, is the original parun of the Izzet League.
+- `claim_izzet_league_0009`: Niv-Mizzet rarely concerns himself with the day-to-day running of the Izzet guild.
+- `claim_izzet_league_0025`: Niv-Mizzet compartmentalizes information among the members of his guild.
+- `claim_izzet_league_0036`: Operation Desperation sought to resurrect Niv-Mizzet as the new Living Guildpact.
+- `claim_izzet_league_0037`: Under the terms described by Ral Zarek during Operation Desperation, Niv-Mizzet would step down as guildmaster of the Izzet if resurrected as Living Guildpact.
+- `claim_izzet_league_0039`: Niv-Mizzet is the current embodiment of the Living Guildpact after taking over during War of the Spark.
+- `claim_izzet_league_0045`: Niv-Mizzet is described in Murders at Karlov Manor character guidance as the most intelligent being on Ravnica.
 
 ### Canonical card evidence
 
@@ -1402,38 +991,15 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Ovika, Enigma Goliath** — `REJECTED`: Rejected in its current form: Current relationship bridge depends on generic color, product, or mechanical analogy rather than a direct native identity/card anchor. Source: `data/raw-factions/izzet_league/izzet_league.profile.json#/commander_compass/weird_stretch_commanders/0`
 - **Vadrik, Astral Archmage** — `REJECTED`: Rejected in its current form: Current relationship bridge depends on generic color, product, or mechanical analogy rather than a direct native identity/card anchor. Source: `data/raw-factions/izzet_league/izzet_league.profile.json#/commander_compass/budget_friendly_commanders/0`
 
-### Voice candidate 1: Cloven Casting
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “"Let us flee to the deep jungle. Our city is no longer safe—and I suspect neither is the fallback retreat."”
-- Proposal: `packet1_voice_ur_2b08e5f7_c771_4e03_8560_15de6a8bec71_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/UR/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=2b08e5f7-c771-4e03-8560-15de6a8bec71`
-- Identity authority: `data/raw-factions/izzet_league/izzet_league.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Desperate Ravings
-
-- Exact excerpt: “Her mind was quite gone, yet she spoke nothing but truth.”
-- Proposal: `packet1_voice_ur_8b96c334_82c7_4511_805e_f04c27514d7c_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/UR/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=8b96c334-82c7-4511-805e-f04c27514d7c`
-- Identity authority: `data/raw-factions/izzet_league/izzet_league.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Beamsplitter Mage
-
-- Exact excerpt: “The Izzet love replicating results.”
-- Proposal: `packet1_voice_ur_fa09e18c_e7cf_4f08_9cc4_324e36594063_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/UR/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=fa09e18c-e7cf-4f08-9cc4-324e36594063`
-- Identity authority: `data/raw-factions/izzet_league/izzet_league.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Beamsplitter Mage | “The Izzet love replicating results.” | `EXPLICIT_IDENTITY_REFERENCE` | `claim_izzet_league_0001`<br>`claim_izzet_league_0003`<br>`claim_izzet_league_0004`<br>`claim_izzet_league_0006` | Beamsplitter Mage's exact excerpt provides a bounded voice echo of the Izzet named directly through delight in replicating experimental results. The excerpt is admissible for owner review only because its language corresponds to certified claims claim_izzet_league_0001, claim_izzet_league_0003, claim_izzet_league_0004, claim_izzet_league_0006; the relationship does not arise from card color, product membership, tags, or mechanics. | Prismari and Quandrix also experiment; Izzet requires invention, technical outcomes, or infrastructure rather than art or proof as the purpose. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=fa09e18c-e7cf-4f08-9cc4-324e36594063` | **APPROVE / REVISE / REJECT** (`packet1_voice_ur_fa09e18c_e7cf_4f08_9cc4_324e36594063_1`) |
 
 ### Owner decision
 
 - rationale: **RETAINED APPROVED AUTHORITY — no new decision**
-- voice `packet1_voice_ur_2b08e5f7_c771_4e03_8560_15de6a8bec71_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_ur_8b96c334_82c7_4511_805e_f04c27514d7c_3`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_ur_fa09e18c_e7cf_4f08_9cc4_324e36594063_1`: **APPROVE / REVISE / REJECT**
 ## Jeskai Way (`JESKAI`)
 
@@ -1474,39 +1040,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Narset, Enlightened Master** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/jeskai/jeskai.profile.json#/commander_compass/native_fit_commanders/1`
 - **Kasla, the Broken Halo** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/jeskai/jeskai.profile.json#/commander_compass/native_fit_commanders/2`
 
-### Voice candidate 1: Bloodfire Expert
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “Some efreet abandon their homes in the volcanic Fire Rim to embrace the Jeskai Way and discipline their innate flames.”
-- Proposal: `packet1_voice_jeskai_341cf654_faf7_4db9_bd9a_70783f1ccff0_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/JESKAI/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=341cf654-faf7-4db9-bd9a-70783f1ccff0`
-- Identity authority: `data/raw-factions/jeskai/jeskai.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Shiko and Narset, Unified
-
-- Exact excerpt: “For peace, lead by example.”
-- Proposal: `packet1_voice_jeskai_40ed32a6_ad56_48c7_aecf_b4238c34c212_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/JESKAI/0`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=40ed32a6-ad56-48c7-aecf-b4238c34c212`
-- Identity authority: `data/raw-factions/jeskai/jeskai.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Narset, Enlightened Exile
-
-- Exact excerpt: “They called her unique insight a "gift." Then she saw the truth, and suddenly it was a "threat."”
-- Proposal: `packet1_voice_jeskai_d92725de_ead0_4a6c_83db_55ec3acc7184_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/JESKAI/2`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=d92725de-ead0-4a6c-83db-55ec3acc7184`
-- Identity authority: `data/raw-factions/jeskai/jeskai.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Bloodfire Expert | “Some efreet abandon their homes in the volcanic Fire Rim to embrace the Jeskai Way and discipline their innate flames.” | `EXPLICIT_IDENTITY_REFERENCE` | `jeskai_claim_0002`<br>`jeskai_claim_0004`<br>`jeskai_claim_0005` | Bloodfire Expert's exact excerpt provides a bounded voice echo of the Jeskai Way named directly through discipline applied to innate flame. The excerpt is admissible for owner review only because its language corresponds to certified claims jeskai_claim_0002, jeskai_claim_0004, jeskai_claim_0005; the relationship does not arise from card color, product membership, tags, or mechanics. | Prismari and Izzet also join Blue and Red through technique; the explicit Jeskai discipline, monastery, and bloodfire context supplies the bridge. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=341cf654-faf7-4db9-bd9a-70783f1ccff0` | **APPROVE / REVISE / REJECT** (`packet1_voice_jeskai_341cf654_faf7_4db9_bd9a_70783f1ccff0_2`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_jeskai_40ed32a6_ad56_48c7_aecf_b4238c34c212`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_jeskai_341cf654_faf7_4db9_bd9a_70783f1ccff0_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_jeskai_40ed32a6_ad56_48c7_aecf_b4238c34c212_1`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_jeskai_d92725de_ead0_4a6c_83db_55ec3acc7184_3`: **APPROVE / REVISE / REJECT**
 ## Jund (`JUND`)
 
 ### Existing approved rationale(s)
@@ -1548,38 +1091,15 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Auntie Ool, Cursewretch** — `REJECTED`: Rejected in its current form: Current relationship bridge depends on generic color, product, or mechanical analogy rather than a direct native identity/card anchor. Source: `data/raw-factions/jund/jund.profile.json#/commander_compass/budget_friendly_commanders/0`
 - **Lord Windgrace** — `REJECTED`: Rejected in its current form: Current relationship bridge depends on generic color, product, or mechanical analogy rather than a direct native identity/card anchor. Source: `data/raw-factions/jund/jund.profile.json#/commander_compass/advanced_complexity_commanders/0`
 
-### Voice candidate 1: Charnelhoard Wurm
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “Jund's dragons hoard only sangrite crystals. Its wurms aren't so picky.”
-- Proposal: `packet1_voice_jund_4a430fa3_e693_424b_9981_d7d8193445e3_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/JUND/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=4a430fa3-e693-424b-9981-d7d8193445e3`
-- Identity authority: `data/raw-factions/jund/jund.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Algae Gharial
-
-- Exact excerpt: “It lurks just under the surface, using the algae-choked tar pits of Jund as both home and hunting blind.”
-- Proposal: `packet1_voice_jund_7020dc51_8271_40a3_9c4c_ebd40c0b08b2_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/JUND/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=7020dc51-8271-40a3-9c4c-ebd40c0b08b2`
-- Identity authority: `data/raw-factions/jund/jund.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Broodmate Tyrant
-
-- Exact excerpt: “Karrthus was not the first Tyrant of Jund, nor will he be the last.”
-- Proposal: `packet1_voice_jund_9b984236_39cf_4552_827b_e81c26cfb388_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/JUND/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=9b984236-39cf-4552-827b-e81c26cfb388`
-- Identity authority: `data/raw-factions/jund/jund.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Broodmate Tyrant | “Karrthus was not the first Tyrant of Jund, nor will he be the last.” | `EXPLICIT_IDENTITY_REFERENCE` | `jund_claim_0003`<br>`jund_claim_0005`<br>`jund_claim_0007` | Broodmate Tyrant's exact excerpt provides a bounded voice echo of Jund named directly through embodied succession, dominance, and survival. The excerpt is admissible for owner review only because its language corresponds to certified claims jund_claim_0003, jund_claim_0005, jund_claim_0007; the relationship does not arise from card color, product membership, tags, or mechanics. | Gruul, Naya, and Grixis can share force or survival; the explicit Jund predatory-world framing prevents generic BRG inference. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=9b984236-39cf-4552-827b-e81c26cfb388` | **APPROVE / REVISE / REJECT** (`packet1_voice_jund_9b984236_39cf_4552_827b_e81c26cfb388_1`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_jund_868882d2_ed4e_4171_a17c_478a341080fb`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_jund_4a430fa3_e693_424b_9981_d7d8193445e3_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_jund_7020dc51_8271_40a3_9c4c_ebd40c0b08b2_3`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_jund_9b984236_39cf_4552_827b_e81c26cfb388_1`: **APPROVE / REVISE / REJECT**
 ## Lorehold College (`LOREHOLD`)
 
@@ -1599,25 +1119,25 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 ### Certified identity evidence
 
-- `claim_lorehold_figure_0001`
-- `claim_lorehold_figure_0002`
-- `claim_lorehold_figure_0003`
-- `claim_lorehold_figure_0004`
-- `claim_lorehold_mechanic_0011`
-- `claim_lorehold_mechanic_0012`
-- `claim_lorehold_figure_0005`
-- `claim_lorehold_figure_0006`
-- `claim_lorehold_figure_0007`
-- `claim_lorehold_location_0006`
-- `claim_lorehold_timeline_0006`
-- `claim_lorehold_figure_0021`
-- `claim_lorehold_figure_0015`
-- `claim_lorehold_figure_0001`
-- `claim_lorehold_figure_0002`
-- `claim_lorehold_figure_0003`
-- `claim_lorehold_figure_0004`
-- `claim_lorehold_mechanic_0011`
-- `claim_lorehold_mechanic_0012`
+- `claim_lorehold_figure_0001`: Velomachus Lorehold is one of the five elder dragon founders of Strixhaven University.
+- `claim_lorehold_figure_0002`: Velomachus Lorehold is observant and standoffish, and considers it her responsibility to watch and document history without interference unless necessary.
+- `claim_lorehold_figure_0003`: Velomachus Lorehold expects people to learn from the past and work toward a better future.
+- `claim_lorehold_figure_0004`: Velomachus Lorehold has a fondness for collecting artifacts and trinkets.
+- `claim_lorehold_mechanic_0011`: Velomachus Lorehold is a red-white legendary Elder Dragon card with flying, vigilance, and haste.
+- `claim_lorehold_mechanic_0012`: Velomachus Lorehold's attack trigger can cast an instant or sorcery from the top seven cards of its controller's library if the spell's mana value is less than or equal to Velomachus's power.
+- `claim_lorehold_figure_0005`: Quintorius Kand is a Lorehold student who became a recently sparked Planeswalker by the 2026 Secrets of Strixhaven legend guide.
+- `claim_lorehold_figure_0006`: Quintorius Kand is described as a prolific reader and gregarious adventurer with deep appreciation for cultures, histories, and myths.
+- `claim_lorehold_figure_0007`: Quintorius Kand has investigated remnants of the Fomori and mysterious multiversal colonizers lost to time.
+- `claim_lorehold_location_0006`: Zantafar is a lost, ruined city rediscovered by Quintorius Kand and later became a historical site of great interest to Lorehold mages and anthropologists.
+- `claim_lorehold_timeline_0006`: Quintorius used spirit/statue magic during the New Phyrexian invasion of Arcavios to seek guidance from Strixhaven's earliest professors.
+- `claim_lorehold_figure_0021`: Quintorius guides younger Lorehold students at the Fields of Strife while investigating the remnants of the Fomori and a mysterious multiversal empire.
+- `claim_lorehold_figure_0015`: Asterion helps redirect Quintorius from a mistaken Pillardrop excavation theory toward Zantafar.
+- `claim_lorehold_figure_0001`: Velomachus Lorehold is one of the five elder dragon founders of Strixhaven University.
+- `claim_lorehold_figure_0002`: Velomachus Lorehold is observant and standoffish, and considers it her responsibility to watch and document history without interference unless necessary.
+- `claim_lorehold_figure_0003`: Velomachus Lorehold expects people to learn from the past and work toward a better future.
+- `claim_lorehold_figure_0004`: Velomachus Lorehold has a fondness for collecting artifacts and trinkets.
+- `claim_lorehold_mechanic_0011`: Velomachus Lorehold is a red-white legendary Elder Dragon card with flying, vigilance, and haste.
+- `claim_lorehold_mechanic_0012`: Velomachus Lorehold's attack trigger can cast an instant or sorcery from the top seven cards of its controller's library if the spell's mana value is less than or equal to Velomachus's power.
 
 ### Canonical card evidence
 
@@ -1640,39 +1160,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 - None beyond the selected or retained card relationship(s).
 
-### Voice candidate 1: Arabella, Abandoned Doll
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “Every night, Cori threw the unsettling doll away. Every morning, it was back on the shelf, its eyes following her every move.”
-- Proposal: `packet1_voice_lorehold_7c4bbb1b_29c4_4e06_aed0_b361293a585b_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/LOREHOLD/2`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=7c4bbb1b-29c4-4e06-aed0-b361293a585b`
-- Identity authority: `data/raw-factions/lorehold/lorehold.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Campus Renovation
-
-- Exact excerpt: “Reconstructing the past is Lorehold's specialty.”
-- Proposal: `packet1_voice_lorehold_d34a3b58_a905_4e90_b35c_9f5c21149b04_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/LOREHOLD/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=d34a3b58-a905-4e90-b35c-9f5c21149b04`
-- Identity authority: `data/raw-factions/lorehold/lorehold.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Ancestral Anger
-
-- Exact excerpt: “An incautious Lorehold student may learn more about the unbound rage of the Blood Age than they wanted to.”
-- Proposal: `packet1_voice_lorehold_e0828e8d_f01f_4088_9123_6d923ddb3242_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/LOREHOLD/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=e0828e8d-f01f-4088-9123-6d923ddb3242`
-- Identity authority: `data/raw-factions/lorehold/lorehold.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Campus Renovation | “Reconstructing the past is Lorehold's specialty.” | `EXPLICIT_IDENTITY_REFERENCE` | `claim_lorehold_placement_0001`<br>`claim_lorehold_placement_0002`<br>`claim_lorehold_placement_0009` | Campus Renovation's exact excerpt provides a bounded voice echo of Lorehold named directly through reconstructing and actively using the past. The excerpt is admissible for owner review only because its language corresponds to certified claims claim_lorehold_placement_0001, claim_lorehold_placement_0002, claim_lorehold_placement_0009; the relationship does not arise from card color, product membership, tags, or mechanics. | White, Red, and generic artifact recursion can preserve objects; the explicit Lorehold historical-reconstruction purpose is required. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=d34a3b58-a905-4e90-b35c-9f5c21149b04` | **APPROVE / REVISE / REJECT** (`packet1_voice_lorehold_d34a3b58_a905_4e90_b35c_9f5c21149b04_1`) |
 
 ### Owner decision
 
 - rationale: **RETAINED APPROVED AUTHORITY — no new decision**
-- voice `packet1_voice_lorehold_7c4bbb1b_29c4_4e06_aed0_b361293a585b_3`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_lorehold_d34a3b58_a905_4e90_b35c_9f5c21149b04_1`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_lorehold_e0828e8d_f01f_4088_9123_6d923ddb3242_2`: **APPROVE / REVISE / REJECT**
 ## Mardu Horde (`MARDU`)
 
 ### Existing approved rationale(s)
@@ -1711,38 +1208,15 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Alesha, Who Smiles at Death** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/mardu/mardu.profile.json#/commander_compass/native_fit_commanders/1`
 - **Edgar Markov** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/mardu/mardu.profile.json#/commander_compass/native_fit_commanders/2`
 
-### Voice candidate 1: Defibrillating Current
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “A small shock to save a life, a large one to take it away. —Mardu healer's adage”
-- Proposal: `packet1_voice_mardu_5a96b93b_bae6_48fb_87f5_05f3ffcf7ba9_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/MARDU/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=5a96b93b-bae6-48fb-87f5-05f3ffcf7ba9`
-- Identity authority: `data/raw-factions/mardu/mardu.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Alesha, Who Smiles at Death
-
-- Exact excerpt: “"Greet death with sword in hand."”
-- Proposal: `packet1_voice_mardu_6969a7e2_6866_4001_a139_24b3be13deae_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/MARDU/0`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=6969a7e2-6866-4001-a139-24b3be13deae`
-- Identity authority: `data/raw-factions/mardu/mardu.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Bloodsoaked Champion
-
-- Exact excerpt: “"Death is merely another foe the Mardu will overcome."”
-- Proposal: `packet1_voice_mardu_cad09970_14c8_4d80_82fe_6c855efb0191_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/MARDU/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=cad09970-14c8-4d80-82fe-6c855efb0191`
-- Identity authority: `data/raw-factions/mardu/mardu.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Bloodsoaked Champion | “"Death is merely another foe the Mardu will overcome."” | `EXPLICIT_IDENTITY_REFERENCE` | `mardu_claim_0002`<br>`mardu_claim_0003`<br>`mardu_claim_0005` | Bloodsoaked Champion's exact excerpt provides a bounded voice echo of the Mardu named directly through meeting death as another opponent. The excerpt is admissible for owner review only because its language corresponds to certified claims mardu_claim_0002, mardu_claim_0003, mardu_claim_0005; the relationship does not arise from card color, product membership, tags, or mechanics. | Rakdos, Jund, and Black also speak in violent or death-facing terms; the explicit Mardu honor-and-action context is the bridge. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=cad09970-14c8-4d80-82fe-6c855efb0191` | **APPROVE / REVISE / REJECT** (`packet1_voice_mardu_cad09970_14c8_4d80_82fe_6c855efb0191_3`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_mardu_0f93d88c_9d2e_416d_a10b_99483360b1fb`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_mardu_5a96b93b_bae6_48fb_87f5_05f3ffcf7ba9_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_mardu_6969a7e2_6866_4001_a139_24b3be13deae_1`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_mardu_cad09970_14c8_4d80_82fe_6c855efb0191_3`: **APPROVE / REVISE / REJECT**
 ## Naya (`NAYA`)
 
@@ -1783,39 +1257,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Pantlaza, Sun-Favored** — `REJECTED`: Rejected because generated-only display data is not relationship authority. Source: `data/factions.json#/factions/NAYA/commander_compass/native_fit_commanders`
 - **Marath, Will of the Wild** — `REJECTED`: Rejected because generated-only display data is not relationship authority. Source: `data/factions.json#/factions/NAYA/commander_compass/native_fit_commanders`
 
-### Voice candidate 1: Ajani's Mantra
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “"He hasn't returned to the Cloud Forest. But I can still sense his calming presence." —Zaliki of Naya”
-- Proposal: `packet1_voice_naya_2f47661e_a107_4d98_8773_0a068a63df49_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/NAYA/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=2f47661e-a107-4d98-8773-0a068a63df49`
-- Identity authority: `data/raw-factions/naya/naya.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Cradle of Vitality
-
-- Exact excerpt: “Naya's trees grow tall and sturdy. Their foliage intertwines to form dewcups, rainwater pools where the elves gather...”
-- Proposal: `packet1_voice_naya_956250da_532a_4457_8696_73915be56943_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/NAYA/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=956250da-532a-4457-8696-73915be56943`
-- Identity authority: `data/raw-factions/naya/naya.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Shalai and Hallar
-
-- Exact excerpt: “Between the angel's blade and the elf's bow, few Phyrexians made it as far as Llanowar's canopy.”
-- Proposal: `packet1_voice_naya_e7604cd9_d00d_4957_82c9_46a7cdb88209_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/NAYA/0`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=e7604cd9-d00d-4957-82c9-46a7cdb88209`
-- Identity authority: `data/raw-factions/naya/naya.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Cradle of Vitality | “Naya's trees grow tall and sturdy. Their foliage intertwines to form dewcups, rainwater pools where the elves gather...” | `EXPLICIT_IDENTITY_REFERENCE` | `naya_claim_0003`<br>`naya_claim_0004`<br>`naya_claim_0007` | Cradle of Vitality's exact excerpt provides a bounded voice echo of Naya named directly through abundant natural growth and gathering. The excerpt is admissible for owner review only because its language corresponds to certified claims naya_claim_0003, naya_claim_0004, naya_claim_0007; the relationship does not arise from card color, product membership, tags, or mechanics. | Selesnya and Green share growth and community; the explicit Naya ecosystem and abundance context prevents generic token or lifegain inference. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=956250da-532a-4457-8696-73915be56943` | **APPROVE / REVISE / REJECT** (`packet1_voice_naya_956250da_532a_4457_8696_73915be56943_2`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_naya_e7604cd9_d00d_4957_82c9_46a7cdb88209`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_naya_2f47661e_a107_4d98_8773_0a068a63df49_3`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_naya_956250da_532a_4457_8696_73915be56943_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_naya_e7604cd9_d00d_4957_82c9_46a7cdb88209_1`: **APPROVE / REVISE / REJECT**
 ## Orzhov Syndicate (`WB`)
 
 ### Existing approved rationale(s)
@@ -1881,39 +1332,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Athreos, God of Passage** — `REJECTED`: Rejected in its current form: Current relationship bridge depends on generic color, product, or mechanical analogy rather than a direct native identity/card anchor. Source: `data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/commander_compass/weird_stretch_commanders/0`
 - **Elas il-Kor, Sadistic Pilgrim** — `REJECTED`: Rejected in its current form: Current relationship bridge depends on generic color, product, or mechanical analogy rather than a direct native identity/card anchor. Source: `data/raw-factions/orzhov_syndicate/orzhov_syndicate.profile.json#/commander_compass/budget_friendly_commanders/0`
 
-### Voice candidate 1: Afterlife Insurance
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “As far as the Orzhov Syndicate is concerned, it is the height of irresponsibility not to have a plan for your own ghost.”
-- Proposal: `packet1_voice_wb_05501e88_d4c3_4474_92a9_c02ab15b107b_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WB/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=05501e88-d4c3-4474-92a9-c02ab15b107b`
-- Identity authority: `data/raw-factions/orzhov_syndicate/orzhov_syndicate.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Debt to the Deathless
-
-- Exact excerpt: “Some of Orzhov's cruelest collectors remember their debtors by taste alone.”
-- Proposal: `packet1_voice_wb_6130f22d_7901_4f9f_b777_27bb0dacc063_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WB/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=6130f22d-7901-4f9f-b777-27bb0dacc063`
-- Identity authority: `data/raw-factions/orzhov_syndicate/orzhov_syndicate.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Covetous Elegy
-
-- Exact excerpt: “Wealthier than ever thanks to exorbitant interest on wartime loans, the Orzhov only grew hungrier for more.”
-- Proposal: `packet1_voice_wb_dd69ef80_d30c_4b15_aec8_4154dc20cb25_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WB/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=dd69ef80-d30c-4b15-aec8-4154dc20cb25`
-- Identity authority: `data/raw-factions/orzhov_syndicate/orzhov_syndicate.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Afterlife Insurance | “As far as the Orzhov Syndicate is concerned, it is the height of irresponsibility not to have a plan for your own ghost.” | `EXPLICIT_IDENTITY_REFERENCE` | `orzhov_syndicate_claim_001`<br>`orzhov_syndicate_claim_002`<br>`orzhov_syndicate_claim_007`<br>`orzhov_syndicate_claim_0018` | Afterlife Insurance's exact excerpt provides a bounded voice echo of the Orzhov named directly through a businesslike obligation extending beyond death. The excerpt is admissible for owner review only because its language corresponds to certified claims orzhov_syndicate_claim_001, orzhov_syndicate_claim_002, orzhov_syndicate_claim_007, orzhov_syndicate_claim_0018; the relationship does not arise from card color, product membership, tags, or mechanics. | White/Black, Golgari, and Witherbloom also use death; the insurance/debt/business frame makes the Orzhov relationship specific. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=05501e88-d4c3-4474-92a9-c02ab15b107b` | **APPROVE / REVISE / REJECT** (`packet1_voice_wb_05501e88_d4c3_4474_92a9_c02ab15b107b_1`) |
 
 ### Owner decision
 
 - rationale: **RETAINED APPROVED AUTHORITY — no new decision**
 - voice `packet1_voice_wb_05501e88_d4c3_4474_92a9_c02ab15b107b_1`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_wb_6130f22d_7901_4f9f_b777_27bb0dacc063_3`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_wb_dd69ef80_d30c_4b15_aec8_4154dc20cb25_2`: **APPROVE / REVISE / REJECT**
 ## Prismari College (`PRISMARI`)
 
 ### Existing approved rationale(s)
@@ -1953,39 +1381,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 - **Muddle, the Ever-Changing** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/prismari/prismari.profile.json#/commander_compass/native_fit_commanders/1`
 
-### Voice candidate 1: Coastal Peak
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “Hidden across Arcavios are great sculptures chiseled by the claws of Galazeth Prismari himself.”
-- Proposal: `packet1_voice_prismari_0e25faa2_efb0_4ca5_b280_18c38faa860c_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/PRISMARI/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=0e25faa2-efb0-4ca5-b280-18c38faa860c`
-- Identity authority: `data/raw-factions/prismari/prismari.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Rootha, Mastering the Moment
-
-- Exact excerpt: “"The great thrill of perfection is that we'll always be chasing it."”
-- Proposal: `packet1_voice_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/PRISMARI/1`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=348c67ef-9ccc-4651-9038-efdf1ad1b36a`
-- Identity authority: `data/raw-factions/prismari/prismari.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Colorstorm Stallion
-
-- Exact excerpt: “Prismari students are never afraid to let their imaginations run wild.”
-- Proposal: `packet1_voice_prismari_47ee6837_2e2f_4344_ab9f_6b8887874f77_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/PRISMARI/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=47ee6837-2e2f-4344-ab9f-6b8887874f77`
-- Identity authority: `data/raw-factions/prismari/prismari.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Rootha, Mastering the Moment | “"The great thrill of perfection is that we'll always be chasing it."” | `NATIVE_FIGURE_OR_LOCATION` | `prismari_claim_002`<br>`prismari_claim_004`<br>`prismari_claim_006`<br>`prismari_claim_0025` | Rootha, Mastering the Moment's exact excerpt provides a bounded voice echo of a certified Prismari figure voicing perfection as an endless artistic pursuit. The excerpt is admissible for owner review only because its language corresponds to certified claims prismari_claim_002, prismari_claim_004, prismari_claim_006, prismari_claim_0025; the relationship does not arise from card color, product membership, tags, or mechanics. | Izzet, Quandrix, and Blue also pursue improvement; Prismari's technique-in-service-of-expression is the required distinction. | `data/scryfall/indexes/commander-index.json#oracle_id=348c67ef-9ccc-4651-9038-efdf1ad1b36a` | **APPROVE / REVISE / REJECT** (`packet1_voice_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a_2`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_prismari_0e25faa2_efb0_4ca5_b280_18c38faa860c_3`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_prismari_47ee6837_2e2f_4344_ab9f_6b8887874f77_1`: **APPROVE / REVISE / REJECT**
 ## Quandrix College (`QUANDRIX`)
 
 ### Existing approved rationale(s)
@@ -2025,38 +1430,15 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 - **Primo, the Unbounded** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/quandrix/quandrix.profile.json#/commander_compass/native_fit_commanders/1`
 
-### Voice candidate 1: Zimone, Infinite Analyst
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “"The best answers leave you with more questions."”
-- Proposal: `packet1_voice_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/QUANDRIX/0`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=977f9390-e01d-4e9d-8e9c-e543b1266972`
-- Identity authority: `data/raw-factions/quandrix/quandrix.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Aether Helix
-
-- Exact excerpt: “Some Quandrix mages prefer to study at twilight, watching their experimental equations trace glowing trails against t...”
-- Proposal: `packet1_voice_quandrix_9c83979a_b354_4e20_9638_85e8f354da81_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/QUANDRIX/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=9c83979a-b354-4e20-9638-85e8f354da81`
-- Identity authority: `data/raw-factions/quandrix/quandrix.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Additive Evolution
-
-- Exact excerpt: “"Numbers have no limits. Why should nature?" —Emil, Quandrix fourth-year”
-- Proposal: `packet1_voice_quandrix_ce1a6c1f_6b4e_4d19_b256_48d073b359b7_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/QUANDRIX/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=ce1a6c1f-6b4e-4d19-b256-48d073b359b7`
-- Identity authority: `data/raw-factions/quandrix/quandrix.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Additive Evolution | “"Numbers have no limits. Why should nature?" —Emil, Quandrix fourth-year” | `EXPLICIT_IDENTITY_REFERENCE` | `quandrix_claim_002`<br>`quandrix_claim_006`<br>`quandrix_claim_0019`<br>`quandrix_claim_0020` | Additive Evolution's exact excerpt provides a bounded voice echo of a Quandrix student explicitly joining unbounded numbers to living nature. The excerpt is admissible for owner review only because its language corresponds to certified claims quandrix_claim_002, quandrix_claim_006, quandrix_claim_0019, quandrix_claim_0020; the relationship does not arise from card color, product membership, tags, or mechanics. | Simic and Green also scale living systems; the explicit mathematical/natural synthesis makes this Quandrix rather than generic growth. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=ce1a6c1f-6b4e-4d19-b256-48d073b359b7` | **APPROVE / REVISE / REJECT** (`packet1_voice_quandrix_ce1a6c1f_6b4e_4d19_b256_48d073b359b7_3`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972_1`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_quandrix_9c83979a_b354_4e20_9638_85e8f354da81_2`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_quandrix_ce1a6c1f_6b4e_4d19_b256_48d073b359b7_3`: **APPROVE / REVISE / REJECT**
 ## Red (`R`)
 
@@ -2096,39 +1478,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Krenko, Mob Boss** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/red/red.profile.json#/commander_compass/native_fit_commanders/1`
 - **Magda, Brazen Outlaw** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/red/red.profile.json#/commander_compass/native_fit_commanders/2`
 
-### Voice candidate 1: Krenko, Mob Boss
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “"Threats? Extortion? Good sir, you have me all wrong. I am a legitimate businessman; my colleagues and I are simply here to conduct legitimate business."”
-- Proposal: `packet1_voice_r_68418069_f615_40ef_ae0d_764192acae00_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/R/1`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=68418069-f615-40ef-ae0d-764192acae00`
-- Identity authority: `data/raw-factions/red/red.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Torbran, Thane of Red Fell
-
-- Exact excerpt: “A dwarf's grudge runs deeper than the mountains' roots.”
-- Proposal: `packet1_voice_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/R/0`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=8c3495bf-02e7-4ad9-949d-92eb3d2b662a`
-- Identity authority: `data/raw-factions/red/red.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: General Kreat, the Boltbringer
-
-- Exact excerpt: “To cross swords with her is a shockingly bad idea.”
-- Proposal: `packet1_voice_r_da1c1c70_c2fa_4ba7_89fe_d9af3fb353b9_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/R/2`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=da1c1c70-c2fa-4ba7-89fe-d9af3fb353b9`
-- Identity authority: `data/raw-factions/red/red.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Torbran, Thane of Red Fell | “A dwarf's grudge runs deeper than the mountains' roots.” | `CERTIFIED_SEMANTIC_ECHO` | `red_claim_0002`<br>`red_claim_0004`<br>`red_claim_0006` | Torbran, Thane of Red Fell's exact excerpt provides a bounded voice echo of emotion held as a deep, active grudge rather than suppressed. The excerpt is admissible for owner review only because its language corresponds to certified claims red_claim_0002, red_claim_0004, red_claim_0006; the relationship does not arise from card color, product membership, tags, or mechanics. | Black, Rakdos, Gruul, and Jund also express anger or grievance. This is a bounded mono-Red emotional-intensity echo, not identity proof from the card's color. | `data/scryfall/indexes/commander-index.json#oracle_id=8c3495bf-02e7-4ad9-949d-92eb3d2b662a` | **APPROVE / REVISE / REJECT** (`packet1_voice_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a_1`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_r_68418069_f615_40ef_ae0d_764192acae00_2`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a_1`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_r_da1c1c70_c2fa_4ba7_89fe_d9af3fb353b9_3`: **APPROVE / REVISE / REJECT**
 ## Selesnya Conclave (`WG`)
 
 ### Existing approved rationale(s)
@@ -2172,39 +1531,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Rhys the Redeemed** — `REJECTED`: Rejected in its current form: Existing wording contains reviewer/source-method language and is not eligible as player copy. Source: `data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json#/commander_compass/advanced_complexity_commanders/0`
 - **Trostani Discordant** — `REJECTED`: Rejected in its current form: Existing wording contains reviewer/source-method language and is not eligible as player copy. Source: `data/raw-factions/selesnya_conclave/selesnya_conclave.profile.json#/commander_compass/iconic_lore_forward_commanders/0`
 
-### Voice candidate 1: Camaraderie
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “"Within the song of Mat'Selesnya, one becomes all." —Heruj, Selesnya hierophant”
-- Proposal: `packet1_voice_wg_9aab386c_d48c_4611_b757_aa69b26cc1b1_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WG/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=9aab386c-d48c-4611-b757-aa69b26cc1b1`
-- Identity authority: `data/raw-factions/selesnya_conclave/selesnya_conclave.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Trostani, Selesnya's Voice
-
-- Exact excerpt: “There are no soloists in the chorus of Selesnya.”
-- Proposal: `packet1_voice_wg_e94ef397_f5c5_4b8d_ae27_528352fa1d1e_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WG/2`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=e94ef397-f5c5-4b8d-ae27-528352fa1d1e`
-- Identity authority: `data/raw-factions/selesnya_conclave/selesnya_conclave.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Advent of the Wurm
-
-- Exact excerpt: “The consciousness of Mat'Selesnya does not always spread in peaceful ways.”
-- Proposal: `packet1_voice_wg_eb62aa4b_c11b_4195_ae85_cff8f78ce17b_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WG/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=eb62aa4b-c11b-4195-ae85-cff8f78ce17b`
-- Identity authority: `data/raw-factions/selesnya_conclave/selesnya_conclave.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Camaraderie | “"Within the song of Mat'Selesnya, one becomes all." —Heruj, Selesnya hierophant” | `EXPLICIT_IDENTITY_REFERENCE` | `selesnya_conclave_claim_001`<br>`selesnya_conclave_claim_002`<br>`selesnya_conclave_claim_007` | Camaraderie's exact excerpt provides a bounded voice echo of Mat'Selesnya named directly through the individual becoming part of a communal voice. The excerpt is admissible for owner review only because its language corresponds to certified claims selesnya_conclave_claim_001, selesnya_conclave_claim_002, selesnya_conclave_claim_007; the relationship does not arise from card color, product membership, tags, or mechanics. | White, Green, Bant, and Ink also value community; the explicit Worldsoul/conclave unity frame is the Selesnya bridge. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=9aab386c-d48c-4611-b757-aa69b26cc1b1` | **APPROVE / REVISE / REJECT** (`packet1_voice_wg_9aab386c_d48c_4611_b757_aa69b26cc1b1_1`) |
 
 ### Owner decision
 
 - rationale: **RETAINED APPROVED AUTHORITY — no new decision**
 - voice `packet1_voice_wg_9aab386c_d48c_4611_b757_aa69b26cc1b1_1`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_wg_e94ef397_f5c5_4b8d_ae27_528352fa1d1e_3`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_wg_eb62aa4b_c11b_4195_ae85_cff8f78ce17b_2`: **APPROVE / REVISE / REJECT**
 ## Silverquill College (`SILVERQUILL`)
 
 ### Existing approved rationale(s)
@@ -2244,38 +1580,15 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Killian, Decisive Mentor** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/silverquill/silverquill.profile.json#/commander_compass/native_fit_commanders/0`
 - **Scriv, the Obligator** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/silverquill/silverquill.profile.json#/commander_compass/native_fit_commanders/1`
 
-### Voice candidate 1: Edgar, Charmed Groom // Edgar Markov's Coffin
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “"Our kind has taken my gift for granted. It is time to correct that folly."”
-- Proposal: `packet1_voice_silverquill_96cb97ca_4ce0_4d33_86fb_4db4ce1956be_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/SILVERQUILL/2`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=96cb97ca-4ce0-4d33-86fb-4db4ce1956be`
-- Identity authority: `data/raw-factions/silverquill/silverquill.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Baron Bertram Graywater
-
-- Exact excerpt: “"Of course the law's on my side. I wrote it."”
-- Proposal: `packet1_voice_silverquill_e25b516c_bf95_42bc_8b1e_04617a3d28df_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/SILVERQUILL/1`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=e25b516c-bf95-42bc-8b1e-04617a3d28df`
-- Identity authority: `data/raw-factions/silverquill/silverquill.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Beaming Defiance
-
-- Exact excerpt: “"I've lived too long in my father's shadow. It's time to find my own light." —Killian, Silverquill mage-student”
-- Proposal: `packet1_voice_silverquill_f88eeb04_4b8e_4c76_a8c6_90887b94d518_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/SILVERQUILL/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=f88eeb04-4b8e-4c76-a8c6-90887b94d518`
-- Identity authority: `data/raw-factions/silverquill/silverquill.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Beaming Defiance | “"I've lived too long in my father's shadow. It's time to find my own light." —Killian, Silverquill mage-student” | `EXPLICIT_IDENTITY_REFERENCE` | `silverquill_claim_0019`<br>`silverquill_claim_0020`<br>`silverquill_claim_0021` | Beaming Defiance's exact excerpt provides a bounded voice echo of a Silverquill student using language of shadow, light, self-definition, and visible presence. The excerpt is admissible for owner review only because its language corresponds to certified claims silverquill_claim_0019, silverquill_claim_0020, silverquill_claim_0021; the relationship does not arise from card color, product membership, tags, or mechanics. | Prismari and mono-White can also value expression or confidence; Silverquill requires word/social influence and power-awareness rather than art alone. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=f88eeb04-4b8e-4c76-a8c6-90887b94d518` | **APPROVE / REVISE / REJECT** (`packet1_voice_silverquill_f88eeb04_4b8e_4c76_a8c6_90887b94d518_1`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_silverquill_d11e627b_8a48_411d_a261_2c9a02a758ba`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_silverquill_96cb97ca_4ce0_4d33_86fb_4db4ce1956be_3`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_silverquill_e25b516c_bf95_42bc_8b1e_04617a3d28df_2`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_silverquill_f88eeb04_4b8e_4c76_a8c6_90887b94d518_1`: **APPROVE / REVISE / REJECT**
 ## Simic Combine (`UG`)
 
@@ -2318,39 +1631,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Prime Speaker Vannifar** — `REJECTED`: Rejected in its current form: Existing wording contains reviewer/source-method language and is not eligible as player copy. Source: `data/raw-factions/simic_combine/simic_combine.profile.json#/commander_compass/advanced_complexity_commanders/0`
 - **Momir Vig, Simic Visionary** — `REJECTED`: Rejected in its current form: Existing wording contains reviewer/source-method language and is not eligible as player copy. Source: `data/raw-factions/simic_combine/simic_combine.profile.json#/commander_compass/iconic_lore_forward_commanders/0`
 
-### Voice candidate 1: Coiling Oracle
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “Snaking remnants of nature directed by a body of thought and progress, the oracles embody all that is Simic.”
-- Proposal: `packet1_voice_ug_69fd4ddf_9ed8_4c56_bef3_9944daf05e4f_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/UG/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=69fd4ddf-9ed8-4c56-bef3-9944daf05e4f`
-- Identity authority: `data/raw-factions/simic_combine/simic_combine.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Assault Zeppelid
-
-- Exact excerpt: “"Show them to Razia and then to the Azorius sky marshals. We could create a fine bidding war—enough to fund the final...”
-- Proposal: `packet1_voice_ug_8049dbff_6b57_454a_a2e6_7e2ae39bb606_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/UG/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=8049dbff-6b57-454a-a2e6-7e2ae39bb606`
-- Identity authority: `data/raw-factions/simic_combine/simic_combine.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Augmenter Pugilist // Echoing Equation
-
-- Exact excerpt: “"Hold still. I have a theory about what's going to happen to your face."”
-- Proposal: `packet1_voice_ug_9110339d_72ba_4132_801f_cd2fd738b71d_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/UG/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=9110339d-72ba-4132-801f-cd2fd738b71d`
-- Identity authority: `data/raw-factions/simic_combine/simic_combine.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Coiling Oracle | “Snaking remnants of nature directed by a body of thought and progress, the oracles embody all that is Simic.” | `EXPLICIT_IDENTITY_REFERENCE` | `simic_combine_claim_001`<br>`simic_combine_claim_002`<br>`simic_combine_claim_007` | Coiling Oracle's exact excerpt provides a bounded voice echo of Simic named directly as nature directed by thought and progress. The excerpt is admissible for owner review only because its language corresponds to certified claims simic_combine_claim_001, simic_combine_claim_002, simic_combine_claim_007; the relationship does not arise from card color, product membership, tags, or mechanics. | Quandrix and generic Blue-Green also join nature and intellect; the explicit Simic biological-improvement context supplies the bridge. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=69fd4ddf-9ed8-4c56-bef3-9944daf05e4f` | **APPROVE / REVISE / REJECT** (`packet1_voice_ug_69fd4ddf_9ed8_4c56_bef3_9944daf05e4f_3`) |
 
 ### Owner decision
 
 - rationale: **RETAINED APPROVED AUTHORITY — no new decision**
 - voice `packet1_voice_ug_69fd4ddf_9ed8_4c56_bef3_9944daf05e4f_3`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_ug_8049dbff_6b57_454a_a2e6_7e2ae39bb606_1`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_ug_9110339d_72ba_4132_801f_cd2fd738b71d_2`: **APPROVE / REVISE / REJECT**
 ## Sultai Brood (`SULTAI`)
 
 ### Existing approved rationale(s)
@@ -2389,39 +1679,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 - **Teval, the Balanced Scale** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/sultai/sultai.profile.json#/commander_compass/native_fit_commanders/1`
 
-### Voice candidate 1: Blinding Spray
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “"The stronger our enemies seem, the more vulnerable they are." —Sultai secret”
-- Proposal: `packet1_voice_sultai_88ce2017_83a6_4b55_afba_371875bf2172_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/SULTAI/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=88ce2017-83a6-4b55-afba-371875bf2172`
-- Identity authority: `data/raw-factions/sultai/sultai.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Aggressive Negotiations
-
-- Exact excerpt: “"When an alliance outlasts its usefulness it's best to end it quickly." —Heng, Sultai ambassador”
-- Proposal: `packet1_voice_sultai_c469133e_174d_476b_b135_bbf15e415e72_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/SULTAI/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=c469133e-174d-476b-b135-bbf15e415e72`
-- Identity authority: `data/raw-factions/sultai/sultai.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Dark Deal
-
-- Exact excerpt: “The first khans of the Sultai relied on the magic of the rakshasa to ensure the survival of the clan.”
-- Proposal: `packet1_voice_sultai_c527eb80_ccac_40b8_8377_c31121613128_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/SULTAI/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=c527eb80-ccac-40b8-8377-c31121613128`
-- Identity authority: `data/raw-factions/sultai/sultai.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Aggressive Negotiations | “"When an alliance outlasts its usefulness it's best to end it quickly." —Heng, Sultai ambassador” | `EXPLICIT_IDENTITY_REFERENCE` | `sultai_claim_0002`<br>`sultai_claim_0004`<br>`sultai_claim_0007` | Aggressive Negotiations's exact excerpt provides a bounded voice echo of a Sultai ambassador explicitly treating alliances as tools with an expiration point. The excerpt is admissible for owner review only because its language corresponds to certified claims sultai_claim_0002, sultai_claim_0004, sultai_claim_0007; the relationship does not arise from card color, product membership, tags, or mechanics. | Black, Dimir, Grixis, and Orzhov can all sound calculating; the explicit Sultai ruthlessness and instrumental alliance frame is required. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=c469133e-174d-476b-b135-bbf15e415e72` | **APPROVE / REVISE / REJECT** (`packet1_voice_sultai_c469133e_174d_476b_b135_bbf15e415e72_2`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_sultai_0177b410_b559_491f_b393_ac3ed774653c`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_sultai_88ce2017_83a6_4b55_afba_371875bf2172_1`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_sultai_c469133e_174d_476b_b135_bbf15e415e72_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_sultai_c527eb80_ccac_40b8_8377_c31121613128_3`: **APPROVE / REVISE / REJECT**
 ## Temur Frontier (`TEMUR`)
 
 ### Existing approved rationale(s)
@@ -2460,38 +1727,15 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 - **Ureni of the Unwritten** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/temur/temur.profile.json#/commander_compass/native_fit_commanders/1`
 
-### Voice candidate 1: Auroral Procession
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “The Temur celebrate the end of the Unbroken Night with stories, dances, and feasts. They gather to witness the first...”
-- Proposal: `packet1_voice_temur_511d3de9_076b_4811_bddf_00623f98993f_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/TEMUR/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=511d3de9-076b-4811-bddf-00623f98993f`
-- Identity authority: `data/raw-factions/temur/temur.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Ainok Tracker
-
-- Exact excerpt: “Some ainok of the mountains are accepted among the Temur as trusted hunt-mates.”
-- Proposal: `packet1_voice_temur_bf84a598_12d3_406d_8eeb_40592e782b87_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/TEMUR/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=bf84a598-12d3-406d-8eeb-40592e782b87`
-- Identity authority: `data/raw-factions/temur/temur.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Avalanche Tusker
-
-- Exact excerpt: “"Hold the high ground, then bring it to your enemy." —Surrak, khan of the Temur”
-- Proposal: `packet1_voice_temur_ccad8b03_5ff1_4895_94e0_0c96883cb875_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/TEMUR/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=ccad8b03-5ff1-4895-94e0-0c96883cb875`
-- Identity authority: `data/raw-factions/temur/temur.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Avalanche Tusker | “"Hold the high ground, then bring it to your enemy." —Surrak, khan of the Temur” | `EXPLICIT_IDENTITY_REFERENCE` | `temur_claim_0002`<br>`temur_claim_0003`<br>`temur_claim_0004` | Avalanche Tusker's exact excerpt provides a bounded voice echo of a Temur khan joining tactical knowledge to literal natural force. The excerpt is admissible for owner review only because its language corresponds to certified claims temur_claim_0002, temur_claim_0003, temur_claim_0004; the relationship does not arise from card color, product membership, tags, or mechanics. | Gruul and Green also use physical force; the explicit Temur synthesis of terrain, problem solving, and direct action is the bridge. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=ccad8b03-5ff1-4895-94e0-0c96883cb875` | **APPROVE / REVISE / REJECT** (`packet1_voice_temur_ccad8b03_5ff1_4895_94e0_0c96883cb875_1`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_temur_1b162dd3_3be6_406d_bf86_f7cc9eff098d`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_temur_511d3de9_076b_4811_bddf_00623f98993f_3`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_temur_bf84a598_12d3_406d_8eeb_40592e782b87_2`: **APPROVE / REVISE / REJECT**
 - voice `packet1_voice_temur_ccad8b03_5ff1_4895_94e0_0c96883cb875_1`: **APPROVE / REVISE / REJECT**
 ## White (`W`)
 
@@ -2531,39 +1775,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 - **Adeline, Resplendent Cathar** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/white/white.profile.json#/commander_compass/native_fit_commanders/1`
 - **Balan, Wandering Knight** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/white/white.profile.json#/commander_compass/native_fit_commanders/2`
 
-### Voice candidate 1: Giada, Font of Hope
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “Now she is New Capenna's greatest hope.”
-- Proposal: `packet1_voice_w_48e6d3d8_2f27_4017_acdd_40bce8cdbc02_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/W/0`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=48e6d3d8-2f27-4017-acdd-40bce8cdbc02`
-- Identity authority: `data/raw-factions/white/white.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Toby, Beastie Befriender
-
-- Exact excerpt: “"Sure, I'm pretty small, but Gribble isn't, so I don't get scared."”
-- Proposal: `packet1_voice_w_b4c27c89_fa50_4cf0_bf37_039732d16fef_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/W/2`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=b4c27c89-fa50-4cf0-bf37-039732d16fef`
-- Identity authority: `data/raw-factions/white/white.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Balan, Wandering Knight
-
-- Exact excerpt: “"What weapon will you bear against one who's mastered them all?"”
-- Proposal: `packet1_voice_w_d12cfd46_73c2_4206_9a10_0d2e7d6ac87e_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/W/1`
-- Canonical card source: `data/scryfall/indexes/commander-index.json#oracle_id=d12cfd46-73c2-4206-9a10-0d2e7d6ac87e`
-- Identity authority: `data/raw-factions/white/white.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Aligned Heart | “When hearts and minds align, so too do actions.” | `CERTIFIED_SEMANTIC_ECHO` | `white_claim_0002`<br>`white_claim_0004`<br>`white_claim_0006` | Aligned Heart's exact excerpt provides a bounded voice echo of hearts and minds coordinating into shared action. The excerpt is admissible for owner review only because its language corresponds to certified claims white_claim_0002, white_claim_0004, white_claim_0006; the relationship does not arise from card color, product membership, tags, or mechanics. | Selesnya, Boros, Azorius, and Ink also coordinate groups; this is a broad mono-White community-and-organization echo, not proof of any institution. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=ae61b2ef-2e60-499a-8708-e37b9bd5620e` | **APPROVE / REVISE / REJECT** (`packet1_voice_w_ae61b2ef_2e60_499a_8708_e37b9bd5620e_replacement`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_w_48e6d3d8_2f27_4017_acdd_40bce8cdbc02`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_w_48e6d3d8_2f27_4017_acdd_40bce8cdbc02_1`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_w_b4c27c89_fa50_4cf0_bf37_039732d16fef_3`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_w_d12cfd46_73c2_4206_9a10_0d2e7d6ac87e_2`: **APPROVE / REVISE / REJECT**
+- voice `packet1_voice_w_ae61b2ef_2e60_499a_8708_e37b9bd5620e_replacement`: **APPROVE / REVISE / REJECT**
 ## Witch / Growth (`WITCH`)
 
 ### Existing approved rationale(s)
@@ -2601,39 +1822,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 - None beyond the selected or retained card relationship(s).
 
-### Voice candidate 1: Agent of Horizons
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “The light in the woods just before dawn reveals a glimmering network of branches, roots, and spiderwebs. The acolytes...”
-- Proposal: `packet1_voice_witch_668a6a9d_80fc_437b_99b8_6807e92eabca_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WITCH/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=668a6a9d-80fc-437b-99b8-6807e92eabca`
-- Identity authority: `data/raw-factions/witch/witch.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Abyssal Harvester
-
-- Exact excerpt: “"Till the soil, spare no soul. / Neath the darkness, nightmares grow." —Children's nursery rhyme”
-- Proposal: `packet1_voice_witch_68cc5065_0514_4adf_885f_da554e1db00a_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WITCH/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=68cc5065-0514-4adf-885f-da554e1db00a`
-- Identity authority: `data/raw-factions/witch/witch.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Assassin's Trophy
-
-- Exact excerpt: “"Not just any floriculturist can grow this caliber of nightbloom. We're looking for a rooftop hothouse with quite par...”
-- Proposal: `packet1_voice_witch_ac10d218_f9a6_4058_9cda_a15ca1b0b7b5_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WITCH/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=ac10d218-f9a6-4058-9cda-a15ca1b0b7b5`
-- Identity authority: `data/raw-factions/witch/witch.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Animation Module | “Design leads to progress.” | `CERTIFIED_SEMANTIC_ECHO` | `witch_claim_0005` | Animation Module's exact excerpt provides a bounded voice echo of design producing progress through a modular object associated with counters and repeated accumulation. The excerpt is admissible for owner review only because its language corresponds to certified claims witch_claim_0005; the relationship does not arise from card color, product membership, tags, or mechanics. | Yore, Esper, Simic, and Blue can also connect design to progress. This echo is limited to Witch's systematic-accumulation branch and cannot establish the four-color identity alone. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=af42079b-a3c0-448c-9bb2-b915252e87a9` | **APPROVE / REVISE / REJECT** (`packet1_voice_witch_af42079b_a3c0_448c_9bb2_b915252e87a9_replacement`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_witch_7e6b9b59_cd68_4e3c_827b_38833c92d6eb`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_witch_668a6a9d_80fc_437b_99b8_6807e92eabca_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_witch_68cc5065_0514_4adf_885f_da554e1db00a_1`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_witch_ac10d218_f9a6_4058_9cda_a15ca1b0b7b5_3`: **APPROVE / REVISE / REJECT**
+- voice `packet1_voice_witch_af42079b_a3c0_448c_9bb2_b915252e87a9_replacement`: **APPROVE / REVISE / REJECT**
 ## Witherbloom College (`WITHERBLOOM`)
 
 ### Existing approved rationale(s)
@@ -2671,39 +1869,16 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 - **Gorma, the Gullet** — `REJECTED`: Rejected in its current form: Candidate uses missing, string-only, or incomplete claim/source provenance. Source: `data/raw-factions/witherbloom/witherbloom.profile.json#/commander_compass/native_fit_commanders/1`
 
-### Voice candidate 1: Blossoming Bogbeast
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “As subtle as a bogbeast —Witherbloom expression meaning "crude and clumsy"”
-- Proposal: `packet1_voice_witherbloom_30f3c3be_0fe9_463d_a245_e44701aec7f2_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WITHERBLOOM/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=30f3c3be-0fe9-463d-a245-e44701aec7f2`
-- Identity authority: `data/raw-factions/witherbloom/witherbloom.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Big Play
-
-- Exact excerpt: “"Quandrix is running out of time. If they're going to capture the Witherbloom mascot, they need something big here."...”
-- Proposal: `packet1_voice_witherbloom_607425ac_9e90_4c9e_88bf_72f8a76cce97_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WITHERBLOOM/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=607425ac-9e90-4c9e-88bf-72f8a76cce97`
-- Identity authority: `data/raw-factions/witherbloom/witherbloom.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Blech, Loafing Pest
-
-- Exact excerpt: “Despite Blex's passing, Witherbloom students still continued the tradition of a yearly search in his honor. His son,...”
-- Proposal: `packet1_voice_witherbloom_c1bdd361_c7f2_4aa2_8d07_b582775551ff_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/WITHERBLOOM/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=c1bdd361-c7f2-4aa2-8d07-b582775551ff`
-- Identity authority: `data/raw-factions/witherbloom/witherbloom.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Death Begets Life | “"You need not mourn. Their life essence has returned to the earth, where it will eventually bloom into a new form." —...” | `CERTIFIED_SEMANTIC_ECHO` | `witherbloom_claim_0019`<br>`witherbloom_claim_0020`<br>`witherbloom_claim_0023` | Death Begets Life's exact excerpt provides a bounded voice echo of life essence returning to the earth and blooming into another form. The excerpt is admissible for owner review only because its language corresponds to certified claims witherbloom_claim_0019, witherbloom_claim_0020, witherbloom_claim_0023; the relationship does not arise from card color, product membership, tags, or mechanics. | Golgari and Green also frame death as renewal. Witherbloom requires embodied life/death exchange and practical essence craft; the excerpt alone does not establish the college. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=53e86135-3b24-4618-bcc0-af4d81e672dd` | **APPROVE / REVISE / REJECT** (`packet1_voice_witherbloom_53e86135_3b24_4618_bcc0_af4d81e672dd_replacement`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_witherbloom_30f3c3be_0fe9_463d_a245_e44701aec7f2_3`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_witherbloom_607425ac_9e90_4c9e_88bf_72f8a76cce97_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_witherbloom_c1bdd361_c7f2_4aa2_8d07_b582775551ff_1`: **APPROVE / REVISE / REJECT**
+- voice `packet1_voice_witherbloom_53e86135_3b24_4618_bcc0_af4d81e672dd_replacement`: **APPROVE / REVISE / REJECT**
 ## Yore / Artifice (`YORE`)
 
 ### Existing approved rationale(s)
@@ -2741,36 +1916,13 @@ Every decision is bound to the exact proposal ID and copy hash in the canonical 
 
 - None beyond the selected or retained card relationship(s).
 
-### Voice candidate 1: Access Denied
+### Source-complete voice proposal(s)
 
-- Exact excerpt: “The Saiba Futurists guard their secret experiments with ever-evolving networks of cutting-edge defensive technology.”
-- Proposal: `packet1_voice_yore_353dd446_2ea6_41c9_a10f_5a03e4de19b4_3`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/YORE/2`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=353dd446-2ea6-41c9-a10f-5a03e4de19b4`
-- Identity authority: `data/raw-factions/yore/yore.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 2: Abandoned Sarcophagus
-
-- Exact excerpt: “Although long since dead, the banished dissenters finally took their vengeance.”
-- Proposal: `packet1_voice_yore_a051dee0_60c8_4f58_84cb_55460c097115_2`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/YORE/1`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=a051dee0-60c8-4f58-84cb-55460c097115`
-- Identity authority: `data/raw-factions/yore/yore.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
-
-### Voice candidate 3: Ayara, Widow of the Realm // Ayara, Furnace Queen
-
-- Exact excerpt: “Ayara cherished her new machine servitors just as much as she once did her many suitors: not at all.”
-- Proposal: `packet1_voice_yore_f9ef90b9_a2b4_4a5b_92fb_2268ea7d709f_1`
-- Candidate inventory: `data/archscry-flavor-snippets.json#/snippets/YORE/0`
-- Canonical card source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=f9ef90b9-a2b4-4a5b-92fb-2268ea7d709f`
-- Identity authority: `data/raw-factions/yore/yore.claims.json`
-- Limitation: The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.
+| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |
+|---|---|---|---|---|---|---|---|
+| Artificer's Epiphany | “The artificers of Kaladesh strive ceaselessly for perfection, progress, and the ultimate expression of elegance.” | `CERTIFIED_SEMANTIC_ECHO` | `yore_claim_0002`<br>`yore_claim_0004` | Artificer's Epiphany's exact excerpt provides a bounded voice echo of artificers pursuing perfection, progress, and designed elegance. The excerpt is admissible for owner review only because its language corresponds to certified claims yore_claim_0002, yore_claim_0004; the relationship does not arise from card color, product membership, tags, or mechanics. | Esper, Izzet, Blue, and Witch also use technology or progress. This proposal echoes Yore's bounded artifice frame but cannot make Yore behaviorally nameable or establish a faction. | `data/scryfall/indexes/card-flavor-index.json#oracle_id=ed10bb4c-f7ef-4046-8dde-465041b55078` | **APPROVE / REVISE / REJECT** (`packet1_voice_yore_ed10bb4c_f7ef_4046_8dde_465041b55078_replacement`) |
 
 ### Owner decision
 
 - rationale `packet1_rationale_yore_d460a9e2_5a7d_4562_880e_45174be19a9d`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_yore_353dd446_2ea6_41c9_a10f_5a03e4de19b4_3`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_yore_a051dee0_60c8_4f58_84cb_55460c097115_2`: **APPROVE / REVISE / REJECT**
-- voice `packet1_voice_yore_f9ef90b9_a2b4_4a5b_92fb_2268ea7d709f_1`: **APPROVE / REVISE / REJECT**
+- voice `packet1_voice_yore_ed10bb4c_f7ef_4046_8dde_465041b55078_replacement`: **APPROVE / REVISE / REJECT**

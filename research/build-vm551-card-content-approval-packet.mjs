@@ -78,7 +78,10 @@ const claimsByIdentity = new Map(await Promise.all([...folderByIdentity].map(asy
   const authority = await readJson(authorityPath);
   return [identityKey, {
     authorityPath,
-    byId: new Map((authority.claims || []).map((claim) => [claim.claim_id, claim])),
+    byId: new Map((authority.claims || []).map((claim) => [claim.claim_id, {
+      ...claim,
+      statement: claim.statement || claim.claim || claim.text || "",
+    }])),
   }];
 })));
 
@@ -285,7 +288,7 @@ const rationaleProposals = proposalIdentityKeys.map((identityKey) => {
   };
 });
 
-const voiceProposals = Object.entries(snippets.snippets)
+const originalVoiceCandidates = Object.entries(snippets.snippets)
   .flatMap(([identityKey, entries]) => entries.map((entry, index) => {
     const card = resolveCard(entry.card_name, { preferFlavor: true });
     if (!card) throw new Error(`Packet 1 voice candidate does not resolve: ${identityKey} / ${entry.card_name}`);
@@ -302,13 +305,122 @@ const voiceProposals = Object.entries(snippets.snippets)
         canonical_card_data: `data/scryfall/indexes/${entry.source_index === "commander-index" ? "commander-index" : "card-flavor-index"}.json#oracle_id=${card.oracle_id}`,
         identity_authority: `data/raw-factions/${audit.rows.find((row) => row.identityKey === identityKey)?.folder || identityKey.toLowerCase()}/${audit.rows.find((row) => row.identityKey === identityKey)?.folder || identityKey.toLowerCase()}.claims.json`,
       },
-      limitations: "The excerpt is verified committed card text. Its prior heuristic selection is only a research lead and does not establish the identity relationship. Owner review must approve, revise by selecting another exact excerpt, or reject; no paraphrase or generated replacement is authorized.",
+      limitations: "Pending relationship adjudication.",
       disposition: "REVIEW_REQUIRED",
       owner_decision: null,
       replacement_locator: `data/dossier/card-voice-relationships.source.json#pending-${identityKey.toLowerCase()}`,
     };
   }))
   .sort((left, right) => left.identity_key.localeCompare(right.identity_key) || left.proposal_id.localeCompare(right.proposal_id));
+
+const voicePolicies = {
+  ABZAN: { card: "Abzan Banner", class: "NATIVE_FIGURE_OR_LOCATION", claims: ["abzan_claim_0003", "abzan_claim_0008"], focus: "endurance joined to roots, memory, and Kin-Tree continuity", neighbors: "Bant, Selesnya, and Golgari can also sound enduring or communal; the Kin-Tree and ancestor-continuity frame is the bounded Abzan bridge." },
+  B: { card: "Ancient Craving", class: "CERTIFIED_SEMANTIC_ECHO", claims: ["black_claim_0003", "black_claim_0004"], focus: "knowledge made available through an explicit sacrifice", neighbors: "Blue and Dimir also value knowledge, while Orzhov values payment; this echo belongs here only because the line makes sacrifice the price of access rather than secrecy or institutional debt." },
+  BANT: { card: "Bant Sojourners", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["bant_claim_0004", "bant_claim_0007"], focus: "Bant named directly through an idealized light meant to extend beyond the shard", neighbors: "Azorius and Selesnya can also sound orderly or communal; the explicit Bant reference and its idealized public-honor frame prevent a generic WUG inference." },
+  BG: { card: "Bloodbond March", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["golgari_swarm_claim_001", "golgari_swarm_claim_007", "golgari_swarm_claim_0018"], focus: "the Golgari named directly through death continuing as useful service", neighbors: "Witherbloom and generic graveyard decks also join life and death; the explicit Golgari reclamation-and-service frame is required." },
+  BR: { card: "Avatar of Discord", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["cult_of_rakdos_claim_001", "cult_of_rakdos_claim_002", "cult_of_rakdos_claim_006"], focus: "Rakdos named directly through cruelty made vivid and performative", neighbors: "Mono-Red, Black, and Gruul can express danger or cruelty; only the explicit Rakdos spectacle/transgression frame supports this relationship." },
+  COLORLESS: { card: "All Is Dust", class: "CERTIFIED_SEMANTIC_ECHO", claims: ["colorless_claim_0004", "colorless_claim_0005", "colorless_claim_0006"], focus: "Eldrazi-scale emergence and an outside-WUBRG sense of completion and erasure", neighbors: "Eldrazi flavor can also occur in Five-Color or Devoid decks. This is a bounded Eldrazi branch, not proof that every Eldrazi card or artifact belongs to Colorless." },
+  DUNE: { card: "Aurelia, the Warleader", class: "CERTIFIED_SEMANTIC_ECHO", claims: ["dune_claim_0005"], focus: "front-line leadership, immediate action, and organized force", neighbors: "This excerpt is canonically Boros and therefore carries a high Boros/Mardu confusion risk. It is only a cross-identity voice echo for Dune's bounded direct-action frame." },
+  ESPER: { card: "Brainbite", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["esper_claim_0003", "esper_claim_0004", "esper_claim_0006"], focus: "Esper named directly through precise, controlled use of information", neighbors: "Blue, Dimir, Azorius, and Grixis also use information or control; the excerpt explicitly contrasts Esper's surgical precision with Grixis." },
+  G: { card: "Ghalta, Primal Hunger", class: "CERTIFIED_SEMANTIC_ECHO", claims: ["green_claim_0002", "green_claim_0004", "green_claim_0006"], focus: "the earth itself embodied as primal strength", neighbors: "Gruul, Naya, and Temur also use primal nature; this is a mono-Green voice echo only, not proof from creature size or card color." },
+  GLINT: { card: "Aberrant Return", class: "CERTIFIED_SEMANTIC_ECHO", claims: ["glint_claim_0005"], focus: "wild magic described as powerful and volatile", neighbors: "Prismari, Izzet, Rakdos, and Red can also sound volatile. The excerpt reaches only Glint's bounded volatility/force edge, not its appetite or anti-order boundary." },
+  GRIXIS: { card: "Brainbite", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["grixis_claim_0003", "grixis_claim_0004", "grixis_claim_0006"], focus: "Grixis named directly as harsher than Esper in its use of information and harm", neighbors: "Esper and Dimir share precision and information leverage; the explicit Esper/Grixis contrast makes the Grixis ruthlessness distinction visible." },
+  INK: { card: "Command Tower", class: "CERTIFIED_SEMANTIC_ECHO", claims: ["ink_claim_0005"], focus: "knowledge treated as wasted unless it is shared", neighbors: "White, Blue, Selesnya, and Five-Color can all value sharing. This proposal is limited to Ink's certified open-knowledge and community-benefit frame and does not prove the four-color identity." },
+  JESKAI: { card: "Bloodfire Expert", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["jeskai_claim_0002", "jeskai_claim_0004", "jeskai_claim_0005"], focus: "the Jeskai Way named directly through discipline applied to innate flame", neighbors: "Prismari and Izzet also join Blue and Red through technique; the explicit Jeskai discipline, monastery, and bloodfire context supplies the bridge." },
+  JUND: { card: "Broodmate Tyrant", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["jund_claim_0003", "jund_claim_0005", "jund_claim_0007"], focus: "Jund named directly through embodied succession, dominance, and survival", neighbors: "Gruul, Naya, and Grixis can share force or survival; the explicit Jund predatory-world framing prevents generic BRG inference." },
+  LOREHOLD: { card: "Campus Renovation", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["claim_lorehold_placement_0001", "claim_lorehold_placement_0002", "claim_lorehold_placement_0009"], focus: "Lorehold named directly through reconstructing and actively using the past", neighbors: "White, Red, and generic artifact recursion can preserve objects; the explicit Lorehold historical-reconstruction purpose is required." },
+  MARDU: { card: "Bloodsoaked Champion", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["mardu_claim_0002", "mardu_claim_0003", "mardu_claim_0005"], focus: "the Mardu named directly through meeting death as another opponent", neighbors: "Rakdos, Jund, and Black also speak in violent or death-facing terms; the explicit Mardu honor-and-action context is the bridge." },
+  NAYA: { card: "Cradle of Vitality", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["naya_claim_0003", "naya_claim_0004", "naya_claim_0007"], focus: "Naya named directly through abundant natural growth and gathering", neighbors: "Selesnya and Green share growth and community; the explicit Naya ecosystem and abundance context prevents generic token or lifegain inference." },
+  PRISMARI: { card: "Rootha, Mastering the Moment", class: "NATIVE_FIGURE_OR_LOCATION", claims: ["prismari_claim_002", "prismari_claim_004", "prismari_claim_006", "prismari_claim_0025"], focus: "a certified Prismari figure voicing perfection as an endless artistic pursuit", neighbors: "Izzet, Quandrix, and Blue also pursue improvement; Prismari's technique-in-service-of-expression is the required distinction." },
+  QUANDRIX: { card: "Additive Evolution", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["quandrix_claim_002", "quandrix_claim_006", "quandrix_claim_0019", "quandrix_claim_0020"], focus: "a Quandrix student explicitly joining unbounded numbers to living nature", neighbors: "Simic and Green also scale living systems; the explicit mathematical/natural synthesis makes this Quandrix rather than generic growth." },
+  R: { card: "Torbran, Thane of Red Fell", class: "CERTIFIED_SEMANTIC_ECHO", claims: ["red_claim_0002", "red_claim_0004", "red_claim_0006"], focus: "emotion held as a deep, active grudge rather than suppressed", neighbors: "Black, Rakdos, Gruul, and Jund also express anger or grievance. This is a bounded mono-Red emotional-intensity echo, not identity proof from the card's color." },
+  RG: { card: "Burning-Tree Emissary", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["claim_gruul_clans_core_identity_0002", "claim_gruul_clans_philosophy_0004", "claim_gruul_clans_placement_0001"], focus: "the Gruul named directly while rejecting the assumption that their wildness lacks subtle power", neighbors: "Red, Green, and Temur can sound instinctive or wild; the explicit Gruul anti-civilization and shaman context supplies the relationship." },
+  SILVERQUILL: { card: "Beaming Defiance", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["silverquill_claim_0019", "silverquill_claim_0020", "silverquill_claim_0021"], focus: "a Silverquill student using language of shadow, light, self-definition, and visible presence", neighbors: "Prismari and mono-White can also value expression or confidence; Silverquill requires word/social influence and power-awareness rather than art alone." },
+  SULTAI: { card: "Aggressive Negotiations", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["sultai_claim_0002", "sultai_claim_0004", "sultai_claim_0007"], focus: "a Sultai ambassador explicitly treating alliances as tools with an expiration point", neighbors: "Black, Dimir, Grixis, and Orzhov can all sound calculating; the explicit Sultai ruthlessness and instrumental alliance frame is required." },
+  TEMUR: { card: "Avalanche Tusker", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["temur_claim_0002", "temur_claim_0003", "temur_claim_0004"], focus: "a Temur khan joining tactical knowledge to literal natural force", neighbors: "Gruul and Green also use physical force; the explicit Temur synthesis of terrain, problem solving, and direct action is the bridge." },
+  U: { card: "Azami, Lady of Scrolls", class: "CERTIFIED_SEMANTIC_ECHO", claims: ["blue_claim_0002", "blue_claim_0003", "blue_claim_0006"], focus: "a constrained decision answered with information, planning, and a deliberate course", neighbors: "Azorius, Esper, Dimir, and Jeskai also plan; this is a mono-Blue knowledge-and-deliberation echo without secrecy, law, or faction doctrine." },
+  UB: { card: "Consult the Necrosages", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["house_dimir_claim_0017", "house_dimir_claim_0018", "house_dimir_claim_0019"], focus: "Dimir named directly through unseen hierarchy and orders delivered by mysterious intermediaries", neighbors: "Azorius and Orzhov also use hierarchy, while Blue/Black use information; the hidden backroom delivery is the Dimir distinction." },
+  UG: { card: "Coiling Oracle", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["simic_combine_claim_001", "simic_combine_claim_002", "simic_combine_claim_007"], focus: "Simic named directly as nature directed by thought and progress", neighbors: "Quandrix and generic Blue-Green also join nature and intellect; the explicit Simic biological-improvement context supplies the bridge." },
+  UR: { card: "Beamsplitter Mage", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["claim_izzet_league_0001", "claim_izzet_league_0003", "claim_izzet_league_0004", "claim_izzet_league_0006"], focus: "the Izzet named directly through delight in replicating experimental results", neighbors: "Prismari and Quandrix also experiment; Izzet requires invention, technical outcomes, or infrastructure rather than art or proof as the purpose." },
+  W: { card: "Aligned Heart", class: "CERTIFIED_SEMANTIC_ECHO", claims: ["white_claim_0002", "white_claim_0004", "white_claim_0006"], focus: "hearts and minds coordinating into shared action", neighbors: "Selesnya, Boros, Azorius, and Ink also coordinate groups; this is a broad mono-White community-and-organization echo, not proof of any institution." },
+  WB: { card: "Afterlife Insurance", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["orzhov_syndicate_claim_001", "orzhov_syndicate_claim_002", "orzhov_syndicate_claim_007", "orzhov_syndicate_claim_0018"], focus: "the Orzhov named directly through a businesslike obligation extending beyond death", neighbors: "White/Black, Golgari, and Witherbloom also use death; the insurance/debt/business frame makes the Orzhov relationship specific." },
+  WG: { card: "Camaraderie", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["selesnya_conclave_claim_001", "selesnya_conclave_claim_002", "selesnya_conclave_claim_007"], focus: "Mat'Selesnya named directly through the individual becoming part of a communal voice", neighbors: "White, Green, Bant, and Ink also value community; the explicit Worldsoul/conclave unity frame is the Selesnya bridge." },
+  WITCH: { card: "Animation Module", class: "CERTIFIED_SEMANTIC_ECHO", claims: ["witch_claim_0005"], focus: "design producing progress through a modular object associated with counters and repeated accumulation", neighbors: "Yore, Esper, Simic, and Blue can also connect design to progress. This echo is limited to Witch's systematic-accumulation branch and cannot establish the four-color identity alone." },
+  WITHERBLOOM: { card: "Death Begets Life", class: "CERTIFIED_SEMANTIC_ECHO", claims: ["witherbloom_claim_0019", "witherbloom_claim_0020", "witherbloom_claim_0023"], focus: "life essence returning to the earth and blooming into another form", neighbors: "Golgari and Green also frame death as renewal. Witherbloom requires embodied life/death exchange and practical essence craft; the excerpt alone does not establish the college." },
+  WR: { card: "Boros Strike-Captain", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["boros_legion_claim_001", "boros_legion_claim_004", "boros_legion_claim_007", "boros_legion_claim_012"], focus: "a Boros commander explicitly addressing comrades through coordinated front-line action", neighbors: "Mardu and mono-Red also coordinate attacks; Boros requires public duty, teamwork, and accountable martial action." },
+  WU: { card: "Azorius Cluestone", class: "EXPLICIT_IDENTITY_REFERENCE", claims: ["azorius_senate_claim_001", "azorius_senate_claim_002", "azorius_senate_claim_003", "azorius_senate_claim_007"], focus: "Azorius named directly through its judges, scribes, and lawmages", neighbors: "White, Blue, and Esper also use systems and records; the explicit civic/legal institution makes this Azorius." },
+  WUBRG: { card: "Coalition Victory", class: "CERTIFIED_SEMANTIC_ECHO", claims: ["wubrg_claim_0002", "wubrg_claim_0003", "wubrg_claim_0004", "wubrg_claim_0007"], focus: "a complete construction made from distinct imperfect parts", neighbors: "Artifacts, Yore, and modular engines can also sound like assembled machines. This is only an integration metaphor for Five-Color access and must not become mastery, completion, or faction lore." },
+  YORE: { card: "Artificer's Epiphany", class: "CERTIFIED_SEMANTIC_ECHO", claims: ["yore_claim_0002", "yore_claim_0004"], focus: "artificers pursuing perfection, progress, and designed elegance", neighbors: "Esper, Izzet, Blue, and Witch also use technology or progress. This proposal echoes Yore's bounded artifice frame but cannot make Yore behaviorally nameable or establish a faction." },
+};
+
+const replacementVoiceCards = new Map([
+  ["B", "Ancient Craving"],
+  ["GLINT", "Aberrant Return"],
+  ["INK", "Command Tower"],
+  ["W", "Aligned Heart"],
+  ["WITCH", "Animation Module"],
+  ["WITHERBLOOM", "Death Begets Life"],
+  ["YORE", "Artificer's Epiphany"],
+]);
+
+const replacementVoiceCandidates = [...replacementVoiceCards].map(([identityKey, cardName]) => {
+  const card = resolveCard(cardName, { preferFlavor: true });
+  if (!card?.flavor_excerpt) throw new Error(`Replacement voice candidate does not resolve exact flavor text: ${identityKey} / ${cardName}`);
+  return {
+    proposal_id: stableId("packet1_voice", identityKey, card.oracle_id, "replacement"),
+    proposal_type: "CARD_VOICE",
+    identity_key: identityKey,
+    canonical_card_name: card.name,
+    canonical_card_id: card.oracle_id,
+    proposed_copy: card.flavor_excerpt,
+    copy_sha256: digest(card.flavor_excerpt),
+    provenance: {
+      candidate_inventory: `data/scryfall/indexes/card-flavor-index.json#oracle_id=${card.oracle_id}`,
+      canonical_card_data: `data/scryfall/indexes/card-flavor-index.json#oracle_id=${card.oracle_id}`,
+      identity_authority: claimsByIdentity.get(identityKey).authorityPath,
+    },
+    limitations: "Pending relationship adjudication.",
+    disposition: "REVIEW_REQUIRED",
+    owner_decision: null,
+    replacement_locator: `data/dossier/card-voice-relationships.source.json#pending-${identityKey.toLowerCase()}`,
+  };
+});
+
+const voiceCandidates = [...originalVoiceCandidates, ...replacementVoiceCandidates]
+  .sort((left, right) => left.identity_key.localeCompare(right.identity_key) || left.proposal_id.localeCompare(right.proposal_id));
+const voiceProposals = voiceCandidates.map((candidate) => {
+  const policy = voicePolicies[candidate.identity_key];
+  if (!policy) throw new Error(`Missing voice relationship policy: ${candidate.identity_key}`);
+  const selected = candidate.canonical_card_name === policy.card;
+  const claims = claimsByIdentity.get(candidate.identity_key);
+  const certifiedClaims = selected ? policy.claims.map((claimId) => {
+    const claim = claims?.byId.get(claimId);
+    if (!claim) throw new Error(`Voice relationship claim does not resolve: ${candidate.identity_key} / ${claimId}`);
+    return { claim_id: claim.claim_id, statement: claim.statement };
+  }) : [];
+  return {
+    ...candidate,
+    relationship_class: selected ? policy.class : "GENERIC_THEMATIC_ANALOGY",
+    certified_identity_claim_ids: certifiedClaims.map((claim) => claim.claim_id),
+    certified_identity_claims: certifiedClaims,
+    why_voice_belongs: selected
+      ? `${candidate.canonical_card_name}'s exact excerpt provides a bounded voice echo of ${policy.focus}.`
+      : "The excerpt is authentic, but the prior heuristic assignment does not establish a specific relationship to the certified identity.",
+    relationship_bridge: selected
+      ? `The excerpt is admissible for owner review only because its language corresponds to certified claims ${policy.claims.join(", ")}; the relationship does not arise from card color, product membership, tags, or mechanics.`
+      : "No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.",
+    false_positive_analysis: selected
+      ? policy.neighbors
+      : `This candidate can sound plausible through broad mood or theme alone. Without the selected identity-specific bridge, it could be reassigned by intuition to ${policy.neighbors}`,
+    adjacent_identity_confusion_risk: policy.neighbors,
+    agent_recommendation: selected ? "REVIEW_REQUIRED" : "REJECTED",
+    disposition: selected ? "REVIEW_REQUIRED" : "REJECTED",
+    owner_decision: null,
+    limitations: selected
+      ? `Exact card text is verified, but public use remains owner-gated. ${policy.neighbors}`
+      : "Rejected from owner decision workload because exact text provenance alone does not establish a source-complete identity relationship.",
+  };
+});
 
 const packet = {
   schema_version: "vm551-card-content-approval-packet-v1",
@@ -320,6 +432,13 @@ const packet = {
     total: candidateAdjudications.length,
     unresolved: candidateAdjudications.filter((row) => /EVIDENCE_NEEDED|REVIEW_REQUIRED/.test(row.final_research_disposition)).length,
   },
+  voice_adjudication: {
+    original_candidates: originalVoiceCandidates.length,
+    replacement_candidates: replacementVoiceCandidates.length,
+    review_required: voiceProposals.filter((row) => row.disposition === "REVIEW_REQUIRED").length,
+    rejected: voiceProposals.filter((row) => row.disposition === "REJECTED").length,
+    review_identity_coverage: new Set(voiceProposals.filter((row) => row.disposition === "REVIEW_REQUIRED").map((row) => row.identity_key)).size,
+  },
   proposals: [...rationaleProposals, ...voiceProposals],
 };
 
@@ -330,9 +449,22 @@ const adjudicationEnvelope = {
 };
 
 const tsvHeaders = ["proposal_id", "proposal_type", "identity_key", "canonical_card_name", "canonical_card_id", "proposed_copy", "provenance", "limitations", "disposition", "owner_decision", "replacement_locator"];
-const tsv = [tsvHeaders.join("\t"), ...packet.proposals.map((record) => tsvHeaders.map((header) =>
+const tsv = [tsvHeaders.join("\t"), ...packet.proposals.filter((record) => record.disposition === "REVIEW_REQUIRED").map((record) => tsvHeaders.map((header) =>
   tsvCell(header === "provenance" ? JSON.stringify(record.provenance) : record[header])
 ).join("\t"))].join("\n") + "\n";
+
+const voiceAuditHeaders = [
+  "proposal_id", "identity_key", "canonical_card_name", "canonical_card_id", "exact_excerpt",
+  "relationship_class", "certified_identity_claim_ids", "why_voice_belongs", "relationship_bridge",
+  "false_positive_analysis", "adjacent_identity_confusion_risk", "agent_recommendation", "source", "limitations",
+];
+const voiceAuditTsv = [voiceAuditHeaders.join("\t"), ...voiceProposals.map((record) => voiceAuditHeaders.map((header) => {
+  const value = header === "exact_excerpt" ? record.proposed_copy
+    : header === "source" ? record.provenance.canonical_card_data
+    : header === "certified_identity_claim_ids" ? record.certified_identity_claim_ids.join(" | ")
+    : record[header];
+  return tsvCell(value);
+}).join("\t"))].join("\n") + "\n";
 
 const markdownText = (value) => String(value ?? "").replace(/\r?\n/g, " ").replace(/\|/g, "\\|").trim();
 const approvedByIdentity = new Map(Object.keys(factions.factions).map((identityKey) => [
@@ -359,7 +491,7 @@ const ownerReviewSections = Object.keys(factions.factions)
     const identity = factions.factions[identityKey];
     const existing = approvedByIdentity.get(identityKey) || [];
     const rationale = rationaleByIdentity.get(identityKey) || null;
-    const voices = voicesByIdentity.get(identityKey) || [];
+    const voices = (voicesByIdentity.get(identityKey) || []).filter((record) => record.disposition === "REVIEW_REQUIRED");
     const selectedCardIds = new Set([
       ...existing.map((record) => record.canonical_card_id),
       rationale?.canonical_card_id,
@@ -394,16 +526,11 @@ const ownerReviewSections = Object.keys(factions.factions)
       ? alternates.map((record) => `- **${markdownText(record.canonical_card_name || "Unresolved card lead")}** — \`${record.final_research_disposition}\`: ${markdownText(record.disposition_reason)} Source: \`${markdownText(record.source_pool_locator)}\``).join("\n")
       : "- None beyond the selected or retained card relationship(s).";
 
-    const voiceLines = voices.map((voice, index) => [
-      `### Voice candidate ${index + 1}: ${markdownText(voice.canonical_card_name)}`,
-      "",
-      `- Exact excerpt: “${markdownText(voice.proposed_copy)}”`,
-      `- Proposal: \`${voice.proposal_id}\``,
-      `- Candidate inventory: \`${markdownText(voice.provenance.candidate_inventory)}\``,
-      `- Canonical card source: \`${markdownText(voice.provenance.canonical_card_data)}\``,
-      `- Identity authority: \`${markdownText(voice.provenance.identity_authority)}\``,
-      `- Limitation: ${markdownText(voice.limitations)}`,
-    ].join("\n")).join("\n\n");
+    const voiceLines = [
+      "| Card | Exact excerpt | Relationship class | Certified claims | Why it echoes this identity | False-positive / neighbor limitation | Source | Owner decision |",
+      "|---|---|---|---|---|---|---|---|",
+      ...voices.map((voice) => `| ${markdownText(voice.canonical_card_name)} | “${markdownText(voice.proposed_copy)}” | \`${voice.relationship_class}\` | ${voice.certified_identity_claim_ids.map((claimId) => `\`${claimId}\``).join("<br>")} | ${markdownText(voice.why_voice_belongs)} ${markdownText(voice.relationship_bridge)} | ${markdownText(voice.false_positive_analysis)} | \`${markdownText(voice.provenance.canonical_card_data)}\` | **APPROVE / REVISE / REJECT** (\`${voice.proposal_id}\`) |`),
+    ].join("\n");
 
     const decisions = [
       rationale ? `rationale \`${rationale.proposal_id}\`: **APPROVE / REVISE / REJECT**` : "rationale: **RETAINED APPROVED AUTHORITY — no new decision**",
@@ -445,6 +572,8 @@ const ownerReviewSections = Object.keys(factions.factions)
       "",
       alternateLines,
       "",
+      "### Source-complete voice proposal(s)",
+      "",
       voiceLines,
       "",
       "### Owner decision",
@@ -465,8 +594,11 @@ const ownerReviewMarkdown = [
   `- Existing \`APPROVED_PUBLIC\` retained: **${relationshipSource.records.filter((record) => record.review_status === "APPROVED_PUBLIC").length}**`,
   `- New rationale proposals requiring owner review: **${rationaleProposals.length}**`,
   `- Identities represented by new rationale proposals: **${new Set(rationaleProposals.map((record) => record.identity_key)).size}/25 former gaps**`,
-  `- Voice proposals requiring owner review: **${voiceProposals.length}**`,
-  `- Voice coverage: **${new Set(voiceProposals.map((record) => record.identity_key)).size}/37 identities**`,
+  `- Original voice candidates hardened: **${originalVoiceCandidates.length}**`,
+  `- Stronger exact-text replacements added: **${replacementVoiceCandidates.length}**`,
+  `- Voice proposals requiring owner review: **${voiceProposals.filter((record) => record.disposition === "REVIEW_REQUIRED").length}**`,
+  `- Weak voice candidates rejected from decision workload: **${voiceProposals.filter((record) => record.disposition === "REJECTED").length}**`,
+  `- Source-complete voice coverage: **${new Set(voiceProposals.filter((record) => record.disposition === "REVIEW_REQUIRED").map((record) => record.identity_key)).size}/37 identities**`,
   "- Runtime promotions from this packet before approval: **0**",
   "",
   "Every decision is bound to the exact proposal ID and copy hash in the canonical source. `REVISE` requires exact replacement content; no generated fallback is authorized.",
@@ -479,6 +611,7 @@ const outputs = {
   "data/dossier/card-rationale-candidate-adjudication.source.json": `${JSON.stringify(adjudicationEnvelope, null, 2)}\n`,
   "data/dossier/card-content-review-proposals.source.json": `${JSON.stringify(packet, null, 2)}\n`,
   "docs/audits/vm551-all-37-dossier-closeout/approval-packet-1-card-content.tsv": tsv,
+  "docs/audits/vm551-all-37-dossier-closeout/approval-packet-1-voice-adjudication.tsv": voiceAuditTsv,
   "docs/audits/vm551-all-37-dossier-closeout/approval-packet-1-owner-review.md": ownerReviewMarkdown,
 };
 
@@ -501,6 +634,9 @@ console.log(JSON.stringify({
   approved_historical: candidateAdjudications.filter((row) => row.final_research_disposition === "APPROVED_PUBLIC").length,
   rejected_historical: candidateAdjudications.filter((row) => row.final_research_disposition === "REJECTED").length,
   rationale_proposals: rationaleProposals.length,
-  voice_proposals: voiceProposals.length,
-  proposal_identities: new Set(packet.proposals.map((row) => row.identity_key)).size,
+  original_voice_candidates: originalVoiceCandidates.length,
+  replacement_voice_candidates: replacementVoiceCandidates.length,
+  voice_review_proposals: voiceProposals.filter((row) => row.disposition === "REVIEW_REQUIRED").length,
+  voice_rejected: voiceProposals.filter((row) => row.disposition === "REJECTED").length,
+  voice_review_identity_coverage: new Set(voiceProposals.filter((row) => row.disposition === "REVIEW_REQUIRED").map((row) => row.identity_key)).size,
 }, null, 2));

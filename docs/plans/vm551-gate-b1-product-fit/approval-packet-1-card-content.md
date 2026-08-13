@@ -21,7 +21,7 @@ The authority chain remains:
 | Surface | Existing approved | Terminal rejected historical rows | New review rows | Identity coverage in review packet |
 |---|---:|---:|---:|---:|
 | Card rationale | 26 relationships / 24 displayed records | 99 of 125 historical candidates | 25 | 25 current Gap identities |
-| Card voice | 0 newly promoted | N/A | 111 exact excerpts | 37 identities, three candidates each |
+| Card voice | 0 newly promoted | 81 rejected after relationship review | 37 source-complete proposals | 37 identities, one owner-decision row each |
 
 Historical unresolved state is now zero: no historical row remains `EVIDENCE_NEEDED` or `REVIEW_REQUIRED`. Rejection is of the historical row in its current evidence form; a rejected row can be replaced only by a separately provenance-complete proposal.
 
@@ -45,7 +45,9 @@ The proposed wording is deliberately bounded. Four-color and WUBRG rows retain t
 
 ## Card-voice proposals
 
-The 111 voice rows are exact committed card flavor excerpts: three per identity. Their prior heuristic assignment is treated only as a research lead. Owner review decides whether each exact card/excerpt relationship is useful for that identity; the packet does not paraphrase, strengthen, or promote the text.
+All 111 original exact-excerpt candidates were relationship-adjudicated. Seven source-complete replacement candidates were added where the original heuristic set could not cleanly reach certified identity meaning. The complete 118-row audit now records relationship class, exact certified claim IDs, the semantic bridge, false-positive analysis, adjacent-identity risk, and an agent recommendation.
+
+Only 37 source-complete proposals—one genuinely useful candidate per identity—remain in the owner decision workload. The other 81 rows are terminally `REJECTED` and remain visible in [the voice adjudication audit](../../audits/vm551-all-37-dossier-closeout/approval-packet-1-voice-adjudication.tsv). No `GENERIC_THEMATIC_ANALOGY` row reaches owner review. Exact excerpts remain unchanged; this hardening supplies the missing relationship authority without promoting public content.
 
 The restored public surface remains semantically separate:
 
@@ -58,7 +60,7 @@ Page-level reuse remains disallowed unless a future approved `critical_repeat` r
 
 Use the exact rows in [approval-packet-1-card-content.tsv](../../audits/vm551-all-37-dossier-closeout/approval-packet-1-card-content.tsv).
 
-For a review-oriented presentation, use [Packet 1 — Card Content Owner Review](../../audits/vm551-all-37-dossier-closeout/approval-packet-1-owner-review.md). It contains the complete summary plus one section per identity with retained approvals, any new rationale proposal, selection basis, certified and canonical evidence, limitations, terminal alternate candidates, three exact voice candidates, and explicit `APPROVE / REVISE / REJECT` fields.
+For a review-oriented presentation, use [Packet 1 — Card Content Owner Review](../../audits/vm551-all-37-dossier-closeout/approval-packet-1-owner-review.md). It contains the complete summary plus one section per identity with retained approvals, any new rationale proposal, selection basis, certified and canonical evidence, limitations, terminal alternate candidates, and the single source-complete voice proposal selected for owner decision. Each voice row shows the card, exact excerpt, relationship class, certified claims, identity bridge, false-positive/neighbor limitation, exact source, and `APPROVE / REVISE / REJECT` field.
 
 For every row, set one decision:
 
@@ -70,7 +72,7 @@ Approval applies to the exact row and copy hash. A materially different copy req
 
 ## Runtime boundary
 
-Current runtime remains unchanged at 24 displayed card-rationale records from 26 already approved relationships. All 136 new Packet 1 rows are absent from public runtime. No card-voice runtime authority has been promoted by this research commit.
+Current runtime remains unchanged at 24 displayed card-rationale records from 26 already approved relationships. All 25 rationale proposals and all 37 source-complete voice proposals remain review-only and absent from public runtime. No card-voice runtime authority has been promoted by this hardening commit.
 
 ## Validation
 
@@ -78,8 +80,12 @@ Current runtime remains unchanged at 24 displayed card-rationale records from 26
 - Historical terminal dispositions: 125.
 - Historical unresolved: 0.
 - New rationale review rows: 25.
-- New voice review rows: 111.
-- Voice review coverage: 37/37 identities, exactly three candidates each.
+- Original exact voice candidates adjudicated: 111.
+- Source-complete replacement candidates researched: 7.
+- Voice review rows: 37.
+- Terminal rejected voice rows: 81.
+- Voice review coverage: 37/37 identities, exactly one source-complete owner-decision row per identity.
+- Generic thematic analogies in owner workload: 0.
 - Duplicate proposal IDs: 0.
 - Unresolved certified claim IDs in rationale proposals: 0.
 - Unresolved canonical card IDs: 0.

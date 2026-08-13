@@ -21,7 +21,7 @@ Each packet records provenance, proposed copy, replaced copy, limitation, and an
 
 ### Current milestone
 
-- Packet 1 research is complete at 125/125 terminal historical adjudications, 25 rationale review proposals, and 111 exact voice review proposals covering all 37 identities.
+- Packet 1 rationale research remains complete at 125/125 terminal historical adjudications and 25 unchanged rationale review proposals. Voice hardening adjudicated all 111 original candidates, added seven source-complete replacements, retained 37 owner-review proposals covering all identities, and terminally rejected 81 weak rows in the audit trail.
 - Packet 1 remains owner-gated; zero new records have entered runtime.
 - Packet 2 research is complete at 37 identity records and 123 pair-specific comparison records; all remain owner-gated and absent from runtime.
 - Packet 3 research is complete at 13 unchanged baseline glossary migrations plus 19 glossary and four discovery/Maze review rows; all 23 review rows remain owner-gated and absent from runtime.

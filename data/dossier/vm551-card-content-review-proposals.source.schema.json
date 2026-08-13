@@ -5,7 +5,7 @@
   "type": "object",
   "required": [
     "schema_version", "status", "authority_chain", "promotion_rule",
-    "candidate_adjudication", "proposals"
+    "candidate_adjudication", "voice_adjudication", "proposals"
   ],
   "additionalProperties": false,
   "properties": {
@@ -21,6 +21,18 @@
         "source": { "type": "string", "minLength": 1 },
         "total": { "const": 125 },
         "unresolved": { "const": 0 }
+      }
+    },
+    "voice_adjudication": {
+      "type": "object",
+      "required": ["original_candidates", "replacement_candidates", "review_required", "rejected", "review_identity_coverage"],
+      "additionalProperties": false,
+      "properties": {
+        "original_candidates": { "const": 111 },
+        "replacement_candidates": { "type": "integer", "minimum": 0 },
+        "review_required": { "type": "integer", "minimum": 37 },
+        "rejected": { "type": "integer", "minimum": 0 },
+        "review_identity_coverage": { "const": 37 }
       }
     },
     "proposals": {
@@ -42,9 +54,28 @@
           "proposed_copy": { "type": "string", "minLength": 1 },
           "copy_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
           "verified_card_observation": { "type": "string", "minLength": 1 },
+          "relationship_class": { "enum": ["EXPLICIT_IDENTITY_REFERENCE", "NATIVE_FIGURE_OR_LOCATION", "CERTIFIED_SEMANTIC_ECHO", "GENERIC_THEMATIC_ANALOGY"] },
+          "certified_identity_claim_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+          "certified_identity_claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["claim_id", "statement"],
+              "additionalProperties": false,
+              "properties": {
+                "claim_id": { "type": "string", "minLength": 1 },
+                "statement": { "type": "string", "minLength": 1 }
+              }
+            }
+          },
+          "why_voice_belongs": { "type": "string", "minLength": 1 },
+          "relationship_bridge": { "type": "string", "minLength": 1 },
+          "false_positive_analysis": { "type": "string", "minLength": 1 },
+          "adjacent_identity_confusion_risk": { "type": "string", "minLength": 1 },
+          "agent_recommendation": { "enum": ["REVIEW_REQUIRED", "REJECTED"] },
           "provenance": { "type": "object" },
           "limitations": { "type": "string", "minLength": 1 },
-          "disposition": { "const": "REVIEW_REQUIRED" },
+          "disposition": { "enum": ["REVIEW_REQUIRED", "REJECTED"] },
           "owner_decision": { "type": "null" },
           "replacement_locator": { "type": "string", "minLength": 1 }
         },
@@ -53,6 +84,16 @@
           {
             "if": { "properties": { "proposal_type": { "const": "CARD_RATIONALE" } } },
             "then": { "required": ["verified_card_observation"] }
+          },
+          {
+            "if": { "properties": { "proposal_type": { "const": "CARD_VOICE" } } },
+            "then": {
+              "required": [
+                "relationship_class", "certified_identity_claim_ids", "certified_identity_claims",
+                "why_voice_belongs", "relationship_bridge", "false_positive_analysis",
+                "adjacent_identity_confusion_risk", "agent_recommendation"
+              ]
+            }
           }
         ]
       }
