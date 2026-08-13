@@ -23,9 +23,9 @@ Each packet records provenance, proposed copy, replaced copy, limitation, and an
 
 - Packet 1 research is complete at 125/125 terminal historical adjudications, 25 rationale review proposals, and 111 exact voice review proposals covering all 37 identities.
 - Packet 1 remains owner-gated; zero new records have entered runtime.
-- Packet 2 and Packet 3 research may continue independently on the same branch.
 - Packet 2 research is complete at 37 identity records and 123 pair-specific comparison records; all remain owner-gated and absent from runtime.
-- Packet 3 research is the next independent content milestone.
+- Packet 3 research is complete at 13 unchanged baseline glossary migrations plus 19 glossary and four discovery/Maze review rows; all 23 review rows remain owner-gated and absent from runtime.
+- All three approval packets now await owner decisions. Public promotion and the all-37 witness/certification sequence remain blocked until the relevant packet decisions are applied in separate scoped commits.
 
 ## Final State
 

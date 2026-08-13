@@ -1,0 +1,735 @@
+{
+  "schema_version": "vm551-discovery-education-authority-v1",
+  "status": "OWNER_REVIEW_REQUIRED",
+  "authority_rule": "Existing public teaching copy may migrate unchanged. New or substantively changed meaning remains REVIEW_REQUIRED and cannot enter runtime until explicit owner approval.",
+  "records": [
+    {
+      "record_id": "glossary_aristocrats",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Aristocrats",
+      "aliases": [],
+      "proposed_copy": "Winning through creatures dying, sacrifice loops, and drain or value payoffs.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#aristocrats",
+        "supporting_locators": []
+      },
+      "limitations": "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_aristocrats",
+      "copy_sha256": "4584a875562c3c6731c93ebd06ce3abdb5d107d616773c6cc5e1f6f649da4c82"
+    },
+    {
+      "record_id": "glossary_big_spell_storm",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Big Spell Storm",
+      "aliases": [
+        "big-spell storm"
+      ],
+      "proposed_copy": "A spellslinger plan that builds mana and spell count toward a concentrated turn of large spells; it may use the Storm keyword, but does not have to.",
+      "example": null,
+      "provenance": {
+        "role": "deterministic_taxonomy_composition",
+        "locator": "data/taxonomy/vox-mana-tags.json#big-mana",
+        "supporting_locators": [
+          "data/taxonomy/vox-mana-tags.json#spellslinger",
+          "data/taxonomy/vox-mana-tags.json#storm"
+        ]
+      },
+      "limitations": "A proposed Vox Mana teaching label, not an official rules term. Owner review must confirm that the composition is useful and does not blur the Storm keyword.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_big_spell_storm",
+      "copy_sha256": "81609579f08bdeb3a157ea2f19c2be74feed61b1d577c3467078a671065d6147"
+    },
+    {
+      "record_id": "glossary_blink_flicker",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Blink/Flicker",
+      "aliases": [
+        "blink",
+        "flicker"
+      ],
+      "proposed_copy": "Exiling permanents and returning them to reuse enter-the-battlefield effects or dodge removal.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#blink",
+        "supporting_locators": []
+      },
+      "limitations": "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_blink_flicker",
+      "copy_sha256": "4ef2cbd904a651482257028a9a27ffa655d0d4abf75a543cf774adbd269b607f"
+    },
+    {
+      "record_id": "glossary_colorless_mana",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Colorless mana",
+      "aliases": [
+        "true colorless source"
+      ],
+      "proposed_copy": "Colorless mana is mana with no color. A {C} cost can be paid only with colorless mana.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "docs/research/colorless/source-material/official/colorless-off-001-current-comprehensive-rules.md#rules-106-10-107-4c",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Committed Wizards Comprehensive Rules digest"
+      },
+      "limitations": "Explains the game term only; it does not establish an identity relationship or placement preference.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_colorless_mana",
+      "copy_sha256": "390411cc29919109e13f1f18305abf95b49f2e8f349428ebd82cd096be19d0dd"
+    },
+    {
+      "record_id": "glossary_control",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Control",
+      "aliases": [],
+      "proposed_copy": "A reactive strategy that answers threats and wins after stabilizing.",
+      "example": null,
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": [
+          "data/taxonomy/vox-mana-tags.json#control"
+        ]
+      },
+      "limitations": "Migrates existing player-facing teaching meaning into a reviewable source authority without changing runtime copy.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": "BASELINE_MIGRATION",
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_control",
+      "copy_sha256": "f895be4db958967744f8b9a9e691855244cb9207cd10885432a64cbc45840f49"
+    },
+    {
+      "record_id": "glossary_convoke",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Convoke",
+      "aliases": [],
+      "proposed_copy": "As you cast a spell with convoke, your creatures can be tapped to help pay its mana cost; each tapped creature pays for one mana of its color or one generic mana.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04#convoke",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Wizards Guilds of Ravnica mechanics explanation of convoke"
+      },
+      "limitations": "Explains the game term only; it does not establish an identity relationship or placement preference.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_convoke",
+      "copy_sha256": "3b687c46e653566bbde6b3cc93f8e3d7f6dc8f72fdc9c53250a044bab4d8405e"
+    },
+    {
+      "record_id": "glossary_detain",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Detain",
+      "aliases": [],
+      "proposed_copy": "Temporarily stop a permanent from attacking, blocking, or activating non-mana abilities.",
+      "example": null,
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": []
+      },
+      "limitations": "Migrates existing player-facing teaching meaning into a reviewable source authority without changing runtime copy.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": "BASELINE_MIGRATION",
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_detain",
+      "copy_sha256": "a5500167d64b64e5e2841dc5f1aa9eebde3b8033cdf8c141360163eff5391a2d"
+    },
+    {
+      "record_id": "glossary_devoid",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Devoid",
+      "aliases": [],
+      "proposed_copy": "A card with devoid is colorless even if colored mana symbols appear in its mana cost. Devoid does not remove those colors from the card's Commander color identity.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "https://magic.wizards.com/en/news/feature/modern-horizons-3-mechanics#devoid",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Wizards Modern Horizons 3 mechanics explanation of devoid"
+      },
+      "limitations": "Explains the game term only; it does not establish an identity relationship or placement preference.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_devoid",
+      "copy_sha256": "3e7d1e3dcae938fb0ddbc7f12c2218d37132efe226d5d2d88e7c2bc1a64cd2d9"
+    },
+    {
+      "record_id": "glossary_draw_go_control",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Draw-Go Control",
+      "aliases": [
+        "draw-go"
+      ],
+      "proposed_copy": "Develop mostly on other players' turns; in Commander, keep mana open for draw, counters, or instant-speed interaction.",
+      "example": null,
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": []
+      },
+      "limitations": "Migrates existing player-facing teaching meaning into a reviewable source authority without changing runtime copy.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": "BASELINE_MIGRATION",
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_draw_go_control",
+      "copy_sha256": "da60c87484951b83ba15b2920194dbcba2a41beaa58c2a1696fa04c5ddb57987"
+    },
+    {
+      "record_id": "glossary_etb",
+      "record_type": "GLOSSARY_TERM",
+      "term": "ETB",
+      "aliases": [
+        "enters the battlefield",
+        "enter-the-battlefield"
+      ],
+      "proposed_copy": "Using effects that trigger when permanents enter the battlefield.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#etb",
+        "supporting_locators": []
+      },
+      "limitations": "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_etb",
+      "copy_sha256": "31ad8fb2d0a1bb25966c36388b6a4675f36c72a5d1683e474f9870bbf09c98f9"
+    },
+    {
+      "record_id": "glossary_generic_mana",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Generic mana",
+      "aliases": [
+        "generic cost",
+        "generic mana cost"
+      ],
+      "proposed_copy": "A generic mana cost is shown with a number and can be paid with mana of any color or with colorless mana; it is a cost, not a type of mana.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "docs/research/colorless/source-material/official/colorless-off-001-current-comprehensive-rules.md#rules-107-4b-107-4c",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Committed Wizards Comprehensive Rules digest"
+      },
+      "limitations": "Explains the game term only; it does not establish an identity relationship or placement preference.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_generic_mana",
+      "copy_sha256": "b0ecb7482987addf912c2d0322f2aef8f575d6d1f3f6bf7fadfbcd0b180a25a9"
+    },
+    {
+      "record_id": "glossary_goad",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Goad",
+      "aliases": [
+        "goaded"
+      ],
+      "proposed_copy": "Until your next turn, a goaded creature attacks each combat if able and attacks a player other than you if able.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "https://magic.wizards.com/en/news/making-magic/its-another-conspiracy-2016-08-15#goad",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Wizards Conspiracy mechanic explanation plus current Comprehensive Rules authority"
+      },
+      "limitations": "Explains the game term only; it does not establish an identity relationship or placement preference.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_goad",
+      "copy_sha256": "94dba553a65589f416b72e9ca14203893f254fb39b8c91595c2435909af1268c"
+    },
+    {
+      "record_id": "glossary_hatebears",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Hatebears",
+      "aliases": [
+        "hate bears"
+      ],
+      "proposed_copy": "Small creatures that restrict opponents' actions while applying pressure.",
+      "example": null,
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": [
+          "data/taxonomy/vox-mana-tags.json#hatebears"
+        ]
+      },
+      "limitations": "Migrates existing player-facing teaching meaning into a reviewable source authority without changing runtime copy.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": "BASELINE_MIGRATION",
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_hatebears",
+      "copy_sha256": "de8d3206310bc9eae508ca6d58d751053c39392c674b4a334084345cc75844fb"
+    },
+    {
+      "record_id": "glossary_mana_rocks",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Mana rocks",
+      "aliases": [
+        "mana rock"
+      ],
+      "proposed_copy": "Getting access to more mana than normal for your turn count.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#ramp",
+        "supporting_locators": []
+      },
+      "limitations": "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_mana_rocks",
+      "copy_sha256": "bfdfcc9ba8d9407890571ac294f4c8bc07eab4030bc41696b3a06f58a7011593"
+    },
+    {
+      "record_id": "glossary_midrange",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Midrange",
+      "aliases": [],
+      "proposed_copy": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+      "example": null,
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": [
+          "data/taxonomy/vox-mana-tags.json#midrange"
+        ]
+      },
+      "limitations": "Migrates existing player-facing teaching meaning into a reviewable source authority without changing runtime copy.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": "BASELINE_MIGRATION",
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_midrange",
+      "copy_sha256": "47cf9d6e6e28fdfea7f0ef4f27aebbd7e6fe5f60751a63d8e974836b6a15c1d2"
+    },
+    {
+      "record_id": "glossary_open_mana",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Open mana",
+      "aliases": [
+        "hold up mana"
+      ],
+      "proposed_copy": "Leave lands or other mana sources untapped so you can act later.",
+      "example": null,
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": []
+      },
+      "limitations": "Migrates existing player-facing teaching meaning into a reviewable source authority without changing runtime copy.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": "BASELINE_MIGRATION",
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_open_mana",
+      "copy_sha256": "bf1ef1e180611d5db3c795919bc3d640d03ff8ef43582b411d103e0e2d5309c8"
+    },
+    {
+      "record_id": "glossary_parity",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Parity",
+      "aliases": [
+        "break parity"
+      ],
+      "proposed_copy": "A board or resource state that appears even; breaking parity means benefiting more than opponents from a symmetrical rule or reset.",
+      "example": null,
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": []
+      },
+      "limitations": "Migrates existing player-facing teaching meaning into a reviewable source authority without changing runtime copy.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": "BASELINE_MIGRATION",
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_parity",
+      "copy_sha256": "dc5bf0fcaf360f0ee0cbc9298f4bf72446d34b5a9e6a22ade1fc8e20515efdfd"
+    },
+    {
+      "record_id": "glossary_pillowfort",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Pillowfort",
+      "aliases": [
+        "pillow fort"
+      ],
+      "proposed_copy": "Make attacking you less attractive or more expensive without necessarily stopping the whole table.",
+      "example": null,
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": []
+      },
+      "limitations": "Migrates existing player-facing teaching meaning into a reviewable source authority without changing runtime copy.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": "BASELINE_MIGRATION",
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_pillowfort",
+      "copy_sha256": "f06b0e2f69e598c00a9c5fb220c1eb708435e454dc3993d209cb063afe308948"
+    },
+    {
+      "record_id": "glossary_populate",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Populate",
+      "aliases": [],
+      "proposed_copy": "Create a token that's a copy of a creature token you control.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "https://magic.wizards.com/en/news/feature/return-to-ravnica-mechanics#populate",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Wizards Return to Ravnica mechanics explanation of populate"
+      },
+      "limitations": "Explains the game term only; it does not establish an identity relationship or placement preference.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_populate",
+      "copy_sha256": "b14510706d305187e5b28e3b3743f3153681561c04227a4d2039bf986d9127fe"
+    },
+    {
+      "record_id": "glossary_prison_control",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Prison Control",
+      "aliases": [
+        "prison"
+      ],
+      "proposed_copy": "Constrain which actions remain available by using rule-setting permanents and taxes to narrow opposing lines.",
+      "example": null,
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": []
+      },
+      "limitations": "Migrates existing player-facing teaching meaning into a reviewable source authority without changing runtime copy.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": "BASELINE_MIGRATION",
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_prison_control",
+      "copy_sha256": "04616a5c52fe47023280bc77fc0515989c42c988bc5930009c0f7ee395a1fcfe"
+    },
+    {
+      "record_id": "glossary_protection",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Protection",
+      "aliases": [],
+      "proposed_copy": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "https://magic.wizards.com/en/news/feature/modern-horizons-mechanics-2019-05-31#protection",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Wizards Modern Horizons mechanics explanation of protection"
+      },
+      "limitations": "Explains the game term only; it does not establish an identity relationship or placement preference.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_protection",
+      "copy_sha256": "36b18a3d5a1135e4278b558f113cfd8bb9885ff3c2e14efb00f4fe44c19020be"
+    },
+    {
+      "record_id": "glossary_ramp",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Ramp",
+      "aliases": [
+        "mana acceleration"
+      ],
+      "proposed_copy": "Getting access to more mana than normal for your turn count.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#ramp",
+        "supporting_locators": []
+      },
+      "limitations": "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_ramp",
+      "copy_sha256": "bfdfcc9ba8d9407890571ac294f4c8bc07eab4030bc41696b3a06f58a7011593"
+    },
+    {
+      "record_id": "glossary_spell_copying",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Spell copying",
+      "aliases": [
+        "copy spells",
+        "spell copy"
+      ],
+      "proposed_copy": "Copying instants, sorceries, or other spells for extra effects.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#spell-copy",
+        "supporting_locators": []
+      },
+      "limitations": "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_spell_copying",
+      "copy_sha256": "eaba653064f2073c25229c29bb23f09c8e5a9a9f19c6c0cf173174ef1e19ae84"
+    },
+    {
+      "record_id": "glossary_spellslinger",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Spellslinger",
+      "aliases": [],
+      "proposed_copy": "Rewarding the casting of instants and sorceries, often in chains.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#spellslinger",
+        "supporting_locators": []
+      },
+      "limitations": "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_spellslinger",
+      "copy_sha256": "cb0053e50c0daf55cbd2f901a7819363265f161e3000d50e4fae5c0b6c9887b9"
+    },
+    {
+      "record_id": "glossary_stax",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Stax",
+      "aliases": [],
+      "proposed_copy": "Restricting resources, actions, or timing so opponents cannot execute normal plans.",
+      "example": null,
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": [
+          "data/taxonomy/vox-mana-tags.json#stax"
+        ]
+      },
+      "limitations": "Migrates existing player-facing teaching meaning into a reviewable source authority without changing runtime copy.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": "BASELINE_MIGRATION",
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_stax",
+      "copy_sha256": "8ea3e4d3c72e57a9bdd7a995560969f48b067970a2b28d6d9fcf086c4666c0db"
+    },
+    {
+      "record_id": "glossary_storm",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Storm",
+      "aliases": [],
+      "proposed_copy": "Casting many spells in one turn, sometimes using the Storm keyword.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#storm",
+        "supporting_locators": []
+      },
+      "limitations": "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_storm",
+      "copy_sha256": "8edc7c2332bd283c7e0cd1386879374072eaf6445e6d7b529822ae1c7975ef44"
+    },
+    {
+      "record_id": "glossary_sweepers",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Board wipe",
+      "aliases": [
+        "board wipes",
+        "sweeper",
+        "sweepers"
+      ],
+      "proposed_copy": "Reset many permanents at once when one-for-one interaction is not enough.",
+      "example": null,
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": []
+      },
+      "limitations": "Migrates existing player-facing teaching meaning into a reviewable source authority without changing runtime copy.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": "BASELINE_MIGRATION",
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_sweepers",
+      "copy_sha256": "105a860279f182612cf17737c99f42dd79babb1f755d04f581e0eebaa57a8b56"
+    },
+    {
+      "record_id": "glossary_taxation",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Taxation",
+      "aliases": [
+        "tax",
+        "taxes"
+      ],
+      "proposed_copy": "Make selected actions cost more mana or other resources.",
+      "example": null,
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": []
+      },
+      "limitations": "Migrates existing player-facing teaching meaning into a reviewable source authority without changing runtime copy.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": "BASELINE_MIGRATION",
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_taxation",
+      "copy_sha256": "fb28257bb0ca7699c72a60bea91759fb5c6315e3c8cccc5b25ab3bac12ba5064"
+    },
+    {
+      "record_id": "glossary_tempo",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Tempo",
+      "aliases": [],
+      "proposed_copy": "Gaining advantage by making opponents spend more time and mana than you do.",
+      "example": null,
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": [
+          "data/taxonomy/vox-mana-tags.json#tempo"
+        ]
+      },
+      "limitations": "Migrates existing player-facing teaching meaning into a reviewable source authority without changing runtime copy.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": "BASELINE_MIGRATION",
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_tempo",
+      "copy_sha256": "225ab5b5f8d7c1d3208622363c4a7edc11c39d7ec8c01d588623c76182a2cdb1"
+    },
+    {
+      "record_id": "glossary_tokens",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Tokens",
+      "aliases": [
+        "token deck"
+      ],
+      "proposed_copy": "Creating token permanents, especially creature tokens, as resources or threats.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#tokens",
+        "supporting_locators": []
+      },
+      "limitations": "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_tokens",
+      "copy_sha256": "c3bf62936514bd2da63b820b4d28ea10453bc34a1953c007c89629b209ad318b"
+    },
+    {
+      "record_id": "glossary_voltron",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Voltron",
+      "aliases": [],
+      "proposed_copy": "Building one creature, often a commander, into a lethal protected threat.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#voltron",
+        "supporting_locators": []
+      },
+      "limitations": "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_voltron",
+      "copy_sha256": "9cbd4df9d1635691f95f680529558d99210b027243b1ec72f1fe94b369c6046a"
+    },
+    {
+      "record_id": "glossary_wastes",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Wastes",
+      "aliases": [],
+      "proposed_copy": "Wastes is a basic land with no land types that taps for one colorless mana; a Commander deck may include any number of it.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "docs/research/colorless/source-material/official/colorless-off-001-current-comprehensive-rules.md#rules-305-6-305-7",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Committed Wizards rules digest and Oath of the Gatewatch mechanics"
+      },
+      "limitations": "Explains the game term only; it does not establish an identity relationship or placement preference.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_wastes",
+      "copy_sha256": "a9d2c8a8be373e9545499dbb894e744514ffaceaa8be9c419051fe7e115f42dc"
+    },
+    {
+      "record_id": "microcopy_browse_builds",
+      "record_type": "DISCOVERY_LABEL",
+      "term": "Decks — Browse builds",
+      "aliases": [],
+      "proposed_copy": "Browse exact-commander deck pages from verified providers.",
+      "example": null,
+      "provenance": {
+        "role": "verified_runtime_contract",
+        "locator": "data/generated/commander-provider-validation.json#providers",
+        "supporting_locators": []
+      },
+      "limitations": "The action renders only for destinations verified to describe the exact displayed commander.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#microcopy_browse_builds",
+      "copy_sha256": "969069b918408fa5c6a66bb69e1d965fb7f770e3d605aea953a8f3e9db2f1cb3"
+    },
+    {
+      "record_id": "microcopy_commanders_that_fit",
+      "record_type": "MAZE_EXPLANATION",
+      "term": "Commanders That Fit",
+      "aliases": [],
+      "proposed_copy": "Browse Commander-legal cards with exactly this reading's color identity.",
+      "example": null,
+      "provenance": {
+        "role": "verified_runtime_contract",
+        "locator": "assets/js/archscry-presentation.js#buildMazeRouteQuery",
+        "supporting_locators": []
+      },
+      "limitations": "This basic route adds no hidden mechanic, Oracle-text, price, set, rarity, or flavor restriction.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#microcopy_commanders_that_fit",
+      "copy_sha256": "7f6d68dba55c0e571f2cb08b687ecd43c4beb1899884dc93eb71538ca031d5a8"
+    },
+    {
+      "record_id": "microcopy_flavor_echoes",
+      "record_type": "MAZE_EXPLANATION",
+      "term": "Flavor Echoes",
+      "aliases": [],
+      "proposed_copy": "Browse cards using the visible flavor term shown by this route.",
+      "example": null,
+      "provenance": {
+        "role": "verified_runtime_contract",
+        "locator": "assets/js/archscry-presentation.js#ARCHSCRY_MAZE_PATHS",
+        "supporting_locators": []
+      },
+      "limitations": "Flavor search is exploratory and does not prove placement or identity ownership.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#microcopy_flavor_echoes",
+      "copy_sha256": "e28f67339f1b480997ddb3d994610e1290bbb2016173cd59b02a70f53bdf7c4a"
+    },
+    {
+      "record_id": "microcopy_support_cards",
+      "record_type": "MAZE_EXPLANATION",
+      "term": "Support Cards",
+      "aliases": [],
+      "proposed_copy": "Browse cards within this color identity using only the support theme named by the route.",
+      "example": null,
+      "provenance": {
+        "role": "verified_runtime_contract",
+        "locator": "assets/js/archscry-presentation.js#ARCHSCRY_MAZE_PATHS",
+        "supporting_locators": []
+      },
+      "limitations": "The visible route must name every additional search restriction before navigation.",
+      "disposition": "REVIEW_REQUIRED",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#microcopy_support_cards",
+      "copy_sha256": "0a155f5ed79dab7cdb9e5204d24dc54ad38f815211472c47b75df55109664b0a"
+    }
+  ]
+}

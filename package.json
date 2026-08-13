@@ -62,6 +62,7 @@
     "test:card-rationales": "node research/build-card-rationale-artifacts.mjs --check && node scripts/vm551-card-rationale-authority-tests.mjs",
     "test:vm551-card-content-packet": "node research/build-vm551-card-content-approval-packet.mjs --check && node scripts/vm551-card-content-packet-tests.mjs",
     "test:vm551-identity-dossier-packet": "node research/build-vm551-identity-dossier-approval-packet.mjs --check && node scripts/vm551-identity-dossier-packet-tests.mjs",
+    "test:vm551-discovery-education-packet": "node research/build-vm551-discovery-education-approval-packet.mjs --check && node scripts/vm551-discovery-education-packet-tests.mjs",
     "build:gate-b1-reports": "node scripts/validate-gate-b1-placement-engine.mjs --write",
     "test:gate-b1-engine": "node scripts/build-gate-b1-placement-model.mjs --check && node scripts/validate-gate-b1-placement-engine.mjs --check",
     "test:presentation-snapshots": "node research/presentation-snapshot-tests.js",

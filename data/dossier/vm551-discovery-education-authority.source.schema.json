@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voxmana.io/schemas/vm551-discovery-education-authority.source.schema.json",
+  "title": "VM-551 Packet 3 discovery and education authority",
+  "type": "object",
+  "required": ["schema_version", "status", "authority_rule", "records"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "vm551-discovery-education-authority-v1" },
+    "status": { "const": "OWNER_REVIEW_REQUIRED" },
+    "authority_rule": { "type": "string", "minLength": 1 },
+    "records": {
+      "type": "array",
+      "minItems": 30,
+      "items": {
+        "type": "object",
+        "required": [
+          "record_id", "record_type", "term", "aliases", "proposed_copy",
+          "example", "provenance", "limitations", "disposition",
+          "owner_decision", "replacement_locator", "copy_sha256"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "record_id": { "type": "string", "pattern": "^(glossary|microcopy)_[a-z0-9_]+$" },
+          "record_type": { "enum": ["GLOSSARY_TERM", "DISCOVERY_LABEL", "MAZE_EXPLANATION"] },
+          "term": { "type": "string", "minLength": 1 },
+          "aliases": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+          "proposed_copy": { "type": "string", "minLength": 1 },
+          "example": { "type": ["string", "null"] },
+          "provenance": {
+            "type": "object",
+            "required": ["role", "locator", "supporting_locators"],
+            "additionalProperties": false,
+            "properties": {
+              "role": { "enum": ["approved_baseline_migration", "vox_mana_commander_vocabulary", "official_game_rule", "deterministic_taxonomy_composition", "verified_runtime_contract"] },
+              "locator": { "type": "string", "minLength": 1 },
+              "supporting_locators": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+              "authority_note": { "type": "string", "minLength": 1 }
+            }
+          },
+          "limitations": { "type": "string", "minLength": 1 },
+          "disposition": { "enum": ["APPROVED_PUBLIC", "REVIEW_REQUIRED", "REJECTED", "NOT_APPLICABLE"] },
+          "owner_decision": { "type": ["string", "null"] },
+          "replacement_locator": { "type": "string", "minLength": 1 },
+          "copy_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+        }
+      }
+    }
+  }
+}
